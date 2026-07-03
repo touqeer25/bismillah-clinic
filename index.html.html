@@ -14,7 +14,7 @@
 <meta name="apple-mobile-web-app-title" content="BHC Clinic">
     
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
+    <script src="diagnosis-data.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
         
@@ -434,6 +434,154 @@
         ::-webkit-scrollbar-thumb { background: #2980b9; border-radius: 3px; }
 
         .hidden { display: none !important; }
+	/* ==================== DIAGNOSIS PAGE ==================== */
+.diagnosis-container { padding: 15px; max-width: 1200px; margin: 0 auto; }
+
+.symptom-search {
+    width: 100%; padding: 12px 18px; border: 2px solid #ddd;
+    border-radius: 12px; font-size: 15px; font-family: inherit;
+    background: white; margin-bottom: 15px;
+}
+.symptom-search:focus {
+    border-color: #8e44ad; outline: none;
+    box-shadow: 0 0 12px rgba(142,68,173,0.15);
+}
+
+.category-tabs {
+    display: flex; gap: 6px; overflow-x: auto;
+    padding: 5px 0; margin-bottom: 15px;
+}
+.category-tab {
+    padding: 8px 14px; border: 2px solid #ddd;
+    border-radius: 20px; background: white; cursor: pointer;
+    font-family: inherit; font-size: 13px; white-space: nowrap;
+    transition: all 0.3s; display: flex; align-items: center; gap: 4px;
+}
+.category-tab:hover { border-color: #8e44ad; }
+.category-tab.active {
+    background: #8e44ad; color: white; border-color: #8e44ad;
+}
+
+.symptoms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 8px; margin-bottom: 20px;
+}
+.symptom-chip {
+    padding: 10px 14px; border: 2px solid #ddd;
+    border-radius: 8px; background: white; cursor: pointer;
+    font-family: inherit; font-size: 13px; text-align: center;
+    transition: all 0.2s;
+}
+.symptom-chip:hover { border-color: #8e44ad; background: #f4ecf7; }
+.symptom-chip.selected {
+    background: #8e44ad; color: white; border-color: #8e44ad;
+    font-weight: bold;
+}
+.symptom-chip.severe { border-color: #e74c3c; }
+.symptom-chip.severe.selected { background: #e74c3c; border-color: #e74c3c; }
+
+.selected-symptoms-box {
+    background: #f4ecf7; border: 2px solid #8e44ad;
+    border-radius: 10px; padding: 12px; margin-bottom: 15px;
+    min-height: 50px;
+}
+.selected-chip {
+    display: inline-block; padding: 5px 10px; margin: 3px;
+    background: #8e44ad; color: white; border-radius: 15px;
+    font-size: 12px; cursor: pointer;
+}
+.selected-chip:hover { background: #6c3483; }
+.selected-chip::after { content: ' ✕'; margin-right: 4px; }
+
+.disease-card {
+    background: white; border-radius: 12px; padding: 18px;
+    margin-bottom: 12px; box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    border-right: 5px solid #8e44ad;
+    transition: transform 0.2s;
+}
+body[dir="ltr"] .disease-card { border-right: none; border-left: 5px solid #8e44ad; }
+.disease-card:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,0,0,0.12); }
+
+.disease-card.high-match { border-color: #27ae60; }
+.disease-card.medium-match { border-color: #f39c12; }
+.disease-card.low-match { border-color: #95a5a6; }
+
+.disease-header {
+    display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;
+}
+.disease-name { font-size: 17px; font-weight: bold; color: #1a5276; }
+.match-badge {
+    padding: 4px 12px; border-radius: 15px; font-size: 12px;
+    font-weight: bold; color: white;
+}
+.match-badge.high { background: #27ae60; }
+.match-badge.medium { background: #f39c12; }
+.match-badge.low { background: #95a5a6; }
+
+.disease-section {
+    margin-top: 10px; padding: 10px;
+    background: #fafafa; border-radius: 6px;
+}
+.disease-section-title {
+    font-weight: bold; color: #2c3e50; font-size: 13px;
+    margin-bottom: 6px; display: flex; align-items: center; gap: 5px;
+}
+
+.remedy-item {
+    padding: 8px 10px; background: white; margin: 5px 0;
+    border-radius: 6px; border-right: 3px solid #27ae60;
+    font-size: 13px;
+}
+body[dir="ltr"] .remedy-item { border-right: none; border-left: 3px solid #27ae60; }
+.remedy-name { font-weight: bold; color: #1e8449; }
+.remedy-use { color: #555; font-size: 12px; margin-top: 2px; }
+.remedy-dose { color: #7f8c8d; font-size: 11px; font-style: italic; }
+
+.red-flags-box {
+    background: #fdedec; border: 2px solid #e74c3c;
+    border-radius: 8px; padding: 10px; margin-top: 10px;
+}
+.red-flags-title { color: #c0392b; font-weight: bold; margin-bottom: 5px; }
+
+.test-item {
+    display: inline-block; padding: 4px 10px; margin: 3px;
+    background: #d1ecf1; color: #0c5460; border-radius: 12px;
+    font-size: 12px; border: 1px solid #bee5eb;
+}
+
+.advice-box {
+    background: #fff8dc; border-right: 3px solid #d4af37;
+    padding: 10px; border-radius: 6px; margin-top: 8px;
+    font-size: 13px; color: #856404;
+}
+body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37; }
+
+.diagnosis-actions {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-top: 15px; padding-top: 15px;
+    border-top: 2px solid #ecf0f1;
+}
+
+.emergency-alert {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white; padding: 15px; border-radius: 10px;
+    margin-bottom: 15px; text-align: center;
+    animation: pulse-alert 2s infinite;
+}
+@keyframes pulse-alert {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(231,76,60,0.4); }
+    50% { box-shadow: 0 0 0 15px rgba(231,76,60,0); }
+}
+
+.btn-purple {
+    background: linear-gradient(135deg, #8e44ad, #6c3483);
+    color: white;
+}
+.btn-purple:hover:not(:disabled) {
+    transform: translateY(-2px); box-shadow: 0 5px 20px rgba(142,68,173,0.4);
+}
     </style>
 </head>
 <body dir="rtl" class="lang-ur">
@@ -508,6 +656,9 @@
         <button class="nav-btn" data-page="allPatients">
             📋 <span data-ur="تمام مریض" data-en="All Patients" data-roman="Tamam Mareez">تمام مریض</span>
         </button>
+	<button class="nav-btn" data-page="diagnosis">
+    🔬 <span data-ur="تشخیص" data-en="Diagnosis" data-roman="Tashkhees">تشخیص</span>
+	</button>
         <button class="nav-btn" data-page="settings">
             ⚙️ <span data-ur="سیٹنگز" data-en="Settings" data-roman="Settings">سیٹنگز</span>
         </button>
@@ -743,7 +894,71 @@
     <div id="page-familyMembers" class="page">
         <div class="content"><div class="card"><div id="familyMembersContent"></div></div></div>
     </div>
-    
+    <!-- DIAGNOSIS PAGE -->
+<div id="page-diagnosis" class="page">
+    <div class="diagnosis-container">
+        <div class="card">
+            <div class="card-title">
+                🔬 <span data-ur="تشخیصی معاون" data-en="Diagnostic Assistant" data-roman="Tashkhees Muawin">تشخیصی معاون</span>
+            </div>
+            
+            <div class="alert alert-warning" style="margin-bottom:15px;">
+                ⚠️ <strong data-ur="نوٹ:" data-en="Note:" data-roman="Note:">نوٹ:</strong>
+                <span data-ur="یہ صرف رہنمائی کے لیے ہے۔ حتمی تشخیص ڈاکٹر ہی کریں گے۔"
+                      data-en="This is only for guidance. Final diagnosis must be by doctor."
+                      data-roman="Yeh sirf rahnumai ke liye hai. Doctor hi final diagnosis karein.">
+                    یہ صرف رہنمائی کے لیے ہے۔ حتمی تشخیص ڈاکٹر ہی کریں گے۔
+                </span>
+            </div>
+            
+            <!-- Optional: Link to patient -->
+            <div class="form-group" id="diagnosisPatientLink" style="display:none;">
+                <div style="background:#e8f4f8;padding:10px;border-radius:6px;">
+                    👤 <strong data-ur="مریض:" data-en="Patient:" data-roman="Mareez:">مریض:</strong>
+                    <span id="diagnosisPatientName"></span>
+                    <button class="btn btn-light btn-xs" onclick="clearDiagnosisPatient()" style="margin-right:10px;">✕</button>
+                </div>
+            </div>
+            
+            <!-- Search -->
+            <input type="text" class="symptom-search" id="symptomSearch" 
+                   placeholder="🔍 علامت تلاش کریں... (مثلاً: بخار، سر درد)">
+            
+            <!-- Categories -->
+            <div class="category-tabs" id="categoryTabs"></div>
+            
+            <!-- Selected Symptoms Box -->
+            <div style="margin-bottom:10px; font-weight:bold; color:#8e44ad;">
+                📋 <span data-ur="منتخب شدہ علامات:" data-en="Selected Symptoms:" data-roman="Muntakhib Alamat:">منتخب شدہ علامات:</span>
+                <span id="selectedCount" style="background:#8e44ad;color:white;padding:2px 8px;border-radius:10px;font-size:12px;">0</span>
+            </div>
+            <div class="selected-symptoms-box" id="selectedSymptomsBox">
+                <div style="color:#95a5a6;font-size:13px;text-align:center;" id="noSelectedMsg">
+                    <span data-ur="نیچے سے علامات چنیں..." data-en="Select symptoms below..." data-roman="Neechay se alamat chunein...">نیچے سے علامات چنیں...</span>
+                </div>
+            </div>
+            
+            <!-- Symptoms Grid -->
+            <div style="margin-bottom:10px; font-weight:bold; color:#2c3e50; margin-top:20px;">
+                💡 <span data-ur="علامات کی فہرست:" data-en="Symptoms List:" data-roman="Alamat ki Fehrist:">علامات کی فہرست:</span>
+            </div>
+            <div class="symptoms-grid" id="symptomsGrid"></div>
+            
+            <!-- Analyze Button -->
+            <div class="action-buttons" style="margin-top:20px;">
+                <button class="btn btn-purple" id="analyzeBtn" style="flex:1;">
+                    🔬 <span data-ur="تشخیص کریں" data-en="Analyze" data-roman="Tashkhees Karein">تشخیص کریں</span>
+                </button>
+                <button class="btn btn-light" id="clearSymptomsBtn">
+                    🔄 <span data-ur="صاف کریں" data-en="Clear" data-roman="Saaf Karein">صاف کریں</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Results -->
+        <div id="diagnosisResults"></div>
+    </div>
+</div>
     <!-- SETTINGS -->
     <div id="page-settings" class="page">
         <div class="content">
@@ -1041,6 +1256,11 @@ function toggleLanguage() {
         const pageId = activePage.id.replace('page-', '');
         if (pageId === 'dashboard') updateDashboard();
         if (pageId === 'allPatients') showAllPatients();
+if (pageId === 'diagnosis') {
+    renderCategoryTabs();
+    renderSymptomsGrid();
+    updateSelectedBox();
+}
     }
 }
 
@@ -1399,6 +1619,7 @@ async function showPage(pageId, btn) {
         $('firstVisitDate').value = now.toISOString().split('T')[0];
         $('firstVisitTime').value = now.toTimeString().substring(0, 5);
     }
+if (pageId === 'diagnosis') initDiagnosis();
     if (pageId === 'settings') updatePendingBadge();
     window.scrollTo(0, 0);
 }
@@ -1830,6 +2051,7 @@ async function showPatientDetail(patientId) {
     html += '<div style="display:flex;gap:5px;flex-wrap:wrap;">';
     html += '<button class="btn btn-edit btn-sm" onclick="openEditPatientModal(\'' + patient.id + '\')">✏️ Edit Bio</button>';
     html += '<button class="btn btn-warning btn-sm" onclick="openVisitModal(\'' + patient.id + '\')">➕ New Visit</button>';
+html += '<button class="btn btn-purple btn-sm" onclick="openDiagnosisForPatient(\'' + patient.id + '\')">🔬 Diagnose</button>';
     if (patient.familyNo) html += '<button class="btn btn-info btn-sm" onclick="showFamilyMembers(\'' + escapeHtml(patient.familyNo) + '\')">👨‍👩‍👧‍👦 (' + familyMembers.length + ')</button>';
     html += '<button class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;" onclick="showPage(\'allPatients\',document.querySelectorAll(\'.nav-btn\')[3])">🔙</button>';
     html += '<button class="btn btn-danger btn-sm" onclick="confirmDeletePatient(\'' + patient.id + '\')">🗑️</button>';
@@ -2223,6 +2445,363 @@ async function importOldData() {
     reader.readAsText(fileInput.files[0]);
 }
 
+// ==================== DIAGNOSIS SYSTEM ====================
+let selectedSymptoms = new Set();
+let currentCategory = 'all';
+let diagnosisPatientId = null;
+
+function initDiagnosis() {
+    renderCategoryTabs();
+    renderSymptomsGrid();
+    updateSelectedBox();
+}
+
+function renderCategoryTabs() {
+    const container = $('categoryTabs');
+    let html = '';
+    Object.keys(CATEGORIES_DB).forEach(function(key) {
+        const cat = CATEGORIES_DB[key];
+        const active = key === currentCategory ? 'active' : '';
+        html += '<button class="category-tab ' + active + '" onclick="filterByCategory(\'' + key + '\')">';
+        html += cat.icon + ' ' + cat[currentLang];
+        html += '</button>';
+    });
+    container.innerHTML = html;
+}
+
+function filterByCategory(cat) {
+    currentCategory = cat;
+    renderCategoryTabs();
+    renderSymptomsGrid();
+}
+
+function renderSymptomsGrid() {
+    const container = $('symptomsGrid');
+    const searchQuery = $('symptomSearch').value.trim().toLowerCase();
+    let html = '';
+    
+    Object.keys(SYMPTOMS_DB).forEach(function(key) {
+        const symptom = SYMPTOMS_DB[key];
+        
+        // Category filter
+        if (currentCategory !== 'all' && symptom.category !== currentCategory) return;
+        
+        // Search filter
+        if (searchQuery) {
+            const searchIn = (symptom.ur + ' ' + symptom.en + ' ' + symptom.roman).toLowerCase();
+            if (!searchIn.includes(searchQuery)) return;
+        }
+        
+        const selected = selectedSymptoms.has(key) ? 'selected' : '';
+        const severe = symptom.severe ? 'severe' : '';
+        html += '<div class="symptom-chip ' + selected + ' ' + severe + '" onclick="toggleSymptom(\'' + key + '\')">';
+        html += (symptom.severe ? '⚠️ ' : '') + escapeHtml(symptom[currentLang]);
+        html += '</div>';
+    });
+    
+    if (!html) {
+        html = '<div style="grid-column:1/-1;text-align:center;padding:30px;color:#95a5a6;">😔 کوئی علامت نہیں ملی</div>';
+    }
+    
+    container.innerHTML = html;
+}
+
+function toggleSymptom(key) {
+    if (selectedSymptoms.has(key)) {
+        selectedSymptoms.delete(key);
+    } else {
+        selectedSymptoms.add(key);
+    }
+    renderSymptomsGrid();
+    updateSelectedBox();
+}
+
+function updateSelectedBox() {
+    const box = $('selectedSymptomsBox');
+    const noMsg = $('noSelectedMsg');
+    $('selectedCount').textContent = selectedSymptoms.size;
+    
+    if (selectedSymptoms.size === 0) {
+        box.innerHTML = '<div style="color:#95a5a6;font-size:13px;text-align:center;">' +
+            ({ ur: 'نیچے سے علامات چنیں...', en: 'Select symptoms below...', roman: 'Neechay se alamat chunein...' }[currentLang]) +
+            '</div>';
+        return;
+    }
+    
+    let html = '';
+    selectedSymptoms.forEach(function(key) {
+        const s = SYMPTOMS_DB[key];
+        if (s) {
+            html += '<span class="selected-chip" onclick="toggleSymptom(\'' + key + '\')">' + escapeHtml(s[currentLang]) + '</span>';
+        }
+    });
+    box.innerHTML = html;
+}
+
+function clearAllSymptoms() {
+    selectedSymptoms.clear();
+    renderSymptomsGrid();
+    updateSelectedBox();
+    $('diagnosisResults').innerHTML = '';
+}
+
+function analyzeDiagnosis() {
+    if (selectedSymptoms.size === 0) {
+        showToast('⚠️ Please select at least one symptom', 'error');
+        return;
+    }
+    
+    const results = [];
+    const selectedArr = Array.from(selectedSymptoms);
+    
+    // Check each disease
+    DISEASES_DB.forEach(function(disease) {
+        const totalDiseaseSymptoms = disease.symptoms.length;
+        const matchedSymptoms = disease.symptoms.filter(function(s) { return selectedSymptoms.has(s); });
+        const matchCount = matchedSymptoms.length;
+        
+        if (matchCount === 0) return;
+        
+        // Calculate match score
+        // Weight: key symptoms count double
+        let score = 0;
+        matchedSymptoms.forEach(function(s) {
+            score += disease.keySymptoms && disease.keySymptoms.includes(s) ? 2 : 1;
+        });
+        
+        const maxScore = disease.symptoms.length + (disease.keySymptoms ? disease.keySymptoms.length : 0);
+        const percentage = Math.round((score / maxScore) * 100);
+        
+        // Only include if at least 30% match
+        if (percentage >= 25) {
+            results.push({
+                disease: disease,
+                matchCount: matchCount,
+                totalCount: totalDiseaseSymptoms,
+                percentage: Math.min(percentage, 99),
+                matchedSymptoms: matchedSymptoms
+            });
+        }
+    });
+    
+    // Sort by percentage
+    results.sort(function(a, b) { return b.percentage - a.percentage; });
+    
+    displayDiagnosisResults(results);
+}
+
+function displayDiagnosisResults(results) {
+    const container = $('diagnosisResults');
+    
+    if (results.length === 0) {
+        const t = {
+            ur: 'کوئی مماثل بیماری نہیں ملی۔ مزید علامات چنیں یا ماہر ڈاکٹر سے رجوع کریں۔',
+            en: 'No matching disease found. Add more symptoms or consult specialist.',
+            roman: 'Koi matching disease nahi mili. Aur symptoms chunein.'
+        };
+        container.innerHTML = '<div class="card"><div class="empty-state"><div class="icon">🤔</div><p>' + t[currentLang] + '</p></div></div>';
+        return;
+    }
+    
+    // Check for red flags in selected symptoms
+    const hasSevere = Array.from(selectedSymptoms).some(function(s) {
+        return SYMPTOMS_DB[s] && SYMPTOMS_DB[s].severe;
+    });
+    
+    let html = '';
+    
+    // Emergency alert
+    if (hasSevere) {
+        const emergencyText = {
+            ur: '⚠️ خطرناک علامات موجود! فوری میڈیکل امداد ضروری ہو سکتی ہے۔',
+            en: '⚠️ Severe symptoms detected! Immediate medical attention may be needed.',
+            roman: '⚠️ Serious symptoms detected! Fori medical madad zaroori.'
+        };
+        html += '<div class="emergency-alert">' + emergencyText[currentLang] + '</div>';
+    }
+    
+    // Summary
+    html += '<div class="card">';
+    html += '<div class="card-title">📊 ' + ({ ur: 'ممکنہ بیماریاں', en: 'Possible Conditions', roman: 'Mumkin Bimariyan' }[currentLang]);
+    html += ' (' + results.length + ')</div>';
+    
+    // Display top 5 results
+    results.slice(0, 5).forEach(function(r, idx) {
+        const d = r.disease;
+        const matchClass = r.percentage >= 70 ? 'high' : (r.percentage >= 45 ? 'medium' : 'low');
+        const matchLabel = { ur: ['کم', 'متوسط', 'زیادہ'], en: ['Low', 'Medium', 'High'], roman: ['Kam', 'Medium', 'Zyada'] };
+        const label = r.percentage >= 70 ? matchLabel[currentLang][2] : (r.percentage >= 45 ? matchLabel[currentLang][1] : matchLabel[currentLang][0]);
+        
+        html += '<div class="disease-card ' + matchClass + '-match">';
+        html += '<div class="disease-header">';
+        html += '<div class="disease-name">' + (idx + 1) + '. ' + escapeHtml(d.name[currentLang]);
+        html += ' <span style="font-size:12px;color:#7f8c8d;font-weight:normal;">(' + escapeHtml(d.name.en) + ')</span></div>';
+        html += '<span class="match-badge ' + matchClass + '">' + r.percentage + '% ' + label + '</span>';
+        html += '</div>';
+        
+        // Matched symptoms
+        html += '<div style="font-size:12px;color:#7f8c8d;margin-bottom:8px;">';
+        html += '✓ ' + r.matchCount + ' / ' + r.totalCount + ' ';
+        html += ({ ur: 'علامات مماثل', en: 'symptoms matched', roman: 'symptoms match' }[currentLang]);
+        html += '</div>';
+        
+        // Tests
+        html += '<div class="disease-section">';
+        html += '<div class="disease-section-title">🔬 ' + ({ ur: 'تجویز کردہ ٹیسٹ', en: 'Recommended Tests', roman: 'Tests' }[currentLang]) + '</div>';
+        html += '<div>';
+        d.tests.forEach(function(t) {
+            html += '<span class="test-item">' + escapeHtml(t[currentLang] || t.en) + '</span>';
+        });
+        html += '</div></div>';
+        
+        // Remedies
+        html += '<div class="disease-section">';
+        html += '<div class="disease-section-title">💊 ' + ({ ur: 'ہومیوپیتھک دوائیں', en: 'Homeopathic Remedies', roman: 'Homeopathic Dawaien' }[currentLang]) + '</div>';
+        d.remedies.forEach(function(r) {
+            html += '<div class="remedy-item">';
+            html += '<div class="remedy-name">💊 ' + escapeHtml(r.name) + '</div>';
+            html += '<div class="remedy-use">▸ ' + escapeHtml(r.use[currentLang] || r.use.en) + '</div>';
+            html += '<div class="remedy-dose">🕐 ' + escapeHtml(r.dose) + '</div>';
+            html += '</div>';
+        });
+        html += '</div>';
+        
+        // Red flags
+        if (d.redFlags && d.redFlags.length > 0) {
+            html += '<div class="red-flags-box">';
+            html += '<div class="red-flags-title">⚠️ ' + ({ ur: 'خطرے کی علامات (فوراً ہسپتال)', en: 'Red Flags (Rush to Hospital)', roman: 'Khatray ki Alamat' }[currentLang]) + ':</div>';
+            html += '<div style="font-size:12px;">';
+            d.redFlags.forEach(function(rf) {
+                const s = SYMPTOMS_DB[rf];
+                if (s) html += '• ' + escapeHtml(s[currentLang]) + ' &nbsp;';
+            });
+            html += '</div></div>';
+        }
+        
+        // Advice
+        if (d.advice) {
+            html += '<div class="advice-box">';
+            html += '📖 <strong>' + ({ ur: 'ہدایات:', en: 'Advice:', roman: 'Hidayat:' }[currentLang]) + '</strong> ';
+            html += escapeHtml(d.advice[currentLang] || d.advice.en);
+            html += '</div>';
+        }
+        
+        // Actions - copy to prescription
+        html += '<div class="diagnosis-actions">';
+        if (diagnosisPatientId) {
+            html += '<button class="btn btn-success btn-sm" onclick="copyToVisit(\'' + d.id + '\')">';
+            html += '📋 ' + ({ ur: 'وزٹ میں کاپی کریں', en: 'Copy to Visit', roman: 'Visit mein Copy' }[currentLang]);
+            html += '</button>';
+        }
+        html += '<button class="btn btn-info btn-sm" onclick="copyDiseaseInfo(\'' + d.id + '\')">';
+        html += '📄 ' + ({ ur: 'کاپی کریں', en: 'Copy', roman: 'Copy' }[currentLang]);
+        html += '</button>';
+        html += '</div>';
+        
+        html += '</div>';
+    });
+    
+    html += '</div>';
+    container.innerHTML = html;
+    
+    // Scroll to results
+    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function copyDiseaseInfo(diseaseId) {
+    const d = DISEASES_DB.find(function(x) { return x.id === diseaseId; });
+    if (!d) return;
+    
+    let text = '📌 ' + d.name.ur + ' / ' + d.name.en + '\n\n';
+    text += '🔬 ٹیسٹ:\n';
+    d.tests.forEach(function(t) { text += '• ' + (t.ur || t.en) + '\n'; });
+    text += '\n💊 ہومیوپیتھک دوائیں:\n';
+    d.remedies.forEach(function(r) {
+        text += '• ' + r.name + ' - ' + (r.use.ur || r.use.en) + ' (' + r.dose + ')\n';
+    });
+    if (d.advice) text += '\n📖 ہدایات: ' + (d.advice.ur || d.advice.en);
+    
+    navigator.clipboard.writeText(text).then(function() {
+        showToast('✅ Copied to clipboard!');
+    }).catch(function() {
+        // Fallback
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        showToast('✅ Copied!');
+    });
+}
+
+function copyToVisit(diseaseId) {
+    const d = DISEASES_DB.find(function(x) { return x.id === diseaseId; });
+    if (!d || !diagnosisPatientId) return;
+    
+    // Open visit modal and pre-fill
+    openVisitModal(diagnosisPatientId);
+    
+    // Fill diagnosis field
+    const diagnosisText = d.name.ur + ' (' + d.name.en + ')';
+    $('visitDiagnosis').value = diagnosisText;
+    
+    // Fill prescription
+    let prescText = '';
+    d.remedies.forEach(function(r, i) {
+        prescText += (i + 1) + '. ' + r.name + '\n';
+        prescText += '   → ' + (r.use.ur || r.use.en) + '\n';
+        prescText += '   → ' + r.dose + '\n\n';
+    });
+    $('visitPrescription').value = prescText.trim();
+    
+    // Fill method/advice
+    if (d.advice) {
+        $('visitMethod').value = d.advice.ur || d.advice.en;
+    }
+    
+    // Fill symptoms from selected
+    const symptomsText = Array.from(selectedSymptoms).map(function(s) {
+        return SYMPTOMS_DB[s] ? SYMPTOMS_DB[s].ur : '';
+    }).filter(Boolean).join('، ');
+    $('visitSymptoms').value = symptomsText;
+    
+    showToast('✅ Auto-filled from diagnosis!');
+}
+
+function clearDiagnosisPatient() {
+    diagnosisPatientId = null;
+    $('diagnosisPatientLink').style.display = 'none';
+}
+
+function openDiagnosisForPatient(patientId) {
+    const patient = cachedPatients.find(function(p) { return p.id === patientId; });
+    if (!patient) return;
+    
+    diagnosisPatientId = patientId;
+    $('diagnosisPatientLink').style.display = 'block';
+    $('diagnosisPatientName').textContent = patient.name + ' (' + patient.refNo + ')';
+    
+    // Navigate to diagnosis
+    const btn = document.querySelector('[data-page="diagnosis"]');
+    showPage('diagnosis', btn);
+    
+    // Clear previous
+    selectedSymptoms.clear();
+    updateSelectedBox();
+    $('diagnosisResults').innerHTML = '';
+}
+
+// Diagnosis
+if ($('symptomSearch')) {
+    $('symptomSearch').addEventListener('input', renderSymptomsGrid);
+}
+if ($('analyzeBtn')) {
+    $('analyzeBtn').addEventListener('click', analyzeDiagnosis);
+}
+if ($('clearSymptomsBtn')) {
+    $('clearSymptomsBtn').addEventListener('click', clearAllSymptoms);
+}
 // ==================== EVENT LISTENERS ====================
 document.addEventListener('DOMContentLoaded', function() {
     // Login
