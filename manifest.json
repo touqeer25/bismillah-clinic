@@ -1,0 +1,27 @@
+{
+  "name": "Bismillah Homeopathic Clinic",
+  "short_name": "BHC Clinic",
+  "description": "بسم اللہ ہومیوپیتھک کلینک - Patient Management System",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1a5276",
+  "theme_color": "#1a5276",
+  "lang": "ur",
+  "dir": "rtl",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

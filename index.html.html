@@ -1,0 +1,2337 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bismillah Homeopathic Clinic</title>
+    <meta name="theme-color" content="#1a5276">
+
+<!-- PWA Support -->
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="BHC Clinic">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', Arial, sans-serif;
+            background: #f0f4f8; color: #2c3e50;
+            font-size: 15px; line-height: 1.8;
+        }
+        body.lang-en, body.lang-roman {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            line-height: 1.5;
+        }
+        body[dir="rtl"] { direction: rtl; }
+        body[dir="ltr"] { direction: ltr; }
+
+        .login-container {
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a5276, #2980b9, #1a5276);
+            padding: 20px;
+        }
+        .login-box {
+            background: white; border-radius: 20px; padding: 35px 30px;
+            width: 100%; max-width: 400px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3); text-align: center;
+        }
+        .login-box .bismillah { color: #c0392b; font-size: 26px; margin-bottom: 5px; font-weight: bold; }
+        .login-box .clinic-name {
+            color: #d4af37; font-size: 20px; margin-bottom: 5px; font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1); line-height: 2;
+        }
+        .login-box .doctor-name { color: #34495e; font-size: 14px; margin-bottom: 20px; }
+        .login-box .subtitle { color: #7f8c8d; font-size: 13px; margin-bottom: 25px; }
+
+        .form-group { margin-bottom: 15px; text-align: right; }
+        body[dir="ltr"] .form-group { text-align: left; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50; font-size: 14px; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 10px 14px; border: 2px solid #ddd;
+            border-radius: 8px; font-size: 15px; font-family: inherit;
+            background: #fafafa; transition: all 0.3s;
+        }
+        body[dir="rtl"] .form-group input,
+        body[dir="rtl"] .form-group select,
+        body[dir="rtl"] .form-group textarea { direction: rtl; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #2980b9; outline: none; background: white;
+            box-shadow: 0 0 8px rgba(41,128,185,0.15);
+        }
+        .form-group textarea { min-height: 70px; resize: vertical; }
+        .form-group .hint { font-size: 11px; color: #7f8c8d; margin-top: 3px; font-weight: normal; }
+
+        .btn {
+            padding: 10px 22px; border: none; border-radius: 8px;
+            font-size: 14px; font-family: inherit; cursor: pointer;
+            transition: all 0.3s; display: inline-flex; align-items: center;
+            gap: 6px; font-weight: bold;
+        }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .btn-primary {
+            background: linear-gradient(135deg, #2980b9, #1a5276);
+            color: white; width: 100%; justify-content: center;
+        }
+        .btn-primary:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(41,128,185,0.4); }
+        .btn-success { background: linear-gradient(135deg, #27ae60, #1e8449); color: white; }
+        .btn-success:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(39,174,96,0.4); }
+        .btn-warning { background: linear-gradient(135deg, #f39c12, #d68910); color: white; }
+        .btn-light { background: #ecf0f1; color: #2c3e50; }
+        .btn-info { background: linear-gradient(135deg, #17a2b8, #138496); color: white; }
+        .btn-danger { background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; }
+        .btn-danger:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(231,76,60,0.4); }
+        .btn-edit { background: linear-gradient(135deg, #8e44ad, #6c3483); color: white; }
+        .btn-edit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(142,68,173,0.4); }
+        .btn-sm { padding: 6px 12px; font-size: 12px; }
+        .btn-xs { padding: 4px 8px; font-size: 11px; }
+
+        .app-header {
+            background: linear-gradient(135deg, #1a5276, #2980b9);
+            color: white; padding: 15px 15px;
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+            display: grid; grid-template-columns: auto 1fr auto;
+            align-items: center; gap: 10px;
+        }
+        .header-left { display: flex; gap: 6px; align-items: center; }
+        .header-right { display: flex; gap: 6px; align-items: center; }
+        .header-center { text-align: center; padding: 8px 0; overflow: visible; }
+        .header-center .clinic-title {
+            font-size: 24px; font-weight: bold; line-height: 2.2;
+            padding: 8px 0 4px 0; color: #f1c40f;
+            background: linear-gradient(180deg, #f9d71c 0%, #d4af37 50%, #f9d71c 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.5px; overflow: visible;
+        }
+        body.lang-en .header-center .clinic-title,
+        body.lang-roman .header-center .clinic-title { line-height: 1.3; padding: 4px 0; }
+        @supports not (-webkit-background-clip: text) {
+            .header-center .clinic-title { color: #f9d71c; -webkit-text-fill-color: initial; }
+        }
+        .header-center .doctor-title {
+            font-size: 13px; opacity: 0.9; margin-top: 4px;
+            font-weight: normal; color: white; line-height: 2;
+        }
+        body.lang-en .header-center .doctor-title,
+        body.lang-roman .header-center .doctor-title { line-height: 1.4; }
+        
+        .icon-btn {
+            background: rgba(255,255,255,0.2);
+            color: white; border: 1px solid rgba(255,255,255,0.3);
+            width: 36px; height: 36px; border-radius: 8px;
+            cursor: pointer; font-size: 16px;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; flex-shrink: 0;
+        }
+        .icon-btn:hover { background: rgba(255,255,255,0.35); transform: scale(1.05); }
+
+        .connection-status {
+            display: flex; align-items: center; gap: 4px;
+            font-size: 11px; padding: 4px 10px; border-radius: 12px;
+            background: rgba(255,255,255,0.15);
+        }
+        .status-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: #27ae60; animation: pulse 2s infinite;
+        }
+        .status-dot.offline { background: #e74c3c; animation: none; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        
+        .pending-badge {
+            background: #f39c12; color: white; border-radius: 10px;
+            padding: 2px 8px; font-size: 10px; margin-right: 4px;
+            display: inline-block; cursor: pointer;
+        }
+
+        .nav-bar {
+            background: white; padding: 8px 12px;
+            display: flex; gap: 6px; overflow-x: auto;
+            border-bottom: 2px solid #ecf0f1;
+            flex-wrap: wrap; justify-content: center;
+        }
+        .nav-btn {
+            padding: 6px 14px; border: 2px solid #ddd;
+            border-radius: 8px; background: white;
+            cursor: pointer; font-family: inherit; font-size: 13px;
+            transition: all 0.3s; white-space: nowrap;
+            display: flex; align-items: center; gap: 4px;
+        }
+        .nav-btn:hover, .nav-btn.active {
+            background: #2980b9; color: white; border-color: #2980b9;
+        }
+
+        .dashboard { padding: 15px; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px; margin-bottom: 20px;
+        }
+        .stat-card {
+            background: white; border-radius: 10px; padding: 12px 10px;
+            text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            transition: transform 0.3s;
+        }
+        .stat-card:hover { transform: translateY(-2px); }
+        .stat-card .stat-number { font-size: 24px; font-weight: bold; color: #2980b9; line-height: 1.2; }
+        .stat-card .stat-label { color: #7f8c8d; font-size: 12px; margin-top: 3px; }
+        .stat-card.green .stat-number { color: #27ae60; }
+        .stat-card.orange .stat-number { color: #f39c12; }
+        .stat-card.red .stat-number { color: #e74c3c; }
+        .stat-card.purple .stat-number { color: #8e44ad; }
+
+        .content { padding: 15px; max-width: 1200px; margin: 0 auto; }
+        .card {
+            background: white; border-radius: 12px; padding: 20px;
+            margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .card-title {
+            font-size: 17px; color: #1a5276; margin-bottom: 15px;
+            padding-bottom: 8px; border-bottom: 2px solid #ecf0f1;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 12px;
+        }
+        .form-row-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+
+        .section-divider {
+            margin: 25px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px dashed #d4af37;
+            font-size: 16px; color: #1a5276; font-weight: bold;
+            display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+        }
+        
+        .vitals-box {
+            background: #f0f8ff; border-left: 4px solid #17a2b8;
+            padding: 15px; border-radius: 8px; margin-bottom: 15px;
+        }
+        body[dir="rtl"] .vitals-box { border-left: none; border-right: 4px solid #17a2b8; }
+        
+        .offline-notice {
+            background: #fff3cd; border: 1px solid #ffe69c;
+            padding: 10px 15px; border-radius: 8px; margin-bottom: 15px;
+            font-size: 13px; color: #856404;
+        }
+
+        .search-input {
+            width: 100%; padding: 13px 18px; border: 2px solid #ddd;
+            border-radius: 12px; font-size: 16px; font-family: inherit;
+            background: white; margin-bottom: 15px;
+        }
+        body[dir="rtl"] .search-input { direction: rtl; }
+        .search-input:focus {
+            border-color: #2980b9; outline: none;
+            box-shadow: 0 0 15px rgba(41,128,185,0.15);
+        }
+
+        .table-container { overflow-x: auto; border-radius: 8px; border: 1px solid #ecf0f1; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th {
+            background: #1a5276; color: white; padding: 10px 12px;
+            white-space: nowrap; font-weight: bold;
+        }
+        td { padding: 10px 12px; border-bottom: 1px solid #ecf0f1; vertical-align: middle; }
+        body[dir="rtl"] th, body[dir="rtl"] td { text-align: right; }
+        body[dir="ltr"] th, body[dir="ltr"] td { text-align: left; }
+        .td-center { text-align: center !important; }
+        .td-phone { direction: ltr; font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; }
+        body[dir="rtl"] .td-phone { text-align: right; unicode-bidi: embed; }
+        tr:hover { background: #f0f8ff; }
+        tr:nth-child(even) { background: #fafafa; }
+        tr:nth-child(even):hover { background: #f0f8ff; }
+
+        .patient-header {
+            background: linear-gradient(135deg, #1a5276, #2980b9);
+            color: white; border-radius: 12px; padding: 20px; margin-bottom: 15px;
+        }
+        .patient-header h2 { font-size: 22px; margin-bottom: 8px; }
+        .patient-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 8px;
+        }
+        .patient-info-item { font-size: 13px; opacity: 0.95; }
+        .patient-info-item strong { opacity: 0.75; }
+        
+        .visit-card {
+            background: white; border-radius: 10px; padding: 15px;
+            margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        body[dir="rtl"] .visit-card { border-right: 4px solid #2980b9; }
+        body[dir="ltr"] .visit-card { border-left: 4px solid #2980b9; }
+        body[dir="rtl"] .visit-card.registration { border-right-color: #d4af37; }
+        body[dir="ltr"] .visit-card.registration { border-left-color: #d4af37; }
+        
+        .visit-card .visit-date {
+            color: #2980b9; font-weight: bold; font-size: 14px;
+            margin-bottom: 10px;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 8px;
+        }
+        .visit-card.registration .visit-date { color: #b8860b; }
+        .visit-type-badge {
+            display: inline-block; padding: 2px 8px; border-radius: 10px;
+            font-size: 10px; font-weight: bold; margin-right: 8px;
+        }
+        .visit-type-registration { background: #fff8dc; color: #b8860b; }
+        .visit-type-visit { background: #e8f4f8; color: #17a2b8; }
+        
+        .visit-card .visit-detail {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 8px;
+        }
+        .visit-detail-item { padding: 8px; background: #f8f9fa; border-radius: 6px; font-size: 13px; }
+        .visit-detail-item .label { font-size: 11px; color: #7f8c8d; margin-bottom: 2px; }
+        .visit-actions { display: flex; gap: 6px; align-items: center; }
+        
+        .vitals-display {
+            background: #e8f4f8; padding: 8px 12px; border-radius: 6px;
+            margin: 8px 0; display: flex; flex-wrap: wrap; gap: 15px; font-size: 12px;
+        }
+        .vitals-display span strong { color: #17a2b8; }
+
+        .family-badge {
+            display: inline-block; padding: 3px 10px;
+            background: #fff3cd; color: #856404;
+            border-radius: 15px; font-size: 11px; font-weight: bold; cursor: pointer;
+        }
+        .family-badge:hover { background: #ffe69c; }
+        .family-badge-empty {
+            display: inline-block; padding: 3px 10px;
+            background: #ecf0f1; color: #95a5a6;
+            border-radius: 15px; font-size: 11px;
+        }
+
+        .alert { padding: 12px 16px; border-radius: 8px; margin-bottom: 12px; font-size: 13px; }
+        .alert-success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .alert-error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .alert-info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .alert-warning { background: #fff3cd; color: #856404; border: 1px solid #ffe69c; }
+
+        .modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5); z-index: 200;
+            justify-content: center; align-items: center; padding: 15px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: white; border-radius: 12px; padding: 25px;
+            width: 100%; max-width: 700px; max-height: 90vh; overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .modal-sm { max-width: 450px; }
+        .modal-title {
+            font-size: 18px; color: #1a5276; margin-bottom: 15px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .modal-close { background: none; border: none; font-size: 22px; cursor: pointer; color: #7f8c8d; }
+
+        .loading-overlay {
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255,255,255,0.8); z-index: 300;
+            justify-content: center; align-items: center;
+        }
+        .loading-overlay.active { display: flex; }
+        .spinner {
+            width: 60px; height: 60px;
+            border: 5px solid #ecf0f1; border-top-color: #2980b9;
+            border-radius: 50%; animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-inline {
+            display: inline-block; width: 14px; height: 14px;
+            border: 2px solid #ecf0f1; border-top-color: #2980b9;
+            border-radius: 50%; animation: spin 1s linear infinite; vertical-align: middle;
+        }
+
+        .empty-state { text-align: center; padding: 40px 15px; color: #bdc3c7; }
+        .empty-state .icon { font-size: 48px; margin-bottom: 10px; }
+        .empty-state p { font-size: 15px; }
+
+        .badge {
+            display: inline-block; padding: 2px 8px;
+            border-radius: 15px; font-size: 11px; font-weight: bold;
+        }
+        .badge-male { background: #d6eaf8; color: #1a5276; }
+        .badge-female { background: #fadbd8; color: #922b21; }
+        .badge-child { background: #d5f5e3; color: #1e8449; }
+        .badge-visit { background: #e8f4f8; color: #17a2b8; }
+        .badge-registered { background: #fff8dc; color: #b8860b; }
+        .badge-pending { background: #ffeaa7; color: #d68910; }
+
+        .today-list { list-style: none; padding: 0; }
+        .today-list li {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 12px; border-bottom: 1px solid #ecf0f1;
+            cursor: pointer; transition: background 0.2s;
+        }
+        .today-list li:hover { background: #f0f8ff; }
+        .today-list li:last-child { border-bottom: none; }
+        .patient-list-name { font-weight: bold; color: #2c3e50; font-size: 14px; }
+        .patient-list-time { color: #7f8c8d; font-size: 12px; }
+
+        .action-buttons { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+        .action-icons { display: flex; gap: 4px; justify-content: center; }
+
+        .import-box {
+            background: #fff8dc; border: 2px dashed #d4af37;
+            border-radius: 10px; padding: 15px; margin-bottom: 15px;
+        }
+        .sync-box {
+            background: #d1ecf1; border: 2px solid #17a2b8;
+            border-radius: 10px; padding: 15px; margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .app-header { padding: 12px 8px; gap: 5px; }
+            .header-center .clinic-title { font-size: 17px; line-height: 2; }
+            .header-center .doctor-title { font-size: 11px; }
+            .icon-btn { width: 32px; height: 32px; font-size: 14px; }
+            .connection-status { font-size: 10px; padding: 3px 6px; }
+            .connection-status .status-text { display: none; }
+            .form-row, .form-row-3 { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .patient-info-grid { grid-template-columns: 1fr 1fr; }
+            .visit-card .visit-detail { grid-template-columns: 1fr; }
+            .content, .dashboard { padding: 10px; }
+            .card { padding: 15px; }
+            th, td { padding: 6px 8px; font-size: 12px; }
+        }
+        @media (max-width: 480px) {
+            .nav-btn { padding: 5px 10px; font-size: 12px; }
+            .header-center .clinic-title { font-size: 14px; line-height: 1.9; }
+            .header-center .doctor-title { font-size: 10px; }
+            .stat-card .stat-number { font-size: 20px; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page { display: none; animation: fadeIn 0.3s ease; }
+        .page.active { display: block; }
+
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #2980b9; border-radius: 3px; }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body dir="rtl" class="lang-ur">
+
+<div id="loadingOverlay" class="loading-overlay">
+    <div class="spinner"></div>
+</div>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="login-container">
+    <div class="login-box">
+        <div class="bismillah">بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِیْم</div>
+        <div class="clinic-name" data-ur="بسم اللہ ہومیوپیتھک کلینک" data-en="Bismillah Homeopathic Clinic" data-roman="Bismillah Homeopathic Clinic">بسم اللہ ہومیوپیتھک کلینک</div>
+        <div class="doctor-name" data-ur="ہومیوپیتھک ڈاکٹر توقیر احمد خان" data-en="Homeopathic Doctor Tauqeer Ahmad Khan" data-roman="Homeopathic Doctor Tauqeer Ahmad Khan">ہومیوپیتھک ڈاکٹر توقیر احمد خان</div>
+        <div class="subtitle" data-ur="مریض ریکارڈ مینجمنٹ سسٹم" data-en="Patient Record Management System" data-roman="Patient Record Management System">مریض ریکارڈ مینجمنٹ سسٹم</div>
+        
+        <div id="loginError" class="alert alert-error hidden"></div>
+        
+        <div class="form-group">
+            <label data-ur="👤 صارف نام" data-en="👤 Username" data-roman="👤 Username">👤 صارف نام</label>
+            <input type="text" id="loginUsername" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label data-ur="🔒 پاسورڈ" data-en="🔒 Password" data-roman="🔒 Password">🔒 پاسورڈ</label>
+            <input type="password" id="loginPassword" placeholder="Password">
+        </div>
+        <button class="btn btn-primary" id="loginBtn">
+            <span data-ur="🔓 لاگ ان" data-en="🔓 Login" data-roman="🔓 Login">🔓 لاگ ان</span>
+        </button>
+        
+        <div style="margin-top:15px; font-size:11px; color:#95a5a6;">
+            Demo: doctor / 1234
+        </div>
+        
+        <div style="margin-top:15px;">
+            <button class="icon-btn" id="langBtnLogin" style="background:#2980b9; margin:0 auto;" title="Change Language">🌐</button>
+        </div>
+    </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="mainApp" class="hidden">
+    <header class="app-header">
+        <div class="header-left">
+            <button class="icon-btn" id="logoutBtn" title="Logout">🚪</button>
+            <button class="icon-btn" id="langBtn" title="Change Language">🌐</button>
+        </div>
+        <div class="header-center">
+            <div class="clinic-title" data-ur="بسم اللہ ہومیوپیتھک کلینک" data-en="Bismillah Homeopathic Clinic" data-roman="Bismillah Homeopathic Clinic">بسم اللہ ہومیوپیتھک کلینک</div>
+            <div class="doctor-title" data-ur="ہومیوپیتھک ڈاکٹر توقیر احمد خان" data-en="Homeopathic Doctor Tauqeer Ahmad Khan" data-roman="Homeopathic Doctor Tauqeer Ahmad Khan">ہومیوپیتھک ڈاکٹر توقیر احمد خان</div>
+        </div>
+        <div class="header-right">
+            <span id="pendingBadge" class="pending-badge hidden" title="Pending Sync">0</span>
+            <div class="connection-status" id="connStatus">
+                <span class="status-dot"></span>
+                <span class="status-text">Online</span>
+            </div>
+            <button class="icon-btn" id="backupBtn" title="Backup Data">💾</button>
+        </div>
+    </header>
+    
+    <nav class="nav-bar">
+        <button class="nav-btn active" data-page="dashboard">
+            🏠 <span data-ur="ڈیش بورڈ" data-en="Dashboard" data-roman="Dashboard">ڈیش بورڈ</span>
+        </button>
+        <button class="nav-btn" data-page="newPatient">
+            ➕ <span data-ur="نئی رجسٹریشن" data-en="New Registration" data-roman="Nayi Registration">نئی رجسٹریشن</span>
+        </button>
+        <button class="nav-btn" data-page="searchPatient">
+            🔍 <span data-ur="تلاش" data-en="Search" data-roman="Talash">تلاش</span>
+        </button>
+        <button class="nav-btn" data-page="allPatients">
+            📋 <span data-ur="تمام مریض" data-en="All Patients" data-roman="Tamam Mareez">تمام مریض</span>
+        </button>
+        <button class="nav-btn" data-page="settings">
+            ⚙️ <span data-ur="سیٹنگز" data-en="Settings" data-roman="Settings">سیٹنگز</span>
+        </button>
+    </nav>
+    
+    <!-- DASHBOARD -->
+    <div id="page-dashboard" class="page active">
+        <div class="dashboard">
+            <div id="offlineNotice" class="offline-notice hidden">
+                ⚠️ <span id="offlineNoticeText">آپ آفلائن ہیں</span>
+                <button class="btn btn-info btn-xs" id="syncNowBtn" style="margin-right:10px;">🔄 Sync Now</button>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="statToday">-</div>
+                    <div class="stat-label" data-ur="📅 آج کے مریض" data-en="📅 Today's Patients" data-roman="📅 Aaj ke Mareez">📅 آج کے مریض</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="stat-number" id="statTotal">-</div>
+                    <div class="stat-label" data-ur="📊 کل مریض" data-en="📊 Total Patients" data-roman="📊 Kul Mareez">📊 کل مریض</div>
+                </div>
+                <div class="stat-card orange">
+                    <div class="stat-number" id="statMonth">-</div>
+                    <div class="stat-label" data-ur="📆 اس ماہ کے مریض" data-en="📆 This Month Patients" data-roman="📆 Is Mah ke Mareez">📆 اس ماہ کے مریض</div>
+                </div>
+                <div class="stat-card purple">
+                    <div class="stat-number" id="statFollowups">-</div>
+                    <div class="stat-label" data-ur="🔄 فالو اپ وزٹس" data-en="🔄 Follow-up Visits" data-roman="🔄 Follow-up Visits">🔄 فالو اپ وزٹس</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">
+                    📅 <span data-ur="آج کی سرگرمی" data-en="Today's Activity" data-roman="Aaj ki Activity">آج کی سرگرمی</span>
+                </div>
+                <div id="todayPatientsList">
+                    <div class="empty-state"><div class="icon">⏳</div><p>Loading...</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- NEW PATIENT -->
+    <div id="page-newPatient" class="page">
+        <div class="content">
+            <div class="card">
+                <div class="card-title">
+                    ➕ <span data-ur="نئی رجسٹریشن (پہلی ملاقات)" data-en="New Registration (First Consultation)" data-roman="Nayi Registration (Pehli Mulaqat)">نئی رجسٹریشن (پہلی ملاقات)</span>
+                </div>
+                <div id="newPatientMsg"></div>
+                
+                <div class="section-divider">
+                    👤 <span data-ur="مریض کی معلومات" data-en="Patient Information" data-roman="Mareez ki Malumat">مریض کی معلومات</span>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-ur="📋 حوالہ نمبر" data-en="📋 Reference No" data-roman="📋 Reference No">📋 حوالہ نمبر</label>
+                        <input type="text" id="refNo" readonly style="background:#ecf0f1; font-weight:bold; color:#2980b9;">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="👨‍👩‍👧‍👦 فیملی نمبر" data-en="👨‍👩‍👧‍👦 Family No" data-roman="👨‍👩‍👧‍👦 Family No">👨‍👩‍👧‍👦 فیملی نمبر</label>
+                        <input type="text" id="familyNo" placeholder="مثلاً: F-0001">
+                        <div class="hint" id="familyHint" data-ur="اختیاری - خالی چھوڑ سکتے ہیں" data-en="Optional - can leave empty" data-roman="Ikhtiyari - khali chor sakte hain">اختیاری - خالی چھوڑ سکتے ہیں</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-ur="👤 نام مریض *" data-en="👤 Patient Name *" data-roman="👤 Mareez ka Naam *">👤 نام مریض *</label>
+                        <input type="text" id="patientName">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="📱 فون نمبر *" data-en="📱 Phone Number *" data-roman="📱 Phone Number *">📱 فون نمبر *</label>
+                        <input type="tel" id="phone" dir="ltr" style="text-align:left;">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-ur="👨 ولدیت / ازواجیت" data-en="👨 Father/Spouse Name" data-roman="👨 Waldiyat / Azwajiyat">👨 ولدیت / ازواجیت</label>
+                        <input type="text" id="fatherName">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="🎂 عمر" data-en="🎂 Age" data-roman="🎂 Umar">🎂 عمر</label>
+                        <input type="text" id="age">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-ur="⚧ جنس" data-en="⚧ Gender" data-roman="⚧ Jins">⚧ جنس</label>
+                        <select id="gender">
+                            <option value="">---</option>
+                            <option value="male">مرد / Male</option>
+                            <option value="female">عورت / Female</option>
+                            <option value="boy">بچہ / Boy</option>
+                            <option value="girl">بچی / Girl</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="⚖️ وزن" data-en="⚖️ Weight" data-roman="⚖️ Wazan">⚖️ وزن</label>
+                        <input type="text" id="weight">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label data-ur="⚠️ الرجی" data-en="⚠️ Allergy" data-roman="⚠️ Allergy">⚠️ الرجی</label>
+                    <input type="text" id="allergy">
+                </div>
+                
+                <div class="form-group">
+                    <label data-ur="🏠 پتہ" data-en="🏠 Address" data-roman="🏠 Pata">🏠 پتہ</label>
+                    <input type="text" id="address">
+                </div>
+                
+                <div class="section-divider">
+                    🩺 <span data-ur="پہلی ملاقات کی تفصیل" data-en="First Consultation Details" data-roman="Pehli Mulaqat ki Tafseel">پہلی ملاقات کی تفصیل</span>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-ur="📅 تاریخ" data-en="📅 Date" data-roman="📅 Date">📅 تاریخ</label>
+                        <input type="date" id="firstVisitDate">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="🕐 وقت" data-en="🕐 Time" data-roman="🕐 Waqt">🕐 وقت</label>
+                        <input type="time" id="firstVisitTime">
+                    </div>
+                </div>
+                
+                <div class="vitals-box">
+                    <div style="font-weight:bold; margin-bottom:10px; color:#17a2b8;">
+                        💗 <span data-ur="جسمانی معائنہ (Vitals)" data-en="Vitals" data-roman="Vitals">جسمانی معائنہ (Vitals)</span>
+                    </div>
+                    <div class="form-row-3">
+                        <div class="form-group">
+                            <label data-ur="🩸 بلڈ پریشر" data-en="🩸 Blood Pressure" data-roman="🩸 Blood Pressure">🩸 بلڈ پریشر</label>
+                            <input type="text" id="firstBP" placeholder="120/80">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="🍬 شوگر" data-en="🍬 Sugar" data-roman="🍬 Sugar">🍬 شوگر</label>
+                            <input type="text" id="firstSugar" placeholder="mg/dL">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="🌡️ درجہ حرارت" data-en="🌡️ Temperature" data-roman="🌡️ Temperature">🌡️ درجہ حرارت</label>
+                            <input type="text" id="firstTemp" placeholder="98.6°F">
+                        </div>
+                    </div>
+                    <div class="form-row-3">
+                        <div class="form-group">
+                            <label data-ur="💓 نبض" data-en="💓 Pulse" data-roman="💓 Pulse">💓 نبض</label>
+                            <input type="text" id="firstPulse" placeholder="72/min">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
+                    <textarea id="firstVisitSymptoms" placeholder="مریض کی علامات تفصیل سے..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label data-ur="🔬 تشخیص (Diagnosis)" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص (Diagnosis)</label>
+                    <textarea id="firstVisitDiagnosis"></textarea>
+                </div>
+                <div class="form-group">
+                    <label data-ur="💊 نسخہ (Prescription)" data-en="💊 Prescription" data-roman="💊 Nuskha">💊 نسخہ (Prescription)</label>
+                    <textarea id="firstVisitPrescription"></textarea>
+                </div>
+                <div class="form-group">
+                    <label data-ur="📖 طریقہ استعمال" data-en="📖 Method of Use" data-roman="📖 Tareeqa Istemal">📖 طریقہ استعمال</label>
+                    <textarea id="firstVisitMethod" placeholder="مثلاً: صبح شام کھانے کے بعد..."></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-ur="📆 دن (کتنے دن کی دوا)" data-en="📆 Days" data-roman="📆 Din">📆 دن (کتنے دن کی دوا)</label>
+                        <input type="text" id="firstVisitDays" placeholder="مثلاً: 7 دن">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-ur="📝 اضافی نوٹس" data-en="📝 Additional Notes" data-roman="📝 Notes">📝 اضافی نوٹس</label>
+                    <textarea id="firstVisitNotes"></textarea>
+                </div>
+                
+                <div class="action-buttons" style="margin-top:20px;">
+                    <button class="btn btn-success" id="savePatientBtn">
+                        <span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Save">💾 محفوظ کریں</span>
+                    </button>
+                    <button class="btn btn-light" id="clearFormBtn">
+                        <span data-ur="🔄 فارم صاف کریں" data-en="🔄 Clear Form" data-roman="🔄 Form Clear">🔄 فارم صاف کریں</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SEARCH -->
+    <div id="page-searchPatient" class="page">
+        <div class="content">
+            <div class="card">
+                <div class="card-title">
+                    🔍 <span data-ur="مریض تلاش کریں" data-en="Search Patient" data-roman="Mareez Talash Karein">مریض تلاش کریں</span>
+                </div>
+                <input type="text" class="search-input" id="searchInput" placeholder="🔍 نام، فون، حوالہ نمبر، یا فیملی نمبر...">
+                <div id="searchResults">
+                    <div class="empty-state"><div class="icon">🔍</div><p data-ur="تلاش کے لیے اوپر لکھیں" data-en="Type above to search" data-roman="Talash ke liye upar likhein">تلاش کے لیے اوپر لکھیں</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ALL PATIENTS -->
+    <div id="page-allPatients" class="page">
+        <div class="content">
+            <div class="card">
+                <div class="card-title">
+                    📋 <span data-ur="تمام مریضوں کی فہرست" data-en="All Patients List" data-roman="Tamam Mareez ki Fehrist">تمام مریضوں کی فہرست</span>
+                </div>
+                <div id="allPatientsList">
+                    <div class="empty-state"><div class="icon">⏳</div><p>Loading...</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PATIENT DETAIL -->
+    <div id="page-patientDetail" class="page">
+        <div class="content"><div id="patientDetailContent"></div></div>
+    </div>
+    
+    <!-- FAMILY MEMBERS -->
+    <div id="page-familyMembers" class="page">
+        <div class="content"><div class="card"><div id="familyMembersContent"></div></div></div>
+    </div>
+    
+    <!-- SETTINGS -->
+    <div id="page-settings" class="page">
+        <div class="content">
+            <div class="card">
+                <div class="card-title">
+                    ⚙️ <span data-ur="سیٹنگز" data-en="Settings" data-roman="Settings">سیٹنگز</span>
+                </div>
+                
+                <div id="syncSection" class="sync-box hidden">
+                    <h4 style="color:#17a2b8; margin-bottom:10px;">🔄 Pending Sync</h4>
+                    <p style="font-size:13px; margin-bottom:10px;" id="syncInfo"></p>
+                    <button class="btn btn-info" id="manualSyncBtn">🔄 Sync Now</button>
+                </div>
+                
+                <h3 style="color:#1a5276; margin-bottom:15px;">📥 Import Data</h3>
+                <div class="import-box">
+                    <p style="margin-bottom:10px; font-size:13px; color:#856404;">Import backup file</p>
+                    <input type="file" id="importFile" accept=".json" style="margin-bottom:10px;">
+                    <button class="btn btn-warning" id="importBtn">📥 Import</button>
+                    <div id="importMsg" style="margin-top:10px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- VISIT MODAL (Add/Edit) -->
+<div id="visitModal" class="modal-overlay">
+    <div class="modal">
+        <div class="modal-title">
+            <span id="visitModalTitle">➕ نئی وزٹ</span>
+            <button class="modal-close" id="closeVisitBtn">✕</button>
+        </div>
+        <div id="visitMsg"></div>
+        <input type="hidden" id="visitPatientId">
+        <input type="hidden" id="editVisitId">
+        <div id="visitPatientInfo" style="background:#f0f8ff; padding:10px; border-radius:6px; margin-bottom:15px; font-size:13px;"></div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label data-ur="📅 تاریخ" data-en="📅 Date" data-roman="📅 Date">📅 تاریخ</label>
+                <input type="date" id="visitDate">
+            </div>
+            <div class="form-group">
+                <label data-ur="🕐 وقت" data-en="🕐 Time" data-roman="🕐 Waqt">🕐 وقت</label>
+                <input type="time" id="visitTime">
+            </div>
+        </div>
+        
+        <div class="vitals-box">
+            <div style="font-weight:bold; margin-bottom:10px; color:#17a2b8;">💗 Vitals</div>
+            <div class="form-row-3">
+                <div class="form-group">
+                    <label>🩸 BP</label>
+                    <input type="text" id="visitBP" placeholder="120/80">
+                </div>
+                <div class="form-group">
+                    <label>🍬 Sugar</label>
+                    <input type="text" id="visitSugar" placeholder="mg/dL">
+                </div>
+                <div class="form-group">
+                    <label>🌡️ Temp</label>
+                    <input type="text" id="visitTemp" placeholder="98.6°F">
+                </div>
+            </div>
+            <div class="form-row-3">
+                <div class="form-group">
+                    <label>💓 Pulse</label>
+                    <input type="text" id="visitPulse" placeholder="72/min">
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
+            <textarea id="visitSymptoms"></textarea>
+        </div>
+        <div class="form-group">
+            <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
+            <textarea id="visitDiagnosis"></textarea>
+        </div>
+        <div class="form-group">
+            <label data-ur="💊 نسخہ" data-en="💊 Prescription" data-roman="💊 Nuskha">💊 نسخہ</label>
+            <textarea id="visitPrescription"></textarea>
+        </div>
+        <div class="form-group">
+            <label data-ur="📖 طریقہ استعمال" data-en="📖 Method" data-roman="📖 Tareeqa">📖 طریقہ استعمال</label>
+            <textarea id="visitMethod"></textarea>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label data-ur="📆 دن" data-en="📆 Days" data-roman="📆 Din">📆 دن</label>
+                <input type="text" id="visitDays">
+            </div>
+        </div>
+        <div class="form-group">
+            <label data-ur="📝 نوٹس" data-en="📝 Notes" data-roman="📝 Notes">📝 نوٹس</label>
+            <textarea id="visitNotes"></textarea>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-success" id="saveVisitBtn">
+                <span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Save">💾 محفوظ کریں</span>
+            </button>
+            <button class="btn btn-light" id="cancelVisitBtn">
+                <span data-ur="❌ منسوخ" data-en="❌ Cancel" data-roman="❌ Cancel">❌ منسوخ</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- EDIT PATIENT BIO MODAL -->
+<div id="editPatientModal" class="modal-overlay">
+    <div class="modal">
+        <div class="modal-title">
+            <span id="editPatientModalTitle">✏️ مریض کی معلومات ترمیم</span>
+            <button class="modal-close" id="closeEditPatientBtn">✕</button>
+        </div>
+        <div id="editPatientMsg"></div>
+        <input type="hidden" id="editPatientId">
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label data-ur="👤 نام *" data-en="👤 Name *" data-roman="👤 Naam *">👤 نام *</label>
+                <input type="text" id="editName">
+            </div>
+            <div class="form-group">
+                <label data-ur="📱 فون *" data-en="📱 Phone *" data-roman="📱 Phone *">📱 فون *</label>
+                <input type="tel" id="editPhone" dir="ltr" style="text-align:left;">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label data-ur="👨 ولدیت" data-en="👨 Father" data-roman="👨 Waldiyat">👨 ولدیت</label>
+                <input type="text" id="editFatherName">
+            </div>
+            <div class="form-group">
+                <label data-ur="🎂 عمر" data-en="🎂 Age" data-roman="🎂 Umar">🎂 عمر</label>
+                <input type="text" id="editAge">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label data-ur="⚧ جنس" data-en="⚧ Gender" data-roman="⚧ Jins">⚧ جنس</label>
+                <select id="editGender">
+                    <option value="">---</option>
+                    <option value="male">مرد / Male</option>
+                    <option value="female">عورت / Female</option>
+                    <option value="boy">بچہ / Boy</option>
+                    <option value="girl">بچی / Girl</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label data-ur="⚖️ وزن" data-en="⚖️ Weight" data-roman="⚖️ Wazan">⚖️ وزن</label>
+                <input type="text" id="editWeight">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label data-ur="👨‍👩‍👧‍👦 فیملی نمبر" data-en="👨‍👩‍👧‍👦 Family No" data-roman="👨‍👩‍👧‍👦 Family No">👨‍👩‍👧‍👦 فیملی نمبر</label>
+                <input type="text" id="editFamilyNo">
+            </div>
+            <div class="form-group">
+                <label data-ur="⚠️ الرجی" data-en="⚠️ Allergy" data-roman="⚠️ Allergy">⚠️ الرجی</label>
+                <input type="text" id="editAllergy">
+            </div>
+        </div>
+        <div class="form-group">
+            <label data-ur="🏠 پتہ" data-en="🏠 Address" data-roman="🏠 Pata">🏠 پتہ</label>
+            <input type="text" id="editAddress">
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-success" id="saveEditPatientBtn">
+                <span data-ur="💾 محفوظ کریں" data-en="💾 Save Changes" data-roman="💾 Save">💾 محفوظ کریں</span>
+            </button>
+            <button class="btn btn-light" id="cancelEditPatientBtn">
+                <span data-ur="❌ منسوخ" data-en="❌ Cancel" data-roman="❌ Cancel">❌ منسوخ</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div id="confirmModal" class="modal-overlay">
+    <div class="modal modal-sm">
+        <div class="modal-title">
+            <span>⚠️ <span data-ur="تصدیق کریں" data-en="Confirm" data-roman="Tasdeeq">تصدیق کریں</span></span>
+            <button class="modal-close" id="closeConfirmBtn">✕</button>
+        </div>
+        <div id="confirmMessage" style="margin-bottom: 20px; color: #555; font-size: 15px;"></div>
+        <div class="action-buttons">
+            <button class="btn btn-danger" id="confirmYesBtn">
+                <span data-ur="🗑️ ہاں" data-en="🗑️ Yes" data-roman="🗑️ Haan">🗑️ ہاں</span>
+            </button>
+            <button class="btn btn-light" id="confirmNoBtn">
+                <span data-ur="❌ نہیں" data-en="❌ No" data-roman="❌ Nahi">❌ نہیں</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+// ==================== CONFIG ====================
+const SUPABASE_URL = 'https://eooujrqtmaxyuozdgfgc.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVvb3VqcnF0bWF4eXVvemRnZmdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5Mjg5NTgsImV4cCI6MjA5ODUwNDk1OH0.Qy4WigE8GIs8x8gm0jwv7pndEy5kMvN-kycozNdCNvU';
+
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+let currentLang = localStorage.getItem('clinic_lang') || 'ur';
+let currentUserData = null;
+let cachedPatients = [];
+let cachedVisits = [];
+let confirmCallback = null;
+
+// ==================== UTILITIES ====================
+function $(id) { return document.getElementById(id); }
+function $$(sel) { return document.querySelectorAll(sel); }
+
+function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function generateId(prefix) {
+    return prefix + '_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+}
+
+function showLoading() { $('loadingOverlay').classList.add('active'); }
+function hideLoading() { $('loadingOverlay').classList.remove('active'); }
+
+function showToast(msg, type) {
+    const toast = document.createElement('div');
+    toast.textContent = msg;
+    const bg = type === 'error' ? '#e74c3c' : '#2c3e50';
+    toast.style.cssText = 'position:fixed;top:70px;left:50%;transform:translateX(-50%);background:' + bg + ';color:white;padding:10px 20px;border-radius:20px;z-index:9999;font-size:14px;box-shadow:0 5px 20px rgba(0,0,0,0.3);max-width:90%;text-align:center;';
+    document.body.appendChild(toast);
+    setTimeout(function() { toast.remove(); }, 3000);
+}
+
+// ==================== GENDER ====================
+const GENDER_MAP = {
+    male:   { ur: 'مرد',  en: 'Male',   roman: 'Mard'  },
+    female: { ur: 'عورت', en: 'Female', roman: 'Aurat' },
+    boy:    { ur: 'بچہ',  en: 'Boy',    roman: 'Bacha' },
+    girl:   { ur: 'بچی',  en: 'Girl',   roman: 'Bachi' },
+    'مرد':   { ur: 'مرد',  en: 'Male',   roman: 'Mard'  },
+    'عورت': { ur: 'عورت', en: 'Female', roman: 'Aurat' },
+    'بچہ':  { ur: 'بچہ',  en: 'Boy',    roman: 'Bacha' },
+    'بچی':  { ur: 'بچی',  en: 'Girl',   roman: 'Bachi' }
+};
+
+function translateGender(gender) {
+    if (!gender) return '-';
+    const map = GENDER_MAP[gender];
+    return map ? (map[currentLang] || gender) : gender;
+}
+
+function getGenderBadgeClass(gender) {
+    if (gender === 'male' || gender === 'مرد') return 'badge-male';
+    if (gender === 'female' || gender === 'عورت') return 'badge-female';
+    return 'badge-child';
+}
+
+// ==================== LANGUAGE ====================
+const LANGUAGES = ['ur', 'en', 'roman'];
+
+function applyLanguage() {
+    document.body.className = 'lang-' + currentLang;
+    document.body.dir = currentLang === 'ur' ? 'rtl' : 'ltr';
+    document.documentElement.lang = currentLang;
+    $$('[data-ur]').forEach(function(el) {
+        const text = el.getAttribute('data-' + currentLang);
+        if (text) el.textContent = text;
+    });
+    const offlineTexts = {
+        ur: 'آپ آفلائن ہیں - ڈیٹا مقامی طور پر محفوظ ہو رہا ہے',
+        en: 'You are offline - Data saved locally',
+        roman: 'Aap offline hain - Data locally save ho raha hai'
+    };
+    if ($('offlineNoticeText')) $('offlineNoticeText').textContent = offlineTexts[currentLang];
+}
+
+function toggleLanguage() {
+    const idx = LANGUAGES.indexOf(currentLang);
+    currentLang = LANGUAGES[(idx + 1) % LANGUAGES.length];
+    localStorage.setItem('clinic_lang', currentLang);
+    applyLanguage();
+    const names = { ur: 'اردو', en: 'English', roman: 'Roman Urdu' };
+    showToast('🌐 ' + names[currentLang]);
+    const activePage = document.querySelector('.page.active');
+    if (activePage) {
+        const pageId = activePage.id.replace('page-', '');
+        if (pageId === 'dashboard') updateDashboard();
+        if (pageId === 'allPatients') showAllPatients();
+    }
+}
+
+// ==================== CONNECTION ====================
+function updateConnectionStatus(online) {
+    const el = $('connStatus');
+    if (!el) return;
+    const dot = el.querySelector('.status-dot');
+    const text = el.querySelector('.status-text');
+    if (online) {
+        dot.classList.remove('offline');
+        text.textContent = 'Online';
+        $('offlineNotice').classList.add('hidden');
+        setTimeout(syncPendingData, 1000);
+    } else {
+        dot.classList.add('offline');
+        text.textContent = 'Offline';
+        $('offlineNotice').classList.remove('hidden');
+    }
+}
+
+// ==================== PENDING (OFFLINE) DATA ====================
+function getPendingPatients() {
+    return JSON.parse(localStorage.getItem('pending_patients') || '[]');
+}
+function savePendingPatient(patient) {
+    const pending = getPendingPatients();
+    pending.push(patient);
+    localStorage.setItem('pending_patients', JSON.stringify(pending));
+    updatePendingBadge();
+}
+function getPendingVisits() {
+    return JSON.parse(localStorage.getItem('pending_visits') || '[]');
+}
+function savePendingVisit(visit) {
+    const pending = getPendingVisits();
+    pending.push(visit);
+    localStorage.setItem('pending_visits', JSON.stringify(pending));
+    updatePendingBadge();
+}
+function getPendingEdits() {
+    return JSON.parse(localStorage.getItem('pending_edits') || '[]');
+}
+function savePendingEdit(edit) {
+    const pending = getPendingEdits();
+    // Replace if same id exists
+    const idx = pending.findIndex(e => e.id === edit.id && e.type === edit.type);
+    if (idx >= 0) pending[idx] = edit;
+    else pending.push(edit);
+    localStorage.setItem('pending_edits', JSON.stringify(pending));
+    updatePendingBadge();
+}
+
+function updatePendingBadge() {
+    const pp = getPendingPatients().length;
+    const pv = getPendingVisits().length;
+    const pe = getPendingEdits().length;
+    const total = pp + pv + pe;
+    const badge = $('pendingBadge');
+    if (total > 0) {
+        badge.textContent = total;
+        badge.classList.remove('hidden');
+        const syncSection = $('syncSection');
+        if (syncSection) {
+            syncSection.classList.remove('hidden');
+            $('syncInfo').textContent = pp + ' patients, ' + pv + ' visits, ' + pe + ' edits pending';
+        }
+    } else {
+        badge.classList.add('hidden');
+        const syncSection = $('syncSection');
+        if (syncSection) syncSection.classList.add('hidden');
+    }
+}
+
+async function syncPendingData() {
+    if (!navigator.onLine) return;
+    
+    const pendingPatients = getPendingPatients();
+    const pendingVisits = getPendingVisits();
+    const pendingEdits = getPendingEdits();
+    
+    if (pendingPatients.length === 0 && pendingVisits.length === 0 && pendingEdits.length === 0) return;
+    
+    showToast('🔄 Syncing...');
+    let synced = 0, errors = 0;
+    const failedP = [], failedV = [], failedE = [];
+    
+    for (const p of pendingPatients) {
+        try { await savePatientDB(p); synced++; } catch(e) { failedP.push(p); errors++; }
+    }
+    for (const v of pendingVisits) {
+        try { await saveVisitDB(v); synced++; } catch(e) { failedV.push(v); errors++; }
+    }
+    for (const e of pendingEdits) {
+        try {
+            if (e.type === 'patient') await updatePatientDB(e.id, e.data);
+            else if (e.type === 'visit') await updateVisitDB(e.id, e.data);
+            synced++;
+        } catch(err) { failedE.push(e); errors++; }
+    }
+    
+    localStorage.setItem('pending_patients', JSON.stringify(failedP));
+    localStorage.setItem('pending_visits', JSON.stringify(failedV));
+    localStorage.setItem('pending_edits', JSON.stringify(failedE));
+    updatePendingBadge();
+    
+    if (synced > 0) {
+        showToast('✅ Synced: ' + synced + ' items');
+        await refreshCache();
+    }
+    if (errors > 0) showToast('⚠️ ' + errors + ' failed', 'error');
+}
+
+// ==================== DATABASE FUNCTIONS ====================
+function dbToPatient(db) {
+    return {
+        id: db.id, refNo: db.ref_no, familyNo: db.family_no,
+        name: db.name, fatherName: db.father_name, age: db.age,
+        gender: db.gender, weight: db.weight, allergy: db.allergy,
+        phone: db.phone, address: db.address, initialSymptoms: db.initial_symptoms,
+        createdAt: db.created_at, createdBy: db.created_by
+    };
+}
+
+function patientToDb(p) {
+    const obj = {
+        ref_no: p.refNo, family_no: p.familyNo || null,
+        name: p.name, father_name: p.fatherName || null, age: p.age || null,
+        gender: p.gender || null, weight: p.weight || null, allergy: p.allergy || null,
+        phone: p.phone, address: p.address || null, initial_symptoms: p.initialSymptoms || null,
+        created_by: p.createdBy || null
+    };
+    if (p.id) obj.id = p.id;
+    return obj;
+}
+
+function dbToVisit(db) {
+    return {
+        id: db.id, patientId: db.patient_id,
+        date: db.visit_date, time: db.visit_time,
+        symptoms: db.symptoms, diagnosis: db.diagnosis,
+        prescription: db.prescription, days: db.days,
+        bp: db.bp, sugar: db.sugar, temperature: db.temperature,
+        pulse: db.pulse, method: db.method, notes: db.notes,
+        type: db.visit_type || 'registration',
+        createdAt: db.created_at, createdBy: db.created_by
+    };
+}
+
+function visitToDb(v) {
+    const obj = {
+        patient_id: v.patientId,
+        visit_date: v.date, visit_time: v.time,
+        symptoms: v.symptoms || null, diagnosis: v.diagnosis || null,
+        prescription: v.prescription || null, days: v.days || null,
+        bp: v.bp || null, sugar: v.sugar || null,
+        temperature: v.temperature || null, pulse: v.pulse || null,
+        method: v.method || null, notes: v.notes || null,
+        visit_type: v.type || 'followup',
+        created_by: v.createdBy || null
+    };
+    if (v.id) obj.id = v.id;
+    return obj;
+}
+
+async function getPatients() {
+    try {
+        const r = await sb.from('patients').select('*').order('created_at', { ascending: false });
+        if (r.error) { console.error(r.error); return []; }
+        return r.data.map(dbToPatient);
+    } catch(e) { console.error(e); return []; }
+}
+
+async function getVisits() {
+    try {
+        const r = await sb.from('visits').select('*').order('created_at', { ascending: false });
+        if (r.error) { console.error(r.error); return []; }
+        return r.data.map(dbToVisit);
+    } catch(e) { console.error(e); return []; }
+}
+
+async function getVisitsByPatient(patientId) {
+    try {
+        const r = await sb.from('visits').select('*').eq('patient_id', patientId).order('visit_date', { ascending: false });
+        if (r.error) return [];
+        return r.data.map(dbToVisit);
+    } catch(e) { return []; }
+}
+
+async function savePatientDB(patient) {
+    const r = await sb.from('patients').insert([patientToDb(patient)]).select();
+    if (r.error) throw r.error;
+    return r.data[0];
+}
+
+async function saveVisitDB(visit) {
+    const r = await sb.from('visits').insert([visitToDb(visit)]).select();
+    if (r.error) throw r.error;
+    return r.data[0];
+}
+
+async function updatePatientDB(patientId, updates) {
+    const r = await sb.from('patients').update(updates).eq('id', patientId).select();
+    if (r.error) throw r.error;
+    return r.data[0];
+}
+
+async function updateVisitDB(visitId, updates) {
+    const r = await sb.from('visits').update(updates).eq('id', visitId).select();
+    if (r.error) throw r.error;
+    return r.data[0];
+}
+
+async function deletePatientDB(patientId) {
+    // CASCADE: delete visits first, then patient
+    await sb.from('visits').delete().eq('patient_id', patientId);
+    const r = await sb.from('patients').delete().eq('id', patientId);
+    if (r.error) throw r.error;
+}
+
+async function deleteVisitDB(visitId) {
+    const r = await sb.from('visits').delete().eq('id', visitId);
+    if (r.error) throw r.error;
+}
+
+async function loginDB(username, password) {
+    try {
+        const r = await sb.from('users').select('*').eq('username', username).eq('password', password);
+        if (r.error || !r.data || r.data.length === 0) return null;
+        return r.data[0];
+    } catch(e) { return null; }
+}
+
+// ==================== CACHE ====================
+async function refreshCache() {
+    if (navigator.onLine) {
+        try {
+            const dbPatients = await getPatients();
+            const dbVisits = await getVisits();
+            // Merge: DB data + pending offline data (deduplicated)
+            const pendingP = getPendingPatients();
+            const pendingV = getPendingVisits();
+            cachedPatients = mergeArrays(dbPatients, pendingP, 'id');
+            cachedVisits = mergeArrays(dbVisits, pendingV, 'id');
+            localStorage.setItem('cached_patients', JSON.stringify(cachedPatients));
+            localStorage.setItem('cached_visits', JSON.stringify(cachedVisits));
+        } catch(e) {
+            console.error('Cache refresh error:', e);
+            loadOfflineCache();
+        }
+    } else {
+        loadOfflineCache();
+    }
+}
+
+function loadOfflineCache() {
+    cachedPatients = JSON.parse(localStorage.getItem('cached_patients') || '[]');
+    cachedVisits = JSON.parse(localStorage.getItem('cached_visits') || '[]');
+    const pendingP = getPendingPatients();
+    const pendingV = getPendingVisits();
+    cachedPatients = mergeArrays(cachedPatients, pendingP, 'id');
+    cachedVisits = mergeArrays(cachedVisits, pendingV, 'id');
+}
+
+function mergeArrays(arr1, arr2, key) {
+    const map = new Map();
+    arr1.forEach(function(item) { map.set(item[key], item); });
+    arr2.forEach(function(item) { if (!map.has(item[key])) map.set(item[key], item); });
+    return Array.from(map.values());
+}
+
+// ==================== LOGIN ====================
+async function handleLogin() {
+    const username = $('loginUsername').value.trim();
+    const password = $('loginPassword').value.trim();
+    const errorDiv = $('loginError');
+    const loginBtn = $('loginBtn');
+    
+    if (!username || !password) {
+        errorDiv.textContent = '⚠️ Enter username and password';
+        errorDiv.classList.remove('hidden');
+        return;
+    }
+    
+    loginBtn.disabled = true;
+    loginBtn.innerHTML = '<span class="loading-inline"></span>';
+    
+    let user = null;
+    let isOffline = false;
+    
+    if (navigator.onLine) {
+        try {
+            user = await loginDB(username, password);
+            if (user) {
+                // Save for offline use (hashed)
+                const savedUsers = JSON.parse(localStorage.getItem('offline_users') || '[]');
+                const idx = savedUsers.findIndex(function(u) { return u.username === username; });
+                const toSave = { ...user, _pw: btoa(password) };
+                if (idx >= 0) savedUsers[idx] = toSave; else savedUsers.push(toSave);
+                localStorage.setItem('offline_users', JSON.stringify(savedUsers));
+            }
+        } catch(e) { console.error(e); }
+    }
+    
+    if (!user) {
+        const saved = JSON.parse(localStorage.getItem('offline_users') || '[]');
+        const match = saved.find(function(u) { return u.username === username && atob(u._pw) === password; });
+        if (match) { user = { ...match }; delete user._pw; isOffline = true; }
+    }
+    
+    if (user) {
+        currentUserData = user;
+        errorDiv.classList.add('hidden');
+        $('loginPage').classList.add('hidden');
+        $('mainApp').classList.remove('hidden');
+        
+        if (isOffline) { showToast('⚠️ Offline Mode', 'error'); loadOfflineCache(); }
+        else await refreshCache();
+        
+        updatePendingBadge();
+        await updateDashboard();
+        await generateRefNo();
+        if (navigator.onLine) setTimeout(syncPendingData, 2000);
+    } else {
+        errorDiv.textContent = navigator.onLine ? '❌ Wrong username or password' : '❌ Offline: Login online first';
+        errorDiv.classList.remove('hidden');
+    }
+    
+    loginBtn.disabled = false;
+    loginBtn.innerHTML = '<span data-ur="🔓 لاگ ان" data-en="🔓 Login" data-roman="🔓 Login">🔓 لاگ ان</span>';
+    applyLanguage();
+}
+
+function handleLogout() {
+    showConfirm('Logout?', function() {
+        currentUserData = null;
+        $('mainApp').classList.add('hidden');
+        $('loginPage').classList.remove('hidden');
+        $('loginUsername').value = '';
+        $('loginPassword').value = '';
+    });
+}
+
+// ==================== NAVIGATION ====================
+async function showPage(pageId, btn) {
+    $$('.page').forEach(function(p) { p.classList.remove('active'); });
+    $('page-' + pageId).classList.add('active');
+    $$('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
+    if (btn) btn.classList.add('active');
+    
+    if (pageId === 'dashboard') await updateDashboard();
+    if (pageId === 'allPatients') await showAllPatients();
+    if (pageId === 'newPatient') {
+        await generateRefNo();
+        const now = new Date();
+        $('firstVisitDate').value = now.toISOString().split('T')[0];
+        $('firstVisitTime').value = now.toTimeString().substring(0, 5);
+    }
+    if (pageId === 'settings') updatePendingBadge();
+    window.scrollTo(0, 0);
+}
+
+// ==================== DASHBOARD (FIXED STATS) ====================
+async function updateDashboard() {
+    await refreshCache();
+    const patients = cachedPatients;
+    const visits = cachedVisits;
+    const today = new Date().toISOString().split('T')[0];
+    const thisMonth = today.substring(0, 7);
+    
+    // ===== FIX: Correct counting logic =====
+    
+    // Total Patients = just unique patients count
+    const totalPatients = patients.length;
+    
+    // Follow-up visits ONLY (not registration visits)
+    const followupVisits = visits.filter(function(v) { return v.type === 'followup'; });
+    const totalFollowups = followupVisits.length;
+    
+    // Today's unique patients who had ANY activity today
+    const todayPatientIds = new Set();
+    
+    // Patients registered today
+    const todayRegistered = patients.filter(function(p) {
+        return p.createdAt && p.createdAt.startsWith(today);
+    });
+    todayRegistered.forEach(function(p) { todayPatientIds.add(p.id); });
+    
+    // Patients who had follow-up visits today
+    const todayFollowups = followupVisits.filter(function(v) { return v.date === today; });
+    todayFollowups.forEach(function(v) { todayPatientIds.add(v.patientId); });
+    
+    const todayCount = todayPatientIds.size;
+    
+    // This Month: unique patients who were active this month
+    const monthPatientIds = new Set();
+    
+    // Patients registered this month
+    patients.filter(function(p) {
+        return p.createdAt && p.createdAt.startsWith(thisMonth);
+    }).forEach(function(p) { monthPatientIds.add(p.id); });
+    
+    // Patients who had follow-up visits this month
+    followupVisits.filter(function(v) {
+        return v.date && v.date.startsWith(thisMonth);
+    }).forEach(function(v) { monthPatientIds.add(v.patientId); });
+    
+    const monthCount = monthPatientIds.size;
+    
+    // Update display
+    $('statTotal').textContent = totalPatients;
+    $('statToday').textContent = todayCount;
+    $('statMonth').textContent = monthCount;
+    $('statFollowups').textContent = totalFollowups;
+    
+    // ===== Today's Activity List =====
+    const todayDiv = $('todayPatientsList');
+    
+    if (todayPatientIds.size === 0) {
+        const emptyText = { ur: 'آج ابھی کوئی سرگرمی نہیں', en: 'No activity today', roman: 'Aaj abhi koi activity nahi' };
+        todayDiv.innerHTML = '<div class="empty-state"><div class="icon">📋</div><p>' + emptyText[currentLang] + '</p></div>';
+    } else {
+        const activities = [];
+        
+        // Add today's registrations
+        todayRegistered.forEach(function(p) {
+            const time = p.createdAt ? new Date(p.createdAt).toTimeString().substring(0, 5) : '';
+            activities.push({ patient: p, time: time, type: 'registered' });
+        });
+        
+        // Add today's follow-up visits (only if not already in registrations)
+        todayFollowups.forEach(function(v) {
+            const patient = patients.find(function(p) { return p.id === v.patientId; });
+            if (patient && !todayRegistered.find(function(p) { return p.id === v.patientId; })) {
+                activities.push({ patient: patient, time: v.time || '', type: 'followup' });
+            }
+        });
+        
+        activities.sort(function(a, b) { return (b.time || '').localeCompare(a.time || ''); });
+        
+        const badgeTexts = {
+            ur: { followup: 'فالو اپ', registered: 'نئی رجسٹریشن' },
+            en: { followup: 'Follow-up', registered: 'New Registration' },
+            roman: { followup: 'Follow-up', registered: 'Nayi Registration' }
+        };
+        
+        let html = '<ul class="today-list">';
+        activities.forEach(function(a) {
+            const genderBadge = getGenderBadgeClass(a.patient.gender);
+            const actBadge = a.type === 'followup' ? 'badge-visit' : 'badge-registered';
+            html += '<li onclick="showPatientDetail(\'' + escapeHtml(a.patient.id) + '\')"><div>';
+            html += '<div class="patient-list-name">' + escapeHtml(a.patient.name) + '</div>';
+            html += '<div class="patient-list-time">' + escapeHtml(a.patient.refNo) + ' | ' + escapeHtml(a.time) + ' ';
+            html += '<span class="badge ' + actBadge + '">' + badgeTexts[currentLang][a.type] + '</span></div>';
+            html += '</div><span class="badge ' + genderBadge + '">' + translateGender(a.patient.gender) + '</span></li>';
+        });
+        html += '</ul>';
+        todayDiv.innerHTML = html;
+    }
+}
+
+// ==================== REF NUMBER ====================
+async function generateRefNo() {
+    const allPatients = mergeArrays(cachedPatients, getPendingPatients(), 'id');
+    const now = new Date();
+    const currentMonth = String(now.getMonth() + 1).padStart(2, '0');
+    
+    let maxNo = 0;
+    allPatients.forEach(function(p) {
+        if (p.refNo) {
+            const parts = p.refNo.split('/')[0].split('-');
+            const num = parseInt(parts[1]) || 0;
+            if (num > maxNo) maxNo = num;
+        }
+    });
+    
+    $('refNo').value = 'BHC-' + String(maxNo + 1).padStart(4, '0') + '/' + currentMonth;
+}
+
+function checkFamilyByPhone() {
+    const phone = $('phone').value.trim();
+    const familyInput = $('familyNo');
+    const hint = $('familyHint');
+    
+    if (phone && !familyInput.value) {
+        const existing = cachedPatients.filter(function(p) { return p.phone === phone && p.familyNo; });
+        if (existing.length > 0) {
+            familyInput.value = existing[0].familyNo;
+            const members = cachedPatients.filter(function(p) { return p.familyNo === existing[0].familyNo; });
+            hint.textContent = '✅ Family found (' + members.length + ' members)';
+            hint.style.color = '#27ae60';
+        }
+    }
+}
+
+// ==================== SAVE NEW PATIENT (FIXED) ====================
+async function saveNewPatient() {
+    const name = $('patientName').value.trim();
+    const phone = $('phone').value.trim();
+    let familyNo = $('familyNo').value.trim();
+    const msgDiv = $('newPatientMsg');
+    const saveBtn = $('savePatientBtn');
+    
+    if (!name) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ Name required</div>'; window.scrollTo(0,0); return; }
+    if (!phone) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ Phone required</div>'; window.scrollTo(0,0); return; }
+    
+    saveBtn.disabled = true;
+    saveBtn.innerHTML = '<span class="loading-inline"></span>';
+    
+    try {
+        // Duplicate check
+        const allP = mergeArrays(cachedPatients, getPendingPatients(), 'id');
+        const dup = allP.find(function(p) { return p.phone === phone && p.name.toLowerCase() === name.toLowerCase(); });
+        if (dup) {
+            msgDiv.innerHTML = '<div class="alert alert-error">⚠️ Patient exists (' + escapeHtml(dup.refNo) + ')</div>';
+            saveBtn.disabled = false;
+            saveBtn.innerHTML = '<span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Save">💾 Save</span>';
+            applyLanguage(); window.scrollTo(0,0); return;
+        }
+        
+        // Family number
+        if (familyNo) {
+            if (!familyNo.match(/^F-/i)) familyNo = 'F-' + familyNo.replace(/\D/g, '').padStart(4, '0');
+            familyNo = familyNo.toUpperCase();
+        } else {
+            const existing = allP.find(function(p) { return p.phone === phone && p.familyNo; });
+            familyNo = existing ? existing.familyNo : null;
+        }
+        
+        const patientId = generateId('P');
+        const newPatient = {
+            id: patientId, refNo: $('refNo').value, familyNo: familyNo,
+            name: name, fatherName: $('fatherName').value.trim(),
+            age: $('age').value.trim(), gender: $('gender').value,
+            weight: $('weight').value.trim(), allergy: $('allergy').value.trim(),
+            phone: phone, address: $('address').value.trim(),
+            initialSymptoms: $('firstVisitSymptoms').value.trim(),
+            createdAt: new Date().toISOString(),
+            createdBy: currentUserData ? currentUserData.name : 'Unknown'
+        };
+        
+        // First visit (type = 'registration')
+        const firstVisitDate = $('firstVisitDate').value || new Date().toISOString().split('T')[0];
+        const firstVisitTime = $('firstVisitTime').value || new Date().toTimeString().substring(0, 5);
+        
+        const firstVisit = {
+            id: generateId('V'), patientId: patientId,
+            date: firstVisitDate, time: firstVisitTime,
+            symptoms: $('firstVisitSymptoms').value.trim(),
+            diagnosis: $('firstVisitDiagnosis').value.trim(),
+            prescription: $('firstVisitPrescription').value.trim(),
+            method: $('firstVisitMethod').value.trim(),
+            days: $('firstVisitDays').value.trim(),
+            notes: $('firstVisitNotes').value.trim(),
+            bp: $('firstBP').value.trim(), sugar: $('firstSugar').value.trim(),
+            temperature: $('firstTemp').value.trim(), pulse: $('firstPulse').value.trim(),
+            type: 'registration',  // ← KEY FIX: mark as registration, NOT followup
+            createdAt: new Date().toISOString(),
+            createdBy: currentUserData ? currentUserData.name : 'Unknown'
+        };
+        
+        let savedOnline = false;
+        if (navigator.onLine) {
+            try {
+                await savePatientDB(newPatient);
+                await saveVisitDB(firstVisit);
+                savedOnline = true;
+                await refreshCache();
+            } catch(err) {
+                console.error('Online save failed:', err);
+            }
+        }
+        
+        if (!savedOnline) {
+            savePendingPatient(newPatient);
+            savePendingVisit(firstVisit);
+            cachedPatients.unshift(newPatient);
+            cachedVisits.unshift(firstVisit);
+            localStorage.setItem('cached_patients', JSON.stringify(cachedPatients));
+            localStorage.setItem('cached_visits', JSON.stringify(cachedVisits));
+        }
+        
+        const mode = savedOnline ? '' : ' (saved offline)';
+        msgDiv.innerHTML = '<div class="alert alert-success">✅ "' + escapeHtml(name) + '" saved!' + mode + '</div>';
+        clearNewPatientForm();
+        await generateRefNo();
+        window.scrollTo(0, 0);
+    } catch(err) {
+        msgDiv.innerHTML = '<div class="alert alert-error">❌ ' + escapeHtml(err.message) + '</div>';
+        window.scrollTo(0, 0);
+    } finally {
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = '<span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Save">💾 Save</span>';
+        applyLanguage();
+        setTimeout(function() { msgDiv.innerHTML = ''; }, 8000);
+    }
+}
+
+function clearNewPatientForm() {
+    ['patientName', 'familyNo', 'fatherName', 'age', 'weight', 'allergy', 'phone', 'address',
+     'firstVisitSymptoms', 'firstVisitDiagnosis', 'firstVisitPrescription', 'firstVisitMethod',
+     'firstVisitDays', 'firstVisitNotes', 'firstBP', 'firstSugar', 'firstTemp', 'firstPulse'].forEach(function(id) {
+        if ($(id)) $(id).value = '';
+    });
+    $('gender').value = '';
+    const now = new Date();
+    $('firstVisitDate').value = now.toISOString().split('T')[0];
+    $('firstVisitTime').value = now.toTimeString().substring(0, 5);
+}
+
+// ==================== CONFIRM ====================
+function showConfirm(message, callback) {
+    $('confirmMessage').innerHTML = message;
+    confirmCallback = callback;
+    $('confirmModal').classList.add('active');
+}
+function closeConfirmModal() {
+    $('confirmModal').classList.remove('active');
+    confirmCallback = null;
+}
+
+// ==================== DELETE ====================
+async function confirmDeletePatient(patientId) {
+    const patient = cachedPatients.find(function(p) { return p.id === patientId; });
+    if (!patient) return;
+    const visits = cachedVisits.filter(function(v) { return v.patientId === patientId; });
+    
+    showConfirm('Delete <b>' + escapeHtml(patient.name) + '</b> and <b>' + visits.length + '</b> consultations?', async function() {
+        showLoading();
+        try {
+            if (navigator.onLine) {
+                await deletePatientDB(patientId);
+            }
+            // Remove from caches
+            cachedPatients = cachedPatients.filter(function(p) { return p.id !== patientId; });
+            cachedVisits = cachedVisits.filter(function(v) { return v.patientId !== patientId; });
+            localStorage.setItem('pending_patients', JSON.stringify(getPendingPatients().filter(function(p) { return p.id !== patientId; })));
+            localStorage.setItem('pending_visits', JSON.stringify(getPendingVisits().filter(function(v) { return v.patientId !== patientId; })));
+            localStorage.setItem('cached_patients', JSON.stringify(cachedPatients));
+            localStorage.setItem('cached_visits', JSON.stringify(cachedVisits));
+            updatePendingBadge();
+            showToast('🗑️ Deleted');
+            showPage('allPatients', $$('.nav-btn')[3]);
+        } catch(err) { showToast('❌ ' + err.message, 'error'); }
+        finally { hideLoading(); }
+    });
+}
+
+async function confirmDeleteVisit(visitId, patientId) {
+    showConfirm('Delete this consultation?', async function() {
+        showLoading();
+        try {
+            if (navigator.onLine) await deleteVisitDB(visitId);
+            cachedVisits = cachedVisits.filter(function(v) { return v.id !== visitId; });
+            localStorage.setItem('pending_visits', JSON.stringify(getPendingVisits().filter(function(v) { return v.id !== visitId; })));
+            localStorage.setItem('cached_visits', JSON.stringify(cachedVisits));
+            updatePendingBadge();
+            showToast('🗑️ Deleted');
+            showPatientDetail(patientId);
+        } catch(err) { showToast('❌ ' + err.message, 'error'); }
+        finally { hideLoading(); }
+    });
+}
+
+// ==================== SEARCH ====================
+function searchPatients() {
+    const query = $('searchInput').value.trim().toLowerCase();
+    const div = $('searchResults');
+    
+    if (!query) {
+        div.innerHTML = '<div class="empty-state"><div class="icon">🔍</div><p>Type to search...</p></div>';
+        return;
+    }
+    
+    const results = cachedPatients.filter(function(p) {
+        return (p.name && p.name.toLowerCase().includes(query)) ||
+            (p.phone && p.phone.includes(query)) ||
+            (p.refNo && p.refNo.toLowerCase().includes(query)) ||
+            (p.familyNo && p.familyNo.toLowerCase().includes(query)) ||
+            (p.fatherName && p.fatherName.toLowerCase().includes(query));
+    });
+    
+    if (results.length === 0) {
+        div.innerHTML = '<div class="empty-state"><div class="icon">😔</div><p>No results</p></div>';
+        return;
+    }
+    div.innerHTML = renderPatientsTable(results);
+}
+
+async function showAllPatients() {
+    await refreshCache();
+    const div = $('allPatientsList');
+    if (cachedPatients.length === 0) {
+        div.innerHTML = '<div class="empty-state"><div class="icon">📋</div><p>No patients</p></div>';
+        return;
+    }
+    div.innerHTML = renderPatientsTable(cachedPatients);
+}
+
+function renderPatientsTable(patients) {
+    const h = {
+        ur: ['حوالہ', 'فیملی', 'نام', 'ولدیت', 'عمر', 'جنس', 'فون', 'فالو اپ', 'ایکشن'],
+        en: ['Ref', 'Family', 'Name', 'Father', 'Age', 'Gender', 'Phone', 'Follow-ups', 'Action'],
+        roman: ['Ref', 'Family', 'Naam', 'Waldiyat', 'Umar', 'Jins', 'Phone', 'Follow-ups', 'Action']
+    }[currentLang];
+    
+    let html = '<div class="table-container"><table><thead><tr>';
+    h.forEach(function(header, i) {
+        const cls = [1,4,5,6,7,8].includes(i) ? ' class="td-center"' : '';
+        html += '<th' + cls + '>' + header + '</th>';
+    });
+    html += '</tr></thead><tbody>';
+    
+    patients.forEach(function(p) {
+        // Count only follow-up visits (not registration)
+        const followups = cachedVisits.filter(function(v) { return v.patientId === p.id && v.type === 'followup'; });
+        const gBadge = getGenderBadgeClass(p.gender);
+        const isPending = getPendingPatients().find(function(pp) { return pp.id === p.id; });
+        
+        let familyCell = p.familyNo ?
+            '<span class="family-badge" onclick="event.stopPropagation();showFamilyMembers(\'' + escapeHtml(p.familyNo) + '\')">' + escapeHtml(p.familyNo) + '</span>' :
+            '<span class="family-badge-empty">-</span>';
+        
+        html += '<tr>';
+        html += '<td><strong>' + escapeHtml(p.refNo) + '</strong>' + (isPending ? ' <span class="badge badge-pending">🔄</span>' : '') + '</td>';
+        html += '<td class="td-center">' + familyCell + '</td>';
+        html += '<td>' + escapeHtml(p.name) + '</td>';
+        html += '<td>' + escapeHtml(p.fatherName || '-') + '</td>';
+        html += '<td class="td-center">' + escapeHtml(p.age || '-') + '</td>';
+        html += '<td class="td-center"><span class="badge ' + gBadge + '">' + translateGender(p.gender) + '</span></td>';
+        html += '<td class="td-phone td-center">' + escapeHtml(p.phone) + '</td>';
+        html += '<td class="td-center"><strong>' + followups.length + '</strong></td>';
+        html += '<td class="td-center"><div class="action-icons">';
+        html += '<button class="btn btn-primary btn-xs" onclick="showPatientDetail(\'' + p.id + '\')">👁️</button> ';
+        html += '<button class="btn btn-edit btn-xs" onclick="openEditPatientModal(\'' + p.id + '\')">✏️</button> ';
+        html += '<button class="btn btn-danger btn-xs" onclick="confirmDeletePatient(\'' + p.id + '\')">🗑️</button>';
+        html += '</div></td></tr>';
+    });
+    html += '</tbody></table></div><div style="margin-top:10px;color:#7f8c8d;font-size:12px;">Total: ' + patients.length + '</div>';
+    return html;
+}
+
+function showFamilyMembers(familyNo) {
+    if (!familyNo) return;
+    const members = cachedPatients.filter(function(p) { return p.familyNo === familyNo; });
+    const div = $('familyMembersContent');
+    let html = '<div class="card-title" style="display:flex;justify-content:space-between;align-items:center;">';
+    html += '<span>👨‍👩‍👧‍👦 Family: ' + escapeHtml(familyNo) + ' (' + members.length + ')</span>';
+    html += '<button class="btn btn-light btn-sm" onclick="showPage(\'allPatients\',document.querySelectorAll(\'.nav-btn\')[3])">🔙 Back</button></div>';
+    html += members.length ? renderPatientsTable(members) : '<div class="empty-state"><p>No members</p></div>';
+    div.innerHTML = html;
+    $$('.page').forEach(function(p) { p.classList.remove('active'); });
+    $('page-familyMembers').classList.add('active');
+    $$('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
+    window.scrollTo(0, 0);
+}
+
+// ==================== PATIENT DETAIL (with EDIT buttons) ====================
+async function showPatientDetail(patientId) {
+    const patient = cachedPatients.find(function(p) { return p.id === patientId; });
+    if (!patient) { showPage('allPatients', $$('.nav-btn')[3]); return; }
+    
+    let visits;
+    if (navigator.onLine && !getPendingPatients().find(function(p) { return p.id === patientId; })) {
+        visits = await getVisitsByPatient(patientId);
+        const pendingForP = getPendingVisits().filter(function(v) { return v.patientId === patientId; });
+        visits = mergeArrays(visits, pendingForP, 'id');
+    } else {
+        visits = cachedVisits.filter(function(v) { return v.patientId === patientId; });
+    }
+    
+    // Sort oldest first for numbering
+    visits.sort(function(a, b) { return new Date(a.date + ' ' + (a.time||'')) - new Date(b.date + ' ' + (b.time||'')); });
+    
+    const familyMembers = patient.familyNo ? cachedPatients.filter(function(p) { return p.familyNo === patient.familyNo; }) : [];
+    
+    // Follow-ups count (exclude registration visit)
+    const followupCount = visits.filter(function(v) { return v.type === 'followup'; }).length;
+    
+    let html = '<div class="patient-header">';
+    html += '<div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:10px;">';
+    html += '<div><h2>' + escapeHtml(patient.name) + '</h2>';
+    html += '<div style="opacity:0.8;font-size:13px;">Ref: ' + escapeHtml(patient.refNo);
+    if (patient.familyNo) html += ' | Family: ' + escapeHtml(patient.familyNo);
+    html += ' | Follow-ups: ' + followupCount;
+    html += '</div></div>';
+    html += '<div style="display:flex;gap:5px;flex-wrap:wrap;">';
+    html += '<button class="btn btn-edit btn-sm" onclick="openEditPatientModal(\'' + patient.id + '\')">✏️ Edit Bio</button>';
+    html += '<button class="btn btn-warning btn-sm" onclick="openVisitModal(\'' + patient.id + '\')">➕ New Visit</button>';
+    if (patient.familyNo) html += '<button class="btn btn-info btn-sm" onclick="showFamilyMembers(\'' + escapeHtml(patient.familyNo) + '\')">👨‍👩‍👧‍👦 (' + familyMembers.length + ')</button>';
+    html += '<button class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;" onclick="showPage(\'allPatients\',document.querySelectorAll(\'.nav-btn\')[3])">🔙</button>';
+    html += '<button class="btn btn-danger btn-sm" onclick="confirmDeletePatient(\'' + patient.id + '\')">🗑️</button>';
+    html += '</div></div>';
+    
+    html += '<div class="patient-info-grid" style="margin-top:15px;">';
+    const fields = [
+        ['Father', patient.fatherName], ['Age', patient.age],
+        ['Gender', translateGender(patient.gender)], ['Weight', patient.weight],
+        ['Phone', patient.phone], ['Allergy', patient.allergy],
+        ['Address', patient.address], ['By', patient.createdBy]
+    ];
+    fields.forEach(function(f) {
+        html += '<div class="patient-info-item"><strong>' + f[0] + ':</strong> ' + escapeHtml(f[1] || '-') + '</div>';
+    });
+    html += '</div></div>';
+    
+    // Visits
+    html += '<div class="card"><div class="card-title" style="display:flex;justify-content:space-between;align-items:center;">';
+    html += '<span>📋 Consultations (' + visits.length + ')</span>';
+    html += '<button class="btn btn-success btn-sm" onclick="openVisitModal(\'' + patient.id + '\')">➕ New Visit</button></div>';
+    
+    if (visits.length === 0) {
+        html += '<div class="empty-state"><div class="icon">📝</div><p>No consultations</p></div>';
+    } else {
+        const displayVisits = [...visits].reverse(); // newest first for display
+        let followupNum = followupCount;
+        
+        displayVisits.forEach(function(v) {
+            const isReg = v.type === 'registration' || v.type === undefined;
+            let visitLabel, cardClass;
+            
+            if (isReg) {
+                visitLabel = '<span class="visit-type-badge visit-type-registration">🌟 Registration</span>';
+                cardClass = 'visit-card registration';
+            } else {
+                visitLabel = '<span class="visit-type-badge visit-type-visit">Follow-up #' + followupNum + '</span>';
+                followupNum--;
+                cardClass = 'visit-card';
+            }
+            
+            html += '<div class="' + cardClass + '"><div class="visit-date">';
+            html += '<span>' + visitLabel + ' 📅 ' + escapeHtml(v.date || '-') + ' 🕐 ' + escapeHtml(v.time || '-') + '</span>';
+            html += '<div class="visit-actions">';
+            html += '<button class="btn btn-edit btn-xs" onclick="openEditVisitModal(\'' + v.id + '\',\'' + patient.id + '\')">✏️</button> ';
+            html += '<button class="btn btn-danger btn-xs" onclick="confirmDeleteVisit(\'' + v.id + '\',\'' + patient.id + '\')">🗑️</button>';
+            html += '</div></div>';
+            
+            // Vitals
+            if (v.bp || v.sugar || v.temperature || v.pulse) {
+                html += '<div class="vitals-display">';
+                if (v.bp) html += '<span><strong>BP:</strong> ' + escapeHtml(v.bp) + '</span>';
+                if (v.sugar) html += '<span><strong>Sugar:</strong> ' + escapeHtml(v.sugar) + '</span>';
+                if (v.temperature) html += '<span><strong>Temp:</strong> ' + escapeHtml(v.temperature) + '</span>';
+                if (v.pulse) html += '<span><strong>Pulse:</strong> ' + escapeHtml(v.pulse) + '</span>';
+                html += '</div>';
+            }
+            
+            html += '<div class="visit-detail">';
+            const details = [
+                ['📝 Symptoms', v.symptoms], ['🔬 Diagnosis', v.diagnosis],
+                ['💊 Prescription', v.prescription], ['📖 Method', v.method],
+                ['📆 Days', v.days]
+            ];
+            details.forEach(function(d) {
+                html += '<div class="visit-detail-item"><div class="label">' + d[0] + '</div><div>' + escapeHtml(d[1] || '-') + '</div></div>';
+            });
+            if (v.notes) html += '<div class="visit-detail-item"><div class="label">📝 Notes</div><div>' + escapeHtml(v.notes) + '</div></div>';
+            html += '</div>';
+            html += '<div style="margin-top:6px;font-size:11px;color:#95a5a6;">By: ' + escapeHtml(v.createdBy || '-') + '</div></div>';
+        });
+    }
+    html += '</div>';
+    
+    $('patientDetailContent').innerHTML = html;
+    $$('.page').forEach(function(p) { p.classList.remove('active'); });
+    $('page-patientDetail').classList.add('active');
+    $$('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
+    window.scrollTo(0, 0);
+}
+
+// ==================== EDIT PATIENT BIO ====================
+function openEditPatientModal(patientId) {
+    const patient = cachedPatients.find(function(p) { return p.id === patientId; });
+    if (!patient) return;
+    
+    $('editPatientId').value = patientId;
+    $('editName').value = patient.name || '';
+    $('editPhone').value = patient.phone || '';
+    $('editFatherName').value = patient.fatherName || '';
+    $('editAge').value = patient.age || '';
+    $('editGender').value = patient.gender || '';
+    $('editWeight').value = patient.weight || '';
+    $('editFamilyNo').value = patient.familyNo || '';
+    $('editAllergy').value = patient.allergy || '';
+    $('editAddress').value = patient.address || '';
+    $('editPatientMsg').innerHTML = '';
+    
+    const titles = { ur: '✏️ معلومات میں ترمیم: ' + patient.name, en: '✏️ Edit: ' + patient.name, roman: '✏️ Edit: ' + patient.name };
+    $('editPatientModalTitle').textContent = titles[currentLang];
+    
+    $('editPatientModal').classList.add('active');
+}
+
+function closeEditPatientModal() {
+    $('editPatientModal').classList.remove('active');
+}
+
+async function saveEditPatient() {
+    const patientId = $('editPatientId').value;
+    const name = $('editName').value.trim();
+    const phone = $('editPhone').value.trim();
+    const msgDiv = $('editPatientMsg');
+    const saveBtn = $('saveEditPatientBtn');
+    
+    if (!name) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ Name required</div>'; return; }
+    if (!phone) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ Phone required</div>'; return; }
+    
+    saveBtn.disabled = true;
+    saveBtn.innerHTML = '<span class="loading-inline"></span>';
+    
+    let familyNo = $('editFamilyNo').value.trim();
+    if (familyNo && !familyNo.match(/^F-/i)) familyNo = 'F-' + familyNo.replace(/\D/g, '').padStart(4, '0');
+    if (familyNo) familyNo = familyNo.toUpperCase();
+    
+    const updates = {
+        name: name, phone: phone,
+        father_name: $('editFatherName').value.trim() || null,
+        age: $('editAge').value.trim() || null,
+        gender: $('editGender').value || null,
+        weight: $('editWeight').value.trim() || null,
+        family_no: familyNo || null,
+        allergy: $('editAllergy').value.trim() || null,
+        address: $('editAddress').value.trim() || null
+    };
+    
+    try {
+        let savedOnline = false;
+        if (navigator.onLine) {
+            try {
+                await updatePatientDB(patientId, updates);
+                savedOnline = true;
+            } catch(e) { console.error('Online edit failed:', e); }
+        }
+        
+        if (!savedOnline) {
+            savePendingEdit({ id: patientId, type: 'patient', data: updates });
+        }
+        
+        // Update local cache
+        const idx = cachedPatients.findIndex(function(p) { return p.id === patientId; });
+        if (idx >= 0) {
+            cachedPatients[idx].name = name;
+            cachedPatients[idx].phone = phone;
+            cachedPatients[idx].fatherName = updates.father_name;
+            cachedPatients[idx].age = updates.age;
+            cachedPatients[idx].gender = updates.gender;
+            cachedPatients[idx].weight = updates.weight;
+            cachedPatients[idx].familyNo = updates.family_no;
+            cachedPatients[idx].allergy = updates.allergy;
+            cachedPatients[idx].address = updates.address;
+        }
+        localStorage.setItem('cached_patients', JSON.stringify(cachedPatients));
+        
+        closeEditPatientModal();
+        showToast('✅ Updated!' + (savedOnline ? '' : ' (offline)'));
+        await showPatientDetail(patientId);
+    } catch(err) {
+        msgDiv.innerHTML = '<div class="alert alert-error">❌ ' + escapeHtml(err.message) + '</div>';
+    } finally {
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = '<span data-ur="💾 محفوظ کریں" data-en="💾 Save Changes" data-roman="💾 Save">💾 Save</span>';
+        applyLanguage();
+    }
+}
+
+// ==================== VISIT MODAL (ADD + EDIT) ====================
+function openVisitModal(patientId) {
+    const patient = cachedPatients.find(function(p) { return p.id === patientId; });
+    if (!patient) return;
+    
+    $('visitPatientId').value = patientId;
+    $('editVisitId').value = ''; // Empty = new visit
+    
+    const followups = cachedVisits.filter(function(v) { return v.patientId === patientId && v.type === 'followup'; });
+    const nextNum = followups.length + 1;
+    
+    $('visitModalTitle').textContent = '➕ Follow-up #' + nextNum + ' - ' + patient.name;
+    $('visitPatientInfo').innerHTML = '👤 <strong>' + escapeHtml(patient.name) + '</strong> | ' + escapeHtml(patient.refNo);
+    
+    const now = new Date();
+    $('visitDate').value = now.toISOString().split('T')[0];
+    $('visitTime').value = now.toTimeString().substring(0, 5);
+    
+    ['visitSymptoms','visitDiagnosis','visitPrescription','visitMethod','visitDays','visitNotes',
+     'visitBP','visitSugar','visitTemp','visitPulse'].forEach(function(id) { $(id).value = ''; });
+    
+    $('visitMsg').innerHTML = '';
+    $('visitModal').classList.add('active');
+}
+
+function openEditVisitModal(visitId, patientId) {
+    const visit = cachedVisits.find(function(v) { return v.id === visitId; });
+    const patient = cachedPatients.find(function(p) { return p.id === patientId; });
+    if (!visit || !patient) return;
+    
+    $('visitPatientId').value = patientId;
+    $('editVisitId').value = visitId; // Has value = editing
+    
+    $('visitModalTitle').textContent = '✏️ Edit Consultation - ' + patient.name;
+    $('visitPatientInfo').innerHTML = '👤 <strong>' + escapeHtml(patient.name) + '</strong> | ' + escapeHtml(patient.refNo);
+    
+    $('visitDate').value = visit.date || '';
+    $('visitTime').value = visit.time || '';
+    $('visitSymptoms').value = visit.symptoms || '';
+    $('visitDiagnosis').value = visit.diagnosis || '';
+    $('visitPrescription').value = visit.prescription || '';
+    $('visitMethod').value = visit.method || '';
+    $('visitDays').value = visit.days || '';
+    $('visitNotes').value = visit.notes || '';
+    $('visitBP').value = visit.bp || '';
+    $('visitSugar').value = visit.sugar || '';
+    $('visitTemp').value = visit.temperature || '';
+    $('visitPulse').value = visit.pulse || '';
+    
+    $('visitMsg').innerHTML = '';
+    $('visitModal').classList.add('active');
+}
+
+function closeVisitModal() { $('visitModal').classList.remove('active'); }
+
+async function saveVisit() {
+    const patientId = $('visitPatientId').value;
+    const editingId = $('editVisitId').value;
+    const isEditing = !!editingId;
+    const symptoms = $('visitSymptoms').value.trim();
+    const msgDiv = $('visitMsg');
+    const saveBtn = $('saveVisitBtn');
+    
+    if (!symptoms) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ Symptoms required</div>'; return; }
+    
+    saveBtn.disabled = true;
+    saveBtn.innerHTML = '<span class="loading-inline"></span>';
+    
+    const visitData = {
+        date: $('visitDate').value, time: $('visitTime').value,
+        symptoms: symptoms, diagnosis: $('visitDiagnosis').value.trim(),
+        prescription: $('visitPrescription').value.trim(), method: $('visitMethod').value.trim(),
+        days: $('visitDays').value.trim(), notes: $('visitNotes').value.trim(),
+        bp: $('visitBP').value.trim(), sugar: $('visitSugar').value.trim(),
+        temperature: $('visitTemp').value.trim(), pulse: $('visitPulse').value.trim()
+    };
+    
+    try {
+        if (isEditing) {
+            // UPDATE existing visit
+            const dbUpdates = {
+                visit_date: visitData.date, visit_time: visitData.time,
+                symptoms: visitData.symptoms || null, diagnosis: visitData.diagnosis || null,
+                prescription: visitData.prescription || null, method: visitData.method || null,
+                days: visitData.days || null, notes: visitData.notes || null,
+                bp: visitData.bp || null, sugar: visitData.sugar || null,
+                temperature: visitData.temperature || null, pulse: visitData.pulse || null
+            };
+            
+            let savedOnline = false;
+            if (navigator.onLine) {
+                try { await updateVisitDB(editingId, dbUpdates); savedOnline = true; } catch(e) { console.error(e); }
+            }
+            if (!savedOnline) savePendingEdit({ id: editingId, type: 'visit', data: dbUpdates });
+            
+            // Update cache
+            const idx = cachedVisits.findIndex(function(v) { return v.id === editingId; });
+            if (idx >= 0) {
+                Object.assign(cachedVisits[idx], visitData);
+            }
+            localStorage.setItem('cached_visits', JSON.stringify(cachedVisits));
+            
+            closeVisitModal();
+            showToast('✅ Updated!' + (savedOnline ? '' : ' (offline)'));
+        } else {
+            // NEW visit
+            const newVisit = {
+                id: generateId('V'), patientId: patientId,
+                ...visitData,
+                type: 'followup',  // ← KEY: follow-up, not registration
+                createdAt: new Date().toISOString(),
+                createdBy: currentUserData ? currentUserData.name : 'Unknown'
+            };
+            
+            let savedOnline = false;
+            if (navigator.onLine) {
+                try { await saveVisitDB(newVisit); savedOnline = true; await refreshCache(); } catch(e) { console.error(e); }
+            }
+            if (!savedOnline) {
+                savePendingVisit(newVisit);
+                cachedVisits.unshift(newVisit);
+                localStorage.setItem('cached_visits', JSON.stringify(cachedVisits));
+            }
+            
+            closeVisitModal();
+            showToast('✅ Saved!' + (savedOnline ? '' : ' (offline)'));
+        }
+        
+        showPatientDetail(patientId);
+    } catch(err) {
+        msgDiv.innerHTML = '<div class="alert alert-error">❌ ' + escapeHtml(err.message) + '</div>';
+    } finally {
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = '<span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Save">💾 Save</span>';
+        applyLanguage();
+    }
+}
+
+// ==================== EXPORT / IMPORT ====================
+async function exportData() {
+    showLoading();
+    try {
+        const data = { patients: cachedPatients, visits: cachedVisits, exportDate: new Date().toISOString() };
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'clinic-backup-' + new Date().toISOString().split('T')[0] + '.json';
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast('✅ Backup downloaded!');
+    } catch(e) { showToast('❌ ' + e.message, 'error'); }
+    finally { hideLoading(); }
+}
+
+async function importOldData() {
+    const fileInput = $('importFile');
+    const msgDiv = $('importMsg');
+    
+    if (!fileInput.files.length) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ Select a file</div>'; return; }
+    
+    const reader = new FileReader();
+    reader.onload = async function(e) {
+        try {
+            const data = JSON.parse(e.target.result);
+            if (!data.patients || !Array.isArray(data.patients)) { msgDiv.innerHTML = '<div class="alert alert-error">❌ Invalid format</div>'; return; }
+            
+            showLoading();
+            let added = 0, skipped = 0, errors = 0;
+            
+            for (const p of data.patients) {
+                try {
+                    // Check duplicate
+                    const exists = cachedPatients.find(function(cp) { return cp.refNo === p.refNo || (cp.phone === p.phone && cp.name === p.name); });
+                    if (exists) { skipped++; continue; }
+                    await savePatientDB({
+                        id: p.id || generateId('P'), refNo: p.refNo, familyNo: p.familyNo || null,
+                        name: p.name, fatherName: p.fatherName, age: p.age,
+                        gender: p.gender, weight: p.weight, allergy: p.allergy,
+                        phone: p.phone, address: p.address, initialSymptoms: p.initialSymptoms,
+                        createdBy: p.createdBy || 'Imported'
+                    });
+                    added++;
+                } catch(err) { errors++; }
+            }
+            
+            if (data.visits) {
+                for (const v of data.visits) {
+                    try {
+                        const exists = cachedVisits.find(function(cv) { return cv.id === v.id; });
+                        if (exists) continue;
+                        await saveVisitDB({
+                            id: v.id || generateId('V'), patientId: v.patientId,
+                            date: v.date, time: v.time,
+                            symptoms: v.symptoms, diagnosis: v.diagnosis,
+                            prescription: v.prescription, days: v.days,
+                            method: v.method, notes: v.notes,
+                            bp: v.bp, sugar: v.sugar, temperature: v.temperature, pulse: v.pulse,
+                            type: v.type || 'registration',
+                            createdBy: v.createdBy || 'Imported'
+                        });
+                    } catch(err) { errors++; }
+                }
+            }
+            
+            await refreshCache();
+            hideLoading();
+            msgDiv.innerHTML = '<div class="alert alert-success">✅ Added: ' + added + ', Skipped: ' + skipped + (errors ? ', Errors: ' + errors : '') + '</div>';
+            fileInput.value = '';
+        } catch(err) {
+            hideLoading();
+            msgDiv.innerHTML = '<div class="alert alert-error">❌ ' + err.message + '</div>';
+        }
+    };
+    reader.readAsText(fileInput.files[0]);
+}
+
+// ==================== EVENT LISTENERS ====================
+document.addEventListener('DOMContentLoaded', function() {
+    // Login
+    $('loginBtn').addEventListener('click', handleLogin);
+    $('loginPassword').addEventListener('keypress', function(e) { if (e.key === 'Enter') handleLogin(); });
+    $('loginUsername').addEventListener('keypress', function(e) { if (e.key === 'Enter') $('loginPassword').focus(); });
+    
+    // Language
+    $('langBtnLogin').addEventListener('click', toggleLanguage);
+    $('langBtn').addEventListener('click', toggleLanguage);
+    
+    // Header buttons
+    $('logoutBtn').addEventListener('click', handleLogout);
+    $('backupBtn').addEventListener('click', exportData);
+    
+    // Navigation
+    $$('.nav-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() { showPage(btn.getAttribute('data-page'), btn); });
+    });
+    
+    // New Patient
+    $('savePatientBtn').addEventListener('click', saveNewPatient);
+    $('clearFormBtn').addEventListener('click', clearNewPatientForm);
+    $('phone').addEventListener('blur', checkFamilyByPhone);
+    
+    // Search
+    $('searchInput').addEventListener('input', searchPatients);
+    
+    // Visit Modal
+    $('saveVisitBtn').addEventListener('click', saveVisit);
+    $('closeVisitBtn').addEventListener('click', closeVisitModal);
+    $('cancelVisitBtn').addEventListener('click', closeVisitModal);
+    
+    // Edit Patient Modal
+    $('saveEditPatientBtn').addEventListener('click', saveEditPatient);
+    $('closeEditPatientBtn').addEventListener('click', closeEditPatientModal);
+    $('cancelEditPatientBtn').addEventListener('click', closeEditPatientModal);
+    
+    // Confirm Modal
+    $('closeConfirmBtn').addEventListener('click', closeConfirmModal);
+    $('confirmNoBtn').addEventListener('click', closeConfirmModal);
+    $('confirmYesBtn').addEventListener('click', function() { if (confirmCallback) confirmCallback(); closeConfirmModal(); });
+    
+    // Import/Sync
+    $('importBtn').addEventListener('click', importOldData);
+    $('syncNowBtn').addEventListener('click', syncPendingData);
+    $('manualSyncBtn').addEventListener('click', syncPendingData);
+    
+    // Modal backdrop close
+    $('visitModal').addEventListener('click', function(e) { if (e.target === this) closeVisitModal(); });
+    $('editPatientModal').addEventListener('click', function(e) { if (e.target === this) closeEditPatientModal(); });
+    $('confirmModal').addEventListener('click', function(e) { if (e.target === this) closeConfirmModal(); });
+    
+    // Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') { closeVisitModal(); closeEditPatientModal(); closeConfirmModal(); }
+    });
+    
+    // Online/Offline
+    window.addEventListener('online', function() { updateConnectionStatus(true); });
+    window.addEventListener('offline', function() { updateConnectionStatus(false); });
+    updateConnectionStatus(navigator.onLine);
+    
+    applyLanguage();
+});
+</script>
+<!-- Service Worker Registration -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(function(reg) {
+        console.log('✅ PWA registered:', reg.scope);
+      })
+      .catch(function(err) {
+        console.log('❌ PWA registration failed:', err);
+      });
+  });
+}
+
+// Install prompt
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', function(e) {
+  e.preventDefault();
+  deferredPrompt = e;
+  console.log('📱 App can be installed');
+  
+  // Optional: Show install button
+  const installBtn = document.createElement('button');
+  installBtn.textContent = '📥 Install App';
+  installBtn.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:12px 25px;background:#27ae60;color:white;border:none;border-radius:25px;font-weight:bold;box-shadow:0 5px 20px rgba(0,0,0,0.3);z-index:9999;cursor:pointer;font-family:inherit;';
+  installBtn.onclick = async function() {
+    installBtn.remove();
+    deferredPrompt.prompt();
+    const result = await deferredPrompt.userChoice;
+    console.log('Install result:', result);
+    deferredPrompt = null;
+  };
+  document.body.appendChild(installBtn);
+  
+  // 15 seconds بعد hide کر دیں
+  setTimeout(function() { 
+    if (installBtn.parentNode) installBtn.remove(); 
+  }, 15000);
+});
+
+window.addEventListener('appinstalled', function() {
+  console.log('✅ App installed successfully!');
+});
+</script>
+</body>
+</html>
