@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bismillah Homeopathic Clinic</title>
     <meta name="theme-color" content="#1a5276">
-
-<!-- PWA Support -->
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon-192.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="BHC Clinic">
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="BHC Clinic">
     
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="diagnosis-data.js"></script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
         
@@ -90,6 +91,8 @@
         .btn-danger:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(231,76,60,0.4); }
         .btn-edit { background: linear-gradient(135deg, #8e44ad, #6c3483); color: white; }
         .btn-edit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(142,68,173,0.4); }
+        .btn-purple { background: linear-gradient(135deg, #8e44ad, #6c3483); color: white; }
+        .btn-purple:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(142,68,173,0.4); }
         .btn-sm { padding: 6px 12px; font-size: 12px; }
         .btn-xs { padding: 4px 8px; font-size: 11px; }
 
@@ -109,8 +112,7 @@
             padding: 8px 0 4px 0; color: #f1c40f;
             background: linear-gradient(180deg, #f9d71c 0%, #d4af37 50%, #f9d71c 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 0.5px; overflow: visible;
+            background-clip: text; letter-spacing: 0.5px; overflow: visible;
         }
         body.lang-en .header-center .clinic-title,
         body.lang-roman .header-center .clinic-title { line-height: 1.3; padding: 4px 0; }
@@ -400,6 +402,124 @@
             border-radius: 10px; padding: 15px; margin-bottom: 15px;
         }
 
+        /* Diagnosis Styles */
+        .diagnosis-container { padding: 15px; max-width: 1200px; margin: 0 auto; }
+        .symptom-search {
+            width: 100%; padding: 12px 18px; border: 2px solid #ddd;
+            border-radius: 12px; font-size: 15px; font-family: inherit;
+            background: white; margin-bottom: 15px;
+        }
+        .symptom-search:focus {
+            border-color: #8e44ad; outline: none;
+            box-shadow: 0 0 12px rgba(142,68,173,0.15);
+        }
+        .category-tabs {
+            display: flex; gap: 6px; overflow-x: auto;
+            padding: 5px 0; margin-bottom: 15px;
+        }
+        .category-tab {
+            padding: 8px 14px; border: 2px solid #ddd;
+            border-radius: 20px; background: white; cursor: pointer;
+            font-family: inherit; font-size: 13px; white-space: nowrap;
+            transition: all 0.3s; display: flex; align-items: center; gap: 4px;
+        }
+        .category-tab:hover { border-color: #8e44ad; }
+        .category-tab.active { background: #8e44ad; color: white; border-color: #8e44ad; }
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 8px; margin-bottom: 20px;
+        }
+        .symptom-chip {
+            padding: 10px 14px; border: 2px solid #ddd;
+            border-radius: 8px; background: white; cursor: pointer;
+            font-family: inherit; font-size: 13px; text-align: center;
+            transition: all 0.2s;
+        }
+        .symptom-chip:hover { border-color: #8e44ad; background: #f4ecf7; }
+        .symptom-chip.selected {
+            background: #8e44ad; color: white; border-color: #8e44ad;
+            font-weight: bold;
+        }
+        .symptom-chip.severe { border-color: #e74c3c; }
+        .symptom-chip.severe.selected { background: #e74c3c; border-color: #e74c3c; }
+        .selected-symptoms-box {
+            background: #f4ecf7; border: 2px solid #8e44ad;
+            border-radius: 10px; padding: 12px; margin-bottom: 15px;
+            min-height: 50px;
+        }
+        .selected-chip {
+            display: inline-block; padding: 5px 10px; margin: 3px;
+            background: #8e44ad; color: white; border-radius: 15px;
+            font-size: 12px; cursor: pointer;
+        }
+        .selected-chip:hover { background: #6c3483; }
+        .selected-chip::after { content: ' ✕'; margin-right: 4px; }
+        .disease-card {
+            background: white; border-radius: 12px; padding: 18px;
+            margin-bottom: 12px; box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            border-right: 5px solid #8e44ad;
+        }
+        body[dir="ltr"] .disease-card { border-right: none; border-left: 5px solid #8e44ad; }
+        .disease-card.high-match { border-color: #27ae60; }
+        .disease-card.medium-match { border-color: #f39c12; }
+        .disease-card.low-match { border-color: #95a5a6; }
+        .disease-header {
+            display: flex; justify-content: space-between;
+            align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;
+        }
+        .disease-name { font-size: 17px; font-weight: bold; color: #1a5276; }
+        .match-badge {
+            padding: 4px 12px; border-radius: 15px; font-size: 12px;
+            font-weight: bold; color: white;
+        }
+        .match-badge.high { background: #27ae60; }
+        .match-badge.medium { background: #f39c12; }
+        .match-badge.low { background: #95a5a6; }
+        .disease-section {
+            margin-top: 10px; padding: 10px;
+            background: #fafafa; border-radius: 6px;
+        }
+        .disease-section-title {
+            font-weight: bold; color: #2c3e50; font-size: 13px;
+            margin-bottom: 6px; display: flex; align-items: center; gap: 5px;
+        }
+        .remedy-item {
+            padding: 8px 10px; background: white; margin: 5px 0;
+            border-radius: 6px; border-right: 3px solid #27ae60;
+            font-size: 13px;
+        }
+        body[dir="ltr"] .remedy-item { border-right: none; border-left: 3px solid #27ae60; }
+        .remedy-name { font-weight: bold; color: #1e8449; }
+        .remedy-use { color: #555; font-size: 12px; margin-top: 2px; }
+        .remedy-dose { color: #7f8c8d; font-size: 11px; font-style: italic; }
+        .red-flags-box {
+            background: #fdedec; border: 2px solid #e74c3c;
+            border-radius: 8px; padding: 10px; margin-top: 10px;
+        }
+        .red-flags-title { color: #c0392b; font-weight: bold; margin-bottom: 5px; }
+        .test-item {
+            display: inline-block; padding: 4px 10px; margin: 3px;
+            background: #d1ecf1; color: #0c5460; border-radius: 12px;
+            font-size: 12px; border: 1px solid #bee5eb;
+        }
+        .advice-box {
+            background: #fff8dc; border-right: 3px solid #d4af37;
+            padding: 10px; border-radius: 6px; margin-top: 8px;
+            font-size: 13px; color: #856404;
+        }
+        body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37; }
+        .emergency-alert {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white; padding: 15px; border-radius: 10px;
+            margin-bottom: 15px; text-align: center;
+            animation: pulse-alert 2s infinite;
+        }
+        @keyframes pulse-alert {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(231,76,60,0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(231,76,60,0); }
+        }
+
         @media (max-width: 768px) {
             .app-header { padding: 12px 8px; gap: 5px; }
             .header-center .clinic-title { font-size: 17px; line-height: 2; }
@@ -434,154 +554,6 @@
         ::-webkit-scrollbar-thumb { background: #2980b9; border-radius: 3px; }
 
         .hidden { display: none !important; }
-	/* ==================== DIAGNOSIS PAGE ==================== */
-.diagnosis-container { padding: 15px; max-width: 1200px; margin: 0 auto; }
-
-.symptom-search {
-    width: 100%; padding: 12px 18px; border: 2px solid #ddd;
-    border-radius: 12px; font-size: 15px; font-family: inherit;
-    background: white; margin-bottom: 15px;
-}
-.symptom-search:focus {
-    border-color: #8e44ad; outline: none;
-    box-shadow: 0 0 12px rgba(142,68,173,0.15);
-}
-
-.category-tabs {
-    display: flex; gap: 6px; overflow-x: auto;
-    padding: 5px 0; margin-bottom: 15px;
-}
-.category-tab {
-    padding: 8px 14px; border: 2px solid #ddd;
-    border-radius: 20px; background: white; cursor: pointer;
-    font-family: inherit; font-size: 13px; white-space: nowrap;
-    transition: all 0.3s; display: flex; align-items: center; gap: 4px;
-}
-.category-tab:hover { border-color: #8e44ad; }
-.category-tab.active {
-    background: #8e44ad; color: white; border-color: #8e44ad;
-}
-
-.symptoms-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 8px; margin-bottom: 20px;
-}
-.symptom-chip {
-    padding: 10px 14px; border: 2px solid #ddd;
-    border-radius: 8px; background: white; cursor: pointer;
-    font-family: inherit; font-size: 13px; text-align: center;
-    transition: all 0.2s;
-}
-.symptom-chip:hover { border-color: #8e44ad; background: #f4ecf7; }
-.symptom-chip.selected {
-    background: #8e44ad; color: white; border-color: #8e44ad;
-    font-weight: bold;
-}
-.symptom-chip.severe { border-color: #e74c3c; }
-.symptom-chip.severe.selected { background: #e74c3c; border-color: #e74c3c; }
-
-.selected-symptoms-box {
-    background: #f4ecf7; border: 2px solid #8e44ad;
-    border-radius: 10px; padding: 12px; margin-bottom: 15px;
-    min-height: 50px;
-}
-.selected-chip {
-    display: inline-block; padding: 5px 10px; margin: 3px;
-    background: #8e44ad; color: white; border-radius: 15px;
-    font-size: 12px; cursor: pointer;
-}
-.selected-chip:hover { background: #6c3483; }
-.selected-chip::after { content: ' ✕'; margin-right: 4px; }
-
-.disease-card {
-    background: white; border-radius: 12px; padding: 18px;
-    margin-bottom: 12px; box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    border-right: 5px solid #8e44ad;
-    transition: transform 0.2s;
-}
-body[dir="ltr"] .disease-card { border-right: none; border-left: 5px solid #8e44ad; }
-.disease-card:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,0,0,0.12); }
-
-.disease-card.high-match { border-color: #27ae60; }
-.disease-card.medium-match { border-color: #f39c12; }
-.disease-card.low-match { border-color: #95a5a6; }
-
-.disease-header {
-    display: flex; justify-content: space-between;
-    align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;
-}
-.disease-name { font-size: 17px; font-weight: bold; color: #1a5276; }
-.match-badge {
-    padding: 4px 12px; border-radius: 15px; font-size: 12px;
-    font-weight: bold; color: white;
-}
-.match-badge.high { background: #27ae60; }
-.match-badge.medium { background: #f39c12; }
-.match-badge.low { background: #95a5a6; }
-
-.disease-section {
-    margin-top: 10px; padding: 10px;
-    background: #fafafa; border-radius: 6px;
-}
-.disease-section-title {
-    font-weight: bold; color: #2c3e50; font-size: 13px;
-    margin-bottom: 6px; display: flex; align-items: center; gap: 5px;
-}
-
-.remedy-item {
-    padding: 8px 10px; background: white; margin: 5px 0;
-    border-radius: 6px; border-right: 3px solid #27ae60;
-    font-size: 13px;
-}
-body[dir="ltr"] .remedy-item { border-right: none; border-left: 3px solid #27ae60; }
-.remedy-name { font-weight: bold; color: #1e8449; }
-.remedy-use { color: #555; font-size: 12px; margin-top: 2px; }
-.remedy-dose { color: #7f8c8d; font-size: 11px; font-style: italic; }
-
-.red-flags-box {
-    background: #fdedec; border: 2px solid #e74c3c;
-    border-radius: 8px; padding: 10px; margin-top: 10px;
-}
-.red-flags-title { color: #c0392b; font-weight: bold; margin-bottom: 5px; }
-
-.test-item {
-    display: inline-block; padding: 4px 10px; margin: 3px;
-    background: #d1ecf1; color: #0c5460; border-radius: 12px;
-    font-size: 12px; border: 1px solid #bee5eb;
-}
-
-.advice-box {
-    background: #fff8dc; border-right: 3px solid #d4af37;
-    padding: 10px; border-radius: 6px; margin-top: 8px;
-    font-size: 13px; color: #856404;
-}
-body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37; }
-
-.diagnosis-actions {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    margin-top: 15px; padding-top: 15px;
-    border-top: 2px solid #ecf0f1;
-}
-
-.emergency-alert {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    color: white; padding: 15px; border-radius: 10px;
-    margin-bottom: 15px; text-align: center;
-    animation: pulse-alert 2s infinite;
-}
-@keyframes pulse-alert {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(231,76,60,0.4); }
-    50% { box-shadow: 0 0 0 15px rgba(231,76,60,0); }
-}
-
-.btn-purple {
-    background: linear-gradient(135deg, #8e44ad, #6c3483);
-    color: white;
-}
-.btn-purple:hover:not(:disabled) {
-    transform: translateY(-2px); box-shadow: 0 5px 20px rgba(142,68,173,0.4);
-}
     </style>
 </head>
 <body dir="rtl" class="lang-ur">
@@ -602,20 +574,22 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
         
         <div class="form-group">
             <label data-ur="👤 صارف نام" data-en="👤 Username" data-roman="👤 Username">👤 صارف نام</label>
-            <input type="text" id="loginUsername" placeholder="Username">
+            <input type="text" id="loginUsername" placeholder="Username" autocomplete="username">
         </div>
         <div class="form-group">
             <label data-ur="🔒 پاسورڈ" data-en="🔒 Password" data-roman="🔒 Password">🔒 پاسورڈ</label>
-            <input type="password" id="loginPassword" placeholder="Password">
+            <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password">
         </div>
-	<div class="form-group" style="text-align:right;">
-    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:normal;">
-        <input type="checkbox" id="rememberMe" style="width:auto;margin:0;transform:scale(1.3);cursor:pointer;">
-        <span data-ur="🔒 مجھے یاد رکھیں" data-en="🔒 Remember Me" data-roman="🔒 Mujhe Yaad Rakhein">🔒 مجھے یاد رکھیں</span>
-    </label>
-    <div class="hint" style="margin-top:5px;" data-ur="اگلی بار خودکار لاگ ان ہو جائیں گے" data-en="Auto-login next time" data-roman="Agli baar auto-login ho jayega">اگلی بار خودکار لاگ ان ہو جائیں گے</div>
-	</div>
-        <button class="btn btn-primary" id="loginBtn">
+        
+        <div class="form-group" style="text-align:right;">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:normal;">
+                <input type="checkbox" id="rememberMe" style="width:auto;margin:0;transform:scale(1.3);cursor:pointer;">
+                <span data-ur="🔒 مجھے یاد رکھیں" data-en="🔒 Remember Me" data-roman="🔒 Mujhe Yaad Rakhein">🔒 مجھے یاد رکھیں</span>
+            </label>
+            <div class="hint" style="margin-top:5px;" data-ur="اگلی بار خودکار لاگ ان" data-en="Auto-login next time" data-roman="Agli baar auto-login">اگلی بار خودکار لاگ ان</div>
+        </div>
+        
+        <button type="button" class="btn btn-primary" id="loginBtn">
             <span data-ur="🔓 لاگ ان" data-en="🔓 Login" data-roman="🔓 Login">🔓 لاگ ان</span>
         </button>
         
@@ -624,7 +598,7 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
         </div>
         
         <div style="margin-top:15px;">
-            <button class="icon-btn" id="langBtnLogin" style="background:#2980b9; margin:0 auto;" title="Change Language">🌐</button>
+            <button type="button" class="icon-btn" id="langBtnLogin" style="background:#2980b9; margin:0 auto;" title="Change Language">🌐</button>
         </div>
     </div>
 </div>
@@ -663,9 +637,9 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
         <button class="nav-btn" data-page="allPatients">
             📋 <span data-ur="تمام مریض" data-en="All Patients" data-roman="Tamam Mareez">تمام مریض</span>
         </button>
-	<button class="nav-btn" data-page="diagnosis">
-    🔬 <span data-ur="تشخیص" data-en="Diagnosis" data-roman="Tashkhees">تشخیص</span>
-	</button>
+        <button class="nav-btn" data-page="diagnosis">
+            🔬 <span data-ur="تشخیص" data-en="Diagnosis" data-roman="Tashkhees">تشخیص</span>
+        </button>
         <button class="nav-btn" data-page="settings">
             ⚙️ <span data-ur="سیٹنگز" data-en="Settings" data-roman="Settings">سیٹنگز</span>
         </button>
@@ -690,11 +664,11 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
                 </div>
                 <div class="stat-card orange">
                     <div class="stat-number" id="statMonth">-</div>
-                    <div class="stat-label" data-ur="📆 اس ماہ کے مریض" data-en="📆 This Month Patients" data-roman="📆 Is Mah ke Mareez">📆 اس ماہ کے مریض</div>
+                    <div class="stat-label" data-ur="📆 اس ماہ کے مریض" data-en="📆 This Month" data-roman="📆 Is Mah">📆 اس ماہ کے مریض</div>
                 </div>
                 <div class="stat-card purple">
                     <div class="stat-number" id="statFollowups">-</div>
-                    <div class="stat-label" data-ur="🔄 فالو اپ وزٹس" data-en="🔄 Follow-up Visits" data-roman="🔄 Follow-up Visits">🔄 فالو اپ وزٹس</div>
+                    <div class="stat-label" data-ur="🔄 فالو اپ وزٹس" data-en="🔄 Follow-up Visits" data-roman="🔄 Follow-ups">🔄 فالو اپ وزٹس</div>
                 </div>
             </div>
             
@@ -714,7 +688,7 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
         <div class="content">
             <div class="card">
                 <div class="card-title">
-                    ➕ <span data-ur="نئی رجسٹریشن (پہلی ملاقات)" data-en="New Registration (First Consultation)" data-roman="Nayi Registration (Pehli Mulaqat)">نئی رجسٹریشن (پہلی ملاقات)</span>
+                    ➕ <span data-ur="نئی رجسٹریشن (پہلی ملاقات)" data-en="New Registration" data-roman="Nayi Registration">نئی رجسٹریشن (پہلی ملاقات)</span>
                 </div>
                 <div id="newPatientMsg"></div>
                 
@@ -730,7 +704,7 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
                     <div class="form-group">
                         <label data-ur="👨‍👩‍👧‍👦 فیملی نمبر" data-en="👨‍👩‍👧‍👦 Family No" data-roman="👨‍👩‍👧‍👦 Family No">👨‍👩‍👧‍👦 فیملی نمبر</label>
                         <input type="text" id="familyNo" placeholder="مثلاً: F-0001">
-                        <div class="hint" id="familyHint" data-ur="اختیاری - خالی چھوڑ سکتے ہیں" data-en="Optional - can leave empty" data-roman="Ikhtiyari - khali chor sakte hain">اختیاری - خالی چھوڑ سکتے ہیں</div>
+                        <div class="hint" id="familyHint" data-ur="اختیاری - خالی چھوڑ سکتے ہیں" data-en="Optional" data-roman="Ikhtiyari">اختیاری - خالی چھوڑ سکتے ہیں</div>
                     </div>
                 </div>
                 
@@ -740,14 +714,14 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
                         <input type="text" id="patientName">
                     </div>
                     <div class="form-group">
-                        <label data-ur="📱 فون نمبر *" data-en="📱 Phone Number *" data-roman="📱 Phone Number *">📱 فون نمبر *</label>
+                        <label data-ur="📱 فون نمبر *" data-en="📱 Phone Number *" data-roman="📱 Phone *">📱 فون نمبر *</label>
                         <input type="tel" id="phone" dir="ltr" style="text-align:left;">
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label data-ur="👨 ولدیت / ازواجیت" data-en="👨 Father/Spouse Name" data-roman="👨 Waldiyat / Azwajiyat">👨 ولدیت / ازواجیت</label>
+                        <label data-ur="👨 ولدیت / ازواجیت" data-en="👨 Father/Spouse" data-roman="👨 Waldiyat">👨 ولدیت / ازواجیت</label>
                         <input type="text" id="fatherName">
                     </div>
                     <div class="form-group">
@@ -784,7 +758,7 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
                 </div>
                 
                 <div class="section-divider">
-                    🩺 <span data-ur="پہلی ملاقات کی تفصیل" data-en="First Consultation Details" data-roman="Pehli Mulaqat ki Tafseel">پہلی ملاقات کی تفصیل</span>
+                    🩺 <span data-ur="پہلی ملاقات کی تفصیل" data-en="First Consultation" data-roman="Pehli Mulaqat">پہلی ملاقات کی تفصیل</span>
                 </div>
                 
                 <div class="form-row">
@@ -800,11 +774,11 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
                 
                 <div class="vitals-box">
                     <div style="font-weight:bold; margin-bottom:10px; color:#17a2b8;">
-                        💗 <span data-ur="جسمانی معائنہ (Vitals)" data-en="Vitals" data-roman="Vitals">جسمانی معائنہ (Vitals)</span>
+                        💗 <span data-ur="جسمانی معائنہ (Vitals)" data-en="Vitals" data-roman="Vitals">جسمانی معائنہ</span>
                     </div>
                     <div class="form-row-3">
                         <div class="form-group">
-                            <label data-ur="🩸 بلڈ پریشر" data-en="🩸 Blood Pressure" data-roman="🩸 Blood Pressure">🩸 بلڈ پریشر</label>
+                            <label data-ur="🩸 بلڈ پریشر" data-en="🩸 BP" data-roman="🩸 BP">🩸 بلڈ پریشر</label>
                             <input type="text" id="firstBP" placeholder="120/80">
                         </div>
                         <div class="form-group">
@@ -812,7 +786,7 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
                             <input type="text" id="firstSugar" placeholder="mg/dL">
                         </div>
                         <div class="form-group">
-                            <label data-ur="🌡️ درجہ حرارت" data-en="🌡️ Temperature" data-roman="🌡️ Temperature">🌡️ درجہ حرارت</label>
+                            <label data-ur="🌡️ درجہ حرارت" data-en="🌡️ Temp" data-roman="🌡️ Temp">🌡️ درجہ حرارت</label>
                             <input type="text" id="firstTemp" placeholder="98.6°F">
                         </div>
                     </div>
@@ -826,28 +800,28 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
                 
                 <div class="form-group">
                     <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
-                    <textarea id="firstVisitSymptoms" placeholder="مریض کی علامات تفصیل سے..."></textarea>
+                    <textarea id="firstVisitSymptoms"></textarea>
                 </div>
                 <div class="form-group">
-                    <label data-ur="🔬 تشخیص (Diagnosis)" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص (Diagnosis)</label>
+                    <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
                     <textarea id="firstVisitDiagnosis"></textarea>
                 </div>
                 <div class="form-group">
-                    <label data-ur="💊 نسخہ (Prescription)" data-en="💊 Prescription" data-roman="💊 Nuskha">💊 نسخہ (Prescription)</label>
+                    <label data-ur="💊 نسخہ" data-en="💊 Prescription" data-roman="💊 Nuskha">💊 نسخہ</label>
                     <textarea id="firstVisitPrescription"></textarea>
                 </div>
                 <div class="form-group">
-                    <label data-ur="📖 طریقہ استعمال" data-en="📖 Method of Use" data-roman="📖 Tareeqa Istemal">📖 طریقہ استعمال</label>
-                    <textarea id="firstVisitMethod" placeholder="مثلاً: صبح شام کھانے کے بعد..."></textarea>
+                    <label data-ur="📖 طریقہ استعمال" data-en="📖 Method" data-roman="📖 Tareeqa">📖 طریقہ استعمال</label>
+                    <textarea id="firstVisitMethod"></textarea>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label data-ur="📆 دن (کتنے دن کی دوا)" data-en="📆 Days" data-roman="📆 Din">📆 دن (کتنے دن کی دوا)</label>
-                        <input type="text" id="firstVisitDays" placeholder="مثلاً: 7 دن">
+                        <label data-ur="📆 دن" data-en="📆 Days" data-roman="📆 Din">📆 دن</label>
+                        <input type="text" id="firstVisitDays">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label data-ur="📝 اضافی نوٹس" data-en="📝 Additional Notes" data-roman="📝 Notes">📝 اضافی نوٹس</label>
+                    <label data-ur="📝 اضافی نوٹس" data-en="📝 Notes" data-roman="📝 Notes">📝 اضافی نوٹس</label>
                     <textarea id="firstVisitNotes"></textarea>
                 </div>
                 
@@ -856,7 +830,7 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
                         <span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Save">💾 محفوظ کریں</span>
                     </button>
                     <button class="btn btn-light" id="clearFormBtn">
-                        <span data-ur="🔄 فارم صاف کریں" data-en="🔄 Clear Form" data-roman="🔄 Form Clear">🔄 فارم صاف کریں</span>
+                        <span data-ur="🔄 فارم صاف کریں" data-en="🔄 Clear" data-roman="🔄 Clear">🔄 فارم صاف کریں</span>
                     </button>
                 </div>
             </div>
@@ -868,7 +842,7 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
         <div class="content">
             <div class="card">
                 <div class="card-title">
-                    🔍 <span data-ur="مریض تلاش کریں" data-en="Search Patient" data-roman="Mareez Talash Karein">مریض تلاش کریں</span>
+                    🔍 <span data-ur="مریض تلاش کریں" data-en="Search Patient" data-roman="Talash">مریض تلاش کریں</span>
                 </div>
                 <input type="text" class="search-input" id="searchInput" placeholder="🔍 نام، فون، حوالہ نمبر، یا فیملی نمبر...">
                 <div id="searchResults">
@@ -883,7 +857,7 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
         <div class="content">
             <div class="card">
                 <div class="card-title">
-                    📋 <span data-ur="تمام مریضوں کی فہرست" data-en="All Patients List" data-roman="Tamam Mareez ki Fehrist">تمام مریضوں کی فہرست</span>
+                    📋 <span data-ur="تمام مریض" data-en="All Patients" data-roman="Tamam Mareez">تمام مریض</span>
                 </div>
                 <div id="allPatientsList">
                     <div class="empty-state"><div class="icon">⏳</div><p>Loading...</p></div>
@@ -901,71 +875,57 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
     <div id="page-familyMembers" class="page">
         <div class="content"><div class="card"><div id="familyMembersContent"></div></div></div>
     </div>
+    
     <!-- DIAGNOSIS PAGE -->
-<div id="page-diagnosis" class="page">
-    <div class="diagnosis-container">
-        <div class="card">
-            <div class="card-title">
-                🔬 <span data-ur="تشخیصی معاون" data-en="Diagnostic Assistant" data-roman="Tashkhees Muawin">تشخیصی معاون</span>
-            </div>
-            
-            <div class="alert alert-warning" style="margin-bottom:15px;">
-                ⚠️ <strong data-ur="نوٹ:" data-en="Note:" data-roman="Note:">نوٹ:</strong>
-                <span data-ur="یہ صرف رہنمائی کے لیے ہے۔ حتمی تشخیص ڈاکٹر ہی کریں گے۔"
-                      data-en="This is only for guidance. Final diagnosis must be by doctor."
-                      data-roman="Yeh sirf rahnumai ke liye hai. Doctor hi final diagnosis karein.">
-                    یہ صرف رہنمائی کے لیے ہے۔ حتمی تشخیص ڈاکٹر ہی کریں گے۔
-                </span>
-            </div>
-            
-            <!-- Optional: Link to patient -->
-            <div class="form-group" id="diagnosisPatientLink" style="display:none;">
-                <div style="background:#e8f4f8;padding:10px;border-radius:6px;">
-                    👤 <strong data-ur="مریض:" data-en="Patient:" data-roman="Mareez:">مریض:</strong>
-                    <span id="diagnosisPatientName"></span>
-                    <button class="btn btn-light btn-xs" onclick="clearDiagnosisPatient()" style="margin-right:10px;">✕</button>
+    <div id="page-diagnosis" class="page">
+        <div class="diagnosis-container">
+            <div class="card">
+                <div class="card-title">
+                    🔬 <span data-ur="تشخیصی معاون" data-en="Diagnostic Assistant" data-roman="Tashkhees Muawin">تشخیصی معاون</span>
+                </div>
+                
+                <div class="alert alert-warning" style="margin-bottom:15px;">
+                    ⚠️ <strong data-ur="نوٹ:" data-en="Note:" data-roman="Note:">نوٹ:</strong>
+                    <span data-ur="یہ صرف رہنمائی کے لیے ہے۔ حتمی تشخیص ڈاکٹر ہی کریں گے۔" data-en="This is only for guidance." data-roman="Yeh sirf rahnumai ke liye hai.">یہ صرف رہنمائی کے لیے ہے۔ حتمی تشخیص ڈاکٹر ہی کریں گے۔</span>
+                </div>
+                
+                <div class="form-group" id="diagnosisPatientLink" style="display:none;">
+                    <div style="background:#e8f4f8;padding:10px;border-radius:6px;">
+                        👤 <strong>Patient:</strong>
+                        <span id="diagnosisPatientName"></span>
+                        <button class="btn btn-light btn-xs" onclick="clearDiagnosisPatient()" style="margin-right:10px;">✕</button>
+                    </div>
+                </div>
+                
+                <input type="text" class="symptom-search" id="symptomSearch" placeholder="🔍 علامت تلاش کریں...">
+                
+                <div class="category-tabs" id="categoryTabs"></div>
+                
+                <div style="margin-bottom:10px; font-weight:bold; color:#8e44ad;">
+                    📋 <span data-ur="منتخب شدہ علامات:" data-en="Selected Symptoms:" data-roman="Muntakhib Alamat:">منتخب شدہ علامات:</span>
+                    <span id="selectedCount" style="background:#8e44ad;color:white;padding:2px 8px;border-radius:10px;font-size:12px;">0</span>
+                </div>
+                <div class="selected-symptoms-box" id="selectedSymptomsBox"></div>
+                
+                <div style="margin-bottom:10px; font-weight:bold; color:#2c3e50; margin-top:20px;">
+                    💡 <span data-ur="علامات کی فہرست:" data-en="Symptoms List:" data-roman="Alamat:">علامات کی فہرست:</span>
+                </div>
+                <div class="symptoms-grid" id="symptomsGrid"></div>
+                
+                <div class="action-buttons" style="margin-top:20px;">
+                    <button class="btn btn-purple" id="analyzeBtn" style="flex:1;">
+                        🔬 <span data-ur="تشخیص کریں" data-en="Analyze" data-roman="Analyze">تشخیص کریں</span>
+                    </button>
+                    <button class="btn btn-light" id="clearSymptomsBtn">
+                        🔄 <span data-ur="صاف کریں" data-en="Clear" data-roman="Clear">صاف کریں</span>
+                    </button>
                 </div>
             </div>
             
-            <!-- Search -->
-            <input type="text" class="symptom-search" id="symptomSearch" 
-                   placeholder="🔍 علامت تلاش کریں... (مثلاً: بخار، سر درد)">
-            
-            <!-- Categories -->
-            <div class="category-tabs" id="categoryTabs"></div>
-            
-            <!-- Selected Symptoms Box -->
-            <div style="margin-bottom:10px; font-weight:bold; color:#8e44ad;">
-                📋 <span data-ur="منتخب شدہ علامات:" data-en="Selected Symptoms:" data-roman="Muntakhib Alamat:">منتخب شدہ علامات:</span>
-                <span id="selectedCount" style="background:#8e44ad;color:white;padding:2px 8px;border-radius:10px;font-size:12px;">0</span>
-            </div>
-            <div class="selected-symptoms-box" id="selectedSymptomsBox">
-                <div style="color:#95a5a6;font-size:13px;text-align:center;" id="noSelectedMsg">
-                    <span data-ur="نیچے سے علامات چنیں..." data-en="Select symptoms below..." data-roman="Neechay se alamat chunein...">نیچے سے علامات چنیں...</span>
-                </div>
-            </div>
-            
-            <!-- Symptoms Grid -->
-            <div style="margin-bottom:10px; font-weight:bold; color:#2c3e50; margin-top:20px;">
-                💡 <span data-ur="علامات کی فہرست:" data-en="Symptoms List:" data-roman="Alamat ki Fehrist:">علامات کی فہرست:</span>
-            </div>
-            <div class="symptoms-grid" id="symptomsGrid"></div>
-            
-            <!-- Analyze Button -->
-            <div class="action-buttons" style="margin-top:20px;">
-                <button class="btn btn-purple" id="analyzeBtn" style="flex:1;">
-                    🔬 <span data-ur="تشخیص کریں" data-en="Analyze" data-roman="Tashkhees Karein">تشخیص کریں</span>
-                </button>
-                <button class="btn btn-light" id="clearSymptomsBtn">
-                    🔄 <span data-ur="صاف کریں" data-en="Clear" data-roman="Saaf Karein">صاف کریں</span>
-                </button>
-            </div>
+            <div id="diagnosisResults"></div>
         </div>
-        
-        <!-- Results -->
-        <div id="diagnosisResults"></div>
     </div>
-</div>
+    
     <!-- SETTINGS -->
     <div id="page-settings" class="page">
         <div class="content">
@@ -992,7 +952,7 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
     </div>
 </div>
 
-<!-- VISIT MODAL (Add/Edit) -->
+<!-- VISIT MODAL -->
 <div id="visitModal" class="modal-overlay">
     <div class="modal">
         <div class="modal-title">
@@ -1018,24 +978,12 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
         <div class="vitals-box">
             <div style="font-weight:bold; margin-bottom:10px; color:#17a2b8;">💗 Vitals</div>
             <div class="form-row-3">
-                <div class="form-group">
-                    <label>🩸 BP</label>
-                    <input type="text" id="visitBP" placeholder="120/80">
-                </div>
-                <div class="form-group">
-                    <label>🍬 Sugar</label>
-                    <input type="text" id="visitSugar" placeholder="mg/dL">
-                </div>
-                <div class="form-group">
-                    <label>🌡️ Temp</label>
-                    <input type="text" id="visitTemp" placeholder="98.6°F">
-                </div>
+                <div class="form-group"><label>🩸 BP</label><input type="text" id="visitBP" placeholder="120/80"></div>
+                <div class="form-group"><label>🍬 Sugar</label><input type="text" id="visitSugar" placeholder="mg/dL"></div>
+                <div class="form-group"><label>🌡️ Temp</label><input type="text" id="visitTemp" placeholder="98.6°F"></div>
             </div>
             <div class="form-row-3">
-                <div class="form-group">
-                    <label>💓 Pulse</label>
-                    <input type="text" id="visitPulse" placeholder="72/min">
-                </div>
+                <div class="form-group"><label>💓 Pulse</label><input type="text" id="visitPulse" placeholder="72/min"></div>
             </div>
         </div>
         
@@ -1077,7 +1025,7 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
     </div>
 </div>
 
-<!-- EDIT PATIENT BIO MODAL -->
+<!-- EDIT PATIENT MODAL -->
 <div id="editPatientModal" class="modal-overlay">
     <div class="modal">
         <div class="modal-title">
@@ -1180,6 +1128,8 @@ let currentUserData = null;
 let cachedPatients = [];
 let cachedVisits = [];
 let confirmCallback = null;
+let lastCacheRefresh = 0;
+const CACHE_LIFETIME = 30000; // 30 seconds
 
 // ==================== UTILITIES ====================
 function $(id) { return document.getElementById(id); }
@@ -1263,11 +1213,11 @@ function toggleLanguage() {
         const pageId = activePage.id.replace('page-', '');
         if (pageId === 'dashboard') updateDashboard();
         if (pageId === 'allPatients') showAllPatients();
-if (pageId === 'diagnosis') {
-    renderCategoryTabs();
-    renderSymptomsGrid();
-    updateSelectedBox();
-}
+        if (pageId === 'diagnosis') {
+            renderCategoryTabs();
+            renderSymptomsGrid();
+            updateSelectedBox();
+        }
     }
 }
 
@@ -1289,7 +1239,7 @@ function updateConnectionStatus(online) {
     }
 }
 
-// ==================== PENDING (OFFLINE) DATA ====================
+// ==================== PENDING DATA ====================
 function getPendingPatients() {
     return JSON.parse(localStorage.getItem('pending_patients') || '[]');
 }
@@ -1313,8 +1263,7 @@ function getPendingEdits() {
 }
 function savePendingEdit(edit) {
     const pending = getPendingEdits();
-    // Replace if same id exists
-    const idx = pending.findIndex(e => e.id === edit.id && e.type === edit.type);
+    const idx = pending.findIndex(function(e) { return e.id === edit.id && e.type === edit.type; });
     if (idx >= 0) pending[idx] = edit;
     else pending.push(edit);
     localStorage.setItem('pending_edits', JSON.stringify(pending));
@@ -1381,7 +1330,7 @@ async function syncPendingData() {
     if (errors > 0) showToast('⚠️ ' + errors + ' failed', 'error');
 }
 
-// ==================== DATABASE FUNCTIONS ====================
+// ==================== DATABASE ====================
 function dbToPatient(db) {
     return {
         id: db.id, refNo: db.ref_no, familyNo: db.family_no,
@@ -1482,7 +1431,6 @@ async function updateVisitDB(visitId, updates) {
 }
 
 async function deletePatientDB(patientId) {
-    // CASCADE: delete visits first, then patient
     await sb.from('visits').delete().eq('patient_id', patientId);
     const r = await sb.from('patients').delete().eq('id', patientId);
     if (r.error) throw r.error;
@@ -1501,25 +1449,16 @@ async function loginDB(username, password) {
     } catch(e) { return null; }
 }
 
-// ==================== CACHE ====================
-// Cache with timestamp - only refresh if old
-let lastCacheRefresh = 0;
-const CACHE_LIFETIME = 30000; // 30 seconds
-
+// ==================== CACHE (Smart + Force) ====================
 async function refreshCache(forceRefresh) {
-    // If cache is fresh, don't refetch
     const now = Date.now();
     if (!forceRefresh && (now - lastCacheRefresh) < CACHE_LIFETIME && cachedPatients.length > 0) {
-        console.log('✅ Using fresh cache');
         return;
     }
     
     if (navigator.onLine) {
         try {
-            // Load from localStorage first (instant)
             loadOfflineCache();
-            
-            // Then fetch in background
             const dbPatients = await getPatients();
             const dbVisits = await getVisits();
             const pendingP = getPendingPatients();
@@ -1530,7 +1469,7 @@ async function refreshCache(forceRefresh) {
             localStorage.setItem('cached_visits', JSON.stringify(cachedVisits));
             lastCacheRefresh = now;
         } catch(e) {
-            console.error('Cache refresh error:', e);
+            console.error('Cache error:', e);
             loadOfflineCache();
         }
     } else {
@@ -1538,7 +1477,6 @@ async function refreshCache(forceRefresh) {
     }
 }
 
-// Force refresh function for after save/delete
 async function forceCacheRefresh() {
     lastCacheRefresh = 0;
     await refreshCache(true);
@@ -1559,46 +1497,41 @@ function mergeArrays(arr1, arr2, key) {
     arr2.forEach(function(item) { if (!map.has(item[key])) map.set(item[key], item); });
     return Array.from(map.values());
 }
-// ==================== AUTO-LOGIN (Persist Session) ====================
+
+// ==================== AUTO-LOGIN ====================
 async function checkAutoLogin() {
-    // Try session storage first (current tab)
-    let sessionStr = sessionStorage.getItem('clinic_session');
-    let source = 'session';
-    
-    // Then try localStorage (remembered)
-    if (!sessionStr) {
-        sessionStr = localStorage.getItem('clinic_session');
-        source = 'local';
-    }
-    
-    if (!sessionStr) return;
-    
     try {
-        const session = JSON.parse(sessionStr);
+        let sessionStr = sessionStorage.getItem('clinic_session');
+        let source = 'session';
         
-        // Check session validity
+        if (!sessionStr) {
+            sessionStr = localStorage.getItem('clinic_session');
+            source = 'local';
+        }
+        
+        if (!sessionStr) {
+            console.log('No session found');
+            return false;
+        }
+        
+        const session = JSON.parse(sessionStr);
         const now = Date.now();
         const age = now - session.timestamp;
         
-        // Session expires: 
-        // - Remember Me: 30 days
-        // - Otherwise: 24 hours (allows refresh but not too long)
         const maxAge = session.rememberMe ? 
-            (30 * 24 * 60 * 60 * 1000) :   // 30 days
-            (24 * 60 * 60 * 1000);          // 24 hours
+            (30 * 24 * 60 * 60 * 1000) : 
+            (24 * 60 * 60 * 1000);
         
         if (age > maxAge) {
             console.log('Session expired');
             localStorage.removeItem('clinic_session');
             sessionStorage.removeItem('clinic_session');
-            return;
+            return false;
         }
         
-        // Auto-login!
         currentUserData = session.userData;
-        
-        // Update session timestamp
         session.timestamp = now;
+        
         if (source === 'local' || session.rememberMe) {
             localStorage.setItem('clinic_session', JSON.stringify(session));
         }
@@ -1607,7 +1540,6 @@ async function checkAutoLogin() {
         $('loginPage').classList.add('hidden');
         $('mainApp').classList.remove('hidden');
         
-        // Load data
         if (navigator.onLine) {
             await refreshCache();
         } else {
@@ -1621,13 +1553,33 @@ async function checkAutoLogin() {
         
         if (navigator.onLine) setTimeout(syncPendingData, 2000);
         
-        console.log('✅ Auto-logged in as:', currentUserData.name || currentUserData.username);
+        console.log('✅ Auto-logged in');
+        return true;
     } catch(err) {
         console.error('Auto-login failed:', err);
         localStorage.removeItem('clinic_session');
         sessionStorage.removeItem('clinic_session');
+        return false;
     }
 }
+
+function loadSavedCredentials() {
+    try {
+        const savedUser = localStorage.getItem('clinic_remember_username');
+        const savedPass = localStorage.getItem('clinic_remember_password');
+        
+        if (savedUser && $('loginUsername')) {
+            $('loginUsername').value = savedUser;
+            if ($('rememberMe')) $('rememberMe').checked = true;
+        }
+        if (savedPass && $('loginPassword')) {
+            try {
+                $('loginPassword').value = atob(savedPass);
+            } catch(e) {}
+        }
+    } catch(e) { console.error(e); }
+}
+
 // ==================== LOGIN ====================
 async function handleLogin() {
     const username = $('loginUsername').value.trim();
@@ -1652,7 +1604,6 @@ async function handleLogin() {
         try {
             user = await loginDB(username, password);
             if (user) {
-                // Save for offline use
                 const savedUsers = JSON.parse(localStorage.getItem('offline_users') || '[]');
                 const idx = savedUsers.findIndex(function(u) { return u.username === username; });
                 const toSave = { ...user, _pw: btoa(password) };
@@ -1672,26 +1623,21 @@ async function handleLogin() {
         currentUserData = user;
         errorDiv.classList.add('hidden');
         
-        // ==== SAVE SESSION FOR AUTO-LOGIN ====
         const sessionData = {
             userData: user,
             timestamp: Date.now(),
             rememberMe: rememberMe
         };
         
+        localStorage.setItem('clinic_session', JSON.stringify(sessionData));
+        sessionStorage.setItem('clinic_session', JSON.stringify(sessionData));
+        
         if (rememberMe) {
-            // Remember for 30 days
-            localStorage.setItem('clinic_session', JSON.stringify(sessionData));
             localStorage.setItem('clinic_remember_username', username);
             localStorage.setItem('clinic_remember_password', btoa(password));
         } else {
-            // Session only (until browser close for tab close)
-            sessionStorage.setItem('clinic_session', JSON.stringify(sessionData));
-            // Clear any old "remember me" data
             localStorage.removeItem('clinic_remember_username');
             localStorage.removeItem('clinic_remember_password');
-            // But save session for current tab refresh
-            localStorage.setItem('clinic_session', JSON.stringify(sessionData));
         }
         
         $('loginPage').classList.add('hidden');
@@ -1719,21 +1665,14 @@ function handleLogout() {
         ({ ur: 'کیا آپ لاگ آؤٹ کرنا چاہتے ہیں؟', en: 'Do you want to logout?', roman: 'Kya aap logout karna chahte hain?' }[currentLang]),
         function() {
             currentUserData = null;
-            
-            // Clear session data
             localStorage.removeItem('clinic_session');
             sessionStorage.removeItem('clinic_session');
             
-            // Ask if want to forget saved credentials
             const hasRemembered = localStorage.getItem('clinic_remember_username');
             if (hasRemembered) {
                 setTimeout(function() {
                     showConfirm(
-                        ({ 
-                            ur: 'کیا محفوظ شدہ لاگ ان معلومات بھی ڈیلیٹ کریں؟', 
-                            en: 'Also delete saved login credentials?', 
-                            roman: 'Kya saved login info bhi delete karein?' 
-                        }[currentLang]),
+                        ({ ur: 'کیا محفوظ شدہ لاگ ان معلومات بھی ڈیلیٹ کریں؟', en: 'Delete saved login credentials?', roman: 'Saved login info delete karein?' }[currentLang]),
                         function() {
                             localStorage.removeItem('clinic_remember_username');
                             localStorage.removeItem('clinic_remember_password');
@@ -1748,50 +1687,23 @@ function handleLogout() {
             
             $('mainApp').classList.add('hidden');
             $('loginPage').classList.remove('hidden');
-            
-            // Fill saved credentials if available
             loadSavedCredentials();
         }
     );
 }
 
-// Load saved username/password on login page
-function loadSavedCredentials() {
-    const savedUser = localStorage.getItem('clinic_remember_username');
-    const savedPass = localStorage.getItem('clinic_remember_password');
-    
-    if (savedUser && $('loginUsername')) {
-        $('loginUsername').value = savedUser;
-        if ($('rememberMe')) $('rememberMe').checked = true;
-    }
-    if (savedPass && $('loginPassword')) {
-        try {
-            $('loginPassword').value = atob(savedPass);
-        } catch(e) { console.error('Invalid saved password'); }
-    }
-}
-
 // ==================== NAVIGATION ====================
 async function showPage(pageId, btn) {
-    // Instant UI update (no blocking)
     $$('.page').forEach(function(p) { p.classList.remove('active'); });
     $('page-' + pageId).classList.add('active');
     $$('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
     if (btn) btn.classList.add('active');
     window.scrollTo(0, 0);
     
-    // Show loading placeholder immediately
     if (pageId === 'allPatients') {
         $('allPatientsList').innerHTML = '<div class="empty-state"><div class="icon">⏳</div><p>Loading...</p></div>';
     }
-    if (pageId === 'dashboard') {
-        $('statTotal').textContent = '...';
-        $('statToday').textContent = '...';
-        $('statMonth').textContent = '...';
-        $('statFollowups').textContent = '...';
-    }
     
-    // Defer heavy work using requestAnimationFrame
     requestAnimationFrame(async function() {
         try {
             if (pageId === 'dashboard') await updateDashboard();
@@ -1804,13 +1716,11 @@ async function showPage(pageId, btn) {
             }
             if (pageId === 'diagnosis') initDiagnosis();
             if (pageId === 'settings') updatePendingBadge();
-        } catch(err) {
-            console.error('Page load error:', err);
-        }
+        } catch(err) { console.error('Page error:', err); }
     });
 }
 
-// ==================== DASHBOARD (FIXED STATS) ====================
+// ==================== DASHBOARD ====================
 async function updateDashboard() {
     await refreshCache();
     const patients = cachedPatients;
@@ -1818,74 +1728,49 @@ async function updateDashboard() {
     const today = new Date().toISOString().split('T')[0];
     const thisMonth = today.substring(0, 7);
     
-    // ===== FIX: Correct counting logic =====
-    
-    // Total Patients = just unique patients count
     const totalPatients = patients.length;
-    
-    // Follow-up visits ONLY (not registration visits)
     const followupVisits = visits.filter(function(v) { return v.type === 'followup'; });
     const totalFollowups = followupVisits.length;
     
-    // Today's unique patients who had ANY activity today
     const todayPatientIds = new Set();
-    
-    // Patients registered today
     const todayRegistered = patients.filter(function(p) {
         return p.createdAt && p.createdAt.startsWith(today);
     });
     todayRegistered.forEach(function(p) { todayPatientIds.add(p.id); });
     
-    // Patients who had follow-up visits today
     const todayFollowups = followupVisits.filter(function(v) { return v.date === today; });
     todayFollowups.forEach(function(v) { todayPatientIds.add(v.patientId); });
     
     const todayCount = todayPatientIds.size;
     
-    // This Month: unique patients who were active this month
     const monthPatientIds = new Set();
+    patients.filter(function(p) { return p.createdAt && p.createdAt.startsWith(thisMonth); })
+        .forEach(function(p) { monthPatientIds.add(p.id); });
+    followupVisits.filter(function(v) { return v.date && v.date.startsWith(thisMonth); })
+        .forEach(function(v) { monthPatientIds.add(v.patientId); });
     
-    // Patients registered this month
-    patients.filter(function(p) {
-        return p.createdAt && p.createdAt.startsWith(thisMonth);
-    }).forEach(function(p) { monthPatientIds.add(p.id); });
-    
-    // Patients who had follow-up visits this month
-    followupVisits.filter(function(v) {
-        return v.date && v.date.startsWith(thisMonth);
-    }).forEach(function(v) { monthPatientIds.add(v.patientId); });
-    
-    const monthCount = monthPatientIds.size;
-    
-    // Update display
     $('statTotal').textContent = totalPatients;
     $('statToday').textContent = todayCount;
-    $('statMonth').textContent = monthCount;
+    $('statMonth').textContent = monthPatientIds.size;
     $('statFollowups').textContent = totalFollowups;
     
-    // ===== Today's Activity List =====
     const todayDiv = $('todayPatientsList');
     
     if (todayPatientIds.size === 0) {
-        const emptyText = { ur: 'آج ابھی کوئی سرگرمی نہیں', en: 'No activity today', roman: 'Aaj abhi koi activity nahi' };
+        const emptyText = { ur: 'آج ابھی کوئی سرگرمی نہیں', en: 'No activity today', roman: 'Aaj koi activity nahi' };
         todayDiv.innerHTML = '<div class="empty-state"><div class="icon">📋</div><p>' + emptyText[currentLang] + '</p></div>';
     } else {
         const activities = [];
-        
-        // Add today's registrations
         todayRegistered.forEach(function(p) {
             const time = p.createdAt ? new Date(p.createdAt).toTimeString().substring(0, 5) : '';
             activities.push({ patient: p, time: time, type: 'registered' });
         });
-        
-        // Add today's follow-up visits (only if not already in registrations)
         todayFollowups.forEach(function(v) {
             const patient = patients.find(function(p) { return p.id === v.patientId; });
             if (patient && !todayRegistered.find(function(p) { return p.id === v.patientId; })) {
                 activities.push({ patient: patient, time: v.time || '', type: 'followup' });
             }
         });
-        
         activities.sort(function(a, b) { return (b.time || '').localeCompare(a.time || ''); });
         
         const badgeTexts = {
@@ -1896,13 +1781,13 @@ async function updateDashboard() {
         
         let html = '<ul class="today-list">';
         activities.forEach(function(a) {
-            const genderBadge = getGenderBadgeClass(a.patient.gender);
+            const gBadge = getGenderBadgeClass(a.patient.gender);
             const actBadge = a.type === 'followup' ? 'badge-visit' : 'badge-registered';
-            html += '<li onclick="showPatientDetail(\'' + escapeHtml(a.patient.id) + '\')"><div>';
+            html += '<li onclick="showPatientDetail(\'' + a.patient.id + '\')"><div>';
             html += '<div class="patient-list-name">' + escapeHtml(a.patient.name) + '</div>';
             html += '<div class="patient-list-time">' + escapeHtml(a.patient.refNo) + ' | ' + escapeHtml(a.time) + ' ';
             html += '<span class="badge ' + actBadge + '">' + badgeTexts[currentLang][a.type] + '</span></div>';
-            html += '</div><span class="badge ' + genderBadge + '">' + translateGender(a.patient.gender) + '</span></li>';
+            html += '</div><span class="badge ' + gBadge + '">' + translateGender(a.patient.gender) + '</span></li>';
         });
         html += '</ul>';
         todayDiv.innerHTML = html;
@@ -1914,7 +1799,6 @@ async function generateRefNo() {
     const allPatients = mergeArrays(cachedPatients, getPendingPatients(), 'id');
     const now = new Date();
     const currentMonth = String(now.getMonth() + 1).padStart(2, '0');
-    
     let maxNo = 0;
     allPatients.forEach(function(p) {
         if (p.refNo) {
@@ -1923,7 +1807,6 @@ async function generateRefNo() {
             if (num > maxNo) maxNo = num;
         }
     });
-    
     $('refNo').value = 'BHC-' + String(maxNo + 1).padStart(4, '0') + '/' + currentMonth;
 }
 
@@ -1931,7 +1814,6 @@ function checkFamilyByPhone() {
     const phone = $('phone').value.trim();
     const familyInput = $('familyNo');
     const hint = $('familyHint');
-    
     if (phone && !familyInput.value) {
         const existing = cachedPatients.filter(function(p) { return p.phone === phone && p.familyNo; });
         if (existing.length > 0) {
@@ -1943,7 +1825,7 @@ function checkFamilyByPhone() {
     }
 }
 
-// ==================== SAVE NEW PATIENT (FIXED) ====================
+// ==================== SAVE PATIENT ====================
 async function saveNewPatient() {
     const name = $('patientName').value.trim();
     const phone = $('phone').value.trim();
@@ -1958,7 +1840,6 @@ async function saveNewPatient() {
     saveBtn.innerHTML = '<span class="loading-inline"></span>';
     
     try {
-        // Duplicate check
         const allP = mergeArrays(cachedPatients, getPendingPatients(), 'id');
         const dup = allP.find(function(p) { return p.phone === phone && p.name.toLowerCase() === name.toLowerCase(); });
         if (dup) {
@@ -1968,7 +1849,6 @@ async function saveNewPatient() {
             applyLanguage(); window.scrollTo(0,0); return;
         }
         
-        // Family number
         if (familyNo) {
             if (!familyNo.match(/^F-/i)) familyNo = 'F-' + familyNo.replace(/\D/g, '').padStart(4, '0');
             familyNo = familyNo.toUpperCase();
@@ -1989,13 +1869,10 @@ async function saveNewPatient() {
             createdBy: currentUserData ? currentUserData.name : 'Unknown'
         };
         
-        // First visit (type = 'registration')
-        const firstVisitDate = $('firstVisitDate').value || new Date().toISOString().split('T')[0];
-        const firstVisitTime = $('firstVisitTime').value || new Date().toTimeString().substring(0, 5);
-        
         const firstVisit = {
             id: generateId('V'), patientId: patientId,
-            date: firstVisitDate, time: firstVisitTime,
+            date: $('firstVisitDate').value || new Date().toISOString().split('T')[0],
+            time: $('firstVisitTime').value || new Date().toTimeString().substring(0, 5),
             symptoms: $('firstVisitSymptoms').value.trim(),
             diagnosis: $('firstVisitDiagnosis').value.trim(),
             prescription: $('firstVisitPrescription').value.trim(),
@@ -2004,7 +1881,7 @@ async function saveNewPatient() {
             notes: $('firstVisitNotes').value.trim(),
             bp: $('firstBP').value.trim(), sugar: $('firstSugar').value.trim(),
             temperature: $('firstTemp').value.trim(), pulse: $('firstPulse').value.trim(),
-            type: 'registration',  // ← KEY FIX: mark as registration, NOT followup
+            type: 'registration',
             createdAt: new Date().toISOString(),
             createdBy: currentUserData ? currentUserData.name : 'Unknown'
         };
@@ -2016,9 +1893,7 @@ async function saveNewPatient() {
                 await saveVisitDB(firstVisit);
                 savedOnline = true;
                 await forceCacheRefresh();
-            } catch(err) {
-                console.error('Online save failed:', err);
-            }
+            } catch(err) { console.error(err); }
         }
         
         if (!savedOnline) {
@@ -2058,7 +1933,7 @@ function clearNewPatientForm() {
     $('firstVisitTime').value = now.toTimeString().substring(0, 5);
 }
 
-// ==================== CONFIRM ====================
+// ==================== CONFIRM MODAL ====================
 function showConfirm(message, callback) {
     $('confirmMessage').innerHTML = message;
     confirmCallback = callback;
@@ -2078,10 +1953,7 @@ async function confirmDeletePatient(patientId) {
     showConfirm('Delete <b>' + escapeHtml(patient.name) + '</b> and <b>' + visits.length + '</b> consultations?', async function() {
         showLoading();
         try {
-            if (navigator.onLine) {
-                await deletePatientDB(patientId);
-            }
-            // Remove from caches
+            if (navigator.onLine) await deletePatientDB(patientId);
             cachedPatients = cachedPatients.filter(function(p) { return p.id !== patientId; });
             cachedVisits = cachedVisits.filter(function(v) { return v.patientId !== patientId; });
             localStorage.setItem('pending_patients', JSON.stringify(getPendingPatients().filter(function(p) { return p.id !== patientId; })));
@@ -2116,12 +1988,10 @@ async function confirmDeleteVisit(visitId, patientId) {
 function searchPatients() {
     const query = $('searchInput').value.trim().toLowerCase();
     const div = $('searchResults');
-    
     if (!query) {
         div.innerHTML = '<div class="empty-state"><div class="icon">🔍</div><p>Type to search...</p></div>';
         return;
     }
-    
     const results = cachedPatients.filter(function(p) {
         return (p.name && p.name.toLowerCase().includes(query)) ||
             (p.phone && p.phone.includes(query)) ||
@@ -2129,7 +1999,6 @@ function searchPatients() {
             (p.familyNo && p.familyNo.toLowerCase().includes(query)) ||
             (p.fatherName && p.fatherName.toLowerCase().includes(query));
     });
-    
     if (results.length === 0) {
         div.innerHTML = '<div class="empty-state"><div class="icon">😔</div><p>No results</p></div>';
         return;
@@ -2138,7 +2007,7 @@ function searchPatients() {
 }
 
 async function showAllPatients() {
-     await refreshCache();
+    await refreshCache();
     const div = $('allPatientsList');
     if (cachedPatients.length === 0) {
         div.innerHTML = '<div class="empty-state"><div class="icon">📋</div><p>No patients</p></div>';
@@ -2147,12 +2016,8 @@ async function showAllPatients() {
     div.innerHTML = renderPatientsTable(cachedPatients);
 }
 
-// Cache pending IDs once (performance)
 function renderPatientsTable(patients) {
-    // Pre-calculate pending IDs (avoid re-parsing localStorage)
     const pendingIds = new Set(getPendingPatients().map(function(p) { return p.id; }));
-    
-    // Pre-group visits by patient (avoid nested filter)
     const followupsByPatient = {};
     cachedVisits.forEach(function(v) {
         if (v.type === 'followup') {
@@ -2160,9 +2025,6 @@ function renderPatientsTable(patients) {
         }
     });
     
-    const h = {
-
-function renderPatientsTable(patients) {
     const h = {
         ur: ['حوالہ', 'فیملی', 'نام', 'ولدیت', 'عمر', 'جنس', 'فون', 'فالو اپ', 'ایکشن'],
         en: ['Ref', 'Family', 'Name', 'Father', 'Age', 'Gender', 'Phone', 'Follow-ups', 'Action'],
@@ -2177,7 +2039,6 @@ function renderPatientsTable(patients) {
     html += '</tr></thead><tbody>';
     
     patients.forEach(function(p) {
-        // Count only follow-up visits (not registration)
         const followupCount = followupsByPatient[p.id] || 0;
         const gBadge = getGenderBadgeClass(p.gender);
         const isPending = pendingIds.has(p.id);
@@ -2220,7 +2081,7 @@ function showFamilyMembers(familyNo) {
     window.scrollTo(0, 0);
 }
 
-// ==================== PATIENT DETAIL (with EDIT buttons) ====================
+// ==================== PATIENT DETAIL ====================
 async function showPatientDetail(patientId) {
     const patient = cachedPatients.find(function(p) { return p.id === patientId; });
     if (!patient) { showPage('allPatients', $$('.nav-btn')[3]); return; }
@@ -2234,12 +2095,9 @@ async function showPatientDetail(patientId) {
         visits = cachedVisits.filter(function(v) { return v.patientId === patientId; });
     }
     
-    // Sort oldest first for numbering
     visits.sort(function(a, b) { return new Date(a.date + ' ' + (a.time||'')) - new Date(b.date + ' ' + (b.time||'')); });
     
     const familyMembers = patient.familyNo ? cachedPatients.filter(function(p) { return p.familyNo === patient.familyNo; }) : [];
-    
-    // Follow-ups count (exclude registration visit)
     const followupCount = visits.filter(function(v) { return v.type === 'followup'; }).length;
     
     let html = '<div class="patient-header">';
@@ -2247,12 +2105,11 @@ async function showPatientDetail(patientId) {
     html += '<div><h2>' + escapeHtml(patient.name) + '</h2>';
     html += '<div style="opacity:0.8;font-size:13px;">Ref: ' + escapeHtml(patient.refNo);
     if (patient.familyNo) html += ' | Family: ' + escapeHtml(patient.familyNo);
-    html += ' | Follow-ups: ' + followupCount;
-    html += '</div></div>';
+    html += ' | Follow-ups: ' + followupCount + '</div></div>';
     html += '<div style="display:flex;gap:5px;flex-wrap:wrap;">';
-    html += '<button class="btn btn-edit btn-sm" onclick="openEditPatientModal(\'' + patient.id + '\')">✏️ Edit Bio</button>';
-    html += '<button class="btn btn-warning btn-sm" onclick="openVisitModal(\'' + patient.id + '\')">➕ New Visit</button>';
-html += '<button class="btn btn-purple btn-sm" onclick="openDiagnosisForPatient(\'' + patient.id + '\')">🔬 Diagnose</button>';
+    html += '<button class="btn btn-edit btn-sm" onclick="openEditPatientModal(\'' + patient.id + '\')">✏️ Edit</button>';
+    html += '<button class="btn btn-warning btn-sm" onclick="openVisitModal(\'' + patient.id + '\')">➕ Visit</button>';
+    html += '<button class="btn btn-purple btn-sm" onclick="openDiagnosisForPatient(\'' + patient.id + '\')">🔬 Diagnose</button>';
     if (patient.familyNo) html += '<button class="btn btn-info btn-sm" onclick="showFamilyMembers(\'' + escapeHtml(patient.familyNo) + '\')">👨‍👩‍👧‍👦 (' + familyMembers.length + ')</button>';
     html += '<button class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;" onclick="showPage(\'allPatients\',document.querySelectorAll(\'.nav-btn\')[3])">🔙</button>';
     html += '<button class="btn btn-danger btn-sm" onclick="confirmDeletePatient(\'' + patient.id + '\')">🗑️</button>';
@@ -2270,7 +2127,6 @@ html += '<button class="btn btn-purple btn-sm" onclick="openDiagnosisForPatient(
     });
     html += '</div></div>';
     
-    // Visits
     html += '<div class="card"><div class="card-title" style="display:flex;justify-content:space-between;align-items:center;">';
     html += '<span>📋 Consultations (' + visits.length + ')</span>';
     html += '<button class="btn btn-success btn-sm" onclick="openVisitModal(\'' + patient.id + '\')">➕ New Visit</button></div>';
@@ -2278,13 +2134,11 @@ html += '<button class="btn btn-purple btn-sm" onclick="openDiagnosisForPatient(
     if (visits.length === 0) {
         html += '<div class="empty-state"><div class="icon">📝</div><p>No consultations</p></div>';
     } else {
-        const displayVisits = [...visits].reverse(); // newest first for display
+        const displayVisits = [...visits].reverse();
         let followupNum = followupCount;
-        
         displayVisits.forEach(function(v) {
             const isReg = v.type === 'registration' || v.type === undefined;
             let visitLabel, cardClass;
-            
             if (isReg) {
                 visitLabel = '<span class="visit-type-badge visit-type-registration">🌟 Registration</span>';
                 cardClass = 'visit-card registration';
@@ -2301,7 +2155,6 @@ html += '<button class="btn btn-purple btn-sm" onclick="openDiagnosisForPatient(
             html += '<button class="btn btn-danger btn-xs" onclick="confirmDeleteVisit(\'' + v.id + '\',\'' + patient.id + '\')">🗑️</button>';
             html += '</div></div>';
             
-            // Vitals
             if (v.bp || v.sugar || v.temperature || v.pulse) {
                 html += '<div class="vitals-display">';
                 if (v.bp) html += '<span><strong>BP:</strong> ' + escapeHtml(v.bp) + '</span>';
@@ -2334,11 +2187,10 @@ html += '<button class="btn btn-purple btn-sm" onclick="openDiagnosisForPatient(
     window.scrollTo(0, 0);
 }
 
-// ==================== EDIT PATIENT BIO ====================
+// ==================== EDIT PATIENT ====================
 function openEditPatientModal(patientId) {
     const patient = cachedPatients.find(function(p) { return p.id === patientId; });
     if (!patient) return;
-    
     $('editPatientId').value = patientId;
     $('editName').value = patient.name || '';
     $('editPhone').value = patient.phone || '';
@@ -2350,10 +2202,7 @@ function openEditPatientModal(patientId) {
     $('editAllergy').value = patient.allergy || '';
     $('editAddress').value = patient.address || '';
     $('editPatientMsg').innerHTML = '';
-    
-    const titles = { ur: '✏️ معلومات میں ترمیم: ' + patient.name, en: '✏️ Edit: ' + patient.name, roman: '✏️ Edit: ' + patient.name };
-    $('editPatientModalTitle').textContent = titles[currentLang];
-    
+    $('editPatientModalTitle').textContent = '✏️ Edit: ' + patient.name;
     $('editPatientModal').classList.add('active');
 }
 
@@ -2392,17 +2241,11 @@ async function saveEditPatient() {
     try {
         let savedOnline = false;
         if (navigator.onLine) {
-            try {
-                await updatePatientDB(patientId, updates);
-                savedOnline = true;
-            } catch(e) { console.error('Online edit failed:', e); }
+            try { await updatePatientDB(patientId, updates); savedOnline = true; }
+            catch(e) { console.error(e); }
         }
+        if (!savedOnline) savePendingEdit({ id: patientId, type: 'patient', data: updates });
         
-        if (!savedOnline) {
-            savePendingEdit({ id: patientId, type: 'patient', data: updates });
-        }
-        
-        // Update local cache
         const idx = cachedPatients.findIndex(function(p) { return p.id === patientId; });
         if (idx >= 0) {
             cachedPatients[idx].name = name;
@@ -2424,32 +2267,25 @@ async function saveEditPatient() {
         msgDiv.innerHTML = '<div class="alert alert-error">❌ ' + escapeHtml(err.message) + '</div>';
     } finally {
         saveBtn.disabled = false;
-        saveBtn.innerHTML = '<span data-ur="💾 محفوظ کریں" data-en="💾 Save Changes" data-roman="💾 Save">💾 Save</span>';
+        saveBtn.innerHTML = '<span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Save">💾 Save</span>';
         applyLanguage();
     }
 }
 
-// ==================== VISIT MODAL (ADD + EDIT) ====================
+// ==================== VISIT MODAL ====================
 function openVisitModal(patientId) {
     const patient = cachedPatients.find(function(p) { return p.id === patientId; });
     if (!patient) return;
-    
     $('visitPatientId').value = patientId;
-    $('editVisitId').value = ''; // Empty = new visit
-    
+    $('editVisitId').value = '';
     const followups = cachedVisits.filter(function(v) { return v.patientId === patientId && v.type === 'followup'; });
-    const nextNum = followups.length + 1;
-    
-    $('visitModalTitle').textContent = '➕ Follow-up #' + nextNum + ' - ' + patient.name;
+    $('visitModalTitle').textContent = '➕ Follow-up #' + (followups.length + 1) + ' - ' + patient.name;
     $('visitPatientInfo').innerHTML = '👤 <strong>' + escapeHtml(patient.name) + '</strong> | ' + escapeHtml(patient.refNo);
-    
     const now = new Date();
     $('visitDate').value = now.toISOString().split('T')[0];
     $('visitTime').value = now.toTimeString().substring(0, 5);
-    
     ['visitSymptoms','visitDiagnosis','visitPrescription','visitMethod','visitDays','visitNotes',
      'visitBP','visitSugar','visitTemp','visitPulse'].forEach(function(id) { $(id).value = ''; });
-    
     $('visitMsg').innerHTML = '';
     $('visitModal').classList.add('active');
 }
@@ -2458,13 +2294,10 @@ function openEditVisitModal(visitId, patientId) {
     const visit = cachedVisits.find(function(v) { return v.id === visitId; });
     const patient = cachedPatients.find(function(p) { return p.id === patientId; });
     if (!visit || !patient) return;
-    
     $('visitPatientId').value = patientId;
-    $('editVisitId').value = visitId; // Has value = editing
-    
-    $('visitModalTitle').textContent = '✏️ Edit Consultation - ' + patient.name;
+    $('editVisitId').value = visitId;
+    $('visitModalTitle').textContent = '✏️ Edit - ' + patient.name;
     $('visitPatientInfo').innerHTML = '👤 <strong>' + escapeHtml(patient.name) + '</strong> | ' + escapeHtml(patient.refNo);
-    
     $('visitDate').value = visit.date || '';
     $('visitTime').value = visit.time || '';
     $('visitSymptoms').value = visit.symptoms || '';
@@ -2477,7 +2310,6 @@ function openEditVisitModal(visitId, patientId) {
     $('visitSugar').value = visit.sugar || '';
     $('visitTemp').value = visit.temperature || '';
     $('visitPulse').value = visit.pulse || '';
-    
     $('visitMsg').innerHTML = '';
     $('visitModal').classList.add('active');
 }
@@ -2508,7 +2340,6 @@ async function saveVisit() {
     
     try {
         if (isEditing) {
-            // UPDATE existing visit
             const dbUpdates = {
                 visit_date: visitData.date, visit_time: visitData.time,
                 symptoms: visitData.symptoms || null, diagnosis: visitData.diagnosis || null,
@@ -2517,32 +2348,23 @@ async function saveVisit() {
                 bp: visitData.bp || null, sugar: visitData.sugar || null,
                 temperature: visitData.temperature || null, pulse: visitData.pulse || null
             };
-            
             let savedOnline = false;
             if (navigator.onLine) {
                 try { await updateVisitDB(editingId, dbUpdates); savedOnline = true; } catch(e) { console.error(e); }
             }
             if (!savedOnline) savePendingEdit({ id: editingId, type: 'visit', data: dbUpdates });
-            
-            // Update cache
             const idx = cachedVisits.findIndex(function(v) { return v.id === editingId; });
-            if (idx >= 0) {
-                Object.assign(cachedVisits[idx], visitData);
-            }
+            if (idx >= 0) Object.assign(cachedVisits[idx], visitData);
             localStorage.setItem('cached_visits', JSON.stringify(cachedVisits));
-            
             closeVisitModal();
             showToast('✅ Updated!' + (savedOnline ? '' : ' (offline)'));
         } else {
-            // NEW visit
             const newVisit = {
-                id: generateId('V'), patientId: patientId,
-                ...visitData,
-                type: 'followup',  // ← KEY: follow-up, not registration
+                id: generateId('V'), patientId: patientId, ...visitData,
+                type: 'followup',
                 createdAt: new Date().toISOString(),
                 createdBy: currentUserData ? currentUserData.name : 'Unknown'
             };
-            
             let savedOnline = false;
             if (navigator.onLine) {
                 try { await saveVisitDB(newVisit); savedOnline = true; await forceCacheRefresh(); } catch(e) { console.error(e); }
@@ -2552,11 +2374,9 @@ async function saveVisit() {
                 cachedVisits.unshift(newVisit);
                 localStorage.setItem('cached_visits', JSON.stringify(cachedVisits));
             }
-            
             closeVisitModal();
             showToast('✅ Saved!' + (savedOnline ? '' : ' (offline)'));
         }
-        
         showPatientDetail(patientId);
     } catch(err) {
         msgDiv.innerHTML = '<div class="alert alert-error">❌ ' + escapeHtml(err.message) + '</div>';
@@ -2567,7 +2387,225 @@ async function saveVisit() {
     }
 }
 
-// ==================== EXPORT / IMPORT ====================
+// ==================== DIAGNOSIS ====================
+let selectedSymptoms = new Set();
+let currentCategory = 'all';
+let diagnosisPatientId = null;
+
+function initDiagnosis() {
+    if (typeof SYMPTOMS_DB === 'undefined') {
+        $('symptomsGrid').innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:30px;color:#e74c3c;">⚠️ diagnosis-data.js فائل نہیں ملی</div>';
+        return;
+    }
+    renderCategoryTabs();
+    renderSymptomsGrid();
+    updateSelectedBox();
+}
+
+function renderCategoryTabs() {
+    if (typeof CATEGORIES_DB === 'undefined') return;
+    const container = $('categoryTabs');
+    let html = '';
+    Object.keys(CATEGORIES_DB).forEach(function(key) {
+        const cat = CATEGORIES_DB[key];
+        const active = key === currentCategory ? 'active' : '';
+        html += '<button class="category-tab ' + active + '" onclick="filterByCategory(\'' + key + '\')">';
+        html += cat.icon + ' ' + cat[currentLang] + '</button>';
+    });
+    container.innerHTML = html;
+}
+
+function filterByCategory(cat) {
+    currentCategory = cat;
+    renderCategoryTabs();
+    renderSymptomsGrid();
+}
+
+function renderSymptomsGrid() {
+    if (typeof SYMPTOMS_DB === 'undefined') return;
+    const container = $('symptomsGrid');
+    const searchQuery = $('symptomSearch').value.trim().toLowerCase();
+    let html = '';
+    Object.keys(SYMPTOMS_DB).forEach(function(key) {
+        const symptom = SYMPTOMS_DB[key];
+        if (currentCategory !== 'all' && symptom.category !== currentCategory) return;
+        if (searchQuery) {
+            const searchIn = (symptom.ur + ' ' + symptom.en + ' ' + symptom.roman).toLowerCase();
+            if (!searchIn.includes(searchQuery)) return;
+        }
+        const selected = selectedSymptoms.has(key) ? 'selected' : '';
+        const severe = symptom.severe ? 'severe' : '';
+        html += '<div class="symptom-chip ' + selected + ' ' + severe + '" onclick="toggleSymptom(\'' + key + '\')">';
+        html += (symptom.severe ? '⚠️ ' : '') + escapeHtml(symptom[currentLang]) + '</div>';
+    });
+    if (!html) html = '<div style="grid-column:1/-1;text-align:center;padding:30px;color:#95a5a6;">😔 کوئی علامت نہیں ملی</div>';
+    container.innerHTML = html;
+}
+
+function toggleSymptom(key) {
+    if (selectedSymptoms.has(key)) selectedSymptoms.delete(key);
+    else selectedSymptoms.add(key);
+    renderSymptomsGrid();
+    updateSelectedBox();
+}
+
+function updateSelectedBox() {
+    const box = $('selectedSymptomsBox');
+    $('selectedCount').textContent = selectedSymptoms.size;
+    if (selectedSymptoms.size === 0) {
+        box.innerHTML = '<div style="color:#95a5a6;font-size:13px;text-align:center;">' +
+            ({ ur: 'نیچے سے علامات چنیں...', en: 'Select symptoms below...', roman: 'Neechay se alamat chunein...' }[currentLang]) + '</div>';
+        return;
+    }
+    let html = '';
+    selectedSymptoms.forEach(function(key) {
+        const s = SYMPTOMS_DB[key];
+        if (s) html += '<span class="selected-chip" onclick="toggleSymptom(\'' + key + '\')">' + escapeHtml(s[currentLang]) + '</span>';
+    });
+    box.innerHTML = html;
+}
+
+function clearAllSymptoms() {
+    selectedSymptoms.clear();
+    renderSymptomsGrid();
+    updateSelectedBox();
+    $('diagnosisResults').innerHTML = '';
+}
+
+function analyzeDiagnosis() {
+    if (selectedSymptoms.size === 0) {
+        showToast('⚠️ Please select symptoms', 'error');
+        return;
+    }
+    const results = [];
+    DISEASES_DB.forEach(function(disease) {
+        const matched = disease.symptoms.filter(function(s) { return selectedSymptoms.has(s); });
+        if (matched.length === 0) return;
+        let score = 0;
+        matched.forEach(function(s) {
+            score += disease.keySymptoms && disease.keySymptoms.includes(s) ? 2 : 1;
+        });
+        const maxScore = disease.symptoms.length + (disease.keySymptoms ? disease.keySymptoms.length : 0);
+        const percentage = Math.round((score / maxScore) * 100);
+        if (percentage >= 25) {
+            results.push({
+                disease: disease, matchCount: matched.length,
+                totalCount: disease.symptoms.length,
+                percentage: Math.min(percentage, 99), matchedSymptoms: matched
+            });
+        }
+    });
+    results.sort(function(a, b) { return b.percentage - a.percentage; });
+    displayDiagnosisResults(results);
+}
+
+function displayDiagnosisResults(results) {
+    const container = $('diagnosisResults');
+    if (results.length === 0) {
+        container.innerHTML = '<div class="card"><div class="empty-state"><div class="icon">🤔</div><p>No match found</p></div></div>';
+        return;
+    }
+    const hasSevere = Array.from(selectedSymptoms).some(function(s) {
+        return SYMPTOMS_DB[s] && SYMPTOMS_DB[s].severe;
+    });
+    let html = '';
+    if (hasSevere) {
+        html += '<div class="emergency-alert">⚠️ خطرناک علامات! فوری میڈیکل امداد ضروری ہو سکتی ہے۔</div>';
+    }
+    html += '<div class="card">';
+    html += '<div class="card-title">📊 Possible Conditions (' + results.length + ')</div>';
+    results.slice(0, 5).forEach(function(r, idx) {
+        const d = r.disease;
+        const matchClass = r.percentage >= 70 ? 'high' : (r.percentage >= 45 ? 'medium' : 'low');
+        html += '<div class="disease-card ' + matchClass + '-match">';
+        html += '<div class="disease-header">';
+        html += '<div class="disease-name">' + (idx + 1) + '. ' + escapeHtml(d.name[currentLang]) + '</div>';
+        html += '<span class="match-badge ' + matchClass + '">' + r.percentage + '%</span></div>';
+        html += '<div style="font-size:12px;color:#7f8c8d;margin-bottom:8px;">✓ ' + r.matchCount + ' / ' + r.totalCount + ' symptoms</div>';
+        html += '<div class="disease-section"><div class="disease-section-title">🔬 Tests</div><div>';
+        d.tests.forEach(function(t) { html += '<span class="test-item">' + escapeHtml(t[currentLang] || t.en) + '</span>'; });
+        html += '</div></div>';
+        html += '<div class="disease-section"><div class="disease-section-title">💊 Remedies</div>';
+        d.remedies.forEach(function(rem) {
+            html += '<div class="remedy-item">';
+            html += '<div class="remedy-name">💊 ' + escapeHtml(rem.name) + '</div>';
+            html += '<div class="remedy-use">▸ ' + escapeHtml(rem.use[currentLang] || rem.use.en) + '</div>';
+            html += '<div class="remedy-dose">🕐 ' + escapeHtml(rem.dose) + '</div></div>';
+        });
+        html += '</div>';
+        if (d.redFlags && d.redFlags.length > 0) {
+            html += '<div class="red-flags-box"><div class="red-flags-title">⚠️ Red Flags</div><div style="font-size:12px;">';
+            d.redFlags.forEach(function(rf) {
+                const s = SYMPTOMS_DB[rf];
+                if (s) html += '• ' + escapeHtml(s[currentLang]) + ' &nbsp;';
+            });
+            html += '</div></div>';
+        }
+        if (d.advice) {
+            html += '<div class="advice-box">📖 <strong>Advice:</strong> ' + escapeHtml(d.advice[currentLang] || d.advice.en) + '</div>';
+        }
+        html += '<div class="action-buttons">';
+        if (diagnosisPatientId) {
+            html += '<button class="btn btn-success btn-sm" onclick="copyToVisit(\'' + d.id + '\')">📋 Copy to Visit</button>';
+        }
+        html += '<button class="btn btn-info btn-sm" onclick="copyDiseaseInfo(\'' + d.id + '\')">📄 Copy</button>';
+        html += '</div></div>';
+    });
+    html += '</div>';
+    container.innerHTML = html;
+    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function copyDiseaseInfo(diseaseId) {
+    const d = DISEASES_DB.find(function(x) { return x.id === diseaseId; });
+    if (!d) return;
+    let text = '📌 ' + d.name.ur + ' / ' + d.name.en + '\n\n🔬 Tests:\n';
+    d.tests.forEach(function(t) { text += '• ' + (t.ur || t.en) + '\n'; });
+    text += '\n💊 Remedies:\n';
+    d.remedies.forEach(function(r) {
+        text += '• ' + r.name + ' - ' + (r.use.ur || r.use.en) + ' (' + r.dose + ')\n';
+    });
+    if (d.advice) text += '\n📖 ' + (d.advice.ur || d.advice.en);
+    navigator.clipboard.writeText(text).then(function() { showToast('✅ Copied!'); });
+}
+
+function copyToVisit(diseaseId) {
+    const d = DISEASES_DB.find(function(x) { return x.id === diseaseId; });
+    if (!d || !diagnosisPatientId) return;
+    openVisitModal(diagnosisPatientId);
+    $('visitDiagnosis').value = d.name.ur + ' (' + d.name.en + ')';
+    let prescText = '';
+    d.remedies.forEach(function(r, i) {
+        prescText += (i + 1) + '. ' + r.name + '\n   → ' + (r.use.ur || r.use.en) + '\n   → ' + r.dose + '\n\n';
+    });
+    $('visitPrescription').value = prescText.trim();
+    if (d.advice) $('visitMethod').value = d.advice.ur || d.advice.en;
+    const symptomsText = Array.from(selectedSymptoms).map(function(s) {
+        return SYMPTOMS_DB[s] ? SYMPTOMS_DB[s].ur : '';
+    }).filter(Boolean).join('، ');
+    $('visitSymptoms').value = symptomsText;
+    showToast('✅ Auto-filled!');
+}
+
+function clearDiagnosisPatient() {
+    diagnosisPatientId = null;
+    $('diagnosisPatientLink').style.display = 'none';
+}
+
+function openDiagnosisForPatient(patientId) {
+    const patient = cachedPatients.find(function(p) { return p.id === patientId; });
+    if (!patient) return;
+    diagnosisPatientId = patientId;
+    $('diagnosisPatientLink').style.display = 'block';
+    $('diagnosisPatientName').textContent = patient.name + ' (' + patient.refNo + ')';
+    const btn = document.querySelector('[data-page="diagnosis"]');
+    showPage('diagnosis', btn);
+    selectedSymptoms.clear();
+    updateSelectedBox();
+    $('diagnosisResults').innerHTML = '';
+}
+
+// ==================== EXPORT/IMPORT ====================
 async function exportData() {
     showLoading();
     try {
@@ -2587,21 +2625,16 @@ async function exportData() {
 async function importOldData() {
     const fileInput = $('importFile');
     const msgDiv = $('importMsg');
-    
     if (!fileInput.files.length) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ Select a file</div>'; return; }
-    
     const reader = new FileReader();
     reader.onload = async function(e) {
         try {
             const data = JSON.parse(e.target.result);
-            if (!data.patients || !Array.isArray(data.patients)) { msgDiv.innerHTML = '<div class="alert alert-error">❌ Invalid format</div>'; return; }
-            
+            if (!data.patients) { msgDiv.innerHTML = '<div class="alert alert-error">❌ Invalid format</div>'; return; }
             showLoading();
             let added = 0, skipped = 0, errors = 0;
-            
             for (const p of data.patients) {
                 try {
-                    // Check duplicate
                     const exists = cachedPatients.find(function(cp) { return cp.refNo === p.refNo || (cp.phone === p.phone && cp.name === p.name); });
                     if (exists) { skipped++; continue; }
                     await savePatientDB({
@@ -2614,510 +2647,158 @@ async function importOldData() {
                     added++;
                 } catch(err) { errors++; }
             }
-            
             if (data.visits) {
                 for (const v of data.visits) {
                     try {
-                        const exists = cachedVisits.find(function(cv) { return cv.id === v.id; });
-                        if (exists) continue;
                         await saveVisitDB({
                             id: v.id || generateId('V'), patientId: v.patientId,
-                            date: v.date, time: v.time,
-                            symptoms: v.symptoms, diagnosis: v.diagnosis,
-                            prescription: v.prescription, days: v.days,
-                            method: v.method, notes: v.notes,
+                            date: v.date, time: v.time, symptoms: v.symptoms, diagnosis: v.diagnosis,
+                            prescription: v.prescription, days: v.days, method: v.method, notes: v.notes,
                             bp: v.bp, sugar: v.sugar, temperature: v.temperature, pulse: v.pulse,
-                            type: v.type || 'registration',
-                            createdBy: v.createdBy || 'Imported'
+                            type: v.type || 'registration', createdBy: v.createdBy || 'Imported'
                         });
                     } catch(err) { errors++; }
                 }
             }
-            
             await forceCacheRefresh();
             hideLoading();
             msgDiv.innerHTML = '<div class="alert alert-success">✅ Added: ' + added + ', Skipped: ' + skipped + (errors ? ', Errors: ' + errors : '') + '</div>';
             fileInput.value = '';
-        } catch(err) {
-            hideLoading();
-            msgDiv.innerHTML = '<div class="alert alert-error">❌ ' + err.message + '</div>';
-        }
+        } catch(err) { hideLoading(); msgDiv.innerHTML = '<div class="alert alert-error">❌ ' + err.message + '</div>'; }
     };
     reader.readAsText(fileInput.files[0]);
 }
 
-// ==================== DIAGNOSIS SYSTEM ====================
-let selectedSymptoms = new Set();
-let currentCategory = 'all';
-let diagnosisPatientId = null;
-
-function initDiagnosis() {
-    renderCategoryTabs();
-    renderSymptomsGrid();
-    updateSelectedBox();
-}
-
-function renderCategoryTabs() {
-    const container = $('categoryTabs');
-    let html = '';
-    Object.keys(CATEGORIES_DB).forEach(function(key) {
-        const cat = CATEGORIES_DB[key];
-        const active = key === currentCategory ? 'active' : '';
-        html += '<button class="category-tab ' + active + '" onclick="filterByCategory(\'' + key + '\')">';
-        html += cat.icon + ' ' + cat[currentLang];
-        html += '</button>';
-    });
-    container.innerHTML = html;
-}
-
-function filterByCategory(cat) {
-    currentCategory = cat;
-    renderCategoryTabs();
-    renderSymptomsGrid();
-}
-
-function renderSymptomsGrid() {
-    const container = $('symptomsGrid');
-    const searchQuery = $('symptomSearch').value.trim().toLowerCase();
-    let html = '';
-    
-    Object.keys(SYMPTOMS_DB).forEach(function(key) {
-        const symptom = SYMPTOMS_DB[key];
-        
-        // Category filter
-        if (currentCategory !== 'all' && symptom.category !== currentCategory) return;
-        
-        // Search filter
-        if (searchQuery) {
-            const searchIn = (symptom.ur + ' ' + symptom.en + ' ' + symptom.roman).toLowerCase();
-            if (!searchIn.includes(searchQuery)) return;
-        }
-        
-        const selected = selectedSymptoms.has(key) ? 'selected' : '';
-        const severe = symptom.severe ? 'severe' : '';
-        html += '<div class="symptom-chip ' + selected + ' ' + severe + '" onclick="toggleSymptom(\'' + key + '\')">';
-        html += (symptom.severe ? '⚠️ ' : '') + escapeHtml(symptom[currentLang]);
-        html += '</div>';
-    });
-    
-    if (!html) {
-        html = '<div style="grid-column:1/-1;text-align:center;padding:30px;color:#95a5a6;">😔 کوئی علامت نہیں ملی</div>';
-    }
-    
-    container.innerHTML = html;
-}
-
-function toggleSymptom(key) {
-    if (selectedSymptoms.has(key)) {
-        selectedSymptoms.delete(key);
-    } else {
-        selectedSymptoms.add(key);
-    }
-    renderSymptomsGrid();
-    updateSelectedBox();
-}
-
-function updateSelectedBox() {
-    const box = $('selectedSymptomsBox');
-    const noMsg = $('noSelectedMsg');
-    $('selectedCount').textContent = selectedSymptoms.size;
-    
-    if (selectedSymptoms.size === 0) {
-        box.innerHTML = '<div style="color:#95a5a6;font-size:13px;text-align:center;">' +
-            ({ ur: 'نیچے سے علامات چنیں...', en: 'Select symptoms below...', roman: 'Neechay se alamat chunein...' }[currentLang]) +
-            '</div>';
-        return;
-    }
-    
-    let html = '';
-    selectedSymptoms.forEach(function(key) {
-        const s = SYMPTOMS_DB[key];
-        if (s) {
-            html += '<span class="selected-chip" onclick="toggleSymptom(\'' + key + '\')">' + escapeHtml(s[currentLang]) + '</span>';
-        }
-    });
-    box.innerHTML = html;
-}
-
-function clearAllSymptoms() {
-    selectedSymptoms.clear();
-    renderSymptomsGrid();
-    updateSelectedBox();
-    $('diagnosisResults').innerHTML = '';
-}
-
-function analyzeDiagnosis() {
-    if (selectedSymptoms.size === 0) {
-        showToast('⚠️ Please select at least one symptom', 'error');
-        return;
-    }
-    
-    const results = [];
-    const selectedArr = Array.from(selectedSymptoms);
-    
-    // Check each disease
-    DISEASES_DB.forEach(function(disease) {
-        const totalDiseaseSymptoms = disease.symptoms.length;
-        const matchedSymptoms = disease.symptoms.filter(function(s) { return selectedSymptoms.has(s); });
-        const matchCount = matchedSymptoms.length;
-        
-        if (matchCount === 0) return;
-        
-        // Calculate match score
-        // Weight: key symptoms count double
-        let score = 0;
-        matchedSymptoms.forEach(function(s) {
-            score += disease.keySymptoms && disease.keySymptoms.includes(s) ? 2 : 1;
-        });
-        
-        const maxScore = disease.symptoms.length + (disease.keySymptoms ? disease.keySymptoms.length : 0);
-        const percentage = Math.round((score / maxScore) * 100);
-        
-        // Only include if at least 30% match
-        if (percentage >= 25) {
-            results.push({
-                disease: disease,
-                matchCount: matchCount,
-                totalCount: totalDiseaseSymptoms,
-                percentage: Math.min(percentage, 99),
-                matchedSymptoms: matchedSymptoms
-            });
-        }
-    });
-    
-    // Sort by percentage
-    results.sort(function(a, b) { return b.percentage - a.percentage; });
-    
-    displayDiagnosisResults(results);
-}
-
-function displayDiagnosisResults(results) {
-    const container = $('diagnosisResults');
-    
-    if (results.length === 0) {
-        const t = {
-            ur: 'کوئی مماثل بیماری نہیں ملی۔ مزید علامات چنیں یا ماہر ڈاکٹر سے رجوع کریں۔',
-            en: 'No matching disease found. Add more symptoms or consult specialist.',
-            roman: 'Koi matching disease nahi mili. Aur symptoms chunein.'
-        };
-        container.innerHTML = '<div class="card"><div class="empty-state"><div class="icon">🤔</div><p>' + t[currentLang] + '</p></div></div>';
-        return;
-    }
-    
-    // Check for red flags in selected symptoms
-    const hasSevere = Array.from(selectedSymptoms).some(function(s) {
-        return SYMPTOMS_DB[s] && SYMPTOMS_DB[s].severe;
-    });
-    
-    let html = '';
-    
-    // Emergency alert
-    if (hasSevere) {
-        const emergencyText = {
-            ur: '⚠️ خطرناک علامات موجود! فوری میڈیکل امداد ضروری ہو سکتی ہے۔',
-            en: '⚠️ Severe symptoms detected! Immediate medical attention may be needed.',
-            roman: '⚠️ Serious symptoms detected! Fori medical madad zaroori.'
-        };
-        html += '<div class="emergency-alert">' + emergencyText[currentLang] + '</div>';
-    }
-    
-    // Summary
-    html += '<div class="card">';
-    html += '<div class="card-title">📊 ' + ({ ur: 'ممکنہ بیماریاں', en: 'Possible Conditions', roman: 'Mumkin Bimariyan' }[currentLang]);
-    html += ' (' + results.length + ')</div>';
-    
-    // Display top 5 results
-    results.slice(0, 5).forEach(function(r, idx) {
-        const d = r.disease;
-        const matchClass = r.percentage >= 70 ? 'high' : (r.percentage >= 45 ? 'medium' : 'low');
-        const matchLabel = { ur: ['کم', 'متوسط', 'زیادہ'], en: ['Low', 'Medium', 'High'], roman: ['Kam', 'Medium', 'Zyada'] };
-        const label = r.percentage >= 70 ? matchLabel[currentLang][2] : (r.percentage >= 45 ? matchLabel[currentLang][1] : matchLabel[currentLang][0]);
-        
-        html += '<div class="disease-card ' + matchClass + '-match">';
-        html += '<div class="disease-header">';
-        html += '<div class="disease-name">' + (idx + 1) + '. ' + escapeHtml(d.name[currentLang]);
-        html += ' <span style="font-size:12px;color:#7f8c8d;font-weight:normal;">(' + escapeHtml(d.name.en) + ')</span></div>';
-        html += '<span class="match-badge ' + matchClass + '">' + r.percentage + '% ' + label + '</span>';
-        html += '</div>';
-        
-        // Matched symptoms
-        html += '<div style="font-size:12px;color:#7f8c8d;margin-bottom:8px;">';
-        html += '✓ ' + r.matchCount + ' / ' + r.totalCount + ' ';
-        html += ({ ur: 'علامات مماثل', en: 'symptoms matched', roman: 'symptoms match' }[currentLang]);
-        html += '</div>';
-        
-        // Tests
-        html += '<div class="disease-section">';
-        html += '<div class="disease-section-title">🔬 ' + ({ ur: 'تجویز کردہ ٹیسٹ', en: 'Recommended Tests', roman: 'Tests' }[currentLang]) + '</div>';
-        html += '<div>';
-        d.tests.forEach(function(t) {
-            html += '<span class="test-item">' + escapeHtml(t[currentLang] || t.en) + '</span>';
-        });
-        html += '</div></div>';
-        
-        // Remedies
-        html += '<div class="disease-section">';
-        html += '<div class="disease-section-title">💊 ' + ({ ur: 'ہومیوپیتھک دوائیں', en: 'Homeopathic Remedies', roman: 'Homeopathic Dawaien' }[currentLang]) + '</div>';
-        d.remedies.forEach(function(r) {
-            html += '<div class="remedy-item">';
-            html += '<div class="remedy-name">💊 ' + escapeHtml(r.name) + '</div>';
-            html += '<div class="remedy-use">▸ ' + escapeHtml(r.use[currentLang] || r.use.en) + '</div>';
-            html += '<div class="remedy-dose">🕐 ' + escapeHtml(r.dose) + '</div>';
-            html += '</div>';
-        });
-        html += '</div>';
-        
-        // Red flags
-        if (d.redFlags && d.redFlags.length > 0) {
-            html += '<div class="red-flags-box">';
-            html += '<div class="red-flags-title">⚠️ ' + ({ ur: 'خطرے کی علامات (فوراً ہسپتال)', en: 'Red Flags (Rush to Hospital)', roman: 'Khatray ki Alamat' }[currentLang]) + ':</div>';
-            html += '<div style="font-size:12px;">';
-            d.redFlags.forEach(function(rf) {
-                const s = SYMPTOMS_DB[rf];
-                if (s) html += '• ' + escapeHtml(s[currentLang]) + ' &nbsp;';
-            });
-            html += '</div></div>';
-        }
-        
-        // Advice
-        if (d.advice) {
-            html += '<div class="advice-box">';
-            html += '📖 <strong>' + ({ ur: 'ہدایات:', en: 'Advice:', roman: 'Hidayat:' }[currentLang]) + '</strong> ';
-            html += escapeHtml(d.advice[currentLang] || d.advice.en);
-            html += '</div>';
-        }
-        
-        // Actions - copy to prescription
-        html += '<div class="diagnosis-actions">';
-        if (diagnosisPatientId) {
-            html += '<button class="btn btn-success btn-sm" onclick="copyToVisit(\'' + d.id + '\')">';
-            html += '📋 ' + ({ ur: 'وزٹ میں کاپی کریں', en: 'Copy to Visit', roman: 'Visit mein Copy' }[currentLang]);
-            html += '</button>';
-        }
-        html += '<button class="btn btn-info btn-sm" onclick="copyDiseaseInfo(\'' + d.id + '\')">';
-        html += '📄 ' + ({ ur: 'کاپی کریں', en: 'Copy', roman: 'Copy' }[currentLang]);
-        html += '</button>';
-        html += '</div>';
-        
-        html += '</div>';
-    });
-    
-    html += '</div>';
-    container.innerHTML = html;
-    
-    // Scroll to results
-    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function copyDiseaseInfo(diseaseId) {
-    const d = DISEASES_DB.find(function(x) { return x.id === diseaseId; });
-    if (!d) return;
-    
-    let text = '📌 ' + d.name.ur + ' / ' + d.name.en + '\n\n';
-    text += '🔬 ٹیسٹ:\n';
-    d.tests.forEach(function(t) { text += '• ' + (t.ur || t.en) + '\n'; });
-    text += '\n💊 ہومیوپیتھک دوائیں:\n';
-    d.remedies.forEach(function(r) {
-        text += '• ' + r.name + ' - ' + (r.use.ur || r.use.en) + ' (' + r.dose + ')\n';
-    });
-    if (d.advice) text += '\n📖 ہدایات: ' + (d.advice.ur || d.advice.en);
-    
-    navigator.clipboard.writeText(text).then(function() {
-        showToast('✅ Copied to clipboard!');
-    }).catch(function() {
-        // Fallback
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        ta.remove();
-        showToast('✅ Copied!');
-    });
-}
-
-function copyToVisit(diseaseId) {
-    const d = DISEASES_DB.find(function(x) { return x.id === diseaseId; });
-    if (!d || !diagnosisPatientId) return;
-    
-    // Open visit modal and pre-fill
-    openVisitModal(diagnosisPatientId);
-    
-    // Fill diagnosis field
-    const diagnosisText = d.name.ur + ' (' + d.name.en + ')';
-    $('visitDiagnosis').value = diagnosisText;
-    
-    // Fill prescription
-    let prescText = '';
-    d.remedies.forEach(function(r, i) {
-        prescText += (i + 1) + '. ' + r.name + '\n';
-        prescText += '   → ' + (r.use.ur || r.use.en) + '\n';
-        prescText += '   → ' + r.dose + '\n\n';
-    });
-    $('visitPrescription').value = prescText.trim();
-    
-    // Fill method/advice
-    if (d.advice) {
-        $('visitMethod').value = d.advice.ur || d.advice.en;
-    }
-    
-    // Fill symptoms from selected
-    const symptomsText = Array.from(selectedSymptoms).map(function(s) {
-        return SYMPTOMS_DB[s] ? SYMPTOMS_DB[s].ur : '';
-    }).filter(Boolean).join('، ');
-    $('visitSymptoms').value = symptomsText;
-    
-    showToast('✅ Auto-filled from diagnosis!');
-}
-
-function clearDiagnosisPatient() {
-    diagnosisPatientId = null;
-    $('diagnosisPatientLink').style.display = 'none';
-}
-
-function openDiagnosisForPatient(patientId) {
-    const patient = cachedPatients.find(function(p) { return p.id === patientId; });
-    if (!patient) return;
-    
-    diagnosisPatientId = patientId;
-    $('diagnosisPatientLink').style.display = 'block';
-    $('diagnosisPatientName').textContent = patient.name + ' (' + patient.refNo + ')';
-    
-    // Navigate to diagnosis
-    const btn = document.querySelector('[data-page="diagnosis"]');
-    showPage('diagnosis', btn);
-    
-    // Clear previous
-    selectedSymptoms.clear();
-    updateSelectedBox();
-    $('diagnosisResults').innerHTML = '';
-}
-
-// Diagnosis
-if ($('symptomSearch')) {
-    $('symptomSearch').addEventListener('input', renderSymptomsGrid);
-}
-if ($('analyzeBtn')) {
-    $('analyzeBtn').addEventListener('click', analyzeDiagnosis);
-}
-if ($('clearSymptomsBtn')) {
-    $('clearSymptomsBtn').addEventListener('click', clearAllSymptoms);
-}
 // ==================== EVENT LISTENERS ====================
 document.addEventListener('DOMContentLoaded', function() {
-    // ==== AUTO-LOGIN CHECK (Fix for refresh logout) ====
-    checkAutoLogin();
+    console.log('🚀 App initializing...');
     
-    // Load saved credentials on login page
+    applyLanguage();
     loadSavedCredentials();
     
-    // Login
-    $('loginBtn').addEventListener('click', handleLogin);
-    $('loginPassword').addEventListener('keypress', function(e) { if (e.key === 'Enter') handleLogin(); });
-    $('loginUsername').addEventListener('keypress', function(e) { if (e.key === 'Enter') $('loginPassword').focus(); });
+    // LOGIN
+    const loginBtn = $('loginBtn');
+    if (loginBtn) {
+        loginBtn.addEventListener('click', handleLogin);
+        console.log('✅ Login button ready');
+    }
     
-    // Language
-    $('langBtnLogin').addEventListener('click', toggleLanguage);
-    $('langBtn').addEventListener('click', toggleLanguage);
+    const loginPassword = $('loginPassword');
+    if (loginPassword) {
+        loginPassword.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') handleLogin();
+        });
+    }
     
-    // Header buttons
-    $('logoutBtn').addEventListener('click', handleLogout);
-    $('backupBtn').addEventListener('click', exportData);
+    const loginUsername = $('loginUsername');
+    if (loginUsername) {
+        loginUsername.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') $('loginPassword').focus();
+        });
+    }
     
-    // Navigation
+    // LANGUAGE
+    if ($('langBtnLogin')) $('langBtnLogin').addEventListener('click', toggleLanguage);
+    if ($('langBtn')) $('langBtn').addEventListener('click', toggleLanguage);
+    
+    // HEADER
+    if ($('logoutBtn')) $('logoutBtn').addEventListener('click', handleLogout);
+    if ($('backupBtn')) $('backupBtn').addEventListener('click', exportData);
+    
+    // NAVIGATION
     $$('.nav-btn').forEach(function(btn) {
         btn.addEventListener('click', function() { showPage(btn.getAttribute('data-page'), btn); });
     });
     
-    // New Patient
-    $('savePatientBtn').addEventListener('click', saveNewPatient);
-    $('clearFormBtn').addEventListener('click', clearNewPatientForm);
-    $('phone').addEventListener('blur', checkFamilyByPhone);
+    // FORMS
+    if ($('savePatientBtn')) $('savePatientBtn').addEventListener('click', saveNewPatient);
+    if ($('clearFormBtn')) $('clearFormBtn').addEventListener('click', clearNewPatientForm);
+    if ($('phone')) $('phone').addEventListener('blur', checkFamilyByPhone);
+    if ($('searchInput')) $('searchInput').addEventListener('input', searchPatients);
     
-    // Search
-    $('searchInput').addEventListener('input', searchPatients);
+    // VISIT
+    if ($('saveVisitBtn')) $('saveVisitBtn').addEventListener('click', saveVisit);
+    if ($('closeVisitBtn')) $('closeVisitBtn').addEventListener('click', closeVisitModal);
+    if ($('cancelVisitBtn')) $('cancelVisitBtn').addEventListener('click', closeVisitModal);
     
-    // Visit Modal
-    $('saveVisitBtn').addEventListener('click', saveVisit);
-    $('closeVisitBtn').addEventListener('click', closeVisitModal);
-    $('cancelVisitBtn').addEventListener('click', closeVisitModal);
+    // EDIT
+    if ($('saveEditPatientBtn')) $('saveEditPatientBtn').addEventListener('click', saveEditPatient);
+    if ($('closeEditPatientBtn')) $('closeEditPatientBtn').addEventListener('click', closeEditPatientModal);
+    if ($('cancelEditPatientBtn')) $('cancelEditPatientBtn').addEventListener('click', closeEditPatientModal);
     
-    // Edit Patient Modal
-    $('saveEditPatientBtn').addEventListener('click', saveEditPatient);
-    $('closeEditPatientBtn').addEventListener('click', closeEditPatientModal);
-    $('cancelEditPatientBtn').addEventListener('click', closeEditPatientModal);
+    // CONFIRM
+    if ($('closeConfirmBtn')) $('closeConfirmBtn').addEventListener('click', closeConfirmModal);
+    if ($('confirmNoBtn')) $('confirmNoBtn').addEventListener('click', closeConfirmModal);
+    if ($('confirmYesBtn')) {
+        $('confirmYesBtn').addEventListener('click', function() {
+            if (confirmCallback) confirmCallback();
+            closeConfirmModal();
+        });
+    }
     
-    // Confirm Modal
-    $('closeConfirmBtn').addEventListener('click', closeConfirmModal);
-    $('confirmNoBtn').addEventListener('click', closeConfirmModal);
-    $('confirmYesBtn').addEventListener('click', function() { if (confirmCallback) confirmCallback(); closeConfirmModal(); });
+    // IMPORT/SYNC
+    if ($('importBtn')) $('importBtn').addEventListener('click', importOldData);
+    if ($('syncNowBtn')) $('syncNowBtn').addEventListener('click', syncPendingData);
+    if ($('manualSyncBtn')) $('manualSyncBtn').addEventListener('click', syncPendingData);
     
-    // Import/Sync
-    $('importBtn').addEventListener('click', importOldData);
-    $('syncNowBtn').addEventListener('click', syncPendingData);
-    $('manualSyncBtn').addEventListener('click', syncPendingData);
+    // DIAGNOSIS
+    if ($('symptomSearch')) $('symptomSearch').addEventListener('input', renderSymptomsGrid);
+    if ($('analyzeBtn')) $('analyzeBtn').addEventListener('click', analyzeDiagnosis);
+    if ($('clearSymptomsBtn')) $('clearSymptomsBtn').addEventListener('click', clearAllSymptoms);
     
-    // Modal backdrop close
-    $('visitModal').addEventListener('click', function(e) { if (e.target === this) closeVisitModal(); });
-    $('editPatientModal').addEventListener('click', function(e) { if (e.target === this) closeEditPatientModal(); });
-    $('confirmModal').addEventListener('click', function(e) { if (e.target === this) closeConfirmModal(); });
+    // MODAL BACKDROP
+    if ($('visitModal')) $('visitModal').addEventListener('click', function(e) { if (e.target === this) closeVisitModal(); });
+    if ($('editPatientModal')) $('editPatientModal').addEventListener('click', function(e) { if (e.target === this) closeEditPatientModal(); });
+    if ($('confirmModal')) $('confirmModal').addEventListener('click', function(e) { if (e.target === this) closeConfirmModal(); });
     
-    // Escape key
+    // ESCAPE
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') { closeVisitModal(); closeEditPatientModal(); closeConfirmModal(); }
     });
     
-    // Online/Offline
+    // ONLINE/OFFLINE
     window.addEventListener('online', function() { updateConnectionStatus(true); });
     window.addEventListener('offline', function() { updateConnectionStatus(false); });
     updateConnectionStatus(navigator.onLine);
     
-    applyLanguage();
+    console.log('✅ All events registered');
+    
+    // AUTO-LOGIN (last)
+    setTimeout(function() {
+        checkAutoLogin().then(function(loggedIn) {
+            console.log(loggedIn ? '✅ Auto-logged in' : '⚠️ Manual login needed');
+        });
+    }, 100);
 });
 </script>
-<!-- Service Worker Registration -->
+
+<!-- PWA Service Worker -->
 <script>
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('./service-worker.js')
-      .then(function(reg) {
-        console.log('✅ PWA registered:', reg.scope);
-      })
-      .catch(function(err) {
-        console.log('❌ PWA registration failed:', err);
-      });
-  });
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('./service-worker.js')
+            .then(function(reg) { console.log('✅ PWA registered'); })
+            .catch(function(err) { console.log('❌ PWA registration failed:', err); });
+    });
 }
 
-// Install prompt
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', function(e) {
-  e.preventDefault();
-  deferredPrompt = e;
-  console.log('📱 App can be installed');
-  
-  // Optional: Show install button
-  const installBtn = document.createElement('button');
-  installBtn.textContent = '📥 Install App';
-  installBtn.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:12px 25px;background:#27ae60;color:white;border:none;border-radius:25px;font-weight:bold;box-shadow:0 5px 20px rgba(0,0,0,0.3);z-index:9999;cursor:pointer;font-family:inherit;';
-  installBtn.onclick = async function() {
-    installBtn.remove();
-    deferredPrompt.prompt();
-    const result = await deferredPrompt.userChoice;
-    console.log('Install result:', result);
-    deferredPrompt = null;
-  };
-  document.body.appendChild(installBtn);
-  
-  // 15 seconds بعد hide کر دیں
-  setTimeout(function() { 
-    if (installBtn.parentNode) installBtn.remove(); 
-  }, 15000);
-});
-
-window.addEventListener('appinstalled', function() {
-  console.log('✅ App installed successfully!');
+    e.preventDefault();
+    deferredPrompt = e;
+    const installBtn = document.createElement('button');
+    installBtn.textContent = '📥 Install App';
+    installBtn.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:12px 25px;background:#27ae60;color:white;border:none;border-radius:25px;font-weight:bold;box-shadow:0 5px 20px rgba(0,0,0,0.3);z-index:9999;cursor:pointer;font-family:inherit;';
+    installBtn.onclick = async function() {
+        installBtn.remove();
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+        deferredPrompt = null;
+    };
+    document.body.appendChild(installBtn);
+    setTimeout(function() { if (installBtn.parentNode) installBtn.remove(); }, 15000);
 });
 </script>
+
 </body>
 </html>
