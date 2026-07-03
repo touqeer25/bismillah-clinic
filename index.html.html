@@ -608,6 +608,13 @@ body[dir="ltr"] .advice-box { border-right: none; border-left: 3px solid #d4af37
             <label data-ur="🔒 پاسورڈ" data-en="🔒 Password" data-roman="🔒 Password">🔒 پاسورڈ</label>
             <input type="password" id="loginPassword" placeholder="Password">
         </div>
+	<div class="form-group" style="text-align:right;">
+    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:normal;">
+        <input type="checkbox" id="rememberMe" style="width:auto;margin:0;transform:scale(1.3);cursor:pointer;">
+        <span data-ur="🔒 مجھے یاد رکھیں" data-en="🔒 Remember Me" data-roman="🔒 Mujhe Yaad Rakhein">🔒 مجھے یاد رکھیں</span>
+    </label>
+    <div class="hint" style="margin-top:5px;" data-ur="اگلی بار خودکار لاگ ان ہو جائیں گے" data-en="Auto-login next time" data-roman="Agli baar auto-login ho jayega">اگلی بار خودکار لاگ ان ہو جائیں گے</div>
+	</div>
         <button class="btn btn-primary" id="loginBtn">
             <span data-ur="🔓 لاگ ان" data-en="🔓 Login" data-roman="🔓 Login">🔓 لاگ ان</span>
         </button>
@@ -1369,7 +1376,7 @@ async function syncPendingData() {
     
     if (synced > 0) {
         showToast('✅ Synced: ' + synced + ' items');
-        await refreshCache();
+        await forceCacheRefresh();
     }
     if (errors > 0) showToast('⚠️ ' + errors + ' failed', 'error');
 }
@@ -1495,18 +1502,33 @@ async function loginDB(username, password) {
 }
 
 // ==================== CACHE ====================
-async function refreshCache() {
+// Cache with timestamp - only refresh if old
+let lastCacheRefresh = 0;
+const CACHE_LIFETIME = 30000; // 30 seconds
+
+async function refreshCache(forceRefresh) {
+    // If cache is fresh, don't refetch
+    const now = Date.now();
+    if (!forceRefresh && (now - lastCacheRefresh) < CACHE_LIFETIME && cachedPatients.length > 0) {
+        console.log('✅ Using fresh cache');
+        return;
+    }
+    
     if (navigator.onLine) {
         try {
+            // Load from localStorage first (instant)
+            loadOfflineCache();
+            
+            // Then fetch in background
             const dbPatients = await getPatients();
             const dbVisits = await getVisits();
-            // Merge: DB data + pending offline data (deduplicated)
             const pendingP = getPendingPatients();
             const pendingV = getPendingVisits();
             cachedPatients = mergeArrays(dbPatients, pendingP, 'id');
             cachedVisits = mergeArrays(dbVisits, pendingV, 'id');
             localStorage.setItem('cached_patients', JSON.stringify(cachedPatients));
             localStorage.setItem('cached_visits', JSON.stringify(cachedVisits));
+            lastCacheRefresh = now;
         } catch(e) {
             console.error('Cache refresh error:', e);
             loadOfflineCache();
@@ -1514,6 +1536,12 @@ async function refreshCache() {
     } else {
         loadOfflineCache();
     }
+}
+
+// Force refresh function for after save/delete
+async function forceCacheRefresh() {
+    lastCacheRefresh = 0;
+    await refreshCache(true);
 }
 
 function loadOfflineCache() {
@@ -1531,11 +1559,80 @@ function mergeArrays(arr1, arr2, key) {
     arr2.forEach(function(item) { if (!map.has(item[key])) map.set(item[key], item); });
     return Array.from(map.values());
 }
-
+// ==================== AUTO-LOGIN (Persist Session) ====================
+async function checkAutoLogin() {
+    // Try session storage first (current tab)
+    let sessionStr = sessionStorage.getItem('clinic_session');
+    let source = 'session';
+    
+    // Then try localStorage (remembered)
+    if (!sessionStr) {
+        sessionStr = localStorage.getItem('clinic_session');
+        source = 'local';
+    }
+    
+    if (!sessionStr) return;
+    
+    try {
+        const session = JSON.parse(sessionStr);
+        
+        // Check session validity
+        const now = Date.now();
+        const age = now - session.timestamp;
+        
+        // Session expires: 
+        // - Remember Me: 30 days
+        // - Otherwise: 24 hours (allows refresh but not too long)
+        const maxAge = session.rememberMe ? 
+            (30 * 24 * 60 * 60 * 1000) :   // 30 days
+            (24 * 60 * 60 * 1000);          // 24 hours
+        
+        if (age > maxAge) {
+            console.log('Session expired');
+            localStorage.removeItem('clinic_session');
+            sessionStorage.removeItem('clinic_session');
+            return;
+        }
+        
+        // Auto-login!
+        currentUserData = session.userData;
+        
+        // Update session timestamp
+        session.timestamp = now;
+        if (source === 'local' || session.rememberMe) {
+            localStorage.setItem('clinic_session', JSON.stringify(session));
+        }
+        sessionStorage.setItem('clinic_session', JSON.stringify(session));
+        
+        $('loginPage').classList.add('hidden');
+        $('mainApp').classList.remove('hidden');
+        
+        // Load data
+        if (navigator.onLine) {
+            await refreshCache();
+        } else {
+            loadOfflineCache();
+            showToast('⚠️ Offline Mode', 'error');
+        }
+        
+        updatePendingBadge();
+        await updateDashboard();
+        await generateRefNo();
+        
+        if (navigator.onLine) setTimeout(syncPendingData, 2000);
+        
+        console.log('✅ Auto-logged in as:', currentUserData.name || currentUserData.username);
+    } catch(err) {
+        console.error('Auto-login failed:', err);
+        localStorage.removeItem('clinic_session');
+        sessionStorage.removeItem('clinic_session');
+    }
+}
 // ==================== LOGIN ====================
 async function handleLogin() {
     const username = $('loginUsername').value.trim();
     const password = $('loginPassword').value.trim();
+    const rememberMe = $('rememberMe') ? $('rememberMe').checked : false;
     const errorDiv = $('loginError');
     const loginBtn = $('loginBtn');
     
@@ -1555,7 +1652,7 @@ async function handleLogin() {
         try {
             user = await loginDB(username, password);
             if (user) {
-                // Save for offline use (hashed)
+                // Save for offline use
                 const savedUsers = JSON.parse(localStorage.getItem('offline_users') || '[]');
                 const idx = savedUsers.findIndex(function(u) { return u.username === username; });
                 const toSave = { ...user, _pw: btoa(password) };
@@ -1574,6 +1671,29 @@ async function handleLogin() {
     if (user) {
         currentUserData = user;
         errorDiv.classList.add('hidden');
+        
+        // ==== SAVE SESSION FOR AUTO-LOGIN ====
+        const sessionData = {
+            userData: user,
+            timestamp: Date.now(),
+            rememberMe: rememberMe
+        };
+        
+        if (rememberMe) {
+            // Remember for 30 days
+            localStorage.setItem('clinic_session', JSON.stringify(sessionData));
+            localStorage.setItem('clinic_remember_username', username);
+            localStorage.setItem('clinic_remember_password', btoa(password));
+        } else {
+            // Session only (until browser close for tab close)
+            sessionStorage.setItem('clinic_session', JSON.stringify(sessionData));
+            // Clear any old "remember me" data
+            localStorage.removeItem('clinic_remember_username');
+            localStorage.removeItem('clinic_remember_password');
+            // But save session for current tab refresh
+            localStorage.setItem('clinic_session', JSON.stringify(sessionData));
+        }
+        
         $('loginPage').classList.add('hidden');
         $('mainApp').classList.remove('hidden');
         
@@ -1595,33 +1715,99 @@ async function handleLogin() {
 }
 
 function handleLogout() {
-    showConfirm('Logout?', function() {
-        currentUserData = null;
-        $('mainApp').classList.add('hidden');
-        $('loginPage').classList.remove('hidden');
-        $('loginUsername').value = '';
-        $('loginPassword').value = '';
-    });
+    showConfirm(
+        ({ ur: 'کیا آپ لاگ آؤٹ کرنا چاہتے ہیں؟', en: 'Do you want to logout?', roman: 'Kya aap logout karna chahte hain?' }[currentLang]),
+        function() {
+            currentUserData = null;
+            
+            // Clear session data
+            localStorage.removeItem('clinic_session');
+            sessionStorage.removeItem('clinic_session');
+            
+            // Ask if want to forget saved credentials
+            const hasRemembered = localStorage.getItem('clinic_remember_username');
+            if (hasRemembered) {
+                setTimeout(function() {
+                    showConfirm(
+                        ({ 
+                            ur: 'کیا محفوظ شدہ لاگ ان معلومات بھی ڈیلیٹ کریں؟', 
+                            en: 'Also delete saved login credentials?', 
+                            roman: 'Kya saved login info bhi delete karein?' 
+                        }[currentLang]),
+                        function() {
+                            localStorage.removeItem('clinic_remember_username');
+                            localStorage.removeItem('clinic_remember_password');
+                            $('loginUsername').value = '';
+                            $('loginPassword').value = '';
+                            if ($('rememberMe')) $('rememberMe').checked = false;
+                            showToast('🗑️ Saved credentials deleted');
+                        }
+                    );
+                }, 500);
+            }
+            
+            $('mainApp').classList.add('hidden');
+            $('loginPage').classList.remove('hidden');
+            
+            // Fill saved credentials if available
+            loadSavedCredentials();
+        }
+    );
+}
+
+// Load saved username/password on login page
+function loadSavedCredentials() {
+    const savedUser = localStorage.getItem('clinic_remember_username');
+    const savedPass = localStorage.getItem('clinic_remember_password');
+    
+    if (savedUser && $('loginUsername')) {
+        $('loginUsername').value = savedUser;
+        if ($('rememberMe')) $('rememberMe').checked = true;
+    }
+    if (savedPass && $('loginPassword')) {
+        try {
+            $('loginPassword').value = atob(savedPass);
+        } catch(e) { console.error('Invalid saved password'); }
+    }
 }
 
 // ==================== NAVIGATION ====================
 async function showPage(pageId, btn) {
+    // Instant UI update (no blocking)
     $$('.page').forEach(function(p) { p.classList.remove('active'); });
     $('page-' + pageId).classList.add('active');
     $$('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
     if (btn) btn.classList.add('active');
-    
-    if (pageId === 'dashboard') await updateDashboard();
-    if (pageId === 'allPatients') await showAllPatients();
-    if (pageId === 'newPatient') {
-        await generateRefNo();
-        const now = new Date();
-        $('firstVisitDate').value = now.toISOString().split('T')[0];
-        $('firstVisitTime').value = now.toTimeString().substring(0, 5);
-    }
-if (pageId === 'diagnosis') initDiagnosis();
-    if (pageId === 'settings') updatePendingBadge();
     window.scrollTo(0, 0);
+    
+    // Show loading placeholder immediately
+    if (pageId === 'allPatients') {
+        $('allPatientsList').innerHTML = '<div class="empty-state"><div class="icon">⏳</div><p>Loading...</p></div>';
+    }
+    if (pageId === 'dashboard') {
+        $('statTotal').textContent = '...';
+        $('statToday').textContent = '...';
+        $('statMonth').textContent = '...';
+        $('statFollowups').textContent = '...';
+    }
+    
+    // Defer heavy work using requestAnimationFrame
+    requestAnimationFrame(async function() {
+        try {
+            if (pageId === 'dashboard') await updateDashboard();
+            if (pageId === 'allPatients') await showAllPatients();
+            if (pageId === 'newPatient') {
+                await generateRefNo();
+                const now = new Date();
+                $('firstVisitDate').value = now.toISOString().split('T')[0];
+                $('firstVisitTime').value = now.toTimeString().substring(0, 5);
+            }
+            if (pageId === 'diagnosis') initDiagnosis();
+            if (pageId === 'settings') updatePendingBadge();
+        } catch(err) {
+            console.error('Page load error:', err);
+        }
+    });
 }
 
 // ==================== DASHBOARD (FIXED STATS) ====================
@@ -1829,7 +2015,7 @@ async function saveNewPatient() {
                 await savePatientDB(newPatient);
                 await saveVisitDB(firstVisit);
                 savedOnline = true;
-                await refreshCache();
+                await forceCacheRefresh();
             } catch(err) {
                 console.error('Online save failed:', err);
             }
@@ -1952,7 +2138,7 @@ function searchPatients() {
 }
 
 async function showAllPatients() {
-    await refreshCache();
+     await refreshCache();
     const div = $('allPatientsList');
     if (cachedPatients.length === 0) {
         div.innerHTML = '<div class="empty-state"><div class="icon">📋</div><p>No patients</p></div>';
@@ -1960,6 +2146,21 @@ async function showAllPatients() {
     }
     div.innerHTML = renderPatientsTable(cachedPatients);
 }
+
+// Cache pending IDs once (performance)
+function renderPatientsTable(patients) {
+    // Pre-calculate pending IDs (avoid re-parsing localStorage)
+    const pendingIds = new Set(getPendingPatients().map(function(p) { return p.id; }));
+    
+    // Pre-group visits by patient (avoid nested filter)
+    const followupsByPatient = {};
+    cachedVisits.forEach(function(v) {
+        if (v.type === 'followup') {
+            followupsByPatient[v.patientId] = (followupsByPatient[v.patientId] || 0) + 1;
+        }
+    });
+    
+    const h = {
 
 function renderPatientsTable(patients) {
     const h = {
@@ -1977,9 +2178,9 @@ function renderPatientsTable(patients) {
     
     patients.forEach(function(p) {
         // Count only follow-up visits (not registration)
-        const followups = cachedVisits.filter(function(v) { return v.patientId === p.id && v.type === 'followup'; });
+        const followupCount = followupsByPatient[p.id] || 0;
         const gBadge = getGenderBadgeClass(p.gender);
-        const isPending = getPendingPatients().find(function(pp) { return pp.id === p.id; });
+        const isPending = pendingIds.has(p.id);
         
         let familyCell = p.familyNo ?
             '<span class="family-badge" onclick="event.stopPropagation();showFamilyMembers(\'' + escapeHtml(p.familyNo) + '\')">' + escapeHtml(p.familyNo) + '</span>' :
@@ -1993,7 +2194,7 @@ function renderPatientsTable(patients) {
         html += '<td class="td-center">' + escapeHtml(p.age || '-') + '</td>';
         html += '<td class="td-center"><span class="badge ' + gBadge + '">' + translateGender(p.gender) + '</span></td>';
         html += '<td class="td-phone td-center">' + escapeHtml(p.phone) + '</td>';
-        html += '<td class="td-center"><strong>' + followups.length + '</strong></td>';
+        html += '<td class="td-center"><strong>' + followupCount + '</strong></td>';
         html += '<td class="td-center"><div class="action-icons">';
         html += '<button class="btn btn-primary btn-xs" onclick="showPatientDetail(\'' + p.id + '\')">👁️</button> ';
         html += '<button class="btn btn-edit btn-xs" onclick="openEditPatientModal(\'' + p.id + '\')">✏️</button> ';
@@ -2344,7 +2545,7 @@ async function saveVisit() {
             
             let savedOnline = false;
             if (navigator.onLine) {
-                try { await saveVisitDB(newVisit); savedOnline = true; await refreshCache(); } catch(e) { console.error(e); }
+                try { await saveVisitDB(newVisit); savedOnline = true; await forceCacheRefresh(); } catch(e) { console.error(e); }
             }
             if (!savedOnline) {
                 savePendingVisit(newVisit);
@@ -2433,7 +2634,7 @@ async function importOldData() {
                 }
             }
             
-            await refreshCache();
+            await forceCacheRefresh();
             hideLoading();
             msgDiv.innerHTML = '<div class="alert alert-success">✅ Added: ' + added + ', Skipped: ' + skipped + (errors ? ', Errors: ' + errors : '') + '</div>';
             fileInput.value = '';
@@ -2804,6 +3005,12 @@ if ($('clearSymptomsBtn')) {
 }
 // ==================== EVENT LISTENERS ====================
 document.addEventListener('DOMContentLoaded', function() {
+    // ==== AUTO-LOGIN CHECK (Fix for refresh logout) ====
+    checkAutoLogin();
+    
+    // Load saved credentials on login page
+    loadSavedCredentials();
+    
     // Login
     $('loginBtn').addEventListener('click', handleLogin);
     $('loginPassword').addEventListener('keypress', function(e) { if (e.key === 'Enter') handleLogin(); });
