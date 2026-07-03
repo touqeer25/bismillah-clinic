@@ -970,6 +970,45 @@
     </div>
     <input type="file" id="importCustomFile" accept=".json" style="display:none;">
 </div>
+	<!-- Custom Data Manager -->
+<div style="background:#f0f8ff; border:2px solid #17a2b8; border-radius:10px; padding:15px; margin-bottom:15px;">
+    <h4 style="color:#17a2b8; margin-bottom:10px;">
+        🏷️ <span data-ur="تشخیصی ڈیٹا مینج کریں" data-en="Manage Diagnosis Data" data-roman="Diagnosis Data Manage">تشخیصی ڈیٹا مینج کریں</span>
+    </h4>
+    <p style="font-size:12px; color:#555; margin-bottom:10px;">
+        <span data-ur="اپنی مرضی کی categories، symptoms اور diseases add/edit/delete کریں" data-en="Add, edit, delete custom categories, symptoms and diseases" data-roman="Apni marzi ki data manage karein">اپنی مرضی کی categories، symptoms اور diseases add/edit/delete کریں</span>
+    </p>
+    
+    <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+        <button class="btn btn-purple btn-sm" onclick="openAddCategoryModal()">
+            🏷️ <span data-ur="نئی کیٹگری" data-en="Add Category" data-roman="Category">کیٹگری</span>
+        </button>
+        <button class="btn btn-info btn-sm" onclick="openAddSymptomModal()">
+            💡 <span data-ur="نئی علامت" data-en="Add Symptom" data-roman="Symptom">علامت</span>
+        </button>
+        <button class="btn btn-success btn-sm" onclick="openAddDiseaseModal()">
+            🔬 <span data-ur="نئی بیماری" data-en="Add Disease" data-roman="Disease">بیماری</span>
+        </button>
+    </div>
+    
+    <div style="display:flex; gap:6px; flex-wrap:wrap;">
+        <button class="btn btn-light btn-sm" onclick="viewCustomData()">
+            📋 <span data-ur="سب دیکھیں" data-en="View All" data-roman="Sab Dekhein">سب دیکھیں</span>
+        </button>
+        <button class="btn btn-warning btn-sm" onclick="exportCustomData()">
+            💾 <span data-ur="Export JSON" data-en="Export JSON" data-roman="Export">Export JSON</span>
+        </button>
+        <button class="btn btn-light btn-sm" onclick="importCustomData()">
+            📥 <span data-ur="Import JSON" data-en="Import JSON" data-roman="Import">Import JSON</span>
+        </button>
+        <button class="btn btn-light btn-sm" onclick="importCSVData()">
+            📊 <span data-ur="Import CSV" data-en="Import CSV" data-roman="CSV">Import CSV</span>
+        </button>
+    </div>
+    
+    <input type="file" id="importCustomFile" accept=".json" style="display:none;">
+    <input type="file" id="importCSVFile" accept=".csv" style="display:none;">
+</div>	
 
                 <h3 style="color:#1a5276; margin-bottom:15px;">📥 Import Data</h3>
                 <div class="import-box">
@@ -3143,6 +3182,202 @@ setTimeout(loadCustomData, 500);
             <button class="modal-close" onclick="closeViewCustomModal()">✕</button>
         </div>
         <div id="customDataContent"></div>
+    </div>
+</div>
+<!-- ==================== ADD/EDIT CATEGORY MODAL ==================== -->
+<div id="addCategoryModal" class="modal-overlay">
+    <div class="modal">
+        <div class="modal-title">
+            <span id="addCategoryTitle">➕ Add Category</span>
+            <button class="modal-close" onclick="closeAddCategoryModal()">✕</button>
+        </div>
+        <div id="addCategoryMsg"></div>
+        <input type="hidden" id="editCategoryOldId">
+        
+        <div class="form-group">
+            <label>🔑 ID <small style="color:#95a5a6;">(English, no spaces, e.g. cancer_care)</small></label>
+            <input type="text" id="newCategoryId" placeholder="my_category" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🇵🇰 <span data-ur="اردو نام" data-en="Urdu Name" data-roman="Urdu">اردو نام</span></label>
+                <input type="text" id="newCategoryUr" placeholder="مثلاً: کینسر">
+            </div>
+            <div class="form-group">
+                <label>🇬🇧 <span data-ur="انگلش نام" data-en="English Name" data-roman="English">English Name</span></label>
+                <input type="text" id="newCategoryEn" placeholder="Cancer Care">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🔤 Roman Urdu</label>
+                <input type="text" id="newCategoryRoman" placeholder="Cancer Care">
+            </div>
+            <div class="form-group">
+                <label>🎨 <span data-ur="آئکن (نیچے سے چنیں)" data-en="Icon (select below)" data-roman="Icon select karein">آئکن</span></label>
+                <input type="text" id="newCategoryIcon" value="📌" readonly style="font-size:22px;text-align:center;cursor:pointer;">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>🎨 <span data-ur="آئکن چنیں" data-en="Select Icon" data-roman="Icon Chunein">آئکن چنیں</span></label>
+            <div id="iconPickerContainer"></div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-success" onclick="saveNewCategory()">💾 Save</button>
+            <button class="btn btn-light" onclick="closeAddCategoryModal()">❌ Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== ADD/EDIT SYMPTOM MODAL ==================== -->
+<div id="addSymptomModal" class="modal-overlay">
+    <div class="modal">
+        <div class="modal-title">
+            <span id="addSymptomTitle">➕ Add Symptom</span>
+            <button class="modal-close" onclick="closeAddSymptomModal()">✕</button>
+        </div>
+        <div id="addSymptomMsg"></div>
+        <input type="hidden" id="editSymptomOldId">
+        
+        <div class="form-group">
+            <label>🔑 ID <small style="color:#95a5a6;">(English, e.g. chest_burning)</small></label>
+            <input type="text" id="newSymptomId" placeholder="chest_burning" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🇵🇰 <span data-ur="اردو نام" data-en="Urdu" data-roman="Urdu">اردو</span></label>
+                <input type="text" id="newSymptomUr" placeholder="مثلاً: سینے میں جلن">
+            </div>
+            <div class="form-group">
+                <label>🇬🇧 English</label>
+                <input type="text" id="newSymptomEn" placeholder="Chest Burning">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🔤 Roman</label>
+                <input type="text" id="newSymptomRoman" placeholder="Seenay mein Jalan">
+            </div>
+            <div class="form-group">
+                <label>🏷️ Category</label>
+                <select id="newSymptomCategory"></select>
+            </div>
+        </div>
+        
+        <div class="form-group" style="text-align:right;">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:normal;">
+                <input type="checkbox" id="newSymptomSevere" style="width:auto;margin:0;transform:scale(1.3);">
+                <span>⚠️ <span data-ur="خطرناک علامت" data-en="Severe/Dangerous" data-roman="Khatarnak">خطرناک علامت</span></span>
+            </label>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-success" onclick="saveNewSymptom()">💾 Save</button>
+            <button class="btn btn-light" onclick="closeAddSymptomModal()">❌ Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== ADD/EDIT DISEASE MODAL ==================== -->
+<div id="addDiseaseModal" class="modal-overlay">
+    <div class="modal" style="max-width:800px;">
+        <div class="modal-title">
+            <span id="addDiseaseTitle">➕ Add Disease</span>
+            <button class="modal-close" onclick="closeAddDiseaseModal()">✕</button>
+        </div>
+        <div id="addDiseaseMsg"></div>
+        <input type="hidden" id="editDiseaseOldId">
+        
+        <div class="form-group">
+            <label>🔑 ID <small style="color:#95a5a6;">(e.g. kidney_cancer)</small></label>
+            <input type="text" id="newDiseaseId" placeholder="kidney_cancer" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🇵🇰 <span data-ur="اردو نام" data-en="Urdu Name" data-roman="Urdu">اردو نام</span></label>
+                <input type="text" id="newDiseaseUr" placeholder="گردے کا سرطان">
+            </div>
+            <div class="form-group">
+                <label>🇬🇧 English Name</label>
+                <input type="text" id="newDiseaseEn" placeholder="Kidney Cancer">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🔤 Roman Urdu</label>
+                <input type="text" id="newDiseaseRoman" placeholder="Gurday ka Sartan">
+            </div>
+            <div class="form-group">
+                <label>🏷️ Category</label>
+                <select id="newDiseaseCategory"></select>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>💡 Symptoms <small style="color:#95a5a6;">(comma separated IDs, e.g. fever, headache, weakness)</small></label>
+            <textarea id="newDiseaseSymptoms" placeholder="fever, headache, weakness, body_ache" style="min-height:50px;direction:ltr;text-align:left;"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>⭐ Key Symptoms <small style="color:#95a5a6;">(main symptoms, comma separated)</small></label>
+            <input type="text" id="newDiseaseKeySymptoms" placeholder="fever, headache" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-group">
+            <label>🔬 Tests <small style="color:#95a5a6;">(one per line)</small></label>
+            <textarea id="newDiseaseTests" placeholder="CBC&#10;X-Ray&#10;Urine Test" style="min-height:60px;direction:ltr;text-align:left;"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>⚠️ Red Flags <small style="color:#95a5a6;">(symptom IDs, comma separated)</small></label>
+            <input type="text" id="newDiseaseRedFlags" placeholder="high_fever, unconscious, bleeding" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-group">
+            <label>💊 Remedies <small style="color:#95a5a6;">(one per line: Name | Use | Dose)</small></label>
+            <textarea id="newDiseaseRemedies" placeholder="Arnica 30 | For injury | 3 times daily&#10;Bryonia 200 | For pain | 4 hourly" style="min-height:80px;direction:ltr;text-align:left;"></textarea>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>📖 <span data-ur="ہدایات (اردو)" data-en="Advice (Urdu)" data-roman="Hidayat">ہدایات اردو</span></label>
+                <textarea id="newDiseaseAdviceUr" placeholder="آرام، پانی زیادہ..." style="min-height:50px;"></textarea>
+            </div>
+            <div class="form-group">
+                <label>📖 Advice (English)</label>
+                <textarea id="newDiseaseAdviceEn" placeholder="Rest, more water..." style="min-height:50px;direction:ltr;text-align:left;"></textarea>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-success" onclick="saveNewDisease()">💾 Save Disease</button>
+            <button class="btn btn-light" onclick="closeAddDiseaseModal()">❌ Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== VIEW CUSTOM DATA MODAL ==================== -->
+<div id="viewCustomModal" class="modal-overlay">
+    <div class="modal">
+        <div class="modal-title">
+            <span>📋 <span data-ur="اپنا Custom ڈیٹا" data-en="My Custom Data" data-roman="Apna Data">اپنا Custom ڈیٹا</span></span>
+            <button class="modal-close" onclick="closeViewCustomModal()">✕</button>
+        </div>
+        <div id="customDataContent"></div>
+        <div class="action-buttons" style="margin-top:15px;">
+            <button class="btn btn-purple btn-sm" onclick="closeViewCustomModal();openAddCategoryModal()">➕ Category</button>
+            <button class="btn btn-info btn-sm" onclick="closeViewCustomModal();openAddSymptomModal()">➕ Symptom</button>
+            <button class="btn btn-success btn-sm" onclick="closeViewCustomModal();openAddDiseaseModal()">➕ Disease</button>
+            <button class="btn btn-light btn-sm" onclick="closeViewCustomModal()">Close</button>
+        </div>
     </div>
 </div>
 </body>
