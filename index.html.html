@@ -15,6 +15,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="diagnosis-data.js"></script>
+    <script src="diagnosis-custom.js"></script>
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
@@ -940,6 +941,36 @@
                     <button class="btn btn-info" id="manualSyncBtn">🔄 Sync Now</button>
                 </div>
                 
+		<!-- Custom Categories Manager -->
+<div style="background:#f0f8ff; border:2px solid #17a2b8; border-radius:10px; padding:15px; margin-bottom:15px;">
+    <h4 style="color:#17a2b8; margin-bottom:10px;">
+        🏷️ <span data-ur="کیٹگریز مینج کریں" data-en="Manage Categories" data-roman="Categories Manage Karein">کیٹگریز مینج کریں</span>
+    </h4>
+    <p style="font-size:12px; color:#555; margin-bottom:10px;">
+        <span data-ur="اپنی مرضی کی categories، symptoms اور diseases add کریں" 
+              data-en="Add your custom categories, symptoms and diseases" 
+              data-roman="Apni marzi ki categories add karein">
+            اپنی مرضی کی categories، symptoms اور diseases add کریں
+        </span>
+    </p>
+    
+    <div class="action-buttons">
+        <button class="btn btn-purple btn-sm" onclick="openAddCategoryModal()">
+            ➕ <span data-ur="نئی کیٹگری" data-en="Add Category" data-roman="Nayi Category">نئی کیٹگری</span>
+        </button>
+        <button class="btn btn-info btn-sm" onclick="viewCustomData()">
+            📋 <span data-ur="دیکھیں" data-en="View Custom" data-roman="Dekhein">دیکھیں</span>
+        </button>
+        <button class="btn btn-warning btn-sm" onclick="exportCustomData()">
+            💾 <span data-ur="Export" data-en="Export" data-roman="Export">Export</span>
+        </button>
+        <button class="btn btn-light btn-sm" onclick="importCustomData()">
+            📥 <span data-ur="Import" data-en="Import" data-roman="Import">Import</span>
+        </button>
+    </div>
+    <input type="file" id="importCustomFile" accept=".json" style="display:none;">
+</div>
+
                 <h3 style="color:#1a5276; margin-bottom:15px;">📥 Import Data</h3>
                 <div class="import-box">
                     <p style="margin-bottom:10px; font-size:13px; color:#856404;">Import backup file</p>
@@ -2798,7 +2829,321 @@ window.addEventListener('beforeinstallprompt', function(e) {
     document.body.appendChild(installBtn);
     setTimeout(function() { if (installBtn.parentNode) installBtn.remove(); }, 15000);
 });
-</script>
+// ==================== CUSTOM CATEGORIES MANAGER ====================
 
+// Load custom data from localStorage
+function loadCustomData() {
+    try {
+        const customCategories = JSON.parse(localStorage.getItem('custom_categories') || '{}');
+        const customSymptoms = JSON.parse(localStorage.getItem('custom_symptoms') || '{}');
+        const customDiseases = JSON.parse(localStorage.getItem('custom_diseases') || '[]');
+        
+        // Merge into global objects
+        Object.assign(window.CATEGORIES_DB, customCategories);
+        Object.assign(window.SYMPTOMS_DB, customSymptoms);
+        
+        customDiseases.forEach(function(disease) {
+            const exists = window.DISEASES_DB.find(function(d) { return d.id === disease.id; });
+            if (!exists) window.DISEASES_DB.push(disease);
+        });
+        
+        console.log('✅ Custom data loaded from localStorage');
+    } catch(e) {
+        console.error('Error loading custom data:', e);
+    }
+}
+
+// Open Add Category Modal
+function openAddCategoryModal() {
+    ['newCategoryId', 'newCategoryUr', 'newCategoryEn', 'newCategoryRoman', 'newCategoryIcon'].forEach(function(id) {
+        if ($(id)) $(id).value = '';
+    });
+    $('addCategoryMsg').innerHTML = '';
+    $('addCategoryModal').classList.add('active');
+}
+
+function closeAddCategoryModal() {
+    $('addCategoryModal').classList.remove('active');
+}
+
+// Save New Category
+function saveNewCategory() {
+    const id = $('newCategoryId').value.trim().toLowerCase().replace(/[^a-z0-9_]/g, '_');
+    const ur = $('newCategoryUr').value.trim();
+    const en = $('newCategoryEn').value.trim();
+    const roman = $('newCategoryRoman').value.trim();
+    const icon = $('newCategoryIcon').value.trim() || '📌';
+    const msgDiv = $('addCategoryMsg');
+    
+    // Validation
+    if (!id) {
+        msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID لازمی ہے</div>';
+        return;
+    }
+    if (!ur || !en) {
+        msgDiv.innerHTML = '<div class="alert alert-error">⚠️ اردو اور انگلش نام لازمی ہیں</div>';
+        return;
+    }
+    if (window.CATEGORIES_DB[id]) {
+        msgDiv.innerHTML = '<div class="alert alert-error">⚠️ یہ ID پہلے سے موجود ہے</div>';
+        return;
+    }
+    
+    // Create category
+    const newCategory = {
+        ur: ur,
+        en: en,
+        roman: roman || en,
+        icon: icon
+    };
+    
+    // Save to CATEGORIES_DB
+    window.CATEGORIES_DB[id] = newCategory;
+    
+    // Save to localStorage
+    const customCategories = JSON.parse(localStorage.getItem('custom_categories') || '{}');
+    customCategories[id] = newCategory;
+    localStorage.setItem('custom_categories', JSON.stringify(customCategories));
+    
+    msgDiv.innerHTML = '<div class="alert alert-success">✅ کیٹگری save ہو گئی!</div>';
+    showToast('✅ ' + en + ' Category added!');
+    
+    // Refresh diagnosis page if open
+    if (document.querySelector('#page-diagnosis.active')) {
+        renderCategoryTabs();
+    }
+    
+    setTimeout(closeAddCategoryModal, 1500);
+}
+
+// View Custom Data
+function viewCustomData() {
+    const customCategories = JSON.parse(localStorage.getItem('custom_categories') || '{}');
+    const customSymptoms = JSON.parse(localStorage.getItem('custom_symptoms') || '{}');
+    const customDiseases = JSON.parse(localStorage.getItem('custom_diseases') || '[]');
+    
+    let html = '';
+    
+    // Categories
+    html += '<h4 style="color:#8e44ad;margin-bottom:10px;">🏷️ Categories (' + Object.keys(customCategories).length + ')</h4>';
+    if (Object.keys(customCategories).length === 0) {
+        html += '<p style="color:#95a5a6;">کوئی custom category نہیں</p>';
+    } else {
+        html += '<div style="max-height:200px;overflow-y:auto;background:#f8f9fa;padding:10px;border-radius:6px;margin-bottom:15px;">';
+        Object.keys(customCategories).forEach(function(key) {
+            const cat = customCategories[key];
+            html += '<div style="padding:8px;border-bottom:1px solid #ecf0f1;display:flex;justify-content:space-between;align-items:center;">';
+            html += '<div>' + cat.icon + ' <strong>' + escapeHtml(cat.ur) + '</strong> / ' + escapeHtml(cat.en) + ' <small style="color:#95a5a6;">(' + escapeHtml(key) + ')</small></div>';
+            html += '<button class="btn btn-danger btn-xs" onclick="deleteCustomCategory(\'' + key + '\')">🗑️</button>';
+            html += '</div>';
+        });
+        html += '</div>';
+    }
+    
+    // Symptoms
+    html += '<h4 style="color:#8e44ad;margin-bottom:10px;">💡 Symptoms (' + Object.keys(customSymptoms).length + ')</h4>';
+    if (Object.keys(customSymptoms).length === 0) {
+        html += '<p style="color:#95a5a6;">کوئی custom symptom نہیں</p>';
+    } else {
+        html += '<div style="max-height:150px;overflow-y:auto;background:#f8f9fa;padding:10px;border-radius:6px;margin-bottom:15px;">';
+        Object.keys(customSymptoms).forEach(function(key) {
+            const s = customSymptoms[key];
+            html += '<div style="padding:5px;font-size:13px;">• ' + escapeHtml(s.ur) + ' (' + escapeHtml(s.en) + ')</div>';
+        });
+        html += '</div>';
+    }
+    
+    // Diseases
+    html += '<h4 style="color:#8e44ad;margin-bottom:10px;">🔬 Diseases (' + customDiseases.length + ')</h4>';
+    if (customDiseases.length === 0) {
+        html += '<p style="color:#95a5a6;">کوئی custom disease نہیں</p>';
+    } else {
+        html += '<div style="max-height:150px;overflow-y:auto;background:#f8f9fa;padding:10px;border-radius:6px;">';
+        customDiseases.forEach(function(d) {
+            html += '<div style="padding:5px;font-size:13px;">• ' + escapeHtml(d.name.ur) + ' (' + escapeHtml(d.name.en) + ')</div>';
+        });
+        html += '</div>';
+    }
+    
+    // Info
+    html += '<div style="margin-top:15px;padding:10px;background:#d1ecf1;border-radius:6px;font-size:12px;color:#0c5460;">';
+    html += '💡 <strong>ٹوٹل:</strong><br>';
+    html += '• Categories: ' + Object.keys(window.CATEGORIES_DB).length + '<br>';
+    html += '• Symptoms: ' + Object.keys(window.SYMPTOMS_DB).length + '<br>';
+    html += '• Diseases: ' + window.DISEASES_DB.length;
+    html += '</div>';
+    
+    $('customDataContent').innerHTML = html;
+    $('viewCustomModal').classList.add('active');
+}
+
+function closeViewCustomModal() {
+    $('viewCustomModal').classList.remove('active');
+}
+
+// Delete Custom Category
+function deleteCustomCategory(categoryId) {
+    showConfirm(
+        'Delete category <b>' + escapeHtml(categoryId) + '</b>?',
+        function() {
+            const customCategories = JSON.parse(localStorage.getItem('custom_categories') || '{}');
+            delete customCategories[categoryId];
+            localStorage.setItem('custom_categories', JSON.stringify(customCategories));
+            delete window.CATEGORIES_DB[categoryId];
+            
+            showToast('🗑️ Category deleted');
+            viewCustomData(); // Refresh view
+            
+            // Refresh diagnosis page if open
+            if (document.querySelector('#page-diagnosis.active')) {
+                renderCategoryTabs();
+            }
+        }
+    );
+}
+
+// Export Custom Data
+function exportCustomData() {
+    const data = {
+        categories: JSON.parse(localStorage.getItem('custom_categories') || '{}'),
+        symptoms: JSON.parse(localStorage.getItem('custom_symptoms') || '{}'),
+        diseases: JSON.parse(localStorage.getItem('custom_diseases') || '[]'),
+        exportDate: new Date().toISOString()
+    };
+    
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'clinic-custom-data-' + new Date().toISOString().split('T')[0] + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('✅ Custom data exported!');
+}
+
+// Import Custom Data
+function importCustomData() {
+    $('importCustomFile').click();
+}
+
+// Handle file selection
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        const fileInput = $('importCustomFile');
+        if (fileInput) {
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        
+                        if (data.categories) {
+                            const existing = JSON.parse(localStorage.getItem('custom_categories') || '{}');
+                            Object.assign(existing, data.categories);
+                            localStorage.setItem('custom_categories', JSON.stringify(existing));
+                            Object.assign(window.CATEGORIES_DB, data.categories);
+                        }
+                        
+                        if (data.symptoms) {
+                            const existing = JSON.parse(localStorage.getItem('custom_symptoms') || '{}');
+                            Object.assign(existing, data.symptoms);
+                            localStorage.setItem('custom_symptoms', JSON.stringify(existing));
+                            Object.assign(window.SYMPTOMS_DB, data.symptoms);
+                        }
+                        
+                        if (data.diseases && Array.isArray(data.diseases)) {
+                            const existing = JSON.parse(localStorage.getItem('custom_diseases') || '[]');
+                            data.diseases.forEach(function(d) {
+                                const dupInStorage = existing.find(function(x) { return x.id === d.id; });
+                                const dupInDB = window.DISEASES_DB.find(function(x) { return x.id === d.id; });
+                                if (!dupInStorage) existing.push(d);
+                                if (!dupInDB) window.DISEASES_DB.push(d);
+                            });
+                            localStorage.setItem('custom_diseases', JSON.stringify(existing));
+                        }
+                        
+                        showToast('✅ Custom data imported!');
+                        
+                        // Refresh
+                        if (document.querySelector('#page-diagnosis.active')) {
+                            renderCategoryTabs();
+                            renderSymptomsGrid();
+                        }
+                    } catch(err) {
+                        showToast('❌ Invalid file: ' + err.message, 'error');
+                    }
+                };
+                reader.readAsText(file);
+                
+                // Clear input for re-selection
+                fileInput.value = '';
+            });
+        }
+    }, 1000);
+});
+
+// Auto-load custom data on app start
+setTimeout(loadCustomData, 500);
+</script>
+<!-- Add Category Modal -->
+<div id="addCategoryModal" class="modal-overlay">
+    <div class="modal">
+        <div class="modal-title">
+            <span>🏷️ <span data-ur="نئی کیٹگری" data-en="Add Category" data-roman="Nayi Category">نئی کیٹگری</span></span>
+            <button class="modal-close" onclick="closeAddCategoryModal()">✕</button>
+        </div>
+        <div id="addCategoryMsg"></div>
+        
+        <div class="form-group">
+            <label>🔑 <span data-ur="ID (انگلش میں، بغیر spaces)" data-en="ID (English, no spaces)" data-roman="ID">🔑 ID</span></label>
+            <input type="text" id="newCategoryId" placeholder="e.g. cancer_care" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🇵🇰 <span data-ur="اردو نام" data-en="Urdu Name" data-roman="Urdu Name">اردو</span></label>
+                <input type="text" id="newCategoryUr" placeholder="مثلاً: کینسر کی دیکھ بھال">
+            </div>
+            <div class="form-group">
+                <label>🇬🇧 <span data-ur="انگلش نام" data-en="English Name" data-roman="English Name">English</span></label>
+                <input type="text" id="newCategoryEn" placeholder="e.g. Cancer Care">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🔤 <span data-ur="Roman Urdu" data-en="Roman Urdu" data-roman="Roman">Roman</span></label>
+                <input type="text" id="newCategoryRoman" placeholder="Cancer Care">
+            </div>
+            <div class="form-group">
+                <label>🎨 <span data-ur="Icon (emoji)" data-en="Icon" data-roman="Icon">Icon</span></label>
+                <input type="text" id="newCategoryIcon" placeholder="🎗️" maxlength="4">
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-success" onclick="saveNewCategory()">
+                💾 <span data-ur="محفوظ" data-en="Save" data-roman="Save">محفوظ</span>
+            </button>
+            <button class="btn btn-light" onclick="closeAddCategoryModal()">
+                ❌ <span data-ur="منسوخ" data-en="Cancel" data-roman="Cancel">منسوخ</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- View Custom Data Modal -->
+<div id="viewCustomModal" class="modal-overlay">
+    <div class="modal">
+        <div class="modal-title">
+            <span>📋 <span data-ur="اپنی categories" data-en="My Custom Data" data-roman="Apni Data">اپنی Categories</span></span>
+            <button class="modal-close" onclick="closeViewCustomModal()">✕</button>
+        </div>
+        <div id="customDataContent"></div>
+    </div>
+</div>
 </body>
 </html>
