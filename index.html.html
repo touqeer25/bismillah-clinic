@@ -686,16 +686,16 @@
         <button class="nav-btn" data-page="settings">
             ⚙️ <span data-ur="سیٹنگز" data-en="Settings" data-roman="Settings">سیٹنگز</span>
         </button>
-        <button type="button" class="nav-btn nav-action" id="navPrefsBtn">
+        <button type="button" class="nav-btn nav-action" id="navPrefsBtn" onclick="if(typeof openPreferencesModal==='function')openPreferencesModal()">
             🎛️ <span data-ur="ترجیحات" data-en="Preferences" data-roman="Tarjeehaat">ترجیحات</span>
         </button>
-        <button type="button" class="nav-btn nav-action" id="navHelpBtn">
+        <button type="button" class="nav-btn nav-action" id="navHelpBtn" onclick="if(typeof openHelpCenter==='function')openHelpCenter()">
             ❓ <span data-ur="مدد" data-en="Help" data-roman="Madad">مدد</span>
         </button>
-        <button type="button" class="nav-btn nav-action" id="navTourBtn">
+        <button type="button" class="nav-btn nav-action" id="navTourBtn" onclick="if(typeof showTourWelcome==='function')showTourWelcome()">
             🎓 <span data-ur="ٹور" data-en="Tour" data-roman="Tour">ٹور</span>
         </button>
-        <button type="button" class="nav-btn nav-action" id="navTipBtn">
+        <button type="button" class="nav-btn nav-action" id="navTipBtn" onclick="if(typeof showTipOfTheDay==='function')showTipOfTheDay()">
             💡 <span data-ur="مشورہ" data-en="Tip" data-roman="Mashwara">مشورہ</span>
         </button>
     </nav>
@@ -2364,7 +2364,7 @@ async function confirmDeletePatient(patientId) {
             localStorage.setItem('cached_visits', JSON.stringify(cachedVisits));
             updatePendingBadge();
             showToast('🗑️ Deleted');
-            showPage('allPatients', $$('.nav-btn')[3]);
+            showPage('allPatients', document.querySelector('.nav-btn[data-page="allPatients"]'));
         } catch(err) { showToast('❌ ' + err.message, 'error'); }
         finally { hideLoading(); }
     });
@@ -2474,7 +2474,7 @@ function showFamilyMembers(familyNo) {
     const div = $('familyMembersContent');
     let html = '<div class="card-title" style="display:flex;justify-content:space-between;align-items:center;">';
     html += '<span>👨‍👩‍👧‍👦 Family: ' + escapeHtml(familyNo) + ' (' + members.length + ')</span>';
-    html += '<button class="btn btn-light btn-sm" onclick="showPage(\'allPatients\',document.querySelectorAll(\'.nav-btn\')[3])">🔙 Back</button></div>';
+    html += '<button class="btn btn-light btn-sm" onclick="showPage(\'allPatients\',document.querySelector(\'.nav-btn[data-page=allPatients]\'))">🔙 Back</button></div>';
     html += members.length ? renderPatientsTable(members) : '<div class="empty-state"><p>No members</p></div>';
     div.innerHTML = html;
     $$('.page').forEach(function(p) { p.classList.remove('active'); });
@@ -2486,7 +2486,7 @@ function showFamilyMembers(familyNo) {
 // ==================== PATIENT DETAIL ====================
 async function showPatientDetail(patientId) {
     const patient = cachedPatients.find(function(p) { return p.id === patientId; });
-    if (!patient) { showPage('allPatients', $$('.nav-btn')[3]); return; }
+    if (!patient) { showPage('allPatients', document.querySelector('.nav-btn[data-page="allPatients"]')); return; }
     
     let visits;
     if (navigator.onLine && !getPendingPatients().find(function(p) { return p.id === patientId; })) {
@@ -2513,7 +2513,7 @@ async function showPatientDetail(patientId) {
     html += '<button class="btn btn-warning btn-sm" onclick="openVisitModal(\'' + patient.id + '\')">➕ Visit</button>';
     html += '<button class="btn btn-purple btn-sm" onclick="openDiagnosisForPatient(\'' + patient.id + '\')">🔬 Diagnose</button>';
     if (patient.familyNo) html += '<button class="btn btn-info btn-sm" onclick="showFamilyMembers(\'' + escapeHtml(patient.familyNo) + '\')">👨‍👩‍👧‍👦 (' + familyMembers.length + ')</button>';
-    html += '<button class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;" onclick="showPage(\'allPatients\',document.querySelectorAll(\'.nav-btn\')[3])">🔙</button>';
+    html += '<button class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;" onclick="showPage(\'allPatients\',document.querySelector(\'.nav-btn[data-page=allPatients]\'))">🔙</button>';
     html += '<button class="btn btn-danger btn-sm" onclick="confirmDeletePatient(\'' + patient.id + '\')">🗑️</button>';
     html += '</div></div>';
     
@@ -3225,5 +3225,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a16196b3aa3c541f',t:'MTc4MzIwNDM3NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
