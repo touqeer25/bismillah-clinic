@@ -646,6 +646,7 @@
                 <span class="status-dot"></span>
                 <span class="status-text">Online</span>
             </div>
+	    <button class="icon-btn" onclick="syncCustomData()" title="Sync Custom Data" style="background:rgba(23,162,184,0.3);">☁️</button> 
             <button class="icon-btn" id="backupBtn" title="Backup Data">💾</button>
         </div>
     </header>
@@ -978,58 +979,93 @@
                     <p style="font-size:13px; margin-bottom:10px;" id="syncInfo"></p>
                     <button class="btn btn-info" id="manualSyncBtn">🔄 Sync Now</button>
                 </div>
+	<!-- Sync Status Indicator -->
+<div id="customSyncStatus" style="background:#e8f5e9;border:1px solid #27ae60;padding:8px 12px;border-radius:6px;margin-bottom:12px;font-size:12px;color:#1e8449;display:flex;align-items:center;gap:8px;">
+    <span>☁️</span>
+    <span>Custom Data Cloud Sync: <strong id="syncStatusText">Ready</strong></span>
+</div>
                 
-                <!-- ✅ CUSTOM DATA MANAGER (Single Clean Section) -->
-                <div class="custom-manager-box">
-                    <h4>
-                        🏷️ <span data-ur="کسٹم ڈیٹا مینیجر" data-en="Custom Data Manager" data-roman="Custom Data Manager">کسٹم ڈیٹا مینیجر</span>
-                    </h4>
-                    <p class="description">
-                        <span data-ur="Categories، Symptoms اور Diseases شامل، تبدیل اور حذف کریں" 
-                              data-en="Add, edit, delete categories, symptoms and diseases" 
-                              data-roman="Categories, Symptoms aur Diseases add/edit/delete karein">
-                            Categories، Symptoms اور Diseases شامل، تبدیل اور حذف کریں
-                        </span>
-                    </p>
-                    
-                    <!-- Add Buttons -->
-                    <div class="btn-group-row">
-                        <button class="btn btn-purple btn-sm" onclick="openAddCategoryModal()">
-                            ➕ <span data-ur="کیٹگری" data-en="Category" data-roman="Category">Category</span>
-                        </button>
-                        <button class="btn btn-info btn-sm" onclick="openAddSymptomModal()">
-                            💡 <span data-ur="علامت" data-en="Symptom" data-roman="Symptom">Symptom</span>
-                        </button>
-                        <button class="btn btn-success btn-sm" onclick="openAddDiseaseModal()">
-                            🔬 <span data-ur="بیماری" data-en="Disease" data-roman="Disease">Disease</span>
-                        </button>
-                    </div>
-                    
-                    <!-- Manage Buttons -->
-                    <div class="btn-group-row">
-                        <button class="btn btn-light btn-sm" onclick="viewCustomData()">
-                            📋 <span data-ur="سب دیکھیں / ترمیم / حذف" data-en="View / Edit / Delete" data-roman="View / Edit / Delete">View / Edit / Delete</span>
-                        </button>
-                        <button class="btn btn-warning btn-sm" onclick="exportCustomData()">
-                            📤 <span data-ur="Export JSON" data-en="Export JSON" data-roman="Export">Export</span>
-                        </button>
-                        <button class="btn btn-info btn-sm" onclick="smartImport()">
-                            📥 <span data-ur="Import (JSON/CSV)" data-en="Import (JSON/CSV)" data-roman="Import">Import (JSON/CSV)</span>
-                        </button>
-                    </div>
-                    
-                    <!-- Single hidden file input for both JSON and CSV -->
-                    <input type="file" id="importCustomFile" accept=".json,.csv" style="display:none;">
-                </div>
-                
-                <!-- Backup/Import Old Data -->
-                <h3 style="color:#1a5276; margin-bottom:15px; margin-top:20px;">📥 Import Backup Data</h3>
-                <div class="import-box">
-                    <p style="margin-bottom:10px; font-size:13px; color:#856404;">Import backup file (patients + visits)</p>
-                    <input type="file" id="importFile" accept=".json" style="margin-bottom:10px;">
-                    <button class="btn btn-warning" id="importBtn">📥 Import Backup</button>
-                    <div id="importMsg" style="margin-top:10px;"></div>
-                </div>
+                <!-- ============================================ -->
+<!-- ✅ CUSTOM DATA MANAGER v4 (Cloud + Backup + GitHub) -->
+<!-- ============================================ -->
+<div class="custom-manager-box">
+    <h4>
+        🏷️ <span data-ur="کسٹم ڈیٹا مینیجر (Cloud Sync)" data-en="Custom Data Manager (Cloud Sync)" data-roman="Custom Data Manager">کسٹم ڈیٹا مینیجر</span>
+        <button class="btn btn-info btn-xs" onclick="syncCustomData()" title="Sync now" style="margin-right:auto;">
+            🔄 Sync
+        </button>
+    </h4>
+    <p class="description">
+        <span data-ur="Categories، Symptoms اور Diseases شامل، ترمیم اور حذف کریں۔ ☁️ Cloud پر خودکار sync ہو گا۔" 
+              data-en="Add, edit, delete categories, symptoms and diseases. ☁️ Auto-sync to cloud." 
+              data-roman="Categories, Symptoms aur Diseases manage karein. Cloud sync automatic.">
+            Categories، Symptoms اور Diseases شامل، ترمیم اور حذف کریں۔ ☁️ Cloud پر خودکار sync
+        </span>
+    </p>
+    
+    <!-- ➕ ADD ROW -->
+    <div class="btn-group-row" style="margin-top:8px;">
+        <button class="btn btn-purple btn-sm" onclick="openAddCategoryModal()">
+            ➕ <span data-ur="کیٹگری" data-en="Category" data-roman="Category">Category</span>
+        </button>
+        <button class="btn btn-info btn-sm" onclick="openAddSymptomModal()">
+            💡 <span data-ur="علامت" data-en="Symptom" data-roman="Symptom">Symptom</span>
+        </button>
+        <button class="btn btn-success btn-sm" onclick="openAddDiseaseModal()">
+            🔬 <span data-ur="بیماری" data-en="Disease" data-roman="Disease">Disease</span>
+        </button>
+    </div>
+    
+    <!-- 📋 MANAGE ROW -->
+    <div class="btn-group-row" style="margin-top:6px;">
+        <button class="btn btn-light btn-sm" onclick="viewCustomData()">
+            📋 <span data-ur="View / Edit / Delete" data-en="View / Edit / Delete" data-roman="View">View / Edit / Delete</span>
+        </button>
+        <button class="btn btn-light btn-sm" onclick="viewHistory()">
+            📚 <span data-ur="ہسٹری" data-en="History" data-roman="History">History</span>
+        </button>
+        <button class="btn btn-info btn-sm" onclick="smartImport()">
+            📥 <span data-ur="Import (JSON/CSV)" data-en="Import (JSON/CSV)" data-roman="Import">Import (JSON/CSV)</span>
+        </button>
+    </div>
+    
+    <!-- 💾 BACKUP ROW -->
+    <div style="margin-top:10px;padding:10px;background:#fff;border:2px dashed #17a2b8;border-radius:8px;">
+        <div style="font-weight:bold;color:#17a2b8;margin-bottom:8px;font-size:13px;">
+            💾 <span data-ur="بیک اپ اور GitHub" data-en="Backup & GitHub" data-roman="Backup & GitHub">بیک اپ اور GitHub</span>
+        </div>
+        <div class="btn-group-row">
+            <button class="btn btn-warning btn-sm" onclick="exportCustomData()" title="Full backup - includes everything">
+                📦 <span data-ur="Full Backup" data-en="Full Backup" data-roman="Full Backup">Full Backup</span>
+            </button>
+            <button class="btn btn-warning btn-sm" onclick="exportOnlyNew()" title="Only unpromoted items">
+                🆕 <span data-ur="Only New Backup" data-en="Only New Backup" data-roman="Only New">Only New Backup</span>
+            </button>
+        </div>
+        <div class="btn-group-row" style="margin-top:6px;">
+            <button class="btn" style="background:#24292e;color:white;font-size:12px;padding:6px 12px;" onclick="exportForGitHub()" title="Ready-to-paste for diagnosis-data.js">
+                📝 <span data-ur="Export for GitHub" data-en="Export for GitHub" data-roman="Export for GitHub">Export for GitHub</span>
+            </button>
+            <button class="btn btn-purple btn-sm" onclick="migrationWizard()" title="Guided workflow">
+                🚀 <span data-ur="Migration Wizard" data-en="Migration Wizard" data-roman="Migration">Migration Wizard</span>
+            </button>
+        </div>
+        <div style="font-size:11px;color:#7f8c8d;margin-top:6px;padding:4px 8px;background:#f8f9fa;border-radius:4px;">
+            💡 <strong>Tip:</strong> "Migration Wizard" استعمال کریں - یہ آپ کو step-by-step guide کرے گا
+        </div>
+    </div>
+    
+    <!-- 🧹 CLEANUP ROW -->
+    <div style="margin-top:8px;">
+        <button class="btn btn-danger btn-sm" onclick="cleanupPromoted()" style="font-size:12px;">
+            🧹 <span data-ur="Cleanup Promoted" data-en="Cleanup Promoted" data-roman="Cleanup">Cleanup Promoted Items</span>
+        </button>
+        <small style="color:#7f8c8d;margin-right:6px;">← GitHub پر add ہو چکی items delete کریں</small>
+    </div>
+    
+    <!-- Hidden file input -->
+    <input type="file" id="importCustomFile" accept=".json,.csv" style="display:none;">
+		</div>
             </div>
         </div>
     </div>
@@ -1416,19 +1452,22 @@
 </div>
 
 <!-- ============================================ -->
-<!-- ✅ VIEW ALL CUSTOM DATA MODAL -->
+<!-- ✅ VIEW ALL CUSTOM DATA MODAL v4 -->
 <!-- ============================================ -->
 <div id="viewCustomModal" class="modal-overlay">
-    <div class="modal" style="max-width:700px;">
+    <div class="modal" style="max-width:750px;">
         <div class="modal-title">
             <span>📋 <span data-ur="اپنا Custom ڈیٹا" data-en="My Custom Data" data-roman="Apna Custom Data">اپنا Custom ڈیٹا</span></span>
             <button class="modal-close" onclick="closeViewCustomModal()">✕</button>
         </div>
         <div id="customDataContent">Loading...</div>
-        <div class="action-buttons" style="margin-top:15px;border-top:1px solid #ecf0f1;padding-top:12px;">
+        <div class="action-buttons" style="margin-top:15px;border-top:1px solid #ecf0f1;padding-top:12px;flex-wrap:wrap;">
             <button class="btn btn-purple btn-sm" onclick="closeViewCustomModal();openAddCategoryModal()">➕ Category</button>
             <button class="btn btn-info btn-sm" onclick="closeViewCustomModal();openAddSymptomModal()">➕ Symptom</button>
             <button class="btn btn-success btn-sm" onclick="closeViewCustomModal();openAddDiseaseModal()">➕ Disease</button>
+            <button class="btn btn-warning btn-sm" onclick="closeViewCustomModal();exportOnlyNew()">🆕 Export New</button>
+            <button class="btn" style="background:#24292e;color:white;font-size:12px;padding:6px 12px;" onclick="closeViewCustomModal();exportForGitHub()">📝 GitHub</button>
+            <button class="btn btn-light btn-sm" onclick="closeViewCustomModal();viewHistory()">📚 History</button>
             <button class="btn btn-light btn-sm" onclick="closeViewCustomModal()">Close</button>
         </div>
     </div>
