@@ -8,8 +8,9 @@
     
     <!-- PWA Support -->
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="icon-192.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- apple-touch-icon: only used if icon file exists on server -->
+    <!-- <link rel="apple-touch-icon" href="icon-192.png"> -->
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="BHC Clinic">
     
@@ -423,6 +424,7 @@
         }
         .btn-group-row {
             display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;
+            align-items: center;
         }
 
         /* Diagnosis Styles */
@@ -3172,11 +3174,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- PWA Service Worker -->
 <!-- ============================================ -->
 <script>
-if ('serviceWorker' in navigator) {
+if ('serviceWorker' in navigator && location.protocol !== 'chrome-extension:') {
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('./service-worker.js')
             .then(function(reg) { console.log('✅ PWA registered'); })
-            .catch(function(err) { console.log('❌ PWA registration failed:', err); });
+            .catch(function(err) { /* SW not available - OK */ });
     });
 }
 
@@ -3198,5 +3200,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a160970e9ad1541f',t:'MTc4MzE5MzkwNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

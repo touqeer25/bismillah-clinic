@@ -444,12 +444,63 @@
     };
 
     // ==========================================
-    // ADD ⓘ ICONS (Better Design)
+    // ADD ⓘ ICONS (Beautiful Inline Design v2)
     // ==========================================
+    
+    // Inject global CSS for help info buttons (once)
+    function injectHelpStyles() {
+        if (document.getElementById('helpIconStyles')) return;
+        var style = document.createElement('style');
+        style.id = 'helpIconStyles';
+        style.textContent = [
+            '.help-info-btn {',
+            '  display:inline-flex !important;',
+            '  align-items:center;',
+            '  justify-content:center;',
+            '  width:18px;',
+            '  height:18px;',
+            '  min-width:18px;',
+            '  margin:0 2px;',
+            '  padding:0;',
+            '  color:#fff;',
+            '  background:linear-gradient(135deg,#17a2b8,#138496);',
+            '  border:none;',
+            '  border-radius:50%;',
+            '  cursor:pointer;',
+            '  font-size:11px;',
+            '  font-weight:bold;',
+            '  font-style:italic;',
+            '  font-family:Georgia,serif;',
+            '  vertical-align:middle;',
+            '  transition:all 0.2s ease;',
+            '  line-height:1;',
+            '  box-shadow:0 1px 3px rgba(0,0,0,0.15);',
+            '  flex-shrink:0;',
+            '  position:relative;',
+            '  top:-1px;',
+            '}',
+            '.help-info-btn:hover {',
+            '  background:linear-gradient(135deg,#138496,#0f6674);',
+            '  transform:scale(1.2);',
+            '  box-shadow:0 2px 8px rgba(23,162,184,0.4);',
+            '}',
+            '.help-info-btn:active {',
+            '  transform:scale(0.95);',
+            '}',
+            '/* Make btn-group-row flex-wrap and align items center */',
+            '.btn-group-row {',
+            '  display:flex;',
+            '  gap:6px;',
+            '  flex-wrap:wrap;',
+            '  align-items:center;',
+            '}'
+        ].join('\n');
+        document.head.appendChild(style);
+    }
+    
     function addInfoIcon(btn, key) {
         if (!btn) return;
         
-        // Check if button already has our wrapper
         var parent = btn.parentElement;
         if (!parent) return;
         
@@ -459,28 +510,20 @@
         
         attachTooltip(btn, key);
         
-        // Create separate ⓘ button
+        // Create beautiful small ⓘ button
         var infoBtn = document.createElement('button');
+        infoBtn.type = 'button';
         infoBtn.className = 'help-info-btn';
-        infoBtn.innerHTML = 'ⓘ';
+        infoBtn.innerHTML = 'i';
         infoBtn.title = 'More info';
-        infoBtn.style.cssText = 'display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;margin:0 4px;padding:0;color:#17a2b8;background:rgba(23,162,184,0.1);border:1px solid rgba(23,162,184,0.3);border-radius:50%;cursor:pointer;font-size:12px;font-weight:bold;vertical-align:middle;transition:all 0.2s;line-height:1;';
         
-        infoBtn.addEventListener('mouseenter', function() {
-            this.style.background = 'rgba(23,162,184,0.3)';
-            this.style.transform = 'scale(1.15)';
-        });
-        infoBtn.addEventListener('mouseleave', function() {
-            this.style.background = 'rgba(23,162,184,0.1)';
-            this.style.transform = 'scale(1)';
-        });
         infoBtn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             showInfoModal(key);
         });
         
-        // Insert after the button (not inside)
+        // Insert right after the button in the same flow
         if (btn.nextSibling) {
             parent.insertBefore(infoBtn, btn.nextSibling);
         } else {
@@ -489,18 +532,21 @@
     }
     
     function attachAllHelpIcons() {
+        // Inject CSS once
+        injectHelpStyles();
+        
         var map = [
-            { sel: 'button[onclick*="openAddCategoryModal()"]', key: 'category' },
-            { sel: 'button[onclick*="openAddSymptomModal()"]', key: 'symptom' },
-            { sel: 'button[onclick*="openAddDiseaseModal()"]', key: 'disease' },
-            { sel: 'button[onclick*="viewCustomData()"]', key: 'view_edit_delete' },
-            { sel: 'button[onclick*="viewHistory()"]', key: 'history' },
-            { sel: 'button[onclick*="smartImport()"]', key: 'import' },
-            { sel: 'button[onclick*="exportCustomData()"]', key: 'full_backup' },
-            { sel: 'button[onclick*="exportOnlyNew()"]', key: 'only_new_backup' },
-            { sel: 'button[onclick*="exportForGitHub()"]', key: 'export_github' },
-            { sel: 'button[onclick*="migrationWizard()"]', key: 'migration_wizard' },
-            { sel: 'button[onclick*="cleanupPromoted()"]', key: 'cleanup' }
+            { sel: '.custom-manager-box button[onclick*="openAddCategoryModal()"]', key: 'category' },
+            { sel: '.custom-manager-box button[onclick*="openAddSymptomModal()"]', key: 'symptom' },
+            { sel: '.custom-manager-box button[onclick*="openAddDiseaseModal()"]', key: 'disease' },
+            { sel: '.custom-manager-box button[onclick*="viewCustomData()"]', key: 'view_edit_delete' },
+            { sel: '.custom-manager-box button[onclick*="viewHistory()"]', key: 'history' },
+            { sel: '.custom-manager-box button[onclick*="smartImport()"]', key: 'import' },
+            { sel: '.custom-manager-box button[onclick*="exportCustomData()"]', key: 'full_backup' },
+            { sel: '.custom-manager-box button[onclick*="exportOnlyNew()"]', key: 'only_new_backup' },
+            { sel: '.custom-manager-box button[onclick*="exportForGitHub()"]', key: 'export_github' },
+            { sel: '.custom-manager-box button[onclick*="migrationWizard()"]', key: 'migration_wizard' },
+            { sel: '.custom-manager-box button[onclick*="cleanupPromoted()"]', key: 'cleanup' }
         ];
         map.forEach(function(item) {
             var btns = document.querySelectorAll(item.sel);
@@ -513,11 +559,15 @@
     }
     
     function watchForSettingsPage() {
+        var lastState = false;
         setInterval(function() {
-            if (document.querySelector('#page-settings.active')) {
-                attachAllHelpIcons();
+            var isActive = !!document.querySelector('#page-settings.active');
+            if (isActive && !lastState) {
+                // Settings page just opened - attach icons once
+                setTimeout(attachAllHelpIcons, 300);
             }
-        }, 2000);
+            lastState = isActive;
+        }, 1000);
     }
 
     // ==========================================
@@ -580,6 +630,27 @@
     window.nextTourStep = function() { currentTourStep++; showTourStep(); };
     window.prevTourStep = function() { if (currentTourStep > 0) { currentTourStep--; showTourStep(); } };
     window.closeTour = function() { var o = document.getElementById('helpTourOverlay'); if (o) o.style.display = 'none'; };
+    
+    // ==========================================
+    // TIP OF THE DAY
+    // ==========================================
+    window.showTipOfTheDay = function() {
+        var tips = HELP_CONTENT.tips;
+        if (!tips || tips.length === 0) return;
+        var dayIndex = new Date().getDate() % tips.length;
+        var tip = getContent(tips[dayIndex]);
+        if (!tip) tip = getContent(tips[0]);
+        if (!tip) return;
+        
+        createInfoModal();
+        var lang = getCurrentLang();
+        var titles = { ur: '💡 آج کا مشورہ', en: '💡 Tip of the Day', roman: '💡 Aaj ka Mashwara' };
+        document.getElementById('helpInfoTitle').innerHTML = titles[lang] || titles.ur;
+        document.getElementById('helpInfoContent').innerHTML = '<div style="font-size:15px;line-height:1.8;padding:10px 0;">' + tip + '</div>';
+        var btnText = { ur: '✅ شکریہ!', en: '✅ Thanks!', roman: '✅ Shukriya!' };
+        document.getElementById('helpInfoOkBtn').textContent = btnText[lang] || btnText.ur;
+        document.getElementById('helpInfoModal').classList.add('active');
+    };
     window.completeTour = function() { updatePreference('tourCompleted', true); closeTour(); if (typeof showToast === 'function') showToast('🎉 ٹور مکمل!'); };
     window.skipTourPermanently = function() { updatePreference('showTour', false); updatePreference('tourCompleted', true); closeTour(); };
 
