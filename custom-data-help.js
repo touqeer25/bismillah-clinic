@@ -269,96 +269,11 @@
     function getContent(c) { var l = getCurrentLang(); if (c && c[l]) return c[l]; if (c && c.ur) return c.ur; return null; }
 
     // ==========================================
-    // LABEL FIXES (Pure Urdu)
+    // LABEL FIXES - No longer needed!
+    // All labels now use proper data-ur/data-en/data-roman
+    // in index.html directly. The applyLanguage() function
+    // in index.html handles switching automatically.
     // ==========================================
-    var LABEL_FIXES = {
-        ur: {
-            'Custom Data Manager (Cloud Sync)': 'کسٹم ڈیٹا مینیجر (کلاؤڈ سنک)',
-            'Custom Data Cloud Sync': 'کسٹم ڈیٹا کلاؤڈ سنک',
-            'Ready': 'تیار',
-            'Sync': 'سنک',
-            'Category': 'کیٹگری',
-            'Symptom': 'علامت',
-            'Disease': 'بیماری',
-            'View / Edit / Delete': 'دیکھیں / ایڈٹ / ڈیلیٹ',
-            'View / Edit': 'دیکھیں / ایڈٹ',
-            'History': 'ہسٹری',
-            'Import (JSON/CSV)': 'امپورٹ (جے سن/سی ایس وی)',
-            'Backup & GitHub': 'بیک اپ اور گٹ ہب',
-            'Full Backup': 'مکمل بیک اپ',
-            'Only New Backup': 'صرف نئی بیک اپ',
-            'Export for GitHub': 'گٹ ہب کے لیے ایکسپورٹ',
-            'Migration Wizard': 'مائیگریشن وزرڈ',
-            'Cleanup Promoted': 'پروموٹڈ صفائی',
-            'Cleanup Promoted Items': 'پروموٹڈ چیزیں صاف کریں',
-            'Add, edit, delete categories, symptoms and diseases. ☁️ Auto-sync to cloud.': 'کیٹگری، علامات اور بیماریاں شامل، ترمیم اور حذف کریں۔ ☁️ کلاؤڈ پر خودکار سنک۔',
-            'Add, edit, delete categories, symptoms and diseases.': 'کیٹگری، علامات اور بیماریاں شامل، ترمیم اور حذف کریں۔',
-            'Auto-sync to cloud.': 'کلاؤڈ پر خودکار سنک۔'
-        }
-    };
-    
-    function fixLabels() {
-        var lang = getCurrentLang();
-        if (lang !== 'ur') return;
-        
-        var fixes = LABEL_FIXES.ur;
-        var settingsPage = document.querySelector('#page-settings');
-        if (!settingsPage) return;
-        
-        // Fix all text nodes
-        var walker = document.createTreeWalker(settingsPage, NodeFilter.SHOW_TEXT, null, false);
-        var nodes = [];
-        var node;
-        while(node = walker.nextNode()) nodes.push(node);
-        
-        nodes.forEach(function(n) {
-            var text = n.textContent;
-            var changed = false;
-            for (var key in fixes) {
-                if (text.indexOf(key) !== -1) {
-                    text = text.replace(key, fixes[key]);
-                    changed = true;
-                }
-            }
-            if (changed) n.textContent = text;
-        });
-        
-        // Fix specific problematic text with mixed languages
-        var allText = settingsPage.innerHTML;
-        if (allText.indexOf('step-by-step guide') !== -1) {
-            var tips = settingsPage.querySelectorAll('div');
-            tips.forEach(function(el) {
-                if (el.textContent.indexOf('step-by-step guide') !== -1 && el.children.length === 0) {
-                    el.innerHTML = el.innerHTML.replace(/Tip:/g, 'مشورہ:').replace(/step-by-step guide/g, 'مرحلہ وار رہنمائی').replace(/کرے گا/g, 'کرے گا');
-                }
-            });
-        }
-        
-        if (allText.indexOf('items delete') !== -1) {
-            var elements = settingsPage.querySelectorAll('small');
-            elements.forEach(function(el) {
-                if (el.textContent.indexOf('items delete') !== -1) {
-                    el.innerHTML = '← گٹ ہب پر شامل چیزیں مٹائیں';
-                }
-            });
-        }
-    }
-    
-    function watchLanguageAndFix() {
-        var lastLang = getCurrentLang();
-        fixLabels();
-        setInterval(function() {
-            var current = getCurrentLang();
-            if (current !== lastLang) {
-                lastLang = current;
-                setTimeout(fixLabels, 300);
-            }
-            // Also apply when settings is opened
-            if (document.querySelector('#page-settings.active')) {
-                fixLabels();
-            }
-        }, 2000);
-    }
 
     // ==========================================
     // TOOLTIPS
@@ -864,7 +779,6 @@
         document.addEventListener('keydown', handleKeyboardShortcut);
         setTimeout(addHelpButtonToHeader, 2000);
         watchForSettingsPage();
-        watchLanguageAndFix();
         
         setTimeout(function() {
             var p = getPreferences();

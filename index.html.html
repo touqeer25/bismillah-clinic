@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bismillah Homeopathic Clinic</title>
     <meta name="theme-color" content="#1a5276">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>" type="image/svg+xml">
     
     <!-- PWA Support -->
-    <link rel="manifest" href="manifest.json">
+    <!-- manifest only if file exists on server -->
+    <!-- <link rel="manifest" href="manifest.json"> -->
     <!-- apple-touch-icon: only used if icon file exists on server -->
     <!-- <link rel="apple-touch-icon" href="icon-192.png"> -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -985,7 +987,7 @@
 	<!-- Sync Status Indicator -->
 <div id="customSyncStatus" style="background:#e8f5e9;border:1px solid #27ae60;padding:8px 12px;border-radius:6px;margin-bottom:12px;font-size:12px;color:#1e8449;display:flex;align-items:center;gap:8px;">
     <span>☁️</span>
-    <span>Custom Data Cloud Sync: <strong id="syncStatusText">Ready</strong></span>
+    <span><span data-ur="کسٹم ڈیٹا کلاؤڈ سنک:" data-en="Custom Data Cloud Sync:" data-roman="Custom Data Cloud Sync:">کسٹم ڈیٹا کلاؤڈ سنک:</span> <strong id="syncStatusText" data-ur="تیار" data-en="Ready" data-roman="Tayyar">تیار</strong></span>
 </div>
                 
                 <!-- ============================================ -->
@@ -993,77 +995,79 @@
 <!-- ============================================ -->
 <div class="custom-manager-box">
     <h4>
-        🏷️ <span data-ur="کسٹم ڈیٹا مینیجر (Cloud Sync)" data-en="Custom Data Manager (Cloud Sync)" data-roman="Custom Data Manager">کسٹم ڈیٹا مینیجر</span>
+        🏷️ <span data-ur="کسٹم ڈیٹا مینیجر (کلاؤڈ سنک)" data-en="Custom Data Manager (Cloud Sync)" data-roman="Custom Data Manager (Cloud Sync)">کسٹم ڈیٹا مینیجر (کلاؤڈ سنک)</span>
+
         <button class="btn btn-info btn-xs" onclick="syncCustomData()" title="Sync now" style="margin-right:auto;">
-            🔄 Sync
+            🔄 <span data-ur="سنک" data-en="Sync" data-roman="Sync">سنک</span>
         </button>
     </h4>
     <p class="description">
-        <span data-ur="Categories، Symptoms اور Diseases شامل، ترمیم اور حذف کریں۔ ☁️ Cloud پر خودکار sync ہو گا۔" 
+        <span data-ur="کیٹگریز، علامات اور بیماریاں شامل، ترمیم اور حذف کریں۔ ☁️ کلاؤڈ پر خودکار سنک۔" 
               data-en="Add, edit, delete categories, symptoms and diseases. ☁️ Auto-sync to cloud." 
-              data-roman="Categories, Symptoms aur Diseases manage karein. Cloud sync automatic.">
-            Categories، Symptoms اور Diseases شامل، ترمیم اور حذف کریں۔ ☁️ Cloud پر خودکار sync
+              data-roman="Categories, Alamaat aur Bimariyan shamil, tarmeemi aur hazf karein. ☁️ Cloud par khudkar sync.">
+            کیٹگریز، علامات اور بیماریاں شامل، ترمیم اور حذف کریں۔ ☁️ کلاؤڈ پر خودکار سنک۔
         </span>
     </p>
     
     <!-- ➕ ADD ROW -->
     <div class="btn-group-row" style="margin-top:8px;">
         <button class="btn btn-purple btn-sm" onclick="openAddCategoryModal()">
-            ➕ <span data-ur="کیٹگری" data-en="Category" data-roman="Category">Category</span>
+            ➕ <span data-ur="کیٹگری" data-en="Category" data-roman="Category">کیٹگری</span>
         </button>
         <button class="btn btn-info btn-sm" onclick="openAddSymptomModal()">
-            💡 <span data-ur="علامت" data-en="Symptom" data-roman="Symptom">Symptom</span>
+            💡 <span data-ur="علامت" data-en="Symptom" data-roman="Alamat">علامت</span>
         </button>
         <button class="btn btn-success btn-sm" onclick="openAddDiseaseModal()">
-            🔬 <span data-ur="بیماری" data-en="Disease" data-roman="Disease">Disease</span>
+            🔬 <span data-ur="بیماری" data-en="Disease" data-roman="Bimari">بیماری</span>
         </button>
     </div>
     
     <!-- 📋 MANAGE ROW -->
     <div class="btn-group-row" style="margin-top:6px;">
         <button class="btn btn-light btn-sm" onclick="viewCustomData()">
-            📋 <span data-ur="View / Edit / Delete" data-en="View / Edit / Delete" data-roman="View">View / Edit / Delete</span>
+            📋 <span data-ur="دیکھیں / ایڈٹ / ڈیلیٹ" data-en="View / Edit / Delete" data-roman="Dekhein / Edit / Delete">دیکھیں / ایڈٹ / ڈیلیٹ</span>
         </button>
         <button class="btn btn-light btn-sm" onclick="viewHistory()">
-            📚 <span data-ur="ہسٹری" data-en="History" data-roman="History">History</span>
+            📚 <span data-ur="ہسٹری" data-en="History" data-roman="History">ہسٹری</span>
         </button>
         <button class="btn btn-info btn-sm" onclick="smartImport()">
-            📥 <span data-ur="Import (JSON/CSV)" data-en="Import (JSON/CSV)" data-roman="Import">Import (JSON/CSV)</span>
+            📥 <span data-ur="امپورٹ (جے سن/سی ایس وی)" data-en="Import (JSON/CSV)" data-roman="Import (JSON/CSV)">امپورٹ (جے سن/سی ایس وی)</span>
+
         </button>
     </div>
     
     <!-- 💾 BACKUP ROW -->
     <div style="margin-top:10px;padding:10px;background:#fff;border:2px dashed #17a2b8;border-radius:8px;">
         <div style="font-weight:bold;color:#17a2b8;margin-bottom:8px;font-size:13px;">
-            💾 <span data-ur="بیک اپ اور GitHub" data-en="Backup & GitHub" data-roman="Backup & GitHub">بیک اپ اور GitHub</span>
+            💾 <span data-ur="بیک اپ اور گٹ ہب" data-en="Backup & GitHub" data-roman="Backup aur GitHub">بیک اپ اور گٹ ہب</span>
         </div>
         <div class="btn-group-row">
             <button class="btn btn-warning btn-sm" onclick="exportCustomData()" title="Full backup - includes everything">
-                📦 <span data-ur="Full Backup" data-en="Full Backup" data-roman="Full Backup">Full Backup</span>
+                📦 <span data-ur="مکمل بیک اپ" data-en="Full Backup" data-roman="Mukammal Backup">مکمل بیک اپ</span>
             </button>
             <button class="btn btn-warning btn-sm" onclick="exportOnlyNew()" title="Only unpromoted items">
-                🆕 <span data-ur="Only New Backup" data-en="Only New Backup" data-roman="Only New">Only New Backup</span>
+                🆕 <span data-ur="صرف نئی بیک اپ" data-en="Only New Backup" data-roman="Sirf Nayi Backup">صرف نئی بیک اپ</span>
             </button>
         </div>
         <div class="btn-group-row" style="margin-top:6px;">
             <button class="btn" style="background:#24292e;color:white;font-size:12px;padding:6px 12px;" onclick="exportForGitHub()" title="Ready-to-paste for diagnosis-data.js">
-                📝 <span data-ur="Export for GitHub" data-en="Export for GitHub" data-roman="Export for GitHub">Export for GitHub</span>
+                📝 <span data-ur="گٹ ہب ایکسپورٹ" data-en="Export for GitHub" data-roman="GitHub Export">گٹ ہب ایکسپورٹ</span>
             </button>
             <button class="btn btn-purple btn-sm" onclick="migrationWizard()" title="Guided workflow">
-                🚀 <span data-ur="Migration Wizard" data-en="Migration Wizard" data-roman="Migration">Migration Wizard</span>
+                🚀 <span data-ur="مائیگریشن وزرڈ" data-en="Migration Wizard" data-roman="Migration Wizard">مائیگریشن وزرڈ</span>
             </button>
         </div>
         <div style="font-size:11px;color:#7f8c8d;margin-top:6px;padding:4px 8px;background:#f8f9fa;border-radius:4px;">
-            💡 <strong>Tip:</strong> "Migration Wizard" استعمال کریں - یہ آپ کو step-by-step guide کرے گا
+            💡 <strong><span data-ur="مشورہ:" data-en="Tip:" data-roman="Mashwara:">مشورہ:</span></strong> <span data-ur="&quot;مائیگریشن وزرڈ&quot; استعمال کریں — یہ آپ کو مرحلہ وار رہنمائی کرے گا" data-en="Use &quot;Migration Wizard&quot; — it will guide you step-by-step" data-roman="&quot;Migration Wizard&quot; istemal karein — yeh aap ko qadam ba qadam rahnumai karega">"مائیگریشن وزرڈ" استعمال کریں — یہ آپ کو مرحلہ وار رہنمائی کرے گا</span>
         </div>
     </div>
     
     <!-- 🧹 CLEANUP ROW -->
     <div style="margin-top:8px;">
         <button class="btn btn-danger btn-sm" onclick="cleanupPromoted()" style="font-size:12px;">
-            🧹 <span data-ur="Cleanup Promoted" data-en="Cleanup Promoted" data-roman="Cleanup">Cleanup Promoted Items</span>
+            🧹 <span data-ur="پروموٹڈ صاف کریں" data-en="Cleanup Promoted" data-roman="Promoted Saaf Karein">پروموٹڈ صاف کریں</span>
         </button>
-        <small style="color:#7f8c8d;margin-right:6px;">← GitHub پر add ہو چکی items delete کریں</small>
+        <small style="color:#7f8c8d;margin-right:6px;"><span data-ur="← گٹ ہب پر شامل شدہ چیزیں مٹائیں" data-en="← Delete items already added to GitHub" data-roman="← GitHub par shamil cheezein mitayein">← گٹ ہب پر شامل شدہ چیزیں مٹائیں</span></small>
     </div>
     
     <!-- Hidden file input -->
@@ -1079,28 +1083,28 @@
 <!-- ============================================ -->
 <div style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #27ae60;border-radius:12px;padding:18px;margin-bottom:15px;">
     <h4 style="color:#27ae60;margin-bottom:8px;font-size:16px;display:flex;align-items:center;gap:6px;">
-        ⚙️ <span data-ur="ترجیحات اور مدد" data-en="Preferences & Help" data-roman="Preferences & Help">ترجیحات اور مدد</span>
+        ⚙️ <span data-ur="ترجیحات اور مدد" data-en="Preferences & Help" data-roman="Tarjeehaat aur Madad">ترجیحات اور مدد</span>
     </h4>
     <p style="font-size:12px;color:#555;margin-bottom:12px;">
         <span data-ur="ٹور، شارٹ کٹس، ٹپس وغیرہ کو آن/آف کریں" 
               data-en="Toggle tour, shortcuts, tips etc." 
-              data-roman="Tour, shortcuts, tips on/off">
+              data-roman="Tour, shortcuts, tips waghaira on/off karein">
             ٹور، شارٹ کٹس، ٹپس وغیرہ کو آن/آف کریں
         </span>
     </p>
     
     <div style="display:flex;gap:6px;flex-wrap:wrap;">
         <button class="btn btn-info btn-sm" onclick="openPreferencesModal()">
-            ⚙️ <span data-ur="ترجیحات" data-en="Preferences" data-roman="Preferences">ترجیحات</span>
+            ⚙️ <span data-ur="ترجیحات" data-en="Preferences" data-roman="Tarjeehaat">ترجیحات</span>
         </button>
         <button class="btn btn-purple btn-sm" onclick="openHelpCenter()">
-            ❓ <span data-ur="مدد سینٹر" data-en="Help Center" data-roman="Help Center">مدد سینٹر</span>
+            ❓ <span data-ur="مدد سینٹر" data-en="Help Center" data-roman="Madad Center">مدد سینٹر</span>
         </button>
         <button class="btn btn-success btn-sm" onclick="showTourWelcome()">
-            🎓 <span data-ur="ٹور شروع کریں" data-en="Start Tour" data-roman="Start Tour">ٹور شروع کریں</span>
+            🎓 <span data-ur="ٹور شروع کریں" data-en="Start Tour" data-roman="Tour Shuru Karein">ٹور شروع کریں</span>
         </button>
         <button class="btn btn-warning btn-sm" onclick="showTipOfTheDay()">
-            💡 <span data-ur="آج کا مشورہ" data-en="Tip of Day" data-roman="Tip">آج کا مشورہ</span>
+            💡 <span data-ur="آج کا مشورہ" data-en="Tip of Day" data-roman="Aaj ka Mashwara">آج کا مشورہ</span>
         </button>
     </div>
 </div>
@@ -3200,5 +3204,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a160970e9ad1541f',t:'MTc4MzE5MzkwNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a160bf963f0ba813',t:'MTc4MzE5NTU2NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
