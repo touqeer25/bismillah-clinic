@@ -403,6 +403,27 @@
             border-radius: 10px; padding: 15px; margin-bottom: 15px;
         }
 
+        /* Custom Data Manager Box */
+        .custom-manager-box {
+            background: linear-gradient(135deg, #f0f8ff, #e8f4f8);
+            border: 2px solid #17a2b8;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 15px;
+        }
+        .custom-manager-box h4 {
+            color: #17a2b8;
+            margin-bottom: 8px;
+            font-size: 16px;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .custom-manager-box .description {
+            font-size: 12px; color: #555; margin-bottom: 12px;
+        }
+        .btn-group-row {
+            display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;
+        }
+
         /* Diagnosis Styles */
         .diagnosis-container { padding: 15px; max-width: 1200px; margin: 0 auto; }
         .symptom-search {
@@ -563,7 +584,9 @@
     <div class="spinner"></div>
 </div>
 
+<!-- ============================================ -->
 <!-- LOGIN PAGE -->
+<!-- ============================================ -->
 <div id="loginPage" class="login-container">
     <div class="login-box">
         <div class="bismillah">بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِیْم</div>
@@ -604,7 +627,9 @@
     </div>
 </div>
 
+<!-- ============================================ -->
 <!-- MAIN APP -->
+<!-- ============================================ -->
 <div id="mainApp" class="hidden">
     <header class="app-header">
         <div class="header-left">
@@ -646,7 +671,9 @@
         </button>
     </nav>
     
+    <!-- ============================================ -->
     <!-- DASHBOARD -->
+    <!-- ============================================ -->
     <div id="page-dashboard" class="page active">
         <div class="dashboard">
             <div id="offlineNotice" class="offline-notice hidden">
@@ -684,7 +711,9 @@
         </div>
     </div>
     
+    <!-- ============================================ -->
     <!-- NEW PATIENT -->
+    <!-- ============================================ -->
     <div id="page-newPatient" class="page">
         <div class="content">
             <div class="card">
@@ -838,7 +867,9 @@
         </div>
     </div>
     
+    <!-- ============================================ -->
     <!-- SEARCH -->
+    <!-- ============================================ -->
     <div id="page-searchPatient" class="page">
         <div class="content">
             <div class="card">
@@ -853,7 +884,9 @@
         </div>
     </div>
     
+    <!-- ============================================ -->
     <!-- ALL PATIENTS -->
+    <!-- ============================================ -->
     <div id="page-allPatients" class="page">
         <div class="content">
             <div class="card">
@@ -877,7 +910,9 @@
         <div class="content"><div class="card"><div id="familyMembersContent"></div></div></div>
     </div>
     
+    <!-- ============================================ -->
     <!-- DIAGNOSIS PAGE -->
+    <!-- ============================================ -->
     <div id="page-diagnosis" class="page">
         <div class="diagnosis-container">
             <div class="card">
@@ -927,7 +962,9 @@
         </div>
     </div>
     
-    <!-- SETTINGS -->
+    <!-- ============================================ -->
+    <!-- SETTINGS (Clean - No Duplicates!) -->
+    <!-- ============================================ -->
     <div id="page-settings" class="page">
         <div class="content">
             <div class="card">
@@ -935,86 +972,62 @@
                     ⚙️ <span data-ur="سیٹنگز" data-en="Settings" data-roman="Settings">سیٹنگز</span>
                 </div>
                 
+                <!-- Sync Section -->
                 <div id="syncSection" class="sync-box hidden">
                     <h4 style="color:#17a2b8; margin-bottom:10px;">🔄 Pending Sync</h4>
                     <p style="font-size:13px; margin-bottom:10px;" id="syncInfo"></p>
                     <button class="btn btn-info" id="manualSyncBtn">🔄 Sync Now</button>
                 </div>
                 
-		<!-- Custom Categories Manager -->
-<div style="background:#f0f8ff; border:2px solid #17a2b8; border-radius:10px; padding:15px; margin-bottom:15px;">
-    <h4 style="color:#17a2b8; margin-bottom:10px;">
-        🏷️ <span data-ur="کیٹگریز مینج کریں" data-en="Manage Categories" data-roman="Categories Manage Karein">کیٹگریز مینج کریں</span>
-    </h4>
-    <p style="font-size:12px; color:#555; margin-bottom:10px;">
-        <span data-ur="اپنی مرضی کی categories، symptoms اور diseases add کریں" 
-              data-en="Add your custom categories, symptoms and diseases" 
-              data-roman="Apni marzi ki categories add karein">
-            اپنی مرضی کی categories، symptoms اور diseases add کریں
-        </span>
-    </p>
-    
-    <div class="action-buttons">
-        <button class="btn btn-purple btn-sm" onclick="openAddCategoryModal()">
-            ➕ <span data-ur="نئی کیٹگری" data-en="Add Category" data-roman="Nayi Category">نئی کیٹگری</span>
-        </button>
-        <button class="btn btn-info btn-sm" onclick="viewCustomData()">
-            📋 <span data-ur="دیکھیں" data-en="View Custom" data-roman="Dekhein">دیکھیں</span>
-        </button>
-        <button class="btn btn-warning btn-sm" onclick="exportCustomData()">
-            💾 <span data-ur="Export" data-en="Export" data-roman="Export">Export</span>
-        </button>
-        <button class="btn btn-light btn-sm" onclick="importCustomData()">
-            📥 <span data-ur="Import" data-en="Import" data-roman="Import">Import</span>
-        </button>
-    </div>
-    <input type="file" id="importCustomFile" accept=".json" style="display:none;">
-</div>
-	<!-- Custom Data Manager -->
-<div style="background:#f0f8ff; border:2px solid #17a2b8; border-radius:10px; padding:15px; margin-bottom:15px;">
-    <h4 style="color:#17a2b8; margin-bottom:10px;">
-        🏷️ <span data-ur="تشخیصی ڈیٹا مینج کریں" data-en="Manage Diagnosis Data" data-roman="Diagnosis Data Manage">تشخیصی ڈیٹا مینج کریں</span>
-    </h4>
-    <p style="font-size:12px; color:#555; margin-bottom:10px;">
-        <span data-ur="اپنی مرضی کی categories، symptoms اور diseases add/edit/delete کریں" data-en="Add, edit, delete custom categories, symptoms and diseases" data-roman="Apni marzi ki data manage karein">اپنی مرضی کی categories، symptoms اور diseases add/edit/delete کریں</span>
-    </p>
-    
-    <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
-        <button class="btn btn-purple btn-sm" onclick="openAddCategoryModal()">
-            🏷️ <span data-ur="نئی کیٹگری" data-en="Add Category" data-roman="Category">کیٹگری</span>
-        </button>
-        <button class="btn btn-info btn-sm" onclick="openAddSymptomModal()">
-            💡 <span data-ur="نئی علامت" data-en="Add Symptom" data-roman="Symptom">علامت</span>
-        </button>
-        <button class="btn btn-success btn-sm" onclick="openAddDiseaseModal()">
-            🔬 <span data-ur="نئی بیماری" data-en="Add Disease" data-roman="Disease">بیماری</span>
-        </button>
-    </div>
-    
-    <div style="display:flex; gap:6px; flex-wrap:wrap;">
-        <button class="btn btn-light btn-sm" onclick="viewCustomData()">
-            📋 <span data-ur="سب دیکھیں" data-en="View All" data-roman="Sab Dekhein">سب دیکھیں</span>
-        </button>
-        <button class="btn btn-warning btn-sm" onclick="exportCustomData()">
-            💾 <span data-ur="Export JSON" data-en="Export JSON" data-roman="Export">Export JSON</span>
-        </button>
-        <button class="btn btn-light btn-sm" onclick="importCustomData()">
-            📥 <span data-ur="Import JSON" data-en="Import JSON" data-roman="Import">Import JSON</span>
-        </button>
-        <button class="btn btn-light btn-sm" onclick="importCSVData()">
-            📊 <span data-ur="Import CSV" data-en="Import CSV" data-roman="CSV">Import CSV</span>
-        </button>
-    </div>
-    
-    <input type="file" id="importCustomFile" accept=".json" style="display:none;">
-    <input type="file" id="importCSVFile" accept=".csv" style="display:none;">
-</div>	
-
-                <h3 style="color:#1a5276; margin-bottom:15px;">📥 Import Data</h3>
+                <!-- ✅ CUSTOM DATA MANAGER (Single Clean Section) -->
+                <div class="custom-manager-box">
+                    <h4>
+                        🏷️ <span data-ur="کسٹم ڈیٹا مینیجر" data-en="Custom Data Manager" data-roman="Custom Data Manager">کسٹم ڈیٹا مینیجر</span>
+                    </h4>
+                    <p class="description">
+                        <span data-ur="Categories، Symptoms اور Diseases شامل، تبدیل اور حذف کریں" 
+                              data-en="Add, edit, delete categories, symptoms and diseases" 
+                              data-roman="Categories, Symptoms aur Diseases add/edit/delete karein">
+                            Categories، Symptoms اور Diseases شامل، تبدیل اور حذف کریں
+                        </span>
+                    </p>
+                    
+                    <!-- Add Buttons -->
+                    <div class="btn-group-row">
+                        <button class="btn btn-purple btn-sm" onclick="openAddCategoryModal()">
+                            ➕ <span data-ur="کیٹگری" data-en="Category" data-roman="Category">Category</span>
+                        </button>
+                        <button class="btn btn-info btn-sm" onclick="openAddSymptomModal()">
+                            💡 <span data-ur="علامت" data-en="Symptom" data-roman="Symptom">Symptom</span>
+                        </button>
+                        <button class="btn btn-success btn-sm" onclick="openAddDiseaseModal()">
+                            🔬 <span data-ur="بیماری" data-en="Disease" data-roman="Disease">Disease</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Manage Buttons -->
+                    <div class="btn-group-row">
+                        <button class="btn btn-light btn-sm" onclick="viewCustomData()">
+                            📋 <span data-ur="سب دیکھیں / ترمیم / حذف" data-en="View / Edit / Delete" data-roman="View / Edit / Delete">View / Edit / Delete</span>
+                        </button>
+                        <button class="btn btn-warning btn-sm" onclick="exportCustomData()">
+                            📤 <span data-ur="Export JSON" data-en="Export JSON" data-roman="Export">Export</span>
+                        </button>
+                        <button class="btn btn-info btn-sm" onclick="smartImport()">
+                            📥 <span data-ur="Import (JSON/CSV)" data-en="Import (JSON/CSV)" data-roman="Import">Import (JSON/CSV)</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Single hidden file input for both JSON and CSV -->
+                    <input type="file" id="importCustomFile" accept=".json,.csv" style="display:none;">
+                </div>
+                
+                <!-- Backup/Import Old Data -->
+                <h3 style="color:#1a5276; margin-bottom:15px; margin-top:20px;">📥 Import Backup Data</h3>
                 <div class="import-box">
-                    <p style="margin-bottom:10px; font-size:13px; color:#856404;">Import backup file</p>
+                    <p style="margin-bottom:10px; font-size:13px; color:#856404;">Import backup file (patients + visits)</p>
                     <input type="file" id="importFile" accept=".json" style="margin-bottom:10px;">
-                    <button class="btn btn-warning" id="importBtn">📥 Import</button>
+                    <button class="btn btn-warning" id="importBtn">📥 Import Backup</button>
                     <div id="importMsg" style="margin-top:10px;"></div>
                 </div>
             </div>
@@ -1022,7 +1035,9 @@
     </div>
 </div>
 
+<!-- ============================================ -->
 <!-- VISIT MODAL -->
+<!-- ============================================ -->
 <div id="visitModal" class="modal-overlay">
     <div class="modal">
         <div class="modal-title">
@@ -1095,7 +1110,9 @@
     </div>
 </div>
 
+<!-- ============================================ -->
 <!-- EDIT PATIENT MODAL -->
+<!-- ============================================ -->
 <div id="editPatientModal" class="modal-overlay">
     <div class="modal">
         <div class="modal-title">
@@ -1167,7 +1184,9 @@
     </div>
 </div>
 
+<!-- ============================================ -->
 <!-- CONFIRM MODAL -->
+<!-- ============================================ -->
 <div id="confirmModal" class="modal-overlay">
     <div class="modal modal-sm">
         <div class="modal-title">
@@ -1186,6 +1205,235 @@
     </div>
 </div>
 
+<!-- ============================================ -->
+<!-- ✅ ADD/EDIT CATEGORY MODAL (with Icon Picker) -->
+<!-- ============================================ -->
+<div id="addCategoryModal" class="modal-overlay">
+    <div class="modal" style="max-width:550px;">
+        <div class="modal-title">
+            <span id="addCategoryTitle">➕ Add Category</span>
+            <button class="modal-close" onclick="closeAddCategoryModal()">✕</button>
+        </div>
+        <div id="addCategoryMsg"></div>
+        <input type="hidden" id="editCategoryOldId">
+        
+        <div class="form-group">
+            <label>🔑 ID <small style="color:#95a5a6;">(English, no spaces, e.g. cancer_care)</small></label>
+            <input type="text" id="newCategoryId" placeholder="my_category" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🇵🇰 <span data-ur="اردو نام *" data-en="Urdu Name *" data-roman="Urdu *">اردو نام *</span></label>
+                <input type="text" id="newCategoryUr" placeholder="مثلاً: کینسر" dir="rtl">
+            </div>
+            <div class="form-group">
+                <label>🇬🇧 <span data-ur="انگلش نام *" data-en="English Name *" data-roman="English *">English Name *</span></label>
+                <input type="text" id="newCategoryEn" placeholder="Cancer Care" dir="ltr">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🔤 Roman Urdu</label>
+                <input type="text" id="newCategoryRoman" placeholder="Cancer Care" dir="ltr">
+            </div>
+            <div class="form-group">
+                <label>🎨 <span data-ur="منتخب شدہ آئکن" data-en="Selected Icon" data-roman="Selected Icon">Selected Icon</span></label>
+                <input type="text" id="newCategoryIcon" value="📌" readonly style="font-size:24px;text-align:center;background:#f8f9fa;cursor:default;">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>🎨 <span data-ur="آئکن چنیں (نیچے سے)" data-en="Select Icon (below)" data-roman="Icon Chunein">Select Icon</span></label>
+            <div id="iconPickerContainer"></div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-success" onclick="saveNewCategory()">
+                💾 <span data-ur="محفوظ" data-en="Save" data-roman="Save">Save</span>
+            </button>
+            <button class="btn btn-light" onclick="closeAddCategoryModal()">
+                ❌ <span data-ur="منسوخ" data-en="Cancel" data-roman="Cancel">Cancel</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ✅ ADD/EDIT SYMPTOM MODAL -->
+<!-- ============================================ -->
+<div id="addSymptomModal" class="modal-overlay">
+    <div class="modal" style="max-width:550px;">
+        <div class="modal-title">
+            <span id="addSymptomTitle">➕ Add Symptom</span>
+            <button class="modal-close" onclick="closeAddSymptomModal()">✕</button>
+        </div>
+        <div id="addSymptomMsg"></div>
+        <input type="hidden" id="editSymptomOldId">
+        
+        <div class="form-group">
+            <label>🔑 ID <small style="color:#95a5a6;">(English, e.g. chest_burning)</small></label>
+            <input type="text" id="newSymptomId" placeholder="chest_burning" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🇵🇰 <span data-ur="اردو *" data-en="Urdu *" data-roman="Urdu *">اردو *</span></label>
+                <input type="text" id="newSymptomUr" placeholder="سینے میں جلن" dir="rtl">
+            </div>
+            <div class="form-group">
+                <label>🇬🇧 English *</label>
+                <input type="text" id="newSymptomEn" placeholder="Chest Burning" dir="ltr">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🔤 Roman</label>
+                <input type="text" id="newSymptomRoman" placeholder="Seenay mein Jalan" dir="ltr">
+            </div>
+            <div class="form-group">
+                <label>🏷️ Category *</label>
+                <select id="newSymptomCategory"></select>
+            </div>
+        </div>
+        
+        <div class="form-group" style="background:#fff5f5;padding:10px;border-radius:6px;border:1px solid #ffcccc;">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:normal;">
+                <input type="checkbox" id="newSymptomSevere" style="width:auto;margin:0;transform:scale(1.3);cursor:pointer;">
+                <span>⚠️ <strong><span data-ur="خطرناک / Red Flag علامت" data-en="Severe / Red Flag Symptom" data-roman="Khatarnak Symptom">خطرناک علامت</span></strong></span>
+            </label>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-success" onclick="saveNewSymptom()">
+                💾 <span data-ur="محفوظ" data-en="Save" data-roman="Save">Save</span>
+            </button>
+            <button class="btn btn-light" onclick="closeAddSymptomModal()">
+                ❌ <span data-ur="منسوخ" data-en="Cancel" data-roman="Cancel">Cancel</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ✅ ADD/EDIT DISEASE MODAL (with Icon Picker!) -->
+<!-- ============================================ -->
+<div id="addDiseaseModal" class="modal-overlay">
+    <div class="modal" style="max-width:800px;">
+        <div class="modal-title">
+            <span id="addDiseaseTitle">➕ Add Disease</span>
+            <button class="modal-close" onclick="closeAddDiseaseModal()">✕</button>
+        </div>
+        <div id="addDiseaseMsg"></div>
+        <input type="hidden" id="editDiseaseOldId">
+        
+        <div class="form-group">
+            <label>🔑 ID <small style="color:#95a5a6;">(e.g. kidney_cancer)</small></label>
+            <input type="text" id="newDiseaseId" placeholder="kidney_cancer" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🇵🇰 <span data-ur="اردو نام *" data-en="Urdu Name *" data-roman="Urdu *">اردو نام *</span></label>
+                <input type="text" id="newDiseaseUr" placeholder="گردے کا سرطان" dir="rtl">
+            </div>
+            <div class="form-group">
+                <label>🇬🇧 English Name *</label>
+                <input type="text" id="newDiseaseEn" placeholder="Kidney Cancer" dir="ltr">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🔤 Roman Urdu</label>
+                <input type="text" id="newDiseaseRoman" placeholder="Gurday ka Sartan" dir="ltr">
+            </div>
+            <div class="form-group">
+                <label>🏷️ Category *</label>
+                <select id="newDiseaseCategory"></select>
+            </div>
+        </div>
+        
+        <!-- ✅ NEW: Icon Picker for Disease -->
+        <div class="form-row">
+            <div class="form-group">
+                <label>🎨 <span data-ur="منتخب آئکن" data-en="Selected Icon" data-roman="Icon">Selected Icon</span></label>
+                <input type="text" id="newDiseaseIcon" value="💊" readonly style="font-size:24px;text-align:center;background:#f8f9fa;cursor:default;">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>🎨 <span data-ur="بیماری کا آئکن چنیں" data-en="Select Disease Icon" data-roman="Disease Icon">Select Disease Icon</span></label>
+            <div id="diseaseIconPickerContainer"></div>
+        </div>
+        
+        <div class="form-group">
+            <label>💡 Symptoms <small style="color:#95a5a6;">(comma separated symptom IDs, e.g. fever, headache, weakness)</small></label>
+            <textarea id="newDiseaseSymptoms" placeholder="fever, headache, weakness, body_ache" style="min-height:50px;direction:ltr;text-align:left;"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>⭐ Key Symptoms <small style="color:#95a5a6;">(main symptoms, comma separated)</small></label>
+            <input type="text" id="newDiseaseKeySymptoms" placeholder="fever, headache" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-group">
+            <label>🔬 Tests <small style="color:#95a5a6;">(one per line)</small></label>
+            <textarea id="newDiseaseTests" placeholder="CBC&#10;X-Ray&#10;Urine Test" style="min-height:60px;direction:ltr;text-align:left;"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>⚠️ Red Flags <small style="color:#95a5a6;">(symptom IDs, comma separated)</small></label>
+            <input type="text" id="newDiseaseRedFlags" placeholder="high_fever, unconscious, bleeding" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-group">
+            <label>💊 Remedies <small style="color:#95a5a6;">(one per line: Name | Use | Dose)</small></label>
+            <textarea id="newDiseaseRemedies" placeholder="Arnica 30 | For injury | 3 times daily&#10;Bryonia 200 | For pain | 4 hourly" style="min-height:80px;direction:ltr;text-align:left;"></textarea>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>📖 <span data-ur="ہدایات (اردو)" data-en="Advice (Urdu)" data-roman="Hidayat">ہدایات اردو</span></label>
+                <textarea id="newDiseaseAdviceUr" placeholder="آرام، پانی زیادہ..." style="min-height:50px;" dir="rtl"></textarea>
+            </div>
+            <div class="form-group">
+                <label>📖 Advice (English)</label>
+                <textarea id="newDiseaseAdviceEn" placeholder="Rest, more water..." style="min-height:50px;direction:ltr;text-align:left;"></textarea>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-success" onclick="saveNewDisease()">
+                💾 <span data-ur="بیماری محفوظ کریں" data-en="Save Disease" data-roman="Save Disease">Save Disease</span>
+            </button>
+            <button class="btn btn-light" onclick="closeAddDiseaseModal()">
+                ❌ <span data-ur="منسوخ" data-en="Cancel" data-roman="Cancel">Cancel</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ✅ VIEW ALL CUSTOM DATA MODAL -->
+<!-- ============================================ -->
+<div id="viewCustomModal" class="modal-overlay">
+    <div class="modal" style="max-width:700px;">
+        <div class="modal-title">
+            <span>📋 <span data-ur="اپنا Custom ڈیٹا" data-en="My Custom Data" data-roman="Apna Custom Data">اپنا Custom ڈیٹا</span></span>
+            <button class="modal-close" onclick="closeViewCustomModal()">✕</button>
+        </div>
+        <div id="customDataContent">Loading...</div>
+        <div class="action-buttons" style="margin-top:15px;border-top:1px solid #ecf0f1;padding-top:12px;">
+            <button class="btn btn-purple btn-sm" onclick="closeViewCustomModal();openAddCategoryModal()">➕ Category</button>
+            <button class="btn btn-info btn-sm" onclick="closeViewCustomModal();openAddSymptomModal()">➕ Symptom</button>
+            <button class="btn btn-success btn-sm" onclick="closeViewCustomModal();openAddDiseaseModal()">➕ Disease</button>
+            <button class="btn btn-light btn-sm" onclick="closeViewCustomModal()">Close</button>
+        </div>
+    </div>
+</div>
+
 <script>
 // ==================== CONFIG ====================
 const SUPABASE_URL = 'https://eooujrqtmaxyuozdgfgc.supabase.co';
@@ -1199,7 +1447,7 @@ let cachedPatients = [];
 let cachedVisits = [];
 let confirmCallback = null;
 let lastCacheRefresh = 0;
-const CACHE_LIFETIME = 30000; // 30 seconds
+const CACHE_LIFETIME = 30000;
 
 // ==================== UTILITIES ====================
 function $(id) { return document.getElementById(id); }
@@ -1227,6 +1475,10 @@ function showToast(msg, type) {
     document.body.appendChild(toast);
     setTimeout(function() { toast.remove(); }, 3000);
 }
+
+// Expose globally for diagnosis-custom.js
+window.escapeHtml = escapeHtml;
+window.showToast = showToast;
 
 // ==================== GENDER ====================
 const GENDER_MAP = {
@@ -1519,7 +1771,7 @@ async function loginDB(username, password) {
     } catch(e) { return null; }
 }
 
-// ==================== CACHE (Smart + Force) ====================
+// ==================== CACHE ====================
 async function refreshCache(forceRefresh) {
     const now = Date.now();
     if (!forceRefresh && (now - lastCacheRefresh) < CACHE_LIFETIME && cachedPatients.length > 0) {
@@ -1579,10 +1831,7 @@ async function checkAutoLogin() {
             source = 'local';
         }
         
-        if (!sessionStr) {
-            console.log('No session found');
-            return false;
-        }
+        if (!sessionStr) return false;
         
         const session = JSON.parse(sessionStr);
         const now = Date.now();
@@ -1593,7 +1842,6 @@ async function checkAutoLogin() {
             (24 * 60 * 60 * 1000);
         
         if (age > maxAge) {
-            console.log('Session expired');
             localStorage.removeItem('clinic_session');
             sessionStorage.removeItem('clinic_session');
             return false;
@@ -1623,7 +1871,6 @@ async function checkAutoLogin() {
         
         if (navigator.onLine) setTimeout(syncPendingData, 2000);
         
-        console.log('✅ Auto-logged in');
         return true;
     } catch(err) {
         console.error('Auto-login failed:', err);
@@ -2013,6 +2260,9 @@ function closeConfirmModal() {
     $('confirmModal').classList.remove('active');
     confirmCallback = null;
 }
+
+// Expose globally for diagnosis-custom.js
+window.showConfirm = showConfirm;
 
 // ==================== DELETE ====================
 async function confirmDeletePatient(patientId) {
@@ -2587,9 +2837,10 @@ function displayDiagnosisResults(results) {
     results.slice(0, 5).forEach(function(r, idx) {
         const d = r.disease;
         const matchClass = r.percentage >= 70 ? 'high' : (r.percentage >= 45 ? 'medium' : 'low');
+        const dIcon = d.icon || '💊';
         html += '<div class="disease-card ' + matchClass + '-match">';
         html += '<div class="disease-header">';
-        html += '<div class="disease-name">' + (idx + 1) + '. ' + escapeHtml(d.name[currentLang]) + '</div>';
+        html += '<div class="disease-name">' + dIcon + ' ' + (idx + 1) + '. ' + escapeHtml(d.name[currentLang]) + '</div>';
         html += '<span class="match-badge ' + matchClass + '">' + r.percentage + '%</span></div>';
         html += '<div style="font-size:12px;color:#7f8c8d;margin-bottom:8px;">✓ ' + r.matchCount + ' / ' + r.totalCount + ' symptoms</div>';
         html += '<div class="disease-section"><div class="disease-section-title">🔬 Tests</div><div>';
@@ -2747,22 +2998,14 @@ document.addEventListener('DOMContentLoaded', function() {
     loadSavedCredentials();
     
     // LOGIN
-    const loginBtn = $('loginBtn');
-    if (loginBtn) {
-        loginBtn.addEventListener('click', handleLogin);
-        console.log('✅ Login button ready');
-    }
-    
-    const loginPassword = $('loginPassword');
-    if (loginPassword) {
-        loginPassword.addEventListener('keypress', function(e) {
+    if ($('loginBtn')) $('loginBtn').addEventListener('click', handleLogin);
+    if ($('loginPassword')) {
+        $('loginPassword').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') handleLogin();
         });
     }
-    
-    const loginUsername = $('loginUsername');
-    if (loginUsername) {
-        loginUsername.addEventListener('keypress', function(e) {
+    if ($('loginUsername')) {
+        $('loginUsername').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') $('loginPassword').focus();
         });
     }
@@ -2820,10 +3063,22 @@ document.addEventListener('DOMContentLoaded', function() {
     if ($('visitModal')) $('visitModal').addEventListener('click', function(e) { if (e.target === this) closeVisitModal(); });
     if ($('editPatientModal')) $('editPatientModal').addEventListener('click', function(e) { if (e.target === this) closeEditPatientModal(); });
     if ($('confirmModal')) $('confirmModal').addEventListener('click', function(e) { if (e.target === this) closeConfirmModal(); });
+    if ($('addCategoryModal')) $('addCategoryModal').addEventListener('click', function(e) { if (e.target === this) closeAddCategoryModal(); });
+    if ($('addSymptomModal')) $('addSymptomModal').addEventListener('click', function(e) { if (e.target === this) closeAddSymptomModal(); });
+    if ($('addDiseaseModal')) $('addDiseaseModal').addEventListener('click', function(e) { if (e.target === this) closeAddDiseaseModal(); });
+    if ($('viewCustomModal')) $('viewCustomModal').addEventListener('click', function(e) { if (e.target === this) closeViewCustomModal(); });
     
     // ESCAPE
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') { closeVisitModal(); closeEditPatientModal(); closeConfirmModal(); }
+        if (e.key === 'Escape') {
+            closeVisitModal();
+            closeEditPatientModal();
+            closeConfirmModal();
+            if (typeof closeAddCategoryModal === 'function') closeAddCategoryModal();
+            if (typeof closeAddSymptomModal === 'function') closeAddSymptomModal();
+            if (typeof closeAddDiseaseModal === 'function') closeAddDiseaseModal();
+            if (typeof closeViewCustomModal === 'function') closeViewCustomModal();
+        }
     });
     
     // ONLINE/OFFLINE
@@ -2833,7 +3088,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('✅ All events registered');
     
-    // AUTO-LOGIN (last)
+    // AUTO-LOGIN
     setTimeout(function() {
         checkAutoLogin().then(function(loggedIn) {
             console.log(loggedIn ? '✅ Auto-logged in' : '⚠️ Manual login needed');
@@ -2842,7 +3097,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<!-- ============================================ -->
 <!-- PWA Service Worker -->
+<!-- ============================================ -->
 <script>
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
@@ -2868,517 +3125,7 @@ window.addEventListener('beforeinstallprompt', function(e) {
     document.body.appendChild(installBtn);
     setTimeout(function() { if (installBtn.parentNode) installBtn.remove(); }, 15000);
 });
-// ==================== CUSTOM CATEGORIES MANAGER ====================
-
-// Load custom data from localStorage
-function loadCustomData() {
-    try {
-        const customCategories = JSON.parse(localStorage.getItem('custom_categories') || '{}');
-        const customSymptoms = JSON.parse(localStorage.getItem('custom_symptoms') || '{}');
-        const customDiseases = JSON.parse(localStorage.getItem('custom_diseases') || '[]');
-        
-        // Merge into global objects
-        Object.assign(window.CATEGORIES_DB, customCategories);
-        Object.assign(window.SYMPTOMS_DB, customSymptoms);
-        
-        customDiseases.forEach(function(disease) {
-            const exists = window.DISEASES_DB.find(function(d) { return d.id === disease.id; });
-            if (!exists) window.DISEASES_DB.push(disease);
-        });
-        
-        console.log('✅ Custom data loaded from localStorage');
-    } catch(e) {
-        console.error('Error loading custom data:', e);
-    }
-}
-
-// Open Add Category Modal
-function openAddCategoryModal() {
-    ['newCategoryId', 'newCategoryUr', 'newCategoryEn', 'newCategoryRoman', 'newCategoryIcon'].forEach(function(id) {
-        if ($(id)) $(id).value = '';
-    });
-    $('addCategoryMsg').innerHTML = '';
-    $('addCategoryModal').classList.add('active');
-}
-
-function closeAddCategoryModal() {
-    $('addCategoryModal').classList.remove('active');
-}
-
-// Save New Category
-function saveNewCategory() {
-    const id = $('newCategoryId').value.trim().toLowerCase().replace(/[^a-z0-9_]/g, '_');
-    const ur = $('newCategoryUr').value.trim();
-    const en = $('newCategoryEn').value.trim();
-    const roman = $('newCategoryRoman').value.trim();
-    const icon = $('newCategoryIcon').value.trim() || '📌';
-    const msgDiv = $('addCategoryMsg');
-    
-    // Validation
-    if (!id) {
-        msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID لازمی ہے</div>';
-        return;
-    }
-    if (!ur || !en) {
-        msgDiv.innerHTML = '<div class="alert alert-error">⚠️ اردو اور انگلش نام لازمی ہیں</div>';
-        return;
-    }
-    if (window.CATEGORIES_DB[id]) {
-        msgDiv.innerHTML = '<div class="alert alert-error">⚠️ یہ ID پہلے سے موجود ہے</div>';
-        return;
-    }
-    
-    // Create category
-    const newCategory = {
-        ur: ur,
-        en: en,
-        roman: roman || en,
-        icon: icon
-    };
-    
-    // Save to CATEGORIES_DB
-    window.CATEGORIES_DB[id] = newCategory;
-    
-    // Save to localStorage
-    const customCategories = JSON.parse(localStorage.getItem('custom_categories') || '{}');
-    customCategories[id] = newCategory;
-    localStorage.setItem('custom_categories', JSON.stringify(customCategories));
-    
-    msgDiv.innerHTML = '<div class="alert alert-success">✅ کیٹگری save ہو گئی!</div>';
-    showToast('✅ ' + en + ' Category added!');
-    
-    // Refresh diagnosis page if open
-    if (document.querySelector('#page-diagnosis.active')) {
-        renderCategoryTabs();
-    }
-    
-    setTimeout(closeAddCategoryModal, 1500);
-}
-
-// View Custom Data
-function viewCustomData() {
-    const customCategories = JSON.parse(localStorage.getItem('custom_categories') || '{}');
-    const customSymptoms = JSON.parse(localStorage.getItem('custom_symptoms') || '{}');
-    const customDiseases = JSON.parse(localStorage.getItem('custom_diseases') || '[]');
-    
-    let html = '';
-    
-    // Categories
-    html += '<h4 style="color:#8e44ad;margin-bottom:10px;">🏷️ Categories (' + Object.keys(customCategories).length + ')</h4>';
-    if (Object.keys(customCategories).length === 0) {
-        html += '<p style="color:#95a5a6;">کوئی custom category نہیں</p>';
-    } else {
-        html += '<div style="max-height:200px;overflow-y:auto;background:#f8f9fa;padding:10px;border-radius:6px;margin-bottom:15px;">';
-        Object.keys(customCategories).forEach(function(key) {
-            const cat = customCategories[key];
-            html += '<div style="padding:8px;border-bottom:1px solid #ecf0f1;display:flex;justify-content:space-between;align-items:center;">';
-            html += '<div>' + cat.icon + ' <strong>' + escapeHtml(cat.ur) + '</strong> / ' + escapeHtml(cat.en) + ' <small style="color:#95a5a6;">(' + escapeHtml(key) + ')</small></div>';
-            html += '<button class="btn btn-danger btn-xs" onclick="deleteCustomCategory(\'' + key + '\')">🗑️</button>';
-            html += '</div>';
-        });
-        html += '</div>';
-    }
-    
-    // Symptoms
-    html += '<h4 style="color:#8e44ad;margin-bottom:10px;">💡 Symptoms (' + Object.keys(customSymptoms).length + ')</h4>';
-    if (Object.keys(customSymptoms).length === 0) {
-        html += '<p style="color:#95a5a6;">کوئی custom symptom نہیں</p>';
-    } else {
-        html += '<div style="max-height:150px;overflow-y:auto;background:#f8f9fa;padding:10px;border-radius:6px;margin-bottom:15px;">';
-        Object.keys(customSymptoms).forEach(function(key) {
-            const s = customSymptoms[key];
-            html += '<div style="padding:5px;font-size:13px;">• ' + escapeHtml(s.ur) + ' (' + escapeHtml(s.en) + ')</div>';
-        });
-        html += '</div>';
-    }
-    
-    // Diseases
-    html += '<h4 style="color:#8e44ad;margin-bottom:10px;">🔬 Diseases (' + customDiseases.length + ')</h4>';
-    if (customDiseases.length === 0) {
-        html += '<p style="color:#95a5a6;">کوئی custom disease نہیں</p>';
-    } else {
-        html += '<div style="max-height:150px;overflow-y:auto;background:#f8f9fa;padding:10px;border-radius:6px;">';
-        customDiseases.forEach(function(d) {
-            html += '<div style="padding:5px;font-size:13px;">• ' + escapeHtml(d.name.ur) + ' (' + escapeHtml(d.name.en) + ')</div>';
-        });
-        html += '</div>';
-    }
-    
-    // Info
-    html += '<div style="margin-top:15px;padding:10px;background:#d1ecf1;border-radius:6px;font-size:12px;color:#0c5460;">';
-    html += '💡 <strong>ٹوٹل:</strong><br>';
-    html += '• Categories: ' + Object.keys(window.CATEGORIES_DB).length + '<br>';
-    html += '• Symptoms: ' + Object.keys(window.SYMPTOMS_DB).length + '<br>';
-    html += '• Diseases: ' + window.DISEASES_DB.length;
-    html += '</div>';
-    
-    $('customDataContent').innerHTML = html;
-    $('viewCustomModal').classList.add('active');
-}
-
-function closeViewCustomModal() {
-    $('viewCustomModal').classList.remove('active');
-}
-
-// Delete Custom Category
-function deleteCustomCategory(categoryId) {
-    showConfirm(
-        'Delete category <b>' + escapeHtml(categoryId) + '</b>?',
-        function() {
-            const customCategories = JSON.parse(localStorage.getItem('custom_categories') || '{}');
-            delete customCategories[categoryId];
-            localStorage.setItem('custom_categories', JSON.stringify(customCategories));
-            delete window.CATEGORIES_DB[categoryId];
-            
-            showToast('🗑️ Category deleted');
-            viewCustomData(); // Refresh view
-            
-            // Refresh diagnosis page if open
-            if (document.querySelector('#page-diagnosis.active')) {
-                renderCategoryTabs();
-            }
-        }
-    );
-}
-
-// Export Custom Data
-function exportCustomData() {
-    const data = {
-        categories: JSON.parse(localStorage.getItem('custom_categories') || '{}'),
-        symptoms: JSON.parse(localStorage.getItem('custom_symptoms') || '{}'),
-        diseases: JSON.parse(localStorage.getItem('custom_diseases') || '[]'),
-        exportDate: new Date().toISOString()
-    };
-    
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'clinic-custom-data-' + new Date().toISOString().split('T')[0] + '.json';
-    a.click();
-    URL.revokeObjectURL(url);
-    showToast('✅ Custom data exported!');
-}
-
-// Import Custom Data
-function importCustomData() {
-    $('importCustomFile').click();
-}
-
-// Handle file selection
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-        const fileInput = $('importCustomFile');
-        if (fileInput) {
-            fileInput.addEventListener('change', function(e) {
-                const file = e.target.files[0];
-                if (!file) return;
-                
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    try {
-                        const data = JSON.parse(e.target.result);
-                        
-                        if (data.categories) {
-                            const existing = JSON.parse(localStorage.getItem('custom_categories') || '{}');
-                            Object.assign(existing, data.categories);
-                            localStorage.setItem('custom_categories', JSON.stringify(existing));
-                            Object.assign(window.CATEGORIES_DB, data.categories);
-                        }
-                        
-                        if (data.symptoms) {
-                            const existing = JSON.parse(localStorage.getItem('custom_symptoms') || '{}');
-                            Object.assign(existing, data.symptoms);
-                            localStorage.setItem('custom_symptoms', JSON.stringify(existing));
-                            Object.assign(window.SYMPTOMS_DB, data.symptoms);
-                        }
-                        
-                        if (data.diseases && Array.isArray(data.diseases)) {
-                            const existing = JSON.parse(localStorage.getItem('custom_diseases') || '[]');
-                            data.diseases.forEach(function(d) {
-                                const dupInStorage = existing.find(function(x) { return x.id === d.id; });
-                                const dupInDB = window.DISEASES_DB.find(function(x) { return x.id === d.id; });
-                                if (!dupInStorage) existing.push(d);
-                                if (!dupInDB) window.DISEASES_DB.push(d);
-                            });
-                            localStorage.setItem('custom_diseases', JSON.stringify(existing));
-                        }
-                        
-                        showToast('✅ Custom data imported!');
-                        
-                        // Refresh
-                        if (document.querySelector('#page-diagnosis.active')) {
-                            renderCategoryTabs();
-                            renderSymptomsGrid();
-                        }
-                    } catch(err) {
-                        showToast('❌ Invalid file: ' + err.message, 'error');
-                    }
-                };
-                reader.readAsText(file);
-                
-                // Clear input for re-selection
-                fileInput.value = '';
-            });
-        }
-    }, 1000);
-});
-
-// Auto-load custom data on app start
-setTimeout(loadCustomData, 500);
 </script>
-<!-- Add Category Modal -->
-<div id="addCategoryModal" class="modal-overlay">
-    <div class="modal">
-        <div class="modal-title">
-            <span>🏷️ <span data-ur="نئی کیٹگری" data-en="Add Category" data-roman="Nayi Category">نئی کیٹگری</span></span>
-            <button class="modal-close" onclick="closeAddCategoryModal()">✕</button>
-        </div>
-        <div id="addCategoryMsg"></div>
-        
-        <div class="form-group">
-            <label>🔑 <span data-ur="ID (انگلش میں، بغیر spaces)" data-en="ID (English, no spaces)" data-roman="ID">🔑 ID</span></label>
-            <input type="text" id="newCategoryId" placeholder="e.g. cancer_care" style="direction:ltr;text-align:left;">
-        </div>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label>🇵🇰 <span data-ur="اردو نام" data-en="Urdu Name" data-roman="Urdu Name">اردو</span></label>
-                <input type="text" id="newCategoryUr" placeholder="مثلاً: کینسر کی دیکھ بھال">
-            </div>
-            <div class="form-group">
-                <label>🇬🇧 <span data-ur="انگلش نام" data-en="English Name" data-roman="English Name">English</span></label>
-                <input type="text" id="newCategoryEn" placeholder="e.g. Cancer Care">
-            </div>
-        </div>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label>🔤 <span data-ur="Roman Urdu" data-en="Roman Urdu" data-roman="Roman">Roman</span></label>
-                <input type="text" id="newCategoryRoman" placeholder="Cancer Care">
-            </div>
-            <div class="form-group">
-                <label>🎨 <span data-ur="Icon (emoji)" data-en="Icon" data-roman="Icon">Icon</span></label>
-                <input type="text" id="newCategoryIcon" placeholder="🎗️" maxlength="4">
-            </div>
-        </div>
-        
-        <div class="action-buttons">
-            <button class="btn btn-success" onclick="saveNewCategory()">
-                💾 <span data-ur="محفوظ" data-en="Save" data-roman="Save">محفوظ</span>
-            </button>
-            <button class="btn btn-light" onclick="closeAddCategoryModal()">
-                ❌ <span data-ur="منسوخ" data-en="Cancel" data-roman="Cancel">منسوخ</span>
-            </button>
-        </div>
-    </div>
-</div>
 
-<!-- View Custom Data Modal -->
-<div id="viewCustomModal" class="modal-overlay">
-    <div class="modal">
-        <div class="modal-title">
-            <span>📋 <span data-ur="اپنی categories" data-en="My Custom Data" data-roman="Apni Data">اپنی Categories</span></span>
-            <button class="modal-close" onclick="closeViewCustomModal()">✕</button>
-        </div>
-        <div id="customDataContent"></div>
-    </div>
-</div>
-<!-- ==================== ADD/EDIT CATEGORY MODAL ==================== -->
-<div id="addCategoryModal" class="modal-overlay">
-    <div class="modal">
-        <div class="modal-title">
-            <span id="addCategoryTitle">➕ Add Category</span>
-            <button class="modal-close" onclick="closeAddCategoryModal()">✕</button>
-        </div>
-        <div id="addCategoryMsg"></div>
-        <input type="hidden" id="editCategoryOldId">
-        
-        <div class="form-group">
-            <label>🔑 ID <small style="color:#95a5a6;">(English, no spaces, e.g. cancer_care)</small></label>
-            <input type="text" id="newCategoryId" placeholder="my_category" style="direction:ltr;text-align:left;">
-        </div>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label>🇵🇰 <span data-ur="اردو نام" data-en="Urdu Name" data-roman="Urdu">اردو نام</span></label>
-                <input type="text" id="newCategoryUr" placeholder="مثلاً: کینسر">
-            </div>
-            <div class="form-group">
-                <label>🇬🇧 <span data-ur="انگلش نام" data-en="English Name" data-roman="English">English Name</span></label>
-                <input type="text" id="newCategoryEn" placeholder="Cancer Care">
-            </div>
-        </div>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label>🔤 Roman Urdu</label>
-                <input type="text" id="newCategoryRoman" placeholder="Cancer Care">
-            </div>
-            <div class="form-group">
-                <label>🎨 <span data-ur="آئکن (نیچے سے چنیں)" data-en="Icon (select below)" data-roman="Icon select karein">آئکن</span></label>
-                <input type="text" id="newCategoryIcon" value="📌" readonly style="font-size:22px;text-align:center;cursor:pointer;">
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <label>🎨 <span data-ur="آئکن چنیں" data-en="Select Icon" data-roman="Icon Chunein">آئکن چنیں</span></label>
-            <div id="iconPickerContainer"></div>
-        </div>
-        
-        <div class="action-buttons">
-            <button class="btn btn-success" onclick="saveNewCategory()">💾 Save</button>
-            <button class="btn btn-light" onclick="closeAddCategoryModal()">❌ Cancel</button>
-        </div>
-    </div>
-</div>
-
-<!-- ==================== ADD/EDIT SYMPTOM MODAL ==================== -->
-<div id="addSymptomModal" class="modal-overlay">
-    <div class="modal">
-        <div class="modal-title">
-            <span id="addSymptomTitle">➕ Add Symptom</span>
-            <button class="modal-close" onclick="closeAddSymptomModal()">✕</button>
-        </div>
-        <div id="addSymptomMsg"></div>
-        <input type="hidden" id="editSymptomOldId">
-        
-        <div class="form-group">
-            <label>🔑 ID <small style="color:#95a5a6;">(English, e.g. chest_burning)</small></label>
-            <input type="text" id="newSymptomId" placeholder="chest_burning" style="direction:ltr;text-align:left;">
-        </div>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label>🇵🇰 <span data-ur="اردو نام" data-en="Urdu" data-roman="Urdu">اردو</span></label>
-                <input type="text" id="newSymptomUr" placeholder="مثلاً: سینے میں جلن">
-            </div>
-            <div class="form-group">
-                <label>🇬🇧 English</label>
-                <input type="text" id="newSymptomEn" placeholder="Chest Burning">
-            </div>
-        </div>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label>🔤 Roman</label>
-                <input type="text" id="newSymptomRoman" placeholder="Seenay mein Jalan">
-            </div>
-            <div class="form-group">
-                <label>🏷️ Category</label>
-                <select id="newSymptomCategory"></select>
-            </div>
-        </div>
-        
-        <div class="form-group" style="text-align:right;">
-            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:normal;">
-                <input type="checkbox" id="newSymptomSevere" style="width:auto;margin:0;transform:scale(1.3);">
-                <span>⚠️ <span data-ur="خطرناک علامت" data-en="Severe/Dangerous" data-roman="Khatarnak">خطرناک علامت</span></span>
-            </label>
-        </div>
-        
-        <div class="action-buttons">
-            <button class="btn btn-success" onclick="saveNewSymptom()">💾 Save</button>
-            <button class="btn btn-light" onclick="closeAddSymptomModal()">❌ Cancel</button>
-        </div>
-    </div>
-</div>
-
-<!-- ==================== ADD/EDIT DISEASE MODAL ==================== -->
-<div id="addDiseaseModal" class="modal-overlay">
-    <div class="modal" style="max-width:800px;">
-        <div class="modal-title">
-            <span id="addDiseaseTitle">➕ Add Disease</span>
-            <button class="modal-close" onclick="closeAddDiseaseModal()">✕</button>
-        </div>
-        <div id="addDiseaseMsg"></div>
-        <input type="hidden" id="editDiseaseOldId">
-        
-        <div class="form-group">
-            <label>🔑 ID <small style="color:#95a5a6;">(e.g. kidney_cancer)</small></label>
-            <input type="text" id="newDiseaseId" placeholder="kidney_cancer" style="direction:ltr;text-align:left;">
-        </div>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label>🇵🇰 <span data-ur="اردو نام" data-en="Urdu Name" data-roman="Urdu">اردو نام</span></label>
-                <input type="text" id="newDiseaseUr" placeholder="گردے کا سرطان">
-            </div>
-            <div class="form-group">
-                <label>🇬🇧 English Name</label>
-                <input type="text" id="newDiseaseEn" placeholder="Kidney Cancer">
-            </div>
-        </div>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label>🔤 Roman Urdu</label>
-                <input type="text" id="newDiseaseRoman" placeholder="Gurday ka Sartan">
-            </div>
-            <div class="form-group">
-                <label>🏷️ Category</label>
-                <select id="newDiseaseCategory"></select>
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <label>💡 Symptoms <small style="color:#95a5a6;">(comma separated IDs, e.g. fever, headache, weakness)</small></label>
-            <textarea id="newDiseaseSymptoms" placeholder="fever, headache, weakness, body_ache" style="min-height:50px;direction:ltr;text-align:left;"></textarea>
-        </div>
-        
-        <div class="form-group">
-            <label>⭐ Key Symptoms <small style="color:#95a5a6;">(main symptoms, comma separated)</small></label>
-            <input type="text" id="newDiseaseKeySymptoms" placeholder="fever, headache" style="direction:ltr;text-align:left;">
-        </div>
-        
-        <div class="form-group">
-            <label>🔬 Tests <small style="color:#95a5a6;">(one per line)</small></label>
-            <textarea id="newDiseaseTests" placeholder="CBC&#10;X-Ray&#10;Urine Test" style="min-height:60px;direction:ltr;text-align:left;"></textarea>
-        </div>
-        
-        <div class="form-group">
-            <label>⚠️ Red Flags <small style="color:#95a5a6;">(symptom IDs, comma separated)</small></label>
-            <input type="text" id="newDiseaseRedFlags" placeholder="high_fever, unconscious, bleeding" style="direction:ltr;text-align:left;">
-        </div>
-        
-        <div class="form-group">
-            <label>💊 Remedies <small style="color:#95a5a6;">(one per line: Name | Use | Dose)</small></label>
-            <textarea id="newDiseaseRemedies" placeholder="Arnica 30 | For injury | 3 times daily&#10;Bryonia 200 | For pain | 4 hourly" style="min-height:80px;direction:ltr;text-align:left;"></textarea>
-        </div>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label>📖 <span data-ur="ہدایات (اردو)" data-en="Advice (Urdu)" data-roman="Hidayat">ہدایات اردو</span></label>
-                <textarea id="newDiseaseAdviceUr" placeholder="آرام، پانی زیادہ..." style="min-height:50px;"></textarea>
-            </div>
-            <div class="form-group">
-                <label>📖 Advice (English)</label>
-                <textarea id="newDiseaseAdviceEn" placeholder="Rest, more water..." style="min-height:50px;direction:ltr;text-align:left;"></textarea>
-            </div>
-        </div>
-        
-        <div class="action-buttons">
-            <button class="btn btn-success" onclick="saveNewDisease()">💾 Save Disease</button>
-            <button class="btn btn-light" onclick="closeAddDiseaseModal()">❌ Cancel</button>
-        </div>
-    </div>
-</div>
-
-<!-- ==================== VIEW CUSTOM DATA MODAL ==================== -->
-<div id="viewCustomModal" class="modal-overlay">
-    <div class="modal">
-        <div class="modal-title">
-            <span>📋 <span data-ur="اپنا Custom ڈیٹا" data-en="My Custom Data" data-roman="Apna Data">اپنا Custom ڈیٹا</span></span>
-            <button class="modal-close" onclick="closeViewCustomModal()">✕</button>
-        </div>
-        <div id="customDataContent"></div>
-        <div class="action-buttons" style="margin-top:15px;">
-            <button class="btn btn-purple btn-sm" onclick="closeViewCustomModal();openAddCategoryModal()">➕ Category</button>
-            <button class="btn btn-info btn-sm" onclick="closeViewCustomModal();openAddSymptomModal()">➕ Symptom</button>
-            <button class="btn btn-success btn-sm" onclick="closeViewCustomModal();openAddDiseaseModal()">➕ Disease</button>
-            <button class="btn btn-light btn-sm" onclick="closeViewCustomModal()">Close</button>
-        </div>
-    </div>
-</div>
 </body>
 </html>

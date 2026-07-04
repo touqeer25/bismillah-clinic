@@ -1,14 +1,15 @@
 // ==========================================
-// Bismillah Clinic - Custom Data Manager
+// Bismillah Clinic - Custom Data Manager v3
 // Full CRUD: Categories, Symptoms, Diseases
-// Export/Import: JSON + CSV
+// Icon Library for Categories AND Diseases
+// Smart Import: JSON + CSV auto-detect
 // ==========================================
 
 (function() {
     'use strict';
 
     // ==========================================
-    // ICON LIBRARY (Pre-built icons for selection)
+    // ICON LIBRARY (50 icons - for Categories + Diseases)
     // ==========================================
     const ICON_LIBRARY = [
         { icon: '🏥', label: 'Hospital' },
@@ -60,36 +61,43 @@
         { icon: '✋', label: 'Hand' },
         { icon: '👅', label: 'Tongue' },
         { icon: '💅', label: 'Nail' },
-        { icon: '🧫', label: 'Petri Dish' }
+        { icon: '🧫', label: 'Petri Dish' },
+        { icon: '📌', label: 'Pin' }
     ];
 
     // ==========================================
-    // STORAGE FUNCTIONS
+    // STORAGE HELPERS
     // ==========================================
     function getCustomCategories() {
         return JSON.parse(localStorage.getItem('custom_categories') || '{}');
     }
-    function saveCustomCategories(data) {
+    function saveCustomCategoriesStorage(data) {
         localStorage.setItem('custom_categories', JSON.stringify(data));
     }
     function getCustomSymptoms() {
         return JSON.parse(localStorage.getItem('custom_symptoms') || '{}');
     }
-    function saveCustomSymptoms(data) {
+    function saveCustomSymptomsStorage(data) {
         localStorage.setItem('custom_symptoms', JSON.stringify(data));
     }
     function getCustomDiseases() {
         return JSON.parse(localStorage.getItem('custom_diseases') || '[]');
     }
-    function saveCustomDiseases(data) {
+    function saveCustomDiseasesStorage(data) {
         localStorage.setItem('custom_diseases', JSON.stringify(data));
     }
 
     // ==========================================
-    // LOAD CUSTOM DATA ON START
+    // LOAD CUSTOM DATA INTO GLOBAL DBs
     // ==========================================
     function loadAllCustomData() {
         try {
+            if (!window.CATEGORIES_DB || !window.SYMPTOMS_DB || !window.DISEASES_DB) {
+                console.warn('⚠️ Main DBs not ready yet, retrying...');
+                setTimeout(loadAllCustomData, 500);
+                return;
+            }
+
             var cats = getCustomCategories();
             var syms = getCustomSymptoms();
             var dis = getCustomDiseases();
@@ -105,41 +113,49 @@
                 if (!exists) window.DISEASES_DB.push(d);
             });
 
-            console.log('✅ Custom data loaded: ' + Object.keys(cats).length + ' cats, ' + Object.keys(syms).length + ' syms, ' + dis.length + ' diseases');
+            console.log('✅ Custom data merged: ' +
+                Object.keys(cats).length + ' categories, ' +
+                Object.keys(syms).length + ' symptoms, ' +
+                dis.length + ' diseases');
         } catch(e) {
             console.error('Custom data load error:', e);
         }
     }
 
     // ==========================================
-    // ICON PICKER HTML
+    // ICON PICKER RENDERER
     // ==========================================
-    function renderIconPicker(selectedIcon) {
-        var html = '<div style="display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow-y:auto;padding:5px;background:#f8f9fa;border-radius:6px;border:1px solid #ddd;">';
+    function renderIconPicker(containerId, hiddenInputId, selectedIcon) {
+        var container = document.getElementById(containerId);
+        if (!container) return;
+
+        var html = '<div style="display:flex;flex-wrap:wrap;gap:4px;max-height:140px;overflow-y:auto;padding:6px;background:#f8f9fa;border-radius:6px;border:1px solid #ddd;">';
         ICON_LIBRARY.forEach(function(item) {
-            var sel = (item.icon === selectedIcon) ? 'background:#8e44ad;color:white;' : 'background:white;';
-            html += '<button type="button" onclick="selectCategoryIcon(\'' + item.icon + '\')" style="' + sel + 'border:1px solid #ddd;border-radius:6px;padding:6px 8px;cursor:pointer;font-size:18px;min-width:40px;text-align:center;" title="' + item.label + '">' + item.icon + '</button>';
+            var isSel = (item.icon === selectedIcon);
+            var style = isSel
+                ? 'background:#8e44ad;color:white;border:2px solid #6c3483;'
+                : 'background:white;border:1px solid #ddd;';
+            html += '<button type="button" onclick="selectIconForInput(\'' + hiddenInputId + '\',\'' + containerId + '\',\'' + item.icon + '\')" ' +
+                'style="' + style + 'border-radius:6px;padding:6px 8px;cursor:pointer;font-size:20px;min-width:42px;text-align:center;transition:all 0.15s;" ' +
+                'title="' + item.label + '">' + item.icon + '</button>';
         });
         html += '</div>';
-        return html;
+        container.innerHTML = html;
     }
 
-    // ==========================================
-    // GLOBAL FUNCTIONS (window scope)
-    // ==========================================
-
-    // --- SELECT ICON ---
-    window.selectCategoryIcon = function(icon) {
-        var el = document.getElementById('newCategoryIcon');
-        if (el) el.value = icon;
-        var container = document.getElementById('iconPickerContainer');
-        if (container) container.innerHTML = renderIconPicker(icon);
+    // Global: select icon for any input
+    window.selectIconForInput = function(inputId, containerId, icon) {
+        var input = document.getElementById(inputId);
+        if (input) input.value = icon;
+        renderIconPicker(containerId, inputId, icon);
     };
 
-    // --- CATEGORY: ADD ---
+    // ==========================================
+    // CATEGORY: Add/Edit
+    // ==========================================
     window.openAddCategoryModal = function(editId) {
         var modal = document.getElementById('addCategoryModal');
-        if (!modal) return;
+        if (!modal) { console.error('Modal #addCategoryModal not found'); return; }
 
         var isEdit = !!editId;
         var cat = isEdit ? window.CATEGORIES_DB[editId] : null;
@@ -151,23 +167,26 @@
         document.getElementById('newCategoryRoman').value = isEdit && cat ? cat.roman : '';
         document.getElementById('newCategoryIcon').value = isEdit && cat ? cat.icon : '📌';
 
+        var idField = document.getElementById('newCategoryId');
         if (isEdit) {
-            document.getElementById('newCategoryId').readOnly = true;
-            document.getElementById('newCategoryId').style.background = '#ecf0f1';
+            idField.readOnly = true;
+            idField.style.background = '#ecf0f1';
         } else {
-            document.getElementById('newCategoryId').readOnly = false;
-            document.getElementById('newCategoryId').style.background = '';
+            idField.readOnly = false;
+            idField.style.background = '';
         }
 
-        document.getElementById('iconPickerContainer').innerHTML = renderIconPicker(isEdit && cat ? cat.icon : '📌');
         document.getElementById('addCategoryMsg').innerHTML = '';
-        document.getElementById('addCategoryTitle').textContent = isEdit ? '✏️ Edit Category' : '➕ Add Category';
+        var titleEl = document.getElementById('addCategoryTitle');
+        if (titleEl) titleEl.textContent = isEdit ? '✏️ Edit Category' : '➕ Add Category';
 
+        renderIconPicker('iconPickerContainer', 'newCategoryIcon', isEdit && cat ? cat.icon : '📌');
         modal.classList.add('active');
     };
 
     window.closeAddCategoryModal = function() {
-        document.getElementById('addCategoryModal').classList.remove('active');
+        var m = document.getElementById('addCategoryModal');
+        if (m) m.classList.remove('active');
     };
 
     window.saveNewCategory = function() {
@@ -180,18 +199,18 @@
         var icon = document.getElementById('newCategoryIcon').value.trim() || '📌';
         var msgDiv = document.getElementById('addCategoryMsg');
 
-        if (!id) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID required</div>'; return; }
-        if (!ur || !en) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ Urdu & English names required</div>'; return; }
-        if (!isEdit && window.CATEGORIES_DB[id]) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID already exists</div>'; return; }
+        if (!id) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID لازمی ہے</div>'; return; }
+        if (!ur || !en) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ اردو اور انگلش نام لازمی ہیں</div>'; return; }
+        if (!isEdit && window.CATEGORIES_DB[id]) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID پہلے سے موجود</div>'; return; }
 
         var newCat = { ur: ur, en: en, roman: roman || en, icon: icon };
         window.CATEGORIES_DB[id] = newCat;
 
-        var custom = getCustomCategories();
-        custom[id] = newCat;
-        saveCustomCategories(custom);
+        var storage = getCustomCategories();
+        storage[id] = newCat;
+        saveCustomCategoriesStorage(storage);
 
-        msgDiv.innerHTML = '<div class="alert alert-success">✅ Saved!</div>';
+        msgDiv.innerHTML = '<div class="alert alert-success">✅ محفوظ ہو گئی!</div>';
         if (typeof showToast === 'function') showToast('✅ Category: ' + en);
 
         if (document.querySelector('#page-diagnosis.active') && typeof renderCategoryTabs === 'function') {
@@ -201,27 +220,33 @@
         setTimeout(window.closeAddCategoryModal, 1000);
     };
 
-    // --- CATEGORY: DELETE ---
     window.deleteCustomCategory = function(catId) {
-        if (typeof showConfirm === 'function') {
-            showConfirm('Delete category <b>' + catId + '</b>?', function() {
-                var custom = getCustomCategories();
-                delete custom[catId];
-                saveCustomCategories(custom);
-                delete window.CATEGORIES_DB[catId];
-                if (typeof showToast === 'function') showToast('🗑️ Deleted');
-                window.viewCustomData();
-                if (document.querySelector('#page-diagnosis.active') && typeof renderCategoryTabs === 'function') {
-                    renderCategoryTabs();
-                }
-            });
+        if (typeof showConfirm !== 'function') {
+            if (!confirm('Delete category "' + catId + '"?')) return;
+            doDeleteCategory(catId);
+            return;
         }
+        showConfirm('Delete category <b>' + catId + '</b>?', function() { doDeleteCategory(catId); });
     };
 
-    // --- SYMPTOM: ADD ---
+    function doDeleteCategory(catId) {
+        var storage = getCustomCategories();
+        delete storage[catId];
+        saveCustomCategoriesStorage(storage);
+        delete window.CATEGORIES_DB[catId];
+        if (typeof showToast === 'function') showToast('🗑️ Deleted');
+        window.viewCustomData();
+        if (document.querySelector('#page-diagnosis.active') && typeof renderCategoryTabs === 'function') {
+            renderCategoryTabs();
+        }
+    }
+
+    // ==========================================
+    // SYMPTOM: Add/Edit
+    // ==========================================
     window.openAddSymptomModal = function(editId) {
         var modal = document.getElementById('addSymptomModal');
-        if (!modal) return;
+        if (!modal) { console.error('Modal #addSymptomModal not found'); return; }
 
         var isEdit = !!editId;
         var sym = isEdit ? window.SYMPTOMS_DB[editId] : null;
@@ -231,36 +256,40 @@
         document.getElementById('newSymptomUr').value = isEdit && sym ? sym.ur : '';
         document.getElementById('newSymptomEn').value = isEdit && sym ? sym.en : '';
         document.getElementById('newSymptomRoman').value = isEdit && sym ? sym.roman : '';
-        document.getElementById('newSymptomCategory').value = isEdit && sym ? sym.category : 'general';
         document.getElementById('newSymptomSevere').checked = isEdit && sym ? !!sym.severe : false;
 
+        var idField = document.getElementById('newSymptomId');
         if (isEdit) {
-            document.getElementById('newSymptomId').readOnly = true;
-            document.getElementById('newSymptomId').style.background = '#ecf0f1';
+            idField.readOnly = true;
+            idField.style.background = '#ecf0f1';
         } else {
-            document.getElementById('newSymptomId').readOnly = false;
-            document.getElementById('newSymptomId').style.background = '';
+            idField.readOnly = false;
+            idField.style.background = '';
         }
 
         // Build category dropdown
         var catSelect = document.getElementById('newSymptomCategory');
         catSelect.innerHTML = '';
         Object.keys(window.CATEGORIES_DB).forEach(function(k) {
-            if (k === 'all' || k === 'special') return;
+            if (k === 'all') return;
             var opt = document.createElement('option');
             opt.value = k;
             opt.textContent = window.CATEGORIES_DB[k].icon + ' ' + window.CATEGORIES_DB[k].en;
             if (isEdit && sym && sym.category === k) opt.selected = true;
+            else if (!isEdit && k === 'general') opt.selected = true;
             catSelect.appendChild(opt);
         });
 
         document.getElementById('addSymptomMsg').innerHTML = '';
-        document.getElementById('addSymptomTitle').textContent = isEdit ? '✏️ Edit Symptom' : '➕ Add Symptom';
+        var titleEl = document.getElementById('addSymptomTitle');
+        if (titleEl) titleEl.textContent = isEdit ? '✏️ Edit Symptom' : '➕ Add Symptom';
+
         modal.classList.add('active');
     };
 
     window.closeAddSymptomModal = function() {
-        document.getElementById('addSymptomModal').classList.remove('active');
+        var m = document.getElementById('addSymptomModal');
+        if (m) m.classList.remove('active');
     };
 
     window.saveNewSymptom = function() {
@@ -274,18 +303,18 @@
         var severe = document.getElementById('newSymptomSevere').checked;
         var msgDiv = document.getElementById('addSymptomMsg');
 
-        if (!id || !ur || !en) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID, Urdu & English required</div>'; return; }
-        if (!isEdit && window.SYMPTOMS_DB[id]) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID exists</div>'; return; }
+        if (!id || !ur || !en) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID, اردو اور انگلش لازمی</div>'; return; }
+        if (!isEdit && window.SYMPTOMS_DB[id]) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID پہلے سے موجود</div>'; return; }
 
         var newSym = { ur: ur, en: en, roman: roman || en, category: category };
         if (severe) newSym.severe = true;
 
         window.SYMPTOMS_DB[id] = newSym;
-        var custom = getCustomSymptoms();
-        custom[id] = newSym;
-        saveCustomSymptoms(custom);
+        var storage = getCustomSymptoms();
+        storage[id] = newSym;
+        saveCustomSymptomsStorage(storage);
 
-        msgDiv.innerHTML = '<div class="alert alert-success">✅ Saved!</div>';
+        msgDiv.innerHTML = '<div class="alert alert-success">✅ محفوظ!</div>';
         if (typeof showToast === 'function') showToast('✅ Symptom: ' + en);
 
         if (document.querySelector('#page-diagnosis.active') && typeof renderSymptomsGrid === 'function') {
@@ -296,22 +325,32 @@
     };
 
     window.deleteCustomSymptom = function(symId) {
-        if (typeof showConfirm === 'function') {
-            showConfirm('Delete symptom <b>' + symId + '</b>?', function() {
-                var custom = getCustomSymptoms();
-                delete custom[symId];
-                saveCustomSymptoms(custom);
-                delete window.SYMPTOMS_DB[symId];
-                if (typeof showToast === 'function') showToast('🗑️ Deleted');
-                window.viewCustomData();
-            });
+        if (typeof showConfirm !== 'function') {
+            if (!confirm('Delete symptom "' + symId + '"?')) return;
+            doDeleteSymptom(symId);
+            return;
         }
+        showConfirm('Delete symptom <b>' + symId + '</b>?', function() { doDeleteSymptom(symId); });
     };
 
-    // --- DISEASE: ADD ---
+    function doDeleteSymptom(symId) {
+        var storage = getCustomSymptoms();
+        delete storage[symId];
+        saveCustomSymptomsStorage(storage);
+        delete window.SYMPTOMS_DB[symId];
+        if (typeof showToast === 'function') showToast('🗑️ Deleted');
+        window.viewCustomData();
+        if (document.querySelector('#page-diagnosis.active') && typeof renderSymptomsGrid === 'function') {
+            renderSymptomsGrid();
+        }
+    }
+
+    // ==========================================
+    // DISEASE: Add/Edit
+    // ==========================================
     window.openAddDiseaseModal = function(editId) {
         var modal = document.getElementById('addDiseaseModal');
-        if (!modal) return;
+        if (!modal) { console.error('Modal #addDiseaseModal not found'); return; }
 
         var isEdit = !!editId;
         var dis = isEdit ? window.DISEASES_DB.find(function(d) { return d.id === editId; }) : null;
@@ -321,42 +360,52 @@
         document.getElementById('newDiseaseUr').value = isEdit && dis ? dis.name.ur : '';
         document.getElementById('newDiseaseEn').value = isEdit && dis ? dis.name.en : '';
         document.getElementById('newDiseaseRoman').value = isEdit && dis ? dis.name.roman : '';
-        document.getElementById('newDiseaseCategory').value = isEdit && dis ? dis.category : 'general';
-        document.getElementById('newDiseaseSymptoms').value = isEdit && dis ? dis.symptoms.join(', ') : '';
-        document.getElementById('newDiseaseKeySymptoms').value = isEdit && dis ? dis.keySymptoms.join(', ') : '';
-        document.getElementById('newDiseaseTests').value = isEdit && dis ? dis.tests.map(function(t) { return t.en; }).join('\n') : '';
-        document.getElementById('newDiseaseRedFlags').value = isEdit && dis ? dis.redFlags.join(', ') : '';
-        document.getElementById('newDiseaseRemedies').value = isEdit && dis ? dis.remedies.map(function(r) { return r.name + ' | ' + r.use.en + ' | ' + r.dose; }).join('\n') : '';
+        document.getElementById('newDiseaseIcon').value = isEdit && dis && dis.icon ? dis.icon : '💊';
+        document.getElementById('newDiseaseSymptoms').value = isEdit && dis ? (dis.symptoms || []).join(', ') : '';
+        document.getElementById('newDiseaseKeySymptoms').value = isEdit && dis ? (dis.keySymptoms || []).join(', ') : '';
+        document.getElementById('newDiseaseTests').value = isEdit && dis ? (dis.tests || []).map(function(t) { return t.en || t.ur || ''; }).join('\n') : '';
+        document.getElementById('newDiseaseRedFlags').value = isEdit && dis ? (dis.redFlags || []).join(', ') : '';
+        document.getElementById('newDiseaseRemedies').value = isEdit && dis ? (dis.remedies || []).map(function(r) {
+            return r.name + ' | ' + (r.use.en || r.use.ur || '') + ' | ' + (r.dose || '');
+        }).join('\n') : '';
         document.getElementById('newDiseaseAdviceUr').value = isEdit && dis && dis.advice ? dis.advice.ur : '';
         document.getElementById('newDiseaseAdviceEn').value = isEdit && dis && dis.advice ? dis.advice.en : '';
 
+        var idField = document.getElementById('newDiseaseId');
         if (isEdit) {
-            document.getElementById('newDiseaseId').readOnly = true;
-            document.getElementById('newDiseaseId').style.background = '#ecf0f1';
+            idField.readOnly = true;
+            idField.style.background = '#ecf0f1';
         } else {
-            document.getElementById('newDiseaseId').readOnly = false;
-            document.getElementById('newDiseaseId').style.background = '';
+            idField.readOnly = false;
+            idField.style.background = '';
         }
 
         // Build category dropdown
         var catSelect = document.getElementById('newDiseaseCategory');
         catSelect.innerHTML = '';
         Object.keys(window.CATEGORIES_DB).forEach(function(k) {
-            if (k === 'all' || k === 'special') return;
+            if (k === 'all') return;
             var opt = document.createElement('option');
             opt.value = k;
             opt.textContent = window.CATEGORIES_DB[k].icon + ' ' + window.CATEGORIES_DB[k].en;
             if (isEdit && dis && dis.category === k) opt.selected = true;
+            else if (!isEdit && k === 'general') opt.selected = true;
             catSelect.appendChild(opt);
         });
 
         document.getElementById('addDiseaseMsg').innerHTML = '';
-        document.getElementById('addDiseaseTitle').textContent = isEdit ? '✏️ Edit Disease' : '➕ Add Disease';
+        var titleEl = document.getElementById('addDiseaseTitle');
+        if (titleEl) titleEl.textContent = isEdit ? '✏️ Edit Disease' : '➕ Add Disease';
+
+        // Render icon picker for disease
+        renderIconPicker('diseaseIconPickerContainer', 'newDiseaseIcon', isEdit && dis && dis.icon ? dis.icon : '💊');
+
         modal.classList.add('active');
     };
 
     window.closeAddDiseaseModal = function() {
-        document.getElementById('addDiseaseModal').classList.remove('active');
+        var m = document.getElementById('addDiseaseModal');
+        if (m) m.classList.remove('active');
     };
 
     window.saveNewDisease = function() {
@@ -366,6 +415,7 @@
         var ur = document.getElementById('newDiseaseUr').value.trim();
         var en = document.getElementById('newDiseaseEn').value.trim();
         var roman = document.getElementById('newDiseaseRoman').value.trim();
+        var icon = document.getElementById('newDiseaseIcon').value.trim() || '💊';
         var category = document.getElementById('newDiseaseCategory').value;
         var symptomsStr = document.getElementById('newDiseaseSymptoms').value.trim();
         var keySymptomsStr = document.getElementById('newDiseaseKeySymptoms').value.trim();
@@ -376,7 +426,7 @@
         var adviceEn = document.getElementById('newDiseaseAdviceEn').value.trim();
         var msgDiv = document.getElementById('addDiseaseMsg');
 
-        if (!id || !ur || !en) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID, Urdu & English required</div>'; return; }
+        if (!id || !ur || !en) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID, اردو اور انگلش لازمی</div>'; return; }
 
         var symptoms = symptomsStr ? symptomsStr.split(',').map(function(s) { return s.trim(); }).filter(Boolean) : [];
         var keySymptoms = keySymptomsStr ? keySymptomsStr.split(',').map(function(s) { return s.trim(); }).filter(Boolean) : [];
@@ -407,6 +457,7 @@
         var newDisease = {
             id: id,
             name: { ur: ur, en: en, roman: roman || en },
+            icon: icon,
             category: category,
             symptoms: symptoms,
             keySymptoms: keySymptoms,
@@ -421,242 +472,301 @@
             if (idx >= 0) window.DISEASES_DB[idx] = newDisease;
         } else {
             if (window.DISEASES_DB.find(function(d) { return d.id === id; })) {
-                msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID exists</div>';
+                msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID پہلے سے موجود</div>';
                 return;
             }
             window.DISEASES_DB.push(newDisease);
         }
 
-        var custom = getCustomDiseases();
-        var cIdx = custom.findIndex(function(d) { return d.id === id; });
-        if (cIdx >= 0) custom[cIdx] = newDisease;
-        else custom.push(newDisease);
-        saveCustomDiseases(custom);
+        var storage = getCustomDiseases();
+        var cIdx = storage.findIndex(function(d) { return d.id === id; });
+        if (cIdx >= 0) storage[cIdx] = newDisease;
+        else storage.push(newDisease);
+        saveCustomDiseasesStorage(storage);
 
-        msgDiv.innerHTML = '<div class="alert alert-success">✅ Saved!</div>';
+        msgDiv.innerHTML = '<div class="alert alert-success">✅ محفوظ!</div>';
         if (typeof showToast === 'function') showToast('✅ Disease: ' + en);
 
         setTimeout(window.closeAddDiseaseModal, 1000);
     };
 
     window.deleteCustomDisease = function(disId) {
-        if (typeof showConfirm === 'function') {
-            showConfirm('Delete disease <b>' + disId + '</b>?', function() {
-                var custom = getCustomDiseases();
-                custom = custom.filter(function(d) { return d.id !== disId; });
-                saveCustomDiseases(custom);
-                window.DISEASES_DB = window.DISEASES_DB.filter(function(d) { return d.id !== disId; });
-                if (typeof showToast === 'function') showToast('🗑️ Deleted');
-                window.viewCustomData();
-            });
+        if (typeof showConfirm !== 'function') {
+            if (!confirm('Delete disease "' + disId + '"?')) return;
+            doDeleteDisease(disId);
+            return;
         }
+        showConfirm('Delete disease <b>' + disId + '</b>?', function() { doDeleteDisease(disId); });
     };
 
-    // --- VIEW ALL CUSTOM DATA ---
+    function doDeleteDisease(disId) {
+        var storage = getCustomDiseases();
+        storage = storage.filter(function(d) { return d.id !== disId; });
+        saveCustomDiseasesStorage(storage);
+        window.DISEASES_DB = window.DISEASES_DB.filter(function(d) { return d.id !== disId; });
+        if (typeof showToast === 'function') showToast('🗑️ Deleted');
+        window.viewCustomData();
+    }
+
+    // ==========================================
+    // VIEW ALL CUSTOM DATA (with Edit/Delete)
+    // ==========================================
     window.viewCustomData = function() {
+        var modal = document.getElementById('viewCustomModal');
+        if (!modal) { console.error('Modal #viewCustomModal not found'); return; }
+
         var cats = getCustomCategories();
         var syms = getCustomSymptoms();
         var dis = getCustomDiseases();
-        var esc = typeof escapeHtml === 'function' ? escapeHtml : function(t) { return t || ''; };
+        var esc = typeof escapeHtml === 'function' ? escapeHtml : function(t) { return (t || '').toString().replace(/[<>&"']/g, function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c];}); };
 
         var html = '';
 
-        // Categories
-        html += '<h4 style="color:#8e44ad;margin:10px 0;">🏷️ Categories (' + Object.keys(cats).length + ')</h4>';
+        // === CATEGORIES ===
+        html += '<h4 style="color:#8e44ad;margin:10px 0 8px;">🏷️ Categories (' + Object.keys(cats).length + ')</h4>';
         if (Object.keys(cats).length === 0) {
-            html += '<p style="color:#95a5a6;font-size:13px;">No custom categories</p>';
+            html += '<p style="color:#95a5a6;font-size:13px;padding:5px;">کوئی custom category نہیں</p>';
         } else {
-            html += '<div style="max-height:180px;overflow-y:auto;background:#f8f9fa;padding:8px;border-radius:6px;margin-bottom:10px;">';
+            html += '<div style="max-height:180px;overflow-y:auto;background:#f8f9fa;padding:8px;border-radius:6px;margin-bottom:12px;">';
             Object.keys(cats).forEach(function(k) {
                 var c = cats[k];
-                html += '<div style="padding:6px;border-bottom:1px solid #ecf0f1;display:flex;justify-content:space-between;align-items:center;font-size:13px;">';
-                html += '<span>' + c.icon + ' <strong>' + esc(c.ur) + '</strong> / ' + esc(c.en) + ' <small style="color:#95a5a6;">(' + k + ')</small></span>';
-                html += '<span><button class="btn btn-edit btn-xs" onclick="openAddCategoryModal(\'' + k + '\')">✏️</button> ';
-                html += '<button class="btn btn-danger btn-xs" onclick="deleteCustomCategory(\'' + k + '\')">🗑️</button></span>';
-                html += '</div>';
+                html += '<div style="padding:6px 8px;border-bottom:1px solid #ecf0f1;display:flex;justify-content:space-between;align-items:center;font-size:13px;gap:8px;">';
+                html += '<span style="flex:1;">' + c.icon + ' <strong>' + esc(c.ur) + '</strong> / ' + esc(c.en) + ' <small style="color:#95a5a6;">(' + esc(k) + ')</small></span>';
+                html += '<span style="display:flex;gap:4px;">';
+                html += '<button class="btn btn-edit btn-xs" onclick="openAddCategoryModal(\'' + k + '\')">✏️</button>';
+                html += '<button class="btn btn-danger btn-xs" onclick="deleteCustomCategory(\'' + k + '\')">🗑️</button>';
+                html += '</span></div>';
             });
             html += '</div>';
         }
 
-        // Symptoms
-        html += '<h4 style="color:#17a2b8;margin:10px 0;">💡 Symptoms (' + Object.keys(syms).length + ')</h4>';
+        // === SYMPTOMS ===
+        html += '<h4 style="color:#17a2b8;margin:10px 0 8px;">💡 Symptoms (' + Object.keys(syms).length + ')</h4>';
         if (Object.keys(syms).length === 0) {
-            html += '<p style="color:#95a5a6;font-size:13px;">No custom symptoms</p>';
+            html += '<p style="color:#95a5a6;font-size:13px;padding:5px;">کوئی custom symptom نہیں</p>';
         } else {
-            html += '<div style="max-height:180px;overflow-y:auto;background:#f8f9fa;padding:8px;border-radius:6px;margin-bottom:10px;">';
+            html += '<div style="max-height:180px;overflow-y:auto;background:#f8f9fa;padding:8px;border-radius:6px;margin-bottom:12px;">';
             Object.keys(syms).forEach(function(k) {
                 var s = syms[k];
-                html += '<div style="padding:5px;border-bottom:1px solid #ecf0f1;display:flex;justify-content:space-between;align-items:center;font-size:13px;">';
-                html += '<span>' + (s.severe ? '⚠️' : '•') + ' ' + esc(s.ur) + ' (' + esc(s.en) + ')</span>';
-                html += '<span><button class="btn btn-edit btn-xs" onclick="openAddSymptomModal(\'' + k + '\')">✏️</button> ';
-                html += '<button class="btn btn-danger btn-xs" onclick="deleteCustomSymptom(\'' + k + '\')">🗑️</button></span>';
-                html += '</div>';
+                html += '<div style="padding:6px 8px;border-bottom:1px solid #ecf0f1;display:flex;justify-content:space-between;align-items:center;font-size:13px;gap:8px;">';
+                html += '<span style="flex:1;">' + (s.severe ? '⚠️' : '•') + ' <strong>' + esc(s.ur) + '</strong> / ' + esc(s.en) + ' <small style="color:#95a5a6;">(' + esc(k) + ')</small></span>';
+                html += '<span style="display:flex;gap:4px;">';
+                html += '<button class="btn btn-edit btn-xs" onclick="openAddSymptomModal(\'' + k + '\')">✏️</button>';
+                html += '<button class="btn btn-danger btn-xs" onclick="deleteCustomSymptom(\'' + k + '\')">🗑️</button>';
+                html += '</span></div>';
             });
             html += '</div>';
         }
 
-        // Diseases
-        html += '<h4 style="color:#27ae60;margin:10px 0;">🔬 Diseases (' + dis.length + ')</h4>';
+        // === DISEASES ===
+        html += '<h4 style="color:#27ae60;margin:10px 0 8px;">🔬 Diseases (' + dis.length + ')</h4>';
         if (dis.length === 0) {
-            html += '<p style="color:#95a5a6;font-size:13px;">No custom diseases</p>';
+            html += '<p style="color:#95a5a6;font-size:13px;padding:5px;">کوئی custom disease نہیں</p>';
         } else {
-            html += '<div style="max-height:180px;overflow-y:auto;background:#f8f9fa;padding:8px;border-radius:6px;margin-bottom:10px;">';
+            html += '<div style="max-height:180px;overflow-y:auto;background:#f8f9fa;padding:8px;border-radius:6px;margin-bottom:12px;">';
             dis.forEach(function(d) {
-                html += '<div style="padding:5px;border-bottom:1px solid #ecf0f1;display:flex;justify-content:space-between;align-items:center;font-size:13px;">';
-                html += '<span>• ' + esc(d.name.ur) + ' (' + esc(d.name.en) + ')</span>';
-                html += '<span><button class="btn btn-edit btn-xs" onclick="openAddDiseaseModal(\'' + d.id + '\')">✏️</button> ';
-                html += '<button class="btn btn-danger btn-xs" onclick="deleteCustomDisease(\'' + d.id + '\')">🗑️</button></span>';
-                html += '</div>';
+                var dIcon = d.icon || '💊';
+                html += '<div style="padding:6px 8px;border-bottom:1px solid #ecf0f1;display:flex;justify-content:space-between;align-items:center;font-size:13px;gap:8px;">';
+                html += '<span style="flex:1;">' + dIcon + ' <strong>' + esc(d.name.ur) + '</strong> / ' + esc(d.name.en) + '</span>';
+                html += '<span style="display:flex;gap:4px;">';
+                html += '<button class="btn btn-edit btn-xs" onclick="openAddDiseaseModal(\'' + d.id + '\')">✏️</button>';
+                html += '<button class="btn btn-danger btn-xs" onclick="deleteCustomDisease(\'' + d.id + '\')">🗑️</button>';
+                html += '</span></div>';
             });
             html += '</div>';
         }
 
-        // Totals
-        html += '<div style="margin-top:12px;padding:10px;background:#d1ecf1;border-radius:6px;font-size:12px;">';
-        html += '📊 <strong>Total:</strong> Categories: ' + Object.keys(window.CATEGORIES_DB).length;
+        // === TOTALS ===
+        html += '<div style="margin-top:12px;padding:10px;background:#d1ecf1;border-radius:6px;font-size:12px;color:#0c5460;">';
+        html += '📊 <strong>Grand Total:</strong> Categories: ' + Object.keys(window.CATEGORIES_DB).length;
         html += ' | Symptoms: ' + Object.keys(window.SYMPTOMS_DB).length;
         html += ' | Diseases: ' + window.DISEASES_DB.length;
         html += '</div>';
 
         document.getElementById('customDataContent').innerHTML = html;
-        document.getElementById('viewCustomModal').classList.add('active');
+        modal.classList.add('active');
     };
 
     window.closeViewCustomModal = function() {
-        document.getElementById('viewCustomModal').classList.remove('active');
+        var m = document.getElementById('viewCustomModal');
+        if (m) m.classList.remove('active');
     };
 
-    // --- EXPORT ---
+    // ==========================================
+    // EXPORT JSON
+    // ==========================================
     window.exportCustomData = function() {
         var data = {
             categories: getCustomCategories(),
             symptoms: getCustomSymptoms(),
             diseases: getCustomDiseases(),
             exportDate: new Date().toISOString(),
-            appVersion: '2.0'
+            appVersion: '3.0'
         };
         var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
         var url = URL.createObjectURL(blob);
         var a = document.createElement('a');
         a.href = url;
-        a.download = 'clinic-custom-' + new Date().toISOString().split('T')[0] + '.json';
+        a.download = 'bhc-custom-' + new Date().toISOString().split('T')[0] + '.json';
         a.click();
         URL.revokeObjectURL(url);
         if (typeof showToast === 'function') showToast('✅ Exported!');
     };
 
-    // --- IMPORT JSON ---
-    window.importCustomData = function() {
-        document.getElementById('importCustomFile').click();
+    // ==========================================
+    // SMART IMPORT (JSON + CSV Auto-Detect)
+    // ==========================================
+    window.smartImport = function() {
+        var input = document.getElementById('importCustomFile');
+        if (!input) {
+            if (typeof showToast === 'function') showToast('❌ File input missing', 'error');
+            return;
+        }
+        input.click();
     };
 
-    // --- IMPORT CSV ---
-    window.importCSVData = function() {
-        document.getElementById('importCSVFile').click();
-    };
+    function handleImportJSON(content) {
+        try {
+            var data = JSON.parse(content);
+            var added = 0;
 
-    window.handleCSVImport = function(file) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            try {
-                var lines = e.target.result.split('\n');
-                if (lines.length < 2) { if (typeof showToast === 'function') showToast('❌ Empty CSV', 'error'); return; }
+            if (data.categories) {
+                var ec = getCustomCategories();
+                Object.assign(ec, data.categories);
+                saveCustomCategoriesStorage(ec);
+                Object.assign(window.CATEGORIES_DB, data.categories);
+                added += Object.keys(data.categories).length;
+            }
+            if (data.symptoms) {
+                var es = getCustomSymptoms();
+                Object.assign(es, data.symptoms);
+                saveCustomSymptomsStorage(es);
+                Object.assign(window.SYMPTOMS_DB, data.symptoms);
+                added += Object.keys(data.symptoms).length;
+            }
+            if (data.diseases && Array.isArray(data.diseases)) {
+                var ed = getCustomDiseases();
+                data.diseases.forEach(function(d) {
+                    if (!ed.find(function(x) { return x.id === d.id; })) ed.push(d);
+                    if (!window.DISEASES_DB.find(function(x) { return x.id === d.id; })) window.DISEASES_DB.push(d);
+                });
+                saveCustomDiseasesStorage(ed);
+                added += data.diseases.length;
+            }
 
-                var headers = lines[0].split(',').map(function(h) { return h.trim().toLowerCase(); });
-                var added = 0;
+            if (typeof showToast === 'function') showToast('✅ JSON: ' + added + ' items imported');
 
-                for (var i = 1; i < lines.length; i++) {
-                    var line = lines[i].trim();
-                    if (!line) continue;
+            if (document.querySelector('#page-diagnosis.active')) {
+                if (typeof renderCategoryTabs === 'function') renderCategoryTabs();
+                if (typeof renderSymptomsGrid === 'function') renderSymptomsGrid();
+            }
+        } catch(err) {
+            if (typeof showToast === 'function') showToast('❌ JSON error: ' + err.message, 'error');
+        }
+    }
 
-                    var values = line.split(',').map(function(v) { return v.trim().replace(/^"|"$/g, ''); });
-                    var row = {};
-                    headers.forEach(function(h, idx) { row[h] = values[idx] || ''; });
+    function handleImportCSV(content) {
+        try {
+            var lines = content.split(/\r?\n/);
+            if (lines.length < 2) {
+                if (typeof showToast === 'function') showToast('❌ Empty CSV', 'error');
+                return;
+            }
 
-                    // Detect type
-                    if (row.type === 'category' && row.id && row.ur && row.en) {
-                        var catData = { ur: row.ur, en: row.en, roman: row.roman || row.en, icon: row.icon || '📌' };
-                        window.CATEGORIES_DB[row.id] = catData;
-                        var cc = getCustomCategories();
-                        cc[row.id] = catData;
-                        saveCustomCategories(cc);
-                        added++;
-                    } else if (row.type === 'symptom' && row.id && row.ur && row.en) {
-                        var symData = { ur: row.ur, en: row.en, roman: row.roman || row.en, category: row.category || 'general' };
-                        if (row.severe === 'true') symData.severe = true;
-                        window.SYMPTOMS_DB[row.id] = symData;
-                        var cs = getCustomSymptoms();
-                        cs[row.id] = symData;
-                        saveCustomSymptoms(cs);
-                        added++;
-                    }
+            var headers = lines[0].split(',').map(function(h) { return h.trim().toLowerCase().replace(/^"|"$/g, ''); });
+            var added = 0;
+
+            for (var i = 1; i < lines.length; i++) {
+                var line = lines[i].trim();
+                if (!line) continue;
+
+                var values = line.split(',').map(function(v) { return v.trim().replace(/^"|"$/g, ''); });
+                var row = {};
+                headers.forEach(function(h, idx) { row[h] = values[idx] || ''; });
+
+                if (row.type === 'category' && row.id && row.ur && row.en) {
+                    var catData = { ur: row.ur, en: row.en, roman: row.roman || row.en, icon: row.icon || '📌' };
+                    window.CATEGORIES_DB[row.id] = catData;
+                    var cc = getCustomCategories();
+                    cc[row.id] = catData;
+                    saveCustomCategoriesStorage(cc);
+                    added++;
+                } else if (row.type === 'symptom' && row.id && row.ur && row.en) {
+                    var symData = { ur: row.ur, en: row.en, roman: row.roman || row.en, category: row.category || 'general' };
+                    if (row.severe === 'true' || row.severe === '1') symData.severe = true;
+                    window.SYMPTOMS_DB[row.id] = symData;
+                    var cs = getCustomSymptoms();
+                    cs[row.id] = symData;
+                    saveCustomSymptomsStorage(cs);
+                    added++;
+                }
+            }
+
+            if (typeof showToast === 'function') showToast('✅ CSV: ' + added + ' items imported');
+
+            if (document.querySelector('#page-diagnosis.active')) {
+                if (typeof renderCategoryTabs === 'function') renderCategoryTabs();
+                if (typeof renderSymptomsGrid === 'function') renderSymptomsGrid();
+            }
+        } catch(err) {
+            if (typeof showToast === 'function') showToast('❌ CSV error: ' + err.message, 'error');
+        }
+    }
+
+    // Attach single file input handler (JSON + CSV)
+    function attachImportHandler() {
+        var input = document.getElementById('importCustomFile');
+        if (!input) {
+            setTimeout(attachImportHandler, 500);
+            return;
+        }
+
+        // Remove old listeners by cloning
+        var newInput = input.cloneNode(true);
+        input.parentNode.replaceChild(newInput, input);
+
+        newInput.addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            if (!file) return;
+
+            var fileName = file.name.toLowerCase();
+            var reader = new FileReader();
+
+            reader.onload = function(ev) {
+                var content = ev.target.result;
+                var trimmed = content.trim();
+                var looksLikeJSON = (trimmed.charAt(0) === '{' || trimmed.charAt(0) === '[');
+
+                if (fileName.endsWith('.json') || looksLikeJSON) {
+                    handleImportJSON(content);
+                } else if (fileName.endsWith('.csv')) {
+                    handleImportCSV(content);
+                } else {
+                    if (typeof showToast === 'function') showToast('❌ Only .json or .csv files', 'error');
                 }
 
-                if (typeof showToast === 'function') showToast('✅ CSV imported: ' + added + ' items');
-            } catch(err) {
-                if (typeof showToast === 'function') showToast('❌ CSV error: ' + err.message, 'error');
-            }
-        };
-        reader.readAsText(file);
-    };
+                newInput.value = '';
+            };
+            reader.readAsText(file);
+        });
 
-    // --- FILE INPUT HANDLERS ---
-    setTimeout(function() {
-        var jsonInput = document.getElementById('importCustomFile');
-        if (jsonInput) {
-            jsonInput.addEventListener('change', function(e) {
-                var file = e.target.files[0];
-                if (!file) return;
-                var reader = new FileReader();
-                reader.onload = function(ev) {
-                    try {
-                        var data = JSON.parse(ev.target.result);
-                        if (data.categories) {
-                            var ec = getCustomCategories();
-                            Object.assign(ec, data.categories);
-                            saveCustomCategories(ec);
-                            Object.assign(window.CATEGORIES_DB, data.categories);
-                        }
-                        if (data.symptoms) {
-                            var es = getCustomSymptoms();
-                            Object.assign(es, data.symptoms);
-                            saveCustomSymptoms(es);
-                            Object.assign(window.SYMPTOMS_DB, data.symptoms);
-                        }
-                        if (data.diseases) {
-                            var ed = getCustomDiseases();
-                            data.diseases.forEach(function(d) {
-                                if (!ed.find(function(x) { return x.id === d.id; })) ed.push(d);
-                                if (!window.DISEASES_DB.find(function(x) { return x.id === d.id; })) window.DISEASES_DB.push(d);
-                            });
-                            saveCustomDiseases(ed);
-                        }
-                        if (typeof showToast === 'function') showToast('✅ JSON imported!');
-                    } catch(err) {
-                        if (typeof showToast === 'function') showToast('❌ Error: ' + err.message, 'error');
-                    }
-                };
-                reader.readAsText(file);
-                jsonInput.value = '';
-            });
-        }
+        console.log('✅ Import handler attached');
+    }
 
-        var csvInput = document.getElementById('importCSVFile');
-        if (csvInput) {
-            csvInput.addEventListener('change', function(e) {
-                var file = e.target.files[0];
-                if (file) window.handleCSVImport(file);
-                csvInput.value = '';
-            });
-        }
-    }, 1000);
-
-    // --- LOAD ON START ---
+    // ==========================================
+    // INITIALIZATION
+    // ==========================================
     loadAllCustomData();
 
-    // Make icon library available
-    window.ICON_LIBRARY = ICON_LIBRARY;
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(attachImportHandler, 800);
+        });
+    } else {
+        setTimeout(attachImportHandler, 800);
+    }
 
-    console.log('✅ Custom Data Manager loaded');
+    window.ICON_LIBRARY = ICON_LIBRARY;
+    console.log('✅ Custom Data Manager v3 loaded');
 
 })();
