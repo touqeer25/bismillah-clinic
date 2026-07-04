@@ -1,22 +1,13 @@
 // ==========================================
 // Bismillah Clinic - Custom Data Manager v4
-// FEATURES:
-// - Supabase Cloud Sync
-// - Offline Support with Auto-Sync
-// - Full CRUD (Categories, Symptoms, Diseases)
-// - Icon Library (for Categories + Diseases)
-// - Promoted Flag System
-// - Smart Backup (Full / Only New)
-// - GitHub Export with Duplicate Detection
-// - History Log
-// - Migration Wizard
+// Complete Cloud Sync + Backup + GitHub Export
 // ==========================================
 
 (function() {
     'use strict';
 
     // ==========================================
-    // SUPABASE CLIENT (Use existing from index.html)
+    // SUPABASE CLIENT
     // ==========================================
     function getSupabase() {
         if (typeof window.sb !== 'undefined') return window.sb;
@@ -24,213 +15,168 @@
         return null;
     }
 
-        // ==========================================
-    // ICON LIBRARY (100+ icons - Complete Set)
+    // ==========================================
+    // ICON LIBRARY (155+ icons)
     // ==========================================
     const ICON_LIBRARY = [
-        // ===== 🏥 GENERAL MEDICAL =====
+        // General Medical
         { icon: '🏥', label: 'Hospital' },
         { icon: '🩺', label: 'Stethoscope' },
-        { icon: '💊', label: 'Medicine/Pill' },
-        { icon: '💉', label: 'Injection/Syringe' },
-        { icon: '🧪', label: 'Lab Test Tube' },
+        { icon: '💊', label: 'Medicine' },
+        { icon: '💉', label: 'Injection' },
+        { icon: '🧪', label: 'Lab' },
         { icon: '🧫', label: 'Petri Dish' },
         { icon: '🔬', label: 'Microscope' },
         { icon: '🧬', label: 'DNA' },
-        { icon: '⚕️', label: 'Medical Symbol' },
+        { icon: '⚕️', label: 'Medical' },
         { icon: '🩹', label: 'Bandage' },
         { icon: '🩼', label: 'Crutch' },
         { icon: '🦽', label: 'Wheelchair' },
-        { icon: '🦯', label: 'Cane' },
-        { icon: '📋', label: 'Clipboard/Chart' },
+        { icon: '📋', label: 'Clipboard' },
         { icon: '📝', label: 'Prescription' },
-        { icon: '🏨', label: 'Clinic Building' },
-
-        // ===== 🧠 HEAD & BRAIN =====
+        { icon: '🏨', label: 'Clinic' },
+        // Head & Brain
         { icon: '🧠', label: 'Brain' },
-        { icon: '👤', label: 'Head/Person' },
-        { icon: '💆', label: 'Head Massage' },
-        { icon: '🤕', label: 'Head Injury' },
-
-        // ===== 👁️ EYES =====
+        { icon: '👤', label: 'Head' },
+        { icon: '💆', label: 'Massage' },
+        { icon: '🤕', label: 'Injury' },
+        // Eyes
         { icon: '👁️', label: 'Eye' },
         { icon: '👀', label: 'Eyes' },
-        { icon: '🦯', label: 'Blindness' },
         { icon: '👓', label: 'Glasses' },
         { icon: '🥽', label: 'Goggles' },
-
-        // ===== 👂 EAR / NOSE / MOUTH =====
+        // Ear/Nose/Mouth
         { icon: '👂', label: 'Ear' },
-        { icon: '🦻', label: 'Ear with Hearing Aid' },
+        { icon: '🦻', label: 'Hearing Aid' },
         { icon: '👃', label: 'Nose' },
         { icon: '🤧', label: 'Sneezing' },
-        { icon: '👄', label: 'Mouth/Lips' },
+        { icon: '👄', label: 'Mouth' },
         { icon: '👅', label: 'Tongue' },
         { icon: '🦷', label: 'Tooth' },
-        { icon: '😷', label: 'Face Mask' },
-
-        // ===== 🫀 INNER ORGANS - VITAL =====
-        { icon: '🫀', label: 'Heart (Anatomical)' },
-        { icon: '❤️', label: 'Heart (Symbol)' },
-        { icon: '💗', label: 'Heart (Beating)' },
+        { icon: '😷', label: 'Mask' },
+        // Inner Organs
+        { icon: '🫀', label: 'Heart Anatomical' },
+        { icon: '❤️', label: 'Heart Symbol' },
+        { icon: '💗', label: 'Heart Beating' },
         { icon: '💓', label: 'Heartbeat' },
         { icon: '🫁', label: 'Lungs' },
         { icon: '🫘', label: 'Kidney' },
-        { icon: '🧠', label: 'Brain' },
-
-        // ===== 🍽️ DIGESTIVE SYSTEM =====
-        { icon: '🍽️', label: 'Digestive/Eating' },
-        { icon: '🫃', label: 'Stomach/Belly' },
+        // Digestive
+        { icon: '🍽️', label: 'Digestive' },
+        { icon: '🫃', label: 'Stomach' },
         { icon: '🫄', label: 'Pregnant Belly' },
-
-        // ===== 💧 URINARY / FLUIDS =====
-        { icon: '💧', label: 'Water/Urine' },
-        { icon: '💦', label: 'Sweat/Fluids' },
-        { icon: '🩸', label: 'Blood Drop' },
-        { icon: '🧴', label: 'Lotion Bottle' },
-
-        // ===== 🦴 BONES & JOINTS =====
+        // Urinary/Fluids
+        { icon: '💧', label: 'Water' },
+        { icon: '💦', label: 'Sweat' },
+        { icon: '🩸', label: 'Blood' },
+        { icon: '🧴', label: 'Lotion' },
+        // Bones
         { icon: '🦴', label: 'Bone' },
         { icon: '💀', label: 'Skull' },
-        { icon: '🦿', label: 'Mechanical Leg' },
-        { icon: '🦾', label: 'Mechanical Arm' },
-
-        // ===== 💪 MUSCLES & BODY =====
-        { icon: '💪', label: 'Muscle/Bicep' },
+        { icon: '🦿', label: 'Leg Mech' },
+        { icon: '🦾', label: 'Arm Mech' },
+        // Muscles & Body
+        { icon: '💪', label: 'Muscle' },
         { icon: '🦵', label: 'Leg' },
         { icon: '🦶', label: 'Foot' },
         { icon: '👣', label: 'Footprints' },
         { icon: '✋', label: 'Hand' },
-        { icon: '🖐️', label: 'Hand (Open)' },
-        { icon: '👋', label: 'Waving Hand' },
+        { icon: '🖐️', label: 'Hand Open' },
+        { icon: '👋', label: 'Wave' },
         { icon: '🤚', label: 'Raised Hand' },
         { icon: '👐', label: 'Both Hands' },
-        { icon: '🫲', label: 'Left Hand' },
-        { icon: '🫱', label: 'Right Hand' },
         { icon: '💅', label: 'Nail' },
-        { icon: '🧑‍🦱', label: 'Curly Hair' },
-        { icon: '🧑‍🦰', label: 'Red Hair' },
-        { icon: '🧑‍🦳', label: 'White Hair' },
-        { icon: '🧑‍🦲', label: 'Bald' },
-
-        // ===== 🤒 SYMPTOMS & CONDITIONS =====
-        { icon: '🤒', label: 'Fever/Sick' },
-        { icon: '🤕', label: 'Injured/Bandaged' },
-        { icon: '🤧', label: 'Sneezing/Cold' },
+        // Symptoms
+        { icon: '🤒', label: 'Fever' },
         { icon: '🤢', label: 'Nausea' },
         { icon: '🤮', label: 'Vomiting' },
-        { icon: '😷', label: 'Face Mask' },
         { icon: '🥴', label: 'Dizzy' },
         { icon: '😵', label: 'Unconscious' },
         { icon: '😵‍💫', label: 'Vertigo' },
-        { icon: '🥵', label: 'Hot/Overheating' },
-        { icon: '🥶', label: 'Cold/Freezing' },
+        { icon: '🥵', label: 'Hot' },
+        { icon: '🥶', label: 'Cold' },
         { icon: '😪', label: 'Sleepy' },
         { icon: '😴', label: 'Sleeping' },
-        { icon: '💤', label: 'Sleep/Snore' },
+        { icon: '💤', label: 'Sleep' },
         { icon: '🌡️', label: 'Temperature' },
-
-        // ===== 🧘 MENTAL HEALTH =====
-        { icon: '🧘', label: 'Meditation/Mental' },
-        { icon: '😰', label: 'Anxiety/Anxious' },
-        { icon: '😨', label: 'Fear/Afraid' },
-        { icon: '😱', label: 'Panic/Shock' },
-        { icon: '😢', label: 'Sad/Crying' },
-        { icon: '😭', label: 'Loud Crying' },
+        // Mental
+        { icon: '🧘', label: 'Meditation' },
+        { icon: '😰', label: 'Anxiety' },
+        { icon: '😨', label: 'Fear' },
+        { icon: '😱', label: 'Panic' },
+        { icon: '😢', label: 'Sad' },
+        { icon: '😭', label: 'Crying' },
         { icon: '😔', label: 'Depression' },
         { icon: '😞', label: 'Sad Face' },
-        { icon: '😤', label: 'Anger/Frustration' },
+        { icon: '😤', label: 'Anger' },
         { icon: '🤯', label: 'Mind Blown' },
-        { icon: '😖', label: 'Confounded' },
-        { icon: '😣', label: 'Persevering' },
-        { icon: '🥺', label: 'Pleading' },
-
-        // ===== 👶 PEDIATRIC / WOMEN =====
+        // Pediatric/Women
         { icon: '👶', label: 'Baby' },
         { icon: '🧒', label: 'Child' },
         { icon: '👦', label: 'Boy' },
         { icon: '👧', label: 'Girl' },
         { icon: '👩', label: 'Woman' },
-        { icon: '🤰', label: 'Pregnant Woman' },
+        { icon: '🤰', label: 'Pregnant' },
         { icon: '🤱', label: 'Breastfeeding' },
         { icon: '👨', label: 'Man' },
         { icon: '👴', label: 'Old Man' },
         { icon: '👵', label: 'Old Woman' },
-
-        // ===== 🚨 EMERGENCY & WARNINGS =====
-        { icon: '🚨', label: 'Emergency Alert' },
+        // Emergency
+        { icon: '🚨', label: 'Emergency' },
         { icon: '⚠️', label: 'Warning' },
         { icon: '🆘', label: 'SOS' },
-        { icon: '☠️', label: 'Danger/Skull' },
+        { icon: '☠️', label: 'Danger' },
         { icon: '🔴', label: 'Red Alert' },
-        { icon: '🟡', label: 'Yellow Alert' },
-        { icon: '🟢', label: 'Safe/Green' },
-
-        // ===== 🦠 INFECTIONS =====
-        { icon: '🦠', label: 'Virus/Germ' },
-        { icon: '🕷️', label: 'Spider (allergy)' },
-        { icon: '🐛', label: 'Bug/Insect' },
+        { icon: '🟡', label: 'Yellow' },
+        { icon: '🟢', label: 'Green' },
+        // Infections
+        { icon: '🦠', label: 'Virus' },
+        { icon: '🕷️', label: 'Spider' },
+        { icon: '🐛', label: 'Bug' },
         { icon: '🪱', label: 'Worm' },
-
-        // ===== 🎗️ SPECIAL CONDITIONS =====
+        // Special
         { icon: '🎗️', label: 'Cancer Ribbon' },
-        { icon: '🎀', label: 'Awareness Ribbon' },
-
-        // ===== 🌿 HOMEOPATHY / HERBAL =====
+        { icon: '🎀', label: 'Ribbon' },
+        // Herbal
         { icon: '🌿', label: 'Herbal' },
         { icon: '🍃', label: 'Leaf' },
-        { icon: '🌱', label: 'Seedling/Herb' },
-        { icon: '🌾', label: 'Wheat/Grain' },
-        { icon: '🌻', label: 'Sunflower' },
-        { icon: '🌷', label: 'Tulip' },
-        { icon: '🌹', label: 'Rose' },
+        { icon: '🌱', label: 'Seedling' },
+        { icon: '🌾', label: 'Grain' },
         { icon: '🍯', label: 'Honey' },
         { icon: '🥛', label: 'Milk' },
-
-        // ===== ☀️ ENVIRONMENT =====
-        { icon: '☀️', label: 'Sun/Day' },
-        { icon: '🌙', label: 'Moon/Night' },
+        // Environment
+        { icon: '☀️', label: 'Sun' },
+        { icon: '🌙', label: 'Moon' },
         { icon: '⭐', label: 'Star' },
         { icon: '🌟', label: 'Bright Star' },
-        { icon: '🔥', label: 'Fire/Inflammation' },
-        { icon: '❄️', label: 'Cold/Ice' },
-        { icon: '☔', label: 'Rain' },
-        { icon: '🌈', label: 'Rainbow' },
-
-        // ===== 🍎 FOOD / DIET =====
-        { icon: '🍎', label: 'Apple/Healthy' },
-        { icon: '🥗', label: 'Salad/Diet' },
+        { icon: '🔥', label: 'Fire' },
+        { icon: '❄️', label: 'Cold' },
+        // Food/Diet
+        { icon: '🍎', label: 'Apple' },
+        { icon: '🥗', label: 'Salad' },
         { icon: '🍚', label: 'Rice' },
-        { icon: '🥘', label: 'Food/Meal' },
-        { icon: '🚫', label: 'No/Prohibited' },
-
-        // ===== 🏃 ACTIVITY =====
-        { icon: '🏃', label: 'Running/Exercise' },
+        { icon: '🚫', label: 'No' },
+        // Activity
+        { icon: '🏃', label: 'Running' },
         { icon: '🚶', label: 'Walking' },
         { icon: '🧘‍♂️', label: 'Yoga Man' },
         { icon: '🧘‍♀️', label: 'Yoga Woman' },
         { icon: '🏋️', label: 'Weightlifting' },
-        { icon: '🚴', label: 'Cycling' },
-        { icon: '🏊', label: 'Swimming' },
-
-        // ===== 📌 MISCELLANEOUS =====
-        { icon: '📌', label: 'Pin/Marker' },
-        { icon: '🔖', label: 'Bookmark' },
-        { icon: '📎', label: 'Attachment' },
-        { icon: '🔒', label: 'Lock/Private' },
-        { icon: '🔓', label: 'Unlock' },
-        { icon: '⭕', label: 'Circle' },
-        { icon: '✅', label: 'Check/Done' },
-        { icon: '❌', label: 'Cross/Denied' },
+        // Misc
+        { icon: '📌', label: 'Pin' },
+        { icon: '🔒', label: 'Lock' },
+        { icon: '✅', label: 'Check' },
+        { icon: '❌', label: 'Cross' },
         { icon: '❓', label: 'Question' },
         { icon: '❗', label: 'Exclamation' },
-        { icon: '💯', label: '100 Percent' },
-        { icon: '⚡', label: 'Energy/Fast' },
-        { icon: '💫', label: 'Dizzy Star' }
+        { icon: '💯', label: '100' },
+        { icon: '⚡', label: 'Energy' }
     ];
-    
+
+    window.ICON_LIBRARY = ICON_LIBRARY;
+
     // ==========================================
-    // LOCAL STORAGE HELPERS (Cache)
+    // STORAGE HELPERS
     // ==========================================
     function getCachedCategories() {
         return JSON.parse(localStorage.getItem('cache_custom_categories') || '{}');
@@ -252,22 +198,19 @@
     }
 
     // ==========================================
-    // PENDING OPERATIONS (For Offline Support)
+    // PENDING OPERATIONS
     // ==========================================
     function getPendingOps() {
         return JSON.parse(localStorage.getItem('pending_custom_ops') || '[]');
     }
     function addPendingOp(op) {
         var ops = getPendingOps();
-        ops.push({ ...op, timestamp: Date.now() });
+        ops.push(Object.assign({}, op, { timestamp: Date.now() }));
         localStorage.setItem('pending_custom_ops', JSON.stringify(ops));
-    }
-    function clearPendingOps() {
-        localStorage.setItem('pending_custom_ops', '[]');
     }
 
     // ==========================================
-    // HISTORY LOG (Local + Cloud)
+    // HISTORY LOG
     // ==========================================
     async function logHistory(action, itemType, itemId, itemName, details) {
         try {
@@ -276,7 +219,6 @@
                 user = window.currentUserData.name || 'Unknown';
             }
             
-            // Save locally
             var history = JSON.parse(localStorage.getItem('custom_history_log') || '[]');
             history.unshift({
                 action: action,
@@ -287,11 +229,9 @@
                 performed_by: user,
                 performed_at: new Date().toISOString()
             });
-            // Keep only last 200
             if (history.length > 200) history = history.slice(0, 200);
             localStorage.setItem('custom_history_log', JSON.stringify(history));
 
-            // Try to save to cloud
             var sb = getSupabase();
             if (sb && navigator.onLine) {
                 try {
@@ -313,11 +253,10 @@
     }
 
     // ==========================================
-    // MERGE LOCAL + GLOBAL DBs
+    // MERGE INTO GLOBAL DBs
     // ==========================================
     function mergeIntoGlobalDBs() {
         if (!window.CATEGORIES_DB || !window.SYMPTOMS_DB || !window.DISEASES_DB) {
-            console.warn('⏳ Main DBs not ready, retrying...');
             setTimeout(mergeIntoGlobalDBs, 500);
             return;
         }
@@ -350,103 +289,72 @@
             if (!exists) window.DISEASES_DB.push(d);
         });
 
-        console.log('✅ Custom data merged: ' +
-            Object.keys(cats).length + ' categories, ' +
-            Object.keys(syms).length + ' symptoms, ' +
-            dis.length + ' diseases');
+        console.log('✅ Custom data merged');
     }
 
     // ==========================================
-    // CLOUD SYNC: LOAD FROM SUPABASE
+    // CLOUD SYNC
     // ==========================================
     async function syncFromCloud() {
         var sb = getSupabase();
         if (!sb || !navigator.onLine) {
-            console.log('⚠️ Offline - Using cache');
             mergeIntoGlobalDBs();
             return false;
         }
 
         try {
-            console.log('☁️ Syncing from cloud...');
-
-            // Load Categories
             var catRes = await sb.from('custom_categories').select('*');
             if (catRes.data) {
                 var catMap = {};
                 catRes.data.forEach(function(c) {
                     catMap[c.id] = {
-                        ur: c.ur,
-                        en: c.en,
-                        roman: c.roman,
-                        icon: c.icon,
-                        promoted: c.promoted,
-                        created_at: c.created_at,
-                        promoted_at: c.promoted_at
+                        ur: c.ur, en: c.en, roman: c.roman, icon: c.icon,
+                        promoted: c.promoted, created_at: c.created_at, promoted_at: c.promoted_at
                     };
                 });
                 setCachedCategories(catMap);
             }
 
-            // Load Symptoms
             var symRes = await sb.from('custom_symptoms').select('*');
             if (symRes.data) {
                 var symMap = {};
                 symRes.data.forEach(function(s) {
                     symMap[s.id] = {
-                        ur: s.ur,
-                        en: s.en,
-                        roman: s.roman,
-                        category: s.category,
-                        severe: s.severe,
-                        promoted: s.promoted,
-                        created_at: s.created_at,
-                        promoted_at: s.promoted_at
+                        ur: s.ur, en: s.en, roman: s.roman, category: s.category,
+                        severe: s.severe, promoted: s.promoted,
+                        created_at: s.created_at, promoted_at: s.promoted_at
                     };
                 });
                 setCachedSymptoms(symMap);
             }
 
-            // Load Diseases
             var disRes = await sb.from('custom_diseases').select('*');
             if (disRes.data) {
                 var disArr = disRes.data.map(function(d) {
                     return {
                         id: d.id,
                         name: { ur: d.name_ur, en: d.name_en, roman: d.name_roman },
-                        icon: d.icon,
-                        category: d.category,
-                        symptoms: d.symptoms || [],
-                        keySymptoms: d.key_symptoms || [],
-                        tests: d.tests || [],
-                        redFlags: d.red_flags || [],
+                        icon: d.icon, category: d.category,
+                        symptoms: d.symptoms || [], keySymptoms: d.key_symptoms || [],
+                        tests: d.tests || [], redFlags: d.red_flags || [],
                         remedies: d.remedies || [],
                         advice: { ur: d.advice_ur || '', en: d.advice_en || '' },
-                        promoted: d.promoted,
-                        created_at: d.created_at,
-                        promoted_at: d.promoted_at
+                        promoted: d.promoted, created_at: d.created_at, promoted_at: d.promoted_at
                     };
                 });
                 setCachedDiseases(disArr);
             }
 
             mergeIntoGlobalDBs();
-
-            // Process pending operations
             await processPendingOps();
-
-            console.log('✅ Cloud sync complete');
             return true;
         } catch(e) {
             console.error('Cloud sync error:', e);
-            mergeIntoGlobalDBs(); // Fall back to cache
+            mergeIntoGlobalDBs();
             return false;
         }
     }
 
-    // ==========================================
-    // PROCESS PENDING OPERATIONS (Auto-Retry)
-    // ==========================================
     async function processPendingOps() {
         var sb = getSupabase();
         if (!sb || !navigator.onLine) return;
@@ -454,9 +362,7 @@
         var ops = getPendingOps();
         if (ops.length === 0) return;
 
-        console.log('🔄 Processing ' + ops.length + ' pending operations...');
         var succeeded = [];
-
         for (var i = 0; i < ops.length; i++) {
             var op = ops[i];
             try {
@@ -474,30 +380,29 @@
                     await sb.from('custom_diseases').delete().eq('id', op.data.id);
                 } else if (op.action === 'promote') {
                     await sb.from(op.data.table).update({
-                        promoted: true,
-                        promoted_at: new Date().toISOString()
+                        promoted: true, promoted_at: new Date().toISOString()
                     }).eq('id', op.data.id);
                 }
                 succeeded.push(i);
             } catch(e) {
-                console.warn('Op failed, will retry:', op, e);
+                console.warn('Op failed:', e);
             }
         }
 
-        // Remove succeeded ops
         var remaining = ops.filter(function(_, idx) { return succeeded.indexOf(idx) === -1; });
         localStorage.setItem('pending_custom_ops', JSON.stringify(remaining));
 
-        if (succeeded.length > 0) {
-            console.log('✅ Synced ' + succeeded.length + ' pending operations');
-            if (typeof showToast === 'function') {
-                showToast('✅ ' + succeeded.length + ' pending items synced');
-            }
+        if (succeeded.length > 0 && typeof showToast === 'function') {
+            showToast('✅ ' + succeeded.length + ' items synced');
         }
     }
 
+    // Expose to window
+    window.syncFromCloud = syncFromCloud;
+    window.processPendingOps = processPendingOps;
+
     // ==========================================
-    // ICON PICKER RENDERER
+    // ICON PICKER
     // ==========================================
     function renderIconPicker(containerId, hiddenInputId, selectedIcon) {
         var container = document.getElementById(containerId);
@@ -506,12 +411,8 @@
         var html = '<div style="display:flex;flex-wrap:wrap;gap:4px;max-height:140px;overflow-y:auto;padding:6px;background:#f8f9fa;border-radius:6px;border:1px solid #ddd;">';
         ICON_LIBRARY.forEach(function(item) {
             var isSel = (item.icon === selectedIcon);
-            var style = isSel
-                ? 'background:#8e44ad;color:white;border:2px solid #6c3483;'
-                : 'background:white;border:1px solid #ddd;';
-            html += '<button type="button" onclick="selectIconForInput(\'' + hiddenInputId + '\',\'' + containerId + '\',\'' + item.icon + '\')" ' +
-                'style="' + style + 'border-radius:6px;padding:6px 8px;cursor:pointer;font-size:20px;min-width:42px;text-align:center;transition:all 0.15s;" ' +
-                'title="' + item.label + '">' + item.icon + '</button>';
+            var style = isSel ? 'background:#8e44ad;color:white;border:2px solid #6c3483;' : 'background:white;border:1px solid #ddd;';
+            html += '<button type="button" onclick="selectIconForInput(\'' + hiddenInputId + '\',\'' + containerId + '\',\'' + item.icon + '\')" style="' + style + 'border-radius:6px;padding:6px 8px;cursor:pointer;font-size:20px;min-width:42px;text-align:center;" title="' + item.label + '">' + item.icon + '</button>';
         });
         html += '</div>';
         container.innerHTML = html;
@@ -524,16 +425,13 @@
     };
 
     // ==========================================
-    // CATEGORY: SAVE (Cloud + Local)
+    // CATEGORY OPERATIONS
     // ==========================================
-    async function saveCategoryToCloud(catData, isEdit) {
+    async function saveCategoryToCloud(catData) {
         var sb = getSupabase();
         var dbData = {
-            id: catData.id,
-            ur: catData.ur,
-            en: catData.en,
-            roman: catData.roman,
-            icon: catData.icon,
+            id: catData.id, ur: catData.ur, en: catData.en,
+            roman: catData.roman, icon: catData.icon,
             promoted: catData.promoted || false,
             created_by: (window.currentUserData ? window.currentUserData.name : 'Unknown')
         };
@@ -541,10 +439,8 @@
         if (sb && navigator.onLine) {
             try {
                 await sb.from('custom_categories').upsert([dbData]);
-                console.log('☁️ Category saved to cloud');
                 return true;
             } catch(e) {
-                console.error('Cloud save failed:', e);
                 addPendingOp({ action: 'save_category', data: dbData });
                 return false;
             }
@@ -556,7 +452,7 @@
 
     window.openAddCategoryModal = function(editId) {
         var modal = document.getElementById('addCategoryModal');
-        if (!modal) { console.error('Modal not found'); return; }
+        if (!modal) return;
 
         var isEdit = !!editId;
         var cats = getCachedCategories();
@@ -602,34 +498,24 @@
         var msgDiv = document.getElementById('addCategoryMsg');
 
         if (!id) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID لازمی ہے</div>'; return; }
-        if (!ur || !en) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ اردو اور انگلش نام لازمی</div>'; return; }
+        if (!ur || !en) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ اردو اور انگلش لازمی</div>'; return; }
 
         var cats = getCachedCategories();
-        if (!isEdit && cats[id]) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID پہلے سے موجود</div>'; return; }
+        if (!isEdit && cats[id]) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID موجود ہے</div>'; return; }
 
         var newCat = {
-            id: id,
-            ur: ur,
-            en: en,
-            roman: roman || en,
-            icon: icon,
+            id: id, ur: ur, en: en, roman: roman || en, icon: icon,
             promoted: cats[id] ? cats[id].promoted : false
         };
 
-        // Save to global DB
         window.CATEGORIES_DB[id] = { ur: ur, en: en, roman: roman || en, icon: icon };
-
-        // Save to local cache
         cats[id] = newCat;
         setCachedCategories(cats);
 
-        // Save to cloud
-        var cloudOk = await saveCategoryToCloud(newCat, isEdit);
-
-        // Log history
+        var cloudOk = await saveCategoryToCloud(newCat);
         await logHistory(isEdit ? 'edit' : 'add', 'category', id, en, newCat);
 
-        msgDiv.innerHTML = '<div class="alert alert-success">✅ محفوظ' + (cloudOk ? ' ☁️' : ' (offline - will sync)') + '</div>';
+        msgDiv.innerHTML = '<div class="alert alert-success">✅ محفوظ' + (cloudOk ? ' ☁️' : ' (offline)') + '</div>';
         if (typeof showToast === 'function') showToast('✅ Category: ' + en);
 
         if (document.querySelector('#page-diagnosis.active') && typeof renderCategoryTabs === 'function') {
@@ -640,9 +526,8 @@
     };
 
     window.deleteCustomCategory = function(catId) {
-        var name = catId;
         var cats = getCachedCategories();
-        if (cats[catId]) name = cats[catId].en;
+        var name = cats[catId] ? cats[catId].en : catId;
 
         if (typeof showConfirm !== 'function') {
             if (!confirm('Delete category "' + name + '"?')) return;
@@ -661,19 +546,13 @@
 
         var sb = getSupabase();
         if (sb && navigator.onLine) {
-            try {
-                await sb.from('custom_categories').delete().eq('id', catId);
-                console.log('☁️ Category deleted from cloud');
-            } catch(e) {
-                console.error('Cloud delete failed:', e);
-                addPendingOp({ action: 'delete_category', data: { id: catId } });
-            }
+            try { await sb.from('custom_categories').delete().eq('id', catId); }
+            catch(e) { addPendingOp({ action: 'delete_category', data: { id: catId } }); }
         } else {
             addPendingOp({ action: 'delete_category', data: { id: catId } });
         }
 
         await logHistory('delete', 'category', catId, name);
-
         if (typeof showToast === 'function') showToast('🗑️ Deleted');
         window.viewCustomData();
         if (document.querySelector('#page-diagnosis.active') && typeof renderCategoryTabs === 'function') {
@@ -682,17 +561,13 @@
     }
 
     // ==========================================
-    // SYMPTOM: SAVE (Cloud + Local)
+    // SYMPTOM OPERATIONS
     // ==========================================
-    async function saveSymptomToCloud(symData, isEdit) {
+    async function saveSymptomToCloud(symData) {
         var sb = getSupabase();
         var dbData = {
-            id: symData.id,
-            ur: symData.ur,
-            en: symData.en,
-            roman: symData.roman,
-            category: symData.category,
-            severe: symData.severe || false,
+            id: symData.id, ur: symData.ur, en: symData.en, roman: symData.roman,
+            category: symData.category, severe: symData.severe || false,
             promoted: symData.promoted || false,
             created_by: (window.currentUserData ? window.currentUserData.name : 'Unknown')
         };
@@ -773,15 +648,11 @@
         if (!id || !ur || !en) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID, اردو اور انگلش لازمی</div>'; return; }
 
         var syms = getCachedSymptoms();
-        if (!isEdit && syms[id]) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID پہلے سے موجود</div>'; return; }
+        if (!isEdit && syms[id]) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID موجود</div>'; return; }
 
         var newSym = {
-            id: id,
-            ur: ur,
-            en: en,
-            roman: roman || en,
-            category: category,
-            severe: severe,
+            id: id, ur: ur, en: en, roman: roman || en,
+            category: category, severe: severe,
             promoted: syms[id] ? syms[id].promoted : false
         };
 
@@ -791,7 +662,7 @@
         syms[id] = newSym;
         setCachedSymptoms(syms);
 
-        var cloudOk = await saveSymptomToCloud(newSym, isEdit);
+        var cloudOk = await saveSymptomToCloud(newSym);
         await logHistory(isEdit ? 'edit' : 'add', 'symptom', id, en, newSym);
 
         msgDiv.innerHTML = '<div class="alert alert-success">✅ محفوظ' + (cloudOk ? ' ☁️' : ' (offline)') + '</div>';
@@ -825,17 +696,13 @@
 
         var sb = getSupabase();
         if (sb && navigator.onLine) {
-            try {
-                await sb.from('custom_symptoms').delete().eq('id', symId);
-            } catch(e) {
-                addPendingOp({ action: 'delete_symptom', data: { id: symId } });
-            }
+            try { await sb.from('custom_symptoms').delete().eq('id', symId); }
+            catch(e) { addPendingOp({ action: 'delete_symptom', data: { id: symId } }); }
         } else {
             addPendingOp({ action: 'delete_symptom', data: { id: symId } });
         }
 
         await logHistory('delete', 'symptom', symId, name);
-
         if (typeof showToast === 'function') showToast('🗑️ Deleted');
         window.viewCustomData();
         if (document.querySelector('#page-diagnosis.active') && typeof renderSymptomsGrid === 'function') {
@@ -844,22 +711,16 @@
     }
 
     // ==========================================
-    // DISEASE: SAVE (Cloud + Local)
+    // DISEASE OPERATIONS
     // ==========================================
-    async function saveDiseaseToCloud(disData, isEdit) {
+    async function saveDiseaseToCloud(disData) {
         var sb = getSupabase();
         var dbData = {
-            id: disData.id,
-            name_ur: disData.name.ur,
-            name_en: disData.name.en,
-            name_roman: disData.name.roman,
-            icon: disData.icon || '💊',
-            category: disData.category,
-            symptoms: disData.symptoms || [],
-            key_symptoms: disData.keySymptoms || [],
-            tests: disData.tests || [],
-            red_flags: disData.redFlags || [],
-            remedies: disData.remedies || [],
+            id: disData.id, name_ur: disData.name.ur, name_en: disData.name.en,
+            name_roman: disData.name.roman, icon: disData.icon || '💊',
+            category: disData.category, symptoms: disData.symptoms || [],
+            key_symptoms: disData.keySymptoms || [], tests: disData.tests || [],
+            red_flags: disData.redFlags || [], remedies: disData.remedies || [],
             advice_ur: (disData.advice && disData.advice.ur) || '',
             advice_en: (disData.advice && disData.advice.en) || '',
             promoted: disData.promoted || false,
@@ -989,36 +850,29 @@
         var existing = diseases.find(function(d) { return d.id === id; });
 
         if (!isEdit && existing) {
-            msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID پہلے سے موجود</div>';
+            msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID موجود</div>';
             return;
         }
 
         var newDisease = {
-            id: id,
-            name: { ur: ur, en: en, roman: roman || en },
-            icon: icon,
-            category: category,
-            symptoms: symptoms,
-            keySymptoms: keySymptoms,
-            tests: tests,
-            redFlags: redFlags,
-            remedies: remedies,
+            id: id, name: { ur: ur, en: en, roman: roman || en },
+            icon: icon, category: category,
+            symptoms: symptoms, keySymptoms: keySymptoms,
+            tests: tests, redFlags: redFlags, remedies: remedies,
             advice: { ur: adviceUr, en: adviceEn },
             promoted: existing ? existing.promoted : false
         };
 
-        // Update global DB
         var globalIdx = window.DISEASES_DB.findIndex(function(d) { return d.id === id; });
         if (globalIdx >= 0) window.DISEASES_DB[globalIdx] = newDisease;
         else window.DISEASES_DB.push(newDisease);
 
-        // Update cache
         var cIdx = diseases.findIndex(function(d) { return d.id === id; });
         if (cIdx >= 0) diseases[cIdx] = newDisease;
         else diseases.push(newDisease);
         setCachedDiseases(diseases);
 
-        var cloudOk = await saveDiseaseToCloud(newDisease, isEdit);
+        var cloudOk = await saveDiseaseToCloud(newDisease);
         await logHistory(isEdit ? 'edit' : 'add', 'disease', id, en, newDisease);
 
         msgDiv.innerHTML = '<div class="alert alert-success">✅ محفوظ' + (cloudOk ? ' ☁️' : ' (offline)') + '</div>';
@@ -1051,49 +905,19 @@
 
         var sb = getSupabase();
         if (sb && navigator.onLine) {
-            try {
-                await sb.from('custom_diseases').delete().eq('id', disId);
-            } catch(e) {
-                addPendingOp({ action: 'delete_disease', data: { id: disId } });
-            }
+            try { await sb.from('custom_diseases').delete().eq('id', disId); }
+            catch(e) { addPendingOp({ action: 'delete_disease', data: { id: disId } }); }
         } else {
             addPendingOp({ action: 'delete_disease', data: { id: disId } });
         }
 
         await logHistory('delete', 'disease', disId, name);
-
         if (typeof showToast === 'function') showToast('🗑️ Deleted');
         window.viewCustomData();
     }
 
     // ==========================================
-    // EXPOSE HELPERS TO WINDOW (for Part 2)
-    // ==========================================
-    window._customData = {
-        getCachedCategories: getCachedCategories,
-        setCachedCategories: setCachedCategories,
-        getCachedSymptoms: getCachedSymptoms,
-        setCachedSymptoms: setCachedSymptoms,
-        getCachedDiseases: getCachedDiseases,
-        setCachedDiseases: setCachedDiseases,
-        mergeIntoGlobalDBs: mergeIntoGlobalDBs,
-        syncFromCloud: syncFromCloud,
-        processPendingOps: processPendingOps,
-        logHistory: logHistory,
-        getSupabase: getSupabase,
-        addPendingOp: addPendingOp,
-        ICON_LIBRARY: ICON_LIBRARY,
-        renderIconPicker: renderIconPicker
-    };
-
-    console.log('✅ Custom Data Manager v4 - Part 1 loaded');
-
-    // Part 2 will be appended below...
-
-})();
-
-    // ==========================================
-    // VIEW ALL CUSTOM DATA (with Promoted flag)
+    // VIEW CUSTOM DATA
     // ==========================================
     window.viewCustomData = function() {
         var modal = document.getElementById('viewCustomModal');
@@ -1108,7 +932,6 @@
             });
         };
 
-        // Count promoted vs unpromoted
         var catPromoted = Object.values(cats).filter(function(c) { return c.promoted; }).length;
         var catUnpromoted = Object.keys(cats).length - catPromoted;
         var symPromoted = Object.values(syms).filter(function(s) { return s.promoted; }).length;
@@ -1118,32 +941,29 @@
 
         var html = '';
 
-        // Legend
         html += '<div style="background:#fff3cd;padding:8px 12px;border-radius:6px;margin-bottom:12px;font-size:12px;color:#856404;">';
-        html += '💡 <strong>Legend:</strong> ';
-        html += '🆕 = New (backup میں شامل ہوگی) ';
-        html += '| ✅ = Promoted (GitHub پر ہے، backup سے exclude)';
+        html += '💡 <strong>Legend:</strong> 🆕 = New (backup میں شامل) | ✅ = Promoted (GitHub پر)';
         html += '</div>';
 
-        // === CATEGORIES ===
+        // Categories
         html += '<h4 style="color:#8e44ad;margin:10px 0 8px;">🏷️ Categories (' + Object.keys(cats).length + ')';
-        if (catPromoted > 0) html += ' <small style="color:#27ae60;">✅ ' + catPromoted + ' promoted</small>';
-        if (catUnpromoted > 0) html += ' <small style="color:#f39c12;">🆕 ' + catUnpromoted + ' new</small>';
+        if (catPromoted > 0) html += ' <small style="color:#27ae60;">✅ ' + catPromoted + '</small>';
+        if (catUnpromoted > 0) html += ' <small style="color:#f39c12;">🆕 ' + catUnpromoted + '</small>';
         html += '</h4>';
         if (Object.keys(cats).length === 0) {
-            html += '<p style="color:#95a5a6;font-size:13px;padding:5px;">کوئی custom category نہیں</p>';
+            html += '<p style="color:#95a5a6;font-size:13px;">کوئی نہیں</p>';
         } else {
             html += '<div style="max-height:180px;overflow-y:auto;background:#f8f9fa;padding:8px;border-radius:6px;margin-bottom:12px;">';
             Object.keys(cats).forEach(function(k) {
                 var c = cats[k];
-                var promoteBadge = c.promoted ? '<span style="background:#27ae60;color:white;padding:2px 6px;border-radius:8px;font-size:10px;">✅ GitHub</span>' : '<span style="background:#f39c12;color:white;padding:2px 6px;border-radius:8px;font-size:10px;">🆕 New</span>';
+                var badge = c.promoted ? '<span style="background:#27ae60;color:white;padding:2px 6px;border-radius:8px;font-size:10px;">✅</span>' : '<span style="background:#f39c12;color:white;padding:2px 6px;border-radius:8px;font-size:10px;">🆕</span>';
                 html += '<div style="padding:6px 8px;border-bottom:1px solid #ecf0f1;display:flex;justify-content:space-between;align-items:center;font-size:13px;gap:8px;">';
-                html += '<span style="flex:1;">' + c.icon + ' <strong>' + esc(c.ur) + '</strong> / ' + esc(c.en) + ' ' + promoteBadge + '</span>';
+                html += '<span style="flex:1;">' + c.icon + ' <strong>' + esc(c.ur) + '</strong> / ' + esc(c.en) + ' ' + badge + '</span>';
                 html += '<span style="display:flex;gap:3px;">';
                 if (!c.promoted) {
-                    html += '<button class="btn btn-success btn-xs" onclick="promoteItem(\'category\',\'' + k + '\')" title="Mark as promoted (GitHub میں add کر دی)">✅</button>';
+                    html += '<button class="btn btn-success btn-xs" onclick="promoteItem(\'category\',\'' + k + '\')">✅</button>';
                 } else {
-                    html += '<button class="btn btn-warning btn-xs" onclick="unpromoteItem(\'category\',\'' + k + '\')" title="Unmark promoted">↩️</button>';
+                    html += '<button class="btn btn-warning btn-xs" onclick="unpromoteItem(\'category\',\'' + k + '\')">↩️</button>';
                 }
                 html += '<button class="btn btn-edit btn-xs" onclick="openAddCategoryModal(\'' + k + '\')">✏️</button>';
                 html += '<button class="btn btn-danger btn-xs" onclick="deleteCustomCategory(\'' + k + '\')">🗑️</button>';
@@ -1152,25 +972,25 @@
             html += '</div>';
         }
 
-        // === SYMPTOMS ===
+        // Symptoms
         html += '<h4 style="color:#17a2b8;margin:10px 0 8px;">💡 Symptoms (' + Object.keys(syms).length + ')';
-        if (symPromoted > 0) html += ' <small style="color:#27ae60;">✅ ' + symPromoted + ' promoted</small>';
-        if (symUnpromoted > 0) html += ' <small style="color:#f39c12;">🆕 ' + symUnpromoted + ' new</small>';
+        if (symPromoted > 0) html += ' <small style="color:#27ae60;">✅ ' + symPromoted + '</small>';
+        if (symUnpromoted > 0) html += ' <small style="color:#f39c12;">🆕 ' + symUnpromoted + '</small>';
         html += '</h4>';
         if (Object.keys(syms).length === 0) {
-            html += '<p style="color:#95a5a6;font-size:13px;padding:5px;">کوئی custom symptom نہیں</p>';
+            html += '<p style="color:#95a5a6;font-size:13px;">کوئی نہیں</p>';
         } else {
             html += '<div style="max-height:180px;overflow-y:auto;background:#f8f9fa;padding:8px;border-radius:6px;margin-bottom:12px;">';
             Object.keys(syms).forEach(function(k) {
                 var s = syms[k];
-                var promoteBadge = s.promoted ? '<span style="background:#27ae60;color:white;padding:2px 6px;border-radius:8px;font-size:10px;">✅</span>' : '<span style="background:#f39c12;color:white;padding:2px 6px;border-radius:8px;font-size:10px;">🆕</span>';
+                var badge = s.promoted ? '<span style="background:#27ae60;color:white;padding:2px 6px;border-radius:8px;font-size:10px;">✅</span>' : '<span style="background:#f39c12;color:white;padding:2px 6px;border-radius:8px;font-size:10px;">🆕</span>';
                 html += '<div style="padding:6px 8px;border-bottom:1px solid #ecf0f1;display:flex;justify-content:space-between;align-items:center;font-size:13px;gap:8px;">';
-                html += '<span style="flex:1;">' + (s.severe ? '⚠️' : '•') + ' <strong>' + esc(s.ur) + '</strong> / ' + esc(s.en) + ' ' + promoteBadge + '</span>';
+                html += '<span style="flex:1;">' + (s.severe ? '⚠️' : '•') + ' <strong>' + esc(s.ur) + '</strong> / ' + esc(s.en) + ' ' + badge + '</span>';
                 html += '<span style="display:flex;gap:3px;">';
                 if (!s.promoted) {
-                    html += '<button class="btn btn-success btn-xs" onclick="promoteItem(\'symptom\',\'' + k + '\')" title="Mark as promoted">✅</button>';
+                    html += '<button class="btn btn-success btn-xs" onclick="promoteItem(\'symptom\',\'' + k + '\')">✅</button>';
                 } else {
-                    html += '<button class="btn btn-warning btn-xs" onclick="unpromoteItem(\'symptom\',\'' + k + '\')" title="Unmark">↩️</button>';
+                    html += '<button class="btn btn-warning btn-xs" onclick="unpromoteItem(\'symptom\',\'' + k + '\')">↩️</button>';
                 }
                 html += '<button class="btn btn-edit btn-xs" onclick="openAddSymptomModal(\'' + k + '\')">✏️</button>';
                 html += '<button class="btn btn-danger btn-xs" onclick="deleteCustomSymptom(\'' + k + '\')">🗑️</button>';
@@ -1179,25 +999,25 @@
             html += '</div>';
         }
 
-        // === DISEASES ===
+        // Diseases
         html += '<h4 style="color:#27ae60;margin:10px 0 8px;">🔬 Diseases (' + dis.length + ')';
-        if (disPromoted > 0) html += ' <small style="color:#27ae60;">✅ ' + disPromoted + ' promoted</small>';
-        if (disUnpromoted > 0) html += ' <small style="color:#f39c12;">🆕 ' + disUnpromoted + ' new</small>';
+        if (disPromoted > 0) html += ' <small style="color:#27ae60;">✅ ' + disPromoted + '</small>';
+        if (disUnpromoted > 0) html += ' <small style="color:#f39c12;">🆕 ' + disUnpromoted + '</small>';
         html += '</h4>';
         if (dis.length === 0) {
-            html += '<p style="color:#95a5a6;font-size:13px;padding:5px;">کوئی custom disease نہیں</p>';
+            html += '<p style="color:#95a5a6;font-size:13px;">کوئی نہیں</p>';
         } else {
             html += '<div style="max-height:180px;overflow-y:auto;background:#f8f9fa;padding:8px;border-radius:6px;margin-bottom:12px;">';
             dis.forEach(function(d) {
                 var dIcon = d.icon || '💊';
-                var promoteBadge = d.promoted ? '<span style="background:#27ae60;color:white;padding:2px 6px;border-radius:8px;font-size:10px;">✅</span>' : '<span style="background:#f39c12;color:white;padding:2px 6px;border-radius:8px;font-size:10px;">🆕</span>';
+                var badge = d.promoted ? '<span style="background:#27ae60;color:white;padding:2px 6px;border-radius:8px;font-size:10px;">✅</span>' : '<span style="background:#f39c12;color:white;padding:2px 6px;border-radius:8px;font-size:10px;">🆕</span>';
                 html += '<div style="padding:6px 8px;border-bottom:1px solid #ecf0f1;display:flex;justify-content:space-between;align-items:center;font-size:13px;gap:8px;">';
-                html += '<span style="flex:1;">' + dIcon + ' <strong>' + esc(d.name.ur) + '</strong> / ' + esc(d.name.en) + ' ' + promoteBadge + '</span>';
+                html += '<span style="flex:1;">' + dIcon + ' <strong>' + esc(d.name.ur) + '</strong> / ' + esc(d.name.en) + ' ' + badge + '</span>';
                 html += '<span style="display:flex;gap:3px;">';
                 if (!d.promoted) {
-                    html += '<button class="btn btn-success btn-xs" onclick="promoteItem(\'disease\',\'' + d.id + '\')" title="Mark as promoted">✅</button>';
+                    html += '<button class="btn btn-success btn-xs" onclick="promoteItem(\'disease\',\'' + d.id + '\')">✅</button>';
                 } else {
-                    html += '<button class="btn btn-warning btn-xs" onclick="unpromoteItem(\'disease\',\'' + d.id + '\')" title="Unmark">↩️</button>';
+                    html += '<button class="btn btn-warning btn-xs" onclick="unpromoteItem(\'disease\',\'' + d.id + '\')">↩️</button>';
                 }
                 html += '<button class="btn btn-edit btn-xs" onclick="openAddDiseaseModal(\'' + d.id + '\')">✏️</button>';
                 html += '<button class="btn btn-danger btn-xs" onclick="deleteCustomDisease(\'' + d.id + '\')">🗑️</button>';
@@ -1206,19 +1026,17 @@
             html += '</div>';
         }
 
-        // === TOTALS ===
-        html += '<div style="margin-top:12px;padding:10px;background:#d1ecf1;border-radius:6px;font-size:12px;color:#0c5460;">';
-        html += '📊 <strong>Grand Total:</strong> Categories: ' + Object.keys(window.CATEGORIES_DB).length;
+        html += '<div style="margin-top:12px;padding:10px;background:#d1ecf1;border-radius:6px;font-size:12px;">';
+        html += '📊 <strong>Total:</strong> Categories: ' + Object.keys(window.CATEGORIES_DB).length;
         html += ' | Symptoms: ' + Object.keys(window.SYMPTOMS_DB).length;
         html += ' | Diseases: ' + window.DISEASES_DB.length;
         html += '</div>';
 
-        // Cleanup suggestion
         var totalPromoted = catPromoted + symPromoted + disPromoted;
         if (totalPromoted >= 5) {
-            html += '<div style="margin-top:10px;padding:10px;background:#fff3cd;border-radius:6px;font-size:12px;color:#856404;">';
-            html += '💡 <strong>Suggestion:</strong> آپ کے پاس ' + totalPromoted + ' promoted items ہیں۔ ';
-            html += '<button class="btn btn-warning btn-xs" onclick="cleanupPromoted()" style="margin-right:5px;">🧹 Cleanup Now</button>';
+            html += '<div style="margin-top:10px;padding:10px;background:#fff3cd;border-radius:6px;font-size:12px;">';
+            html += '💡 ' + totalPromoted + ' promoted items ہیں۔ ';
+            html += '<button class="btn btn-warning btn-xs" onclick="cleanupPromoted()">🧹 Cleanup</button>';
             html += '</div>';
         }
 
@@ -1232,39 +1050,32 @@
     };
 
     // ==========================================
-    // PROMOTE / UNPROMOTE ITEMS
+    // PROMOTE/UNPROMOTE
     // ==========================================
     window.promoteItem = async function(type, id) {
-        var confirmMsg = 'کیا آپ نے واقعی یہ item GitHub پر add کر دی ہے؟<br><br>' +
-                        '<b>' + id + '</b><br><br>' +
-                        'اگر ہاں تو اسے "Promoted" مارک کر دیں گے۔ ' +
-                        'اگلے backup میں یہ شامل نہیں ہوگی۔';
+        var msg = 'کیا آپ نے یہ GitHub پر add کر دی ہے؟<br><b>' + id + '</b>';
 
         if (typeof showConfirm !== 'function') {
-            if (!confirm('Mark "' + id + '" as promoted (added to GitHub)?')) return;
+            if (!confirm('Mark "' + id + '" as promoted?')) return;
             await doPromote(type, id, true);
             return;
         }
-        showConfirm(confirmMsg, function() { doPromote(type, id, true); });
+        showConfirm(msg, function() { doPromote(type, id, true); });
     };
 
     window.unpromoteItem = async function(type, id) {
         if (typeof showConfirm !== 'function') {
-            if (!confirm('Unmark "' + id + '" as promoted?')) return;
+            if (!confirm('Unpromote?')) return;
             await doPromote(type, id, false);
             return;
         }
-        showConfirm('کیا اسے "unpromote" کریں؟ (پھر backup میں شامل ہوگی)', function() {
-            doPromote(type, id, false);
-        });
+        showConfirm('Unpromote "' + id + '"?', function() { doPromote(type, id, false); });
     };
 
     async function doPromote(type, id, promoted) {
         var sb = getSupabase();
-        var table = type === 'category' ? 'custom_categories' :
-                    type === 'symptom' ? 'custom_symptoms' : 'custom_diseases';
+        var table = type === 'category' ? 'custom_categories' : type === 'symptom' ? 'custom_symptoms' : 'custom_diseases';
 
-        // Update cache
         if (type === 'category') {
             var cats = getCachedCategories();
             if (cats[id]) {
@@ -1289,7 +1100,6 @@
             }
         }
 
-        // Update cloud
         if (sb && navigator.onLine) {
             try {
                 var updateData = { promoted: promoted };
@@ -1304,15 +1114,12 @@
         }
 
         await logHistory(promoted ? 'promote' : 'unpromote', type, id, id);
-
-        if (typeof showToast === 'function') {
-            showToast(promoted ? '✅ Marked as promoted' : '↩️ Unmarked');
-        }
+        if (typeof showToast === 'function') showToast(promoted ? '✅ Promoted' : '↩️ Unpromoted');
         window.viewCustomData();
     }
 
     // ==========================================
-    // BACKUP: FULL (Everything)
+    // BACKUP FUNCTIONS
     // ==========================================
     window.exportCustomData = function() {
         var data = {
@@ -1330,12 +1137,9 @@
         a.download = 'bhc-full-backup-' + new Date().toISOString().split('T')[0] + '.json';
         a.click();
         URL.revokeObjectURL(url);
-        if (typeof showToast === 'function') showToast('✅ Full backup downloaded!');
+        if (typeof showToast === 'function') showToast('✅ Full backup!');
     };
 
-    // ==========================================
-    // BACKUP: ONLY NEW (Unpromoted only)
-    // ==========================================
     window.exportOnlyNew = function() {
         var allCats = getCachedCategories();
         var allSyms = getCachedSymptoms();
@@ -1345,31 +1149,21 @@
         var newSyms = {};
         var newDis = [];
 
-        Object.keys(allCats).forEach(function(k) {
-            if (!allCats[k].promoted) newCats[k] = allCats[k];
-        });
-        Object.keys(allSyms).forEach(function(k) {
-            if (!allSyms[k].promoted) newSyms[k] = allSyms[k];
-        });
-        allDis.forEach(function(d) {
-            if (!d.promoted) newDis.push(d);
-        });
+        Object.keys(allCats).forEach(function(k) { if (!allCats[k].promoted) newCats[k] = allCats[k]; });
+        Object.keys(allSyms).forEach(function(k) { if (!allSyms[k].promoted) newSyms[k] = allSyms[k]; });
+        allDis.forEach(function(d) { if (!d.promoted) newDis.push(d); });
 
-        var totalNew = Object.keys(newCats).length + Object.keys(newSyms).length + newDis.length;
+        var total = Object.keys(newCats).length + Object.keys(newSyms).length + newDis.length;
 
-        if (totalNew === 0) {
-            if (typeof showToast === 'function') showToast('⚠️ No new items to backup (all are promoted)', 'error');
+        if (total === 0) {
+            if (typeof showToast === 'function') showToast('⚠️ No new items', 'error');
             return;
         }
 
         var data = {
             type: 'new_only_backup',
-            categories: newCats,
-            symptoms: newSyms,
-            diseases: newDis,
-            exportDate: new Date().toISOString(),
-            appVersion: '4.0',
-            note: 'This backup contains ONLY unpromoted items'
+            categories: newCats, symptoms: newSyms, diseases: newDis,
+            exportDate: new Date().toISOString(), appVersion: '4.0'
         };
         var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
         var url = URL.createObjectURL(blob);
@@ -1378,49 +1172,34 @@
         a.download = 'bhc-new-only-' + new Date().toISOString().split('T')[0] + '.json';
         a.click();
         URL.revokeObjectURL(url);
-        if (typeof showToast === 'function') showToast('✅ New items backup: ' + totalNew + ' items');
+        if (typeof showToast === 'function') showToast('✅ ' + total + ' items');
     };
 
-    // ==========================================
-    // GITHUB EXPORT (Ready-to-paste for diagnosis-data.js)
-    // ==========================================
     window.exportForGitHub = function() {
         var allCats = getCachedCategories();
         var allSyms = getCachedSymptoms();
         var allDis = getCachedDiseases();
 
-        // Only export unpromoted (new) items
         var newCats = {};
         var newSyms = {};
         var newDis = [];
 
-        Object.keys(allCats).forEach(function(k) {
-            if (!allCats[k].promoted) newCats[k] = allCats[k];
-        });
-        Object.keys(allSyms).forEach(function(k) {
-            if (!allSyms[k].promoted) newSyms[k] = allSyms[k];
-        });
-        allDis.forEach(function(d) {
-            if (!d.promoted) newDis.push(d);
-        });
+        Object.keys(allCats).forEach(function(k) { if (!allCats[k].promoted) newCats[k] = allCats[k]; });
+        Object.keys(allSyms).forEach(function(k) { if (!allSyms[k].promoted) newSyms[k] = allSyms[k]; });
+        allDis.forEach(function(d) { if (!d.promoted) newDis.push(d); });
 
-        var totalNew = Object.keys(newCats).length + Object.keys(newSyms).length + newDis.length;
+        var total = Object.keys(newCats).length + Object.keys(newSyms).length + newDis.length;
 
-        if (totalNew === 0) {
-            if (typeof showToast === 'function') showToast('⚠️ No new items to export', 'error');
+        if (total === 0) {
+            if (typeof showToast === 'function') showToast('⚠️ No new items', 'error');
             return;
         }
 
-        // Generate JavaScript code
-        var code = '// ===================================\n';
-        code += '// GitHub Export - ' + new Date().toISOString().split('T')[0] + '\n';
-        code += '// ' + totalNew + ' new items ready to paste\n';
-        code += '// ===================================\n\n';
+        var code = '// GitHub Export - ' + new Date().toISOString().split('T')[0] + '\n';
+        code += '// ' + total + ' new items ready to paste\n\n';
 
-        // Categories
         if (Object.keys(newCats).length > 0) {
             code += '// ===== NEW CATEGORIES =====\n';
-            code += '// Add these to CATEGORIES_DB in diagnosis-data.js\n\n';
             Object.keys(newCats).forEach(function(k) {
                 var c = newCats[k];
                 code += '    ' + k + ': { ur: ' + JSON.stringify(c.ur) + ', en: ' + JSON.stringify(c.en) + ', roman: ' + JSON.stringify(c.roman) + ', icon: ' + JSON.stringify(c.icon) + ' },\n';
@@ -1428,10 +1207,8 @@
             code += '\n\n';
         }
 
-        // Symptoms
         if (Object.keys(newSyms).length > 0) {
             code += '// ===== NEW SYMPTOMS =====\n';
-            code += '// Add these to SYMPTOMS_DB in diagnosis-data.js\n\n';
             Object.keys(newSyms).forEach(function(k) {
                 var s = newSyms[k];
                 code += '    ' + k + ': { ur: ' + JSON.stringify(s.ur) + ', en: ' + JSON.stringify(s.en) + ', roman: ' + JSON.stringify(s.roman) + ', category: ' + JSON.stringify(s.category);
@@ -1441,10 +1218,8 @@
             code += '\n\n';
         }
 
-        // Diseases
         if (newDis.length > 0) {
             code += '// ===== NEW DISEASES =====\n';
-            code += '// Add these to DISEASES_DB array in diagnosis-data.js\n\n';
             newDis.forEach(function(d) {
                 code += '    {\n';
                 code += '        id: ' + JSON.stringify(d.id) + ',\n';
@@ -1459,17 +1234,8 @@
                 code += '        advice: { ur: ' + JSON.stringify((d.advice && d.advice.ur) || '') + ', en: ' + JSON.stringify((d.advice && d.advice.en) || '') + ' }\n';
                 code += '    },\n';
             });
-            code += '\n\n';
         }
 
-        code += '// ===================================\n';
-        code += '// After adding to diagnosis-data.js:\n';
-        code += '// 1. Push to GitHub\n';
-        code += '// 2. Return to app\n';
-        code += '// 3. Click "✅ Promoted" on each item\n';
-        code += '// ===================================\n';
-
-        // Download as .txt file
         var blob = new Blob([code], { type: 'text/plain' });
         var url = URL.createObjectURL(blob);
         var a = document.createElement('a');
@@ -1478,19 +1244,15 @@
         a.click();
         URL.revokeObjectURL(url);
 
-        if (typeof showToast === 'function') showToast('✅ GitHub export ready: ' + totalNew + ' items');
+        if (typeof showToast === 'function') showToast('✅ GitHub export: ' + total + ' items');
     };
 
     // ==========================================
-    // RESTORE / SMART IMPORT (JSON + CSV)
+    // IMPORT
     // ==========================================
     window.smartImport = function() {
         var input = document.getElementById('importCustomFile');
-        if (!input) {
-            if (typeof showToast === 'function') showToast('❌ File input missing', 'error');
-            return;
-        }
-        input.click();
+        if (input) input.click();
     };
 
     async function handleImportJSON(content) {
@@ -1503,7 +1265,7 @@
                 for (var k in data.categories) {
                     ec[k] = data.categories[k];
                     added++;
-                    await saveCategoryToCloud(data.categories[k], false);
+                    await saveCategoryToCloud(data.categories[k]);
                 }
                 setCachedCategories(ec);
             }
@@ -1512,7 +1274,7 @@
                 for (var k in data.symptoms) {
                     es[k] = data.symptoms[k];
                     added++;
-                    await saveSymptomToCloud(data.symptoms[k], false);
+                    await saveSymptomToCloud(data.symptoms[k]);
                 }
                 setCachedSymptoms(es);
             }
@@ -1524,31 +1286,22 @@
                     if (existing >= 0) ed[existing] = d;
                     else ed.push(d);
                     added++;
-                    await saveDiseaseToCloud(d, false);
+                    await saveDiseaseToCloud(d);
                 }
                 setCachedDiseases(ed);
             }
 
             mergeIntoGlobalDBs();
-
             if (typeof showToast === 'function') showToast('✅ Imported ' + added + ' items');
-
-            if (document.querySelector('#page-diagnosis.active')) {
-                if (typeof renderCategoryTabs === 'function') renderCategoryTabs();
-                if (typeof renderSymptomsGrid === 'function') renderSymptomsGrid();
-            }
         } catch(err) {
-            if (typeof showToast === 'function') showToast('❌ JSON error: ' + err.message, 'error');
+            if (typeof showToast === 'function') showToast('❌ Error: ' + err.message, 'error');
         }
     }
 
     async function handleImportCSV(content) {
         try {
             var lines = content.split(/\r?\n/);
-            if (lines.length < 2) {
-                if (typeof showToast === 'function') showToast('❌ Empty CSV', 'error');
-                return;
-            }
+            if (lines.length < 2) return;
 
             var headers = lines[0].split(',').map(function(h) { return h.trim().toLowerCase().replace(/^"|"$/g, ''); });
             var added = 0;
@@ -1564,39 +1317,31 @@
                 if (row.type === 'category' && row.id && row.ur && row.en) {
                     var catData = {
                         id: row.id, ur: row.ur, en: row.en,
-                        roman: row.roman || row.en, icon: row.icon || '📌',
-                        promoted: false
+                        roman: row.roman || row.en, icon: row.icon || '📌', promoted: false
                     };
                     var cats = getCachedCategories();
                     cats[row.id] = catData;
                     setCachedCategories(cats);
-                    await saveCategoryToCloud(catData, false);
+                    await saveCategoryToCloud(catData);
                     added++;
                 } else if (row.type === 'symptom' && row.id && row.ur && row.en) {
                     var symData = {
                         id: row.id, ur: row.ur, en: row.en,
                         roman: row.roman || row.en, category: row.category || 'general',
-                        severe: (row.severe === 'true' || row.severe === '1'),
-                        promoted: false
+                        severe: (row.severe === 'true'), promoted: false
                     };
                     var syms = getCachedSymptoms();
                     syms[row.id] = symData;
                     setCachedSymptoms(syms);
-                    await saveSymptomToCloud(symData, false);
+                    await saveSymptomToCloud(symData);
                     added++;
                 }
             }
 
             mergeIntoGlobalDBs();
-
-            if (typeof showToast === 'function') showToast('✅ CSV: ' + added + ' items imported');
-
-            if (document.querySelector('#page-diagnosis.active')) {
-                if (typeof renderCategoryTabs === 'function') renderCategoryTabs();
-                if (typeof renderSymptomsGrid === 'function') renderSymptomsGrid();
-            }
+            if (typeof showToast === 'function') showToast('✅ CSV: ' + added + ' items');
         } catch(err) {
-            if (typeof showToast === 'function') showToast('❌ CSV error: ' + err.message, 'error');
+            if (typeof showToast === 'function') showToast('❌ Error: ' + err.message, 'error');
         }
     }
 
@@ -1626,8 +1371,6 @@
                     handleImportJSON(content);
                 } else if (fileName.endsWith('.csv')) {
                     handleImportCSV(content);
-                } else {
-                    if (typeof showToast === 'function') showToast('❌ Only .json or .csv', 'error');
                 }
                 newInput.value = '';
             };
@@ -1638,7 +1381,7 @@
     }
 
     // ==========================================
-    // CLEANUP PROMOTED ITEMS
+    // CLEANUP
     // ==========================================
     window.cleanupPromoted = function() {
         var cats = getCachedCategories();
@@ -1656,14 +1399,10 @@
             return;
         }
 
-        var msg = '⚠️ کیا آپ واقعی ' + total + ' promoted items delete کرنا چاہتے ہیں؟<br><br>';
-        msg += '• Categories: ' + promotedCats.length + '<br>';
-        msg += '• Symptoms: ' + promotedSyms.length + '<br>';
-        msg += '• Diseases: ' + promotedDis.length + '<br><br>';
-        msg += '<strong>یقینی بنائیں کہ یہ سب GitHub پر موجود ہیں!</strong>';
+        var msg = '⚠️ Delete ' + total + ' promoted items?';
 
         if (typeof showConfirm !== 'function') {
-            if (!confirm('Delete ' + total + ' promoted items? Make sure they are on GitHub!')) return;
+            if (!confirm(msg)) return;
             doCleanup(promotedCats, promotedSyms, promotedDis);
             return;
         }
@@ -1674,50 +1413,43 @@
         var sb = getSupabase();
         var deleted = 0;
 
-        // Delete categories
         var cats = getCachedCategories();
         for (var i = 0; i < promotedCats.length; i++) {
-            var k = promotedCats[i];
-            delete cats[k];
+            delete cats[promotedCats[i]];
             deleted++;
             if (sb && navigator.onLine) {
-                try { await sb.from('custom_categories').delete().eq('id', k); } catch(e) {}
+                try { await sb.from('custom_categories').delete().eq('id', promotedCats[i]); } catch(e) {}
             }
         }
         setCachedCategories(cats);
 
-        // Delete symptoms
         var syms = getCachedSymptoms();
         for (var i = 0; i < promotedSyms.length; i++) {
-            var k = promotedSyms[i];
-            delete syms[k];
+            delete syms[promotedSyms[i]];
             deleted++;
             if (sb && navigator.onLine) {
-                try { await sb.from('custom_symptoms').delete().eq('id', k); } catch(e) {}
+                try { await sb.from('custom_symptoms').delete().eq('id', promotedSyms[i]); } catch(e) {}
             }
         }
         setCachedSymptoms(syms);
 
-        // Delete diseases
         var dis = getCachedDiseases();
         for (var i = 0; i < promotedDis.length; i++) {
-            var d = promotedDis[i];
-            dis = dis.filter(function(x) { return x.id !== d.id; });
+            dis = dis.filter(function(x) { return x.id !== promotedDis[i].id; });
             deleted++;
             if (sb && navigator.onLine) {
-                try { await sb.from('custom_diseases').delete().eq('id', d.id); } catch(e) {}
+                try { await sb.from('custom_diseases').delete().eq('id', promotedDis[i].id); } catch(e) {}
             }
         }
         setCachedDiseases(dis);
 
         await logHistory('cleanup', 'batch', 'promoted', 'Cleanup', { count: deleted });
-
-        if (typeof showToast === 'function') showToast('🧹 Cleaned up ' + deleted + ' items');
+        if (typeof showToast === 'function') showToast('🧹 Cleaned ' + deleted);
         window.viewCustomData();
     }
 
     // ==========================================
-    // MIGRATION WIZARD (Guided workflow)
+    // MIGRATION WIZARD
     // ==========================================
     window.migrationWizard = function() {
         var cats = getCachedCategories();
@@ -1730,34 +1462,24 @@
         var total = unpCats + unpSyms + unpDis;
 
         if (total === 0) {
-            if (typeof showToast === 'function') showToast('✅ Everything is promoted!');
+            if (typeof showToast === 'function') showToast('✅ Everything promoted!');
             return;
         }
 
-        var msg = '🚀 <strong>Migration Wizard</strong><br><br>';
-        msg += 'آپ کے پاس ' + total + ' نئی items ہیں:<br>';
+        var msg = '🚀 <b>Migration Wizard</b><br><br>';
+        msg += 'New items: ' + total + '<br>';
         msg += '• Categories: ' + unpCats + '<br>';
         msg += '• Symptoms: ' + unpSyms + '<br>';
         msg += '• Diseases: ' + unpDis + '<br><br>';
-        msg += '<strong>Steps:</strong><br>';
-        msg += '1. کیا GitHub export فائل download کریں؟<br>';
-        msg += '2. پھر diagnosis-data.js میں paste کریں<br>';
-        msg += '3. GitHub پر push کریں<br>';
-        msg += '4. یہاں واپس آ کر "✅ Promoted" مارک کریں<br><br>';
-        msg += 'کیا export فائل بنائیں؟';
+        msg += 'Export file بنائیں؟';
 
         if (typeof showConfirm !== 'function') {
-            if (!confirm('Start migration wizard? Export ' + total + ' items?')) return;
+            if (!confirm('Start migration? Export ' + total + ' items?')) return;
             window.exportForGitHub();
             return;
         }
         showConfirm(msg, function() {
             window.exportForGitHub();
-            setTimeout(function() {
-                if (typeof showToast === 'function') {
-                    showToast('📝 Export downloaded! Add to GitHub, then mark as promoted');
-                }
-            }, 500);
         });
     };
 
@@ -1778,25 +1500,20 @@
         } else {
             html += '<div style="max-height:400px;overflow-y:auto;background:#f8f9fa;padding:8px;border-radius:6px;">';
             history.slice(0, 100).forEach(function(h) {
-                var actionIcon = h.action === 'add' ? '➕' :
-                                h.action === 'edit' ? '✏️' :
-                                h.action === 'delete' ? '🗑️' :
-                                h.action === 'promote' ? '✅' :
-                                h.action === 'unpromote' ? '↩️' :
-                                h.action === 'cleanup' ? '🧹' : '📝';
+                var actionIcon = h.action === 'add' ? '➕' : h.action === 'edit' ? '✏️' : h.action === 'delete' ? '🗑️' : h.action === 'promote' ? '✅' : h.action === 'unpromote' ? '↩️' : h.action === 'cleanup' ? '🧹' : '📝';
                 var date = new Date(h.performed_at).toLocaleString();
                 html += '<div style="padding:6px 8px;border-bottom:1px solid #ecf0f1;font-size:12px;">';
                 html += actionIcon + ' <strong>' + h.action.toUpperCase() + '</strong> ';
                 html += h.item_type + ': <em>' + esc(h.item_name || h.item_id) + '</em><br>';
-                html += '<small style="color:#95a5a6;">' + date + ' • by ' + esc(h.performed_by || 'Unknown') + '</small>';
+                html += '<small style="color:#95a5a6;">' + date + ' • ' + esc(h.performed_by || 'Unknown') + '</small>';
                 html += '</div>';
             });
             html += '</div>';
         }
 
         html += '<div class="action-buttons" style="margin-top:12px;">';
-        html += '<button class="btn btn-danger btn-sm" onclick="clearHistory()">🗑️ Clear History</button>';
-        html += '<button class="btn btn-light btn-sm" onclick="viewCustomData()">🔙 Back to Data</button>';
+        html += '<button class="btn btn-danger btn-sm" onclick="clearHistory()">🗑️ Clear</button>';
+        html += '<button class="btn btn-light btn-sm" onclick="viewCustomData()">🔙 Back</button>';
         html += '</div>';
 
         document.getElementById('customDataContent').innerHTML = html;
@@ -1807,27 +1524,27 @@
         if (typeof showConfirm !== 'function') {
             if (!confirm('Clear all history?')) return;
             localStorage.removeItem('custom_history_log');
-            if (typeof showToast === 'function') showToast('🗑️ History cleared');
+            if (typeof showToast === 'function') showToast('🗑️ Cleared');
             window.viewHistory();
             return;
         }
-        showConfirm('Clear all history log?', function() {
+        showConfirm('Clear all history?', function() {
             localStorage.removeItem('custom_history_log');
-            if (typeof showToast === 'function') showToast('🗑️ History cleared');
+            if (typeof showToast === 'function') showToast('🗑️ Cleared');
             window.viewHistory();
         });
     };
 
     // ==========================================
-    // MANUAL SYNC BUTTON
+    // MANUAL SYNC
     // ==========================================
     window.syncCustomData = async function() {
         if (typeof showToast === 'function') showToast('🔄 Syncing...');
         var ok = await syncFromCloud();
         if (ok) {
-            if (typeof showToast === 'function') showToast('✅ Sync complete');
+            if (typeof showToast === 'function') showToast('✅ Synced');
         } else {
-            if (typeof showToast === 'function') showToast('⚠️ Offline - using cache', 'error');
+            if (typeof showToast === 'function') showToast('⚠️ Offline', 'error');
         }
     };
 
@@ -1837,22 +1554,18 @@
     function initialize() {
         console.log('🚀 Initializing Custom Data Manager v4...');
 
-        // Try to sync from cloud
         setTimeout(function() {
             syncFromCloud().then(function() {
                 console.log('✅ Initial sync done');
             });
         }, 1500);
 
-        // Attach import handler
         setTimeout(attachImportHandler, 1000);
 
-        // Auto-retry pending ops every 30 seconds when online
         setInterval(function() {
             if (navigator.onLine) processPendingOps();
         }, 30000);
 
-        // Sync when coming back online
         window.addEventListener('online', function() {
             console.log('🌐 Back online - syncing...');
             syncFromCloud();
@@ -1865,7 +1578,6 @@
         initialize();
     }
 
-    // Expose ICON_LIBRARY for other uses
-    window.ICON_LIBRARY = ICON_LIBRARY;
+    console.log('✅ Custom Data Manager v4 - COMPLETE');
 
-    console.log('✅ Custom Data Manager v4 - COMPLETE loaded (Part 1 + Part 2)');
+})();
