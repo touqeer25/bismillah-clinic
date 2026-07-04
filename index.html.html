@@ -1099,7 +1099,6 @@
             </div>
         </div>
     </div>
-</div> <!-- END mainApp -->
 
 <!-- Preferences & Help moved to nav bar -->
 
@@ -1504,6 +1503,8 @@
         </div>
     </div>
 </div>
+
+</div> <!-- ========== END mainApp ========== -->
 
 <script>
 // ==================== CONFIG ====================
@@ -3106,17 +3107,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // NAV ACTION BUTTONS (Preferences, Help, Tour, Tip)
-    if ($('navPrefsBtn')) $('navPrefsBtn').addEventListener('click', function() {
-        if (typeof openPreferencesModal === 'function') openPreferencesModal();
-    });
-    if ($('navHelpBtn')) $('navHelpBtn').addEventListener('click', function() {
-        if (typeof openHelpCenter === 'function') openHelpCenter();
-    });
-    if ($('navTourBtn')) $('navTourBtn').addEventListener('click', function() {
-        if (typeof showTourWelcome === 'function') showTourWelcome();
-    });
-    if ($('navTipBtn')) $('navTipBtn').addEventListener('click', function() {
-        if (typeof showTipOfTheDay === 'function') showTipOfTheDay();
+    var navActions = [
+        { id: 'navPrefsBtn', fn: 'openPreferencesModal' },
+        { id: 'navHelpBtn', fn: 'openHelpCenter' },
+        { id: 'navTourBtn', fn: 'showTourWelcome' },
+        { id: 'navTipBtn', fn: 'showTipOfTheDay' }
+    ];
+    navActions.forEach(function(item) {
+        var btn = $(item.id);
+        if (btn) {
+            console.log('✅ Nav action button found: ' + item.id);
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('🔘 Clicked: ' + item.id + ', fn exists: ' + (typeof window[item.fn] === 'function'));
+                if (typeof window[item.fn] === 'function') {
+                    window[item.fn]();
+                } else {
+                    console.error('❌ Function not found: ' + item.fn);
+                }
+            });
+        } else {
+            console.warn('⚠️ Nav action button NOT found: ' + item.id);
+        }
     });
     
     // FORMS
