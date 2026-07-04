@@ -686,16 +686,16 @@
         <button class="nav-btn" data-page="settings">
             ⚙️ <span data-ur="سیٹنگز" data-en="Settings" data-roman="Settings">سیٹنگز</span>
         </button>
-        <button class="nav-btn nav-action" onclick="openPreferencesModal()">
+        <button type="button" class="nav-btn nav-action" id="navPrefsBtn">
             🎛️ <span data-ur="ترجیحات" data-en="Preferences" data-roman="Tarjeehaat">ترجیحات</span>
         </button>
-        <button class="nav-btn nav-action" onclick="openHelpCenter()">
+        <button type="button" class="nav-btn nav-action" id="navHelpBtn">
             ❓ <span data-ur="مدد" data-en="Help" data-roman="Madad">مدد</span>
         </button>
-        <button class="nav-btn nav-action" onclick="showTourWelcome()">
+        <button type="button" class="nav-btn nav-action" id="navTourBtn">
             🎓 <span data-ur="ٹور" data-en="Tour" data-roman="Tour">ٹور</span>
         </button>
-        <button class="nav-btn nav-action" onclick="showTipOfTheDay()">
+        <button type="button" class="nav-btn nav-action" id="navTipBtn">
             💡 <span data-ur="مشورہ" data-en="Tip" data-roman="Mashwara">مشورہ</span>
         </button>
     </nav>
@@ -3105,6 +3105,20 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function() { showPage(btn.getAttribute('data-page'), btn); });
     });
     
+    // NAV ACTION BUTTONS (Preferences, Help, Tour, Tip)
+    if ($('navPrefsBtn')) $('navPrefsBtn').addEventListener('click', function() {
+        if (typeof openPreferencesModal === 'function') openPreferencesModal();
+    });
+    if ($('navHelpBtn')) $('navHelpBtn').addEventListener('click', function() {
+        if (typeof openHelpCenter === 'function') openHelpCenter();
+    });
+    if ($('navTourBtn')) $('navTourBtn').addEventListener('click', function() {
+        if (typeof showTourWelcome === 'function') showTourWelcome();
+    });
+    if ($('navTipBtn')) $('navTipBtn').addEventListener('click', function() {
+        if (typeof showTipOfTheDay === 'function') showTipOfTheDay();
+    });
+    
     // FORMS
     if ($('savePatientBtn')) $('savePatientBtn').addEventListener('click', saveNewPatient);
     if ($('clearFormBtn')) $('clearFormBtn').addEventListener('click', clearNewPatientForm);
@@ -3211,5 +3225,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1611d164dd0c697',t:'MTc4MzE5OTM5NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
