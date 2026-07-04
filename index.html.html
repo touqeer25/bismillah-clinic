@@ -106,11 +106,14 @@
             color: white; padding: 15px 15px;
             position: sticky; top: 0; z-index: 100;
             box-shadow: 0 3px 15px rgba(0,0,0,0.2);
-            display: grid; grid-template-columns: auto 1fr auto;
+            display: grid; grid-template-columns: 1fr auto;
             align-items: center; gap: 10px;
         }
-        .header-left { display: flex; gap: 6px; align-items: center; }
         .header-right { display: flex; gap: 6px; align-items: center; }
+        .header-btns-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 4px;
+        }
         .header-center { text-align: center; padding: 8px 0; overflow: visible; }
         .header-center .clinic-title {
             font-size: 24px; font-weight: bold; line-height: 2.2;
@@ -557,6 +560,7 @@
             .header-center .clinic-title { font-size: 17px; line-height: 2; letter-spacing: 0.5px; }
             .header-center .doctor-title { font-size: 10px; letter-spacing: 0.3px; }
             .icon-btn { width: 32px; height: 32px; font-size: 14px; }
+            .header-btns-grid { gap: 3px; }
             .connection-status { font-size: 10px; padding: 3px 6px; }
             .connection-status .status-text { display: none; }
             .form-row, .form-row-3 { grid-template-columns: 1fr; }
@@ -570,7 +574,8 @@
         @media (max-width: 480px) {
             .nav-btn { padding: 5px 10px; font-size: 12px; }
             .header-center .clinic-title { font-size: 14px; line-height: 1.9; }
-            .header-center .doctor-title { font-size: 10px; }
+            .header-center .doctor-title { font-size: 9px; }
+            .header-btns-grid .icon-btn { width: 28px; height: 28px; font-size: 12px; }
             .stat-card .stat-number { font-size: 20px; }
         }
 
@@ -642,22 +647,23 @@
 <!-- ============================================ -->
 <div id="mainApp" class="hidden">
     <header class="app-header">
-        <div class="header-left">
-            <button class="icon-btn" id="logoutBtn" title="Logout">🚪</button>
-            <button class="icon-btn" id="langBtn" title="Change Language">🌐</button>
-        </div>
         <div class="header-center">
             <div class="clinic-title" data-ur="بسم اللہ ہومیوپیتھک کلینک" data-en="Bismillah Homeopathic Clinic" data-roman="Bismillah Homeopathic Clinic">بسم اللہ ہومیوپیتھک کلینک</div>
             <div class="doctor-title" data-ur="ڈاکٹر توقیر احمد خان — ہومیوپیتھک فزیشن" data-en="Dr. Tauqeer Ahmad Khan — Homeopathic Physician" data-roman="Dr. Tauqeer Ahmad Khan — Homeopathic Physician">ڈاکٹر توقیر احمد خان — ہومیوپیتھک فزیشن</div>
         </div>
         <div class="header-right">
-            <span id="pendingBadge" class="pending-badge hidden" title="Pending Sync">0</span>
             <div class="connection-status" id="connStatus">
                 <span class="status-dot"></span>
                 <span class="status-text">Online</span>
             </div>
-	    <button class="icon-btn" onclick="syncCustomData()" title="Sync Custom Data" style="background:rgba(23,162,184,0.3);">☁️</button> 
-            <button class="icon-btn" id="backupBtn" title="Backup Data">💾</button>
+            <span id="pendingBadge" class="pending-badge hidden" title="Pending Sync">0</span>
+            <div class="header-btns-grid">
+                <button class="icon-btn" id="logoutBtn" title="Logout">🚪</button>
+                <button class="icon-btn" id="langBtn" title="Change Language">🌐</button>
+                <button class="icon-btn" onclick="syncCustomData()" title="Sync Custom Data" style="background:rgba(23,162,184,0.3);">☁️</button>
+                <button class="icon-btn" id="backupBtn" title="Backup Data">💾</button>
+            </div>
+        </div>
         </div>
     </header>
     
@@ -680,11 +686,17 @@
         <button class="nav-btn" data-page="settings">
             ⚙️ <span data-ur="سیٹنگز" data-en="Settings" data-roman="Settings">سیٹنگز</span>
         </button>
-        <button class="nav-btn" onclick="openPreferencesModal()">
+        <button class="nav-btn nav-action" onclick="openPreferencesModal()">
             🎛️ <span data-ur="ترجیحات" data-en="Preferences" data-roman="Tarjeehaat">ترجیحات</span>
         </button>
-        <button class="nav-btn" onclick="openHelpCenter()">
+        <button class="nav-btn nav-action" onclick="openHelpCenter()">
             ❓ <span data-ur="مدد" data-en="Help" data-roman="Madad">مدد</span>
+        </button>
+        <button class="nav-btn nav-action" onclick="showTourWelcome()">
+            🎓 <span data-ur="ٹور" data-en="Tour" data-roman="Tour">ٹور</span>
+        </button>
+        <button class="nav-btn nav-action" onclick="showTipOfTheDay()">
+            💡 <span data-ur="مشورہ" data-en="Tip" data-roman="Mashwara">مشورہ</span>
         </button>
     </nav>
     
@@ -1592,6 +1604,7 @@ function toggleLanguage() {
     currentLang = LANGUAGES[(idx + 1) % LANGUAGES.length];
     localStorage.setItem('clinic_lang', currentLang);
     applyLanguage();
+    updateConnectionStatus(navigator.onLine);
     const names = { ur: 'اردو', en: 'English', roman: 'Roman Urdu' };
     showToast('🌐 ' + names[currentLang]);
     const activePage = document.querySelector('.page.active');
@@ -1613,14 +1626,16 @@ function updateConnectionStatus(online) {
     if (!el) return;
     const dot = el.querySelector('.status-dot');
     const text = el.querySelector('.status-text');
+    const onTexts = { ur: 'آن لائن', en: 'Online', roman: 'Online' };
+    const offTexts = { ur: 'آف لائن', en: 'Offline', roman: 'Offline' };
     if (online) {
         dot.classList.remove('offline');
-        text.textContent = 'Online';
+        text.textContent = onTexts[currentLang] || 'Online';
         $('offlineNotice').classList.add('hidden');
         setTimeout(syncPendingData, 1000);
     } else {
         dot.classList.add('offline');
-        text.textContent = 'Offline';
+        text.textContent = offTexts[currentLang] || 'Offline';
         $('offlineNotice').classList.remove('hidden');
     }
 }
@@ -2075,8 +2090,11 @@ function handleLogout() {
 
 // ==================== NAVIGATION ====================
 async function showPage(pageId, btn) {
+    if (!pageId) return;
+    var pageEl = $('page-' + pageId);
+    if (!pageEl) return;
     $$('.page').forEach(function(p) { p.classList.remove('active'); });
-    $('page-' + pageId).classList.add('active');
+    pageEl.classList.add('active');
     $$('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
     if (btn) btn.classList.add('active');
     window.scrollTo(0, 0);
@@ -3083,7 +3101,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if ($('backupBtn')) $('backupBtn').addEventListener('click', exportData);
     
     // NAVIGATION
-    $$('.nav-btn').forEach(function(btn) {
+    $$('.nav-btn[data-page]').forEach(function(btn) {
         btn.addEventListener('click', function() { showPage(btn.getAttribute('data-page'), btn); });
     });
     
@@ -3165,13 +3183,15 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- PWA Service Worker -->
 <!-- ============================================ -->
 <script>
-if ('serviceWorker' in navigator && location.protocol !== 'chrome-extension:') {
+if ('serviceWorker' in navigator && location.protocol !== 'chrome-extension:' && location.hostname !== 'localhost') {
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('./service-worker.js')
             .then(function(reg) { console.log('✅ PWA registered'); })
-            .catch(function(err) { /* SW not available - OK */ });
+            .catch(function() { /* SW not available */ });
     });
 }
+// Suppress unhandled SW errors
+self.addEventListener('error', function(e) { e.preventDefault(); });
 
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', function(e) {
@@ -3191,5 +3211,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a160e8688856727e',t:'MTc4MzE5NzIzNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1611d164dd0c697',t:'MTc4MzE5OTM5NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
