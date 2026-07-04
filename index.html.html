@@ -114,22 +114,27 @@
         .header-center { text-align: center; padding: 8px 0; overflow: visible; }
         .header-center .clinic-title {
             font-size: 24px; font-weight: bold; line-height: 2.2;
-            padding: 8px 0 4px 0; color: #f1c40f;
-            background: linear-gradient(180deg, #f9d71c 0%, #d4af37 50%, #f9d71c 100%);
+            padding: 8px 0 2px 0; color: #f1c40f;
+            background: linear-gradient(180deg, #ffe082 0%, #ffd54f 25%, #d4af37 50%, #ffd54f 75%, #ffe082 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text; letter-spacing: 0.5px; overflow: visible;
+            background-clip: text; letter-spacing: 1px; overflow: visible;
+            text-shadow: none;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
         }
         body.lang-en .header-center .clinic-title,
-        body.lang-roman .header-center .clinic-title { line-height: 1.3; padding: 4px 0; }
+        body.lang-roman .header-center .clinic-title { line-height: 1.3; padding: 4px 0 2px 0; font-size: 22px; letter-spacing: 1.5px; }
         @supports not (-webkit-background-clip: text) {
-            .header-center .clinic-title { color: #f9d71c; -webkit-text-fill-color: initial; }
+            .header-center .clinic-title { color: #ffd54f; -webkit-text-fill-color: initial; }
         }
         .header-center .doctor-title {
-            font-size: 13px; opacity: 0.9; margin-top: 4px;
-            font-weight: normal; color: white; line-height: 2;
+            font-size: 13px; margin-top: 2px;
+            font-weight: normal; line-height: 2;
+            color: rgba(255,255,255,0.92);
+            letter-spacing: 0.3px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
         body.lang-en .header-center .doctor-title,
-        body.lang-roman .header-center .doctor-title { line-height: 1.4; }
+        body.lang-roman .header-center .doctor-title { line-height: 1.4; font-size: 12px; letter-spacing: 0.8px; text-transform: uppercase; color: rgba(255,255,255,0.85); }
         
         .icon-btn {
             background: rgba(255,255,255,0.2);
@@ -549,8 +554,8 @@
 
         @media (max-width: 768px) {
             .app-header { padding: 12px 8px; gap: 5px; }
-            .header-center .clinic-title { font-size: 17px; line-height: 2; }
-            .header-center .doctor-title { font-size: 11px; }
+            .header-center .clinic-title { font-size: 17px; line-height: 2; letter-spacing: 0.5px; }
+            .header-center .doctor-title { font-size: 10px; letter-spacing: 0.3px; }
             .icon-btn { width: 32px; height: 32px; font-size: 14px; }
             .connection-status { font-size: 10px; padding: 3px 6px; }
             .connection-status .status-text { display: none; }
@@ -643,7 +648,7 @@
         </div>
         <div class="header-center">
             <div class="clinic-title" data-ur="بسم اللہ ہومیوپیتھک کلینک" data-en="Bismillah Homeopathic Clinic" data-roman="Bismillah Homeopathic Clinic">بسم اللہ ہومیوپیتھک کلینک</div>
-            <div class="doctor-title" data-ur="ہومیوپیتھک ڈاکٹر توقیر احمد خان" data-en="Homeopathic Doctor Tauqeer Ahmad Khan" data-roman="Homeopathic Doctor Tauqeer Ahmad Khan">ہومیوپیتھک ڈاکٹر توقیر احمد خان</div>
+            <div class="doctor-title" data-ur="ڈاکٹر توقیر احمد خان — ہومیوپیتھک فزیشن" data-en="Dr. Tauqeer Ahmad Khan — Homeopathic Physician" data-roman="Dr. Tauqeer Ahmad Khan — Homeopathic Physician">ڈاکٹر توقیر احمد خان — ہومیوپیتھک فزیشن</div>
         </div>
         <div class="header-right">
             <span id="pendingBadge" class="pending-badge hidden" title="Pending Sync">0</span>
@@ -674,6 +679,12 @@
         </button>
         <button class="nav-btn" data-page="settings">
             ⚙️ <span data-ur="سیٹنگز" data-en="Settings" data-roman="Settings">سیٹنگز</span>
+        </button>
+        <button class="nav-btn" onclick="openPreferencesModal()">
+            🎛️ <span data-ur="ترجیحات" data-en="Preferences" data-roman="Tarjeehaat">ترجیحات</span>
+        </button>
+        <button class="nav-btn" onclick="openHelpCenter()">
+            ❓ <span data-ur="مدد" data-en="Help" data-roman="Madad">مدد</span>
         </button>
     </nav>
     
@@ -882,7 +893,7 @@
                 <div class="card-title">
                     🔍 <span data-ur="مریض تلاش کریں" data-en="Search Patient" data-roman="Talash">مریض تلاش کریں</span>
                 </div>
-                <input type="text" class="search-input" id="searchInput" placeholder="🔍 نام، فون، حوالہ نمبر، یا فیملی نمبر...">
+                <input type="text" class="search-input" id="searchInput" placeholder="🔍 Name, Phone, Reference No, or Family No..." data-ph-ur="🔍 نام، فون، حوالہ نمبر، یا فیملی نمبر..." data-ph-en="🔍 Name, Phone, Reference No, or Family No..." data-ph-roman="🔍 Naam, Phone, Hawala Number, ya Family Number...">
                 <div id="searchResults">
                     <div class="empty-state"><div class="icon">🔍</div><p data-ur="تلاش کے لیے اوپر لکھیں" data-en="Type above to search" data-roman="Talash ke liye upar likhein">تلاش کے لیے اوپر لکھیں</p></div>
                 </div>
@@ -939,7 +950,7 @@
                     </div>
                 </div>
                 
-                <input type="text" class="symptom-search" id="symptomSearch" placeholder="🔍 علامت تلاش کریں...">
+                <input type="text" class="symptom-search" id="symptomSearch" placeholder="🔍 Search symptoms..." data-ph-ur="🔍 علامت تلاش کریں..." data-ph-en="🔍 Search symptoms..." data-ph-roman="🔍 Alamat talash karein...">
                 
                 <div class="category-tabs" id="categoryTabs"></div>
                 
@@ -1078,36 +1089,7 @@
     </div>
 </div>
 
-<!-- ============================================ -->
-<!-- ⚙️ PREFERENCES SECTION -->
-<!-- ============================================ -->
-<div style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #27ae60;border-radius:12px;padding:18px;margin-bottom:15px;">
-    <h4 style="color:#27ae60;margin-bottom:8px;font-size:16px;display:flex;align-items:center;gap:6px;">
-        ⚙️ <span data-ur="ترجیحات اور مدد" data-en="Preferences & Help" data-roman="Tarjeehaat aur Madad">ترجیحات اور مدد</span>
-    </h4>
-    <p style="font-size:12px;color:#555;margin-bottom:12px;">
-        <span data-ur="ٹور، شارٹ کٹس، ٹپس وغیرہ کو آن/آف کریں" 
-              data-en="Toggle tour, shortcuts, tips etc." 
-              data-roman="Tour, shortcuts, tips waghaira on/off karein">
-            ٹور، شارٹ کٹس، ٹپس وغیرہ کو آن/آف کریں
-        </span>
-    </p>
-    
-    <div style="display:flex;gap:6px;flex-wrap:wrap;">
-        <button class="btn btn-info btn-sm" onclick="openPreferencesModal()">
-            ⚙️ <span data-ur="ترجیحات" data-en="Preferences" data-roman="Tarjeehaat">ترجیحات</span>
-        </button>
-        <button class="btn btn-purple btn-sm" onclick="openHelpCenter()">
-            ❓ <span data-ur="مدد سینٹر" data-en="Help Center" data-roman="Madad Center">مدد سینٹر</span>
-        </button>
-        <button class="btn btn-success btn-sm" onclick="showTourWelcome()">
-            🎓 <span data-ur="ٹور شروع کریں" data-en="Start Tour" data-roman="Tour Shuru Karein">ٹور شروع کریں</span>
-        </button>
-        <button class="btn btn-warning btn-sm" onclick="showTipOfTheDay()">
-            💡 <span data-ur="آج کا مشورہ" data-en="Tip of Day" data-roman="Aaj ka Mashwara">آج کا مشورہ</span>
-        </button>
-    </div>
-</div>
+<!-- Preferences & Help moved to nav bar -->
 
 <!-- ============================================ -->
 <!-- VISIT MODAL -->
@@ -1591,6 +1573,11 @@ function applyLanguage() {
     $$('[data-ur]').forEach(function(el) {
         const text = el.getAttribute('data-' + currentLang);
         if (text) el.textContent = text;
+    });
+    // Update placeholders based on language
+    $$('[data-ph-ur]').forEach(function(el) {
+        const ph = el.getAttribute('data-ph-' + currentLang);
+        if (ph) el.placeholder = ph;
     });
     const offlineTexts = {
         ur: 'آپ آفلائن ہیں - ڈیٹا مقامی طور پر محفوظ ہو رہا ہے',
@@ -3204,5 +3191,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a160bf963f0ba813',t:'MTc4MzE5NTU2NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a160e8688856727e',t:'MTc4MzE5NzIzNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

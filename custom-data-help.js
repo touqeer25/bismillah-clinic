@@ -751,24 +751,11 @@
     }
 
     // ==========================================
-    // HELP BUTTON IN HEADER
+    // HELP BUTTON - Now in nav bar (no header button needed)
     // ==========================================
     function addHelpButtonToHeader() {
-        var header = document.querySelector('.header-right');
-        if (!header) return;
-        if (document.getElementById('helpCenterBtn')) return;
-        
-        var btn = document.createElement('button');
-        btn.id = 'helpCenterBtn';
-        btn.className = 'icon-btn';
-        btn.title = 'Help Center (?)';
-        btn.innerHTML = '❓';
-        btn.style.background = 'rgba(52,152,219,0.4)';
-        btn.onclick = openHelpCenter;
-        
-        var backupBtn = document.getElementById('backupBtn');
-        if (backupBtn) header.insertBefore(btn, backupBtn);
-        else header.appendChild(btn);
+        // Help button is now in the nav bar as a nav-btn
+        // No need to add to header anymore
     }
 
     // ==========================================
