@@ -1257,7 +1257,7 @@
 <div id="confirmModal" class="modal-overlay">
     <div class="modal modal-sm">
         <div class="modal-title">
-            <span>⚠️ <span data-ur="تصدیق کریں" data-en="Confirm" data-roman="Tasdeeq">تصدیق کریں</span></span>
+            <span>⚠️ <span data-ur="تصدیق کریں" data-en="Confirm" data-roman="Tasdeeq Karein">تصدیق کریں</span></span>
             <button class="modal-close" id="closeConfirmBtn">✕</button>
         </div>
         <div id="confirmMessage" style="margin-bottom: 20px; color: #555; font-size: 15px;"></div>
@@ -1278,14 +1278,14 @@
 <div id="addCategoryModal" class="modal-overlay">
     <div class="modal" style="max-width:550px;">
         <div class="modal-title">
-            <span id="addCategoryTitle">➕ Add Category</span>
+            <span id="addCategoryTitle">➕ <span data-ur="کیٹگری شامل کریں" data-en="Add Category" data-roman="Category Shamil Karein">کیٹگری شامل کریں</span></span>
             <button class="modal-close" onclick="closeAddCategoryModal()">✕</button>
         </div>
         <div id="addCategoryMsg"></div>
         <input type="hidden" id="editCategoryOldId">
         
         <div class="form-group">
-            <label>🔑 ID <small style="color:#95a5a6;">(English, no spaces, e.g. cancer_care)</small></label>
+            <label>🔑 ID <small style="color:#95a5a6;">(<span data-ur="انگلش، بغیر خالی جگہ" data-en="English, no spaces, e.g. cancer_care" data-roman="English, baghair space">انگلش، بغیر خالی جگہ</span>)</small></label>
             <input type="text" id="newCategoryId" placeholder="my_category" style="direction:ltr;text-align:left;">
         </div>
         
@@ -1302,7 +1302,7 @@
         
         <div class="form-row">
             <div class="form-group">
-                <label>🔤 Roman Urdu</label>
+                <label>🔤 <span data-ur="رومن اردو" data-en="Roman Urdu" data-roman="Roman Urdu">رومن اردو</span></label>
                 <input type="text" id="newCategoryRoman" placeholder="Cancer Care" dir="ltr">
             </div>
             <div class="form-group">
@@ -1318,10 +1318,10 @@
         
         <div class="action-buttons">
             <button class="btn btn-success" onclick="saveNewCategory()">
-                💾 <span data-ur="محفوظ" data-en="Save" data-roman="Save">Save</span>
+                💾 <span data-ur="محفوظ" data-en="Save" data-roman="Mehfooz">محفوظ</span>
             </button>
             <button class="btn btn-light" onclick="closeAddCategoryModal()">
-                ❌ <span data-ur="منسوخ" data-en="Cancel" data-roman="Cancel">Cancel</span>
+                ❌ <span data-ur="منسوخ" data-en="Cancel" data-roman="Mansookh">منسوخ</span>
             </button>
         </div>
     </div>
@@ -1333,7 +1333,7 @@
 <div id="addSymptomModal" class="modal-overlay">
     <div class="modal" style="max-width:550px;">
         <div class="modal-title">
-            <span id="addSymptomTitle">➕ Add Symptom</span>
+            <span id="addSymptomTitle">➕ <span data-ur="علامت شامل کریں" data-en="Add Symptom" data-roman="Alamat Shamil Karein">علامت شامل کریں</span></span>
             <button class="modal-close" onclick="closeAddSymptomModal()">✕</button>
         </div>
         <div id="addSymptomMsg"></div>
@@ -1350,18 +1350,18 @@
                 <input type="text" id="newSymptomUr" placeholder="سینے میں جلن" dir="rtl">
             </div>
             <div class="form-group">
-                <label>🇬🇧 English *</label>
+                <label>🇬🇧 <span data-ur="انگلش *" data-en="English *" data-roman="English *">انگلش *</span></label>
                 <input type="text" id="newSymptomEn" placeholder="Chest Burning" dir="ltr">
             </div>
         </div>
         
         <div class="form-row">
             <div class="form-group">
-                <label>🔤 Roman</label>
+                <label>🔤 <span data-ur="رومن" data-en="Roman" data-roman="Roman">رومن</span></label>
                 <input type="text" id="newSymptomRoman" placeholder="Seenay mein Jalan" dir="ltr">
             </div>
             <div class="form-group">
-                <label>🏷️ Category *</label>
+                <label>🏷️ <span data-ur="کیٹگری *" data-en="Category *" data-roman="Category *">کیٹگری *</span></label>
                 <select id="newSymptomCategory"></select>
             </div>
         </div>
@@ -1369,7 +1369,7 @@
         <div class="form-group" style="background:#fff5f5;padding:10px;border-radius:6px;border:1px solid #ffcccc;">
             <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:normal;">
                 <input type="checkbox" id="newSymptomSevere" style="width:auto;margin:0;transform:scale(1.3);cursor:pointer;">
-                <span>⚠️ <strong><span data-ur="خطرناک / Red Flag علامت" data-en="Severe / Red Flag Symptom" data-roman="Khatarnak Symptom">خطرناک علامت</span></strong></span>
+                <span>⚠️ <strong><span data-ur="خطرناک / ریڈ فلیگ علامت" data-en="Severe / Red Flag Symptom" data-roman="Khatarnak / Red Flag Alamat">خطرناک علامت</span></strong></span>
             </label>
         </div>
         
@@ -1390,14 +1390,14 @@
 <div id="addDiseaseModal" class="modal-overlay">
     <div class="modal" style="max-width:800px;">
         <div class="modal-title">
-            <span id="addDiseaseTitle">➕ Add Disease</span>
+            <span id="addDiseaseTitle">➕ <span data-ur="بیماری شامل کریں" data-en="Add Disease" data-roman="Bimari Shamil Karein">بیماری شامل کریں</span></span>
             <button class="modal-close" onclick="closeAddDiseaseModal()">✕</button>
         </div>
         <div id="addDiseaseMsg"></div>
         <input type="hidden" id="editDiseaseOldId">
         
         <div class="form-group">
-            <label>🔑 ID <small style="color:#95a5a6;">(e.g. kidney_cancer)</small></label>
+            <label>🔑 ID <small style="color:#95a5a6;">(<span data-ur="مثلاً kidney_cancer" data-en="e.g. kidney_cancer" data-roman="maslan kidney_cancer">مثلاً kidney_cancer</span>)</small></label>
             <input type="text" id="newDiseaseId" placeholder="kidney_cancer" style="direction:ltr;text-align:left;">
         </div>
         
@@ -1407,14 +1407,14 @@
                 <input type="text" id="newDiseaseUr" placeholder="گردے کا سرطان" dir="rtl">
             </div>
             <div class="form-group">
-                <label>🇬🇧 English Name *</label>
+                <label>🇬🇧 <span data-ur="انگلش نام *" data-en="English Name *" data-roman="English Naam *">انگلش نام *</span></label>
                 <input type="text" id="newDiseaseEn" placeholder="Kidney Cancer" dir="ltr">
             </div>
         </div>
         
         <div class="form-row">
             <div class="form-group">
-                <label>🔤 Roman Urdu</label>
+                <label>🔤 <span data-ur="رومن اردو" data-en="Roman Urdu" data-roman="Roman Urdu">رومن اردو</span></label>
                 <input type="text" id="newDiseaseRoman" placeholder="Gurday ka Sartan" dir="ltr">
             </div>
             <div class="form-group">
@@ -1426,54 +1426,54 @@
         <!-- ✅ NEW: Icon Picker for Disease -->
         <div class="form-row">
             <div class="form-group">
-                <label>🎨 <span data-ur="منتخب آئکن" data-en="Selected Icon" data-roman="Icon">Selected Icon</span></label>
+                <label>🎨 <span data-ur="منتخب آئکن" data-en="Selected Icon" data-roman="Muntakhib Icon">منتخب آئکن</span></label>
                 <input type="text" id="newDiseaseIcon" value="💊" readonly style="font-size:24px;text-align:center;background:#f8f9fa;cursor:default;">
             </div>
         </div>
         <div class="form-group">
-            <label>🎨 <span data-ur="بیماری کا آئکن چنیں" data-en="Select Disease Icon" data-roman="Disease Icon">Select Disease Icon</span></label>
+            <label>🎨 <span data-ur="بیماری کا آئکن چنیں" data-en="Select Disease Icon" data-roman="Bimari ka Icon Chunein">بیماری کا آئکن چنیں</span></label>
             <div id="diseaseIconPickerContainer"></div>
         </div>
         
         <div class="form-group">
-            <label>💡 Symptoms <small style="color:#95a5a6;">(comma separated symptom IDs, e.g. fever, headache, weakness)</small></label>
+            <label>💡 <span data-ur="علامات" data-en="Symptoms" data-roman="Alamaat">علامات</span> <small style="color:#95a5a6;">(<span data-ur="کاما سے الگ، مثلاً fever, headache" data-en="comma separated IDs, e.g. fever, headache" data-roman="comma se alag, maslan fever, headache">کاما سے الگ</span>)</small></label>
             <textarea id="newDiseaseSymptoms" placeholder="fever, headache, weakness, body_ache" style="min-height:50px;direction:ltr;text-align:left;"></textarea>
         </div>
         
         <div class="form-group">
-            <label>⭐ Key Symptoms <small style="color:#95a5a6;">(main symptoms, comma separated)</small></label>
+            <label>⭐ <span data-ur="اہم علامات" data-en="Key Symptoms" data-roman="Ahem Alamaat">اہم علامات</span> <small style="color:#95a5a6;">(<span data-ur="اہم، کاما سے الگ" data-en="main symptoms, comma separated" data-roman="ahem, comma se alag">اہم، کاما سے الگ</span>)</small></label>
             <input type="text" id="newDiseaseKeySymptoms" placeholder="fever, headache" style="direction:ltr;text-align:left;">
         </div>
         
         <div class="form-group">
-            <label>🔬 Tests <small style="color:#95a5a6;">(one per line)</small></label>
+            <label>🔬 <span data-ur="ٹیسٹ" data-en="Tests" data-roman="Tests">ٹیسٹ</span> <small style="color:#95a5a6;">(<span data-ur="ہر سطر میں ایک" data-en="one per line" data-roman="har line mein ek">ہر سطر میں ایک</span>)</small></label>
             <textarea id="newDiseaseTests" placeholder="CBC&#10;X-Ray&#10;Urine Test" style="min-height:60px;direction:ltr;text-align:left;"></textarea>
         </div>
         
         <div class="form-group">
-            <label>⚠️ Red Flags <small style="color:#95a5a6;">(symptom IDs, comma separated)</small></label>
+            <label>⚠️ <span data-ur="خطرے کی علامات" data-en="Red Flags" data-roman="Khatre ki Alamaat">خطرے کی علامات</span> <small style="color:#95a5a6;">(<span data-ur="کاما سے الگ" data-en="symptom IDs, comma separated" data-roman="comma se alag">کاما سے الگ</span>)</small></label>
             <input type="text" id="newDiseaseRedFlags" placeholder="high_fever, unconscious, bleeding" style="direction:ltr;text-align:left;">
         </div>
         
         <div class="form-group">
-            <label>💊 Remedies <small style="color:#95a5a6;">(one per line: Name | Use | Dose)</small></label>
+            <label>💊 <span data-ur="ادویات" data-en="Remedies" data-roman="Adwiyaat">ادویات</span> <small style="color:#95a5a6;">(<span data-ur="ہر سطر: نام | استعمال | خوراک" data-en="one per line: Name | Use | Dose" data-roman="har line: Naam | Istemal | Khurak">ہر سطر: نام | استعمال | خوراک</span>)</small></label>
             <textarea id="newDiseaseRemedies" placeholder="Arnica 30 | For injury | 3 times daily&#10;Bryonia 200 | For pain | 4 hourly" style="min-height:80px;direction:ltr;text-align:left;"></textarea>
         </div>
         
         <div class="form-row">
             <div class="form-group">
-                <label>📖 <span data-ur="ہدایات (اردو)" data-en="Advice (Urdu)" data-roman="Hidayat">ہدایات اردو</span></label>
+                <label>📖 <span data-ur="ہدایات (اردو)" data-en="Advice (Urdu)" data-roman="Hidayaat (Urdu)">ہدایات (اردو)</span></label>
                 <textarea id="newDiseaseAdviceUr" placeholder="آرام، پانی زیادہ..." style="min-height:50px;" dir="rtl"></textarea>
             </div>
             <div class="form-group">
-                <label>📖 Advice (English)</label>
+                <label>📖 <span data-ur="ہدایات (انگلش)" data-en="Advice (English)" data-roman="Hidayaat (English)">ہدایات (انگلش)</span></label>
                 <textarea id="newDiseaseAdviceEn" placeholder="Rest, more water..." style="min-height:50px;direction:ltr;text-align:left;"></textarea>
             </div>
         </div>
         
         <div class="action-buttons">
             <button class="btn btn-success" onclick="saveNewDisease()">
-                💾 <span data-ur="بیماری محفوظ کریں" data-en="Save Disease" data-roman="Save Disease">Save Disease</span>
+                💾 <span data-ur="بیماری محفوظ کریں" data-en="Save Disease" data-roman="Bimari Mehfooz Karein">بیماری محفوظ کریں</span>
             </button>
             <button class="btn btn-light" onclick="closeAddDiseaseModal()">
                 ❌ <span data-ur="منسوخ" data-en="Cancel" data-roman="Cancel">Cancel</span>
@@ -1488,7 +1488,7 @@
 <div id="viewCustomModal" class="modal-overlay">
     <div class="modal" style="max-width:750px;">
         <div class="modal-title">
-            <span>📋 <span data-ur="اپنا Custom ڈیٹا" data-en="My Custom Data" data-roman="Apna Custom Data">اپنا Custom ڈیٹا</span></span>
+            <span>📋 <span data-ur="اپنا کسٹم ڈیٹا" data-en="My Custom Data" data-roman="Apna Custom Data">اپنا کسٹم ڈیٹا</span></span>
             <button class="modal-close" onclick="closeViewCustomModal()">✕</button>
         </div>
         <div id="customDataContent">Loading...</div>
@@ -3238,5 +3238,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a16243b8a85cc697',t:'MTc4MzIxMTQ2Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

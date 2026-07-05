@@ -476,7 +476,9 @@
 
         document.getElementById('addCategoryMsg').innerHTML = '';
         var titleEl = document.getElementById('addCategoryTitle');
-        if (titleEl) titleEl.textContent = isEdit ? '✏️ Edit Category' : '➕ Add Category';
+        var _lang = (typeof getCurrentLang === 'function' ? getCurrentLang() : (localStorage.getItem('clinic_lang') || 'ur'));
+        var _catTitles = { ur: ['✏️ کیٹگری ترمیم', '➕ کیٹگری شامل کریں'], en: ['✏️ Edit Category', '➕ Add Category'], roman: ['✏️ Category Tarmeemi', '➕ Category Shamil Karein'] };
+        if (titleEl) titleEl.textContent = isEdit ? (_catTitles[_lang]||_catTitles.en)[0] : (_catTitles[_lang]||_catTitles.en)[1];
 
         renderIconPicker('iconPickerContainer', 'newCategoryIcon', isEdit && cat ? cat.icon : '📌');
         modal.classList.add('active');
@@ -497,11 +499,11 @@
         var icon = document.getElementById('newCategoryIcon').value.trim() || '📌';
         var msgDiv = document.getElementById('addCategoryMsg');
 
-        if (!id) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID لازمی ہے</div>'; return; }
-        if (!ur || !en) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ اردو اور انگلش لازمی</div>'; return; }
+        if (!id) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ' + ({ur:'ID لازمی ہے',en:'ID is required',roman:'ID lazmi hai'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'ID is required') + '</div>'; return; }
+        if (!ur || !en) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ' + ({ur:'اردو اور انگلش لازمی',en:'Urdu and English required',roman:'Urdu aur English lazmi'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'Urdu and English required') + '</div>'; return; }
 
         var cats = getCachedCategories();
-        if (!isEdit && cats[id]) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID موجود ہے</div>'; return; }
+        if (!isEdit && cats[id]) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ' + ({ur:'یہ ID پہلے سے موجود ہے',en:'This ID already exists',roman:'Yeh ID pehle se mojood hai'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'This ID already exists') + '</div>'; return; }
 
         var newCat = {
             id: id, ur: ur, en: en, roman: roman || en, icon: icon,
@@ -515,8 +517,9 @@
         var cloudOk = await saveCategoryToCloud(newCat);
         await logHistory(isEdit ? 'edit' : 'add', 'category', id, en, newCat);
 
-        msgDiv.innerHTML = '<div class="alert alert-success">✅ محفوظ' + (cloudOk ? ' ☁️' : ' (offline)') + '</div>';
-        if (typeof showToast === 'function') showToast('✅ Category: ' + en);
+        var _smsg = {ur:'✅ محفوظ',en:'✅ Saved',roman:'✅ Mehfooz'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'✅ Saved';
+        msgDiv.innerHTML = '<div class="alert alert-success">' + _smsg + (cloudOk ? ' ☁️' : ' (offline)') + '</div>';
+        if (typeof showToast === 'function') showToast('✅ ' + en);
 
         if (document.querySelector('#page-diagnosis.active') && typeof renderCategoryTabs === 'function') {
             renderCategoryTabs();
@@ -553,7 +556,7 @@
         }
 
         await logHistory('delete', 'category', catId, name);
-        if (typeof showToast === 'function') showToast('🗑️ Deleted');
+        if (typeof showToast === 'function') showToast({ur:'🗑️ حذف ہو گیا',en:'🗑️ Deleted',roman:'🗑️ Delete ho gaya'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'🗑️ Deleted');
         window.viewCustomData();
         if (document.querySelector('#page-diagnosis.active') && typeof renderCategoryTabs === 'function') {
             renderCategoryTabs();
@@ -624,7 +627,9 @@
 
         document.getElementById('addSymptomMsg').innerHTML = '';
         var titleEl = document.getElementById('addSymptomTitle');
-        if (titleEl) titleEl.textContent = isEdit ? '✏️ Edit Symptom' : '➕ Add Symptom';
+        var _lang = (typeof getCurrentLang === 'function' ? getCurrentLang() : (localStorage.getItem('clinic_lang') || 'ur'));
+        var _symTitles = { ur: ['✏️ علامت ترمیم', '➕ علامت شامل کریں'], en: ['✏️ Edit Symptom', '➕ Add Symptom'], roman: ['✏️ Alamat Tarmeemi', '➕ Alamat Shamil Karein'] };
+        if (titleEl) titleEl.textContent = isEdit ? (_symTitles[_lang]||_symTitles.en)[0] : (_symTitles[_lang]||_symTitles.en)[1];
 
         modal.classList.add('active');
     };
@@ -645,10 +650,10 @@
         var severe = document.getElementById('newSymptomSevere').checked;
         var msgDiv = document.getElementById('addSymptomMsg');
 
-        if (!id || !ur || !en) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID, اردو اور انگلش لازمی</div>'; return; }
+        if (!id || !ur || !en) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ' + ({ur:'ID، اردو اور انگلش لازمی ہیں',en:'ID, Urdu and English required',roman:'ID, Urdu aur English lazmi hain'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'ID, Urdu and English required') + '</div>'; return; }
 
         var syms = getCachedSymptoms();
-        if (!isEdit && syms[id]) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ID موجود</div>'; return; }
+        if (!isEdit && syms[id]) { msgDiv.innerHTML = '<div class="alert alert-error">⚠️ ' + ({ur:'یہ ID پہلے سے موجود ہے',en:'This ID already exists',roman:'Yeh ID pehle se mojood hai'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'This ID already exists') + '</div>'; return; }
 
         var newSym = {
             id: id, ur: ur, en: en, roman: roman || en,
@@ -665,8 +670,9 @@
         var cloudOk = await saveSymptomToCloud(newSym);
         await logHistory(isEdit ? 'edit' : 'add', 'symptom', id, en, newSym);
 
-        msgDiv.innerHTML = '<div class="alert alert-success">✅ محفوظ' + (cloudOk ? ' ☁️' : ' (offline)') + '</div>';
-        if (typeof showToast === 'function') showToast('✅ Symptom: ' + en);
+        var _smsg = {ur:'✅ محفوظ',en:'✅ Saved',roman:'✅ Mehfooz'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'✅ Saved';
+        msgDiv.innerHTML = '<div class="alert alert-success">' + _smsg + (cloudOk ? ' ☁️' : ' (offline)') + '</div>';
+        if (typeof showToast === 'function') showToast('✅ ' + en);
 
         if (document.querySelector('#page-diagnosis.active') && typeof renderSymptomsGrid === 'function') {
             renderSymptomsGrid();
@@ -788,7 +794,9 @@
 
         document.getElementById('addDiseaseMsg').innerHTML = '';
         var titleEl = document.getElementById('addDiseaseTitle');
-        if (titleEl) titleEl.textContent = isEdit ? '✏️ Edit Disease' : '➕ Add Disease';
+        var _lang = (typeof getCurrentLang === 'function' ? getCurrentLang() : (localStorage.getItem('clinic_lang') || 'ur'));
+        var _disTitles = { ur: ['✏️ بیماری ترمیم', '➕ بیماری شامل کریں'], en: ['✏️ Edit Disease', '➕ Add Disease'], roman: ['✏️ Bimari Tarmeemi', '➕ Bimari Shamil Karein'] };
+        if (titleEl) titleEl.textContent = isEdit ? (_disTitles[_lang]||_disTitles.en)[0] : (_disTitles[_lang]||_disTitles.en)[1];
 
         renderIconPicker('diseaseIconPickerContainer', 'newDiseaseIcon', isEdit && dis && dis.icon ? dis.icon : '💊');
 
@@ -875,8 +883,9 @@
         var cloudOk = await saveDiseaseToCloud(newDisease);
         await logHistory(isEdit ? 'edit' : 'add', 'disease', id, en, newDisease);
 
-        msgDiv.innerHTML = '<div class="alert alert-success">✅ محفوظ' + (cloudOk ? ' ☁️' : ' (offline)') + '</div>';
-        if (typeof showToast === 'function') showToast('✅ Disease: ' + en);
+        var _smsg = {ur:'✅ محفوظ',en:'✅ Saved',roman:'✅ Mehfooz'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'✅ Saved';
+        msgDiv.innerHTML = '<div class="alert alert-success">' + _smsg + (cloudOk ? ' ☁️' : ' (offline)') + '</div>';
+        if (typeof showToast === 'function') showToast('✅ ' + en);
 
         setTimeout(window.closeAddDiseaseModal, 1200);
     };
@@ -1114,7 +1123,7 @@
         }
 
         await logHistory(promoted ? 'promote' : 'unpromote', type, id, id);
-        if (typeof showToast === 'function') showToast(promoted ? '✅ Promoted' : '↩️ Unpromoted');
+        if (typeof showToast === 'function') showToast(promoted ? ({ur:'✅ پروموٹ ہو گیا',en:'✅ Promoted',roman:'✅ Promote ho gaya'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'✅ Promoted') : ({ur:'↩️ واپس',en:'↩️ Unpromoted',roman:'↩️ Wapas'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'↩️ Unpromoted'));
         window.viewCustomData();
     }
 
@@ -1137,7 +1146,7 @@
         a.download = 'bhc-full-backup-' + new Date().toISOString().split('T')[0] + '.json';
         a.click();
         URL.revokeObjectURL(url);
-        if (typeof showToast === 'function') showToast('✅ Full backup!');
+        if (typeof showToast === 'function') showToast({ur:'✅ مکمل بیک اپ!',en:'✅ Full backup!',roman:'✅ Mukammal backup!'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'✅ Full backup!');
     };
 
     window.exportOnlyNew = function() {
@@ -1156,7 +1165,7 @@
         var total = Object.keys(newCats).length + Object.keys(newSyms).length + newDis.length;
 
         if (total === 0) {
-            if (typeof showToast === 'function') showToast('⚠️ No new items', 'error');
+            if (typeof showToast === 'function') showToast({ur:'⚠️ کوئی نئی چیز نہیں',en:'⚠️ No new items',roman:'⚠️ Koi nayi cheez nahi'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'⚠️ No new items', 'error');
             return;
         }
 
@@ -1395,7 +1404,7 @@
         var total = promotedCats.length + promotedSyms.length + promotedDis.length;
 
         if (total === 0) {
-            if (typeof showToast === 'function') showToast('✅ Nothing to cleanup');
+            if (typeof showToast === 'function') showToast({ur:'✅ صفائی کی ضرورت نہیں',en:'✅ Nothing to cleanup',roman:'✅ Safai ki zaroorat nahi'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'✅ Nothing to cleanup');
             return;
         }
 
@@ -1462,7 +1471,7 @@
         var total = unpCats + unpSyms + unpDis;
 
         if (total === 0) {
-            if (typeof showToast === 'function') showToast('✅ Everything promoted!');
+            if (typeof showToast === 'function') showToast({ur:'✅ سب پروموٹ ہو چکا!',en:'✅ Everything promoted!',roman:'✅ Sab promote ho chuka!'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'✅ Everything promoted!');
             return;
         }
 
@@ -1524,7 +1533,7 @@
         if (typeof showConfirm !== 'function') {
             if (!confirm('Clear all history?')) return;
             localStorage.removeItem('custom_history_log');
-            if (typeof showToast === 'function') showToast('🗑️ Cleared');
+            if (typeof showToast === 'function') showToast({ur:'🗑️ صاف ہو گیا',en:'🗑️ Cleared',roman:'🗑️ Saaf ho gaya'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'🗑️ Cleared');
             window.viewHistory();
             return;
         }
@@ -1539,12 +1548,12 @@
     // MANUAL SYNC
     // ==========================================
     window.syncCustomData = async function() {
-        if (typeof showToast === 'function') showToast('🔄 Syncing...');
+        if (typeof showToast === 'function') showToast({ur:'🔄 سنک ہو رہا ہے...',en:'🔄 Syncing...',roman:'🔄 Sync ho raha hai...'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'🔄 Syncing...');
         var ok = await syncFromCloud();
         if (ok) {
-            if (typeof showToast === 'function') showToast('✅ Synced');
+            if (typeof showToast === 'function') showToast({ur:'✅ سنک ہو گیا',en:'✅ Synced',roman:'✅ Sync ho gaya'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'✅ Synced');
         } else {
-            if (typeof showToast === 'function') showToast('⚠️ Offline', 'error');
+            if (typeof showToast === 'function') showToast({ur:'⚠️ آف لائن',en:'⚠️ Offline',roman:'⚠️ Offline'}[typeof getCurrentLang==='function'?getCurrentLang():'ur']||'⚠️ Offline', 'error');
         }
     };
 
