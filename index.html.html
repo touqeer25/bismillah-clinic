@@ -804,7 +804,13 @@
                     </div>
                     <div class="form-group">
                         <label data-ur="⚧ جنس" data-en="⚧ Gender" data-roman="⚧ Jins">⚧ جنس</label>
-                        <select id="gender"><option value="">--</option><option value="male">مرد</option><option value="female">عورت</option><option value="boy">بچہ</option><option value="girl">بچی</option></select>
+                        <select id="gender">
+                            <option value="">--</option>
+                            <option value="male" data-ur="مرد" data-en="Male" data-roman="Mard">مرد</option>
+                            <option value="female" data-ur="عورت" data-en="Female" data-roman="Aurat">عورت</option>
+                            <option value="boy" data-ur="بچہ" data-en="Boy" data-roman="Bacha">بچہ</option>
+                            <option value="girl" data-ur="بچی" data-en="Girl" data-roman="Bachi">بچی</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label data-ur="⚖️ وزن" data-en="⚖️ Wt" data-roman="⚖️ Wt">⚖️ وزن</label>
@@ -829,7 +835,7 @@
                 </div>
                 
                 <!-- Row 5: Date + Time + BP + Sugar + Temp + Pulse -->
-                <div class="fg-row" style="grid-template-columns: 110px 100px 90px 80px 80px 80px;">
+                <div class="fg-row" style="grid-template-columns: 135px 120px 90px 80px 80px 80px;">
                     <div class="form-group">
                         <label data-ur="📅 تاریخ" data-en="📅 Date" data-roman="📅 Date">📅 تاریخ</label>
                         <input type="date" id="firstVisitDate">
@@ -1231,11 +1237,11 @@
             <div class="form-group">
                 <label data-ur="⚧ جنس" data-en="⚧ Gender" data-roman="⚧ Jins">⚧ جنس</label>
                 <select id="editGender">
-                    <option value="">---</option>
-                    <option value="male">مرد / Male</option>
-                    <option value="female">عورت / Female</option>
-                    <option value="boy">بچہ / Boy</option>
-                    <option value="girl">بچی / Girl</option>
+                    <option value="">--</option>
+                    <option value="male" data-ur="مرد" data-en="Male" data-roman="Mard">مرد</option>
+                    <option value="female" data-ur="عورت" data-en="Female" data-roman="Aurat">عورت</option>
+                    <option value="boy" data-ur="بچہ" data-en="Boy" data-roman="Bacha">بچہ</option>
+                    <option value="girl" data-ur="بچی" data-en="Girl" data-roman="Bachi">بچی</option>
                 </select>
             </div>
             <div class="form-group">
@@ -3330,5 +3336,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a168233dee324091',t:'MTc4MzI3MzA0Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a16881ec5c4f34ba',t:'MTc4MzI3NjkyNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
