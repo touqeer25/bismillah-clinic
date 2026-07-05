@@ -1116,6 +1116,11 @@
         <input type="hidden" id="editVisitId">
         <div id="visitPatientInfo" style="background:#f0f8ff; padding:10px; border-radius:6px; margin-bottom:15px; font-size:13px;"></div>
         
+        <div class="form-group">
+            <label data-ur="📋 وزٹ حوالہ نمبر" data-en="📋 Visit Reference No" data-roman="📋 Visit Hawala Number">📋 وزٹ حوالہ نمبر</label>
+            <input type="text" id="visitRefNo" readonly style="background:#ecf0f1; font-weight:bold; color:#8e44ad; font-size:14px;">
+        </div>
+        
         <div class="form-row">
             <div class="form-group">
                 <label data-ur="📅 تاریخ" data-en="📅 Date" data-roman="📅 Date">📅 تاریخ</label>
@@ -1758,6 +1763,7 @@ function patientToDb(p) {
 function dbToVisit(db) {
     return {
         id: db.id, patientId: db.patient_id,
+        visitRef: db.visit_ref || null,
         date: db.visit_date, time: db.visit_time,
         symptoms: db.symptoms, diagnosis: db.diagnosis,
         prescription: db.prescription, days: db.days,
@@ -1771,6 +1777,7 @@ function dbToVisit(db) {
 function visitToDb(v) {
     const obj = {
         patient_id: v.patientId,
+        visit_ref: v.visitRef || null,
         visit_date: v.date, visit_time: v.time,
         symptoms: v.symptoms || null, diagnosis: v.diagnosis || null,
         prescription: v.prescription || null, days: v.days || null,
@@ -2210,6 +2217,21 @@ async function generateRefNo() {
     $('refNo').value = 'BHC-' + String(maxNo + 1).padStart(4, '0') + '/' + currentMonth;
 }
 
+function generateVisitRef() {
+    var allVisits = mergeArrays(cachedVisits, getPendingVisits(), 'id');
+    var now = new Date();
+    var currentMonth = String(now.getMonth() + 1).padStart(2, '0');
+    var maxNo = 0;
+    allVisits.forEach(function(v) {
+        if (v.visitRef) {
+            var parts = v.visitRef.split('/')[0].split('-');
+            var num = parseInt(parts[1]) || 0;
+            if (num > maxNo) maxNo = num;
+        }
+    });
+    return 'V-' + String(maxNo + 1).padStart(4, '0') + '/' + currentMonth;
+}
+
 function checkFamilyByPhone() {
     const phone = $('phone').value.trim();
     const familyInput = $('familyNo');
@@ -2271,6 +2293,7 @@ async function saveNewPatient() {
         
         const firstVisit = {
             id: generateId('V'), patientId: patientId,
+            visitRef: generateVisitRef(),
             date: $('firstVisitDate').value || new Date().toISOString().split('T')[0],
             time: $('firstVisitTime').value || new Date().toTimeString().substring(0, 5),
             symptoms: $('firstVisitSymptoms').value.trim(),
@@ -2552,7 +2575,7 @@ async function showPatientDetail(patientId) {
             }
             
             html += '<div class="' + cardClass + '"><div class="visit-date">';
-            html += '<span>' + visitLabel + ' 📅 ' + escapeHtml(v.date || '-') + ' 🕐 ' + escapeHtml(v.time || '-') + '</span>';
+            html += '<span>' + visitLabel + (v.visitRef ? ' <strong style="color:#8e44ad;">' + escapeHtml(v.visitRef) + '</strong>' : '') + ' 📅 ' + escapeHtml(v.date || '-') + ' 🕐 ' + escapeHtml(v.time || '-') + '</span>';
             html += '<div class="visit-actions">';
             html += '<button class="btn btn-edit btn-xs" onclick="openEditVisitModal(\'' + v.id + '\',\'' + patient.id + '\')">✏️</button> ';
             html += '<button class="btn btn-danger btn-xs" onclick="confirmDeleteVisit(\'' + v.id + '\',\'' + patient.id + '\')">🗑️</button>';
@@ -2682,8 +2705,10 @@ function openVisitModal(patientId) {
     $('visitPatientId').value = patientId;
     $('editVisitId').value = '';
     const followups = cachedVisits.filter(function(v) { return v.patientId === patientId && v.type === 'followup'; });
-    $('visitModalTitle').textContent = '➕ Follow-up #' + (followups.length + 1) + ' - ' + patient.name;
+    var followupLabels = { ur: 'فالو اپ', en: 'Follow-up', roman: 'Follow-up' };
+    $('visitModalTitle').textContent = '➕ ' + (followupLabels[currentLang] || 'Follow-up') + ' #' + (followups.length + 1) + ' - ' + patient.name;
     $('visitPatientInfo').innerHTML = '👤 <strong>' + escapeHtml(patient.name) + '</strong> | ' + escapeHtml(patient.refNo);
+    $('visitRefNo').value = generateVisitRef();
     const now = new Date();
     $('visitDate').value = now.toISOString().split('T')[0];
     $('visitTime').value = now.toTimeString().substring(0, 5);
@@ -2699,8 +2724,10 @@ function openEditVisitModal(visitId, patientId) {
     if (!visit || !patient) return;
     $('visitPatientId').value = patientId;
     $('editVisitId').value = visitId;
-    $('visitModalTitle').textContent = '✏️ Edit - ' + patient.name;
+    var editLabels = { ur: '✏️ ترمیم', en: '✏️ Edit', roman: '✏️ Tarmeemi' };
+    $('visitModalTitle').textContent = (editLabels[currentLang] || '✏️ Edit') + ' - ' + patient.name;
     $('visitPatientInfo').innerHTML = '👤 <strong>' + escapeHtml(patient.name) + '</strong> | ' + escapeHtml(patient.refNo);
+    $('visitRefNo').value = visit.visitRef || '—';
     $('visitDate').value = visit.date || '';
     $('visitTime').value = visit.time || '';
     $('visitSymptoms').value = visit.symptoms || '';
@@ -2764,6 +2791,7 @@ async function saveVisit() {
         } else {
             const newVisit = {
                 id: generateId('V'), patientId: patientId, ...visitData,
+                visitRef: $('visitRefNo').value || generateVisitRef(),
                 type: 'followup',
                 createdAt: new Date().toISOString(),
                 createdBy: currentUserData ? currentUserData.name : 'Unknown'
@@ -3238,5 +3266,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a16243b8a85cc697',t:'MTc4MzIxMTQ2Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
