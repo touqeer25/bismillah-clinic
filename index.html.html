@@ -17,9 +17,9 @@
     <meta name="apple-mobile-web-app-title" content="BHC Clinic">
     
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="diagnosis-data.js"></script>
-    <script src="diagnosis-custom.js"></script>
-    <script src="custom-data-help.js"></script>
+    <script src="diagnosis-data.js?v=3"></script>
+    <script src="diagnosis-custom.js?v=3"></script>
+    <script src="custom-data-help.js?v=3"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
@@ -760,6 +760,12 @@
                         <label data-ur="📋 حوالہ نمبر" data-en="📋 Reference No" data-roman="📋 Reference No">📋 حوالہ نمبر</label>
                         <input type="text" id="refNo" readonly style="background:#ecf0f1; font-weight:bold; color:#2980b9;">
                     </div>
+                    <div class="form-group">
+                        <label data-ur="📋 وزٹ نمبر" data-en="📋 Visit No" data-roman="📋 Visit No">📋 وزٹ نمبر</label>
+                        <input type="text" id="firstVisitRef" readonly style="background:#ecf0f1; font-weight:bold; color:#8e44ad;">
+                    </div>
+                </div>
+                <div class="form-row">
                     <div class="form-group">
                         <label data-ur="👨‍👩‍👧‍👦 فیملی نمبر" data-en="👨‍👩‍👧‍👦 Family No" data-roman="👨‍👩‍👧‍👦 Family No">👨‍👩‍👧‍👦 فیملی نمبر</label>
                         <input type="text" id="familyNo" placeholder="مثلاً: F-0001">
@@ -2117,6 +2123,7 @@ async function showPage(pageId, btn) {
             if (pageId === 'allPatients') await showAllPatients();
             if (pageId === 'newPatient') {
                 await generateRefNo();
+                if ($('firstVisitRef')) $('firstVisitRef').value = generateVisitRef();
                 const now = new Date();
                 $('firstVisitDate').value = now.toISOString().split('T')[0];
                 $('firstVisitTime').value = now.toTimeString().substring(0, 5);
@@ -2175,7 +2182,7 @@ async function updateDashboard() {
         todayFollowups.forEach(function(v) {
             const patient = patients.find(function(p) { return p.id === v.patientId; });
             if (patient && !todayRegistered.find(function(p) { return p.id === v.patientId; })) {
-                activities.push({ patient: patient, time: v.time || '', type: 'followup' });
+                activities.push({ patient: patient, time: v.time || '', type: 'followup', visitRef: v.visitRef || '' });
             }
         });
         activities.sort(function(a, b) { return (b.time || '').localeCompare(a.time || ''); });
@@ -2192,7 +2199,7 @@ async function updateDashboard() {
             const actBadge = a.type === 'followup' ? 'badge-visit' : 'badge-registered';
             html += '<li onclick="showPatientDetail(\'' + a.patient.id + '\')"><div>';
             html += '<div class="patient-list-name">' + escapeHtml(a.patient.name) + '</div>';
-            html += '<div class="patient-list-time">' + escapeHtml(a.patient.refNo) + ' | ' + escapeHtml(a.time) + ' ';
+            html += '<div class="patient-list-time">' + escapeHtml(a.patient.refNo) + (a.visitRef ? ' | <span style="color:#8e44ad;">' + escapeHtml(a.visitRef) + '</span>' : '') + ' | ' + escapeHtml(a.time) + ' ';
             html += '<span class="badge ' + actBadge + '">' + badgeTexts[currentLang][a.type] + '</span></div>';
             html += '</div><span class="badge ' + gBadge + '">' + translateGender(a.patient.gender) + '</span></li>';
         });
@@ -2293,7 +2300,7 @@ async function saveNewPatient() {
         
         const firstVisit = {
             id: generateId('V'), patientId: patientId,
-            visitRef: generateVisitRef(),
+            visitRef: ($('firstVisitRef') ? $('firstVisitRef').value : '') || generateVisitRef(),
             date: $('firstVisitDate').value || new Date().toISOString().split('T')[0],
             time: $('firstVisitTime').value || new Date().toTimeString().substring(0, 5),
             symptoms: $('firstVisitSymptoms').value.trim(),
@@ -2354,6 +2361,7 @@ function clearNewPatientForm() {
     const now = new Date();
     $('firstVisitDate').value = now.toISOString().split('T')[0];
     $('firstVisitTime').value = now.toTimeString().substring(0, 5);
+    if ($('firstVisitRef')) $('firstVisitRef').value = generateVisitRef();
 }
 
 // ==================== CONFIRM MODAL ====================
@@ -2445,21 +2453,27 @@ async function showAllPatients() {
 function renderPatientsTable(patients) {
     const pendingIds = new Set(getPendingPatients().map(function(p) { return p.id; }));
     const followupsByPatient = {};
+    const lastVisitRefByPatient = {};
     cachedVisits.forEach(function(v) {
         if (v.type === 'followup') {
             followupsByPatient[v.patientId] = (followupsByPatient[v.patientId] || 0) + 1;
         }
+        if (v.visitRef) {
+            if (!lastVisitRefByPatient[v.patientId] || v.date > (lastVisitRefByPatient[v.patientId].date || '')) {
+                lastVisitRefByPatient[v.patientId] = v;
+            }
+        }
     });
     
     const h = {
-        ur: ['حوالہ', 'فیملی', 'نام', 'ولدیت', 'عمر', 'جنس', 'فون', 'فالو اپ', 'ایکشن'],
-        en: ['Ref', 'Family', 'Name', 'Father', 'Age', 'Gender', 'Phone', 'Follow-ups', 'Action'],
-        roman: ['Ref', 'Family', 'Naam', 'Waldiyat', 'Umar', 'Jins', 'Phone', 'Follow-ups', 'Action']
+        ur: ['حوالہ', 'آخری وزٹ', 'فیملی', 'نام', 'ولدیت', 'عمر', 'جنس', 'فون', 'فالو اپ', 'ایکشن'],
+        en: ['Ref', 'Last Visit', 'Family', 'Name', 'Father', 'Age', 'Gender', 'Phone', 'Follow-ups', 'Action'],
+        roman: ['Ref', 'Aakhri Visit', 'Family', 'Naam', 'Waldiyat', 'Umar', 'Jins', 'Phone', 'Follow-ups', 'Action']
     }[currentLang];
     
     let html = '<div class="table-container"><table><thead><tr>';
     h.forEach(function(header, i) {
-        const cls = [1,4,5,6,7,8].includes(i) ? ' class="td-center"' : '';
+        const cls = [1,2,5,6,7,8,9].includes(i) ? ' class="td-center"' : '';
         html += '<th' + cls + '>' + header + '</th>';
     });
     html += '</tr></thead><tbody>';
@@ -2468,6 +2482,7 @@ function renderPatientsTable(patients) {
         const followupCount = followupsByPatient[p.id] || 0;
         const gBadge = getGenderBadgeClass(p.gender);
         const isPending = pendingIds.has(p.id);
+        const lastVisit = lastVisitRefByPatient[p.id];
         
         let familyCell = p.familyNo ?
             '<span class="family-badge" onclick="event.stopPropagation();showFamilyMembers(\'' + escapeHtml(p.familyNo) + '\')">' + escapeHtml(p.familyNo) + '</span>' :
@@ -2475,6 +2490,7 @@ function renderPatientsTable(patients) {
         
         html += '<tr>';
         html += '<td><strong>' + escapeHtml(p.refNo) + '</strong>' + (isPending ? ' <span class="badge badge-pending">🔄</span>' : '') + '</td>';
+        html += '<td class="td-center">' + (lastVisit ? '<span style="color:#8e44ad;font-weight:bold;font-size:11px;">' + escapeHtml(lastVisit.visitRef) + '</span>' : '<span style="color:#bdc3c7;">—</span>') + '</td>';
         html += '<td class="td-center">' + familyCell + '</td>';
         html += '<td>' + escapeHtml(p.name) + '</td>';
         html += '<td>' + escapeHtml(p.fatherName || '-') + '</td>';
