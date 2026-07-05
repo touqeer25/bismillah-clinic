@@ -788,8 +788,8 @@
                     </div>
                 </div>
                 
-                <!-- Row 2: Name + Phone -->
-                <div class="fg-row" style="grid-template-columns: 1fr 140px;">
+                <!-- Row 2: Name + Phone + Age + Gender + Weight -->
+                <div class="fg-row" style="grid-template-columns: 1fr 140px 70px 90px 70px;">
                     <div class="form-group">
                         <label data-ur="👤 نام *" data-en="👤 Name *" data-roman="👤 Naam *">👤 نام *</label>
                         <input type="text" id="patientName">
@@ -797,14 +797,6 @@
                     <div class="form-group">
                         <label data-ur="📱 فون *" data-en="📱 Phone *" data-roman="📱 Phone *">📱 فون *</label>
                         <input type="tel" id="phone" dir="ltr" style="text-align:left;">
-                    </div>
-                </div>
-                
-                <!-- Row 3: Father + Age + Gender + Weight -->
-                <div class="fg-row" style="grid-template-columns: 1fr 70px 90px 70px;">
-                    <div class="form-group">
-                        <label data-ur="👨 ولدیت" data-en="👨 Father" data-roman="👨 Waldiyat">👨 ولدیت</label>
-                        <input type="text" id="fatherName">
                     </div>
                     <div class="form-group">
                         <label data-ur="🎂 عمر" data-en="🎂 Age" data-roman="🎂 Umar">🎂 عمر</label>
@@ -820,8 +812,12 @@
                     </div>
                 </div>
                 
-                <!-- Row 4: Address -->
-                <div class="fg-row" style="grid-template-columns: 1fr;">
+                <!-- Row 3: Father + Address -->
+                <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
+                    <div class="form-group">
+                        <label data-ur="👨 ولدیت / زوجیت" data-en="👨 Father / Spouse" data-roman="👨 Waldiyat / Zojiyat">👨 ولدیت / زوجیت</label>
+                        <input type="text" id="fatherName">
+                    </div>
                     <div class="form-group">
                         <label data-ur="🏠 پتہ" data-en="🏠 Address" data-roman="🏠 Pata">🏠 پتہ</label>
                         <input type="text" id="address">
@@ -3334,5 +3330,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a168233dee324091',t:'MTc4MzI3MzA0Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
