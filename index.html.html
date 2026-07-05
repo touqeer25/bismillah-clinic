@@ -863,14 +863,14 @@
                 </div>
                 
                 <!-- Row 6: Symptoms + Allergy + Diagnosis -->
-                <div class="fg-row" style="grid-template-columns: 1fr 120px 1fr;">
+                <div class="fg-row" style="grid-template-columns: 1fr 1fr 1fr;">
                     <div class="form-group">
                         <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
                         <textarea id="firstVisitSymptoms" style="min-height:55px;"></textarea>
                     </div>
                     <div class="form-group">
                         <label data-ur="⚠️ الرجی" data-en="⚠️ Allergy" data-roman="⚠️ Allergy">⚠️ الرجی</label>
-                        <input type="text" id="allergy">
+                        <textarea id="allergy" style="min-height:55px;"></textarea>
                     </div>
                     <div class="form-group">
                         <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
@@ -890,15 +890,15 @@
                     </div>
                 </div>
                 
-                <!-- Row 8: Notes + Days -->
-                <div class="fg-row" style="grid-template-columns: 1fr 70px;">
-                    <div class="form-group">
-                        <label data-ur="📝 نوٹس" data-en="📝 Notes" data-roman="📝 Notes">📝 نوٹس</label>
-                        <textarea id="firstVisitNotes" style="min-height:45px;"></textarea>
-                    </div>
+                <!-- Row 8: Days + Notes (Days first, both equal) -->
+                <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                     <div class="form-group">
                         <label data-ur="📆 دن" data-en="📆 Days" data-roman="📆 Din">📆 دن</label>
                         <input type="text" id="firstVisitDays" placeholder="7" style="text-align:center;">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="📝 نوٹس" data-en="📝 Notes" data-roman="📝 Notes">📝 نوٹس</label>
+                        <textarea id="firstVisitNotes" style="min-height:45px;"></textarea>
                     </div>
                 </div>
                 
@@ -3336,5 +3336,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a16881ec5c4f34ba',t:'MTc4MzI3NjkyNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a168c2e98852541f',t:'MTc4MzI3OTU4Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
