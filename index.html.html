@@ -231,21 +231,14 @@
             gap: 12px;
         }
         /* Custom compact grid for registration form */
-        .fg-row { display: grid; gap: 10px; margin-bottom: 10px; }
-        .fg-row-refs { grid-template-columns: 1fr 1fr 1fr; }
-        .fg-row-name { grid-template-columns: 2fr 1fr; }
-        .fg-row-father { grid-template-columns: 2fr 80px; }
-        .fg-row-gender { grid-template-columns: 1fr 80px; }
-        .fg-row-datetime { grid-template-columns: 1fr 1fr; }
-        .fg-row-vitals { grid-template-columns: 1fr 1fr 1fr 1fr; }
-        .fg-row-presc { grid-template-columns: 2fr 80px; }
-        @media (max-width: 600px) {
-            .fg-row-refs { grid-template-columns: 1fr 1fr; }
-            .fg-row-name { grid-template-columns: 1fr; }
-            .fg-row-father { grid-template-columns: 1fr 80px; }
-            .fg-row-gender { grid-template-columns: 1fr 80px; }
-            .fg-row-vitals { grid-template-columns: 1fr 1fr; }
-            .fg-row-presc { grid-template-columns: 1fr 80px; }
+        .fg-row { display: grid; gap: 8px; margin-bottom: 8px; }
+        .fg-row .form-group { margin-bottom: 0; }
+        .fg-row .form-group input,
+        .fg-row .form-group select,
+        .fg-row .form-group textarea { padding: 7px 10px; font-size: 13px; }
+        .fg-row .form-group label { font-size: 12px; margin-bottom: 3px; }
+        @media (max-width: 500px) {
+            .fg-row { grid-template-columns: 1fr !important; }
         }
 
         .section-divider {
@@ -779,27 +772,26 @@
                     👤 <span data-ur="مریض کی معلومات" data-en="Patient Information" data-roman="Mareez ki Malumat">مریض کی معلومات</span>
                 </div>
                 
-                <!-- Row 1: Ref + Visit + Family (compact) -->
-                <div class="fg-row fg-row-refs">
+                <!-- Row 1: Ref + Visit + Family -->
+                <div class="fg-row" style="grid-template-columns: 120px 110px 110px;">
                     <div class="form-group">
-                        <label data-ur="📋 حوالہ نمبر" data-en="📋 Ref No" data-roman="📋 Ref No">📋 حوالہ نمبر</label>
-                        <input type="text" id="refNo" readonly style="background:#ecf0f1; font-weight:bold; color:#2980b9; font-size:13px;">
+                        <label data-ur="📋 حوالہ" data-en="📋 Ref" data-roman="📋 Ref">📋 حوالہ</label>
+                        <input type="text" id="refNo" readonly style="background:#ecf0f1;font-weight:bold;color:#2980b9;">
                     </div>
                     <div class="form-group">
-                        <label data-ur="📋 وزٹ نمبر" data-en="📋 Visit No" data-roman="📋 Visit No">📋 وزٹ نمبر</label>
-                        <input type="text" id="firstVisitRef" readonly style="background:#ecf0f1; font-weight:bold; color:#8e44ad; font-size:13px;">
+                        <label data-ur="📋 وزٹ" data-en="📋 Visit" data-roman="📋 Visit">📋 وزٹ</label>
+                        <input type="text" id="firstVisitRef" readonly style="background:#ecf0f1;font-weight:bold;color:#8e44ad;">
                     </div>
                     <div class="form-group">
                         <label data-ur="👨‍👩‍👧‍👦 فیملی" data-en="👨‍👩‍👧‍👦 Family" data-roman="👨‍👩‍👧‍👦 Family">👨‍👩‍👧‍👦 فیملی</label>
-                        <input type="text" id="familyNo" placeholder="F-0001" data-ph-ur="F-0001" data-ph-en="F-0001" data-ph-roman="F-0001" style="font-size:13px;">
-                        <div class="hint" id="familyHint" data-ur="اختیاری" data-en="Optional" data-roman="Ikhtiyari">اختیاری</div>
+                        <input type="text" id="familyNo" placeholder="F-0001">
                     </div>
                 </div>
                 
-                <!-- Row 2: Name (big) + Phone -->
-                <div class="fg-row fg-row-name">
+                <!-- Row 2: Name + Phone -->
+                <div class="fg-row" style="grid-template-columns: 1fr 140px;">
                     <div class="form-group">
-                        <label data-ur="👤 نام مریض *" data-en="👤 Patient Name *" data-roman="👤 Naam *">👤 نام مریض *</label>
+                        <label data-ur="👤 نام *" data-en="👤 Name *" data-roman="👤 Naam *">👤 نام *</label>
                         <input type="text" id="patientName">
                     </div>
                     <div class="form-group">
@@ -808,29 +800,19 @@
                     </div>
                 </div>
                 
-                <!-- Row 3: Father (big) + Age (small) -->
-                <div class="fg-row fg-row-father">
+                <!-- Row 3: Father + Age + Gender + Weight -->
+                <div class="fg-row" style="grid-template-columns: 1fr 70px 90px 70px;">
                     <div class="form-group">
-                        <label data-ur="👨 ولدیت / ازواجیت" data-en="👨 Father/Spouse" data-roman="👨 Waldiyat">👨 ولدیت / ازواجیت</label>
+                        <label data-ur="👨 ولدیت" data-en="👨 Father" data-roman="👨 Waldiyat">👨 ولدیت</label>
                         <input type="text" id="fatherName">
                     </div>
                     <div class="form-group">
                         <label data-ur="🎂 عمر" data-en="🎂 Age" data-roman="🎂 Umar">🎂 عمر</label>
                         <input type="text" id="age" placeholder="25" style="text-align:center;">
                     </div>
-                </div>
-                
-                <!-- Row 4: Gender (select) + Weight (small) -->
-                <div class="fg-row fg-row-gender">
                     <div class="form-group">
                         <label data-ur="⚧ جنس" data-en="⚧ Gender" data-roman="⚧ Jins">⚧ جنس</label>
-                        <select id="gender">
-                            <option value="">---</option>
-                            <option value="male">مرد / Male</option>
-                            <option value="female">عورت / Female</option>
-                            <option value="boy">بچہ / Boy</option>
-                            <option value="girl">بچی / Girl</option>
-                        </select>
+                        <select id="gender"><option value="">--</option><option value="male">مرد</option><option value="female">عورت</option><option value="boy">بچہ</option><option value="girl">بچی</option></select>
                     </div>
                     <div class="form-group">
                         <label data-ur="⚖️ وزن" data-en="⚖️ Wt" data-roman="⚖️ Wt">⚖️ وزن</label>
@@ -838,12 +820,8 @@
                     </div>
                 </div>
                 
-                <!-- Row 5: Allergy + Address (same row) -->
-                <div class="fg-row" style="grid-template-columns: 1fr 2fr;">
-                    <div class="form-group">
-                        <label data-ur="⚠️ الرجی" data-en="⚠️ Allergy" data-roman="⚠️ Allergy">⚠️ الرجی</label>
-                        <input type="text" id="allergy">
-                    </div>
+                <!-- Row 4: Address -->
+                <div class="fg-row" style="grid-template-columns: 1fr;">
                     <div class="form-group">
                         <label data-ur="🏠 پتہ" data-en="🏠 Address" data-roman="🏠 Pata">🏠 پتہ</label>
                         <input type="text" id="address">
@@ -851,11 +829,11 @@
                 </div>
                 
                 <div class="section-divider">
-                    🩺 <span data-ur="پہلی ملاقات کی تفصیل" data-en="First Consultation" data-roman="Pehli Mulaqat">پہلی ملاقات کی تفصیل</span>
+                    🩺 <span data-ur="پہلی ملاقات" data-en="First Consultation" data-roman="Pehli Mulaqat">پہلی ملاقات</span>
                 </div>
                 
-                <!-- Date + Time (compact) -->
-                <div class="fg-row fg-row-datetime">
+                <!-- Row 5: Date + Time + BP + Sugar + Temp + Pulse -->
+                <div class="fg-row" style="grid-template-columns: 110px 100px 90px 80px 80px 80px;">
                     <div class="form-group">
                         <label data-ur="📅 تاریخ" data-en="📅 Date" data-roman="📅 Date">📅 تاریخ</label>
                         <input type="date" id="firstVisitDate">
@@ -864,62 +842,57 @@
                         <label data-ur="🕐 وقت" data-en="🕐 Time" data-roman="🕐 Waqt">🕐 وقت</label>
                         <input type="time" id="firstVisitTime">
                     </div>
-                </div>
-                
-                <!-- Vitals: BP + Sugar + Temp + Pulse (all one row) -->
-                <div class="vitals-box">
-                    <div style="font-weight:bold; margin-bottom:8px; color:#17a2b8; font-size:13px;">
-                        💗 <span data-ur="جسمانی معائنہ" data-en="Vitals" data-roman="Vitals">جسمانی معائنہ</span>
+                    <div class="form-group">
+                        <label data-ur="🩸 BP" data-en="🩸 BP" data-roman="🩸 BP">🩸 BP</label>
+                        <input type="text" id="firstBP" placeholder="120/80" style="text-align:center;">
                     </div>
-                    <div class="fg-row fg-row-vitals">
-                        <div class="form-group">
-                            <label data-ur="🩸 BP" data-en="🩸 BP" data-roman="🩸 BP">🩸 BP</label>
-                            <input type="text" id="firstBP" placeholder="120/80" style="text-align:center;">
-                        </div>
-                        <div class="form-group">
-                            <label data-ur="🍬 شوگر" data-en="🍬 Sugar" data-roman="🍬 Sugar">🍬 شوگر</label>
-                            <input type="text" id="firstSugar" placeholder="mg/dL" style="text-align:center;">
-                        </div>
-                        <div class="form-group">
-                            <label data-ur="🌡️ ٹمپ" data-en="🌡️ Temp" data-roman="🌡️ Temp">🌡️ ٹمپ</label>
-                            <input type="text" id="firstTemp" placeholder="98.6°F" style="text-align:center;">
-                        </div>
-                        <div class="form-group">
-                            <label data-ur="💓 نبض" data-en="💓 Pulse" data-roman="💓 Pulse">💓 نبض</label>
-                            <input type="text" id="firstPulse" placeholder="72/min" style="text-align:center;">
-                        </div>
+                    <div class="form-group">
+                        <label data-ur="🍬 شوگر" data-en="🍬 Sugar" data-roman="🍬 Sugar">🍬 شوگر</label>
+                        <input type="text" id="firstSugar" placeholder="mg/dL" style="text-align:center;">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="🌡️ ٹمپ" data-en="🌡️ Temp" data-roman="🌡️ Temp">🌡️ ٹمپ</label>
+                        <input type="text" id="firstTemp" placeholder="98.6°F" style="text-align:center;">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="💓 نبض" data-en="💓 Pulse" data-roman="💓 Pulse">💓 نبض</label>
+                        <input type="text" id="firstPulse" placeholder="72" style="text-align:center;">
                     </div>
                 </div>
                 
-                <!-- Symptoms + Diagnosis (side by side) -->
-                <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
+                <!-- Row 6: Symptoms + Allergy + Diagnosis -->
+                <div class="fg-row" style="grid-template-columns: 1fr 120px 1fr;">
                     <div class="form-group">
                         <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
-                        <textarea id="firstVisitSymptoms" style="min-height:60px;"></textarea>
+                        <textarea id="firstVisitSymptoms" style="min-height:55px;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="⚠️ الرجی" data-en="⚠️ Allergy" data-roman="⚠️ Allergy">⚠️ الرجی</label>
+                        <input type="text" id="allergy">
                     </div>
                     <div class="form-group">
                         <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
-                        <textarea id="firstVisitDiagnosis" style="min-height:60px;"></textarea>
+                        <textarea id="firstVisitDiagnosis" style="min-height:55px;"></textarea>
                     </div>
                 </div>
                 
-                <!-- Prescription + Method (side by side) -->
+                <!-- Row 7: Prescription + Method -->
                 <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                     <div class="form-group">
                         <label data-ur="💊 نسخہ" data-en="💊 Prescription" data-roman="💊 Nuskha">💊 نسخہ</label>
-                        <textarea id="firstVisitPrescription" style="min-height:60px;"></textarea>
+                        <textarea id="firstVisitPrescription" style="min-height:55px;"></textarea>
                     </div>
                     <div class="form-group">
-                        <label data-ur="📖 طریقہ استعمال" data-en="📖 Method" data-roman="📖 Tareeqa">📖 طریقہ استعمال</label>
-                        <textarea id="firstVisitMethod" style="min-height:60px;"></textarea>
+                        <label data-ur="📖 طریقہ" data-en="📖 Method" data-roman="📖 Tareeqa">📖 طریقہ</label>
+                        <textarea id="firstVisitMethod" style="min-height:55px;"></textarea>
                     </div>
                 </div>
                 
-                <!-- Days + Notes (same row) -->
-                <div class="fg-row fg-row-presc">
+                <!-- Row 8: Notes + Days -->
+                <div class="fg-row" style="grid-template-columns: 1fr 70px;">
                     <div class="form-group">
-                        <label data-ur="📝 اضافی نوٹس" data-en="📝 Notes" data-roman="📝 Notes">📝 اضافی نوٹس</label>
-                        <textarea id="firstVisitNotes" style="min-height:50px;"></textarea>
+                        <label data-ur="📝 نوٹس" data-en="📝 Notes" data-roman="📝 Notes">📝 نوٹس</label>
+                        <textarea id="firstVisitNotes" style="min-height:45px;"></textarea>
                     </div>
                     <div class="form-group">
                         <label data-ur="📆 دن" data-en="📆 Days" data-roman="📆 Din">📆 دن</label>
