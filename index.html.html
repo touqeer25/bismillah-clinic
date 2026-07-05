@@ -1731,17 +1731,46 @@ async function syncPendingData() {
     const failedP = [], failedV = [], failedE = [];
     
     for (const p of pendingPatients) {
-        try { await savePatientDB(p); synced++; } catch(e) { failedP.push(p); errors++; }
+        try { 
+            await savePatientDB(p); 
+            synced++; 
+        } catch(e) { 
+            console.error('❌ Patient sync failed:', p.name, e.message || e);
+            // If duplicate/conflict error, skip (already synced)
+            if (e.code === '23505' || e.code === '409' || (e.message && (e.message.indexOf('duplicate') !== -1 || e.message.indexOf('Conflict') !== -1 || e.message.indexOf('conflict') !== -1 || e.message.indexOf('already exists') !== -1))) {
+                console.log('⏭️ Skipping duplicate patient:', p.name);
+                synced++;
+            } else {
+                failedP.push(p); 
+                errors++; 
+            }
+        }
     }
     for (const v of pendingVisits) {
-        try { await saveVisitDB(v); synced++; } catch(e) { failedV.push(v); errors++; }
+        try { 
+            await saveVisitDB(v); 
+            synced++; 
+        } catch(e) { 
+            console.error('❌ Visit sync failed:', v.patientId, e.message || e);
+            if (e.code === '23505' || e.code === '409' || (e.message && (e.message.indexOf('duplicate') !== -1 || e.message.indexOf('Conflict') !== -1 || e.message.indexOf('conflict') !== -1))) {
+                console.log('⏭️ Skipping duplicate visit');
+                synced++;
+            } else {
+                failedV.push(v); 
+                errors++; 
+            }
+        }
     }
     for (const e of pendingEdits) {
         try {
             if (e.type === 'patient') await updatePatientDB(e.id, e.data);
             else if (e.type === 'visit') await updateVisitDB(e.id, e.data);
             synced++;
-        } catch(err) { failedE.push(e); errors++; }
+        } catch(err) { 
+            console.error('❌ Edit sync failed:', e.type, e.id, err.message || err);
+            failedE.push(e); 
+            errors++; 
+        }
     }
     
     localStorage.setItem('pending_patients', JSON.stringify(failedP));
@@ -1753,7 +1782,7 @@ async function syncPendingData() {
         showToast('✅ Synced: ' + synced + ' items');
         await forceCacheRefresh();
     }
-    if (errors > 0) showToast('⚠️ ' + errors + ' failed', 'error');
+    if (errors > 0) showToast('⚠️ ' + errors + ' failed - check console', 'error');
 }
 
 // ==================== DATABASE ====================
@@ -1852,20 +1881,39 @@ async function getVisitsByPatient(patientId) {
 }
 
 async function savePatientDB(patient) {
-    const r = await sb.from('patients').insert([patientToDb(patient)]).select();
-    if (r.error) throw r.error;
+    var dbData = patientToDb(patient);
+    // Don't send custom ID - let Supabase handle it via upsert
+    var customId = dbData.id;
+    delete dbData.id;
+    console.log('📤 Saving patient:', dbData.name);
+    var r = await sb.from('patients').upsert([Object.assign({id: customId}, dbData)], {onConflict: 'id'}).select();
+    if (r.error) {
+        console.error('Patient upsert error:', r.error.message, r.error.code);
+        // Try plain insert without ID
+        r = await sb.from('patients').insert([dbData]).select();
+        if (r.error) {
+            console.error('Patient insert also failed:', r.error.message);
+            throw r.error;
+        }
+    }
     return r.data[0];
 }
 
 async function saveVisitDB(visit) {
     var dbData = visitToDb(visit);
-    var r = await sb.from('visits').insert([dbData]).select();
+    var customId = dbData.id;
+    delete dbData.id;
+    delete dbData.visit_ref; // remove visit_ref to avoid column errors
+    console.log('📤 Saving visit for patient:', dbData.patient_id);
+    var r = await sb.from('visits').upsert([Object.assign({id: customId}, dbData)], {onConflict: 'id'}).select();
     if (r.error) {
-        // Retry without visit_ref if column doesn't exist
-        console.warn('Visit save error:', r.error.message, '- retrying without visit_ref');
-        delete dbData.visit_ref;
+        console.error('Visit upsert error:', r.error.message, r.error.code);
+        // Try plain insert without ID
         r = await sb.from('visits').insert([dbData]).select();
-        if (r.error) throw r.error;
+        if (r.error) {
+            console.error('Visit insert also failed:', r.error.message);
+            throw r.error;
+        }
     }
     return r.data[0];
 }
@@ -2365,7 +2413,9 @@ async function saveNewPatient() {
                 await saveVisitDB(firstVisit);
                 savedOnline = true;
                 await forceCacheRefresh();
-            } catch(err) { console.error(err); }
+            } catch(err) { 
+                console.error('💾 Direct save failed, saving to pending:', err.message || err);
+            }
         }
         
         if (!savedOnline) {
@@ -3336,5 +3386,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a16906929b0399ec',t:'MTc4MzI4MjM1OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
