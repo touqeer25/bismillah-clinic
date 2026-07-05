@@ -106,24 +106,22 @@
             color: white; padding: 12px 15px;
             position: sticky; top: 0; z-index: 100;
             box-shadow: 0 3px 15px rgba(0,0,0,0.2);
-            display: flex; align-items: center;
-            direction: ltr !important;
+            min-height: 70px;
         }
+        .header-center {
+            text-align: center; padding: 4px 0; overflow: visible;
+        }
+        body[dir="rtl"] .header-center { direction: rtl; }
+        body[dir="ltr"] .header-center { direction: ltr; }
         .header-right {
+            position: absolute; top: 8px; right: 12px;
             display: flex; gap: 6px; align-items: center;
-            flex-shrink: 0;
-            margin-left: auto;
             direction: ltr;
         }
         .header-btns-grid {
             display: grid; grid-template-columns: 1fr 1fr;
             gap: 4px;
         }
-        .header-center {
-            flex: 1; text-align: center; padding: 0 15px; overflow: visible;
-        }
-        body[dir="rtl"] .header-center { direction: rtl; }
-        body[dir="ltr"] .header-center { direction: ltr; }
         .header-center .clinic-title {
             font-size: 24px; font-weight: bold; line-height: 2.2;
             padding: 8px 0 2px 0; color: #f1c40f;
@@ -565,11 +563,12 @@
         }
 
         @media (max-width: 768px) {
-            .app-header { padding: 12px 8px; gap: 5px; }
+            .app-header { padding: 10px 8px; min-height: 60px; }
+            .header-right { top: 6px; right: 6px; gap: 4px; }
             .header-center .clinic-title { font-size: 17px; line-height: 2; letter-spacing: 0.5px; }
             .header-center .doctor-title { font-size: 10px; letter-spacing: 0.3px; }
-            .icon-btn { width: 32px; height: 32px; font-size: 14px; }
-            .header-btns-grid { gap: 3px; }
+            .icon-btn { width: 30px; height: 30px; font-size: 13px; }
+            .header-btns-grid { gap: 2px; }
             .connection-status { font-size: 10px; padding: 3px 6px; }
             .connection-status .status-text { display: none; }
             .form-row, .form-row-3 { grid-template-columns: 1fr; }
@@ -1857,15 +1856,11 @@ async function saveVisitDB(visit) {
     var dbData = visitToDb(visit);
     var r = await sb.from('visits').insert([dbData]).select();
     if (r.error) {
-        // If error might be due to visit_ref column, retry without it
-        if (r.error.message && (r.error.message.indexOf('visit_ref') !== -1 || r.error.code === '42703')) {
-            delete dbData.visit_ref;
-            _visitRefColumnExists = false;
-            r = await sb.from('visits').insert([dbData]).select();
-            if (r.error) throw r.error;
-        } else {
-            throw r.error;
-        }
+        // Retry without visit_ref if column doesn't exist
+        console.warn('Visit save error:', r.error.message, '- retrying without visit_ref');
+        delete dbData.visit_ref;
+        r = await sb.from('visits').insert([dbData]).select();
+        if (r.error) throw r.error;
     }
     return r.data[0];
 }
@@ -1877,8 +1872,13 @@ async function updatePatientDB(patientId, updates) {
 }
 
 async function updateVisitDB(visitId, updates) {
-    const r = await sb.from('visits').update(updates).eq('id', visitId).select();
-    if (r.error) throw r.error;
+    var r = await sb.from('visits').update(updates).eq('id', visitId).select();
+    if (r.error) {
+        // Retry without visit_ref if it causes error
+        delete updates.visit_ref;
+        r = await sb.from('visits').update(updates).eq('id', visitId).select();
+        if (r.error) throw r.error;
+    }
     return r.data[0];
 }
 
