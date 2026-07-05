@@ -103,18 +103,27 @@
 
         .app-header {
             background: linear-gradient(135deg, #1a5276, #2980b9);
-            color: white; padding: 15px 15px;
+            color: white; padding: 12px 15px;
             position: sticky; top: 0; z-index: 100;
             box-shadow: 0 3px 15px rgba(0,0,0,0.2);
-            display: grid; grid-template-columns: 1fr auto;
-            align-items: center; gap: 10px;
+            display: flex; align-items: center;
+            direction: ltr !important;
         }
-        .header-right { display: flex; gap: 6px; align-items: center; }
+        .header-right {
+            display: flex; gap: 6px; align-items: center;
+            flex-shrink: 0;
+            margin-left: auto;
+            direction: ltr;
+        }
         .header-btns-grid {
             display: grid; grid-template-columns: 1fr 1fr;
             gap: 4px;
         }
-        .header-center { text-align: center; padding: 8px 0; overflow: visible; }
+        .header-center {
+            flex: 1; text-align: center; padding: 0 15px; overflow: visible;
+        }
+        body[dir="rtl"] .header-center { direction: rtl; }
+        body[dir="ltr"] .header-center { direction: ltr; }
         .header-center .clinic-title {
             font-size: 24px; font-weight: bold; line-height: 2.2;
             padding: 8px 0 2px 0; color: #f1c40f;
@@ -664,7 +673,6 @@
                 <button class="icon-btn" id="backupBtn" title="Backup Data">💾</button>
             </div>
         </div>
-        </div>
     </header>
     
     <nav class="nav-bar">
@@ -1011,7 +1019,8 @@
                 <div id="syncSection" class="sync-box hidden">
                     <h4 style="color:#17a2b8; margin-bottom:10px;">🔄 Pending Sync</h4>
                     <p style="font-size:13px; margin-bottom:10px;" id="syncInfo"></p>
-                    <button class="btn btn-info" id="manualSyncBtn">🔄 Sync Now</button>
+                    <button class="btn btn-info" id="manualSyncBtn">🔄 <span data-ur="ابھی سنک کریں" data-en="Sync Now" data-roman="Abhi Sync Karein">ابھی سنک کریں</span></button>
+                    <button class="btn btn-danger btn-sm" id="clearPendingBtn" style="margin-top:8px;">🗑️ <span data-ur="ناکام ڈیٹا صاف کریں" data-en="Clear Failed Data" data-roman="Nakaam Data Saaf Karein">ناکام ڈیٹا صاف کریں</span></button>
                 </div>
 	<!-- Sync Status Indicator -->
 <div id="customSyncStatus" style="background:#e8f5e9;border:1px solid #27ae60;padding:8px 12px;border-radius:6px;margin-bottom:12px;font-size:12px;color:#1e8449;display:flex;align-items:center;gap:8px;">
@@ -1783,7 +1792,6 @@ function dbToVisit(db) {
 function visitToDb(v) {
     const obj = {
         patient_id: v.patientId,
-        visit_ref: v.visitRef || null,
         visit_date: v.date, visit_time: v.time,
         symptoms: v.symptoms || null, diagnosis: v.diagnosis || null,
         prescription: v.prescription || null, days: v.days || null,
@@ -1794,7 +1802,25 @@ function visitToDb(v) {
         created_by: v.createdBy || null
     };
     if (v.id) obj.id = v.id;
+    // visit_ref column - only include if value exists
+    if (v.visitRef) obj.visit_ref = v.visitRef;
     return obj;
+}
+
+// Test if visit_ref column exists in Supabase
+var _visitRefColumnExists = null;
+async function checkVisitRefColumn() {
+    if (_visitRefColumnExists !== null) return _visitRefColumnExists;
+    try {
+        var r = await sb.from('visits').select('visit_ref').limit(1);
+        _visitRefColumnExists = !r.error;
+    } catch(e) {
+        _visitRefColumnExists = false;
+    }
+    if (!_visitRefColumnExists) {
+        console.warn('⚠️ visit_ref column not found in Supabase. Visit refs stored locally only.');
+    }
+    return _visitRefColumnExists;
 }
 
 async function getPatients() {
@@ -1828,8 +1854,19 @@ async function savePatientDB(patient) {
 }
 
 async function saveVisitDB(visit) {
-    const r = await sb.from('visits').insert([visitToDb(visit)]).select();
-    if (r.error) throw r.error;
+    var dbData = visitToDb(visit);
+    var r = await sb.from('visits').insert([dbData]).select();
+    if (r.error) {
+        // If error might be due to visit_ref column, retry without it
+        if (r.error.message && (r.error.message.indexOf('visit_ref') !== -1 || r.error.code === '42703')) {
+            delete dbData.visit_ref;
+            _visitRefColumnExists = false;
+            r = await sb.from('visits').insert([dbData]).select();
+            if (r.error) throw r.error;
+        } else {
+            throw r.error;
+        }
+    }
     return r.data[0];
 }
 
@@ -3206,6 +3243,18 @@ document.addEventListener('DOMContentLoaded', function() {
     if ($('importBtn')) $('importBtn').addEventListener('click', importOldData);
     if ($('syncNowBtn')) $('syncNowBtn').addEventListener('click', syncPendingData);
     if ($('manualSyncBtn')) $('manualSyncBtn').addEventListener('click', syncPendingData);
+    if ($('clearPendingBtn')) $('clearPendingBtn').addEventListener('click', function() {
+        showConfirm(
+            { ur: 'کیا آپ ناکام سنک ڈیٹا صاف کرنا چاہتے ہیں؟', en: 'Clear all failed sync data?', roman: 'Nakaam sync data saaf karein?' }[currentLang],
+            function() {
+                localStorage.removeItem('pending_patients');
+                localStorage.removeItem('pending_visits');
+                localStorage.removeItem('pending_edits');
+                updatePendingBadge();
+                showToast('✅ Cleared');
+            }
+        );
+    });
     
     // DIAGNOSIS
     if ($('symptomSearch')) $('symptomSearch').addEventListener('input', renderSymptomsGrid);
