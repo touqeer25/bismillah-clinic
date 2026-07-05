@@ -1882,38 +1882,41 @@ async function getVisitsByPatient(patientId) {
 
 async function savePatientDB(patient) {
     var dbData = patientToDb(patient);
-    // Don't send custom ID - let Supabase handle it via upsert
-    var customId = dbData.id;
-    delete dbData.id;
     console.log('📤 Saving patient:', dbData.name);
-    var r = await sb.from('patients').upsert([Object.assign({id: customId}, dbData)], {onConflict: 'id'}).select();
+    // Check if already exists
+    var existing = await sb.from('patients').select('id').eq('id', dbData.id).maybeSingle();
+    if (existing.data) {
+        console.log('⏭️ Patient already exists, updating:', dbData.name);
+        var r = await sb.from('patients').update(dbData).eq('id', dbData.id).select();
+        if (r.error) throw r.error;
+        return r.data[0];
+    }
+    var r = await sb.from('patients').insert([dbData]).select();
     if (r.error) {
-        console.error('Patient upsert error:', r.error.message, r.error.code);
-        // Try plain insert without ID
-        r = await sb.from('patients').insert([dbData]).select();
-        if (r.error) {
-            console.error('Patient insert also failed:', r.error.message);
-            throw r.error;
-        }
+        console.error('Patient save error:', r.error.message);
+        throw r.error;
     }
     return r.data[0];
 }
 
 async function saveVisitDB(visit) {
     var dbData = visitToDb(visit);
-    var customId = dbData.id;
-    delete dbData.id;
-    delete dbData.visit_ref; // remove visit_ref to avoid column errors
-    console.log('📤 Saving visit for patient:', dbData.patient_id);
-    var r = await sb.from('visits').upsert([Object.assign({id: customId}, dbData)], {onConflict: 'id'}).select();
+    delete dbData.visit_ref; // avoid column errors
+    console.log('📤 Saving visit:', dbData.id);
+    // Check if already exists
+    var existing = await sb.from('visits').select('id').eq('id', dbData.id).maybeSingle();
+    if (existing.data) {
+        console.log('⏭️ Visit already exists, updating');
+        var updateData = Object.assign({}, dbData);
+        delete updateData.id;
+        var r = await sb.from('visits').update(updateData).eq('id', dbData.id).select();
+        if (r.error) throw r.error;
+        return r.data[0];
+    }
+    var r = await sb.from('visits').insert([dbData]).select();
     if (r.error) {
-        console.error('Visit upsert error:', r.error.message, r.error.code);
-        // Try plain insert without ID
-        r = await sb.from('visits').insert([dbData]).select();
-        if (r.error) {
-            console.error('Visit insert also failed:', r.error.message);
-            throw r.error;
-        }
+        console.error('Visit save error:', r.error.message);
+        throw r.error;
     }
     return r.data[0];
 }
@@ -3386,5 +3389,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1695267af18541f',t:'MTc4MzI4NTQ2NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
