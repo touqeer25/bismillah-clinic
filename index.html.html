@@ -2409,28 +2409,48 @@ async function saveNewPatient() {
             createdBy: currentUserData ? currentUserData.name : 'Unknown'
         };
         
-        let savedOnline = false;
+        let patientSavedOnline = false;
+        let visitSavedOnline = false;
+        
         if (navigator.onLine) {
+            // Save patient first
             try {
                 await savePatientDB(newPatient);
-                await saveVisitDB(firstVisit);
-                savedOnline = true;
-                await forceCacheRefresh();
+                patientSavedOnline = true;
+                console.log('✅ Patient saved online:', name);
             } catch(err) { 
-                console.error('💾 Direct save failed, saving to pending:', err.message || err);
+                console.error('❌ Patient save failed:', err.message || err);
+            }
+            
+            // Save visit separately
+            try {
+                await saveVisitDB(firstVisit);
+                visitSavedOnline = true;
+                console.log('✅ Visit saved online');
+            } catch(err) { 
+                console.error('❌ Visit save failed:', err.message || err);
+            }
+            
+            if (patientSavedOnline && visitSavedOnline) {
+                await forceCacheRefresh();
             }
         }
         
-        if (!savedOnline) {
+        // Only save to pending what WASN'T saved online
+        if (!patientSavedOnline) {
             savePendingPatient(newPatient);
-            savePendingVisit(firstVisit);
             cachedPatients.unshift(newPatient);
+        }
+        if (!visitSavedOnline) {
+            savePendingVisit(firstVisit);
             cachedVisits.unshift(firstVisit);
+        }
+        if (!patientSavedOnline || !visitSavedOnline) {
             localStorage.setItem('cached_patients', JSON.stringify(cachedPatients));
             localStorage.setItem('cached_visits', JSON.stringify(cachedVisits));
         }
         
-        const mode = savedOnline ? '' : ' (saved offline)';
+        const mode = (patientSavedOnline && visitSavedOnline) ? '' : ' (saved offline)';
         msgDiv.innerHTML = '<div class="alert alert-success">✅ "' + escapeHtml(name) + '" saved!' + mode + '</div>';
         clearNewPatientForm();
         await generateRefNo();
@@ -3302,14 +3322,32 @@ document.addEventListener('DOMContentLoaded', function() {
     if ($('syncNowBtn')) $('syncNowBtn').addEventListener('click', syncPendingData);
     if ($('manualSyncBtn')) $('manualSyncBtn').addEventListener('click', syncPendingData);
     if ($('clearPendingBtn')) $('clearPendingBtn').addEventListener('click', function() {
+        var pp = getPendingPatients().length;
+        var pv = getPendingVisits().length;
+        var pe = getPendingEdits().length;
+        var warningMsg = {
+            ur: '⚠️ <b>انتباہ!</b> یہ ' + pp + ' مریض، ' + pv + ' وزٹس، ' + pe + ' ترامیم مستقل طور پر مٹا دے گا!<br><br>کیا آپ نے پہلے بیک اپ لے لیا ہے؟<br><br><b>مٹانے کے بعد واپس نہیں آئے گا!</b>',
+            en: '⚠️ <b>Warning!</b> This will permanently delete ' + pp + ' patients, ' + pv + ' visits, ' + pe + ' edits!<br><br>Have you taken a backup?<br><br><b>Cannot be undone!</b>',
+            roman: '⚠️ <b>Khabardar!</b> Yeh ' + pp + ' mareez, ' + pv + ' visits, ' + pe + ' edits hamesha ke liye mita de ga!<br><br>Kya backup le liya?<br><br><b>Wapas nahi aaye ga!</b>'
+        };
         showConfirm(
-            { ur: 'کیا آپ ناکام سنک ڈیٹا صاف کرنا چاہتے ہیں؟', en: 'Clear all failed sync data?', roman: 'Nakaam sync data saaf karein?' }[currentLang],
+            warningMsg[currentLang] || warningMsg.en,
             function() {
+                // Save backup to localStorage before clearing
+                var backup = {
+                    patients: getPendingPatients(),
+                    visits: getPendingVisits(),
+                    edits: getPendingEdits(),
+                    clearedAt: new Date().toISOString()
+                };
+                localStorage.setItem('last_cleared_backup', JSON.stringify(backup));
+                console.log('💾 Backup saved before clear:', backup);
+                
                 localStorage.removeItem('pending_patients');
                 localStorage.removeItem('pending_visits');
                 localStorage.removeItem('pending_edits');
                 updatePendingBadge();
-                showToast('✅ Cleared');
+                showToast('✅ Cleared (backup saved in console)');
             }
         );
     });
@@ -3389,5 +3427,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1695267af18541f',t:'MTc4MzI4NTQ2NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
