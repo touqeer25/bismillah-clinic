@@ -2861,7 +2861,7 @@ async function showPatientDetail(patientId) {
     html += ' | Follow-ups: ' + followupCount + '</div></div>';
     html += '<div style="display:flex;gap:5px;flex-wrap:wrap;">';
     html += '<button class="btn btn-edit btn-sm" onclick="openEditPatientModal(\'' + patient.id + '\')">✏️ Edit</button>';
-    html += '<button class="btn btn-warning btn-sm" onclick="openVisitModal(\'' + patient.id + '\')">➕ Visit</button>';
+    html += '<button class="btn btn-warning btn-sm" onclick="goToNewVisitPage(\'' + patient.id + '\')">➕ Visit</button>';
     html += '<button class="btn btn-purple btn-sm" onclick="openDiagnosisForPatient(\'' + patient.id + '\')">🔬 Diagnose</button>';
     if (patient.familyNo) html += '<button class="btn btn-info btn-sm" onclick="showFamilyMembers(\'' + escapeHtml(patient.familyNo) + '\')">👨‍👩‍👧‍👦 (' + familyMembers.length + ')</button>';
     html += '<button class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;" onclick="showPage(\'allPatients\',document.querySelector(\'.nav-btn[data-page=allPatients]\'))">🔙</button>';
@@ -2882,7 +2882,7 @@ async function showPatientDetail(patientId) {
     
     html += '<div class="card"><div class="card-title" style="display:flex;justify-content:space-between;align-items:center;">';
     html += '<span>📋 Consultations (' + visits.length + ')</span>';
-    html += '<button class="btn btn-success btn-sm" onclick="openVisitModal(\'' + patient.id + '\')">➕ New Visit</button></div>';
+    html += '<button class="btn btn-success btn-sm" onclick="goToNewVisitPage(\'' + patient.id + '\')">➕ New Visit</button></div>';
     
     if (visits.length === 0) {
         html += '<div class="empty-state"><div class="icon">📝</div><p>No consultations</p></div>';
@@ -3335,7 +3335,7 @@ function copyDiseaseInfo(diseaseId) {
 function copyToVisit(diseaseId) {
     const d = DISEASES_DB.find(function(x) { return x.id === diseaseId; });
     if (!d || !diagnosisPatientId) return;
-    openVisitModal(diagnosisPatientId);
+    goToNewVisitPage(diagnosisPatientId);
     $('visitDiagnosis').value = d.name.ur + ' (' + d.name.en + ')';
     let prescText = '';
     d.remedies.forEach(function(r, i) {
@@ -3626,6 +3626,13 @@ async function nvSaveVisit() {
         saveBtn.disabled = false;
         saveBtn.innerHTML = '<span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Mehfooz">💾 محفوظ کریں</span>';
         applyLanguage();
+    }
+}
+
+function goToNewVisitPage(patientId) {
+    showPage('newVisitPage', document.querySelector('.nav-btn[data-page="newVisitPage"]'));
+    if (patientId) {
+        setTimeout(function() { nvSelectPatient(patientId); }, 200);
     }
 }
 
