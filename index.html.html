@@ -1044,6 +1044,7 @@
                             <button class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;" onclick="nvPrevFamily()" title="Previous">◀</button>
                             <select id="nvFamilySelect" onchange="nvSelectFamilyMember(this.value)" style="padding:5px 8px;border-radius:6px;border:none;font-family:inherit;font-size:12px;min-width:140px;"></select>
                             <button class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;" onclick="nvNextFamily()" title="Next">▶</button>
+                            <button class="btn btn-sm" style="background:rgba(39,174,96,0.5);color:white;" onclick="nvShowFullHistory()" title="History">📋</button>
                             <button class="btn btn-sm" style="background:rgba(231,76,60,0.6);color:white;" onclick="nvClearPatient()">✕</button>
                         </div>
                     </div>
@@ -1053,8 +1054,8 @@
                 <div id="nvFormArea" class="hidden">
                     <input type="hidden" id="nvPatientId">
                     
-                    <!-- Row 1: Visit Ref + Family + Allergy -->
-                    <div class="fg-row" style="grid-template-columns: 120px 120px 1fr;">
+                    <!-- Row 1: Visit Ref + Family -->
+                    <div class="fg-row" style="grid-template-columns: 120px 120px;">
                         <div class="form-group">
                             <label data-ur="📋 وزٹ" data-en="📋 Visit" data-roman="📋 Visit">📋 وزٹ</label>
                             <input type="text" id="nvVisitRef" readonly style="background:#ecf0f1;font-weight:bold;color:#8e44ad;">
@@ -1063,14 +1064,10 @@
                             <label data-ur="👨‍👩‍👧‍👦 فیملی" data-en="👨‍👩‍👧‍👦 Family" data-roman="👨‍👩‍👧‍👦 Family">👨‍👩‍👧‍👦 فیملی</label>
                             <input type="text" id="nvFamilyNo" style="color:#2c3e50;">
                         </div>
-                        <div class="form-group">
-                            <label data-ur="⚠️ الرجی" data-en="⚠️ Allergy" data-roman="⚠️ Allergy">⚠️ الرجی</label>
-                            <input type="text" id="nvAllergy" style="color:#2c3e50;">
-                        </div>
                     </div>
                     
-                    <!-- Row 2: Date + Time + Vitals -->
-                    <div class="fg-row" style="grid-template-columns: 135px 120px 90px 80px 80px 80px;">
+                    <!-- Row 2: Date + Time + Vitals + Allergy -->
+                    <div class="fg-row" style="grid-template-columns: 135px 120px 90px 80px 80px 80px 1fr;">
                         <div class="form-group">
                             <label data-ur="📅 تاریخ" data-en="📅 Date" data-roman="📅 Date">📅 تاریخ</label>
                             <input type="date" id="nvDate">
@@ -1094,6 +1091,10 @@
                         <div class="form-group">
                             <label data-ur="💓 نبض" data-en="💓 Pulse" data-roman="💓 Pulse">💓 نبض</label>
                             <input type="text" id="nvPulse" placeholder="72" style="text-align:center;">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="⚠️ الرجی" data-en="⚠️ Allergy" data-roman="⚠️ Allergy">⚠️ الرجی</label>
+                            <input type="text" id="nvAllergy" style="color:#2c3e50;">
                         </div>
                     </div>
                     
@@ -3495,10 +3496,9 @@ function nvBuildFamilyDropdown(patient) {
         nvFamilyMembers = [patient];
     }
     nvFamilyMembers.forEach(function(m, i) {
-        var visits = cachedVisits.filter(function(v) { return v.patientId === m.id; }).length;
         var opt = document.createElement('option');
         opt.value = m.id;
-        opt.textContent = m.name + ' (' + visits + ')';
+        opt.textContent = m.name;
         if (m.id === patient.id) { opt.selected = true; nvFamilyIndex = i; }
         sel.appendChild(opt);
     });
@@ -3614,6 +3614,11 @@ async function nvSaveVisit() {
         saveBtn.innerHTML = '<span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Mehfooz">💾 محفوظ کریں</span>';
         applyLanguage();
     }
+}
+
+function nvShowFullHistory() {
+    if (!nvCurrentPatientId) return;
+    showPatientDetail(nvCurrentPatientId);
 }
 
 // ==================== EVENT LISTENERS ====================
