@@ -1141,6 +1141,9 @@
                         <button class="btn btn-light" onclick="nvClearForm()">
                             <span data-ur="🔄 صاف" data-en="🔄 Clear" data-roman="🔄 Saaf">🔄 صاف</span>
                         </button>
+                        <button class="btn btn-info btn-sm" onclick="nvToggleAllHistory()">
+                            <span data-ur="📋 ہسٹری" data-en="📋 History" data-roman="📋 History">📋 ہسٹری</span>
+                        </button>
                     </div>
                 </div>
                 
@@ -1150,6 +1153,14 @@
                         📋 <span data-ur="آخری وزٹ" data-en="Last Visit" data-roman="Aakhri Visit">آخری وزٹ</span>
                     </div>
                     <div id="nvLastVisitContent"></div>
+                </div>
+                
+                <!-- All History (toggle) -->
+                <div id="nvAllHistory" class="hidden" style="margin-top:15px;">
+                    <div class="section-divider">
+                        📚 <span data-ur="تمام کنسلٹیشنز" data-en="All Consultations" data-roman="Tamam Consultations">تمام کنسلٹیشنز</span>
+                    </div>
+                    <div id="nvAllHistoryContent"></div>
                 </div>
             </div>
         </div>
@@ -3476,8 +3487,9 @@ function nvSelectPatient(patientId) {
     // Build family dropdown (sorted by visit count)
     nvBuildFamilyDropdown(patient);
     
-    // Show last visit
+    // Show last visit, hide full history
     nvShowLastVisit(patientId);
+    $('nvAllHistory').classList.add('hidden');
 }
 
 function nvBuildFamilyDropdown(patient) {
@@ -3553,6 +3565,7 @@ function nvClearPatient() {
     $('nvSelectedPatient').classList.add('hidden');
     $('nvFormArea').classList.add('hidden');
     $('nvLastVisit').classList.add('hidden');
+    $('nvAllHistory').classList.add('hidden');
     $('visitSearchInput').value = '';
     $('visitSearchResults').innerHTML = '';
     $('newVisitPageMsg').innerHTML = '';
@@ -3619,6 +3632,54 @@ async function nvSaveVisit() {
 function nvShowFullHistory() {
     if (!nvCurrentPatientId) return;
     showPatientDetail(nvCurrentPatientId);
+}
+
+function nvToggleAllHistory() {
+    if (!nvCurrentPatientId) return;
+    var container = $('nvAllHistory');
+    var content = $('nvAllHistoryContent');
+    
+    // Toggle
+    if (!container.classList.contains('hidden')) {
+        container.classList.add('hidden');
+        return;
+    }
+    
+    var visits = cachedVisits.filter(function(v) { return v.patientId === nvCurrentPatientId; });
+    visits.sort(function(a, b) { return (b.date || '').localeCompare(a.date || ''); });
+    
+    if (visits.length === 0) {
+        content.innerHTML = '<div style="padding:15px;color:#95a5a6;text-align:center;">' + ({ur:'کوئی وزٹ نہیں',en:'No visits',roman:'Koi visit nahi'}[currentLang]) + '</div>';
+        container.classList.remove('hidden');
+        return;
+    }
+    
+    var html = '';
+    visits.forEach(function(v, idx) {
+        var isReg = v.type === 'registration' || v.type === undefined;
+        var badge = isReg ? '<span style="background:#fff8dc;color:#b8860b;padding:2px 8px;border-radius:10px;font-size:10px;">🌟 Registration</span>' : '<span style="background:#e8f4f8;color:#17a2b8;padding:2px 8px;border-radius:10px;font-size:10px;">Follow-up #' + (visits.length - idx) + '</span>';
+        
+        html += '<div style="background:#f8f9fa;border-radius:8px;padding:10px 12px;margin-bottom:8px;font-size:13px;border-left:3px solid ' + (isReg ? '#d4af37' : '#2980b9') + ';">';
+        html += '<div style="color:#2980b9;font-weight:bold;margin-bottom:4px;">' + badge + ' 📅 ' + escapeHtml(v.date || '-') + ' 🕐 ' + escapeHtml(v.time || '-') + (v.visitRef ? ' | ' + escapeHtml(v.visitRef) : '') + '</div>';
+        if (v.symptoms) html += '<div>📝 ' + escapeHtml(v.symptoms) + '</div>';
+        if (v.diagnosis) html += '<div>🔬 ' + escapeHtml(v.diagnosis) + '</div>';
+        if (v.prescription) html += '<div>💊 ' + escapeHtml(v.prescription) + '</div>';
+        if (v.method) html += '<div>📖 ' + escapeHtml(v.method) + '</div>';
+        if (v.days) html += '<div>📆 ' + escapeHtml(v.days) + ' ' + ({ur:'دن',en:'days',roman:'din'}[currentLang]) + '</div>';
+        if (v.bp || v.sugar || v.temperature || v.pulse) {
+            html += '<div style="color:#17a2b8;font-size:11px;margin-top:3px;">';
+            if (v.bp) html += 'BP: ' + escapeHtml(v.bp) + ' ';
+            if (v.sugar) html += 'Sugar: ' + escapeHtml(v.sugar) + ' ';
+            if (v.temperature) html += 'Temp: ' + escapeHtml(v.temperature) + ' ';
+            if (v.pulse) html += 'Pulse: ' + escapeHtml(v.pulse);
+            html += '</div>';
+        }
+        html += '</div>';
+    });
+    
+    content.innerHTML = html;
+    container.classList.remove('hidden');
+    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // ==================== EVENT LISTENERS ====================
