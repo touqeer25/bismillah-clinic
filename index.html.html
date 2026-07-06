@@ -691,6 +691,9 @@
         <button class="nav-btn" data-page="newPatient">
             ➕ <span data-ur="نئی رجسٹریشن" data-en="New Registration" data-roman="Nayi Registration">نئی رجسٹریشن</span>
         </button>
+        <button class="nav-btn" data-page="newVisitPage">
+            🩺 <span data-ur="نئی وزٹ" data-en="New Visit" data-roman="Nayi Visit">نئی وزٹ</span>
+        </button>
         <button class="nav-btn" data-page="searchPatient">
             🔍 <span data-ur="تلاش" data-en="Search" data-roman="Talash">تلاش</span>
         </button>
@@ -1006,6 +1009,148 @@
             </div>
             
             <div id="diagnosisResults"></div>
+        </div>
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- NEW VISIT PAGE -->
+    <!-- ============================================ -->
+    <div id="page-newVisitPage" class="page">
+        <div class="content">
+            <div class="card">
+                <div class="card-title">
+                    🩺 <span data-ur="نئی وزٹ" data-en="New Visit" data-roman="Nayi Visit">نئی وزٹ</span>
+                </div>
+                <div id="newVisitPageMsg"></div>
+                
+                <!-- Search Bar -->
+                <div class="form-group" style="margin-bottom:12px;">
+                    <input type="text" class="search-input" id="visitSearchInput" style="margin-bottom:0;"
+                        placeholder="🔍 Name, Phone, Ref, Family, Address..."
+                        data-ph-ur="🔍 نام، فون، حوالہ، فیملی، پتہ..."
+                        data-ph-en="🔍 Name, Phone, Ref, Family, Address..."
+                        data-ph-roman="🔍 Naam, Phone, Ref, Family, Pata...">
+                </div>
+                <div id="visitSearchResults" style="max-height:180px;overflow-y:auto;margin-bottom:12px;"></div>
+                
+                <!-- Selected Patient Info -->
+                <div id="nvSelectedPatient" class="hidden" style="background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:10px;padding:12px 15px;margin-bottom:12px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+                        <div>
+                            <div id="nvPatientName" style="font-size:18px;font-weight:bold;"></div>
+                            <div id="nvPatientMeta" style="font-size:12px;opacity:0.85;margin-top:3px;"></div>
+                        </div>
+                        <div style="display:flex;gap:6px;align-items:center;">
+                            <button class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;" onclick="nvPrevFamily()" title="Previous">◀</button>
+                            <select id="nvFamilySelect" onchange="nvSelectFamilyMember(this.value)" style="padding:5px 8px;border-radius:6px;border:none;font-family:inherit;font-size:12px;min-width:140px;"></select>
+                            <button class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;" onclick="nvNextFamily()" title="Next">▶</button>
+                            <button class="btn btn-sm" style="background:rgba(231,76,60,0.6);color:white;" onclick="nvClearPatient()">✕</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Visit Form -->
+                <div id="nvFormArea" class="hidden">
+                    <input type="hidden" id="nvPatientId">
+                    
+                    <!-- Row 1: Visit Ref + Family + Allergy -->
+                    <div class="fg-row" style="grid-template-columns: 120px 120px 1fr;">
+                        <div class="form-group">
+                            <label data-ur="📋 وزٹ" data-en="📋 Visit" data-roman="📋 Visit">📋 وزٹ</label>
+                            <input type="text" id="nvVisitRef" readonly style="background:#ecf0f1;font-weight:bold;color:#8e44ad;">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="👨‍👩‍👧‍👦 فیملی" data-en="👨‍👩‍👧‍👦 Family" data-roman="👨‍👩‍👧‍👦 Family">👨‍👩‍👧‍👦 فیملی</label>
+                            <input type="text" id="nvFamilyNo" style="color:#2c3e50;">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="⚠️ الرجی" data-en="⚠️ Allergy" data-roman="⚠️ Allergy">⚠️ الرجی</label>
+                            <input type="text" id="nvAllergy" style="color:#2c3e50;">
+                        </div>
+                    </div>
+                    
+                    <!-- Row 2: Date + Time + Vitals -->
+                    <div class="fg-row" style="grid-template-columns: 135px 120px 90px 80px 80px 80px;">
+                        <div class="form-group">
+                            <label data-ur="📅 تاریخ" data-en="📅 Date" data-roman="📅 Date">📅 تاریخ</label>
+                            <input type="date" id="nvDate">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="🕐 وقت" data-en="🕐 Time" data-roman="🕐 Waqt">🕐 وقت</label>
+                            <input type="time" id="nvTime">
+                        </div>
+                        <div class="form-group">
+                            <label>🩸 BP</label>
+                            <input type="text" id="nvBP" placeholder="120/80" style="text-align:center;">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="🍬 شوگر" data-en="🍬 Sugar" data-roman="🍬 Sugar">🍬 شوگر</label>
+                            <input type="text" id="nvSugar" placeholder="mg/dL" style="text-align:center;">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="🌡️ ٹمپ" data-en="🌡️ Temp" data-roman="🌡️ Temp">🌡️ ٹمپ</label>
+                            <input type="text" id="nvTemp" placeholder="98.6°F" style="text-align:center;">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="💓 نبض" data-en="💓 Pulse" data-roman="💓 Pulse">💓 نبض</label>
+                            <input type="text" id="nvPulse" placeholder="72" style="text-align:center;">
+                        </div>
+                    </div>
+                    
+                    <!-- Row 3: Symptoms + Diagnosis -->
+                    <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
+                        <div class="form-group">
+                            <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
+                            <textarea id="nvSymptoms" style="min-height:55px;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
+                            <textarea id="nvDiagnosis" style="min-height:55px;"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 4: Prescription + Method -->
+                    <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
+                        <div class="form-group">
+                            <label data-ur="💊 نسخہ" data-en="💊 Prescription" data-roman="💊 Nuskha">💊 نسخہ</label>
+                            <textarea id="nvPrescription" style="min-height:55px;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="📖 طریقہ" data-en="📖 Method" data-roman="📖 Tareeqa">📖 طریقہ</label>
+                            <textarea id="nvMethod" style="min-height:55px;"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 5: Days + Notes -->
+                    <div class="fg-row" style="grid-template-columns: 1fr 4fr;">
+                        <div class="form-group">
+                            <label data-ur="📆 دن" data-en="📆 Days" data-roman="📆 Din">📆 دن</label>
+                            <textarea id="nvDays" placeholder="7" style="min-height:45px;text-align:center;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="📝 نوٹس" data-en="📝 Notes" data-roman="📝 Notes">📝 نوٹس</label>
+                            <textarea id="nvNotes" style="min-height:45px;"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons" style="margin-top:12px;">
+                        <button class="btn btn-success" id="nvSaveBtn">
+                            <span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Mehfooz">💾 محفوظ کریں</span>
+                        </button>
+                        <button class="btn btn-light" onclick="nvClearForm()">
+                            <span data-ur="🔄 صاف" data-en="🔄 Clear" data-roman="🔄 Saaf">🔄 صاف</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Last Visit History -->
+                <div id="nvLastVisit" class="hidden" style="margin-top:15px;">
+                    <div class="section-divider">
+                        📋 <span data-ur="آخری وزٹ" data-en="Last Visit" data-roman="Aakhri Visit">آخری وزٹ</span>
+                    </div>
+                    <div id="nvLastVisitContent"></div>
+                </div>
+            </div>
         </div>
     </div>
     
@@ -2254,6 +2399,12 @@ async function showPage(pageId, btn) {
                 $('firstVisitTime').value = now.toTimeString().substring(0, 5);
             }
             if (pageId === 'diagnosis') initDiagnosis();
+            if (pageId === 'newVisitPage') {
+                if ($('nvVisitRef') && !nvCurrentPatientId) $('nvVisitRef').value = generateVisitRef();
+                var now2 = new Date();
+                if ($('nvDate')) $('nvDate').value = now2.toISOString().split('T')[0];
+                if ($('nvTime')) $('nvTime').value = now2.toTimeString().substring(0, 5);
+            }
             if (pageId === 'settings') updatePendingBadge();
         } catch(err) { console.error('Page error:', err); }
     });
@@ -2578,7 +2729,8 @@ function searchPatients() {
             (p.phone && p.phone.includes(query)) ||
             (p.refNo && p.refNo.toLowerCase().includes(query)) ||
             (p.familyNo && p.familyNo.toLowerCase().includes(query)) ||
-            (p.fatherName && p.fatherName.toLowerCase().includes(query));
+            (p.fatherName && p.fatherName.toLowerCase().includes(query)) ||
+            (p.address && p.address.toLowerCase().includes(query));
     });
     if (results.length === 0) {
         div.innerHTML = '<div class="empty-state"><div class="icon">😔</div><p>No results</p></div>';
@@ -3268,6 +3420,202 @@ async function importOldData() {
     reader.readAsText(fileInput.files[0]);
 }
 
+// ==================== NEW VISIT PAGE ====================
+var nvCurrentPatientId = null;
+var nvFamilyMembers = [];
+var nvFamilyIndex = 0;
+
+function nvSearchPatients() {
+    var query = $('visitSearchInput').value.trim().toLowerCase();
+    var div = $('visitSearchResults');
+    if (!query || query.length < 2) { div.innerHTML = ''; return; }
+    var results = cachedPatients.filter(function(p) {
+        return (p.name && p.name.toLowerCase().includes(query)) ||
+            (p.phone && p.phone.includes(query)) ||
+            (p.refNo && p.refNo.toLowerCase().includes(query)) ||
+            (p.familyNo && p.familyNo.toLowerCase().includes(query)) ||
+            (p.fatherName && p.fatherName.toLowerCase().includes(query)) ||
+            (p.address && p.address.toLowerCase().includes(query));
+    });
+    if (results.length === 0) { div.innerHTML = '<div style="padding:10px;color:#95a5a6;text-align:center;">😔 ' + ({ur:'کوئی نتیجہ نہیں',en:'No results',roman:'Koi nateeja nahi'}[currentLang]||'No results') + '</div>'; return; }
+    var html = '<ul class="today-list" style="border:1px solid #ddd;border-radius:8px;">';
+    results.slice(0, 8).forEach(function(p) {
+        var visits = cachedVisits.filter(function(v) { return v.patientId === p.id; });
+        html += '<li onclick="nvSelectPatient(\'' + p.id + '\')" style="cursor:pointer;">';
+        html += '<div><div class="patient-list-name">' + escapeHtml(p.name) + '</div>';
+        html += '<div class="patient-list-time">' + escapeHtml(p.refNo) + (p.familyNo ? ' | ' + escapeHtml(p.familyNo) : '') + ' | ' + escapeHtml(p.phone || '') + (p.address ? ' | ' + escapeHtml(p.address) : '') + '</div></div>';
+        html += '<span class="badge badge-visit">' + visits.length + ' ' + ({ur:'وزٹ',en:'visits',roman:'visits'}[currentLang]||'visits') + '</span></li>';
+    });
+    html += '</ul>';
+    div.innerHTML = html;
+}
+
+function nvSelectPatient(patientId) {
+    var patient = cachedPatients.find(function(p) { return p.id === patientId; });
+    if (!patient) return;
+    nvCurrentPatientId = patientId;
+    $('visitSearchResults').innerHTML = '';
+    $('visitSearchInput').value = '';
+    
+    // Show patient info
+    $('nvSelectedPatient').classList.remove('hidden');
+    $('nvFormArea').classList.remove('hidden');
+    $('nvPatientName').textContent = patient.name;
+    $('nvPatientMeta').textContent = patient.refNo + (patient.age ? ' | ' + patient.age : '') + (patient.gender ? ' | ' + translateGender(patient.gender) : '') + (patient.phone ? ' | ' + patient.phone : '');
+    $('nvPatientId').value = patientId;
+    $('nvFamilyNo').value = patient.familyNo || '';
+    $('nvAllergy').value = patient.allergy || '';
+    $('nvVisitRef').value = generateVisitRef();
+    
+    var now = new Date();
+    $('nvDate').value = now.toISOString().split('T')[0];
+    $('nvTime').value = now.toTimeString().substring(0, 5);
+    nvClearFormFields();
+    
+    // Build family dropdown (sorted by visit count)
+    nvBuildFamilyDropdown(patient);
+    
+    // Show last visit
+    nvShowLastVisit(patientId);
+}
+
+function nvBuildFamilyDropdown(patient) {
+    var sel = $('nvFamilySelect');
+    sel.innerHTML = '';
+    nvFamilyMembers = [];
+    if (patient.familyNo) {
+        nvFamilyMembers = cachedPatients.filter(function(p) { return p.familyNo === patient.familyNo; });
+        // Sort by visit count descending
+        nvFamilyMembers.sort(function(a, b) {
+            var va = cachedVisits.filter(function(v) { return v.patientId === a.id; }).length;
+            var vb = cachedVisits.filter(function(v) { return v.patientId === b.id; }).length;
+            return vb - va;
+        });
+    } else {
+        nvFamilyMembers = [patient];
+    }
+    nvFamilyMembers.forEach(function(m, i) {
+        var visits = cachedVisits.filter(function(v) { return v.patientId === m.id; }).length;
+        var opt = document.createElement('option');
+        opt.value = m.id;
+        opt.textContent = m.name + ' (' + visits + ')';
+        if (m.id === patient.id) { opt.selected = true; nvFamilyIndex = i; }
+        sel.appendChild(opt);
+    });
+}
+
+function nvSelectFamilyMember(patientId) {
+    if (patientId) nvSelectPatient(patientId);
+}
+
+function nvPrevFamily() {
+    if (nvFamilyMembers.length <= 1) return;
+    nvFamilyIndex = (nvFamilyIndex - 1 + nvFamilyMembers.length) % nvFamilyMembers.length;
+    nvSelectPatient(nvFamilyMembers[nvFamilyIndex].id);
+}
+
+function nvNextFamily() {
+    if (nvFamilyMembers.length <= 1) return;
+    nvFamilyIndex = (nvFamilyIndex + 1) % nvFamilyMembers.length;
+    nvSelectPatient(nvFamilyMembers[nvFamilyIndex].id);
+}
+
+function nvShowLastVisit(patientId) {
+    var visits = cachedVisits.filter(function(v) { return v.patientId === patientId; });
+    var container = $('nvLastVisit');
+    var content = $('nvLastVisitContent');
+    if (visits.length === 0) { container.classList.add('hidden'); return; }
+    container.classList.remove('hidden');
+    visits.sort(function(a, b) { return (b.date || '').localeCompare(a.date || ''); });
+    var last = visits[0];
+    var html = '<div style="background:#f8f9fa;border-radius:8px;padding:12px;font-size:13px;">';
+    html += '<div style="color:#2980b9;font-weight:bold;margin-bottom:6px;">📅 ' + escapeHtml(last.date || '-') + ' 🕐 ' + escapeHtml(last.time || '-') + (last.visitRef ? ' | ' + escapeHtml(last.visitRef) : '') + '</div>';
+    if (last.symptoms) html += '<div><strong>' + ({ur:'📝 علامات',en:'📝 Symptoms',roman:'📝 Alamat'}[currentLang]) + ':</strong> ' + escapeHtml(last.symptoms) + '</div>';
+    if (last.diagnosis) html += '<div><strong>' + ({ur:'🔬 تشخیص',en:'🔬 Diagnosis',roman:'🔬 Tashkhees'}[currentLang]) + ':</strong> ' + escapeHtml(last.diagnosis) + '</div>';
+    if (last.prescription) html += '<div><strong>' + ({ur:'💊 نسخہ',en:'💊 Prescription',roman:'💊 Nuskha'}[currentLang]) + ':</strong> ' + escapeHtml(last.prescription) + '</div>';
+    if (last.days) html += '<div><strong>' + ({ur:'📆 دن',en:'📆 Days',roman:'📆 Din'}[currentLang]) + ':</strong> ' + escapeHtml(last.days) + '</div>';
+    html += '</div>';
+    content.innerHTML = html;
+}
+
+function nvClearFormFields() {
+    ['nvSymptoms','nvDiagnosis','nvPrescription','nvMethod','nvDays','nvNotes',
+     'nvBP','nvSugar','nvTemp','nvPulse'].forEach(function(id) { if ($(id)) $(id).value = ''; });
+}
+
+function nvClearForm() {
+    nvClearFormFields();
+    $('newVisitPageMsg').innerHTML = '';
+}
+
+function nvClearPatient() {
+    nvCurrentPatientId = null;
+    $('nvSelectedPatient').classList.add('hidden');
+    $('nvFormArea').classList.add('hidden');
+    $('nvLastVisit').classList.add('hidden');
+    $('visitSearchInput').value = '';
+    $('visitSearchResults').innerHTML = '';
+    $('newVisitPageMsg').innerHTML = '';
+}
+
+async function nvSaveVisit() {
+    var patientId = $('nvPatientId').value;
+    if (!patientId) { showToast('⚠️ ' + ({ur:'پہلے مریض منتخب کریں',en:'Select patient first',roman:'Pehle mareez select karein'}[currentLang]), 'error'); return; }
+    var symptoms = $('nvSymptoms').value.trim();
+    if (!symptoms) { showToast('⚠️ ' + ({ur:'علامات لکھیں',en:'Enter symptoms',roman:'Alamat likhein'}[currentLang]), 'error'); return; }
+    
+    var saveBtn = $('nvSaveBtn');
+    saveBtn.disabled = true;
+    saveBtn.innerHTML = '<span class="loading-inline"></span>';
+    
+    var visitData = {
+        id: generateId('V'), patientId: patientId,
+        visitRef: $('nvVisitRef').value || generateVisitRef(),
+        date: $('nvDate').value, time: $('nvTime').value,
+        symptoms: symptoms, diagnosis: $('nvDiagnosis').value.trim(),
+        prescription: $('nvPrescription').value.trim(), method: $('nvMethod').value.trim(),
+        days: $('nvDays').value.trim(), notes: $('nvNotes').value.trim(),
+        bp: $('nvBP').value.trim(), sugar: $('nvSugar').value.trim(),
+        temperature: $('nvTemp').value.trim(), pulse: $('nvPulse').value.trim(),
+        type: 'followup',
+        createdAt: new Date().toISOString(),
+        createdBy: currentUserData ? currentUserData.name : 'Unknown'
+    };
+    
+    try {
+        var savedOnline = false;
+        if (navigator.onLine) {
+            try { await saveVisitDB(visitData); savedOnline = true; await forceCacheRefresh(); } catch(e) { console.error(e); }
+        }
+        if (!savedOnline) {
+            savePendingVisit(visitData);
+            cachedVisits.unshift(visitData);
+            localStorage.setItem('cached_visits', JSON.stringify(cachedVisits));
+        }
+        
+        var successMsg = {ur:'✅ وزٹ محفوظ ہو گئی!',en:'✅ Visit saved!',roman:'✅ Visit mehfooz ho gayi!'}[currentLang];
+        $('newVisitPageMsg').innerHTML = '<div class="alert alert-success">' + successMsg + (savedOnline ? '' : ' (offline)') + '</div>';
+        showToast(successMsg);
+        
+        // Don't clear - keep patient selected, just clear form fields and refresh
+        nvClearFormFields();
+        $('nvVisitRef').value = generateVisitRef();
+        var now = new Date();
+        $('nvDate').value = now.toISOString().split('T')[0];
+        $('nvTime').value = now.toTimeString().substring(0, 5);
+        nvShowLastVisit(patientId);
+        nvBuildFamilyDropdown(cachedPatients.find(function(p) { return p.id === patientId; }));
+        
+        setTimeout(function() { $('newVisitPageMsg').innerHTML = ''; }, 5000);
+    } catch(err) {
+        $('newVisitPageMsg').innerHTML = '<div class="alert alert-error">❌ ' + escapeHtml(err.message) + '</div>';
+    } finally {
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = '<span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Mehfooz">💾 محفوظ کریں</span>';
+        applyLanguage();
+    }
+}
+
 // ==================== EVENT LISTENERS ====================
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 App initializing...');
@@ -3391,6 +3739,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // DIAGNOSIS
     if ($('symptomSearch')) $('symptomSearch').addEventListener('input', renderSymptomsGrid);
     if ($('analyzeBtn')) $('analyzeBtn').addEventListener('click', analyzeDiagnosis);
+    
+    // NEW VISIT PAGE
+    if ($('visitSearchInput')) $('visitSearchInput').addEventListener('input', nvSearchPatients);
+    if ($('nvSaveBtn')) $('nvSaveBtn').addEventListener('click', nvSaveVisit);
     if ($('clearSymptomsBtn')) $('clearSymptomsBtn').addEventListener('click', clearAllSymptoms);
     
     // MODAL BACKDROP
