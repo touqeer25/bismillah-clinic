@@ -1133,14 +1133,22 @@
         <div id="visitMsg"></div>
         <input type="hidden" id="visitPatientId">
         <input type="hidden" id="editVisitId">
-        <div id="visitPatientInfo" style="background:#f0f8ff; padding:10px; border-radius:6px; margin-bottom:15px; font-size:13px;"></div>
+        <div id="visitPatientInfo" style="background:#f0f8ff; padding:8px 12px; border-radius:6px; margin-bottom:10px; font-size:13px;"></div>
         
-        <div class="form-group">
-            <label data-ur="📋 وزٹ حوالہ نمبر" data-en="📋 Visit Reference No" data-roman="📋 Visit Hawala Number">📋 وزٹ حوالہ نمبر</label>
-            <input type="text" id="visitRefNo" readonly style="background:#ecf0f1; font-weight:bold; color:#8e44ad; font-size:14px;">
+        <!-- Row 1: Visit Ref + Family -->
+        <div class="fg-row" style="grid-template-columns: 120px 1fr;">
+            <div class="form-group">
+                <label data-ur="📋 وزٹ" data-en="📋 Visit" data-roman="📋 Visit">📋 وزٹ</label>
+                <input type="text" id="visitRefNo" readonly style="background:#ecf0f1;font-weight:bold;color:#8e44ad;">
+            </div>
+            <div class="form-group">
+                <label data-ur="👨‍👩‍👧‍👦 فیملی" data-en="👨‍👩‍👧‍👦 Family" data-roman="👨‍👩‍👧‍👦 Family">👨‍👩‍👧‍👦 فیملی</label>
+                <input type="text" id="visitFamilyNo" readonly style="background:#f0f8ff;color:#856404;">
+            </div>
         </div>
         
-        <div class="form-row">
+        <!-- Row 2: Date + Time + BP + Sugar + Temp + Pulse -->
+        <div class="fg-row" style="grid-template-columns: 135px 120px 90px 80px 80px 80px;">
             <div class="form-group">
                 <label data-ur="📅 تاریخ" data-en="📅 Date" data-roman="📅 Date">📅 تاریخ</label>
                 <input type="date" id="visitDate">
@@ -1149,53 +1157,70 @@
                 <label data-ur="🕐 وقت" data-en="🕐 Time" data-roman="🕐 Waqt">🕐 وقت</label>
                 <input type="time" id="visitTime">
             </div>
+            <div class="form-group">
+                <label data-ur="🩸 BP" data-en="🩸 BP" data-roman="🩸 BP">🩸 BP</label>
+                <input type="text" id="visitBP" placeholder="120/80" style="text-align:center;">
+            </div>
+            <div class="form-group">
+                <label data-ur="🍬 شوگر" data-en="🍬 Sugar" data-roman="🍬 Sugar">🍬 شوگر</label>
+                <input type="text" id="visitSugar" placeholder="mg/dL" style="text-align:center;">
+            </div>
+            <div class="form-group">
+                <label data-ur="🌡️ ٹمپ" data-en="🌡️ Temp" data-roman="🌡️ Temp">🌡️ ٹمپ</label>
+                <input type="text" id="visitTemp" placeholder="98.6°F" style="text-align:center;">
+            </div>
+            <div class="form-group">
+                <label data-ur="💓 نبض" data-en="💓 Pulse" data-roman="💓 Pulse">💓 نبض</label>
+                <input type="text" id="visitPulse" placeholder="72" style="text-align:center;">
+            </div>
         </div>
         
-        <div class="vitals-box">
-            <div style="font-weight:bold; margin-bottom:10px; color:#17a2b8;">💗 Vitals</div>
-            <div class="form-row-3">
-                <div class="form-group"><label>🩸 BP</label><input type="text" id="visitBP" placeholder="120/80"></div>
-                <div class="form-group"><label>🍬 Sugar</label><input type="text" id="visitSugar" placeholder="mg/dL"></div>
-                <div class="form-group"><label>🌡️ Temp</label><input type="text" id="visitTemp" placeholder="98.6°F"></div>
+        <!-- Row 3: Symptoms + Allergy + Diagnosis -->
+        <div class="fg-row" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div class="form-group">
+                <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
+                <textarea id="visitSymptoms" style="min-height:55px;"></textarea>
             </div>
-            <div class="form-row-3">
-                <div class="form-group"><label>💓 Pulse</label><input type="text" id="visitPulse" placeholder="72/min"></div>
+            <div class="form-group">
+                <label data-ur="⚠️ الرجی" data-en="⚠️ Allergy" data-roman="⚠️ Allergy">⚠️ الرجی</label>
+                <input type="text" id="visitAllergy" readonly style="background:#fff8dc;color:#856404;">
+            </div>
+            <div class="form-group">
+                <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
+                <textarea id="visitDiagnosis" style="min-height:55px;"></textarea>
             </div>
         </div>
         
-        <div class="form-group">
-            <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
-            <textarea id="visitSymptoms"></textarea>
+        <!-- Row 4: Prescription + Method -->
+        <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
+            <div class="form-group">
+                <label data-ur="💊 نسخہ" data-en="💊 Prescription" data-roman="💊 Nuskha">💊 نسخہ</label>
+                <textarea id="visitPrescription" style="min-height:55px;"></textarea>
+            </div>
+            <div class="form-group">
+                <label data-ur="📖 طریقہ" data-en="📖 Method" data-roman="📖 Tareeqa">📖 طریقہ</label>
+                <textarea id="visitMethod" style="min-height:55px;"></textarea>
+            </div>
         </div>
-        <div class="form-group">
-            <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
-            <textarea id="visitDiagnosis"></textarea>
-        </div>
-        <div class="form-group">
-            <label data-ur="💊 نسخہ" data-en="💊 Prescription" data-roman="💊 Nuskha">💊 نسخہ</label>
-            <textarea id="visitPrescription"></textarea>
-        </div>
-        <div class="form-group">
-            <label data-ur="📖 طریقہ استعمال" data-en="📖 Method" data-roman="📖 Tareeqa">📖 طریقہ استعمال</label>
-            <textarea id="visitMethod"></textarea>
-        </div>
-        <div class="form-row">
+        
+        <!-- Row 5: Days + Notes -->
+        <div class="fg-row" style="grid-template-columns: 1fr 4fr;">
             <div class="form-group">
                 <label data-ur="📆 دن" data-en="📆 Days" data-roman="📆 Din">📆 دن</label>
-                <input type="text" id="visitDays">
+                <textarea id="visitDays" placeholder="7" style="min-height:45px;text-align:center;resize:vertical;"></textarea>
             </div>
-        </div>
-        <div class="form-group">
-            <label data-ur="📝 نوٹس" data-en="📝 Notes" data-roman="📝 Notes">📝 نوٹس</label>
-            <textarea id="visitNotes"></textarea>
+            <div class="form-group">
+                <label data-ur="📝 نوٹس" data-en="📝 Notes" data-roman="📝 Notes">📝 نوٹس</label>
+                <textarea id="visitNotes" style="min-height:45px;"></textarea>
+            </div>
         </div>
         
         <div class="action-buttons">
             <button class="btn btn-success" id="saveVisitBtn">
-                <span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Save">💾 محفوظ کریں</span>
+                <span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Mehfooz">💾 محفوظ کریں</span>
             </button>
             <button class="btn btn-light" id="cancelVisitBtn">
-                <span data-ur="❌ منسوخ" data-en="❌ Cancel" data-roman="❌ Cancel">❌ منسوخ</span>
+                <span data-ur="❌ منسوخ" data-en="❌ Cancel" data-roman="❌ Mansookh">❌ منسوخ</span>
             </button>
         </div>
     </div>
@@ -2838,8 +2863,10 @@ function openVisitModal(patientId) {
     const followups = cachedVisits.filter(function(v) { return v.patientId === patientId && v.type === 'followup'; });
     var followupLabels = { ur: 'فالو اپ', en: 'Follow-up', roman: 'Follow-up' };
     $('visitModalTitle').textContent = '➕ ' + (followupLabels[currentLang] || 'Follow-up') + ' #' + (followups.length + 1) + ' - ' + patient.name;
-    $('visitPatientInfo').innerHTML = '👤 <strong>' + escapeHtml(patient.name) + '</strong> | ' + escapeHtml(patient.refNo);
+    $('visitPatientInfo').innerHTML = '👤 <strong>' + escapeHtml(patient.name) + '</strong> | ' + escapeHtml(patient.refNo) + (patient.age ? ' | ' + escapeHtml(patient.age) : '') + (patient.gender ? ' | ' + translateGender(patient.gender) : '');
     $('visitRefNo').value = generateVisitRef();
+    if ($('visitFamilyNo')) $('visitFamilyNo').value = patient.familyNo || '—';
+    if ($('visitAllergy')) $('visitAllergy').value = patient.allergy || '—';
     const now = new Date();
     $('visitDate').value = now.toISOString().split('T')[0];
     $('visitTime').value = now.toTimeString().substring(0, 5);
@@ -2857,8 +2884,10 @@ function openEditVisitModal(visitId, patientId) {
     $('editVisitId').value = visitId;
     var editLabels = { ur: '✏️ ترمیم', en: '✏️ Edit', roman: '✏️ Tarmeemi' };
     $('visitModalTitle').textContent = (editLabels[currentLang] || '✏️ Edit') + ' - ' + patient.name;
-    $('visitPatientInfo').innerHTML = '👤 <strong>' + escapeHtml(patient.name) + '</strong> | ' + escapeHtml(patient.refNo);
+    $('visitPatientInfo').innerHTML = '👤 <strong>' + escapeHtml(patient.name) + '</strong> | ' + escapeHtml(patient.refNo) + (patient.age ? ' | ' + escapeHtml(patient.age) : '') + (patient.gender ? ' | ' + translateGender(patient.gender) : '');
     $('visitRefNo').value = visit.visitRef || '—';
+    if ($('visitFamilyNo')) $('visitFamilyNo').value = patient.familyNo || '—';
+    if ($('visitAllergy')) $('visitAllergy').value = patient.allergy || '—';
     $('visitDate').value = visit.date || '';
     $('visitTime').value = visit.time || '';
     $('visitSymptoms').value = visit.symptoms || '';
