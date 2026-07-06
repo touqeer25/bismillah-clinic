@@ -1926,8 +1926,7 @@ async function savePatientDB(patient) {
 
 async function saveVisitDB(visit) {
     var dbData = visitToDb(visit);
-    delete dbData.visit_ref; // avoid column errors
-    console.log('📤 Saving visit:', dbData.id);
+    console.log('📤 Saving visit:', dbData.id, 'ref:', dbData.visit_ref || 'none');
     // Check if already exists
     var existing = await sb.from('visits').select('id').eq('id', dbData.id).maybeSingle();
     if (existing.data) {
@@ -1935,13 +1934,21 @@ async function saveVisitDB(visit) {
         var updateData = Object.assign({}, dbData);
         delete updateData.id;
         var r = await sb.from('visits').update(updateData).eq('id', dbData.id).select();
-        if (r.error) throw r.error;
+        if (r.error) {
+            // Retry without visit_ref
+            delete updateData.visit_ref;
+            r = await sb.from('visits').update(updateData).eq('id', dbData.id).select();
+            if (r.error) throw r.error;
+        }
         return r.data[0];
     }
     var r = await sb.from('visits').insert([dbData]).select();
     if (r.error) {
         console.error('Visit save error:', r.error.message);
-        throw r.error;
+        // Retry without visit_ref
+        delete dbData.visit_ref;
+        r = await sb.from('visits').insert([dbData]).select();
+        if (r.error) throw r.error;
     }
     return r.data[0];
 }
