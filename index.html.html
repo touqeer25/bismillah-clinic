@@ -3638,12 +3638,17 @@ function nvToggleAllHistory() {
     if (!nvCurrentPatientId) return;
     var container = $('nvAllHistory');
     var content = $('nvAllHistoryContent');
+    var lastVisit = $('nvLastVisit');
     
     // Toggle
     if (!container.classList.contains('hidden')) {
         container.classList.add('hidden');
+        lastVisit.classList.remove('hidden');
         return;
     }
+    
+    // Hide last visit when showing all
+    lastVisit.classList.add('hidden');
     
     var visits = cachedVisits.filter(function(v) { return v.patientId === nvCurrentPatientId; });
     visits.sort(function(a, b) { return (b.date || '').localeCompare(a.date || ''); });
