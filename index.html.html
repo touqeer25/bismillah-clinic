@@ -106,7 +106,7 @@
             color: white; padding: 12px 15px;
             position: sticky; top: 0; z-index: 100;
             box-shadow: 0 3px 15px rgba(0,0,0,0.2);
-            min-height: 70px;
+            min-height: 65px;
         }
         .header-center {
             text-align: center; padding: 4px 0; overflow: visible;
@@ -123,8 +123,8 @@
             gap: 4px;
         }
         .header-center .clinic-title {
-            font-size: 24px; font-weight: bold; line-height: 2.2;
-            padding: 8px 0 2px 0; color: #f1c40f;
+            font-size: 22px; font-weight: bold; line-height: 1.4;
+            padding: 6px 0 2px 0; color: #f1c40f;
             background: linear-gradient(180deg, #ffe082 0%, #ffd54f 25%, #d4af37 50%, #ffd54f 75%, #ffe082 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             background-clip: text; letter-spacing: 1px; overflow: visible;
@@ -132,19 +132,19 @@
             filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
         }
         body.lang-en .header-center .clinic-title,
-        body.lang-roman .header-center .clinic-title { line-height: 1.3; padding: 4px 0 2px 0; font-size: 22px; letter-spacing: 1.5px; }
+        body.lang-roman .header-center .clinic-title { font-size: 22px; letter-spacing: 1.5px; }
         @supports not (-webkit-background-clip: text) {
             .header-center .clinic-title { color: #ffd54f; -webkit-text-fill-color: initial; }
         }
         .header-center .doctor-title {
-            font-size: 13px; margin-top: 2px;
-            font-weight: normal; line-height: 2;
-            color: rgba(255,255,255,0.92);
+            font-size: 12px; margin-top: 2px;
+            font-weight: normal; line-height: 1.4;
+            color: rgba(255,255,255,0.9);
             letter-spacing: 0.3px;
             text-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
         body.lang-en .header-center .doctor-title,
-        body.lang-roman .header-center .doctor-title { line-height: 1.4; font-size: 12px; letter-spacing: 0.8px; text-transform: uppercase; color: rgba(255,255,255,0.85); }
+        body.lang-roman .header-center .doctor-title { letter-spacing: 0.8px; text-transform: uppercase; }
         
         .icon-btn {
             background: rgba(255,255,255,0.2);
@@ -175,17 +175,19 @@
         }
 
         .nav-bar {
-            background: white; padding: 8px 12px;
-            display: flex; gap: 6px; overflow-x: auto;
+            background: white; padding: 6px 12px;
+            display: flex; gap: 5px; overflow-x: auto;
             border-bottom: 2px solid #ecf0f1;
             flex-wrap: wrap; justify-content: center;
+            min-height: 42px; align-items: center;
         }
         .nav-btn {
-            padding: 6px 14px; border: 2px solid #ddd;
+            padding: 5px 12px; border: 2px solid #ddd;
             border-radius: 8px; background: white;
             cursor: pointer; font-family: inherit; font-size: 13px;
             transition: all 0.3s; white-space: nowrap;
             display: flex; align-items: center; gap: 4px;
+            height: 32px;
         }
         .nav-btn:hover, .nav-btn.active {
             background: #2980b9; color: white; border-color: #2980b9;
@@ -1278,111 +1280,10 @@
 
 <!-- Preferences & Help moved to nav bar -->
 
-<!-- ============================================ -->
-<!-- VISIT MODAL -->
-<!-- ============================================ -->
-<div id="visitModal" class="modal-overlay">
-    <div class="modal">
-        <div class="modal-title">
-            <span id="visitModalTitle">➕ نئی وزٹ</span>
-            <button class="modal-close" id="closeVisitBtn">✕</button>
-        </div>
-        <div id="visitMsg"></div>
-        <input type="hidden" id="visitPatientId">
-        <input type="hidden" id="editVisitId">
-        <div id="visitPatientInfo" style="background:#f0f8ff; padding:8px 12px; border-radius:6px; margin-bottom:10px; font-size:13px;"></div>
-        
-        <!-- Row 1: Visit Ref + Family -->
-        <div class="fg-row" style="grid-template-columns: 120px 120px;">
-            <div class="form-group">
-                <label data-ur="📋 وزٹ" data-en="📋 Visit" data-roman="📋 Visit">📋 وزٹ</label>
-                <input type="text" id="visitRefNo" readonly style="background:#ecf0f1;font-weight:bold;color:#8e44ad;">
-            </div>
-            <div class="form-group">
-                <label data-ur="👨‍👩‍👧‍👦 فیملی" data-en="👨‍👩‍👧‍👦 Family" data-roman="👨‍👩‍👧‍👦 Family">👨‍👩‍👧‍👦 فیملی</label>
-                <input type="text" id="visitFamilyNo" style="color:#2c3e50;">
-            </div>
-        </div>
-        
-        <!-- Row 2: Date + Time + BP + Sugar + Temp + Pulse -->
-        <div class="fg-row" style="grid-template-columns: 135px 120px 90px 80px 80px 80px;">
-            <div class="form-group">
-                <label data-ur="📅 تاریخ" data-en="📅 Date" data-roman="📅 Date">📅 تاریخ</label>
-                <input type="date" id="visitDate">
-            </div>
-            <div class="form-group">
-                <label data-ur="🕐 وقت" data-en="🕐 Time" data-roman="🕐 Waqt">🕐 وقت</label>
-                <input type="time" id="visitTime">
-            </div>
-            <div class="form-group">
-                <label data-ur="🩸 BP" data-en="🩸 BP" data-roman="🩸 BP">🩸 BP</label>
-                <input type="text" id="visitBP" placeholder="120/80" style="text-align:center;">
-            </div>
-            <div class="form-group">
-                <label data-ur="🍬 شوگر" data-en="🍬 Sugar" data-roman="🍬 Sugar">🍬 شوگر</label>
-                <input type="text" id="visitSugar" placeholder="mg/dL" style="text-align:center;">
-            </div>
-            <div class="form-group">
-                <label data-ur="🌡️ ٹمپ" data-en="🌡️ Temp" data-roman="🌡️ Temp">🌡️ ٹمپ</label>
-                <input type="text" id="visitTemp" placeholder="98.6°F" style="text-align:center;">
-            </div>
-            <div class="form-group">
-                <label data-ur="💓 نبض" data-en="💓 Pulse" data-roman="💓 Pulse">💓 نبض</label>
-                <input type="text" id="visitPulse" placeholder="72" style="text-align:center;">
-            </div>
-        </div>
-        
-        <!-- Row 3: Symptoms + Allergy + Diagnosis -->
-        <div class="fg-row" style="grid-template-columns: 1fr 1fr 1fr;">
-            <div class="form-group">
-                <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
-                <textarea id="visitSymptoms" style="min-height:55px;"></textarea>
-            </div>
-            <div class="form-group">
-                <label data-ur="⚠️ الرجی" data-en="⚠️ Allergy" data-roman="⚠️ Allergy">⚠️ الرجی</label>
-                <textarea id="visitAllergy" style="min-height:55px;color:#2c3e50;"></textarea>
-            </div>
-            <div class="form-group">
-                <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
-                <textarea id="visitDiagnosis" style="min-height:55px;"></textarea>
-            </div>
-        </div>
-        
-        <!-- Row 4: Prescription + Method -->
-        <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
-            <div class="form-group">
-                <label data-ur="💊 نسخہ" data-en="💊 Prescription" data-roman="💊 Nuskha">💊 نسخہ</label>
-                <textarea id="visitPrescription" style="min-height:55px;"></textarea>
-            </div>
-            <div class="form-group">
-                <label data-ur="📖 طریقہ" data-en="📖 Method" data-roman="📖 Tareeqa">📖 طریقہ</label>
-                <textarea id="visitMethod" style="min-height:55px;"></textarea>
-            </div>
-        </div>
-        
-        <!-- Row 5: Days + Notes -->
-        <div class="fg-row" style="grid-template-columns: 1fr 4fr;">
-            <div class="form-group">
-                <label data-ur="📆 دن" data-en="📆 Days" data-roman="📆 Din">📆 دن</label>
-                <textarea id="visitDays" placeholder="7" style="min-height:45px;text-align:center;resize:vertical;"></textarea>
-            </div>
-            <div class="form-group">
-                <label data-ur="📝 نوٹس" data-en="📝 Notes" data-roman="📝 Notes">📝 نوٹس</label>
-                <textarea id="visitNotes" style="min-height:45px;"></textarea>
-            </div>
-        </div>
-        
-        <div class="action-buttons">
-            <button class="btn btn-success" id="saveVisitBtn">
-                <span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Mehfooz">💾 محفوظ کریں</span>
-            </button>
-            <button class="btn btn-light" id="cancelVisitBtn">
-                <span data-ur="❌ منسوخ" data-en="❌ Cancel" data-roman="❌ Mansookh">❌ منسوخ</span>
-            </button>
-        </div>
-    </div>
-</div>
+<!-- Visit Modal removed - using New Visit Page instead -->
 
+<!-- ============================================ -->
+<!-- EDIT PATIENT MODAL -->
 <!-- ============================================ -->
 <!-- EDIT PATIENT MODAL -->
 <!-- ============================================ -->
@@ -3025,26 +2926,9 @@ async function saveEditPatient() {
     }
 }
 
-// ==================== VISIT MODAL ====================
+// ==================== VISIT (redirects to New Visit Page) ====================
 function openVisitModal(patientId) {
-    const patient = cachedPatients.find(function(p) { return p.id === patientId; });
-    if (!patient) return;
-    $('visitPatientId').value = patientId;
-    $('editVisitId').value = '';
-    const followups = cachedVisits.filter(function(v) { return v.patientId === patientId && v.type === 'followup'; });
-    var followupLabels = { ur: 'فالو اپ', en: 'Follow-up', roman: 'Follow-up' };
-    $('visitModalTitle').textContent = '➕ ' + (followupLabels[currentLang] || 'Follow-up') + ' #' + (followups.length + 1) + ' - ' + patient.name;
-    $('visitPatientInfo').innerHTML = '👤 <strong>' + escapeHtml(patient.name) + '</strong> | ' + escapeHtml(patient.refNo) + (patient.age ? ' | ' + escapeHtml(patient.age) : '') + (patient.gender ? ' | ' + translateGender(patient.gender) : '');
-    $('visitRefNo').value = generateVisitRef();
-    if ($('visitFamilyNo')) $('visitFamilyNo').value = patient.familyNo || '—';
-    if ($('visitAllergy')) $('visitAllergy').value = patient.allergy || '—';
-    const now = new Date();
-    $('visitDate').value = now.toISOString().split('T')[0];
-    $('visitTime').value = now.toTimeString().substring(0, 5);
-    ['visitSymptoms','visitDiagnosis','visitPrescription','visitMethod','visitDays','visitNotes',
-     'visitBP','visitSugar','visitTemp','visitPulse'].forEach(function(id) { $(id).value = ''; });
-    $('visitMsg').innerHTML = '';
-    $('visitModal').classList.add('active');
+    goToNewVisitPage(patientId);
 }
 
 function openEditVisitModal(visitId, patientId) {
