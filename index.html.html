@@ -247,7 +247,7 @@
         .fg-row .form-group { margin-bottom: 0; }
         .fg-row .form-group input,
         .fg-row .form-group select,
-        .fg-row .form-group textarea { padding: 7px 10px; font-size: 12px; font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
+        .fg-row .form-group textarea { padding: 7px 10px; font-size: 12px; font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; box-sizing: border-box; }
         body[dir="rtl"] .fg-row .form-group input,
         body[dir="rtl"] .fg-row .form-group select,
         body[dir="rtl"] .fg-row .form-group textarea { font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
@@ -347,6 +347,65 @@
             background: #f39c12;
             color: white;
             border-color: #f39c12;
+        }
+
+        /* Symptom Autocomplete Dropdown */
+        .symptom-ac-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        .symptom-ac-wrapper textarea {
+            width: 100% !important;
+            box-sizing: border-box;
+        }
+        .symptom-ac-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: white;
+            border: 2px solid #2980b9;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .symptom-ac-dropdown.active { display: block; }
+        .symptom-ac-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 13px;
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.15s;
+        }
+        .symptom-ac-item:hover, .symptom-ac-item.selected {
+            background: #e8f4f8;
+            color: #1a5276;
+        }
+        .symptom-ac-item:last-child { border-bottom: none; }
+        .symptom-ac-item .ac-category {
+            font-size: 10px;
+            color: #95a5a6;
+            background: #f0f0f0;
+            padding: 1px 6px;
+            border-radius: 10px;
+        }
+        .symptom-ac-no-results {
+            padding: 10px 12px;
+            font-size: 12px;
+            color: #95a5a6;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+        }
+        .symptom-ac-highlight {
+            background: #fff3cd;
         }
 
         .section-divider {
@@ -986,7 +1045,10 @@
                 <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                     <div class="form-group">
                         <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
-                        <textarea id="firstVisitSymptoms" style="min-height:55px;" oninput="autoSuggestDiseases('firstVisitSymptoms','regDiseaseSuggest')"></textarea>
+                        <div class="symptom-ac-wrapper">
+                            <textarea id="firstVisitSymptoms" style="min-height:55px;width:100%;" oninput="handleSymptomInput('firstVisitSymptoms','regSymptomAC','regDiseaseSuggest')" onkeydown="handleSymptomKeydown(event,'firstVisitSymptoms','regSymptomAC')" onblur="hideSymptomDropdown('regSymptomAC')" autocomplete="off"></textarea>
+                            <div class="symptom-ac-dropdown" id="regSymptomAC"></div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
@@ -1224,7 +1286,10 @@
                     <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                         <div class="form-group">
                             <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
-                            <textarea id="nvSymptoms" style="min-height:55px;" oninput="autoSuggestDiseases('nvSymptoms','nvDiseaseSuggest')"></textarea>
+                            <div class="symptom-ac-wrapper">
+                                <textarea id="nvSymptoms" style="min-height:55px;width:100%;" oninput="handleSymptomInput('nvSymptoms','nvSymptomAC','nvDiseaseSuggest')" onkeydown="handleSymptomKeydown(event,'nvSymptoms','nvSymptomAC')" onblur="hideSymptomDropdown('nvSymptomAC')" autocomplete="off"></textarea>
+                                <div class="symptom-ac-dropdown" id="nvSymptomAC"></div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
@@ -3950,6 +4015,237 @@ function closeStatPatients() {
     showStatPatients('today');
 }
 
+// ==================== SYMPTOM AUTOCOMPLETE ====================
+var symptomACIndex = -1;
+var symptomACTimer = null;
+
+function handleSymptomInput(textareaId, dropdownId, diseasePanelId) {
+    // Also trigger disease suggest (existing feature)
+    if (typeof autoSuggestDiseases === 'function') {
+        autoSuggestDiseases(textareaId, diseasePanelId);
+    }
+    
+    // Clear previous timer
+    if (symptomACTimer) clearTimeout(symptomACTimer);
+    
+    // Debounce 200ms for autocomplete
+    symptomACTimer = setTimeout(function() {
+        showSymptomAutocomplete(textareaId, dropdownId);
+    }, 200);
+}
+
+function handleSymptomKeydown(e, textareaId, dropdownId) {
+    var dropdown = $(dropdownId);
+    if (!dropdown || !dropdown.classList.contains('active')) return;
+    
+    var items = dropdown.querySelectorAll('.symptom-ac-item');
+    
+    if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        symptomACIndex = Math.min(symptomACIndex + 1, items.length - 1);
+        updateACSelection(items);
+    } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        symptomACIndex = Math.max(symptomACIndex - 1, -1);
+        updateACSelection(items);
+    } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (symptomACIndex >= 0 && items[symptomACIndex]) {
+            items[symptomACIndex].click();
+        }
+    } else if (e.key === 'Escape') {
+        hideSymptomDropdown(dropdownId);
+    }
+}
+
+function updateACSelection(items) {
+    items.forEach(function(item, i) {
+        if (i === symptomACIndex) {
+            item.classList.add('selected');
+            item.scrollIntoView({ block: 'nearest' });
+        } else {
+            item.classList.remove('selected');
+        }
+    });
+}
+
+function showSymptomAutocomplete(textareaId, dropdownId) {
+    var textarea = $(textareaId);
+    var dropdown = $(dropdownId);
+    
+    if (!textarea || !dropdown) return;
+    
+    // Safety check
+    if (typeof SYMPTOMS_DB === 'undefined') return;
+    
+    // Get the current word being typed (last word after comma or space)
+    var fullText = textarea.value;
+    var cursorPos = textarea.selectionStart;
+    var textBefore = fullText.substring(0, cursorPos);
+    
+    // Find the last word: split by comma, space, or newline
+    var lastWord = '';
+    var match = textBefore.match(/[^\s،,\n]+$/);
+    if (match) {
+        lastWord = match[0].trim();
+    }
+    
+    // If word is too short, hide dropdown
+    if (lastWord.length < 2) {
+        dropdown.classList.remove('active');
+        dropdown.innerHTML = '';
+        return;
+    }
+    
+    var query = lastWord.toLowerCase();
+    var results = [];
+    
+    // Search SYMPTOMS_DB in all 3 languages
+    Object.keys(SYMPTOMS_DB).forEach(function(key) {
+        var sym = SYMPTOMS_DB[key];
+        if (!sym) return;
+        
+        var score = 0;
+        var matchLang = '';
+        
+        if (sym.ur && sym.ur.toLowerCase().indexOf(query) !== -1) {
+            score = sym.ur.toLowerCase().indexOf(query) === 0 ? 3 : 1;
+            matchLang = 'ur';
+        }
+        if (sym.en && sym.en.toLowerCase().indexOf(query) !== -1) {
+            var s = sym.en.toLowerCase().indexOf(query) === 0 ? 3 : 1;
+            if (s > score) { score = s; matchLang = 'en'; }
+        }
+        if (sym.roman && sym.roman.toLowerCase().indexOf(query) !== -1) {
+            var s = sym.roman.toLowerCase().indexOf(query) === 0 ? 3 : 1;
+            if (s > score) { score = s; matchLang = 'roman'; }
+        }
+        
+        if (score > 0) {
+            results.push({ key: key, sym: sym, score: score, matchLang: matchLang });
+        }
+    });
+    
+    // Sort: starts-with first, then contains
+    results.sort(function(a, b) { return b.score - a.score; });
+    // Limit to 8 results
+    results = results.slice(0, 8);
+    
+    if (results.length === 0) {
+        dropdown.classList.remove('active');
+        dropdown.innerHTML = '';
+        // Show no results briefly
+        dropdown.innerHTML = '<div class="symptom-ac-no-results">' +
+            ({ur: 'کوئی علامت نہیں ملی', en: 'No symptoms found', roman: 'Koi alamat nahi mili'}[currentLang] || 'No symptoms found') +
+            '</div>';
+        dropdown.classList.add('active');
+        setTimeout(function() {
+            if (dropdown.innerHTML.indexOf('کوئی علامت') !== -1 || dropdown.innerHTML.indexOf('No symptoms') !== -1 || dropdown.innerHTML.indexOf('Koi alamat') !== -1) {
+                dropdown.classList.remove('active');
+            }
+        }, 1500);
+        return;
+    }
+    
+    // Get category name for display
+    function getCatName(catKey) {
+        if (!catKey) return '';
+        if (window.CATEGORIES_DB && window.CATEGORIES_DB[catKey]) {
+            return window.CATEGORIES_DB[catKey][currentLang] || window.CATEGORIES_DB[catKey].en || catKey;
+        }
+        return catKey;
+    }
+    
+    symptomACIndex = -1;
+    var html = '';
+    results.forEach(function(r) {
+        var displayName = r.sym[currentLang] || r.sym.en || '';
+        // Highlight matching part
+        var idx = displayName.toLowerCase().indexOf(query);
+        var highlighted = displayName;
+        if (idx >= 0) {
+            highlighted = displayName.substring(0, idx) +
+                '<span class="symptom-ac-highlight">' + displayName.substring(idx, idx + query.length) + '</span>' +
+                displayName.substring(idx + query.length);
+        }
+        
+        var cat = getCatName(r.sym.category);
+        var severeIcon = r.sym.severe ? ' ⚠️' : '';
+        
+        html += '<div class="symptom-ac-item" data-key="' + r.key + '" data-name="' + escapeHtml(displayName) + '" data-cat="' + escapeHtml(cat || '') + '">';
+        html += '<span>' + highlighted + severeIcon + '</span>';
+        if (cat) html += '<span class="ac-category">' + escapeHtml(cat) + '</span>';
+        html += '</div>';
+    });
+    
+    dropdown.innerHTML = html;
+    dropdown.classList.add('active');
+    
+    // Add click handlers
+    dropdown.querySelectorAll('.symptom-ac-item').forEach(function(item) {
+        item.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            var name = this.getAttribute('data-name');
+            insertSymptomAtCursor(textareaId, name, query);
+            hideSymptomDropdown(dropdownId);
+            textarea.focus();
+        });
+    });
+}
+
+function insertSymptomAtCursor(textareaId, symptomName, query) {
+    var textarea = $(textareaId);
+    if (!textarea) return;
+    
+    var fullText = textarea.value;
+    var cursorPos = textarea.selectionStart;
+    var textBefore = fullText.substring(0, cursorPos);
+    var textAfter = fullText.substring(cursorPos);
+    
+    // Replace the partial word being typed with the full symptom name
+    var lastWordMatch = textBefore.match(/[^\s،,\n]+$/);
+    if (lastWordMatch) {
+        textBefore = textBefore.substring(0, textBefore.length - lastWordMatch[0].length);
+    } else {
+        // No word at cursor - just append
+        textBefore = textBefore;
+    }
+    
+    // Add comma if needed
+    if (textBefore.length > 0 && !textBefore.endsWith('،') && !textBefore.endsWith(',') && !textBefore.endsWith(' ') && !textBefore.endsWith('\n')) {
+        textBefore += '، ';
+    }
+    
+    textarea.value = textBefore + symptomName + '، ' + textAfter;
+    
+    // Set cursor after inserted text
+    var newPos = textBefore.length + symptomName.length + 2;
+    textarea.setSelectionRange(newPos, newPos);
+    
+    // Re-trigger disease suggest
+    if (typeof autoSuggestDiseases === 'function') {
+        var panelId = textareaId === 'firstVisitSymptoms' ? 'regDiseaseSuggest' : 'nvDiseaseSuggest';
+        autoSuggestDiseases(textareaId, panelId);
+    }
+}
+
+function hideSymptomDropdown(dropdownId) {
+    var dropdown = $(dropdownId);
+    if (dropdown) {
+        // Delay to allow click to register
+        setTimeout(function() {
+            dropdown.classList.remove('active');
+            dropdown.innerHTML = '';
+            symptomACIndex = -1;
+        }, 150);
+    }
+}
+
+// Expose
+window.handleSymptomInput = handleSymptomInput;
+window.handleSymptomKeydown = handleSymptomKeydown;
+window.hideSymptomDropdown = hideSymptomDropdown;
+
 // ==================== DISEASE AUTO-SUGGEST ====================
 var diseaseSuggestTimer = null;
 
@@ -3999,6 +4295,9 @@ function doAutoSuggest(textareaId, panelId) {
         return;
     }
     
+    // Safety: check if SYMPTOMS_DB and DISEASES_DB are loaded
+    if (typeof SYMPTOMS_DB === 'undefined' || typeof DISEASES_DB === 'undefined') return;
+    
     // Step 1: Find which SYMPTOMS_DB entries are mentioned in the text (fuzzy matching)
     var foundSymptoms = [];
     var textLower = text.toLowerCase();
@@ -4029,7 +4328,8 @@ function doAutoSuggest(textareaId, panelId) {
     
     var results = [];
     
-    (window.DISEASES_DB || []).forEach(function(disease) {
+    var diseaseDB = window.DISEASES_DB || DISEASES_DB || [];
+    diseaseDB.forEach(function(disease) {
         if (!disease.symptoms || disease.symptoms.length === 0) return;
         var matched = disease.symptoms.filter(function(s) { return foundSet.has(s); });
         if (matched.length === 0) return;
@@ -4115,7 +4415,8 @@ function doAutoSuggest(textareaId, panelId) {
 }
 
 function copyDiseaseToForm(formType, diseaseId, target) {
-    var d = (window.DISEASES_DB || []).find(function(x) { return x.id === diseaseId; });
+    var diseaseDB = window.DISEASES_DB || DISEASES_DB || [];
+    var d = diseaseDB.find(function(x) { return x.id === diseaseId; });
     if (!d) return;
     
     var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
@@ -4469,5 +4770,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a17733ccbc0cc4c3',t:'MTc4MzQzMTAxMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
