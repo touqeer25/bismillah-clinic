@@ -61,8 +61,26 @@
         .form-group { margin-bottom: 15px; text-align: right; }
         body[dir="ltr"] .form-group { text-align: left; }
         .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50; font-size: 14px; height: 20px; line-height: 20px; overflow: hidden; font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
-        .form-group .label-with-btns { display: flex; align-items: center; gap: 5px; height: 20px; }
-        .form-group .label-with-btns label { display: inline; margin-bottom: 0; height: auto; }
+        .form-group .label-with-btns {
+            display: flex !important;
+            align-items: center;
+            gap: 5px;
+            min-height: 22px;
+            margin-bottom: 4px;
+            flex-direction: row !important;
+        }
+        .form-group .label-with-btns label {
+            display: inline !important;
+            margin-bottom: 0 !important;
+            height: auto !important;
+            min-height: auto !important;
+            flex-shrink: 0;
+        }
+        .form-group .label-with-btns .symptom-mode-btns {
+            display: inline-flex !important;
+            gap: 3px;
+            flex-shrink: 0;
+        }
         body[dir="rtl"] .form-group label { font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; font-size: 14px; }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%; padding: 10px 14px; border: 2px solid #ddd;
@@ -256,9 +274,7 @@
         body[dir="rtl"] .fg-row .form-group textarea { font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
         .fg-row .form-group label {
             font-size: 12px; margin-bottom: 3px;
-            height: 28px; line-height: 14px;
-            display: flex; align-items: center;
-            overflow: hidden;
+            min-height: 18px; line-height: 1.4;
             font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important;
         }
         body[dir="rtl"] .fg-row .form-group label {
@@ -4941,14 +4957,12 @@ function repertorize(symptomsText, chapterFilter) {
             if (!rubric) return;
             
             // Match rubric against symptoms text (all 3 languages)
-            var rubricText = (rubric[lang] || rubric.en || '').toLowerCase();
-            var rubricTextEn = (rubric.en || '').toLowerCase();
-            var rubricTextUr = (rubric.ur || '').toLowerCase();
-            
+            // Search ALL 3 languages for rubric match
             var matched = false;
-            if (rubricText && text.indexOf(rubricText) !== -1) matched = true;
-            else if (rubricTextEn && text.indexOf(rubricTextEn) !== -1) matched = true;
-            else if (rubricTextUr && text.indexOf(rubricTextUr) !== -1) matched = true;
+            ['ur','en','roman'].forEach(function(l) {
+                var t = rubric[l];
+                if (t && text.indexOf(t.toLowerCase()) !== -1) matched = true;
+            });
             
             if (!matched) return;
             
@@ -5092,12 +5106,23 @@ function showRepertoryAutocomplete(textareaId, dropdownId) {
         Object.keys(chapter.rubrics).forEach(function(rubKey) {
             var rubric = chapter.rubrics[rubKey];
             if (!rubric) return;
-            var t = rubric[lang] || rubric.en || '';
-            if (t.toLowerCase().indexOf(query) !== -1) {
+            // Search ALL 3 languages (like old system)
+            var matchScore = 0;
+            var bestName = rubric[lang] || rubric.en || '';
+            ['ur','en','roman'].forEach(function(l) {
+                var t = rubric[l];
+                if (!t) return;
+                var idx = t.toLowerCase().indexOf(query);
+                if (idx !== -1) {
+                    var s = idx === 0 ? 3 : 1;
+                    if (s > matchScore) { matchScore = s; bestName = t; }
+                }
+            });
+            if (matchScore > 0) {
                 results.push({
-                    key: rubKey, name: t,
+                    key: rubKey, name: bestName,
                     category: chapter[lang] || chapter.en || chKey,
-                    score: t.toLowerCase().indexOf(query) === 0 ? 3 : 1
+                    score: matchScore
                 });
             }
         });
