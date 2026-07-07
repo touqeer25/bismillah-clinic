@@ -84,10 +84,11 @@
 
         .btn {
             padding: 10px 22px; border: none; border-radius: 8px;
-            font-size: 14px; font-family: inherit; cursor: pointer;
+            font-size: 14px; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; cursor: pointer;
             transition: all 0.3s; display: inline-flex; align-items: center;
-            gap: 6px; font-weight: bold;
+            gap: 6px; font-weight: bold; line-height: 1.3;
         }
+        body[dir="rtl"] .btn { font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; line-height: 1.3; }
         .btn:disabled { opacity: 0.6; cursor: not-allowed; }
         .btn-primary {
             background: linear-gradient(135deg, #2980b9, #1a5276);
@@ -105,8 +106,8 @@
         .btn-edit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(142,68,173,0.4); }
         .btn-purple { background: linear-gradient(135deg, #8e44ad, #6c3483); color: white; }
         .btn-purple:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(142,68,173,0.4); }
-        .btn-sm { padding: 6px 12px; font-size: 12px; }
-        .btn-xs { padding: 4px 8px; font-size: 11px; }
+        .btn-sm { padding: 6px 12px; font-size: 12px; line-height: 1.3; }
+        .btn-xs { padding: 4px 8px; font-size: 11px; line-height: 1.3; }
 
         .app-header {
             background: linear-gradient(135deg, #1a5276, #2980b9);
@@ -191,11 +192,12 @@
         .nav-btn {
             padding: 5px 12px; border: 2px solid #ddd;
             border-radius: 8px; background: white;
-            cursor: pointer; font-family: inherit; font-size: 13px;
+            cursor: pointer; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; font-size: 13px;
             transition: all 0.3s; white-space: nowrap;
             display: flex; align-items: center; gap: 4px;
-            height: 32px;
+            height: 32px; line-height: 1.3;
         }
+        body[dir="rtl"] .nav-btn { font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
         .nav-btn:hover, .nav-btn.active {
             background: #2980b9; color: white; border-color: #2980b9;
         }
@@ -4110,5 +4112,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a176bdf94cc07eb3',t:'MTc4MzQyNjE4NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
