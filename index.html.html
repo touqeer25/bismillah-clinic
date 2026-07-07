@@ -758,22 +758,13 @@
             </div>
             
             <!-- Stats Patient List Panel -->
-            <div class="card hidden" id="statPatientsPanel">
+            <div class="card" id="statPatientsPanel">
                 <div class="card-title" style="display:flex;justify-content:space-between;align-items:center;">
                     <span id="statPanelTitle">📋</span>
-                    <button class="btn btn-light btn-sm" onclick="closeStatPatients()">✕</button>
                 </div>
                 <div id="statPatientsList"></div>
             </div>
-            
-            <div class="card">
-                <div class="card-title">
-                    📅 <span data-ur="آج کی سرگرمی" data-en="Today&#39;s Activity" data-roman="Aaj ki Activity">آج کی سرگرمی</span>
-                </div>
-                <div id="todayPatientsList">
-                    <div class="empty-state"><div class="icon">⏳</div><p>Loading...</p></div>
-                </div>
-            </div>
+
         </div>
     </div>
     
@@ -2498,52 +2489,15 @@ async function updateDashboard() {
     applyDashboardTabVisibility();
     
     // Highlight active stat tab
-    var activeTab = sessionStorage.getItem('activeStatTab') || '';
+    // Default to today tab highlight
+    var activeTab = sessionStorage.getItem('activeStatTab') || 'today';
     $$('.stat-card').forEach(function(card) { card.style.boxShadow = ''; card.style.border = ''; });
-    if (activeTab && $('statTab' + activeTab.charAt(0).toUpperCase() + activeTab.slice(1))) {
-        var tabEl = $('statTab' + activeTab.charAt(0).toUpperCase() + activeTab.slice(1));
-        if (tabEl) { tabEl.style.boxShadow = '0 0 0 3px #2980b9'; tabEl.style.border = '2px solid #2980b9'; }
-    }
+    var tabEl = $('statTab' + activeTab.charAt(0).toUpperCase() + activeTab.slice(1));
+    if (tabEl) { tabEl.style.boxShadow = '0 0 0 3px #2980b9'; tabEl.style.border = '2px solid #2980b9'; }
     
-    const todayDiv = $('todayPatientsList');
-    
-    if (todayPatientIds.size === 0) {
-        const emptyText = { ur: 'آج ابھی کوئی سرگرمی نہیں', en: 'No activity today', roman: 'Aaj koi activity nahi' };
-        todayDiv.innerHTML = '<div class="empty-state"><div class="icon">📋</div><p>' + emptyText[currentLang] + '</p></div>';
-    } else {
-        const activities = [];
-        todayRegistered.forEach(function(p) {
-            const time = p.createdAt ? new Date(p.createdAt).toTimeString().substring(0, 5) : '';
-            activities.push({ patient: p, time: time, type: 'registered' });
-        });
-        todayFollowups.forEach(function(v) {
-            const patient = patients.find(function(p) { return p.id === v.patientId; });
-            if (patient && !todayRegistered.find(function(p) { return p.id === v.patientId; })) {
-                activities.push({ patient: patient, time: v.time || '', type: 'followup', visitRef: v.visitRef || '' });
-            }
-        });
-        activities.sort(function(a, b) { return (b.time || '').localeCompare(a.time || ''); });
-        
-        const badgeTexts = {
-            ur: { followup: 'فالو اپ', registered: 'نئی رجسٹریشن' },
-            en: { followup: 'Follow-up', registered: 'New Registration' },
-            roman: { followup: 'Follow-up', registered: 'Nayi Registration' }
-        };
-        
-        let html = '<ul class="today-list">';
-        activities.forEach(function(a) {
-            const gBadge = getGenderBadgeClass(a.patient.gender);
-            const actBadge = a.type === 'followup' ? 'badge-visit' : 'badge-registered';
-            html += '<li onclick="showPatientDetail(\'' + a.patient.id + '\')"><div>';
-            html += '<div class="patient-list-name">' + escapeHtml(a.patient.name) + '</div>';
-            html += '<div class="patient-list-time">' + escapeHtml(a.patient.refNo) + (a.visitRef ? ' | <span style="color:#8e44ad;">' + escapeHtml(a.visitRef) + '</span>' : '') + ' | ' + escapeHtml(a.time) + ' ';
-            html += '<span class="badge ' + actBadge + '">' + badgeTexts[currentLang][a.type] + '</span></div>';
-            html += '</div><span class="badge ' + gBadge + '">' + translateGender(a.patient.gender) + '</span></li>';
-        });
-        html += '</ul>';
-        todayDiv.innerHTML = html;
+    // Auto-show today'''s patients on dashboard load
+    showStatPatients(activeTab);
     }
-}
 
 // ==================== REF NUMBER ====================
 async function generateRefNo() {
@@ -3828,15 +3782,15 @@ function showStatPatients(type) {
     } else {
         listDiv.innerHTML = renderPatientsTable(filteredPatients);
     }
-    panel.classList.remove('hidden');
     panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function closeStatPatients() {
-    $('statPatientsPanel').classList.add('hidden');
     sessionStorage.removeItem('activeStatTab');
     $$('.stat-card').forEach(function(card) { card.style.boxShadow = ''; card.style.border = ''; });
     currentStatFilter = '';
+    // Reset to today'''s patients
+    showStatPatients('today');
 }
 
 // ==================== DASHBOARD FILTER SETTINGS ====================
@@ -4134,5 +4088,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a17673f49f1afbb9',t:'MTc4MzQyMzE1Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a17689202cdc7eb3',t:'MTc4MzQyNDAyMA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
