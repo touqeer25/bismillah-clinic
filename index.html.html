@@ -61,6 +61,8 @@
         .form-group { margin-bottom: 15px; text-align: right; }
         body[dir="ltr"] .form-group { text-align: left; }
         .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50; font-size: 14px; height: 20px; line-height: 20px; overflow: hidden; font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
+        .form-group .label-with-btns { display: flex; align-items: center; gap: 5px; height: 20px; }
+        .form-group .label-with-btns label { display: inline; margin-bottom: 0; height: auto; }
         body[dir="rtl"] .form-group label { font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; font-size: 14px; }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%; padding: 10px 14px; border: 2px solid #ddd;
@@ -1151,11 +1153,13 @@
                 <!-- Row 6: Symptoms + Diagnosis -->
                 <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                     <div class="form-group">
-                        <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
-                        <span class="symptom-mode-btns">
-                            <button class="mode-btn active-disease" id="regModeDisease" onclick="setSymptomMode('reg','disease')" title="Disease Suggest">🧠</button>
-                            <button class="mode-btn" id="regModeRepertory" onclick="setSymptomMode('reg','repertory')" title="Repertory">📊</button>
-                        </span>
+                        <div class="label-with-btns">
+                            <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
+                            <span class="symptom-mode-btns">
+                                <button class="mode-btn active-disease" id="regModeDisease" onclick="setSymptomMode('reg','disease')" title="Disease Suggest">🧠</button>
+                                <button class="mode-btn" id="regModeRepertory" onclick="setSymptomMode('reg','repertory')" title="Repertory">📊</button>
+                            </span>
+                        </div>
                         <div class="symptom-ac-wrapper">
                             <textarea id="firstVisitSymptoms" style="min-height:55px;width:100%;" oninput="handleSymptomInput('firstVisitSymptoms','regSymptomAC','regDiseaseSuggest')" onkeydown="handleSymptomKeydown(event,'firstVisitSymptoms','regSymptomAC')" onblur="hideSymptomDropdown('regSymptomAC')" autocomplete="off"></textarea>
                             <div class="symptom-ac-dropdown" id="regSymptomAC"></div>
@@ -1399,11 +1403,13 @@
                     <!-- Row 3: Symptoms + Diagnosis -->
                     <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                         <div class="form-group">
-                            <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
-                            <span class="symptom-mode-btns">
-                                <button class="mode-btn active-disease" id="nvModeDisease" onclick="setSymptomMode('nv','disease')" title="Disease Suggest">🧠</button>
-                                <button class="mode-btn" id="nvModeRepertory" onclick="setSymptomMode('nv','repertory')" title="Repertory">📊</button>
-                            </span>
+                            <div class="label-with-btns">
+                                <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
+                                <span class="symptom-mode-btns">
+                                    <button class="mode-btn active-disease" id="nvModeDisease" onclick="setSymptomMode('nv','disease')" title="Disease Suggest">🧠</button>
+                                    <button class="mode-btn" id="nvModeRepertory" onclick="setSymptomMode('nv','repertory')" title="Repertory">📊</button>
+                                </span>
+                            </div>
                             <div class="symptom-ac-wrapper">
                                 <textarea id="nvSymptoms" style="min-height:55px;width:100%;" oninput="handleSymptomInput('nvSymptoms','nvSymptomAC','nvDiseaseSuggest')" onkeydown="handleSymptomKeydown(event,'nvSymptoms','nvSymptomAC')" onblur="hideSymptomDropdown('nvSymptomAC')" autocomplete="off"></textarea>
                                 <div class="symptom-ac-dropdown" id="nvSymptomAC"></div>
@@ -4737,26 +4743,36 @@ function setSymptomMode(formType, mode) {
     var btnRepertory = $(formType + 'ModeRepertory');
     var chartBtn = $(formType + 'ChartBtn');
     var panelLabel = $(formType + 'PanelLabel');
+    var panel = $(formType + 'DiseaseSuggest');
+    var contentDiv = $(formType + 'DiseaseSuggestContent');
+    var countEl = $(formType + 'DiseaseCount');
     
     if (mode === 'disease') {
         if (btnDisease) { btnDisease.className = 'mode-btn active-disease'; }
         if (btnRepertory) { btnRepertory.className = 'mode-btn'; }
         if (chartBtn) chartBtn.style.display = 'none';
         if (panelLabel) panelLabel.innerHTML = '🧠 <span data-ur="علامات سے تجویز" data-en="Suggested from Symptoms" data-roman="Alamat se Tajweez">علامات سے تجویز</span>';
+        if (countEl) countEl.textContent = '';
     } else {
         if (btnDisease) { btnDisease.className = 'mode-btn'; }
         if (btnRepertory) { btnRepertory.className = 'mode-btn active-repertory'; }
         if (panelLabel) panelLabel.innerHTML = '📊 <span data-ur="ریپرٹری نتیجہ" data-en="Repertory Result" data-roman="Repertory Result">ریپرٹری نتیجہ</span>';
+        if (countEl) countEl.textContent = '';
     }
     
-    // Re-run suggest with current text
+    // Clear old content
+    if (contentDiv) contentDiv.innerHTML = '';
+    if (panel) panel.classList.add('hidden');
+    
+    // Re-run with current text
     var textareaId = formType === 'reg' ? 'firstVisitSymptoms' : 'nvSymptoms';
     var textarea = $(textareaId);
     if (textarea && textarea.value.trim().length >= 5) {
-        var dropdownId = formType === 'reg' ? 'regSymptomAC' : 'nvSymptomAC';
         var panelId = formType === 'reg' ? 'regDiseaseSuggest' : 'nvDiseaseSuggest';
         if (mode === 'disease') {
-            doAutoSuggest(textareaId, panelId);
+            var origFn = window.autoSuggestDiseases;
+            // Call directly
+            if (typeof autoSuggestDiseases === 'function') autoSuggestDiseases(textareaId, panelId);
         } else {
             runRepertoryForForm(formType, textareaId, panelId);
         }
@@ -4769,7 +4785,10 @@ function runRepertoryForForm(formType, textareaId, panelId) {
     if (!textarea || !panel) return;
     
     var text = textarea.value.trim();
-    if (text.length < 5 || typeof REPERTORY_DATA === 'undefined') return;
+    if (text.length < 5 || typeof REPERTORY_DATA === 'undefined') {
+        panel.classList.add('hidden');
+        return;
+    }
     
     var results = repertorize(text);
     var chartBtn = $(formType + 'ChartBtn');
@@ -4779,8 +4798,8 @@ function runRepertoryForForm(formType, textareaId, panelId) {
     
     if (results.length > 0) {
         if (countEl) countEl.textContent = '(' + results.length + ')';
-        if (chartBtn) chartBtn.style.display = '';
-        if (panelLabel) panelLabel.innerHTML = '📊 <span data-ur="ریپرٹری نتیجہ" data-en="Repertory Result" data-roman="Repertory Result">ریپرٹری نتیجہ</span> (' + results.length + ')';
+        if (chartBtn) { chartBtn.style.display = 'inline-block'; chartBtn.style.visibility = 'visible'; }
+        if (panelLabel) panelLabel.innerHTML = '📊 <span data-ur=\"ریپرٹری نتیجہ\" data-en=\"Repertory Result\" data-roman=\"Repertory Result\">ریپرٹری نتیجہ</span> (' + results.length + ')';
         
         // Store for chart
         window['_repResults_' + formType] = results;
@@ -5013,57 +5032,116 @@ function copyRepertoryToForm(formType, remedyId) {
     }
 }
 
-// Hook into autoSuggestDiseases: also run repertorization
-var originalDoAutoSuggest = window.doAutoSuggest;
-window.doAutoSuggest = function(textareaId, panelId) {
-    // Call original disease suggest
-    if (typeof originalDoAutoSuggest === 'function') {
-        originalDoAutoSuggest(textareaId, panelId);
-    }
+// Override autoSuggestDiseases and handleSymptomInput for mode-aware behavior
+(function() {
+    var _origAutoSuggest = autoSuggestDiseases;
+    var _origHandleSymptomInput = handleSymptomInput;
     
-    // Also run repertorization
-    var textarea = $(textareaId);
-    if (!textarea) return;
-    var text = textarea.value.trim();
-    if (text.length < 5) return;
-    
-    // Determine repertory container
-    var formType = (textareaId.indexOf('firstVisit') !== -1) ? 'reg' : 'nv';
-    var repContainerId = formType + 'RepertoryResult';
-    
-    // Create container if it doesn't exist
-    if (!$(repContainerId)) {
-        var panel = $(panelId);
-        if (panel) {
-            var repDiv = document.createElement('div');
-            repDiv.id = repContainerId;
-            panel.appendChild(repDiv);
-        }
-    }
-    
-    if (typeof REPERTORY_DATA !== 'undefined') {
-        var results = repertorize(text);
-        if (results.length > 0) {
-            renderRepertoryResults(results, formType);
-            // Ensure panel is visible
-            var panel = $(panelId);
-            if (panel) panel.classList.remove('hidden');
+    // Override autoSuggestDiseases
+    autoSuggestDiseases = function(textareaId, panelId) {
+        var formType = (textareaId.indexOf('firstVisit') !== -1) ? 'reg' : 'nv';
+        var mode = symptomModes[formType] || 'disease';
+        if (mode === 'disease') {
+            if (typeof _origAutoSuggest === 'function') _origAutoSuggest(textareaId, panelId);
         } else {
-            // Clear repertory content
-            var repContainer = $(formType + 'RepertoryResult');
-            if (repContainer) repContainer.innerHTML = '';
+            runRepertoryForForm(formType, textareaId, panelId);
         }
-    }
-};
+    };
+    
+    // Override handleSymptomInput for repertory-mode autocomplete
+    handleSymptomInput = function(textareaId, dropdownId, diseasePanelId) {
+        var formType = (textareaId.indexOf('firstVisit') !== -1) ? 'reg' : 'nv';
+        var mode = symptomModes[formType] || 'disease';
+        if (typeof autoSuggestDiseases === 'function') {
+            autoSuggestDiseases(textareaId, diseasePanelId);
+        }
+        if (symptomACTimer) clearTimeout(symptomACTimer);
+        symptomACTimer = setTimeout(function() {
+            if (mode === 'repertory') {
+                showRepertoryAutocomplete(textareaId, dropdownId);
+            } else {
+                showSymptomAutocomplete(textareaId, dropdownId);
+            }
+        }, 200);
+    };
+})();
 
-// Expose
-window.repertorize = repertorize;
-window.copyRepertoryToForm = copyRepertoryToForm;
-window.renderRepertoryResultsInPlace = renderRepertoryResultsInPlace;
-window.runRepertoryForForm = runRepertoryForForm;
-window.setSymptomMode = setSymptomMode;
-window.openRepertoryChart = openRepertoryChart;
-window.closeRepertoryChart = closeRepertoryChart;
+// Repertory autocomplete - searches REPERTORY_DATA rubrics
+function showRepertoryAutocomplete(textareaId, dropdownId) {
+    var textarea = $(textareaId);
+    var dropdown = $(dropdownId);
+    if (!textarea || !dropdown) return;
+    if (typeof REPERTORY_DATA === 'undefined') return;
+    
+    var fullText = textarea.value;
+    var cursorPos = textarea.selectionStart;
+    var textBefore = fullText.substring(0, cursorPos);
+    var lastWord = '';
+    var match = textBefore.match(/[^\s,\n]+$/);
+    if (match) lastWord = match[0].trim();
+    
+    if (lastWord.length < 2) { dropdown.classList.remove('active'); dropdown.innerHTML = ''; return; }
+    
+    var query = lastWord.toLowerCase();
+    var results = [];
+    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
+    
+    Object.keys(REPERTORY_DATA).forEach(function(chKey) {
+        var chapter = REPERTORY_DATA[chKey];
+        if (!chapter || !chapter.rubrics) return;
+        Object.keys(chapter.rubrics).forEach(function(rubKey) {
+            var rubric = chapter.rubrics[rubKey];
+            if (!rubric) return;
+            var t = rubric[lang] || rubric.en || '';
+            if (t.toLowerCase().indexOf(query) !== -1) {
+                results.push({
+                    key: rubKey, name: t,
+                    category: chapter[lang] || chapter.en || chKey,
+                    score: t.toLowerCase().indexOf(query) === 0 ? 3 : 1
+                });
+            }
+        });
+    });
+    
+    results.sort(function(a, b) { return b.score - a.score; });
+    results = results.slice(0, 8);
+    
+    if (results.length === 0) {
+        dropdown.innerHTML = '<div class="symptom-ac-no-results">No rubrics found</div>';
+        dropdown.classList.add('active');
+        setTimeout(function() { dropdown.classList.remove('active'); }, 1500);
+        return;
+    }
+    
+    symptomACIndex = -1;
+    var html = '';
+    results.forEach(function(r) {
+        var idx = r.name.toLowerCase().indexOf(query);
+        var highlighted = r.name;
+        if (idx >= 0) {
+            highlighted = r.name.substring(0, idx) +
+                '<span class="symptom-ac-highlight">' + r.name.substring(idx, idx + query.length) + '</span>' +
+                r.name.substring(idx + query.length);
+        }
+        html += '<div class="symptom-ac-item" data-key="' + r.key + '" data-name="' + escapeHtml(r.name) + '" data-cat="' + escapeHtml(r.category) + '">';
+        html += '<span>' + highlighted + ' <small style="color:#b8860b;">📖</small></span>';
+        html += '<span class="ac-category">' + escapeHtml(r.category) + '</span>';
+        html += '</div>';
+    });
+    
+    dropdown.innerHTML = html;
+    dropdown.classList.add('active');
+    
+    dropdown.querySelectorAll('.symptom-ac-item').forEach(function(item) {
+        item.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            var name = this.getAttribute('data-name');
+            insertSymptomAtCursor(textareaId, name, query);
+            hideSymptomDropdown(dropdownId);
+            textarea.focus();
+        });
+    });
+}
 
 // Chart overlay click-to-close
 document.addEventListener('click', function(e) {
@@ -5071,6 +5149,15 @@ document.addEventListener('click', function(e) {
         closeRepertoryChart();
     }
 });
+
+window.repertorize = repertorize;
+window.copyRepertoryToForm = copyRepertoryToForm;
+window.renderRepertoryResultsInPlace = renderRepertoryResultsInPlace;
+window.runRepertoryForForm = runRepertoryForForm;
+window.setSymptomMode = setSymptomMode;
+window.openRepertoryChart = openRepertoryChart;
+window.closeRepertoryChart = closeRepertoryChart;
+window.showRepertoryAutocomplete = showRepertoryAutocomplete;
 
 // ==================== EVENT LISTENERS ====================
 document.addEventListener('DOMContentLoaded', function() {
