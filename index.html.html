@@ -204,7 +204,8 @@
             text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.06);
             transition: transform 0.3s;
         }
-        .stat-card:hover { transform: translateY(-2px); }
+        .stat-card { cursor: pointer; transition: all 0.2s; border: 2px solid transparent; }
+        .stat-card:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
         .stat-card .stat-number { font-size: 24px; font-weight: bold; color: #2980b9; line-height: 1.2; }
         .stat-card .stat-label { color: #7f8c8d; font-size: 12px; margin-top: 3px; }
         .stat-card.green .stat-number { color: #27ae60; }
@@ -732,28 +733,42 @@
                 <button class="btn btn-info btn-xs" id="syncNowBtn" style="margin-right:10px;">🔄 Sync Now</button>
             </div>
             
+            <!-- Stats Tabs -->
             <div class="stats-grid">
-                <div class="stat-card">
+                <div class="stat-card" id="statTabToday" onclick="showStatPatients(&#39;today&#39;)" style="cursor:pointer;">
                     <div class="stat-number" id="statToday">-</div>
-                    <div class="stat-label" data-ur="📅 آج کے مریض" data-en="📅 Today's Patients" data-roman="📅 Aaj ke Mareez">📅 آج کے مریض</div>
+                    <div class="stat-label" data-ur="📅 آج کے مریض" data-en="📅 Today&#39;s Patients" data-roman="📅 Aaj ke Mareez">📅 آج کے مریض</div>
                 </div>
-                <div class="stat-card green">
-                    <div class="stat-number" id="statTotal">-</div>
-                    <div class="stat-label" data-ur="📊 کل مریض" data-en="📊 Total Patients" data-roman="📊 Kul Mareez">📊 کل مریض</div>
-                </div>
-                <div class="stat-card orange">
-                    <div class="stat-number" id="statMonth">-</div>
-                    <div class="stat-label" data-ur="📆 اس ماہ کے مریض" data-en="📆 This Month" data-roman="📆 Is Mah">📆 اس ماہ کے مریض</div>
-                </div>
-                <div class="stat-card purple">
+                <div class="stat-card purple" id="statTabFollowups" onclick="showStatPatients(&#39;followups&#39;)" style="cursor:pointer;">
                     <div class="stat-number" id="statFollowups">-</div>
                     <div class="stat-label" data-ur="🔄 فالو اپ وزٹس" data-en="🔄 Follow-up Visits" data-roman="🔄 Follow-ups">🔄 فالو اپ وزٹس</div>
                 </div>
+                <div class="stat-card orange" id="statTabNewMonth" onclick="showStatPatients(&#39;newMonth&#39;)" style="cursor:pointer;">
+                    <div class="stat-number" id="statNewMonth">-</div>
+                    <div class="stat-label" data-ur="🆕 نئے مریض (اس ماہ)" data-en="🆕 New Patients (This Month)" data-roman="🆕 Naye Mareez (Is Mah)">🆕 نئے مریض (اس ماہ)</div>
+                </div>
+                <div class="stat-card green" id="statTabMonth" onclick="showStatPatients(&#39;month&#39;)" style="cursor:pointer;">
+                    <div class="stat-number" id="statMonth">-</div>
+                    <div class="stat-label" data-ur="📆 اس ماہ کے مریض" data-en="📆 This Month&#39;s Patients" data-roman="📆 Is Mah ke Mareez">📆 اس ماہ کے مریض</div>
+                </div>
+                <div class="stat-card" id="statTabAllTime" onclick="showStatPatients(&#39;allTime&#39;)" style="cursor:pointer;">
+                    <div class="stat-number" id="statAllTime">-</div>
+                    <div class="stat-label" data-ur="📊 آل ٹائم مریض" data-en="📊 All-Time Patients" data-roman="📊 All-Time Mareez">📊 آل ٹائم مریض</div>
+                </div>
+            </div>
+            
+            <!-- Stats Patient List Panel -->
+            <div class="card hidden" id="statPatientsPanel">
+                <div class="card-title" style="display:flex;justify-content:space-between;align-items:center;">
+                    <span id="statPanelTitle">📋</span>
+                    <button class="btn btn-light btn-sm" onclick="closeStatPatients()">✕</button>
+                </div>
+                <div id="statPatientsList"></div>
             </div>
             
             <div class="card">
                 <div class="card-title">
-                    📅 <span data-ur="آج کی سرگرمی" data-en="Today's Activity" data-roman="Aaj ki Activity">آج کی سرگرمی</span>
+                    📅 <span data-ur="آج کی سرگرمی" data-en="Today&#39;s Activity" data-roman="Aaj ki Activity">آج کی سرگرمی</span>
                 </div>
                 <div id="todayPatientsList">
                     <div class="empty-state"><div class="icon">⏳</div><p>Loading...</p></div>
@@ -1274,6 +1289,81 @@
     <!-- Hidden file input -->
     <input type="file" id="importCustomFile" accept=".json,.csv" style="display:none;">
 		</div>
+
+                <!-- ============================================ -->
+                <!-- DASHBOARD FILTER SETTINGS -->
+                <!-- ============================================ -->
+                <div style="margin-top:20px;padding:15px;background:#f0f8ff;border:2px solid #2980b9;border-radius:12px;">
+                    <h4 style="color:#2980b9;margin-bottom:10px;">
+                        📊 <span data-ur="ڈیش بورڈ فلٹر سیٹنگز" data-en="Dashboard Filter Settings" data-roman="Dashboard Filter Settings">ڈیش بورڈ فلٹر سیٹنگز</span>
+                    </h4>
+                    
+                    <!-- Time Duration Filter -->
+                    <div style="margin-bottom:12px;">
+                        <label style="font-weight:bold;display:block;margin-bottom:4px;">
+                            ⏱️ <span data-ur="دورانیہ فلٹر" data-en="Duration Filter" data-roman="Duration Filter">دورانیہ فلٹر</span>
+                        </label>
+                        <select id="filterDuration" onchange="applyDashboardFilter()" style="padding:8px 12px;border:2px solid #ddd;border-radius:8px;font-family:inherit;font-size:14px;width:100%;max-width:300px;">
+                            <option value="1month" data-ur="📅 1 ماہ" data-en="📅 1 Month" data-roman="📅 1 Month">📅 1 ماہ</option>
+                            <option value="3months" data-ur="📅 3 ماہ" data-en="📅 3 Months" data-roman="📅 3 Months">📅 3 ماہ</option>
+                            <option value="6months" data-ur="📅 6 ماہ" data-en="📅 6 Months" data-roman="📅 6 Months">📅 6 ماہ</option>
+                            <option value="1year" data-ur="📅 1 سال" data-en="📅 1 Year" data-roman="📅 1 Saal">📅 1 سال</option>
+                            <option value="allTime" data-ur="📊 آل ٹائم" data-en="📊 All Time" data-roman="📊 All Time">📊 آل ٹائم</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Date Range Filter -->
+                    <div style="margin-bottom:12px;">
+                        <label style="font-weight:bold;display:block;margin-bottom:4px;">
+                            📆 <span data-ur="تاریخ کی حد" data-en="Date Range" data-roman="Date Range">تاریخ کی حد</span>
+                        </label>
+                        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+                            <span style="font-size:13px;" data-ur="از:" data-en="From:" data-roman="Se:">از:</span>
+                            <input type="date" id="filterDateFrom" onchange="applyDashboardFilter()" style="padding:7px 10px;border:2px solid #ddd;border-radius:8px;font-family:inherit;font-size:13px;">
+                            <span style="font-size:13px;" data-ur="تا:" data-en="To:" data-roman="Tak:">تا:</span>
+                            <input type="date" id="filterDateTo" onchange="applyDashboardFilter()" style="padding:7px 10px;border:2px solid #ddd;border-radius:8px;font-family:inherit;font-size:13px;">
+                            <button class="btn btn-light btn-sm" onclick="clearDateRange()">
+                                <span data-ur="🔄 صاف" data-en="🔄 Clear" data-roman="🔄 Saaf">🔄 صاف</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab Visibility Toggles -->
+                    <div style="margin-bottom:12px;">
+                        <label style="font-weight:bold;display:block;margin-bottom:8px;">
+                            👁️ <span data-ur="ڈیش بورڈ پر دکھائیں" data-en="Show on Dashboard" data-roman="Dashboard par Dikhayein">ڈیش بورڈ پر دکھائیں</span>
+                        </label>
+                        <div id="dashboardTabToggles" style="display:flex;flex-direction:column;gap:6px;">
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;">
+                                <input type="checkbox" id="toggleTabToday" checked onchange="saveDashboardTabSettings()">
+                                <span data-ur="📅 آج کے مریض" data-en="📅 Today&#39;s Patients" data-roman="📅 Aaj ke Mareez">📅 آج کے مریض</span>
+                            </label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;">
+                                <input type="checkbox" id="toggleTabFollowups" checked onchange="saveDashboardTabSettings()">
+                                <span data-ur="🔄 فالو اپ وزٹس" data-en="🔄 Follow-up Visits" data-roman="🔄 Follow-ups">🔄 فالو اپ وزٹس</span>
+                            </label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;">
+                                <input type="checkbox" id="toggleTabNewMonth" checked onchange="saveDashboardTabSettings()">
+                                <span data-ur="🆕 نئے مریض (اس ماہ)" data-en="🆕 New Patients (This Month)" data-roman="🆕 Naye Mareez (Is Mah)">🆕 نئے مریض (اس ماہ)</span>
+                            </label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;">
+                                <input type="checkbox" id="toggleTabMonth" checked onchange="saveDashboardTabSettings()">
+                                <span data-ur="📆 اس ماہ کے مریض" data-en="📆 This Month&#39;s Patients" data-roman="📆 Is Mah ke Mareez">📆 اس ماہ کے مریض</span>
+                            </label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;">
+                                <input type="checkbox" id="toggleTabAllTime" checked onchange="saveDashboardTabSettings()">
+                                <span data-ur="📊 آل ٹائم مریض" data-en="📊 All-Time Patients" data-roman="📊 All-Time Mareez">📊 آل ٹائم مریض</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-sm" onclick="applyDashboardFilter()">
+                        ✅ <span data-ur="اپلائی کریں" data-en="Apply" data-roman="Apply Karein">اپلائی کریں</span>
+                    </button>
+                    <button class="btn btn-light btn-sm" onclick="resetDashboardFilters()">
+                        🔄 <span data-ur="ری سیٹ" data-en="Reset" data-roman="Reset">ری سیٹ</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -2318,7 +2408,7 @@ async function showPage(pageId, btn) {
                 if ($('nvDate')) $('nvDate').value = now2.toISOString().split('T')[0];
                 if ($('nvTime')) $('nvTime').value = now2.toTimeString().substring(0, 5);
             }
-            if (pageId === 'settings') updatePendingBadge();
+            if (pageId === 'settings') { updatePendingBadge(); loadDashboardFilterUI(); }
         } catch(err) { console.error('Page error:', err); }
     });
 }
@@ -2331,31 +2421,89 @@ async function updateDashboard() {
     const today = new Date().toISOString().split('T')[0];
     const thisMonth = today.substring(0, 7);
     
+    // Get filter settings
+    const filterSettings = getDashboardFilterSettings();
+    const filterDuration = filterSettings.duration || 'allTime';
+    const filterDateFrom = filterSettings.dateFrom || '';
+    const filterDateTo = filterSettings.dateTo || '';
+    
+    // Calculate filter date range
+    let filterStartDate = '';
+    const now = new Date();
+    if (filterDuration === '1month') {
+        const d = new Date(now); d.setMonth(d.getMonth() - 1);
+        filterStartDate = d.toISOString().split('T')[0];
+    } else if (filterDuration === '3months') {
+        const d = new Date(now); d.setMonth(d.getMonth() - 3);
+        filterStartDate = d.toISOString().split('T')[0];
+    } else if (filterDuration === '6months') {
+        const d = new Date(now); d.setMonth(d.getMonth() - 6);
+        filterStartDate = d.toISOString().split('T')[0];
+    } else if (filterDuration === '1year') {
+        const d = new Date(now); d.setFullYear(d.getFullYear() - 1);
+        filterStartDate = d.toISOString().split('T')[0];
+    }
+    // Override with custom date range if set
+    if (filterDateFrom) filterStartDate = filterDateFrom;
+    const effectiveEndDate = filterDateTo || today;
+    
+    // Helper: check if date falls within filter range
+    function inFilterRange(dateStr) {
+        if (!dateStr) return true; // no date = include
+        if (!filterStartDate && !filterDateTo) return true; // no filter
+        var d = dateStr.substring(0, 10);
+        if (filterStartDate && d < filterStartDate) return false;
+        if (filterDateTo && d > filterDateTo) return false;
+        return true;
+    }
+    
     const totalPatients = patients.length;
+    const allTimePatients = patients.length;
+    
     const followupVisits = visits.filter(function(v) { return v.type === 'followup'; });
     const totalFollowups = followupVisits.length;
     
+    // Today's patients
     const todayPatientIds = new Set();
     const todayRegistered = patients.filter(function(p) {
         return p.createdAt && p.createdAt.startsWith(today);
     });
     todayRegistered.forEach(function(p) { todayPatientIds.add(p.id); });
-    
     const todayFollowups = followupVisits.filter(function(v) { return v.date === today; });
     todayFollowups.forEach(function(v) { todayPatientIds.add(v.patientId); });
-    
     const todayCount = todayPatientIds.size;
     
+    // New patients this month (first-time registrations this month)
+    const newMonthPatientIds = new Set();
+    patients.filter(function(p) { return p.createdAt && p.createdAt.startsWith(thisMonth); })
+        .forEach(function(p) { newMonthPatientIds.add(p.id); });
+    const newMonthCount = newMonthPatientIds.size;
+    
+    // This month's patients (any activity this month - registration or visit)
     const monthPatientIds = new Set();
     patients.filter(function(p) { return p.createdAt && p.createdAt.startsWith(thisMonth); })
         .forEach(function(p) { monthPatientIds.add(p.id); });
     followupVisits.filter(function(v) { return v.date && v.date.startsWith(thisMonth); })
         .forEach(function(v) { monthPatientIds.add(v.patientId); });
+    visits.filter(function(v) { return v.date && v.date.startsWith(thisMonth) && v.type !== 'followup'; })
+        .forEach(function(v) { monthPatientIds.add(v.patientId); });
     
-    $('statTotal').textContent = totalPatients;
     $('statToday').textContent = todayCount;
-    $('statMonth').textContent = monthPatientIds.size;
     $('statFollowups').textContent = totalFollowups;
+    $('statNewMonth').textContent = newMonthCount;
+    $('statMonth').textContent = monthPatientIds.size;
+    $('statAllTime').textContent = allTimePatients;
+    
+    // Apply tab visibility from settings
+    applyDashboardTabVisibility();
+    
+    // Highlight active stat tab
+    var activeTab = sessionStorage.getItem('activeStatTab') || '';
+    $$('.stat-card').forEach(function(card) { card.style.boxShadow = ''; card.style.border = ''; });
+    if (activeTab && $('statTab' + activeTab.charAt(0).toUpperCase() + activeTab.slice(1))) {
+        var tabEl = $('statTab' + activeTab.charAt(0).toUpperCase() + activeTab.slice(1));
+        if (tabEl) { tabEl.style.boxShadow = '0 0 0 3px #2980b9'; tabEl.style.border = '2px solid #2980b9'; }
+    }
     
     const todayDiv = $('todayPatientsList');
     
@@ -3578,6 +3726,215 @@ function nvToggleAllHistory() {
     container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+// ==================== DASHBOARD STAT TABS ====================
+var currentStatFilter = '';
+
+function showStatPatients(type) {
+    currentStatFilter = type;
+    sessionStorage.setItem('activeStatTab', type);
+    
+    var filterSettings = getDashboardFilterSettings();
+    var filterDuration = filterSettings.duration || 'allTime';
+    var filterDateFrom = filterSettings.dateFrom || '';
+    var filterDateTo = filterSettings.dateTo || '';
+    
+    // Calculate filter start date
+    var now = new Date();
+    var filterStartDate = '';
+    if (filterDuration === '1month') {
+        var d = new Date(now); d.setMonth(d.getMonth() - 1);
+        filterStartDate = d.toISOString().split('T')[0];
+    } else if (filterDuration === '3months') {
+        var d = new Date(now); d.setMonth(d.getMonth() - 3);
+        filterStartDate = d.toISOString().split('T')[0];
+    } else if (filterDuration === '6months') {
+        var d = new Date(now); d.setMonth(d.getMonth() - 6);
+        filterStartDate = d.toISOString().split('T')[0];
+    } else if (filterDuration === '1year') {
+        var d = new Date(now); d.setFullYear(d.getFullYear() - 1);
+        filterStartDate = d.toISOString().split('T')[0];
+    }
+    if (filterDateFrom) filterStartDate = filterDateFrom;
+    var effectiveEndDate = filterDateTo || new Date().toISOString().split('T')[0];
+    
+    function inFilterRange(dateStr) {
+        if (!dateStr) return true;
+        var d = dateStr.substring(0, 10);
+        if (filterStartDate && d < filterStartDate) return false;
+        if (filterDateTo && d > filterDateTo) return false;
+        return true;
+    }
+    
+    var patients = cachedPatients;
+    var visits = cachedVisits;
+    var today = new Date().toISOString().split('T')[0];
+    var thisMonth = today.substring(0, 7);
+    var followupVisits = visits.filter(function(v) { return v.type === 'followup'; });
+    
+    var filteredPatients = [];
+    var titleTexts = {
+        ur: { today: '📅 آج کے مریض', followups: '🔄 فالو اپ وزٹس', newMonth: '🆕 نئے مریض (اس ماہ)', month: '📆 اس ماہ کے مریض', allTime: '📊 آل ٹائم مریض' },
+        en: { today: "📅 Today's Patients", followups: '🔄 Follow-up Visits', newMonth: '🆕 New Patients (This Month)', month: "📆 This Month's Patients", allTime: '📊 All-Time Patients' },
+        roman: { today: '📅 Aaj ke Mareez', followups: '🔄 Follow-up Visits', newMonth: '🆕 Naye Mareez (Is Mah)', month: '📆 Is Mah ke Mareez', allTime: '📊 All-Time Mareez' }
+    };
+    
+    var panelTitle = titleTexts[currentLang][type] || titleTexts.en[type] || type;
+    $('statPanelTitle').textContent = panelTitle;
+    
+    if (type === 'today') {
+        var todaySet = new Set();
+        patients.filter(function(p) { return p.createdAt && p.createdAt.startsWith(today); })
+            .forEach(function(p) { todaySet.add(p.id); filteredPatients.push(p); });
+        followupVisits.filter(function(v) { return v.date === today; })
+            .forEach(function(v) {
+                var p = patients.find(function(x) { return x.id === v.patientId; });
+                if (p && !todaySet.has(p.id)) { todaySet.add(p.id); filteredPatients.push(p); }
+            });
+    } else if (type === 'followups') {
+        var fuSet = new Set();
+        followupVisits.forEach(function(v) {
+            if (inFilterRange(v.date)) {
+                var p = patients.find(function(x) { return x.id === v.patientId; });
+                if (p && !fuSet.has(p.id)) { fuSet.add(p.id); filteredPatients.push(p); }
+            }
+        });
+    } else if (type === 'newMonth') {
+        patients.filter(function(p) { return p.createdAt && p.createdAt.startsWith(thisMonth); })
+            .forEach(function(p) { filteredPatients.push(p); });
+    } else if (type === 'month') {
+        var monthSet = new Set();
+        patients.filter(function(p) { return p.createdAt && p.createdAt.startsWith(thisMonth); })
+            .forEach(function(p) { monthSet.add(p.id); filteredPatients.push(p); });
+        visits.filter(function(v) { return v.date && v.date.startsWith(thisMonth); })
+            .forEach(function(v) {
+                var p = patients.find(function(x) { return x.id === v.patientId; });
+                if (p && !monthSet.has(p.id)) { monthSet.add(p.id); filteredPatients.push(p); }
+            });
+    } else if (type === 'allTime') {
+        filteredPatients = patients.filter(function(p) { return inFilterRange(p.createdAt); });
+    }
+    
+    // Highlight active tab
+    $$('.stat-card').forEach(function(card) { card.style.boxShadow = ''; card.style.border = ''; });
+    var tabEl = $('statTab' + type.charAt(0).toUpperCase() + type.slice(1));
+    if (tabEl) { tabEl.style.boxShadow = '0 0 0 3px #2980b9'; tabEl.style.border = '2px solid #2980b9'; }
+    
+    var panel = $('statPatientsPanel');
+    var listDiv = $('statPatientsList');
+    
+    if (filteredPatients.length === 0) {
+        var emptyTexts = { ur: 'کوئی مریض نہیں ملا', en: 'No patients found', roman: 'Koi mareez nahi mila' };
+        listDiv.innerHTML = '<div class="empty-state"><div class="icon">😔</div><p>' + (emptyTexts[currentLang] || emptyTexts.en) + '</p></div>';
+    } else {
+        listDiv.innerHTML = renderPatientsTable(filteredPatients);
+    }
+    panel.classList.remove('hidden');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function closeStatPatients() {
+    $('statPatientsPanel').classList.add('hidden');
+    sessionStorage.removeItem('activeStatTab');
+    $$('.stat-card').forEach(function(card) { card.style.boxShadow = ''; card.style.border = ''; });
+    currentStatFilter = '';
+}
+
+// ==================== DASHBOARD FILTER SETTINGS ====================
+function getDashboardFilterSettings() {
+    try {
+        return JSON.parse(localStorage.getItem('dashboard_filter_settings') || '{}');
+    } catch(e) { return {}; }
+}
+
+function saveDashboardFilterSettings(settings) {
+    localStorage.setItem('dashboard_filter_settings', JSON.stringify(settings));
+}
+
+function applyDashboardFilter() {
+    var duration = $('filterDuration') ? $('filterDuration').value : 'allTime';
+    var dateFrom = $('filterDateFrom') ? $('filterDateFrom').value : '';
+    var dateTo = $('filterDateTo') ? $('filterDateTo').value : '';
+    
+    saveDashboardFilterSettings({
+        duration: duration,
+        dateFrom: dateFrom,
+        dateTo: dateTo
+    });
+    
+    updateDashboard();
+    
+    var toastTexts = { ur: '✅ فلٹر اپلائی ہو گیا', en: '✅ Filter Applied', roman: '✅ Filter Apply Ho Gaya' };
+    showToast(toastTexts[currentLang] || toastTexts.en);
+}
+
+function clearDateRange() {
+    if ($('filterDateFrom')) $('filterDateFrom').value = '';
+    if ($('filterDateTo')) $('filterDateTo').value = '';
+    applyDashboardFilter();
+}
+
+function resetDashboardFilters() {
+    if ($('filterDuration')) $('filterDuration').value = 'allTime';
+    if ($('filterDateFrom')) $('filterDateFrom').value = '';
+    if ($('filterDateTo')) $('filterDateTo').value = '';
+    
+    // Reset all tab toggles to checked
+    var toggles = document.querySelectorAll('#dashboardTabToggles input[type=checkbox]');
+    toggles.forEach(function(cb) { cb.checked = true; });
+    
+    saveDashboardFilterSettings({ duration: 'allTime', dateFrom: '', dateTo: '' });
+    saveDashboardTabSettings();
+    
+    updateDashboard();
+    
+    var toastTexts = { ur: '🔄 فلٹر ری سیٹ', en: '🔄 Filters Reset', roman: '🔄 Filter Reset' };
+    showToast(toastTexts[currentLang] || toastTexts.en);
+}
+
+function saveDashboardTabSettings() {
+    var settings = {
+        today: $('toggleTabToday') ? $('toggleTabToday').checked : true,
+        followups: $('toggleTabFollowups') ? $('toggleTabFollowups').checked : true,
+        newMonth: $('toggleTabNewMonth') ? $('toggleTabNewMonth').checked : true,
+        month: $('toggleTabMonth') ? $('toggleTabMonth').checked : true,
+        allTime: $('toggleTabAllTime') ? $('toggleTabAllTime').checked : true
+    };
+    localStorage.setItem('dashboard_tab_visibility', JSON.stringify(settings));
+    applyDashboardTabVisibility();
+}
+
+function applyDashboardTabVisibility() {
+    try {
+        var settings = JSON.parse(localStorage.getItem('dashboard_tab_visibility') || '{}');
+    } catch(e) { var settings = {}; }
+    
+    var tabs = ['today', 'followups', 'newMonth', 'month', 'allTime'];
+    tabs.forEach(function(tab) {
+        var el = $('statTab' + tab.charAt(0).toUpperCase() + tab.slice(1));
+        if (el) {
+            var visible = settings[tab] !== undefined ? settings[tab] : true;
+            el.style.display = visible ? '' : 'none';
+        }
+    });
+}
+
+function loadDashboardFilterUI() {
+    var settings = getDashboardFilterSettings();
+    if ($('filterDuration')) $('filterDuration').value = settings.duration || 'allTime';
+    if ($('filterDateFrom')) $('filterDateFrom').value = settings.dateFrom || '';
+    if ($('filterDateTo')) $('filterDateTo').value = settings.dateTo || '';
+    
+    // Load tab visibility
+    try {
+        var tabSettings = JSON.parse(localStorage.getItem('dashboard_tab_visibility') || '{}');
+    } catch(e) { var tabSettings = {}; }
+    if ($('toggleTabToday')) $('toggleTabToday').checked = tabSettings.today !== undefined ? tabSettings.today : true;
+    if ($('toggleTabFollowups')) $('toggleTabFollowups').checked = tabSettings.followups !== undefined ? tabSettings.followups : true;
+    if ($('toggleTabNewMonth')) $('toggleTabNewMonth').checked = tabSettings.newMonth !== undefined ? tabSettings.newMonth : true;
+    if ($('toggleTabMonth')) $('toggleTabMonth').checked = tabSettings.month !== undefined ? tabSettings.month : true;
+    if ($('toggleTabAllTime')) $('toggleTabAllTime').checked = tabSettings.allTime !== undefined ? tabSettings.allTime : true;
+}
+
 // ==================== EVENT LISTENERS ====================
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 App initializing...');
@@ -3777,5 +4134,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a17673f49f1afbb9',t:'MTc4MzQyMzE1Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
