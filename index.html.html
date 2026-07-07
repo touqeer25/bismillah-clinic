@@ -20,6 +20,7 @@
     <script src="diagnosis-data.js?v=3"></script>
     <script src="diagnosis-custom.js?v=3"></script>
     <script src="custom-data-help.js?v=3"></script>
+    <script src="repertory-data.js?v=1"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
@@ -4571,6 +4572,212 @@ function loadDashboardFilterUI() {
     if ($('toggleTabAllTime')) $('toggleTabAllTime').checked = tabSettings.allTime !== undefined ? tabSettings.allTime : true;
 }
 
+// ==================== REPERTORIZATION ENGINE ====================
+function repertorize(symptomsText, chapterFilter) {
+    // Safety check
+    if (typeof REPERTORY_DATA === 'undefined') { return []; }
+    
+    var text = symptomsText.toLowerCase();
+    var scores = {};
+    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
+    
+    // Go through each chapter (or filtered chapters)
+    var chapters = chapterFilter || Object.keys(REPERTORY_DATA);
+    
+    chapters.forEach(function(chKey) {
+        var chapter = REPERTORY_DATA[chKey];
+        if (!chapter || !chapter.rubrics) return;
+        
+        Object.keys(chapter.rubrics).forEach(function(rubKey) {
+            var rubric = chapter.rubrics[rubKey];
+            if (!rubric) return;
+            
+            // Match rubric against symptoms text (all 3 languages)
+            var rubricText = (rubric[lang] || rubric.en || '').toLowerCase();
+            var rubricTextEn = (rubric.en || '').toLowerCase();
+            var rubricTextUr = (rubric.ur || '').toLowerCase();
+            
+            var matched = false;
+            if (rubricText && text.indexOf(rubricText) !== -1) matched = true;
+            else if (rubricTextEn && text.indexOf(rubricTextEn) !== -1) matched = true;
+            else if (rubricTextUr && text.indexOf(rubricTextUr) !== -1) matched = true;
+            
+            if (!matched) return;
+            
+            // Score remedies from this rubric
+            rubric.remedies.forEach(function(r) {
+                if (!scores[r.rem]) scores[r.rem] = { score: 0, rubrics: [], totalRubrics: 0 };
+                scores[r.rem].score += r.grade;  // Grade 1-3 from Kent
+                scores[r.rem].rubrics.push({
+                    rubricId: rubKey,
+                    rubricName: rubric[lang] || rubric.en,
+                    chapter: chKey,
+                    grade: r.grade
+                });
+                scores[r.rem].totalRubrics++;
+            });
+        });
+    });
+    
+    // Convert to sorted array
+    var results = Object.keys(scores).map(function(remId) {
+        var data = scores[remId];
+        var remedyInfo = (typeof REMEDIES_DB_KENT !== 'undefined' && REMEDIES_DB_KENT[remId]) 
+            ? REMEDIES_DB_KENT[remId] : null;
+        
+        return {
+            remedyId: remId,
+            remedy: remedyInfo,
+            score: data.score,
+            totalRubrics: data.totalRubrics,
+            matchedRubrics: data.rubrics,
+            name: remedyInfo ? (remedyInfo[lang] || remedyInfo.en || remId) : remId,
+            abbr: remedyInfo ? (remedyInfo.abbr || '') : ''
+        };
+    });
+    
+    // Sort by score descending
+    results.sort(function(a, b) { return b.score - a.score; });
+    
+    // Calculate max possible score for percentage
+    var maxScore = results.length > 0 ? results[0].score : 1;
+    results.forEach(function(r) {
+        r.percentage = Math.round((r.score / maxScore) * 100);
+    });
+    
+    return results;
+}
+
+function renderRepertoryResults(results, containerId, formType) {
+    var container = $(containerId);
+    if (!container) return;
+    
+    if (results.length === 0) {
+        container.innerHTML = '';
+        return;
+    }
+    
+    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
+    var showMax = 8; // Top 8 remedies
+    results = results.slice(0, showMax);
+    
+    var lbl = {
+        ur: { title: '📊 ریپرٹری نتیجہ', rubrics: 'ربڑکس', score: 'سکور', copy: '📋 کاپی', detail: '📖 تفصیل', noMatch: 'کوئی میچ نہیں' },
+        en: { title: '📊 Repertory Result', rubrics: 'Rubrics', score: 'Score', copy: '📋 Copy', detail: '📖 Detail', noMatch: 'No match' },
+        roman: { title: '📊 Repertory Result', rubrics: 'Rubrics', score: 'Score', copy: '📋 Copy', detail: '📖 Detail', noMatch: 'No match' }
+    }[lang] || { title: '📊 Repertory Result', rubrics: 'Rubrics', score: 'Score' };
+    
+    var html = '<div style="background:#fef9e7;border:2px solid #d4af37;border-radius:10px;padding:12px;margin-top:10px;">';
+    html += '<div style="font-weight:bold;color:#b8860b;margin-bottom:10px;display:flex;justify-content:space-between;">';
+    html += '<span>' + lbl.title + ' (' + results.length + ')</span>';
+    html += '<span style="font-size:11px;opacity:0.7;">Kent Repertory</span></div>';
+    
+    results.forEach(function(r, idx) {
+        var medal = idx === 0 ? '🥇' : (idx === 1 ? '🥈' : (idx === 2 ? '🥉' : '▸'));
+        var barWidth = Math.max(r.percentage, 5);
+        var barColor = r.percentage >= 70 ? '#27ae60' : (r.percentage >= 40 ? '#f39c12' : '#95a5a6');
+        
+        html += '<div style="background:white;border-radius:6px;padding:8px 10px;margin-bottom:5px;border-left:3px solid ' + barColor + ';">';
+        html += '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">';
+        html += '<span style="font-weight:bold;font-size:13px;">' + medal + ' ' + escapeHtml(r.name) + ' <small style="color:#7f8c8d;">' + escapeHtml(r.abbr) + '</small></span>';
+        html += '<span style="font-size:11px;color:' + barColor + ';font-weight:bold;">' + r.percentage + '%</span>';
+        html += '</div>';
+        
+        // Progress bar
+        html += '<div style="background:#ecf0f1;border-radius:3px;height:4px;margin:4px 0;"><div style="background:' + barColor + ';height:4px;border-radius:3px;width:' + barWidth + '%;"></div></div>';
+        
+        // Matched rubrics
+        html += '<div style="font-size:10px;color:#555;margin-top:3px;"><strong>' + lbl.rubrics + ':</strong> ';
+        r.matchedRubrics.slice(0, 4).forEach(function(rub, i) {
+            html += '<span style="background:#fef9e7;padding:1px 5px;border-radius:3px;margin:1px;">' + escapeHtml(rub.rubricName) + ' (' + rub.grade + ')</span>';
+        });
+        if (r.matchedRubrics.length > 4) html += ' +' + (r.matchedRubrics.length - 4);
+        html += '</div>';
+        
+        // Actions
+        html += '<div style="margin-top:4px;display:flex;gap:4px;">';
+        html += '<button onclick="copyRepertoryToForm(\'' + formType + '\',\'' + r.remedyId + '\')" style="padding:2px 8px;font-size:10px;background:#27ae60;color:white;border:none;border-radius:3px;cursor:pointer;font-family:inherit;">' + lbl.copy + '</button>';
+        if (r.remedy && r.remedy.keynotes) {
+            var keynote = r.remedy.keynotes[lang] || r.remedy.keynotes.en || '';
+            html += '<span style="font-size:10px;color:#7f8c8d;">' + escapeHtml(keynote.substring(0, 80)) + '</span>';
+        }
+        html += '</div>';
+        html += '</div>';
+    });
+    
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+function copyRepertoryToForm(formType, remedyId) {
+    var rem = (typeof REMEDIES_DB_KENT !== 'undefined') ? REMEDIES_DB_KENT[remedyId] : null;
+    if (!rem) return;
+    
+    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
+    var prescId = formType === 'reg' ? 'firstVisitPrescription' : 'nvPrescription';
+    var diagId = formType === 'reg' ? 'firstVisitDiagnosis' : 'nvDiagnosis';
+    
+    var prescField = $(prescId);
+    if (prescField && rem.keynotes) {
+        var line = '💊 ' + (rem[lang] || rem.en) + ' (' + rem.abbr + ') ' + (rem.potency || '');
+        var current = prescField.value.trim();
+        prescField.value = current ? current + '\n' + line : line;
+    }
+    
+    var diagField = $(diagId);
+    if (diagField) {
+        var diagLine = (rem[lang] || rem.en);
+        var curDiag = diagField.value.trim();
+        diagField.value = curDiag ? curDiag + '\n' + diagLine : diagLine;
+    }
+    
+    if (typeof showToast === 'function') {
+        var names = { ur: '✅ کاپی: ', en: '✅ Copied: ', roman: '✅ Copy: ' };
+        showToast((names[lang] || '✅ ') + (rem[lang] || rem.en));
+    }
+}
+
+// Hook into autoSuggestDiseases: also run repertorization
+var originalDoAutoSuggest = window.doAutoSuggest;
+window.doAutoSuggest = function(textareaId, panelId) {
+    // Call original disease suggest
+    if (typeof originalDoAutoSuggest === 'function') {
+        originalDoAutoSuggest(textareaId, panelId);
+    }
+    
+    // Also run repertorization
+    var textarea = $(textareaId);
+    if (!textarea) return;
+    var text = textarea.value.trim();
+    if (text.length < 5) return;
+    
+    // Determine repertory container
+    var formType = (textareaId.indexOf('firstVisit') !== -1) ? 'reg' : 'nv';
+    var repContainerId = formType + 'RepertoryResult';
+    
+    // Create container if it doesn't exist
+    if (!$(repContainerId)) {
+        var panel = $(panelId);
+        if (panel) {
+            var repDiv = document.createElement('div');
+            repDiv.id = repContainerId;
+            panel.appendChild(repDiv);
+        }
+    }
+    
+    if (typeof REPERTORY_DATA !== 'undefined') {
+        var results = repertorize(text);
+        if (results.length > 0) {
+            renderRepertoryResults(results, repContainerId, formType);
+        }
+    }
+};
+
+// Expose
+window.repertorize = repertorize;
+window.renderRepertoryResults = renderRepertoryResults;
+window.copyRepertoryToForm = copyRepertoryToForm;
+
 // ==================== EVENT LISTENERS ====================
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 App initializing...');
@@ -4770,5 +4977,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a17733ccbc0cc4c3',t:'MTc4MzQzMTAxMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
