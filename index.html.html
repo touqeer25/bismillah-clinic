@@ -59,7 +59,7 @@
 
         .form-group { margin-bottom: 15px; text-align: right; }
         body[dir="ltr"] .form-group { text-align: left; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50; font-size: 14px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50; font-size: 14px; min-height: 22px; line-height: 1.5; }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%; padding: 10px 14px; border: 2px solid #ddd;
             border-radius: 8px; font-size: 15px; font-family: inherit;
@@ -239,7 +239,9 @@
         .fg-row .form-group input,
         .fg-row .form-group select,
         .fg-row .form-group textarea { padding: 7px 10px; font-size: 13px; }
-        .fg-row .form-group label { font-size: 12px; margin-bottom: 3px; }
+        .fg-row .form-group label { font-size: 12px; margin-bottom: 3px; min-height: 32px; display: flex; align-items: center; line-height: 1.3; word-break: keep-all; }
+        .fg-row .form-group { display: flex; flex-direction: column; }
+        .fg-row .form-group label { flex-shrink: 0; }
         @media (max-width: 500px) {
             .fg-row { grid-template-columns: 1fr !important; }
         }
@@ -784,7 +786,7 @@
                 </div>
                 
                 <!-- Row 1: Ref + Visit + Family -->
-                <div class="fg-row" style="grid-template-columns: 120px 110px 110px;">
+                <div class="fg-row" style="grid-template-columns: 130px 130px 1fr;">
                     <div class="form-group">
                         <label data-ur="📋 حوالہ" data-en="📋 Ref" data-roman="📋 Ref">📋 حوالہ</label>
                         <input type="text" id="refNo" readonly style="background:#ecf0f1;font-weight:bold;color:#2980b9;">
@@ -800,7 +802,7 @@
                 </div>
                 
                 <!-- Row 2: Name + Phone + Age + Gender + Weight -->
-                <div class="fg-row" style="grid-template-columns: 1fr 140px 70px 90px 70px;">
+                <div class="fg-row" style="grid-template-columns: 1fr 150px 75px 95px 75px;">
                     <div class="form-group">
                         <label data-ur="👤 نام *" data-en="👤 Name *" data-roman="👤 Naam *">👤 نام *</label>
                         <input type="text" id="patientName">
@@ -846,7 +848,7 @@
                 </div>
                 
                 <!-- Row 5: Date + Time + BP + Sugar + Temp + Pulse -->
-                <div class="fg-row" style="grid-template-columns: 135px 120px 90px 80px 80px 80px 1fr;">
+                <div class="fg-row" style="grid-template-columns: 140px 120px 95px 80px 80px 80px 1fr;">
                     <div class="form-group">
                         <label data-ur="📅 تاریخ" data-en="📅 Date" data-roman="📅 Date">📅 تاریخ</label>
                         <input type="date" id="firstVisitDate">
@@ -902,7 +904,7 @@
                 </div>
                 
                 <!-- Row 8: Days + Notes (Days small, Notes big) -->
-                <div class="fg-row" style="grid-template-columns: 1fr 4fr;">
+                <div class="fg-row" style="grid-template-columns: 100px 1fr;">
                     <div class="form-group">
                         <label data-ur="📆 دن" data-en="📆 Days" data-roman="📆 Din">📆 دن</label>
                         <textarea id="firstVisitDays" placeholder="7" style="min-height:45px;text-align:center;resize:vertical;"></textarea>
@@ -1063,7 +1065,7 @@
                     <input type="hidden" id="nvPatientId">
                     
                     <!-- Row 1: Visit Ref + Family -->
-                    <div class="fg-row" style="grid-template-columns: 120px 120px;">
+                    <div class="fg-row" style="grid-template-columns: 130px 1fr;">
                         <div class="form-group">
                             <label data-ur="📋 وزٹ" data-en="📋 Visit" data-roman="📋 Visit">📋 وزٹ</label>
                             <input type="text" id="nvVisitRef" readonly style="background:#ecf0f1;font-weight:bold;color:#8e44ad;">
@@ -1075,7 +1077,7 @@
                     </div>
                     
                     <!-- Row 2: Date + Time + Vitals + Allergy -->
-                    <div class="fg-row" style="grid-template-columns: 135px 120px 90px 80px 80px 80px 1fr;">
+                    <div class="fg-row" style="grid-template-columns: 140px 120px 95px 80px 80px 80px 1fr;">
                         <div class="form-group">
                             <label data-ur="📅 تاریخ" data-en="📅 Date" data-roman="📅 Date">📅 تاریخ</label>
                             <input type="date" id="nvDate">
@@ -1131,7 +1133,7 @@
                     </div>
                     
                     <!-- Row 5: Days + Notes -->
-                    <div class="fg-row" style="grid-template-columns: 1fr 4fr;">
+                    <div class="fg-row" style="grid-template-columns: 100px 1fr;">
                         <div class="form-group">
                             <label data-ur="📆 دن" data-en="📆 Days" data-roman="📆 Din">📆 دن</label>
                             <textarea id="nvDays" placeholder="7" style="min-height:45px;text-align:center;"></textarea>
@@ -4088,5 +4090,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a17689202cdc7eb3',t:'MTc4MzQyNDAyMA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1769e8cbafa727e',t:'MTc4MzQyNDg5OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
