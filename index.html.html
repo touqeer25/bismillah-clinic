@@ -4101,9 +4101,9 @@ function doAutoSuggest(textareaId, panelId) {
         
         // Action buttons
         html += '<div class="ds-actions">';
-        html += '<button onclick="copyDiseaseToForm('' + formType + '','' + d.id + '','diagnosis')" title="' + lbl.copyDiag + '">📋</button>';
-        html += '<button onclick="copyDiseaseToForm('' + formType + '','' + d.id + '','prescription')" title="' + lbl.copyPresc + '">💊</button>';
-        html += '<button onclick="copyDiseaseToForm('' + formType + '','' + d.id + '','both')">📋+💊</button>';
+        html += '<button onclick="copyDiseaseToForm(\'' + formType + '\',\'' + d.id + '\',\'diagnosis\')" title="' + lbl.copyDiag + '">📋</button>';
+        html += '<button onclick="copyDiseaseToForm(\'' + formType + '\',\'' + d.id + '\',\'prescription\')" title="' + lbl.copyPresc + '">💊</button>';
+        html += '<button onclick="copyDiseaseToForm(\'' + formType + '\',\'' + d.id + '\',\'both\')">📋+💊</button>';
         html += '</div>';
         
         html += '</div>';
@@ -4469,5 +4469,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a176e22cfaea7eb3',t:'MTc4MzQyNzY2Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
