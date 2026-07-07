@@ -278,6 +278,105 @@
             margin-bottom: 12px;
             transition: all 0.3s;
         }
+        /* Mode toggle buttons next to label */
+        .symptom-mode-btns {
+            display: inline-flex;
+            gap: 3px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+        body[dir="rtl"] .symptom-mode-btns { margin-left: 0; margin-right: 6px; }
+        .mode-btn {
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            background: white;
+            cursor: pointer;
+            font-size: 11px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            transition: all 0.2s;
+            line-height: 1;
+        }
+        .mode-btn:hover { transform: scale(1.15); }
+        .mode-btn.active-disease {
+            background: #fdf2e9;
+            border-color: #f39c12;
+            box-shadow: 0 0 0 2px rgba(243,156,18,0.2);
+        }
+        .mode-btn.active-repertory {
+            background: #e8f4f8;
+            border-color: #17a2b8;
+            box-shadow: 0 0 0 2px rgba(23,162,184,0.2);
+        }
+        /* Repertory chart modal */
+        .rep-chart-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 250;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        .rep-chart-overlay.active { display: flex; }
+        .rep-chart-modal {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .rep-chart-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+        }
+        .rep-chart-table th {
+            background: #1a5276;
+            color: white;
+            padding: 6px 4px;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            font-size: 10px;
+            white-space: nowrap;
+            min-width: 60px;
+            text-align: center;
+        }
+        .rep-chart-table th:first-child {
+            min-width: 150px;
+            text-align: left;
+            position: sticky;
+            left: 0;
+            z-index: 3;
+            background: #1a5276;
+        }
+        .rep-chart-table td {
+            padding: 4px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            font-weight: bold;
+        }
+        .rep-chart-table td:first-child {
+            text-align: left;
+            font-size: 10px;
+            background: #fafafa;
+            position: sticky;
+            left: 0;
+            z-index: 1;
+        }
+        .rep-chart-table .grade-3 { background: #2c3e50; color: white; font-weight: bold; }
+        .rep-chart-table .grade-2 { background: #7f8c8d; color: white; font-style: italic; }
+        .rep-chart-table .grade-1 { background: #f0f0f0; color: #555; }
+        .rep-chart-table .grade-0 { background: white; color: #ccc; }
         .ds-tab-btn {
             transition: all 0.2s;
         }
@@ -1053,6 +1152,10 @@
                 <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                     <div class="form-group">
                         <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
+                        <span class="symptom-mode-btns">
+                            <button class="mode-btn active-disease" id="regModeDisease" onclick="setSymptomMode('reg','disease')" title="Disease Suggest">🧠</button>
+                            <button class="mode-btn" id="regModeRepertory" onclick="setSymptomMode('reg','repertory')" title="Repertory">📊</button>
+                        </span>
                         <div class="symptom-ac-wrapper">
                             <textarea id="firstVisitSymptoms" style="min-height:55px;width:100%;" oninput="handleSymptomInput('firstVisitSymptoms','regSymptomAC','regDiseaseSuggest')" onkeydown="handleSymptomKeydown(event,'firstVisitSymptoms','regSymptomAC')" onblur="hideSymptomDropdown('regSymptomAC')" autocomplete="off"></textarea>
                             <div class="symptom-ac-dropdown" id="regSymptomAC"></div>
@@ -1064,20 +1167,16 @@
                     </div>
                 </div>
                 
-                <!-- Combined Suggest Panel (Tabs) -->
+                <!-- Suggest Panel (mode-aware) -->
                 <div id="regDiseaseSuggest" class="disease-suggest-panel hidden">
-                    <div style="display:flex;gap:4px;margin-bottom:10px;border-bottom:2px solid #f39c12;padding-bottom:0;">
-                        <button class="ds-tab-btn active" onclick="switchSuggestTab('reg','disease')" id="regTabDisease" style="flex:1;padding:6px 8px;border:none;background:#fef9e7;color:#b8860b;font-weight:bold;font-size:12px;font-family:'Segoe UI',sans-serif;border-radius:6px 6px 0 0;cursor:pointer;border:2px solid #f39c12;border-bottom:none;">
-                            🧠 <span data-ur="تجویز" data-en="Suggest" data-roman="Tajweez">تجویز</span>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                        <span style="font-weight:bold;font-size:13px;color:#d68910;" id="regPanelLabel">🧠</span>
+                        <span style="display:flex;gap:4px;">
                             <span style="font-size:10px;opacity:0.7;" id="regDiseaseCount"></span>
-                        </button>
-                        <button class="ds-tab-btn" onclick="switchSuggestTab('reg','repertory')" id="regTabRepertory" style="flex:1;padding:6px 8px;border:none;background:white;color:#b8860b;font-weight:bold;font-size:12px;font-family:'Segoe UI',sans-serif;border-radius:6px 6px 0 0;cursor:pointer;border:2px solid #ddd;border-bottom:none;">
-                            📊 <span data-ur="ریپرٹری" data-en="Repertory" data-roman="Repertory">ریپرٹری</span>
-                            <span style="font-size:10px;opacity:0.7;" id="regRepertoryCount"></span>
-                        </button>
+                            <button id="regChartBtn" onclick="openRepertoryChart('reg')" style="display:none;padding:2px 8px;font-size:10px;background:#17a2b8;color:white;border:none;border-radius:4px;cursor:pointer;font-family:inherit;">📊 Chart</button>
+                        </span>
                     </div>
                     <div id="regDiseaseSuggestContent"></div>
-                    <div id="regRepertoryResult" style="display:none;"></div>
                 </div>
                 
                 <!-- Row 7: Prescription + Method -->
@@ -1301,6 +1400,10 @@
                     <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                         <div class="form-group">
                             <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
+                            <span class="symptom-mode-btns">
+                                <button class="mode-btn active-disease" id="nvModeDisease" onclick="setSymptomMode('nv','disease')" title="Disease Suggest">🧠</button>
+                                <button class="mode-btn" id="nvModeRepertory" onclick="setSymptomMode('nv','repertory')" title="Repertory">📊</button>
+                            </span>
                             <div class="symptom-ac-wrapper">
                                 <textarea id="nvSymptoms" style="min-height:55px;width:100%;" oninput="handleSymptomInput('nvSymptoms','nvSymptomAC','nvDiseaseSuggest')" onkeydown="handleSymptomKeydown(event,'nvSymptoms','nvSymptomAC')" onblur="hideSymptomDropdown('nvSymptomAC')" autocomplete="off"></textarea>
                                 <div class="symptom-ac-dropdown" id="nvSymptomAC"></div>
@@ -1312,20 +1415,16 @@
                         </div>
                     </div>
                     
-                    <!-- Combined Suggest Panel (Tabs) -->
+                    <!-- Suggest Panel (mode-aware) -->
                     <div id="nvDiseaseSuggest" class="disease-suggest-panel hidden">
-                        <div style="display:flex;gap:4px;margin-bottom:10px;border-bottom:2px solid #f39c12;padding-bottom:0;">
-                            <button class="ds-tab-btn active" onclick="switchSuggestTab('nv','disease')" id="nvTabDisease" style="flex:1;padding:6px 8px;border:none;background:#fef9e7;color:#b8860b;font-weight:bold;font-size:12px;font-family:'Segoe UI',sans-serif;border-radius:6px 6px 0 0;cursor:pointer;border:2px solid #f39c12;border-bottom:none;">
-                                🧠 <span data-ur="تجویز" data-en="Suggest" data-roman="Tajweez">تجویز</span>
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                            <span style="font-weight:bold;font-size:13px;color:#d68910;" id="nvPanelLabel">🧠</span>
+                            <span style="display:flex;gap:4px;">
                                 <span style="font-size:10px;opacity:0.7;" id="nvDiseaseCount"></span>
-                            </button>
-                            <button class="ds-tab-btn" onclick="switchSuggestTab('nv','repertory')" id="nvTabRepertory" style="flex:1;padding:6px 8px;border:none;background:white;color:#b8860b;font-weight:bold;font-size:12px;font-family:'Segoe UI',sans-serif;border-radius:6px 6px 0 0;cursor:pointer;border:2px solid #ddd;border-bottom:none;">
-                                📊 <span data-ur="ریپرٹری" data-en="Repertory" data-roman="Repertory">ریپرٹری</span>
-                                <span style="font-size:10px;opacity:0.7;" id="nvRepertoryCount"></span>
-                            </button>
+                                <button id="nvChartBtn" onclick="openRepertoryChart('nv')" style="display:none;padding:2px 8px;font-size:10px;background:#17a2b8;color:white;border:none;border-radius:4px;cursor:pointer;font-family:inherit;">📊 Chart</button>
+                            </span>
                         </div>
                         <div id="nvDiseaseSuggestContent"></div>
-                        <div id="nvRepertoryResult" style="display:none;"></div>
                     </div>
                     
                     <!-- Row 4: Prescription + Method -->
@@ -1608,8 +1707,30 @@
 <!-- Visit Modal removed - using New Visit Page instead -->
 
 <!-- ============================================ -->
+<!-- REPERTORY CHART MODAL -->
+<div id="repChartOverlay" class="rep-chart-overlay">
+    <div class="rep-chart-modal">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <span style="font-weight:bold;font-size:16px;color:#1a5276;">📊 Repertorisation Chart</span>
+            <button onclick="closeRepertoryChart()" style="background:none;border:none;font-size:20px;cursor:pointer;">✕</button>
+        </div>
+        <div id="repChartContent" style="overflow-x:auto;"></div>
+    </div>
+</div>
+
 <!-- EDIT PATIENT MODAL -->
 <!-- ============================================ -->
+<!-- REPERTORY CHART MODAL -->
+<div id="repChartOverlay" class="rep-chart-overlay">
+    <div class="rep-chart-modal">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <span style="font-weight:bold;font-size:16px;color:#1a5276;">📊 Repertorisation Chart</span>
+            <button onclick="closeRepertoryChart()" style="background:none;border:none;font-size:20px;cursor:pointer;">✕</button>
+        </div>
+        <div id="repChartContent" style="overflow-x:auto;"></div>
+    </div>
+</div>
+
 <!-- EDIT PATIENT MODAL -->
 <!-- ============================================ -->
 <div id="editPatientModal" class="modal-overlay">
@@ -4604,31 +4725,183 @@ function loadDashboardFilterUI() {
     if ($('toggleTabAllTime')) $('toggleTabAllTime').checked = tabSettings.allTime !== undefined ? tabSettings.allTime : true;
 }
 
-// ==================== SUGGEST TAB SWITCHER ====================
-function switchSuggestTab(formType, tab) {
-    var diseaseContent = $(formType + 'DiseaseSuggestContent');
-    var repertoryContent = $(formType + 'RepertoryResult');
-    var tabDisease = $(formType + 'TabDisease');
-    var tabRepertory = $(formType + 'TabRepertory');
+// ==================== SYMPTOM MODE SWITCHER ====================
+// 'reg' for registration form, 'nv' for new visit form
+// Mode: 'disease' (old system) or 'repertory' (Kent repertory)
+var symptomModes = { reg: 'disease', nv: 'disease' };
+
+function setSymptomMode(formType, mode) {
+    symptomModes[formType] = mode;
     
-    if (tab === 'disease') {
-        if (diseaseContent) diseaseContent.style.display = '';
-        if (repertoryContent) repertoryContent.style.display = 'none';
-        if (tabDisease) { tabDisease.classList.add('active'); tabDisease.style.background = '#fef9e7'; tabDisease.style.borderColor = '#f39c12'; }
-        if (tabRepertory) { tabRepertory.classList.remove('active'); tabRepertory.style.background = 'white'; tabRepertory.style.borderColor = '#ddd'; }
-        sessionStorage.setItem('suggestTab_' + formType, 'disease');
+    var btnDisease = $(formType + 'ModeDisease');
+    var btnRepertory = $(formType + 'ModeRepertory');
+    var chartBtn = $(formType + 'ChartBtn');
+    var panelLabel = $(formType + 'PanelLabel');
+    
+    if (mode === 'disease') {
+        if (btnDisease) { btnDisease.className = 'mode-btn active-disease'; }
+        if (btnRepertory) { btnRepertory.className = 'mode-btn'; }
+        if (chartBtn) chartBtn.style.display = 'none';
+        if (panelLabel) panelLabel.innerHTML = '🧠 <span data-ur="علامات سے تجویز" data-en="Suggested from Symptoms" data-roman="Alamat se Tajweez">علامات سے تجویز</span>';
     } else {
-        if (diseaseContent) diseaseContent.style.display = 'none';
-        if (repertoryContent) repertoryContent.style.display = '';
-        if (tabDisease) { tabDisease.classList.remove('active'); tabDisease.style.background = 'white'; tabDisease.style.borderColor = '#ddd'; }
-        if (tabRepertory) { tabRepertory.classList.add('active'); tabRepertory.style.background = '#fef9e7'; tabRepertory.style.borderColor = '#f39c12'; }
-        sessionStorage.setItem('suggestTab_' + formType, 'repertory');
+        if (btnDisease) { btnDisease.className = 'mode-btn'; }
+        if (btnRepertory) { btnRepertory.className = 'mode-btn active-repertory'; }
+        if (panelLabel) panelLabel.innerHTML = '📊 <span data-ur="ریپرٹری نتیجہ" data-en="Repertory Result" data-roman="Repertory Result">ریپرٹری نتیجہ</span>';
+    }
+    
+    // Re-run suggest with current text
+    var textareaId = formType === 'reg' ? 'firstVisitSymptoms' : 'nvSymptoms';
+    var textarea = $(textareaId);
+    if (textarea && textarea.value.trim().length >= 5) {
+        var dropdownId = formType === 'reg' ? 'regSymptomAC' : 'nvSymptomAC';
+        var panelId = formType === 'reg' ? 'regDiseaseSuggest' : 'nvDiseaseSuggest';
+        if (mode === 'disease') {
+            doAutoSuggest(textareaId, panelId);
+        } else {
+            runRepertoryForForm(formType, textareaId, panelId);
+        }
     }
 }
 
-window.switchSuggestTab = switchSuggestTab;
+function runRepertoryForForm(formType, textareaId, panelId) {
+    var textarea = $(textareaId);
+    var panel = $(panelId);
+    if (!textarea || !panel) return;
+    
+    var text = textarea.value.trim();
+    if (text.length < 5 || typeof REPERTORY_DATA === 'undefined') return;
+    
+    var results = repertorize(text);
+    var chartBtn = $(formType + 'ChartBtn');
+    var countEl = $(formType + 'DiseaseCount');
+    var contentDiv = $(formType + 'DiseaseSuggestContent');
+    var panelLabel = $(formType + 'PanelLabel');
+    
+    if (results.length > 0) {
+        if (countEl) countEl.textContent = '(' + results.length + ')';
+        if (chartBtn) chartBtn.style.display = '';
+        if (panelLabel) panelLabel.innerHTML = '📊 <span data-ur="ریپرٹری نتیجہ" data-en="Repertory Result" data-roman="Repertory Result">ریپرٹری نتیجہ</span> (' + results.length + ')';
+        
+        // Store for chart
+        window['_repResults_' + formType] = results;
+        
+        renderRepertoryResultsInPlace(results, formType, contentDiv);
+        panel.classList.remove('hidden');
+    } else {
+        if (countEl) countEl.textContent = '';
+        if (chartBtn) chartBtn.style.display = 'none';
+        if (contentDiv) contentDiv.innerHTML = '';
+    }
+}
+
+function renderRepertoryResultsInPlace(results, formType, contentDiv) {
+    if (!contentDiv) return;
+    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
+    results = results.slice(0, 8);
+    
+    var html = '';
+    results.forEach(function(r, idx) {
+        var medal = idx === 0 ? '🥇' : (idx === 1 ? '🥈' : (idx === 2 ? '🥉' : '▸'));
+        var barColor = r.percentage >= 70 ? '#27ae60' : (r.percentage >= 40 ? '#f39c12' : '#95a5a6');
+        
+        html += '<div style="background:white;border-radius:6px;padding:6px 10px;margin-bottom:4px;border-left:3px solid ' + barColor + ';">';
+        html += '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px;">';
+        html += '<span style="font-weight:bold;font-size:12px;">' + medal + ' ' + escapeHtml(r.name) + ' <small style="color:#7f8c8d;">' + escapeHtml(r.abbr) + '</small></span>';
+        html += '<span style="font-size:11px;color:' + barColor + ';font-weight:bold;">' + r.percentage + '% (' + r.score + ')</span>';
+        html += '</div>';
+        html += '<div style="background:#ecf0f1;border-radius:3px;height:4px;margin:3px 0;"><div style="background:' + barColor + ';height:4px;border-radius:3px;width:' + Math.max(r.percentage, 5) + '%;"></div></div>';
+        
+        // Rubrics
+        html += '<div style="font-size:10px;color:#555;">';
+        r.matchedRubrics.slice(0, 3).forEach(function(rub) {
+            html += '<span style="background:#f0f8ff;padding:1px 5px;border-radius:3px;margin:1px;">' + escapeHtml(rub.rubricName) + ' (' + rub.grade + ')</span>';
+        });
+        if (r.matchedRubrics.length > 3) html += ' +' + (r.matchedRubrics.length - 3);
+        html += '</div>';
+        
+        // Copy button
+        html += '<button onclick="copyRepertoryToForm(\'' + formType + '\',\'' + r.remedyId + '\')" style="margin-top:3px;padding:2px 8px;font-size:10px;background:#27ae60;color:white;border:none;border-radius:3px;cursor:pointer;font-family:inherit;">📋 Copy</button>';
+        html += '</div>';
+    });
+    
+    contentDiv.innerHTML = html;
+}
+
+function openRepertoryChart(formType) {
+    var results = window['_repResults_' + formType] || [];
+    if (results.length === 0) return;
+    
+    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
+    
+    // Build chart: rubrics as rows, remedies as columns
+    var allRubrics = [];
+    var remedyMap = {};
+    
+    results.forEach(function(r) {
+        remedyMap[r.remedyId] = r;
+        r.matchedRubrics.forEach(function(rub) {
+            if (allRubrics.indexOf(rub.rubricId) === -1) {
+                allRubrics.push(rub.rubricId);
+            }
+        });
+    });
+    
+    // Show top 6 remedies
+    var topRemedies = results.slice(0, 6);
+    
+    var html = '<div style="overflow-x:auto;"><table class="rep-chart-table"><thead><tr>';
+    html += '<th>' + ({ur:'ربڑک',en:'Rubric',roman:'Rubric'}[lang]||'Rubric') + '</th>';
+    
+    topRemedies.forEach(function(r) {
+        html += '<th>' + escapeHtml(r.abbr || r.name) + '<br><small>' + r.percentage + '%</small></th>';
+    });
+    html += '</tr></thead><tbody>';
+    
+    allRubrics.forEach(function(rubId) {
+        html += '<tr>';
+        // Rubric name
+        var rubricName = rubId;
+        results.forEach(function(r) {
+            var found = r.matchedRubrics.find(function(x) { return x.rubricId === rubId; });
+            if (found) rubricName = found.rubricName;
+        });
+        html += '<td>' + escapeHtml(rubricName) + '</td>';
+        
+        topRemedies.forEach(function(r) {
+            var found = r.matchedRubrics.find(function(x) { return x.rubricId === rubId; });
+            var grade = found ? found.grade : 0;
+            var display = grade > 0 ? grade : '';
+            html += '<td class="grade-' + grade + '">' + display + '</td>';
+        });
+        html += '</tr>';
+    });
+    
+    html += '</tbody></table></div>';
+    
+    // Totals row
+    html += '<div style="margin-top:10px;text-align:center;font-size:11px;color:#555;">';
+    topRemedies.forEach(function(r) {
+        html += '<span style="margin:0 8px;"><strong>' + escapeHtml(r.abbr) + '</strong>: ' + r.score + '/' + r.totalRubrics + '</span>';
+    });
+    html += '</div>';
+    
+    $('repChartContent').innerHTML = html;
+    $('repChartOverlay').classList.add('active');
+}
+
+function closeRepertoryChart() {
+    $('repChartOverlay').classList.remove('active');
+}
+
+window.setSymptomMode = setSymptomMode;
+window.openRepertoryChart = openRepertoryChart;
+window.closeRepertoryChart = closeRepertoryChart;
+window.runRepertoryForForm = runRepertoryForForm;
 
 // ==================== REPERTORIZATION ENGINE ====================
+var repRepertorizeCounter = 0;
+var _repLastResults = { reg: null, nv: null };
+
 function repertorize(symptomsText, chapterFilter) {
     // Safety check
     if (typeof REPERTORY_DATA === 'undefined') { return []; }
@@ -4704,71 +4977,7 @@ function repertorize(symptomsText, chapterFilter) {
     return results;
 }
 
-function renderRepertoryResults(results, formType) {
-    var containerId = formType + 'RepertoryResult';
-    var container = $(containerId);
-    if (!container) return;
-    
-    // Update count badge
-    var countEl = $(formType + 'RepertoryCount');
-    if (countEl) countEl.textContent = '(' + results.length + ')';
-    
-    if (results.length === 0) {
-        container.innerHTML = '';
-        return;
-    }
-    
-    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
-    var showMax = 8; // Top 8 remedies
-    results = results.slice(0, showMax);
-    
-    var lbl = {
-        ur: { title: '📊 ریپرٹری نتیجہ', rubrics: 'ربڑکس', score: 'سکور', copy: '📋 کاپی', detail: '📖 تفصیل', noMatch: 'کوئی میچ نہیں' },
-        en: { title: '📊 Repertory Result', rubrics: 'Rubrics', score: 'Score', copy: '📋 Copy', detail: '📖 Detail', noMatch: 'No match' },
-        roman: { title: '📊 Repertory Result', rubrics: 'Rubrics', score: 'Score', copy: '📋 Copy', detail: '📖 Detail', noMatch: 'No match' }
-    }[lang] || { title: '📊 Repertory Result', rubrics: 'Rubrics', score: 'Score' };
-    
-    var html = '<div style="background:#fef9e7;border:2px solid #d4af37;border-radius:10px;padding:12px;margin-top:10px;">';
-    html += '<div style="font-weight:bold;color:#b8860b;margin-bottom:10px;display:flex;justify-content:space-between;">';
-    html += '<span>' + lbl.title + ' (' + results.length + ')</span>';
-    html += '<span style="font-size:11px;opacity:0.7;">Kent Repertory</span></div>';
-    
-    results.forEach(function(r, idx) {
-        var medal = idx === 0 ? '🥇' : (idx === 1 ? '🥈' : (idx === 2 ? '🥉' : '▸'));
-        var barWidth = Math.max(r.percentage, 5);
-        var barColor = r.percentage >= 70 ? '#27ae60' : (r.percentage >= 40 ? '#f39c12' : '#95a5a6');
-        
-        html += '<div style="background:white;border-radius:6px;padding:8px 10px;margin-bottom:5px;border-left:3px solid ' + barColor + ';">';
-        html += '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">';
-        html += '<span style="font-weight:bold;font-size:13px;">' + medal + ' ' + escapeHtml(r.name) + ' <small style="color:#7f8c8d;">' + escapeHtml(r.abbr) + '</small></span>';
-        html += '<span style="font-size:11px;color:' + barColor + ';font-weight:bold;">' + r.percentage + '%</span>';
-        html += '</div>';
-        
-        // Progress bar
-        html += '<div style="background:#ecf0f1;border-radius:3px;height:4px;margin:4px 0;"><div style="background:' + barColor + ';height:4px;border-radius:3px;width:' + barWidth + '%;"></div></div>';
-        
-        // Matched rubrics
-        html += '<div style="font-size:10px;color:#555;margin-top:3px;"><strong>' + lbl.rubrics + ':</strong> ';
-        r.matchedRubrics.slice(0, 4).forEach(function(rub, i) {
-            html += '<span style="background:#fef9e7;padding:1px 5px;border-radius:3px;margin:1px;">' + escapeHtml(rub.rubricName) + ' (' + rub.grade + ')</span>';
-        });
-        if (r.matchedRubrics.length > 4) html += ' +' + (r.matchedRubrics.length - 4);
-        html += '</div>';
-        
-        // Actions
-        html += '<div style="margin-top:4px;display:flex;gap:4px;">';
-        html += '<button onclick="copyRepertoryToForm(\'' + formType + '\',\'' + r.remedyId + '\')" style="padding:2px 8px;font-size:10px;background:#27ae60;color:white;border:none;border-radius:3px;cursor:pointer;font-family:inherit;">' + lbl.copy + '</button>';
-        if (r.remedy && r.remedy.keynotes) {
-            var keynote = r.remedy.keynotes[lang] || r.remedy.keynotes.en || '';
-            html += '<span style="font-size:10px;color:#7f8c8d;">' + escapeHtml(keynote.substring(0, 80)) + '</span>';
-        }
-        html += '</div>';
-        html += '</div>';
-    });
-    
-    html += '</div>';
-    container.innerHTML = html;
-}
+
 
 function copyRepertoryToForm(formType, remedyId) {
     var rem = (typeof REMEDIES_DB_KENT !== 'undefined') ? REMEDIES_DB_KENT[remedyId] : null;
@@ -4779,17 +4988,23 @@ function copyRepertoryToForm(formType, remedyId) {
     var diagId = formType === 'reg' ? 'firstVisitDiagnosis' : 'nvDiagnosis';
     
     var prescField = $(prescId);
-    if (prescField && rem.keynotes) {
-        var line = '💊 ' + (rem[lang] || rem.en) + ' (' + rem.abbr + ') ' + (rem.potency || '');
+    if (prescField) {
+        var line = 'Rp/ ' + (rem[lang] || rem.en) + ' ' + (rem.potency || '30C');
+        if (rem.keynotes) {
+            var kn = rem.keynotes[lang] || rem.keynotes.en || '';
+            line += ' | ' + kn.substring(0, 60);
+        }
         var current = prescField.value.trim();
         prescField.value = current ? current + '\n' + line : line;
     }
     
     var diagField = $(diagId);
     if (diagField) {
-        var diagLine = (rem[lang] || rem.en);
+        var diagLine = (rem[lang] || rem.en) + ' (' + (rem.abbr || '') + ')';
         var curDiag = diagField.value.trim();
-        diagField.value = curDiag ? curDiag + '\n' + diagLine : diagLine;
+        if (curDiag.indexOf(diagLine) === -1) {
+            diagField.value = curDiag ? curDiag + '\n' + diagLine : diagLine;
+        }
     }
     
     if (typeof showToast === 'function') {
@@ -4843,8 +5058,19 @@ window.doAutoSuggest = function(textareaId, panelId) {
 
 // Expose
 window.repertorize = repertorize;
-window.renderRepertoryResults = renderRepertoryResults;
 window.copyRepertoryToForm = copyRepertoryToForm;
+window.renderRepertoryResultsInPlace = renderRepertoryResultsInPlace;
+window.runRepertoryForForm = runRepertoryForForm;
+window.setSymptomMode = setSymptomMode;
+window.openRepertoryChart = openRepertoryChart;
+window.closeRepertoryChart = closeRepertoryChart;
+
+// Chart overlay click-to-close
+document.addEventListener('click', function(e) {
+    if (e.target && e.target.id === 'repChartOverlay') {
+        closeRepertoryChart();
+    }
+});
 
 // ==================== EVENT LISTENERS ====================
 document.addEventListener('DOMContentLoaded', function() {
