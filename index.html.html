@@ -268,6 +268,87 @@
             .fg-row { grid-template-columns: 1fr !important; }
         }
 
+        /* Disease Suggest Panel */
+        .disease-suggest-panel {
+            background: linear-gradient(135deg, #fdf2e9, #fef9e7);
+            border: 2px solid #f39c12;
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            transition: all 0.3s;
+        }
+        .disease-suggest-header {
+            font-weight: bold;
+            color: #d68910;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .disease-suggest-item {
+            background: white;
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-bottom: 6px;
+            border-left: 4px solid #f39c12;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        body[dir="rtl"] .disease-suggest-item { border-left: none; border-right: 4px solid #f39c12; }
+        .disease-suggest-item .ds-name {
+            font-weight: bold;
+            font-size: 14px;
+            color: #2c3e50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .disease-suggest-item .ds-pct {
+            background: #f39c12;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .disease-suggest-item .ds-detail {
+            font-size: 11px;
+            color: #555;
+            margin-top: 4px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .disease-suggest-item .ds-detail span {
+            background: #fef9e7;
+            padding: 2px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .disease-suggest-item .ds-actions {
+            margin-top: 6px;
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .disease-suggest-item .ds-actions button {
+            padding: 3px 10px;
+            font-size: 11px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .disease-suggest-item .ds-actions button:hover {
+            background: #f39c12;
+            color: white;
+            border-color: #f39c12;
+        }
+
         .section-divider {
             margin: 25px 0 15px 0;
             padding-bottom: 8px;
@@ -905,12 +986,21 @@
                 <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                     <div class="form-group">
                         <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
-                        <textarea id="firstVisitSymptoms" style="min-height:55px;"></textarea>
+                        <textarea id="firstVisitSymptoms" style="min-height:55px;" oninput="autoSuggestDiseases('firstVisitSymptoms','regDiseaseSuggest')"></textarea>
                     </div>
                     <div class="form-group">
                         <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
                         <textarea id="firstVisitDiagnosis" style="min-height:55px;"></textarea>
                     </div>
+                </div>
+                
+                <!-- Disease Suggest Panel -->
+                <div id="regDiseaseSuggest" class="disease-suggest-panel hidden">
+                    <div class="disease-suggest-header">
+                        🧠 <span data-ur="علامات سے تجویز کردہ" data-en="Suggested from Symptoms" data-roman="Alamat se Tajweez">علامات سے تجویز کردہ</span>
+                        <span style="font-size:11px;opacity:0.7;" id="regDiseaseCount"></span>
+                    </div>
+                    <div id="regDiseaseSuggestContent"></div>
                 </div>
                 
                 <!-- Row 7: Prescription + Method -->
@@ -1134,12 +1224,21 @@
                     <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                         <div class="form-group">
                             <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
-                            <textarea id="nvSymptoms" style="min-height:55px;"></textarea>
+                            <textarea id="nvSymptoms" style="min-height:55px;" oninput="autoSuggestDiseases('nvSymptoms','nvDiseaseSuggest')"></textarea>
                         </div>
                         <div class="form-group">
                             <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
                             <textarea id="nvDiagnosis" style="min-height:55px;"></textarea>
                         </div>
+                    </div>
+                    
+                    <!-- Disease Suggest Panel -->
+                    <div id="nvDiseaseSuggest" class="disease-suggest-panel hidden">
+                        <div class="disease-suggest-header">
+                            🧠 <span data-ur="علامات سے تجویز کردہ" data-en="Suggested from Symptoms" data-roman="Alamat se Tajweez">علامات سے تجویز کردہ</span>
+                            <span style="font-size:11px;opacity:0.7;" id="nvDiseaseCount"></span>
+                        </div>
+                        <div id="nvDiseaseSuggestContent"></div>
                     </div>
                     
                     <!-- Row 4: Prescription + Method -->
@@ -1304,6 +1403,40 @@
     <!-- Hidden file input -->
     <input type="file" id="importCustomFile" accept=".json,.csv" style="display:none;">
 		</div>
+
+                <!-- ============================================ -->
+                <!-- DISEASE AUTO-SUGGEST SETTINGS -->
+                <!-- ============================================ -->
+                <div style="margin-top:20px;padding:15px;background:#fdf2e9;border:2px solid #f39c12;border-radius:12px;">
+                    <h4 style="color:#d68910;margin-bottom:10px;">
+                        🧠 <span data-ur="علامات سے بیماری کی تجویز (سیٹنگز)" data-en="Disease Suggest Settings" data-roman="Alamat se Bimari Tajweez Settings">علامات سے بیماری کی تجویز (سیٹنگز)</span>
+                    </h4>
+                    <p style="font-size:12px;color:#7f8c8d;margin-bottom:12px;">
+                        <span data-ur="جب ڈاکٹر علامات لکھے گا تو متعلقہ بیماریاں، ٹیسٹ اور پرہیز خودکار دکھائی دیں گے" data-en="When doctor types symptoms, related diseases, tests and dietary advice appear automatically" data-roman="Jab doctor alamat likhenge to mutalliqa bimariyan, test aur parhez khudkar dikhayi denge">جب ڈاکٹر علامات لکھے گا تو متعلقہ بیماریاں، ٹیسٹ اور پرہیز خودکار دکھائی دیں گے</span>
+                    </p>
+                    
+                    <div style="display:flex;gap:15px;flex-wrap:wrap;align-items:start;">
+                        <div style="flex:1;min-width:200px;">
+                            <label style="font-weight:bold;display:block;margin-bottom:4px;font-size:13px;">
+                                📊 <span data-ur="کم از کم میچ پرسنٹیج" data-en="Minimum Match %" data-roman="Minimum Match %">کم از کم میچ پرسنٹیج</span>
+                            </label>
+                            <input type="range" id="suggestThreshold" min="10" max="90" value="30" step="5" oninput="$('suggestThresholdVal').textContent=this.value+'%';saveDiseaseSuggestSettings()" style="width:100%;">
+                            <div style="text-align:center;font-weight:bold;color:#d68910;font-size:16px;" id="suggestThresholdVal">30%</div>
+                        </div>
+                        <div style="flex:1;min-width:200px;">
+                            <label style="font-weight:bold;display:block;margin-bottom:4px;font-size:13px;">
+                                🔢 <span data-ur="زیادہ سے زیادہ بیماریاں دکھائیں" data-en="Max Diseases to Show" data-roman="Max Bimariyan Dikhayein">زیادہ سے زیادہ بیماریاں دکھائیں</span>
+                            </label>
+                            <select id="suggestMaxDiseases" onchange="saveDiseaseSuggestSettings()" style="padding:8px 12px;border:2px solid #ddd;border-radius:8px;font-family:inherit;font-size:14px;width:100%;">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3" selected>3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- ============================================ -->
                 <!-- DASHBOARD FILTER SETTINGS -->
@@ -2423,7 +2556,7 @@ async function showPage(pageId, btn) {
                 if ($('nvDate')) $('nvDate').value = now2.toISOString().split('T')[0];
                 if ($('nvTime')) $('nvTime').value = now2.toTimeString().substring(0, 5);
             }
-            if (pageId === 'settings') { updatePendingBadge(); loadDashboardFilterUI(); }
+            if (pageId === 'settings') { updatePendingBadge(); loadDashboardFilterUI(); loadDiseaseSuggestSettingsUI(); }
         } catch(err) { console.error('Page error:', err); }
     });
 }
@@ -3817,6 +3950,230 @@ function closeStatPatients() {
     showStatPatients('today');
 }
 
+// ==================== DISEASE AUTO-SUGGEST ====================
+var diseaseSuggestTimer = null;
+
+function getDiseaseSuggestSettings() {
+    try {
+        return JSON.parse(localStorage.getItem('disease_suggest_settings') || '{"threshold":30,"maxDiseases":3}');
+    } catch(e) { return { threshold: 30, maxDiseases: 3 }; }
+}
+
+function saveDiseaseSuggestSettings() {
+    var settings = {
+        threshold: parseInt($('suggestThreshold') ? $('suggestThreshold').value : 30),
+        maxDiseases: parseInt($('suggestMaxDiseases') ? $('suggestMaxDiseases').value : 3)
+    };
+    localStorage.setItem('disease_suggest_settings', JSON.stringify(settings));
+}
+
+function loadDiseaseSuggestSettingsUI() {
+    var settings = getDiseaseSuggestSettings();
+    if ($('suggestThreshold')) { $('suggestThreshold').value = settings.threshold; $('suggestThresholdVal').textContent = settings.threshold + '%'; }
+    if ($('suggestMaxDiseases')) $('suggestMaxDiseases').value = settings.maxDiseases;
+}
+
+function autoSuggestDiseases(textareaId, panelId) {
+    // Clear previous timer
+    if (diseaseSuggestTimer) clearTimeout(diseaseSuggestTimer);
+    
+    // Debounce: wait 600ms after typing stops
+    diseaseSuggestTimer = setTimeout(function() {
+        doAutoSuggest(textareaId, panelId);
+    }, 600);
+}
+
+function doAutoSuggest(textareaId, panelId) {
+    var textarea = $(textareaId);
+    var panel = $(panelId);
+    var contentDiv = $(panelId + 'Content');
+    var countSpan = $(panelId.replace('DiseaseSuggest', 'DiseaseCount'));
+    
+    if (!textarea || !panel || !contentDiv) return;
+    
+    var text = textarea.value.trim();
+    
+    // Need at least 5 characters for matching
+    if (text.length < 5) {
+        panel.classList.add('hidden');
+        return;
+    }
+    
+    // Step 1: Find which SYMPTOMS_DB entries are mentioned in the text (fuzzy matching)
+    var foundSymptoms = [];
+    var textLower = text.toLowerCase();
+    
+    Object.keys(SYMPTOMS_DB).forEach(function(key) {
+        var sym = SYMPTOMS_DB[key];
+        if (!sym) return;
+        // Check all 3 languages
+        var urMatch = sym.ur && textLower.indexOf(sym.ur.toLowerCase()) !== -1;
+        var enMatch = sym.en && textLower.indexOf(sym.en.toLowerCase()) !== -1;
+        var romanMatch = sym.roman && textLower.indexOf(sym.roman.toLowerCase()) !== -1;
+        if (urMatch || enMatch || romanMatch) {
+            foundSymptoms.push(key);
+        }
+    });
+    
+    if (foundSymptoms.length === 0) {
+        panel.classList.add('hidden');
+        return;
+    }
+    
+    var foundSet = new Set(foundSymptoms);
+    
+    // Step 2: Match against DISEASES_DB
+    var settings = getDiseaseSuggestSettings();
+    var threshold = settings.threshold || 30;
+    var maxDiseases = settings.maxDiseases || 3;
+    
+    var results = [];
+    
+    (window.DISEASES_DB || []).forEach(function(disease) {
+        if (!disease.symptoms || disease.symptoms.length === 0) return;
+        var matched = disease.symptoms.filter(function(s) { return foundSet.has(s); });
+        if (matched.length === 0) return;
+        
+        var score = 0;
+        matched.forEach(function(s) {
+            score += (disease.keySymptoms && disease.keySymptoms.indexOf(s) !== -1) ? 2 : 1;
+        });
+        var maxScore = disease.symptoms.length + (disease.keySymptoms ? disease.keySymptoms.length : 0);
+        var percentage = Math.round((score / maxScore) * 100);
+        
+        if (percentage >= threshold) {
+            results.push({
+                disease: disease,
+                matchCount: matched.length,
+                percentage: Math.min(percentage, 99)
+            });
+        }
+    });
+    
+    results.sort(function(a, b) { return b.percentage - a.percentage; });
+    results = results.slice(0, maxDiseases);
+    
+    if (results.length === 0) {
+        panel.classList.add('hidden');
+        return;
+    }
+    
+    // Step 3: Render results
+    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
+    
+    var labelTexts = {
+        ur: { tests: '🔬 ٹیسٹ:', advice: '📖 پرہیز / احتیاط:', copyDiag: '📋 تشخیص میں کاپی', copyPresc: '💊 نسخے میں کاپی', noMatch: 'کوئی میچ نہیں' },
+        en: { tests: '🔬 Tests:', advice: '📖 Advice / Diet:', copyDiag: '📋 Copy to Diagnosis', copyPresc: '💊 Copy to Prescription', noMatch: 'No match found' },
+        roman: { tests: '🔬 Tests:', advice: '📖 Parhez / Ehtiyaat:', copyDiag: '📋 Diagnosis mein copy', copyPresc: '💊 Nuskhe mein copy', noMatch: 'Koi match nahi' }
+    };
+    var lbl = labelTexts[lang] || labelTexts.en;
+    
+    // Identify form type
+    var formType = (panelId.indexOf('reg') !== -1) ? 'reg' : 'nv';
+    
+    var html = '';
+    results.forEach(function(r, idx) {
+        var d = r.disease;
+        var dIcon = d.icon || '💊';
+        var dName = d.name[lang] || d.name.en || 'Unknown';
+        
+        html += '<div class="disease-suggest-item">';
+        html += '<div class="ds-name">';
+        html += '<span>' + dIcon + ' ' + escapeHtml(dName) + ' <span style="font-size:11px;color:#7f8c8d;">(' + r.matchCount + ' symptoms)</span></span>';
+        html += '<span class="ds-pct">' + r.percentage + '%</span>';
+        html += '</div>';
+        
+        // Tests
+        if (d.tests && d.tests.length > 0) {
+            html += '<div class="ds-detail"><strong>' + lbl.tests + '</strong> ';
+            d.tests.forEach(function(t) {
+                html += '<span>' + escapeHtml(t[lang] || t.en || '') + '</span>';
+            });
+            html += '</div>';
+        }
+        
+        // Advice / Diet
+        if (d.advice && (d.advice[lang] || d.advice.en)) {
+            html += '<div class="ds-detail"><strong>' + lbl.advice + '</strong> ';
+            html += '<span>' + escapeHtml((d.advice[lang] || d.advice.en).substring(0, 120)) + '</span>';
+            html += '</div>';
+        }
+        
+        // Action buttons
+        html += '<div class="ds-actions">';
+        html += '<button onclick="copyDiseaseToForm('' + formType + '','' + d.id + '','diagnosis')" title="' + lbl.copyDiag + '">📋</button>';
+        html += '<button onclick="copyDiseaseToForm('' + formType + '','' + d.id + '','prescription')" title="' + lbl.copyPresc + '">💊</button>';
+        html += '<button onclick="copyDiseaseToForm('' + formType + '','' + d.id + '','both')">📋+💊</button>';
+        html += '</div>';
+        
+        html += '</div>';
+    });
+    
+    contentDiv.innerHTML = html;
+    if (countSpan) countSpan.textContent = '(' + results.length + ')';
+    panel.classList.remove('hidden');
+}
+
+function copyDiseaseToForm(formType, diseaseId, target) {
+    var d = (window.DISEASES_DB || []).find(function(x) { return x.id === diseaseId; });
+    if (!d) return;
+    
+    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
+    var dName = d.name[lang] || d.name.en || '';
+    
+    // Determine which fields to fill
+    var diagId = formType === 'reg' ? 'firstVisitDiagnosis' : 'nvDiagnosis';
+    var prescId = formType === 'reg' ? 'firstVisitPrescription' : 'nvPrescription';
+    var methodId = formType === 'reg' ? 'firstVisitMethod' : 'nvMethod';
+    
+    if (target === 'diagnosis' || target === 'both') {
+        var diagField = $(diagId);
+        if (diagField) {
+            var current = diagField.value.trim();
+            var newDiag = dName;
+            if (current) newDiag = current + '\n' + newDiag;
+            diagField.value = newDiag;
+        }
+    }
+    
+    if (target === 'prescription' || target === 'both') {
+        var prescField = $(prescId);
+        if (prescField && d.remedies) {
+            var prescText = '';
+            d.remedies.forEach(function(r, i) {
+                prescText += (i + 1) + '. ' + r.name + '\n   Dose: ' + r.dose + '\n\n';
+            });
+            var current = prescField.value.trim();
+            if (current) prescText = current + '\n\n' + prescText;
+            prescField.value = prescText.trim();
+        }
+        
+        // Also copy advice to method field
+        if (target === 'both' && d.advice) {
+            var methodField = $(methodId);
+            if (methodField) {
+                var adv = d.advice[lang] || d.advice.en || '';
+                var curMethod = methodField.value.trim();
+                if (curMethod) adv = curMethod + '\n' + adv;
+                methodField.value = adv;
+            }
+        }
+    }
+    
+    // Show toast
+    var toastTexts = {
+        ur: '✅ ' + dName + ' کاپی ہو گیا',
+        en: '✅ Copied: ' + (d.name.en || dName),
+        roman: '✅ ' + dName + ' copy ho gaya'
+    };
+    if (typeof showToast === 'function') showToast(toastTexts[lang] || toastTexts.en);
+}
+
+window.autoSuggestDiseases = autoSuggestDiseases;
+window.copyDiseaseToForm = copyDiseaseToForm;
+window.saveDiseaseSuggestSettings = saveDiseaseSuggestSettings;
+window.loadDiseaseSuggestSettingsUI = loadDiseaseSuggestSettingsUI;
+
 // ==================== DASHBOARD FILTER SETTINGS ====================
 function getDashboardFilterSettings() {
     try {
@@ -4112,5 +4469,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a176bdf94cc07eb3',t:'MTc4MzQyNjE4NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a176e22cfaea7eb3',t:'MTc4MzQyNzY2Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
