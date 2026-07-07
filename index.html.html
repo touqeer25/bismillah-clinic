@@ -59,11 +59,18 @@
 
         .form-group { margin-bottom: 15px; text-align: right; }
         body[dir="ltr"] .form-group { text-align: left; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50; font-size: 14px; min-height: 22px; line-height: 1.5; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50; font-size: 14px; height: 20px; line-height: 20px; overflow: hidden; font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
+        body[dir="rtl"] .form-group label { font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; font-size: 14px; }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%; padding: 10px 14px; border: 2px solid #ddd;
-            border-radius: 8px; font-size: 15px; font-family: inherit;
+            border-radius: 8px; font-size: 14px; font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
             background: #fafafa; transition: all 0.3s;
+        }
+        body[dir="rtl"] .form-group input,
+        body[dir="rtl"] .form-group select,
+        body[dir="rtl"] .form-group textarea {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            font-size: 14px;
         }
         body[dir="rtl"] .form-group input,
         body[dir="rtl"] .form-group select,
@@ -238,8 +245,21 @@
         .fg-row .form-group { margin-bottom: 0; }
         .fg-row .form-group input,
         .fg-row .form-group select,
-        .fg-row .form-group textarea { padding: 7px 10px; font-size: 13px; }
-        .fg-row .form-group label { font-size: 12px; margin-bottom: 3px; min-height: 32px; display: flex; align-items: center; line-height: 1.3; word-break: keep-all; }
+        .fg-row .form-group textarea { padding: 7px 10px; font-size: 12px; font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
+        body[dir="rtl"] .fg-row .form-group input,
+        body[dir="rtl"] .fg-row .form-group select,
+        body[dir="rtl"] .fg-row .form-group textarea { font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
+        .fg-row .form-group label {
+            font-size: 12px; margin-bottom: 3px;
+            height: 28px; line-height: 14px;
+            display: flex; align-items: center;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important;
+        }
+        body[dir="rtl"] .fg-row .form-group label {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important;
+            font-size: 12px;
+        }
         .fg-row .form-group { display: flex; flex-direction: column; }
         .fg-row .form-group label { flex-shrink: 0; }
         @media (max-width: 500px) {
@@ -4090,5 +4110,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1769e8cbafa727e',t:'MTc4MzQyNDg5OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
