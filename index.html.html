@@ -278,6 +278,13 @@
             margin-bottom: 12px;
             transition: all 0.3s;
         }
+        .ds-tab-btn {
+            transition: all 0.2s;
+        }
+        .ds-tab-btn.active {
+            background: #fef9e7 !important;
+            border-color: #f39c12 !important;
+        }
         .disease-suggest-header {
             font-weight: bold;
             color: #d68910;
@@ -1057,13 +1064,20 @@
                     </div>
                 </div>
                 
-                <!-- Disease Suggest Panel -->
+                <!-- Combined Suggest Panel (Tabs) -->
                 <div id="regDiseaseSuggest" class="disease-suggest-panel hidden">
-                    <div class="disease-suggest-header">
-                        🧠 <span data-ur="علامات سے تجویز کردہ" data-en="Suggested from Symptoms" data-roman="Alamat se Tajweez">علامات سے تجویز کردہ</span>
-                        <span style="font-size:11px;opacity:0.7;" id="regDiseaseCount"></span>
+                    <div style="display:flex;gap:4px;margin-bottom:10px;border-bottom:2px solid #f39c12;padding-bottom:0;">
+                        <button class="ds-tab-btn active" onclick="switchSuggestTab('reg','disease')" id="regTabDisease" style="flex:1;padding:6px 8px;border:none;background:#fef9e7;color:#b8860b;font-weight:bold;font-size:12px;font-family:'Segoe UI',sans-serif;border-radius:6px 6px 0 0;cursor:pointer;border:2px solid #f39c12;border-bottom:none;">
+                            🧠 <span data-ur="تجویز" data-en="Suggest" data-roman="Tajweez">تجویز</span>
+                            <span style="font-size:10px;opacity:0.7;" id="regDiseaseCount"></span>
+                        </button>
+                        <button class="ds-tab-btn" onclick="switchSuggestTab('reg','repertory')" id="regTabRepertory" style="flex:1;padding:6px 8px;border:none;background:white;color:#b8860b;font-weight:bold;font-size:12px;font-family:'Segoe UI',sans-serif;border-radius:6px 6px 0 0;cursor:pointer;border:2px solid #ddd;border-bottom:none;">
+                            📊 <span data-ur="ریپرٹری" data-en="Repertory" data-roman="Repertory">ریپرٹری</span>
+                            <span style="font-size:10px;opacity:0.7;" id="regRepertoryCount"></span>
+                        </button>
                     </div>
                     <div id="regDiseaseSuggestContent"></div>
+                    <div id="regRepertoryResult" style="display:none;"></div>
                 </div>
                 
                 <!-- Row 7: Prescription + Method -->
@@ -1298,13 +1312,20 @@
                         </div>
                     </div>
                     
-                    <!-- Disease Suggest Panel -->
+                    <!-- Combined Suggest Panel (Tabs) -->
                     <div id="nvDiseaseSuggest" class="disease-suggest-panel hidden">
-                        <div class="disease-suggest-header">
-                            🧠 <span data-ur="علامات سے تجویز کردہ" data-en="Suggested from Symptoms" data-roman="Alamat se Tajweez">علامات سے تجویز کردہ</span>
-                            <span style="font-size:11px;opacity:0.7;" id="nvDiseaseCount"></span>
+                        <div style="display:flex;gap:4px;margin-bottom:10px;border-bottom:2px solid #f39c12;padding-bottom:0;">
+                            <button class="ds-tab-btn active" onclick="switchSuggestTab('nv','disease')" id="nvTabDisease" style="flex:1;padding:6px 8px;border:none;background:#fef9e7;color:#b8860b;font-weight:bold;font-size:12px;font-family:'Segoe UI',sans-serif;border-radius:6px 6px 0 0;cursor:pointer;border:2px solid #f39c12;border-bottom:none;">
+                                🧠 <span data-ur="تجویز" data-en="Suggest" data-roman="Tajweez">تجویز</span>
+                                <span style="font-size:10px;opacity:0.7;" id="nvDiseaseCount"></span>
+                            </button>
+                            <button class="ds-tab-btn" onclick="switchSuggestTab('nv','repertory')" id="nvTabRepertory" style="flex:1;padding:6px 8px;border:none;background:white;color:#b8860b;font-weight:bold;font-size:12px;font-family:'Segoe UI',sans-serif;border-radius:6px 6px 0 0;cursor:pointer;border:2px solid #ddd;border-bottom:none;">
+                                📊 <span data-ur="ریپرٹری" data-en="Repertory" data-roman="Repertory">ریپرٹری</span>
+                                <span style="font-size:10px;opacity:0.7;" id="nvRepertoryCount"></span>
+                            </button>
                         </div>
                         <div id="nvDiseaseSuggestContent"></div>
+                        <div id="nvRepertoryResult" style="display:none;"></div>
                     </div>
                     
                     <!-- Row 4: Prescription + Method -->
@@ -4160,7 +4181,18 @@ function showSymptomAutocomplete(textareaId, dropdownId) {
     symptomACIndex = -1;
     var html = '';
     results.forEach(function(r) {
-        var displayName = r.sym[currentLang] || r.sym.en || '';
+        var displayName, cat, badge = '';
+        
+        if (r.type === 'rubric') {
+            displayName = r.name;
+            cat = r.category;
+            badge = ' <small style="color:#b8860b;">📖 rubric</small>';
+        } else {
+            displayName = r.sym[currentLang] || r.sym.en || '';
+            cat = getCatName(r.sym.category);
+            if (r.sym.severe) badge += ' ⚠️';
+        }
+        
         // Highlight matching part
         var idx = displayName.toLowerCase().indexOf(query);
         var highlighted = displayName;
@@ -4170,11 +4202,8 @@ function showSymptomAutocomplete(textareaId, dropdownId) {
                 displayName.substring(idx + query.length);
         }
         
-        var cat = getCatName(r.sym.category);
-        var severeIcon = r.sym.severe ? ' ⚠️' : '';
-        
-        html += '<div class="symptom-ac-item" data-key="' + r.key + '" data-name="' + escapeHtml(displayName) + '" data-cat="' + escapeHtml(cat || '') + '">';
-        html += '<span>' + highlighted + severeIcon + '</span>';
+        html += '<div class="symptom-ac-item" data-key="' + r.key + '" data-name="' + escapeHtml(displayName) + '" data-cat="' + escapeHtml(cat || '') + '" data-type="' + (r.type || 'symptom') + '">';
+        html += '<span>' + highlighted + badge + '</span>';
         if (cat) html += '<span class="ac-category">' + escapeHtml(cat) + '</span>';
         html += '</div>';
     });
@@ -4316,7 +4345,9 @@ function doAutoSuggest(textareaId, panelId) {
     });
     
     if (foundSymptoms.length === 0) {
-        panel.classList.add('hidden');
+        // Don't hide yet - repertory results may still show
+        // panel.classList.add('hidden'); 
+        contentDiv.innerHTML = '';
         return;
     }
     
@@ -4355,7 +4386,8 @@ function doAutoSuggest(textareaId, panelId) {
     results = results.slice(0, maxDiseases);
     
     if (results.length === 0) {
-        panel.classList.add('hidden');
+        contentDiv.innerHTML = '';
+        // Don't hide - repertory may have results
         return;
     }
     
@@ -4572,6 +4604,30 @@ function loadDashboardFilterUI() {
     if ($('toggleTabAllTime')) $('toggleTabAllTime').checked = tabSettings.allTime !== undefined ? tabSettings.allTime : true;
 }
 
+// ==================== SUGGEST TAB SWITCHER ====================
+function switchSuggestTab(formType, tab) {
+    var diseaseContent = $(formType + 'DiseaseSuggestContent');
+    var repertoryContent = $(formType + 'RepertoryResult');
+    var tabDisease = $(formType + 'TabDisease');
+    var tabRepertory = $(formType + 'TabRepertory');
+    
+    if (tab === 'disease') {
+        if (diseaseContent) diseaseContent.style.display = '';
+        if (repertoryContent) repertoryContent.style.display = 'none';
+        if (tabDisease) { tabDisease.classList.add('active'); tabDisease.style.background = '#fef9e7'; tabDisease.style.borderColor = '#f39c12'; }
+        if (tabRepertory) { tabRepertory.classList.remove('active'); tabRepertory.style.background = 'white'; tabRepertory.style.borderColor = '#ddd'; }
+        sessionStorage.setItem('suggestTab_' + formType, 'disease');
+    } else {
+        if (diseaseContent) diseaseContent.style.display = 'none';
+        if (repertoryContent) repertoryContent.style.display = '';
+        if (tabDisease) { tabDisease.classList.remove('active'); tabDisease.style.background = 'white'; tabDisease.style.borderColor = '#ddd'; }
+        if (tabRepertory) { tabRepertory.classList.add('active'); tabRepertory.style.background = '#fef9e7'; tabRepertory.style.borderColor = '#f39c12'; }
+        sessionStorage.setItem('suggestTab_' + formType, 'repertory');
+    }
+}
+
+window.switchSuggestTab = switchSuggestTab;
+
 // ==================== REPERTORIZATION ENGINE ====================
 function repertorize(symptomsText, chapterFilter) {
     // Safety check
@@ -4648,9 +4704,14 @@ function repertorize(symptomsText, chapterFilter) {
     return results;
 }
 
-function renderRepertoryResults(results, containerId, formType) {
+function renderRepertoryResults(results, formType) {
+    var containerId = formType + 'RepertoryResult';
     var container = $(containerId);
     if (!container) return;
+    
+    // Update count badge
+    var countEl = $(formType + 'RepertoryCount');
+    if (countEl) countEl.textContent = '(' + results.length + ')';
     
     if (results.length === 0) {
         container.innerHTML = '';
@@ -4768,7 +4829,14 @@ window.doAutoSuggest = function(textareaId, panelId) {
     if (typeof REPERTORY_DATA !== 'undefined') {
         var results = repertorize(text);
         if (results.length > 0) {
-            renderRepertoryResults(results, repContainerId, formType);
+            renderRepertoryResults(results, formType);
+            // Ensure panel is visible
+            var panel = $(panelId);
+            if (panel) panel.classList.remove('hidden');
+        } else {
+            // Clear repertory content
+            var repContainer = $(formType + 'RepertoryResult');
+            if (repContainer) repContainer.innerHTML = '';
         }
     }
 };
