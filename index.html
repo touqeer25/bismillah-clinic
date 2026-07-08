@@ -4853,7 +4853,7 @@ function ensureRepertoryData(callback) {
     
     if (typeof showToast === 'function') showToast('⏳ Loading repertory...');
     
-    fetch('repertory-data.json')
+    fetch('repertory-data.json?v=1')
         .then(function(r) { return r.json(); })
         .then(function(data) {
             _repFullData = data;
@@ -5288,22 +5288,14 @@ var repAllRubrics = {}; // chapter -> [rubrics]
 var repChapterNames = [];
 
 function initRepertoryBrowser() {
-    $('#repChapterList').innerHTML = '<div class="empty-state"><div class="icon">⏳</div><p>Loading index...</p></div>';
-    $('#repBrowserInfo').textContent = 'Loading...';
-    
-    fetch('repertory-index.json')
-        .then(function(r) { return r.json(); })
-        .then(function(index) {
-            repChapterNames = index;
-            repChapterNames.sort(function(a, b) { return a.name.localeCompare(b.name); });
-            var totalR = 0;
-            repChapterNames.forEach(function(c) { totalR += c.rubrics; });
-            $('#repBrowserInfo').textContent = repChapterNames.length + ' chapters | ' + totalR.toLocaleString() + ' rubrics';
-            renderChapterList();
-        })
-        .catch(function(err) {
-            $('#repChapterList').innerHTML = '<div class="empty-state"><p>❌ Failed to load index</p></div>';
-        });
+    // Chapter index embedded directly - NO external fetch needed!
+    var index = [{"key":"extremities","name":"Extremities","rubrics":16115},{"key":"head","name":"Head","rubrics":6984},{"key":"mind","name":"Mind","rubrics":5827},{"key":"back","name":"Back","rubrics":4611},{"key":"abdomen","name":"Abdomen","rubrics":4339},{"key":"chest","name":"Chest","rubrics":2858},{"key":"stomach","name":"Stomach","rubrics":2826},{"key":"face","name":"Face","rubrics":2094},{"key":"ear","name":"Ear","rubrics":2029},{"key":"eye","name":"Eye","rubrics":1787},{"key":"generalities","name":"Generalities","rubrics":1751},{"key":"mouth","name":"Mouth","rubrics":1598},{"key":"sleep","name":"Sleep","rubrics":1588},{"key":"rectum","name":"Rectum","rubrics":1549},{"key":"cough","name":"Cough","rubrics":1535},{"key":"nose","name":"Nose","rubrics":1497},{"key":"genitalia_female","name":"Genitalia female","rubrics":1484},{"key":"skin","name":"Skin","rubrics":1161},{"key":"genitalia_male","name":"Genitalia male","rubrics":1121},{"key":"vision","name":"Vision","rubrics":1093},{"key":"throat","name":"Throat","rubrics":1047},{"key":"teeth","name":"Teeth","rubrics":839},{"key":"heart_&_circulation","name":"Heart & Circulation","rubrics":789},{"key":"chill","name":"Chill","rubrics":768},{"key":"bladder","name":"Bladder","rubrics":766},{"key":"respiration","name":"Respiration","rubrics":760},{"key":"larynx_and_trachea","name":"Larynx and trachea","rubrics":729},{"key":"urethra","name":"Urethra","rubrics":606},{"key":"fever","name":"Fever","rubrics":596},{"key":"appetite","name":"Appetite","rubrics":513},{"key":"vertigo","name":"Vertigo","rubrics":512},{"key":"clinical","name":"Clinical","rubrics":490},{"key":"urine","name":"Urine","rubrics":406},{"key":"perspiration","name":"Perspiration","rubrics":395},{"key":"expectoration","name":"Expectoration","rubrics":344},{"key":"external_throat","name":"External throat","rubrics":276},{"key":"kidneys","name":"Kidneys","rubrics":267},{"key":"stool","name":"Stool","rubrics":234},{"key":"hearing","name":"Hearing","rubrics":168},{"key":"prostate_gland","name":"Prostate gland","rubrics":105},{"key":"blood","name":"Blood","rubrics":25}];
+    repChapterNames = index;
+    repChapterNames.sort(function(a, b) { return a.name.localeCompare(b.name); });
+    var totalR = 0;
+    repChapterNames.forEach(function(c) { totalR += c.rubrics; });
+    $('#repBrowserInfo').textContent = repChapterNames.length + ' chapters | ' + totalR.toLocaleString() + ' rubrics';
+    renderChapterList();
 }
 
 var _repDataCache = {};
@@ -5346,7 +5338,7 @@ function selectChapter(chKey) {
     }
     
     // Fetch chapter file
-    fetch('repertory_chapters/' + chKey + '.json')
+    fetch('repertory_chapters/' + chKey + '.json?v=1')
         .then(function(resp) { return resp.json(); })
         .then(function(data) {
             _repDataCache[chKey] = data;
@@ -5719,5 +5711,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a181e2057dc2727e',t:'MTc4MzU0MzAwNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
