@@ -20,7 +20,7 @@
     <script src="diagnosis-data.js?v=3"></script>
     <script src="diagnosis-custom.js?v=3"></script>
     <script src="custom-data-help.js?v=3"></script>
-    <script src="repertory-data.js?v=1"></script>
+    <script defer src="repertory-data.js?v=2"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
@@ -5253,11 +5253,31 @@ var repChapterNames = [];
 
 function initRepertoryBrowser() {
     if (typeof REPERTORY_DATA === 'undefined') {
-        $('#repChapterList').innerHTML = '<div class="empty-state"><p>No repertory data loaded</p></div>';
+        // Data still loading - wait and retry
+        $('#repChapterList').innerHTML = '<div class="empty-state"><div class="icon">⏳</div><p>Loading repertory data...</p></div>';
+        $('#repBrowserInfo').textContent = 'Loading...';
+        
+        // Retry after delay (script may still be loading)
+        var attempts = 0;
+        var retryTimer = setInterval(function() {
+            attempts++;
+            if (typeof REPERTORY_DATA !== 'undefined') {
+                clearInterval(retryTimer);
+                buildRepBrowser();
+            } else if (attempts > 30) {
+                clearInterval(retryTimer);
+                $('#repChapterList').innerHTML = '<div class="empty-state"><p>❌ Failed to load repertory data. Please refresh the page.</p></div>';
+                $('#repBrowserInfo').textContent = 'Error';
+            }
+        }, 500);
         return;
     }
     
-    // LIGHTWEIGHT: Only build chapter names + counts (no rubric indexing!)
+    buildRepBrowser();
+}
+
+function buildRepBrowser() {
+    // LIGHTWEIGHT: Only build chapter names + counts
     repChapterNames = [];
     
     Object.keys(REPERTORY_DATA).forEach(function(chKey) {
@@ -5273,7 +5293,7 @@ function initRepertoryBrowser() {
     
     var totalR = 0;
     repChapterNames.forEach(function(c) { totalR += c.count; });
-    $('#repBrowserInfo').textContent = repChapterNames.length + ' chapters, ' + totalR.toLocaleString() + ' rubrics';
+    $('#repBrowserInfo').textContent = repChapterNames.length + ' chapters | ' + totalR.toLocaleString() + ' rubrics';
     
     renderChapterList();
 }
@@ -5458,6 +5478,7 @@ window.initRepertoryBrowser = initRepertoryBrowser;
 window.selectChapter = selectChapter;
 window.searchRepertoryBrowser = searchRepertoryBrowser;
 window.copyRemedyToPrescription = copyRemedyToPrescription;
+window.buildRepBrowser = buildRepBrowser;
 window.switchRepertoryBook = switchRepertoryBook;
 
 // Chart overlay click-to-close
@@ -5675,5 +5696,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a180cb74589ede08',t:'MTc4MzUzMTU5NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
