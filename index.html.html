@@ -5257,32 +5257,20 @@ function initRepertoryBrowser() {
         return;
     }
     
-    // Build chapter -> rubrics index
-    repAllRubrics = {};
+    // LIGHTWEIGHT: Only build chapter names + counts (no rubric indexing!)
     repChapterNames = [];
     
     Object.keys(REPERTORY_DATA).forEach(function(chKey) {
         var ch = REPERTORY_DATA[chKey];
         if (!ch || !ch.en || !ch.rubrics) return;
-        
-        var rubrics = [];
-        Object.keys(ch.rubrics).forEach(function(rid) {
-            var rub = ch.rubrics[rid];
-            if (rub && rub.t) {
-                rubrics.push({ id: rid, text: rub.t, remedies: rub.r || {}, chKey: chKey });
-            }
-        });
-        
-        if (rubrics.length > 0) {
-            rubrics.sort(function(a, b) { return a.text.localeCompare(b.text); });
-            repAllRubrics[chKey] = rubrics;
-            repChapterNames.push({ key: chKey, name: ch.en, count: rubrics.length });
+        var count = Object.keys(ch.rubrics).length;
+        if (count > 0) {
+            repChapterNames.push({ key: chKey, name: ch.en, count: count });
         }
     });
     
     repChapterNames.sort(function(a, b) { return a.name.localeCompare(b.name); });
     
-    // Update info
     var totalR = 0;
     repChapterNames.forEach(function(c) { totalR += c.count; });
     $('#repBrowserInfo').textContent = repChapterNames.length + ' chapters, ' + totalR.toLocaleString() + ' rubrics';
@@ -5313,99 +5301,130 @@ function renderChapterList(filter) {
 
 function selectChapter(chKey) {
     repCurrentChapter = chKey;
-    
-    // Update active state
-    var items = document.querySelectorAll('#repChapterList .rep-chapter-item');
-    items.forEach(function(item) {
-        item.classList.remove('active');
-    });
-    
     renderChapterList();
     
-    // Show rubrics
-    var rubrics = repAllRubrics[chKey] || [];
-    var chName = '';
-    repChapterNames.forEach(function(c) { if (c.key === chKey) chName = c.name; });
+    // Read rubrics DIRECTLY from REPERTORY_DATA (no pre-built index!)
+    var ch = REPERTORY_DATA[chKey];
+    var chName = (ch && ch.en) ? ch.en : chKey;
+    var rubrics = [];
     
-    var contentDiv = $('#repRubricContent');
-    var html = '<div class="rep-breadcrumb">📖 Repertory / <span>' + chName + '</span> (' + rubrics.length + ' rubrics)</div>';
-    
-    if (rubrics.length === 0) {
-        html += '<div class="empty-state"><p>No rubrics in this chapter</p></div>';
-    } else {
-        html += '<div>';
-        rubrics.forEach(function(rub) {
-            html += '<div class="rep-rubric-item">';
-            html += '<div class="rep-rubric-header">' + escapeHtml(rub.text) + '</div>';
-            html += '<div style="margin-top:3px;">';
-            
-            // Show remedies as tags
-            var rems = Object.keys(rub.remedies);
-            rems.sort(function(a, b) { return (rub.remedies[b] || 1) - (rub.remedies[a] || 1); });
-            rems.forEach(function(abbr) {
-                var grade = rub.remedies[abbr] || 1;
-                html += '<span class="rep-remedy-tag g' + grade + '" title="Grade ' + grade + '" onclick="event.stopPropagation();copyRemedyToPrescription(\'' + abbr + '\')">' + escapeHtml(abbr) + '</span>';
-            });
-            
-            html += '</div></div>';
+    if (ch && ch.rubrics) {
+        Object.keys(ch.rubrics).forEach(function(rid) {
+            var rub = ch.rubrics[rid];
+            if (rub && rub.t) {
+                rubrics.push({ id: rid, text: rub.t, remedies: rub.r || {} });
+            }
         });
-        html += '</div>';
+        rubrics.sort(function(a, b) { return a.text.localeCompare(b.text); });
     }
     
-    contentDiv.innerHTML = html;
+    // Show "Loading..." immediately
+    $('#repRubricContent').innerHTML = '<div style="text-align:center;padding:30px;"><div class="spinner" style="width:30px;height:30px;border-width:3px;margin:0 auto 10px;"></div><p>Loading rubrics...</p></div>';
+    
+    // Render in chunks to avoid blocking
+    var contentDiv = $('#repRubricContent');
+    var chunkSize = 200;
+    var index = 0;
+    var html = '<div class="rep-breadcrumb">📖 Repertory / <span>' + escapeHtml(chName) + '</span> (' + rubrics.length + ' rubrics)</div><div id="repRubricInner">';
+    
+    function renderChunk() {
+        var end = Math.min(index + chunkSize, rubrics.length);
+        var chunkHtml = '';
+        for (var i = index; i < end; i++) {
+            var rub = rubrics[i];
+            chunkHtml += '<div class="rep-rubric-item"><div class="rep-rubric-header">' + escapeHtml(rub.text) + '</div><div style="margin-top:3px;">';
+            var rems = Object.keys(rub.remedies);
+            rems.sort(function(a, b) { return (rub.remedies[b] || 1) - (rub.remedies[a] || 1); });
+            // Show only first 15 remedies per rubric
+            rems.slice(0, 15).forEach(function(abbr) {
+                var grade = rub.remedies[abbr] || 1;
+                chunkHtml += '<span class="rep-remedy-tag g' + grade + '" title="Grade ' + grade + '" onclick="event.stopPropagation();copyRemedyToPrescription(\'' + escapeHtml(abbr) + '\')">' + escapeHtml(abbr) + '</span>';
+            });
+            if (rems.length > 15) chunkHtml += ' <small>+' + (rems.length - 15) + '</small>';
+            chunkHtml += '</div></div>';
+        }
+        html += chunkHtml;
+        index = end;
+        
+        if (index < rubrics.length) {
+            html += '<div style="text-align:center;padding:10px;color:#7f8c8d;font-size:11px;">Loading ' + Math.round(index/rubrics.length*100) + '%...</div>';
+            contentDiv.innerHTML = html + '</div>';
+            setTimeout(renderChunk, 10);
+        } else {
+            html += '</div>';
+            contentDiv.innerHTML = html;
+        }
+    }
+    
+    if (rubrics.length > 0) {
+        contentDiv.innerHTML = html + '<div style="text-align:center;padding:10px;color:#7f8c8d;font-size:11px;">Loading...</div></div>';
+        setTimeout(renderChunk, 50);
+    } else {
+        contentDiv.innerHTML = '<div class="rep-breadcrumb">📖 Repertory / <span>' + escapeHtml(chName) + '</span> (0 rubrics)</div><div class="empty-state"><p>No rubrics</p></div>';
+    }
 }
 
 function searchRepertoryBrowser() {
     var query = ($('#repBrowserSearch') || {}).value || '';
     
     if (query.length < 2) {
-        // Show chapter list mode
         renderChapterList();
-        $('#repRubricContent').innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Select a chapter to browse rubrics</p></div>';
+        $('#repRubricContent').innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Select a chapter or type 2+ chars to search</p></div>';
         repCurrentChapter = '';
         return;
     }
     
-    // Search across ALL chapters
+    $('#repRubricContent').innerHTML = '<div style="text-align:center;padding:30px;"><div class="spinner" style="width:30px;height:30px;border-width:3px;margin:0 auto 10px;"></div><p>Searching...</p></div>';
+    
+    // Search DIRECTLY in REPERTORY_DATA (no pre-built index!)
     query = query.toLowerCase();
-    var results = [];
-    Object.keys(repAllRubrics).forEach(function(chKey) {
-        var ch = REPERTORY_DATA[chKey];
-        repAllRubrics[chKey].forEach(function(rub) {
-            if (rub.text.toLowerCase().indexOf(query) !== -1) {
-                results.push({ rubric: rub, chapter: chKey, chName: (ch && ch.en) || chKey });
-            }
-        });
-    });
     
-    results.sort(function(a, b) { return a.rubric.text.localeCompare(b.rubric.text); });
-    
-    var contentDiv = $('#repRubricContent');
-    var html = '<div class="rep-breadcrumb">🔍 Search: <span>"' + escapeHtml(query) + '"</span> (' + results.length + ' results)</div>';
-    
-    if (results.length === 0) {
-        html += '<div class="empty-state"><p>No rubrics found</p></div>';
-    } else {
-        var maxShow = 200;
-        html += '<div style="font-size:11px;color:#7f8c8d;margin-bottom:8px;">Showing ' + Math.min(results.length, maxShow) + ' of ' + results.length + '</div>';
-        html += '<div>';
-        results.slice(0, maxShow).forEach(function(r) {
-            html += '<div class="rep-rubric-item">';
-            html += '<div class="rep-rubric-header">' + escapeHtml(r.rubric.text);
-            html += ' <small style="color:#7f8c8d;">[' + escapeHtml(r.chName) + ']</small></div>';
-            html += '<div style="margin-top:3px;">';
-            var rems = Object.keys(r.rubric.remedies);
-            rems.sort(function(a, b) { return (r.rubric.remedies[b] || 1) - (r.rubric.remedies[a] || 1); });
-            rems.forEach(function(abbr) {
-                var grade = r.rubric.remedies[abbr] || 1;
-                html += '<span class="rep-remedy-tag g' + grade + '" onclick="event.stopPropagation();copyRemedyToPrescription(\'' + abbr + '\')">' + escapeHtml(abbr) + '</span>';
+    setTimeout(function() {
+        var results = [];
+        
+        Object.keys(REPERTORY_DATA).forEach(function(chKey) {
+            var ch = REPERTORY_DATA[chKey];
+            if (!ch || !ch.rubrics) return;
+            
+            Object.keys(ch.rubrics).forEach(function(rid) {
+                var rub = ch.rubrics[rid];
+                if (!rub || !rub.t) return;
+                if (rub.t.toLowerCase().indexOf(query) !== -1) {
+                    results.push({
+                        text: rub.t,
+                        remedies: rub.r || {},
+                        chName: ch.en || chKey
+                    });
+                }
             });
-            html += '</div></div>';
         });
-        html += '</div>';
-    }
-    
-    contentDiv.innerHTML = html;
+        
+        results.sort(function(a, b) { return a.text.localeCompare(b.text); });
+        
+        var contentDiv = $('#repRubricContent');
+        var html = '<div class="rep-breadcrumb">🔍 Search: <span>"' + escapeHtml(query) + '"</span> (' + results.length + ' results)</div>';
+        
+        if (results.length === 0) {
+            html += '<div class="empty-state"><p>No rubrics found. Try different words.</p></div>';
+        } else {
+            var maxShow = 100;
+            html += '<div style="font-size:11px;color:#7f8c8d;margin-bottom:8px;">Showing up to ' + maxShow + ' results</div><div>';
+            results.slice(0, maxShow).forEach(function(r) {
+                html += '<div class="rep-rubric-item"><div class="rep-rubric-header">' + escapeHtml(r.text);
+                html += ' <small style="color:#7f8c8d;">[' + escapeHtml(r.chName) + ']</small></div><div style="margin-top:3px;">';
+                var rems = Object.keys(r.remedies);
+                rems.sort(function(a, b) { return (r.remedies[b] || 1) - (r.remedies[a] || 1); });
+                rems.slice(0, 15).forEach(function(abbr) {
+                    var grade = r.remedies[abbr] || 1;
+                    html += '<span class="rep-remedy-tag g' + grade + '" onclick="event.stopPropagation();copyRemedyToPrescription(\'' + escapeHtml(abbr) + '\')">' + escapeHtml(abbr) + '</span>';
+                });
+                html += '</div></div>';
+            });
+            html += '</div>';
+        }
+        
+        contentDiv.innerHTML = html;
+    }, 50);
 }
 
 function copyRemedyToPrescription(abbr) {
@@ -5656,5 +5675,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1802329c8e8cdf9',t:'MTc4MzUyNDcwMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a180cb74589ede08',t:'MTc4MzUzMTU5NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
