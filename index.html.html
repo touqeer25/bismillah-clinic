@@ -4838,24 +4838,23 @@ function renderRepertoryResultsInPlace(results, formType, contentDiv) {
     results.forEach(function(r, idx) {
         var medal = idx === 0 ? '🥇' : (idx === 1 ? '🥈' : (idx === 2 ? '🥉' : '▸'));
         var barColor = r.percentage >= 70 ? '#27ae60' : (r.percentage >= 40 ? '#f39c12' : '#95a5a6');
+        var displayName = r.name + ' (' + escapeHtml(r.abbr) + ')';
         
         html += '<div style="background:white;border-radius:6px;padding:6px 10px;margin-bottom:4px;border-left:3px solid ' + barColor + ';">';
         html += '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px;">';
-        html += '<span style="font-weight:bold;font-size:12px;">' + medal + ' ' + escapeHtml(r.name) + ' <small style="color:#7f8c8d;">' + escapeHtml(r.abbr) + '</small></span>';
+        html += '<span style="font-weight:bold;font-size:12px;">' + medal + ' ' + escapeHtml(displayName) + '</span>';
         html += '<span style="font-size:11px;color:' + barColor + ';font-weight:bold;">' + r.percentage + '% (' + r.score + ')</span>';
         html += '</div>';
         html += '<div style="background:#ecf0f1;border-radius:3px;height:4px;margin:3px 0;"><div style="background:' + barColor + ';height:4px;border-radius:3px;width:' + Math.max(r.percentage, 5) + '%;"></div></div>';
         
-        // Rubrics
         html += '<div style="font-size:10px;color:#555;">';
         r.matchedRubrics.slice(0, 3).forEach(function(rub) {
-            html += '<span style="background:#f0f8ff;padding:1px 5px;border-radius:3px;margin:1px;">' + escapeHtml(rub.rubricName) + ' (' + rub.grade + ')</span>';
+            html += '<span style="background:#f0f8ff;padding:1px 5px;border-radius:3px;margin:1px;">' + escapeHtml(rub.rubricName.substring(0,50)) + ' (' + rub.grade + ')</span>';
         });
         if (r.matchedRubrics.length > 3) html += ' +' + (r.matchedRubrics.length - 3);
         html += '</div>';
         
-        // Copy button
-        html += '<button onclick="copyRepertoryToForm(\'' + formType + '\',\'' + r.remedyId + '\')" style="margin-top:3px;padding:2px 8px;font-size:10px;background:#27ae60;color:white;border:none;border-radius:3px;cursor:pointer;font-family:inherit;">📋 Copy</button>';
+        html += '<button onclick="copyRepertoryToForm(\'' + formType + '\',\'' + escapeHtml(r.abbr) + '\')" style="margin-top:3px;padding:2px 8px;font-size:10px;background:#27ae60;color:white;border:none;border-radius:3px;cursor:pointer;font-family:inherit;">📋 Copy</button>';
         html += '</div>';
     });
     
@@ -4888,7 +4887,7 @@ function openRepertoryChart(formType) {
     html += '<th>' + ({ur:'ربڑک',en:'Rubric',roman:'Rubric'}[lang]||'Rubric') + '</th>';
     
     topRemedies.forEach(function(r) {
-        html += '<th>' + escapeHtml(r.abbr || r.name) + '<br><small>' + r.percentage + '%</small></th>';
+        html += '<th>' + escapeHtml(r.abbr) + '<br><small>' + r.percentage + '%</small></th>';
     });
     html += '</tr></thead><tbody>';
     
@@ -5013,27 +5012,29 @@ function repertorize(symptomsText, chapterFilter) {
 
 
 function copyRepertoryToForm(formType, remedyId) {
-    var rem = (typeof REMEDIES_DB_KENT !== 'undefined') ? REMEDIES_DB_KENT[remedyId] : null;
-    if (!rem) return;
+    // New format: REMEDIES_DB_KENT[rid] = {n: name, a: abbr}
+    // remedyId is the abbreviation
+    var remName = remedyId;
+    if (typeof REMEDIES_DB_KENT !== 'undefined') {
+        var allRem = REMEDIES_DB_KENT;
+        Object.keys(allRem).forEach(function(k) {
+            if (allRem[k].a === remedyId) remName = allRem[k].n;
+        });
+    }
     
-    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
     var prescId = formType === 'reg' ? 'firstVisitPrescription' : 'nvPrescription';
     var diagId = formType === 'reg' ? 'firstVisitDiagnosis' : 'nvDiagnosis';
     
     var prescField = $(prescId);
     if (prescField) {
-        var line = 'Rp/ ' + (rem[lang] || rem.en) + ' ' + (rem.potency || '30C');
-        if (rem.keynotes) {
-            var kn = rem.keynotes[lang] || rem.keynotes.en || '';
-            line += ' | ' + kn.substring(0, 60);
-        }
+        var line = 'Rp/ ' + remName + ' (' + remedyId + ')';
         var current = prescField.value.trim();
         prescField.value = current ? current + '\n' + line : line;
     }
     
     var diagField = $(diagId);
     if (diagField) {
-        var diagLine = (rem[lang] || rem.en) + ' (' + (rem.abbr || '') + ')';
+        var diagLine = remName + ' (' + remedyId + ')';
         var curDiag = diagField.value.trim();
         if (curDiag.indexOf(diagLine) === -1) {
             diagField.value = curDiag ? curDiag + '\n' + diagLine : diagLine;
@@ -5041,8 +5042,7 @@ function copyRepertoryToForm(formType, remedyId) {
     }
     
     if (typeof showToast === 'function') {
-        var names = { ur: '✅ کاپی: ', en: '✅ Copied: ', roman: '✅ Copy: ' };
-        showToast((names[lang] || '✅ ') + (rem[lang] || rem.en));
+        showToast('✅ Copied: ' + remName);
     }
 }
 
@@ -5100,29 +5100,20 @@ function showRepertoryAutocomplete(textareaId, dropdownId) {
     var results = [];
     var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
     
+    // New format: rubric = {t: text, r: {abbr: grade}}
     Object.keys(REPERTORY_DATA).forEach(function(chKey) {
         var chapter = REPERTORY_DATA[chKey];
         if (!chapter || !chapter.rubrics) return;
-        Object.keys(chapter.rubrics).forEach(function(rubKey) {
-            var rubric = chapter.rubrics[rubKey];
-            if (!rubric) return;
-            // Search ALL 3 languages (like old system)
-            var matchScore = 0;
-            var bestName = rubric[lang] || rubric.en || '';
-            ['ur','en','roman'].forEach(function(l) {
-                var t = rubric[l];
-                if (!t) return;
-                var idx = t.toLowerCase().indexOf(query);
-                if (idx !== -1) {
-                    var s = idx === 0 ? 3 : 1;
-                    if (s > matchScore) { matchScore = s; bestName = t; }
-                }
-            });
-            if (matchScore > 0) {
+        Object.keys(chapter.rubrics).forEach(function(rid) {
+            var rubric = chapter.rubrics[rid];
+            if (!rubric || !rubric.t) return;
+            var t = rubric.t;
+            var idx = t.toLowerCase().indexOf(query);
+            if (idx !== -1) {
                 results.push({
-                    key: rubKey, name: bestName,
-                    category: chapter[lang] || chapter.en || chKey,
-                    score: matchScore
+                    key: rid, name: t,
+                    category: chapter.en || chKey,
+                    score: idx === 0 ? 3 : 1
                 });
             }
         });
