@@ -20,7 +20,7 @@
     <script src="diagnosis-data.js?v=3"></script>
     <script src="diagnosis-custom.js?v=3"></script>
     <script src="custom-data-help.js?v=3"></script>
-    <script src="repertory-index.js?v=1"></script>
+    
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
@@ -4839,41 +4839,36 @@ function loadDashboardFilterUI() {
 var symptomModes = { reg: 'disease', nv: 'disease' };
 
 
-// Lazy-load full repertory data when needed
-var _repFullDataLoaded = false;
+// Lazy-load full repertory data when needed (via fetch, NOT script!)
+var _repFullData = null;
 var _repFullDataLoading = false;
 var _repFullDataCallbacks = [];
 
 function ensureRepertoryData(callback) {
-    if (_repFullDataLoaded) { callback(); return; }
-    if (typeof REPERTORY_DATA !== 'undefined' && typeof REPERTORY_DATA === 'object' && Object.keys(REPERTORY_DATA).length > 0) {
-        _repFullDataLoaded = true;
-        callback();
-        return;
-    }
+    if (_repFullData !== null) { callback(_repFullData); return; }
     
     _repFullDataCallbacks.push(callback);
     if (_repFullDataLoading) return;
     _repFullDataLoading = true;
     
-    // Show loading toast
-    if (typeof showToast === 'function') showToast('⏳ Loading repertory data...');
+    if (typeof showToast === 'function') showToast('⏳ Loading repertory...');
     
-    var script = document.createElement('script');
-    script.src = 'repertory-data.js?v=2';
-    script.onload = function() {
-        _repFullDataLoaded = true;
-        _repFullDataLoading = false;
-        var cbs = _repFullDataCallbacks;
-        _repFullDataCallbacks = [];
-        cbs.forEach(function(cb) { cb(); });
-        if (typeof showToast === 'function') showToast('✅ Repertory ready');
-    };
-    script.onerror = function() {
-        _repFullDataLoading = false;
-        if (typeof showToast === 'function') showToast('❌ Failed to load repertory', 'error');
-    };
-    document.head.appendChild(script);
+    fetch('repertory-data.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            _repFullData = data;
+            _repFullDataLoading = false;
+            if (typeof showToast === 'function') showToast('✅ Repertory ready (74K rubrics)');
+            var cbs = _repFullDataCallbacks;
+            _repFullDataCallbacks = [];
+            cbs.forEach(function(cb) { cb(data); });
+        })
+        .catch(function(err) {
+            _repFullDataLoading = false;
+            console.error('Failed to load repertory:', err);
+            if (typeof showToast === 'function') showToast('❌ Failed to load', 'error');
+            _repFullDataCallbacks = [];
+        });
 }
 
 function setSymptomMode(formType, mode) {
@@ -4912,8 +4907,7 @@ function setSymptomMode(formType, mode) {
         if (mode === 'disease') {
             if (typeof autoSuggestDiseases === 'function') autoSuggestDiseases(textareaId, panelId);
         } else {
-            // Lazy-load repertory data if needed
-            ensureRepertoryData(function() {
+            ensureRepertoryData(function(data) {
                 runRepertoryForForm(formType, textareaId, panelId);
             });
         }
@@ -4928,10 +4922,9 @@ function runRepertoryForForm(formType, textareaId, panelId) {
     var text = textarea.value.trim();
     if (text.length < 5) { panel.classList.add('hidden'); return; }
     
-    if (typeof REPERTORY_DATA === 'undefined' || Object.keys(REPERTORY_DATA).length === 0) {
-        // Data not loaded yet
+    if (_repFullData === null) {
         var contentDiv = $(formType + 'DiseaseSuggestContent');
-        if (contentDiv) contentDiv.innerHTML = '<div style="text-align:center;padding:15px;font-size:12px;">⏳ Loading repertory data...</div>';
+        if (contentDiv) contentDiv.innerHTML = '<div style="text-align:center;padding:15px;font-size:12px;">⏳ Loading repertory...</div>';
         panel.classList.remove('hidden');
         return;
     }
@@ -5215,7 +5208,7 @@ function showRepertoryAutocomplete(textareaId, dropdownId) {
     var textarea = $(textareaId);
     var dropdown = $(dropdownId);
     if (!textarea || !dropdown) return;
-    if (typeof REPERTORY_DATA === 'undefined') return;
+    if (_repFullData === null) return;
     
     var fullText = textarea.value;
     var cursorPos = textarea.selectionStart;
@@ -5228,21 +5221,20 @@ function showRepertoryAutocomplete(textareaId, dropdownId) {
     
     var query = lastWord.toLowerCase();
     var results = [];
-    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
+    var data = _repFullData;
     
-    // New format: rubric = {t: text, r: {abbr: grade}}
-    Object.keys(REPERTORY_DATA).forEach(function(chKey) {
-        var chapter = REPERTORY_DATA[chKey];
-        if (!chapter || !chapter.rubrics) return;
-        Object.keys(chapter.rubrics).forEach(function(rid) {
-            var rubric = chapter.rubrics[rid];
+    // Search all chapters for matching rubrics
+    Object.keys(data).forEach(function(chKey) {
+        var rubrics = data[chKey];
+        if (!rubrics) return;
+        Object.keys(rubrics).forEach(function(rid) {
+            var rubric = rubrics[rid];
             if (!rubric || !rubric.t) return;
-            var t = rubric.t;
-            var idx = t.toLowerCase().indexOf(query);
+            var idx = rubric.t.toLowerCase().indexOf(query);
             if (idx !== -1) {
                 results.push({
-                    key: rid, name: t,
-                    category: chapter.en || chKey,
+                    key: rid, name: rubric.t,
+                    category: chKey,
                     score: idx === 0 ? 3 : 1
                 });
             }
@@ -5296,42 +5288,25 @@ var repAllRubrics = {}; // chapter -> [rubrics]
 var repChapterNames = [];
 
 function initRepertoryBrowser() {
-    if (typeof REPERTORY_INDEX === 'undefined') {
-        $('#repChapterList').innerHTML = '<div class="empty-state"><div class="icon">⏳</div><p>Loading index...</p></div>';
-        var tries = 0;
-        var t = setInterval(function() {
-            tries++;
-            if (typeof REPERTORY_INDEX !== 'undefined') { clearInterval(t); buildRepBrowser(); }
-            else if (tries > 20) { clearInterval(t); $('#repChapterList').innerHTML = '<div class="empty-state"><p>❌ Index failed to load</p></div>'; }
-        }, 300);
-        return;
-    }
-    buildRepBrowser();
+    $('#repChapterList').innerHTML = '<div class="empty-state"><div class="icon">⏳</div><p>Loading index...</p></div>';
+    $('#repBrowserInfo').textContent = 'Loading...';
+    
+    fetch('repertory-index.json')
+        .then(function(r) { return r.json(); })
+        .then(function(index) {
+            repChapterNames = index;
+            repChapterNames.sort(function(a, b) { return a.name.localeCompare(b.name); });
+            var totalR = 0;
+            repChapterNames.forEach(function(c) { totalR += c.rubrics; });
+            $('#repBrowserInfo').textContent = repChapterNames.length + ' chapters | ' + totalR.toLocaleString() + ' rubrics';
+            renderChapterList();
+        })
+        .catch(function(err) {
+            $('#repChapterList').innerHTML = '<div class="empty-state"><p>❌ Failed to load index</p></div>';
+        });
 }
 
 var _repDataCache = {};
-
-function buildRepBrowser() {
-    if (typeof REPERTORY_INDEX === 'undefined') {
-        $('#repChapterList').innerHTML = '<div class="empty-state"><div class="icon">⏳</div><p>Loading...</p></div>';
-        var tries = 0;
-        var t = setInterval(function() {
-            tries++;
-            if (typeof REPERTORY_INDEX !== 'undefined') { clearInterval(t); buildRepBrowser(); }
-            else if (tries > 30) { clearInterval(t); $('#repChapterList').innerHTML = '<div class="empty-state"><p>❌ Failed</p></div>'; }
-        }, 500);
-        return;
-    }
-    
-    repChapterNames = REPERTORY_INDEX.slice(); // copy
-    repChapterNames.sort(function(a, b) { return a.name.localeCompare(b.name); });
-    
-    var totalR = 0;
-    repChapterNames.forEach(function(c) { totalR += c.rubrics; });
-    $('#repBrowserInfo').textContent = repChapterNames.length + ' chapters | ' + totalR.toLocaleString() + ' rubrics';
-    
-    renderChapterList();
-}
 
 function renderChapterList(filter) {
     var listDiv = $('#repChapterList');
@@ -5526,7 +5501,7 @@ window.initRepertoryBrowser = initRepertoryBrowser;
 window.selectChapter = selectChapter;
 window.searchRepertoryBrowser = searchRepertoryBrowser;
 window.copyRemedyToPrescription = copyRemedyToPrescription;
-window.buildRepBrowser = buildRepBrowser;
+
 window.switchRepertoryBook = switchRepertoryBook;
 
 // Chart overlay click-to-close
@@ -5744,5 +5719,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a181e2057dc2727e',t:'MTc4MzU0MzAwNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
