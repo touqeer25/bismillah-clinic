@@ -5303,15 +5303,26 @@ function initRepertoryBrowser() {
     
     var totalR = 0;
     repChapterNames.forEach(function(c) { totalR += c.rubrics; });
-    var info = $('#repBrowserInfo');
+    var info = document.getElementById('repBrowserInfo');
     if (info) info.textContent = repChapterNames.length + ' chapters | ' + totalR.toLocaleString() + ' rubrics';
     
     renderChapterList();
 }
 
 function renderChapterList(filter) {
-    var listDiv = $('#repChapterList');
-    if (!listDiv) { console.error('repChapterList not found!'); return; }
+    var listDiv = document.getElementById('repChapterList');
+    if (!listDiv) {
+        // Retry once after delay
+        setTimeout(function() {
+            var retry = document.getElementById('repChapterList');
+            if (retry) {
+                // Call again with same filter
+                var args = arguments;
+                renderChapterList(filter);
+            }
+        }, 200);
+        return;
+    }
     
     var chapters = repChapterNames;
     if (filter) {
@@ -5337,7 +5348,8 @@ function selectChapter(chKey) {
     var chName = chKey;
     repChapterNames.forEach(function(c) { if (c.key === chKey) chName = c.name; });
     
-    var contentDiv = $('#repRubricContent');
+    var contentDiv = document.getElementById('repRubricContent');
+    if (!contentDiv) return;
     contentDiv.innerHTML = '<div style="text-align:center;padding:30px;">Loading chapter <b>' + chName + '</b>...<br><small style="color:#7f8c8d;">Fetching rubrics from server</small></div>';
     
     // Try fetch, but with fallback
@@ -5371,7 +5383,8 @@ function displayRubrics(chKey, chName, rubricsData) {
     });
     rubrics.sort(function(a, b) { return a.text.localeCompare(b.text); });
     
-    var contentDiv = $('#repRubricContent');
+    var contentDiv = document.getElementById('repRubricContent');
+    if (!contentDiv) return;
     var chunkSize = 300;
     var index = 0;
     var html = '<div class="rep-breadcrumb">📖 Repertory / <span>' + escapeHtml(chName) + '</span> (' + rubrics.length + ' rubrics)</div><div id="repRubricInner">';
@@ -5411,14 +5424,15 @@ function displayRubrics(chKey, chName, rubricsData) {
 }
 
 function searchRepertoryBrowser() {
-    var query = ($('#repBrowserSearch') || {}).value || '';
+    var qEl = document.getElementById('repBrowserSearch'); var query = (qEl && qEl.value) || '';
     if (query.length < 2) {
         renderChapterList();
         $('#repRubricContent').innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Select a chapter or type 2+ chars to search</p></div>';
         return;
     }
     
-    $('#repRubricContent').innerHTML = '<div style="text-align:center;padding:20px;">Searching across all chapters...</div>';
+    var sr = document.getElementById('repRubricContent');
+    if (sr) sr.innerHTML = '<div style="text-align:center;padding:20px;">Searching across all chapters...</div>';
     
     // Search in currently loaded data or try to fetch
     query = query.toLowerCase();
@@ -5454,7 +5468,8 @@ function doRepertorySearch(query) {
     
     results.sort(function(a, b) { return a.text.localeCompare(b.text); });
     
-    var contentDiv = $('#repRubricContent');
+    var contentDiv = document.getElementById('repRubricContent');
+    if (!contentDiv) return;
     var html = '<div class="rep-breadcrumb">🔍 Search: <span>"' + escapeHtml(query) + '"</span> (' + results.length + ' results)</div>';
     
     if (results.length === 0) {
@@ -5491,8 +5506,8 @@ function switchRepertoryBook() {
     var sel = $('#repBookSelect');
     if (sel) repCurrentBook = sel.value;
     repCurrentChapter = '';
-    $('#repChapterList').innerHTML = '<div class="empty-state"><p>Loading...</p></div>';
-    $('#repRubricContent').innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Select a chapter</p></div>';
+    var cl = document.getElementById('repChapterList'); if (cl) cl.innerHTML = '<div class="empty-state"><p>Loading...</p></div>';
+    var rc = document.getElementById('repRubricContent'); if (rc) rc.innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Select a chapter</p></div>';
     initRepertoryBrowser();
 }
 
@@ -5717,5 +5732,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a18316adceb17eb3',t:'MTc4MzU1NTY0Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
