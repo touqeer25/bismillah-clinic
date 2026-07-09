@@ -735,7 +735,7 @@
         .rep-folder-name{font-weight:bold;color:#2c3e50;}
         .rep-tree-children{border-left:1px dotted #d0d0d0;margin-left:8px;}
         .rep-tree-leaf{padding:3px 6px;border-radius:4px;margin:1px 0;}
-        .mode-dot{width:22px;height:22px;border-radius:50%;border:2px solid #ddd;background:white;cursor:pointer;font-size:11px;display:inline-flex;align-items:center;justify-content:center;padding:0;transition:all 0.2s;line-height:1;}
+        .mode-dot{width:22px;height:22px;border-radius:50%;border:2px solid #ddd;background:white;cursor:pointer;font-size:11px;display:inline-flex!important;align-items:center;justify-content:center;padding:0;transition:all 0.2s;line-height:1;flex-shrink:0;}
         .mode-dot:hover{transform:scale(1.15);}
         .mode-dot.active-disease{background:#fdf2e9;border-color:#f39c12;box-shadow:0 0 0 2px rgba(243,156,18,0.2);}
         .mode-dot.active-repertory{background:#e8f4f8;border-color:#17a2b8;box-shadow:0 0 0 2px rgba(23,162,184,0.2);}
@@ -1023,7 +1023,11 @@
                 <!-- Row 6: Symptoms + Diagnosis -->
                 <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                     <div class="form-group">
-                        <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
+                        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+                            <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat" style="margin-bottom:0;">📝 علامات</label>
+                            <button class="mode-dot active-disease" id="regModeDisease" onclick="setSymptomMode('reg','disease')" title="Disease Suggest">🧠</button>
+                            <button class="mode-dot" id="regModeRepertory" onclick="setSymptomMode('reg','repertory')" title="Repertory">📊</button>
+                        </div>
                         <textarea id="firstVisitSymptoms" style="min-height:55px;" oninput="autoSuggestDiseases('firstVisitSymptoms','regDiseaseSuggest')"></textarea>
                     </div>
                     <div class="form-group">
@@ -1261,7 +1265,11 @@
                     <!-- Row 3: Symptoms + Diagnosis -->
                     <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                         <div class="form-group">
-                            <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
+                            <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+                                <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat" style="margin-bottom:0;">📝 علامات</label>
+                                <button class="mode-dot active-disease" id="nvModeDisease" onclick="setSymptomMode('nv','disease')" title="Disease Suggest">🧠</button>
+                                <button class="mode-dot" id="nvModeRepertory" onclick="setSymptomMode('nv','repertory')" title="Repertory">📊</button>
+                            </div>
                             <textarea id="nvSymptoms" style="min-height:55px;" oninput="autoSuggestDiseases('nvSymptoms','nvDiseaseSuggest')"></textarea>
                         </div>
                         <div class="form-group">
@@ -4628,5 +4636,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a18aaa0c2980b7dc',t:'MTc4MzYzNTA4NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
