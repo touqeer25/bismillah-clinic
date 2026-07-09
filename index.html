@@ -5457,11 +5457,11 @@ function renderTreeNode(node, depth) {
             html += '<span style="margin-left:6px;">';
             var rems = Object.keys(child.remedies);
             rems.sort(function(a, b) { return (child.remedies[b] || 1) - (child.remedies[a] || 1); });
-            rems.slice(0, 12).forEach(function(abbr) {
+            rems.forEach(function(abbr) {
                 var grade = child.remedies[abbr] || 1;
                 html += '<span class="rep-remedy-tag g' + grade + '" onclick="event.stopPropagation();copyRemedyToPrescription(\'' + escapeHtml(abbr) + '\')">' + escapeHtml(abbr) + '</span>';
             });
-            if (rems.length > 12) html += ' <small>+' + (rems.length - 12) + '</small>';
+            
             html += '</span></div>';
         } else {
             // Empty node
@@ -5491,7 +5491,8 @@ function searchRepertoryBrowser() {
     var query = (qEl && qEl.value) || '';
     
     if (query.length < 2) {
-        document.getElementById('repRubricContent').innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Type 2+ characters to search across ALL chapters</p></div>';
+        var rc2 = document.getElementById('repRubricContent');
+        if (rc2) rc2.innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Type 2+ characters to search across ALL chapters</p></div>';
         return;
     }
     
@@ -5499,49 +5500,49 @@ function searchRepertoryBrowser() {
     if (rc) rc.innerHTML = '<div style="text-align:center;padding:20px;">🔍 Searching all 41 chapters for "<b>' + escapeHtml(query) + '</b>"...</div>';
     
     query = query.toLowerCase();
+    var qWords = query.split(/\s+/).filter(function(w) { return w.length > 0; });
     
-    // Search across ALL loaded chapter data
     setTimeout(function() {
         var results = [];
-        var chaptersToSearch = repTreeCache;
         
-        // If no chapters loaded yet, search directly in _repFullData
-        var dataSource = Object.keys(chaptersToSearch).length > 0 ? chaptersToSearch : null;
+        function matchRubric(t) {
+            if (!t) return false;
+            var lowerT = t.toLowerCase();
+            for (var wi = 0; wi < qWords.length; wi++) {
+                if (lowerT.indexOf(qWords[wi]) === -1) return false;
+            }
+            return true;
+        }
         
         if (_repFullData !== null) {
-            // Search in full data
             Object.keys(_repFullData).forEach(function(chKey) {
                 var rubrics = _repFullData[chKey];
                 if (!rubrics) return;
                 Object.keys(rubrics).forEach(function(rid) {
                     var rub = rubrics[rid];
-                    if (rub && rub.t && rub.t.toLowerCase().indexOf(query) !== -1) {
+                    if (rub && rub.t && matchRubric(rub.t)) {
                         results.push({ text: rub.t, remedies: rub.r || {}, chapter: chKey });
                     }
                 });
             });
+            results.sort(function(a, b) { return a.text.localeCompare(b.text); });
+            displaySearchResults(results, query);
         } else {
-            // Load data first
             ensureRepertoryData(function(data) {
                 Object.keys(data).forEach(function(chKey) {
                     var rubrics = data[chKey];
                     if (!rubrics) return;
                     Object.keys(rubrics).forEach(function(rid) {
                         var rub = rubrics[rid];
-                        if (rub && rub.t && rub.t.toLowerCase().indexOf(query) !== -1) {
+                        if (rub && rub.t && matchRubric(rub.t)) {
                             results.push({ text: rub.t, remedies: rub.r || {}, chapter: chKey });
                         }
                     });
                 });
-                
                 results.sort(function(a, b) { return a.text.localeCompare(b.text); });
                 displaySearchResults(results, query);
             });
-            return;
         }
-        
-        results.sort(function(a, b) { return a.text.localeCompare(b.text); });
-        displaySearchResults(results, query);
     }, 10);
 }
 
@@ -5572,7 +5573,7 @@ function displaySearchResults(results, query) {
         html += '<div style="margin-top:3px;">';
         var rems = Object.keys(r.remedies);
         rems.sort(function(a, b) { return (r.remedies[b] || 1) - (r.remedies[a] || 1); });
-        rems.slice(0, 15).forEach(function(abbr) {
+        rems.forEach(function(abbr) {
             var grade = r.remedies[abbr] || 1;
             html += '<span class="rep-remedy-tag g' + grade + '" onclick="event.stopPropagation();copyRemedyToPrescription(\'' + escapeHtml(abbr) + '\')">' + escapeHtml(abbr) + '</span>';
         });
@@ -5815,5 +5816,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1879b0848fbf519',t:'MTc4MzYwMzAxMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
