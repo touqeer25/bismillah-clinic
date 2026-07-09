@@ -434,6 +434,15 @@
         .rep-remedy-tag.g3 { background: #2c3e50; color: white; }
         .rep-remedy-tag.g2 { background: #7f8c8d; color: white; font-style: italic; }
         .rep-remedy-tag.g1 { background: #e8e8e8; color: #555; }
+        
+        /* Tree View */
+        .rep-tree { font-family: 'Segoe UI', sans-serif; font-size: 12px; }
+        .rep-tree-folder { cursor: pointer; padding: 3px 6px; border-radius: 4px; margin: 1px 0; display: flex; align-items: center; gap: 4px; }
+        .rep-tree-folder:hover { background: #f0f8ff; }
+        .rep-folder-icon { font-size: 10px; color: #1a5276; width: 14px; text-align: center; display: inline-block; }
+        .rep-folder-name { font-weight: bold; color: #2c3e50; }
+        .rep-tree-children { border-left: 1px dotted #d0d0d0; margin-left: 8px; }
+        .rep-tree-leaf { padding: 3px 6px; border-radius: 4px; margin: 1px 0; }
         .rep-breadcrumb {
             font-size: 12px;
             color: #7f8c8d;
@@ -5293,9 +5302,11 @@ var repCurrentBook = 'publicum';
 var repCurrentChapter = '';
 var repAllRubrics = {}; // chapter -> [rubrics]
 var repChapterNames = [];
+var repTreeCache = {};  // chapter -> tree nodes
+var repSearchResults = null;
+var repSearchIdx = 0;
 
 function initRepertoryBrowser() {
-    // Chapter index embedded directly
     var index = [{"key":"extremities","name":"Extremities","rubrics":16115},{"key":"head","name":"Head","rubrics":6984},{"key":"mind","name":"Mind","rubrics":5827},{"key":"back","name":"Back","rubrics":4611},{"key":"abdomen","name":"Abdomen","rubrics":4339},{"key":"chest","name":"Chest","rubrics":2858},{"key":"stomach","name":"Stomach","rubrics":2826},{"key":"face","name":"Face","rubrics":2094},{"key":"ear","name":"Ear","rubrics":2029},{"key":"eye","name":"Eye","rubrics":1787},{"key":"generalities","name":"Generalities","rubrics":1751},{"key":"mouth","name":"Mouth","rubrics":1598},{"key":"sleep","name":"Sleep","rubrics":1588},{"key":"rectum","name":"Rectum","rubrics":1549},{"key":"cough","name":"Cough","rubrics":1535},{"key":"nose","name":"Nose","rubrics":1497},{"key":"genitalia_female","name":"Genitalia female","rubrics":1484},{"key":"skin","name":"Skin","rubrics":1161},{"key":"genitalia_male","name":"Genitalia male","rubrics":1121},{"key":"vision","name":"Vision","rubrics":1093},{"key":"throat","name":"Throat","rubrics":1047},{"key":"teeth","name":"Teeth","rubrics":839},{"key":"heart_&_circulation","name":"Heart & Circulation","rubrics":789},{"key":"chill","name":"Chill","rubrics":768},{"key":"bladder","name":"Bladder","rubrics":766},{"key":"respiration","name":"Respiration","rubrics":760},{"key":"larynx_and_trachea","name":"Larynx and trachea","rubrics":729},{"key":"urethra","name":"Urethra","rubrics":606},{"key":"fever","name":"Fever","rubrics":596},{"key":"appetite","name":"Appetite","rubrics":513},{"key":"vertigo","name":"Vertigo","rubrics":512},{"key":"clinical","name":"Clinical","rubrics":490},{"key":"urine","name":"Urine","rubrics":406},{"key":"perspiration","name":"Perspiration","rubrics":395},{"key":"expectoration","name":"Expectoration","rubrics":344},{"key":"external_throat","name":"External throat","rubrics":276},{"key":"kidneys","name":"Kidneys","rubrics":267},{"key":"stool","name":"Stool","rubrics":234},{"key":"hearing","name":"Hearing","rubrics":168},{"key":"prostate_gland","name":"Prostate gland","rubrics":105},{"key":"blood","name":"Blood","rubrics":25}];
     
     repChapterNames = index;
@@ -5311,18 +5322,7 @@ function initRepertoryBrowser() {
 
 function renderChapterList(filter) {
     var listDiv = document.getElementById('repChapterList');
-    if (!listDiv) {
-        // Retry once after delay
-        setTimeout(function() {
-            var retry = document.getElementById('repChapterList');
-            if (retry) {
-                // Call again with same filter
-                var args = arguments;
-                renderChapterList(filter);
-            }
-        }, 200);
-        return;
-    }
+    if (!listDiv) { setTimeout(function(){renderChapterList(filter);},100); return; }
     
     var chapters = repChapterNames;
     if (filter) {
@@ -5337,7 +5337,6 @@ function renderChapterList(filter) {
         html += ch.name + ' <small style="opacity:0.6;">(' + ch.rubrics + ')</small>';
         html += '</div>';
     });
-    
     listDiv.innerHTML = html;
 }
 
@@ -5350,147 +5349,238 @@ function selectChapter(chKey) {
     
     var contentDiv = document.getElementById('repRubricContent');
     if (!contentDiv) return;
-    contentDiv.innerHTML = '<div style="text-align:center;padding:30px;">Loading chapter <b>' + chName + '</b>...<br><small style="color:#7f8c8d;">Fetching rubrics from server</small></div>';
+    contentDiv.innerHTML = '<div style="text-align:center;padding:30px;">Loading <b>' + chName + '</b>...</div>';
     
-    // Try fetch, but with fallback
-    var url = 'repertory_chapters/' + chKey + '.json';
+    // Check cache
+    if (repTreeCache[chKey]) {
+        renderTree(chKey, chName, repTreeCache[chKey]);
+        return;
+    }
     
-    fetch(url)
-        .then(function(r) { 
-            if (!r.ok) throw new Error('HTTP ' + r.status);
-            return r.json(); 
-        })
+    fetch('repertory_chapters/' + chKey + '.json?v=1')
+        .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
         .then(function(data) {
-            displayRubrics(chKey, chName, data);
+            var tree = buildRubricTree(data);
+            repTreeCache[chKey] = tree;
+            renderTree(chKey, chName, tree);
         })
         .catch(function(err) {
             contentDiv.innerHTML = '<div style="text-align:center;padding:30px;color:#e74c3c;">' +
                 '<p>❌ Failed to load <b>' + chName + '</b></p>' +
-                '<p style="font-size:11px;">URL tried: <code>' + url + '</code></p>' +
-                '<p style="font-size:11px;">Error: ' + err.message + '</p>' +
-                '<p style="font-size:11px;margin-top:10px;">Make sure <b>repertory_chapters</b> folder with JSON files is uploaded to GitHub</p>' +
-                '</div>';
+                '<p style="font-size:11px;">Error: ' + err.message + '</p></div>';
         });
 }
 
-function displayRubrics(chKey, chName, rubricsData) {
-    var rubrics = [];
-    Object.keys(rubricsData).forEach(function(rid) {
-        var rub = rubricsData[rid];
-        if (rub && rub.t) {
-            rubrics.push({ id: rid, text: rub.t, remedies: rub.r || {} });
+function buildRubricTree(flatData) {
+    // flatData = {rid: {t: "text, with, commas", r: {abbr: grade}}}
+    // Build hierarchical tree from comma-separated t fields
+    var root = { children: {}, remedies: {} };
+    
+    Object.keys(flatData).forEach(function(rid) {
+        var rub = flatData[rid];
+        if (!rub || !rub.t) return;
+        
+        var parts = rub.t.split(', ');
+        var node = root;
+        
+        for (var i = 0; i < parts.length; i++) {
+            var part = parts[i].trim();
+            if (!part) continue;
+            
+            if (!node.children[part]) {
+                node.children[part] = { name: part, children: {}, remedies: {}, count: 0 };
+            }
+            node = node.children[part];
+            node.count++;
+            
+            // Last part = leaf with remedies
+            if (i === parts.length - 1) {
+                node.remedies = rub.r || {};
+                node._rid = rid;
+            }
         }
     });
-    rubrics.sort(function(a, b) { return a.text.localeCompare(b.text); });
     
+    return root;
+}
+
+function renderTree(chKey, chName, tree) {
     var contentDiv = document.getElementById('repRubricContent');
     if (!contentDiv) return;
-    var chunkSize = 300;
-    var index = 0;
-    var html = '<div class="rep-breadcrumb">📖 Repertory / <span>' + escapeHtml(chName) + '</span> (' + rubrics.length + ' rubrics)</div><div id="repRubricInner">';
     
-    function chunk() {
-        var end = Math.min(index + chunkSize, rubrics.length);
-        var h = '';
-        for (var i = index; i < end; i++) {
-            var rub = rubrics[i];
-            h += '<div class="rep-rubric-item"><div class="rep-rubric-header">' + escapeHtml(rub.text) + '</div><div style="margin-top:3px;">';
-            var rems = Object.keys(rub.remedies);
-            rems.sort(function(a, b) { return (rub.remedies[b] || 1) - (rub.remedies[a] || 1); });
-            rems.slice(0, 15).forEach(function(abbr) {
-                var grade = rub.remedies[abbr] || 1;
-                h += '<span class="rep-remedy-tag g' + grade + '" onclick="event.stopPropagation();copyRemedyToPrescription(\'' + escapeHtml(abbr) + '\')">' + escapeHtml(abbr) + '</span>';
-            });
-            if (rems.length > 15) h += ' <small>+' + (rems.length - 15) + '</small>';
-            h += '</div></div>';
-        }
-        html += h;
-        index = end;
-        if (index < rubrics.length) {
-            contentDiv.innerHTML = html + '<div style="text-align:center;padding:5px;font-size:10px;color:#999;">' + Math.round(index/rubrics.length*100) + '%</div></div>';
-            setTimeout(chunk, 5);
-        } else {
-            html += '</div>';
-            contentDiv.innerHTML = html;
-        }
+    var totalRubrics = 0;
+    function countLeaves(node) {
+        if (Object.keys(node.remedies).length > 0) totalRubrics++;
+        Object.keys(node.children).forEach(function(k) { countLeaves(node.children[k]); });
     }
+    countLeaves(tree);
     
-    if (rubrics.length > 0) {
-        contentDiv.innerHTML = html + '</div>';
-        setTimeout(chunk, 50);
+    var html = '<div class="rep-breadcrumb">📖 Repertory / <span>' + escapeHtml(chName) + '</span> (' + totalRubrics.toLocaleString() + ' rubrics)</div>';
+    html += '<div class="rep-tree">';
+    html += renderTreeNode(tree, 0);
+    html += '</div>';
+    
+    contentDiv.innerHTML = html;
+}
+
+var repNodeId = 0;
+
+function renderTreeNode(node, depth) {
+    var html = '';
+    var childKeys = Object.keys(node.children).sort();
+    
+    childKeys.forEach(function(key, idx) {
+        var child = node.children[key];
+        var hasChildren = Object.keys(child.children).length > 0;
+        var hasRemedies = Object.keys(child.remedies).length > 0;
+        var nid = 'repn_' + (repNodeId++);
+        
+        // Determine indent
+        var padLeft = depth * 16;
+        
+        if (hasChildren) {
+            // This is a parent rubric - show as folder with expand/collapse
+            html += '<div style="padding-left:' + padLeft + 'px;">';
+            html += '<div class="rep-tree-folder" onclick="repToggleFolder(\'' + nid + '\')" id="' + nid + '_head">';
+            html += '<span class="rep-folder-icon" id="' + nid + '_icon">▶</span> ';
+            html += '<span class="rep-folder-name">' + escapeHtml(key) + '</span>';
+            html += ' <small style="color:#95a5a6;">(' + child.count + ')</small>';
+            html += '</div>';
+            html += '<div class="rep-tree-children" id="' + nid + '_body" style="display:none;">';
+            html += renderTreeNode(child, depth + 1);
+            html += '</div>';
+            html += '</div>';
+        } else if (hasRemedies) {
+            // Leaf rubric with remedies
+            html += '<div class="rep-tree-leaf" style="padding-left:' + padLeft + 'px;">';
+            html += '<span style="color:#1a5276;font-size:12px;">' + escapeHtml(key) + '</span>';
+            html += '<span style="margin-left:6px;">';
+            var rems = Object.keys(child.remedies);
+            rems.sort(function(a, b) { return (child.remedies[b] || 1) - (child.remedies[a] || 1); });
+            rems.slice(0, 12).forEach(function(abbr) {
+                var grade = child.remedies[abbr] || 1;
+                html += '<span class="rep-remedy-tag g' + grade + '" onclick="event.stopPropagation();copyRemedyToPrescription(\'' + escapeHtml(abbr) + '\')">' + escapeHtml(abbr) + '</span>';
+            });
+            if (rems.length > 12) html += ' <small>+' + (rems.length - 12) + '</small>';
+            html += '</span></div>';
+        } else {
+            // Empty node
+            html += '<div style="padding-left:' + padLeft + 'px;font-size:11px;color:#95a5a6;">' + escapeHtml(key) + '</div>';
+        }
+    });
+    
+    return html;
+}
+
+function repToggleFolder(nid) {
+    var body = document.getElementById(nid + '_body');
+    var icon = document.getElementById(nid + '_icon');
+    if (!body || !icon) return;
+    
+    if (body.style.display === 'none') {
+        body.style.display = '';
+        icon.textContent = '▼';
     } else {
-        contentDiv.innerHTML = '<div class="rep-breadcrumb">📖 Repertory / <span>' + escapeHtml(chName) + '</span></div><div class="empty-state"><p>No rubrics in this chapter</p></div>';
+        body.style.display = 'none';
+        icon.textContent = '▶';
     }
 }
 
 function searchRepertoryBrowser() {
-    var qEl = document.getElementById('repBrowserSearch'); var query = (qEl && qEl.value) || '';
+    var qEl = document.getElementById('repBrowserSearch');
+    var query = (qEl && qEl.value) || '';
+    
     if (query.length < 2) {
-        renderChapterList();
-        $('#repRubricContent').innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Select a chapter or type 2+ chars to search</p></div>';
+        document.getElementById('repRubricContent').innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Type 2+ characters to search across ALL chapters</p></div>';
         return;
     }
     
-    var sr = document.getElementById('repRubricContent');
-    if (sr) sr.innerHTML = '<div style="text-align:center;padding:20px;">Searching across all chapters...</div>';
+    var rc = document.getElementById('repRubricContent');
+    if (rc) rc.innerHTML = '<div style="text-align:center;padding:20px;">🔍 Searching all 41 chapters for "<b>' + escapeHtml(query) + '</b>"...</div>';
     
-    // Search in currently loaded data or try to fetch
     query = query.toLowerCase();
     
-    // Try to search in _repFullData if loaded
-    if (_repFullData !== null) {
-        setTimeout(function() { doRepertorySearch(query); }, 10);
-    } else {
-        // Load full data first
-        ensureRepertoryData(function(data) {
-            doRepertorySearch(query);
-        });
-    }
+    // Search across ALL loaded chapter data
+    setTimeout(function() {
+        var results = [];
+        var chaptersToSearch = repTreeCache;
+        
+        // If no chapters loaded yet, search directly in _repFullData
+        var dataSource = Object.keys(chaptersToSearch).length > 0 ? chaptersToSearch : null;
+        
+        if (_repFullData !== null) {
+            // Search in full data
+            Object.keys(_repFullData).forEach(function(chKey) {
+                var rubrics = _repFullData[chKey];
+                if (!rubrics) return;
+                Object.keys(rubrics).forEach(function(rid) {
+                    var rub = rubrics[rid];
+                    if (rub && rub.t && rub.t.toLowerCase().indexOf(query) !== -1) {
+                        results.push({ text: rub.t, remedies: rub.r || {}, chapter: chKey });
+                    }
+                });
+            });
+        } else {
+            // Load data first
+            ensureRepertoryData(function(data) {
+                Object.keys(data).forEach(function(chKey) {
+                    var rubrics = data[chKey];
+                    if (!rubrics) return;
+                    Object.keys(rubrics).forEach(function(rid) {
+                        var rub = rubrics[rid];
+                        if (rub && rub.t && rub.t.toLowerCase().indexOf(query) !== -1) {
+                            results.push({ text: rub.t, remedies: rub.r || {}, chapter: chKey });
+                        }
+                    });
+                });
+                
+                results.sort(function(a, b) { return a.text.localeCompare(b.text); });
+                displaySearchResults(results, query);
+            });
+            return;
+        }
+        
+        results.sort(function(a, b) { return a.text.localeCompare(b.text); });
+        displaySearchResults(results, query);
+    }, 10);
 }
 
-function doRepertorySearch(query) {
-    if (_repFullData === null) {
-        $('#repRubricContent').innerHTML = '<div class="empty-state"><p>❌ Repertory data not loaded. Use 📊 mode first.</p></div>';
+function displaySearchResults(results, query) {
+    var rc = document.getElementById('repRubricContent');
+    if (!rc) return;
+    
+    if (results.length === 0) {
+        rc.innerHTML = '<div class="empty-state"><p>🔍 No rubrics found for "<b>' + escapeHtml(query) + '</b>"</p><p style="font-size:11px;">Try different words or shorter query</p></div>';
         return;
     }
     
-    var results = [];
-    Object.keys(_repFullData).forEach(function(chKey) {
-        var rubrics = _repFullData[chKey];
-        if (!rubrics) return;
-        Object.keys(rubrics).forEach(function(rid) {
-            var rub = rubrics[rid];
-            if (rub && rub.t && rub.t.toLowerCase().indexOf(query) !== -1) {
-                results.push({ text: rub.t, remedies: rub.r || {}, chapter: chKey });
-            }
+    var maxShow = 200;
+    var html = '<div style="margin-bottom:10px;padding:8px;background:#e8f4f8;border-radius:6px;">';
+    html += '🔍 Search: "<b>' + escapeHtml(query) + '</b>" → <b>' + results.length.toLocaleString() + '</b> rubrics found across all chapters';
+    if (results.length > maxShow) html += ' (showing first ' + maxShow + ')';
+    html += '</div>';
+    
+    html += '<div>';
+    results.slice(0, maxShow).forEach(function(r) {
+        // Get chapter name
+        var chName = r.chapter;
+        repChapterNames.forEach(function(c) { if (c.key === r.chapter) chName = c.name; });
+        
+        html += '<div class="rep-rubric-item">';
+        html += '<div class="rep-rubric-header">' + escapeHtml(r.text);
+        html += ' <small style="color:#2980b9;">[' + escapeHtml(chName) + ']</small></div>';
+        html += '<div style="margin-top:3px;">';
+        var rems = Object.keys(r.remedies);
+        rems.sort(function(a, b) { return (r.remedies[b] || 1) - (r.remedies[a] || 1); });
+        rems.slice(0, 15).forEach(function(abbr) {
+            var grade = r.remedies[abbr] || 1;
+            html += '<span class="rep-remedy-tag g' + grade + '" onclick="event.stopPropagation();copyRemedyToPrescription(\'' + escapeHtml(abbr) + '\')">' + escapeHtml(abbr) + '</span>';
         });
+        html += '</div></div>';
     });
+    html += '</div>';
     
-    results.sort(function(a, b) { return a.text.localeCompare(b.text); });
-    
-    var contentDiv = document.getElementById('repRubricContent');
-    if (!contentDiv) return;
-    var html = '<div class="rep-breadcrumb">🔍 Search: <span>"' + escapeHtml(query) + '"</span> (' + results.length + ' results)</div>';
-    
-    if (results.length === 0) {
-        html += '<div class="empty-state"><p>No rubrics found</p></div>';
-    } else {
-        var maxShow = 100;
-        html += '<div style="font-size:11px;color:#7f8c8d;margin-bottom:8px;">Showing up to ' + maxShow + '</div><div>';
-        results.slice(0, maxShow).forEach(function(r) {
-            html += '<div class="rep-rubric-item"><div class="rep-rubric-header">' + escapeHtml(r.text);
-            html += ' <small style="color:#7f8c8d;">[' + escapeHtml(r.chapter) + ']</small></div><div style="margin-top:3px;">';
-            var rems = Object.keys(r.remedies);
-            rems.sort(function(a, b) { return (r.remedies[b] || 1) - (r.remedies[a] || 1); });
-            rems.slice(0, 15).forEach(function(abbr) {
-                var grade = r.remedies[abbr] || 1;
-                html += '<span class="rep-remedy-tag g' + grade + '" onclick="event.stopPropagation();copyRemedyToPrescription(\'' + escapeHtml(abbr) + '\')">' + escapeHtml(abbr) + '</span>';
-            });
-            html += '</div></div>';
-        });
-        html += '</div>';
-    }
-    contentDiv.innerHTML = html;
+    rc.innerHTML = html;
 }
 
 function copyRemedyToPrescription(abbr) {
@@ -5502,20 +5592,13 @@ function copyRemedyToPrescription(abbr) {
     }
 }
 
-function switchRepertoryBook() {
-    var sel = $('#repBookSelect');
-    if (sel) repCurrentBook = sel.value;
-    repCurrentChapter = '';
-    var cl = document.getElementById('repChapterList'); if (cl) cl.innerHTML = '<div class="empty-state"><p>Loading...</p></div>';
-    var rc = document.getElementById('repRubricContent'); if (rc) rc.innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Select a chapter</p></div>';
-    initRepertoryBrowser();
-}
+function switchRepertoryBook() { initRepertoryBrowser(); }
 
 window.initRepertoryBrowser = initRepertoryBrowser;
 window.selectChapter = selectChapter;
 window.searchRepertoryBrowser = searchRepertoryBrowser;
 window.copyRemedyToPrescription = copyRemedyToPrescription;
-window.switchRepertoryBook = switchRepertoryBook;
+window.switchRepertoryBook = switchRepertoryBrowser;
 
 // Chart overlay click-to-close
 document.addEventListener('click', function(e) {
