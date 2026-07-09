@@ -20,7 +20,6 @@
     <script src="diagnosis-data.js?v=3"></script>
     <script src="diagnosis-custom.js?v=3"></script>
     <script src="custom-data-help.js?v=3"></script>
-    
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
@@ -61,26 +60,6 @@
         .form-group { margin-bottom: 15px; text-align: right; }
         body[dir="ltr"] .form-group { text-align: left; }
         .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50; font-size: 14px; height: 20px; line-height: 20px; overflow: hidden; font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
-        .form-group .label-with-btns {
-            display: flex !important;
-            align-items: center;
-            gap: 5px;
-            min-height: 22px;
-            margin-bottom: 4px;
-            flex-direction: row !important;
-        }
-        .form-group .label-with-btns label {
-            display: inline !important;
-            margin-bottom: 0 !important;
-            height: auto !important;
-            min-height: auto !important;
-            flex-shrink: 0;
-        }
-        .form-group .label-with-btns .symptom-mode-btns {
-            display: inline-flex !important;
-            gap: 3px;
-            flex-shrink: 0;
-        }
         body[dir="rtl"] .form-group label { font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; font-size: 14px; }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%; padding: 10px 14px; border: 2px solid #ddd;
@@ -268,13 +247,15 @@
         .fg-row .form-group { margin-bottom: 0; }
         .fg-row .form-group input,
         .fg-row .form-group select,
-        .fg-row .form-group textarea { padding: 7px 10px; font-size: 12px; font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; box-sizing: border-box; }
+        .fg-row .form-group textarea { padding: 7px 10px; font-size: 12px; font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
         body[dir="rtl"] .fg-row .form-group input,
         body[dir="rtl"] .fg-row .form-group select,
         body[dir="rtl"] .fg-row .form-group textarea { font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
         .fg-row .form-group label {
             font-size: 12px; margin-bottom: 3px;
-            min-height: 18px; line-height: 1.4;
+            height: 28px; line-height: 14px;
+            display: flex; align-items: center;
+            overflow: hidden;
             font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important;
         }
         body[dir="rtl"] .fg-row .form-group label {
@@ -295,159 +276,6 @@
             padding: 12px 15px;
             margin-bottom: 12px;
             transition: all 0.3s;
-        }
-        /* Mode toggle buttons next to label */
-        .symptom-mode-btns {
-            display: inline-flex;
-            gap: 3px;
-            margin-left: 6px;
-            vertical-align: middle;
-        }
-        body[dir="rtl"] .symptom-mode-btns { margin-left: 0; margin-right: 6px; }
-        .mode-btn {
-            width: 22px; height: 22px;
-            border-radius: 50%;
-            border: 2px solid #ddd;
-            background: white;
-            cursor: pointer;
-            font-size: 11px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            transition: all 0.2s;
-            line-height: 1;
-        }
-        .mode-btn:hover { transform: scale(1.15); }
-        .mode-btn.active-disease {
-            background: #fdf2e9;
-            border-color: #f39c12;
-            box-shadow: 0 0 0 2px rgba(243,156,18,0.2);
-        }
-        .mode-btn.active-repertory {
-            background: #e8f4f8;
-            border-color: #17a2b8;
-            box-shadow: 0 0 0 2px rgba(23,162,184,0.2);
-        }
-        /* Repertory chart modal */
-        .rep-chart-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.6);
-            z-index: 250;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-        }
-        .rep-chart-overlay.active { display: flex; }
-        .rep-chart-modal {
-            background: white;
-            border-radius: 12px;
-            padding: 15px;
-            width: 100%;
-            max-width: 900px;
-            max-height: 90vh;
-            overflow: auto;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        .rep-chart-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 11px;
-            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-        }
-        .rep-chart-table th {
-            background: #1a5276;
-            color: white;
-            padding: 6px 4px;
-            position: sticky;
-            top: 0;
-            z-index: 2;
-            font-size: 10px;
-            white-space: nowrap;
-            min-width: 60px;
-            text-align: center;
-        }
-        .rep-chart-table th:first-child {
-            min-width: 150px;
-            text-align: left;
-            position: sticky;
-            left: 0;
-            z-index: 3;
-            background: #1a5276;
-        }
-        .rep-chart-table td {
-            padding: 4px;
-            text-align: center;
-            border: 1px solid #e0e0e0;
-            font-weight: bold;
-        }
-        .rep-chart-table td:first-child {
-            text-align: left;
-            font-size: 10px;
-            background: #fafafa;
-            position: sticky;
-            left: 0;
-            z-index: 1;
-        }
-        .rep-chart-table .grade-3 { background: #2c3e50; color: white; font-weight: bold; }
-        .rep-chart-table .grade-2 { background: #7f8c8d; color: white; font-style: italic; }
-        .rep-chart-table .grade-1 { background: #f0f0f0; color: #555; }
-        .rep-chart-table .grade-0 { background: white; color: #ccc; }
-        
-        /* Repertory Browser */
-        .rep-chapter-item {
-            padding: 6px 10px;
-            cursor: pointer;
-            border-radius: 6px;
-            font-size: 12px;
-            font-family: 'Segoe UI', sans-serif;
-            transition: all 0.15s;
-            border: 2px solid transparent;
-        }
-        .rep-chapter-item:hover { background: #e8f4f8; }
-        .rep-chapter-item.active { background: #2980b9; color: white; font-weight: bold; }
-        .rep-rubric-item {
-            padding: 8px 12px;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 12px;
-            cursor: pointer;
-            transition: background 0.1s;
-            font-family: 'Segoe UI', sans-serif;
-        }
-        .rep-rubric-item:hover { background: #f8f9fa; }
-        .rep-rubric-header {
-            font-weight: bold;
-            color: #1a5276;
-            font-size: 13px;
-        }
-        .rep-remedy-tag {
-            display: inline-block;
-            padding: 2px 8px;
-            margin: 2px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .rep-remedy-tag.g3 { background: #2c3e50; color: white; }
-        .rep-remedy-tag.g2 { background: #7f8c8d; color: white; font-style: italic; }
-        .rep-remedy-tag.g1 { background: #e8e8e8; color: #555; }
-        .rep-breadcrumb {
-            font-size: 12px;
-            color: #7f8c8d;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #ecf0f1;
-        }
-        .rep-breadcrumb span { color: #2980b9; font-weight: bold; }
-        .ds-tab-btn {
-            transition: all 0.2s;
-        }
-        .ds-tab-btn.active {
-            background: #fef9e7 !important;
-            border-color: #f39c12 !important;
         }
         .disease-suggest-header {
             font-weight: bold;
@@ -519,65 +347,6 @@
             background: #f39c12;
             color: white;
             border-color: #f39c12;
-        }
-
-        /* Symptom Autocomplete Dropdown */
-        .symptom-ac-wrapper {
-            position: relative;
-            width: 100%;
-        }
-        .symptom-ac-wrapper textarea {
-            width: 100% !important;
-            box-sizing: border-box;
-        }
-        .symptom-ac-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            background: white;
-            border: 2px solid #2980b9;
-            border-top: none;
-            border-radius: 0 0 8px 8px;
-            max-height: 200px;
-            overflow-y: auto;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        .symptom-ac-dropdown.active { display: block; }
-        .symptom-ac-item {
-            padding: 8px 12px;
-            cursor: pointer;
-            font-size: 13px;
-            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-            border-bottom: 1px solid #f0f0f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.15s;
-        }
-        .symptom-ac-item:hover, .symptom-ac-item.selected {
-            background: #e8f4f8;
-            color: #1a5276;
-        }
-        .symptom-ac-item:last-child { border-bottom: none; }
-        .symptom-ac-item .ac-category {
-            font-size: 10px;
-            color: #95a5a6;
-            background: #f0f0f0;
-            padding: 1px 6px;
-            border-radius: 10px;
-        }
-        .symptom-ac-no-results {
-            padding: 10px 12px;
-            font-size: 12px;
-            color: #95a5a6;
-            text-align: center;
-            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-        }
-        .symptom-ac-highlight {
-            background: #fff3cd;
         }
 
         .section-divider {
@@ -936,6 +705,41 @@
             .stat-card .stat-number { font-size: 20px; }
         }
 
+        .rep-chart-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:250;justify-content:center;align-items:center;padding:10px;}
+        .rep-chart-overlay.active{display:flex;}
+        .rep-chart-modal{background:white;border-radius:12px;padding:15px;width:100%;max-width:900px;max-height:90vh;overflow:auto;}
+        .rep-chart-table{width:100%;border-collapse:collapse;font-size:11px;font-family:'Segoe UI',sans-serif;}
+        .rep-chart-table th{background:#1a5276;color:white;padding:6px 4px;font-size:10px;text-align:center;position:sticky;top:0;}
+        .rep-chart-table td{padding:4px;text-align:center;border:1px solid #e0e0e0;font-weight:bold;}
+        .rep-chart-table td:first-child{text-align:left;font-size:10px;background:#fafafa;}
+        .rep-chart-table .grade-3{background:#2c3e50;color:white;font-weight:bold;}
+        .rep-chart-table .grade-2{background:#7f8c8d;color:white;font-style:italic;}
+        .rep-chart-table .grade-1{background:#f0f0f0;color:#555;}
+        .rep-chart-table .grade-0{background:white;color:#ccc;}
+        .rep-chapter-item{padding:6px 10px;cursor:pointer;border-radius:6px;font-size:12px;font-family:'Segoe UI',sans-serif;transition:all 0.15s;border:2px solid transparent;}
+        .rep-chapter-item:hover{background:#e8f4f8;}
+        .rep-chapter-item.active{background:#2980b9;color:white;font-weight:bold;}
+        .rep-rubric-item{padding:8px 12px;border-bottom:1px solid #f0f0f0;font-size:12px;cursor:pointer;transition:background 0.1s;font-family:'Segoe UI',sans-serif;}
+        .rep-rubric-item:hover{background:#f8f9fa;}
+        .rep-rubric-header{font-weight:bold;color:#1a5276;font-size:13px;}
+        .rep-remedy-tag{display:inline-block;padding:2px 8px;margin:2px;border-radius:12px;font-size:10px;font-weight:bold;cursor:pointer;}
+        .rep-remedy-tag.g3{background:#2c3e50;color:white;}
+        .rep-remedy-tag.g2{background:#7f8c8d;color:white;font-style:italic;}
+        .rep-remedy-tag.g1{background:#e8e8e8;color:#555;}
+        .rep-breadcrumb{font-size:12px;color:#7f8c8d;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #ecf0f1;}
+        .rep-breadcrumb span{color:#2980b9;font-weight:bold;}
+        .rep-tree{font-family:'Segoe UI',sans-serif;font-size:12px;}
+        .rep-tree-folder{cursor:pointer;padding:3px 6px;border-radius:4px;margin:1px 0;display:flex;align-items:center;gap:4px;}
+        .rep-tree-folder:hover{background:#f0f8ff;}
+        .rep-folder-icon{font-size:10px;color:#1a5276;width:14px;text-align:center;display:inline-block;}
+        .rep-folder-name{font-weight:bold;color:#2c3e50;}
+        .rep-tree-children{border-left:1px dotted #d0d0d0;margin-left:8px;}
+        .rep-tree-leaf{padding:3px 6px;border-radius:4px;margin:1px 0;}
+        .mode-dot{width:22px;height:22px;border-radius:50%;border:2px solid #ddd;background:white;cursor:pointer;font-size:11px;display:inline-flex!important;align-items:center;justify-content:center;padding:0;transition:all 0.2s;line-height:1;flex-shrink:0;}
+        .mode-dot:hover{transform:scale(1.15);}
+        .mode-dot.active-disease{background:#fdf2e9;border-color:#f39c12;box-shadow:0 0 0 2px rgba(243,156,18,0.2);}
+        .mode-dot.active-repertory{background:#e8f4f8;border-color:#17a2b8;box-shadow:0 0 0 2px rgba(23,162,184,0.2);}
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -1219,17 +1023,12 @@
                 <!-- Row 6: Symptoms + Diagnosis -->
                 <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                     <div class="form-group">
-                        <div class="label-with-btns">
-                            <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
-                            <span class="symptom-mode-btns">
-                                <button class="mode-btn active-disease" id="regModeDisease" onclick="setSymptomMode('reg','disease')" title="Disease Suggest">🧠</button>
-                                <button class="mode-btn" id="regModeRepertory" onclick="setSymptomMode('reg','repertory')" title="Repertory">📊</button>
-                            </span>
+                        <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+                            <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat" style="margin-bottom:0;">📝 علامات</label>
+                            <button class="mode-dot active-disease" id="regModeDisease" onclick="setSymptomMode('reg','disease')" title="Disease Suggest">🧠</button>
+                            <button class="mode-dot" id="regModeRepertory" onclick="setSymptomMode('reg','repertory')" title="Repertory">📊</button>
                         </div>
-                        <div class="symptom-ac-wrapper">
-                            <textarea id="firstVisitSymptoms" style="min-height:55px;width:100%;" oninput="handleSymptomInput('firstVisitSymptoms','regSymptomAC','regDiseaseSuggest')" onkeydown="handleSymptomKeydown(event,'firstVisitSymptoms','regSymptomAC')" onblur="hideSymptomDropdown('regSymptomAC')" autocomplete="off"></textarea>
-                            <div class="symptom-ac-dropdown" id="regSymptomAC"></div>
-                        </div>
+                        <textarea id="firstVisitSymptoms" style="min-height:55px;" oninput="autoSuggestDiseases('firstVisitSymptoms','regDiseaseSuggest')"></textarea>
                     </div>
                     <div class="form-group">
                         <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
@@ -1237,14 +1036,11 @@
                     </div>
                 </div>
                 
-                <!-- Suggest Panel (mode-aware) -->
+                <!-- Disease Suggest Panel -->
                 <div id="regDiseaseSuggest" class="disease-suggest-panel hidden">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-                        <span style="font-weight:bold;font-size:13px;color:#d68910;" id="regPanelLabel">🧠</span>
-                        <span style="display:flex;gap:4px;">
-                            <span style="font-size:10px;opacity:0.7;" id="regDiseaseCount"></span>
-                            <button id="regChartBtn" onclick="openRepertoryChart('reg')" style="display:none;padding:2px 8px;font-size:10px;background:#17a2b8;color:white;border:none;border-radius:4px;cursor:pointer;font-family:inherit;">📊 Chart</button>
-                        </span>
+                    <div class="disease-suggest-header">
+                        🧠 <span data-ur="علامات سے تجویز کردہ" data-en="Suggested from Symptoms" data-roman="Alamat se Tajweez">علامات سے تجویز کردہ</span>
+                        <span style="font-size:11px;opacity:0.7;" id="regDiseaseCount"></span>
                     </div>
                     <div id="regDiseaseSuggestContent"></div>
                 </div>
@@ -1469,17 +1265,12 @@
                     <!-- Row 3: Symptoms + Diagnosis -->
                     <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                         <div class="form-group">
-                            <div class="label-with-btns">
-                                <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
-                                <span class="symptom-mode-btns">
-                                    <button class="mode-btn active-disease" id="nvModeDisease" onclick="setSymptomMode('nv','disease')" title="Disease Suggest">🧠</button>
-                                    <button class="mode-btn" id="nvModeRepertory" onclick="setSymptomMode('nv','repertory')" title="Repertory">📊</button>
-                                </span>
+                            <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+                                <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat" style="margin-bottom:0;">📝 علامات</label>
+                                <button class="mode-dot active-disease" id="nvModeDisease" onclick="setSymptomMode('nv','disease')" title="Disease Suggest">🧠</button>
+                                <button class="mode-dot" id="nvModeRepertory" onclick="setSymptomMode('nv','repertory')" title="Repertory">📊</button>
                             </div>
-                            <div class="symptom-ac-wrapper">
-                                <textarea id="nvSymptoms" style="min-height:55px;width:100%;" oninput="handleSymptomInput('nvSymptoms','nvSymptomAC','nvDiseaseSuggest')" onkeydown="handleSymptomKeydown(event,'nvSymptoms','nvSymptomAC')" onblur="hideSymptomDropdown('nvSymptomAC')" autocomplete="off"></textarea>
-                                <div class="symptom-ac-dropdown" id="nvSymptomAC"></div>
-                            </div>
+                            <textarea id="nvSymptoms" style="min-height:55px;" oninput="autoSuggestDiseases('nvSymptoms','nvDiseaseSuggest')"></textarea>
                         </div>
                         <div class="form-group">
                             <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
@@ -1487,14 +1278,11 @@
                         </div>
                     </div>
                     
-                    <!-- Suggest Panel (mode-aware) -->
+                    <!-- Disease Suggest Panel -->
                     <div id="nvDiseaseSuggest" class="disease-suggest-panel hidden">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-                            <span style="font-weight:bold;font-size:13px;color:#d68910;" id="nvPanelLabel">🧠</span>
-                            <span style="display:flex;gap:4px;">
-                                <span style="font-size:10px;opacity:0.7;" id="nvDiseaseCount"></span>
-                                <button id="nvChartBtn" onclick="openRepertoryChart('nv')" style="display:none;padding:2px 8px;font-size:10px;background:#17a2b8;color:white;border:none;border-radius:4px;cursor:pointer;font-family:inherit;">📊 Chart</button>
-                            </span>
+                        <div class="disease-suggest-header">
+                            🧠 <span data-ur="علامات سے تجویز کردہ" data-en="Suggested from Symptoms" data-roman="Alamat se Tajweez">علامات سے تجویز کردہ</span>
+                            <span style="font-size:11px;opacity:0.7;" id="nvDiseaseCount"></span>
                         </div>
                         <div id="nvDiseaseSuggestContent"></div>
                     </div>
@@ -1556,38 +1344,30 @@
     </div>
     
     <!-- ============================================ -->
-    <!-- REPERTORY BROWSER (Book-Style) -->
+    <!-- REPERTORY BROWSER -->
     <!-- ============================================ -->
     <div id="page-repertoryBrowser" class="page">
         <div class="content">
-            <!-- Repertory Selector -->
             <div class="card" style="margin-bottom:10px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;">
                 <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
                     <span style="font-size:18px;">📖</span>
-                    <select id="repBookSelect" onchange="switchRepertoryBook()" style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:13px;min-width:200px;">
-                        <option value="publicum">Repertorium Publicum (English)</option>
-                    </select>
-                    <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="Search rubrics..." style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:12px;min-width:180px;flex:1;">
+                    <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="Search rubrics... (e.g. pain @head)" style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:12px;min-width:180px;flex:1;">
                     <span style="font-size:11px;opacity:0.8;" id="repBrowserInfo"></span>
                 </div>
             </div>
-            
-            <!-- Main Browser Area -->
             <div style="display:flex;gap:10px;">
-                <!-- Chapter Sidebar -->
                 <div style="width:200px;min-width:140px;background:white;border-radius:10px;padding:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05);max-height:70vh;overflow-y:auto;" id="repChapterList">
                     <div class="empty-state"><p>Loading...</p></div>
                 </div>
-                
-                <!-- Rubric Content -->
                 <div style="flex:1;background:white;border-radius:10px;padding:15px;box-shadow:0 2px 8px rgba(0,0,0,0.05);max-height:70vh;overflow-y:auto;" id="repRubricContent">
-                    <div class="empty-state">
-                        <div class="icon">📖</div>
-                        <p>Select a chapter to browse rubrics</p>
-                    </div>
+                    <div class="empty-state"><div class="icon">📖</div><p>Select a chapter or search</p></div>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- REPERTORY CHART MODAL -->
+    <div id="repChartOverlay" class="rep-chart-overlay" onclick="if(event.target===this)closeRepertoryChart()">
+        <div class="rep-chart-modal"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;"><span style="font-weight:bold;font-size:16px;color:#1a5276;">📊 Repertorisation Chart</span><button onclick="closeRepertoryChart()" style="background:none;border:none;font-size:20px;cursor:pointer;">✕</button></div><div id="repChartContent" style="overflow-x:auto;"></div></div>
     </div>
 
     <!-- ============================================ -->
@@ -1814,30 +1594,8 @@
 <!-- Visit Modal removed - using New Visit Page instead -->
 
 <!-- ============================================ -->
-<!-- REPERTORY CHART MODAL -->
-<div id="repChartOverlay" class="rep-chart-overlay">
-    <div class="rep-chart-modal">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-            <span style="font-weight:bold;font-size:16px;color:#1a5276;">📊 Repertorisation Chart</span>
-            <button onclick="closeRepertoryChart()" style="background:none;border:none;font-size:20px;cursor:pointer;">✕</button>
-        </div>
-        <div id="repChartContent" style="overflow-x:auto;"></div>
-    </div>
-</div>
-
 <!-- EDIT PATIENT MODAL -->
 <!-- ============================================ -->
-<!-- REPERTORY CHART MODAL -->
-<div id="repChartOverlay" class="rep-chart-overlay">
-    <div class="rep-chart-modal">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-            <span style="font-weight:bold;font-size:16px;color:#1a5276;">📊 Repertorisation Chart</span>
-            <button onclick="closeRepertoryChart()" style="background:none;border:none;font-size:20px;cursor:pointer;">✕</button>
-        </div>
-        <div id="repChartContent" style="overflow-x:auto;"></div>
-    </div>
-</div>
-
 <!-- EDIT PATIENT MODAL -->
 <!-- ============================================ -->
 <div id="editPatientModal" class="modal-overlay">
@@ -2872,7 +2630,6 @@ async function showPage(pageId, btn) {
                 if ($('nvTime')) $('nvTime').value = now2.toTimeString().substring(0, 5);
             }
             if (pageId === 'settings') { updatePendingBadge(); loadDashboardFilterUI(); loadDiseaseSuggestSettingsUI(); }
-            if (pageId === 'repertoryBrowser') { initRepertoryBrowser(); }
         } catch(err) { console.error('Page error:', err); }
     });
 }
@@ -4266,245 +4023,6 @@ function closeStatPatients() {
     showStatPatients('today');
 }
 
-// ==================== SYMPTOM AUTOCOMPLETE ====================
-var symptomACIndex = -1;
-var symptomACTimer = null;
-
-function handleSymptomInput(textareaId, dropdownId, diseasePanelId) {
-    // Also trigger disease suggest (existing feature)
-    if (typeof autoSuggestDiseases === 'function') {
-        autoSuggestDiseases(textareaId, diseasePanelId);
-    }
-    
-    // Clear previous timer
-    if (symptomACTimer) clearTimeout(symptomACTimer);
-    
-    // Debounce 200ms for autocomplete
-    symptomACTimer = setTimeout(function() {
-        showSymptomAutocomplete(textareaId, dropdownId);
-    }, 200);
-}
-
-function handleSymptomKeydown(e, textareaId, dropdownId) {
-    var dropdown = $(dropdownId);
-    if (!dropdown || !dropdown.classList.contains('active')) return;
-    
-    var items = dropdown.querySelectorAll('.symptom-ac-item');
-    
-    if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        symptomACIndex = Math.min(symptomACIndex + 1, items.length - 1);
-        updateACSelection(items);
-    } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        symptomACIndex = Math.max(symptomACIndex - 1, -1);
-        updateACSelection(items);
-    } else if (e.key === 'Enter') {
-        e.preventDefault();
-        if (symptomACIndex >= 0 && items[symptomACIndex]) {
-            items[symptomACIndex].click();
-        }
-    } else if (e.key === 'Escape') {
-        hideSymptomDropdown(dropdownId);
-    }
-}
-
-function updateACSelection(items) {
-    items.forEach(function(item, i) {
-        if (i === symptomACIndex) {
-            item.classList.add('selected');
-            item.scrollIntoView({ block: 'nearest' });
-        } else {
-            item.classList.remove('selected');
-        }
-    });
-}
-
-function showSymptomAutocomplete(textareaId, dropdownId) {
-    var textarea = $(textareaId);
-    var dropdown = $(dropdownId);
-    
-    if (!textarea || !dropdown) return;
-    
-    // Safety check
-    if (typeof SYMPTOMS_DB === 'undefined') return;
-    
-    // Get the current word being typed (last word after comma or space)
-    var fullText = textarea.value;
-    var cursorPos = textarea.selectionStart;
-    var textBefore = fullText.substring(0, cursorPos);
-    
-    // Find the last word: split by comma, space, or newline
-    var lastWord = '';
-    var match = textBefore.match(/[^\s،,\n]+$/);
-    if (match) {
-        lastWord = match[0].trim();
-    }
-    
-    // If word is too short, hide dropdown
-    if (lastWord.length < 2) {
-        dropdown.classList.remove('active');
-        dropdown.innerHTML = '';
-        return;
-    }
-    
-    var query = lastWord.toLowerCase();
-    var results = [];
-    
-    // Search SYMPTOMS_DB in all 3 languages
-    Object.keys(SYMPTOMS_DB).forEach(function(key) {
-        var sym = SYMPTOMS_DB[key];
-        if (!sym) return;
-        
-        var score = 0;
-        var matchLang = '';
-        
-        if (sym.ur && sym.ur.toLowerCase().indexOf(query) !== -1) {
-            score = sym.ur.toLowerCase().indexOf(query) === 0 ? 3 : 1;
-            matchLang = 'ur';
-        }
-        if (sym.en && sym.en.toLowerCase().indexOf(query) !== -1) {
-            var s = sym.en.toLowerCase().indexOf(query) === 0 ? 3 : 1;
-            if (s > score) { score = s; matchLang = 'en'; }
-        }
-        if (sym.roman && sym.roman.toLowerCase().indexOf(query) !== -1) {
-            var s = sym.roman.toLowerCase().indexOf(query) === 0 ? 3 : 1;
-            if (s > score) { score = s; matchLang = 'roman'; }
-        }
-        
-        if (score > 0) {
-            results.push({ key: key, sym: sym, score: score, matchLang: matchLang });
-        }
-    });
-    
-    // Sort: starts-with first, then contains
-    results.sort(function(a, b) { return b.score - a.score; });
-    // Limit to 8 results
-    results = results.slice(0, 8);
-    
-    if (results.length === 0) {
-        dropdown.classList.remove('active');
-        dropdown.innerHTML = '';
-        // Show no results briefly
-        dropdown.innerHTML = '<div class="symptom-ac-no-results">' +
-            ({ur: 'کوئی علامت نہیں ملی', en: 'No symptoms found', roman: 'Koi alamat nahi mili'}[currentLang] || 'No symptoms found') +
-            '</div>';
-        dropdown.classList.add('active');
-        setTimeout(function() {
-            if (dropdown.innerHTML.indexOf('کوئی علامت') !== -1 || dropdown.innerHTML.indexOf('No symptoms') !== -1 || dropdown.innerHTML.indexOf('Koi alamat') !== -1) {
-                dropdown.classList.remove('active');
-            }
-        }, 1500);
-        return;
-    }
-    
-    // Get category name for display
-    function getCatName(catKey) {
-        if (!catKey) return '';
-        if (window.CATEGORIES_DB && window.CATEGORIES_DB[catKey]) {
-            return window.CATEGORIES_DB[catKey][currentLang] || window.CATEGORIES_DB[catKey].en || catKey;
-        }
-        return catKey;
-    }
-    
-    symptomACIndex = -1;
-    var html = '';
-    results.forEach(function(r) {
-        var displayName, cat, badge = '';
-        
-        if (r.type === 'rubric') {
-            displayName = r.name;
-            cat = r.category;
-            badge = ' <small style="color:#b8860b;">📖 rubric</small>';
-        } else {
-            displayName = r.sym[currentLang] || r.sym.en || '';
-            cat = getCatName(r.sym.category);
-            if (r.sym.severe) badge += ' ⚠️';
-        }
-        
-        // Highlight matching part
-        var idx = displayName.toLowerCase().indexOf(query);
-        var highlighted = displayName;
-        if (idx >= 0) {
-            highlighted = displayName.substring(0, idx) +
-                '<span class="symptom-ac-highlight">' + displayName.substring(idx, idx + query.length) + '</span>' +
-                displayName.substring(idx + query.length);
-        }
-        
-        html += '<div class="symptom-ac-item" data-key="' + r.key + '" data-name="' + escapeHtml(displayName) + '" data-cat="' + escapeHtml(cat || '') + '" data-type="' + (r.type || 'symptom') + '">';
-        html += '<span>' + highlighted + badge + '</span>';
-        if (cat) html += '<span class="ac-category">' + escapeHtml(cat) + '</span>';
-        html += '</div>';
-    });
-    
-    dropdown.innerHTML = html;
-    dropdown.classList.add('active');
-    
-    // Add click handlers
-    dropdown.querySelectorAll('.symptom-ac-item').forEach(function(item) {
-        item.addEventListener('mousedown', function(e) {
-            e.preventDefault();
-            var name = this.getAttribute('data-name');
-            insertSymptomAtCursor(textareaId, name, query);
-            hideSymptomDropdown(dropdownId);
-            textarea.focus();
-        });
-    });
-}
-
-function insertSymptomAtCursor(textareaId, symptomName, query) {
-    var textarea = $(textareaId);
-    if (!textarea) return;
-    
-    var fullText = textarea.value;
-    var cursorPos = textarea.selectionStart;
-    var textBefore = fullText.substring(0, cursorPos);
-    var textAfter = fullText.substring(cursorPos);
-    
-    // Replace the partial word being typed with the full symptom name
-    var lastWordMatch = textBefore.match(/[^\s،,\n]+$/);
-    if (lastWordMatch) {
-        textBefore = textBefore.substring(0, textBefore.length - lastWordMatch[0].length);
-    } else {
-        // No word at cursor - just append
-        textBefore = textBefore;
-    }
-    
-    // Add comma if needed
-    if (textBefore.length > 0 && !textBefore.endsWith('،') && !textBefore.endsWith(',') && !textBefore.endsWith(' ') && !textBefore.endsWith('\n')) {
-        textBefore += '، ';
-    }
-    
-    textarea.value = textBefore + symptomName + '، ' + textAfter;
-    
-    // Set cursor after inserted text
-    var newPos = textBefore.length + symptomName.length + 2;
-    textarea.setSelectionRange(newPos, newPos);
-    
-    // Re-trigger disease suggest
-    if (typeof autoSuggestDiseases === 'function') {
-        var panelId = textareaId === 'firstVisitSymptoms' ? 'regDiseaseSuggest' : 'nvDiseaseSuggest';
-        autoSuggestDiseases(textareaId, panelId);
-    }
-}
-
-function hideSymptomDropdown(dropdownId) {
-    var dropdown = $(dropdownId);
-    if (dropdown) {
-        // Delay to allow click to register
-        setTimeout(function() {
-            dropdown.classList.remove('active');
-            dropdown.innerHTML = '';
-            symptomACIndex = -1;
-        }, 150);
-    }
-}
-
-// Expose
-window.handleSymptomInput = handleSymptomInput;
-window.handleSymptomKeydown = handleSymptomKeydown;
-window.hideSymptomDropdown = hideSymptomDropdown;
-
 // ==================== DISEASE AUTO-SUGGEST ====================
 var diseaseSuggestTimer = null;
 
@@ -4554,9 +4072,6 @@ function doAutoSuggest(textareaId, panelId) {
         return;
     }
     
-    // Safety: check if SYMPTOMS_DB and DISEASES_DB are loaded
-    if (typeof SYMPTOMS_DB === 'undefined' || typeof DISEASES_DB === 'undefined') return;
-    
     // Step 1: Find which SYMPTOMS_DB entries are mentioned in the text (fuzzy matching)
     var foundSymptoms = [];
     var textLower = text.toLowerCase();
@@ -4574,9 +4089,7 @@ function doAutoSuggest(textareaId, panelId) {
     });
     
     if (foundSymptoms.length === 0) {
-        // Don't hide yet - repertory results may still show
-        // panel.classList.add('hidden'); 
-        contentDiv.innerHTML = '';
+        panel.classList.add('hidden');
         return;
     }
     
@@ -4589,8 +4102,7 @@ function doAutoSuggest(textareaId, panelId) {
     
     var results = [];
     
-    var diseaseDB = window.DISEASES_DB || DISEASES_DB || [];
-    diseaseDB.forEach(function(disease) {
+    (window.DISEASES_DB || []).forEach(function(disease) {
         if (!disease.symptoms || disease.symptoms.length === 0) return;
         var matched = disease.symptoms.filter(function(s) { return foundSet.has(s); });
         if (matched.length === 0) return;
@@ -4615,8 +4127,7 @@ function doAutoSuggest(textareaId, panelId) {
     results = results.slice(0, maxDiseases);
     
     if (results.length === 0) {
-        contentDiv.innerHTML = '';
-        // Don't hide - repertory may have results
+        panel.classList.add('hidden');
         return;
     }
     
@@ -4677,8 +4188,7 @@ function doAutoSuggest(textareaId, panelId) {
 }
 
 function copyDiseaseToForm(formType, diseaseId, target) {
-    var diseaseDB = window.DISEASES_DB || DISEASES_DB || [];
-    var d = diseaseDB.find(function(x) { return x.id === diseaseId; });
+    var d = (window.DISEASES_DB || []).find(function(x) { return x.id === diseaseId; });
     if (!d) return;
     
     var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
@@ -4833,684 +4343,99 @@ function loadDashboardFilterUI() {
     if ($('toggleTabAllTime')) $('toggleTabAllTime').checked = tabSettings.allTime !== undefined ? tabSettings.allTime : true;
 }
 
-// ==================== SYMPTOM MODE SWITCHER ====================
-// 'reg' for registration form, 'nv' for new visit form
-// Mode: 'disease' (old system) or 'repertory' (Kent repertory)
-var symptomModes = { reg: 'disease', nv: 'disease' };
-
-
-// Lazy-load full repertory data when needed (via fetch, NOT script!)
-var _repFullData = null;
-var _repFullDataLoading = false;
-var _repFullDataCallbacks = [];
-
-function ensureRepertoryData(callback) {
-    if (_repFullData !== null) { callback(_repFullData); return; }
-    
-    _repFullDataCallbacks.push(callback);
-    if (_repFullDataLoading) return;
-    _repFullDataLoading = true;
-    
-    if (typeof showToast === 'function') showToast('⏳ Loading repertory...');
-    
-    fetch('repertory-data.json?v=1')
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-            _repFullData = data;
-            _repFullDataLoading = false;
-            if (typeof showToast === 'function') showToast('✅ Repertory ready (74K rubrics)');
-            var cbs = _repFullDataCallbacks;
-            _repFullDataCallbacks = [];
-            cbs.forEach(function(cb) { cb(data); });
-        })
-        .catch(function(err) {
-            _repFullDataLoading = false;
-            console.error('Failed to load repertory:', err);
-            if (typeof showToast === 'function') showToast('❌ Failed to load', 'error');
-            _repFullDataCallbacks = [];
-        });
-}
-
-function setSymptomMode(formType, mode) {
-    symptomModes[formType] = mode;
-    
-    var btnDisease = $(formType + 'ModeDisease');
-    var btnRepertory = $(formType + 'ModeRepertory');
-    var chartBtn = $(formType + 'ChartBtn');
-    var panelLabel = $(formType + 'PanelLabel');
-    var panel = $(formType + 'DiseaseSuggest');
-    var contentDiv = $(formType + 'DiseaseSuggestContent');
-    var countEl = $(formType + 'DiseaseCount');
-    
-    if (mode === 'disease') {
-        if (btnDisease) { btnDisease.className = 'mode-btn active-disease'; }
-        if (btnRepertory) { btnRepertory.className = 'mode-btn'; }
-        if (chartBtn) chartBtn.style.display = 'none';
-        if (panelLabel) panelLabel.innerHTML = '🧠 <span data-ur="علامات سے تجویز" data-en="Suggested from Symptoms" data-roman="Alamat se Tajweez">علامات سے تجویز</span>';
-        if (countEl) countEl.textContent = '';
-    } else {
-        if (btnDisease) { btnDisease.className = 'mode-btn'; }
-        if (btnRepertory) { btnRepertory.className = 'mode-btn active-repertory'; }
-        if (panelLabel) panelLabel.innerHTML = '📊 <span data-ur="ریپرٹری نتیجہ" data-en="Repertory Result" data-roman="Repertory Result">ریپرٹری نتیجہ</span>';
-        if (countEl) countEl.textContent = '';
-    }
-    
-    // Clear old content
-    if (contentDiv) contentDiv.innerHTML = '';
-    if (panel) panel.classList.add('hidden');
-    
-    // Re-run with current text
-    var textareaId = formType === 'reg' ? 'firstVisitSymptoms' : 'nvSymptoms';
-    var textarea = $(textareaId);
-    if (textarea && textarea.value.trim().length >= 5) {
-        var panelId = formType === 'reg' ? 'regDiseaseSuggest' : 'nvDiseaseSuggest';
-        if (mode === 'disease') {
-            if (typeof autoSuggestDiseases === 'function') autoSuggestDiseases(textareaId, panelId);
-        } else {
-            ensureRepertoryData(function(data) {
-                runRepertoryForForm(formType, textareaId, panelId);
-            });
-        }
-    }
-}
-
-function runRepertoryForForm(formType, textareaId, panelId) {
-    var textarea = $(textareaId);
-    var panel = $(panelId);
-    if (!textarea || !panel) return;
-    
-    var text = textarea.value.trim();
-    if (text.length < 5) { panel.classList.add('hidden'); return; }
-    
-    if (_repFullData === null) {
-        var contentDiv = $(formType + 'DiseaseSuggestContent');
-        if (contentDiv) contentDiv.innerHTML = '<div style="text-align:center;padding:15px;font-size:12px;">⏳ Loading repertory...</div>';
-        panel.classList.remove('hidden');
-        return;
-    }
-    
-    var results = repertorize(text);
-    var chartBtn = $(formType + 'ChartBtn');
-    var countEl = $(formType + 'DiseaseCount');
-    var contentDiv = $(formType + 'DiseaseSuggestContent');
-    var panelLabel = $(formType + 'PanelLabel');
-    
-    if (results.length > 0) {
-        if (countEl) countEl.textContent = '(' + results.length + ')';
-        if (chartBtn) { chartBtn.style.display = 'inline-block'; chartBtn.style.visibility = 'visible'; }
-        if (panelLabel) panelLabel.innerHTML = '📊 <span data-ur=\"ریپرٹری نتیجہ\" data-en=\"Repertory Result\" data-roman=\"Repertory Result\">ریپرٹری نتیجہ</span> (' + results.length + ')';
-        
-        // Store for chart
-        window['_repResults_' + formType] = results;
-        
-        renderRepertoryResultsInPlace(results, formType, contentDiv);
-        panel.classList.remove('hidden');
-    } else {
-        if (countEl) countEl.textContent = '';
-        if (chartBtn) chartBtn.style.display = 'none';
-        if (contentDiv) contentDiv.innerHTML = '';
-    }
-}
-
-function renderRepertoryResultsInPlace(results, formType, contentDiv) {
-    if (!contentDiv) return;
-    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
-    results = results.slice(0, 8);
-    
-    var html = '';
-    results.forEach(function(r, idx) {
-        var medal = idx === 0 ? '🥇' : (idx === 1 ? '🥈' : (idx === 2 ? '🥉' : '▸'));
-        var barColor = r.percentage >= 70 ? '#27ae60' : (r.percentage >= 40 ? '#f39c12' : '#95a5a6');
-        var displayName = r.name + ' (' + escapeHtml(r.abbr) + ')';
-        
-        html += '<div style="background:white;border-radius:6px;padding:6px 10px;margin-bottom:4px;border-left:3px solid ' + barColor + ';">';
-        html += '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px;">';
-        html += '<span style="font-weight:bold;font-size:12px;">' + medal + ' ' + escapeHtml(displayName) + '</span>';
-        html += '<span style="font-size:11px;color:' + barColor + ';font-weight:bold;">' + r.percentage + '% (' + r.score + ')</span>';
-        html += '</div>';
-        html += '<div style="background:#ecf0f1;border-radius:3px;height:4px;margin:3px 0;"><div style="background:' + barColor + ';height:4px;border-radius:3px;width:' + Math.max(r.percentage, 5) + '%;"></div></div>';
-        
-        html += '<div style="font-size:10px;color:#555;">';
-        r.matchedRubrics.slice(0, 3).forEach(function(rub) {
-            html += '<span style="background:#f0f8ff;padding:1px 5px;border-radius:3px;margin:1px;">' + escapeHtml(rub.rubricName.substring(0,50)) + ' (' + rub.grade + ')</span>';
-        });
-        if (r.matchedRubrics.length > 3) html += ' +' + (r.matchedRubrics.length - 3);
-        html += '</div>';
-        
-        html += '<button onclick="copyRepertoryToForm(\'' + formType + '\',\'' + escapeHtml(r.abbr) + '\')" style="margin-top:3px;padding:2px 8px;font-size:10px;background:#27ae60;color:white;border:none;border-radius:3px;cursor:pointer;font-family:inherit;">📋 Copy</button>';
-        html += '</div>';
-    });
-    
-    contentDiv.innerHTML = html;
-}
-
-function openRepertoryChart(formType) {
-    var results = window['_repResults_' + formType] || [];
-    if (results.length === 0) return;
-    
-    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
-    
-    // Build chart: rubrics as rows, remedies as columns
-    var allRubrics = [];
-    var remedyMap = {};
-    
-    results.forEach(function(r) {
-        remedyMap[r.remedyId] = r;
-        r.matchedRubrics.forEach(function(rub) {
-            if (allRubrics.indexOf(rub.rubricId) === -1) {
-                allRubrics.push(rub.rubricId);
-            }
-        });
-    });
-    
-    // Show top 6 remedies
-    var topRemedies = results.slice(0, 6);
-    
-    var html = '<div style="overflow-x:auto;"><table class="rep-chart-table"><thead><tr>';
-    html += '<th>' + ({ur:'ربڑک',en:'Rubric',roman:'Rubric'}[lang]||'Rubric') + '</th>';
-    
-    topRemedies.forEach(function(r) {
-        html += '<th>' + escapeHtml(r.abbr) + '<br><small>' + r.percentage + '%</small></th>';
-    });
-    html += '</tr></thead><tbody>';
-    
-    allRubrics.forEach(function(rubId) {
-        html += '<tr>';
-        // Rubric name
-        var rubricName = rubId;
-        results.forEach(function(r) {
-            var found = r.matchedRubrics.find(function(x) { return x.rubricId === rubId; });
-            if (found) rubricName = found.rubricName;
-        });
-        html += '<td>' + escapeHtml(rubricName) + '</td>';
-        
-        topRemedies.forEach(function(r) {
-            var found = r.matchedRubrics.find(function(x) { return x.rubricId === rubId; });
-            var grade = found ? found.grade : 0;
-            var display = grade > 0 ? grade : '';
-            html += '<td class="grade-' + grade + '">' + display + '</td>';
-        });
-        html += '</tr>';
-    });
-    
-    html += '</tbody></table></div>';
-    
-    // Totals row
-    html += '<div style="margin-top:10px;text-align:center;font-size:11px;color:#555;">';
-    topRemedies.forEach(function(r) {
-        html += '<span style="margin:0 8px;"><strong>' + escapeHtml(r.abbr) + '</strong>: ' + r.score + '/' + r.totalRubrics + '</span>';
-    });
-    html += '</div>';
-    
-    $('repChartContent').innerHTML = html;
-    $('repChartOverlay').classList.add('active');
-}
-
-function closeRepertoryChart() {
-    $('repChartOverlay').classList.remove('active');
-}
-
-window.setSymptomMode = setSymptomMode;
-window.openRepertoryChart = openRepertoryChart;
-window.closeRepertoryChart = closeRepertoryChart;
-window.runRepertoryForForm = runRepertoryForForm;
-
-// ==================== REPERTORIZATION ENGINE ====================
-var repRepertorizeCounter = 0;
-var _repLastResults = { reg: null, nv: null };
-
-function repertorize(symptomsText, chapterFilter) {
-    // Safety check
-    if (typeof REPERTORY_DATA === 'undefined') { return []; }
-    
-    var text = symptomsText.toLowerCase();
-    var scores = {};
-    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
-    
-    // Go through each chapter (or filtered chapters)
-    var chapters = chapterFilter || Object.keys(REPERTORY_DATA);
-    
-    chapters.forEach(function(chKey) {
-        var chapter = REPERTORY_DATA[chKey];
-        if (!chapter || !chapter.rubrics) return;
-        
-        Object.keys(chapter.rubrics).forEach(function(rubKey) {
-            var rubric = chapter.rubrics[rubKey];
-            if (!rubric) return;
-            
-            // Match rubric against symptoms text (all 3 languages)
-            // Search ALL 3 languages for rubric match
-            var matched = false;
-            ['ur','en','roman'].forEach(function(l) {
-                var t = rubric[l];
-                if (t && text.indexOf(t.toLowerCase()) !== -1) matched = true;
-            });
-            
-            if (!matched) return;
-            
-            // Score remedies from this rubric
-            rubric.remedies.forEach(function(r) {
-                if (!scores[r.rem]) scores[r.rem] = { score: 0, rubrics: [], totalRubrics: 0 };
-                scores[r.rem].score += r.grade;  // Grade 1-3 from Kent
-                scores[r.rem].rubrics.push({
-                    rubricId: rubKey,
-                    rubricName: rubric[lang] || rubric.en,
-                    chapter: chKey,
-                    grade: r.grade
-                });
-                scores[r.rem].totalRubrics++;
-            });
-        });
-    });
-    
-    // Convert to sorted array
-    var results = Object.keys(scores).map(function(remId) {
-        var data = scores[remId];
-        var remedyInfo = (typeof REMEDIES_DB_KENT !== 'undefined' && REMEDIES_DB_KENT[remId]) 
-            ? REMEDIES_DB_KENT[remId] : null;
-        
-        return {
-            remedyId: remId,
-            remedy: remedyInfo,
-            score: data.score,
-            totalRubrics: data.totalRubrics,
-            matchedRubrics: data.rubrics,
-            name: remedyInfo ? (remedyInfo[lang] || remedyInfo.en || remId) : remId,
-            abbr: remedyInfo ? (remedyInfo.abbr || '') : ''
-        };
-    });
-    
-    // Sort by score descending
-    results.sort(function(a, b) { return b.score - a.score; });
-    
-    // Calculate max possible score for percentage
-    var maxScore = results.length > 0 ? results[0].score : 1;
-    results.forEach(function(r) {
-        r.percentage = Math.round((r.score / maxScore) * 100);
-    });
-    
-    return results;
-}
-
-
-
-function copyRepertoryToForm(formType, remedyId) {
-    // New format: REMEDIES_DB_KENT[rid] = {n: name, a: abbr}
-    // remedyId is the abbreviation
-    var remName = remedyId;
-    if (typeof REMEDIES_DB_KENT !== 'undefined') {
-        var allRem = REMEDIES_DB_KENT;
-        Object.keys(allRem).forEach(function(k) {
-            if (allRem[k].a === remedyId) remName = allRem[k].n;
-        });
-    }
-    
-    var prescId = formType === 'reg' ? 'firstVisitPrescription' : 'nvPrescription';
-    var diagId = formType === 'reg' ? 'firstVisitDiagnosis' : 'nvDiagnosis';
-    
-    var prescField = $(prescId);
-    if (prescField) {
-        var line = 'Rp/ ' + remName + ' (' + remedyId + ')';
-        var current = prescField.value.trim();
-        prescField.value = current ? current + '\n' + line : line;
-    }
-    
-    var diagField = $(diagId);
-    if (diagField) {
-        var diagLine = remName + ' (' + remedyId + ')';
-        var curDiag = diagField.value.trim();
-        if (curDiag.indexOf(diagLine) === -1) {
-            diagField.value = curDiag ? curDiag + '\n' + diagLine : diagLine;
-        }
-    }
-    
-    if (typeof showToast === 'function') {
-        showToast('✅ Copied: ' + remName);
-    }
-}
-
-// Override autoSuggestDiseases and handleSymptomInput for mode-aware behavior
-(function() {
-    var _origAutoSuggest = autoSuggestDiseases;
-    var _origHandleSymptomInput = handleSymptomInput;
-    
-    // Override autoSuggestDiseases
-    autoSuggestDiseases = function(textareaId, panelId) {
-        var formType = (textareaId.indexOf('firstVisit') !== -1) ? 'reg' : 'nv';
-        var mode = symptomModes[formType] || 'disease';
-        if (mode === 'disease') {
-            if (typeof _origAutoSuggest === 'function') _origAutoSuggest(textareaId, panelId);
-        } else {
-            runRepertoryForForm(formType, textareaId, panelId);
-        }
-    };
-    
-    // Override handleSymptomInput for repertory-mode autocomplete
-    handleSymptomInput = function(textareaId, dropdownId, diseasePanelId) {
-        var formType = (textareaId.indexOf('firstVisit') !== -1) ? 'reg' : 'nv';
-        var mode = symptomModes[formType] || 'disease';
-        if (typeof autoSuggestDiseases === 'function') {
-            autoSuggestDiseases(textareaId, diseasePanelId);
-        }
-        if (symptomACTimer) clearTimeout(symptomACTimer);
-        symptomACTimer = setTimeout(function() {
-            if (mode === 'repertory') {
-                showRepertoryAutocomplete(textareaId, dropdownId);
-            } else {
-                showSymptomAutocomplete(textareaId, dropdownId);
-            }
-        }, 200);
-    };
-})();
-
-// Repertory autocomplete - searches REPERTORY_DATA rubrics
-function showRepertoryAutocomplete(textareaId, dropdownId) {
-    var textarea = $(textareaId);
-    var dropdown = $(dropdownId);
-    if (!textarea || !dropdown) return;
-    if (_repFullData === null) return;
-    
-    var fullText = textarea.value;
-    var cursorPos = textarea.selectionStart;
-    var textBefore = fullText.substring(0, cursorPos);
-    var lastWord = '';
-    var match = textBefore.match(/[^\s,\n]+$/);
-    if (match) lastWord = match[0].trim();
-    
-    if (lastWord.length < 2) { dropdown.classList.remove('active'); dropdown.innerHTML = ''; return; }
-    
-    var query = lastWord.toLowerCase();
-    var results = [];
-    var data = _repFullData;
-    
-    // Search all chapters for matching rubrics
-    Object.keys(data).forEach(function(chKey) {
-        var rubrics = data[chKey];
-        if (!rubrics) return;
-        Object.keys(rubrics).forEach(function(rid) {
-            var rubric = rubrics[rid];
-            if (!rubric || !rubric.t) return;
-            var idx = rubric.t.toLowerCase().indexOf(query);
-            if (idx !== -1) {
-                results.push({
-                    key: rid, name: rubric.t,
-                    category: chKey,
-                    score: idx === 0 ? 3 : 1
-                });
-            }
-        });
-    });
-    
-    results.sort(function(a, b) { return b.score - a.score; });
-    results = results.slice(0, 8);
-    
-    if (results.length === 0) {
-        dropdown.innerHTML = '<div class="symptom-ac-no-results">No rubrics found</div>';
-        dropdown.classList.add('active');
-        setTimeout(function() { dropdown.classList.remove('active'); }, 1500);
-        return;
-    }
-    
-    symptomACIndex = -1;
-    var html = '';
-    results.forEach(function(r) {
-        var idx = r.name.toLowerCase().indexOf(query);
-        var highlighted = r.name;
-        if (idx >= 0) {
-            highlighted = r.name.substring(0, idx) +
-                '<span class="symptom-ac-highlight">' + r.name.substring(idx, idx + query.length) + '</span>' +
-                r.name.substring(idx + query.length);
-        }
-        html += '<div class="symptom-ac-item" data-key="' + r.key + '" data-name="' + escapeHtml(r.name) + '" data-cat="' + escapeHtml(r.category) + '">';
-        html += '<span>' + highlighted + ' <small style="color:#b8860b;">📖</small></span>';
-        html += '<span class="ac-category">' + escapeHtml(r.category) + '</span>';
-        html += '</div>';
-    });
-    
-    dropdown.innerHTML = html;
-    dropdown.classList.add('active');
-    
-    dropdown.querySelectorAll('.symptom-ac-item').forEach(function(item) {
-        item.addEventListener('mousedown', function(e) {
-            e.preventDefault();
-            var name = this.getAttribute('data-name');
-            insertSymptomAtCursor(textareaId, name, query);
-            hideSymptomDropdown(dropdownId);
-            textarea.focus();
-        });
-    });
-}
-
 // ==================== REPERTORY BROWSER ====================
-var repCurrentBook = 'publicum';
-var repCurrentChapter = '';
-var repAllRubrics = {}; // chapter -> [rubrics]
 var repChapterNames = [];
+var repCurrentChapter = '';
+var repTreeCache = {};
+var _repFullData = null;
 
 function initRepertoryBrowser() {
-    // Chapter index embedded directly - NO external fetch needed!
-    var index = [{"key":"extremities","name":"Extremities","rubrics":16115},{"key":"head","name":"Head","rubrics":6984},{"key":"mind","name":"Mind","rubrics":5827},{"key":"back","name":"Back","rubrics":4611},{"key":"abdomen","name":"Abdomen","rubrics":4339},{"key":"chest","name":"Chest","rubrics":2858},{"key":"stomach","name":"Stomach","rubrics":2826},{"key":"face","name":"Face","rubrics":2094},{"key":"ear","name":"Ear","rubrics":2029},{"key":"eye","name":"Eye","rubrics":1787},{"key":"generalities","name":"Generalities","rubrics":1751},{"key":"mouth","name":"Mouth","rubrics":1598},{"key":"sleep","name":"Sleep","rubrics":1588},{"key":"rectum","name":"Rectum","rubrics":1549},{"key":"cough","name":"Cough","rubrics":1535},{"key":"nose","name":"Nose","rubrics":1497},{"key":"genitalia_female","name":"Genitalia female","rubrics":1484},{"key":"skin","name":"Skin","rubrics":1161},{"key":"genitalia_male","name":"Genitalia male","rubrics":1121},{"key":"vision","name":"Vision","rubrics":1093},{"key":"throat","name":"Throat","rubrics":1047},{"key":"teeth","name":"Teeth","rubrics":839},{"key":"heart_&_circulation","name":"Heart & Circulation","rubrics":789},{"key":"chill","name":"Chill","rubrics":768},{"key":"bladder","name":"Bladder","rubrics":766},{"key":"respiration","name":"Respiration","rubrics":760},{"key":"larynx_and_trachea","name":"Larynx and trachea","rubrics":729},{"key":"urethra","name":"Urethra","rubrics":606},{"key":"fever","name":"Fever","rubrics":596},{"key":"appetite","name":"Appetite","rubrics":513},{"key":"vertigo","name":"Vertigo","rubrics":512},{"key":"clinical","name":"Clinical","rubrics":490},{"key":"urine","name":"Urine","rubrics":406},{"key":"perspiration","name":"Perspiration","rubrics":395},{"key":"expectoration","name":"Expectoration","rubrics":344},{"key":"external_throat","name":"External throat","rubrics":276},{"key":"kidneys","name":"Kidneys","rubrics":267},{"key":"stool","name":"Stool","rubrics":234},{"key":"hearing","name":"Hearing","rubrics":168},{"key":"prostate_gland","name":"Prostate gland","rubrics":105},{"key":"blood","name":"Blood","rubrics":25}];
-    repChapterNames = index;
-    repChapterNames.sort(function(a, b) { return a.name.localeCompare(b.name); });
-    var totalR = 0;
-    repChapterNames.forEach(function(c) { totalR += c.rubrics; });
-    $('#repBrowserInfo').textContent = repChapterNames.length + ' chapters | ' + totalR.toLocaleString() + ' rubrics';
+    var idx = [{"key":"extremities","name":"Extremities","rubrics":16115},{"key":"head","name":"Head","rubrics":6984},{"key":"mind","name":"Mind","rubrics":5827},{"key":"back","name":"Back","rubrics":4611},{"key":"abdomen","name":"Abdomen","rubrics":4339},{"key":"chest","name":"Chest","rubrics":2858},{"key":"stomach","name":"Stomach","rubrics":2826},{"key":"face","name":"Face","rubrics":2094},{"key":"ear","name":"Ear","rubrics":2029},{"key":"eye","name":"Eye","rubrics":1787},{"key":"generalities","name":"Generalities","rubrics":1751},{"key":"mouth","name":"Mouth","rubrics":1598},{"key":"sleep","name":"Sleep","rubrics":1588},{"key":"rectum","name":"Rectum","rubrics":1549},{"key":"cough","name":"Cough","rubrics":1535},{"key":"nose","name":"Nose","rubrics":1497},{"key":"genitalia_female","name":"Genitalia female","rubrics":1484},{"key":"skin","name":"Skin","rubrics":1161},{"key":"genitalia_male","name":"Genitalia male","rubrics":1121},{"key":"vision","name":"Vision","rubrics":1093},{"key":"throat","name":"Throat","rubrics":1047},{"key":"teeth","name":"Teeth","rubrics":839},{"key":"heart_&_circulation","name":"Heart & Circulation","rubrics":789},{"key":"chill","name":"Chill","rubrics":768},{"key":"bladder","name":"Bladder","rubrics":766},{"key":"respiration","name":"Respiration","rubrics":760},{"key":"larynx_and_trachea","name":"Larynx and trachea","rubrics":729},{"key":"urethra","name":"Urethra","rubrics":606},{"key":"fever","name":"Fever","rubrics":596},{"key":"appetite","name":"Appetite","rubrics":513},{"key":"vertigo","name":"Vertigo","rubrics":512},{"key":"clinical","name":"Clinical","rubrics":490},{"key":"urine","name":"Urine","rubrics":406},{"key":"perspiration","name":"Perspiration","rubrics":395},{"key":"expectoration","name":"Expectoration","rubrics":344},{"key":"external_throat","name":"External throat","rubrics":276},{"key":"kidneys","name":"Kidneys","rubrics":267},{"key":"stool","name":"Stool","rubrics":234},{"key":"hearing","name":"Hearing","rubrics":168},{"key":"prostate_gland","name":"Prostate gland","rubrics":105},{"key":"blood","name":"Blood","rubrics":25}];
+    repChapterNames = idx;
+    repChapterNames.sort(function(a,b){return a.name.localeCompare(b.name);});
+    var t = 0; repChapterNames.forEach(function(c){t+=c.rubrics;});
+    var info = document.getElementById('repBrowserInfo');
+    if(info) info.textContent = repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';
     renderChapterList();
 }
 
-var _repDataCache = {};
-
-function renderChapterList(filter) {
-    var listDiv = $('#repChapterList');
-    if (!listDiv) return;
-    
-    var chapters = repChapterNames;
-    if (filter) {
-        filter = filter.toLowerCase();
-        chapters = chapters.filter(function(c) { return c.name.toLowerCase().indexOf(filter) !== -1; });
-    }
-    
-    var html = '<div style="font-weight:bold;font-size:13px;margin-bottom:8px;color:#1a5276;">Chapters</div>';
-    chapters.forEach(function(ch) {
-        var active = (ch.key === repCurrentChapter) ? ' active' : '';
-        html += '<div class="rep-chapter-item' + active + '" onclick="selectChapter(\'' + ch.key + '\')">';
-        html += ch.name + ' <small style="opacity:0.6;">(' + ch.count + ')</small>';
-        html += '</div>';
-    });
-    
-    listDiv.innerHTML = html;
+function renderChapterList(f) {
+    var d = document.getElementById('repChapterList'); if(!d) return;
+    var ch = repChapterNames;
+    if(f){f=f.toLowerCase();ch=ch.filter(function(c){return c.name.toLowerCase().indexOf(f)!==-1;});}
+    var h = '<div style="font-weight:bold;font-size:13px;margin-bottom:8px;color:#1a5276;">Chapters ('+ch.length+')</div>';
+    ch.forEach(function(c){h+='<div class="rep-chapter-item'+(c.key===repCurrentChapter?' active':'')+'" onclick="selectChapter(\''+c.key+'\')">'+c.name+' <small style="opacity:0.6;">('+c.rubrics+')</small></div>';});
+    d.innerHTML = h;
 }
 
 function selectChapter(chKey) {
-    repCurrentChapter = chKey;
-    renderChapterList();
-    
-    // Find chapter name
-    var chName = chKey;
-    repChapterNames.forEach(function(c) { if (c.key === chKey) chName = c.name; });
-    
-    $('#repRubricContent').innerHTML = '<div style="text-align:center;padding:30px;"><div class="spinner" style="width:30px;height:30px;border-width:3px;margin:0 auto 10px;"></div><p>Loading chapter...</p></div>';
-    
-    // Check cache first
-    if (_repDataCache[chKey]) {
-        renderRubrics(chKey, chName, _repDataCache[chKey]);
-        return;
-    }
-    
-    // Fetch chapter file
-    fetch('repertory_chapters/' + chKey + '.json?v=1')
-        .then(function(resp) { return resp.json(); })
-        .then(function(data) {
-            _repDataCache[chKey] = data;
-            renderRubrics(chKey, chName, data);
-        })
-        .catch(function(err) {
-            $('#repRubricContent').innerHTML = '<div class="empty-state"><p>❌ Failed to load chapter: ' + chKey + '</p><p style="font-size:11px;color:#7f8c8d;">Make sure repertory_chapters folder is uploaded to GitHub</p></div>';
-        });
+    repCurrentChapter = chKey; renderChapterList();
+    var nm = chKey; repChapterNames.forEach(function(c){if(c.key===chKey)nm=c.name;});
+    var cd = document.getElementById('repRubricContent'); if(!cd) return;
+    cd.innerHTML = '<div style="text-align:center;padding:30px;">Loading <b>'+nm+'</b>...</div>';
+    if(repTreeCache[chKey]){renderTree(chKey,nm,repTreeCache[chKey]);return;}
+    fetch('repertory_chapters/'+chKey+'.json?v=2').then(function(r){return r.json();}).then(function(d){
+        var tree = buildRubricTree(d); repTreeCache[chKey]=tree; renderTree(chKey,nm,tree);
+    }).catch(function(e){cd.innerHTML='<div style="text-align:center;padding:30px;color:#e74c3c;"><p>❌ Failed to load '+nm+'</p><p style="font-size:11px;">'+e.message+'</p></div>';});
 }
 
-function renderRubrics(chKey, chName, rubricsData) {
-    // rubricsData is {rid: {t: text, r: {abbr: grade}}}
-    var rubrics = [];
-    Object.keys(rubricsData).forEach(function(rid) {
-        var rub = rubricsData[rid];
-        if (rub && rub.t) {
-            rubrics.push({ id: rid, text: rub.t, remedies: rub.r || {} });
-        }
-    });
-    rubrics.sort(function(a, b) { return a.text.localeCompare(b.text); });
-    
-    var contentDiv = $('#repRubricContent');
-    var chunkSize = 200;
-    var index = 0;
-    var html = '<div class="rep-breadcrumb">📖 Repertory / <span>' + escapeHtml(chName) + '</span> (' + rubrics.length + ' rubrics)</div><div id="repRubricInner">';
-    
-    function renderChunk() {
-        var end = Math.min(index + chunkSize, rubrics.length);
-        var chunkHtml = '';
-        for (var i = index; i < end; i++) {
-            var rub = rubrics[i];
-            chunkHtml += '<div class="rep-rubric-item"><div class="rep-rubric-header">' + escapeHtml(rub.text) + '</div><div style="margin-top:3px;">';
-            var rems = Object.keys(rub.remedies);
-            rems.sort(function(a, b) { return (rub.remedies[b] || 1) - (rub.remedies[a] || 1); });
-            rems.slice(0, 15).forEach(function(abbr) {
-                var grade = rub.remedies[abbr] || 1;
-                chunkHtml += '<span class="rep-remedy-tag g' + grade + '" onclick="event.stopPropagation();copyRemedyToPrescription(\'' + escapeHtml(abbr) + '\')">' + escapeHtml(abbr) + '</span>';
-            });
-            if (rems.length > 15) chunkHtml += ' <small>+' + (rems.length - 15) + '</small>';
-            chunkHtml += '</div></div>';
-        }
-        html += chunkHtml;
-        index = end;
-        if (index < rubrics.length) {
-            contentDiv.innerHTML = html + '<div style="text-align:center;padding:8px;font-size:11px;color:#7f8c8d;">Rendering ' + Math.round(index/rubrics.length*100) + '%...</div></div>';
-            setTimeout(renderChunk, 5);
-        } else {
-            html += '</div>';
-            contentDiv.innerHTML = html;
-        }
-    }
-    
-    if (rubrics.length > 0) {
-        contentDiv.innerHTML = html + '</div>';
-        setTimeout(renderChunk, 50);
-    } else {
-        contentDiv.innerHTML = '<div class="rep-breadcrumb">📖 Repertory / <span>' + escapeHtml(chName) + '</span></div><div class="empty-state"><p>No rubrics</p></div>';
-    }
+function buildRubricTree(data) {
+    var root = {children:{},remedies:{}};
+    Object.keys(data).forEach(function(rid){var r=data[rid];if(!r||!r.t)return;var p=r.t.split(', ');var n=root;
+        for(var i=0;i<p.length;i++){var pt=p[i].trim();if(!pt)continue;if(!n.children[pt])n.children[pt]={name:pt,children:{},remedies:{},count:0};n=n.children[pt];n.count++;if(i===p.length-1){n.remedies=r.r||{};n._rid=rid;}}});
+    return root;
 }
+
+var repNodeId=0;
+function renderTree(chKey,chName,tree){var cd=document.getElementById('repRubricContent');if(!cd)return;var tr=0;function cl(n){if(Object.keys(n.remedies).length>0)tr++;Object.keys(n.children).forEach(function(k){cl(n.children[k]);});}cl(tree);var h='<div class="rep-breadcrumb">📖 Repertory / <span>'+escapeHtml(chName)+'</span> ('+tr.toLocaleString()+' rubrics)</div><div class="rep-tree">';repNodeId=0;h+=renderTreeNode(tree,0);h+='</div>';cd.innerHTML=h;}
+function renderTreeNode(node,depth){var h='';var keys=Object.keys(node.children).sort();keys.forEach(function(k){var c=node.children[k];var hc=Object.keys(c.children).length>0;var hr=Object.keys(c.remedies).length>0;var nid='repn_'+(repNodeId++);var pad=depth*16;if(hc){h+='<div style="padding-left:'+pad+'px;"><div class="rep-tree-folder" onclick="repToggleFolder(\''+nid+'\')" id="'+nid+'_head"><span class="rep-folder-icon" id="'+nid+'_icon">▶</span> <span class="rep-folder-name">'+escapeHtml(k)+'</span> <small style="color:#95a5a6;">('+c.count+')</small></div><div class="rep-tree-children" id="'+nid+'_body" style="display:none;">';h+=renderTreeNode(c,depth+1);h+='</div></div>';}else if(hr){h+='<div class="rep-tree-leaf" style="padding-left:'+pad+'px;"><span style="color:#1a5276;font-size:12px;">'+escapeHtml(k)+'</span><span style="margin-left:6px;">';var rems=Object.keys(c.remedies);rems.sort(function(a,b){return(c.remedies[b]||1)-(c.remedies[a]||1);});rems.forEach(function(abbr){var g=c.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</span></div>';}});return h;}
+function repToggleFolder(nid){var b=document.getElementById(nid+'_body');var i=document.getElementById(nid+'_icon');if(!b||!i)return;if(b.style.display==='none'){b.style.display='';i.textContent='▼';}else{b.style.display='none';i.textContent='▶';}}
+
+function loadRepData(cb){if(_repFullData!==null){cb(_repFullData);return;}fetch('repertory-data.json?v=2').then(function(r){return r.json();}).then(function(d){_repFullData=d;cb(d);}).catch(function(e){console.error(e);});}
 
 function searchRepertoryBrowser() {
-    var query = ($('#repBrowserSearch') || {}).value || '';
-    
-    if (query.length < 2) {
-        renderChapterList();
-        $('#repRubricContent').innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Select a chapter or type 2+ chars to search</p></div>';
-        repCurrentChapter = '';
-        return;
+    var q = (document.getElementById('repBrowserSearch')||{}).value||'';
+    if(q.length<2){var rc=document.getElementById('repRubricContent');if(rc)rc.innerHTML='<div class="empty-state"><div class="icon">📖</div><p>Type 2+ chars. Use @chapter to filter (e.g. pain @head)</p></div>';return;}
+    var rc=document.getElementById('repRubricContent');if(rc)rc.innerHTML='<div style="text-align:center;padding:20px;">🔍 Searching...</div>';
+    var chF=null;var ai=q.indexOf('@');if(ai!==-1){var aa=q.substring(ai+1).split(/\s+/)[0];var cf=aa.toLowerCase();repChapterNames.forEach(function(c){if(c.name.toLowerCase().indexOf(cf)!==-1)chF=c.key;});q=q.substring(0,ai)+q.substring(ai+1+aa.length);q=q.trim();}
+    q=q.toLowerCase();var qw=q.split(/\s+/).filter(function(w){return w.length>0;});
+    if(qw.length===0&&!chF){if(rc)rc.innerHTML='<div class="empty-state"><p>Example: pain @head</p></div>';return;}
+    setTimeout(function(){var r=[];function mt(t){if(!t)return false;if(qw.length===0)return true;var lt=t.toLowerCase();for(var i=0;i<qw.length;i++){if(lt.indexOf(qw[i])===-1)return false;}return true;}
+    function ds(sd){var chs=chF?[chF]:Object.keys(sd);chs.forEach(function(ck){var rubs=sd[ck];if(!rubs)return;Object.keys(rubs).forEach(function(rid){var rub=rubs[rid];if(rub&&rub.t&&mt(rub.t))r.push({text:rub.t,remedies:rub.r||{},chapter:ck});});});r.sort(function(a,b){return a.text.localeCompare(b.text);});var info='🔍 ';if(qw.length>0)info+='"'+escapeHtml(qw.join(' '))+'"';if(chF){var cn=chF;repChapterNames.forEach(function(c){if(c.key===chF)cn=c.name;});info+=' in <b>'+escapeHtml(cn)+'</b>';}info+=' → <b>'+r.length.toLocaleString()+'</b> rubrics';displaySearchResults(r,info);}
+    if(_repFullData!==null){ds(_repFullData);}else{loadRepData(function(data){ds(data);});}},10);
+}
+
+function displaySearchResults(results,info) {
+    var rc=document.getElementById('repRubricContent');if(!rc)return;
+    if(results.length===0){rc.innerHTML='<div class="empty-state"><p>🔍 No rubrics found</p></div>';return;}
+    var ms=200;var h='<div style="margin-bottom:10px;padding:8px;background:#e8f4f8;border-radius:6px;">'+info+(results.length>ms?' (first '+ms+')':'')+'</div><div>';
+    results.slice(0,ms).forEach(function(r){var cn=r.chapter;repChapterNames.forEach(function(c){if(c.key===r.chapter)cn=c.name;});h+='<div class="rep-rubric-item"><div class="rep-rubric-header">'+escapeHtml(r.text)+' <small style="color:#2980b9;">['+escapeHtml(cn)+']</small></div><div style="margin-top:3px;">';var rems=Object.keys(r.remedies);rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1);});rems.forEach(function(abbr){var g=r.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</div></div>';});
+    h+='</div>';rc.innerHTML=h;
+}
+
+function copyRemedyToPrescription(abbr){if(navigator.clipboard){navigator.clipboard.writeText(abbr).then(function(){if(typeof showToast==='function')showToast('✅ Copied: '+abbr);});}}
+
+// ==================== SYMPTOM MODE SWITCHER ====================
+var symptomModes = { reg: 'disease', nv: 'disease' };
+
+function setSymptomMode(formType, mode) {
+    symptomModes[formType] = mode;
+    var bd = document.getElementById(formType + 'ModeDisease');
+    var br = document.getElementById(formType + 'ModeRepertory');
+    if (bd && br) {
+        if (mode === 'disease') { bd.className = 'mode-dot active-disease'; br.className = 'mode-dot'; }
+        else { bd.className = 'mode-dot'; br.className = 'mode-dot active-repertory'; }
     }
-    
-    $('#repRubricContent').innerHTML = '<div style="text-align:center;padding:30px;"><div class="spinner" style="width:30px;height:30px;border-width:3px;margin:0 auto 10px;"></div><p>Searching...</p></div>';
-    
-    // Search DIRECTLY in REPERTORY_DATA (no pre-built index!)
-    query = query.toLowerCase();
-    
-    setTimeout(function() {
-        var results = [];
-        
-        Object.keys(REPERTORY_DATA).forEach(function(chKey) {
-            var ch = REPERTORY_DATA[chKey];
-            if (!ch || !ch.rubrics) return;
-            
-            Object.keys(ch.rubrics).forEach(function(rid) {
-                var rub = ch.rubrics[rid];
-                if (!rub || !rub.t) return;
-                if (rub.t.toLowerCase().indexOf(query) !== -1) {
-                    results.push({
-                        text: rub.t,
-                        remedies: rub.r || {},
-                        chName: ch.en || chKey
-                    });
-                }
-            });
-        });
-        
-        results.sort(function(a, b) { return a.text.localeCompare(b.text); });
-        
-        var contentDiv = $('#repRubricContent');
-        var html = '<div class="rep-breadcrumb">🔍 Search: <span>"' + escapeHtml(query) + '"</span> (' + results.length + ' results)</div>';
-        
-        if (results.length === 0) {
-            html += '<div class="empty-state"><p>No rubrics found. Try different words.</p></div>';
+    // Re-trigger with current text
+    var ta = document.getElementById(formType === 'reg' ? 'firstVisitSymptoms' : 'nvSymptoms');
+    if (ta && ta.value.trim().length >= 2) {
+        if (mode === 'disease') {
+            if (typeof autoSuggestDiseases === 'function') autoSuggestDiseases(ta.id, formType + 'DiseaseSuggest');
         } else {
-            var maxShow = 100;
-            html += '<div style="font-size:11px;color:#7f8c8d;margin-bottom:8px;">Showing up to ' + maxShow + ' results</div><div>';
-            results.slice(0, maxShow).forEach(function(r) {
-                html += '<div class="rep-rubric-item"><div class="rep-rubric-header">' + escapeHtml(r.text);
-                html += ' <small style="color:#7f8c8d;">[' + escapeHtml(r.chName) + ']</small></div><div style="margin-top:3px;">';
-                var rems = Object.keys(r.remedies);
-                rems.sort(function(a, b) { return (r.remedies[b] || 1) - (r.remedies[a] || 1); });
-                rems.slice(0, 15).forEach(function(abbr) {
-                    var grade = r.remedies[abbr] || 1;
-                    html += '<span class="rep-remedy-tag g' + grade + '" onclick="event.stopPropagation();copyRemedyToPrescription(\'' + escapeHtml(abbr) + '\')">' + escapeHtml(abbr) + '</span>';
-                });
-                html += '</div></div>';
-            });
-            html += '</div>';
+            if (typeof showRepertoryAutocomplete === 'function') showRepertoryAutocomplete(ta.id, formType + 'SymptomAC');
         }
-        
-        contentDiv.innerHTML = html;
-    }, 50);
-}
-
-function copyRemedyToPrescription(abbr) {
-    // Find remedy name
-    var remName = abbr;
-    if (typeof REMEDIES_DB_KENT !== 'undefined') {
-        Object.keys(REMEDIES_DB_KENT).forEach(function(k) {
-            if (REMEDIES_DB_KENT[k].a === abbr) remName = REMEDIES_DB_KENT[k].n;
-        });
-    }
-    
-    // Copy to clipboard
-    var text = remName + ' (' + abbr + ')';
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(function() {
-            if (typeof showToast === 'function') showToast('✅ Copied: ' + text);
-        });
     }
 }
-
-function switchRepertoryBook() {
-    var sel = $('#repBookSelect');
-    if (sel) repCurrentBook = sel.value;
-    repCurrentChapter = '';
-    $('#repChapterList').innerHTML = '<div class="empty-state"><p>Loading...</p></div>';
-    $('#repRubricContent').innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Select a chapter to browse rubrics</p></div>';
-    initRepertoryBrowser();
-}
-
-window.initRepertoryBrowser = initRepertoryBrowser;
-window.selectChapter = selectChapter;
-window.searchRepertoryBrowser = searchRepertoryBrowser;
-window.copyRemedyToPrescription = copyRemedyToPrescription;
-
-window.switchRepertoryBook = switchRepertoryBook;
-
-// Chart overlay click-to-close
-document.addEventListener('click', function(e) {
-    if (e.target && e.target.id === 'repChartOverlay') {
-        closeRepertoryChart();
-    }
-});
-
-window.repertorize = repertorize;
-window.copyRepertoryToForm = copyRepertoryToForm;
-window.renderRepertoryResultsInPlace = renderRepertoryResultsInPlace;
-window.runRepertoryForForm = runRepertoryForForm;
-window.setSymptomMode = setSymptomMode;
-window.openRepertoryChart = openRepertoryChart;
-window.closeRepertoryChart = closeRepertoryChart;
-window.showRepertoryAutocomplete = showRepertoryAutocomplete;
 
 // ==================== EVENT LISTENERS ====================
 document.addEventListener('DOMContentLoaded', function() {
@@ -5711,5 +4636,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a18aaa0c2980b7dc',t:'MTc4MzYzNTA4NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
