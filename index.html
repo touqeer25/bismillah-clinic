@@ -966,7 +966,11 @@
 .rep-folder-name{font-weight:bold;color:#2c3e50;}
 .rep-tree-children{border-left:1px dotted #d0d0d0;margin-left:8px;}
 .rep-tree-leaf{padding:3px 6px;border-radius:4px;margin:1px 0;}
-.rep-rubric-main{font-weight:bold;font-size:14px;color:#1a5276;border-left:4px solid #1a5276;padding:6px 10px 6px 14px;text-transform:capitalize;margin:4px 0;}
+.rep-rubric-main-wrapper{margin:5px 0;}
+.rep-rubric-main{font-weight:bold;font-size:14px;color:#1a5276;border-left:4px solid #1a5276;padding:3px 10px 3px 14px;text-transform:capitalize;display:inline-block;}
+body[dir="rtl"] .rep-rubric-main{border-left:none;border-right:4px solid #1a5276;padding-left:10px;padding-right:14px;}
+.rep-rubric-main-rems{padding:2px 0 2px 18px;}
+body[dir="rtl"] .rep-rubric-main-rems{padding:2px 18px 2px 0;}
 body[dir="rtl"] .rep-rubric-main{border-left:none;border-right:4px solid #1a5276;padding-left:10px;padding-right:14px;}
 .rep-rubric-d1{padding:3px 6px 3px 28px;}
 .rep-rubric-d2{padding:3px 6px 3px 48px;}
@@ -5686,27 +5690,29 @@ function renderTreePage(chKey,chName,page){
         var leaf=flat[i];
         var d=leaf.depth;
         if(d===0 && !leaf.hasChildren){
-            // Main rubric with NO children - show with remedies (like leaf)
-            h+='<div class="rep-rubric-main">'+escapeHtml(leaf.name);
-            h+='<span style="margin-left:8px;">';
+            // Main rubric with NO children - border only around name text
+            h+='<div class="rep-rubric-main-wrapper">';
+            h+='<div class="rep-rubric-main">'+escapeHtml(leaf.name)+'</div>';
+            h+='<div class="rep-rubric-main-rems">';
             var rems=Object.keys(leaf.remedies);
             rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
             rems.forEach(function(abbr){
                 var g=leaf.remedies[abbr]||1;
                 h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';
             });
-            h+='</span></div>';
+            h+='</div></div>';
         } else if(d===0){
-            // Main rubric WITH children - show name, then remedies on next line
-            h+='<div class="rep-rubric-main" style="margin-bottom:0;">'+escapeHtml(leaf.name);
-            h+='<span style="margin-left:8px;">';
+            // Main rubric WITH children - border only on name, remedies below
+            h+='<div class="rep-rubric-main-wrapper">';
+            h+='<div class="rep-rubric-main" style="margin-bottom:1px;">'+escapeHtml(leaf.name)+'</div>';
+            h+='<div class="rep-rubric-main-rems">';
             var rems=Object.keys(leaf.remedies);
             rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
             rems.forEach(function(abbr){
                 var g=leaf.remedies[abbr]||1;
                 h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';
             });
-            h+='</span></div>';
+            h+='</div></div>';
         } else {
             // Sub-rubric with bullet
             var cls='rep-rubric-d'+(d>3?3:d);
