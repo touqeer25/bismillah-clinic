@@ -5640,8 +5640,9 @@ function renderTree(chKey,chName,tree){
             var c=node.children[k];
             var hc=Object.keys(c.children).length>0;
             var hr=Object.keys(c.remedies).length>0;
+            // Collect leaf even if it also has children (main rubrics!)
+            if(hr){flat.push({name:k,depth:depth,remedies:c.remedies,count:c.count,path:path+'/'+k,hasChildren:hc});}
             if(hc){flatten(c,depth+1,path+'/'+c.name);}
-            if(hr){flat.push({name:k,depth:depth,remedies:c.remedies,count:c.count,path:path+'/'+k});}
         });
     }
     flatten(tree,0,'');
@@ -5684,9 +5685,28 @@ function renderTreePage(chKey,chName,page){
     for(var i=start;i<end;i++){
         var leaf=flat[i];
         var d=leaf.depth;
-        if(d===0){
-            // Main rubric
-            h+='<div class="rep-rubric-main">'+escapeHtml(leaf.name)+'</div>';
+        if(d===0 && !leaf.hasChildren){
+            // Main rubric with NO children - show with remedies (like leaf)
+            h+='<div class="rep-rubric-main">'+escapeHtml(leaf.name);
+            h+='<span style="margin-left:8px;">';
+            var rems=Object.keys(leaf.remedies);
+            rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
+            rems.forEach(function(abbr){
+                var g=leaf.remedies[abbr]||1;
+                h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';
+            });
+            h+='</span></div>';
+        } else if(d===0){
+            // Main rubric WITH children - show name, then remedies on next line
+            h+='<div class="rep-rubric-main" style="margin-bottom:0;">'+escapeHtml(leaf.name);
+            h+='<span style="margin-left:8px;">';
+            var rems=Object.keys(leaf.remedies);
+            rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
+            rems.forEach(function(abbr){
+                var g=leaf.remedies[abbr]||1;
+                h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';
+            });
+            h+='</span></div>';
         } else {
             // Sub-rubric with bullet
             var cls='rep-rubric-d'+(d>3?3:d);
