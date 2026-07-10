@@ -4530,7 +4530,7 @@ function showSymptomAutocomplete(textareaId, dropdownId) {
 }
 
 function insertSymptomAtCursor(textareaId, symptomName, query) {
-    var textarea = $(textareaId);
+    var textarea = document.getElementById(textareaId);
     if (!textarea) return;
     
     var fullText = textarea.value;
@@ -4538,27 +4538,24 @@ function insertSymptomAtCursor(textareaId, symptomName, query) {
     var textBefore = fullText.substring(0, cursorPos);
     var textAfter = fullText.substring(cursorPos);
     
-    // Replace the partial word being typed with the full symptom name
+    // Replace ONLY the last partial word
     var lastWordMatch = textBefore.match(/[^\s،,\n]+$/);
     if (lastWordMatch) {
         textBefore = textBefore.substring(0, textBefore.length - lastWordMatch[0].length);
-    } else {
-        // No word at cursor - just append
-        textBefore = textBefore;
     }
+    // Trim trailing whitespace/comma before adding newline
+    textBefore = textBefore.replace(/[\s،,]+$/, '');
+
+    // Add NEWLINE before the symptom, making each rubric on its own line
+    if (textBefore.length > 0) textBefore += '\n';
+    textarea.value = textBefore + symptomName + '\n' + textAfter;
     
-    // Add comma if needed
-    if (textBefore.length > 0 && !textBefore.endsWith('،') && !textBefore.endsWith(',') && !textBefore.endsWith(' ') && !textBefore.endsWith('\n')) {
-        textBefore += '، ';
-    }
-    
-    textarea.value = textBefore + symptomName + '، ' + textAfter;
-    
-    // Set cursor after inserted text
-    var newPos = textBefore.length + symptomName.length + 2;
+    // Cursor at start of next empty line
+    var newPos = textBefore.length + symptomName.length + 1;
     textarea.setSelectionRange(newPos, newPos);
+    textarea.focus();
     
-    // Re-trigger disease suggest
+    // Re-trigger suggest
     if (typeof autoSuggestDiseases === 'function') {
         var panelId = textareaId === 'firstVisitSymptoms' ? 'regDiseaseSuggest' : 'nvDiseaseSuggest';
         autoSuggestDiseases(textareaId, panelId);
@@ -5809,5 +5806,6 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
