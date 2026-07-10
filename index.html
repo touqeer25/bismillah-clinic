@@ -4522,45 +4522,14 @@ function showSymptomAutocomplete(textareaId, dropdownId) {
         item.addEventListener('mousedown', function(e) {
             e.preventDefault();
             var name = this.getAttribute('data-name');
-            insertSymptomAtCursor(textareaId, name, query);
+            var textarea = document.getElementById(textareaId); if(textarea){var cursorPos=textarea.selectionStart;var textBefore=textarea.value.substring(0,cursorPos);var ls=textBefore.lastIndexOf('\n');if(ls===-1)ls=0;else ls++;var fullText=textarea.value;var cursorPos2=textarea.selectionStart;var le=fullText.indexOf('\n',cursorPos2);if(le===-1)le=fullText.length;var beforeLine=fullText.substring(0,ls);var afterLine=fullText.substring(le);textarea.value=beforeLine+name+afterLine;var newPos=beforeLine.length+name.length;textarea.setSelectionRange(newPos,newPos);textarea.focus();}
             hideSymptomDropdown(dropdownId);
             textarea.focus();
         });
     });
 }
 
-function insertSymptomAtCursor(textareaId, symptomName, query) {
-    var textarea = document.getElementById(textareaId);
-    if (!textarea) return;
-    
-    var fullText = textarea.value;
-    var cursorPos = textarea.selectionStart;
-    var textBefore = fullText.substring(0, cursorPos);
-    var textAfter = fullText.substring(cursorPos);
-    
-    // Replace ONLY the last partial word
-    var lastWordMatch = textBefore.match(/[^\s،,\n]+$/);
-    if (lastWordMatch) {
-        textBefore = textBefore.substring(0, textBefore.length - lastWordMatch[0].length);
-    }
-    // Trim trailing whitespace/comma before adding newline
-    textBefore = textBefore.replace(/[\s،,]+$/, '');
 
-    // Add NEWLINE before the symptom, making each rubric on its own line
-    if (textBefore.length > 0) textBefore += '\n';
-    textarea.value = textBefore + symptomName + '\n' + textAfter;
-    
-    // Cursor at start of next empty line
-    var newPos = textBefore.length + symptomName.length + 1;
-    textarea.setSelectionRange(newPos, newPos);
-    textarea.focus();
-    
-    // Re-trigger suggest
-    if (typeof autoSuggestDiseases === 'function') {
-        var panelId = textareaId === 'firstVisitSymptoms' ? 'regDiseaseSuggest' : 'nvDiseaseSuggest';
-        autoSuggestDiseases(textareaId, panelId);
-    }
-}
 
 function hideSymptomDropdown(dropdownId) {
     var dropdown = $(dropdownId);
@@ -5296,17 +5265,28 @@ function showRepertoryAutocomplete(textareaId, dropdownId) {
     if (!textarea || !dropdown) return;
     if (_repFullData === null) return;
     
-    var fullText = textarea.value.trim();
-    if (fullText.length < 2) { dropdown.classList.remove('active'); dropdown.innerHTML = ''; return; }
+    var fullText = textarea.value;
+    if (fullText.trim().length < 2) { dropdown.classList.remove('active'); dropdown.innerHTML = ''; return; }
     
-    // Split ALL text into words for AND search (like browser)
-    var allWords = fullText.toLowerCase().split(/[\s،,\n]+/).filter(function(w) { return w.length > 0; });
+    // Get cursor position and current line text
+    var cursorPos = textarea.selectionStart;
+    var textBefore = fullText.substring(0, cursorPos);
+    
+    // Find the start of the CURRENT LINE (go back to last newline)
+    var lineStart = textBefore.lastIndexOf('\n');
+    if (lineStart === -1) lineStart = 0; else lineStart++;
+    var currentLineText = textBefore.substring(lineStart).trim();
+    
+    if (currentLineText.length < 2) { dropdown.classList.remove('active'); dropdown.innerHTML = ''; return; }
+    
+    // Split current line into words for AND search
+    var allWords = currentLineText.toLowerCase().split(/[\s،,]+/).filter(function(w) { return w.length > 0; });
     if (allWords.length === 0) { dropdown.classList.remove('active'); dropdown.innerHTML = ''; return; }
     
     var results = [];
     var data = _repFullData;
     
-    // Search all chapters for rubrics matching ALL typed words
+    // Search all chapters
     Object.keys(data).forEach(function(chKey) {
         var rubrics = data[chKey];
         if (!rubrics) return;
@@ -5315,21 +5295,18 @@ function showRepertoryAutocomplete(textareaId, dropdownId) {
             if (!rubric || !rubric.t) return;
             var lowerT = rubric.t.toLowerCase();
             
-            // ALL words must be present in rubric
-            var allMatch = true;
+            // ALL words must be present
             for (var wi = 0; wi < allWords.length; wi++) {
-                if (lowerT.indexOf(allWords[wi]) === -1) { allMatch = false; break; }
+                if (lowerT.indexOf(allWords[wi]) === -1) return;
             }
             
-            if (allMatch) {
-                var score = 0;
-                allWords.forEach(function(w) {
-                    var idx = lowerT.indexOf(w);
-                    if (idx === 0) score += 3;
-                    else if (idx > 0) score += 1;
-                });
-                results.push({ key: rid, name: rubric.t, category: chKey, score: score });
-            }
+            var score = 0;
+            allWords.forEach(function(w) {
+                var idx = lowerT.indexOf(w);
+                if (idx === 0) score += 3;
+                else if (idx > 0) score += 1;
+            });
+            results.push({ key: rid, name: rubric.t, category: chKey, score: score });
         });
     });
     
@@ -5355,7 +5332,6 @@ function showRepertoryAutocomplete(textareaId, dropdownId) {
                     r.name.substring(idx + allWords[0].length);
             }
         }
-        // Get chapter name
         var chName = r.category;
         repChapterNames.forEach(function(c) { if (c.key === r.category) chName = c.name; });
         
@@ -5368,20 +5344,118 @@ function showRepertoryAutocomplete(textareaId, dropdownId) {
     dropdown.innerHTML = html;
     dropdown.classList.add('active');
     
+    // Click handler
     dropdown.querySelectorAll('.symptom-ac-item').forEach(function(item) {
         item.addEventListener('mousedown', function(e) {
             e.preventDefault();
-            var name = this.getAttribute('data-name');
-            insertSymptomAtCursor(textareaId, name, '');
-            hideSymptomDropdown(dropdownId);
-            textarea.focus();
-            // Re-run repertorization after selecting
-            var formType = (textareaId.indexOf('firstVisit') !== -1) ? 'reg' : 'nv';
-            var panelId = formType === 'reg' ? 'regDiseaseSuggest' : 'nvDiseaseSuggest';
-            runRepertoryForForm(formType, textareaId, panelId);
+            selectRubricFromDropdown(textareaId, dropdownId, this.getAttribute('data-name'), lineStart);
         });
     });
 }
+
+// Shared function to insert rubric at current line
+function selectRubricFromDropdown(textareaId, dropdownId, rubricName, lineStart) {
+    var textarea = document.getElementById(textareaId);
+    if (!textarea) return;
+    
+    var fullText = textarea.value;
+    var cursorPos = textarea.selectionStart;
+    var textBeforeCursor = fullText.substring(0, cursorPos);
+    var textAfterCursor = fullText.substring(cursorPos);
+    
+    // Find line boundaries
+    var ls = textBeforeCursor.lastIndexOf('\n');
+    if (ls === -1) ls = 0; else ls++;
+    var le = fullText.indexOf('\n', cursorPos);
+    if (le === -1) le = fullText.length;
+    
+    // Replace current line with rubric name
+    var beforeLine = fullText.substring(0, ls);
+    var afterLine = fullText.substring(le);
+    
+    textarea.value = beforeLine + rubricName + afterLine;
+    
+    // Position cursor at start of next line  
+    var newPos = beforeLine.length + rubricName.length;
+    textarea.setSelectionRange(newPos, newPos);
+    textarea.focus();
+    
+    hideSymptomDropdown(dropdownId);
+    
+    // Auto-insert newline for next rubric
+    setTimeout(function() {
+        var val = textarea.value;
+        var pos = textarea.selectionStart;
+        // Add newline if we're at end of a rubric line
+        if (pos === val.length || (pos < val.length && val.charAt(pos) !== '\n')) {
+            // Insert newline at cursor position
+            var before = val.substring(0, pos);
+            var after = val.substring(pos);
+            // Only add newline if the next char isn't already newline
+            if (!after.startsWith('\n')) {
+                textarea.value = before + '\n' + after;
+                textarea.setSelectionRange(pos + 1, pos + 1);
+            }
+        }
+        // Re-run repertorization
+        var formType = (textareaId.indexOf('firstVisit') !== -1) ? 'reg' : 'nv';
+        var panelId = formType === 'reg' ? 'regDiseaseSuggest' : 'nvDiseaseSuggest';
+        if (typeof runRepertoryForForm === 'function') {
+            runRepertoryForForm(formType, textareaId, panelId);
+        }
+    }, 10);
+}
+
+// Override handleSymptomKeydown for repertory mode - add Enter key support
+var _origHandleKeydown = handleSymptomKeydown;
+handleSymptomKeydown = function(e, textareaId, dropdownId) {
+    var formType = (textareaId.indexOf('firstVisit') !== -1) ? 'reg' : 'nv';
+    var mode = symptomModes[formType] || 'disease';
+    
+    if (mode === 'repertory') {
+        var dropdown = document.getElementById(dropdownId);
+        if (!dropdown || !dropdown.classList.contains('active')) return;
+        
+        var items = dropdown.querySelectorAll('.symptom-ac-item');
+        
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            symptomACIndex = Math.min(symptomACIndex + 1, items.length - 1);
+            updateACSelection(items);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            symptomACIndex = Math.max(symptomACIndex - 1, -1);
+            updateACSelection(items);
+        } else if (e.key === 'Enter') {
+            e.preventDefault();
+            if (symptomACIndex >= 0 && items[symptomACIndex]) {
+                var textarea = document.getElementById(textareaId);
+                var cursorPos = textarea.selectionStart;
+                var textBefore = textarea.value.substring(0, cursorPos);
+                var ls = textBefore.lastIndexOf('\n');
+                if (ls === -1) ls = 0; else ls++;
+                selectRubricFromDropdown(textareaId, dropdownId, items[symptomACIndex].getAttribute('data-name'), ls);
+            }
+        } else if (e.key === 'Escape') {
+            hideSymptomDropdown(dropdownId);
+        }
+    } else {
+        // Disease mode - use original handler
+        if (typeof _origHandleKeydown === 'function') _origHandleKeydown(e, textareaId, dropdownId);
+    }
+};
+
+function updateACSelection(items) {
+    items.forEach(function(item, i) {
+        if (i === symptomACIndex) {
+            item.classList.add('selected');
+            item.scrollIntoView({ block: 'nearest' });
+        } else {
+            item.classList.remove('selected');
+        }
+    });
+}
+
 
 
 function copyRemedyToPrescription(abbr) {
@@ -5806,6 +5880,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
