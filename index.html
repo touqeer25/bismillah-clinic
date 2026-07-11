@@ -5107,77 +5107,65 @@ var repRepertorizeCounter = 0;
 var _repLastResults = { reg: null, nv: null };
 
 function repertorize(symptomsText, chapterFilter) {
-    // Safety check
-    if (typeof REPERTORY_DATA === 'undefined') { return []; }
+    if (_repFullData === null) return [];
     
     var text = symptomsText.toLowerCase();
     var scores = {};
-    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
+    var data = _repFullData;
     
-    // Go through each chapter (or filtered chapters)
-    var chapters = chapterFilter || Object.keys(REPERTORY_DATA);
+    // Split symptoms text into rubric lines (each line = one rubric)
+    var rubricLines = text.split(/[\n]+/).filter(function(l) { return l.trim().length > 0; });
     
-    chapters.forEach(function(chKey) {
-        var chapter = REPERTORY_DATA[chKey];
-        if (!chapter || !chapter.rubrics) return;
+    // For each rubric line, find the matching rubric data
+    rubricLines.forEach(function(lineText) {
+        var lt = lineText.trim().toLowerCase();
         
-        Object.keys(chapter.rubrics).forEach(function(rubKey) {
-            var rubric = chapter.rubrics[rubKey];
-            if (!rubric) return;
+        // Search all chapters for this rubric
+        Object.keys(data).forEach(function(chKey) {
+            var rubrics = data[chKey];
+            if (!rubrics) return;
             
-            // Match rubric against symptoms text (all 3 languages)
-            // Search ALL 3 languages for rubric match
-            var matched = false;
-            ['ur','en','roman'].forEach(function(l) {
-                var t = rubric[l];
-                if (t && text.indexOf(t.toLowerCase()) !== -1) matched = true;
-            });
-            
-            if (!matched) return;
-            
-            // Score remedies from this rubric
-            rubric.remedies.forEach(function(r) {
-                if (!scores[r.rem]) scores[r.rem] = { score: 0, rubrics: [], totalRubrics: 0 };
-                scores[r.rem].score += r.grade;  // Grade 1-3 from Kent
-                scores[r.rem].rubrics.push({
-                    rubricId: rubKey,
-                    rubricName: rubric[lang] || rubric.en,
-                    chapter: chKey,
-                    grade: r.grade
-                });
-                scores[r.rem].totalRubrics++;
+            Object.keys(rubrics).forEach(function(rid) {
+                var rubric = rubrics[rid];
+                if (!rubric || !rubric.t) return;
+                
+                // Exact or near-exact match on rubric text
+                if (rubric.t.toLowerCase() === lt) {
+                    var rems = rubric.r || {};
+                    Object.keys(rems).forEach(function(abbr) {
+                        if (!scores[abbr]) scores[abbr] = { score: 0, rubrics: [], totalRubrics: 0 };
+                        var grade = rems[abbr] || 1;
+                        scores[abbr].score += grade;
+                        scores[abbr].rubrics.push({
+                            rubricId: rid,
+                            rubricName: rubric.t,
+                            chapter: chKey,
+                            grade: grade
+                        });
+                        scores[abbr].totalRubrics++;
+                    });
+                }
             });
         });
     });
     
-    // Convert to sorted array
-    var results = Object.keys(scores).map(function(remId) {
-        var data = scores[remId];
-        var remedyInfo = (typeof REMEDIES_DB_KENT !== 'undefined' && REMEDIES_DB_KENT[remId]) 
-            ? REMEDIES_DB_KENT[remId] : null;
-        
+    var results = Object.keys(scores).map(function(abbr) {
+        var d = scores[abbr];
         return {
-            remedyId: remId,
-            remedy: remedyInfo,
-            score: data.score,
-            totalRubrics: data.totalRubrics,
-            matchedRubrics: data.rubrics,
-            name: remedyInfo ? (remedyInfo[lang] || remedyInfo.en || remId) : remId,
-            abbr: remedyInfo ? (remedyInfo.abbr || '') : ''
+            remedyId: abbr, remedy: null, name: abbr, abbr: abbr,
+            score: d.score, totalRubrics: d.totalRubrics, matchedRubrics: d.rubrics
         };
     });
     
-    // Sort by score descending
     results.sort(function(a, b) { return b.score - a.score; });
-    
-    // Calculate max possible score for percentage
-    var maxScore = results.length > 0 ? results[0].score : 1;
-    results.forEach(function(r) {
-        r.percentage = Math.round((r.score / maxScore) * 100);
-    });
+    if (results.length > 0) {
+        var maxScore = results[0].score;
+        results.forEach(function(r) { r.percentage = Math.round((r.score / maxScore) * 100); });
+    }
     
     return results;
 }
+
 
 
 
@@ -5884,5 +5872,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a193921e9dd05d1e',t:'MTc4MzcyODQ3NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
