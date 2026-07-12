@@ -4499,16 +4499,19 @@ function renderTreePage(chKey,chName,page){
     h+='</div>';cd.innerHTML=h;cd.scrollTop=0;
 }
 
+var _repSearchCache='',_repSearchResults=null;
 function searchRepertoryBrowser(){
     var q=(document.getElementById('repBrowserSearch')||{}).value||'';
     if(q.length<2){document.getElementById('repRubricContent').innerHTML='<div class="empty-state"><div class="icon">📖</div><p>Type 2+ chars. Use @chapter to filter</p></div>';return;}
     document.getElementById('repRubricContent').innerHTML='<div style="text-align:center;padding:20px;">🔍 Searching...</div>';
     var chF=null,ai=q.indexOf('@');if(ai!==-1){var aa=q.substring(ai+1).split(/\s+/)[0],cf=aa.toLowerCase();repChapterNames.forEach(function(c){if(c.name.toLowerCase().indexOf(cf)!==-1)chF=c.key;});q=q.substring(0,ai)+q.substring(ai+1+aa.length);q=q.trim();}
+    if(q===_repSearchCache&&_repSearchResults!==null){displaySearchResults(_repSearchResults.results,_repSearchResults.info);return;}
+    _repSearchCache=q;
     q=q.toLowerCase();var qw=q.split(/\s+/).filter(function(w){return w.length>0;});
     if(qw.length===0&&!chF){document.getElementById('repRubricContent').innerHTML='<div class="empty-state"><p>Example: pain @head</p></div>';return;}
     setTimeout(function(){var r=[];
     function mt(t){if(!t)return false;if(qw.length===0)return true;var lt=t.toLowerCase();for(var i=0;i<qw.length;i++){if(lt.indexOf(qw[i])===-1)return false;}return true;}
-    function ds(sd){var chs=chF?[chF]:Object.keys(sd);chs.forEach(function(ck){var rubs=sd[ck];if(!rubs)return;Object.keys(rubs).forEach(function(rid){var rub=rubs[rid];if(rub&&rub.t&&mt(rub.t))r.push({text:rub.t,remedies:rub.r||{},chapter:ck});});});r.sort(function(a,b){return a.text.localeCompare(b.text);});var info='🔍 ';if(qw.length>0)info+='"'+escapeHtml(qw.join(' '))+'"';if(chF){var cn=chF;repChapterNames.forEach(function(c){if(c.key===chF)cn=c.name;});info+=' in <b>'+escapeHtml(cn)+'</b>';}info+=' → <b>'+r.length.toLocaleString()+'</b> rubrics';displaySearchResults(r,info);}
+    function ds(sd){var chs=chF?[chF]:Object.keys(sd);chs.forEach(function(ck){var rubs=sd[ck];if(!rubs)return;Object.keys(rubs).forEach(function(rid){var rub=rubs[rid];if(rub&&rub.t&&mt(rub.t))r.push({text:rub.t,remedies:rub.r||{},chapter:ck});});});r.sort(function(a,b){return a.text.localeCompare(b.text);});var info='🔍 ';if(qw.length>0)info+='"'+escapeHtml(qw.join(' '))+'"';if(chF){var cn=chF;repChapterNames.forEach(function(c){if(c.key===chF)cn=c.name;});info+=' in <b>'+escapeHtml(cn)+'</b>';}info+=' → <b>'+r.length.toLocaleString()+'</b> rubrics';displaySearchResults(r,info);_repSearchResults={results:r.slice(0,200),info:info};}
     if(_repFullData!==null){ds(_repFullData);}else{loadRepData(function(data){ds(data);});}},10);
 }
 
@@ -4734,5 +4737,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1a2d47649dfc4c3',t:'MTc4Mzg4ODQ3OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
