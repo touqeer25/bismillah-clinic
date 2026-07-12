@@ -1278,6 +1278,8 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
                         <div class="symptom-ac-wrapper">
                             <textarea id="firstVisitSymptoms" style="min-height:55px;width:100%;" oninput="handleSymptomInput('firstVisitSymptoms','regSymptomAC','regDiseaseSuggest')" onkeydown="handleSymptomKeydown(event,'firstVisitSymptoms','regSymptomAC')" onblur="hideSymptomDropdown('regSymptomAC')" autocomplete="off"></textarea>
                             <div class="symptom-ac-dropdown" id="regSymptomAC"></div>
+                            <button class="ai-ask-btn" onclick="askAI('firstVisitSymptoms','regAIResult')" style="margin-top:5px;padding:5px 14px;font-size:11px;background:#e94560;color:white;border:none;border-radius:6px;cursor:pointer;font-family:inherit;">🤖 AI سے پوچھیں</button>
+                            <div id="regAIResult" class="ai-panel hidden"></div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -1528,6 +1530,8 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
                             <div class="symptom-ac-wrapper">
                                 <textarea id="nvSymptoms" style="min-height:55px;width:100%;" oninput="handleSymptomInput('nvSymptoms','nvSymptomAC','nvDiseaseSuggest')" onkeydown="handleSymptomKeydown(event,'nvSymptoms','nvSymptomAC')" onblur="hideSymptomDropdown('nvSymptomAC')" autocomplete="off"></textarea>
                                 <div class="symptom-ac-dropdown" id="nvSymptomAC"></div>
+                                <button class="ai-ask-btn" onclick="askAI('nvSymptoms','nvAIResult')" style="margin-top:5px;padding:5px 14px;font-size:11px;background:#e94560;color:white;border:none;border-radius:6px;cursor:pointer;font-family:inherit;">🤖 AI سے پوچھیں</button>
+                                <div id="nvAIResult" class="ai-panel hidden"></div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -5948,5 +5952,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a19ff74f8b4c374e',t:'MTc4Mzg1ODQ0OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1a06ee55a69541f',t:'MTc4Mzg2MzM0OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
