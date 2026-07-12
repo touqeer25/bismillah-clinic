@@ -1614,7 +1614,8 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
                 <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
                     <span style="font-size:18px;">📖</span>
                     <select id="repBookSelect" onchange="switchRepertoryBook()" style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:13px;min-width:200px;">
-                        <option value="publicum">Repertorium Publicum (English)</option>
+                        <option value="publicum">📗 Repertorium Publicum (Polony)</option>
+                        <option value="kent">📘 Kent Repertory (English)</option>
                     </select>
                     <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="Search rubrics..." style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:12px;min-width:180px;flex:1;">
                     <span style="font-size:11px;opacity:0.8;" id="repBrowserInfo"></span>
@@ -4896,7 +4897,8 @@ function ensureRepertoryData(callback) {
     
     if (typeof showToast === 'function') showToast('⏳ Loading repertory...');
     
-    fetch('repertory-data.json?v=1')
+    var dataFile = repCurrentBook === 'kent' ? 'kent_repertory.json?v=1' : 'repertory-data.json?v=1';
+    fetch(dataFile)
         .then(function(r) { return r.json(); })
         .then(function(data) {
             _repFullData = data;
@@ -5508,7 +5510,14 @@ var _repFullData = null;
 
 function initRepertoryBrowser() {
     var idx = [{"key":"extremities","name":"Extremities","rubrics":16115},{"key":"head","name":"Head","rubrics":6984},{"key":"mind","name":"Mind","rubrics":5827},{"key":"back","name":"Back","rubrics":4611},{"key":"abdomen","name":"Abdomen","rubrics":4339},{"key":"chest","name":"Chest","rubrics":2858},{"key":"stomach","name":"Stomach","rubrics":2826},{"key":"face","name":"Face","rubrics":2094},{"key":"ear","name":"Ear","rubrics":2029},{"key":"eye","name":"Eye","rubrics":1787},{"key":"generalities","name":"Generalities","rubrics":1751},{"key":"mouth","name":"Mouth","rubrics":1598},{"key":"sleep","name":"Sleep","rubrics":1588},{"key":"rectum","name":"Rectum","rubrics":1549},{"key":"cough","name":"Cough","rubrics":1535},{"key":"nose","name":"Nose","rubrics":1497},{"key":"genitalia_female","name":"Genitalia female","rubrics":1484},{"key":"skin","name":"Skin","rubrics":1161},{"key":"genitalia_male","name":"Genitalia male","rubrics":1121},{"key":"vision","name":"Vision","rubrics":1093},{"key":"throat","name":"Throat","rubrics":1047},{"key":"teeth","name":"Teeth","rubrics":839},{"key":"heart_&_circulation","name":"Heart & Circulation","rubrics":789},{"key":"chill","name":"Chill","rubrics":768},{"key":"bladder","name":"Bladder","rubrics":766},{"key":"respiration","name":"Respiration","rubrics":760},{"key":"larynx_and_trachea","name":"Larynx and trachea","rubrics":729},{"key":"urethra","name":"Urethra","rubrics":606},{"key":"fever","name":"Fever","rubrics":596},{"key":"appetite","name":"Appetite","rubrics":513},{"key":"vertigo","name":"Vertigo","rubrics":512},{"key":"clinical","name":"Clinical","rubrics":490},{"key":"urine","name":"Urine","rubrics":406},{"key":"perspiration","name":"Perspiration","rubrics":395},{"key":"expectoration","name":"Expectoration","rubrics":344},{"key":"external_throat","name":"External throat","rubrics":276},{"key":"kidneys","name":"Kidneys","rubrics":267},{"key":"stool","name":"Stool","rubrics":234},{"key":"hearing","name":"Hearing","rubrics":168},{"key":"prostate_gland","name":"Prostate gland","rubrics":105},{"key":"blood","name":"Blood","rubrics":25}];
-    repChapterNames = idx;
+    // Select correct chapter list based on current book
+    if (repCurrentBook === 'kent') {
+        // Kent Repertory chapters (37 chapters)
+        repChapterNames = [{"key":"mind","name":"Mind","rubrics":5847},{"key":"vertigo","name":"Vertigo","rubrics":923},{"key":"head","name":"Head","rubrics":4470},{"key":"eye","name":"Eye","rubrics":1306},{"key":"vision","name":"Vision","rubrics":881},{"key":"ear","name":"Ear","rubrics":1740},{"key":"hearing","name":"Hearing","rubrics":99},{"key":"nose","name":"Nose","rubrics":1536},{"key":"face","name":"Face","rubrics":1549},{"key":"mouth","name":"Mouth","rubrics":1531},{"key":"teeth","name":"Teeth","rubrics":876},{"key":"throat","name":"Throat","rubrics":1487},{"key":"external_throat","name":"External Throat","rubrics":77},{"key":"stomach","name":"Stomach","rubrics":1670},{"key":"abdomen","name":"Abdomen","rubrics":1277},{"key":"rectum","name":"Rectum","rubrics":720},{"key":"stool","name":"Stool","rubrics":795},{"key":"bladder","name":"Bladder","rubrics":573},{"key":"kidneys","name":"Kidneys","rubrics":152},{"key":"prostate_gland","name":"Prostate Gland","rubrics":39},{"key":"urethra","name":"Urethra","rubrics":569},{"key":"urine","name":"Urine","rubrics":490},{"key":"genitalia_male","name":"Genitalia Male","rubrics":812},{"key":"genitalia_female","name":"Genitalia Female","rubrics":1057},{"key":"larynx_and_trachea","name":"Larynx & Trachea","rubrics":427},{"key":"respiration","name":"Respiration","rubrics":972},{"key":"cough","name":"Cough","rubrics":4723},{"key":"expectoration","name":"Expectoration","rubrics":698},{"key":"chest","name":"Chest","rubrics":2074},{"key":"back","name":"Back","rubrics":4555},{"key":"extremities","name":"Extremities","rubrics":7728},{"key":"sleep","name":"Sleep","rubrics":3235},{"key":"chill","name":"Chill","rubrics":3038},{"key":"fever","name":"Fever","rubrics":1183},{"key":"perspiration","name":"Perspiration","rubrics":1236},{"key":"skin","name":"Skin","rubrics":1084},{"key":"generalities","name":"Generalities","rubrics":1312}];
+    } else {
+        // Polony repertory (41 chapters)
+        repChapterNames = [{"key":"extremities","name":"Extremities","rubrics":16115},{"key":"head","name":"Head","rubrics":6984},{"key":"mind","name":"Mind","rubrics":5827},{"key":"back","name":"Back","rubrics":4611},{"key":"abdomen","name":"Abdomen","rubrics":4339},{"key":"chest","name":"Chest","rubrics":2858},{"key":"stomach","name":"Stomach","rubrics":2826},{"key":"face","name":"Face","rubrics":2094},{"key":"ear","name":"Ear","rubrics":2029},{"key":"eye","name":"Eye","rubrics":1787},{"key":"generalities","name":"Generalities","rubrics":1751},{"key":"mouth","name":"Mouth","rubrics":1598},{"key":"sleep","name":"Sleep","rubrics":1588},{"key":"rectum","name":"Rectum","rubrics":1549},{"key":"cough","name":"Cough","rubrics":1535},{"key":"nose","name":"Nose","rubrics":1497},{"key":"genitalia_female","name":"Genitalia female","rubrics":1484},{"key":"skin","name":"Skin","rubrics":1161},{"key":"genitalia_male","name":"Genitalia male","rubrics":1121},{"key":"vision","name":"Vision","rubrics":1093},{"key":"throat","name":"Throat","rubrics":1047},{"key":"teeth","name":"Teeth","rubrics":839},{"key":"heart_&_circulation","name":"Heart & Circulation","rubrics":789},{"key":"chill","name":"Chill","rubrics":768},{"key":"bladder","name":"Bladder","rubrics":766},{"key":"respiration","name":"Respiration","rubrics":760},{"key":"larynx_and_trachea","name":"Larynx and trachea","rubrics":729},{"key":"urethra","name":"Urethra","rubrics":606},{"key":"fever","name":"Fever","rubrics":596},{"key":"appetite","name":"Appetite","rubrics":513},{"key":"vertigo","name":"Vertigo","rubrics":512},{"key":"clinical","name":"Clinical","rubrics":490},{"key":"urine","name":"Urine","rubrics":406},{"key":"perspiration","name":"Perspiration","rubrics":395},{"key":"expectoration","name":"Expectoration","rubrics":344},{"key":"external_throat","name":"External throat","rubrics":276},{"key":"kidneys","name":"Kidneys","rubrics":267},{"key":"stool","name":"Stool","rubrics":234},{"key":"hearing","name":"Hearing","rubrics":168},{"key":"prostate_gland","name":"Prostate gland","rubrics":105},{"key":"blood","name":"Blood","rubrics":25}];
+    }
     repChapterNames.sort(function(a,b){return a.name.localeCompare(b.name);});
     var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
     var info=document.getElementById('repBrowserInfo');
@@ -5531,7 +5540,8 @@ function selectChapter(chKey){
     var cd=document.getElementById('repRubricContent');if(!cd)return;
     cd.innerHTML='<div style="text-align:center;padding:30px;">Loading <b>'+nm+'</b>...</div>';
     if(repTreeCache[chKey]){renderTree(chKey,nm,repTreeCache[chKey]);return;}
-    fetch('repertory_chapters/'+chKey+'.json?v=2').then(function(r){return r.json();}).then(function(d){
+    var basePath = repCurrentBook === 'kent' ? 'kent_chapters/' : 'repertory_chapters/';
+    fetch(basePath+chKey+'.json?v=2').then(function(r){return r.json();}).then(function(d){
         var tree=buildRubricTree(d);repTreeCache[chKey]=tree;renderTree(chKey,nm,tree);
     }).catch(function(e){cd.innerHTML='<div style="text-align:center;padding:30px;color:#e74c3c;"><p>❌ Failed to load '+nm+'</p><p style="font-size:11px;">'+e.message+'</p></div>';});
 }
@@ -5649,7 +5659,8 @@ function renderTreePage(chKey,chName,page){
 
 function repToggleFolder(nid){var b=document.getElementById(nid+'_body');var i=document.getElementById(nid+'_icon');if(!b||!i)return;if(b.style.display==='none'){b.style.display='';i.textContent='▼';}else{b.style.display='none';i.textContent='▶';}}
 
-function loadRepData(cb){if(_repFullData!==null){cb(_repFullData);return;}fetch('repertory-data.json?v=2').then(function(r){return r.json();}).then(function(d){_repFullData=d;cb(d);}).catch(function(e){console.error(e);});}
+function loadRepData(cb){if(_repFullData!==null){cb(_repFullData);return;}var dataFile2 = repCurrentBook === 'kent' ? 'kent_repertory.json?v=2' : 'repertory-data.json?v=2';
+    fetch(dataFile2).then(function(r){return r.json();}).then(function(d){_repFullData=d;cb(d);}).catch(function(e){console.error(e);});}
 
 function searchRepertoryBrowser(){
     var q=(document.getElementById('repBrowserSearch')||{}).value||'';
@@ -5672,6 +5683,71 @@ function displaySearchResults(results,info){
 }
 
 function copyRemedyToPrescription(abbr){if(navigator.clipboard){navigator.clipboard.writeText(abbr).then(function(){if(typeof showToast==='function')showToast('✅ Copied: '+abbr);});}}
+
+// ==================== AI ASSISTANT (Local Ollama) ====================
+var AI_BASE_URL = 'http://localhost:11434';
+
+async function askAI(textareaId, resultPanelId) {
+    var textarea = document.getElementById(textareaId);
+    var panel = document.getElementById(resultPanelId);
+    if (!textarea || !panel) return;
+    
+    var symptoms = textarea.value.trim();
+    if (symptoms.length < 10) {
+        panel.classList.remove('hidden');
+        panel.innerHTML = '<div class="ai-panel-content"><p style="color:#ff6b6b;">⚠️ Please write at least 10 characters of symptoms first</p></div>';
+        return;
+    }
+    
+    panel.classList.remove('hidden');
+    panel.innerHTML = '<div class="ai-panel-header">🤖 AI Assistant <span class="ai-badge">Llama 3.2</span></div><div class="ai-panel-content"><span class="spinner"></span> Analyzing symptoms...</div>';
+    
+    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'en';
+    
+    var prompt = `You are a homeopathic assistant. Based on these symptoms, suggest:
+1. Possible rubrics from Kent Repertory
+2. Top 5 homeopathic remedies with rationale
+3. Any additional questions the doctor should ask
+4. Suggested tests or precautions
+
+Patient symptoms: ${symptoms}
+
+Answer in ${lang === 'ur' ? 'Urdu' : 'English'}. Keep it concise and practical.`;
+
+    try {
+        var response = await fetch(AI_BASE_URL + '/api/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: 'llama3.2',
+                prompt: prompt,
+                stream: false
+            })
+        });
+        
+        if (!response.ok) throw new Error('Ollama not running');
+        
+        var data = await response.json();
+        var answer = data.response || 'No response';
+        
+        // Format the answer
+        answer = answer.replace(/\n/g, '<br>');
+        answer = answer.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+        answer = answer.replace(/^[0-9]+\.\s/gm, '<br>• ');
+        answer = answer.replace(/^\*\s/gm, '• ');
+        
+        panel.innerHTML = '<div class="ai-panel-header">🤖 AI Assistant <span class="ai-badge">Llama 3.2</span></div><div class="ai-panel-content">' + answer + '</div>';
+        
+    } catch (err) {
+        var offlineMsg = lang === 'ur' 
+            ? '🤖 Ollama AI سرور سے رابطہ نہیں ہو سکا۔ کیا Ollama چل رہا ہے؟<br><small>انسٹال کریں: <a href="https://ollama.com" target="_blank" style="color:#e94560;">ollama.com</a> | پھر CMD میں: <code>ollama pull llama3.2</code></small>'
+            : '🤖 Cannot connect to Ollama AI server. Is Ollama running?<br><small>Install: <a href="https://ollama.com" target="_blank" style="color:#e94560;">ollama.com</a> | Then run in CMD: <code>ollama pull llama3.2</code></small>';
+        
+        panel.innerHTML = '<div class="ai-panel-header">🤖 AI Assistant <span class="ai-badge offline">Offline</span></div><div class="ai-panel-content"><p class="ai-offline">' + offlineMsg + '</p></div>';
+    }
+}
+
+window.askAI = askAI;
 
 // ==================== EVENT LISTENERS ====================
 document.addEventListener('DOMContentLoaded', function() {
@@ -5872,5 +5948,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a19ff74f8b4c374e',t:'MTc4Mzg1ODQ0OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
