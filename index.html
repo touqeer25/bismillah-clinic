@@ -20,7 +20,6 @@
     <script src="diagnosis-data.js?v=3"></script>
     <script src="diagnosis-custom.js?v=3"></script>
     <script src="custom-data-help.js?v=3"></script>
-    
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
@@ -61,26 +60,6 @@
         .form-group { margin-bottom: 15px; text-align: right; }
         body[dir="ltr"] .form-group { text-align: left; }
         .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50; font-size: 14px; height: 20px; line-height: 20px; overflow: hidden; font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
-        .form-group .label-with-btns {
-            display: flex !important;
-            align-items: center;
-            gap: 5px;
-            min-height: 22px;
-            margin-bottom: 4px;
-            flex-direction: row !important;
-        }
-        .form-group .label-with-btns label {
-            display: inline !important;
-            margin-bottom: 0 !important;
-            height: auto !important;
-            min-height: auto !important;
-            flex-shrink: 0;
-        }
-        .form-group .label-with-btns .symptom-mode-btns {
-            display: inline-flex !important;
-            gap: 3px;
-            flex-shrink: 0;
-        }
         body[dir="rtl"] .form-group label { font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; font-size: 14px; }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%; padding: 10px 14px; border: 2px solid #ddd;
@@ -268,13 +247,15 @@
         .fg-row .form-group { margin-bottom: 0; }
         .fg-row .form-group input,
         .fg-row .form-group select,
-        .fg-row .form-group textarea { padding: 7px 10px; font-size: 12px; font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; box-sizing: border-box; }
+        .fg-row .form-group textarea { padding: 7px 10px; font-size: 12px; font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
         body[dir="rtl"] .fg-row .form-group input,
         body[dir="rtl"] .fg-row .form-group select,
         body[dir="rtl"] .fg-row .form-group textarea { font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important; }
         .fg-row .form-group label {
             font-size: 12px; margin-bottom: 3px;
-            min-height: 18px; line-height: 1.4;
+            height: 28px; line-height: 14px;
+            display: flex; align-items: center;
+            overflow: hidden;
             font-family: 'Segoe UI', Tahoma, Arial, sans-serif !important;
         }
         body[dir="rtl"] .fg-row .form-group label {
@@ -295,159 +276,6 @@
             padding: 12px 15px;
             margin-bottom: 12px;
             transition: all 0.3s;
-        }
-        /* Mode toggle buttons next to label */
-        .symptom-mode-btns {
-            display: inline-flex;
-            gap: 3px;
-            margin-left: 6px;
-            vertical-align: middle;
-        }
-        body[dir="rtl"] .symptom-mode-btns { margin-left: 0; margin-right: 6px; }
-        .mode-btn {
-            width: 22px; height: 22px;
-            border-radius: 50%;
-            border: 2px solid #ddd;
-            background: white;
-            cursor: pointer;
-            font-size: 11px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            transition: all 0.2s;
-            line-height: 1;
-        }
-        .mode-btn:hover { transform: scale(1.15); }
-        .mode-btn.active-disease {
-            background: #fdf2e9;
-            border-color: #f39c12;
-            box-shadow: 0 0 0 2px rgba(243,156,18,0.2);
-        }
-        .mode-btn.active-repertory {
-            background: #e8f4f8;
-            border-color: #17a2b8;
-            box-shadow: 0 0 0 2px rgba(23,162,184,0.2);
-        }
-        /* Repertory chart modal */
-        .rep-chart-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.6);
-            z-index: 250;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-        }
-        .rep-chart-overlay.active { display: flex; }
-        .rep-chart-modal {
-            background: white;
-            border-radius: 12px;
-            padding: 15px;
-            width: 100%;
-            max-width: 900px;
-            max-height: 90vh;
-            overflow: auto;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        .rep-chart-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 11px;
-            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-        }
-        .rep-chart-table th {
-            background: #1a5276;
-            color: white;
-            padding: 6px 4px;
-            position: sticky;
-            top: 0;
-            z-index: 2;
-            font-size: 10px;
-            white-space: nowrap;
-            min-width: 60px;
-            text-align: center;
-        }
-        .rep-chart-table th:first-child {
-            min-width: 150px;
-            text-align: left;
-            position: sticky;
-            left: 0;
-            z-index: 3;
-            background: #1a5276;
-        }
-        .rep-chart-table td {
-            padding: 4px;
-            text-align: center;
-            border: 1px solid #e0e0e0;
-            font-weight: bold;
-        }
-        .rep-chart-table td:first-child {
-            text-align: left;
-            font-size: 10px;
-            background: #fafafa;
-            position: sticky;
-            left: 0;
-            z-index: 1;
-        }
-        .rep-chart-table .grade-3 { background: #2c3e50; color: white; font-weight: bold; }
-        .rep-chart-table .grade-2 { background: #7f8c8d; color: white; font-style: italic; }
-        .rep-chart-table .grade-1 { background: #f0f0f0; color: #555; }
-        .rep-chart-table .grade-0 { background: white; color: #ccc; }
-        
-        /* Repertory Browser */
-        .rep-chapter-item {
-            padding: 6px 10px;
-            cursor: pointer;
-            border-radius: 6px;
-            font-size: 12px;
-            font-family: 'Segoe UI', sans-serif;
-            transition: all 0.15s;
-            border: 2px solid transparent;
-        }
-        .rep-chapter-item:hover { background: #e8f4f8; }
-        .rep-chapter-item.active { background: #2980b9; color: white; font-weight: bold; }
-        .rep-rubric-item {
-            padding: 8px 12px;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 12px;
-            cursor: pointer;
-            transition: background 0.1s;
-            font-family: 'Segoe UI', sans-serif;
-        }
-        .rep-rubric-item:hover { background: #f8f9fa; }
-        .rep-rubric-header {
-            font-weight: bold;
-            color: #1a5276;
-            font-size: 13px;
-        }
-        .rep-remedy-tag {
-            display: inline-block;
-            padding: 2px 8px;
-            margin: 2px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .rep-remedy-tag.g3 { background: #2c3e50; color: white; }
-        .rep-remedy-tag.g2 { background: #7f8c8d; color: white; font-style: italic; }
-        .rep-remedy-tag.g1 { background: #e8e8e8; color: #555; }
-        .rep-breadcrumb {
-            font-size: 12px;
-            color: #7f8c8d;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #ecf0f1;
-        }
-        .rep-breadcrumb span { color: #2980b9; font-weight: bold; }
-        .ds-tab-btn {
-            transition: all 0.2s;
-        }
-        .ds-tab-btn.active {
-            background: #fef9e7 !important;
-            border-color: #f39c12 !important;
         }
         .disease-suggest-header {
             font-weight: bold;
@@ -519,65 +347,6 @@
             background: #f39c12;
             color: white;
             border-color: #f39c12;
-        }
-
-        /* Symptom Autocomplete Dropdown */
-        .symptom-ac-wrapper {
-            position: relative;
-            width: 100%;
-        }
-        .symptom-ac-wrapper textarea {
-            width: 100% !important;
-            box-sizing: border-box;
-        }
-        .symptom-ac-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            background: white;
-            border: 2px solid #2980b9;
-            border-top: none;
-            border-radius: 0 0 8px 8px;
-            max-height: 200px;
-            overflow-y: auto;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        .symptom-ac-dropdown.active { display: block; }
-        .symptom-ac-item {
-            padding: 8px 12px;
-            cursor: pointer;
-            font-size: 13px;
-            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-            border-bottom: 1px solid #f0f0f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.15s;
-        }
-        .symptom-ac-item:hover, .symptom-ac-item.selected {
-            background: #e8f4f8;
-            color: #1a5276;
-        }
-        .symptom-ac-item:last-child { border-bottom: none; }
-        .symptom-ac-item .ac-category {
-            font-size: 10px;
-            color: #95a5a6;
-            background: #f0f0f0;
-            padding: 1px 6px;
-            border-radius: 10px;
-        }
-        .symptom-ac-no-results {
-            padding: 10px 12px;
-            font-size: 12px;
-            color: #95a5a6;
-            text-align: center;
-            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-        }
-        .symptom-ac-highlight {
-            background: #fff3cd;
         }
 
         .section-divider {
@@ -936,22 +705,31 @@
             .stat-card .stat-number { font-size: 20px; }
         }
 
-        .rep-chart-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:250;justify-content:center;align-items:center;padding:10px;}
+        .mode-btn{width:22px;height:22px;border-radius:50%;border:2px solid #ddd;background:white;cursor:pointer;font-size:11px;display:inline-flex;align-items:center;justify-content:center;padding:0;transition:all 0.2s;line-height:1;flex-shrink:0;}
+.mode-btn:hover{transform:scale(1.15);}
+.mode-btn.active-disease{background:#fdf2e9;border-color:#f39c12;box-shadow:0 0 0 2px rgba(243,156,18,0.2);}
+.mode-btn.active-repertory{background:#e8f4f8;border-color:#17a2b8;box-shadow:0 0 0 2px rgba(23,162,184,0.2);}
+.symptom-mode-btns{display:inline-flex;gap:3px;margin-left:6px;vertical-align:middle;}
+body[dir="rtl"] .symptom-mode-btns{margin-left:0;margin-right:6px;}
+.ai-panel{background:linear-gradient(135deg,#1a1a2e,#16213e);border:2px solid #0f3460;border-radius:10px;padding:12px;margin-top:8px;color:#e0e0e0;font-size:12px;font-family:'Segoe UI',sans-serif;}
+.ai-panel-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-weight:bold;color:#e94560;font-size:13px;}
+.ai-badge{background:#e94560;color:white;padding:1px 8px;border-radius:10px;font-size:9px;}
+.ai-panel-content{line-height:1.6;max-height:250px;overflow-y:auto;}
+.ai-panel .spinner{width:20px;height:20px;border:2px solid #333;border-top-color:#e94560;border-radius:50%;animation:spin 1s linear infinite;display:inline-block;}
+.rep-chart-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:250;justify-content:center;align-items:center;padding:10px;}
 .rep-chart-overlay.active{display:flex;}
 .rep-chart-modal{background:white;border-radius:12px;padding:15px;width:100%;max-width:900px;max-height:90vh;overflow:auto;}
 .rep-chart-table{width:100%;border-collapse:collapse;font-size:11px;font-family:'Segoe UI',sans-serif;}
 .rep-chart-table th{background:#1a5276;color:white;padding:6px 4px;font-size:10px;text-align:center;position:sticky;top:0;}
 .rep-chart-table td{padding:4px;text-align:center;border:1px solid #e0e0e0;font-weight:bold;}
 .rep-chart-table td:first-child{text-align:left;font-size:10px;background:#fafafa;}
-.rep-chart-table .grade-3{background:#2c3e50;color:white;font-weight:bold;}
+.rep-chart-table .grade-3{background:#2c3e50;color:white;}
 .rep-chart-table .grade-2{background:#7f8c8d;color:white;font-style:italic;}
 .rep-chart-table .grade-1{background:#f0f0f0;color:#555;}
-.rep-chart-table .grade-0{background:white;color:#ccc;}
 .rep-chapter-item{padding:6px 10px;cursor:pointer;border-radius:6px;font-size:12px;font-family:'Segoe UI',sans-serif;transition:all 0.15s;border:2px solid transparent;}
 .rep-chapter-item:hover{background:#e8f4f8;}
 .rep-chapter-item.active{background:#2980b9;color:white;font-weight:bold;}
-.rep-rubric-item{padding:8px 12px;border-bottom:1px solid #f0f0f0;font-size:12px;cursor:pointer;transition:background 0.1s;font-family:'Segoe UI',sans-serif;}
-.rep-rubric-item:hover{background:#f8f9fa;}
+.rep-rubric-item{padding:8px 12px;border-bottom:1px solid #f0f0f0;font-size:12px;cursor:pointer;font-family:'Segoe UI',sans-serif;}
 .rep-rubric-header{font-weight:bold;color:#1a5276;font-size:13px;}
 .rep-remedy-tag{display:inline-block;padding:2px 8px;margin:2px;border-radius:12px;font-size:10px;font-weight:bold;cursor:pointer;}
 .rep-remedy-tag.g3{background:#2c3e50;color:white;}
@@ -966,18 +744,14 @@
 .rep-folder-name{font-weight:bold;color:#2c3e50;}
 .rep-tree-children{border-left:1px dotted #d0d0d0;margin-left:8px;}
 .rep-tree-leaf{padding:3px 6px;border-radius:4px;margin:1px 0;}
-.rep-rubric-main-wrapper{margin:5px 0;}
 .rep-rubric-main{font-weight:bold;font-size:14px;color:#1a5276;border-left:4px solid #1a5276;padding:3px 10px 3px 14px;text-transform:capitalize;display:inline-block;}
 body[dir="rtl"] .rep-rubric-main{border-left:none;border-right:4px solid #1a5276;padding-left:10px;padding-right:14px;}
+.rep-rubric-main-wrapper{margin:5px 0;}
 .rep-rubric-main-rems{padding:2px 0 2px 18px;}
 body[dir="rtl"] .rep-rubric-main-rems{padding:2px 18px 2px 0;}
-body[dir="rtl"] .rep-rubric-main{border-left:none;border-right:4px solid #1a5276;padding-left:10px;padding-right:14px;}
 .rep-rubric-d1{padding:3px 6px 3px 28px;}
 .rep-rubric-d2{padding:3px 6px 3px 48px;}
 .rep-rubric-d3{padding:3px 6px 3px 68px;font-style:italic;color:#888;}
-body[dir="rtl"] .rep-rubric-d1{padding:3px 28px 3px 6px;}
-body[dir="rtl"] .rep-rubric-d2{padding:3px 48px 3px 6px;}
-body[dir="rtl"] .rep-rubric-d3{padding:3px 68px 3px 6px;}
 .rep-bullet{display:inline-block;margin-right:6px;vertical-align:middle;flex-shrink:0;}
 .rep-rubric-d1 .rep-bullet{width:8px;height:8px;background:#2980b9;border-radius:50%;}
 .rep-rubric-d2 .rep-bullet{width:7px;height:7px;background:#85c1e9;border-radius:2px;}
@@ -1097,7 +871,7 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
         <button class="nav-btn" data-page="repertoryBrowser">
             📖 <span data-ur="ریپرٹری" data-en="Repertory" data-roman="Repertory">ریپرٹری</span>
         </button>
-                <button type="button" class="nav-btn nav-action" id="navPrefsBtn" onclick="if(typeof openPreferencesModal==='function')openPreferencesModal()">
+        <button type="button" class="nav-btn nav-action" id="navPrefsBtn" onclick="if(typeof openPreferencesModal==='function')openPreferencesModal()">
             🎛️ <span data-ur="ترجیحات" data-en="Preferences" data-roman="Tarjeehaat">ترجیحات</span>
         </button>
         <button type="button" class="nav-btn nav-action" id="navHelpBtn" onclick="if(typeof openHelpCenter==='function')openHelpCenter()">
@@ -1268,34 +1042,23 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
                 <!-- Row 6: Symptoms + Diagnosis -->
                 <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                     <div class="form-group">
-                        <div class="label-with-btns">
-                            <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
-                            <span class="symptom-mode-btns">
-                                <button class="mode-btn active-disease" id="regModeDisease" onclick="setSymptomMode('reg','disease')" title="Disease Suggest">🧠</button>
-                                <button class="mode-btn" id="regModeRepertory" onclick="setSymptomMode('reg','repertory')" title="Repertory">📊</button>
-                            </span>
-                        </div>
-                        <div class="symptom-ac-wrapper">
-                            <textarea id="firstVisitSymptoms" style="min-height:55px;width:100%;" oninput="handleSymptomInput('firstVisitSymptoms','regSymptomAC','regDiseaseSuggest')" onkeydown="handleSymptomKeydown(event,'firstVisitSymptoms','regSymptomAC')" onblur="hideSymptomDropdown('regSymptomAC')" autocomplete="off"></textarea>
-                            <div class="symptom-ac-dropdown" id="regSymptomAC"></div>
-                            <button class="ai-ask-btn" onclick="askAI('firstVisitSymptoms','regAIResult')" style="margin-top:5px;padding:5px 14px;font-size:11px;background:#e94560;color:white;border:none;border-radius:6px;cursor:pointer;font-family:inherit;">🤖 AI سے پوچھیں</button>
-                            <div id="regAIResult" class="ai-panel hidden"></div>
-                        </div>
+                        <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
+                        <span class="symptom-mode-btns"><button class="mode-btn active-disease" id="regModeDisease" onclick="setSymptomMode('reg','disease')" title="Disease">🧠</button><button class="mode-btn" id="regModeRepertory" onclick="setSymptomMode('reg','repertory')" title="Repertory">📊</button><button class="mode-btn" id="regModeAI" onclick="toggleAIPanel('reg','regAIResult','firstVisitSymptoms')" title="AI" style="background:#fde8ec;border-color:#e94560;">🤖</button></span>
+                        <textarea id="firstVisitSymptoms" style="min-height:55px;" oninput="autoSuggestDiseases('firstVisitSymptoms','regDiseaseSuggest')"></textarea>
                     </div>
                     <div class="form-group">
                         <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
+                        <div id="regAIResult" class="ai-panel hidden"></div>
+                        <div id="regAIResult" class="ai-panel hidden"></div>
                         <textarea id="firstVisitDiagnosis" style="min-height:55px;"></textarea>
                     </div>
                 </div>
                 
-                <!-- Suggest Panel (mode-aware) -->
+                <!-- Disease Suggest Panel -->
                 <div id="regDiseaseSuggest" class="disease-suggest-panel hidden">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-                        <span style="font-weight:bold;font-size:13px;color:#d68910;" id="regPanelLabel">🧠</span>
-                        <span style="display:flex;gap:4px;">
-                            <span style="font-size:10px;opacity:0.7;" id="regDiseaseCount"></span>
-                            <button id="regChartBtn" onclick="openRepertoryChart('reg')" style="display:none;padding:2px 8px;font-size:10px;background:#17a2b8;color:white;border:none;border-radius:4px;cursor:pointer;font-family:inherit;">📊 Chart</button>
-                        </span>
+                    <div class="disease-suggest-header">
+                        🧠 <span data-ur="علامات سے تجویز کردہ" data-en="Suggested from Symptoms" data-roman="Alamat se Tajweez">علامات سے تجویز کردہ</span>
+                        <span style="font-size:11px;opacity:0.7;" id="regDiseaseCount"></span>
                     </div>
                     <div id="regDiseaseSuggestContent"></div>
                 </div>
@@ -1520,34 +1283,23 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
                     <!-- Row 3: Symptoms + Diagnosis -->
                     <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
                         <div class="form-group">
-                            <div class="label-with-btns">
-                                <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
-                                <span class="symptom-mode-btns">
-                                    <button class="mode-btn active-disease" id="nvModeDisease" onclick="setSymptomMode('nv','disease')" title="Disease Suggest">🧠</button>
-                                    <button class="mode-btn" id="nvModeRepertory" onclick="setSymptomMode('nv','repertory')" title="Repertory">📊</button>
-                                </span>
-                            </div>
-                            <div class="symptom-ac-wrapper">
-                                <textarea id="nvSymptoms" style="min-height:55px;width:100%;" oninput="handleSymptomInput('nvSymptoms','nvSymptomAC','nvDiseaseSuggest')" onkeydown="handleSymptomKeydown(event,'nvSymptoms','nvSymptomAC')" onblur="hideSymptomDropdown('nvSymptomAC')" autocomplete="off"></textarea>
-                                <div class="symptom-ac-dropdown" id="nvSymptomAC"></div>
-                                <button class="ai-ask-btn" onclick="askAI('nvSymptoms','nvAIResult')" style="margin-top:5px;padding:5px 14px;font-size:11px;background:#e94560;color:white;border:none;border-radius:6px;cursor:pointer;font-family:inherit;">🤖 AI سے پوچھیں</button>
-                                <div id="nvAIResult" class="ai-panel hidden"></div>
-                            </div>
+                            <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
+                            <span class="symptom-mode-btns"><button class="mode-btn active-disease" id="nvModeDisease" onclick="setSymptomMode('nv','disease')" title="Disease">🧠</button><button class="mode-btn" id="nvModeRepertory" onclick="setSymptomMode('nv','repertory')" title="Repertory">📊</button><button class="mode-btn" id="nvModeAI" onclick="toggleAIPanel('nv','nvAIResult','nvSymptoms')" title="AI" style="background:#fde8ec;border-color:#e94560;">🤖</button></span>
+                            <textarea id="nvSymptoms" style="min-height:55px;" oninput="autoSuggestDiseases('nvSymptoms','nvDiseaseSuggest')"></textarea>
                         </div>
                         <div class="form-group">
                             <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
+                            <div id="nvAIResult" class="ai-panel hidden"></div>
+                            <div id="nvAIResult" class="ai-panel hidden"></div>
                             <textarea id="nvDiagnosis" style="min-height:55px;"></textarea>
                         </div>
                     </div>
                     
-                    <!-- Suggest Panel (mode-aware) -->
+                    <!-- Disease Suggest Panel -->
                     <div id="nvDiseaseSuggest" class="disease-suggest-panel hidden">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-                            <span style="font-weight:bold;font-size:13px;color:#d68910;" id="nvPanelLabel">🧠</span>
-                            <span style="display:flex;gap:4px;">
-                                <span style="font-size:10px;opacity:0.7;" id="nvDiseaseCount"></span>
-                                <button id="nvChartBtn" onclick="openRepertoryChart('nv')" style="display:none;padding:2px 8px;font-size:10px;background:#17a2b8;color:white;border:none;border-radius:4px;cursor:pointer;font-family:inherit;">📊 Chart</button>
-                            </span>
+                        <div class="disease-suggest-header">
+                            🧠 <span data-ur="علامات سے تجویز کردہ" data-en="Suggested from Symptoms" data-roman="Alamat se Tajweez">علامات سے تجویز کردہ</span>
+                            <span style="font-size:11px;opacity:0.7;" id="nvDiseaseCount"></span>
                         </div>
                         <div id="nvDiseaseSuggestContent"></div>
                     </div>
@@ -1609,42 +1361,6 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
     </div>
     
     <!-- ============================================ -->
-    <!-- REPERTORY BROWSER (Book-Style) -->
-    <!-- ============================================ -->
-    <div id="page-repertoryBrowser" class="page">
-        <div class="content">
-            <!-- Repertory Selector -->
-            <div class="card" style="margin-bottom:10px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;">
-                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-                    <span style="font-size:18px;">📖</span>
-                    <select id="repBookSelect" onchange="switchRepertoryBook()" style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:13px;min-width:200px;">
-                        <option value="publicum">📗 Repertorium Publicum (Polony)</option>
-                        <option value="kent">📘 Kent Repertory (English)</option>
-                    </select>
-                    <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="Search rubrics..." style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:12px;min-width:180px;flex:1;">
-                    <span style="font-size:11px;opacity:0.8;" id="repBrowserInfo"></span>
-                </div>
-            </div>
-            
-            <!-- Main Browser Area -->
-            <div style="display:flex;gap:10px;">
-                <!-- Chapter Sidebar -->
-                <div style="width:200px;min-width:140px;background:white;border-radius:10px;padding:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05);max-height:70vh;overflow-y:auto;" id="repChapterList">
-                    <div class="empty-state"><p>Loading...</p></div>
-                </div>
-                
-                <!-- Rubric Content -->
-                <div style="flex:1;background:white;border-radius:10px;padding:15px;box-shadow:0 2px 8px rgba(0,0,0,0.05);max-height:70vh;overflow-y:auto;" id="repRubricContent">
-                    <div class="empty-state">
-                        <div class="icon">📖</div>
-                        <p>Select a chapter to browse rubrics</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ============================================ -->
     <!-- REPERTORY BROWSER -->
     <!-- ============================================ -->
     <div id="page-repertoryBrowser" class="page">
@@ -1652,6 +1368,10 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
             <div class="card" style="margin-bottom:10px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;">
                 <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
                     <span style="font-size:18px;">📖</span>
+                    <select id="repBookSelect" onchange="switchRepertoryBook()" style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:13px;min-width:200px;">
+                        <option value="publicum">📗 Repertorium Publicum (Polony)</option>
+                        <option value="kent">📘 Kent Repertory (English)</option>
+                    </select>
                     <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="Search rubrics... (e.g. pain @head)" style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:12px;min-width:180px;flex:1;">
                     <span style="font-size:11px;opacity:0.8;" id="repBrowserInfo"></span>
                 </div>
@@ -1666,7 +1386,6 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
             </div>
         </div>
     </div>
-    <!-- REPERTORY CHART MODAL -->
     <div id="repChartOverlay" class="rep-chart-overlay" onclick="if(event.target===this)closeRepertoryChart()">
         <div class="rep-chart-modal"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;"><span style="font-weight:bold;font-size:16px;color:#1a5276;">📊 Repertorisation Chart</span><button onclick="closeRepertoryChart()" style="background:none;border:none;font-size:20px;cursor:pointer;">✕</button></div><div id="repChartContent" style="overflow-x:auto;"></div></div>
     </div>
@@ -1895,30 +1614,8 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
 <!-- Visit Modal removed - using New Visit Page instead -->
 
 <!-- ============================================ -->
-<!-- REPERTORY CHART MODAL -->
-<div id="repChartOverlay" class="rep-chart-overlay">
-    <div class="rep-chart-modal">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-            <span style="font-weight:bold;font-size:16px;color:#1a5276;">📊 Repertorisation Chart</span>
-            <button onclick="closeRepertoryChart()" style="background:none;border:none;font-size:20px;cursor:pointer;">✕</button>
-        </div>
-        <div id="repChartContent" style="overflow-x:auto;"></div>
-    </div>
-</div>
-
 <!-- EDIT PATIENT MODAL -->
 <!-- ============================================ -->
-<!-- REPERTORY CHART MODAL -->
-<div id="repChartOverlay" class="rep-chart-overlay">
-    <div class="rep-chart-modal">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-            <span style="font-weight:bold;font-size:16px;color:#1a5276;">📊 Repertorisation Chart</span>
-            <button onclick="closeRepertoryChart()" style="background:none;border:none;font-size:20px;cursor:pointer;">✕</button>
-        </div>
-        <div id="repChartContent" style="overflow-x:auto;"></div>
-    </div>
-</div>
-
 <!-- EDIT PATIENT MODAL -->
 <!-- ============================================ -->
 <div id="editPatientModal" class="modal-overlay">
@@ -2953,8 +2650,6 @@ async function showPage(pageId, btn) {
                 if ($('nvTime')) $('nvTime').value = now2.toTimeString().substring(0, 5);
             }
             if (pageId === 'settings') { updatePendingBadge(); loadDashboardFilterUI(); loadDiseaseSuggestSettingsUI(); }
-            if (pageId === 'repertoryBrowser') { setTimeout(function(){initRepertoryBrowser();}, 100); }
-            if (pageId === 'repertoryBrowser') { initRepertoryBrowser(); }
         } catch(err) { console.error('Page error:', err); }
     });
 }
@@ -4348,211 +4043,6 @@ function closeStatPatients() {
     showStatPatients('today');
 }
 
-// ==================== SYMPTOM AUTOCOMPLETE ====================
-var symptomACIndex = -1;
-var symptomACTimer = null;
-
-function handleSymptomInput(textareaId, dropdownId, diseasePanelId) {
-    // Also trigger disease suggest (existing feature)
-    if (typeof autoSuggestDiseases === 'function') {
-        autoSuggestDiseases(textareaId, diseasePanelId);
-    }
-    
-    // Clear previous timer
-    if (symptomACTimer) clearTimeout(symptomACTimer);
-    
-    // Debounce 200ms for autocomplete
-    symptomACTimer = setTimeout(function() {
-        showSymptomAutocomplete(textareaId, dropdownId);
-    }, 200);
-}
-
-function handleSymptomKeydown(e, textareaId, dropdownId) {
-    var dropdown = $(dropdownId);
-    if (!dropdown || !dropdown.classList.contains('active')) return;
-    
-    var items = dropdown.querySelectorAll('.symptom-ac-item');
-    
-    if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        symptomACIndex = Math.min(symptomACIndex + 1, items.length - 1);
-        updateACSelection(items);
-    } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        symptomACIndex = Math.max(symptomACIndex - 1, -1);
-        updateACSelection(items);
-    } else if (e.key === 'Enter') {
-        e.preventDefault();
-        if (symptomACIndex >= 0 && items[symptomACIndex]) {
-            items[symptomACIndex].click();
-        }
-    } else if (e.key === 'Escape') {
-        hideSymptomDropdown(dropdownId);
-    }
-}
-
-function updateACSelection(items) {
-    items.forEach(function(item, i) {
-        if (i === symptomACIndex) {
-            item.classList.add('selected');
-            item.scrollIntoView({ block: 'nearest' });
-        } else {
-            item.classList.remove('selected');
-        }
-    });
-}
-
-function showSymptomAutocomplete(textareaId, dropdownId) {
-    var textarea = $(textareaId);
-    var dropdown = $(dropdownId);
-    
-    if (!textarea || !dropdown) return;
-    
-    // Safety check
-    if (typeof SYMPTOMS_DB === 'undefined') return;
-    
-    // Get the current word being typed (last word after comma or space)
-    var fullText = textarea.value;
-    var cursorPos = textarea.selectionStart;
-    var textBefore = fullText.substring(0, cursorPos);
-    
-    // Find the last word: split by comma, space, or newline
-    var lastWord = '';
-    var match = textBefore.match(/[^\s،,\n]+$/);
-    if (match) {
-        lastWord = match[0].trim();
-    }
-    
-    // If word is too short, hide dropdown
-    if (lastWord.length < 2) {
-        dropdown.classList.remove('active');
-        dropdown.innerHTML = '';
-        return;
-    }
-    
-    var query = lastWord.toLowerCase();
-    var results = [];
-    
-    // Search SYMPTOMS_DB in all 3 languages
-    Object.keys(SYMPTOMS_DB).forEach(function(key) {
-        var sym = SYMPTOMS_DB[key];
-        if (!sym) return;
-        
-        var score = 0;
-        var matchLang = '';
-        
-        if (sym.ur && sym.ur.toLowerCase().indexOf(query) !== -1) {
-            score = sym.ur.toLowerCase().indexOf(query) === 0 ? 3 : 1;
-            matchLang = 'ur';
-        }
-        if (sym.en && sym.en.toLowerCase().indexOf(query) !== -1) {
-            var s = sym.en.toLowerCase().indexOf(query) === 0 ? 3 : 1;
-            if (s > score) { score = s; matchLang = 'en'; }
-        }
-        if (sym.roman && sym.roman.toLowerCase().indexOf(query) !== -1) {
-            var s = sym.roman.toLowerCase().indexOf(query) === 0 ? 3 : 1;
-            if (s > score) { score = s; matchLang = 'roman'; }
-        }
-        
-        if (score > 0) {
-            results.push({ key: key, sym: sym, score: score, matchLang: matchLang });
-        }
-    });
-    
-    // Sort: starts-with first, then contains
-    results.sort(function(a, b) { return b.score - a.score; });
-    // Limit to 8 results
-    results = results.slice(0, 8);
-    
-    if (results.length === 0) {
-        dropdown.classList.remove('active');
-        dropdown.innerHTML = '';
-        // Show no results briefly
-        dropdown.innerHTML = '<div class="symptom-ac-no-results">' +
-            ({ur: 'کوئی علامت نہیں ملی', en: 'No symptoms found', roman: 'Koi alamat nahi mili'}[currentLang] || 'No symptoms found') +
-            '</div>';
-        dropdown.classList.add('active');
-        setTimeout(function() {
-            if (dropdown.innerHTML.indexOf('کوئی علامت') !== -1 || dropdown.innerHTML.indexOf('No symptoms') !== -1 || dropdown.innerHTML.indexOf('Koi alamat') !== -1) {
-                dropdown.classList.remove('active');
-            }
-        }, 1500);
-        return;
-    }
-    
-    // Get category name for display
-    function getCatName(catKey) {
-        if (!catKey) return '';
-        if (window.CATEGORIES_DB && window.CATEGORIES_DB[catKey]) {
-            return window.CATEGORIES_DB[catKey][currentLang] || window.CATEGORIES_DB[catKey].en || catKey;
-        }
-        return catKey;
-    }
-    
-    symptomACIndex = -1;
-    var html = '';
-    results.forEach(function(r) {
-        var displayName, cat, badge = '';
-        
-        if (r.type === 'rubric') {
-            displayName = r.name;
-            cat = r.category;
-            badge = ' <small style="color:#b8860b;">📖 rubric</small>';
-        } else {
-            displayName = r.sym[currentLang] || r.sym.en || '';
-            cat = getCatName(r.sym.category);
-            if (r.sym.severe) badge += ' ⚠️';
-        }
-        
-        // Highlight matching part
-        var idx = displayName.toLowerCase().indexOf(query);
-        var highlighted = displayName;
-        if (idx >= 0) {
-            highlighted = displayName.substring(0, idx) +
-                '<span class="symptom-ac-highlight">' + displayName.substring(idx, idx + query.length) + '</span>' +
-                displayName.substring(idx + query.length);
-        }
-        
-        html += '<div class="symptom-ac-item" data-key="' + r.key + '" data-name="' + escapeHtml(displayName) + '" data-cat="' + escapeHtml(cat || '') + '" data-type="' + (r.type || 'symptom') + '">';
-        html += '<span>' + highlighted + badge + '</span>';
-        if (cat) html += '<span class="ac-category">' + escapeHtml(cat) + '</span>';
-        html += '</div>';
-    });
-    
-    dropdown.innerHTML = html;
-    dropdown.classList.add('active');
-    
-    // Add click handlers
-    dropdown.querySelectorAll('.symptom-ac-item').forEach(function(item) {
-        item.addEventListener('mousedown', function(e) {
-            e.preventDefault();
-            var name = this.getAttribute('data-name');
-            var textarea = document.getElementById(textareaId); if(textarea){var cursorPos=textarea.selectionStart;var textBefore=textarea.value.substring(0,cursorPos);var ls=textBefore.lastIndexOf('\n');if(ls===-1)ls=0;else ls++;var fullText=textarea.value;var cursorPos2=textarea.selectionStart;var le=fullText.indexOf('\n',cursorPos2);if(le===-1)le=fullText.length;var beforeLine=fullText.substring(0,ls);var afterLine=fullText.substring(le);textarea.value=beforeLine+name+afterLine;var newPos=beforeLine.length+name.length;textarea.setSelectionRange(newPos,newPos);textarea.focus();}
-            hideSymptomDropdown(dropdownId);
-            textarea.focus();
-        });
-    });
-}
-
-
-
-function hideSymptomDropdown(dropdownId) {
-    var dropdown = $(dropdownId);
-    if (dropdown) {
-        // Delay to allow click to register
-        setTimeout(function() {
-            dropdown.classList.remove('active');
-            dropdown.innerHTML = '';
-            symptomACIndex = -1;
-        }, 150);
-    }
-}
-
-// Expose
-window.handleSymptomInput = handleSymptomInput;
-window.handleSymptomKeydown = handleSymptomKeydown;
-window.hideSymptomDropdown = hideSymptomDropdown;
-
 // ==================== DISEASE AUTO-SUGGEST ====================
 var diseaseSuggestTimer = null;
 
@@ -4602,9 +4092,6 @@ function doAutoSuggest(textareaId, panelId) {
         return;
     }
     
-    // Safety: check if SYMPTOMS_DB and DISEASES_DB are loaded
-    if (typeof SYMPTOMS_DB === 'undefined' || typeof DISEASES_DB === 'undefined') return;
-    
     // Step 1: Find which SYMPTOMS_DB entries are mentioned in the text (fuzzy matching)
     var foundSymptoms = [];
     var textLower = text.toLowerCase();
@@ -4622,9 +4109,7 @@ function doAutoSuggest(textareaId, panelId) {
     });
     
     if (foundSymptoms.length === 0) {
-        // Don't hide yet - repertory results may still show
-        // panel.classList.add('hidden'); 
-        contentDiv.innerHTML = '';
+        panel.classList.add('hidden');
         return;
     }
     
@@ -4637,8 +4122,7 @@ function doAutoSuggest(textareaId, panelId) {
     
     var results = [];
     
-    var diseaseDB = window.DISEASES_DB || DISEASES_DB || [];
-    diseaseDB.forEach(function(disease) {
+    (window.DISEASES_DB || []).forEach(function(disease) {
         if (!disease.symptoms || disease.symptoms.length === 0) return;
         var matched = disease.symptoms.filter(function(s) { return foundSet.has(s); });
         if (matched.length === 0) return;
@@ -4663,8 +4147,7 @@ function doAutoSuggest(textareaId, panelId) {
     results = results.slice(0, maxDiseases);
     
     if (results.length === 0) {
-        contentDiv.innerHTML = '';
-        // Don't hide - repertory may have results
+        panel.classList.add('hidden');
         return;
     }
     
@@ -4725,8 +4208,7 @@ function doAutoSuggest(textareaId, panelId) {
 }
 
 function copyDiseaseToForm(formType, diseaseId, target) {
-    var diseaseDB = window.DISEASES_DB || DISEASES_DB || [];
-    var d = diseaseDB.find(function(x) { return x.id === diseaseId; });
+    var d = (window.DISEASES_DB || []).find(function(x) { return x.id === diseaseId; });
     if (!d) return;
     
     var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
@@ -4881,651 +4363,75 @@ function loadDashboardFilterUI() {
     if ($('toggleTabAllTime')) $('toggleTabAllTime').checked = tabSettings.allTime !== undefined ? tabSettings.allTime : true;
 }
 
-// ==================== SYMPTOM MODE SWITCHER ====================
-// 'reg' for registration form, 'nv' for new visit form
-// Mode: 'disease' (old system) or 'repertory' (Kent repertory)
-var symptomModes = { reg: 'disease', nv: 'disease' };
+// ==================== AI ASSISTANT ====================
+var AI_BASE_URL = 'http://localhost:11434';
+var _aiPanelOpen = { reg: false, nv: false };
 
-
-// Lazy-load full repertory data when needed (via fetch, NOT script!)
-var _repFullData = null;
-var _repFullDataLoading = false;
-var _repFullDataCallbacks = [];
-
-function ensureRepertoryData(callback) {
-    if (_repFullData !== null) { callback(_repFullData); return; }
-    
-    _repFullDataCallbacks.push(callback);
-    if (_repFullDataLoading) return;
-    _repFullDataLoading = true;
-    
-    if (typeof showToast === 'function') showToast('⏳ Loading repertory...');
-    
-    var dataFile = repCurrentBook === 'kent' ? 'kent_repertory.json?v=1' : 'repertory-data.json?v=1';
-    fetch(dataFile)
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-            _repFullData = data;
-            _repFullDataLoading = false;
-            if (typeof showToast === 'function') showToast('✅ Repertory ready (74K rubrics)');
-            var cbs = _repFullDataCallbacks;
-            _repFullDataCallbacks = [];
-            cbs.forEach(function(cb) { cb(data); });
-        })
-        .catch(function(err) {
-            _repFullDataLoading = false;
-            console.error('Failed to load repertory:', err);
-            if (typeof showToast === 'function') showToast('❌ Failed to load', 'error');
-            _repFullDataCallbacks = [];
-        });
+function toggleAIPanel(formType, panelId, textareaId) {
+    var panel = document.getElementById(panelId);
+    if (!panel) return;
+    if (_aiPanelOpen[formType]) { panel.classList.add('hidden'); _aiPanelOpen[formType] = false; return; }
+    askAI(textareaId, panelId);
+    _aiPanelOpen[formType] = true;
 }
 
+async function askAI(textareaId, resultPanelId) {
+    var textarea = document.getElementById(textareaId);
+    var panel = document.getElementById(resultPanelId);
+    if (!textarea || !panel) return;
+    var symptoms = textarea.value.trim();
+    if (symptoms.length < 10) { panel.classList.remove('hidden'); panel.innerHTML = '<div class="ai-panel-content"><p style="color:#ff6b6b;">⚠️ Please write at least 10 characters first</p></div>'; return; }
+    panel.classList.remove('hidden');
+    panel.innerHTML = '<div class="ai-panel-header">🤖 AI Assistant <span class="ai-badge">Llama 3.2</span></div><div class="ai-panel-content"><span class="spinner"></span> Analyzing symptoms...</div>';
+    var prompt = 'You are a homeopathic assistant. Suggest rubrics, top 5 remedies, follow-up questions, and tests for these symptoms: ' + symptoms;
+    try {
+        var resp = await fetch(AI_BASE_URL + '/api/generate', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'llama3.2',prompt:prompt,stream:false})});
+        if (!resp.ok) throw new Error('Ollama not running');
+        var data = await resp.json();
+        var ans = (data.response||'No response').replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<b>$1</b>');
+        panel.innerHTML = '<div class="ai-panel-header">🤖 AI Assistant<span class="ai-badge">Llama 3.2</span></div><div class="ai-panel-content">'+ans+'</div>';
+    } catch(e) {
+        panel.innerHTML = '<div class="ai-panel-header">🤖 AI Assistant<span class="ai-badge offline">Offline</span></div><div class="ai-panel-content"><p style="color:#ff6b6b;">🤖 Cannot connect to Ollama. Is it running?<br><small>Install: ollama.com | Run: ollama run llama3.2</small></p></div>';
+    }
+}
+
+// ==================== SYMPTOM MODE SWITCHER ====================
+var symptomModes = { reg: 'disease', nv: 'disease' };
 function setSymptomMode(formType, mode) {
     symptomModes[formType] = mode;
-    
-    var btnDisease = $(formType + 'ModeDisease');
-    var btnRepertory = $(formType + 'ModeRepertory');
-    var chartBtn = $(formType + 'ChartBtn');
-    var panelLabel = $(formType + 'PanelLabel');
-    var panel = $(formType + 'DiseaseSuggest');
-    var contentDiv = $(formType + 'DiseaseSuggestContent');
-    var countEl = $(formType + 'DiseaseCount');
-    
-    if (mode === 'disease') {
-        if (btnDisease) { btnDisease.className = 'mode-btn active-disease'; }
-        if (btnRepertory) { btnRepertory.className = 'mode-btn'; }
-        if (chartBtn) chartBtn.style.display = 'none';
-        if (panelLabel) panelLabel.innerHTML = '🧠 <span data-ur="علامات سے تجویز" data-en="Suggested from Symptoms" data-roman="Alamat se Tajweez">علامات سے تجویز</span>';
-        if (countEl) countEl.textContent = '';
-    } else {
-        if (btnDisease) { btnDisease.className = 'mode-btn'; }
-        if (btnRepertory) { btnRepertory.className = 'mode-btn active-repertory'; }
-        if (panelLabel) panelLabel.innerHTML = '📊 <span data-ur="ریپرٹری نتیجہ" data-en="Repertory Result" data-roman="Repertory Result">ریپرٹری نتیجہ</span>';
-        if (countEl) countEl.textContent = '';
-    }
-    
-    // Clear old content
-    if (contentDiv) contentDiv.innerHTML = '';
-    if (panel) panel.classList.add('hidden');
-    
-    // Re-run with current text
-    var textareaId = formType === 'reg' ? 'firstVisitSymptoms' : 'nvSymptoms';
-    var textarea = $(textareaId);
-    if (textarea && textarea.value.trim().length >= 5) {
-        var panelId = formType === 'reg' ? 'regDiseaseSuggest' : 'nvDiseaseSuggest';
-        if (mode === 'disease') {
-            if (typeof autoSuggestDiseases === 'function') autoSuggestDiseases(textareaId, panelId);
-        } else {
-            ensureRepertoryData(function(data) {
-                runRepertoryForForm(formType, textareaId, panelId);
-            });
-        }
-    }
+    var bd = document.getElementById(formType + 'ModeDisease');
+    var br = document.getElementById(formType + 'ModeRepertory');
+    if (bd) bd.className = mode==='disease' ? 'mode-btn active-disease' : 'mode-btn';
+    if (br) br.className = mode==='repertory' ? 'mode-btn active-repertory' : 'mode-btn';
 }
-
-function runRepertoryForForm(formType, textareaId, panelId) {
-    var textarea = $(textareaId);
-    var panel = $(panelId);
-    if (!textarea || !panel) return;
-    
-    var text = textarea.value.trim();
-    if (text.length < 5) { panel.classList.add('hidden'); return; }
-    
-    if (_repFullData === null) {
-        // Auto-load data and retry
-        var contentDiv = $(formType + 'DiseaseSuggestContent');
-        if (contentDiv) contentDiv.innerHTML = '<div style="text-align:center;padding:15px;font-size:12px;">⏳ Loading repertory...</div>';
-        panel.classList.remove('hidden');
-        loadRepData(function(data) {
-            runRepertoryForForm(formType, textareaId, panelId);
-        });
-        return;
-    }
-    
-    var results = repertorize(text);
-    var chartBtn = $(formType + 'ChartBtn');
-    var countEl = $(formType + 'DiseaseCount');
-    var contentDiv = $(formType + 'DiseaseSuggestContent');
-    var panelLabel = $(formType + 'PanelLabel');
-    
-    if (results.length > 0) {
-        if (countEl) countEl.textContent = '(' + results.length + ')';
-        if (chartBtn) { chartBtn.style.display = 'inline-block'; chartBtn.style.visibility = 'visible'; }
-        if (panelLabel) panelLabel.innerHTML = '📊 <span data-ur=\"ریپرٹری نتیجہ\" data-en=\"Repertory Result\" data-roman=\"Repertory Result\">ریپرٹری نتیجہ</span> (' + results.length + ')';
-        
-        // Store for chart
-        window['_repResults_' + formType] = results;
-        
-        renderRepertoryResultsInPlace(results, formType, contentDiv);
-        panel.classList.remove('hidden');
-    } else {
-        if (countEl) countEl.textContent = '';
-        if (chartBtn) chartBtn.style.display = 'none';
-        if (contentDiv) contentDiv.innerHTML = '';
-    }
-}
-
-function renderRepertoryResultsInPlace(results, formType, contentDiv) {
-    if (!contentDiv) return;
-    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
-    results = results.slice(0, 8);
-    
-    var html = '';
-    results.forEach(function(r, idx) {
-        var medal = idx === 0 ? '🥇' : (idx === 1 ? '🥈' : (idx === 2 ? '🥉' : '▸'));
-        var barColor = r.percentage >= 70 ? '#27ae60' : (r.percentage >= 40 ? '#f39c12' : '#95a5a6');
-        var displayName = r.name + ' (' + escapeHtml(r.abbr) + ')';
-        
-        html += '<div style="background:white;border-radius:6px;padding:6px 10px;margin-bottom:4px;border-left:3px solid ' + barColor + ';">';
-        html += '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px;">';
-        html += '<span style="font-weight:bold;font-size:12px;">' + medal + ' ' + escapeHtml(displayName) + '</span>';
-        html += '<span style="font-size:11px;color:' + barColor + ';font-weight:bold;">' + r.percentage + '% (' + r.score + ')</span>';
-        html += '</div>';
-        html += '<div style="background:#ecf0f1;border-radius:3px;height:4px;margin:3px 0;"><div style="background:' + barColor + ';height:4px;border-radius:3px;width:' + Math.max(r.percentage, 5) + '%;"></div></div>';
-        
-        html += '<div style="font-size:10px;color:#555;">';
-        r.matchedRubrics.slice(0, 3).forEach(function(rub) {
-            html += '<span style="background:#f0f8ff;padding:1px 5px;border-radius:3px;margin:1px;">' + escapeHtml(rub.rubricName.substring(0,50)) + ' (' + rub.grade + ')</span>';
-        });
-        if (r.matchedRubrics.length > 3) html += ' +' + (r.matchedRubrics.length - 3);
-        html += '</div>';
-        
-        html += '<button onclick="copyRepertoryToForm(\'' + formType + '\',\'' + escapeHtml(r.abbr) + '\')" style="margin-top:3px;padding:2px 8px;font-size:10px;background:#27ae60;color:white;border:none;border-radius:3px;cursor:pointer;font-family:inherit;">📋 Copy</button>';
-        html += '</div>';
-    });
-    
-    contentDiv.innerHTML = html;
-}
-
-function openRepertoryChart(formType) {
-    var results = window['_repResults_' + formType] || [];
-    if (results.length === 0) return;
-    
-    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'ur';
-    
-    // Build chart: rubrics as rows, remedies as columns
-    var allRubrics = [];
-    var remedyMap = {};
-    
-    results.forEach(function(r) {
-        remedyMap[r.remedyId] = r;
-        r.matchedRubrics.forEach(function(rub) {
-            if (allRubrics.indexOf(rub.rubricId) === -1) {
-                allRubrics.push(rub.rubricId);
-            }
-        });
-    });
-    
-    // Show top 6 remedies
-    var topRemedies = results.slice(0, 6);
-    
-    var html = '<div style="overflow-x:auto;"><table class="rep-chart-table"><thead><tr>';
-    html += '<th>' + ({ur:'ربڑک',en:'Rubric',roman:'Rubric'}[lang]||'Rubric') + '</th>';
-    
-    topRemedies.forEach(function(r) {
-        html += '<th>' + escapeHtml(r.abbr) + '<br><small>' + r.percentage + '%</small></th>';
-    });
-    html += '</tr></thead><tbody>';
-    
-    allRubrics.forEach(function(rubId) {
-        html += '<tr>';
-        // Rubric name
-        var rubricName = rubId;
-        results.forEach(function(r) {
-            var found = r.matchedRubrics.find(function(x) { return x.rubricId === rubId; });
-            if (found) rubricName = found.rubricName;
-        });
-        html += '<td>' + escapeHtml(rubricName) + '</td>';
-        
-        topRemedies.forEach(function(r) {
-            var found = r.matchedRubrics.find(function(x) { return x.rubricId === rubId; });
-            var grade = found ? found.grade : 0;
-            var display = grade > 0 ? grade : '';
-            html += '<td class="grade-' + grade + '">' + display + '</td>';
-        });
-        html += '</tr>';
-    });
-    
-    html += '</tbody></table></div>';
-    
-    // Totals row
-    html += '<div style="margin-top:10px;text-align:center;font-size:11px;color:#555;">';
-    topRemedies.forEach(function(r) {
-        html += '<span style="margin:0 8px;"><strong>' + escapeHtml(r.abbr) + '</strong>: ' + r.score + '/' + r.totalRubrics + '</span>';
-    });
-    html += '</div>';
-    
-    $('repChartContent').innerHTML = html;
-    $('repChartOverlay').classList.add('active');
-}
-
-function closeRepertoryChart() {
-    $('repChartOverlay').classList.remove('active');
-}
-
-window.setSymptomMode = setSymptomMode;
-window.openRepertoryChart = openRepertoryChart;
-window.closeRepertoryChart = closeRepertoryChart;
-window.runRepertoryForForm = runRepertoryForForm;
-
-// ==================== REPERTORIZATION ENGINE ====================
-var repRepertorizeCounter = 0;
-var _repLastResults = { reg: null, nv: null };
-
-function repertorize(symptomsText, chapterFilter) {
-    if (_repFullData === null) return [];
-    
-    var text = symptomsText.toLowerCase();
-    var scores = {};
-    var data = _repFullData;
-    
-    // Split symptoms text into rubric lines (each line = one rubric)
-    var rubricLines = text.split(/[\n]+/).filter(function(l) { return l.trim().length > 0; });
-    
-    // For each rubric line, find the matching rubric data
-    rubricLines.forEach(function(lineText) {
-        var lt = lineText.trim().toLowerCase();
-        
-        // Search all chapters for this rubric
-        Object.keys(data).forEach(function(chKey) {
-            var rubrics = data[chKey];
-            if (!rubrics) return;
-            
-            Object.keys(rubrics).forEach(function(rid) {
-                var rubric = rubrics[rid];
-                if (!rubric || !rubric.t) return;
-                
-                // Exact or near-exact match on rubric text
-                if (rubric.t.toLowerCase() === lt) {
-                    var rems = rubric.r || {};
-                    Object.keys(rems).forEach(function(abbr) {
-                        if (!scores[abbr]) scores[abbr] = { score: 0, rubrics: [], totalRubrics: 0 };
-                        var grade = rems[abbr] || 1;
-                        scores[abbr].score += grade;
-                        scores[abbr].rubrics.push({
-                            rubricId: rid,
-                            rubricName: rubric.t,
-                            chapter: chKey,
-                            grade: grade
-                        });
-                        scores[abbr].totalRubrics++;
-                    });
-                }
-            });
-        });
-    });
-    
-    var results = Object.keys(scores).map(function(abbr) {
-        var d = scores[abbr];
-        return {
-            remedyId: abbr, remedy: null, name: abbr, abbr: abbr,
-            score: d.score, totalRubrics: d.totalRubrics, matchedRubrics: d.rubrics
-        };
-    });
-    
-    results.sort(function(a, b) { return b.score - a.score; });
-    if (results.length > 0) {
-        var maxScore = results[0].score;
-        results.forEach(function(r) { r.percentage = Math.round((r.score / maxScore) * 100); });
-    }
-    
-    return results;
-}
-
-
-
-
-function copyRepertoryToForm(formType, remedyId) {
-    // New format: REMEDIES_DB_KENT[rid] = {n: name, a: abbr}
-    // remedyId is the abbreviation
-    var remName = remedyId;
-    if (typeof REMEDIES_DB_KENT !== 'undefined') {
-        var allRem = REMEDIES_DB_KENT;
-        Object.keys(allRem).forEach(function(k) {
-            if (allRem[k].a === remedyId) remName = allRem[k].n;
-        });
-    }
-    
-    var prescId = formType === 'reg' ? 'firstVisitPrescription' : 'nvPrescription';
-    var diagId = formType === 'reg' ? 'firstVisitDiagnosis' : 'nvDiagnosis';
-    
-    var prescField = $(prescId);
-    if (prescField) {
-        var line = 'Rp/ ' + remName + ' (' + remedyId + ')';
-        var current = prescField.value.trim();
-        prescField.value = current ? current + '\n' + line : line;
-    }
-    
-    var diagField = $(diagId);
-    if (diagField) {
-        var diagLine = remName + ' (' + remedyId + ')';
-        var curDiag = diagField.value.trim();
-        if (curDiag.indexOf(diagLine) === -1) {
-            diagField.value = curDiag ? curDiag + '\n' + diagLine : diagLine;
-        }
-    }
-    
-    if (typeof showToast === 'function') {
-        showToast('✅ Copied: ' + remName);
-    }
-}
-
-// Override autoSuggestDiseases and handleSymptomInput for mode-aware behavior
-(function() {
-    var _origAutoSuggest = autoSuggestDiseases;
-    var _origHandleSymptomInput = handleSymptomInput;
-    
-    // Override autoSuggestDiseases
-    autoSuggestDiseases = function(textareaId, panelId) {
-        var formType = (textareaId.indexOf('firstVisit') !== -1) ? 'reg' : 'nv';
-        var mode = symptomModes[formType] || 'disease';
-        
-        if (mode === 'disease') {
-            if (typeof _origAutoSuggest === 'function') _origAutoSuggest(textareaId, panelId);
-        } else {
-            // Load repertory data if needed, then run
-            if (_repFullData !== null) {
-                runRepertoryForForm(formType, textareaId, panelId);
-            } else {
-                loadRepData(function(data) {
-                    runRepertoryForForm(formType, textareaId, panelId);
-                });
-            }
-        }
-    };
-    
-    // Override handleSymptomInput for repertory-mode autocomplete
-    handleSymptomInput = function(textareaId, dropdownId, diseasePanelId) {
-        var formType = (textareaId.indexOf('firstVisit') !== -1) ? 'reg' : 'nv';
-        var mode = symptomModes[formType] || 'disease';
-        
-        // Run the appropriate suggest system
-        if (typeof autoSuggestDiseases === 'function') {
-            autoSuggestDiseases(textareaId, diseasePanelId);
-        }
-        
-        // Autocomplete dropdown
-        if (symptomACTimer) clearTimeout(symptomACTimer);
-        symptomACTimer = setTimeout(function() {
-            if (mode === 'repertory') {
-                showRepertoryAutocomplete(textareaId, dropdownId);
-            } else {
-                showSymptomAutocomplete(textareaId, dropdownId);
-            }
-        }, 200);
-    };
-})();
-
-// Repertory autocomplete - searches REPERTORY_DATA rubrics
-function showRepertoryAutocomplete(textareaId, dropdownId) {
-    var textarea = document.getElementById(textareaId);
-    var dropdown = document.getElementById(dropdownId);
-    if (!textarea || !dropdown) return;
-    if (_repFullData === null) return;
-    
-    var fullText = textarea.value;
-    if (fullText.trim().length < 2) { dropdown.classList.remove('active'); dropdown.innerHTML = ''; return; }
-    
-    // Get cursor position and current line text
-    var cursorPos = textarea.selectionStart;
-    var textBefore = fullText.substring(0, cursorPos);
-    
-    // Find the start of the CURRENT LINE (go back to last newline)
-    var lineStart = textBefore.lastIndexOf('\n');
-    if (lineStart === -1) lineStart = 0; else lineStart++;
-    var currentLineText = textBefore.substring(lineStart).trim();
-    
-    if (currentLineText.length < 2) { dropdown.classList.remove('active'); dropdown.innerHTML = ''; return; }
-    
-    // Split current line into words for AND search
-    var allWords = currentLineText.toLowerCase().split(/[\s،,]+/).filter(function(w) { return w.length > 0; });
-    if (allWords.length === 0) { dropdown.classList.remove('active'); dropdown.innerHTML = ''; return; }
-    
-    var results = [];
-    var data = _repFullData;
-    
-    // Search all chapters
-    Object.keys(data).forEach(function(chKey) {
-        var rubrics = data[chKey];
-        if (!rubrics) return;
-        Object.keys(rubrics).forEach(function(rid) {
-            var rubric = rubrics[rid];
-            if (!rubric || !rubric.t) return;
-            var lowerT = rubric.t.toLowerCase();
-            
-            // ALL words must be present
-            for (var wi = 0; wi < allWords.length; wi++) {
-                if (lowerT.indexOf(allWords[wi]) === -1) return;
-            }
-            
-            var score = 0;
-            allWords.forEach(function(w) {
-                var idx = lowerT.indexOf(w);
-                if (idx === 0) score += 3;
-                else if (idx > 0) score += 1;
-            });
-            results.push({ key: rid, name: rubric.t, category: chKey, score: score });
-        });
-    });
-    
-    results.sort(function(a, b) { return b.score - a.score; });
-    results = results.slice(0, 8);
-    
-    if (results.length === 0) {
-        dropdown.innerHTML = '<div class="symptom-ac-no-results">No rubrics found</div>';
-        dropdown.classList.add('active');
-        setTimeout(function() { dropdown.classList.remove('active'); }, 1500);
-        return;
-    }
-    
-    symptomACIndex = -1;
-    var html = '';
-    results.forEach(function(r) {
-        var highlighted = r.name;
-        if (allWords[0]) {
-            var idx = r.name.toLowerCase().indexOf(allWords[0]);
-            if (idx >= 0) {
-                highlighted = r.name.substring(0, idx) +
-                    '<span class="symptom-ac-highlight">' + r.name.substring(idx, idx + allWords[0].length) + '</span>' +
-                    r.name.substring(idx + allWords[0].length);
-            }
-        }
-        var chName = r.category;
-        repChapterNames.forEach(function(c) { if (c.key === r.category) chName = c.name; });
-        
-        html += '<div class="symptom-ac-item" data-key="' + r.key + '" data-name="' + escapeHtml(r.name) + '" data-cat="' + escapeHtml(chName) + '">';
-        html += '<span>' + highlighted + ' <small style="color:#b8860b;">📖</small></span>';
-        html += '<span class="ac-category">' + escapeHtml(chName) + '</span>';
-        html += '</div>';
-    });
-    
-    dropdown.innerHTML = html;
-    dropdown.classList.add('active');
-    
-    // Click handler
-    dropdown.querySelectorAll('.symptom-ac-item').forEach(function(item) {
-        item.addEventListener('mousedown', function(e) {
-            e.preventDefault();
-            selectRubricFromDropdown(textareaId, dropdownId, this.getAttribute('data-name'), lineStart);
-        });
-    });
-}
-
-// Shared function to insert rubric at current line
-function selectRubricFromDropdown(textareaId, dropdownId, rubricName, lineStart) {
-    var textarea = document.getElementById(textareaId);
-    if (!textarea) return;
-    
-    var fullText = textarea.value;
-    var cursorPos = textarea.selectionStart;
-    var textBeforeCursor = fullText.substring(0, cursorPos);
-    var textAfterCursor = fullText.substring(cursorPos);
-    
-    // Find line boundaries
-    var ls = textBeforeCursor.lastIndexOf('\n');
-    if (ls === -1) ls = 0; else ls++;
-    var le = fullText.indexOf('\n', cursorPos);
-    if (le === -1) le = fullText.length;
-    
-    // Replace current line with rubric name
-    var beforeLine = fullText.substring(0, ls);
-    var afterLine = fullText.substring(le);
-    
-    textarea.value = beforeLine + rubricName + afterLine;
-    
-    // Position cursor at start of next line  
-    var newPos = beforeLine.length + rubricName.length;
-    textarea.setSelectionRange(newPos, newPos);
-    textarea.focus();
-    
-    hideSymptomDropdown(dropdownId);
-    
-    // Auto-insert newline for next rubric
-    setTimeout(function() {
-        var val = textarea.value;
-        var pos = textarea.selectionStart;
-        // Add newline if we're at end of a rubric line
-        if (pos === val.length || (pos < val.length && val.charAt(pos) !== '\n')) {
-            // Insert newline at cursor position
-            var before = val.substring(0, pos);
-            var after = val.substring(pos);
-            // Only add newline if the next char isn't already newline
-            if (!after.startsWith('\n')) {
-                textarea.value = before + '\n' + after;
-                textarea.setSelectionRange(pos + 1, pos + 1);
-            }
-        }
-        // Re-run repertorization (autoSuggestDiseases handles data loading)
-        var formType = (textareaId.indexOf('firstVisit') !== -1) ? 'reg' : 'nv';
-        var panelId = formType === 'reg' ? 'regDiseaseSuggest' : 'nvDiseaseSuggest';
-        if (typeof autoSuggestDiseases === 'function') {
-            autoSuggestDiseases(textareaId, panelId);
-        }
-    }, 10);
-}
-
-// Override handleSymptomKeydown for repertory mode - add Enter key support
-var _origHandleKeydown = handleSymptomKeydown;
-handleSymptomKeydown = function(e, textareaId, dropdownId) {
-    var formType = (textareaId.indexOf('firstVisit') !== -1) ? 'reg' : 'nv';
-    var mode = symptomModes[formType] || 'disease';
-    
-    if (mode === 'repertory') {
-        var dropdown = document.getElementById(dropdownId);
-        if (!dropdown || !dropdown.classList.contains('active')) return;
-        
-        var items = dropdown.querySelectorAll('.symptom-ac-item');
-        
-        if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            symptomACIndex = Math.min(symptomACIndex + 1, items.length - 1);
-            updateACSelection(items);
-        } else if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            symptomACIndex = Math.max(symptomACIndex - 1, -1);
-            updateACSelection(items);
-        } else if (e.key === 'Enter') {
-            e.preventDefault();
-            if (symptomACIndex >= 0 && items[symptomACIndex]) {
-                var textarea = document.getElementById(textareaId);
-                var cursorPos = textarea.selectionStart;
-                var textBefore = textarea.value.substring(0, cursorPos);
-                var ls = textBefore.lastIndexOf('\n');
-                if (ls === -1) ls = 0; else ls++;
-                selectRubricFromDropdown(textareaId, dropdownId, items[symptomACIndex].getAttribute('data-name'), ls);
-            }
-        } else if (e.key === 'Escape') {
-            hideSymptomDropdown(dropdownId);
-        }
-    } else {
-        // Disease mode - use original handler
-        if (typeof _origHandleKeydown === 'function') _origHandleKeydown(e, textareaId, dropdownId);
-    }
-};
-
-function updateACSelection(items) {
-    items.forEach(function(item, i) {
-        if (i === symptomACIndex) {
-            item.classList.add('selected');
-            item.scrollIntoView({ block: 'nearest' });
-        } else {
-            item.classList.remove('selected');
-        }
-    });
-}
-
-
-
-function copyRemedyToPrescription(abbr) {
-    // Find remedy name
-    var remName = abbr;
-    if (typeof REMEDIES_DB_KENT !== 'undefined') {
-        Object.keys(REMEDIES_DB_KENT).forEach(function(k) {
-            if (REMEDIES_DB_KENT[k].a === abbr) remName = REMEDIES_DB_KENT[k].n;
-        });
-    }
-    
-    // Copy to clipboard
-    var text = remName + ' (' + abbr + ')';
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(function() {
-            if (typeof showToast === 'function') showToast('✅ Copied: ' + text);
-        });
-    }
-}
-
-function switchRepertoryBook() {
-    var sel = $('#repBookSelect');
-    if (sel) repCurrentBook = sel.value;
-    repCurrentChapter = '';
-    $('#repChapterList').innerHTML = '<div class="empty-state"><p>Loading...</p></div>';
-    $('#repRubricContent').innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Select a chapter to browse rubrics</p></div>';
-    initRepertoryBrowser();
-}
-
-window.initRepertoryBrowser = initRepertoryBrowser;
-window.selectChapter = selectChapter;
-window.searchRepertoryBrowser = searchRepertoryBrowser;
-window.copyRemedyToPrescription = copyRemedyToPrescription;
-
-window.switchRepertoryBook = switchRepertoryBook;
-
-// Chart overlay click-to-close
-document.addEventListener('click', function(e) {
-    if (e.target && e.target.id === 'repChartOverlay') {
-        closeRepertoryChart();
-    }
-});
-
-window.repertorize = repertorize;
-window.copyRepertoryToForm = copyRepertoryToForm;
-window.renderRepertoryResultsInPlace = renderRepertoryResultsInPlace;
-window.runRepertoryForForm = runRepertoryForForm;
-window.setSymptomMode = setSymptomMode;
-window.openRepertoryChart = openRepertoryChart;
-window.closeRepertoryChart = closeRepertoryChart;
-window.showRepertoryAutocomplete = showRepertoryAutocomplete;
 
 // ==================== REPERTORY BROWSER ====================
+var repCurrentBook = 'publicum';
 var repChapterNames = [];
 var repCurrentChapter = '';
 var repTreeCache = {};
 var _repFullData = null;
+var repCurrentChKey = '', repCurrentChName = '', repCurrentFlatTree = [];
+
+function switchRepertoryBook() {
+    var sel = document.getElementById('repBookSelect');
+    if (sel) repCurrentBook = sel.value;
+    repCurrentChapter = ''; repTreeCache = {}; _repFullData = null;
+    document.getElementById('repChapterList').innerHTML = '<div class="empty-state"><p>Loading...</p></div>';
+    document.getElementById('repRubricContent').innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Select a chapter</p></div>';
+    initRepertoryBrowser();
+}
 
 function initRepertoryBrowser() {
-    var idx = [{"key":"extremities","name":"Extremities","rubrics":16115},{"key":"head","name":"Head","rubrics":6984},{"key":"mind","name":"Mind","rubrics":5827},{"key":"back","name":"Back","rubrics":4611},{"key":"abdomen","name":"Abdomen","rubrics":4339},{"key":"chest","name":"Chest","rubrics":2858},{"key":"stomach","name":"Stomach","rubrics":2826},{"key":"face","name":"Face","rubrics":2094},{"key":"ear","name":"Ear","rubrics":2029},{"key":"eye","name":"Eye","rubrics":1787},{"key":"generalities","name":"Generalities","rubrics":1751},{"key":"mouth","name":"Mouth","rubrics":1598},{"key":"sleep","name":"Sleep","rubrics":1588},{"key":"rectum","name":"Rectum","rubrics":1549},{"key":"cough","name":"Cough","rubrics":1535},{"key":"nose","name":"Nose","rubrics":1497},{"key":"genitalia_female","name":"Genitalia female","rubrics":1484},{"key":"skin","name":"Skin","rubrics":1161},{"key":"genitalia_male","name":"Genitalia male","rubrics":1121},{"key":"vision","name":"Vision","rubrics":1093},{"key":"throat","name":"Throat","rubrics":1047},{"key":"teeth","name":"Teeth","rubrics":839},{"key":"heart_&_circulation","name":"Heart & Circulation","rubrics":789},{"key":"chill","name":"Chill","rubrics":768},{"key":"bladder","name":"Bladder","rubrics":766},{"key":"respiration","name":"Respiration","rubrics":760},{"key":"larynx_and_trachea","name":"Larynx and trachea","rubrics":729},{"key":"urethra","name":"Urethra","rubrics":606},{"key":"fever","name":"Fever","rubrics":596},{"key":"appetite","name":"Appetite","rubrics":513},{"key":"vertigo","name":"Vertigo","rubrics":512},{"key":"clinical","name":"Clinical","rubrics":490},{"key":"urine","name":"Urine","rubrics":406},{"key":"perspiration","name":"Perspiration","rubrics":395},{"key":"expectoration","name":"Expectoration","rubrics":344},{"key":"external_throat","name":"External throat","rubrics":276},{"key":"kidneys","name":"Kidneys","rubrics":267},{"key":"stool","name":"Stool","rubrics":234},{"key":"hearing","name":"Hearing","rubrics":168},{"key":"prostate_gland","name":"Prostate gland","rubrics":105},{"key":"blood","name":"Blood","rubrics":25}];
-    // Select correct chapter list based on current book
     if (repCurrentBook === 'kent') {
-        // Kent Repertory chapters (37 chapters)
         repChapterNames = [{"key":"mind","name":"Mind","rubrics":5847},{"key":"vertigo","name":"Vertigo","rubrics":923},{"key":"head","name":"Head","rubrics":4470},{"key":"eye","name":"Eye","rubrics":1306},{"key":"vision","name":"Vision","rubrics":881},{"key":"ear","name":"Ear","rubrics":1740},{"key":"hearing","name":"Hearing","rubrics":99},{"key":"nose","name":"Nose","rubrics":1536},{"key":"face","name":"Face","rubrics":1549},{"key":"mouth","name":"Mouth","rubrics":1531},{"key":"teeth","name":"Teeth","rubrics":876},{"key":"throat","name":"Throat","rubrics":1487},{"key":"external_throat","name":"External Throat","rubrics":77},{"key":"stomach","name":"Stomach","rubrics":1670},{"key":"abdomen","name":"Abdomen","rubrics":1277},{"key":"rectum","name":"Rectum","rubrics":720},{"key":"stool","name":"Stool","rubrics":795},{"key":"bladder","name":"Bladder","rubrics":573},{"key":"kidneys","name":"Kidneys","rubrics":152},{"key":"prostate_gland","name":"Prostate Gland","rubrics":39},{"key":"urethra","name":"Urethra","rubrics":569},{"key":"urine","name":"Urine","rubrics":490},{"key":"genitalia_male","name":"Genitalia Male","rubrics":812},{"key":"genitalia_female","name":"Genitalia Female","rubrics":1057},{"key":"larynx_and_trachea","name":"Larynx & Trachea","rubrics":427},{"key":"respiration","name":"Respiration","rubrics":972},{"key":"cough","name":"Cough","rubrics":4723},{"key":"expectoration","name":"Expectoration","rubrics":698},{"key":"chest","name":"Chest","rubrics":2074},{"key":"back","name":"Back","rubrics":4555},{"key":"extremities","name":"Extremities","rubrics":7728},{"key":"sleep","name":"Sleep","rubrics":3235},{"key":"chill","name":"Chill","rubrics":3038},{"key":"fever","name":"Fever","rubrics":1183},{"key":"perspiration","name":"Perspiration","rubrics":1236},{"key":"skin","name":"Skin","rubrics":1084},{"key":"generalities","name":"Generalities","rubrics":1312}];
     } else {
-        // Polony repertory (41 chapters)
         repChapterNames = [{"key":"extremities","name":"Extremities","rubrics":16115},{"key":"head","name":"Head","rubrics":6984},{"key":"mind","name":"Mind","rubrics":5827},{"key":"back","name":"Back","rubrics":4611},{"key":"abdomen","name":"Abdomen","rubrics":4339},{"key":"chest","name":"Chest","rubrics":2858},{"key":"stomach","name":"Stomach","rubrics":2826},{"key":"face","name":"Face","rubrics":2094},{"key":"ear","name":"Ear","rubrics":2029},{"key":"eye","name":"Eye","rubrics":1787},{"key":"generalities","name":"Generalities","rubrics":1751},{"key":"mouth","name":"Mouth","rubrics":1598},{"key":"sleep","name":"Sleep","rubrics":1588},{"key":"rectum","name":"Rectum","rubrics":1549},{"key":"cough","name":"Cough","rubrics":1535},{"key":"nose","name":"Nose","rubrics":1497},{"key":"genitalia_female","name":"Genitalia female","rubrics":1484},{"key":"skin","name":"Skin","rubrics":1161},{"key":"genitalia_male","name":"Genitalia male","rubrics":1121},{"key":"vision","name":"Vision","rubrics":1093},{"key":"throat","name":"Throat","rubrics":1047},{"key":"teeth","name":"Teeth","rubrics":839},{"key":"heart_&_circulation","name":"Heart & Circulation","rubrics":789},{"key":"chill","name":"Chill","rubrics":768},{"key":"bladder","name":"Bladder","rubrics":766},{"key":"respiration","name":"Respiration","rubrics":760},{"key":"larynx_and_trachea","name":"Larynx and trachea","rubrics":729},{"key":"urethra","name":"Urethra","rubrics":606},{"key":"fever","name":"Fever","rubrics":596},{"key":"appetite","name":"Appetite","rubrics":513},{"key":"vertigo","name":"Vertigo","rubrics":512},{"key":"clinical","name":"Clinical","rubrics":490},{"key":"urine","name":"Urine","rubrics":406},{"key":"perspiration","name":"Perspiration","rubrics":395},{"key":"expectoration","name":"Expectoration","rubrics":344},{"key":"external_throat","name":"External throat","rubrics":276},{"key":"kidneys","name":"Kidneys","rubrics":267},{"key":"stool","name":"Stool","rubrics":234},{"key":"hearing","name":"Hearing","rubrics":168},{"key":"prostate_gland","name":"Prostate gland","rubrics":105},{"key":"blood","name":"Blood","rubrics":25}];
     }
     repChapterNames.sort(function(a,b){return a.name.localeCompare(b.name);});
     var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
-    var info=document.getElementById('repBrowserInfo');
-    if(info)info.textContent=repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';
+    var info = document.getElementById('repBrowserInfo');
+    if(info) info.textContent = repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';
     renderChapterList();
 }
 
@@ -5544,8 +4450,8 @@ function selectChapter(chKey){
     var cd=document.getElementById('repRubricContent');if(!cd)return;
     cd.innerHTML='<div style="text-align:center;padding:30px;">Loading <b>'+nm+'</b>...</div>';
     if(repTreeCache[chKey]){renderTree(chKey,nm,repTreeCache[chKey]);return;}
-    var basePath = repCurrentBook === 'kent' ? 'kent_chapters/' : 'repertory_chapters/';
-    fetch(basePath+chKey+'.json?v=2').then(function(r){return r.json();}).then(function(d){
+    var basePath=repCurrentBook==='kent'?'kent_chapters/':'repertory_chapters/';
+    fetch(basePath+chKey+'.json?v=1').then(function(r){return r.json();}).then(function(d){
         var tree=buildRubricTree(d);repTreeCache[chKey]=tree;renderTree(chKey,nm,tree);
     }).catch(function(e){cd.innerHTML='<div style="text-align:center;padding:30px;color:#e74c3c;"><p>❌ Failed to load '+nm+'</p><p style="font-size:11px;">'+e.message+'</p></div>';});
 }
@@ -5553,205 +4459,81 @@ function selectChapter(chKey){
 function buildRubricTree(data){
     var root={children:{},remedies:{}};
     Object.keys(data).forEach(function(rid){var r=data[rid];if(!r||!r.t)return;var p=r.t.split(', ');var n=root;
-    for(var i=0;i<p.length;i++){var pt=p[i].trim();if(!pt)continue;if(!n.children[pt])n.children[pt]={name:pt,children:{},remedies:{},count:0};n=n.children[pt];n.count++;if(i===p.length-1){n.remedies=r.r||{};}}});
-    return root;
-}
+    for(var i=0;i<p.length;i++){var pt=p[i].trim();if(!pt)continue;if(!n.children[pt])n.children[pt]={name:pt,children:{},remedies:{},count:0};n=n.children[pt];n.count++;if(i===p.length-1){n.remedies=r.r||{};}}});return root;}
 
-var repNodeId=0;
-var repTreePage=0;var repTreePageSize=50;var repCurrentTree=null;var repCurrentChName='';var repCurrentChKey='';
-
+var repTreePage=0,repTreePageSize=50;
 function renderTree(chKey,chName,tree){
     repCurrentTree=tree;repCurrentChName=chName;repCurrentChKey=chKey;
-    // Flatten tree: collect ALL leaf rubrics into array
-    var flat=[];
-    function flatten(node,depth,path){
-        Object.keys(node.children).sort().forEach(function(k){
-            var c=node.children[k];
-            var hc=Object.keys(c.children).length>0;
-            var hr=Object.keys(c.remedies).length>0;
-            // Collect leaf even if it also has children (main rubrics!)
-            if(hr){flat.push({name:k,depth:depth,remedies:c.remedies,count:c.count,path:path+'/'+k,hasChildren:hc});}
-            if(hc){flatten(c,depth+1,path+'/'+c.name);}
-        });
-    }
-    flatten(tree,0,'');
-    repCurrentFlatTree=flat;
-    repTreePage=0;
-    renderTreePage(chKey,chName,0);
+    var flat=[];function flatten(node,depth){Object.keys(node.children).sort().forEach(function(k){var c=node.children[k];var hc=Object.keys(c.children).length>0;var hr=Object.keys(c.remedies).length>0;if(hc)flatten(c,depth+1);if(hr)flat.push({name:k,depth:depth,remedies:c.remedies,count:c.count,hasChildren:hc});});}
+    flatten(tree,0);repCurrentFlatTree=flat;repTreePage=0;renderTreePage(chKey,chName,0);
 }
-
-var repCurrentFlatTree=[];
-
 function renderTreePage(chKey,chName,page){
     var cd=document.getElementById('repRubricContent');if(!cd)return;
-    var flat=repCurrentFlatTree;
-    var total=flat.length;
-    var totalPages=Math.ceil(total/repTreePageSize);
-    if(page<0)page=0;if(page>=totalPages)page=totalPages-1;
-    repTreePage=page;
-    var start=page*repTreePageSize;
-    var end=Math.min(start+repTreePageSize,total);
-
+    var flat=repCurrentFlatTree,total=flat.length,totalPages=Math.ceil(total/repTreePageSize);
+    if(page<0)page=0;if(page>=totalPages)page=totalPages-1;repTreePage=page;
+    var start=page*repTreePageSize,end=Math.min(start+repTreePageSize,total);
     var h='<div class="rep-breadcrumb">📖 Repertory / <span>'+escapeHtml(chName)+'</span> ('+total.toLocaleString()+' rubrics)';
-    if(totalPages>1)h+=' <span style="font-size:11px;color:#7f8c8d;">Page '+(page+1)+'/'+totalPages+'</span>';
-    h+='</div>';
-
-    if(totalPages>1){
-        h+='<div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;">';
-        h+='<button onclick="renderTreePage(repCurrentChKey,repCurrentChName,'+(page-1)+')" style="padding:4px 12px;border:1px solid #ddd;background:white;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px;"'+(page===0?' disabled':'')+'>◀ Prev</button>';
-        h+='<span style="font-size:11px;color:#555;">'+(start+1)+'-'+end+' of '+total.toLocaleString()+'</span>';
-        h+='<button onclick="renderTreePage(repCurrentChKey,repCurrentChName,'+(page+1)+')" style="padding:4px 12px;border:1px solid #ddd;background:white;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px;"'+(page>=totalPages-1?' disabled':'')+'>Next ▶</button>';
-        h+='<span style="flex:1;"></span>';
-        h+='<select onchange="repTreePageSize=parseInt(this.value);renderTree(repCurrentChKey,repCurrentChName,repCurrentTree);" style="padding:3px 6px;border:1px solid #ddd;border-radius:4px;font-size:11px;font-family:inherit;">';
-        h+='<option value="50"'+(repTreePageSize===50?' selected':'')+'>50/page</option>';
-        h+='<option value="100"'+(repTreePageSize===100?' selected':'')+'>100/page</option>';
-        h+='<option value="200"'+(repTreePageSize===200?' selected':'')+'>200/page</option>';
-        h+='<option value="500"'+(repTreePageSize===500?' selected':'')+'>500/page</option>';
-        h+='</select></div>';
-    }
-
+    if(totalPages>1)h+=' <span style="font-size:11px;color:#7f8c8d;">Page '+(page+1)+'/'+totalPages+'</span>';h+='</div>';
+    if(totalPages>1){h+='<div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;">';h+='<button onclick="renderTreePage(repCurrentChKey,repCurrentChName,'+(page-1)+')" style="padding:4px 12px;border:1px solid #ddd;background:white;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px;"'+(page===0?' disabled':'')+'>◀ Prev</button>';h+='<span style="font-size:11px;color:#555;">'+(start+1)+'-'+end+' of '+total.toLocaleString()+'</span>';h+='<button onclick="renderTreePage(repCurrentChKey,repCurrentChName,'+(page+1)+')" style="padding:4px 12px;border:1px solid #ddd;background:white;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px;"'+(page>=totalPages-1?' disabled':'')+'>Next ▶</button>';h+='<span style="flex:1;"></span>';h+='<select onchange="repTreePageSize=parseInt(this.value);renderTree(repCurrentChKey,repCurrentChName,repCurrentTree);" style="padding:3px 6px;border:1px solid #ddd;border-radius:4px;font-size:11px;font-family:inherit;"><option value="50"'+(repTreePageSize===50?' selected':'')+'>50/page</option><option value="100"'+(repTreePageSize===100?' selected':'')+'>100/page</option><option value="200"'+(repTreePageSize===200?' selected':'')+'>200/page</option><option value="500"'+(repTreePageSize===500?' selected':'')+'>500/page</option></select></div>';}
     h+='<div class="rep-tree">';
-    for(var i=start;i<end;i++){
-        var leaf=flat[i];
-        var d=leaf.depth;
-        if(d===0 && !leaf.hasChildren){
-            // Main rubric with NO children - border only around name text
-            h+='<div class="rep-rubric-main-wrapper">';
-            h+='<div class="rep-rubric-main">'+escapeHtml(leaf.name)+'</div>';
-            h+='<div class="rep-rubric-main-rems">';
-            var rems=Object.keys(leaf.remedies);
-            rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
-            rems.forEach(function(abbr){
-                var g=leaf.remedies[abbr]||1;
-                h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';
-            });
+    for(var i=start;i<end;i++){var leaf=flat[i],d=leaf.depth;
+        if(d===0&&!leaf.hasChildren){
+            h+='<div class="rep-rubric-main-wrapper"><div class="rep-rubric-main">'+escapeHtml(leaf.name)+'</div><div class="rep-rubric-main-rems">';
+            var rems=Object.keys(leaf.remedies);rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
+            rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
             h+='</div></div>';
-        } else if(d===0){
-            // Main rubric WITH children - border only on name, remedies below
-            h+='<div class="rep-rubric-main-wrapper">';
-            h+='<div class="rep-rubric-main" style="margin-bottom:1px;">'+escapeHtml(leaf.name)+'</div>';
-            h+='<div class="rep-rubric-main-rems">';
-            var rems=Object.keys(leaf.remedies);
-            rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
-            rems.forEach(function(abbr){
-                var g=leaf.remedies[abbr]||1;
-                h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';
-            });
+        }else if(d===0){
+            h+='<div class="rep-rubric-main-wrapper"><div class="rep-rubric-main" style="margin-bottom:1px;">'+escapeHtml(leaf.name)+'</div><div class="rep-rubric-main-rems">';
+            var rems=Object.keys(leaf.remedies);rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
+            rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'">'+escapeHtml(abbr)+'</span>';});
             h+='</div></div>';
-        } else {
-            // Sub-rubric with bullet
-            var cls='rep-rubric-d'+(d>3?3:d);
-            h+='<div class="rep-tree-leaf '+cls+'">';
-            if(d<=3) h+='<span class="rep-bullet"></span>';
-            h+='<span class="rep-rubric-name">'+escapeHtml(leaf.name)+'</span>';
-            h+='<span style="margin-left:8px;">';
-            var rems=Object.keys(leaf.remedies);
-            rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
-            rems.forEach(function(abbr){
-                var g=leaf.remedies[abbr]||1;
-                h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';
-            });
+        }else{
+            var cls='rep-rubric-d'+(d>3?3:d);h+='<div class="rep-tree-leaf '+cls+'">';
+            if(d<=3)h+='<span class="rep-bullet"></span>';
+            h+='<span class="rep-rubric-name">'+escapeHtml(leaf.name)+'</span><span style="margin-left:8px;">';
+            var rems=Object.keys(leaf.remedies);rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
+            rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
             h+='</span></div>';
         }
     }
-    h+='</div>';
-
-    cd.innerHTML=h;
-    cd.scrollTop=0;
+    h+='</div>';cd.innerHTML=h;cd.scrollTop=0;
 }
-
-
-function repToggleFolder(nid){var b=document.getElementById(nid+'_body');var i=document.getElementById(nid+'_icon');if(!b||!i)return;if(b.style.display==='none'){b.style.display='';i.textContent='▼';}else{b.style.display='none';i.textContent='▶';}}
-
-function loadRepData(cb){if(_repFullData!==null){cb(_repFullData);return;}var dataFile2 = repCurrentBook === 'kent' ? 'kent_repertory.json?v=2' : 'repertory-data.json?v=2';
-    fetch(dataFile2).then(function(r){return r.json();}).then(function(d){_repFullData=d;cb(d);}).catch(function(e){console.error(e);});}
 
 function searchRepertoryBrowser(){
     var q=(document.getElementById('repBrowserSearch')||{}).value||'';
-    if(q.length<2){var rc=document.getElementById('repRubricContent');if(rc)rc.innerHTML='<div class="empty-state"><div class="icon">📖</div><p>Type 2+ chars. Use @chapter to filter (e.g. pain @head)</p></div>';return;}
-    var rc=document.getElementById('repRubricContent');if(rc)rc.innerHTML='<div style="text-align:center;padding:20px;">🔍 Searching...</div>';
-    var chF=null;var ai=q.indexOf('@');if(ai!==-1){var aa=q.substring(ai+1).split(/\s+/)[0];var cf=aa.toLowerCase();repChapterNames.forEach(function(c){if(c.name.toLowerCase().indexOf(cf)!==-1)chF=c.key;});q=q.substring(0,ai)+q.substring(ai+1+aa.length);q=q.trim();}
+    if(q.length<2){document.getElementById('repRubricContent').innerHTML='<div class="empty-state"><div class="icon">📖</div><p>Type 2+ chars. Use @chapter to filter</p></div>';return;}
+    document.getElementById('repRubricContent').innerHTML='<div style="text-align:center;padding:20px;">🔍 Searching...</div>';
+    var chF=null,ai=q.indexOf('@');if(ai!==-1){var aa=q.substring(ai+1).split(/\s+/)[0],cf=aa.toLowerCase();repChapterNames.forEach(function(c){if(c.name.toLowerCase().indexOf(cf)!==-1)chF=c.key;});q=q.substring(0,ai)+q.substring(ai+1+aa.length);q=q.trim();}
     q=q.toLowerCase();var qw=q.split(/\s+/).filter(function(w){return w.length>0;});
-    if(qw.length===0&&!chF){if(rc)rc.innerHTML='<div class="empty-state"><p>Example: pain @head</p></div>';return;}
-    setTimeout(function(){var r=[];function mt(t){if(!t)return false;if(qw.length===0)return true;var lt=t.toLowerCase();for(var i=0;i<qw.length;i++){if(lt.indexOf(qw[i])===-1)return false;}return true;}
+    if(qw.length===0&&!chF){document.getElementById('repRubricContent').innerHTML='<div class="empty-state"><p>Example: pain @head</p></div>';return;}
+    setTimeout(function(){var r=[];
+    function mt(t){if(!t)return false;if(qw.length===0)return true;var lt=t.toLowerCase();for(var i=0;i<qw.length;i++){if(lt.indexOf(qw[i])===-1)return false;}return true;}
     function ds(sd){var chs=chF?[chF]:Object.keys(sd);chs.forEach(function(ck){var rubs=sd[ck];if(!rubs)return;Object.keys(rubs).forEach(function(rid){var rub=rubs[rid];if(rub&&rub.t&&mt(rub.t))r.push({text:rub.t,remedies:rub.r||{},chapter:ck});});});r.sort(function(a,b){return a.text.localeCompare(b.text);});var info='🔍 ';if(qw.length>0)info+='"'+escapeHtml(qw.join(' '))+'"';if(chF){var cn=chF;repChapterNames.forEach(function(c){if(c.key===chF)cn=c.name;});info+=' in <b>'+escapeHtml(cn)+'</b>';}info+=' → <b>'+r.length.toLocaleString()+'</b> rubrics';displaySearchResults(r,info);}
     if(_repFullData!==null){ds(_repFullData);}else{loadRepData(function(data){ds(data);});}},10);
 }
 
+function loadRepData(cb){if(_repFullData!==null){cb(_repFullData);return;}var dataFile=repCurrentBook==='kent'?'kent_repertory.json?v=1':'repertory-data.json?v=1';fetch(dataFile).then(function(r){return r.json();}).then(function(d){_repFullData=d;cb(d);}).catch(function(e){console.error(e);});}
+
 function displaySearchResults(results,info){
     var rc=document.getElementById('repRubricContent');if(!rc)return;
     if(results.length===0){rc.innerHTML='<div class="empty-state"><p>🔍 No rubrics found</p></div>';return;}
-    var ms=200;var h='<div style="margin-bottom:10px;padding:8px;background:#e8f4f8;border-radius:6px;">'+info+(results.length>ms?' (first '+ms+')':'')+'</div><div>';
+    var ms=200,h='<div style="margin-bottom:10px;padding:8px;background:#e8f4f8;border-radius:6px;">'+info+(results.length>ms?' (first '+ms+')':'')+'</div><div>';
     results.slice(0,ms).forEach(function(r){var cn=r.chapter;repChapterNames.forEach(function(c){if(c.key===r.chapter)cn=c.name;});h+='<div class="rep-rubric-item"><div class="rep-rubric-header">'+escapeHtml(r.text)+' <small style="color:#2980b9;">['+escapeHtml(cn)+']</small></div><div style="margin-top:3px;">';var rems=Object.keys(r.remedies);rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1);});rems.forEach(function(abbr){var g=r.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</div></div>';});
     h+='</div>';rc.innerHTML=h;
 }
 
 function copyRemedyToPrescription(abbr){if(navigator.clipboard){navigator.clipboard.writeText(abbr).then(function(){if(typeof showToast==='function')showToast('✅ Copied: '+abbr);});}}
 
-// ==================== AI ASSISTANT (Local Ollama) ====================
-var AI_BASE_URL = 'http://localhost:11434';
+function closeRepertoryChart(){document.getElementById('repChartOverlay').classList.remove('active');}
 
-async function askAI(textareaId, resultPanelId) {
-    var textarea = document.getElementById(textareaId);
-    var panel = document.getElementById(resultPanelId);
-    if (!textarea || !panel) return;
-    
-    var symptoms = textarea.value.trim();
-    if (symptoms.length < 10) {
-        panel.classList.remove('hidden');
-        panel.innerHTML = '<div class="ai-panel-content"><p style="color:#ff6b6b;">⚠️ Please write at least 10 characters of symptoms first</p></div>';
-        return;
-    }
-    
-    panel.classList.remove('hidden');
-    panel.innerHTML = '<div class="ai-panel-header">🤖 AI Assistant <span class="ai-badge">Llama 3.2</span></div><div class="ai-panel-content"><span class="spinner"></span> Analyzing symptoms...</div>';
-    
-    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'en';
-    
-    var prompt = `You are a homeopathic assistant. Based on these symptoms, suggest:
-1. Possible rubrics from Kent Repertory
-2. Top 5 homeopathic remedies with rationale
-3. Any additional questions the doctor should ask
-4. Suggested tests or precautions
-
-Patient symptoms: ${symptoms}
-
-Answer in ${lang === 'ur' ? 'Urdu' : 'English'}. Keep it concise and practical.`;
-
-    try {
-        var response = await fetch(AI_BASE_URL + '/api/generate', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                model: 'llama3.2',
-                prompt: prompt,
-                stream: false
-            })
-        });
-        
-        if (!response.ok) throw new Error('Ollama not running');
-        
-        var data = await response.json();
-        var answer = data.response || 'No response';
-        
-        // Format the answer
-        answer = answer.replace(/\n/g, '<br>');
-        answer = answer.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-        answer = answer.replace(/^[0-9]+\.\s/gm, '<br>• ');
-        answer = answer.replace(/^\*\s/gm, '• ');
-        
-        panel.innerHTML = '<div class="ai-panel-header">🤖 AI Assistant <span class="ai-badge">Llama 3.2</span></div><div class="ai-panel-content">' + answer + '</div>';
-        
-    } catch (err) {
-        var offlineMsg = lang === 'ur' 
-            ? '🤖 Ollama AI سرور سے رابطہ نہیں ہو سکا۔ کیا Ollama چل رہا ہے؟<br><small>انسٹال کریں: <a href="https://ollama.com" target="_blank" style="color:#e94560;">ollama.com</a> | پھر CMD میں: <code>ollama pull llama3.2</code></small>'
-            : '🤖 Cannot connect to Ollama AI server. Is Ollama running?<br><small>Install: <a href="https://ollama.com" target="_blank" style="color:#e94560;">ollama.com</a> | Then run in CMD: <code>ollama pull llama3.2</code></small>';
-        
-        panel.innerHTML = '<div class="ai-panel-header">🤖 AI Assistant <span class="ai-badge offline">Offline</span></div><div class="ai-panel-content"><p class="ai-offline">' + offlineMsg + '</p></div>';
-    }
-}
-
-window.askAI = askAI;
+window.toggleAIPanel = toggleAIPanel;
+window.setSymptomMode = setSymptomMode;
+window.initRepertoryBrowser = initRepertoryBrowser;
+window.selectChapter = selectChapter;
+window.searchRepertoryBrowser = searchRepertoryBrowser;
+window.copyRemedyToPrescription = copyRemedyToPrescription;
+window.switchRepertoryBook = switchRepertoryBook;
+window.closeRepertoryChart = closeRepertoryChart;
 
 // ==================== EVENT LISTENERS ====================
 document.addEventListener('DOMContentLoaded', function() {
@@ -5952,5 +4734,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1a06ee55a69541f',t:'MTc4Mzg2MzM0OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
