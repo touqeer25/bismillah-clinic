@@ -1,0 +1,235 @@
+{
+  "source": "OOREP kent-de",
+  "chapters": 37,
+  "rubrics": 68741,
+  "rubric_remedy_entries_raw": 624009,
+  "rubric_remedy_entries_unique": 624009,
+  "remedies": 624,
+  "missing_rubric_links": 1,
+  "missing_remedy_links": 0,
+  "chapter_index": [
+    {
+      "key": "allgemeines",
+      "name": "Allgemeines",
+      "rubrics": 2119,
+      "remedy_entries": 50695
+    },
+    {
+      "key": "atmung",
+      "name": "Atmung",
+      "rubrics": 744,
+      "remedy_entries": 6507
+    },
+    {
+      "key": "auge",
+      "name": "Auge",
+      "rubrics": 1711,
+      "remedy_entries": 17138
+    },
+    {
+      "key": "auswurf",
+      "name": "Auswurf",
+      "rubrics": 340,
+      "remedy_entries": 4592
+    },
+    {
+      "key": "bauch",
+      "name": "Bauch",
+      "rubrics": 3514,
+      "remedy_entries": 26375
+    },
+    {
+      "key": "blase",
+      "name": "Blase",
+      "rubrics": 747,
+      "remedy_entries": 7675
+    },
+    {
+      "key": "brust",
+      "name": "Brust",
+      "rubrics": 3356,
+      "remedy_entries": 23963
+    },
+    {
+      "key": "extremitaeten",
+      "name": "Extremitäten",
+      "rubrics": 15898,
+      "remedy_entries": 97468
+    },
+    {
+      "key": "fieber",
+      "name": "Fieber",
+      "rubrics": 581,
+      "remedy_entries": 7636
+    },
+    {
+      "key": "frost",
+      "name": "Frost",
+      "rubrics": 755,
+      "remedy_entries": 9144
+    },
+    {
+      "key": "gehoer",
+      "name": "Gehör",
+      "rubrics": 158,
+      "remedy_entries": 1230
+    },
+    {
+      "key": "gemuet",
+      "name": "Gemüt",
+      "rubrics": 4527,
+      "remedy_entries": 43483
+    },
+    {
+      "key": "geschlechtsorgane_maennlich",
+      "name": "Geschlechtsorgane männlich",
+      "rubrics": 1088,
+      "remedy_entries": 9989
+    },
+    {
+      "key": "geschlechtsorgane_weiblich",
+      "name": "Geschlechtsorgane weiblich",
+      "rubrics": 1427,
+      "remedy_entries": 14429
+    },
+    {
+      "key": "gesicht",
+      "name": "Gesicht",
+      "rubrics": 2020,
+      "remedy_entries": 20026
+    },
+    {
+      "key": "hals",
+      "name": "Hals",
+      "rubrics": 1002,
+      "remedy_entries": 10058
+    },
+    {
+      "key": "hals_aussenseite",
+      "name": "Hals-Außenseite",
+      "rubrics": 251,
+      "remedy_entries": 1880
+    },
+    {
+      "key": "harnroehre",
+      "name": "Harnröhre",
+      "rubrics": 590,
+      "remedy_entries": 5182
+    },
+    {
+      "key": "haut",
+      "name": "Haut",
+      "rubrics": 1137,
+      "remedy_entries": 19022
+    },
+    {
+      "key": "husten",
+      "name": "Husten",
+      "rubrics": 1500,
+      "remedy_entries": 14956
+    },
+    {
+      "key": "kehlkopf_und_luftroehre",
+      "name": "Kehlkopf und Luftröhre",
+      "rubrics": 697,
+      "remedy_entries": 8109
+    },
+    {
+      "key": "kopf",
+      "name": "Kopf",
+      "rubrics": 6808,
+      "remedy_entries": 60390
+    },
+    {
+      "key": "magen",
+      "name": "Magen",
+      "rubrics": 3141,
+      "remedy_entries": 29729
+    },
+    {
+      "key": "mastdarm",
+      "name": "Mastdarm",
+      "rubrics": 1289,
+      "remedy_entries": 14215
+    },
+    {
+      "key": "mund",
+      "name": "Mund",
+      "rubrics": 1541,
+      "remedy_entries": 16541
+    },
+    {
+      "key": "nase",
+      "name": "Nase",
+      "rubrics": 1440,
+      "remedy_entries": 13555
+    },
+    {
+      "key": "nieren",
+      "name": "Nieren",
+      "rubrics": 257,
+      "remedy_entries": 1918
+    },
+    {
+      "key": "ohr",
+      "name": "Ohr",
+      "rubrics": 1965,
+      "remedy_entries": 12589
+    },
+    {
+      "key": "prostata",
+      "name": "Prostata",
+      "rubrics": 98,
+      "remedy_entries": 840
+    },
+    {
+      "key": "ruecken",
+      "name": "Rücken",
+      "rubrics": 3858,
+      "remedy_entries": 26343
+    },
+    {
+      "key": "schlaf",
+      "name": "Schlaf",
+      "rubrics": 1033,
+      "remedy_entries": 11846
+    },
+    {
+      "key": "schweiss",
+      "name": "Schweiß",
+      "rubrics": 388,
+      "remedy_entries": 5268
+    },
+    {
+      "key": "schwindel",
+      "name": "Schwindel",
+      "rubrics": 490,
+      "remedy_entries": 6636
+    },
+    {
+      "key": "sehen",
+      "name": "Sehen",
+      "rubrics": 844,
+      "remedy_entries": 5151
+    },
+    {
+      "key": "stuhl",
+      "name": "Stuhl",
+      "rubrics": 222,
+      "remedy_entries": 5432
+    },
+    {
+      "key": "urin",
+      "name": "Urin",
+      "rubrics": 393,
+      "remedy_entries": 6257
+    },
+    {
+      "key": "zaehne",
+      "name": "Zähne",
+      "rubrics": 812,
+      "remedy_entries": 7742
+    }
+  ],
+  "note": "Rubrics are German. Remedy abbreviations are standard homeopathic abbreviations."
+}

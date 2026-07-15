@@ -7,6 +7,8 @@ const urlsToCache = [
   './service-worker.js',
   './repertory-data.json',
   './kent_repertory.json',
+  './kent_de_repertory_by_key.json',
+  './kent_de_chapters/_index.json',
   './kent_chapters/_index.json',
   './synthesis91_raw_repertory_by_key.json',
   './synthesis91_raw_chapters/_index.json',
