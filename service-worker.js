@@ -4,6 +4,17 @@ const urlsToCache = [
   './',
   './index.html',
   './manifest.json',
+  './service-worker.js',
+  './repertory-data.json',
+  './kent_repertory.json',
+  './kent_chapters/_index.json',
+  './synthesis91_raw_repertory_by_key.json',
+  './synthesis91_raw_chapters/_index.json',
+  './diagnosis-data.js',
+  './diagnosis-custom.js',
+  './custom-data-help.js',
+  './icon-192.png',
+  './icon-512.png',
   'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2',
   'https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap'
 ];
