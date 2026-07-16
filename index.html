@@ -4462,44 +4462,71 @@ function selectChapter(chKey){
     }).catch(function(e){cd.innerHTML='<div style="text-align:center;padding:30px;color:#e74c3c;"><p>❌ Failed to load '+nm+'</p><p style="font-size:11px;">'+e.message+'</p></div>';});
 }
 
+
 function buildRubricTree(data){
-    var root={children:{},remedies:{}};
-    Object.keys(data).forEach(function(rid){var r=data[rid];if(!r||!r.t)return;var p=r.t.split(', ');var n=root;
-    for(var i=0;i<p.length;i++){var pt=p[i].trim();if(!pt)continue;if(!n.children[pt])n.children[pt]={name:pt,children:{},remedies:{},count:0};n=n.children[pt];n.count++;if(i===p.length-1){n.remedies=r.r||{};}}});return root;}
+    var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    Object.keys(data).forEach(function(rid){
+        var r=data[rid];
+        if(!r)return;
+        var txt=r.t||r.path||r.de_path||'';
+        if(!txt)return;
+        var parts=txt.split(', ');
+        var n=root;
+        for(var i=0;i<parts.length;i++){
+            var pt=(parts[i]||'').trim();
+            if(!pt)continue;
+            if(!n.children[pt]){
+                n.children[pt]={name:pt,children:{},order:[],remedies:{},count:0,hasRubric:false,path:'',oorep_id:null};
+                n.order.push(pt);
+            }
+            n=n.children[pt];
+            n.count++;
+            if(i===parts.length-1){
+                n.remedies=r.r||{};
+                n.hasRubric=true;
+                n.path=r.path||r.de_path||txt;
+                n.oorep_id=r.oorep_id||null;
+            }
+        }
+    });
+    return root;
+}
 
 var repTreePage=0,repTreePageSize=50;
 function renderTree(chKey,chName,tree){
     repCurrentTree=tree;repCurrentChName=chName;repCurrentChKey=chKey;
-    var flat=[];function flatten(node,depth){Object.keys(node.children).sort().forEach(function(k){var c=node.children[k];var hc=Object.keys(c.children).length>0;var hr=Object.keys(c.remedies).length>0;if(hc)flatten(c,depth+1);if(hr)flat.push({name:k,depth:depth,remedies:c.remedies,count:c.count,hasChildren:hc});});}
+    var flat=[];
+    function flatten(node,depth){
+        (node.order||Object.keys(node.children)).forEach(function(k){
+            var c=node.children[k];
+            if(!c)return;
+            var hc=(c.order&&c.order.length>0)||Object.keys(c.children||{}).length>0;
+            flat.push({name:k,depth:depth,remedies:c.remedies||{},count:c.count||0,hasChildren:hc,hasRubric:!!c.hasRubric,path:c.path||'',oorep_id:c.oorep_id||null});
+            if(hc)flatten(c,depth+1);
+        });
+    }
     flatten(tree,0);repCurrentFlatTree=flat;repTreePage=0;renderTreePage(chKey,chName,0);
 }
 function renderTreePage(chKey,chName,page){
     var cd=document.getElementById('repRubricContent');if(!cd)return;
-    var flat=repCurrentFlatTree,total=flat.length,totalPages=Math.ceil(total/repTreePageSize);
+    var flat=repCurrentFlatTree,total=flat.length,totalPages=Math.ceil(total/repTreePageSize)||1;
     if(page<0)page=0;if(page>=totalPages)page=totalPages-1;repTreePage=page;
     var start=page*repTreePageSize,end=Math.min(start+repTreePageSize,total);
     var h='<div class="rep-breadcrumb">📖 Repertory / <span>'+escapeHtml(chName)+'</span> ('+total.toLocaleString()+' rubrics)';
     if(totalPages>1)h+=' <span style="font-size:11px;color:#7f8c8d;">Page '+(page+1)+'/'+totalPages+'</span>';h+='</div>';
     if(totalPages>1){h+='<div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;">';h+='<button onclick="renderTreePage(repCurrentChKey,repCurrentChName,'+(page-1)+')" style="padding:4px 12px;border:1px solid #ddd;background:white;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px;"'+(page===0?' disabled':'')+'>◀ Prev</button>';h+='<span style="font-size:11px;color:#555;">'+(start+1)+'-'+end+' of '+total.toLocaleString()+'</span>';h+='<button onclick="renderTreePage(repCurrentChKey,repCurrentChName,'+(page+1)+')" style="padding:4px 12px;border:1px solid #ddd;background:white;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px;"'+(page>=totalPages-1?' disabled':'')+'>Next ▶</button>';h+='<span style="flex:1;"></span>';h+='<select onchange="repTreePageSize=parseInt(this.value);renderTree(repCurrentChKey,repCurrentChName,repCurrentTree);" style="padding:3px 6px;border:1px solid #ddd;border-radius:4px;font-size:11px;font-family:inherit;"><option value="50"'+(repTreePageSize===50?' selected':'')+'>50/page</option><option value="100"'+(repTreePageSize===100?' selected':'')+'>100/page</option><option value="200"'+(repTreePageSize===200?' selected':'')+'>200/page</option><option value="500"'+(repTreePageSize===500?' selected':'')+'>500/page</option></select></div>';}
     h+='<div class="rep-tree">';
-    for(var i=start;i<end;i++){var leaf=flat[i],d=leaf.depth;
-        if(d===0&&!leaf.hasChildren){
-            h+='<div class="rep-rubric-main-wrapper"><div class="rep-rubric-main">'+escapeHtml(leaf.name)+'</div><div class="rep-rubric-main-rems">';
-            var rems=Object.keys(leaf.remedies);rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
-            rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
-            h+='</div></div>';
-        }else if(d===0){
-            h+='<div class="rep-rubric-main-wrapper"><div class="rep-rubric-main" style="margin-bottom:1px;">'+escapeHtml(leaf.name)+'</div><div class="rep-rubric-main-rems">';
-            var rems=Object.keys(leaf.remedies);rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
-            rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'">'+escapeHtml(abbr)+'</span>';});
-            h+='</div></div>';
+    for(var i=start;i<end;i++){var leaf=flat[i],d=leaf.depth;var rems=Object.keys(leaf.remedies||{});rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1)||a.localeCompare(b);});
+        if(d===0){
+            h+='<div class="rep-rubric-main-wrapper"><div class="rep-rubric-main" style="margin-bottom:1px;">'+escapeHtml(leaf.name)+'</div>';
+            if(rems.length>0){h+='<div class="rep-rubric-main-rems">';rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</div>';}
+            h+='</div>';
         }else{
             var cls='rep-rubric-d'+(d>3?3:d);h+='<div class="rep-tree-leaf '+cls+'">';
             if(d<=3)h+='<span class="rep-bullet"></span>';
-            h+='<span class="rep-rubric-name">'+escapeHtml(leaf.name)+'</span><span style="margin-left:8px;">';
-            var rems=Object.keys(leaf.remedies);rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
-            rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
-            h+='</span></div>';
+            h+='<span class="rep-rubric-name">'+escapeHtml(leaf.name)+'</span>';
+            if(rems.length>0){h+='<span style="margin-left:8px;">';rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</span>';}
+            h+='</div>';
         }
     }
     h+='</div>';cd.innerHTML=h;cd.scrollTop=0;
@@ -4743,5 +4770,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1b4b389beb2727e',t:'MTc4NDA3NTg3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1b4b389beb2727e',t:'MTc4NDA3NTg3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1c468b85df8f696',t:'MTc4NDI0MDU4Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
