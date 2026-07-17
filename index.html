@@ -4468,7 +4468,7 @@ function buildRubricTree(data){
     Object.keys(data).forEach(function(rid){
         var r=data[rid];
         if(!r)return;
-        var txt=r.t||r.path||r.de_path||'';
+        var txt=r.path||r.de_path||r.t||'';
         if(!txt)return;
         var parts=txt.split(', ');
         var n=root;
