@@ -1,187 +1,187 @@
 [
   {
-    "key": "mind",
-    "name": "MIND",
-    "rubrics": 3385
-  },
-  {
-    "key": "vertigo",
-    "name": "VERTIGO",
-    "rubrics": 437
-  },
-  {
-    "key": "head",
-    "name": "HEAD",
-    "rubrics": 4936
-  },
-  {
-    "key": "eye",
-    "name": "EYE",
-    "rubrics": 1406
-  },
-  {
-    "key": "vision",
-    "name": "VISION",
-    "rubrics": 671
-  },
-  {
-    "key": "ear",
-    "name": "EAR",
-    "rubrics": 1462
-  },
-  {
-    "key": "hearing",
-    "name": "HEARING",
-    "rubrics": 157
-  },
-  {
-    "key": "nose",
-    "name": "NOSE",
-    "rubrics": 1162
-  },
-  {
-    "key": "face",
-    "name": "FACE",
-    "rubrics": 1675
-  },
-  {
-    "key": "mouth",
-    "name": "MOUTH",
-    "rubrics": 1278
-  },
-  {
-    "key": "teeth",
-    "name": "TEETH",
-    "rubrics": 693
-  },
-  {
-    "key": "throat",
-    "name": "THROAT INTERNAL",
-    "rubrics": 837
-  },
-  {
-    "key": "external_throat",
-    "name": "EXTERNAL THROAT",
-    "rubrics": 226
-  },
-  {
-    "key": "stomach",
-    "name": "STOMACH",
-    "rubrics": 2406
-  },
-  {
     "key": "abdomen",
     "name": "ABDOMEN",
-    "rubrics": 2569
-  },
-  {
-    "key": "rectum",
-    "name": "RECTUM",
-    "rubrics": 1050
-  },
-  {
-    "key": "stool",
-    "name": "STOOL",
-    "rubrics": 213
-  },
-  {
-    "key": "bladder",
-    "name": "BLADDER",
-    "rubrics": 628
-  },
-  {
-    "key": "kidneys",
-    "name": "KIDNEYS",
-    "rubrics": 229
-  },
-  {
-    "key": "prostate_gland",
-    "name": "PROSTATE GLAND",
-    "rubrics": 95
-  },
-  {
-    "key": "urethra",
-    "name": "URETHRA",
-    "rubrics": 498
-  },
-  {
-    "key": "urine",
-    "name": "URINE",
-    "rubrics": 360
-  },
-  {
-    "key": "genitalia_male",
-    "name": "MALE GENITALIA",
-    "rubrics": 920
-  },
-  {
-    "key": "genitalia_female",
-    "name": "FEMALE GENITALIA",
-    "rubrics": 1168
-  },
-  {
-    "key": "larynx_and_trachea",
-    "name": "LARYNX AND TRACHEA",
-    "rubrics": 590
-  },
-  {
-    "key": "respiration",
-    "name": "RESPIRATION",
-    "rubrics": 608
-  },
-  {
-    "key": "cough",
-    "name": "COUGH",
-    "rubrics": 1204
-  },
-  {
-    "key": "expectoration",
-    "name": "EXPECTORATION",
-    "rubrics": 311
-  },
-  {
-    "key": "chest",
-    "name": "CHEST",
-    "rubrics": 2465
+    "rubrics": 3200
   },
   {
     "key": "back",
     "name": "BACK",
-    "rubrics": 2771
+    "rubrics": 3640
   },
   {
-    "key": "extremities",
-    "name": "EXTREMITIES",
-    "rubrics": 10804
+    "key": "bladder",
+    "name": "BLADDER",
+    "rubrics": 820
   },
   {
-    "key": "sleep",
-    "name": "SLEEP",
-    "rubrics": 857
+    "key": "chest",
+    "name": "CHEST",
+    "rubrics": 3165
   },
   {
     "key": "chill",
     "name": "CHILL",
-    "rubrics": 656
+    "rubrics": 736
+  },
+  {
+    "key": "cough",
+    "name": "COUGH",
+    "rubrics": 1442
+  },
+  {
+    "key": "ear",
+    "name": "EAR",
+    "rubrics": 1910
+  },
+  {
+    "key": "expectoration",
+    "name": "EXPECTORATION",
+    "rubrics": 414
+  },
+  {
+    "key": "external_throat",
+    "name": "EXTERNAL THROAT",
+    "rubrics": 305
+  },
+  {
+    "key": "extremities",
+    "name": "EXTREMITIES",
+    "rubrics": 14915
+  },
+  {
+    "key": "eye",
+    "name": "EYE",
+    "rubrics": 1723
+  },
+  {
+    "key": "face",
+    "name": "FACE",
+    "rubrics": 2053
   },
   {
     "key": "fever",
     "name": "FEVER",
-    "rubrics": 517
-  },
-  {
-    "key": "perspiration",
-    "name": "PERSPIRATION",
-    "rubrics": 351
-  },
-  {
-    "key": "skin",
-    "name": "SKIN",
-    "rubrics": 1024
+    "rubrics": 586
   },
   {
     "key": "generalities",
     "name": "GENERALITIES",
-    "rubrics": 1780
+    "rubrics": 1898
+  },
+  {
+    "key": "genitalia_female",
+    "name": "FEMALE GENITALIA",
+    "rubrics": 1400
+  },
+  {
+    "key": "genitalia_male",
+    "name": "MALE GENITALIA",
+    "rubrics": 1126
+  },
+  {
+    "key": "head",
+    "name": "HEAD",
+    "rubrics": 6266
+  },
+  {
+    "key": "hearing",
+    "name": "HEARING",
+    "rubrics": 201
+  },
+  {
+    "key": "kidneys",
+    "name": "KIDNEYS",
+    "rubrics": 355
+  },
+  {
+    "key": "larynx_and_trachea",
+    "name": "LARYNX AND TRACHEA",
+    "rubrics": 796
+  },
+  {
+    "key": "mind",
+    "name": "MIND",
+    "rubrics": 4212
+  },
+  {
+    "key": "mouth",
+    "name": "MOUTH",
+    "rubrics": 1536
+  },
+  {
+    "key": "nose",
+    "name": "NOSE",
+    "rubrics": 1455
+  },
+  {
+    "key": "perspiration",
+    "name": "PERSPIRATION",
+    "rubrics": 413
+  },
+  {
+    "key": "prostate_gland",
+    "name": "PROSTATE GLAND",
+    "rubrics": 143
+  },
+  {
+    "key": "rectum",
+    "name": "RECTUM",
+    "rubrics": 1209
+  },
+  {
+    "key": "respiration",
+    "name": "RESPIRATION",
+    "rubrics": 719
+  },
+  {
+    "key": "skin",
+    "name": "SKIN",
+    "rubrics": 1164
+  },
+  {
+    "key": "sleep",
+    "name": "SLEEP",
+    "rubrics": 1014
+  },
+  {
+    "key": "stomach",
+    "name": "STOMACH",
+    "rubrics": 2999
+  },
+  {
+    "key": "stool",
+    "name": "STOOL",
+    "rubrics": 283
+  },
+  {
+    "key": "teeth",
+    "name": "TEETH",
+    "rubrics": 806
+  },
+  {
+    "key": "throat",
+    "name": "THROAT INTERNAL",
+    "rubrics": 1042
+  },
+  {
+    "key": "urethra",
+    "name": "URETHRA",
+    "rubrics": 607
+  },
+  {
+    "key": "urine",
+    "name": "URINE",
+    "rubrics": 465
+  },
+  {
+    "key": "vertigo",
+    "name": "VERTIGO",
+    "rubrics": 523
+  },
+  {
+    "key": "vision",
+    "name": "VISION",
+    "rubrics": 933
   }
 ]
