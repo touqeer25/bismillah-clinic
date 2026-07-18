@@ -732,6 +732,7 @@ body[dir="rtl"] .symptom-mode-btns{margin-left:0;margin-right:6px;}
 .rep-rubric-item{padding:8px 12px;border-bottom:1px solid #f0f0f0;font-size:12px;cursor:pointer;font-family:'Segoe UI',sans-serif;transition:background 0.15s;}
 .rep-rubric-item:hover{background:#e8f4f8 !important;}
 .rep-rubric-header{font-weight:bold;color:#1a5276;font-size:13px;}
+.rep-rubric-header mark{background:#ffeb3b;padding:0 2px;border-radius:2px;}
 .rep-remedy-tag{display:inline-block;padding:2px 8px;margin:2px;border-radius:12px;font-size:10px;font-weight:bold;cursor:pointer;}
 .rep-remedy-tag.g3{background:#2c3e50;color:white;}
 .rep-remedy-tag.g2{background:#7f8c8d;color:white;font-style:italic;}
@@ -4668,45 +4669,25 @@ function displaySearchResults(results,info){
     var rc=document.getElementById('repRubricContent');if(!rc)return;
     if(results.length===0){rc.innerHTML='<div class="empty-state"><p>🔍 No rubrics found</p></div>';return;}
     var ms=300;
-    // Store results for click handling
     _repSearchResultsList = results.slice(0,ms);
-    function highlightMatches(text, queryWords){
-        var res=text;
-        queryWords.forEach(function(w){
-            if(w.length<2) return;
-            var re=new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
-            res=res.replace(re,'<mark style="background:#ffeb3b;padding:1px 2px;border-radius:2px;">$1</mark>');
-        });
-        return res;
-    }
     var qw=_repSearchCache.split('|')[0].toLowerCase().split(/\s+/).filter(function(w){return w.length>0;});
-    var h='<div style="margin-bottom:10px;padding:8px;background:#e8f4f8;border-radius:6px;">'+info+(results.length>ms?' (showing first '+ms+')':'')+'</div>';
-    h+='<div style="display:flex;flex-direction:column;gap:0;">';
+    var h='<div style="margin-bottom:10px;padding:8px;background:#e8f4f8;border-radius:6px;">'+info+(results.length>ms?' (first '+ms+')':'')+'</div><div>';
     results.slice(0,ms).forEach(function(r, idx){
         var cn=r.chapter;
         repChapterNames.forEach(function(c){if(c.key===r.chapter)cn=c.name;});
-        var bookLabel = r.book ? (r.book==='publicum'?'Publicum':(r.book==='kent'?'Kent':(r.book==='kent_de'?'Kent(DE)':'Synthesis9.1'))) : '';
-        // Show rubric text in a single straight line with highlighting
-        var rubricLine = highlightMatches(escapeHtml(r.text), qw);
-        // Chapter & book tag
-        var chapterTag = '<span style="display:inline-block;background:#e8f4f8;color:#1a5276;padding:1px 6px;border-radius:3px;font-size:10px;margin-right:4px;">'+escapeHtml(cn)+'</span>';
-        var bookTag = bookLabel ? '<span style="display:inline-block;background:#f0e6ff;color:#6c3483;padding:1px 6px;border-radius:3px;font-size:10px;margin-right:4px;">'+escapeHtml(bookLabel)+'</span>' : '';
-        // Remedies row
-        var remsRow = '';
+        var bookLabel=r.book?(r.book==='publicum'?'Publicum':(r.book==='kent'?'Kent':(r.book==='kent_de'?'Kent(DE)':'Synthesis9.1'))):'';
+        // Highlight matching words in rubric text
+        var rubricHtml=escapeHtml(r.text);
+        qw.forEach(function(w){if(w.length<2)return;var re=new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');rubricHtml=rubricHtml.replace(re,'<mark>$1</mark>');});
+        // Build chapter and book label
+        var label=' <small style="color:#2980b9;">['+escapeHtml(cn)+']</small>';
+        if(bookLabel) label+=' <small style="color:#6c3483;">('+escapeHtml(bookLabel)+')</small>';
+        h+='<div class="rep-rubric-item" style="cursor:pointer;" data-sidx="'+idx+'" onclick="goToRubricByIndex('+idx+')"><div class="rep-rubric-header">'+rubricHtml+label+'</div><div style="margin-top:3px;">';
         var rems=Object.keys(r.remedies);rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1);});
-        if(rems.length > 0){
-            remsRow = ' <span style="margin-left:6px;">';
-            rems.slice(0,20).forEach(function(abbr, ridx){var g=r.remedies[abbr]||1;remsRow+='<span class="rep-remedy-tag g'+g+'" data-ridx="'+idx+'" data-abbr="'+escapeHtml(abbr)+'" onclick="event.stopPropagation();copyRemedyToPrescription(this.dataset.abbr)">'+escapeHtml(abbr)+'</span>';});
-            if(rems.length>20) remsRow+='<span style="font-size:10px;color:#888;">+'+(rems.length-20)+'</span>';
-            remsRow += '</span>';
-        }
-        // Use index-based onclick to avoid quote issues in rubric text
-        h+='<div class="rep-rubric-item" style="cursor:pointer;padding:6px 12px;border-bottom:1px solid #f0f0f0;background:'+(idx%2===0?'#fff':'#fafbfc')+';" data-sidx="'+idx+'" onclick="goToRubricByIndex('+idx+')">';
-        h+='<div>'+chapterTag+bookTag+'<span style="color:#1a5276;font-size:12px;">'+rubricLine+'</span>'+remsRow+'</div>';
-        h+='</div>';
+        rems.forEach(function(abbr){var g=r.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(this.dataset.abbr)" data-abbr="'+escapeHtml(abbr)+'">'+escapeHtml(abbr)+'</span>';});
+        h+='</div></div>';
     });
-    h+='</div>';
-    rc.innerHTML=h;
+    h+='</div>';rc.innerHTML=h;
 }
 
 function goToRubricByIndex(idx){
@@ -5026,5 +5007,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1b4b389beb2727e',t:'MTc4NDA3NTg3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1c468b85df8f696',t:'MTc4NDI0MDU4Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1d4cabc8f03541f',t:'MTc4NDQxMjM2OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1b4b389beb2727e',t:'MTc4NDA3NTg3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1c468b85df8f696',t:'MTc4NDI0MDU4Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1d4da894ced7eb3',t:'MTc4NDQxMzAxNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
