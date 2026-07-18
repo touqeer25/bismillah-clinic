@@ -4676,39 +4676,27 @@ function displaySearchResults(results,info){
     }
     var qw=_repSearchCache.split('|')[0].toLowerCase().split(/\s+/).filter(function(w){return w.length>0;});
     var h='<div style="margin-bottom:10px;padding:8px;background:#e8f4f8;border-radius:6px;">'+info+(results.length>ms?' (showing first '+ms+')':'')+'</div>';
-    h+='<div style="display:flex;flex-direction:column;gap:1px;">';
+    h+='<div style="display:flex;flex-direction:column;gap:0;">';
     results.slice(0,ms).forEach(function(r, idx){
         var cn=r.chapter;
         repChapterNames.forEach(function(c){if(c.key===r.chapter)cn=c.name;});
         var bookLabel = r.book ? (r.book==='publicum'?'Publicum':(r.book==='kent'?'Kent':(r.book==='kent_de'?'Kent(DE)':'Synthesis9.1'))) : '';
-        // Split the rubric path into separate parts for line-by-line display
-        var pathParts = r.text.split(', ');
-        var pathHtml = '';
-        for(var p=0; p<pathParts.length; p++){
-            var part = pathParts[p].trim();
-            if(!part) continue;
-            var indent = p * 18;
-            var isLast = (p === pathParts.length - 1);
-            var partHighlighted = highlightMatches(escapeHtml(part), qw);
-            var bullet = isLast ? '<span style="display:inline-block;width:6px;height:6px;background:#2980b9;border-radius:50%;margin-right:6px;vertical-align:middle;"></span>' : '<span style="display:inline-block;width:4px;height:4px;background:#85c1e9;border-radius:2px;margin-right:6px;vertical-align:middle;"></span>';
-            var textStyle = isLast ? 'font-weight:600;color:#1a5276;' : 'color:#555;';
-            pathHtml += '<div style="padding-left:'+indent+'px;'+textStyle+'">'+bullet+partHighlighted+'</div>';
-        }
+        // Show rubric text in a single straight line with highlighting
+        var rubricLine = highlightMatches(escapeHtml(r.text), qw);
         // Chapter & book tag
         var chapterTag = '<span style="display:inline-block;background:#e8f4f8;color:#1a5276;padding:1px 6px;border-radius:3px;font-size:10px;margin-right:4px;">'+escapeHtml(cn)+'</span>';
-        var bookTag = bookLabel ? '<span style="display:inline-block;background:#f0e6ff;color:#6c3483;padding:1px 6px;border-radius:3px;font-size:10px;">'+escapeHtml(bookLabel)+'</span>' : '';
+        var bookTag = bookLabel ? '<span style="display:inline-block;background:#f0e6ff;color:#6c3483;padding:1px 6px;border-radius:3px;font-size:10px;margin-right:4px;">'+escapeHtml(bookLabel)+'</span>' : '';
         // Remedies row
         var remsRow = '';
         var rems=Object.keys(r.remedies);rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1);});
         if(rems.length > 0){
-            remsRow = '<div style="margin-top:4px;padding-left:18px;">';
-            rems.forEach(function(abbr){var g=r.remedies[abbr]||1;remsRow+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
-            remsRow += '</div>';
+            remsRow = ' <span style="margin-left:6px;">';
+            rems.slice(0,20).forEach(function(abbr){var g=r.remedies[abbr]||1;remsRow+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
+            if(rems.length>20) remsRow+='<span style="font-size:10px;color:#888;">+'+(rems.length-20)+'</span>';
+            remsRow += '</span>';
         }
-        h+='<div class="rep-rubric-item" style="cursor:pointer;padding:8px 12px;border-bottom:1px solid #eee;background:'+(idx%2===0?'#fff':'#fafbfc')+';" onclick="goToRubric(\''+escapeHtml(r.chapter)+'\',\''+escapeHtml(r.text).replace(/'/g,"\\'")+'\',\''+escapeHtml(r.book||repCurrentBook)+'\')">';
-        h+='<div style="margin-bottom:3px;">'+chapterTag+bookTag+'</div>';
-        h+=pathHtml;
-        h+=remsRow;
+        h+='<div class="rep-rubric-item" style="cursor:pointer;padding:6px 12px;border-bottom:1px solid #f0f0f0;background:'+(idx%2===0?'#fff':'#fafbfc')+';" onclick="goToRubric(\''+escapeHtml(r.chapter)+'\',\''+escapeHtml(r.text).replace(/'/g,"\\'")+'\',\''+escapeHtml(r.book||repCurrentBook)+'\')">';
+        h+='<div>'+chapterTag+bookTag+'<span style="color:#1a5276;font-size:12px;">'+rubricLine+'</span>'+remsRow+'</div>';
         h+='</div>';
     });
     h+='</div>';
@@ -4724,57 +4712,100 @@ function goToRubric(chapterKey, rubricText, bookKey){
             switchRepertoryBook();
         }
     }
-    // Select chapter and then try to find and highlight rubric
+    // Clear search bar
+    var searchInput = document.getElementById('repBrowserSearch');
+    if(searchInput) searchInput.value = '';
+    
+    // Select chapter - this triggers async load
     selectChapter(chapterKey);
-    // After chapter loads, search for rubric text
-    setTimeout(function(){
-        var rc=document.getElementById('repRubricContent');
-        if(!rc) return;
-        // Find all rubric names and highlight matching one
-        var headers=rc.querySelectorAll('.rep-rubric-name, .rep-rubric-main');
-        var targetLower=rubricText.toLowerCase();
-        var found = false;
-        for(var i=0;i<headers.length;i++){
-            var h=headers[i];
-            var hText = h.textContent.toLowerCase();
-            if(hText && (targetLower.indexOf(hText.substring(0,50))!==-1 || hText.indexOf(targetLower.substring(0,50))!==-1)){
-                h.scrollIntoView({behavior:'smooth', block:'center'});
-                h.style.background='#ffeb3b';
-                h.style.padding='2px 4px';
-                h.style.borderRadius='3px';
-                found = true;
-                setTimeout(function(el){el.style.background='';}, 3000);
+    
+    // After chapter loads, find and scroll to the rubric
+    // We need to wait for the chapter to load, then search in flat tree
+    function tryFindRubric(attempt) {
+        if(attempt > 5) return; // max 5 attempts
+        var rc = document.getElementById('repRubricContent');
+        if(!rc || !repCurrentFlatTree || repCurrentFlatTree.length === 0) {
+            setTimeout(function(){ tryFindRubric(attempt+1); }, 400);
+            return;
+        }
+        var flat = repCurrentFlatTree;
+        var targetLower = rubricText.toLowerCase();
+        // Extract the last part of the rubric path for matching
+        var lastPart = targetLower.split(', ').pop().trim();
+        // Also try full text match
+        var foundIndex = -1;
+        
+        // First try: match by full rubric text path
+        for(var j = 0; j < flat.length; j++) {
+            var nodePath = (flat[j].path || '').toLowerCase();
+            var nodeName = (flat[j].name || '').toLowerCase();
+            // Check if this node's path matches the rubric text
+            if(nodePath && nodePath === targetLower) {
+                foundIndex = j;
+                break;
+            }
+            // Check if the last part matches and it has rubric
+            if(flat[j].hasRubric && nodeName === lastPart) {
+                // Verify by building the full path from parents
+                foundIndex = j;
                 break;
             }
         }
-        // If not found in visible headers, try searching in flat tree for pagination
-        if(!found && repCurrentFlatTree && repCurrentFlatTree.length > 0){
-            var flat = repCurrentFlatTree;
-            var targetWords = rubricText.toLowerCase().split(', ').pop().trim();
-            for(var j=0; j<flat.length; j++){
-                var fName = (flat[j].name||'').toLowerCase();
-                if(fName && targetWords.indexOf(fName)!==-1){
-                    // Jump to the page containing this rubric
-                    var targetPage = Math.floor(j / repTreePageSize);
-                    renderTreePage(repCurrentChKey, repCurrentChName, targetPage);
-                    setTimeout(function(){
-                        var allItems = rc.querySelectorAll('.rep-rubric-name, .rep-rubric-main');
-                        for(var k=0;k<allItems.length;k++){
-                            if(allItems[k].textContent.toLowerCase().indexOf(targetWords.substring(0,30))!==-1){
-                                allItems[k].scrollIntoView({behavior:'smooth',block:'center'});
-                                allItems[k].style.background='#ffeb3b';
-                                allItems[k].style.padding='2px 4px';
-                                allItems[k].style.borderRadius='3px';
-                                setTimeout(function(el){el.style.background='';}, 3000);
-                                break;
-                            }
-                        }
-                    }, 200);
+        
+        // Second try: match by last part only
+        if(foundIndex === -1) {
+            for(var j2 = 0; j2 < flat.length; j2++) {
+                var n2 = (flat[j2].name || '').toLowerCase();
+                if(n2 && lastPart.indexOf(n2) !== -1 && flat[j2].hasRubric) {
+                    foundIndex = j2;
                     break;
                 }
             }
         }
-    }, 1000);
+        
+        // Third try: match any word from the rubric text
+        if(foundIndex === -1) {
+            var searchWords = targetLower.split(/[\s,]+/).filter(function(w){return w.length > 3;});
+            for(var j3 = 0; j3 < flat.length; j3++) {
+                var n3 = (flat[j3].name || '').toLowerCase();
+                var matched = true;
+                for(var sw = 0; sw < searchWords.length; sw++) {
+                    if(n3.indexOf(searchWords[sw]) === -1) { matched = false; break; }
+                }
+                if(matched && flat[j3].hasRubric) {
+                    foundIndex = j3;
+                    break;
+                }
+            }
+        }
+        
+        if(foundIndex !== -1) {
+            // Jump to the correct page
+            var targetPage = Math.floor(foundIndex / repTreePageSize);
+            renderTreePage(repCurrentChKey, repCurrentChName, targetPage);
+            // After page renders, scroll to and highlight the rubric
+            setTimeout(function(){
+                var allItems = rc.querySelectorAll('.rep-rubric-name, .rep-rubric-main');
+                var targetName = flat[foundIndex].name.toLowerCase();
+                for(var k = 0; k < allItems.length; k++) {
+                    if(allItems[k].textContent.toLowerCase().indexOf(targetName.substring(0,30)) !== -1) {
+                        allItems[k].scrollIntoView({behavior:'smooth', block:'center'});
+                        allItems[k].style.background = '#ffeb3b';
+                        allItems[k].style.padding = '2px 4px';
+                        allItems[k].style.borderRadius = '3px';
+                        allItems[k].style.transition = 'background 0.5s';
+                        setTimeout(function(el){ el.style.background = ''; }, 4000);
+                        break;
+                    }
+                }
+            }, 300);
+        } else {
+            // If not found, just show the chapter
+            console.log('Rubric not found in tree, showing chapter:', chapterKey);
+        }
+    }
+    
+    setTimeout(function(){ tryFindRubric(0); }, 800);
 }
 
 
@@ -4992,5 +5023,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1b4b389beb2727e',t:'MTc4NDA3NTg3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1c468b85df8f696',t:'MTc4NDI0MDU4Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1d496366daea813',t:'MTc4NDQxMDIxNw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1b4b389beb2727e',t:'MTc4NDA3NTg3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1c468b85df8f696',t:'MTc4NDI0MDU4Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1d4b0bffd987eb3',t:'MTc4NDQxMTMwNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
