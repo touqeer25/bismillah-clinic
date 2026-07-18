@@ -729,8 +729,7 @@ body[dir="rtl"] .symptom-mode-btns{margin-left:0;margin-right:6px;}
 .rep-chapter-item{padding:6px 10px;cursor:pointer;border-radius:6px;font-size:12px;font-family:'Segoe UI',sans-serif;transition:all 0.15s;border:2px solid transparent;}
 .rep-chapter-item:hover{background:#e8f4f8;}
 .rep-chapter-item.active{background:#2980b9;color:white;font-weight:bold;}
-.rep-rubric-item{padding:8px 12px;border-bottom:1px solid #f0f0f0;font-size:12px;cursor:pointer;font-family:'Segoe UI',sans-serif;transition:background 0.15s;}
-.rep-rubric-item:hover{background:#e8f4f8 !important;}
+.rep-rubric-item{padding:8px 12px;border-bottom:1px solid #f0f0f0;font-size:12px;cursor:pointer;font-family:'Segoe UI',sans-serif;}
 .rep-rubric-header{font-weight:bold;color:#1a5276;font-size:13px;}
 .rep-rubric-header mark{background:#ffeb3b;padding:0 2px;border-radius:2px;}
 .rep-remedy-tag{display:inline-block;padding:2px 8px;margin:2px;border-radius:12px;font-size:10px;font-weight:bold;cursor:pointer;}
@@ -1373,13 +1372,10 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
                     <select id="repBookSelect" onchange="switchRepertoryBook()" style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:13px;min-width:200px;">
                         <option value="publicum">📗 Repertorium Publicum (Polony)</option>
                         <option value="kent">📘 Kent Repertory (English)</option>
-                        <option value="kent_de">📕 Kent Repertory (German)</option>
                         <option value="synthesis91">📙 Synthesis 9.1</option>
                     </select>
-                    <div style="display:flex;align-items:center;gap:6px;flex:1;min-width:180px;">
-                        <button id="repSearchToggle" onclick="toggleRepSearchMode()" title="Toggle: Open Repertory / All Repertories" style="padding:4px 8px;border-radius:6px;border:2px solid #fff;background:rgba(255,255,255,0.15);color:white;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all 0.2s;">📖 Open</button>
-                        <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="Search rubrics... (e.g. pain @head)" style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:12px;flex:1;">
-                    </div>
+                    <button id="repSearchToggle" onclick="toggleRepSearchMode()" title="Toggle: Open / All Repertories" style="padding:5px 10px;border-radius:6px;border:2px solid rgba(255,255,255,0.6);background:rgba(255,255,255,0.15);color:white;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;">📖 Open</button>
+                    <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="Search rubrics... (e.g. pain @head)" style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:12px;min-width:180px;flex:1;">
                     <span style="font-size:11px;opacity:0.8;" id="repBrowserInfo"></span>
                 </div>
             </div>
@@ -4429,50 +4425,37 @@ function switchRepertoryBook() {
     initRepertoryBrowser();
 }
 
-
 function initRepertoryBrowser() {
-    var infoEl = document.getElementById('repCountInfo');
-    if (infoEl) infoEl.textContent = 'Loading chapters...';
-    
-    function loadChaptersAndRender() {
-        var basePath = repCurrentBook==='kent'?'kent_chapters/':(repCurrentBook==='kent_de'?'kent_de_chapters/':(repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/'));
-        var indexFile = basePath + '_index.json';
-        fetch(indexFile).then(function(r){return r.json();}).then(function(data){
-            // data is array of {key, name, rubrics}
+    if (repCurrentBook === 'kent') {
+        repChapterNames = [{"key":"mind","name":"MIND","rubrics":659},{"key":"vertigo","name":"VERTIGO","rubrics":7},{"key":"head","name":"HEAD","rubrics":34},{"key":"eye","name":"EYE","rubrics":44},{"key":"vision","name":"VISION","rubrics":36},{"key":"ear","name":"EAR","rubrics":57},{"key":"hearing","name":"HEARING","rubrics":0},{"key":"nose","name":"NOSE","rubrics":35},{"key":"face","name":"FACE","rubrics":143},{"key":"mouth","name":"MOUTH","rubrics":80},{"key":"teeth","name":"TEETH","rubrics":19},{"key":"throat","name":"THROAT INTERNAL","rubrics":86},{"key":"external_throat","name":"EXTERNAL THROAT","rubrics":11},{"key":"stomach","name":"STOMACH","rubrics":59},{"key":"abdomen","name":"ABDOMEN","rubrics":41},{"key":"rectum","name":"RECTUM","rubrics":36},{"key":"stool","name":"STOOL","rubrics":103},{"key":"bladder","name":"BLADDER","rubrics":11},{"key":"kidneys","name":"KIDNEYS","rubrics":0},{"key":"prostate_gland","name":"PROSTATE GLAND","rubrics":0},{"key":"urethra","name":"URETHRA","rubrics":0},{"key":"urine","name":"URINE","rubrics":44},{"key":"genitalia_male","name":"MALE GENITALIA","rubrics":47},{"key":"genitalia_female","name":"FEMALE GENITALIA","rubrics":56},{"key":"larynx_and_trachea","name":"LARYNX AND TRACHEA","rubrics":30},{"key":"respiration","name":"RESPIRATION","rubrics":39},{"key":"cough","name":"COUGH","rubrics":38},{"key":"expectoration","name":"EXPECTORATION","rubrics":61},{"key":"chest","name":"CHEST","rubrics":63},{"key":"back","name":"BACK","rubrics":17},{"key":"extremities","name":"EXTREMITIES","rubrics":337},{"key":"sleep","name":"SLEEP","rubrics":18},{"key":"chill","name":"CHILL","rubrics":19},{"key":"fever","name":"FEVER","rubrics":31},{"key":"perspiration","name":"PERSPIRATION","rubrics":24},{"key":"skin","name":"SKIN","rubrics":91},{"key":"generalities","name":"GENERALITIES","rubrics":1208}];
+    } else {
+        // Load from _index.json for publicum, kent_de, synthesis91
+        var basePath = repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/';
+        fetch(basePath+'_index.json').then(function(r){return r.json();}).then(function(data){
             repChapterNames = data;
             repChapterNames.sort(function(a,b){return a.name.localeCompare(b.name);});
             var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
-            if(infoEl) infoEl.textContent = repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';
+            var info = document.getElementById('repBrowserInfo');
+            if(info) info.textContent = repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';
             renderChapterList();
         }).catch(function(e){
-            console.error('Failed to load index', e);
-            // Fallback to hardcoded for kent
-            if (repCurrentBook === 'kent') {
-                repChapterNames = [{"key":"mind","name":"MIND","rubrics":4212},{"key":"vertigo","name":"VERTIGO","rubrics":523},{"key":"head","name":"HEAD","rubrics":6266},{"key":"eye","name":"EYE","rubrics":1723},{"key":"vision","name":"VISION","rubrics":933},{"key":"ear","name":"EAR","rubrics":1910},{"key":"hearing","name":"HEARING","rubrics":201},{"key":"nose","name":"NOSE","rubrics":1455},{"key":"face","name":"FACE","rubrics":2053},{"key":"mouth","name":"MOUTH","rubrics":1536},{"key":"teeth","name":"TEETH","rubrics":806},{"key":"throat","name":"THROAT INTERNAL","rubrics":1042},{"key":"external_throat","name":"EXTERNAL THROAT","rubrics":305},{"key":"stomach","name":"STOMACH","rubrics":2999},{"key":"abdomen","name":"ABDOMEN","rubrics":3200},{"key":"rectum","name":"RECTUM","rubrics":1209},{"key":"stool","name":"STOOL","rubrics":283},{"key":"bladder","name":"BLADDER","rubrics":820},{"key":"kidneys","name":"KIDNEYS","rubrics":355},{"key":"prostate_gland","name":"PROSTATE GLAND","rubrics":143},{"key":"urethra","name":"URETHRA","rubrics":607},{"key":"urine","name":"URINE","rubrics":465},{"key":"genitalia_male","name":"MALE GENITALIA","rubrics":1126},{"key":"genitalia_female","name":"FEMALE GENITALIA","rubrics":1400},{"key":"larynx_and_trachea","name":"LARYNX AND TRACHEA","rubrics":796},{"key":"respiration","name":"RESPIRATION","rubrics":719},{"key":"cough","name":"COUGH","rubrics":1442},{"key":"expectoration","name":"EXPECTORATION","rubrics":414},{"key":"chest","name":"CHEST","rubrics":3165},{"key":"back","name":"BACK","rubrics":3640},{"key":"extremities","name":"EXTREMITIES","rubrics":14915},{"key":"sleep","name":"SLEEP","rubrics":1014},{"key":"chill","name":"CHILL","rubrics":736},{"key":"fever","name":"FEVER","rubrics":586},{"key":"perspiration","name":"PERSPIRATION","rubrics":413},{"key":"skin","name":"SKIN","rubrics":1164},{"key":"generalities","name":"GENERALITIES","rubrics":1898}];
-            } else if (repCurrentBook === 'publicum') {
-                repChapterNames = [{"key":"abdomen","name":"ABDOMEN","rubrics":4339},{"key":"appetite","name":"APPETITE","rubrics":513},{"key":"back","name":"BACK","rubrics":4611},{"key":"bladder","name":"BLADDER","rubrics":766},{"key":"blood","name":"BLOOD","rubrics":25},{"key":"chest","name":"CHEST","rubrics":2858},{"key":"chill","name":"CHILL","rubrics":768},{"key":"clinical","name":"CLINICAL","rubrics":490},{"key":"cough","name":"COUGH","rubrics":1535},{"key":"ear","name":"EAR","rubrics":2029},{"key":"expectoration","name":"EXPECTORATION","rubrics":344},{"key":"external_throat","name":"EXTERNAL THROAT","rubrics":276},{"key":"extremities","name":"EXTREMITIES","rubrics":16115},{"key":"eye","name":"EYE","rubrics":1787},{"key":"face","name":"FACE","rubrics":2094},{"key":"fever","name":"FEVER","rubrics":596},{"key":"generalities","name":"GENERALITIES","rubrics":1751},{"key":"genitalia_female","name":"GENITALIA FEMALE","rubrics":1484},{"key":"genitalia_male","name":"GENITALIA MALE","rubrics":1121},{"key":"head","name":"HEAD","rubrics":6984},{"key":"hearing","name":"HEARING","rubrics":168},{"key":"heart_&_circulation","name":"HEART & CIRCULATION","rubrics":789},{"key":"kidneys","name":"KIDNEYS","rubrics":267},{"key":"larynx_and_trachea","name":"LARYNX AND TRACHEA","rubrics":729},{"key":"mind","name":"MIND","rubrics":5827},{"key":"mouth","name":"MOUTH","rubrics":1598},{"key":"nose","name":"NOSE","rubrics":1497},{"key":"perspiration","name":"PERSPIRATION","rubrics":395},{"key":"prostate_gland","name":"PROSTATE GLAND","rubrics":105},{"key":"rectum","name":"RECTUM","rubrics":1549},{"key":"respiration","name":"RESPIRATION","rubrics":760},{"key":"skin","name":"SKIN","rubrics":1161},{"key":"sleep","name":"SLEEP","rubrics":1588},{"key":"stomach","name":"STOMACH","rubrics":2826},{"key":"stool","name":"STOOL","rubrics":234},{"key":"teeth","name":"TEETH","rubrics":839},{"key":"throat","name":"THROAT","rubrics":1047},{"key":"urethra","name":"URETHRA","rubrics":606},{"key":"urine","name":"URINE","rubrics":406},{"key":"vertigo","name":"VERTIGO","rubrics":512},{"key":"vision","name":"VISION","rubrics":1093}];
-            } else {
-                repChapterNames = [];
-            }
+            // Fallback for publicum
+            repChapterNames = [{"key":"extremities","name":"Extremities","rubrics":16115},{"key":"head","name":"Head","rubrics":6984},{"key":"mind","name":"Mind","rubrics":5827},{"key":"back","name":"Back","rubrics":4611},{"key":"abdomen","name":"Abdomen","rubrics":4339},{"key":"chest","name":"Chest","rubrics":2858},{"key":"stomach","name":"Stomach","rubrics":2826},{"key":"face","name":"Face","rubrics":2094},{"key":"ear","name":"Ear","rubrics":2029},{"key":"eye","name":"Eye","rubrics":1787},{"key":"generalities","name":"Generalities","rubrics":1751},{"key":"mouth","name":"Mouth","rubrics":1598},{"key":"sleep","name":"Sleep","rubrics":1588},{"key":"rectum","name":"Rectum","rubrics":1549},{"key":"cough","name":"Cough","rubrics":1535},{"key":"nose","name":"Nose","rubrics":1497},{"key":"genitalia_female","name":"Genitalia female","rubrics":1484},{"key":"skin","name":"Skin","rubrics":1161},{"key":"genitalia_male","name":"Genitalia male","rubrics":1121},{"key":"vision","name":"Vision","rubrics":1093},{"key":"throat","name":"Throat","rubrics":1047},{"key":"teeth","name":"Teeth","rubrics":839},{"key":"heart_&_circulation","name":"Heart & Circulation","rubrics":789},{"key":"chill","name":"Chill","rubrics":768},{"key":"bladder","name":"Bladder","rubrics":766},{"key":"respiration","name":"Respiration","rubrics":760},{"key":"larynx_and_trachea","name":"Larynx and trachea","rubrics":729},{"key":"urethra","name":"Urethra","rubrics":606},{"key":"fever","name":"Fever","rubrics":596},{"key":"appetite","name":"Appetite","rubrics":513},{"key":"vertigo","name":"Vertigo","rubrics":512},{"key":"clinical","name":"Clinical","rubrics":490},{"key":"urine","name":"Urine","rubrics":406},{"key":"perspiration","name":"Perspiration","rubrics":395},{"key":"expectoration","name":"Expectoration","rubrics":344},{"key":"external_throat","name":"External throat","rubrics":276},{"key":"kidneys","name":"Kidneys","rubrics":267},{"key":"stool","name":"Stool","rubrics":234},{"key":"hearing","name":"Hearing","rubrics":168},{"key":"prostate_gland","name":"Prostate gland","rubrics":105},{"key":"blood","name":"Blood","rubrics":25}];
             repChapterNames.sort(function(a,b){return a.name.localeCompare(b.name);});
             var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
-            if(infoEl) infoEl.textContent = repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';
+            var info = document.getElementById('repBrowserInfo');
+            if(info) info.textContent = repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';
             renderChapterList();
         });
+        return;
     }
-
-    function renderChapterList(){
-        var d=document.getElementById('repChapterList');if(!d)return;
-        var ch=repChapterNames;
-        var h='';
-        ch.forEach(function(c){h+='<div class="rep-chapter-item'+(c.key===repCurrentChapter?' active':'')+'" onclick="selectChapter(\''+c.key+'\')">'+c.name+' <small style="opacity:0.6;">('+c.rubrics+')</small></div>';});
-        d.innerHTML=h;
-    }
-
-    loadChaptersAndRender();
-    document.getElementById('repRubricContent').innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Select a chapter</p></div>';
-
+    repChapterNames.sort(function(a,b){return a.name.localeCompare(b.name);});
+    var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
+    var info = document.getElementById('repBrowserInfo');
+    if(info) info.textContent = repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';
+    renderChapterList();
 }
+
 function renderChapterList(f){
     var d=document.getElementById('repChapterList');if(!d)return;
     var ch=repChapterNames;
@@ -4488,85 +4471,58 @@ function selectChapter(chKey){
     var cd=document.getElementById('repRubricContent');if(!cd)return;
     cd.innerHTML='<div style="text-align:center;padding:30px;">Loading <b>'+nm+'</b>...</div>';
     if(repTreeCache[chKey]){renderTree(chKey,nm,repTreeCache[chKey]);return;}
-    var basePath=repCurrentBook==='kent'?'kent_chapters/':(repCurrentBook==='kent_de'?'kent_de_chapters/':(repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/'));
+    var basePath=repCurrentBook==='kent'?'kent_chapters/':(repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/');
     fetch(basePath+encodeURIComponent(chKey)+'.json?v=1').then(function(r){return r.json();}).then(function(d){
         var tree=buildRubricTree(d);repTreeCache[chKey]=tree;renderTree(chKey,nm,tree);
     }).catch(function(e){cd.innerHTML='<div style="text-align:center;padding:30px;color:#e74c3c;"><p>❌ Failed to load '+nm+'</p><p style="font-size:11px;">'+e.message+'</p></div>';});
 }
 
-
 function buildRubricTree(data){
-    var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
-    Object.keys(data).forEach(function(rid){
-        var r=data[rid];
-        if(!r)return;
-        var txt=r.path||r.de_path||r.t||'';
-        if(!txt)return;
-        var parts=txt.split(', ');
-        var n=root;
-        for(var i=0;i<parts.length;i++){
-            var pt=(parts[i]||'').trim();
-            if(!pt)continue;
-            if(!n.children[pt]){
-                n.children[pt]={name:pt,children:{},order:[],remedies:{},count:0,hasRubric:false,path:'',oorep_id:null};
-                n.order.push(pt);
-            }
-            n=n.children[pt];
-            n.count++;
-            if(i===parts.length-1){
-                n.remedies=r.r||{};
-                n.hasRubric=true;
-                n.path=r.path||r.de_path||txt;
-                n.oorep_id=r.oorep_id||null;
-            }
-        }
-    });
-    return root;
-}
+    var root={children:{},remedies:{}};
+    Object.keys(data).forEach(function(rid){var r=data[rid];if(!r||!r.t)return;var p=r.t.split(', ');var n=root;
+    for(var i=0;i<p.length;i++){var pt=p[i].trim();if(!pt)continue;if(!n.children[pt])n.children[pt]={name:pt,children:{},remedies:{},count:0};n=n.children[pt];n.count++;if(i===p.length-1){n.remedies=r.r||{};}}});return root;}
 
 var repTreePage=0,repTreePageSize=50;
 function renderTree(chKey,chName,tree){
     repCurrentTree=tree;repCurrentChName=chName;repCurrentChKey=chKey;
-    var flat=[];
-    function flatten(node,depth,parentPath){
-        (node.order||Object.keys(node.children)).forEach(function(k){
-            var c=node.children[k];
-            if(!c)return;
-            var hc=(c.order&&c.order.length>0)||Object.keys(c.children||{}).length>0;
-            var fullPath = parentPath ? parentPath+', '+k : k;
-            flat.push({name:k,depth:depth,remedies:c.remedies||{},count:c.count||0,hasChildren:hc,hasRubric:!!c.hasRubric,path:c.path||fullPath,fullPath:fullPath,oorep_id:c.oorep_id||null});
-            if(hc)flatten(c,depth+1,fullPath);
-        });
-    }
+    var flat=[];function flatten(node,depth,parentPath){Object.keys(node.children).sort().forEach(function(k){var c=node.children[k];var hc=Object.keys(c.children).length>0;var hr=Object.keys(c.remedies).length>0;var fp=parentPath?parentPath+', '+k:k;if(hc)flatten(c,depth+1,fp);if(hr)flat.push({name:k,depth:depth,remedies:c.remedies,count:c.count,hasChildren:hc,fullPath:fp});});}
     flatten(tree,0,'');repCurrentFlatTree=flat;repTreePage=0;renderTreePage(chKey,chName,0);
 }
 function renderTreePage(chKey,chName,page){
     var cd=document.getElementById('repRubricContent');if(!cd)return;
-    var flat=repCurrentFlatTree,total=flat.length,totalPages=Math.ceil(total/repTreePageSize)||1;
+    var flat=repCurrentFlatTree,total=flat.length,totalPages=Math.ceil(total/repTreePageSize);
     if(page<0)page=0;if(page>=totalPages)page=totalPages-1;repTreePage=page;
     var start=page*repTreePageSize,end=Math.min(start+repTreePageSize,total);
     var h='<div class="rep-breadcrumb">📖 Repertory / <span>'+escapeHtml(chName)+'</span> ('+total.toLocaleString()+' rubrics)';
     if(totalPages>1)h+=' <span style="font-size:11px;color:#7f8c8d;">Page '+(page+1)+'/'+totalPages+'</span>';h+='</div>';
     if(totalPages>1){h+='<div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;">';h+='<button onclick="renderTreePage(repCurrentChKey,repCurrentChName,'+(page-1)+')" style="padding:4px 12px;border:1px solid #ddd;background:white;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px;"'+(page===0?' disabled':'')+'>◀ Prev</button>';h+='<span style="font-size:11px;color:#555;">'+(start+1)+'-'+end+' of '+total.toLocaleString()+'</span>';h+='<button onclick="renderTreePage(repCurrentChKey,repCurrentChName,'+(page+1)+')" style="padding:4px 12px;border:1px solid #ddd;background:white;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px;"'+(page>=totalPages-1?' disabled':'')+'>Next ▶</button>';h+='<span style="flex:1;"></span>';h+='<select onchange="repTreePageSize=parseInt(this.value);renderTree(repCurrentChKey,repCurrentChName,repCurrentTree);" style="padding:3px 6px;border:1px solid #ddd;border-radius:4px;font-size:11px;font-family:inherit;"><option value="50"'+(repTreePageSize===50?' selected':'')+'>50/page</option><option value="100"'+(repTreePageSize===100?' selected':'')+'>100/page</option><option value="200"'+(repTreePageSize===200?' selected':'')+'>200/page</option><option value="500"'+(repTreePageSize===500?' selected':'')+'>500/page</option></select></div>';}
     h+='<div class="rep-tree">';
-    for(var i=start;i<end;i++){var leaf=flat[i],d=leaf.depth;var rems=Object.keys(leaf.remedies||{});rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1)||a.localeCompare(b);});
-        if(d===0){
-            h+='<div class="rep-rubric-main-wrapper"><div class="rep-rubric-main" style="margin-bottom:1px;">'+escapeHtml(leaf.name)+'</div>';
-            if(rems.length>0){h+='<div class="rep-rubric-main-rems">';rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</div>';}
-            h+='</div>';
+    for(var i=start;i<end;i++){var leaf=flat[i],d=leaf.depth;
+        if(d===0&&!leaf.hasChildren){
+            h+='<div class="rep-rubric-main-wrapper"><div class="rep-rubric-main">'+escapeHtml(leaf.name)+'</div><div class="rep-rubric-main-rems">';
+            var rems=Object.keys(leaf.remedies);rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
+            rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
+            h+='</div></div>';
+        }else if(d===0){
+            h+='<div class="rep-rubric-main-wrapper"><div class="rep-rubric-main" style="margin-bottom:1px;">'+escapeHtml(leaf.name)+'</div><div class="rep-rubric-main-rems">';
+            var rems=Object.keys(leaf.remedies);rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
+            rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'">'+escapeHtml(abbr)+'</span>';});
+            h+='</div></div>';
         }else{
             var cls='rep-rubric-d'+(d>3?3:d);h+='<div class="rep-tree-leaf '+cls+'">';
             if(d<=3)h+='<span class="rep-bullet"></span>';
-            h+='<span class="rep-rubric-name">'+escapeHtml(leaf.name)+'</span>';
-            if(rems.length>0){h+='<span style="margin-left:8px;">';rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</span>';}
-            h+='</div>';
+            h+='<span class="rep-rubric-name">'+escapeHtml(leaf.name)+'</span><span style="margin-left:8px;">';
+            var rems=Object.keys(leaf.remedies);rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1);});
+            rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
+            h+='</span></div>';
         }
     }
     h+='</div>';cd.innerHTML=h;cd.scrollTop=0;
 }
 
 var _repSearchCache='',_repSearchResults=null;
-var repSearchMode = 'open'; // 'open' = current book only, 'all' = all books
+var _repSearchResultsList = [];
+var repSearchMode = 'open';
 function toggleRepSearchMode(){
     var btn = document.getElementById('repSearchToggle');
     if(repSearchMode === 'open'){
@@ -4578,220 +4534,80 @@ function toggleRepSearchMode(){
         repSearchMode = 'open';
         btn.textContent = '📖 Open';
         btn.style.background = 'rgba(255,255,255,0.15)';
-        btn.style.borderColor = '#fff';
+        btn.style.borderColor = 'rgba(255,255,255,0.6)';
     }
-    // Re-trigger search if there's a query
     var q = (document.getElementById('repBrowserSearch')||{}).value||'';
-    if(q.length >= 2){
-        _repSearchCache = ''; _repSearchResults = null;
-        searchRepertoryBrowser();
-    }
+    if(q.length >= 2){ _repSearchCache = ''; _repSearchResults = null; searchRepertoryBrowser(); }
 }
-window.toggleRepSearchMode = toggleRepSearchMode;
-
-var _allBooksData = null;
-var _allBooksLoading = false;
 
 function searchRepertoryBrowser(){
     var q=(document.getElementById('repBrowserSearch')||{}).value||'';
-    if(q.length<2){document.getElementById('repRubricContent').innerHTML='<div class="empty-state"><div class="icon">📖</div><p>Type 2+ chars to search rubrics</p></div>';return;}
+    if(q.length<2){document.getElementById('repRubricContent').innerHTML='<div class="empty-state"><div class="icon">📖</div><p>Type 2+ chars. Use @chapter to filter</p></div>';return;}
     document.getElementById('repRubricContent').innerHTML='<div style="text-align:center;padding:20px;">🔍 Searching...</div>';
     var chF=null,ai=q.indexOf('@');if(ai!==-1){var aa=q.substring(ai+1).split(/\s+/)[0],cf=aa.toLowerCase();repChapterNames.forEach(function(c){if(c.name.toLowerCase().indexOf(cf)!==-1)chF=c.key;});q=q.substring(0,ai)+q.substring(ai+1+aa.length);q=q.trim();}
-    var cacheKey = q + '|' + repSearchMode + '|' + repCurrentBook + '|' + (chF||'');
+    var cacheKey=q+'|'+repSearchMode+'|'+repCurrentBook;
     if(cacheKey===_repSearchCache&&_repSearchResults!==null){displaySearchResults(_repSearchResults.results,_repSearchResults.info);return;}
     _repSearchCache=cacheKey;
     q=q.toLowerCase();var qw=q.split(/\s+/).filter(function(w){return w.length>0;});
     if(qw.length===0&&!chF){document.getElementById('repRubricContent').innerHTML='<div class="empty-state"><p>Example: pain @head</p></div>';return;}
 
-    if(repSearchMode === 'all'){
-        searchAllRepertories(qw, chF);
+    if(repSearchMode==='all'){
+        searchAllRepertories(qw,chF);
     } else {
-        searchCurrentRepertory(qw, chF);
+        searchCurrentRepertory(qw,chF);
     }
 }
 
-function searchCurrentRepertory(qw, chF){
+function searchCurrentRepertory(qw,chF){
     setTimeout(function(){var r=[];
     function mt(t){if(!t)return false;if(qw.length===0)return true;var lt=t.toLowerCase();for(var i=0;i<qw.length;i++){if(lt.indexOf(qw[i])===-1)return false;}return true;}
     function ds(sd){var chs=chF?[chF]:Object.keys(sd);chs.forEach(function(ck){var rubs=sd[ck];if(!rubs)return;Object.keys(rubs).forEach(function(rid){var rub=rubs[rid];if(rub&&rub.t&&mt(rub.t))r.push({text:rub.t,remedies:rub.r||{},chapter:ck,book:repCurrentBook});});});r.sort(function(a,b){return a.text.localeCompare(b.text);});var info='🔍 ';if(qw.length>0)info+='"'+escapeHtml(qw.join(' '))+'"';if(chF){var cn=chF;repChapterNames.forEach(function(c){if(c.key===chF)cn=c.name;});info+=' in <b>'+escapeHtml(cn)+'</b>';}info+=' → <b>'+r.length.toLocaleString()+'</b> rubrics';displaySearchResults(r,info);_repSearchResults={results:r.slice(0,300),info:info};}
     if(_repFullData!==null){ds(_repFullData);}else{loadRepData(function(data){ds(data);});}},10);
 }
 
-function searchAllRepertories(qw, chF){
-    var books = ['publicum','kent','kent_de','synthesis91'];
-    var bookLabels = {publicum:'Publicum',kent:'Kent',kent_de:'Kent(DE)',synthesis91:'Synthesis9.1'};
-    var bookFiles = {publicum:'repertory-data.json',kent:'kent_repertory.json',kent_de:'kent_de_repertory_by_key.json',synthesis91:'synthesis91_raw_repertory_by_key.json'};
-    var allResults = [];
-    var loaded = 0;
-    var totalBooks = books.length;
-
+function searchAllRepertories(qw,chF){
+    var books=['publicum','kent','kent_de','synthesis91'];
+    var bookFiles={publicum:'repertory-data.json',kent:'kent_repertory.json',kent_de:'kent_de_repertory_by_key.json',synthesis91:'synthesis91_raw_repertory_by_key.json'};
+    var allResults=[];var loaded=0;var total=books.length;
     document.getElementById('repRubricContent').innerHTML='<div style="text-align:center;padding:20px;">🔍 Searching all repertories...</div>';
-
     function mt(t){if(!t)return false;if(qw.length===0)return true;var lt=t.toLowerCase();for(var i=0;i<qw.length;i++){if(lt.indexOf(qw[i])===-1)return false;}return true;}
-
-    books.forEach(function(bookKey){
-        var dataFile = bookFiles[bookKey];
-        fetch(dataFile).then(function(r){return r.json();}).then(function(sd){
-            var chs = Object.keys(sd);
-            if(chF) chs = [chF];
-            chs.forEach(function(ck){
-                var rubs = sd[ck];
-                if(!rubs) return;
-                Object.keys(rubs).forEach(function(rid){
-                    var rub = rubs[rid];
-                    if(rub && rub.t && mt(rub.t)){
-                        allResults.push({text:rub.t, remedies:rub.r||{}, chapter:ck, book:bookKey});
-                    }
-                });
-            });
-            loaded++;
-            if(loaded === totalBooks) finishAllSearch();
-        }).catch(function(){
-            loaded++;
-            if(loaded === totalBooks) finishAllSearch();
-        });
-    });
-
-    function finishAllSearch(){
-        allResults.sort(function(a,b){return a.text.localeCompare(b.text);});
-        var info = '📚 🔍 "' + escapeHtml(qw.join(' ')) + '" (All Repertories) → <b>' + allResults.length.toLocaleString() + '</b> rubrics';
-        displaySearchResults(allResults, info);
-        _repSearchResults = {results:allResults.slice(0,300), info:info};
-    }
+    books.forEach(function(bk){var df=bookFiles[bk];fetch(df).then(function(r){return r.json();}).then(function(sd){var chs=chF?[chF]:Object.keys(sd);chs.forEach(function(ck){var rubs=sd[ck];if(!rubs)return;Object.keys(rubs).forEach(function(rid){var rub=rubs[rid];if(rub&&rub.t&&mt(rub.t))allResults.push({text:rub.t,remedies:rub.r||{},chapter:ck,book:bk});});});loaded++;if(loaded===total){allResults.sort(function(a,b){return a.text.localeCompare(b.text);});var info='📚 🔍 "'+escapeHtml(qw.join(' '))+'" (All) → <b>'+allResults.length.toLocaleString()+'</b> rubrics';displaySearchResults(allResults,info);_repSearchResults={results:allResults.slice(0,300),info:info};}}).catch(function(){loaded++;if(loaded===total){allResults.sort(function(a,b){return a.text.localeCompare(b.text);});var info='📚 🔍 "'+escapeHtml(qw.join(' '))+'" (All) → <b>'+allResults.length.toLocaleString()+'</b> rubrics';displaySearchResults(allResults,info);_repSearchResults={results:allResults.slice(0,300),info:info};}});});
 }
-
-function loadRepData(cb){if(_repFullData!==null){cb(_repFullData);return;}var dataFile=repCurrentBook==='kent'?'kent_repertory.json':(repCurrentBook==='kent_de'?'kent_de_repertory_by_key.json':(repCurrentBook==='synthesis91'?'synthesis91_raw_repertory_by_key.json':'repertory-data.json'));fetch(dataFile).then(function(r){return r.json();}).then(function(d){_repFullData=d;cb(d);}).catch(function(e){console.error(e);});}
-
-
-var _repSearchResultsList = []; // Store search results for click handling
 
 function displaySearchResults(results,info){
     var rc=document.getElementById('repRubricContent');if(!rc)return;
     if(results.length===0){rc.innerHTML='<div class="empty-state"><p>🔍 No rubrics found</p></div>';return;}
-    var ms=300;
-    _repSearchResultsList = results.slice(0,ms);
+    var ms=300;_repSearchResultsList=results.slice(0,ms);
     var qw=_repSearchCache.split('|')[0].toLowerCase().split(/\s+/).filter(function(w){return w.length>0;});
     var h='<div style="margin-bottom:10px;padding:8px;background:#e8f4f8;border-radius:6px;">'+info+(results.length>ms?' (first '+ms+')':'')+'</div><div>';
-    results.slice(0,ms).forEach(function(r, idx){
-        var cn=r.chapter;
-        repChapterNames.forEach(function(c){if(c.key===r.chapter)cn=c.name;});
-        var bookLabel=r.book?(r.book==='publicum'?'Publicum':(r.book==='kent'?'Kent':(r.book==='kent_de'?'Kent(DE)':'Synthesis9.1'))):'';
-        // Highlight matching words in rubric text
-        var rubricHtml=escapeHtml(r.text);
-        qw.forEach(function(w){if(w.length<2)return;var re=new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');rubricHtml=rubricHtml.replace(re,'<mark>$1</mark>');});
-        // Build chapter and book label
-        var label=' <small style="color:#2980b9;">['+escapeHtml(cn)+']</small>';
-        if(bookLabel) label+=' <small style="color:#6c3483;">('+escapeHtml(bookLabel)+')</small>';
-        h+='<div class="rep-rubric-item" style="cursor:pointer;" data-sidx="'+idx+'" onclick="goToRubricByIndex('+idx+')"><div class="rep-rubric-header">'+rubricHtml+label+'</div><div style="margin-top:3px;">';
-        var rems=Object.keys(r.remedies);rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1);});
-        rems.forEach(function(abbr){var g=r.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(this.dataset.abbr)" data-abbr="'+escapeHtml(abbr)+'">'+escapeHtml(abbr)+'</span>';});
-        h+='</div></div>';
-    });
+    results.slice(0,ms).forEach(function(r,idx){var cn=r.chapter;repChapterNames.forEach(function(c){if(c.key===r.chapter)cn=c.name;});
+        var rh=escapeHtml(r.text);qw.forEach(function(w){if(w.length<2)return;var re=new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');rh=rh.replace(re,'<mark>$1</mark>');});
+        var bl=r.book?(r.book==='publicum'?'Publicum':(r.book==='kent'?'Kent':(r.book==='kent_de'?'Kent(DE)':'Synthesis9.1'))):'';
+        h+='<div class="rep-rubric-item" style="cursor:pointer;" onclick="goToRubricByIndex('+idx+')"><div class="rep-rubric-header">'+rh+' <small style="color:#2980b9;">['+escapeHtml(cn)+']</small>'+(bl?' <small style="color:#6c3483;">('+escapeHtml(bl)+')</small>':'')+'</div><div style="margin-top:3px;">';
+        var rems=Object.keys(r.remedies);rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1);});rems.forEach(function(abbr){var g=r.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</div></div>';});
     h+='</div>';rc.innerHTML=h;
 }
 
 function goToRubricByIndex(idx){
-    var r = _repSearchResultsList[idx];
-    if(!r) return;
-    goToRubric(r.chapter, r.text, r.book || repCurrentBook);
+    var r=_repSearchResultsList[idx];if(!r)return;
+    goToRubric(r.chapter,r.text,r.book||repCurrentBook);
 }
-window.goToRubricByIndex = goToRubricByIndex;
 
-function goToRubric(chapterKey, rubricText, bookKey){
-    // Switch to the correct book first if needed
-    if(bookKey && bookKey !== repCurrentBook){
-        var sel = document.getElementById('repBookSelect');
-        if(sel){
-            sel.value = bookKey;
-            switchRepertoryBook();
-        }
-    }
-    // Clear search bar
-    var searchInput = document.getElementById('repBrowserSearch');
-    if(searchInput) searchInput.value = '';
-    
-    // Select chapter - this triggers async load
+function goToRubric(chapterKey,rubricText,bookKey){
+    if(bookKey&&bookKey!==repCurrentBook){var sel=document.getElementById('repBookSelect');if(sel){sel.value=bookKey;switchRepertoryBook();}}
+    var si=document.getElementById('repBrowserSearch');if(si)si.value='';
     selectChapter(chapterKey);
-    
-    // After chapter loads, find and scroll to the rubric
-    function tryFindRubric(attempt) {
-        if(attempt > 5) return;
-        var rc = document.getElementById('repRubricContent');
-        if(!rc || !repCurrentFlatTree || repCurrentFlatTree.length === 0) {
-            setTimeout(function(){ tryFindRubric(attempt+1); }, 400);
-            return;
-        }
-        var flat = repCurrentFlatTree;
-        var targetLower = rubricText.toLowerCase();
-        var foundIndex = -1;
-        
-        // Try 1: exact fullPath match
-        for(var j = 0; j < flat.length; j++) {
-            var fp = (flat[j].fullPath || '').toLowerCase();
-            if(fp && fp === targetLower && flat[j].hasRubric) {
-                foundIndex = j;
-                break;
-            }
-        }
-        
-        // Try 2: path contains target
-        if(foundIndex === -1) {
-            for(var j2 = 0; j2 < flat.length; j2++) {
-                var fp2 = (flat[j2].fullPath || '').toLowerCase();
-                if(fp2 && targetLower === fp2) {
-                    foundIndex = j2;
-                    break;
-                }
-            }
-        }
-        
-        // Try 3: target contains path (partial match)
-        if(foundIndex === -1) {
-            for(var j3 = 0; j3 < flat.length; j3++) {
-                var fp3 = (flat[j3].fullPath || '').toLowerCase();
-                var nm3 = (flat[j3].name || '').toLowerCase();
-                if(flat[j3].hasRubric && fp3 && (targetLower.indexOf(fp3) !== -1 || fp3.indexOf(targetLower) !== -1)) {
-                    foundIndex = j3;
-                    break;
-                }
-            }
-        }
-        
-        // Try 4: last part match with hasRubric
-        if(foundIndex === -1) {
-            var lastPart = targetLower.split(', ').pop().trim();
-            for(var j4 = 0; j4 < flat.length; j4++) {
-                var nm4 = (flat[j4].name || '').toLowerCase();
-                if(nm4 === lastPart && flat[j4].hasRubric) {
-                    foundIndex = j4;
-                    break;
-                }
-            }
-        }
-        
-        if(foundIndex !== -1) {
-            var targetPage = Math.floor(foundIndex / repTreePageSize);
-            renderTreePage(repCurrentChKey, repCurrentChName, targetPage);
-            setTimeout(function(){
-                var allItems = rc.querySelectorAll('.rep-rubric-name, .rep-rubric-main');
-                var targetName = flat[foundIndex].name.toLowerCase();
-                for(var k = 0; k < allItems.length; k++) {
-                    if(allItems[k].textContent.toLowerCase().indexOf(targetName.substring(0,40)) !== -1) {
-                        allItems[k].scrollIntoView({behavior:'smooth', block:'center'});
-                        allItems[k].style.background = '#ffeb3b';
-                        allItems[k].style.padding = '2px 4px';
-                        allItems[k].style.borderRadius = '3px';
-                        setTimeout(function(el){ el.style.background = ''; }, 4000);
-                        break;
-                    }
-                }
-            }, 300);
-        }
+    function tryFind(attempt){if(attempt>5)return;var rc=document.getElementById('repRubricContent');if(!rc||!repCurrentFlatTree||repCurrentFlatTree.length===0){setTimeout(function(){tryFind(attempt+1);},400);return;}
+        var flat=repCurrentFlatTree;var tl=rubricText.toLowerCase();var fi=-1;
+        for(var j=0;j<flat.length;j++){var fp=(flat[j].fullPath||'').toLowerCase();if(fp&&fp===tl&&flat[j].remedies&&Object.keys(flat[j].remedies).length>0){fi=j;break;}}
+        if(fi===-1){for(var j2=0;j2<flat.length;j2++){var fp2=(flat[j2].fullPath||'').toLowerCase();if(fp2&&tl.indexOf(fp2)!==-1&&flat[j2].remedies&&Object.keys(flat[j2].remedies).length>0){fi=j2;break;}}}
+        if(fi===-1){var lp=tl.split(', ').pop().trim();for(var j3=0;j3<flat.length;j3++){var nm=(flat[j3].name||'').toLowerCase();if(nm===lp&&flat[j3].remedies&&Object.keys(flat[j3].remedies).length>0){fi=j3;break;}}}
+        if(fi!==-1){var tp=Math.floor(fi/repTreePageSize);renderTreePage(repCurrentChKey,repCurrentChName,tp);setTimeout(function(){var ai=rc.querySelectorAll('.rep-rubric-name,.rep-rubric-main');var tn=flat[fi].name.toLowerCase();for(var k=0;k<ai.length;k++){if(ai[k].textContent.toLowerCase().indexOf(tn.substring(0,40))!==-1){ai[k].scrollIntoView({behavior:'smooth',block:'center'});ai[k].style.background='#ffeb3b';ai[k].style.padding='2px 4px';ai[k].style.borderRadius='3px';setTimeout(function(el){el.style.background='';},4000);break;}}},300);}
     }
-    
-    setTimeout(function(){ tryFindRubric(0); }, 800);
+    setTimeout(function(){tryFind(0);},800);
 }
 
+function loadRepData(cb){if(_repFullData!==null){cb(_repFullData);return;}var dataFile=repCurrentBook==='kent'?'kent_repertory.json':(repCurrentBook==='synthesis91'?'synthesis91_raw_repertory_by_key.json':'repertory-data.json');fetch(dataFile).then(function(r){return r.json();}).then(function(d){_repFullData=d;cb(d);}).catch(function(e){console.error(e);});}
 
 function copyRemedyToPrescription(abbr){if(navigator.clipboard){navigator.clipboard.writeText(abbr).then(function(){if(typeof showToast==='function')showToast('✅ Copied: '+abbr);});}}
 
@@ -4803,6 +4619,7 @@ window.initRepertoryBrowser = initRepertoryBrowser;
 window.selectChapter = selectChapter;
 window.searchRepertoryBrowser = searchRepertoryBrowser;
 window.toggleRepSearchMode = toggleRepSearchMode;
+window.goToRubricByIndex = goToRubricByIndex;
 window.goToRubric = goToRubric;
 window.copyRemedyToPrescription = copyRemedyToPrescription;
 window.switchRepertoryBook = switchRepertoryBook;
@@ -5007,5 +4824,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1b4b389beb2727e',t:'MTc4NDA3NTg3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1c468b85df8f696',t:'MTc4NDI0MDU4Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1d4da894ced7eb3',t:'MTc4NDQxMzAxNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1b4b389beb2727e',t:'MTc4NDA3NTg3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1d4f3e07b30f696',t:'MTc4NDQxNDA1NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
