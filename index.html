@@ -729,7 +729,8 @@ body[dir="rtl"] .symptom-mode-btns{margin-left:0;margin-right:6px;}
 .rep-chapter-item{padding:6px 10px;cursor:pointer;border-radius:6px;font-size:12px;font-family:'Segoe UI',sans-serif;transition:all 0.15s;border:2px solid transparent;}
 .rep-chapter-item:hover{background:#e8f4f8;}
 .rep-chapter-item.active{background:#2980b9;color:white;font-weight:bold;}
-.rep-rubric-item{padding:8px 12px;border-bottom:1px solid #f0f0f0;font-size:12px;cursor:pointer;font-family:'Segoe UI',sans-serif;}
+.rep-rubric-item{padding:8px 12px;border-bottom:1px solid #f0f0f0;font-size:12px;cursor:pointer;font-family:'Segoe UI',sans-serif;transition:background 0.15s;}
+.rep-rubric-item:hover{background:#e8f4f8 !important;}
 .rep-rubric-header{font-weight:bold;color:#1a5276;font-size:13px;}
 .rep-remedy-tag{display:inline-block;padding:2px 8px;margin:2px;border-radius:12px;font-size:10px;font-weight:bold;cursor:pointer;}
 .rep-remedy-tag.g3{background:#2c3e50;color:white;}
@@ -1374,7 +1375,10 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
                         <option value="kent_de">📕 Kent Repertory (German)</option>
                         <option value="synthesis91">📙 Synthesis 9.1</option>
                     </select>
-                    <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="Search rubrics... (e.g. pain @head)" style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:12px;min-width:180px;flex:1;">
+                    <div style="display:flex;align-items:center;gap:6px;flex:1;min-width:180px;">
+                        <button id="repSearchToggle" onclick="toggleRepSearchMode()" title="Toggle: Open Repertory / All Repertories" style="padding:4px 8px;border-radius:6px;border:2px solid #fff;background:rgba(255,255,255,0.15);color:white;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all 0.2s;">📖 Open</button>
+                        <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="Search rubrics... (e.g. pain @head)" style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:12px;flex:1;">
+                    </div>
                     <span style="font-size:11px;opacity:0.8;" id="repBrowserInfo"></span>
                 </div>
             </div>
@@ -4558,19 +4562,98 @@ function renderTreePage(chKey,chName,page){
 }
 
 var _repSearchCache='',_repSearchResults=null;
+var repSearchMode = 'open'; // 'open' = current book only, 'all' = all books
+function toggleRepSearchMode(){
+    var btn = document.getElementById('repSearchToggle');
+    if(repSearchMode === 'open'){
+        repSearchMode = 'all';
+        btn.textContent = '📚 All';
+        btn.style.background = 'rgba(255,255,255,0.35)';
+        btn.style.borderColor = '#ffeb3b';
+    } else {
+        repSearchMode = 'open';
+        btn.textContent = '📖 Open';
+        btn.style.background = 'rgba(255,255,255,0.15)';
+        btn.style.borderColor = '#fff';
+    }
+    // Re-trigger search if there's a query
+    var q = (document.getElementById('repBrowserSearch')||{}).value||'';
+    if(q.length >= 2){
+        _repSearchCache = ''; _repSearchResults = null;
+        searchRepertoryBrowser();
+    }
+}
+window.toggleRepSearchMode = toggleRepSearchMode;
+
+var _allBooksData = null;
+var _allBooksLoading = false;
+
 function searchRepertoryBrowser(){
     var q=(document.getElementById('repBrowserSearch')||{}).value||'';
-    if(q.length<2){document.getElementById('repRubricContent').innerHTML='<div class="empty-state"><div class="icon">📖</div><p>Type 2+ chars. Use @chapter to filter</p></div>';return;}
+    if(q.length<2){document.getElementById('repRubricContent').innerHTML='<div class="empty-state"><div class="icon">📖</div><p>Type 2+ chars to search rubrics</p></div>';return;}
     document.getElementById('repRubricContent').innerHTML='<div style="text-align:center;padding:20px;">🔍 Searching...</div>';
     var chF=null,ai=q.indexOf('@');if(ai!==-1){var aa=q.substring(ai+1).split(/\s+/)[0],cf=aa.toLowerCase();repChapterNames.forEach(function(c){if(c.name.toLowerCase().indexOf(cf)!==-1)chF=c.key;});q=q.substring(0,ai)+q.substring(ai+1+aa.length);q=q.trim();}
-    if(q===_repSearchCache&&_repSearchResults!==null){displaySearchResults(_repSearchResults.results,_repSearchResults.info);return;}
-    _repSearchCache=q;
+    var cacheKey = q + '|' + repSearchMode + '|' + repCurrentBook + '|' + (chF||'');
+    if(cacheKey===_repSearchCache&&_repSearchResults!==null){displaySearchResults(_repSearchResults.results,_repSearchResults.info);return;}
+    _repSearchCache=cacheKey;
     q=q.toLowerCase();var qw=q.split(/\s+/).filter(function(w){return w.length>0;});
     if(qw.length===0&&!chF){document.getElementById('repRubricContent').innerHTML='<div class="empty-state"><p>Example: pain @head</p></div>';return;}
+
+    if(repSearchMode === 'all'){
+        searchAllRepertories(qw, chF);
+    } else {
+        searchCurrentRepertory(qw, chF);
+    }
+}
+
+function searchCurrentRepertory(qw, chF){
     setTimeout(function(){var r=[];
     function mt(t){if(!t)return false;if(qw.length===0)return true;var lt=t.toLowerCase();for(var i=0;i<qw.length;i++){if(lt.indexOf(qw[i])===-1)return false;}return true;}
-    function ds(sd){var chs=chF?[chF]:Object.keys(sd);chs.forEach(function(ck){var rubs=sd[ck];if(!rubs)return;Object.keys(rubs).forEach(function(rid){var rub=rubs[rid];if(rub&&rub.t&&mt(rub.t))r.push({text:rub.t,remedies:rub.r||{},chapter:ck});});});r.sort(function(a,b){return a.text.localeCompare(b.text);});var info='🔍 ';if(qw.length>0)info+='"'+escapeHtml(qw.join(' '))+'"';if(chF){var cn=chF;repChapterNames.forEach(function(c){if(c.key===chF)cn=c.name;});info+=' in <b>'+escapeHtml(cn)+'</b>';}info+=' → <b>'+r.length.toLocaleString()+'</b> rubrics';displaySearchResults(r,info);_repSearchResults={results:r.slice(0,200),info:info};}
+    function ds(sd){var chs=chF?[chF]:Object.keys(sd);chs.forEach(function(ck){var rubs=sd[ck];if(!rubs)return;Object.keys(rubs).forEach(function(rid){var rub=rubs[rid];if(rub&&rub.t&&mt(rub.t))r.push({text:rub.t,remedies:rub.r||{},chapter:ck,book:repCurrentBook});});});r.sort(function(a,b){return a.text.localeCompare(b.text);});var info='🔍 ';if(qw.length>0)info+='"'+escapeHtml(qw.join(' '))+'"';if(chF){var cn=chF;repChapterNames.forEach(function(c){if(c.key===chF)cn=c.name;});info+=' in <b>'+escapeHtml(cn)+'</b>';}info+=' → <b>'+r.length.toLocaleString()+'</b> rubrics';displaySearchResults(r,info);_repSearchResults={results:r.slice(0,300),info:info};}
     if(_repFullData!==null){ds(_repFullData);}else{loadRepData(function(data){ds(data);});}},10);
+}
+
+function searchAllRepertories(qw, chF){
+    var books = ['publicum','kent','kent_de','synthesis91'];
+    var bookLabels = {publicum:'Publicum',kent:'Kent',kent_de:'Kent(DE)',synthesis91:'Synthesis9.1'};
+    var bookFiles = {publicum:'repertory-data.json',kent:'kent_repertory.json',kent_de:'kent_de_repertory_by_key.json',synthesis91:'synthesis91_raw_repertory_by_key.json'};
+    var allResults = [];
+    var loaded = 0;
+    var totalBooks = books.length;
+
+    document.getElementById('repRubricContent').innerHTML='<div style="text-align:center;padding:20px;">🔍 Searching all repertories...</div>';
+
+    function mt(t){if(!t)return false;if(qw.length===0)return true;var lt=t.toLowerCase();for(var i=0;i<qw.length;i++){if(lt.indexOf(qw[i])===-1)return false;}return true;}
+
+    books.forEach(function(bookKey){
+        var dataFile = bookFiles[bookKey];
+        fetch(dataFile).then(function(r){return r.json();}).then(function(sd){
+            var chs = Object.keys(sd);
+            if(chF) chs = [chF];
+            chs.forEach(function(ck){
+                var rubs = sd[ck];
+                if(!rubs) return;
+                Object.keys(rubs).forEach(function(rid){
+                    var rub = rubs[rid];
+                    if(rub && rub.t && mt(rub.t)){
+                        allResults.push({text:rub.t, remedies:rub.r||{}, chapter:ck, book:bookKey});
+                    }
+                });
+            });
+            loaded++;
+            if(loaded === totalBooks) finishAllSearch();
+        }).catch(function(){
+            loaded++;
+            if(loaded === totalBooks) finishAllSearch();
+        });
+    });
+
+    function finishAllSearch(){
+        allResults.sort(function(a,b){return a.text.localeCompare(b.text);});
+        var info = '📚 🔍 "' + escapeHtml(qw.join(' ')) + '" (All Repertories) → <b>' + allResults.length.toLocaleString() + '</b> rubrics';
+        displaySearchResults(allResults, info);
+        _repSearchResults = {results:allResults.slice(0,300), info:info};
+    }
 }
 
 function loadRepData(cb){if(_repFullData!==null){cb(_repFullData);return;}var dataFile=repCurrentBook==='kent'?'kent_repertory.json':(repCurrentBook==='kent_de'?'kent_de_repertory_by_key.json':(repCurrentBook==='synthesis91'?'synthesis91_raw_repertory_by_key.json':'repertory-data.json'));fetch(dataFile).then(function(r){return r.json();}).then(function(d){_repFullData=d;cb(d);}).catch(function(e){console.error(e);});}
@@ -4579,14 +4662,7 @@ function loadRepData(cb){if(_repFullData!==null){cb(_repFullData);return;}var da
 function displaySearchResults(results,info){
     var rc=document.getElementById('repRubricContent');if(!rc)return;
     if(results.length===0){rc.innerHTML='<div class="empty-state"><p>🔍 No rubrics found</p></div>';return;}
-    var ms=200;
-    // Fix long titles: truncate to 150 chars for display, but keep full for search
-    function truncateTitle(t){
-        if(t.length>150){
-            return t.substring(0,147)+'...';
-        }
-        return t;
-    }
+    var ms=300;
     function highlightMatches(text, queryWords){
         var res=text;
         queryWords.forEach(function(w){
@@ -4596,44 +4672,107 @@ function displaySearchResults(results,info){
         });
         return res;
     }
-    var qw=_repSearchCache.toLowerCase().split(/\s+/).filter(function(w){return w.length>0;});
-    var h='<div style="margin-bottom:10px;padding:8px;background:#e8f4f8;border-radius:6px;">'+info+(results.length>ms?' (first '+ms+')':'')+'</div><div>';
-    results.slice(0,ms).forEach(function(r){
+    var qw=_repSearchCache.split('|')[0].toLowerCase().split(/\s+/).filter(function(w){return w.length>0;});
+    var h='<div style="margin-bottom:10px;padding:8px;background:#e8f4f8;border-radius:6px;">'+info+(results.length>ms?' (showing first '+ms+')':'')+'</div>';
+    h+='<div style="display:flex;flex-direction:column;gap:1px;">';
+    results.slice(0,ms).forEach(function(r, idx){
         var cn=r.chapter;
         repChapterNames.forEach(function(c){if(c.key===r.chapter)cn=c.name;});
-        var displayText=truncateTitle(r.text);
-        var highlighted=highlightMatches(escapeHtml(displayText), qw);
-        // Make clickable to go to chapter and highlight rubric
-        h+='<div class="rep-rubric-item" style="cursor:pointer;" onclick="goToRubric(\''+escapeHtml(r.chapter)+'\',\''+escapeHtml(r.text).replace(/'/g, '\\\'')+'\')"><div class="rep-rubric-header">'+highlighted+' <small style="color:#2980b9;">['+escapeHtml(cn)+']</small></div><div style="margin-top:3px;">';
+        var bookLabel = r.book ? (r.book==='publicum'?'Publicum':(r.book==='kent'?'Kent':(r.book==='kent_de'?'Kent(DE)':'Synthesis9.1'))) : '';
+        // Split the rubric path into separate parts for line-by-line display
+        var pathParts = r.text.split(', ');
+        var pathHtml = '';
+        for(var p=0; p<pathParts.length; p++){
+            var part = pathParts[p].trim();
+            if(!part) continue;
+            var indent = p * 18;
+            var isLast = (p === pathParts.length - 1);
+            var partHighlighted = highlightMatches(escapeHtml(part), qw);
+            var bullet = isLast ? '<span style="display:inline-block;width:6px;height:6px;background:#2980b9;border-radius:50%;margin-right:6px;vertical-align:middle;"></span>' : '<span style="display:inline-block;width:4px;height:4px;background:#85c1e9;border-radius:2px;margin-right:6px;vertical-align:middle;"></span>';
+            var textStyle = isLast ? 'font-weight:600;color:#1a5276;' : 'color:#555;';
+            pathHtml += '<div style="padding-left:'+indent+'px;'+textStyle+'">'+bullet+partHighlighted+'</div>';
+        }
+        // Chapter & book tag
+        var chapterTag = '<span style="display:inline-block;background:#e8f4f8;color:#1a5276;padding:1px 6px;border-radius:3px;font-size:10px;margin-right:4px;">'+escapeHtml(cn)+'</span>';
+        var bookTag = bookLabel ? '<span style="display:inline-block;background:#f0e6ff;color:#6c3483;padding:1px 6px;border-radius:3px;font-size:10px;">'+escapeHtml(bookLabel)+'</span>' : '';
+        // Remedies row
+        var remsRow = '';
         var rems=Object.keys(r.remedies);rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1);});
-        rems.forEach(function(abbr){var g=r.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
-        h+='</div></div>';
+        if(rems.length > 0){
+            remsRow = '<div style="margin-top:4px;padding-left:18px;">';
+            rems.forEach(function(abbr){var g=r.remedies[abbr]||1;remsRow+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
+            remsRow += '</div>';
+        }
+        h+='<div class="rep-rubric-item" style="cursor:pointer;padding:8px 12px;border-bottom:1px solid #eee;background:'+(idx%2===0?'#fff':'#fafbfc')+';" onclick="goToRubric(\''+escapeHtml(r.chapter)+'\',\''+escapeHtml(r.text).replace(/'/g,"\\'")+'\',\''+escapeHtml(r.book||repCurrentBook)+'\')">';
+        h+='<div style="margin-bottom:3px;">'+chapterTag+bookTag+'</div>';
+        h+=pathHtml;
+        h+=remsRow;
+        h+='</div>';
     });
-    h+='</div>';rc.innerHTML=h;
+    h+='</div>';
+    rc.innerHTML=h;
 }
 
-function goToRubric(chapterKey, rubricText){
+function goToRubric(chapterKey, rubricText, bookKey){
+    // Switch to the correct book first if needed
+    if(bookKey && bookKey !== repCurrentBook){
+        var sel = document.getElementById('repBookSelect');
+        if(sel){
+            sel.value = bookKey;
+            switchRepertoryBook();
+        }
+    }
     // Select chapter and then try to find and highlight rubric
     selectChapter(chapterKey);
     // After chapter loads, search for rubric text
     setTimeout(function(){
         var rc=document.getElementById('repRubricContent');
         if(!rc) return;
-        // Find all rubric headers and highlight matching one
+        // Find all rubric names and highlight matching one
         var headers=rc.querySelectorAll('.rep-rubric-name, .rep-rubric-main');
         var targetLower=rubricText.toLowerCase();
+        var found = false;
         for(var i=0;i<headers.length;i++){
             var h=headers[i];
-            if(h.textContent.toLowerCase().indexOf(targetLower.substring(0,50).toLowerCase())!==-1 || targetLower.indexOf(h.textContent.toLowerCase().substring(0,50))!==-1){
+            var hText = h.textContent.toLowerCase();
+            if(hText && (targetLower.indexOf(hText.substring(0,50))!==-1 || hText.indexOf(targetLower.substring(0,50))!==-1)){
                 h.scrollIntoView({behavior:'smooth', block:'center'});
                 h.style.background='#ffeb3b';
                 h.style.padding='2px 4px';
                 h.style.borderRadius='3px';
+                found = true;
                 setTimeout(function(el){el.style.background='';}, 3000);
                 break;
             }
         }
-    }, 800);
+        // If not found in visible headers, try searching in flat tree for pagination
+        if(!found && repCurrentFlatTree && repCurrentFlatTree.length > 0){
+            var flat = repCurrentFlatTree;
+            var targetWords = rubricText.toLowerCase().split(', ').pop().trim();
+            for(var j=0; j<flat.length; j++){
+                var fName = (flat[j].name||'').toLowerCase();
+                if(fName && targetWords.indexOf(fName)!==-1){
+                    // Jump to the page containing this rubric
+                    var targetPage = Math.floor(j / repTreePageSize);
+                    renderTreePage(repCurrentChKey, repCurrentChName, targetPage);
+                    setTimeout(function(){
+                        var allItems = rc.querySelectorAll('.rep-rubric-name, .rep-rubric-main');
+                        for(var k=0;k<allItems.length;k++){
+                            if(allItems[k].textContent.toLowerCase().indexOf(targetWords.substring(0,30))!==-1){
+                                allItems[k].scrollIntoView({behavior:'smooth',block:'center'});
+                                allItems[k].style.background='#ffeb3b';
+                                allItems[k].style.padding='2px 4px';
+                                allItems[k].style.borderRadius='3px';
+                                setTimeout(function(el){el.style.background='';}, 3000);
+                                break;
+                            }
+                        }
+                    }, 200);
+                    break;
+                }
+            }
+        }
+    }, 1000);
 }
 
 
@@ -4646,6 +4785,8 @@ window.setSymptomMode = setSymptomMode;
 window.initRepertoryBrowser = initRepertoryBrowser;
 window.selectChapter = selectChapter;
 window.searchRepertoryBrowser = searchRepertoryBrowser;
+window.toggleRepSearchMode = toggleRepSearchMode;
+window.goToRubric = goToRubric;
 window.copyRemedyToPrescription = copyRemedyToPrescription;
 window.switchRepertoryBook = switchRepertoryBook;
 window.closeRepertoryChart = closeRepertoryChart;
@@ -4849,5 +4990,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1b4b389beb2727e',t:'MTc4NDA3NTg3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1c468b85df8f696',t:'MTc4NDI0MDU4Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1b4b389beb2727e',t:'MTc4NDA3NTg3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1c468b85df8f696',t:'MTc4NDI0MDU4Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1d48022cfe8fbb9',t:'MTc4NDQwOTMxMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
