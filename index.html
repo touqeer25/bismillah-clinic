@@ -1372,6 +1372,7 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
                     <select id="repBookSelect" onchange="switchRepertoryBook()" style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:13px;min-width:200px;">
                         <option value="publicum">📗 Repertorium Publicum (Polony)</option>
                         <option value="kent">📘 Kent Repertory (English)</option>
+                        <option value="kent_de">📕 Kent Repertory (German)</option>
                         <option value="synthesis91">📙 Synthesis 9.1</option>
                     </select>
                     <button id="repSearchToggle" onclick="toggleRepSearchMode()" title="Toggle: Open / All Repertories" style="padding:5px 10px;border-radius:6px;border:2px solid rgba(255,255,255,0.6);background:rgba(255,255,255,0.15);color:white;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;">📖 Open</button>
@@ -4426,28 +4427,17 @@ function switchRepertoryBook() {
 }
 
 function initRepertoryBrowser() {
-    if (repCurrentBook === 'kent') {
+    if (repCurrentBook === 'kent_de') {
+        // Load chapters from repertory data file
+        loadRepData(function(sd){repChapterNames=[];Object.keys(sd).forEach(function(ck){var rubs=sd[ck];if(!rubs)return;repChapterNames.push({key:ck,name:ck.replace(/_/g,' ').replace(/\b\w/g,function(l){return l.toUpperCase();}),rubrics:Object.keys(rubs).length});});repChapterNames.sort(function(a,b){return a.name.localeCompare(b.name);});var t=0;repChapterNames.forEach(function(c){t+=c.rubrics;});var info=document.getElementById('repBrowserInfo');if(info)info.textContent=repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';renderChapterList();});
+        return;
+    } else if (repCurrentBook === 'synthesis91') {
+        fetch('synthesis91_raw_chapters/_index.json').then(function(r){return r.json();}).then(function(data){repChapterNames=data;repChapterNames.sort(function(a,b){return a.name.localeCompare(b.name);});var t=0;repChapterNames.forEach(function(c){t+=c.rubrics;});var info=document.getElementById('repBrowserInfo');if(info)info.textContent=repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';renderChapterList();}).catch(function(){repChapterNames=[];renderChapterList();});
+        return;
+    } else if (repCurrentBook === 'kent') {
         repChapterNames = [{"key":"mind","name":"MIND","rubrics":659},{"key":"vertigo","name":"VERTIGO","rubrics":7},{"key":"head","name":"HEAD","rubrics":34},{"key":"eye","name":"EYE","rubrics":44},{"key":"vision","name":"VISION","rubrics":36},{"key":"ear","name":"EAR","rubrics":57},{"key":"hearing","name":"HEARING","rubrics":0},{"key":"nose","name":"NOSE","rubrics":35},{"key":"face","name":"FACE","rubrics":143},{"key":"mouth","name":"MOUTH","rubrics":80},{"key":"teeth","name":"TEETH","rubrics":19},{"key":"throat","name":"THROAT INTERNAL","rubrics":86},{"key":"external_throat","name":"EXTERNAL THROAT","rubrics":11},{"key":"stomach","name":"STOMACH","rubrics":59},{"key":"abdomen","name":"ABDOMEN","rubrics":41},{"key":"rectum","name":"RECTUM","rubrics":36},{"key":"stool","name":"STOOL","rubrics":103},{"key":"bladder","name":"BLADDER","rubrics":11},{"key":"kidneys","name":"KIDNEYS","rubrics":0},{"key":"prostate_gland","name":"PROSTATE GLAND","rubrics":0},{"key":"urethra","name":"URETHRA","rubrics":0},{"key":"urine","name":"URINE","rubrics":44},{"key":"genitalia_male","name":"MALE GENITALIA","rubrics":47},{"key":"genitalia_female","name":"FEMALE GENITALIA","rubrics":56},{"key":"larynx_and_trachea","name":"LARYNX AND TRACHEA","rubrics":30},{"key":"respiration","name":"RESPIRATION","rubrics":39},{"key":"cough","name":"COUGH","rubrics":38},{"key":"expectoration","name":"EXPECTORATION","rubrics":61},{"key":"chest","name":"CHEST","rubrics":63},{"key":"back","name":"BACK","rubrics":17},{"key":"extremities","name":"EXTREMITIES","rubrics":337},{"key":"sleep","name":"SLEEP","rubrics":18},{"key":"chill","name":"CHILL","rubrics":19},{"key":"fever","name":"FEVER","rubrics":31},{"key":"perspiration","name":"PERSPIRATION","rubrics":24},{"key":"skin","name":"SKIN","rubrics":91},{"key":"generalities","name":"GENERALITIES","rubrics":1208}];
     } else {
-        // Load from _index.json for publicum, kent_de, synthesis91
-        var basePath = repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/';
-        fetch(basePath+'_index.json').then(function(r){return r.json();}).then(function(data){
-            repChapterNames = data;
-            repChapterNames.sort(function(a,b){return a.name.localeCompare(b.name);});
-            var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
-            var info = document.getElementById('repBrowserInfo');
-            if(info) info.textContent = repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';
-            renderChapterList();
-        }).catch(function(e){
-            // Fallback for publicum
-            repChapterNames = [{"key":"extremities","name":"Extremities","rubrics":16115},{"key":"head","name":"Head","rubrics":6984},{"key":"mind","name":"Mind","rubrics":5827},{"key":"back","name":"Back","rubrics":4611},{"key":"abdomen","name":"Abdomen","rubrics":4339},{"key":"chest","name":"Chest","rubrics":2858},{"key":"stomach","name":"Stomach","rubrics":2826},{"key":"face","name":"Face","rubrics":2094},{"key":"ear","name":"Ear","rubrics":2029},{"key":"eye","name":"Eye","rubrics":1787},{"key":"generalities","name":"Generalities","rubrics":1751},{"key":"mouth","name":"Mouth","rubrics":1598},{"key":"sleep","name":"Sleep","rubrics":1588},{"key":"rectum","name":"Rectum","rubrics":1549},{"key":"cough","name":"Cough","rubrics":1535},{"key":"nose","name":"Nose","rubrics":1497},{"key":"genitalia_female","name":"Genitalia female","rubrics":1484},{"key":"skin","name":"Skin","rubrics":1161},{"key":"genitalia_male","name":"Genitalia male","rubrics":1121},{"key":"vision","name":"Vision","rubrics":1093},{"key":"throat","name":"Throat","rubrics":1047},{"key":"teeth","name":"Teeth","rubrics":839},{"key":"heart_&_circulation","name":"Heart & Circulation","rubrics":789},{"key":"chill","name":"Chill","rubrics":768},{"key":"bladder","name":"Bladder","rubrics":766},{"key":"respiration","name":"Respiration","rubrics":760},{"key":"larynx_and_trachea","name":"Larynx and trachea","rubrics":729},{"key":"urethra","name":"Urethra","rubrics":606},{"key":"fever","name":"Fever","rubrics":596},{"key":"appetite","name":"Appetite","rubrics":513},{"key":"vertigo","name":"Vertigo","rubrics":512},{"key":"clinical","name":"Clinical","rubrics":490},{"key":"urine","name":"Urine","rubrics":406},{"key":"perspiration","name":"Perspiration","rubrics":395},{"key":"expectoration","name":"Expectoration","rubrics":344},{"key":"external_throat","name":"External throat","rubrics":276},{"key":"kidneys","name":"Kidneys","rubrics":267},{"key":"stool","name":"Stool","rubrics":234},{"key":"hearing","name":"Hearing","rubrics":168},{"key":"prostate_gland","name":"Prostate gland","rubrics":105},{"key":"blood","name":"Blood","rubrics":25}];
-            repChapterNames.sort(function(a,b){return a.name.localeCompare(b.name);});
-            var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
-            var info = document.getElementById('repBrowserInfo');
-            if(info) info.textContent = repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';
-            renderChapterList();
-        });
-        return;
+        repChapterNames = [{"key":"extremities","name":"Extremities","rubrics":16115},{"key":"head","name":"Head","rubrics":6984},{"key":"mind","name":"Mind","rubrics":5827},{"key":"back","name":"Back","rubrics":4611},{"key":"abdomen","name":"Abdomen","rubrics":4339},{"key":"chest","name":"Chest","rubrics":2858},{"key":"stomach","name":"Stomach","rubrics":2826},{"key":"face","name":"Face","rubrics":2094},{"key":"ear","name":"Ear","rubrics":2029},{"key":"eye","name":"Eye","rubrics":1787},{"key":"generalities","name":"Generalities","rubrics":1751},{"key":"mouth","name":"Mouth","rubrics":1598},{"key":"sleep","name":"Sleep","rubrics":1588},{"key":"rectum","name":"Rectum","rubrics":1549},{"key":"cough","name":"Cough","rubrics":1535},{"key":"nose","name":"Nose","rubrics":1497},{"key":"genitalia_female","name":"Genitalia female","rubrics":1484},{"key":"skin","name":"Skin","rubrics":1161},{"key":"genitalia_male","name":"Genitalia male","rubrics":1121},{"key":"vision","name":"Vision","rubrics":1093},{"key":"throat","name":"Throat","rubrics":1047},{"key":"teeth","name":"Teeth","rubrics":839},{"key":"heart_&_circulation","name":"Heart & Circulation","rubrics":789},{"key":"chill","name":"Chill","rubrics":768},{"key":"bladder","name":"Bladder","rubrics":766},{"key":"respiration","name":"Respiration","rubrics":760},{"key":"larynx_and_trachea","name":"Larynx and trachea","rubrics":729},{"key":"urethra","name":"Urethra","rubrics":606},{"key":"fever","name":"Fever","rubrics":596},{"key":"appetite","name":"Appetite","rubrics":513},{"key":"vertigo","name":"Vertigo","rubrics":512},{"key":"clinical","name":"Clinical","rubrics":490},{"key":"urine","name":"Urine","rubrics":406},{"key":"perspiration","name":"Perspiration","rubrics":395},{"key":"expectoration","name":"Expectoration","rubrics":344},{"key":"external_throat","name":"External throat","rubrics":276},{"key":"kidneys","name":"Kidneys","rubrics":267},{"key":"stool","name":"Stool","rubrics":234},{"key":"hearing","name":"Hearing","rubrics":168},{"key":"prostate_gland","name":"Prostate gland","rubrics":105},{"key":"blood","name":"Blood","rubrics":25}];
     }
     repChapterNames.sort(function(a,b){return a.name.localeCompare(b.name);});
     var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
@@ -4471,7 +4461,7 @@ function selectChapter(chKey){
     var cd=document.getElementById('repRubricContent');if(!cd)return;
     cd.innerHTML='<div style="text-align:center;padding:30px;">Loading <b>'+nm+'</b>...</div>';
     if(repTreeCache[chKey]){renderTree(chKey,nm,repTreeCache[chKey]);return;}
-    var basePath=repCurrentBook==='kent'?'kent_chapters/':(repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/');
+    var basePath=repCurrentBook==='kent'?'kent_chapters/':(repCurrentBook==='kent_de'?'kent_de_chapters/':(repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/'));
     fetch(basePath+encodeURIComponent(chKey)+'.json?v=1').then(function(r){return r.json();}).then(function(d){
         var tree=buildRubricTree(d);repTreeCache[chKey]=tree;renderTree(chKey,nm,tree);
     }).catch(function(e){cd.innerHTML='<div style="text-align:center;padding:30px;color:#e74c3c;"><p>❌ Failed to load '+nm+'</p><p style="font-size:11px;">'+e.message+'</p></div>';});
@@ -4523,6 +4513,7 @@ function renderTreePage(chKey,chName,page){
 var _repSearchCache='',_repSearchResults=null;
 var _repSearchResultsList = [];
 var repSearchMode = 'open';
+
 function toggleRepSearchMode(){
     var btn = document.getElementById('repSearchToggle');
     if(repSearchMode === 'open'){
@@ -4545,25 +4536,21 @@ function searchRepertoryBrowser(){
     if(q.length<2){document.getElementById('repRubricContent').innerHTML='<div class="empty-state"><div class="icon">📖</div><p>Type 2+ chars. Use @chapter to filter</p></div>';return;}
     document.getElementById('repRubricContent').innerHTML='<div style="text-align:center;padding:20px;">🔍 Searching...</div>';
     var chF=null,ai=q.indexOf('@');if(ai!==-1){var aa=q.substring(ai+1).split(/\s+/)[0],cf=aa.toLowerCase();repChapterNames.forEach(function(c){if(c.name.toLowerCase().indexOf(cf)!==-1)chF=c.key;});q=q.substring(0,ai)+q.substring(ai+1+aa.length);q=q.trim();}
-    var cacheKey=q+'|'+repSearchMode+'|'+repCurrentBook;
+    var cacheKey=q+'|'+repSearchMode;
     if(cacheKey===_repSearchCache&&_repSearchResults!==null){displaySearchResults(_repSearchResults.results,_repSearchResults.info);return;}
     _repSearchCache=cacheKey;
     q=q.toLowerCase();var qw=q.split(/\s+/).filter(function(w){return w.length>0;});
     if(qw.length===0&&!chF){document.getElementById('repRubricContent').innerHTML='<div class="empty-state"><p>Example: pain @head</p></div>';return;}
-
-    if(repSearchMode==='all'){
-        searchAllRepertories(qw,chF);
-    } else {
-        searchCurrentRepertory(qw,chF);
-    }
+    if(repSearchMode==='all'){searchAllRepertories(qw,chF);}else{searchCurrentRepertory(qw,chF);}
 }
-
 function searchCurrentRepertory(qw,chF){
     setTimeout(function(){var r=[];
     function mt(t){if(!t)return false;if(qw.length===0)return true;var lt=t.toLowerCase();for(var i=0;i<qw.length;i++){if(lt.indexOf(qw[i])===-1)return false;}return true;}
-    function ds(sd){var chs=chF?[chF]:Object.keys(sd);chs.forEach(function(ck){var rubs=sd[ck];if(!rubs)return;Object.keys(rubs).forEach(function(rid){var rub=rubs[rid];if(rub&&rub.t&&mt(rub.t))r.push({text:rub.t,remedies:rub.r||{},chapter:ck,book:repCurrentBook});});});r.sort(function(a,b){return a.text.localeCompare(b.text);});var info='🔍 ';if(qw.length>0)info+='"'+escapeHtml(qw.join(' '))+'"';if(chF){var cn=chF;repChapterNames.forEach(function(c){if(c.key===chF)cn=c.name;});info+=' in <b>'+escapeHtml(cn)+'</b>';}info+=' → <b>'+r.length.toLocaleString()+'</b> rubrics';displaySearchResults(r,info);_repSearchResults={results:r.slice(0,300),info:info};}
+    function ds(sd){var chs=chF?[chF]:Object.keys(sd);chs.forEach(function(ck){var rubs=sd[ck];if(!rubs)return;Object.keys(rubs).forEach(function(rid){var rub=rubs[rid];if(rub&&rub.t&&mt(rub.t))r.push({text:rub.t,remedies:rub.r||{},chapter:ck});});});r.sort(function(a,b){return a.text.localeCompare(b.text);});var info='🔍 ';if(qw.length>0)info+='"'+escapeHtml(qw.join(' '))+'"';if(chF){var cn=chF;repChapterNames.forEach(function(c){if(c.key===chF)cn=c.name;});info+=' in <b>'+escapeHtml(cn)+'</b>';}info+=' → <b>'+r.length.toLocaleString()+'</b> rubrics';displaySearchResults(r,info);_repSearchResults={results:r.slice(0,200),info:info};}
     if(_repFullData!==null){ds(_repFullData);}else{loadRepData(function(data){ds(data);});}},10);
 }
+
+function loadRepData(cb){if(_repFullData!==null){cb(_repFullData);return;}var dataFile=repCurrentBook==='kent'?'kent_repertory.json':(repCurrentBook==='kent_de'?'kent_de_repertory_by_key.json':(repCurrentBook==='synthesis91'?'synthesis91_raw_repertory_by_key.json':'repertory-data.json'));fetch(dataFile).then(function(r){return r.json();}).then(function(d){_repFullData=d;cb(d);}).catch(function(e){console.error(e);});}
 
 function searchAllRepertories(qw,chF){
     var books=['publicum','kent','kent_de','synthesis91'];
@@ -4571,21 +4558,62 @@ function searchAllRepertories(qw,chF){
     var allResults=[];var loaded=0;var total=books.length;
     document.getElementById('repRubricContent').innerHTML='<div style="text-align:center;padding:20px;">🔍 Searching all repertories...</div>';
     function mt(t){if(!t)return false;if(qw.length===0)return true;var lt=t.toLowerCase();for(var i=0;i<qw.length;i++){if(lt.indexOf(qw[i])===-1)return false;}return true;}
-    books.forEach(function(bk){var df=bookFiles[bk];fetch(df).then(function(r){return r.json();}).then(function(sd){var chs=chF?[chF]:Object.keys(sd);chs.forEach(function(ck){var rubs=sd[ck];if(!rubs)return;Object.keys(rubs).forEach(function(rid){var rub=rubs[rid];if(rub&&rub.t&&mt(rub.t))allResults.push({text:rub.t,remedies:rub.r||{},chapter:ck,book:bk});});});loaded++;if(loaded===total){allResults.sort(function(a,b){return a.text.localeCompare(b.text);});var info='📚 🔍 "'+escapeHtml(qw.join(' '))+'" (All) → <b>'+allResults.length.toLocaleString()+'</b> rubrics';displaySearchResults(allResults,info);_repSearchResults={results:allResults.slice(0,300),info:info};}}).catch(function(){loaded++;if(loaded===total){allResults.sort(function(a,b){return a.text.localeCompare(b.text);});var info='📚 🔍 "'+escapeHtml(qw.join(' '))+'" (All) → <b>'+allResults.length.toLocaleString()+'</b> rubrics';displaySearchResults(allResults,info);_repSearchResults={results:allResults.slice(0,300),info:info};}});});
+    books.forEach(function(bk){var df=bookFiles[bk];fetch(df).then(function(r){return r.json();}).then(function(sd){var chs=chF?[chF]:Object.keys(sd);chs.forEach(function(ck){var rubs=sd[ck];if(!rubs)return;Object.keys(rubs).forEach(function(rid){var rub=rubs[rid];if(rub&&rub.t&&mt(rub.t))allResults.push({text:rub.t,remedies:rub.r||{},chapter:ck,book:bk});});});loaded++;if(loaded===total)finishAllSearch();}).catch(function(){loaded++;if(loaded===total)finishAllSearch();});});
+    function finishAllSearch(){allResults.sort(function(a,b){return a.text.localeCompare(b.text);});var info='📚 🔍 "'+escapeHtml(qw.join(' '))+'" (All) → <b>'+allResults.length.toLocaleString()+'</b> rubrics';displaySearchResults(allResults,info);_repSearchResults={results:allResults.slice(0,300),info:info};}
 }
 
 function displaySearchResults(results,info){
     var rc=document.getElementById('repRubricContent');if(!rc)return;
+    rc.innerHTML='';
     if(results.length===0){rc.innerHTML='<div class="empty-state"><p>🔍 No rubrics found</p></div>';return;}
     var ms=300;_repSearchResultsList=results.slice(0,ms);
     var qw=_repSearchCache.split('|')[0].toLowerCase().split(/\s+/).filter(function(w){return w.length>0;});
-    var h='<div style="margin-bottom:10px;padding:8px;background:#e8f4f8;border-radius:6px;">'+info+(results.length>ms?' (first '+ms+')':'')+'</div><div>';
-    results.slice(0,ms).forEach(function(r,idx){var cn=r.chapter;repChapterNames.forEach(function(c){if(c.key===r.chapter)cn=c.name;});
-        var rh=escapeHtml(r.text);qw.forEach(function(w){if(w.length<2)return;var re=new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');rh=rh.replace(re,'<mark>$1</mark>');});
-        var bl=r.book?(r.book==='publicum'?'Publicum':(r.book==='kent'?'Kent':(r.book==='kent_de'?'Kent(DE)':'Synthesis9.1'))):'';
-        h+='<div class="rep-rubric-item" style="cursor:pointer;" onclick="goToRubricByIndex('+idx+')"><div class="rep-rubric-header">'+rh+' <small style="color:#2980b9;">['+escapeHtml(cn)+']</small>'+(bl?' <small style="color:#6c3483;">('+escapeHtml(bl)+')</small>':'')+'</div><div style="margin-top:3px;">';
-        var rems=Object.keys(r.remedies);rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1);});rems.forEach(function(abbr){var g=r.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</div></div>';});
-    h+='</div>';rc.innerHTML=h;
+    var infoDiv=document.createElement('div');
+    infoDiv.style.cssText='margin-bottom:10px;padding:8px;background:#e8f4f8;border-radius:6px;';
+    infoDiv.innerHTML=info+(results.length>ms?' (first '+ms+')':'');
+    rc.appendChild(infoDiv);
+    var container=document.createElement('div');
+    results.slice(0,ms).forEach(function(r,idx){
+        var cn=r.chapter;repChapterNames.forEach(function(c){if(c.key===r.chapter)cn=c.name;});
+        var item=document.createElement('div');
+        item.className='rep-rubric-item';
+        item.style.cursor='pointer';
+        item.onclick=(function(i){return function(){goToRubricByIndex(i);};})(idx);
+        var header=document.createElement('div');
+        header.className='rep-rubric-header';
+        header.appendChild(document.createTextNode(r.text));
+        var chSmall=document.createElement('small');
+        chSmall.style.color='#2980b9';
+        chSmall.textContent=' ['+cn+']';
+        header.appendChild(chSmall);
+        if(r.book&&r.book!==repCurrentBook){
+            var bl=r.book==='publicum'?'Publicum':(r.book==='kent'?'Kent':(r.book==='kent_de'?'Kent(DE)':'Synthesis9.1'));
+            var bkSmall=document.createElement('small');
+            bkSmall.style.color='#6c3483';
+            bkSmall.textContent=' ('+bl+')';
+            header.appendChild(bkSmall);
+        }
+        item.appendChild(header);
+        if(qw.length>0){
+            var headerText=header.innerHTML;
+            qw.forEach(function(w){if(w.length<2)return;var re=new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');headerText=headerText.replace(re,'<mark>$1</mark>');});
+            header.innerHTML=headerText;
+        }
+        var remsDiv=document.createElement('div');
+        remsDiv.style.marginTop='3px';
+        var rems=Object.keys(r.remedies);rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1);});
+        rems.forEach(function(abbr){
+            var g=r.remedies[abbr]||1;
+            var tag=document.createElement('span');
+            tag.className='rep-remedy-tag g'+g;
+            tag.textContent=abbr;
+            tag.onclick=function(e){e.stopPropagation();copyRemedyToPrescription(abbr);};
+            remsDiv.appendChild(tag);
+        });
+        item.appendChild(remsDiv);
+        container.appendChild(item);
+    });
+    rc.appendChild(container);
 }
 
 function goToRubricByIndex(idx){
@@ -4599,15 +4627,12 @@ function goToRubric(chapterKey,rubricText,bookKey){
     selectChapter(chapterKey);
     function tryFind(attempt){if(attempt>5)return;var rc=document.getElementById('repRubricContent');if(!rc||!repCurrentFlatTree||repCurrentFlatTree.length===0){setTimeout(function(){tryFind(attempt+1);},400);return;}
         var flat=repCurrentFlatTree;var tl=rubricText.toLowerCase();var fi=-1;
-        for(var j=0;j<flat.length;j++){var fp=(flat[j].fullPath||'').toLowerCase();if(fp&&fp===tl&&flat[j].remedies&&Object.keys(flat[j].remedies).length>0){fi=j;break;}}
-        if(fi===-1){for(var j2=0;j2<flat.length;j2++){var fp2=(flat[j2].fullPath||'').toLowerCase();if(fp2&&tl.indexOf(fp2)!==-1&&flat[j2].remedies&&Object.keys(flat[j2].remedies).length>0){fi=j2;break;}}}
-        if(fi===-1){var lp=tl.split(', ').pop().trim();for(var j3=0;j3<flat.length;j3++){var nm=(flat[j3].name||'').toLowerCase();if(nm===lp&&flat[j3].remedies&&Object.keys(flat[j3].remedies).length>0){fi=j3;break;}}}
+        for(var j=0;j<flat.length;j++){var nm=(flat[j].name||'').toLowerCase();if(nm&&tl.indexOf(nm)!==-1&&flat[j].remedies&&Object.keys(flat[j].remedies).length>0){fi=j;break;}}
+        if(fi===-1){var lp=tl.split(', ').pop().trim();for(var j3=0;j3<flat.length;j3++){var nm2=(flat[j3].name||'').toLowerCase();if(nm2===lp&&flat[j3].remedies&&Object.keys(flat[j3].remedies).length>0){fi=j3;break;}}}
         if(fi!==-1){var tp=Math.floor(fi/repTreePageSize);renderTreePage(repCurrentChKey,repCurrentChName,tp);setTimeout(function(){var ai=rc.querySelectorAll('.rep-rubric-name,.rep-rubric-main');var tn=flat[fi].name.toLowerCase();for(var k=0;k<ai.length;k++){if(ai[k].textContent.toLowerCase().indexOf(tn.substring(0,40))!==-1){ai[k].scrollIntoView({behavior:'smooth',block:'center'});ai[k].style.background='#ffeb3b';ai[k].style.padding='2px 4px';ai[k].style.borderRadius='3px';setTimeout(function(el){el.style.background='';},4000);break;}}},300);}
     }
     setTimeout(function(){tryFind(0);},800);
 }
-
-function loadRepData(cb){if(_repFullData!==null){cb(_repFullData);return;}var dataFile=repCurrentBook==='kent'?'kent_repertory.json':(repCurrentBook==='synthesis91'?'synthesis91_raw_repertory_by_key.json':'repertory-data.json');fetch(dataFile).then(function(r){return r.json();}).then(function(d){_repFullData=d;cb(d);}).catch(function(e){console.error(e);});}
 
 function copyRemedyToPrescription(abbr){if(navigator.clipboard){navigator.clipboard.writeText(abbr).then(function(){if(typeof showToast==='function')showToast('✅ Copied: '+abbr);});}}
 
@@ -4824,5 +4849,5 @@ window.addEventListener('beforeinstallprompt', function(e) {
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1b4b389beb2727e',t:'MTc4NDA3NTg3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1d4f3e07b30f696',t:'MTc4NDQxNDA1NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1b4b389beb2727e',t:'MTc4NDA3NTg3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1d518bfa9a5bce1',t:'MTc4NDQxNTU2NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
