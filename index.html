@@ -4504,7 +4504,7 @@ function selectChapter(chKey, navRid){
     cd.innerHTML='<div style="text-align:center;padding:30px;">Loading <b>'+nm+'</b>...</div>';
     if(repTreeCache[chKey]){renderTree(chKey,nm,repTreeCache[chKey]);return;}
     var basePath=repCurrentBook==='kent'?'kent_chapters/':(repCurrentBook==='kent_de'?'kent_de_chapters/':(repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/'));
-    fetch(basePath+chKey+'.json?v=3').then(function(r){return r.json();}).then(function(d){
+    fetch(basePath+chKey+'.json?v=4').then(function(r){return r.json();}).then(function(d){
         var tree=buildRubricTree(d);repTreeCache[chKey]=tree;renderTree(chKey,nm,tree);
     }).catch(function(e){
         // 🔑 fallback: chapter FILE missing (e.g. kent_de) -> extract chapter from book's full data file
@@ -4525,59 +4525,108 @@ function selectChapter(chKey, navRid){
 }
 
 
-// Split a rubric path into visible hierarchy nodes.
-// Important for Kent: some commas are part of a single rubric label, not a
-// hierarchy break, e.g. "burning, with", "stool, before",
-// "refuses to heal, old".
-function splitRubricPathForTree(txt){
+function _repSplitCommaOutsideParentheses(txt){
     txt = String(txt || '').trim();
     if(!txt) return [];
-
-    // First split on commas that are outside parentheses. This prevents labels
-    // like "(See Boring, Drawing, Pressing)" from becoming fake subrubrics.
-    var raw=[], buf='', depth=0;
+    var parts=[], buf='', depth=0;
     for(var i=0;i<txt.length;i++){
         var ch = txt.charAt(i);
-        if(ch==='('){ depth++; buf+=ch; continue; }
-        if(ch===')'){ if(depth>0) depth--; buf+=ch; continue; }
-        if(ch===',' && depth===0){
-            if(buf.trim()) raw.push(buf.trim());
-            buf='';
-            // skip spaces after comma
+        if(ch === '('){ depth++; buf += ch; continue; }
+        if(ch === ')'){ if(depth>0) depth--; buf += ch; continue; }
+        if(ch === ',' && depth === 0){
+            if(buf.trim()) parts.push(buf.trim());
+            buf = '';
             while(i+1<txt.length && /\s/.test(txt.charAt(i+1))) i++;
             continue;
         }
-        buf+=ch;
+        buf += ch;
     }
-    if(buf.trim()) raw.push(buf.trim());
-
-    // Other repertories already use comma as a hierarchy delimiter in the app.
-    // Apply the inverted-phrase merge only to Kent English.
-    if(repCurrentBook !== 'kent') return raw;
-
-    var continuation = {
-        'with':1, 'without':1, 'after':1, 'before':1, 'during':1, 'while':1,
-        'in':1, 'on':1, 'at':1, 'from':1, 'by':1, 'for':1, 'of':1,
-        'to':1, 'into':1, 'through':1, 'under':1, 'over':1, 'between':1,
-        'near':1, 'around':1, 'about':1, 'as':1, 'old':1,
-        'agg.':1, 'amel.':1, 'better':1, 'worse':1
-    };
-
-    var parts=[];
-    raw.forEach(function(part){
-        var key = part.toLowerCase();
-        // If a comma is followed by a short inverted continuation word, it is
-        // part of the previous rubric label, not a new child node.
-        if(parts.length>0 && continuation[key]){
-            parts[parts.length-1] += ', ' + part;
-        } else {
-            parts.push(part);
-        }
-    });
+    if(buf.trim()) parts.push(buf.trim());
     return parts;
 }
 
+function _repFindKentParentPath(path, pathSet){
+    // Kent hierarchy is determined by actual existing rubric paths, not by every
+    // comma. Example:
+    //   BALL, as if, ascending to throat
+    //   BALL, as if, ascending to throat, rolling in
+    // The parent of the second line is the full first line, so the child label is
+    // only "rolling in". This also keeps phrases like "Hypochondrium, left"
+    // and "Liver, as if a ball in" together.
+    var parent = '';
+    var depth = 0;
+    for(var i=0;i<path.length;i++){
+        var ch = path.charAt(i);
+        if(ch === '('){ depth++; continue; }
+        if(ch === ')'){ if(depth>0) depth--; continue; }
+        if(ch === ',' && depth === 0){
+            var prefix = path.substring(0, i).trim();
+            if(prefix && pathSet[prefix]) parent = prefix;
+        }
+    }
+    return parent;
+}
+
+function _repMergeRemedies(dst, src){
+    src = src || {};
+    Object.keys(src).forEach(function(abbr){
+        var g = parseInt(src[abbr], 10) || 1;
+        if(!dst.hasOwnProperty(abbr) || g > (parseInt(dst[abbr],10)||1)) dst[abbr] = g;
+    });
+}
+
+function _repBuildKentTreeByExistingRubrics(data){
+    var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    var entries=[];
+    var pathSet=Object.create(null);
+
+    Object.keys(data).forEach(function(rid){
+        var r=data[rid];
+        if(!r)return;
+        var txt=String(r.path||r.de_path||r.t||'').replace(/\s+,/g, ',').replace(/,\s*/g, ', ').replace(/  +/g,' ').trim();
+        if(!txt)return;
+        entries.push({rid:rid, rec:r, path:txt});
+        pathSet[txt]=true;
+    });
+
+    var parentByPath=Object.create(null);
+    entries.forEach(function(e){
+        parentByPath[e.path] = _repFindKentParentPath(e.path, pathSet);
+    });
+
+    var nodeByPath=Object.create(null);
+    function ensureNode(path){
+        if(nodeByPath[path]) return nodeByPath[path];
+        var parentPath = parentByPath[path] || '';
+        var parentNode = parentPath ? ensureNode(parentPath) : root;
+        var label = parentPath ? path.substring(parentPath.length).replace(/^,\s*/, '').trim() : path;
+        if(!label) label = path;
+        if(!parentNode.children[label]){
+            parentNode.children[label]={name:label,children:{},order:[],remedies:{},count:0,hasRubric:false,path:'',oorep_id:null,fullPath:path};
+            parentNode.order.push(label);
+        }
+        nodeByPath[path] = parentNode.children[label];
+        return nodeByPath[path];
+    }
+
+    entries.forEach(function(e){
+        var n = ensureNode(e.path);
+        n.count++;
+        n.hasRubric = true;
+        n.path = e.path;
+        if(!n.rid) n.rid = e.rid;
+        if(!n.oorep_id && e.rec.oorep_id) n.oorep_id = e.rec.oorep_id;
+        _repMergeRemedies(n.remedies, e.rec.r || {});
+    });
+    return root;
+}
+
 function buildRubricTree(data){
+    // Kent English has many meaningful commas inside a single rubric label.
+    // Therefore it must be nested by the longest already-existing rubric prefix,
+    // not by every comma. This fixes BUBO, BALL etc. across all Kent chapters.
+    if(repCurrentBook === 'kent') return _repBuildKentTreeByExistingRubrics(data);
+
     var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
     
     Object.keys(data).forEach(function(rid){
@@ -4585,8 +4634,7 @@ function buildRubricTree(data){
         if(!r)return;
         var txt=r.path||r.de_path||r.t||'';
         if(!txt)return;
-
-        var parts = splitRubricPathForTree(txt);
+        var parts = _repSplitCommaOutsideParentheses(txt);
         var n=root;
         for(var i=0;i<parts.length;i++){
             var pt=parts[i].trim();
@@ -4886,7 +4934,7 @@ function searchRepertoryBrowser(){
                 finalize(out);
             }
             var basePath = REP_BOOK_INFO[repCurrentBook].chapDir;
-            fetch(basePath+chKey+'.json?v=3').then(function(rr){return rr.json();}).then(run).catch(function(){
+            fetch(basePath+chKey+'.json?v=4').then(function(rr){return rr.json();}).then(run).catch(function(){
                 // fallback to cached tree
                 if(repTreeCache[chKey]){
                     var out=[];
