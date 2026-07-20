@@ -4527,17 +4527,45 @@ function selectChapter(chKey, navRid){
 
 function buildRubricTree(data){
     var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    
+    // 🔑 Map all exact paths to check for parent existence
+    var allPaths = {};
+    Object.keys(data).forEach(function(rid){
+        var r = data[rid];
+        var txt = (r.path || r.de_path || r.t || "").trim();
+        allPaths[txt] = rid;
+    });
+
     Object.keys(data).forEach(function(rid){
         var r=data[rid];
         if(!r)return;
         var txt=r.path||r.de_path||r.t||'';
         if(!txt)return;
-        // 🔑 normalize text: fix " ," → ", " and strip whitespace (safety net for data quality)
+        // 🔑 normalize text
         txt=txt.replace(/\s+,/g,',').replace(/,\s*/g,', ').replace(/  +/g,' ').trim();
-        var parts=txt.split(', ');
+        
+        // 🔑 Smart split: only break at comma if the prefix is a defined rubric
+        var words = txt.split(', ');
+        var parts = [];
+        var currentFull = "";
+        var currentPart = "";
+        for(var i=0; i<words.length; i++){
+            if(currentFull) currentFull += ", " + words[i];
+            else currentFull = words[i];
+            
+            if(currentPart) currentPart += ", " + words[i];
+            else currentPart = words[i];
+
+            // If prefix exists as a rubric (and isn't the whole string) OR it's the end
+            if((allPaths[currentFull] && currentFull !== txt) || i === words.length - 1){
+                parts.push(currentPart);
+                currentPart = "";
+            }
+        }
+
         var n=root;
-        for(var i=0;i<parts.length;i++){
-            var pt=(parts[i]||'').trim();
+        for(var j=0;j<parts.length;j++){
+            var pt=parts[j].trim();
             if(!pt)continue;
             if(!n.children[pt]){
                 n.children[pt]={name:pt,children:{},order:[],remedies:{},count:0,hasRubric:false,path:'',oorep_id:null};
@@ -4545,7 +4573,7 @@ function buildRubricTree(data){
             }
             n=n.children[pt];
             n.count++;
-            if(i===parts.length-1){
+            if(j===parts.length-1){
                 n.remedies=r.r||{};
                 n.hasRubric=true;
                 n.path=txt;
@@ -4602,43 +4630,19 @@ function renderTree(chKey,chName,tree){
     h+='<div class="rep-breadcrumb">📖 Repertory / <span>'+escapeHtml(chName)+'</span> ('+total.toLocaleString()+' rubrics)';
     if(totalPages>1)h+=' <span style="font-size:11px;color:#7f8c8d;">Page '+(page+1)+'/'+totalPages+'</span>';h+='</div>';
     if(totalPages>1){h+='<div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;">';h+='<button onclick="renderTreePage(repCurrentChKey,repCurrentChName,'+(page-1)+')" style="padding:4px 12px;border:1px solid #ddd;background:white;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px;"'+(page===0?' disabled':'')+'>◀ Prev</button>';h+='<span style="font-size:11px;color:#555;">'+(start+1)+'-'+end+' of '+total.toLocaleString()+'</span>';h+='<button onclick="renderTreePage(repCurrentChKey,repCurrentChName,'+(page+1)+')" style="padding:4px 12px;border:1px solid #ddd;background:white;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px;"'+(page>=totalPages-1?' disabled':'')+'>Next ▶</button>';h+='<span style="flex:1;"></span>';h+='<select onchange="repTreePageSize=parseInt(this.value);renderTree(repCurrentChKey,repCurrentChName,repCurrentTree);" style="padding:3px 6px;border:1px solid #ddd;border-radius:4px;font-size:11px;font-family:inherit;"><option value="50"'+(repTreePageSize===50?' selected':'')+'>50/page</option><option value="100"'+(repTreePageSize===100?' selected':'')+'>100/page</option><option value="200"'+(repTreePageSize===200?' selected':'')+'>200/page</option><option value="500"'+(repTreePageSize===500?' selected':'')+'>500/page</option></select></div>';}
-    
-    // Add custom styles for remedies to match screenshot
-    h += '<style>';
-    h += '.rep-remedy-tag { display: inline; background: none !important; border: none !important; padding: 0 !important; margin: 0 4px 0 0 !important; font-size: 13px !important; cursor: pointer; }';
-    h += '.rep-remedy-tag.g3 { color: #c0392b !important; font-weight: bold !important; }'; // Grade 3: Red Bold
-    h += '.rep-remedy-tag.g2 { color: #2980b9 !important; font-style: italic !important; }'; // Grade 2: Blue Italic
-    h += '.rep-remedy-tag.g1 { color: #2c3e50 !important; font-weight: normal !important; }'; // Grade 1: Normal
-    h += '.rep-rubric-main { text-transform: uppercase; font-weight: bold; color: #000; display: block; margin-bottom: 5px; }';
-    h += '.rep-tree-leaf { padding: 2px 0; line-height: 1.6; }';
-    h += '.rep-rubric-name { color: #000; font-size: 13px; }';
-    h += '.colon-sep { color: #000; font-weight: bold; margin: 0 5px; }';
-    h += '</style>';
-
-    h+='<div class="rep-tree" style="background: #fffef0; padding: 20px; font-family: \'Times New Roman\', serif;">';
+    h+='<div class="rep-tree">';
     for(var i=start;i<end;i++){var leaf=flat[i],d=leaf.depth;var rems=Object.keys(leaf.remedies||{});rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1)||a.localeCompare(b);});
         var ridAttr=leaf.rid?(' data-rid="'+escapeHtml(leaf.rid)+'"'):'';
-        
+        var ridData=leaf.rid?(' <small style="color:#bbb;font-size:9px;" title="Rubric ID">#'+escapeHtml(leaf.rid)+'</small>'):'';
         if(d===0){
-            h+='<div class="rep-rubric-main-wrapper"'+ridAttr+' style="margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;">';
-            h+='<div class="rep-rubric-main">'+escapeHtml(leaf.name).toUpperCase()+' <span class="colon-sep">:</span> ';
-            if(rems.length>0){
-                rems.forEach(function(abbr, idx){
-                    var g=leaf.remedies[abbr]||1;
-                    h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>' + (idx < rems.length - 1 ? ', ' : '');
-                });
-            }
-            h+='</div></div>';
+            h+='<div class="rep-rubric-main-wrapper"'+ridAttr+'><div class="rep-rubric-main" style="margin-bottom:1px; text-transform: uppercase;">'+escapeHtml(leaf.name)+ridData+' <span style="font-weight:bold;">:</span></div>';
+            if(rems.length>0){h+='<div class="rep-rubric-main-rems">';rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</div>';}
+            h+='</div>';
         }else{
-            var margin = (d * 25) + 'px';
-            h+='<div class="rep-tree-leaf"'+ridAttr+' style="margin-left: '+margin+';">';
-            h+='<span class="rep-rubric-name">'+escapeHtml(leaf.name)+' <span class="colon-sep">:</span> </span>';
-            if(rems.length>0){
-                rems.forEach(function(abbr, idx){
-                    var g=leaf.remedies[abbr]||1;
-                    h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>' + (idx < rems.length - 1 ? ', ' : '');
-                });
-            }
+            var cls='rep-rubric-d'+(d>3?3:d);h+='<div class="rep-tree-leaf '+cls+'"'+ridAttr+'>';
+            if(d<=3)h+='<span class="rep-bullet"></span>';
+            h+='<span class="rep-rubric-name">'+escapeHtml(leaf.name)+ridData+' <span style="font-weight:bold;">:</span></span>';
+            if(rems.length>0){h+='<span style="margin-left:8px;">';rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</span>';}
             h+='</div>';
         }
     }
