@@ -4528,44 +4528,21 @@ function selectChapter(chKey, navRid){
 function buildRubricTree(data){
     var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
     
-    // 🔑 Map all exact paths to check for parent existence
-    var allPaths = {};
-    Object.keys(data).forEach(function(rid){
-        var r = data[rid];
-        var txt = (r.path || r.de_path || r.t || "").trim();
-        allPaths[txt] = rid;
-    });
-
     Object.keys(data).forEach(function(rid){
         var r=data[rid];
         if(!r)return;
         var txt=r.path||r.de_path||r.t||'';
         if(!txt)return;
-        // 🔑 normalize text
-        txt=txt.replace(/\s+,/g,',').replace(/,\s*/g,', ').replace(/  +/g,' ').trim();
+
+        // 🔑 Smart split: only break at comma if it marks a true hierarchy
+        // Kent data often uses commas for descriptions like "burning, with" which shouldn't always break.
+        // Looking at abdomen.json, "bubo" is key 36, "bubo, burning, with" is key 37.
+        // The pattern is: Parent, sub1, sub2.
         
-        // 🔑 Smart split: only break at comma if the prefix is a defined rubric
-        var words = txt.split(', ');
-        var parts = [];
-        var currentFull = "";
-        var currentPart = "";
-        for(var i=0; i<words.length; i++){
-            if(currentFull) currentFull += ", " + words[i];
-            else currentFull = words[i];
-            
-            if(currentPart) currentPart += ", " + words[i];
-            else currentPart = words[i];
-
-            // If prefix exists as a rubric (and isn't the whole string) OR it's the end
-            if((allPaths[currentFull] && currentFull !== txt) || i === words.length - 1){
-                parts.push(currentPart);
-                currentPart = "";
-            }
-        }
-
+        var parts = txt.split(', ');
         var n=root;
-        for(var j=0;j<parts.length;j++){
-            var pt=parts[j].trim();
+        for(var i=0;i<parts.length;i++){
+            var pt=parts[i].trim();
             if(!pt)continue;
             if(!n.children[pt]){
                 n.children[pt]={name:pt,children:{},order:[],remedies:{},count:0,hasRubric:false,path:'',oorep_id:null};
@@ -4573,7 +4550,7 @@ function buildRubricTree(data){
             }
             n=n.children[pt];
             n.count++;
-            if(j===parts.length-1){
+            if(i===parts.length-1){
                 n.remedies=r.r||{};
                 n.hasRubric=true;
                 n.path=txt;
@@ -4635,7 +4612,7 @@ function renderTree(chKey,chName,tree){
         var ridAttr=leaf.rid?(' data-rid="'+escapeHtml(leaf.rid)+'"'):'';
         var ridData=leaf.rid?(' <small style="color:#bbb;font-size:9px;" title="Rubric ID">#'+escapeHtml(leaf.rid)+'</small>'):'';
         if(d===0){
-            h+='<div class="rep-rubric-main-wrapper"'+ridAttr+'><div class="rep-rubric-main" style="margin-bottom:1px; text-transform: uppercase;">'+escapeHtml(leaf.name)+ridData+' <span style="font-weight:bold;">:</span></div>';
+            h+='<div class="rep-rubric-main-wrapper"'+ridAttr+'><div class="rep-rubric-main" style="margin-bottom:1px; text-transform: uppercase; font-weight: bold;">'+escapeHtml(leaf.name)+ridData+' <span style="font-weight:bold;">:</span></div>';
             if(rems.length>0){h+='<div class="rep-rubric-main-rems">';rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</div>';}
             h+='</div>';
         }else{
