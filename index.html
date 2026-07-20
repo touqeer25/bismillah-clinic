@@ -4587,13 +4587,12 @@ function renderTree(chKey,chName,tree){
         renderTreePage(chKey,chName,0);
     }
 }
-function renderTreePage(chKey,chName,page){
+    function renderTreePage(chKey,chName,page){
     var cd=document.getElementById('repRubricContent');if(!cd)return;
     var flat=repCurrentFlatTree,total=flat.length,totalPages=Math.ceil(total/repTreePageSize)||1;
     if(page<0)page=0;if(page>=totalPages)page=totalPages-1;repTreePage=page;
     var start=page*repTreePageSize,end=Math.min(start+repTreePageSize,total);
     var h='';
-    // 🔑 "Back to search results" bar — shows whenever we arrived here from a search
     if(repLastSearchView){
         h+='<div style="margin-bottom:10px;padding:8px 10px;background:linear-gradient(135deg,#fef9e7,#fdf2e9);border:1px solid #f39c12;border-radius:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">';
         h+='<button onclick="backToSearchResults()" style="padding:6px 14px;border:none;border-radius:5px;background:linear-gradient(135deg,#f39c12,#d68910);color:white;font-weight:bold;cursor:pointer;font-family:inherit;font-size:12px;box-shadow:0 1px 4px rgba(0,0,0,0.2);">🔙 '+(currentLang==='ur'?'سرچ رزلٹس پر واپس':'Back to results')+'</button>';
@@ -4603,20 +4602,43 @@ function renderTreePage(chKey,chName,page){
     h+='<div class="rep-breadcrumb">📖 Repertory / <span>'+escapeHtml(chName)+'</span> ('+total.toLocaleString()+' rubrics)';
     if(totalPages>1)h+=' <span style="font-size:11px;color:#7f8c8d;">Page '+(page+1)+'/'+totalPages+'</span>';h+='</div>';
     if(totalPages>1){h+='<div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;">';h+='<button onclick="renderTreePage(repCurrentChKey,repCurrentChName,'+(page-1)+')" style="padding:4px 12px;border:1px solid #ddd;background:white;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px;"'+(page===0?' disabled':'')+'>◀ Prev</button>';h+='<span style="font-size:11px;color:#555;">'+(start+1)+'-'+end+' of '+total.toLocaleString()+'</span>';h+='<button onclick="renderTreePage(repCurrentChKey,repCurrentChName,'+(page+1)+')" style="padding:4px 12px;border:1px solid #ddd;background:white;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px;"'+(page>=totalPages-1?' disabled':'')+'>Next ▶</button>';h+='<span style="flex:1;"></span>';h+='<select onchange="repTreePageSize=parseInt(this.value);renderTree(repCurrentChKey,repCurrentChName,repCurrentTree);" style="padding:3px 6px;border:1px solid #ddd;border-radius:4px;font-size:11px;font-family:inherit;"><option value="50"'+(repTreePageSize===50?' selected':'')+'>50/page</option><option value="100"'+(repTreePageSize===100?' selected':'')+'>100/page</option><option value="200"'+(repTreePageSize===200?' selected':'')+'>200/page</option><option value="500"'+(repTreePageSize===500?' selected':'')+'>500/page</option></select></div>';}
-    h+='<div class="rep-tree">';
+    
+    // Add custom styles for remedies to match screenshot
+    h += '<style>';
+    h += '.rep-remedy-tag { display: inline; background: none !important; border: none !important; padding: 0 !important; margin: 0 4px 0 0 !important; font-size: 13px !important; cursor: pointer; }';
+    h += '.rep-remedy-tag.g3 { color: #c0392b !important; font-weight: bold !important; }'; // Grade 3: Red Bold
+    h += '.rep-remedy-tag.g2 { color: #2980b9 !important; font-style: italic !important; }'; // Grade 2: Blue Italic
+    h += '.rep-remedy-tag.g1 { color: #2c3e50 !important; font-weight: normal !important; }'; // Grade 1: Normal
+    h += '.rep-rubric-main { text-transform: uppercase; font-weight: bold; color: #000; display: block; margin-bottom: 5px; }';
+    h += '.rep-tree-leaf { padding: 2px 0; line-height: 1.6; }';
+    h += '.rep-rubric-name { color: #000; font-size: 13px; }';
+    h += '.colon-sep { color: #000; font-weight: bold; margin: 0 5px; }';
+    h += '</style>';
+
+    h+='<div class="rep-tree" style="background: #fffef0; padding: 20px; font-family: \'Times New Roman\', serif;">';
     for(var i=start;i<end;i++){var leaf=flat[i],d=leaf.depth;var rems=Object.keys(leaf.remedies||{});rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1)||a.localeCompare(b);});
-        // 🔑 stamp the rubric ID on the row so we can scroll/highlight precisely
         var ridAttr=leaf.rid?(' data-rid="'+escapeHtml(leaf.rid)+'"'):'';
-        var ridData=leaf.rid?(' <small style="color:#bbb;font-size:9px;" title="Rubric ID">#'+escapeHtml(leaf.rid)+'</small>'):'';
+        
         if(d===0){
-            h+='<div class="rep-rubric-main-wrapper"'+ridAttr+'><div class="rep-rubric-main" style="margin-bottom:1px;">'+escapeHtml(leaf.name)+ridData+'</div>';
-            if(rems.length>0){h+='<div class="rep-rubric-main-rems">';rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</div>';}
-            h+='</div>';
+            h+='<div class="rep-rubric-main-wrapper"'+ridAttr+' style="margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;">';
+            h+='<div class="rep-rubric-main">'+escapeHtml(leaf.name).toUpperCase()+' <span class="colon-sep">:</span> ';
+            if(rems.length>0){
+                rems.forEach(function(abbr, idx){
+                    var g=leaf.remedies[abbr]||1;
+                    h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>' + (idx < rems.length - 1 ? ', ' : '');
+                });
+            }
+            h+='</div></div>';
         }else{
-            var cls='rep-rubric-d'+(d>3?3:d);h+='<div class="rep-tree-leaf '+cls+'"'+ridAttr+'>';
-            if(d<=3)h+='<span class="rep-bullet"></span>';
-            h+='<span class="rep-rubric-name">'+escapeHtml(leaf.name)+ridData+'</span>';
-            if(rems.length>0){h+='<span style="margin-left:8px;">';rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</span>';}
+            var margin = (d * 25) + 'px';
+            h+='<div class="rep-tree-leaf"'+ridAttr+' style="margin-left: '+margin+';">';
+            h+='<span class="rep-rubric-name">'+escapeHtml(leaf.name)+' <span class="colon-sep">:</span> </span>';
+            if(rems.length>0){
+                rems.forEach(function(abbr, idx){
+                    var g=leaf.remedies[abbr]||1;
+                    h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>' + (idx < rems.length - 1 ? ', ' : '');
+                });
+            }
             h+='</div>';
         }
     }
