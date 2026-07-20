@@ -4504,7 +4504,7 @@ function selectChapter(chKey, navRid){
     cd.innerHTML='<div style="text-align:center;padding:30px;">Loading <b>'+nm+'</b>...</div>';
     if(repTreeCache[chKey]){renderTree(chKey,nm,repTreeCache[chKey]);return;}
     var basePath=repCurrentBook==='kent'?'kent_chapters/':(repCurrentBook==='kent_de'?'kent_de_chapters/':(repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/'));
-    fetch(basePath+chKey+'.json?v=2').then(function(r){return r.json();}).then(function(d){
+    fetch(basePath+chKey+'.json?v=3').then(function(r){return r.json();}).then(function(d){
         var tree=buildRubricTree(d);repTreeCache[chKey]=tree;renderTree(chKey,nm,tree);
     }).catch(function(e){
         // 🔑 fallback: chapter FILE missing (e.g. kent_de) -> extract chapter from book's full data file
@@ -4525,6 +4525,58 @@ function selectChapter(chKey, navRid){
 }
 
 
+// Split a rubric path into visible hierarchy nodes.
+// Important for Kent: some commas are part of a single rubric label, not a
+// hierarchy break, e.g. "burning, with", "stool, before",
+// "refuses to heal, old".
+function splitRubricPathForTree(txt){
+    txt = String(txt || '').trim();
+    if(!txt) return [];
+
+    // First split on commas that are outside parentheses. This prevents labels
+    // like "(See Boring, Drawing, Pressing)" from becoming fake subrubrics.
+    var raw=[], buf='', depth=0;
+    for(var i=0;i<txt.length;i++){
+        var ch = txt.charAt(i);
+        if(ch==='('){ depth++; buf+=ch; continue; }
+        if(ch===')'){ if(depth>0) depth--; buf+=ch; continue; }
+        if(ch===',' && depth===0){
+            if(buf.trim()) raw.push(buf.trim());
+            buf='';
+            // skip spaces after comma
+            while(i+1<txt.length && /\s/.test(txt.charAt(i+1))) i++;
+            continue;
+        }
+        buf+=ch;
+    }
+    if(buf.trim()) raw.push(buf.trim());
+
+    // Other repertories already use comma as a hierarchy delimiter in the app.
+    // Apply the inverted-phrase merge only to Kent English.
+    if(repCurrentBook !== 'kent') return raw;
+
+    var continuation = {
+        'with':1, 'without':1, 'after':1, 'before':1, 'during':1, 'while':1,
+        'in':1, 'on':1, 'at':1, 'from':1, 'by':1, 'for':1, 'of':1,
+        'to':1, 'into':1, 'through':1, 'under':1, 'over':1, 'between':1,
+        'near':1, 'around':1, 'about':1, 'as':1, 'old':1,
+        'agg.':1, 'amel.':1, 'better':1, 'worse':1
+    };
+
+    var parts=[];
+    raw.forEach(function(part){
+        var key = part.toLowerCase();
+        // If a comma is followed by a short inverted continuation word, it is
+        // part of the previous rubric label, not a new child node.
+        if(parts.length>0 && continuation[key]){
+            parts[parts.length-1] += ', ' + part;
+        } else {
+            parts.push(part);
+        }
+    });
+    return parts;
+}
+
 function buildRubricTree(data){
     var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
     
@@ -4534,12 +4586,7 @@ function buildRubricTree(data){
         var txt=r.path||r.de_path||r.t||'';
         if(!txt)return;
 
-        // 🔑 Smart split: only break at comma if it marks a true hierarchy
-        // Kent data often uses commas for descriptions like "burning, with" which shouldn't always break.
-        // Looking at abdomen.json, "bubo" is key 36, "bubo, burning, with" is key 37.
-        // The pattern is: Parent, sub1, sub2.
-        
-        var parts = txt.split(', ');
+        var parts = splitRubricPathForTree(txt);
         var n=root;
         for(var i=0;i<parts.length;i++){
             var pt=parts[i].trim();
@@ -4839,7 +4886,7 @@ function searchRepertoryBrowser(){
                 finalize(out);
             }
             var basePath = REP_BOOK_INFO[repCurrentBook].chapDir;
-            fetch(basePath+chKey+'.json?v=2').then(function(rr){return rr.json();}).then(run).catch(function(){
+            fetch(basePath+chKey+'.json?v=3').then(function(rr){return rr.json();}).then(run).catch(function(){
                 // fallback to cached tree
                 if(repTreeCache[chKey]){
                     var out=[];
