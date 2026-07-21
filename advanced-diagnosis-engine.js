@@ -208,6 +208,7 @@ var lastRepertoryRows = [];
 var lastMatchedRubrics = [];
 var lastRepertoryErrors = [];
 var adxRemedyAnswers = {};
+var adxLastSavedCaseId = null;
 function ensureRubricSelection(a){
     if(!a || !a.rubrics) return;
     if(a._rubricSelectionInitialized) return;
@@ -275,7 +276,7 @@ function fetchChapter(book, chapter){
     var key=book+'|'+chapter;
     if(adxChapterCache[key]) return Promise.resolve(adxChapterCache[key]);
     var info=bookInfo(book);
-    var url=(info.chapDir||'')+chapter+'.json?v=11';
+    var url=(info.chapDir||'')+chapter+'.json?v=12';
     return fetch(url).then(function(r){ if(!r.ok) throw new Error(url); return r.json(); }).then(function(d){ adxChapterCache[key]=d; return d; });
 }
 function scoreRubricMatch(path, query){
@@ -445,6 +446,201 @@ function analyzeSelectedRubrics(){
     });
 }
 
+// ==================== ADX Phase 4: Chronic generals, final decision, outcome tracking ====================
+function val(id){ var el=$(id); return el ? String(el.value||'').trim() : ''; }
+function setVal(id,v){ var el=$(id); if(el) el.value = v || ''; }
+function collectCaseDetails(){
+    return {
+        thermal: val('adxThermal'), thirst: val('adxThirst'), appetite: val('adxAppetite'), cravings: val('adxCravings'), aversions: val('adxAversions'),
+        sleep: val('adxSleep'), dreams: val('adxDreams'), mind: val('adxMind'), perspiration: val('adxPerspiration'), stool: val('adxStool'), urine: val('adxUrine'),
+        miasm: val('adxMiasm'), generalsNotes: val('adxGeneralsNotes')
+    };
+}
+function caseDetailsText(details){
+    details = details || collectCaseDetails();
+    var labels={thermal:'Thermal',thirst:'Thirst',appetite:'Appetite',cravings:'Cravings',aversions:'Aversions',sleep:'Sleep',dreams:'Dreams',mind:'Mind',perspiration:'Perspiration',stool:'Stool',urine:'Urine',miasm:'Miasm',generalsNotes:'Generals notes'};
+    var arr=[];
+    Object.keys(labels).forEach(function(k){ if(details[k]) arr.push(labels[k]+': '+details[k]); });
+    return arr.join('; ');
+}
+function injectCaseDetailsPanel(){
+    var ta=$('adxStatement');
+    if(!ta || $('adxCaseDetailsPanel')) return;
+    var div=document.createElement('div');
+    div.id='adxCaseDetailsPanel';
+    div.style.cssText='margin-top:10px;border:1px solid #d6eaf8;background:#fbfdff;border-radius:8px;padding:10px;';
+    div.innerHTML = ''+
+    '<details><summary style="cursor:pointer;font-weight:bold;color:#1a5276;">🧬 '+esc(T({ur:'Constitutional / generals / chronic details',en:'Constitutional / generals / chronic details',roman:'Generals / chronic details'}))+'</summary>'+
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin-top:10px;font-size:12px;">'+
+    fieldHtml('adxThermal','Thermal','Hot / chilly / mixed')+
+    fieldHtml('adxThirst','Thirst','Thirsty / thirstless / sips')+
+    fieldHtml('adxAppetite','Appetite','low / normal / increased')+
+    fieldHtml('adxCravings','Cravings','sweets, salt, sour...')+
+    fieldHtml('adxAversions','Aversions','milk, eggs, meat...')+
+    fieldHtml('adxSleep','Sleep','position, quality, time')+
+    fieldHtml('adxDreams','Dreams','recurrent dreams')+
+    fieldHtml('adxMind','Mind/emotions','fear, anger, grief, anxiety')+
+    fieldHtml('adxPerspiration','Perspiration','amount, smell, location')+
+    fieldHtml('adxStool','Stool generals','constipation/diarrhea pattern')+
+    fieldHtml('adxUrine','Urine generals','burning/frequency/color')+
+    fieldHtml('adxMiasm','Miasmatic tendency','psoric/sycotic/syphilitic/tubercular')+
+    '</div><textarea id="adxGeneralsNotes" style="width:100%;min-height:48px;margin-top:8px;border:1px solid #d6eaf8;border-radius:6px;padding:7px;font-family:inherit;font-size:12px;" placeholder="Other generals, modalities, past history, family history..."></textarea>'+
+    '</details>';
+    ta.insertAdjacentElement('afterend', div);
+}
+function fieldHtml(id,label,ph){
+    return '<label style="display:block;"><span style="font-weight:bold;color:#566573;">'+esc(label)+'</span><input id="'+id+'" type="text" placeholder="'+esc(ph)+'" style="width:100%;padding:6px;border:1px solid #d6eaf8;border-radius:6px;font-family:inherit;font-size:12px;box-sizing:border-box;"></label>';
+}
+function getAdjustedRows(){
+    return lastRepertoryRows && lastRepertoryRows.length ? cloneRowsWithDifferentiation() : [];
+}
+function topRemedy(){
+    var rows=getAdjustedRows();
+    return rows.length ? rows[0] : null;
+}
+function getFinalDecision(){
+    var topDx = lastAnalysis && lastAnalysis.differentials && lastAnalysis.differentials[0] ? T(lastAnalysis.differentials[0].condition.name) : '';
+    var tr=topRemedy();
+    return {
+        diagnosis: val('adxFinalDiagnosis') || topDx,
+        remedy: val('adxFinalRemedy') || (tr ? tr.display : ''),
+        confidence: val('adxFinalConfidence') || '',
+        notes: val('adxFinalNotes') || '',
+        testsDone: val('adxTestsDone') || ''
+    };
+}
+function getOutcome(){
+    return {
+        response: val('adxOutcomeResponse'), percent: val('adxOutcomePercent'), remedyResponse: val('adxOutcomeRemedyResponse'),
+        newSymptoms: val('adxOutcomeNewSymptoms'), plan: val('adxOutcomePlan'), followupDate: val('adxFollowupDate')
+    };
+}
+function storageGet(key){ try{return JSON.parse(localStorage.getItem(key)||'[]');}catch(e){return [];} }
+function storageSet(key,val){ try{localStorage.setItem(key, JSON.stringify(val));}catch(e){ console.error(e); } }
+function currentPatientHint(){
+    var names=[];
+    ['diagnosisPatientName','nvPatientName'].forEach(function(id){ var el=$(id); if(el && el.textContent) names.push(el.textContent.trim()); });
+    if($('patientName') && $('patientName').value) names.push($('patientName').value.trim());
+    return names[0] || '';
+}
+function finalCaseRecord(kind){
+    var adjusted=getAdjustedRows();
+    var fd=getFinalDecision();
+    var out=getOutcome();
+    return {
+        id: adxLastSavedCaseId || ('adx_'+Date.now()+'_'+Math.random().toString(36).slice(2,7)),
+        kind: kind || 'case', savedAt: new Date().toISOString(), patient: currentPatientHint(),
+        statement: val('adxStatement'), extracted: lastAnalysis ? Object.keys(lastAnalysis.extracted.found||{}).map(symptomName) : [],
+        redFlags: lastAnalysis ? (lastAnalysis.redFlags||[]).map(function(r){return r.label+' - '+r.reason;}) : [],
+        differentials: lastAnalysis ? (lastAnalysis.differentials||[]).slice(0,8).map(function(r){return {id:r.condition.id, name:T(r.condition.name), percentage:r.percentage, severity:r.condition.severity};}) : [],
+        selectedRubrics: selectedRubrics().map(function(r){return {book:r.book, chapter:r.chapter, path:r.path, symptom:r.symptom, weight:r.weight};}),
+        topRemedies: adjusted.slice(0,10).map(function(r){return {remedy:r.display, score:Math.round(r.score), base:Math.round(r.baseScore||r.score), coverage:r.coverage};}),
+        remedyAnswers: Object.assign({}, adxRemedyAnswers),
+        finalDecision: fd, outcome: out, generals: collectCaseDetails()
+    };
+}
+function saveFinalCase(){
+    if(!lastAnalysis){ toast('No analysis yet','error'); return; }
+    var rec=finalCaseRecord('final_decision');
+    adxLastSavedCaseId=rec.id;
+    var arr=storageGet('adx_case_records');
+    var idx=arr.findIndex(function(x){return x.id===rec.id;});
+    if(idx>=0) arr[idx]=rec; else arr.unshift(rec);
+    storageSet('adx_case_records', arr.slice(0,300));
+    copyFinalToVisit(false);
+    toast('✅ Final diagnosis/remedy saved locally and copied to visit fields');
+    var sim=$('adxSimilarCases'); if(sim) sim.innerHTML=renderSimilarCases();
+}
+function saveOutcome(){
+    if(!lastAnalysis){ toast('No analysis yet','error'); return; }
+    var rec=finalCaseRecord('followup_outcome');
+    var arr=storageGet('adx_outcome_records'); arr.unshift(rec); storageSet('adx_outcome_records', arr.slice(0,300));
+    toast('✅ Follow-up outcome saved locally');
+    var sim=$('adxSimilarCases'); if(sim) sim.innerHTML=renderSimilarCases();
+}
+function finalSummaryText(){
+    if(!lastAnalysis) return '';
+    var fd=getFinalDecision(), out=getOutcome(), gen=caseDetailsText();
+    var txt=finalSummaryText ? finalSummaryText() : summaryText(lastAnalysis);
+    txt += '\n\nFINAL DECISION\nDiagnosis: '+(fd.diagnosis||'')+'\nRemedy: '+(fd.remedy||'')+'\nConfidence: '+(fd.confidence||'')+'\nNotes: '+(fd.notes||'');
+    if(gen) txt += '\n\nGENERALS\n'+gen;
+    if(out.response || out.percent || out.newSymptoms || out.plan){ txt += '\n\nFOLLOW-UP / OUTCOME\nResponse: '+(out.response||'')+' '+(out.percent||'')+'%\nRemedy response: '+(out.remedyResponse||'')+'\nNew symptoms: '+(out.newSymptoms||'')+'\nPlan: '+(out.plan||''); }
+    return txt;
+}
+function copyFinalToVisit(showMsg){
+    if(!lastAnalysis){ toast('No analysis yet','error'); return; }
+    var fd=getFinalDecision(), txt=finalSummaryText();
+    var dx = fd.diagnosis || (lastAnalysis.differentials[0] ? T(lastAnalysis.differentials[0].condition.name) : '');
+    var rx = fd.remedy ? ('Suggested / final remedy: '+fd.remedy+'\nConfidence: '+(fd.confidence||'')+'\n'+(fd.notes||'')) : '';
+    if($('nvDiagnosis')) $('nvDiagnosis').value = dx;
+    if($('firstVisitDiagnosis')) $('firstVisitDiagnosis').value = dx;
+    if(rx && $('nvPrescription')) $('nvPrescription').value = (($('nvPrescription').value||'')+'\n'+rx).trim();
+    if(rx && $('firstVisitPrescription')) $('firstVisitPrescription').value = (($('firstVisitPrescription').value||'')+'\n'+rx).trim();
+    if($('nvNotes')) $('nvNotes').value = (($('nvNotes').value||'')+'\n\n'+txt).trim();
+    if($('firstVisitMethod')) $('firstVisitMethod').value = (($('firstVisitMethod').value||'')+'\n\n'+txt).trim();
+    if(showMsg!==false) toast('✅ Final decision copied to visit fields');
+}
+function rubricOverlap(a,b){
+    var A=(a.selectedRubrics||[]).map(function(r){return (r.book+'|'+r.chapter+'|'+r.path).toLowerCase();});
+    var B=(b.selectedRubrics||[]).map(function(r){return (r.book+'|'+r.chapter+'|'+r.path).toLowerCase();});
+    var set={}; A.forEach(function(x){set[x]=1;});
+    var hit=0; B.forEach(function(x){ if(set[x]) hit++; });
+    return hit;
+}
+function renderSimilarCases(){
+    if(!lastAnalysis) return '';
+    var cur=finalCaseRecord('compare');
+    var cases=storageGet('adx_case_records').concat(storageGet('adx_outcome_records'));
+    cases=cases.filter(function(c){return c.id!==cur.id;}).map(function(c){
+        var dxHit=0;
+        (cur.differentials||[]).slice(0,5).forEach(function(d){ (c.differentials||[]).slice(0,5).forEach(function(cd){ if(cd.id===d.id) dxHit+=2; }); });
+        var symHit=0, ss={}; (cur.extracted||[]).forEach(function(x){ss[x]=1;}); (c.extracted||[]).forEach(function(x){ if(ss[x]) symHit++; });
+        var rub=rubricOverlap(cur,c);
+        c._sim=dxHit+symHit+rub*2;
+        return c;
+    }).filter(function(c){return c._sim>0;}).sort(function(a,b){return b._sim-a._sim;}).slice(0,5);
+    if(!cases.length) return '<div style="color:#7f8c8d;font-size:12px;">No similar saved cases yet. Cases will appear here after you save final decisions/outcomes.</div>';
+    var h='<div style="font-size:12px;">';
+    cases.forEach(function(c){
+        h+='<div style="padding:7px;background:white;border:1px solid #e5e8e8;border-radius:6px;margin:4px 0;">';
+        h+='<b>'+esc((c.finalDecision&&c.finalDecision.diagnosis)||((c.differentials&&c.differentials[0]&&c.differentials[0].name)||'Case'))+'</b> — '+esc((c.finalDecision&&c.finalDecision.remedy)||'')+' <small style="color:#7f8c8d;">'+esc((c.savedAt||'').slice(0,10))+' | sim '+c._sim+'</small>';
+        if(c.outcome && (c.outcome.response||c.outcome.percent)) h+='<div style="color:#27ae60;">Outcome: '+esc(c.outcome.response||'')+' '+esc(c.outcome.percent||'')+'%</div>';
+        h+='</div>';
+    });
+    h+='</div>';
+    return h;
+}
+function renderFinalDecisionPanel(a){
+    var topDx=a.differentials&&a.differentials[0]?T(a.differentials[0].condition.name):'';
+    var tr=topRemedy();
+    var today=(new Date()).toISOString().split('T')[0];
+    var h='<div class="disease-section"><div class="disease-section-title">✅ '+esc(T({ur:'Doctor final decision + follow-up tracking',en:'Doctor final decision + follow-up tracking',roman:'Final decision + follow-up'}))+'</div>';
+    h+='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;">';
+    h+='<label><b>Final diagnosis</b><input id="adxFinalDiagnosis" value="'+esc(topDx)+'" style="width:100%;padding:6px;border:1px solid #ddd;border-radius:6px;"></label>';
+    h+='<label><b>Final remedy</b><input id="adxFinalRemedy" value="'+esc(tr?tr.display:'')+'" placeholder="e.g. Bry, Gels" style="width:100%;padding:6px;border:1px solid #ddd;border-radius:6px;"></label>';
+    h+='<label><b>Confidence</b><select id="adxFinalConfidence" style="width:100%;padding:6px;border:1px solid #ddd;border-radius:6px;"><option></option><option>High</option><option>Medium</option><option>Low</option><option>Needs tests</option></select></label>';
+    h+='<label><b>Tests done / results</b><input id="adxTestsDone" placeholder="CBC, platelets, BP..." style="width:100%;padding:6px;border:1px solid #ddd;border-radius:6px;"></label>';
+    h+='</div><textarea id="adxFinalNotes" placeholder="Doctor notes / why final diagnosis or remedy selected..." style="width:100%;min-height:45px;margin-top:8px;padding:7px;border:1px solid #ddd;border-radius:6px;font-family:inherit;"></textarea>';
+    h+='<details style="margin-top:10px;"><summary style="cursor:pointer;font-weight:bold;color:#1a5276;">📈 Follow-up / outcome</summary>';
+    h+='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin-top:8px;">';
+    h+='<label><b>Response</b><select id="adxOutcomeResponse" style="width:100%;padding:6px;border:1px solid #ddd;border-radius:6px;"><option></option><option>Better</option><option>Same</option><option>Worse</option><option>New symptoms</option></select></label>';
+    h+='<label><b>Improvement %</b><input id="adxOutcomePercent" type="number" min="0" max="100" placeholder="0-100" style="width:100%;padding:6px;border:1px solid #ddd;border-radius:6px;"></label>';
+    h+='<label><b>Remedy response</b><select id="adxOutcomeRemedyResponse" style="width:100%;padding:6px;border:1px solid #ddd;border-radius:6px;"><option></option><option>Good response</option><option>Partial response</option><option>No response</option><option>Aggravation</option><option>Adverse effect</option></select></label>';
+    h+='<label><b>Next follow-up</b><input id="adxFollowupDate" type="date" value="'+today+'" style="width:100%;padding:6px;border:1px solid #ddd;border-radius:6px;"></label>';
+    h+='</div><textarea id="adxOutcomeNewSymptoms" placeholder="New symptoms / changed symptoms..." style="width:100%;min-height:42px;margin-top:8px;padding:7px;border:1px solid #ddd;border-radius:6px;font-family:inherit;"></textarea>';
+    h+='<textarea id="adxOutcomePlan" placeholder="Follow-up plan / repeat / wait / change remedy / tests..." style="width:100%;min-height:42px;margin-top:6px;padding:7px;border:1px solid #ddd;border-radius:6px;font-family:inherit;"></textarea>';
+    h+='</details>';
+    h+='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;"><button class="btn btn-success btn-sm" type="button" onclick="ADX_saveFinalCase()">💾 Save final decision</button><button class="btn btn-info btn-sm" type="button" onclick="ADX_saveOutcome()">📈 Save outcome</button><button class="btn btn-purple btn-sm" type="button" onclick="ADX_copyFinalToVisit()">🩺 Copy final to visit</button><button class="btn btn-light btn-sm" type="button" onclick="ADX_copyFinalSummary()">📋 Copy final summary</button></div>';
+    h+='<div style="margin-top:10px;"><div style="font-weight:bold;color:#1a5276;margin-bottom:4px;">🗂 Similar saved cases / learning hints</div><div id="adxSimilarCases">'+renderSimilarCases()+'</div></div>';
+    h+='</div>';
+    return h;
+}
+function copyFinalSummary(){
+    if(!lastAnalysis){ toast('No analysis yet','error'); return; }
+    var txt=finalSummaryText();
+    if(navigator.clipboard) navigator.clipboard.writeText(txt).then(function(){toast('✅ Final summary copied');}); else window.prompt('Copy',txt);
+}
+
 function renderAnalysis(a){
     var K=global.ADX_KNOWLEDGE||{};
     var h='';
@@ -508,6 +704,7 @@ function renderAnalysis(a){
     });
     h+='</div>';
 
+    h+=renderFinalDecisionPanel(a);
     h+='<div class="action-buttons" style="margin-top:12px;"><button class="btn btn-info btn-sm" onclick="ADX_copySummary()">📋 Copy Summary</button><button class="btn btn-success btn-sm" onclick="ADX_copyToVisit()">🩺 Copy to Visit Fields</button></div>';
     h+='</div>';
     return h;
@@ -539,14 +736,20 @@ function runUI(){
             });
         }
     }catch(e){}
+    var details=collectCaseDetails();
+    var genText=caseDetailsText(details);
+    if(genText) text += '\nGenerals: '+genText;
     lastAnalysis=analyze(text, extra);
+    lastAnalysis.caseDetails=details;
+    adxLastSavedCaseId=null;
+    lastRepertoryRows=[]; lastMatchedRubrics=[]; lastRepertoryErrors=[]; adxRemedyAnswers={};
     var out=$('adxResults');
     if(out){ out.innerHTML=renderAnalysis(lastAnalysis); out.scrollIntoView({behavior:'smooth', block:'start'}); }
 }
 function clearUI(){
     if($('adxStatement')) $('adxStatement').value='';
     if($('adxResults')) $('adxResults').innerHTML='';
-    lastAnalysis=null;
+    lastAnalysis=null; lastRepertoryRows=[]; lastMatchedRubrics=[]; lastRepertoryErrors=[]; adxRemedyAnswers={}; adxLastSavedCaseId=null;
 }
 function copySummary(){
     if(!lastAnalysis){ toast('No analysis yet','error'); return; }
@@ -556,6 +759,7 @@ function copySummary(){
 }
 function copyToVisit(){
     if(!lastAnalysis){ toast('No analysis yet','error'); return; }
+    if(val('adxFinalDiagnosis') || val('adxFinalRemedy')){ copyFinalToVisit(false); }
     var dx=lastAnalysis.differentials.slice(0,5).map(function(r,i){return (i+1)+'. '+T(r.condition.name)+' '+r.percentage+'%';}).join('\n');
     var sx=Object.keys(lastAnalysis.extracted.found||{}).map(symptomName).join(', ');
     var tests=lastAnalysis.tests.slice(0,10).map(function(t){return t.priority+': '+t.test;}).join('\n');
@@ -600,6 +804,7 @@ function injectDxButtons(){
     });
 }
 function bind(){
+    injectCaseDetailsPanel();
     injectDxButtons();
     var b=$('adxAnalyzeBtn'); if(b && !b._adxBound){ b.addEventListener('click',runUI); b._adxBound=true; }
     var c=$('adxClearBtn'); if(c && !c._adxBound){ c.addEventListener('click',clearUI); c._adxBound=true; }
@@ -623,5 +828,10 @@ global.ADX_analyzeSelectedRubrics=analyzeSelectedRubrics;
 global.ADX_answerRemedyQuestion=answerRemedyQuestion;
 global.ADX_openFromField=openFromField;
 global.ADX_injectDxButtons=injectDxButtons;
+global.ADX_saveFinalCase=saveFinalCase;
+global.ADX_saveOutcome=saveOutcome;
+global.ADX_copyFinalToVisit=copyFinalToVisit;
+global.ADX_copyFinalSummary=copyFinalSummary;
+global.ADX_collectCaseDetails=collectCaseDetails;
 
 })(window);
