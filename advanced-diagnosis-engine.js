@@ -276,7 +276,7 @@ function fetchChapter(book, chapter){
     var key=book+'|'+chapter;
     if(adxChapterCache[key]) return Promise.resolve(adxChapterCache[key]);
     var info=bookInfo(book);
-    var url=(info.chapDir||'')+chapter+'.json?v=13';
+    var url=(info.chapDir||'')+chapter+'.json?v=14';
     return fetch(url).then(function(r){ if(!r.ok) throw new Error(url); return r.json(); }).then(function(d){ adxChapterCache[key]=d; return d; });
 }
 function scoreRubricMatch(path, query){
@@ -325,6 +325,124 @@ function renderRemedyAnalysis(rows, matchedRubrics, errors){
     return h;
 }
 
+
+function textHas(txt, words){
+    txt=String(txt||'').toLowerCase();
+    for(var i=0;i<words.length;i++){ if(txt.indexOf(String(words[i]).toLowerCase())!==-1) return true; }
+    return false;
+}
+function addConstitutionRule(out, remedy, pts, reason){
+    if(!remedy || !pts) return;
+    out.push({remedy:remedyKey(remedy), display:remedy, pts:pts, reason:reason});
+}
+function constitutionalSupportRules(details){
+    details=details || collectCaseDetails();
+    var out=[];
+    var all=Object.keys(details||{}).map(function(k){return details[k]||'';}).join(' | ').toLowerCase();
+    var thermal=String(details.thermal||'').toLowerCase();
+    var thirst=String(details.thirst||'').toLowerCase();
+    var appetite=String(details.appetite||'').toLowerCase();
+    var cravings=String(details.cravings||'').toLowerCase();
+    var aversions=String(details.aversions||'').toLowerCase();
+    var sleep=String(details.sleep||'').toLowerCase();
+    var dreams=String(details.dreams||'').toLowerCase();
+    var mind=String(details.mind||'').toLowerCase();
+    var persp=String(details.perspiration||'').toLowerCase();
+    var stool=String(details.stool||'').toLowerCase();
+    var urine=String(details.urine||'').toLowerCase();
+    var miasm=String(details.miasm||'').toLowerCase();
+
+    if(textHas(thermal,['chilly','cold','thand','سرد','ٹھنڈ'])){ addConstitutionRule(out,'ars',2,'chilly patient'); addConstitutionRule(out,'nux-v',2,'chilly patient'); addConstitutionRule(out,'sil',2,'chilly patient'); addConstitutionRule(out,'calc',2,'chilly patient'); addConstitutionRule(out,'hep',1,'chilly patient'); }
+    if(textHas(thermal,['hot','warm','heat','garmi','گرم','گرمی'])){ addConstitutionRule(out,'sulph',2,'hot patient'); addConstitutionRule(out,'puls',2,'hot patient'); addConstitutionRule(out,'lach',2,'hot patient'); addConstitutionRule(out,'phos',1,'hot patient'); }
+    if(textHas(thermal,['better warmth','warmth amel','گرمی سے بہتر','گرم سے بہتر'])){ addConstitutionRule(out,'ars',2,'better warmth'); addConstitutionRule(out,'rhus-t',2,'better warmth'); addConstitutionRule(out,'mag-p',1,'better warmth'); }
+    if(textHas(thermal,['worse heat','warm room','گرمی سے خراب','گرم کمرہ'])){ addConstitutionRule(out,'puls',2,'worse heat/warm room'); addConstitutionRule(out,'sulph',2,'worse heat'); addConstitutionRule(out,'lach',1,'worse heat'); }
+    if(textHas(thermal,['open air','کھلی ہوا','open hawa'])){ addConstitutionRule(out,'puls',2,'open air desire/amel'); addConstitutionRule(out,'phos',1,'open air'); }
+
+    if(textHas(thirst,['thirstless','no thirst','less thirst','پیاس کم','پیاس نہیں','piyas kam'])){ addConstitutionRule(out,'gels',3,'thirstless'); addConstitutionRule(out,'puls',3,'thirstless'); addConstitutionRule(out,'apis',2,'thirstless'); }
+    if(textHas(thirst,['small sips','sips','بار بار تھوڑا','چھوٹے گھونٹ','little often'])){ addConstitutionRule(out,'ars',3,'thirst for small sips'); }
+    if(textHas(thirst,['great thirst','very thirsty','large quantities','زیادہ پیاس','piyas zyada','cold water'])){ addConstitutionRule(out,'bry',3,'great thirst'); addConstitutionRule(out,'phos',2,'cold drinks / thirst'); addConstitutionRule(out,'nat-m',2,'great thirst'); }
+
+    if(textHas(appetite,['low','poor','کم','bhook kam'])){ addConstitutionRule(out,'gels',1,'low appetite'); addConstitutionRule(out,'puls',1,'low appetite'); }
+    if(textHas(appetite,['increased','hungry','بھوک زیادہ'])){ addConstitutionRule(out,'iod',1,'increased appetite'); addConstitutionRule(out,'lyc',1,'hunger/appetite tendency'); }
+
+    if(textHas(cravings,['sweet','sweets','میٹھا','mitha'])){ addConstitutionRule(out,'calc',2,'desire sweets'); addConstitutionRule(out,'arg-n',2,'desire sweets'); addConstitutionRule(out,'lyc',1,'desire sweets'); addConstitutionRule(out,'sulph',1,'desire sweets'); }
+    if(textHas(cravings,['salt','salty','نمک','namak'])){ addConstitutionRule(out,'nat-m',3,'desire salt'); }
+    if(textHas(cravings,['sour','کھٹا','khatta'])){ addConstitutionRule(out,'sep',2,'desire sour'); addConstitutionRule(out,'ant-c',1,'desire sour'); }
+    if(textHas(cravings,['spicy','مصالحہ','mirch','مرچ'])){ addConstitutionRule(out,'nux-v',2,'desire spicy/stimulants'); }
+    if(textHas(cravings,['egg','eggs','انڈا','anday'])){ addConstitutionRule(out,'calc',2,'desire eggs'); }
+    if(textHas(cravings,['milk','دودھ','doodh'])){ addConstitutionRule(out,'phos',1,'desire milk'); addConstitutionRule(out,'calc',1,'desire milk'); }
+    if(textHas(aversions,['milk','دودھ','doodh'])){ addConstitutionRule(out,'sep',2,'aversion milk'); addConstitutionRule(out,'nat-c',1,'aversion milk'); }
+    if(textHas(aversions,['fat','oily','چکنائی','oil'])){ addConstitutionRule(out,'puls',2,'aversion fatty/oily'); }
+
+    if(textHas(sleep,['right side','دائیں کروٹ'])){ addConstitutionRule(out,'lyc',1,'right side sleep'); }
+    if(textHas(sleep,['left side','بائیں کروٹ'])){ addConstitutionRule(out,'phos',1,'left side sleep'); }
+    if(textHas(sleep,['knee chest','knees','گھٹنے'])){ addConstitutionRule(out,'med',1,'knee-chest sleep tendency'); }
+    if(textHas(sleep,['3 am','4 am','3-4','صبح 3','صبح 4'])){ addConstitutionRule(out,'kali-c',2,'waking 3-4 am'); addConstitutionRule(out,'nux-v',1,'early waking'); }
+    if(textHas(sleep,['unrefreshing','not fresh','تازہ نہیں','neend se fresh nahi'])){ addConstitutionRule(out,'nux-v',1,'unrefreshing sleep'); addConstitutionRule(out,'sulph',1,'unrefreshing sleep'); }
+    if(textHas(dreams,['falling','گرنے','girne'])){ addConstitutionRule(out,'thuja',1,'dreams falling'); }
+    if(textHas(dreams,['dead','death','موت','murda'])){ addConstitutionRule(out,'ars',1,'death dreams/anxiety'); addConstitutionRule(out,'nat-m',1,'death dreams'); }
+
+    if(textHas(mind,['anxiety','anxious','fear','خوف','گھبراہٹ','پریشانی'])){ addConstitutionRule(out,'ars',3,'anxiety/fear'); addConstitutionRule(out,'acon',2,'acute fear/panic'); addConstitutionRule(out,'phos',1,'anxiety with sensitivity'); }
+    if(textHas(mind,['restless','بے چین','bechain'])){ addConstitutionRule(out,'ars',2,'restlessness'); addConstitutionRule(out,'rhus-t',2,'restlessness'); }
+    if(textHas(mind,['irritable','anger','غصہ','چڑچڑا','chirchira'])){ addConstitutionRule(out,'nux-v',3,'irritability/anger'); addConstitutionRule(out,'cham',2,'irritable/chamomile state'); }
+    if(textHas(mind,['grief','sad','sorrow','غم','اداسی'])){ addConstitutionRule(out,'ign',3,'grief'); addConstitutionRule(out,'nat-m',3,'silent grief'); }
+    if(textHas(mind,['consolation worse','تسلی سے خراب','consolation agg'])){ addConstitutionRule(out,'nat-m',3,'consolation aggravates'); }
+    if(textHas(mind,['weeps','weeping','cry','رونا','روتا'])){ addConstitutionRule(out,'puls',2,'weeping/needs consolation'); addConstitutionRule(out,'ign',1,'weeping grief'); }
+    if(textHas(mind,['company','alone worse','اکیلا','company desire'])){ addConstitutionRule(out,'phos',2,'desires company'); addConstitutionRule(out,'puls',2,'desires consolation/company'); }
+    if(textHas(mind,['fastidious','perfection','صفائی','ترتیب'])){ addConstitutionRule(out,'ars',2,'fastidious'); addConstitutionRule(out,'nux-v',1,'fastidious'); }
+
+    if(textHas(persp,['head','سر','sar'])){ addConstitutionRule(out,'calc',2,'head perspiration'); }
+    if(textHas(persp,['offensive','bad smell','بدبو','badboo'])){ addConstitutionRule(out,'sulph',2,'offensive sweat'); addConstitutionRule(out,'sil',2,'offensive sweat'); }
+    if(textHas(persp,['profuse','زیادہ','bohat'])){ addConstitutionRule(out,'calc',1,'profuse sweat'); addConstitutionRule(out,'merc',1,'profuse sweat'); }
+
+    if(textHas(stool,['constipation','قبض','qabz'])){ addConstitutionRule(out,'nux-v',2,'constipation tendency'); addConstitutionRule(out,'bry',2,'dry constipation'); addConstitutionRule(out,'alum',1,'constipation'); }
+    if(textHas(stool,['morning diarrhea','صبح دست','subah dast'])){ addConstitutionRule(out,'sulph',2,'morning diarrhea'); }
+    if(textHas(stool,['diarrhea','loose','دست'])){ addConstitutionRule(out,'ars',1,'diarrhea with weakness/anxiety'); addConstitutionRule(out,'puls',1,'loose stool tendency'); }
+    if(textHas(urine,['burning','جلن','jalan'])){ addConstitutionRule(out,'canth',2,'burning urine'); addConstitutionRule(out,'sars',1,'urinary burning'); }
+    if(textHas(urine,['frequent','بار بار','bar bar'])){ addConstitutionRule(out,'lyc',1,'urinary frequency'); addConstitutionRule(out,'canth',1,'urinary frequency'); }
+
+    if(textHas(miasm,['psora','psoric','سورا'])){ addConstitutionRule(out,'sulph',2,'psoric tendency'); addConstitutionRule(out,'psor',2,'psoric tendency'); }
+    if(textHas(miasm,['sycotic','sycosis','سائیکوٹک'])){ addConstitutionRule(out,'thuja',3,'sycotic tendency'); addConstitutionRule(out,'med',2,'sycotic tendency'); }
+    if(textHas(miasm,['syphilitic','syphilis','سفلس'])){ addConstitutionRule(out,'merc',2,'syphilitic tendency'); addConstitutionRule(out,'aur',2,'syphilitic/destructive tendency'); }
+    if(textHas(miasm,['tubercular','tb','ٹی بی'])){ addConstitutionRule(out,'tub',3,'tubercular tendency'); addConstitutionRule(out,'phos',2,'tubercular tendency'); }
+    if(textHas(miasm,['cancer','cancerinic','carc','کینسر'])){ addConstitutionRule(out,'carc',3,'cancerinic tendency'); }
+
+    if(textHas(all,['worse motion','motion worse','حرکت سے خراب'])){ addConstitutionRule(out,'bry',2,'worse motion general'); }
+    if(textHas(all,['better motion','motion better','حرکت سے بہتر'])){ addConstitutionRule(out,'rhus-t',2,'better motion general'); }
+    if(textHas(all,['better pressure','دباؤ سے بہتر'])){ addConstitutionRule(out,'bry',1,'better pressure'); addConstitutionRule(out,'mag-p',1,'better pressure'); }
+
+    var merged={};
+    out.forEach(function(x){
+        var k=remedyKey(x.remedy);
+        if(!merged[k]) merged[k]={remedy:k, display:x.display||x.remedy, pts:0, reasons:[]};
+        merged[k].pts += x.pts;
+        merged[k].reasons.push(x.reason+' +'+x.pts);
+    });
+    return Object.keys(merged).map(function(k){return merged[k];}).sort(function(a,b){return b.pts-a.pts;});
+}
+function applyConstitutionalSupport(rows){
+    var details=(lastAnalysis&&lastAnalysis.caseDetails)||collectCaseDetails();
+    var support=constitutionalSupportRules(details);
+    if(!support.length) return {rows:rows, support:[]};
+    var rowByKey={};
+    rows.forEach(function(r){ rowByKey[remedyKey(r.key)]=r; rowByKey[remedyKey(r.display)]=r; });
+    support.forEach(function(sup){
+        var k=remedyKey(sup.remedy), row=rowByKey[k];
+        if(!row && sup.pts>=4){
+            row={key:k, display:sup.display||k, baseScore:0, score:0, coverage:0, matches:['Constitutional support only'], diff:0, reasons:[]};
+            rows.push(row); rowByKey[k]=row;
+        }
+        if(row){
+            row.score += sup.pts;
+            row.constitutional = (row.constitutional||0)+sup.pts;
+            row.diff += sup.pts;
+            row.reasons = row.reasons || [];
+            row.reasons.push('constitution +'+sup.pts);
+            row.constitutionReasons = (row.constitutionReasons||[]).concat(sup.reasons.slice(0,4));
+        }
+    });
+    return {rows:rows, support:support};
+}
 function cloneRowsWithDifferentiation(){
     var rows=(lastRepertoryRows||[]).map(function(r){
         return {key:r.key, display:r.display, baseScore:r.score, score:r.score, coverage:r.coverage, matches:(r.matches||[]).slice(), diff:0, reasons:[]};
@@ -354,6 +472,7 @@ function cloneRowsWithDifferentiation(){
             apply(q.opposes, 1, 'no supports opposite');
         }
     });
+    applyConstitutionalSupport(rows);
     rows.sort(function(a,b){return b.score-a.score || b.coverage-a.coverage || a.display.localeCompare(b.display);});
     return rows;
 }
@@ -362,9 +481,11 @@ function remedyConfidence(rows){
     var answered=Object.keys(adxRemedyAnswers||{}).filter(function(k){return adxRemedyAnswers[k] && adxRemedyAnswers[k]!=='unknown';}).length;
     var top=rows[0], second=rows[1]||{score:0};
     var gap=top.score-second.score;
+    var constitutionPts=top.constitutional||0;
+    if(answered>=3 && gap>=8 && constitutionPts>=2) return {label:'High', cls:'#27ae60', note:'clear lead with differentiation + constitution'};
     if(answered>=3 && gap>=8) return {label:'High', cls:'#27ae60', note:'clear lead after differentiation'};
-    if(answered>=2 && gap>=4) return {label:'Medium', cls:'#f39c12', note:'some differentiation support'};
-    return {label:'Low / needs confirmation', cls:'#e67e22', note:'answer more remedy questions'};
+    if((answered>=2 && gap>=4) || (constitutionPts>=4 && gap>=4)) return {label:'Medium', cls:'#f39c12', note:'some differentiation/constitutional support'};
+    return {label:'Low / needs confirmation', cls:'#e67e22', note:'answer more remedy questions and confirm generals'};
 }
 function renderDifferentiationInteractive(){
     var qs=(lastAnalysis&&lastAnalysis.remedyQuestions)||[];
@@ -394,9 +515,15 @@ function renderDifferentiationInteractive(){
     h+='<b>'+esc(T({ur:'Current leading remedy',en:'Current leading remedy',roman:'Current leading remedy'}))+':</b> <span style="font-size:15px;color:#1a5276;font-weight:bold;">'+esc(adjusted[0]?adjusted[0].display:'-')+'</span> ';
     h+='<span style="background:'+conf.cls+';color:white;padding:2px 8px;border-radius:12px;font-size:10px;">'+esc(conf.label)+'</span> <small style="color:#7f8c8d;">'+esc(conf.note)+'</small>';
     h+='</div>';
-    h+='<div style="overflow-x:auto;margin-top:8px;"><table style="width:100%;border-collapse:collapse;font-size:12px;background:white;"><thead><tr style="background:#fef5e7;color:#7d6608;"><th style="padding:5px;text-align:left;">#</th><th style="padding:5px;text-align:left;">Remedy</th><th style="padding:5px;text-align:left;">Adjusted</th><th style="padding:5px;text-align:left;">Base</th><th style="padding:5px;text-align:left;">Δ</th><th style="padding:5px;text-align:left;">Why changed</th></tr></thead><tbody>';
+    var cSupport=constitutionalSupportRules((lastAnalysis&&lastAnalysis.caseDetails)||collectCaseDetails());
+    if(cSupport.length){
+        h+='<div style="margin-top:8px;padding:7px;background:#f4fbf7;border:1px solid #a9dfbf;border-radius:6px;font-size:12px;"><b>🧬 '+esc(T({ur:'Constitutional support',en:'Constitutional support',roman:'Constitutional support'}))+':</b> ';
+        h+=cSupport.slice(0,8).map(function(x){return '<span style="display:inline-block;margin:2px;padding:2px 7px;border-radius:10px;background:#eafaf1;color:#145a32;">'+esc(x.display)+' +'+x.pts+'</span>';}).join(' ');
+        h+='<div style="color:#7f8c8d;margin-top:4px;">'+esc(T({ur:'یہ score generals/chronic details سے آیا ہے؛ final remedy سے پہلے doctor confirm کرے۔',en:'These points come from generals/chronic details; doctor should confirm before final remedy.',roman:'Generals se support points.'}))+'</div></div>';
+    }
+    h+='<div style="overflow-x:auto;margin-top:8px;"><table style="width:100%;border-collapse:collapse;font-size:12px;background:white;"><thead><tr style="background:#fef5e7;color:#7d6608;"><th style="padding:5px;text-align:left;">#</th><th style="padding:5px;text-align:left;">Remedy</th><th style="padding:5px;text-align:left;">Adjusted</th><th style="padding:5px;text-align:left;">Base</th><th style="padding:5px;text-align:left;">Const.</th><th style="padding:5px;text-align:left;">Δ</th><th style="padding:5px;text-align:left;">Why changed</th></tr></thead><tbody>';
     adjusted.slice(0,12).forEach(function(r,i){
-        h+='<tr style="border-bottom:1px solid #f4f6f7;"><td style="padding:5px;">'+(i+1)+'</td><td style="padding:5px;font-weight:bold;color:#1a5276;">'+esc(r.display)+'</td><td style="padding:5px;">'+Math.round(r.score)+'</td><td style="padding:5px;">'+Math.round(r.baseScore)+'</td><td style="padding:5px;color:'+(r.diff>=0?'#27ae60':'#c0392b')+';">'+(r.diff>0?'+':'')+Math.round(r.diff)+'</td><td style="padding:5px;color:#7f8c8d;">'+esc((r.reasons||[]).slice(0,3).join(' | '))+'</td></tr>';
+        h+='<tr style="border-bottom:1px solid #f4f6f7;"><td style="padding:5px;">'+(i+1)+'</td><td style="padding:5px;font-weight:bold;color:#1a5276;">'+esc(r.display)+'</td><td style="padding:5px;">'+Math.round(r.score)+'</td><td style="padding:5px;">'+Math.round(r.baseScore)+'</td><td style="padding:5px;color:#145a32;">'+(r.constitutional?('+'+Math.round(r.constitutional)):'-')+'</td><td style="padding:5px;color:'+(r.diff>=0?'#27ae60':'#c0392b')+';">'+(r.diff>0?'+':'')+Math.round(r.diff)+'</td><td style="padding:5px;color:#7f8c8d;">'+esc(((r.reasons||[]).slice(0,3).concat((r.constitutionReasons||[]).slice(0,2))).join(' | '))+'</td></tr>';
     });
     h+='</tbody></table></div>';
     h+='</div>';
@@ -534,7 +661,8 @@ function finalCaseRecord(kind){
         redFlags: lastAnalysis ? (lastAnalysis.redFlags||[]).map(function(r){return r.label+' - '+r.reason;}) : [],
         differentials: lastAnalysis ? (lastAnalysis.differentials||[]).slice(0,8).map(function(r){return {id:r.condition.id, name:T(r.condition.name), percentage:r.percentage, severity:r.condition.severity};}) : [],
         selectedRubrics: selectedRubrics().map(function(r){return {book:r.book, chapter:r.chapter, path:r.path, symptom:r.symptom, weight:r.weight};}),
-        topRemedies: adjusted.slice(0,10).map(function(r){return {remedy:r.display, score:Math.round(r.score), base:Math.round(r.baseScore||r.score), coverage:r.coverage};}),
+        topRemedies: adjusted.slice(0,10).map(function(r){return {remedy:r.display, score:Math.round(r.score), base:Math.round(r.baseScore||r.score), constitutional:Math.round(r.constitutional||0), coverage:r.coverage};}),
+        constitutionalSupport: constitutionalSupportRules(collectCaseDetails()).slice(0,12),
         remedyAnswers: Object.assign({}, adxRemedyAnswers),
         finalDecision: fd, outcome: out, generals: collectCaseDetails()
     };
@@ -564,6 +692,8 @@ function finalSummaryText(){
     var txt=finalSummaryText ? finalSummaryText() : summaryText(lastAnalysis);
     txt += '\n\nFINAL DECISION\nDiagnosis: '+(fd.diagnosis||'')+'\nRemedy: '+(fd.remedy||'')+'\nConfidence: '+(fd.confidence||'')+'\nNotes: '+(fd.notes||'');
     if(gen) txt += '\n\nGENERALS\n'+gen;
+    var cs=constitutionalSupportRules(collectCaseDetails());
+    if(cs.length) txt += '\n\nCONSTITUTIONAL SUPPORT\n'+cs.slice(0,10).map(function(x){return x.display+' +'+x.pts+' ('+x.reasons.slice(0,3).join('; ')+')';}).join('\n');
     if(out.response || out.percent || out.newSymptoms || out.plan){ txt += '\n\nFOLLOW-UP / OUTCOME\nResponse: '+(out.response||'')+' '+(out.percent||'')+'%\nRemedy response: '+(out.remedyResponse||'')+'\nNew symptoms: '+(out.newSymptoms||'')+'\nPlan: '+(out.plan||''); }
     return txt;
 }
@@ -984,5 +1114,6 @@ global.ADX_clearRecords=clearRecords;
 global.ADX_loadRecord=loadRecord;
 global.ADX_deleteRecord=deleteRecord;
 global.ADX_renderAnalyticsDashboard=renderAnalyticsDashboard;
+global.ADX_constitutionalSupportRules=constitutionalSupportRules;
 
 })(window);
