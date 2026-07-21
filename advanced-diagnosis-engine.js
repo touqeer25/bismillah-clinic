@@ -209,6 +209,7 @@ var lastMatchedRubrics = [];
 var lastRepertoryErrors = [];
 var adxRemedyAnswers = {};
 var adxLastSavedCaseId = null;
+var adxRubricConfirmSeq = 0;
 function ensureRubricSelection(a){
     if(!a || !a.rubrics) return;
     if(a._rubricSelectionInitialized) return;
@@ -254,7 +255,7 @@ function openRubricSearch(idx){
                 if(typeof repSearchMode!=='undefined') global.repSearchMode='book';
                 if(typeof updateRepSearchModeUI==='function') updateRepSearchModeUI();
                 var inp=$('repBrowserSearch');
-                if(inp){ inp.value=r.path; }
+                if(inp){ inp.value=(r.confirmedPath||r.path); }
                 if(typeof searchRepertoryBrowser==='function') searchRepertoryBrowser();
             },350);
         },120);
@@ -276,7 +277,7 @@ function fetchChapter(book, chapter){
     var key=book+'|'+chapter;
     if(adxChapterCache[key]) return Promise.resolve(adxChapterCache[key]);
     var info=bookInfo(book);
-    var url=(info.chapDir||'')+chapter+'.json?v=14';
+    var url=(info.chapDir||'')+chapter+'.json?v=15';
     return fetch(url).then(function(r){ if(!r.ok) throw new Error(url); return r.json(); }).then(function(d){ adxChapterCache[key]=d; return d; });
 }
 function scoreRubricMatch(path, query){
@@ -304,6 +305,101 @@ function findBestRubric(data, query){
         if(sc>bestScore){ bestScore=sc; best={rid:rid, rec:rec, path:t, score:sc}; }
     });
     return bestScore>=250 ? best : null;
+}
+
+function rubricMatchStatus(score){
+    if(score>=1000) return {label:'Exact', color:'#27ae60'};
+    if(score>=850) return {label:'Strong', color:'#16a085'};
+    if(score>=650) return {label:'Good', color:'#2980b9'};
+    if(score>=450) return {label:'Fuzzy', color:'#f39c12'};
+    if(score>=250) return {label:'Weak', color:'#e67e22'};
+    return {label:'Not found', color:'#c0392b'};
+}
+function applyBestToRubric(r,best){
+    if(!r || !best) return r;
+    var st=rubricMatchStatus(best.score||0);
+    r.confirmedPath=best.path;
+    r.confirmedRid=best.rid;
+    r.matchScore=best.score||0;
+    r.matchStatus=st.label;
+    r.matchColor=st.color;
+    r.confirmedAt=new Date().toISOString();
+    return r;
+}
+function confirmOneRubric(idx, silent){
+    if(!lastAnalysis || !lastAnalysis.rubrics || !lastAnalysis.rubrics[idx]) return Promise.resolve(null);
+    var r=lastAnalysis.rubrics[idx];
+    r.matchStatus='checking'; r.matchColor='#7f8c8d';
+    if(!silent){ var out=$('adxResults'); if(out) out.innerHTML=renderAnalysis(lastAnalysis); }
+    return fetchChapter(r.book,r.chapter).then(function(data){
+        var best=findBestRubric(data, r.path);
+        if(best){ applyBestToRubric(r,best); }
+        else { r.confirmedPath=''; r.confirmedRid=''; r.matchScore=0; r.matchStatus='Not found'; r.matchColor='#c0392b'; }
+        return r;
+    }).catch(function(){
+        r.confirmedPath=''; r.confirmedRid=''; r.matchScore=0; r.matchStatus='Load error'; r.matchColor='#c0392b';
+        return r;
+    });
+}
+function confirmSuggestedRubrics(){
+    if(!lastAnalysis || !lastAnalysis.rubrics || !lastAnalysis.rubrics.length){ toast('No rubrics to confirm','error'); return; }
+    var seq=++adxRubricConfirmSeq;
+    var box=$('adxRubricConfirmStatus');
+    if(box) box.innerHTML='<span style="color:#7d6608;">⏳ Confirming exact rubric paths...</span>';
+    var list=lastAnalysis.rubrics;
+    var i=0, ok=0, miss=0;
+    function step(){
+        if(seq!==adxRubricConfirmSeq) return;
+        if(i>=list.length){
+            var out=$('adxResults'); if(out) out.innerHTML=renderAnalysis(lastAnalysis);
+            toast('✅ Rubric confirmation complete: '+ok+' found, '+miss+' not found');
+            return;
+        }
+        var cur=i++;
+        if(box) box.innerHTML='⏳ '+i+'/'+list.length+' — '+esc(list[cur].book+'/'+list[cur].chapter);
+        confirmOneRubric(cur,true).then(function(r){
+            if(r && r.confirmedPath) ok++; else miss++;
+            setTimeout(step,0);
+        });
+    }
+    step();
+}
+function editRubricPath(idx){
+    if(!lastAnalysis || !lastAnalysis.rubrics || !lastAnalysis.rubrics[idx]) return;
+    var r=lastAnalysis.rubrics[idx];
+    var val=prompt('Edit rubric path', r.confirmedPath||r.path||'');
+    if(val===null) return;
+    r.path=String(val||'').trim();
+    r.confirmedPath=''; r.confirmedRid=''; r.matchScore=0; r.matchStatus='edited'; r.matchColor='#8e44ad';
+    var out=$('adxResults'); if(out) out.innerHTML=renderAnalysis(lastAnalysis);
+}
+function removeRubric(idx){
+    if(!lastAnalysis || !lastAnalysis.rubrics || !lastAnalysis.rubrics[idx]) return;
+    lastAnalysis.rubrics.splice(idx,1);
+    var out=$('adxResults'); if(out) out.innerHTML=renderAnalysis(lastAnalysis);
+}
+function addCustomRubric(){
+    if(!lastAnalysis) return;
+    var text=prompt('Add rubric as: book|chapter|rubric path\nExample: kent|head|PAIN, throbbing');
+    if(!text) return;
+    var parts=text.split('|');
+    if(parts.length<3){ toast('Format: book|chapter|rubric path','error'); return; }
+    lastAnalysis.rubrics=lastAnalysis.rubrics||[];
+    lastAnalysis.rubrics.push({book:parts[0].trim(), chapter:parts[1].trim(), path:parts.slice(2).join('|').trim(), symptom:'custom', weight:3, selected:true, matchStatus:'custom', matchColor:'#8e44ad'});
+    var out=$('adxResults'); if(out) out.innerHTML=renderAnalysis(lastAnalysis);
+}
+function openExactRubric(idx){
+    if(!lastAnalysis || !lastAnalysis.rubrics || !lastAnalysis.rubrics[idx]) return;
+    var r=lastAnalysis.rubrics[idx];
+    if(r.confirmedRid && typeof navigateToRubric==='function'){
+        try{
+            var btn=document.querySelector('[data-page="repertoryBrowser"]');
+            if(typeof showPage==='function') showPage('repertoryBrowser', btn);
+            setTimeout(function(){ navigateToRubric(r.book, r.chapter, r.confirmedRid); },250);
+            return;
+        }catch(e){}
+    }
+    openRubricSearch(idx);
 }
 function renderRemedyAnalysis(rows, matchedRubrics, errors){
     var h='';
@@ -550,9 +646,16 @@ function analyzeSelectedRubrics(){
     sel.forEach(function(r){
         chain=chain.then(function(){
             return fetchChapter(r.book,r.chapter).then(function(data){
-                var best=findBestRubric(data,r.path);
-                if(!best || !best.rec || !best.rec.r){ errors.push(r.book+'/'+r.chapter+': '+r.path); return; }
-                matched.push({suggestion:r, found:best.path, rid:best.rid});
+                var best=null;
+                if(r.confirmedRid && data[r.confirmedRid]){
+                    var rec0=data[r.confirmedRid];
+                    best={rid:r.confirmedRid, rec:rec0, path:(rec0.path||rec0.de_path||rec0.t||r.confirmedPath||r.path), score:r.matchScore||1000};
+                } else {
+                    best=findBestRubric(data,(r.confirmedPath||r.path));
+                    if(best) applyBestToRubric(r,best);
+                }
+                if(!best || !best.rec || !best.rec.r){ errors.push(r.book+'/'+r.chapter+': '+(r.confirmedPath||r.path)); return; }
+                matched.push({suggestion:r, found:best.path, rid:best.rid, score:best.score});
                 Object.keys(best.rec.r||{}).forEach(function(abbr){
                     var key=remedyKey(abbr); if(!key) return;
                     var grade=parseInt(best.rec.r[abbr],10)||1;
@@ -650,17 +753,29 @@ function currentPatientHint(){
     if($('patientName') && $('patientName').value) names.push($('patientName').value.trim());
     return names[0] || '';
 }
+
+function currentPatientIdHint(){
+    try{ if(typeof diagnosisPatientId!=='undefined' && diagnosisPatientId) return diagnosisPatientId; }catch(e){}
+    if($('nvPatientId') && $('nvPatientId').value) return $('nvPatientId').value;
+    if($('patientId') && $('patientId').value) return $('patientId').value;
+    return '';
+}
+function currentVisitRefHint(){
+    if($('nvVisitRef') && $('nvVisitRef').value) return $('nvVisitRef').value;
+    if($('firstVisitRef') && $('firstVisitRef').value) return $('firstVisitRef').value;
+    return '';
+}
 function finalCaseRecord(kind){
     var adjusted=getAdjustedRows();
     var fd=getFinalDecision();
     var out=getOutcome();
     return {
         id: adxLastSavedCaseId || ('adx_'+Date.now()+'_'+Math.random().toString(36).slice(2,7)),
-        kind: kind || 'case', savedAt: new Date().toISOString(), patient: currentPatientHint(),
+        kind: kind || 'case', savedAt: new Date().toISOString(), patient: currentPatientHint(), patientId: currentPatientIdHint(), visitRef: currentVisitRefHint(),
         statement: val('adxStatement'), extracted: lastAnalysis ? Object.keys(lastAnalysis.extracted.found||{}).map(symptomName) : [],
         redFlags: lastAnalysis ? (lastAnalysis.redFlags||[]).map(function(r){return r.label+' - '+r.reason;}) : [],
         differentials: lastAnalysis ? (lastAnalysis.differentials||[]).slice(0,8).map(function(r){return {id:r.condition.id, name:T(r.condition.name), percentage:r.percentage, severity:r.condition.severity};}) : [],
-        selectedRubrics: selectedRubrics().map(function(r){return {book:r.book, chapter:r.chapter, path:r.path, symptom:r.symptom, weight:r.weight};}),
+        selectedRubrics: selectedRubrics().map(function(r){return {book:r.book, chapter:r.chapter, path:r.path, confirmedPath:r.confirmedPath||'', confirmedRid:r.confirmedRid||'', matchScore:r.matchScore||0, matchStatus:r.matchStatus||'', symptom:r.symptom, weight:r.weight};}),
         topRemedies: adjusted.slice(0,10).map(function(r){return {remedy:r.display, score:Math.round(r.score), base:Math.round(r.baseScore||r.score), constitutional:Math.round(r.constitutional||0), coverage:r.coverage};}),
         constitutionalSupport: constitutionalSupportRules(collectCaseDetails()).slice(0,12),
         remedyAnswers: Object.assign({}, adxRemedyAnswers),
@@ -726,7 +841,8 @@ function renderSimilarCases(){
         (cur.differentials||[]).slice(0,5).forEach(function(d){ (c.differentials||[]).slice(0,5).forEach(function(cd){ if(cd.id===d.id) dxHit+=2; }); });
         var symHit=0, ss={}; (cur.extracted||[]).forEach(function(x){ss[x]=1;}); (c.extracted||[]).forEach(function(x){ if(ss[x]) symHit++; });
         var rub=rubricOverlap(cur,c);
-        c._sim=dxHit+symHit+rub*2;
+        var patientBonus=(cur.patientId && c.patientId && cur.patientId===c.patientId)?5:0;
+        c._sim=dxHit+symHit+rub*2+patientBonus;
         return c;
     }).filter(function(c){return c._sim>0;}).sort(function(a,b){return b._sim-a._sim;}).slice(0,5);
     if(!cases.length) return '<div style="color:#7f8c8d;font-size:12px;">No similar saved cases yet. Cases will appear here after you save final decisions/outcomes.</div>';
@@ -817,11 +933,13 @@ function renderAnalysis(a){
     h+='<div class="disease-section"><div class="disease-section-title">📚 '+esc(T({ur:'Suggested repertory rubrics',en:'Suggested repertory rubrics',roman:'Suggested repertory rubrics'}))+'</div>';
     if(!a.rubrics.length) h+='<div style="color:#95a5a6;font-size:12px;">No rubric suggestions yet.</div>';
     if(a.rubrics.length){
-        h+='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;"><button class="btn btn-success btn-sm" type="button" onclick="ADX_analyzeSelectedRubrics()">💊 '+esc(T({ur:'Selected rubrics سے remedies نکالیں',en:'Analyze selected rubrics',roman:'Selected rubrics analyze'}))+'</button><button class="btn btn-light btn-sm" type="button" onclick="ADX_setAllRubrics(true)">✓ All</button><button class="btn btn-light btn-sm" type="button" onclick="ADX_setAllRubrics(false)">✕ None</button></div>';
+        h+='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;"><button class="btn btn-success btn-sm" type="button" onclick="ADX_analyzeSelectedRubrics()">💊 '+esc(T({ur:'Selected rubrics سے remedies نکالیں',en:'Analyze selected rubrics',roman:'Selected rubrics analyze'}))+'</button><button class="btn btn-info btn-sm" type="button" onclick="ADX_confirmSuggestedRubrics()">🎯 '+esc(T({ur:'Exact rubrics confirm کریں',en:'Confirm exact rubrics',roman:'Exact rubrics confirm'}))+'</button><button class="btn btn-purple btn-sm" type="button" onclick="ADX_addCustomRubric()">➕ '+esc(T({ur:'Rubric add',en:'Add rubric',roman:'Add rubric'}))+'</button><button class="btn btn-light btn-sm" type="button" onclick="ADX_setAllRubrics(true)">✓ All</button><button class="btn btn-light btn-sm" type="button" onclick="ADX_setAllRubrics(false)">✕ None</button><span id="adxRubricConfirmStatus" style="font-size:11px;color:#7f8c8d;align-self:center;"></span></div>';
     }
-    a.rubrics.slice(0,30).forEach(function(r,i){
+    a.rubrics.slice(0,35).forEach(function(r,i){
         var checked = r.selected !== false ? ' checked' : '';
-        h+='<div style="padding:6px 8px;background:#fff;border:1px solid #eef2f5;border-radius:6px;margin:3px 0;font-size:12px;display:flex;gap:7px;align-items:flex-start;flex-wrap:wrap;"><label style="display:flex;gap:5px;align-items:center;"><input type="checkbox" onchange="ADX_toggleRubric('+i+')"'+checked+'> <b>'+esc(r.book)+'</b></label><span>/ '+esc(r.chapter)+' — '+esc(r.path)+' <small style="color:#7f8c8d;">['+esc(symptomName(r.symptom))+']</small></span><button class="btn btn-info btn-xs" type="button" onclick="ADX_openRubricSearch('+i+')">🔍 '+esc(T({ur:'اوپن/سرچ',en:'Open/Search',roman:'Open/Search'}))+'</button></div>';
+        var st=r.matchStatus?{label:r.matchStatus,color:(r.matchColor||'#7f8c8d')}:rubricMatchStatus(r.matchScore||0);
+        var exact = r.confirmedPath ? ('<div style="flex-basis:100%;font-size:11px;color:#145a32;margin-left:22px;">✓ '+esc(T({ur:'Exact',en:'Exact',roman:'Exact'}))+': '+esc(r.confirmedPath)+' '+(r.confirmedRid?'<small>#'+esc(r.confirmedRid)+'</small>':'')+'</div>') : '';
+        h+='<div style="padding:6px 8px;background:#fff;border:1px solid #eef2f5;border-radius:6px;margin:3px 0;font-size:12px;display:flex;gap:7px;align-items:flex-start;flex-wrap:wrap;"><label style="display:flex;gap:5px;align-items:center;"><input type="checkbox" onchange="ADX_toggleRubric('+i+')"'+checked+'> <b>'+esc(r.book)+'</b></label><span>/ '+esc(r.chapter)+' — '+esc(r.path)+' <small style="color:#7f8c8d;">['+esc(symptomName(r.symptom))+']</small></span><span style="background:'+st.color+';color:white;padding:1px 7px;border-radius:10px;font-size:10px;">'+esc(st.label)+'</span><button class="btn btn-info btn-xs" type="button" onclick="ADX_openExactRubric('+i+')">🔍 '+esc(T({ur:'اوپن',en:'Open',roman:'Open'}))+'</button><button class="btn btn-light btn-xs" type="button" onclick="ADX_confirmOneRubric('+i+')">🎯 '+esc(T({ur:'Confirm',en:'Confirm',roman:'Confirm'}))+'</button><button class="btn btn-light btn-xs" type="button" onclick="ADX_editRubricPath('+i+')">✎</button><button class="btn btn-light btn-xs" type="button" onclick="ADX_removeRubric('+i+')">✕</button>'+exact+'</div>';
     });
     h+='<div id="adxRemedyAnalysis"></div>';
     h+='</div>';
@@ -1004,12 +1122,13 @@ function renderAnalyticsDashboard(){
 function renderRecentRecords(records){
     var h='<div style="margin-top:12px;font-weight:bold;color:#1a5276;">Recent ADX records</div>';
     if(!records.length) return h+'<div style="color:#95a5a6;font-size:12px;">No saved ADX records yet.</div>';
-    h+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12px;background:white;"><thead><tr style="background:#f4f6f8;"><th style="padding:5px;text-align:left;">Date</th><th style="padding:5px;text-align:left;">Type</th><th style="padding:5px;text-align:left;">Diagnosis</th><th style="padding:5px;text-align:left;">Remedy</th><th style="padding:5px;text-align:left;">Outcome</th><th style="padding:5px;text-align:left;">Actions</th></tr></thead><tbody>';
+    h+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12px;background:white;"><thead><tr style="background:#f4f6f8;"><th style="padding:5px;text-align:left;">Date</th><th style="padding:5px;text-align:left;">Type</th><th style="padding:5px;text-align:left;">Patient/Visit</th><th style="padding:5px;text-align:left;">Diagnosis</th><th style="padding:5px;text-align:left;">Remedy</th><th style="padding:5px;text-align:left;">Outcome</th><th style="padding:5px;text-align:left;">Actions</th></tr></thead><tbody>';
     records.slice(0,20).forEach(function(r){
         var diag=(r.finalDecision&&r.finalDecision.diagnosis) || (r.differentials&&r.differentials[0]&&r.differentials[0].name) || '';
         var rem=(r.finalDecision&&r.finalDecision.remedy) || (r.topRemedies&&r.topRemedies[0]&&r.topRemedies[0].remedy) || '';
         var out=(r.outcome&&r.outcome.response? r.outcome.response+' '+(r.outcome.percent||'')+'%' : '');
-        h+='<tr style="border-bottom:1px solid #eef2f5;"><td style="padding:5px;">'+esc(String(r.savedAt||'').slice(0,10))+'</td><td style="padding:5px;">'+esc(r._source||'')+'</td><td style="padding:5px;">'+esc(diag)+'</td><td style="padding:5px;">'+esc(rem)+'</td><td style="padding:5px;">'+esc(out)+'</td><td style="padding:5px;"><button class="btn btn-info btn-xs" type="button" onclick="ADX_loadRecord(\''+esc(r.id)+'\',\''+esc(r._source)+'\')">Load</button> <button class="btn btn-light btn-xs" type="button" onclick="ADX_deleteRecord(\''+esc(r.id)+'\',\''+esc(r._source)+'\')">Delete</button></td></tr>';
+        var pv=(r.patient||'')+(r.visitRef?(' / '+r.visitRef):'');
+        h+='<tr style="border-bottom:1px solid #eef2f5;"><td style="padding:5px;">'+esc(String(r.savedAt||'').slice(0,10))+'</td><td style="padding:5px;">'+esc(r._source||'')+'</td><td style="padding:5px;">'+esc(pv)+'</td><td style="padding:5px;">'+esc(diag)+'</td><td style="padding:5px;">'+esc(rem)+'</td><td style="padding:5px;">'+esc(out)+'</td><td style="padding:5px;"><button class="btn btn-info btn-xs" type="button" onclick="ADX_loadRecord(\''+esc(r.id)+'\',\''+esc(r._source)+'\')">Load</button> <button class="btn btn-light btn-xs" type="button" onclick="ADX_deleteRecord(\''+esc(r.id)+'\',\''+esc(r._source)+'\')">Delete</button></td></tr>';
     });
     h+='</tbody></table></div>';
     return h;
@@ -1115,5 +1234,11 @@ global.ADX_loadRecord=loadRecord;
 global.ADX_deleteRecord=deleteRecord;
 global.ADX_renderAnalyticsDashboard=renderAnalyticsDashboard;
 global.ADX_constitutionalSupportRules=constitutionalSupportRules;
+global.ADX_confirmSuggestedRubrics=confirmSuggestedRubrics;
+global.ADX_confirmOneRubric=function(i){ confirmOneRubric(i,false).then(function(){ var out=$('adxResults'); if(out) out.innerHTML=renderAnalysis(lastAnalysis); }); };
+global.ADX_editRubricPath=editRubricPath;
+global.ADX_removeRubric=removeRubric;
+global.ADX_addCustomRubric=addCustomRubric;
+global.ADX_openExactRubric=openExactRubric;
 
 })(window);

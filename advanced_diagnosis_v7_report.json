@@ -1,0 +1,15 @@
+{
+  "name": "Advanced Diagnosis Phase 7 - Exact Rubric Confirmation and Patient/Visit Linking",
+  "cache_version": "v15",
+  "new_features": [
+    "confirm exact repertory path and rubric id for each suggested rubric",
+    "rubric match quality badges: Exact/Strong/Good/Fuzzy/Weak/Not found",
+    "edit/remove/add custom rubric controls",
+    "open exact confirmed rubric by rid when possible",
+    "repertorization uses confirmed rubric id/path first",
+    "saved ADX records include patientId and visitRef",
+    "similar-case scoring gives bonus for same patient",
+    "recent ADX records table shows patient/visit column"
+  ],
+  "note": "Exact rubric confirmation still requires doctor review; fuzzy matches should be opened and verified before final prescription."
+}
