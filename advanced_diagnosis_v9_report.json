@@ -1,0 +1,12 @@
+{
+  "name": "Advanced Diagnosis Phase 9 - Specialty-Specific Scoring and Curated Rubric Templates",
+  "cache_version": "v17",
+  "new_features": [
+    "specialty module selection now boosts module-relevant differential diagnoses",
+    "module-specific warning diagnoses get stronger priority when matching red flags are present",
+    "specialty bonus and reasons are shown inside differential cards",
+    "curated rubric templates are added per specialty module and extracted findings",
+    "specialty scoring metadata is saved in ADX case records"
+  ],
+  "note": "Specialty scoring is a prioritization aid only; doctor must confirm diagnosis, red flags, tests and rubrics."
+}

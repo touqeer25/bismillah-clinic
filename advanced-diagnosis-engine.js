@@ -113,6 +113,245 @@ function scoreConditions(ex){
     });
     return results;
 }
+
+// ==================== ADX Phase 9: Specialty-specific clinical scoring ====================
+var ADX_SPECIALTY_SCORING = {
+    fever:{
+        focus:['viral_fever','dengue_fever','severe_dengue','malaria','typhoid','influenza','covid_like_viral','chikungunya','measles','sepsis','meningitis','pyelonephritis'],
+        boost:{
+            dengue_fever:{retro_orbital_pain:10,rash:7,bleeding:12,low_urine:6,bone_pain:6,body_ache:3},
+            severe_dengue:{bleeding:15,low_urine:10,severe_abdominal_pain:10,persistent_vomiting:10,confusion:10,fainting:10},
+            malaria:{chills:12,sweat:6,body_ache:2,vomiting:2},
+            typhoid:{abdominal_pain:6,diarrhea:4,constipation:4,loss_appetite:4,weakness:3},
+            influenza:{body_ache:6,cough:4,sore_throat:3,headache:3},
+            chikungunya:{joint_pain:12,rash:5,body_ache:4},
+            sepsis:{confusion:10,low_urine:8,breathlessness:8,fainting:8,high_fever:4},
+            meningitis:{neck_stiffness:15,severe_headache:8,confusion:8,seizure:10,vomiting:4}
+        }
+    },
+    headache:{
+        focus:['migraine','tension_headache','cluster_headache','sinusitis','meningitis','stroke_tia','hypertensive_crisis','glaucoma_emergency'],
+        boost:{
+            migraine:{throbbing:8,photophobia:8,noise_sensitivity:5,nausea:5,vomiting:3},
+            sinusitis:{facial_pain:10,nasal_blockage:6,nasal_discharge:5,fever:2},
+            tension_headache:{anxiety:5,insomnia:4,neck_pain:4},
+            meningitis:{fever:4,neck_stiffness:15,confusion:8,seizure:8},
+            stroke_tia:{vision_loss:10,confusion:8,fainting:6,severe_headache:5},
+            hypertensive_crisis:{severe_headache:8,chest_pain:6,vision_loss:8,confusion:6},
+            glaucoma_emergency:{vision_loss:12,eye_redness:6,severe_headache:5,nausea:3}
+        }
+    },
+    cough_chest:{
+        focus:['common_cold','bronchitis','pneumonia','asthma_attack','copd_exacerbation','tuberculosis','covid_like_viral','myocardial_infarction','pulmonary_embolism','heart_failure'],
+        boost:{
+            pneumonia:{fever:5,yellow_sputum:8,breathlessness:10,chest_pain:5,weakness:3},
+            asthma_attack:{wheezing:15,breathlessness:10,chest_tightness:6,cough:3},
+            tuberculosis:{blood_sputum:12,weight_loss:10,night_sweat:10,fever:3,cough:4},
+            bronchitis:{productive_cough:6,cough:5,wheezing:3},
+            common_cold:{nasal_discharge:5,sneezing:5,nasal_blockage:3,sore_throat:2},
+            myocardial_infarction:{chest_pain:8,sweating_cold:10,left_arm_pain:10,breathlessness:6,nausea:3},
+            pulmonary_embolism:{breathlessness:12,chest_pain:8,fainting:6,blood_sputum:5},
+            heart_failure:{breathlessness:8,edema:8,fatigue:4,cough:2}
+        }
+    },
+    gi:{
+        focus:['gastroenteritis','food_poisoning','dysentery','cholera_like_dehydrating_diarrhea','gastritis','gerd','peptic_ulcer','appendicitis','cholecystitis_gallstones','pancreatitis','ibs','constipation'],
+        boost:{
+            gastroenteritis:{diarrhea:8,vomiting:7,abdominal_pain:4,dehydration:6,fever:2},
+            dysentery:{bloody_diarrhea:15,fever:5,abdominal_pain:4},
+            cholera_like_dehydrating_diarrhea:{diarrhea:10,dehydration:15,low_urine:8,weakness:5},
+            appendicitis:{right_lower_pain:15,fever:5,nausea:4,vomiting:4,loss_appetite:4},
+            cholecystitis_gallstones:{right_upper_pain:15,nausea:4,vomiting:4,fever:3},
+            pancreatitis:{severe_abdominal_pain:12,epigastric_pain:8,vomiting:6},
+            peptic_ulcer:{epigastric_pain:8,black_stool:12,heartburn:4},
+            gastritis:{epigastric_pain:7,heartburn:7,nausea:4}
+        }
+    },
+    urinary:{
+        focus:['cystitis','pyelonephritis','renal_colic_stone','acute_kidney_warning','bph_prostate','prostatitis'],
+        boost:{
+            cystitis:{burning_urine:12,frequent_urine:10,abdominal_pain:2},
+            pyelonephritis:{fever:6,flank_pain:12,burning_urine:5,vomiting:4,weakness:3},
+            renal_colic_stone:{flank_pain:15,blood_urine:8,vomiting:4},
+            acute_kidney_warning:{low_urine:15,edema:8,confusion:5,vomiting:3},
+            prostatitis:{fever:5,burning_urine:6,frequent_urine:4,pelvic_pain:8}
+        }
+    },
+    female:{
+        focus:['dysmenorrhea','menorrhagia','pcos','pid','vaginitis','pregnancy_warning','ectopic_pregnancy','miscarriage_threat','mastitis'],
+        boost:{
+            ectopic_pregnancy:{pregnancy:8,missed_period:8,severe_abdominal_pain:12,bleeding:8,fainting:10},
+            pregnancy_warning:{pregnancy:8,bleeding:12,severe_abdominal_pain:8,fainting:6},
+            miscarriage_threat:{pregnancy:8,bleeding:10,abdominal_pain:5},
+            pid:{pelvic_pain:10,fever:5,vaginal_discharge:8,abdominal_pain:4},
+            vaginitis:{vaginal_discharge:12,itching:6,burning_urine:3},
+            dysmenorrhea:{painful_menses:15,abdominal_pain:4,nausea:2},
+            menorrhagia:{heavy_menses:15,weakness:4,dizziness:4}
+        }
+    },
+    child:{
+        focus:['febrile_seizure','child_dehydration','bronchiolitis','croup','pneumonia','measles','viral_fever','gastroenteritis','sepsis'],
+        boost:{
+            febrile_seizure:{child:8,fever:6,seizure:15},
+            child_dehydration:{child:8,dehydration:12,diarrhea:5,vomiting:5,poor_feeding:8,low_urine:8},
+            bronchiolitis:{child:6,breathlessness:10,wheezing:8,cough:4,poor_feeding:5},
+            croup:{child:8,cough:6,breathlessness:8,fever:2},
+            pneumonia:{child:4,fever:5,cough:5,breathlessness:10,weakness:3},
+            sepsis:{child:5,confusion:8,poor_feeding:8,high_fever:5,low_urine:5}
+        }
+    },
+    skin:{
+        focus:['urticaria','eczema','fungal_skin','scabies','cellulitis','abscess_boil','herpes_zoster','psoriasis','anaphylaxis','allergic_reaction'],
+        boost:{
+            anaphylaxis:{rash:8,itching:5,breathlessness:15,edema:8,fainting:10},
+            urticaria:{itching:10,rash:10,skin_redness:5},
+            cellulitis:{skin_redness:10,fever:5,edema:5},
+            abscess_boil:{pus:15,skin_redness:5,fever:2},
+            fungal_skin:{itching:6,scaly_skin:10,rash:4},
+            eczema:{itching:8,scaly_skin:8,skin_redness:4},
+            herpes_zoster:{vesicles:12,skin_redness:4}
+        }
+    },
+    chronic:{
+        focus:['diabetes_hyperglycemia','hypothyroidism','hyperthyroidism','anemia','tuberculosis','depression','fibromyalgia','ibs','rheumatoid_arthritis'],
+        boost:{
+            diabetes_hyperglycemia:{sugar_high:12,excessive_thirst:8,excessive_urination:8,weight_loss:5},
+            hypothyroidism:{fatigue:5,cold_intolerance:10,constipation:5,edema:4,depression:3},
+            hyperthyroidism:{heat_intolerance:10,palpitation:8,tremor:8,weight_loss:5,anxiety:4},
+            anemia:{fatigue:8,weakness:8,breathlessness:5,dizziness:5},
+            tuberculosis:{cough:4,weight_loss:10,night_sweat:10,fever:4},
+            depression:{depression:12,insomnia:5,fatigue:5,loss_appetite:4},
+            fibromyalgia:{body_ache:6,fatigue:8,insomnia:5,depression:3},
+            rheumatoid_arthritis:{joint_pain:10,edema:5,fatigue:3}
+        }
+    }
+};
+// Additional module scoring configs added in Phase 10.
+ADX_SPECIALTY_SCORING.cardiac_emergency={focus:['myocardial_infarction','angina','pulmonary_embolism','heart_failure','arrhythmia','hypertensive_crisis','panic_attack'],boost:{myocardial_infarction:{chest_pain:10,sweating_cold:12,left_arm_pain:12,breathlessness:8,nausea:4},angina:{chest_pain:8,left_arm_pain:5,breathlessness:4},pulmonary_embolism:{breathlessness:12,chest_pain:8,fainting:8,blood_sputum:6},heart_failure:{breathlessness:8,edema:8,fatigue:4,cough:3},arrhythmia:{palpitation:12,dizziness:6,fainting:8},hypertensive_crisis:{severe_headache:8,chest_pain:6,vision_loss:8,confusion:8}},textBoost:{myocardial_infarction:{'exertional/rest chest pain':{terms:['pain on exertion','chest pain at rest','central chest pain'],pts:8}},heart_failure:{'orthopnea/leg swelling':{terms:['orthopnea','worse lying flat','leg swelling'],pts:8}}}};
+ADX_SPECIALTY_SCORING.ent_eye_dental={focus:['sinusitis','tonsillitis_pharyngitis','otitis_media','otitis_externa','conjunctivitis','allergic_conjunctivitis','glaucoma_emergency','dental_caries_abscess','gingivitis','aphthous_ulcer'],boost:{sinusitis:{facial_pain:10,nasal_blockage:6,nasal_discharge:5,headache:3},tonsillitis_pharyngitis:{sore_throat:12,fever:4},otitis_media:{ear_pain:10,fever:4,ear_discharge:5,child:2},conjunctivitis:{eye_redness:10,eye_discharge:8},glaucoma_emergency:{vision_loss:15,eye_redness:8,severe_headache:6,nausea:4},dental_caries_abscess:{tooth_pain:12,gum_swelling:8,fever:3,pus:4},gingivitis:{gum_swelling:8,gum_bleed:8}},textBoost:{sinusitis:{'worse bending forward':{terms:['worse bending forward'],pts:6}},glaucoma_emergency:{'severe red eye':{terms:['severe red eye','eye pain vomiting'],pts:8}}}};
+ADX_SPECIALTY_SCORING.msk_injury={focus:['sprain_injury','osteoarthritis','rheumatoid_arthritis','gout','low_back_pain','sciatica','cervical_spondylosis','fibromyalgia'],boost:{sprain_injury:{injury:12,joint_pain:4,edema:5},rheumatoid_arthritis:{joint_pain:10,edema:6,fatigue:3,fever:2},gout:{joint_pain:8,skin_redness:6,edema:6},low_back_pain:{back_pain:12,injury:3},sciatica:{sciatica:15,back_pain:6},cervical_spondylosis:{neck_pain:10,headache:3,dizziness:2},fibromyalgia:{body_ache:8,fatigue:8,insomnia:5,depression:3}},textBoost:{rheumatoid_arthritis:{'morning stiffness':{terms:['morning stiffness'],pts:8}},gout:{'uric acid':{terms:['uric acid','big toe pain'],pts:6}},sciatica:{'radiating leg pain':{terms:['radiating leg pain','pain down leg'],pts:8}}}};
+ADX_SPECIALTY_SCORING.endocrine_metabolic={focus:['diabetes_hyperglycemia','hypoglycemia','hypothyroidism','hyperthyroidism','anemia','dehydration','heat_exhaustion','heat_stroke'],boost:{diabetes_hyperglycemia:{sugar_high:15,excessive_thirst:8,excessive_urination:8,increased_hunger:5,weight_loss:5},hypoglycemia:{sugar_low:15,sweating_cold:8,tremor:8,confusion:8,fainting:8},hypothyroidism:{fatigue:6,cold_intolerance:12,constipation:5,edema:4,depression:4},hyperthyroidism:{heat_intolerance:12,palpitation:8,tremor:8,weight_loss:6,anxiety:4},anemia:{fatigue:8,weakness:8,breathlessness:5,dizziness:5},dehydration:{dehydration:15,low_urine:8,weakness:5,vomiting:3,diarrhea:3},heat_stroke:{high_fever:8,confusion:15,seizure:10,fainting:8}},textBoost:{diabetes_hyperglycemia:{'HbA1c/high reading':{terms:['hba1c','fasting sugar high','random sugar high'],pts:6}},anemia:{'low Hb/pale':{terms:['low hb','pale','hemoglobin low'],pts:8}},heat_stroke:{'heat exposure':{terms:['heat exposure','working in sun','garmi mein'],pts:8}}}};
+
+function selectedSpecialtyKeyFromText(st){
+    var s=String(st||'').toLowerCase();
+    var m=s.match(/specialty module:\s*([a-z_]+)/i);
+    if(m && ADX_SPECIALTY_SCORING[m[1]]) return m[1];
+    // title clues from appended specialtyText
+    if(s.indexOf('headache module')!==-1) return 'headache';
+    if(s.indexOf('cough')!==-1 && s.indexOf('module')!==-1) return 'cough_chest';
+    if(s.indexOf('abdomen')!==-1 || s.indexOf('gi module')!==-1) return 'gi';
+    if(s.indexOf('urinary')!==-1 || s.indexOf('kidney')!==-1) return 'urinary';
+    if(s.indexOf('female')!==-1) return 'female';
+    if(s.indexOf('child')!==-1 || s.indexOf('pediatric')!==-1) return 'child';
+    if(s.indexOf('skin module')!==-1) return 'skin';
+    if(s.indexOf('chronic')!==-1) return 'chronic';
+    if(s.indexOf('fever module')!==-1) return 'fever';
+    if(s.indexOf('cardiac')!==-1 || s.indexOf('heart')!==-1) return 'cardiac_emergency';
+    if(s.indexOf('ent')!==-1 || s.indexOf('eye')!==-1 || s.indexOf('dental')!==-1) return 'ent_eye_dental';
+    if(s.indexOf('msk')!==-1 || s.indexOf('injury')!==-1) return 'msk_injury';
+    if(s.indexOf('endocrine')!==-1 || s.indexOf('metabolic')!==-1) return 'endocrine_metabolic';
+    return '';
+}
+function applySpecialtyScoring(results, ex, specialty){
+    var key=(specialty&&specialty.module) || selectedSpecialtyKeyFromText(ex.text) || '';
+    var cfg=ADX_SPECIALTY_SCORING[key];
+    if(!cfg) return results;
+    var condMap={};
+    (global.ADX_KNOWLEDGE&&global.ADX_KNOWLEDGE.conditions||[]).forEach(function(c){condMap[c.id]=c;});
+    var rowMap={};
+    results.forEach(function(r){rowMap[r.condition.id]=r; r.specialtyModule=key; r.specialtyBonus=0; r.specialtyReasons=[];});
+    function ensureRow(cid){
+        if(rowMap[cid]) return rowMap[cid];
+        var c=condMap[cid]; if(!c) return null;
+        var features=c.features||{}, matched=[], missing=[], score=0, max=0;
+        Object.keys(features).forEach(function(k){ var w=parseFloat(features[k])||0; if(w>0) max+=Math.abs(w); if(w>0 && ex.found[k]){score+=w; matched.push({key:k,weight:w});} else if(w>0 && w>=2){missing.push({key:k,weight:w});} });
+        var row={condition:c,score:Math.max(0,score),max:max||1,percentage:Math.max(1,Math.round((Math.max(0,score)/(max||1))*100)),confidence:'low',matched:matched,missing:missing.slice(0,6),opposed:[],specialtyModule:key,specialtyBonus:0,specialtyReasons:[],specialtyAdded:true};
+        results.push(row); rowMap[cid]=row; return row;
+    }
+    // Small focus boost keeps module-relevant diagnoses above noise.
+    (cfg.focus||[]).forEach(function(cid){ var r=ensureRow(cid); if(r){ r.specialtyBonus += 2; r.specialtyReasons.push('module focus +2'); } });
+    Object.keys(cfg.boost||{}).forEach(function(cid){
+        var r=ensureRow(cid); if(!r) return;
+        var rules=cfg.boost[cid]||{};
+        Object.keys(rules).forEach(function(sym){
+            if(ex.found[sym]){ var pts=parseFloat(rules[sym])||0; r.specialtyBonus += pts; r.specialtyReasons.push(symptomName(sym)+' +'+pts); }
+        });
+    });
+    Object.keys(cfg.textBoost||{}).forEach(function(cid){
+        var r=ensureRow(cid); if(!r) return;
+        var rules=cfg.textBoost[cid]||{};
+        Object.keys(rules).forEach(function(label){
+            var obj=rules[label]||{}, pts=parseFloat(obj.pts)||0;
+            if(pts && textHas(ex.text, obj.terms||[])){
+                r.specialtyBonus += pts;
+                r.specialtyReasons.push(label+' +'+pts);
+            }
+        });
+    });
+    results.forEach(function(r){
+        if(r.specialtyBonus){
+            r.score += r.specialtyBonus;
+            r.percentage=Math.min(99, Math.max(r.percentage||0, Math.round((r.score/(r.max+10))*100)));
+            r.confidence = r.percentage>=70 ? 'high' : (r.percentage>=45 ? 'medium' : 'low');
+        }
+    });
+    results.sort(function(a,b){
+        var sev={emergency:3, urgent:2, routine:1};
+        var sd=(sev[b.condition.severity||'routine']||1)-(sev[a.condition.severity||'routine']||1);
+        if((b.percentage>=45 || a.percentage>=45) && sd!==0 && (b.condition.severity==='emergency' || a.condition.severity==='emergency')) return sd;
+        return b.percentage-a.percentage || (b.specialtyBonus||0)-(a.specialtyBonus||0) || b.score-a.score;
+    });
+    return results;
+}
+var ADX_SPECIALTY_EXTRA_RUBRICS = {
+    fever:[{symptom:'fever_pattern',book:'kent',chapter:'fever',path:'FEVER, intermittent',weight:3,terms:['intermittent fever','alternate day','every other day','fever comes and goes']},{symptom:'dengue',book:'kent',chapter:'head',path:'PAIN, eyes, behind',weight:4,terms:['behind eyes','retro orbital','pain behind eyes']},{symptom:'dengue',book:'kent',chapter:'skin',path:'ERUPTIONS, rash',weight:3,terms:['rash','petechiae','red spots']},{symptom:'malaria',book:'kent',chapter:'chill',path:'CHILL, shaking',weight:4,terms:['rigor','shivering','shaking chill']},{symptom:'typhoid',book:'kent',chapter:'abdomen',path:'PAIN, fever, during',weight:3,terms:['abdominal pain with fever','typhoid']}],
+    headache:[{symptom:'migraine',book:'kent',chapter:'head',path:'PAIN, one-sided',weight:4,terms:['one sided','unilateral']},{symptom:'migraine',book:'kent',chapter:'head',path:'PAIN, light, from',weight:4,terms:['light sensitivity','photophobia','worse light']},{symptom:'migraine',book:'kent',chapter:'head',path:'PAIN, noise, from',weight:3,terms:['noise sensitivity','worse noise']},{symptom:'sinus',book:'kent',chapter:'nose',path:'SINUSES, frontal',weight:3,terms:['sinus','facial pain','forehead sinus']},{symptom:'meningitis',book:'kent',chapter:'head',path:'PAIN, fever, during',weight:4,terms:['fever with headache','neck stiffness']}],
+    cough_chest:[{symptom:'asthma',book:'kent',chapter:'respiration',path:'WHEEZING',weight:4,terms:['wheezing','seeti','wheeze']},{symptom:'pneumonia',book:'kent',chapter:'expectoration',path:'EXPECTORATION, yellow',weight:3,terms:['yellow sputum','green sputum']},{symptom:'tb',book:'kent',chapter:'cough',path:'COUGH, bloody expectoration',weight:5,terms:['blood in sputum','hemoptysis']},{symptom:'cardiac',book:'kent',chapter:'chest',path:'PAIN, heart',weight:4,terms:['heart pain','left arm','jaw pain']},{symptom:'dyspnea',book:'kent',chapter:'respiration',path:'DIFFICULT, lying, while',weight:3,terms:['orthopnea','worse lying','cannot lie flat']}],
+    gi:[{symptom:'appendix',book:'kent',chapter:'abdomen',path:'PAIN, iliac region, right',weight:5,terms:['right lower abdomen','right iliac','appendix']},{symptom:'gallbladder',book:'kent',chapter:'abdomen',path:'PAIN, hypochondria, right',weight:5,terms:['right upper abdomen','gallbladder','right hypochondrium']},{symptom:'pancreas',book:'kent',chapter:'abdomen',path:'PAIN, epigastrium',weight:4,terms:['epigastric','upper abdomen','pancreatitis']},{symptom:'dysentery',book:'kent',chapter:'stool',path:'BLOODY',weight:5,terms:['bloody stool','blood in stool','bloody diarrhea']},{symptom:'dehydration',book:'kent',chapter:'generalities',path:'WEAKNESS, diarrhea, after',weight:3,terms:['dehydration','low urine','sunken eyes']}],
+    urinary:[{symptom:'uti',book:'kent',chapter:'urethra',path:'BURNING, urination, during',weight:5,terms:['burning urination','dysuria']},{symptom:'uti',book:'kent',chapter:'bladder',path:'URINATION, frequent',weight:4,terms:['frequent urine','frequency']},{symptom:'stone',book:'kent',chapter:'kidneys',path:'PAIN, extending to bladder',weight:4,terms:['renal colic','stone','flank to groin']},{symptom:'hematuria',book:'kent',chapter:'urine',path:'BLOODY',weight:4,terms:['blood in urine','hematuria']},{symptom:'kidney_warning',book:'kent',chapter:'urine',path:'SUPPRESSED',weight:5,terms:['low urine','no urine','suppressed urine']}],
+    female:[{symptom:'dysmenorrhea',book:'kent',chapter:'genitalia_female',path:'PAIN, uterus, menses, during',weight:5,terms:['period pain','dysmenorrhea']},{symptom:'menorrhagia',book:'kent',chapter:'genitalia_female',path:'MENSES, copious',weight:5,terms:['heavy menses','heavy period']},{symptom:'leucorrhea',book:'kent',chapter:'genitalia_female',path:'LEUCORRHEA',weight:4,terms:['leucorrhea','vaginal discharge']},{symptom:'pregnancy_warning',book:'kent',chapter:'genitalia_female',path:'MENSES, suppressed',weight:3,terms:['missed period','pregnancy']},{symptom:'pelvic',book:'kent',chapter:'genitalia_female',path:'PAIN, ovaries',weight:4,terms:['pelvic pain','ovary pain']}],
+    child:[{symptom:'child_fever',book:'kent',chapter:'fever',path:'FEVER, children',weight:3,terms:['child fever','baby fever']},{symptom:'poor_feeding',book:'kent',chapter:'generalities',path:'WEAKNESS, children',weight:4,terms:['poor feeding','not feeding']},{symptom:'febrile_seizure',book:'kent',chapter:'generalities',path:'CONVULSIONS, fever, during',weight:5,terms:['febrile seizure','fit with fever']},{symptom:'child_cough',book:'kent',chapter:'cough',path:'COUGH, children',weight:3,terms:['child cough','baby cough']},{symptom:'child_diarrhea',book:'kent',chapter:'stool',path:'DIARRHEA, children',weight:3,terms:['child diarrhea','baby diarrhea']}],
+    skin:[{symptom:'urticaria',book:'kent',chapter:'skin',path:'URTICARIA',weight:4,terms:['urticaria','hives']},{symptom:'eczema',book:'kent',chapter:'skin',path:'ECZEMA',weight:4,terms:['eczema']},{symptom:'fungal',book:'kent',chapter:'skin',path:'ERUPTIONS, ringworm',weight:3,terms:['fungal','ringworm','tinea']},{symptom:'abscess',book:'kent',chapter:'skin',path:'ABSCESS',weight:4,terms:['abscess','boil','pus']},{symptom:'vesicles',book:'kent',chapter:'skin',path:'VESICLES',weight:4,terms:['vesicles','blisters']}],
+    chronic:[{symptom:'diabetes',book:'kent',chapter:'generalities',path:'DIABETES',weight:4,terms:['diabetes','high sugar']},{symptom:'thyroid',book:'kent',chapter:'generalities',path:'WEAKNESS',weight:3,terms:['thyroid','fatigue']},{symptom:'anemia',book:'kent',chapter:'generalities',path:'ANEMIA',weight:4,terms:['anemia','pale','low hb']},{symptom:'tb_chronic',book:'kent',chapter:'generalities',path:'TUBERCULOSIS',weight:4,terms:['tb','tuberculosis','night sweats']},{symptom:'mind_chronic',book:'kent',chapter:'mind',path:'ANXIETY',weight:3,terms:['anxiety','depression','stress']}],
+    cardiac_emergency:[{symptom:'heart_pain',book:'kent',chapter:'chest',path:'PAIN, heart',weight:5,terms:['chest pain','heart pain']},{symptom:'radiation',book:'kent',chapter:'chest',path:'PAIN, extending to left arm',weight:5,terms:['left arm pain','radiation']},{symptom:'palpitation',book:'kent',chapter:'chest',path:'PALPITATION',weight:4,terms:['palpitation','heart racing']},{symptom:'dyspnea',book:'kent',chapter:'respiration',path:'DIFFICULT',weight:4,terms:['breathlessness','shortness of breath']}],
+    ent_eye_dental:[{symptom:'sinus',book:'kent',chapter:'nose',path:'SINUSES',weight:4,terms:['sinus','facial pain']},{symptom:'ear_pain',book:'kent',chapter:'ear',path:'PAIN',weight:3,terms:['ear pain']},{symptom:'red_eye',book:'kent',chapter:'eye',path:'REDNESS',weight:3,terms:['red eye']},{symptom:'tooth',book:'kent',chapter:'teeth',path:'PAIN',weight:3,terms:['tooth pain']},{symptom:'mouth_ulcer',book:'kent',chapter:'mouth',path:'ULCERS',weight:3,terms:['mouth ulcer']}],
+    msk_injury:[{symptom:'injury',book:'kent',chapter:'generalities',path:'INJURIES',weight:4,terms:['injury','trauma','fall']},{symptom:'back',book:'kent',chapter:'back',path:'PAIN',weight:3,terms:['back pain']},{symptom:'sciatica',book:'kent',chapter:'extremities',path:'PAIN, sciatic nerve',weight:4,terms:['sciatica']},{symptom:'joints',book:'kent',chapter:'extremities',path:'PAIN, joints',weight:4,terms:['joint pain']},{symptom:'gout',book:'kent',chapter:'extremities',path:'PAIN, gouty',weight:3,terms:['gout','uric acid']}],
+    endocrine_metabolic:[{symptom:'diabetes',book:'kent',chapter:'generalities',path:'DIABETES',weight:4,terms:['high sugar','diabetes']},{symptom:'hypoglycemia',book:'kent',chapter:'generalities',path:'FAINTNESS',weight:4,terms:['low sugar','hypoglycemia']},{symptom:'thyroid',book:'kent',chapter:'generalities',path:'WEAKNESS',weight:3,terms:['thyroid','fatigue']},{symptom:'heat',book:'kent',chapter:'generalities',path:'HEAT, sensation of',weight:3,terms:['heat intolerance','hot patient']},{symptom:'cold',book:'kent',chapter:'generalities',path:'COLDNESS',weight:3,terms:['cold intolerance','chilly']}]
+};
+
+function specialtyRubricTemplates(key, ex, results){
+    var out=[];
+    function add(sym, book, chapter, path, weight){ out.push({symptom:sym||('module_'+key), book:book, chapter:chapter, path:path, weight:weight||3, specialtyTemplate:true, selected:true}); }
+    if(key==='fever'){
+        add('fever','kent','fever','FEVER',2); add('chills','kent','chill','CHILL',2); add('weakness','kent','generalities','WEAKNESS',3); add('body_ache','kent','generalities','PAIN, aching',3);
+        if(ex.found.bone_pain) add('bone_pain','kent','generalities','PAIN, bones',4);
+        if(ex.found.sweat) add('sweat','kent','perspiration','PERSPIRATION',2);
+    } else if(key==='headache'){
+        add('headache','kent','head','PAIN',3); if(ex.found.throbbing) add('throbbing','kent','head','PAIN, pulsating',4); if(ex.found.photophobia) add('photophobia','kent','vision','LIGHT, agg.',4); if(ex.found.nausea) add('nausea','kent','stomach','NAUSEA, headache, during',3);
+    } else if(key==='cough_chest'){
+        add('cough','kent','cough','COUGH',3); if(ex.found.dry_cough) add('dry_cough','kent','cough','COUGH, dry',3); if(ex.found.productive_cough) add('productive_cough','kent','expectoration','EXPECTORATION',3); if(ex.found.breathlessness) add('breathlessness','kent','respiration','DIFFICULT',4); if(ex.found.chest_pain) add('chest_pain','kent','chest','PAIN',3);
+    } else if(key==='gi'){
+        add('abdominal_pain','kent','abdomen','PAIN',3); if(ex.found.diarrhea) add('diarrhea','kent','stool','DIARRHEA',3); if(ex.found.vomiting) add('vomiting','kent','stomach','VOMITING',3); if(ex.found.nausea) add('nausea','kent','stomach','NAUSEA',3); if(ex.found.heartburn) add('heartburn','kent','stomach','HEARTBURN',3);
+    } else if(key==='urinary'){
+        if(ex.found.burning_urine) add('burning_urine','kent','urethra','BURNING',4); if(ex.found.frequent_urine) add('frequent_urine','kent','bladder','URINATION, frequent',3); if(ex.found.flank_pain) add('flank_pain','kent','kidneys','PAIN',4);
+    } else if(key==='female'){
+        if(ex.found.painful_menses) add('painful_menses','kent','genitalia_female','MENSES, painful',4); if(ex.found.heavy_menses) add('heavy_menses','kent','genitalia_female','MENSES, copious',4); if(ex.found.vaginal_discharge) add('vaginal_discharge','kent','genitalia_female','LEUCORRHEA',4); if(ex.found.pelvic_pain) add('pelvic_pain','kent','genitalia_female','PAIN, uterus',3);
+    } else if(key==='child'){
+        add('child','kent','generalities','CHILDREN, complaints of',2); if(ex.found.fever) add('fever','kent','fever','FEVER',2); if(ex.found.diarrhea) add('diarrhea','kent','stool','DIARRHEA',3); if(ex.found.cough) add('cough','kent','cough','COUGH',3);
+    } else if(key==='skin'){
+        if(ex.found.rash) add('rash','kent','skin','ERUPTIONS',3); if(ex.found.itching) add('itching','kent','skin','ITCHING',3); if(ex.found.vesicles) add('vesicles','kent','skin','VESICLES',3); if(ex.found.pus) add('pus','kent','skin','SUPPURATION',3);
+    } else if(key==='chronic'){
+        add('weakness','kent','generalities','WEAKNESS',3); if(ex.found.fatigue) add('fatigue','kent','generalities','WEARINESS',3); if(ex.found.anxiety) add('anxiety','kent','mind','ANXIETY',3); if(ex.found.insomnia) add('insomnia','kent','sleep','SLEEPLESSNESS',3);
+    }
+    (ADX_SPECIALTY_EXTRA_RUBRICS[key]||[]).forEach(function(rr){
+        var ok=false;
+        if(rr.when && ex.found[rr.when]) ok=true;
+        if(rr.terms && textHas(ex.text, rr.terms)) ok=true;
+        if(!rr.when && !rr.terms) ok=true;
+        if(ok) add(rr.symptom||rr.when||('module_'+key), rr.book, rr.chapter, rr.path, rr.weight||3);
+    });
+    return out;
+}
 function symptomName(key){
     var K=global.ADX_KNOWLEDGE||{symptoms:{}};
     var s=K.symptoms[key]; return s ? T(s) : key;
@@ -186,18 +425,27 @@ function collectRemedyQuestions(results){
     });
     return out.slice(0,10);
 }
-function analyze(statement, extraKeys){
+function analyze(statement, extraKeys, specialty){
     var ex=extractSymptoms(statement, extraKeys||[]);
     var results=scoreConditions(ex);
+    results=applySpecialtyScoring(results, ex, specialty||null);
     var red=collectRedFlags(ex, results);
+    var rubs=collectRubrics(ex, results);
+    var skey=(specialty&&specialty.module) || selectedSpecialtyKeyFromText(ex.text) || '';
+    specialtyRubricTemplates(skey, ex, results).forEach(function(r){
+        var id=r.book+'|'+r.chapter+'|'+r.path;
+        var exists=rubs.some(function(x){return (x.book+'|'+x.chapter+'|'+x.path)===id;});
+        if(!exists) rubs.push(r);
+    });
     return {
         extracted:ex,
         differentials:results.slice(0,20),
         redFlags:red,
         questions:collectQuestions(ex, results),
         tests:collectTests(results, red),
-        rubrics:collectRubrics(ex, results),
-        remedyQuestions:collectRemedyQuestions(results)
+        rubrics:rubs.slice(0,40),
+        remedyQuestions:collectRemedyQuestions(results),
+        specialtyScoring:{module:skey}
     };
 }
 
@@ -210,6 +458,9 @@ var lastRepertoryErrors = [];
 var adxRemedyAnswers = {};
 var adxLastSavedCaseId = null;
 var adxRubricConfirmSeq = 0;
+var ADX_CLOUD_TABLE = 'adx_records';
+var adxCloudTableReady = null;
+var adxCloudSyncBusy = false;
 function ensureRubricSelection(a){
     if(!a || !a.rubrics) return;
     if(a._rubricSelectionInitialized) return;
@@ -277,7 +528,7 @@ function fetchChapter(book, chapter){
     var key=book+'|'+chapter;
     if(adxChapterCache[key]) return Promise.resolve(adxChapterCache[key]);
     var info=bookInfo(book);
-    var url=(info.chapDir||'')+chapter+'.json?v=16';
+    var url=(info.chapDir||'')+chapter+'.json?v=19';
     return fetch(url).then(function(r){ if(!r.ok) throw new Error(url); return r.json(); }).then(function(d){ adxChapterCache[key]=d; return d; });
 }
 function scoreRubricMatch(path, query){
@@ -747,6 +998,192 @@ function getOutcome(){
 }
 function storageGet(key){ try{return JSON.parse(localStorage.getItem(key)||'[]');}catch(e){return [];} }
 function storageSet(key,val){ try{localStorage.setItem(key, JSON.stringify(val));}catch(e){ console.error(e); } }
+
+
+// ==================== ADX Phase 11: Supabase / cloud sync ====================
+function supabaseClient(){
+    try { if(typeof sb !== 'undefined' && sb) return sb; } catch(e) {}
+    return global.sb || null;
+}
+function adxRecordType(rec){
+    if(!rec) return 'case';
+    if(rec._source==='outcome' || rec.kind==='followup_outcome') return 'outcome';
+    if(rec.record_type==='outcome') return 'outcome';
+    return 'case';
+}
+function pendingAdxRecords(){ return storageGet('pending_adx_records'); }
+function savePendingAdxRecord(rec, type, err){
+    if(!rec || !rec.id) return;
+    type = type || adxRecordType(rec);
+    var arr=pendingAdxRecords();
+    var id=type+'|'+rec.id;
+    var item={id:id, recordType:type, record:rec, error:err?String(err.message||err):'', queuedAt:new Date().toISOString()};
+    var idx=arr.findIndex(function(x){return x.id===id;});
+    if(idx>=0) arr[idx]=item; else arr.push(item);
+    storageSet('pending_adx_records', arr.slice(-500));
+}
+function removePendingAdxRecord(rec, type){
+    if(!rec || !rec.id) return;
+    type = type || adxRecordType(rec);
+    var id=type+'|'+rec.id;
+    storageSet('pending_adx_records', pendingAdxRecords().filter(function(x){return x.id!==id;}));
+}
+function updateStoredAdxRecord(rec, type){
+    if(!rec || !rec.id) return;
+    type = type || adxRecordType(rec);
+    var key=type==='outcome'?'adx_outcome_records':'adx_case_records';
+    var arr=storageGet(key);
+    var idx=arr.findIndex(function(x){return x.id===rec.id;});
+    if(idx>=0) arr[idx]=rec; else arr.unshift(rec);
+    storageSet(key, arr.slice(0,500));
+}
+function setCloudStatus(msg, cls){
+    var el=$('adxCloudStatus');
+    if(el){
+        el.innerHTML=msg||'';
+        el.style.color=cls||'#7f8c8d';
+    }
+}
+function adxRecordToDb(rec, type){
+    type = type || adxRecordType(rec);
+    var user='';
+    try { user = (typeof currentUserData!=='undefined' && currentUserData && currentUserData.name) ? currentUserData.name : ''; } catch(e) {}
+    return {
+        id: rec.id,
+        record_type: type,
+        patient_id: rec.patientId || null,
+        visit_ref: rec.visitRef || null,
+        patient_name: rec.patient || null,
+        saved_at: rec.savedAt || new Date().toISOString(),
+        data: rec,
+        created_by: user || null,
+        updated_at: new Date().toISOString()
+    };
+}
+function dbToAdxRecord(row){
+    var rec = row.data || {};
+    rec.id = rec.id || row.id;
+    rec.kind = rec.kind || (row.record_type==='outcome' ? 'followup_outcome' : 'final_decision');
+    rec.patientId = rec.patientId || row.patient_id || '';
+    rec.visitRef = rec.visitRef || row.visit_ref || '';
+    rec.patient = rec.patient || row.patient_name || '';
+    rec.savedAt = rec.savedAt || row.saved_at || row.updated_at || new Date().toISOString();
+    rec.cloudStatus='synced';
+    rec.cloudSyncedAt=new Date().toISOString();
+    return rec;
+}
+async function checkAdxCloudTable(force){
+    if(!force && adxCloudTableReady!==null) return adxCloudTableReady;
+    var client=supabaseClient();
+    if(!client || !navigator.onLine){ adxCloudTableReady=false; return false; }
+    try{
+        var r=await client.from(ADX_CLOUD_TABLE).select('id').limit(1);
+        if(r.error){
+            console.warn('ADX cloud table not ready:', r.error.message||r.error);
+            adxCloudTableReady=false;
+            return false;
+        }
+        adxCloudTableReady=true;
+        return true;
+    }catch(e){
+        console.warn('ADX cloud check failed:', e);
+        adxCloudTableReady=false;
+        return false;
+    }
+}
+async function saveAdxRecordCloud(rec, type){
+    var client=supabaseClient();
+    if(!client) throw new Error('Supabase client not available');
+    if(!(await checkAdxCloudTable(false))) throw new Error('ADX cloud table missing. Run supabase_adx_records_table.sql once.');
+    var db=adxRecordToDb(rec,type);
+    var r=await client.from(ADX_CLOUD_TABLE).upsert(db,{onConflict:'id'}).select();
+    if(r.error) throw r.error;
+    rec.cloudStatus='synced'; rec.cloudSyncedAt=new Date().toISOString();
+    removePendingAdxRecord(rec,type);
+    updateStoredAdxRecord(rec,type);
+    return r.data && r.data[0];
+}
+function scheduleAdxCloudSave(rec, type){
+    if(!rec || !rec.id) return;
+    type = type || adxRecordType(rec);
+    if(!navigator.onLine || !supabaseClient()){
+        rec.cloudStatus='pending'; rec.cloudError='offline'; updateStoredAdxRecord(rec,type); savePendingAdxRecord(rec,type,'offline');
+        setCloudStatus('☁️ ADX queued for cloud sync (offline)', '#d68910');
+        return;
+    }
+    saveAdxRecordCloud(rec,type).then(function(){
+        setCloudStatus('☁️ ADX synced to Supabase', '#27ae60');
+    }).catch(function(e){
+        rec.cloudStatus='pending'; rec.cloudError=String(e.message||e); updateStoredAdxRecord(rec,type); savePendingAdxRecord(rec,type,e);
+        setCloudStatus('⚠️ ADX cloud pending: '+esc(e.message||e), '#c0392b');
+    });
+}
+async function deleteAdxRecordCloud(id){
+    if(!id || !navigator.onLine || !supabaseClient()) return;
+    if(!(await checkAdxCloudTable(false))) return;
+    try{ await supabaseClient().from(ADX_CLOUD_TABLE).delete().eq('id', id); }catch(e){ console.warn(e); }
+}
+function mergeCloudAdxRecords(rows){
+    var caseMap={}, outMap={};
+    storageGet('adx_case_records').forEach(function(x){caseMap[x.id]=x;});
+    storageGet('adx_outcome_records').forEach(function(x){outMap[x.id]=x;});
+    (rows||[]).forEach(function(row){
+        var rec=dbToAdxRecord(row);
+        if((row.record_type||adxRecordType(rec))==='outcome') outMap[rec.id]=rec;
+        else caseMap[rec.id]=rec;
+    });
+    var cases=Object.keys(caseMap).map(function(k){return caseMap[k];}).sort(function(a,b){return String(b.savedAt||'').localeCompare(String(a.savedAt||''));}).slice(0,500);
+    var outs=Object.keys(outMap).map(function(k){return outMap[k];}).sort(function(a,b){return String(b.savedAt||'').localeCompare(String(a.savedAt||''));}).slice(0,500);
+    storageSet('adx_case_records', cases);
+    storageSet('adx_outcome_records', outs);
+}
+async function pullAdxCloudRecords(showMsg){
+    var client=supabaseClient();
+    if(!client || !navigator.onLine){ if(showMsg!==false) toast('⚠️ Offline / Supabase unavailable','error'); return false; }
+    if(!(await checkAdxCloudTable(true))){
+        if(showMsg!==false) toast('⚠️ ADX Supabase table missing. Upload/run supabase_adx_records_table.sql first.','error');
+        setCloudStatus('⚠️ Cloud table missing: run SQL setup file', '#c0392b');
+        return false;
+    }
+    var r=await client.from(ADX_CLOUD_TABLE).select('*').order('saved_at',{ascending:false}).limit(1000);
+    if(r.error){ if(showMsg!==false) toast('❌ Pull failed: '+r.error.message,'error'); return false; }
+    mergeCloudAdxRecords(r.data||[]);
+    if(showMsg!==false) toast('✅ Pulled '+(r.data||[]).length+' ADX cloud records');
+    return true;
+}
+async function syncAdxRecordsWithCloud(showMsg){
+    if(adxCloudSyncBusy) return;
+    adxCloudSyncBusy=true;
+    setCloudStatus('☁️ Syncing ADX records...', '#2980b9');
+    try{
+        var client=supabaseClient();
+        if(!client || !navigator.onLine) throw new Error('Offline / Supabase unavailable');
+        if(!(await checkAdxCloudTable(true))) throw new Error('ADX cloud table missing. Run supabase_adx_records_table.sql once.');
+        var upload=[];
+        storageGet('adx_case_records').forEach(function(r){upload.push({type:'case',rec:r});});
+        storageGet('adx_outcome_records').forEach(function(r){upload.push({type:'outcome',rec:r});});
+        pendingAdxRecords().forEach(function(x){ if(x && x.record) upload.push({type:x.recordType||adxRecordType(x.record), rec:x.record}); });
+        var sent=0, failed=0;
+        for(var i=0;i<upload.length;i++){
+            try{ await saveAdxRecordCloud(upload[i].rec, upload[i].type); sent++; }
+            catch(e){ failed++; savePendingAdxRecord(upload[i].rec, upload[i].type, e); }
+        }
+        var r=await client.from(ADX_CLOUD_TABLE).select('*').order('saved_at',{ascending:false}).limit(1000);
+        if(r.error) throw r.error;
+        mergeCloudAdxRecords(r.data||[]);
+        setCloudStatus('☁️ Synced: '+sent+' uploaded, '+(r.data||[]).length+' cloud records pulled'+(failed?(', '+failed+' pending'):''), failed?'#d68910':'#27ae60');
+        if(showMsg!==false) toast('✅ ADX cloud sync complete');
+        if($('adxAnalyticsContent')) showAnalytics();
+    }catch(e){
+        setCloudStatus('⚠️ Cloud sync failed: '+esc(e.message||e), '#c0392b');
+        if(showMsg!==false) toast('⚠️ ADX cloud sync failed: '+(e.message||e), 'error');
+    }finally{ adxCloudSyncBusy=false; }
+}
+function cloudStatusSummary(){
+    var pending=pendingAdxRecords().length;
+    var local=storageGet('adx_case_records').length+storageGet('adx_outcome_records').length;
+    return '<span style="font-size:11px;color:#7f8c8d;">Local ADX: '+local+' | Pending cloud: '+pending+'</span>';
+}
 function currentPatientHint(){
     var names=[];
     ['diagnosisPatientName','nvPatientName'].forEach(function(id){ var el=$(id); if(el && el.textContent) names.push(el.textContent.trim()); });
@@ -790,6 +1227,7 @@ function saveFinalCase(){
     var idx=arr.findIndex(function(x){return x.id===rec.id;});
     if(idx>=0) arr[idx]=rec; else arr.unshift(rec);
     storageSet('adx_case_records', arr.slice(0,300));
+    scheduleAdxCloudSave(rec,'case');
     copyFinalToVisit(false);
     toast('✅ Final diagnosis/remedy saved locally and copied to visit fields');
     var sim=$('adxSimilarCases'); if(sim) sim.innerHTML=renderSimilarCases();
@@ -798,13 +1236,14 @@ function saveOutcome(){
     if(!lastAnalysis){ toast('No analysis yet','error'); return; }
     var rec=finalCaseRecord('followup_outcome');
     var arr=storageGet('adx_outcome_records'); arr.unshift(rec); storageSet('adx_outcome_records', arr.slice(0,300));
+    scheduleAdxCloudSave(rec,'outcome');
     toast('✅ Follow-up outcome saved locally');
     var sim=$('adxSimilarCases'); if(sim) sim.innerHTML=renderSimilarCases();
 }
 function finalSummaryText(){
     if(!lastAnalysis) return '';
     var fd=getFinalDecision(), out=getOutcome(), gen=caseDetailsText();
-    var txt=finalSummaryText ? finalSummaryText() : summaryText(lastAnalysis);
+    var txt=summaryText(lastAnalysis);
     txt += '\n\nFINAL DECISION\nDiagnosis: '+(fd.diagnosis||'')+'\nRemedy: '+(fd.remedy||'')+'\nConfidence: '+(fd.confidence||'')+'\nNotes: '+(fd.notes||'');
     var sp=specialtyText(collectSpecialtyData());
     if(sp) txt += '\n\nSPECIALTY MODULE\n'+sp;
@@ -916,8 +1355,9 @@ function renderAnalysis(a){
         var c=r.condition, cls=r.condition.severity==='emergency'?'#e74c3c':(r.condition.severity==='urgent'?'#f39c12':'#2980b9');
         h+='<div class="disease-card '+(r.confidence==='high'?'high-match':(r.confidence==='medium'?'medium-match':'low-match'))+'" style="border-right-color:'+cls+';">';
         h+='<div class="disease-header"><div class="disease-name">'+(idx+1)+'. '+esc(T(c.name))+'</div><span class="match-badge '+(r.confidence==='high'?'high':(r.confidence==='medium'?'medium':'low'))+'">'+r.percentage+'%</span></div>';
-        h+='<div style="font-size:11px;color:#7f8c8d;">'+esc(c.group)+' | '+esc(c.severity||'routine')+'</div>';
+        h+='<div style="font-size:11px;color:#7f8c8d;">'+esc(c.group)+' | '+esc(c.severity||'routine')+(r.specialtyBonus?' | specialty +'+Math.round(r.specialtyBonus):'')+'</div>';
         h+='<div style="font-size:12px;margin-top:5px;"><b>Matched:</b> '+r.matched.map(function(m){return esc(symptomName(m.key));}).join('، ')+'</div>';
+        if(r.specialtyReasons && r.specialtyReasons.length) h+='<div style="font-size:11px;color:#8e44ad;"><b>Specialty:</b> '+esc(r.specialtyReasons.slice(0,4).join(' | '))+'</div>';
         if(r.missing.length) h+='<div style="font-size:12px;color:#7f8c8d;"><b>Ask/missing:</b> '+r.missing.slice(0,5).map(function(m){return esc(symptomName(m.key));}).join('، ')+'</div>';
         h+='</div>';
     });
@@ -992,7 +1432,7 @@ function runUI(){
     var spText=specialtyText(specialty);
     if(genText) text += '\nGenerals: '+genText;
     if(spText) text += '\nSpecialty module: '+spText;
-    lastAnalysis=analyze(text, extra);
+    lastAnalysis=analyze(text, extra, specialty);
     lastAnalysis.caseDetails=details;
     lastAnalysis.specialty=specialty;
     adxLastSavedCaseId=null;
@@ -1070,6 +1510,39 @@ var ADX_SPECIALTY_MODULES = {
     skin:{title:{ur:'Skin / جلد module',en:'Skin module',roman:'Skin module'}, red:['Rapidly spreading redness with fever','Facial/lip/tongue swelling','Breathlessness with rash','Severe pain/necrosis','Immunocompromised/diabetic infection'], questions:['Itching or pain?','Rash type: red/scaly/blister/pus?','Fever?','Trigger/allergy/contact?','Distribution?','Recurrent?'], findings:['rash','itching','red skin','scaly skin','blisters vesicles','pus boil abscess','urticaria hives','fungal skin','eczema','scabies','allergy rash']},
     chronic:{title:{ur:'Chronic / Constitutional module',en:'Chronic / constitutional module',roman:'Chronic module'}, red:['Unexplained weight loss','Night sweats','Persistent fever','Blood in stool/urine/sputum','Progressive weakness','New lump'], questions:['Main chronic complaint timeline?','Thermal state?','Thirst/appetite/cravings/aversions?','Sleep/dreams?','Mind/emotional state?','Past/family history?','Suppression/medication history?'], findings:['chronic complaint','recurrent complaint','weight loss','night sweats','fatigue chronic','hot patient','chilly patient','thirstless','small sips','desire sweets','desire salt','grief','anxiety','insomnia','family history']}
 };
+function pushUnique(arr, items){
+    (items||[]).forEach(function(x){ if(arr.indexOf(x)===-1) arr.push(x); });
+}
+function expandSpecialtyData(){
+    function addModule(key, obj){
+        if(!ADX_SPECIALTY_MODULES[key]) ADX_SPECIALTY_MODULES[key]=obj;
+        else { pushUnique(ADX_SPECIALTY_MODULES[key].red, obj.red); pushUnique(ADX_SPECIALTY_MODULES[key].questions, obj.questions); pushUnique(ADX_SPECIALTY_MODULES[key].findings, obj.findings); }
+    }
+    addModule('cardiac_emergency',{title:{ur:'Cardiac emergency / دل module',en:'Cardiac emergency module',roman:'Cardiac module'}, red:['Chest pain with sweating','Left arm/jaw radiation','Severe breathlessness','Fainting/low BP','Known diabetes/hypertension','Irregular pulse'], questions:['Exact chest pain site and character?','Radiation to left arm/jaw/back?','Sweating/nausea/breathlessness?','Pain on exertion or at rest?','BP, sugar, pulse, ECG available?','Past heart disease?'], findings:['central chest pain','left arm pain','jaw pain','cold sweat','breathlessness with chest pain','palpitation','fainting','high BP','diabetes history','pain on exertion']});
+    addModule('ent_eye_dental',{title:{ur:'ENT / Eye / Dental module',en:'ENT / Eye / Dental module',roman:'ENT Eye Dental'}, red:['Vision loss','Severe red eye with headache/vomiting','Facial swelling with fever','Ear pain with mastoid swelling','Dental abscess with fever','Difficulty swallowing/breathing'], questions:['Main site: ear/nose/throat/eye/tooth?','Discharge color?','Fever or swelling?','Vision/hearing affected?','Pain worse chewing/swallowing?','Allergy/sneezing or infection?'], findings:['ear pain','ear discharge','sore throat','tonsil pain','runny nose','blocked nose','sneezing','facial pain sinus','red eye','eye discharge','vision loss','tooth pain','gum swelling','mouth ulcer']});
+    addModule('msk_injury',{title:{ur:'MSK / injury / جوڑ درد module',en:'MSK / injury module',roman:'MSK injury'}, red:['Trauma with deformity','Loss of power/sensation','Severe back pain with bladder/bowel issue','Hot swollen joint with fever','Unable to bear weight','Progressive neurological signs'], questions:['Injury or spontaneous?','Exact joint/area?','Swelling/redness/heat?','Worse first motion or continued motion?','Radiation/numbness/weakness?','Fever or morning stiffness?'], findings:['injury trauma fall','joint pain','joint swelling','hot red joint','back pain','low back pain','sciatica','neck pain','morning stiffness','better motion','worse motion','gout uric acid']});
+    addModule('endocrine_metabolic',{title:{ur:'Endocrine / metabolic module',en:'Endocrine / metabolic module',roman:'Endocrine module'}, red:['Low sugar confusion/fainting','Very high sugar with vomiting/dehydration','Heat stroke confusion','Severe weakness with dehydration','New severe weight loss','Palpitations with tremor'], questions:['Blood sugar reading?','Thirst/urination/appetite?','Weight change?','Heat/cold intolerance?','Tremor/palpitations?','Diet/medication history?','CBC/TSH/HbA1c available?'], findings:['high sugar','low sugar','excessive thirst','frequent urination','increased hunger','weight loss','fatigue','cold intolerance','heat intolerance','tremor','palpitation','dehydration','heat stroke']});
+    pushUnique(ADX_SPECIALTY_MODULES.fever.questions,['Platelet count or CBC available?','Fever pattern: quotidian/alternate day/step-ladder?','Any recent mosquito bites or contaminated food?','Any antibiotics/antipyretics already taken?']);
+    pushUnique(ADX_SPECIALTY_MODULES.fever.findings,['platelets low','alternate day fever','step ladder fever','mosquito exposure','contaminated food','antibiotics taken','paracetamol response']);
+    pushUnique(ADX_SPECIALTY_MODULES.headache.questions,['Aura before headache?','Worse bending forward?','Temporal relation to menses?','Any weakness/numbness/speech problem?']);
+    pushUnique(ADX_SPECIALTY_MODULES.headache.findings,['aura before headache','worse bending forward','headache during menses','weakness one side','speech problem']);
+    pushUnique(ADX_SPECIALTY_MODULES.cough_chest.questions,['SpO2 reading?','Orthopnea or worse lying flat?','Night cough?','Any leg swelling?']);
+    pushUnique(ADX_SPECIALTY_MODULES.cough_chest.findings,['SpO2 low','orthopnea','night cough','leg swelling','worse lying flat']);
+    pushUnique(ADX_SPECIALTY_MODULES.gi.questions,['Pain migration?','Stool frequency and dehydration signs?','Any jaundice?','Any recent outside food?']);
+    pushUnique(ADX_SPECIALTY_MODULES.gi.findings,['pain migrated to right lower abdomen','outside food','jaundice','watery diarrhea','tenesmus']);
+    pushUnique(ADX_SPECIALTY_MODULES.urinary.questions,['Pregnancy?','Diabetes?','Urine smell/color?','Pain radiates to groin?']);
+    pushUnique(ADX_SPECIALTY_MODULES.urinary.findings,['pain radiates to groin','diabetes with UTI','foul urine','cloudy urine']);
+    pushUnique(ADX_SPECIALTY_MODULES.female.questions,['Postpartum or breastfeeding?','Foul smell discharge?','Pain relation to cycle?','Any contraception/IUD?']);
+    pushUnique(ADX_SPECIALTY_MODULES.female.findings,['postpartum fever','breastfeeding mastitis','foul vaginal discharge','IUD history','pain mid-cycle']);
+    pushUnique(ADX_SPECIALTY_MODULES.child.questions,['Activity/playfulness?','Respiratory rate?','Capillary refill/cold extremities?','Danger signs according to mother?']);
+    pushUnique(ADX_SPECIALTY_MODULES.child.findings,['child not playful','fast breathing child','cold extremities child','mother says very sick']);
+    pushUnique(ADX_SPECIALTY_MODULES.skin.questions,['Blanching or non-blanching rash?','Pain out of proportion?','Contact/food/drug trigger?','Family itching at night?']);
+    pushUnique(ADX_SPECIALTY_MODULES.skin.findings,['non blanching rash','drug allergy','food allergy','family itching at night','pain out of proportion']);
+    pushUnique(ADX_SPECIALTY_MODULES.chronic.questions,['Medication suppression history?','Repeated antibiotics/steroids?','Family history: diabetes/TB/cancer/asthma?','Personal timeline from first illness?']);
+    pushUnique(ADX_SPECIALTY_MODULES.chronic.findings,['repeated antibiotics','steroid history','family diabetes','family TB','family cancer','suppressed eruptions']);
+}
+expandSpecialtyData();
+
 function specialtyOptionHtml(){ var h=''; Object.keys(ADX_SPECIALTY_MODULES).forEach(function(k){ h+='<option value="'+k+'">'+esc(T(ADX_SPECIALTY_MODULES[k].title))+'</option>'; }); return h; }
 function renderSpecialtyModule(key){
     var m=ADX_SPECIALTY_MODULES[key] || ADX_SPECIALTY_MODULES.fever;
@@ -1186,12 +1659,12 @@ function injectAnalyticsPanel(){
     div.className='card';
     div.style.cssText='margin-top:14px;border-top:4px solid #8e44ad;';
     div.innerHTML='<div class="card-title">📊 '+esc(T({ur:'ADX outcome analytics / records',en:'ADX outcome analytics / records',roman:'ADX records'}))+'</div>'+
-        '<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;"><button class="btn btn-purple btn-sm" type="button" onclick="ADX_showAnalytics()">📊 Show analytics</button><button class="btn btn-info btn-sm" type="button" onclick="ADX_exportRecords()">⬇️ Export ADX records</button><button class="btn btn-success btn-sm" type="button" onclick="ADX_importRecords()">⬆️ Import ADX records</button><button class="btn btn-light btn-sm" type="button" onclick="ADX_clearRecords()">🗑️ Clear local ADX records</button></div>'+
-        '<div id="adxAnalyticsContent" style="font-size:12px;color:#7f8c8d;">'+esc(T({ur:'Final decisions/outcomes save کرنے کے بعد analytics یہاں دیکھیں۔',en:'Save final decisions/outcomes, then view analytics here.',roman:'Records save kar ke analytics dekhein.'}))+'</div>';
+        '<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;"><button class="btn btn-purple btn-sm" type="button" onclick="ADX_showAnalytics()">📊 Show analytics</button><button class="btn btn-success btn-sm" type="button" onclick="ADX_syncCloud()">☁️ Sync Supabase</button><button class="btn btn-info btn-sm" type="button" onclick="ADX_pullCloud()">☁️ Pull cloud</button><button class="btn btn-info btn-sm" type="button" onclick="ADX_exportRecords()">⬇️ Export ADX records</button><button class="btn btn-success btn-sm" type="button" onclick="ADX_importRecords()">⬆️ Import ADX records</button><button class="btn btn-light btn-sm" type="button" onclick="ADX_clearRecords()">🗑️ Clear local ADX records</button></div><div id="adxCloudStatus" style="font-size:11px;margin-bottom:8px;color:#7f8c8d;">'+cloudStatusSummary()+'</div>'+
+        '<div id="adxAnalyticsContent" style="font-size:12px;color:#7f8c8d;">'+esc(T({ur:'Final decisions/outcomes save کرنے کے بعد analytics یہاں دیکھیں۔ Supabase sync کے لیے SQL setup file ایک بار run کریں۔',en:'Save final decisions/outcomes, then view analytics here. Run the SQL setup file once for Supabase sync.',roman:'Records save kar ke analytics dekhein. Supabase ke liye SQL setup file run karein.'}))+'</div>';
     host.insertAdjacentElement('afterend', div);
 }
 function exportRecords(){
-    var data={version:'v13', exportedAt:new Date().toISOString(), caseRecords:storageGet('adx_case_records'), outcomeRecords:storageGet('adx_outcome_records')};
+    var data={version:'v19', exportedAt:new Date().toISOString(), caseRecords:storageGet('adx_case_records'), outcomeRecords:storageGet('adx_outcome_records')};
     var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
     var url=URL.createObjectURL(blob), a=document.createElement('a');
     a.href=url; a.download='adx-records-'+new Date().toISOString().slice(0,10)+'.json'; a.click(); URL.revokeObjectURL(url);
@@ -1238,7 +1711,7 @@ function loadRecord(id, source){
 }
 function deleteRecord(id, source){
     var key=source==='outcome'?'adx_outcome_records':'adx_case_records';
-    var arr=storageGet(key).filter(function(x){return x.id!==id;}); storageSet(key, arr); showAnalytics(); toast('Deleted');
+    var arr=storageGet(key).filter(function(x){return x.id!==id;}); storageSet(key, arr); deleteAdxRecordCloud(id); showAnalytics(); toast('Deleted');
 }
 
 function bind(){
@@ -1255,6 +1728,8 @@ function bind(){
 }
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bind); else setTimeout(bind,0);
 setTimeout(bind,800); // pages are already in DOM, but this guards delayed rendering
+try { window.addEventListener('online', function(){ syncAdxRecordsWithCloud(false); }); } catch(e) {}
+setTimeout(function(){ if(navigator.onLine) syncAdxRecordsWithCloud(false); }, 2500);
 
 global.ADX_ENGINE={analyze:analyze, renderAnalysis:renderAnalysis, extractSymptoms:extractSymptoms, scoreConditions:scoreConditions};
 global.ADX_run=runUI;
@@ -1284,6 +1759,8 @@ global.ADX_renderSpecialtySelected=renderSpecialtySelected;
 global.ADX_addSpecialtyFinding=addSpecialtyFinding;
 global.ADX_addSpecialtyToStatement=addSpecialtyToStatement;
 global.ADX_collectSpecialtyData=collectSpecialtyData;
+global.ADX_applySpecialtyScoring=applySpecialtyScoring;
+global.ADX_specialtyRubricTemplates=specialtyRubricTemplates;
 global.ADX_constitutionalSupportRules=constitutionalSupportRules;
 global.ADX_confirmSuggestedRubrics=confirmSuggestedRubrics;
 global.ADX_confirmOneRubric=function(i){ confirmOneRubric(i,false).then(function(){ var out=$('adxResults'); if(out) out.innerHTML=renderAnalysis(lastAnalysis); }); };
@@ -1291,5 +1768,8 @@ global.ADX_editRubricPath=editRubricPath;
 global.ADX_removeRubric=removeRubric;
 global.ADX_addCustomRubric=addCustomRubric;
 global.ADX_openExactRubric=openExactRubric;
+global.ADX_syncCloud=function(){ syncAdxRecordsWithCloud(true); };
+global.ADX_pullCloud=function(){ pullAdxCloudRecords(true).then(function(){ showAnalytics(); }); };
+global.ADX_checkCloudTable=function(){ return checkAdxCloudTable(true); };
 
 })(window);
