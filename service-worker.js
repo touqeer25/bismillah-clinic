@@ -1,5 +1,5 @@
 // Bismillah Clinic - Service Worker
-const CACHE_NAME = 'bhc-clinic-v8';
+const CACHE_NAME = 'bhc-clinic-v9';
 const urlsToCache = [
   './',
   './index.html',
@@ -15,6 +15,8 @@ const urlsToCache = [
   './diagnosis-data.js',
   './diagnosis-custom.js',
   './custom-data-help.js',
+  './advanced-diagnosis-knowledge.js',
+  './advanced-diagnosis-engine.js',
   './icon-192.png',
   './icon-512.png',
   'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2',

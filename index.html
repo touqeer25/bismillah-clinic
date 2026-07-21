@@ -20,6 +20,8 @@
     <script src="diagnosis-data.js?v=3"></script>
     <script src="diagnosis-custom.js?v=3"></script>
     <script src="custom-data-help.js?v=3"></script>
+    <script src="advanced-diagnosis-knowledge.js?v=9"></script>
+    <script src="advanced-diagnosis-engine.js?v=9"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
@@ -1155,6 +1157,36 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
                 <div class="alert alert-warning" style="margin-bottom:15px;">
                     ⚠️ <strong data-ur="نوٹ:" data-en="Note:" data-roman="Note:">نوٹ:</strong>
                     <span data-ur="یہ صرف رہنمائی کے لیے ہے۔ حتمی تشخیص ڈاکٹر ہی کریں گے۔" data-en="This is only for guidance." data-roman="Yeh sirf rahnumai ke liye hai.">یہ صرف رہنمائی کے لیے ہے۔ حتمی تشخیص ڈاکٹر ہی کریں گے۔</span>
+                </div>
+                
+                <div style="background:linear-gradient(135deg,#f8fbff,#eef7ff);border:1px solid #b7d7f0;border-radius:10px;padding:12px;margin-bottom:15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+                    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+                        <div style="font-weight:bold;color:#1a5276;font-size:15px;">
+                            🧠 <span data-ur="ایڈوانس تشخیص انجن v1" data-en="Advanced Diagnosis Engine v1" data-roman="Advanced Diagnosis Engine v1">ایڈوانس تشخیص انجن v1</span>
+                            <small style="color:#7f8c8d;font-weight:normal;">(100+ conditions, red flags, tests, rubrics)</small>
+                        </div>
+                        <div style="font-size:11px;color:#7f8c8d;">
+                            <span data-ur="Ctrl+Enter سے analyze" data-en="Ctrl+Enter to analyze" data-roman="Ctrl+Enter to analyze">Ctrl+Enter سے analyze</span>
+                        </div>
+                    </div>
+                    <textarea id="adxStatement" style="width:100%;min-height:95px;border:1px solid #b7d7f0;border-radius:8px;padding:10px;font-family:inherit;font-size:13px;line-height:1.7;box-sizing:border-box;background:white;"
+                        placeholder="مریض کی مکمل موجودہ علامات یہاں لکھیں: کب سے، کہاں درد ہے، کس چیز سے بڑھتا/کم ہوتا ہے، بخار، کھانسی، پیٹ، پیشاب، سانس، ذہنی حالت وغیرہ..."
+                        data-ph-ur="مریض کی مکمل موجودہ علامات یہاں لکھیں: کب سے، کہاں درد ہے، کس چیز سے بڑھتا/کم ہوتا ہے، بخار، کھانسی، پیٹ، پیشاب، سانس، ذہنی حالت وغیرہ..."
+                        data-ph-en="Write the patient's full current statement here: duration, location, sensation, aggravation/amelioration, fever, cough, abdomen, urine, breathing, mental state etc..."
+                        data-ph-roman="Mareez ki current alamat yahan likhein: kab se, kahan dard, kis se barhta/kam hota, fever, cough, pait, peshab, saans, mental state etc..."></textarea>
+                    <div class="action-buttons" style="margin-top:10px;">
+                        <button class="btn btn-purple" id="adxAnalyzeBtn" type="button" style="flex:1;">🧠 <span data-ur="ایڈوانس تجزیہ" data-en="Advanced Analyze" data-roman="Advanced Analyze">ایڈوانس تجزیہ</span></button>
+                        <button class="btn btn-info" type="button" onclick="if(window.ADX_copySummary)ADX_copySummary();">📋 <span data-ur="کاپی" data-en="Copy" data-roman="Copy">کاپی</span></button>
+                        <button class="btn btn-light" id="adxClearBtn" type="button">🔄 <span data-ur="صاف" data-en="Clear" data-roman="Clear">صاف</span></button>
+                    </div>
+                    <div style="font-size:11px;color:#7f8c8d;margin-top:6px;">
+                        <span data-ur="یہ module red flags، possible diagnoses، next questions، tests، repertory rubrics اور remedy differentiation questions suggest کرے گا۔" data-en="This module suggests red flags, possible diagnoses, next questions, tests, repertory rubrics and remedy differentiation questions." data-roman="Yeh module red flags, possible diagnoses, next questions, tests, rubrics aur remedy questions suggest kare ga.">یہ module red flags، possible diagnoses، next questions، tests، repertory rubrics اور remedy differentiation questions suggest کرے گا۔</span>
+                    </div>
+                </div>
+                <div id="adxResults"></div>
+
+                <div style="margin:18px 0 10px;border-top:1px dashed #d5d8dc;padding-top:10px;color:#7f8c8d;font-size:12px;">
+                    📋 <span data-ur="Manual symptom checklist / legacy system نیچے موجود ہے" data-en="Manual symptom checklist / legacy system is below" data-roman="Manual symptom checklist neeche hai">Manual symptom checklist / legacy system نیچے موجود ہے</span>
                 </div>
                 
                 <div class="form-group" id="diagnosisPatientLink" style="display:none;">
