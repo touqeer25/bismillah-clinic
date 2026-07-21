@@ -1,0 +1,12 @@
+{
+  "name": "Offline/PWA Robust Cache Fix",
+  "cache_version": "v20",
+  "fixes": [
+    "service worker no longer fails install when one file/CDN is unavailable",
+    "index.html works offline even if Supabase CDN script is not loaded",
+    "navigation falls back to cached index.html",
+    "same-origin files use network-first with cache fallback",
+    "external CDN/fonts use cache-first fallback"
+  ],
+  "note": "Users must open the app once online after deploying v20 so the new service worker can install and cache the app shell."
+}

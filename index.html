@@ -20,8 +20,8 @@
     <script src="diagnosis-data.js?v=3"></script>
     <script src="diagnosis-custom.js?v=3"></script>
     <script src="custom-data-help.js?v=3"></script>
-    <script src="advanced-diagnosis-knowledge.js?v=19"></script>
-    <script src="advanced-diagnosis-engine.js?v=19"></script>
+    <script src="advanced-diagnosis-knowledge.js?v=20"></script>
+    <script src="advanced-diagnosis-engine.js?v=20"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
@@ -1989,7 +1989,41 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
 const SUPABASE_URL = 'https://eooujrqtmaxyuozdgfgc.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVvb3VqcnF0bWF4eXVvemRnZmdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5Mjg5NTgsImV4cCI6MjA5ODUwNDk1OH0.Qy4WigE8GIs8x8gm0jwv7pndEy5kMvN-kycozNdCNvU';
 
-const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+function createOfflineSupabaseStub() {
+    function result(data, message) {
+        return { data: data === undefined ? null : data, error: message ? { message: message } : null };
+    }
+    function builder(defaultData) {
+        var b = {
+            select: function() { return b; },
+            insert: function() { return b; },
+            update: function() { return b; },
+            upsert: function() { return b; },
+            delete: function() { return b; },
+            eq: function() { return b; },
+            order: function() { return b; },
+            limit: function() { return b; },
+            maybeSingle: function() { return Promise.resolve(result(null, 'Supabase unavailable/offline')); },
+            single: function() { return Promise.resolve(result(null, 'Supabase unavailable/offline')); },
+            then: function(resolve, reject) { return Promise.resolve(result(defaultData || [], 'Supabase unavailable/offline')).then(resolve, reject); },
+            catch: function(reject) { return Promise.resolve(result(defaultData || [], 'Supabase unavailable/offline')).catch(reject); }
+        };
+        return b;
+    }
+    return {
+        from: function(table) { return builder([]); },
+        __offlineStub: true
+    };
+}
+
+const sb = (window.supabase && window.supabase.createClient)
+    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
+    : createOfflineSupabaseStub();
+if (sb.__offlineStub) {
+    console.warn('⚠️ Supabase library not loaded. App is running in offline/local mode.');
+}
+
 
 let currentLang = localStorage.getItem('clinic_lang') || 'ur';
 let currentUserData = null;
