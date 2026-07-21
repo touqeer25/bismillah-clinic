@@ -277,7 +277,7 @@ function fetchChapter(book, chapter){
     var key=book+'|'+chapter;
     if(adxChapterCache[key]) return Promise.resolve(adxChapterCache[key]);
     var info=bookInfo(book);
-    var url=(info.chapDir||'')+chapter+'.json?v=15';
+    var url=(info.chapDir||'')+chapter+'.json?v=16';
     return fetch(url).then(function(r){ if(!r.ok) throw new Error(url); return r.json(); }).then(function(d){ adxChapterCache[key]=d; return d; });
 }
 function scoreRubricMatch(path, query){
@@ -806,6 +806,8 @@ function finalSummaryText(){
     var fd=getFinalDecision(), out=getOutcome(), gen=caseDetailsText();
     var txt=finalSummaryText ? finalSummaryText() : summaryText(lastAnalysis);
     txt += '\n\nFINAL DECISION\nDiagnosis: '+(fd.diagnosis||'')+'\nRemedy: '+(fd.remedy||'')+'\nConfidence: '+(fd.confidence||'')+'\nNotes: '+(fd.notes||'');
+    var sp=specialtyText(collectSpecialtyData());
+    if(sp) txt += '\n\nSPECIALTY MODULE\n'+sp;
     if(gen) txt += '\n\nGENERALS\n'+gen;
     var cs=constitutionalSupportRules(collectCaseDetails());
     if(cs.length) txt += '\n\nCONSTITUTIONAL SUPPORT\n'+cs.slice(0,10).map(function(x){return x.display+' +'+x.pts+' ('+x.reasons.slice(0,3).join('; ')+')';}).join('\n');
@@ -986,9 +988,13 @@ function runUI(){
     }catch(e){}
     var details=collectCaseDetails();
     var genText=caseDetailsText(details);
+    var specialty=collectSpecialtyData();
+    var spText=specialtyText(specialty);
     if(genText) text += '\nGenerals: '+genText;
+    if(spText) text += '\nSpecialty module: '+spText;
     lastAnalysis=analyze(text, extra);
     lastAnalysis.caseDetails=details;
+    lastAnalysis.specialty=specialty;
     adxLastSavedCaseId=null;
     lastRepertoryRows=[]; lastMatchedRubrics=[]; lastRepertoryErrors=[]; adxRemedyAnswers={};
     var out=$('adxResults');
@@ -1051,6 +1057,45 @@ function injectDxButtons(){
         el._adxBtnAdded=true;
     });
 }
+
+// ==================== ADX Phase 8: Specialty guided modules ====================
+var ADX_SPECIALTY_MODULES = {
+    fever:{title:{ur:'Fever / بخار module',en:'Fever module',roman:'Fever module'}, red:['Confusion/altered sensorium','Neck stiffness','Bleeding/rash','Persistent vomiting','Severe abdominal pain','Low urine','Breathlessness','Fits/seizure'], questions:['Duration and maximum temperature?','Continuous, remittent or intermittent?','Chills/rigors and sweating?','Body/bone pain or retro-orbital pain?','Rash or bleeding?','Cough/sore throat?','Urinary burning?','Diarrhea/vomiting?','Dengue/malaria/typhoid exposure?'], findings:['fever 3 days','high fever 103 F','chills with fever','sweat after fever','body pain','bone breaking pain','pain behind eyes','rash','bleeding gums','vomiting','low urine','dengue exposure','malaria exposure','typhoid suspicion']},
+    headache:{title:{ur:'Headache / سر درد module',en:'Headache module',roman:'Headache module'}, red:['Sudden worst headache','Fever with neck stiffness','Vision loss','Weakness/numbness/speech problem','High BP','Head injury','New headache after age 50'], questions:['Location and side?','Throbbing/pressing/burning?','Light/noise sensitivity?','Nausea or vomiting?','Sinus/nasal symptoms?','BP reading?','Neurological symptoms?','Better sleep/rest/pressure?'], findings:['headache','severe headache','throbbing headache','worse light','worse noise','better sleep','nausea with headache','vomiting with headache','forehead pain','one sided headache','neck stiffness','blurred vision','high BP']},
+    cough_chest:{title:{ur:'Cough / Chest / سانس module',en:'Cough / chest module',roman:'Cough/chest module'}, red:['Severe breathlessness','Chest pain with sweating','Blue lips','Blood in sputum','SpO2 low','Cough > 2 weeks with weight loss/night sweats','Child with poor feeding'], questions:['Dry or productive cough?','Sputum color and amount?','Fever?','Breathlessness/wheezing?','Chest pain?','Blood in sputum?','Duration >2 weeks?','Asthma/TB/contact/smoking history?'], findings:['dry cough','productive cough','yellow sputum','green sputum','blood in sputum','breathlessness','wheezing','chest tightness','chest pain','fever with cough','cough more than 2 weeks','night sweats','weight loss','asthma history','TB contact']},
+    gi:{title:{ur:'Abdomen / GI / پیٹ module',en:'Abdomen / GI module',roman:'Pait/GI module'}, red:['Severe sudden abdominal pain','Rigid abdomen','Blood in stool/vomit','Black stool','Persistent vomiting','Severe dehydration','Pregnancy with abdominal pain'], questions:['Pain location?','Relation to food?','Vomiting/diarrhea frequency?','Blood/black stool?','Fever?','Urine amount and dehydration?','Right lower or right upper pain?'], findings:['abdominal pain','epigastric pain','right lower abdominal pain','right upper abdominal pain','nausea','vomiting','persistent vomiting','diarrhea','bloody diarrhea','black stool','heartburn acidity','loss of appetite','dehydration','constipation']},
+    urinary:{title:{ur:'Urinary / Kidney / پیشاب module',en:'Urinary / kidney module',roman:'Peshab/kidney module'}, red:['Fever with flank pain','Low/no urine','Blood in urine','Severe colic with vomiting','Pregnancy urinary infection'], questions:['Burning/frequency/urgency?','Fever?','Flank/loin pain?','Blood in urine?','Urine amount?','Stone history?','Pregnancy?'], findings:['burning urine','frequent urination','urgent urination','flank pain','kidney pain','blood in urine','low urine','fever with urinary symptoms','renal colic','stone history']},
+    female:{title:{ur:'Female complaints / خواتین module',en:'Female complaints module',roman:'Female module'}, red:['Pregnancy with bleeding','Severe pelvic pain','Fainting with missed period','Heavy bleeding with weakness','Fever with pelvic pain/discharge'], questions:['LMP and pregnancy possibility?','Bleeding amount?','Pelvic pain?','Vaginal discharge/itching?','Fever?','Urinary symptoms?','Cycle regularity?'], findings:['pregnancy','missed period','pelvic pain','vaginal discharge','itching vaginal','heavy menses','painful menses','irregular menses','bleeding in pregnancy','fever with pelvic pain','breast pain']},
+    child:{title:{ur:'Child fever / Pediatric module',en:'Child / pediatric module',roman:'Child module'}, red:['Age <3 months fever','Poor feeding','Lethargy/confusion','Fits','Breathlessness','Dehydration','Persistent vomiting','Non-blanching rash'], questions:['Age and weight?','Feeding?','Urine count?','Breathing difficulty?','Fits/lethargy?','Vomiting/diarrhea?','Rash?','Vaccination status?'], findings:['child fever','baby not feeding','poor feeding','child lethargic','fits with fever','child breathlessness','child dehydration','low urine child','vomiting child','diarrhea child','rash child']},
+    skin:{title:{ur:'Skin / جلد module',en:'Skin module',roman:'Skin module'}, red:['Rapidly spreading redness with fever','Facial/lip/tongue swelling','Breathlessness with rash','Severe pain/necrosis','Immunocompromised/diabetic infection'], questions:['Itching or pain?','Rash type: red/scaly/blister/pus?','Fever?','Trigger/allergy/contact?','Distribution?','Recurrent?'], findings:['rash','itching','red skin','scaly skin','blisters vesicles','pus boil abscess','urticaria hives','fungal skin','eczema','scabies','allergy rash']},
+    chronic:{title:{ur:'Chronic / Constitutional module',en:'Chronic / constitutional module',roman:'Chronic module'}, red:['Unexplained weight loss','Night sweats','Persistent fever','Blood in stool/urine/sputum','Progressive weakness','New lump'], questions:['Main chronic complaint timeline?','Thermal state?','Thirst/appetite/cravings/aversions?','Sleep/dreams?','Mind/emotional state?','Past/family history?','Suppression/medication history?'], findings:['chronic complaint','recurrent complaint','weight loss','night sweats','fatigue chronic','hot patient','chilly patient','thirstless','small sips','desire sweets','desire salt','grief','anxiety','insomnia','family history']}
+};
+function specialtyOptionHtml(){ var h=''; Object.keys(ADX_SPECIALTY_MODULES).forEach(function(k){ h+='<option value="'+k+'">'+esc(T(ADX_SPECIALTY_MODULES[k].title))+'</option>'; }); return h; }
+function renderSpecialtyModule(key){
+    var m=ADX_SPECIALTY_MODULES[key] || ADX_SPECIALTY_MODULES.fever;
+    var h='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin-top:8px;">';
+    h+='<div><div style="font-weight:bold;color:#c0392b;margin-bottom:4px;">⚠️ Red flags to rule out</div>'+(m.red||[]).map(function(x){return '<div style="font-size:12px;padding:3px 0;">• '+esc(x)+'</div>';}).join('')+'</div>';
+    h+='<div><div style="font-weight:bold;color:#1a5276;margin-bottom:4px;">❓ Focused questions</div>'+(m.questions||[]).map(function(x,i){return '<div style="font-size:12px;padding:3px 0;">'+(i+1)+'. '+esc(x)+'</div>';}).join('')+'</div>';
+    h+='</div><div style="margin-top:8px;"><div style="font-weight:bold;color:#145a32;margin-bottom:4px;">➕ Quick findings</div>';
+    (m.findings||[]).forEach(function(x){ h+='<button type="button" onclick="ADX_addSpecialtyFinding(\''+String(x).replace(/'/g,"\\'")+'\')" style="margin:2px;padding:4px 8px;border:none;border-radius:12px;background:#eafaf1;color:#145a32;cursor:pointer;font-size:11px;font-family:inherit;">+'+esc(x)+'</button>'; });
+    h+='</div>'; return h;
+}
+function injectSpecialtyPanel(){
+    var anchor=$('adxCaseDetailsPanel') || $('adxStatement'); if(!anchor || $('adxSpecialtyPanel')) return;
+    var div=document.createElement('div'); div.id='adxSpecialtyPanel'; div.style.cssText='margin-top:10px;border:1px solid #e8daef;background:#fdfbff;border-radius:8px;padding:10px;';
+    div.innerHTML='<details open><summary style="cursor:pointer;font-weight:bold;color:#8e44ad;">🧭 '+esc(T({ur:'Specialty guided modules',en:'Specialty guided modules',roman:'Specialty modules'}))+'</summary>'+
+        '<div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;"><label style="font-weight:bold;color:#566573;">Module:</label><select id="adxSpecialtySelect" onchange="ADX_renderSpecialtySelected()" style="padding:6px;border:1px solid #d7bde2;border-radius:6px;font-family:inherit;">'+specialtyOptionHtml()+'</select><button type="button" class="btn btn-info btn-sm" onclick="ADX_addSpecialtyToStatement()">➕ Add notes to statement</button></div>'+
+        '<div id="adxSpecialtyContent">'+renderSpecialtyModule('fever')+'</div>'+
+        '<textarea id="adxSpecialtyNotes" style="width:100%;min-height:55px;margin-top:8px;border:1px solid #d7bde2;border-radius:6px;padding:7px;font-family:inherit;font-size:12px;" placeholder="Selected module findings / answers will appear here..."></textarea>'+
+        '</details>';
+    anchor.insertAdjacentElement('afterend', div);
+}
+function renderSpecialtySelected(){ var sel=$('adxSpecialtySelect'); var c=$('adxSpecialtyContent'); if(c) c.innerHTML=renderSpecialtyModule(sel?sel.value:'fever'); }
+function addSpecialtyFinding(txt){ var ta=$('adxSpecialtyNotes'); if(!ta) return; var line='• '+txt; if(ta.value.indexOf(line)===-1) ta.value=(ta.value?ta.value+'\n':'')+line; }
+function addSpecialtyToStatement(){ var notes=val('adxSpecialtyNotes'); if(!notes){ toast('No specialty findings selected','error'); return; } var ta=$('adxStatement'); if(ta) ta.value=(ta.value?ta.value+'\n':'')+'Specialty findings:\n'+notes; }
+function collectSpecialtyData(){ var sel=$('adxSpecialtySelect'); var key=sel?sel.value:'fever'; var m=ADX_SPECIALTY_MODULES[key]||ADX_SPECIALTY_MODULES.fever; return {module:key,title:T(m.title),notes:val('adxSpecialtyNotes')}; }
+function specialtyText(data){ data=data||collectSpecialtyData(); return (data.title||'')+(data.notes?': '+data.notes.replace(/\n/g,'; '):''); }
+
 // ==================== ADX Phase 5: Outcome analytics dashboard + records manager ====================
 function allAdxRecords(){
     var cases=storageGet('adx_case_records').map(function(x){x._source='case'; return x;});
@@ -1187,6 +1232,7 @@ function loadRecord(id, source){
     setVal('adxFinalNotes', rec.finalDecision&&rec.finalDecision.notes);
     setVal('adxTestsDone', rec.finalDecision&&rec.finalDecision.testsDone);
     if(rec.generals){ Object.keys(rec.generals).forEach(function(k){ var id='adx'+k.charAt(0).toUpperCase()+k.slice(1); setVal(id, rec.generals[k]); }); }
+    if(rec.specialty){ setVal('adxSpecialtyNotes', rec.specialty.notes||''); var sel=$('adxSpecialtySelect'); if(sel && rec.specialty.module){ sel.value=rec.specialty.module; renderSpecialtySelected(); } }
     if(ta && ta.value) runUI();
     toast('✅ Record loaded');
 }
@@ -1197,6 +1243,7 @@ function deleteRecord(id, source){
 
 function bind(){
     injectCaseDetailsPanel();
+    injectSpecialtyPanel();
     injectDxButtons();
     injectAnalyticsPanel();
     var b=$('adxAnalyzeBtn'); if(b && !b._adxBound){ b.addEventListener('click',runUI); b._adxBound=true; }
@@ -1233,6 +1280,10 @@ global.ADX_clearRecords=clearRecords;
 global.ADX_loadRecord=loadRecord;
 global.ADX_deleteRecord=deleteRecord;
 global.ADX_renderAnalyticsDashboard=renderAnalyticsDashboard;
+global.ADX_renderSpecialtySelected=renderSpecialtySelected;
+global.ADX_addSpecialtyFinding=addSpecialtyFinding;
+global.ADX_addSpecialtyToStatement=addSpecialtyToStatement;
+global.ADX_collectSpecialtyData=collectSpecialtyData;
 global.ADX_constitutionalSupportRules=constitutionalSupportRules;
 global.ADX_confirmSuggestedRubrics=confirmSuggestedRubrics;
 global.ADX_confirmOneRubric=function(i){ confirmOneRubric(i,false).then(function(){ var out=$('adxResults'); if(out) out.innerHTML=renderAnalysis(lastAnalysis); }); };

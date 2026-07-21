@@ -1,5 +1,5 @@
 // Bismillah Clinic - Service Worker
-const CACHE_NAME = 'bhc-clinic-v15';
+const CACHE_NAME = 'bhc-clinic-v16';
 const urlsToCache = [
   './',
   './index.html',
