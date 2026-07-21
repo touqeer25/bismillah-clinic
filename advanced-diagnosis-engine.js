@@ -204,6 +204,10 @@ function analyze(statement, extraKeys){
 
 // ==================== ADX Phase 2/3: Rubric selection + basic repertorization ====================
 var adxChapterCache = {};
+var lastRepertoryRows = [];
+var lastMatchedRubrics = [];
+var lastRepertoryErrors = [];
+var adxRemedyAnswers = {};
 function ensureRubricSelection(a){
     if(!a || !a.rubrics) return;
     if(a._rubricSelectionInitialized) return;
@@ -258,12 +262,20 @@ function openRubricSearch(idx){
 function normRubric(s){
     return String(s||'').toLowerCase().replace(/[۔،;:()\[\]{}]/g,' ').replace(/\s+-\s+/g,' - ').replace(/[^a-z0-9\-\s]+/g,' ').replace(/\s+/g,' ').trim();
 }
-function remedyKey(abbr){ return String(abbr||'').toLowerCase().replace(/\.$/,'').trim(); }
+function remedyKey(abbr){
+    var k=String(abbr||'').toLowerCase().replace(/\.$/,'').trim();
+    var aliases={
+        'drosera':'dros','drosera.':'dros','bryonia':'bry','belladonna':'bell','arsenicum':'ars','arsenicum-album':'ars',
+        'gelsemium':'gels','eupatorium-perfoliatum':'eup-per','rhus-tox':'rhus-t','rhus toxicodendron':'rhus-t',
+        'nux vomica':'nux-v','nux-vomica':'nux-v','pulsatilla':'puls','sulphur':'sulph','arnica':'arn'
+    };
+    return aliases[k] || k;
+}
 function fetchChapter(book, chapter){
     var key=book+'|'+chapter;
     if(adxChapterCache[key]) return Promise.resolve(adxChapterCache[key]);
     var info=bookInfo(book);
-    var url=(info.chapDir||'')+chapter+'.json?v=10';
+    var url=(info.chapDir||'')+chapter+'.json?v=11';
     return fetch(url).then(function(r){ if(!r.ok) throw new Error(url); return r.json(); }).then(function(d){ adxChapterCache[key]=d; return d; });
 }
 function scoreRubricMatch(path, query){
@@ -311,6 +323,93 @@ function renderRemedyAnalysis(rows, matchedRubrics, errors){
     h+='</div>';
     return h;
 }
+
+function cloneRowsWithDifferentiation(){
+    var rows=(lastRepertoryRows||[]).map(function(r){
+        return {key:r.key, display:r.display, baseScore:r.score, score:r.score, coverage:r.coverage, matches:(r.matches||[]).slice(), diff:0, reasons:[]};
+    });
+    var rowByKey={};
+    rows.forEach(function(r){ rowByKey[remedyKey(r.key)]=r; rowByKey[remedyKey(r.display)]=r; });
+    var qs=(lastAnalysis&&lastAnalysis.remedyQuestions)||[];
+    Object.keys(adxRemedyAnswers||{}).forEach(function(i){
+        var ans=adxRemedyAnswers[i];
+        if(ans==='unknown') return;
+        var q=qs[parseInt(i,10)]; if(!q) return;
+        function apply(map, sign, label){
+            Object.keys(map||{}).forEach(function(k){
+                var rk=remedyKey(k), row=rowByKey[rk];
+                if(!row) return;
+                var val=(parseFloat(map[k])||1)*sign;
+                row.score += val;
+                row.diff += val;
+                row.reasons.push(label+' '+(val>0?'+':'')+val);
+            });
+        }
+        if(ans==='yes'){
+            apply(q.supports, 4, 'yes supports');
+            apply(q.opposes, -3, 'yes opposes');
+        } else if(ans==='no'){
+            apply(q.supports, -2, 'no reduces');
+            apply(q.opposes, 1, 'no supports opposite');
+        }
+    });
+    rows.sort(function(a,b){return b.score-a.score || b.coverage-a.coverage || a.display.localeCompare(b.display);});
+    return rows;
+}
+function remedyConfidence(rows){
+    if(!rows || !rows.length) return {label:'-', cls:'#7f8c8d', note:''};
+    var answered=Object.keys(adxRemedyAnswers||{}).filter(function(k){return adxRemedyAnswers[k] && adxRemedyAnswers[k]!=='unknown';}).length;
+    var top=rows[0], second=rows[1]||{score:0};
+    var gap=top.score-second.score;
+    if(answered>=3 && gap>=8) return {label:'High', cls:'#27ae60', note:'clear lead after differentiation'};
+    if(answered>=2 && gap>=4) return {label:'Medium', cls:'#f39c12', note:'some differentiation support'};
+    return {label:'Low / needs confirmation', cls:'#e67e22', note:'answer more remedy questions'};
+}
+function renderDifferentiationInteractive(){
+    var qs=(lastAnalysis&&lastAnalysis.remedyQuestions)||[];
+    if(!lastRepertoryRows.length) return '';
+    var adjusted=cloneRowsWithDifferentiation();
+    var conf=remedyConfidence(adjusted);
+    var h='<div id="adxRemedyDiffInteractive" style="margin-top:10px;padding:10px;border-radius:8px;background:#fffaf0;border:1px solid #f5c16c;">';
+    h+='<div style="font-weight:bold;color:#7d6608;margin-bottom:6px;">🎯 '+esc(T({ur:'Interactive remedy differentiation',en:'Interactive remedy differentiation',roman:'Interactive remedy differentiation'}))+'</div>';
+    h+='<div style="font-size:12px;margin-bottom:8px;">'+esc(T({ur:'سوالات کے جواب دیں؛ remedies کا score اسی وقت update ہوگا۔',en:'Answer the questions; remedy scores update immediately.',roman:'Jawab dein; remedy score update ho ga.'}))+'</div>';
+    if(qs.length){
+        qs.forEach(function(q,i){
+            var ans=adxRemedyAnswers[i]||'unknown';
+            function btn(id,label,color){
+                var active=ans===id;
+                return '<button type="button" onclick="ADX_answerRemedyQuestion('+i+',\''+id+'\')" style="padding:4px 10px;border:none;border-radius:12px;margin:2px;cursor:pointer;background:'+(active?color:'#ecf0f1')+';color:'+(active?'white':'#2c3e50')+';font-size:11px;font-family:inherit;">'+label+'</button>';
+            }
+            var supports=q.supports?Object.keys(q.supports).join(', '):'';
+            h+='<div style="padding:7px 8px;background:white;border:1px solid #f9e79f;border-radius:6px;margin:5px 0;font-size:12px;">';
+            h+='<div><b>'+(i+1)+'.</b> '+esc(T(q.q))+(supports?' <small style="color:#7d6608;">→ '+esc(supports)+'</small>':'')+'</div>';
+            h+='<div style="margin-top:4px;">'+btn('yes','✓ Yes','#27ae60')+btn('no','✕ No','#c0392b')+btn('unknown','? Unknown','#7f8c8d')+'</div>';
+            h+='</div>';
+        });
+    } else {
+        h+='<div style="color:#7f8c8d;font-size:12px;">No remedy differentiation questions for this case group yet.</div>';
+    }
+    h+='<div style="margin-top:10px;padding:8px;background:#f8fbff;border:1px solid #d6eaf8;border-radius:6px;">';
+    h+='<b>'+esc(T({ur:'Current leading remedy',en:'Current leading remedy',roman:'Current leading remedy'}))+':</b> <span style="font-size:15px;color:#1a5276;font-weight:bold;">'+esc(adjusted[0]?adjusted[0].display:'-')+'</span> ';
+    h+='<span style="background:'+conf.cls+';color:white;padding:2px 8px;border-radius:12px;font-size:10px;">'+esc(conf.label)+'</span> <small style="color:#7f8c8d;">'+esc(conf.note)+'</small>';
+    h+='</div>';
+    h+='<div style="overflow-x:auto;margin-top:8px;"><table style="width:100%;border-collapse:collapse;font-size:12px;background:white;"><thead><tr style="background:#fef5e7;color:#7d6608;"><th style="padding:5px;text-align:left;">#</th><th style="padding:5px;text-align:left;">Remedy</th><th style="padding:5px;text-align:left;">Adjusted</th><th style="padding:5px;text-align:left;">Base</th><th style="padding:5px;text-align:left;">Δ</th><th style="padding:5px;text-align:left;">Why changed</th></tr></thead><tbody>';
+    adjusted.slice(0,12).forEach(function(r,i){
+        h+='<tr style="border-bottom:1px solid #f4f6f7;"><td style="padding:5px;">'+(i+1)+'</td><td style="padding:5px;font-weight:bold;color:#1a5276;">'+esc(r.display)+'</td><td style="padding:5px;">'+Math.round(r.score)+'</td><td style="padding:5px;">'+Math.round(r.baseScore)+'</td><td style="padding:5px;color:'+(r.diff>=0?'#27ae60':'#c0392b')+';">'+(r.diff>0?'+':'')+Math.round(r.diff)+'</td><td style="padding:5px;color:#7f8c8d;">'+esc((r.reasons||[]).slice(0,3).join(' | '))+'</td></tr>';
+    });
+    h+='</tbody></table></div>';
+    h+='</div>';
+    return h;
+}
+function answerRemedyQuestion(i, ans){
+    adxRemedyAnswers[i]=ans||'unknown';
+    var box=$('adxRemedyDiffInteractive');
+    if(box){ box.outerHTML=renderDifferentiationInteractive(); }
+}
+function rerenderRemedyAnalysis(){
+    var box=$('adxRemedyAnalysis');
+    if(box) box.innerHTML=renderRemedyAnalysis(lastRepertoryRows,lastMatchedRubrics,lastRepertoryErrors)+renderDifferentiationInteractive();
+}
 function analyzeSelectedRubrics(){
     if(!lastAnalysis){ toast('No analysis yet','error'); return; }
     var sel=selectedRubrics();
@@ -341,7 +440,8 @@ function analyzeSelectedRubrics(){
     chain.then(function(){
         var rows=Object.keys(remedyMap).map(function(k){ var x=remedyMap[k]; x.score += x.coverage*1.5; return x; });
         rows.sort(function(a,b){ return b.score-a.score || b.coverage-a.coverage || a.display.localeCompare(b.display); });
-        if(box) box.innerHTML=renderRemedyAnalysis(rows, matched, errors);
+        lastRepertoryRows=rows; lastMatchedRubrics=matched; lastRepertoryErrors=errors; adxRemedyAnswers={};
+        if(box) box.innerHTML=renderRemedyAnalysis(rows, matched, errors)+renderDifferentiationInteractive();
     });
 }
 
@@ -468,7 +568,39 @@ function copyToVisit(){
     toast('✅ Copied to available visit fields');
 }
 
+
+function openFromField(fieldId){
+    var src=$(fieldId);
+    var text=src ? (src.value||'').trim() : '';
+    if(!text){ toast(T({ur:'پہلے علامات لکھیں',en:'Enter symptoms first',roman:'Pehle alamat likhein'}),'error'); return; }
+    try{
+        var btn=document.querySelector('[data-page="diagnosis"]');
+        if(typeof showPage==='function') showPage('diagnosis', btn);
+    }catch(e){}
+    setTimeout(function(){
+        var ta=$('adxStatement');
+        if(ta){ ta.value=text; runUI(); }
+    },250);
+}
+function injectDxButtons(){
+    [
+        {id:'firstVisitSymptoms', label:{ur:'🧠 ایڈوانس تشخیص',en:'🧠 Advanced Dx',roman:'🧠 Advanced Dx'}},
+        {id:'nvSymptoms', label:{ur:'🧠 ایڈوانس تشخیص',en:'🧠 Advanced Dx',roman:'🧠 Advanced Dx'}}
+    ].forEach(function(x){
+        var el=$(x.id); if(!el || el._adxBtnAdded) return;
+        var wrap=document.createElement('div');
+        wrap.style.cssText='margin-top:5px;display:flex;gap:6px;justify-content:flex-end;';
+        var b=document.createElement('button');
+        b.type='button'; b.className='btn btn-purple btn-sm'; b.style.fontSize='11px';
+        b.textContent=T(x.label);
+        b.onclick=function(){ openFromField(x.id); };
+        wrap.appendChild(b);
+        el.insertAdjacentElement('afterend',wrap);
+        el._adxBtnAdded=true;
+    });
+}
 function bind(){
+    injectDxButtons();
     var b=$('adxAnalyzeBtn'); if(b && !b._adxBound){ b.addEventListener('click',runUI); b._adxBound=true; }
     var c=$('adxClearBtn'); if(c && !c._adxBound){ c.addEventListener('click',clearUI); c._adxBound=true; }
     var ta=$('adxStatement'); if(ta && !ta._adxBound){
@@ -477,6 +609,7 @@ function bind(){
     }
 }
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bind); else setTimeout(bind,0);
+setTimeout(bind,800); // pages are already in DOM, but this guards delayed rendering
 
 global.ADX_ENGINE={analyze:analyze, renderAnalysis:renderAnalysis, extractSymptoms:extractSymptoms, scoreConditions:scoreConditions};
 global.ADX_run=runUI;
@@ -487,5 +620,8 @@ global.ADX_toggleRubric=toggleRubric;
 global.ADX_setAllRubrics=setAllRubrics;
 global.ADX_openRubricSearch=openRubricSearch;
 global.ADX_analyzeSelectedRubrics=analyzeSelectedRubrics;
+global.ADX_answerRemedyQuestion=answerRemedyQuestion;
+global.ADX_openFromField=openFromField;
+global.ADX_injectDxButtons=injectDxButtons;
 
 })(window);
