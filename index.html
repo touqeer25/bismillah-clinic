@@ -4506,7 +4506,7 @@ function selectChapter(chKey, navRid){
     cd.innerHTML='<div style="text-align:center;padding:30px;">Loading <b>'+nm+'</b>...</div>';
     if(repTreeCache[chKey]){renderTree(chKey,nm,repTreeCache[chKey]);return;}
     var basePath=repCurrentBook==='kent'?'kent_chapters/':(repCurrentBook==='kent_de'?'kent_de_chapters/':(repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/'));
-    fetch(basePath+chKey+'.json?v=6').then(function(r){return r.json();}).then(function(d){
+    fetch(basePath+chKey+'.json?v=7').then(function(r){return r.json();}).then(function(d){
         var tree=buildRubricTree(d);repTreeCache[chKey]=tree;renderTree(chKey,nm,tree);
     }).catch(function(e){
         // 🔑 fallback: chapter FILE missing (e.g. kent_de) -> extract chapter from book's full data file
@@ -4548,8 +4548,9 @@ function _repSplitCommaOutsideParentheses(txt){
 }
 
 function _repFindKentParentPath(path, pathSet){
-    // Kent hierarchy is determined by actual existing rubric paths, not by every
-    // comma. Example:
+    // Some repertories (Kent English + Repertorium Publicum/oorep) have many
+    // meaningful commas inside a single rubric label. Their hierarchy is
+    // determined by actual existing rubric paths, not by every comma. Example:
     //   BALL, as if, ascending to throat
     //   BALL, as if, ascending to throat, rolling in
     // The parent of the second line is the full first line, so the child label is
@@ -4577,7 +4578,7 @@ function _repMergeRemedies(dst, src){
     });
 }
 
-function _repBuildKentTreeByExistingRubrics(data){
+function _repBuildTreeByExistingRubrics(data){
     var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
     var entries=[];
     var pathSet=Object.create(null);
@@ -4624,10 +4625,11 @@ function _repBuildKentTreeByExistingRubrics(data){
 }
 
 function buildRubricTree(data){
-    // Kent English has many meaningful commas inside a single rubric label.
-    // Therefore it must be nested by the longest already-existing rubric prefix,
-    // not by every comma. This fixes BUBO, BALL etc. across all Kent chapters.
-    if(repCurrentBook === 'kent') return _repBuildKentTreeByExistingRubrics(data);
+    // Kent English and Repertorium Publicum have many meaningful commas inside
+    // a single rubric label. Therefore they must be nested by the longest
+    // already-existing rubric prefix, not by every comma.
+    // This fixes BUBO/BALL in Kent and oorep Publicum rubric ordering.
+    if(repCurrentBook === 'kent' || repCurrentBook === 'publicum') return _repBuildTreeByExistingRubrics(data);
 
     var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
     
@@ -5193,7 +5195,7 @@ function searchRepertoryBrowser(){
                 finalize(out);
             }
             var basePath = REP_BOOK_INFO[repCurrentBook].chapDir;
-            fetch(basePath+chKey+'.json?v=6').then(function(rr){return rr.json();}).then(run).catch(function(){
+            fetch(basePath+chKey+'.json?v=7').then(function(rr){return rr.json();}).then(run).catch(function(){
                 if(!searchStillActive()) return;
                 // fallback to cached tree
                 if(repTreeCache[chKey]){
