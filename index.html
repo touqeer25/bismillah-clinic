@@ -4506,7 +4506,7 @@ function selectChapter(chKey, navRid){
     cd.innerHTML='<div style="text-align:center;padding:30px;">Loading <b>'+nm+'</b>...</div>';
     if(repTreeCache[chKey]){renderTree(chKey,nm,repTreeCache[chKey]);return;}
     var basePath=repCurrentBook==='kent'?'kent_chapters/':(repCurrentBook==='kent_de'?'kent_de_chapters/':(repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/'));
-    fetch(basePath+chKey+'.json?v=7').then(function(r){return r.json();}).then(function(d){
+    fetch(basePath+chKey+'.json?v=8').then(function(r){return r.json();}).then(function(d){
         var tree=buildRubricTree(d);repTreeCache[chKey]=tree;renderTree(chKey,nm,tree);
     }).catch(function(e){
         // 🔑 fallback: chapter FILE missing (e.g. kent_de) -> extract chapter from book's full data file
@@ -4539,6 +4539,28 @@ function _repSplitCommaOutsideParentheses(txt){
             if(buf.trim()) parts.push(buf.trim());
             buf = '';
             while(i+1<txt.length && /\s/.test(txt.charAt(i+1))) i++;
+            continue;
+        }
+        buf += ch;
+    }
+    if(buf.trim()) parts.push(buf.trim());
+    return parts;
+}
+
+function _repSplitSynthesisPathForTree(txt){
+    txt = String(txt || '').trim();
+    if(!txt) return [];
+    // Synthesis 9.1 uses ' - ' for hierarchy. Commas are usually part of
+    // inverted rubric labels, e.g. 'Abdomen, in general', 'acids, after',
+    // 'Anaemia, chlorosis'. Therefore do NOT split Synthesis on comma.
+    var parts=[], buf='', depth=0;
+    for(var i=0;i<txt.length;i++){
+        var ch = txt.charAt(i);
+        if(ch === '('){ depth++; buf += ch; continue; }
+        if(ch === ')'){ if(depth>0) depth--; buf += ch; continue; }
+        if(depth===0 && ch===' ' && txt.substr(i,3)===' - '){
+            if(buf.trim()) parts.push(buf.trim());
+            buf=''; i += 2; // skip the full ' - '
             continue;
         }
         buf += ch;
@@ -4638,7 +4660,7 @@ function buildRubricTree(data){
         if(!r)return;
         var txt=r.path||r.de_path||r.t||'';
         if(!txt)return;
-        var parts = _repSplitCommaOutsideParentheses(txt);
+        var parts = (repCurrentBook === 'synthesis91') ? _repSplitSynthesisPathForTree(txt) : _repSplitCommaOutsideParentheses(txt);
         var n=root;
         for(var i=0;i<parts.length;i++){
             var pt=parts[i].trim();
@@ -5195,7 +5217,7 @@ function searchRepertoryBrowser(){
                 finalize(out);
             }
             var basePath = REP_BOOK_INFO[repCurrentBook].chapDir;
-            fetch(basePath+chKey+'.json?v=7').then(function(rr){return rr.json();}).then(run).catch(function(){
+            fetch(basePath+chKey+'.json?v=8').then(function(rr){return rr.json();}).then(run).catch(function(){
                 if(!searchStillActive()) return;
                 // fallback to cached tree
                 if(repTreeCache[chKey]){
