@@ -276,7 +276,7 @@ function fetchChapter(book, chapter){
     var key=book+'|'+chapter;
     if(adxChapterCache[key]) return Promise.resolve(adxChapterCache[key]);
     var info=bookInfo(book);
-    var url=(info.chapDir||'')+chapter+'.json?v=12';
+    var url=(info.chapDir||'')+chapter+'.json?v=13';
     return fetch(url).then(function(r){ if(!r.ok) throw new Error(url); return r.json(); }).then(function(d){ adxChapterCache[key]=d; return d; });
 }
 function scoreRubricMatch(path, query){
@@ -803,9 +803,153 @@ function injectDxButtons(){
         el._adxBtnAdded=true;
     });
 }
+// ==================== ADX Phase 5: Outcome analytics dashboard + records manager ====================
+function allAdxRecords(){
+    var cases=storageGet('adx_case_records').map(function(x){x._source='case'; return x;});
+    var outs=storageGet('adx_outcome_records').map(function(x){x._source='outcome'; return x;});
+    var all=cases.concat(outs);
+    all.sort(function(a,b){ return String(b.savedAt||'').localeCompare(String(a.savedAt||'')); });
+    return all;
+}
+function safePct(x){ var n=parseFloat(x); return isNaN(n)?null:n; }
+function countBy(arr, fn){
+    var m={}; arr.forEach(function(x){ var k=fn(x)||'Unknown'; m[k]=(m[k]||0)+1; });
+    return Object.keys(m).map(function(k){return {name:k,count:m[k]};}).sort(function(a,b){return b.count-a.count || a.name.localeCompare(b.name);});
+}
+function avg(nums){ nums=nums.filter(function(n){return typeof n==='number'&&!isNaN(n);}); if(!nums.length) return null; return Math.round(nums.reduce(function(a,b){return a+b;},0)/nums.length); }
+function analyticsData(){
+    var cases=storageGet('adx_case_records');
+    var outcomes=storageGet('adx_outcome_records');
+    var all=allAdxRecords();
+    var outcomePerc=outcomes.map(function(r){return safePct(r.outcome&&r.outcome.percent);}).filter(function(n){return n!==null;});
+    var byDiagnosis=countBy(all, function(r){ return (r.finalDecision&&r.finalDecision.diagnosis) || (r.differentials&&r.differentials[0]&&r.differentials[0].name); });
+    var byRemedy=countBy(all, function(r){ return (r.finalDecision&&r.finalDecision.remedy) || (r.topRemedies&&r.topRemedies[0]&&r.topRemedies[0].remedy); });
+    var byResponse=countBy(outcomes, function(r){ return r.outcome&&r.outcome.response; });
+    var redFlagCount=all.filter(function(r){ return r.redFlags && r.redFlags.length; }).length;
+    var remedyStats={};
+    outcomes.forEach(function(r){
+        var rem=(r.finalDecision&&r.finalDecision.remedy) || (r.topRemedies&&r.topRemedies[0]&&r.topRemedies[0].remedy) || 'Unknown';
+        if(!remedyStats[rem]) remedyStats[rem]={name:rem,count:0,better:0,perc:[]};
+        remedyStats[rem].count++;
+        if((r.outcome&&r.outcome.response)==='Better') remedyStats[rem].better++;
+        var p=safePct(r.outcome&&r.outcome.percent); if(p!==null) remedyStats[rem].perc.push(p);
+    });
+    var remedyRows=Object.keys(remedyStats).map(function(k){ var x=remedyStats[k]; x.avg=avg(x.perc); return x; }).sort(function(a,b){return b.count-a.count || (b.avg||0)-(a.avg||0);});
+    return {cases:cases,outcomes:outcomes,all:all,total:all.length,avgImprovement:avg(outcomePerc),byDiagnosis:byDiagnosis,byRemedy:byRemedy,byResponse:byResponse,redFlagCount:redFlagCount,remedyRows:remedyRows};
+}
+function barHtml(rows, color){
+    if(!rows.length) return '<div style="color:#95a5a6;font-size:12px;">No data yet</div>';
+    var max=Math.max.apply(null, rows.map(function(r){return r.count;}));
+    var h='';
+    rows.slice(0,8).forEach(function(r){
+        var w=max?Math.round((r.count/max)*100):0;
+        h+='<div style="margin:5px 0;font-size:12px;"><div style="display:flex;justify-content:space-between;gap:8px;"><span>'+esc(r.name)+'</span><b>'+r.count+'</b></div><div style="height:7px;background:#ecf0f1;border-radius:6px;overflow:hidden;"><div style="height:7px;width:'+w+'%;background:'+color+';"></div></div></div>';
+    });
+    return h;
+}
+function renderAnalyticsDashboard(){
+    var d=analyticsData();
+    var h='<div style="padding:10px;background:#ffffff;border:1px solid #d6eaf8;border-radius:8px;">';
+    h+='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:10px;">';
+    function card(label,val,color){ return '<div style="background:'+color+';color:white;border-radius:8px;padding:10px;text-align:center;"><div style="font-size:20px;font-weight:bold;">'+esc(val)+'</div><div style="font-size:11px;opacity:.9;">'+esc(label)+'</div></div>'; }
+    h+=card('Saved cases', d.cases.length, '#1a5276');
+    h+=card('Outcome records', d.outcomes.length, '#16a085');
+    h+=card('Avg improvement', d.avgImprovement===null?'-':(d.avgImprovement+'%'), '#8e44ad');
+    h+=card('Red-flag cases', d.redFlagCount, '#c0392b');
+    h+='</div>';
+    h+='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;">';
+    h+='<div><div style="font-weight:bold;color:#1a5276;margin-bottom:5px;">Top diagnoses</div>'+barHtml(d.byDiagnosis,'#2980b9')+'</div>';
+    h+='<div><div style="font-weight:bold;color:#1a5276;margin-bottom:5px;">Top remedies</div>'+barHtml(d.byRemedy,'#27ae60')+'</div>';
+    h+='<div><div style="font-weight:bold;color:#1a5276;margin-bottom:5px;">Outcome response</div>'+barHtml(d.byResponse,'#f39c12')+'</div>';
+    h+='</div>';
+    if(d.remedyRows.length){
+        h+='<div style="margin-top:12px;font-weight:bold;color:#1a5276;">Remedy outcome hints</div><div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12px;background:white;"><thead><tr style="background:#eafaf1;"><th style="text-align:left;padding:5px;">Remedy</th><th style="text-align:left;padding:5px;">Cases</th><th style="text-align:left;padding:5px;">Better</th><th style="text-align:left;padding:5px;">Avg %</th></tr></thead><tbody>';
+        d.remedyRows.slice(0,10).forEach(function(r){ h+='<tr style="border-bottom:1px solid #eef2f5;"><td style="padding:5px;font-weight:bold;">'+esc(r.name)+'</td><td style="padding:5px;">'+r.count+'</td><td style="padding:5px;">'+r.better+'</td><td style="padding:5px;">'+(r.avg===null?'-':r.avg+'%')+'</td></tr>'; });
+        h+='</tbody></table></div>';
+    }
+    h+=renderRecentRecords(d.all);
+    h+='</div>';
+    return h;
+}
+function renderRecentRecords(records){
+    var h='<div style="margin-top:12px;font-weight:bold;color:#1a5276;">Recent ADX records</div>';
+    if(!records.length) return h+'<div style="color:#95a5a6;font-size:12px;">No saved ADX records yet.</div>';
+    h+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12px;background:white;"><thead><tr style="background:#f4f6f8;"><th style="padding:5px;text-align:left;">Date</th><th style="padding:5px;text-align:left;">Type</th><th style="padding:5px;text-align:left;">Diagnosis</th><th style="padding:5px;text-align:left;">Remedy</th><th style="padding:5px;text-align:left;">Outcome</th><th style="padding:5px;text-align:left;">Actions</th></tr></thead><tbody>';
+    records.slice(0,20).forEach(function(r){
+        var diag=(r.finalDecision&&r.finalDecision.diagnosis) || (r.differentials&&r.differentials[0]&&r.differentials[0].name) || '';
+        var rem=(r.finalDecision&&r.finalDecision.remedy) || (r.topRemedies&&r.topRemedies[0]&&r.topRemedies[0].remedy) || '';
+        var out=(r.outcome&&r.outcome.response? r.outcome.response+' '+(r.outcome.percent||'')+'%' : '');
+        h+='<tr style="border-bottom:1px solid #eef2f5;"><td style="padding:5px;">'+esc(String(r.savedAt||'').slice(0,10))+'</td><td style="padding:5px;">'+esc(r._source||'')+'</td><td style="padding:5px;">'+esc(diag)+'</td><td style="padding:5px;">'+esc(rem)+'</td><td style="padding:5px;">'+esc(out)+'</td><td style="padding:5px;"><button class="btn btn-info btn-xs" type="button" onclick="ADX_loadRecord(\''+esc(r.id)+'\',\''+esc(r._source)+'\')">Load</button> <button class="btn btn-light btn-xs" type="button" onclick="ADX_deleteRecord(\''+esc(r.id)+'\',\''+esc(r._source)+'\')">Delete</button></td></tr>';
+    });
+    h+='</tbody></table></div>';
+    return h;
+}
+function showAnalytics(){ var c=$('adxAnalyticsContent'); if(c) c.innerHTML=renderAnalyticsDashboard(); }
+function injectAnalyticsPanel(){
+    if($('adxAnalyticsPanel')) return;
+    var host=$('adxResults') || $('diagnosisResults'); if(!host) return;
+    var div=document.createElement('div'); div.id='adxAnalyticsPanel';
+    div.className='card';
+    div.style.cssText='margin-top:14px;border-top:4px solid #8e44ad;';
+    div.innerHTML='<div class="card-title">📊 '+esc(T({ur:'ADX outcome analytics / records',en:'ADX outcome analytics / records',roman:'ADX records'}))+'</div>'+
+        '<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;"><button class="btn btn-purple btn-sm" type="button" onclick="ADX_showAnalytics()">📊 Show analytics</button><button class="btn btn-info btn-sm" type="button" onclick="ADX_exportRecords()">⬇️ Export ADX records</button><button class="btn btn-success btn-sm" type="button" onclick="ADX_importRecords()">⬆️ Import ADX records</button><button class="btn btn-light btn-sm" type="button" onclick="ADX_clearRecords()">🗑️ Clear local ADX records</button></div>'+
+        '<div id="adxAnalyticsContent" style="font-size:12px;color:#7f8c8d;">'+esc(T({ur:'Final decisions/outcomes save کرنے کے بعد analytics یہاں دیکھیں۔',en:'Save final decisions/outcomes, then view analytics here.',roman:'Records save kar ke analytics dekhein.'}))+'</div>';
+    host.insertAdjacentElement('afterend', div);
+}
+function exportRecords(){
+    var data={version:'v13', exportedAt:new Date().toISOString(), caseRecords:storageGet('adx_case_records'), outcomeRecords:storageGet('adx_outcome_records')};
+    var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+    var url=URL.createObjectURL(blob), a=document.createElement('a');
+    a.href=url; a.download='adx-records-'+new Date().toISOString().slice(0,10)+'.json'; a.click(); URL.revokeObjectURL(url);
+}
+function importRecords(){
+    var inp=document.createElement('input'); inp.type='file'; inp.accept='.json,application/json';
+    inp.onchange=function(){
+        var f=inp.files&&inp.files[0]; if(!f) return;
+        var reader=new FileReader();
+        reader.onload=function(e){
+            try{
+                var data=JSON.parse(e.target.result||'{}');
+                function merge(key, incoming){
+                    var arr=storageGet(key), map={}; arr.forEach(function(x){map[x.id]=x;});
+                    (incoming||[]).forEach(function(x){ if(x && x.id) map[x.id]=x; });
+                    storageSet(key, Object.keys(map).map(function(k){return map[k];}).sort(function(a,b){return String(b.savedAt||'').localeCompare(String(a.savedAt||''));}).slice(0,500));
+                }
+                merge('adx_case_records', data.caseRecords || data.cases || []);
+                merge('adx_outcome_records', data.outcomeRecords || data.outcomes || []);
+                toast('✅ ADX records imported'); showAnalytics();
+            }catch(err){ toast('❌ Invalid ADX records file','error'); }
+        };
+        reader.readAsText(f);
+    };
+    inp.click();
+}
+function clearRecords(){
+    if(!confirm(T({ur:'کیا واقعی تمام local ADX case/outcome records delete کرنے ہیں؟',en:'Delete all local ADX case/outcome records?',roman:'ADX local records delete karne hain?'}))) return;
+    localStorage.removeItem('adx_case_records'); localStorage.removeItem('adx_outcome_records'); toast('🗑️ Cleared'); showAnalytics();
+}
+function loadRecord(id, source){
+    var arr=source==='outcome'?storageGet('adx_outcome_records'):storageGet('adx_case_records');
+    var rec=arr.find(function(x){return x.id===id;}); if(!rec){ toast('Record not found','error'); return; }
+    var ta=$('adxStatement'); if(ta) ta.value=rec.statement||'';
+    setVal('adxFinalDiagnosis', rec.finalDecision&&rec.finalDecision.diagnosis);
+    setVal('adxFinalRemedy', rec.finalDecision&&rec.finalDecision.remedy);
+    setVal('adxFinalConfidence', rec.finalDecision&&rec.finalDecision.confidence);
+    setVal('adxFinalNotes', rec.finalDecision&&rec.finalDecision.notes);
+    setVal('adxTestsDone', rec.finalDecision&&rec.finalDecision.testsDone);
+    if(rec.generals){ Object.keys(rec.generals).forEach(function(k){ var id='adx'+k.charAt(0).toUpperCase()+k.slice(1); setVal(id, rec.generals[k]); }); }
+    if(ta && ta.value) runUI();
+    toast('✅ Record loaded');
+}
+function deleteRecord(id, source){
+    var key=source==='outcome'?'adx_outcome_records':'adx_case_records';
+    var arr=storageGet(key).filter(function(x){return x.id!==id;}); storageSet(key, arr); showAnalytics(); toast('Deleted');
+}
+
 function bind(){
     injectCaseDetailsPanel();
     injectDxButtons();
+    injectAnalyticsPanel();
     var b=$('adxAnalyzeBtn'); if(b && !b._adxBound){ b.addEventListener('click',runUI); b._adxBound=true; }
     var c=$('adxClearBtn'); if(c && !c._adxBound){ c.addEventListener('click',clearUI); c._adxBound=true; }
     var ta=$('adxStatement'); if(ta && !ta._adxBound){
@@ -833,5 +977,12 @@ global.ADX_saveOutcome=saveOutcome;
 global.ADX_copyFinalToVisit=copyFinalToVisit;
 global.ADX_copyFinalSummary=copyFinalSummary;
 global.ADX_collectCaseDetails=collectCaseDetails;
+global.ADX_showAnalytics=showAnalytics;
+global.ADX_exportRecords=exportRecords;
+global.ADX_importRecords=importRecords;
+global.ADX_clearRecords=clearRecords;
+global.ADX_loadRecord=loadRecord;
+global.ADX_deleteRecord=deleteRecord;
+global.ADX_renderAnalyticsDashboard=renderAnalyticsDashboard;
 
 })(window);
