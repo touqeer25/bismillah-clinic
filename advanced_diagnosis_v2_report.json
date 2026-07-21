@@ -1,0 +1,11 @@
+{
+  "name": "Advanced Diagnosis Phase 2 - Rubric Selection + Basic Repertorization",
+  "cache_version": "v10",
+  "new_features": [
+    "select/reject suggested rubrics",
+    "open suggested rubric in repertory search",
+    "basic remedy scoring from selected rubrics",
+    "coverage and matched rubric display"
+  ],
+  "note": "Preliminary repertorization only; doctor should confirm exact rubrics before prescription."
+}

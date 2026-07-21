@@ -201,6 +201,150 @@ function analyze(statement, extraKeys){
     };
 }
 
+
+// ==================== ADX Phase 2/3: Rubric selection + basic repertorization ====================
+var adxChapterCache = {};
+function ensureRubricSelection(a){
+    if(!a || !a.rubrics) return;
+    if(a._rubricSelectionInitialized) return;
+    a.rubrics.forEach(function(r, i){ r.selected = i < 18; }); // select the most relevant first 18 by default
+    a._rubricSelectionInitialized = true;
+}
+function selectedRubrics(){
+    if(!lastAnalysis || !lastAnalysis.rubrics) return [];
+    ensureRubricSelection(lastAnalysis);
+    return lastAnalysis.rubrics.filter(function(r){ return r.selected !== false; });
+}
+function toggleRubric(idx){
+    if(!lastAnalysis || !lastAnalysis.rubrics || !lastAnalysis.rubrics[idx]) return;
+    lastAnalysis.rubrics[idx].selected = !(lastAnalysis.rubrics[idx].selected !== false);
+    var out=$('adxResults'); if(out) out.innerHTML=renderAnalysis(lastAnalysis);
+}
+function setAllRubrics(state){
+    if(!lastAnalysis || !lastAnalysis.rubrics) return;
+    lastAnalysis.rubrics.forEach(function(r){ r.selected = !!state; });
+    var out=$('adxResults'); if(out) out.innerHTML=renderAnalysis(lastAnalysis);
+}
+function bookInfo(book){
+    if(global.REP_BOOK_INFO && global.REP_BOOK_INFO[book]) return global.REP_BOOK_INFO[book];
+    return {
+        publicum:{abbr:'Pub',name:'Repertorium Publicum',chapDir:'repertory_chapters/'},
+        kent:{abbr:'Kent',name:'Kent English',chapDir:'kent_chapters/'},
+        synthesis91:{abbr:'Syn',name:'Synthesis 9.1',chapDir:'synthesis91_raw_chapters/'},
+        kent_de:{abbr:'K-DE',name:'Kent German',chapDir:'kent_de_chapters/'}
+    }[book] || {abbr:book,name:book,chapDir:''};
+}
+function openRubricSearch(idx){
+    if(!lastAnalysis || !lastAnalysis.rubrics || !lastAnalysis.rubrics[idx]) return;
+    var r=lastAnalysis.rubrics[idx];
+    try{
+        var btn=document.querySelector('[data-page="repertoryBrowser"]');
+        if(typeof showPage==='function') showPage('repertoryBrowser', btn);
+        setTimeout(function(){
+            var sel=$('repBookSelect');
+            if(sel){ sel.value=r.book; }
+            if(typeof repCurrentBook!=='undefined') global.repCurrentBook=r.book;
+            if(typeof switchRepertoryBook==='function') switchRepertoryBook();
+            setTimeout(function(){
+                if(typeof repSearchMode!=='undefined') global.repSearchMode='book';
+                if(typeof updateRepSearchModeUI==='function') updateRepSearchModeUI();
+                var inp=$('repBrowserSearch');
+                if(inp){ inp.value=r.path; }
+                if(typeof searchRepertoryBrowser==='function') searchRepertoryBrowser();
+            },350);
+        },120);
+    }catch(e){ console.error(e); toast('Could not open repertory search','error'); }
+}
+function normRubric(s){
+    return String(s||'').toLowerCase().replace(/[۔،;:()\[\]{}]/g,' ').replace(/\s+-\s+/g,' - ').replace(/[^a-z0-9\-\s]+/g,' ').replace(/\s+/g,' ').trim();
+}
+function remedyKey(abbr){ return String(abbr||'').toLowerCase().replace(/\.$/,'').trim(); }
+function fetchChapter(book, chapter){
+    var key=book+'|'+chapter;
+    if(adxChapterCache[key]) return Promise.resolve(adxChapterCache[key]);
+    var info=bookInfo(book);
+    var url=(info.chapDir||'')+chapter+'.json?v=10';
+    return fetch(url).then(function(r){ if(!r.ok) throw new Error(url); return r.json(); }).then(function(d){ adxChapterCache[key]=d; return d; });
+}
+function scoreRubricMatch(path, query){
+    var p=normRubric(path), q=normRubric(query);
+    if(!p || !q) return 0;
+    if(p===q) return 1000;
+    if(p.endsWith(q)) return 850;
+    if(p.indexOf(q)!==-1) return 750;
+    var words=q.split(/\s+/).filter(function(w){ return w.length>1 && !/^(and|or|the|in|of|to|as|if)$/.test(w); });
+    if(!words.length) return 0;
+    var hit=0;
+    words.forEach(function(w){ if(p.indexOf(w)!==-1) hit++; });
+    var ratio=hit/words.length;
+    if(ratio>=1) return 650;
+    if(ratio>=0.75) return 450;
+    if(ratio>=0.5) return 250;
+    return 0;
+}
+function findBestRubric(data, query){
+    var best=null, bestScore=0;
+    Object.keys(data||{}).forEach(function(rid){
+        var rec=data[rid]; if(!rec) return;
+        var t=rec.path||rec.de_path||rec.t||'';
+        var sc=scoreRubricMatch(t, query);
+        if(sc>bestScore){ bestScore=sc; best={rid:rid, rec:rec, path:t, score:sc}; }
+    });
+    return bestScore>=250 ? best : null;
+}
+function renderRemedyAnalysis(rows, matchedRubrics, errors){
+    var h='';
+    h+='<div style="margin-top:10px;padding:10px;border-radius:8px;background:#f4fbf7;border:1px solid #a9dfbf;">';
+    h+='<div style="font-weight:bold;color:#145a32;margin-bottom:6px;">💊 '+esc(T({ur:'Repertorization from selected rubrics',en:'Repertorization from selected rubrics',roman:'Repertorization'}))+'</div>';
+    if(errors && errors.length){ h+='<div style="font-size:11px;color:#b03a2e;margin-bottom:5px;">⚠️ '+esc(errors.length)+' rubric(s) not found/loaded</div>'; }
+    if(!rows.length){
+        h+='<div style="color:#95a5a6;font-size:12px;">No remedy result. Select more exact rubrics or open repertory search.</div></div>';
+        return h;
+    }
+    h+='<div style="font-size:11px;color:#566573;margin-bottom:6px;">'+matchedRubrics.length+' matched rubric(s). Score = grade × rubric weight + coverage bonus.</div>';
+    h+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12px;background:white;"><thead><tr style="background:#eafaf1;color:#145a32;"><th style="padding:6px;text-align:left;">#</th><th style="padding:6px;text-align:left;">Remedy</th><th style="padding:6px;text-align:left;">Score</th><th style="padding:6px;text-align:left;">Coverage</th><th style="padding:6px;text-align:left;">Matched rubrics</th></tr></thead><tbody>';
+    rows.slice(0,25).forEach(function(r,i){
+        h+='<tr style="border-bottom:1px solid #eef2f5;"><td style="padding:5px;">'+(i+1)+'</td><td style="padding:5px;font-weight:bold;color:#1a5276;">'+esc(r.display)+'</td><td style="padding:5px;">'+Math.round(r.score)+'</td><td style="padding:5px;">'+r.coverage+'</td><td style="padding:5px;color:#7f8c8d;">'+r.matches.slice(0,4).map(function(m){return esc(m);}).join(' | ')+'</td></tr>';
+    });
+    h+='</tbody></table></div>';
+    h+='<div style="margin-top:8px;font-size:11px;color:#7f8c8d;">'+esc(T({ur:'نوٹ: یہ ابتدائی repertorization ہے۔ Rubrics کو doctor confirm/modify کرے، پھر final remedy differentiation کریں۔',en:'Note: This is preliminary repertorization. Doctor should confirm/modify rubrics before final remedy differentiation.',roman:'Preliminary repertorization.'}))+'</div>';
+    h+='</div>';
+    return h;
+}
+function analyzeSelectedRubrics(){
+    if(!lastAnalysis){ toast('No analysis yet','error'); return; }
+    var sel=selectedRubrics();
+    var box=$('adxRemedyAnalysis');
+    if(!box){ return; }
+    if(!sel.length){ box.innerHTML='<div style="color:#e74c3c;font-size:12px;">Select at least one rubric.</div>'; return; }
+    box.innerHTML='<div style="padding:10px;background:#fff7e6;border:1px solid #f5c16c;border-radius:8px;font-size:12px;">⏳ '+esc(T({ur:'Selected rubrics سے remedies نکالی جا رہی ہیں...',en:'Analyzing selected rubrics...',roman:'Rubrics analyze ho rahi hain...'}))+'</div>';
+    var remedyMap={}, matched=[], errors=[];
+    var chain=Promise.resolve();
+    sel.forEach(function(r){
+        chain=chain.then(function(){
+            return fetchChapter(r.book,r.chapter).then(function(data){
+                var best=findBestRubric(data,r.path);
+                if(!best || !best.rec || !best.rec.r){ errors.push(r.book+'/'+r.chapter+': '+r.path); return; }
+                matched.push({suggestion:r, found:best.path, rid:best.rid});
+                Object.keys(best.rec.r||{}).forEach(function(abbr){
+                    var key=remedyKey(abbr); if(!key) return;
+                    var grade=parseInt(best.rec.r[abbr],10)||1;
+                    var weight=parseFloat(r.weight)||2;
+                    if(!remedyMap[key]) remedyMap[key]={key:key,display:abbr,score:0,coverage:0,matches:[]};
+                    remedyMap[key].score += grade*weight;
+                    remedyMap[key].coverage += 1;
+                    remedyMap[key].matches.push(r.book+': '+best.path+' ('+grade+')');
+                });
+            }).catch(function(){ errors.push(r.book+'/'+r.chapter+': '+r.path); });
+        });
+    });
+    chain.then(function(){
+        var rows=Object.keys(remedyMap).map(function(k){ var x=remedyMap[k]; x.score += x.coverage*1.5; return x; });
+        rows.sort(function(a,b){ return b.score-a.score || b.coverage-a.coverage || a.display.localeCompare(b.display); });
+        if(box) box.innerHTML=renderRemedyAnalysis(rows, matched, errors);
+    });
+}
+
 function renderAnalysis(a){
     var K=global.ADX_KNOWLEDGE||{};
     var h='';
@@ -243,11 +387,17 @@ function renderAnalysis(a){
     a.tests.slice(0,16).forEach(function(t){ h+='<div style="display:inline-block;margin:2px;padding:5px 8px;border-radius:12px;background:#e8f4f8;font-size:11px;"><b>'+esc(t.priority)+':</b> '+esc(t.test)+'</div>'; });
     h+='</div>';
 
+    ensureRubricSelection(a);
     h+='<div class="disease-section"><div class="disease-section-title">📚 '+esc(T({ur:'Suggested repertory rubrics',en:'Suggested repertory rubrics',roman:'Suggested repertory rubrics'}))+'</div>';
     if(!a.rubrics.length) h+='<div style="color:#95a5a6;font-size:12px;">No rubric suggestions yet.</div>';
-    a.rubrics.slice(0,24).forEach(function(r){
-        h+='<div style="padding:6px 8px;background:#fff;border:1px solid #eef2f5;border-radius:6px;margin:3px 0;font-size:12px;"><b>'+esc(r.book)+'</b> / '+esc(r.chapter)+' — '+esc(r.path)+' <small style="color:#7f8c8d;">['+esc(symptomName(r.symptom))+']</small></div>';
+    if(a.rubrics.length){
+        h+='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;"><button class="btn btn-success btn-sm" type="button" onclick="ADX_analyzeSelectedRubrics()">💊 '+esc(T({ur:'Selected rubrics سے remedies نکالیں',en:'Analyze selected rubrics',roman:'Selected rubrics analyze'}))+'</button><button class="btn btn-light btn-sm" type="button" onclick="ADX_setAllRubrics(true)">✓ All</button><button class="btn btn-light btn-sm" type="button" onclick="ADX_setAllRubrics(false)">✕ None</button></div>';
+    }
+    a.rubrics.slice(0,30).forEach(function(r,i){
+        var checked = r.selected !== false ? ' checked' : '';
+        h+='<div style="padding:6px 8px;background:#fff;border:1px solid #eef2f5;border-radius:6px;margin:3px 0;font-size:12px;display:flex;gap:7px;align-items:flex-start;flex-wrap:wrap;"><label style="display:flex;gap:5px;align-items:center;"><input type="checkbox" onchange="ADX_toggleRubric('+i+')"'+checked+'> <b>'+esc(r.book)+'</b></label><span>/ '+esc(r.chapter)+' — '+esc(r.path)+' <small style="color:#7f8c8d;">['+esc(symptomName(r.symptom))+']</small></span><button class="btn btn-info btn-xs" type="button" onclick="ADX_openRubricSearch('+i+')">🔍 '+esc(T({ur:'اوپن/سرچ',en:'Open/Search',roman:'Open/Search'}))+'</button></div>';
     });
+    h+='<div id="adxRemedyAnalysis"></div>';
     h+='</div>';
 
     h+='<div class="disease-section"><div class="disease-section-title">💊 '+esc(T({ur:'Remedy differentiation questions',en:'Remedy differentiation questions',roman:'Remedy differentiation'}))+'</div>';
@@ -333,5 +483,9 @@ global.ADX_run=runUI;
 global.ADX_clear=clearUI;
 global.ADX_copySummary=copySummary;
 global.ADX_copyToVisit=copyToVisit;
+global.ADX_toggleRubric=toggleRubric;
+global.ADX_setAllRubrics=setAllRubrics;
+global.ADX_openRubricSearch=openRubricSearch;
+global.ADX_analyzeSelectedRubrics=analyzeSelectedRubrics;
 
 })(window);
