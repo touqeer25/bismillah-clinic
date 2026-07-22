@@ -1,0 +1,13 @@
+{
+  "name": "Guided Fever Module v2 - Kent-style multi-select and toggle answers",
+  "cache_version": "v23",
+  "new_features": [
+    "answer buttons toggle select/deselect on repeated click",
+    "multi-select answers per fever question",
+    "selected guided findings removable from Case Builder",
+    "doctor free text stays editable and is not overwritten",
+    "fever disease confirmation expanded with Kent fever/chill/sweat questions",
+    "fever remedy selection expanded with broader therapeutic fever remedy groups"
+  ],
+  "source_note": "Fever questions follow Kent Section 33 Fever, Chill and Sweat plus clinical red-flag/differential prompts. Buttons add descriptive facts, not simple yes/no."
+}

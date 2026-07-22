@@ -528,7 +528,7 @@ function fetchChapter(book, chapter){
     var key=book+'|'+chapter;
     if(adxChapterCache[key]) return Promise.resolve(adxChapterCache[key]);
     var info=bookInfo(book);
-    var url=(info.chapDir||'')+chapter+'.json?v=22';
+    var url=(info.chapDir||'')+chapter+'.json?v=23';
     return fetch(url).then(function(r){ if(!r.ok) throw new Error(url); return r.json(); }).then(function(d){ adxChapterCache[key]=d; return d; });
 }
 function scoreRubricMatch(path, query){
@@ -1745,13 +1745,164 @@ var ADX_GUIDED_DATA = {
   {id:'chr_miasm',q:{ur:'Miasmatic tendency؟',en:'Miasmatic tendency?'},answers:[ans({ur:'Psoric',en:'Psoric'},'Psoric tendency',{}, {sulph:3,psor:3},{detail:{id:'adxMiasm',value:'psoric'}}),ans({ur:'Sycotic',en:'Sycotic'},'Sycotic tendency',{}, {thuja:4,med:3},{detail:{id:'adxMiasm',value:'sycotic'}}),ans({ur:'Tubercular',en:'Tubercular'},'Tubercular tendency',{}, {tub:5,phos:3},{detail:{id:'adxMiasm',value:'tubercular'}}),ans({ur:'Cancerinic',en:'Cancerinic'},'Cancerinic tendency',{}, {carc:5},{detail:{id:'adxMiasm',value:'cancerinic'}})]}
  ], remedy:[]}
 };
-function guidedQuestions(){ if(ADX_GUIDED_STATE.mode==='chronic') return ADX_GUIDED_DATA.chronic.confirm; var mod=ADX_GUIDED_DATA[ADX_GUIDED_STATE.focus] || ADX_GUIDED_DATA.generic; return mod[ADX_GUIDED_STATE.stage] || mod.confirm || []; }
-function guidedQuestionMap(){ var map={}; Object.keys(ADX_GUIDED_DATA).forEach(function(m){ ['confirm','remedy'].forEach(function(st){ (ADX_GUIDED_DATA[m][st]||[]).forEach(function(q){ map[q.id]=q; }); }); }); return map; }
-function guidedAllAnswers(){ var arr=[]; var data=ADX_GUIDED_STATE.mode==='chronic'?ADX_GUIDED_DATA.chronic:(ADX_GUIDED_DATA[ADX_GUIDED_STATE.focus]||ADX_GUIDED_DATA.generic); ['confirm','remedy'].forEach(function(stage){ (data[stage]||[]).forEach(function(q){ var a=ADX_GUIDED_STATE.answers[q.id]; if(a) arr.push({q:q,a:a}); }); }); return arr; }
+// ==================== ADX Phase 13: Fever Guided Module v2 (Kent-style, toggle/multi-select) ====================
+function expandGuidedFeverKentV2(){
+    if(!ADX_GUIDED_DATA.fever) return;
+    function exists(stage,id){ return (ADX_GUIDED_DATA.fever[stage]||[]).some(function(q){return q.id===id;}); }
+    function add(stage,q){ if(!exists(stage,q.id)) ADX_GUIDED_DATA.fever[stage].push(q); }
+    (ADX_GUIDED_DATA.fever.confirm||[]).forEach(function(q){ q.type='multi'; });
+    (ADX_GUIDED_DATA.fever.remedy||[]).forEach(function(q){ q.type='multi'; });
+    add('confirm',{id:'kent_duration_onset',type:'multi',cat:'Kent case-taking',q:{ur:'مدت، آغاز اور cause؟',en:'Duration, onset and cause?'},answers:[
+        ans({ur:'24 گھنٹے سے کم',en:'Less than 24h'},'Fever began within last 24 hours',{viral_fever:1},{acon:2}),
+        ans({ur:'1-3 دن',en:'1-3 days'},'Fever duration 1 to 3 days',{viral_fever:2,dengue_fever:1,influenza:2}),
+        ans({ur:'3-5 دن',en:'3-5 days'},'Fever duration 3 to 5 days',{dengue_fever:2,malaria:2,typhoid:1}),
+        ans({ur:'5 دن سے زیادہ',en:'More than 5 days'},'Fever lasting more than 5 days',{typhoid:4,malaria:2,tuberculosis:1}),
+        ans({ur:'Cold exposure',en:'After cold exposure'},'Fever after cold exposure',{viral_fever:1},{acon:5,hep:2}),
+        ans({ur:'Heat/sun exposure',en:'After heat/sun'},'Fever after heat or sun exposure',{heat_exhaustion:3,heat_stroke:2},{glon:3,bell:2}),
+        ans({ur:'Mosquito exposure',en:'Mosquito exposure'},'Mosquito exposure before fever',{dengue_fever:3,malaria:3,chikungunya:2}),
+        ans({ur:'Contaminated food/water',en:'Contaminated food/water'},'Contaminated food or water before fever',{typhoid:4,gastroenteritis:3})
+    ]});
+    add('confirm',{id:'kent_time_stage',type:'multi',cat:'Kent: time and stages',q:{ur:'وقت، stages اور periodicity؟',en:'Time, stages and periodicity?'},answers:[
+        ans({ur:'شام کو بڑھتا',en:'Evening rise'},'Fever rises in evening',{typhoid:4,tuberculosis:2}),
+        ans({ur:'رات کو worse',en:'Worse at night'},'Fever worse at night',{tuberculosis:2},{ars:2}),
+        ans({ur:'خاص گھنٹہ',en:'Fixed hour'},'Fever comes at a fixed hour',{malaria:4},{cedr:4,'nat-m':2}),
+        ans({ur:'Chill → heat → sweat',en:'Distinct stages'},'Distinct chill, heat and sweat stages',{malaria:5},{chin:2,cedr:2}),
+        ans({ur:'Sweat سے آرام',en:'Sweat relieves'},'Sweat relieves the fever',{malaria:3},{chin:3}),
+        ans({ur:'Attacks کے درمیان ٹھیک',en:'Well between attacks'},'Feels well between fever paroxysms',{malaria:5},{chin:3,cedr:3}),
+        ans({ur:'Heat/chill alternate',en:'Heat/chill alternate'},'Heat and chill alternate or are mingled',{malaria:2,sepsis:1},{ars:2,'nux-v':1})
+    ]});
+    add('confirm',{id:'kent_chill_course',type:'multi',cat:'Kent: chill course/modalities',q:{ur:'Chill کہاں سے شروع، warm/cold سے فرق؟',en:'Chill begins where; warm/cold modalities?'},answers:[
+        ans({ur:'پیٹھ/کمر سے',en:'Begins in back'},'Chill begins in the back',{malaria:2},{'nux-v':2,sep:1}),
+        ans({ur:'ہاتھ پاؤں سے',en:'Begins in hands/feet'},'Chill begins in hands or feet',{malaria:2},{sil:1,ars:1}),
+        ans({ur:'Internal coldness',en:'Internal coldness'},'Internal coldness apart from chill',{}, {ars:2}),
+        ans({ur:'ایک حصہ گرم ایک ٹھنڈا',en:'One part hot/cold'},'One part hot while another part cold',{}, {puls:2}),
+        ans({ur:'Gooseflesh',en:'Gooseflesh'},'Gooseflesh with chill',{malaria:1},{'nux-v':1}),
+        ans({ur:'گرمی/کمبل چاہے',en:'Desires warmth'},'Desires warmth, stove, sun or wraps',{}, {ars:3,'nux-v':2,hep:1}),
+        ans({ur:'گرمی سے بہتر',en:'Better warmth'},'Fever state better from warmth',{}, {ars:3,'rhus-t':2}),
+        ans({ur:'ٹھنڈ سے بہتر',en:'Better cold'},'Fever state better from cold or uncovering',{}, {puls:2,apis:2})
+    ]});
+    add('confirm',{id:'kent_thirst_sweat_skin',type:'multi',cat:'Kent: thirst, skin, sweat, pulse',q:{ur:'پیاس، skin، sweat، pulse؟',en:'Thirst, skin, sweat and pulse?'},answers:[
+        ans({ur:'Chill میں پیاس',en:'Thirst in chill'},'Thirst during chill',{malaria:1},{ars:2,'nux-v':2}),
+        ans({ur:'Heat میں پیاس',en:'Thirst in heat'},'Thirst during fever heat',{}, {bry:3,'nat-m':2}),
+        ans({ur:'پیاس نہیں',en:'Thirstless'},'Thirstless during fever',{dengue_fever:1,viral_fever:1},{gels:4,puls:3,apis:2}),
+        ans({ur:'چھوٹے گھونٹ',en:'Small sips'},'Thirst for small frequent sips',{}, {ars:5}),
+        ans({ur:'Hot dry skin',en:'Hot dry skin'},'Skin hot and dry during fever',{}, {acon:3,bell:3}),
+        ans({ur:'Red face',en:'Red face'},'Red face with fever',{}, {bell:4}),
+        ans({ur:'Purple/dusky',en:'Purple/dusky'},'Skin purple or dusky in fever',{sepsis:4,severe_dengue:3},{lach:3,'crot-h':3}),
+        ans({ur:'Cold sweat',en:'Cold sweat'},'Cold sweat with fever or collapse',{sepsis:3,dehydration:2},{verat:5,ars:2}),
+        ans({ur:'Sweat weakens',en:'Sweat weakens'},'Sweat leaves patient weak',{}, {chin:5}),
+        ans({ur:'Weak pulse',en:'Weak pulse'},'Pulse weak or imperceptible',{sepsis:3,dehydration:2},{verat:3,ars:2})
+    ]});
+    add('confirm',{id:'clinical_concomitants',type:'multi',cat:'Clinical differential + concomitants',q:{ur:'ساتھ کون کون سی علامات ہیں؟',en:'Which concomitant symptoms are present?'},answers:[
+        ans({ur:'آنکھوں کے پیچھے درد',en:'Pain behind eyes'},'Pain behind eyes with fever',{dengue_fever:6}),
+        ans({ur:'Bone-breaking pain',en:'Bone-breaking pain'},'Bone-breaking pains with fever',{dengue_fever:4,chikungunya:2},{'eup-per':7}),
+        ans({ur:'Joint pain',en:'Joint pain'},'Joint pains with fever',{chikungunya:6,dengue_fever:2},{'rhus-t':2}),
+        ans({ur:'Cough',en:'Cough'},'Cough with fever',{influenza:2,pneumonia:3,covid_like_viral:2},{bry:1,phos:1}),
+        ans({ur:'Vomiting',en:'Vomiting'},'Vomiting with fever',{gastroenteritis:3,typhoid:1,severe_dengue:2},{ars:2,verat:2,ip:2}),
+        ans({ur:'Abdominal pain',en:'Abdominal pain'},'Abdominal pain with fever',{typhoid:3,severe_dengue:3,appendicitis:2}),
+        ans({ur:'Diarrhea',en:'Diarrhea'},'Diarrhea with fever',{gastroenteritis:4,typhoid:2},{ars:2,verat:2,podo:2}),
+        ans({ur:'Burning urine',en:'Burning urine'},'Burning urination with fever',{cystitis:5,pyelonephritis:4},{canth:5,apis:2}),
+        ans({ur:'Low urine',en:'Low urine'},'Low urine with fever',{severe_dengue:6,sepsis:4,dehydration:5},{ars:1},{red:true}),
+        ans({ur:'Rash',en:'Rash'},'Rash with fever',{dengue_fever:4,chikungunya:3,measles:3}),
+        ans({ur:'Bleeding',en:'Bleeding'},'Bleeding with fever',{severe_dengue:8,dengue_fever:4,sepsis:3},{'crot-h':4,lach:2,phos:2},{red:true})
+    ]});
+    add('confirm',{id:'red_flags_fever',type:'multi',cat:'Red flag gate',q:{ur:'خطرے کی علامات؟',en:'Red flags?'},answers:[
+        ans({ur:'Confusion',en:'Confusion'},'Confusion or altered sensorium with fever',{sepsis:6,meningitis:5,severe_dengue:3},{},{red:true}),
+        ans({ur:'Neck stiffness',en:'Neck stiffness'},'Neck stiffness with fever',{meningitis:8},{},{red:true}),
+        ans({ur:'Fits',en:'Seizure/fits'},'Seizure during fever',{meningitis:6,febrile_seizure:6,sepsis:3},{},{red:true}),
+        ans({ur:'Breathless',en:'Breathless'},'Breathlessness with fever',{pneumonia:5,sepsis:4,covid_like_viral:3},{},{red:true}),
+        ans({ur:'Persistent vomiting',en:'Persistent vomiting'},'Persistent vomiting with fever',{severe_dengue:6,gastroenteritis:3,sepsis:2},{},{red:true}),
+        ans({ur:'Severe abdominal pain',en:'Severe abdominal pain'},'Severe abdominal pain with fever',{severe_dengue:6,appendicitis:4,pancreatitis:3},{},{red:true}),
+        ans({ur:'Cold extremities/collapse',en:'Cold extremities/collapse'},'Cold extremities or collapse with fever',{sepsis:6,dehydration:4,severe_dengue:4},{verat:3,ars:2},{red:true}),
+        ans({ur:'Child poor feeding',en:'Child poor feeding'},'Child not feeding with fever',{child_dehydration:5,sepsis:4},{},{red:true})
+    ]});
+    add('remedy',{id:'rx_periodic',type:'multi',cat:'Periodic/chill fever remedies',q:{ur:'Periodic/chill fever remedy clues؟',en:'Periodic/chill fever remedy clues?'},answers:[
+        ans({ur:'Same hour periodic',en:'Same hour periodic'},'Periodic fever at same hour',{}, {cedr:7,'nat-m':3}),
+        ans({ur:'Weak after sweat/fluid loss',en:'Weak after sweat/fluid loss'},'Weakness after sweat, diarrhea, bleeding or fluid loss',{}, {chin:8}),
+        ans({ur:'Chilly irritable gastric',en:'Chilly irritable gastric'},'Chilly irritable fever with gastric/stimulant history',{}, {'nux-v':7}),
+        ans({ur:'Thirst in heat',en:'Thirst in heat'},'Great thirst during fever heat',{}, {bry:3,'nat-m':4})
+    ]});
+    add('remedy',{id:'rx_typhoid_low',type:'multi',cat:'Typhoid/low fever states',q:{ur:'Typhoid یا low fever state؟',en:'Typhoid or low fever state?'},answers:[
+        ans({ur:'Toxic/stupor',en:'Toxic stupor'},'Toxic typhoid state with stupor',{}, {bapt:8}),
+        ans({ur:'Body scattered',en:'Body scattered'},'Feels as if body is scattered in bed',{}, {bapt:8}),
+        ans({ur:'Muttering delirium',en:'Muttering delirium'},'Muttering delirium or jerking',{}, {hyos:6}),
+        ans({ur:'Slides down bed',en:'Slides down bed'},'Great prostration, slides down in bed',{}, {'mur-ac':7}),
+        ans({ur:'Apathy/debility',en:'Apathy/debility'},'Apathy and debility after fever',{}, {'ph-ac':7})
+    ]});
+    add('remedy',{id:'rx_gi_resp_urine',type:'multi',cat:'GI/Resp/Urine fever remedies',q:{ur:'GI/Resp/Urine fever remedy clues؟',en:'GI/Resp/Urine fever remedy clues?'},answers:[
+        ans({ur:'Vomiting diarrhea collapse',en:'Vomiting diarrhea collapse'},'Vomiting and diarrhea with cold sweat/collapse',{}, {verat:8,ars:3}),
+        ans({ur:'Persistent nausea',en:'Persistent nausea'},'Persistent nausea with fever',{}, {ip:6}),
+        ans({ur:'Profuse diarrhea',en:'Profuse diarrhea'},'Profuse diarrhea with fever',{}, {podo:5,ars:3,verat:3}),
+        ans({ur:'Respiratory weakness',en:'Respiratory weakness'},'Respiratory fever with weakness/chest involvement',{}, {phos:5,'ant-t':4,bry:3}),
+        ans({ur:'Rattling chest',en:'Rattling chest'},'Rattling chest with difficult expectoration',{}, {'ant-t':7}),
+        ans({ur:'Urinary burning',en:'Urinary burning'},'Fever with cutting burning urination',{}, {canth:8,apis:3,sars:2}),
+        ans({ur:'Flank/kidney radiation',en:'Flank/kidney radiation'},'Fever with flank pain radiating to bladder/groin',{}, {berb:6,sars:3})
+    ]});
+}
+expandGuidedFeverKentV2();
+
+function guidedQuestions(){
+    if(ADX_GUIDED_STATE.mode==='chronic') return ADX_GUIDED_DATA.chronic.confirm;
+    var mod=ADX_GUIDED_DATA[ADX_GUIDED_STATE.focus] || ADX_GUIDED_DATA.generic;
+    return mod[ADX_GUIDED_STATE.stage] || mod.confirm || [];
+}
+function guidedQuestionMap(){
+    var map={};
+    Object.keys(ADX_GUIDED_DATA).forEach(function(m){
+        ['confirm','remedy'].forEach(function(st){ (ADX_GUIDED_DATA[m][st]||[]).forEach(function(q){ map[q.id]=q; }); });
+    });
+    return map;
+}
+function guidedSelectedList(qid){
+    var x=ADX_GUIDED_STATE.answers[qid];
+    if(!x) return [];
+    return Array.isArray(x) ? x : [x];
+}
+function guidedIsSelected(qid, answer){
+    return guidedSelectedList(qid).some(function(a){ return a && a.fact===answer.fact; });
+}
+function guidedAllAnswers(){
+    var arr=[];
+    var data=ADX_GUIDED_STATE.mode==='chronic'?ADX_GUIDED_DATA.chronic:(ADX_GUIDED_DATA[ADX_GUIDED_STATE.focus]||ADX_GUIDED_DATA.generic);
+    ['confirm','remedy'].forEach(function(stage){
+        (data[stage]||[]).forEach(function(q){ guidedSelectedList(q.id).forEach(function(a){ if(a) arr.push({q:q,a:a}); }); });
+    });
+    return arr;
+}
 function guidedFacts(){ return guidedAllAnswers().map(function(x){return x.a.fact;}); }
-function guidedScores(kind){ var scores={}; guidedAllAnswers().forEach(function(x){ var obj=kind==='rx'?x.a.rx:x.a.dx; Object.keys(obj||{}).forEach(function(k){ scores[k]=(scores[k]||0)+(parseFloat(obj[k])||0); }); }); return Object.keys(scores).map(function(k){return {key:k,score:scores[k]};}).sort(function(a,b){return b.score-a.score;}); }
-function guidedApplyDetails(){ guidedAllAnswers().forEach(function(x){ if(x.a.detail && x.a.detail.id){ var old=val(x.a.detail.id); if(old.indexOf(x.a.detail.value)===-1) setVal(x.a.detail.id,(old?old+'; ':'')+x.a.detail.value); } }); }
-function guidedCaseText(){ var base=val('adxGuidedBaseText'); var facts=guidedFacts(); var lines=[]; if(base) lines.push(base); if(ADX_GUIDED_STATE.mode==='acute') lines.push('Focus complaint: '+(guidedModules()[ADX_GUIDED_STATE.focus]?T(guidedModules()[ADX_GUIDED_STATE.focus]):ADX_GUIDED_STATE.focus)); else lines.push('Mode: Chronic / Constitutional'); if(facts.length) lines.push('Guided findings:\n- '+facts.join('\n- ')); return lines.join('\n'); }
+function guidedScores(kind){
+    var scores={};
+    guidedAllAnswers().forEach(function(x){
+        var obj=kind==='rx'?x.a.rx:x.a.dx;
+        Object.keys(obj||{}).forEach(function(k){ scores[k]=(scores[k]||0)+(parseFloat(obj[k])||0); });
+    });
+    return Object.keys(scores).map(function(k){return {key:k,score:scores[k]};}).sort(function(a,b){return b.score-a.score;});
+}
+function guidedApplyDetails(){
+    guidedAllAnswers().forEach(function(x){
+        if(x.a.detail && x.a.detail.id){
+            var old=val(x.a.detail.id);
+            if(old.indexOf(x.a.detail.value)===-1) setVal(x.a.detail.id,(old?old+'; ':'')+x.a.detail.value);
+        }
+    });
+}
+function guidedCaseText(){
+    var base=val('adxGuidedBaseText');
+    var facts=guidedFacts();
+    var lines=[];
+    if(base) lines.push(base);
+    if(ADX_GUIDED_STATE.mode==='acute') lines.push('Focus complaint: '+(guidedModules()[ADX_GUIDED_STATE.focus]?T(guidedModules()[ADX_GUIDED_STATE.focus]):ADX_GUIDED_STATE.focus));
+    else lines.push('Mode: Chronic / Constitutional');
+    if(facts.length) lines.push('Guided findings:\n- '+facts.join('\n- '));
+    return lines.join('\n');
+}
+function guidedRemoveAnswer(qid, fact){
+    var list=guidedSelectedList(qid).filter(function(a){return a.fact!==fact;});
+    if(list.length) ADX_GUIDED_STATE.answers[qid]=list;
+    else delete ADX_GUIDED_STATE.answers[qid];
+    guidedRender();
+}
+
 function guidedBars(rows, color){ if(!rows.length) return '<div style="color:#95a5a6;font-size:12px;">No score yet</div>'; var max=Math.max.apply(null, rows.map(function(r){return r.score;})); var h=''; rows.slice(0,8).forEach(function(r){ var w=max?Math.round(r.score/max*100):0; h+='<div style="margin:4px 0;font-size:12px;"><div style="display:flex;justify-content:space-between;"><span>'+esc(r.key)+'</span><b>'+r.score+'</b></div><div style="height:7px;background:#ecf0f1;border-radius:7px;overflow:hidden;"><div style="width:'+w+'%;height:7px;background:'+color+';"></div></div></div>'; }); return h; }
 function renderGuidedAssistant(){
     var questions=guidedQuestions(), mods=guidedModules();
@@ -1762,7 +1913,7 @@ function renderGuidedAssistant(){
     h+='<div style="display:grid;grid-template-columns:minmax(280px,1fr) minmax(300px,1fr);gap:12px;align-items:start;">';
     h+='<div style="background:white;border:1px solid #d6eaf8;border-radius:8px;padding:10px;"><div style="font-weight:bold;color:#145a32;margin-bottom:6px;">📝 '+esc(T({ur:'Case Builder / علامات',en:'Case Builder / Symptoms',roman:'Case Builder'}))+'</div>';
     h+='<textarea id="adxGuidedBaseText" placeholder="Main complaint / patient words..." style="width:100%;min-height:85px;border:1px solid #d6eaf8;border-radius:6px;padding:8px;font-family:inherit;font-size:12px;box-sizing:border-box;">'+esc(val('adxGuidedBaseText'))+'</textarea>';
-    var facts=guidedFacts(); h+='<div style="margin-top:8px;font-weight:bold;color:#566573;">Added findings</div><div style="min-height:45px;background:#f8f9fa;border-radius:6px;padding:6px;">'+(facts.length?facts.map(function(f){return '<span style="display:inline-block;margin:2px;padding:3px 8px;background:#eafaf1;color:#145a32;border-radius:12px;font-size:11px;">'+esc(f)+'</span>';}).join(''):'<span style="color:#95a5a6;font-size:12px;">Click answers on the right.</span>')+'</div>';
+    var selectedPairs=guidedAllAnswers(); h+='<div style="margin-top:8px;font-weight:bold;color:#566573;">Added findings</div><div style="min-height:45px;background:#f8f9fa;border-radius:6px;padding:6px;">'+(selectedPairs.length?selectedPairs.map(function(x){return '<span style="display:inline-block;margin:2px;padding:3px 8px;background:#eafaf1;color:#145a32;border-radius:12px;font-size:11px;">'+esc(x.a.fact)+' <button type="button" onclick="ADX_guidedRemoveAnswer(\''+x.q.id+'\',\''+String(x.a.fact).replace(/'/g,"\\'")+'\')" style="border:none;background:transparent;color:#c0392b;cursor:pointer;font-weight:bold;">×</button></span>';}).join(''):'<span style="color:#95a5a6;font-size:12px;">Click answers on the right.</span>')+'</div>';
     h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;"><div><b style="font-size:12px;color:#1a5276;">Diagnosis focus</b>'+guidedBars(guidedScores('dx'),'#2980b9')+'</div><div><b style="font-size:12px;color:#7d6608;">Remedy focus</b>'+guidedBars(guidedScores('rx'),'#f39c12')+'</div></div>';
     h+='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;"><button type="button" class="btn btn-success btn-sm" onclick="ADX_guidedAnalyzeFull()">🧠 Analyze full ADX</button><button type="button" class="btn btn-info btn-sm" onclick="ADX_guidedTransfer()">➕ Add to main statement</button><button type="button" class="btn btn-light btn-sm" onclick="ADX_guidedClear()">🔄 Clear guided</button></div></div>';
     h+='<div style="background:white;border:1px solid #d6eaf8;border-radius:8px;padding:10px;"><div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:8px;">';
@@ -1772,7 +1923,7 @@ function renderGuidedAssistant(){
         h+=stageBtn('confirm','1 Disease type')+stageBtn('remedy','2 Remedy select');
     } else h+='<span style="font-weight:bold;color:#8e44ad;">Chronic totality questions</span>';
     h+='</div>';
-    questions.forEach(function(q){ h+='<div style="border:1px solid #eef2f5;border-radius:8px;padding:8px;margin:7px 0;background:#fbfcfd;"><div style="font-weight:bold;color:#1a5276;margin-bottom:5px;">'+esc(T(q.q))+'</div>'; (q.answers||[]).forEach(function(a,idx){ var selected=ADX_GUIDED_STATE.answers[q.id] && ADX_GUIDED_STATE.answers[q.id].fact===a.fact; h+='<button type="button" onclick="ADX_guidedAnswer(\''+q.id+'\','+idx+')" style="margin:2px;padding:5px 9px;border:none;border-radius:14px;background:'+(selected?'#27ae60':'#ecf0f1')+';color:'+(selected?'white':'#2c3e50')+';font-size:11px;cursor:pointer;font-family:inherit;">'+esc(T(a.label))+'</button>'; }); h+='</div>'; });
+    questions.forEach(function(q){ h+='<div style="border:1px solid #eef2f5;border-radius:8px;padding:8px;margin:7px 0;background:#fbfcfd;"><div style="font-weight:bold;color:#1a5276;margin-bottom:5px;">'+esc(T(q.q))+'</div>'; (q.answers||[]).forEach(function(a,idx){ var selected=guidedIsSelected(q.id,a); h+='<button type="button" onclick="ADX_guidedAnswer(\''+q.id+'\','+idx+')" style="margin:2px;padding:5px 9px;border:none;border-radius:14px;background:'+(selected?'#27ae60':'#ecf0f1')+';color:'+(selected?'white':'#2c3e50')+';font-size:11px;cursor:pointer;font-family:inherit;">'+esc(T(a.label))+'</button>'; }); h+='</div>'; });
     h+='</div></div></div>'; return h;
 }
 function injectGuidedAssistantPanel(){ var ta=$('adxStatement'); if(!ta || $('adxGuidedPanel')) return; var div=document.createElement('div'); div.id='adxGuidedPanel'; div.innerHTML=renderGuidedAssistant(); ta.parentNode.insertBefore(div, ta); }
@@ -1780,7 +1931,23 @@ function guidedRender(){ var p=$('adxGuidedPanel'); if(p) p.innerHTML=renderGuid
 function guidedSetMode(m){ ADX_GUIDED_STATE.mode=m; ADX_GUIDED_STATE.stage=m==='chronic'?'confirm':ADX_GUIDED_STATE.stage; guidedRender(); }
 function guidedSetFocus(f){ ADX_GUIDED_STATE.focus=f; try{ var sel=$('adxSpecialtySelect'); if(sel){ sel.value=f; renderSpecialtySelected(); } }catch(e){} guidedRender(); }
 function guidedSetStage(st){ ADX_GUIDED_STATE.stage=st; guidedRender(); }
-function guidedAnswer(qid, idx){ var q=guidedQuestionMap()[qid]; if(!q || !q.answers[idx]) return; ADX_GUIDED_STATE.answers[qid]=q.answers[idx]; ADX_GUIDED_STATE.lastUpdated=new Date().toISOString(); if(q.answers[idx].red) toast('⚠️ Red flag answer added — check safety/referral','error'); guidedRender(); }
+function guidedAnswer(qid, idx){
+    var q=guidedQuestionMap()[qid]; if(!q || !q.answers[idx]) return;
+    var a=q.answers[idx];
+    var list=guidedSelectedList(qid);
+    var exists=list.some(function(x){return x.fact===a.fact;});
+    if(exists){
+        list=list.filter(function(x){return x.fact!==a.fact;});
+    } else {
+        if(q.type==='single') list=[a];
+        else list.push(a);
+    }
+    if(list.length) ADX_GUIDED_STATE.answers[qid]=list;
+    else delete ADX_GUIDED_STATE.answers[qid];
+    ADX_GUIDED_STATE.lastUpdated=new Date().toISOString();
+    if(a.red && !exists) toast('⚠️ Red flag answer added — check safety/referral','error');
+    guidedRender();
+}
 function guidedClear(){ ADX_GUIDED_STATE.answers={}; ADX_GUIDED_STATE.lastUpdated=null; setVal('adxGuidedBaseText',''); guidedRender(); }
 function guidedTransfer(){ var txt=guidedCaseText(); if(!txt.trim()){ toast('No guided data yet','error'); return; } var ta=$('adxStatement'); if(ta) ta.value=(ta.value?ta.value+'\n':'')+txt; var notes=$('adxSpecialtyNotes'); if(notes) notes.value=(notes.value?notes.value+'\n':'')+guidedFacts().map(function(f){return '• '+f;}).join('\n'); if(ADX_GUIDED_STATE.mode==='acute'){ var sel=$('adxSpecialtySelect'); if(sel){ sel.value=ADX_GUIDED_STATE.focus; renderSpecialtySelected(); } } guidedApplyDetails(); toast('✅ Guided findings added to main statement'); }
 function guidedAnalyzeFull(){ guidedTransfer(); runUI(); }
@@ -1848,6 +2015,7 @@ global.ADX_guidedSetMode=guidedSetMode;
 global.ADX_guidedSetFocus=guidedSetFocus;
 global.ADX_guidedSetStage=guidedSetStage;
 global.ADX_guidedAnswer=guidedAnswer;
+global.ADX_guidedRemoveAnswer=guidedRemoveAnswer;
 global.ADX_guidedClear=guidedClear;
 global.ADX_guidedTransfer=guidedTransfer;
 global.ADX_guidedAnalyzeFull=guidedAnalyzeFull;
