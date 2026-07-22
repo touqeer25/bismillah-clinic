@@ -528,7 +528,7 @@ function fetchChapter(book, chapter){
     var key=book+'|'+chapter;
     if(adxChapterCache[key]) return Promise.resolve(adxChapterCache[key]);
     var info=bookInfo(book);
-    var url=(info.chapDir||'')+chapter+'.json?v=21';
+    var url=(info.chapDir||'')+chapter+'.json?v=22';
     return fetch(url).then(function(r){ if(!r.ok) throw new Error(url); return r.json(); }).then(function(d){ adxChapterCache[key]=d; return d; });
 }
 function scoreRubricMatch(path, query){
@@ -1761,7 +1761,7 @@ function renderGuidedAssistant(){
     h+=modeBtn('acute','Acute')+modeBtn('chronic','Chronic')+'</div></div>';
     h+='<div style="display:grid;grid-template-columns:minmax(280px,1fr) minmax(300px,1fr);gap:12px;align-items:start;">';
     h+='<div style="background:white;border:1px solid #d6eaf8;border-radius:8px;padding:10px;"><div style="font-weight:bold;color:#145a32;margin-bottom:6px;">📝 '+esc(T({ur:'Case Builder / علامات',en:'Case Builder / Symptoms',roman:'Case Builder'}))+'</div>';
-    h+='<textarea id="adxGuidedBaseText" oninput="ADX_guidedRender()" placeholder="Main complaint / patient words..." style="width:100%;min-height:85px;border:1px solid #d6eaf8;border-radius:6px;padding:8px;font-family:inherit;font-size:12px;box-sizing:border-box;">'+esc(val('adxGuidedBaseText'))+'</textarea>';
+    h+='<textarea id="adxGuidedBaseText" placeholder="Main complaint / patient words..." style="width:100%;min-height:85px;border:1px solid #d6eaf8;border-radius:6px;padding:8px;font-family:inherit;font-size:12px;box-sizing:border-box;">'+esc(val('adxGuidedBaseText'))+'</textarea>';
     var facts=guidedFacts(); h+='<div style="margin-top:8px;font-weight:bold;color:#566573;">Added findings</div><div style="min-height:45px;background:#f8f9fa;border-radius:6px;padding:6px;">'+(facts.length?facts.map(function(f){return '<span style="display:inline-block;margin:2px;padding:3px 8px;background:#eafaf1;color:#145a32;border-radius:12px;font-size:11px;">'+esc(f)+'</span>';}).join(''):'<span style="color:#95a5a6;font-size:12px;">Click answers on the right.</span>')+'</div>';
     h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;"><div><b style="font-size:12px;color:#1a5276;">Diagnosis focus</b>'+guidedBars(guidedScores('dx'),'#2980b9')+'</div><div><b style="font-size:12px;color:#7d6608;">Remedy focus</b>'+guidedBars(guidedScores('rx'),'#f39c12')+'</div></div>';
     h+='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;"><button type="button" class="btn btn-success btn-sm" onclick="ADX_guidedAnalyzeFull()">🧠 Analyze full ADX</button><button type="button" class="btn btn-info btn-sm" onclick="ADX_guidedTransfer()">➕ Add to main statement</button><button type="button" class="btn btn-light btn-sm" onclick="ADX_guidedClear()">🔄 Clear guided</button></div></div>';
