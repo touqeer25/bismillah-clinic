@@ -1,5 +1,5 @@
 // Bismillah Clinic - Service Worker (robust offline cache)
-const CACHE_NAME = 'bhc-clinic-v20';
+const CACHE_NAME = 'bhc-clinic-v21';
 
 // Keep this list same-origin and reliable. Missing/external files are not allowed
 // to break the whole install anymore.

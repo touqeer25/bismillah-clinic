@@ -1,0 +1,15 @@
+{
+  "name": "Advanced Diagnosis Phase 12 - Guided Acute/Chronic Side-by-Side Assistant",
+  "cache_version": "v21",
+  "new_features": [
+    "new Guided Assistant panel with Acute and Chronic modes",
+    "side-by-side Case Builder and Guided Questions windows",
+    "fever acute disease confirmation workflow",
+    "fever therapeutic remedy differentiation workflow",
+    "chronic constitutional guided workflow",
+    "clickable answer buttons add findings to case builder",
+    "diagnosis and remedy focus scores shown live",
+    "guided findings can be transferred to main ADX statement and analyzed"
+  ],
+  "note": "Guided Assistant is a fast clinic workflow layer built on top of the existing ADX engine. Final clinical decision remains doctor-controlled."
+}
