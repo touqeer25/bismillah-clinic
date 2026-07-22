@@ -1,0 +1,17 @@
+{
+  "name": "Fever Guided Module v3 - nested symptom details",
+  "cache_version": "v24",
+  "new_features": [
+    "expanded fever disease finding beyond dengue/malaria/typhoid",
+    "added simple/seasonal/viral fever signs",
+    "added ENT/throat/tonsil fever details",
+    "added respiratory fever details",
+    "added headache location/sensation/modality details",
+    "added abdominal pain location/sensation/modality details",
+    "added diarrhea detail questions",
+    "added mouth taste, appetite, thirst and mental state fever generals",
+    "added age-specific fever questions",
+    "added throat/respiratory fever remedy clues"
+  ],
+  "note": "Fever v3 keeps a single Disease Finding tab and a single Remedy Selection tab; no separate disease-type tabs are used."
+}
