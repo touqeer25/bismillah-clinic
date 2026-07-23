@@ -1,15 +1,9 @@
 {
-  "name": "Clean Fever Wizard v1 - context gated redesign",
-  "cache_version": "v25",
-  "features": [
-    "standalone clean side-by-side fever wizard",
-    "one current question at a time",
-    "Context-gated fever type finding",
-    "dynamic remedy question groups by top fever context",
-    "answer click toggles select/deselect",
-    "doctor free text remains editable",
-    "selected findings removable",
-    "transfers combined case to ADX analysis"
+  "name": "Clean Fever Wizard stable hotfix",
+  "cache_version": "v26",
+  "fixes": [
+    "red flag answer click now uses correct toast function",
+    "fever wizard scripts/cache bumped to v26"
   ],
-  "note": "This replaces the confusing old guided fever panel with a clean wizard. It is intentionally focused on fever first."
+  "note": "This is a stability hotfix for current clean Fever Wizard."
 }
