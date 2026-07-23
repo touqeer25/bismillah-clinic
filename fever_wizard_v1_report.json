@@ -1,0 +1,9 @@
+{
+  "name": "Clean Fever Wizard stable hotfix",
+  "cache_version": "v26",
+  "fixes": [
+    "red flag answer click now uses correct toast function",
+    "fever wizard scripts/cache bumped to v26"
+  ],
+  "note": "This is a stability hotfix for current clean Fever Wizard."
+}
