@@ -1,0 +1,10 @@
+{
+  "name": "Fever Wizard delegated button handler fix",
+  "cache_version": "v29",
+  "fixes": [
+    "added capture-phase delegated click handler for all FW_* buttons",
+    "prevents default button behavior and inline onclick quoting issues",
+    "answer/remove/phase/next/back/skip/analyze/clear buttons handled from fever-wizard.js"
+  ],
+  "note": "Upload v29 and clear service worker/cache."
+}

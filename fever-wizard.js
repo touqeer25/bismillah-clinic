@@ -48,4 +48,34 @@ function combined(){var base=$('fwManualText')?$('fwManualText').value:'';var fs
 function analyze(){var ta=$('adxStatement');if(ta)ta.value=(ta.value?ta.value+'\n':'')+combined();var sp=$('adxSpecialtyNotes');if(sp)sp.value=(sp.value?sp.value+'\n':'')+facts().map(function(f){return'• '+f}).join('\n');var sel=$('adxSpecialtySelect');if(sel){sel.value='fever';if(global.ADX_renderSpecialtySelected)global.ADX_renderSpecialtySelected()}if(global.ADX_run)global.ADX_run()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else setTimeout(mount,0);setTimeout(mount,800);
 global.FW_answer=answer;global.FW_remove=remove;global.FW_next=next;global.FW_back=back;global.FW_skip=skip;global.FW_phase=phase;global.FW_clear=clear;global.FW_analyze=analyze;global.FW_refresh=refresh;
+// Robust delegated click handling. This avoids inline onclick quoting/CSP issues.
+function fwArgs(code){
+  code=String(code||'').replace(/&quot;/g,'"').replace(/&#39;/g,"'");
+  var m=code.match(/FW_\w+\((.*)\)/); if(!m) return [];
+  var out=[], re=/["']([^"']*)["']/g, x;
+  while((x=re.exec(m[1]))) out.push(x[1]);
+  return out;
+}
+function fwDelegatedClick(e){
+  var btn=e.target && e.target.closest ? e.target.closest('button') : null;
+  if(!btn) return;
+  var code=btn.getAttribute('onclick') || '';
+  if(code.indexOf('FW_')===-1) return;
+  e.preventDefault();
+  if(e.stopImmediatePropagation) e.stopImmediatePropagation(); else e.stopPropagation();
+  try{
+    var a=fwArgs(code);
+    if(code.indexOf('FW_answer')!==-1) return answer(a[0],a[1]);
+    if(code.indexOf('FW_remove')!==-1) return remove(a[0],a[1]);
+    if(code.indexOf('FW_phase')!==-1) return phase(a[0]);
+    if(code.indexOf('FW_back')!==-1) return back();
+    if(code.indexOf('FW_skip')!==-1) return skip();
+    if(code.indexOf('FW_next')!==-1) return next();
+    if(code.indexOf('FW_analyze')!==-1) return analyze();
+    if(code.indexOf('FW_clear')!==-1) return clear();
+    if(code.indexOf('FW_refresh')!==-1) return refresh();
+  }catch(err){ console.error('Fever Wizard click handler error:', err); }
+}
+try{ document.addEventListener('click', fwDelegatedClick, true); }catch(e){}
+
 })(window);

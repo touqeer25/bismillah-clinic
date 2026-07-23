@@ -528,7 +528,7 @@ function fetchChapter(book, chapter){
     var key=book+'|'+chapter;
     if(adxChapterCache[key]) return Promise.resolve(adxChapterCache[key]);
     var info=bookInfo(book);
-    var url=(info.chapDir||'')+chapter+'.json?v=28';
+    var url=(info.chapDir||'')+chapter+'.json?v=29';
     return fetch(url).then(function(r){ if(!r.ok) throw new Error(url); return r.json(); }).then(function(d){ adxChapterCache[key]=d; return d; });
 }
 function scoreRubricMatch(path, query){
