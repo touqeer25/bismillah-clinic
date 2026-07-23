@@ -1,9 +1,10 @@
 {
-  "name": "Clean Fever Wizard stable hotfix",
-  "cache_version": "v26",
+  "name": "Clean Fever Wizard button fix",
+  "cache_version": "v28",
   "fixes": [
-    "red flag answer click now uses correct toast function",
-    "fever wizard scripts/cache bumped to v26"
+    "question id is now preserved for button onclick handlers",
+    "answer buttons now call FW_answer with the correct qid instead of undefined",
+    "phase/remove/answer onclick quote handling fixed"
   ],
-  "note": "This is a stability hotfix for current clean Fever Wizard."
+  "note": "Upload v28 if v26/v27 buttons did not respond."
 }
