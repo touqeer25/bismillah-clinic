@@ -528,7 +528,7 @@ function fetchChapter(book, chapter){
     var key=book+'|'+chapter;
     if(adxChapterCache[key]) return Promise.resolve(adxChapterCache[key]);
     var info=bookInfo(book);
-    var url=(info.chapDir||'')+chapter+'.json?v=24';
+    var url=(info.chapDir||'')+chapter+'.json?v=25';
     return fetch(url).then(function(r){ if(!r.ok) throw new Error(url); return r.json(); }).then(function(d){ adxChapterCache[key]=d; return d; });
 }
 function scoreRubricMatch(path, query){
@@ -1971,7 +1971,7 @@ function guidedTransfer(){ var txt=guidedCaseText(); if(!txt.trim()){ toast('No 
 function guidedAnalyzeFull(){ guidedTransfer(); runUI(); }
 
 function bind(){
-    injectGuidedAssistantPanel();
+    if(!global.FEVER_WIZARD_ACTIVE) injectGuidedAssistantPanel();
     injectCaseDetailsPanel();
     injectSpecialtyPanel();
     injectDxButtons();
