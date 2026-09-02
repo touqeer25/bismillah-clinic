@@ -151,6 +151,7 @@ function toggleLanguage() {
             renderCategoryTabs();
             renderSymptomsGrid();
             updateSelectedBox();
+            if (typeof renderStudioAll === 'function') renderStudioAll();
         }
     }
 }

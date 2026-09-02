@@ -220,7 +220,7 @@ async function showPage(pageId, btn) {
                 $('firstVisitDate').value = now.toISOString().split('T')[0];
                 $('firstVisitTime').value = now.toTimeString().substring(0, 5);
             }
-            if (pageId === 'diagnosis') initDiagnosis();
+            if (pageId === 'diagnosis') { initDiagnosis(); if (typeof renderStudioAll === 'function') renderStudioAll(); }
             if (pageId === 'newVisitPage') {
                 if ($('nvVisitRef') && !nvCurrentPatientId) $('nvVisitRef').value = generateVisitRef();
                 var now2 = new Date();

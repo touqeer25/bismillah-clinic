@@ -8,22 +8,20 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>" type="image/svg+xml">
     
     <!-- PWA Support -->
-    <!-- manifest only if file exists on server -->
-    <!-- <link rel="manifest" href="manifest.json"> -->
-    <!-- apple-touch-icon: only used if icon file exists on server -->
-    <!-- <link rel="apple-touch-icon" href="icon-192.png"> -->
+    <link rel="manifest" href="manifest.json?v=32">
+    <link rel="apple-touch-icon" href="icon-192.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="BHC Clinic">
     
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="diagnosis-data.js?v=30"></script>
-    <script src="diagnosis-custom.js?v=30"></script>
-    <script src="custom-data-help.js?v=30"></script>
-    <script src="advanced-diagnosis-knowledge.js?v=30"></script>
-    <script src="advanced-diagnosis-engine.js?v=30"></script>
+    <script src="diagnosis-data.js?v=32"></script>
+    <script src="diagnosis-custom.js?v=32"></script>
+    <script src="custom-data-help.js?v=32"></script>
+    <script src="advanced-diagnosis-knowledge.js?v=32"></script>
+    <script src="advanced-diagnosis-engine.js?v=32"></script>
     <!-- Style alag file me: css/style.css -->
-    <link rel="stylesheet" href="css/style.css?v=30">
+    <link rel="stylesheet" href="css/style.css?v=32">
 
 </head>
 <body dir="rtl" class="lang-ur">
@@ -400,6 +398,55 @@
     <!-- ============================================ -->
     <div id="page-diagnosis" class="page">
         <div class="diagnosis-container">
+            <!-- ===== VIEW SWITCHER: Treatment Studio / Classic Modes ===== -->
+            <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;">
+                <button id="dxViewBtnStudio" class="btn btn-sm btn-purple" type="button" onclick="switchDxView('studio')">🌿 <span data-ur="علاج اسٹوڈیو" data-en="Treatment Studio" data-roman="Ilaj Studio">علاج اسٹوڈیو</span></button>
+                <button id="dxViewBtnClassic" class="btn btn-sm btn-light" type="button" onclick="switchDxView('classic')">🔬 <span data-ur="ایڈوانس تشخیص موڈز" data-en="Advanced Diagnosis Modes" data-roman="Advanced Diagnosis Modes">ایڈوانس تشخیص موڈز</span></button>
+            </div>
+
+            <!-- ===== NEW: HYBRID TREATMENT STUDIO (Option 3+4: system tabs + left list + right detail) ===== -->
+            <div id="dxStudioView">
+                <div class="card" style="background:linear-gradient(135deg,#ffffff,#f9fbff);border:1px solid #d1e3f8;box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+                    <div class="card-title">🧪 <span data-ur="ہائبرڈ علاج اسٹوڈیو" data-en="Hybrid Treatment Studio" data-roman="Hybrid Ilaj Studio">ہائبرڈ علاج اسٹوڈیو</span>
+                        <span style="font-size:11px;color:#7f8c8d;font-weight:normal;" data-ur="— علامات سے نسخہ تک" data-en="— Symptoms to Prescription" data-roman="— Alamat se Nuskhah tak">— علامات سے نسخہ تک</span>
+                    </div>
+
+                    <!-- Body system tabs -->
+                    <div class="tst-systabs" id="studioSysTabs"></div>
+
+                    <div class="tst-cols">
+                        <!-- FIRST column (RIGHT in RTL / LEFT in LTR): DETAIL -->
+                        <div class="tst-panel">
+                            <div class="tst-phead"><span id="studioDHead"></span><span id="studioDMeta" style="font-size:10px;color:#7f8c8d;"></span></div>
+                            <div id="studioPatientBar" class="tst-pbar">
+                                <span>👤 <strong id="studioPatientName"></strong></span>
+                                <span><button class="btn btn-light btn-xs" onclick="studioClearPatient()">✕</button></span>
+                            </div>
+                            <div id="studioPatientSearch" class="tst-psearch">
+                                <input type="text" id="studioPatientQuery" placeholder="🔍"
+                                    data-ph-ur="🔍 مریض کا نام / فون / حوالہ لکھیں..."
+                                    data-ph-en="🔍 Patient name / phone / ref..."
+                                    data-ph-roman="🔍 Mareez ka naam / phone / ref...">
+                                <div id="studioPatientResults"></div>
+                            </div>
+                            <div class="tst-dtabs" id="studioTabs"></div>
+                            <div class="tst-dbody" id="studioBody"></div>
+                        </div>
+                        <!-- SECOND column (LEFT in RTL / RIGHT in LTR): NAV LIST -->
+                        <div class="tst-panel tst-navp">
+                            <div class="tst-phead"><span data-ur="📚 بیماری فہرست" data-en="📚 Disease List" data-roman="📚 Bimari List">📚 بیماری فہرست</span></div>
+                            <input class="tst-search" id="studioSearch" placeholder="🔍"
+                                data-ph-ur="🔍 بیماری تلاش کریں..."
+                                data-ph-en="🔍 Search disease..."
+                                data-ph-roman="🔍 Bimari talash karein...">
+                            <div class="tst-list" id="studioList"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CLASSIC DIAGNOSIS MODES (AI / Structured / Manual) ===== -->
+            <div id="dxClassicView" class="hidden">
             <div class="card" style="background:linear-gradient(135deg,#ffffff,#f9fbff);border:1px solid #d1e3f8;box-shadow:0 4px 15px rgba(0,0,0,0.05);">
                 <div class="card-title" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
                     <div>
@@ -539,6 +586,7 @@
             
             <div id="adxResults" style="margin-top:20px;"></div>
             <div id="diagnosisResults" style="margin-top:20px;"></div>
+            </div> <!-- /dxClassicView -->
         </div>
     </div>
     
@@ -765,7 +813,7 @@
                     <button class="btn btn-info" id="manualSyncBtn">🔄 <span data-ur="ابھی سنک کریں" data-en="Sync Now" data-roman="Abhi Sync Karein">ابھی سنک کریں</span></button>
                     <button class="btn btn-danger btn-sm" id="clearPendingBtn" style="margin-top:8px;">🗑️ <span data-ur="ناکام ڈیٹا صاف کریں" data-en="Clear Failed Data" data-roman="Nakaam Data Saaf Karein">ناکام ڈیٹا صاف کریں</span></button>
                 </div>
-	<!-- Sync Status Indicator -->
+        <!-- Sync Status Indicator -->
 <div id="customSyncStatus" style="background:#e8f5e9;border:1px solid #27ae60;padding:8px 12px;border-radius:6px;margin-bottom:12px;font-size:12px;color:#1e8449;display:flex;align-items:center;gap:8px;">
     <span>☁️</span>
     <span><span data-ur="کسٹم ڈیٹا کلاؤڈ سنک:" data-en="Custom Data Cloud Sync:" data-roman="Custom Data Cloud Sync:">کسٹم ڈیٹا کلاؤڈ سنک:</span> <strong id="syncStatusText" data-ur="تیار" data-en="Ready" data-roman="Tayyar">تیار</strong></span>
@@ -853,7 +901,7 @@
     
     <!-- Hidden file input -->
     <input type="file" id="importCustomFile" accept=".json,.csv" style="display:none;">
-		</div>
+                </div>
 
                 <!-- ============================================ -->
                 <!-- DISEASE AUTO-SUGGEST SETTINGS -->
@@ -1307,15 +1355,17 @@
 <!-- APP SCRIPTS — pehle ek inline script thi, ab organized files -->
 <!-- ⚠️ IN FILES KA ORDER KABHI NA BADLEIN (original order hai)   -->
 <!-- ============================================================ -->
-<script src="js/01-app-core.js?v=30"></script>
-<script src="js/02-app-auth.js?v=30"></script>
-<script src="js/03-app-patients.js?v=30"></script>
-<script src="js/04-app-visit-modal.js?v=30"></script>
-<script src="js/05-app-diagnosis.js?v=30"></script>
-<script src="js/06-app-new-visit.js?v=30"></script>
-<script src="js/07-app-settings.js?v=30"></script>
-<script src="js/08-app-repertory.js?v=30"></script>
-<script src="js/09-app-init.js?v=30"></script>
-<script src="js/pwa.js?v=30"></script>
+<script src="js/01-app-core.js?v=32"></script>
+<script src="js/02-app-auth.js?v=32"></script>
+<script src="js/03-app-patients.js?v=32"></script>
+<script src="js/04-app-visit-modal.js?v=32"></script>
+<script src="js/05-app-diagnosis.js?v=32"></script>
+<script src="js/06-app-new-visit.js?v=32"></script>
+<script src="js/07-app-settings.js?v=32"></script>
+<script src="js/08-app-repertory.js?v=32"></script>
+<script src="js/10-treatment-data.js?v=32"></script>
+<script src="js/11-app-studio.js?v=32"></script>
+<script src="js/09-app-init.js?v=32"></script>
+<script src="js/pwa.js?v=32"></script>
 </body>
 </html>

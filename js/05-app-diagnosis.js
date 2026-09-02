@@ -217,6 +217,7 @@ function openDiagnosisForPatient(patientId) {
     diagnosisPatientId = patientId;
     $('diagnosisPatientLink').style.display = 'block';
     $('diagnosisPatientName').textContent = patient.name + ' (' + patient.refNo + ')';
+    if (typeof studioRefreshPatient === 'function') studioRefreshPatient();
     const btn = document.querySelector('[data-page="diagnosis"]');
     showPage('diagnosis', btn);
     selectedSymptoms.clear();
