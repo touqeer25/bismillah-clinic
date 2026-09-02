@@ -1,5 +1,5 @@
 // Bismillah Clinic - Service Worker (robust offline cache)
-const CACHE_NAME = 'bhc-clinic-v32';
+const CACHE_NAME = 'bhc-clinic-v33';
 
 // Keep this list same-origin and reliable. Missing/external files are not allowed
 // to break the whole install anymore.
@@ -17,6 +17,7 @@ const CORE_ASSETS = [
   './js/08-app-repertory.js',
   './js/09-app-init.js',
   './js/10-treatment-data.js',
+  './js/12-treatment-more.js',
   './js/11-app-studio.js',
   './js/pwa.js',
   './service-worker.js',

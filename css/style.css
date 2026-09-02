@@ -758,7 +758,8 @@ body[dir="rtl"] .rep-bullet{margin-right:0;margin-left:6px;}
 .tst-sys .lb{font-size:11.5px;line-height:1.9}
 .tst-sys .n{font-size:9px;color:#95a5a6;font-family:Segoe UI,Arial}
 .tst-sys.on{border-color:var(--c);background:linear-gradient(135deg,#fff,var(--bg));box-shadow:0 3px 10px rgba(0,0,0,.07)}
-.tst-cols{display:grid;grid-template-columns:1fr 300px;gap:14px;align-items:start}
+.tst-cols{display:grid;grid-template-columns:1fr 300px;gap:14px;align-items:start;direction:rtl}
+body[dir="ltr"] .tst-cols>.tst-panel{direction:ltr}
 .tst-panel{background:#fff;border:1px solid #d1e3f8;border-radius:13px;box-shadow:0 4px 15px rgba(0,0,0,.05);overflow:hidden}
 .tst-phead{background:linear-gradient(135deg,#f9fbff,#eef7ff);padding:8px 14px;border-bottom:1px solid #d1e3f8;font-size:13.5px;color:#1a5276;font-weight:bold;display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap}
 .tst-phead .latin{font-size:10px;color:#7f8c8d;font-family:Segoe UI,Arial;font-weight:normal;direction:ltr;unicode-bidi:isolate;display:inline-block}
@@ -788,6 +789,12 @@ body[dir="ltr"] .tst-row.on{border-right:none;border-left:4px solid #8e44ad}
 .tst-rem .use{font-size:11.5px;color:#2c3e50;line-height:2}
 .tst-rem .dose{font-size:10.5px;color:#7f8c8d;font-family:Segoe UI,Arial}
 .tst-mod{font-size:11px;color:#7d6608;background:#fef9e7;border:1px solid #f7dc6f;border-radius:7px;padding:2px 9px;margin-top:5px;display:inline-block;line-height:1.9}
+.tst-rem.click{cursor:pointer;transition:.15s}
+.tst-rem.click:hover{border-color:#27ae60;background:#f3fbf6}
+.tst-rem.selrem{border-color:#27ae60;background:#eafaf1;box-shadow:0 0 0 2px #27ae60 inset}
+.tst-rem.selrem .nm::after{content:" ✓";color:#27ae60}
+.tst-fieldbar{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#eafaf1;border:1px solid #82d9a8;color:#1e8449;border-radius:9px;padding:5px 12px;font-size:11.5px;margin-bottom:8px;flex-wrap:wrap;line-height:1.9}
+.tst-poolhint{font-size:10px;color:#7f8c8d;font-weight:normal;font-family:Segoe UI,Arial}
 .tst-kw{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0 10px}
 .tst-kw span{background:#f4ecf7;color:#6c3483;border-radius:14px;padding:0 11px;font-size:11.5px;cursor:pointer;user-select:none;transition:.15s;line-height:2}
 .tst-kw span.sel{background:#27ae60;color:#fff}

@@ -12,6 +12,9 @@ var studioViewInit = false;
 var studioSelSyms = new Set();   // selected disease symptom indexes
 var studioNote = '';             // manually written symptoms
 var studioShowNoteBox = false;
+var studioSelRems = new Set();   // selected remedy keys ('r2'=d.rem[2], 'm1'=extra pool)
+var studioFieldSrc = null;       // textarea id when opened from New Visit / Registration form
+var studioFieldPage = null;      // page id to return to
 
 var STUDIO_TABS = [
     ['sym',  '🔑', { ur: 'علامات', en: 'Symptoms', roman: 'Alamaat' }],
@@ -80,8 +83,9 @@ function renderStudioDetail() {
     var L = currentLang;
     var head = $('studioDHead'), meta = $('studioDMeta');
     if (head) head.innerHTML = d.ic + ' ' + studioTx(d.name) + (L !== 'en' ? ' <span class="latin">(' + studioEsc(d.name.en) + ')</span>' : '');
+    var pool = studioPool(d);
     if (meta) meta.textContent = (studioTab === 'sym' || studioTab === 'rem')
-        ? d.rem.length + ' ' + ({ ur: 'ادویات', en: 'remedies', roman: 'adviat' }[L]) : '';
+        ? (studioTab === 'sym' ? pool.length : d.rem.length) + ' ' + ({ ur: 'ادویات', en: 'remedies', roman: 'adviat' }[L]) : '';
 
     // linked patient bar
     var pb = $('studioPatientBar');
@@ -104,13 +108,20 @@ function renderStudioDetail() {
 
     var b = $('studioBody'); if (!b) return;
     var hh = '';
-    var selCount = studioSelSyms.size + (studioNote.trim() ? 1 : 0);
+    var selCount = studioSelSyms.size + studioSelRems.size + (studioNote.trim() ? 1 : 0);
+    var saveLbl = studioFieldSrc
+        ? { ur: 'فارم میں محفوظ کریں', en: 'Save to form', roman: 'Form mein mehfooz karein' }[L]
+        : { ur: 'مریض علامات میں محفوظ', en: 'Save to patient symptoms', roman: 'Mareez alamat mein mehfooz' }[L];
 
     if (studioTab === 'sym') {
+        if (studioFieldSrc) {
+            hh += '<div class="tst-fieldbar"><span>📝 ' + ({ ur: 'آپ وزٹ/رجسٹریشن فارم سے آئے ہیں — علامات اور ادویات منتخب کر کے «محفوظ کریں» دبائیں', en: 'You came from the Visit/Registration form — select symptoms & remedies, then press Save', roman: 'Aap visit/registration form se aaye hain — alamat aur adviat muntakhib kar ke Mehfooz dabain' }[L]) + '</span>';
+            hh += '<button class="tst-btn i" style="padding:2px 10px" onclick="studioCancelField()">✕ ' + ({ ur: 'واپس', en: 'Back', roman: 'Wapas' }[L]) + '</button></div>';
+        }
         hh += '<div class="tst-dtitle"><h3>🔑 ' + ({ ur: 'علامات — ', en: 'Symptoms — ', roman: 'Alamaat — ' }[L]) + studioTx(d.name) + '</h3>';
         hh += '<div class="tst-acts">';
         hh += '<button class="tst-btn i" onclick="studioToggleNote()">✍️ ' + ({ ur: 'علامات لکھیں', en: 'Write symptoms', roman: 'Alamat likhein' }[L]) + '</button>';
-        hh += '<button class="tst-btn g" onclick="studioSaveSymptoms()">📋 ' + ({ ur: 'مریض علامات میں محفوظ', en: 'Save to patient symptoms', roman: 'Mareez alamat mein mehfooz' }[L]) + (selCount ? ' (' + selCount + ')' : '') + '</button>';
+        hh += '<button class="tst-btn g" onclick="studioSaveSymptoms()">📋 ' + saveLbl + (selCount ? ' (' + selCount + ')' : '') + '</button>';
         hh += '</div></div>';
         if (studioShowNoteBox) {
             hh += '<textarea id="studioNoteBox" class="tst-note" oninput="studioNote=this.value" placeholder="' +
@@ -121,9 +132,10 @@ function renderStudioDetail() {
             return '<span class="' + (studioSelSyms.has(i) ? 'sel' : '') + '" onclick="studioToggleSym(' + i + ')">' + studioEsc(s[currentLang] || s.ur) + '</span>';
         }).join('') + '</div>';
         hh += '<div class="tst-intro">📖 ' + studioTx(d.intro) + '</div>';
-        hh += '<div class="tst-sub" style="color:#6c3483">💊 ' + ({ ur: 'ہومیوپیتھک ادویات کی علامات — ', en: 'Homeopathic remedy symptoms — ', roman: 'Homeopathic adviat ki alamaat — ' }[L]) +
-            studioTx(d.name) + ' (' + d.rem.length + ' ' + ({ ur: 'ادویات', en: 'remedies', roman: 'adviat' }[L]) + ')</div>';
-        hh += studioRemCards(d, L);
+        hh += '<div class="tst-sub" style="color:#6c3483">💊 ' + ({ ur: 'تمام متعلقہ ہومیوپیتھک ادویات — ', en: 'All related homeopathic remedies — ', roman: 'Tamam mutaliqa homeopathic adviat — ' }[L]) +
+            studioTx(d.name) + ' (' + pool.length + ' ' + ({ ur: 'ادویات', en: 'remedies', roman: 'adviat' }[L]) + ')</div>';
+        hh += '<div class="tst-poolhint" style="margin:0 0 6px">👆 ' + ({ ur: 'دوا کارڈ پر کلک کر کے منتخب کریں (سبز = منتخب شدہ)', en: 'Click a remedy card to select it (green = selected)', roman: 'Dawa card par click kar ke muntakhib karein (sabz = muntakhib shuda)' }[L]) + '</div>';
+        hh += studioRemCards(d, L, true);
     } else if (studioTab === 'rem') {
         hh += '<div class="tst-dtitle"><h3>💊 ' + ({ ur: 'تجویز شدہ دوائیں (', en: 'Prescribed Remedies (', roman: 'Tajweez shuda dwain (' }[L]) + d.rem.length + ')</h3>';
         hh += '<div class="tst-acts">';
@@ -131,7 +143,7 @@ function renderStudioDetail() {
         hh += '<button class="tst-btn p" onclick="studioCaseAnalysis()">🔬 ' + ({ ur: 'کیس تجزیہ', en: 'Case Analysis', roman: 'Case tajzia' }[L]) + '</button>';
         hh += '<button class="tst-btn i" onclick="studioTogglePatientSearch(true)">👤 ' + ({ ur: 'مریض سے جوڑیں', en: 'Link Patient', roman: 'Mareez se jorein' }[L]) + '</button>';
         hh += '</div></div>';
-        hh += studioRemCards(d, L);
+        hh += studioRemCards(d, L, false);
         hh += '<div class="tst-rem"><div class="dose">🕐 ' + ({ ur: 'ہر دوا ڈاکٹر کی ہدایت کے مطابق', en: 'Every remedy as directed by the doctor', roman: 'Har dawa doctor ki hidayat ke mutabiq' }[L]) + '</div></div>';
         hh += '<div class="tst-two"><div class="tst-box rf">⚠️ ' + studioTx(d.rf) + '</div><div class="tst-box diet">🥗 ' + studioTx(d.diet) + '</div></div>';
     } else if (studioTab === 'diet') {
@@ -146,13 +158,30 @@ function renderStudioDetail() {
     b.innerHTML = hh;
 }
 
-function studioRemCards(d, L) {
-    return d.rem.map(function(r, i) {
-        var h = '<div class="tst-rem"><div class="top"><span class="nm">' + (i + 1) + '. ' + studioEsc(r.n) + '</span><span class="pot">' + studioEsc(r.pot) + '</span></div>';
+// pool = standard remedies + supplementary pool (TREATMENT_MORE), duplicates removed
+function studioPool(d) {
+    var extra = (typeof TREATMENT_MORE !== 'undefined' && TREATMENT_MORE[studioDx]) ? TREATMENT_MORE[studioDx] : [];
+    var names = d.rem.map(function(r) { return (r.n || '').toLowerCase(); });
+    return d.rem.map(function(r, i) { return { r: r, key: 'r' + i }; })
+        .concat(extra.filter(function(r) { return r && r.n && names.indexOf(r.n.toLowerCase()) < 0; })
+            .map(function(r, i) { return { r: r, key: 'm' + i }; }));
+}
+
+function studioRemCards(d, L, sel) {
+    var items = sel ? studioPool(d) : d.rem.map(function(r, i) { return { r: r, key: 'r' + i }; });
+    return items.map(function(it, i) {
+        var r = it.r, on = sel && studioSelRems.has(it.key);
+        var h = '<div class="tst-rem' + (sel ? ' click' : '') + (on ? ' selrem' : '') + '"' + (sel ? ' onclick="studioToggleRem(\'' + it.key + '\')"' : '') + '>';
+        h += '<div class="top"><span class="nm">' + (i + 1) + '. ' + studioEsc(r.n) + '</span>' + (r.pot ? '<span class="pot">' + studioEsc(r.pot) + '</span>' : '') + '</div>';
         h += r.syms.map(function(s) { return '<div class="use">▸ ' + studioEsc(s[currentLang] || s.ur) + '</div>'; }).join('');
-        h += '<div class="tst-mod">🔄 ' + ({ ur: 'موڈیلیٹیز: ', en: 'Modalities: ', roman: 'Modalities: ' }[L]) + studioEsc(r.mod[currentLang] || r.mod.ur) + '</div>';
+        if (r.mod) h += '<div class="tst-mod">🔄 ' + ({ ur: 'موڈیلیٹیز: ', en: 'Modalities: ', roman: 'Modalities: ' }[L]) + studioEsc(r.mod[currentLang] || r.mod.ur) + '</div>';
         return h + '</div>';
     }).join('');
+}
+
+function studioToggleRem(k) {
+    if (studioSelRems.has(k)) studioSelRems.delete(k); else studioSelRems.add(k);
+    renderStudioDetail();
 }
 
 // ---------- ACTIONS ----------
@@ -164,13 +193,13 @@ function studioPickSys(k) {
         var f = Object.keys(TREATMENT_LIB).find(function(x) { return TREATMENT_LIB[x].sys === k; });
         if (f) studioDx = f;
     }
-    studioSelSyms.clear(); studioNote = ''; studioShowNoteBox = false;
+    studioSelSyms.clear(); studioSelRems.clear(); studioNote = ''; studioShowNoteBox = false;
     renderStudioAll();
 }
 
 function studioPickDx(k) {
     studioDx = k; studioTab = 'sym';
-    studioSelSyms.clear(); studioNote = ''; studioShowNoteBox = false;
+    studioSelSyms.clear(); studioSelRems.clear(); studioNote = ''; studioShowNoteBox = false;
     renderStudioList(); renderStudioDetail();
 }
 
@@ -191,19 +220,52 @@ function studioSaveSymptoms() {
     var arr = Array.from(studioSelSyms).sort(function(a, b2) { return a - b2; })
         .map(function(i) { return d.syms[i][currentLang] || d.syms[i].ur; });
     if (arr.length) parts.push(arr.join('، '));
+    var pool = studioPool(d);
+    var rems = Array.from(studioSelRems).sort()
+        .map(function(k) { var it = pool.find(function(x) { return x.key === k; }); return it ? it.r.n : null; })
+        .filter(Boolean);
+    if (rems.length) parts.push({ ur: 'متعلقہ ادویات: ', en: 'Related remedies: ', roman: 'Mutaliqa adviat: ' }[L] + rems.join(', '));
     if (!parts.length) {
         showToast({ ur: '⚠️ پہلے علامات منتخب کریں یا لکھیں', en: '⚠️ Select or write symptoms first', roman: '⚠️ Pehle alamat muntakhib karein ya likhein' }[L], 'error');
         return;
     }
+    var text = parts.join('\n');
+    // (A) opened from New Visit / Registration form → fill that field and go back
+    if (studioFieldSrc) {
+        var el = $(studioFieldSrc);
+        if (el) el.value = el.value.trim() ? (el.value.trim() + '\n' + text) : text;
+        var pg = studioFieldPage;
+        studioFieldSrc = null; studioFieldPage = null;
+        studioSelSyms.clear(); studioSelRems.clear(); studioNote = ''; studioShowNoteBox = false;
+        if (pg) showPage(pg, document.querySelector('.nav-btn[data-page="' + pg + '"]'));
+        showToast('✅ ' + ({ ur: 'علامات و ادویات فارم میں منتقل ہو گئیں', en: 'Symptoms & remedies moved to the form', roman: 'Alamat aur adviat form mein muntaqil ho gain' }[L]));
+        return;
+    }
+    // (B) normal studio flow (needs linked patient)
     if (!diagnosisPatientId) {
         showToast({ ur: '⚠️ پہلے مریض جوڑیں', en: '⚠️ Link a patient first', roman: '⚠️ Pehle mareez jorein' }[L], 'error');
         studioTogglePatientSearch(true);
         return;
     }
-    var text = parts.join('\n');
     goToNewVisitPage(diagnosisPatientId);
     setTimeout(function() { if ($('nvSymptoms')) $('nvSymptoms').value = text; }, 700);
     showToast('✅ ' + ({ ur: 'علامات وزٹ فارم میں محفوظ ہو گئیں', en: 'Symptoms saved to visit form', roman: 'Alamat visit form mein mehfooz ho gain' }[L]));
+}
+
+// ---------- LINK FROM NEW VISIT / REGISTRATION FORM ----------
+function studioFromField(pageId, fieldId) {
+    studioFieldPage = pageId; studioFieldSrc = fieldId; studioTab = 'sym';
+    showPage('diagnosis', document.querySelector('.nav-btn[data-page="diagnosis"]'));
+    switchDxView('studio');
+    renderStudioAll();
+    showToast('🧪 ' + ({ ur: 'بیماری منتخب کریں، علامات اور ادویات پر کلک کریں پھر «محفوظ کریں» دبائیں', en: 'Pick a disease, click symptoms & remedies, then press Save', roman: 'Bimari muntakhib karein, alamat aur adviat par click karein phir Mehfooz dabain' }[currentLang]));
+}
+
+function studioCancelField() {
+    var pg = studioFieldPage;
+    studioFieldSrc = null; studioFieldPage = null;
+    if (pg) showPage(pg, document.querySelector('.nav-btn[data-page="' + pg + '"]'));
+    renderStudioDetail();
 }
 
 function studioMakeRx() {
