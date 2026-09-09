@@ -38,7 +38,7 @@ function studioL() { return ({ ur: 'ur', en: 'en', roman: 'roman' })[currentLang
 function studioTx(obj) { return studioEsc(obj ? (obj[currentLang] || obj.ur) : ''); }
 
 function studioNorm(s) {
-    return String(s || '').toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim();
+    return String(s || '').toLowerCase().replace(/[^\w\u0600-\u06FF\s]/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
 function studioTokens(s) {
