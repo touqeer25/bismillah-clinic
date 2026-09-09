@@ -1,8 +1,18 @@
-// Bismillah Clinic — js/13-case-taking.js
+// Bismillah Clinic — js/13-case-taking.js  (v3 — STYLE C: ACCORDION)
 // Case Taking page: Acute (few questions) / Chronic (complete totality)
 // CHRONIC (کرانک) — کلاسیکی ہومیوپیتھک کیس ٹیکنگ:
 //   1) مریض کی مکمل ہسٹری  2) مینٹل جنرلز  3) فزیکل جنرلز
 //   4) موڈیلیٹیز  5) پارٹیکلر علامات  => مکمل ٹوٹیلیٹی پر انفرادی دوا کا انتخاب
+//
+// STYLE C (اکارڈین) + نئے فیچرز:
+//   • اکارڈین سیکشنز — ایک وقت میں جو چاہیں کھولیں/بند کریں (پروگرس بیج کے ساتھ)
+//   • 💾 آٹو سیو — ہر کلک/ٹائپ پر localStorage میں محفوظ، صفحہ ریفریش پر بحالی
+//   • ⚖️ وزن ایڈجسٹ — Kent وزن (12/11/10/9/6) ڈاکٹر اپنی مرضی سے بدل سکتے ہیں
+//   • 📊 بصری خلاصہ — ٹاپ ادویات کا بار چارٹ + ٹوٹیلیٹی پراگریس
+//   • 🌐 تینوں زبانیں (ur/en/roman) — زبان بدلتے ہی فارم دوبارہ رینڈر ہوتا ہے
+
+var KENT_W = { mental: 12, mod: 11, part: 10, phys: 9, hist: 6 };
+var CT_STORE = 'bcc_case_taking_v1';
 
 var CT = {
     mode: 'acute',
@@ -11,7 +21,10 @@ var CT = {
     hist: { cc: '', hpi: '', past: '' },
     notes: { particular: '', loc: '', sens: '', extra: '' },
     results: [],
-    _selKeys: []
+    _selKeys: [],
+    w: { mental: 12, mod: 11, part: 10, phys: 9, hist: 6 },
+    open: ['hist'],
+    _savedTs: 0
 };
 
 // ==================== CHIP DATA (3 languages) ====================
@@ -32,7 +45,6 @@ var CT_MENTAL = [
     { ur: 'بھولنے کی عادت', en: 'Forgetful', roman: 'Bhoolnay ki adat' },
     { ur: 'جلد بازی کی عادت', en: 'Hurried / hasty', roman: 'Jald bazi' },
     { ur: 'بہت صفائی پسند', en: 'Fastidious', roman: 'Safai pasand' },
-    { ur: 'مایوسی / ناامیدی', en: 'Hopelessness', roman: 'Mayoosi' },
     { ur: 'صبح کو اداسی', en: 'Morning sadness', roman: 'Subah ko udasi' },
     { ur: 'غصے میں توڑ پھوڑ', en: 'Destructive in anger', roman: 'Ghusay mein tor phor' },
     { ur: 'مذہبی جوش', en: 'Religious affection', roman: 'Mazhabi josh' },
@@ -174,6 +186,7 @@ function ctKey(t) { return String((t && (t.en || t.ur)) || t || '').toLowerCase(
 function ctToggle(group, t) {
     var k = group + '|' + ctKey(t);
     if (CT.sel[k]) delete CT.sel[k]; else CT.sel[k] = t;
+    ctAuto();
     renderCaseTaking();
 }
 
@@ -185,6 +198,7 @@ function ctToggleSingle(group, t) {
         Object.keys(CT.sel).forEach(function(x) { if (x.indexOf(group + '|') === 0) delete CT.sel[x]; });
         CT.sel[k] = t;
     }
+    ctAuto();
     renderCaseTaking();
 }
 
@@ -214,24 +228,141 @@ window.ctToggleIdxS = ctToggleIdxS;
 
 function ctRemoveKey(i) {
     var k = CT._selKeys[i];
-    if (k) { delete CT.sel[k]; renderCaseTaking(); }
+    if (k) { delete CT.sel[k]; ctAuto(); renderCaseTaking(); }
 }
 window.ctRemoveKey = ctRemoveKey;
 
-// Section header: number badge + icon + title + subtitle
-function ctSection(num, icon, title, sub) {
-    var L = ctL();
-    var h = '<div style="display:flex;align-items:center;gap:8px;margin:18px 0 4px;padding:8px 12px;background:linear-gradient(90deg,#f4ecf7,#fff);border-left:4px solid #6c3483;border-radius:8px;flex-wrap:wrap">';
-    h += '<span style="background:#6c3483;color:#fff;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:bold;flex-shrink:0">' + num + '</span>';
-    h += '<span style="font-weight:bold;color:#6c3483;font-size:14px">' + icon + ' ' + ctT(title) + '</span>';
-    if (sub) h += '<span style="font-size:10.5px;color:#7f8c8d;font-weight:normal">' + ctEsc(sub[L] || sub.en) + '</span>';
-    h += '</div>';
-    return h;
+// ==================== ACCORDION CSS (injected once) ====================
+
+function ctCss() {
+    if (document.getElementById('ctAccStyle')) return;
+    var s = document.createElement('style');
+    s.id = 'ctAccStyle';
+    s.textContent =
+        '.ct-acc{border:1px solid #e1d5ea;border-radius:12px;margin:0 0 10px;background:#fff;overflow:hidden;box-shadow:0 1px 3px rgba(108,52,131,.07)}' +
+        '.ct-acc-head{display:flex;align-items:center;gap:9px;padding:10px 13px;cursor:pointer;user-select:none;background:linear-gradient(90deg,#faf7fc,#fff);transition:background .15s}' +
+        '.ct-acc-head:hover{background:#f4ecf7}' +
+        '.ct-acc.open .ct-acc-head{background:linear-gradient(90deg,#efe5f5,#fbf8fd)}' +
+        '.ct-acc-num{background:#6c3483;color:#fff;border-radius:50%;min-width:23px;height:23px;display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:bold;flex-shrink:0}' +
+        '.ct-acc-title{font-weight:bold;color:#6c3483;font-size:13.5px;flex:1;min-width:110px;line-height:1.7}' +
+        '.ct-acc-sub{font-size:10px;color:#8e8e8e;font-weight:normal}' +
+        '.ct-acc-badge{background:#27ae60;color:#fff;border-radius:12px;padding:1px 9px;font-size:10.5px;flex-shrink:0;direction:ltr;unicode-bidi:isolate}' +
+        '.ct-acc-badge.off{background:#eaecee;color:#95a5a6}' +
+        '.ct-acc-chev{color:#8e44ad;font-size:13px;flex-shrink:0;transition:transform .2s}' +
+        '.ct-acc.open .ct-acc-chev{transform:rotate(180deg)}' +
+        '.ct-acc-body{display:none;padding:6px 13px 12px;border-top:1px dashed #e8daef;background:#fffdf9}' +
+        '.ct-acc.open .ct-acc-body{display:block;animation:ctFade .18s ease}' +
+        '@keyframes ctFade{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}';
+    document.head.appendChild(s);
 }
+
+// ==================== ACCORDION ACTIONS ====================
+
+function ctAcc(id) {
+    var i = CT.open.indexOf(id);
+    if (i >= 0) CT.open.splice(i, 1); else CT.open.push(id);
+    ctAuto();
+    renderCaseTaking();
+}
+function ctAccAll(open) {
+    CT.open = open ? ['acute', 'hist', 'mental', 'phys', 'mod', 'part', 'sum'] : [];
+    ctAuto();
+    renderCaseTaking();
+}
+window.ctAcc = ctAcc;
+window.ctAccAll = ctAccAll;
+
+function ctSetMode(m) {
+    if (CT.mode === m) return;
+    CT.mode = m;
+    CT.results = [];
+    if (m === 'acute' && CT.open.indexOf('acute') < 0) CT.open.push('acute');
+    ctAuto();
+    renderCaseTaking();
+}
+window.ctSetMode = ctSetMode;
+
+// ==================== WEIGHT ADJUST (⚖️) ====================
+
+function ctW(p, d) {
+    var v = Math.max(1, Math.min(15, (CT.w[p] || 6) + d));
+    CT.w[p] = v;
+    ctAuto();
+    renderCaseTaking();
+}
+function ctWReset() {
+    CT.w = { mental: 12, mod: 11, part: 10, phys: 9, hist: 6 };
+    ctAuto();
+    renderCaseTaking();
+}
+function ctIsCustomW() {
+    return JSON.stringify(CT.w) !== JSON.stringify(KENT_W);
+}
+window.ctW = ctW;
+window.ctWReset = ctWReset;
+
+function ctWTag(p) {
+    var L = ctL();
+    return L === 'ur' ? '(وزن ' + (CT.w[p] || 6) + ')' : '(weight ' + (CT.w[p] || 6) + ')';
+}
+
+// ==================== AUTO-SAVE (💾 localStorage) ====================
+
+var _ctSaveT = null;
+
+function ctSave() {
+    try {
+        CT._savedTs = Date.now();
+        localStorage.setItem(CT_STORE, JSON.stringify({
+            mode: CT.mode, dx: CT.dx, sel: CT.sel, hist: CT.hist, notes: CT.notes,
+            w: CT.w, open: CT.open, results: CT.results, ts: CT._savedTs
+        }));
+    } catch (e) { /* storage full / private mode — chup rehna */ }
+}
+
+// Har input par foran call hota hai — debounced save + indicator update (re-render nahi)
+function ctAuto() {
+    if (_ctSaveT) clearTimeout(_ctSaveT);
+    _ctSaveT = setTimeout(function() { ctSave(); ctSaveInd(); }, 350);
+}
+
+function ctSaveInd() {
+    var el = document.getElementById('ctSaveInd');
+    if (!el || !CT._savedTs) return;
+    var L = ctL();
+    var t = '';
+    try { t = new Date(CT._savedTs).toLocaleTimeString(); } catch (e) { t = ''; }
+    var lab = { ur: '💾 خودکار محفوظ', en: '💾 Auto-saved', roman: '💾 Auto save' }[L];
+    el.innerHTML = lab + ' — <b dir="ltr">' + ctEsc(t) + '</b>';
+}
+
+function ctLoad() {
+    try {
+        var raw = localStorage.getItem(CT_STORE);
+        if (!raw) return;
+        var d = JSON.parse(raw);
+        if (!d || typeof d !== 'object') return;
+        if (d.mode === 'acute' || d.mode === 'chronic') CT.mode = d.mode;
+        if (d.dx) CT.dx = d.dx;
+        if (d.sel && typeof d.sel === 'object') CT.sel = d.sel;
+        if (d.hist && typeof d.hist === 'object') CT.hist = d.hist;
+        if (d.notes && typeof d.notes === 'object') CT.notes = d.notes;
+        if (d.w && typeof d.w === 'object') {
+            ['mental', 'mod', 'part', 'phys', 'hist'].forEach(function(p) {
+                if (typeof d.w[p] === 'number' && d.w[p] >= 1 && d.w[p] <= 15) CT.w[p] = d.w[p];
+            });
+        }
+        if (Array.isArray(d.open)) CT.open = d.open;
+        if (Array.isArray(d.results)) CT.results = d.results;
+        if (typeof d.ts === 'number') CT._savedTs = d.ts;
+    } catch (e) { /* corrupt data — fresh start */ }
+}
+
+// ==================== DISEASE OPTIONS ====================
 
 function ctDiseaseOptions() {
     if (typeof TREATMENT_LIB === 'undefined') return '';
-    var h = '<select id="ctDx" class="btn btn-sm btn-light" style="max-width:100%;padding:8px 12px" onchange="CT.dx=this.value;renderCaseTaking()">';
+    var h = '<select id="ctDx" class="btn btn-sm btn-light" style="max-width:100%;padding:8px 12px" onchange="CT.dx=this.value;ctAuto();renderCaseTaking()">';
     Object.keys(TREATMENT_LIB).forEach(function(k) {
         var d = TREATMENT_LIB[k];
         h += '<option value="' + k + '"' + (CT.dx === k ? ' selected' : '') + '>' + ctEsc(ctT(d.name)) + ' (' + ctEsc(d.name.en) + ')</option>';
@@ -287,21 +418,18 @@ function ctTokens(s) {
     return ctNorm(s).split(/\s+/).filter(function(w) { return w.length >= 3; });
 }
 
-// Kent ki tarteeb: Mental > Modalities > Particulars > Physical generals > History
-function ctWeight(k) {
-    if (k.indexOf('mental') === 0) return 12;
-    if (k.indexOf('agg') === 0 || k.indexOf('amel') === 0 || k.indexOf('mod') === 0) return 11;
-    if (k.indexOf('part') === 0) return 10;
-    if (k.indexOf('phys') === 0) return 9;
-    return 6; // family / cause / miasm — histry context
-}
-
 function ctPillar(k) {
     if (k.indexOf('mental') === 0) return 'mental';
     if (k.indexOf('phys') === 0) return 'phys';
     if (k.indexOf('part') === 0) return 'part';
     if (k.indexOf('agg') === 0 || k.indexOf('amel') === 0 || k.indexOf('mod') === 0) return 'mod';
     return 'hist';
+}
+
+// Weight ab adjustable hai — Kent default (12/11/10/9/6) ya doctor ki pasand
+function ctWeight(k) {
+    var p = ctPillar(k);
+    return (CT.w && CT.w[p]) || 6;
 }
 
 function ctAllSelectedText() {
@@ -388,10 +516,11 @@ function ctFindRemedies() {
         seen[n] = 1;
         return true;
     }).slice(0, 12);
+    ctSave();
     renderCaseTaking();
 }
 
-// ==================== TOTALITY SUMMARY PANEL ====================
+// ==================== TOTALITY SUMMARY ====================
 
 function ctCounts() {
     var c = { mental: 0, phys: 0, mod: 0, part: 0, hist: 0 };
@@ -423,8 +552,7 @@ function ctTotalityHtml() {
         mod:    { ur: '🔄 موڈیلیٹیز', en: '🔄 Modalities', roman: '🔄 Modalities' },
         part:   { ur: '🔑 پارٹیکلر', en: '🔑 Particulars', roman: '🔑 Particulars' }
     };
-    var h = '<div style="margin-top:18px;background:#f8f6fb;border:1px solid #d7bde2;border-radius:10px;padding:10px 12px">';
-    h += '<div style="font-weight:bold;color:#6c3483;font-size:13.5px;margin-bottom:6px">🧩 ' + ({ ur: 'مکمل ٹوٹیلیٹی — خلاصہ', en: 'Complete Totality — Summary', roman: 'Mukammal Totality — Khulasa' }[L]) + '</div>';
+    var h = '<div style="background:#f8f6fb;border:1px solid #d7bde2;border-radius:10px;padding:10px 12px;margin-top:6px">';
     h += '<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">';
     ['hist', 'mental', 'phys', 'mod', 'part'].forEach(function(p) {
         var on = cov[p].c;
@@ -452,13 +580,76 @@ function ctTotalityHtml() {
     return h;
 }
 
+// ==================== WEIGHT ADJUST UI (⚖️) ====================
+
+function ctWeightsHtml() {
+    var L = ctL();
+    var items = [['mental', '🧠'], ['mod', '🔄'], ['part', '🔑'], ['phys', '🌡️'], ['hist', '📋']];
+    var lbl = {
+        mental: { ur: 'مینٹل', en: 'Mental', roman: 'Mental' },
+        mod:    { ur: 'موڈیلیٹی', en: 'Modalities', roman: 'Modalities' },
+        part:   { ur: 'پارٹیکلر', en: 'Particulars', roman: 'Particulars' },
+        phys:   { ur: 'فزیکل', en: 'Physical', roman: 'Physical' },
+        hist:   { ur: 'ہسٹری', en: 'History', roman: 'History' }
+    };
+    var custom = ctIsCustomW();
+    var h = '<div style="background:#fdfefe;border:1px dashed #b7950b;border-radius:10px;padding:8px 10px;margin:6px 0 10px">';
+    h += '<div style="font-size:12px;font-weight:bold;color:#b7950b;margin-bottom:6px">⚖️ ' + ({ ur: 'سیکشن وزن ایڈجسٹ — سکورنگ اسی وزن سے ہوگی', en: 'Adjust section weights — scoring uses these', roman: 'Section weight adjust — scoring inhi se hogi' }[L]);
+    if (custom) h += ' <span style="background:#fdebd0;color:#b7950b;border-radius:10px;padding:0 9px;font-size:10px">' + ({ ur: 'حسبِ ضرورت', en: 'custom', roman: 'custom' }[L]) + '</span>';
+    h += '</div>';
+    h += '<div style="display:flex;gap:8px;flex-wrap:wrap">';
+    items.forEach(function(it) {
+        var p = it[0], ic = it[1];
+        h += '<div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid #e8daef;border-radius:10px;padding:2px 7px">';
+        h += '<span style="font-size:11px;color:#2c3e50">' + ic + ' ' + ctT(lbl[p]) + '</span>';
+        h += '<button type="button" class="btn btn-sm btn-light" style="min-width:26px;padding:0 8px;line-height:1.7;font-weight:bold" onclick="ctW(\'' + p + '\',-1)">−</button>';
+        h += '<b style="min-width:22px;text-align:center;color:#6c3483;direction:ltr;unicode-bidi:isolate">' + (CT.w[p] || 6) + '</b>';
+        h += '<button type="button" class="btn btn-sm btn-light" style="min-width:26px;padding:0 8px;line-height:1.7;font-weight:bold" onclick="ctW(\'' + p + '\',1)">+</button>';
+        h += '</div>';
+    });
+    h += '</div>';
+    if (custom) h += '<button type="button" class="btn btn-sm btn-light" style="margin-top:7px;font-size:11px" onclick="ctWReset()">↩️ ' + ({ ur: 'Kent ڈیفالٹ واپس (12/11/10/9/6)', en: 'Reset to Kent defaults (12/11/10/9/6)', roman: 'Kent default wapas (12/11/10/9/6)' }[L]) + '</button>';
+    h += '</div>';
+    return h;
+}
+
+function ctWeightsLine() {
+    return '🧠 ' + (CT.w.mental || 12) + ' › 🔄 ' + (CT.w.mod || 11) + ' › 🔑 ' + (CT.w.part || 10) + ' › 🌡️ ' + (CT.w.phys || 9) + ' › 📋 ' + (CT.w.hist || 6);
+}
+
+// ==================== VISUAL SUMMARY (📊 bars) ====================
+
+function ctBarsHtml() {
+    if (!CT.results || !CT.results.length) return '';
+    var L = ctL();
+    var max = CT.results[0].score || 1;
+    var top = CT.results.slice(0, 8);
+    var h = '<div style="margin-top:12px;background:#f8f6fb;border:1px solid #d7bde2;border-radius:10px;padding:10px 12px">';
+    h += '<div style="font-weight:bold;color:#6c3483;font-size:13.5px;margin-bottom:8px">📊 ' + ({ ur: 'بصری خلاصہ — ادویات کا موازنہ', en: 'Visual summary — remedy comparison', roman: 'Bassri khulasa — adviat ka muwazna' }[L]) + '</div>';
+    top.forEach(function(it, i) {
+        var pct = Math.max(6, Math.round((it.score / max) * 100));
+        var col = i === 0 ? 'linear-gradient(90deg,#27ae60,#58d68d)' : 'linear-gradient(90deg,#8e44ad,#af7ac5)';
+        h += '<div style="display:flex;align-items:center;gap:8px;margin:5px 0">';
+        h += '<span style="min-width:105px;max-width:135px;font-size:11.5px;font-weight:bold;color:#4a235a;font-family:Segoe UI,Arial;direction:ltr;unicode-bidi:isolate;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex-shrink:0">' + ctEsc(it.r.n) + '</span>';
+        h += '<div style="flex:1;background:#ede7f1;border-radius:9px;height:15px;overflow:hidden;direction:ltr"><div style="width:' + pct + '%;height:100%;background:' + col + ';border-radius:9px;transition:width .4s"></div></div>';
+        h += '<span style="min-width:32px;text-align:center;background:' + (i === 0 ? '#27ae60' : '#6c3483') + ';color:#fff;border-radius:10px;padding:0 8px;font-size:10.5px;direction:ltr;unicode-bidi:isolate;flex-shrink:0">' + it.score + '</span>';
+        h += '</div>';
+    });
+    h += '<div style="font-size:10.5px;color:#7f8c8d;margin-top:6px">▸ ' + ({ ur: 'سب سے لمبی بار = وزن کے حساب سے پہلی ترجیحی دوا', en: 'Longest bar = top remedy by weighted score', roman: 'Sab se lambi bar = weight ke hisab se pehli dawa' }[L]) + '</div>';
+    h += '</div>';
+    return h;
+}
+
 // ==================== RESULTS ====================
 
 function ctResultsHtml() {
     if (!CT.results.length) return '';
     var L = ctL();
     var h = '<div class="tst-dtitle" style="margin-top:16px"><h3>💊 ' + ({ ur: 'انفرادی ٹوٹیلیٹی کے مطابق ادویات', en: 'Remedies matched to individual totality', roman: 'Individual totality ke mutabiq adviat' }[L]) + ' (' + CT.results.length + ')</h3></div>';
-    h += '<div style="font-size:11px;color:#7d6608;background:#fef9e7;border:1px solid #f7dc6f;border-radius:8px;padding:5px 10px;margin-bottom:8px">⚖️ ' + ({ ur: 'وزن کی ترتیب (Kent): مینٹل 12 › موڈیلیٹیز 11 › پارٹیکلر 10 › فزیکل جنرل 9 › ہسٹری 6', en: 'Kent hierarchy weights: Mental 12 › Modalities 11 › Particulars 10 › Physical generals 9 › History 6', roman: 'Kent hierarchy: Mental 12, Modalities 11, Particulars 10, Physical 9, History 6' }[L]) + '</div>';
+    h += ctBarsHtml();
+    h += '<div style="font-size:11px;color:#7d6608;background:#fef9e7;border:1px solid #f7dc6f;border-radius:8px;padding:5px 10px;margin-bottom:8px;margin-top:8px">⚖️ ' +
+        ({ ur: 'موجودہ وزن:', en: 'Current weights:', roman: 'Mojooda weight:' }[L]) + ' ' + ctWeightsLine() +
+        (ctIsCustomW() ? ' — ' + ({ ur: 'حسبِ ضرورت', en: 'custom', roman: 'custom' }[L]) : '') + '</div>';
     CT.results.forEach(function(it, i) {
         var r = it.r;
         var dname = (TREATMENT_LIB[it.dx] && ctT(TREATMENT_LIB[it.dx].name)) || it.dx;
@@ -485,93 +676,125 @@ function ctResultsHtml() {
     return h;
 }
 
+// ==================== ACCORDION PANEL BUILDER ====================
+
+function ctPanel(id, num, icon, title, sub, count, bodyHtml) {
+    var open = CT.open.indexOf(id) >= 0;
+    var h = '<div class="ct-acc' + (open ? ' open' : '') + '">';
+    h += '<div class="ct-acc-head" onclick="ctAcc(\'' + id + '\')">';
+    h += '<span class="ct-acc-num">' + num + '</span>';
+    h += '<span class="ct-acc-title">' + icon + ' ' + ctEsc(title) + (sub ? ' <span class="ct-acc-sub">' + ctEsc(sub) + '</span>' : '') + '</span>';
+    h += '<span class="ct-acc-badge' + (count > 0 ? '' : ' off') + '">' + (count > 0 ? count + ' ✓' : '—') + '</span>';
+    h += '<span class="ct-acc-chev">▾</span>';
+    h += '</div>';
+    h += '<div class="ct-acc-body">' + bodyHtml + '</div>';
+    h += '</div>';
+    return h;
+}
+
 // ==================== MAIN RENDER ====================
 
 function renderCaseTaking() {
     var el = document.getElementById('ct-page-root');
     if (!el) return;
+    ctCss();
     var L = ctL();
     var scrollY = window.scrollY || 0;
     var acuteOn = CT.mode === 'acute';
+    var cov = ctCoverage();
     var h = '';
+
     h += '<div class="card-title">📋 ' + ({ ur: 'کیس ٹیکنگ فارم', en: 'Case Taking Form', roman: 'Case Taking Form' }[L]) +
         '<span style="font-size:11px;color:#7f8c8d;font-weight:normal"> — ' +
-        ({ ur: 'کرانک: مکمل ہسٹری کے مطابق انفرادی دوا', en: 'Chronic: individual remedy from complete history', roman: 'Chronic: mukammal history ke mutabiq individual dawa' }[L]) + '</span></div>';
+        ({ ur: 'اکارڈین سٹائل: سیکشن کھولیں، علامات ٹک کریں — سب خود بخود محفوظ ہوتا رہے گا', en: 'Accordion style: open a section, tick symptoms — everything auto-saves', roman: 'Accordion style: section kholein, alamaat tick karein — sab auto save hoga' }[L]) + '</span></div>';
 
-    h += '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">';
-    h += '<button type="button" class="btn btn-sm ' + (acuteOn ? 'btn-purple' : 'btn-light') + '" onclick="CT.mode=\'acute\';CT.results=[];renderCaseTaking()">🔴 ' + ({ ur: 'حاد (Acute)', en: 'Acute', roman: 'Haad (Acute)' }[L]) + '</button>';
-    h += '<button type="button" class="btn btn-sm ' + (!acuteOn ? 'btn-purple' : 'btn-light') + '" onclick="CT.mode=\'chronic\';CT.results=[];renderCaseTaking()">🔵 ' + ({ ur: 'مزمن (Chronic)', roman: 'Muzmin (Chronic)' }[L]) + '</button>';
+    // موڈ + اکارڈین کنٹرولز + سیو انڈیکیٹر
+    h += '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px">';
+    h += '<button type="button" class="btn btn-sm ' + (acuteOn ? 'btn-purple' : 'btn-light') + '" onclick="ctSetMode(\'acute\')">🔴 ' + ({ ur: 'حاد (Acute)', en: 'Acute', roman: 'Haad (Acute)' }[L]) + '</button>';
+    h += '<button type="button" class="btn btn-sm ' + (!acuteOn ? 'btn-purple' : 'btn-light') + '" onclick="ctSetMode(\'chronic\')">🔵 ' + ({ ur: 'مزمن (Chronic)', en: 'Chronic', roman: 'Muzmin (Chronic)' }[L]) + '</button>';
+    h += '<button type="button" class="btn btn-sm btn-light" onclick="ctAccAll(true)" title="Expand all">⬇️ ' + ({ ur: 'سب کھولیں', en: 'Expand all', roman: 'Sab kholein' }[L]) + '</button>';
+    h += '<button type="button" class="btn btn-sm btn-light" onclick="ctAccAll(false)" title="Collapse all">⬆️ ' + ({ ur: 'سب بند کریں', en: 'Collapse all', roman: 'Sab band karein' }[L]) + '</button>';
+    h += '<span id="ctSaveInd" style="font-size:10.5px;color:#27ae60;margin-inline-start:auto"></span>';
     h += '</div>';
 
     if (acuteOn) {
         h += '<div class="alert alert-warning" style="margin-bottom:12px">⚡ ' +
             ({ ur: 'حاد موڈ: متعلقہ بیماری چنیں، چند سوالات/علامات ٹک کریں، پھر دوا تلاش کریں۔', en: 'Acute mode: pick the disease, tick a few questions, then find the remedy.', roman: 'Haad mode: bimari chunein, chand sawal tick karein.' }[L]) + '</div>';
-        h += '<div class="form-group"><label>📚 ' + ({ ur: 'بیماری', en: 'Disease', roman: 'Bimari' }[L]) + '</label>' + ctDiseaseOptions() + '</div>';
+        if (CT.open.indexOf('acute') < 0) CT.open.push('acute');
+        var bodyAcute = '';
+        bodyAcute += '<div class="form-group"><label>📚 ' + ({ ur: 'بیماری', en: 'Disease', roman: 'Bimari' }[L]) + '</label>' + ctDiseaseOptions() + '</div>';
         CT_ACUTE_Q.forEach(function(q) {
-            h += '<div class="tst-sub">' + ctT(q) + '</div>' + ctChips(q.opts, q.id);
+            bodyAcute += '<div class="tst-sub">' + ctT(q) + '</div>' + ctChips(q.opts, q.id);
         });
-        h += ctDiseaseChips();
-        h += '<div class="form-group" style="margin-top:12px"><label>' + ({ ur: 'اضافی نوٹ', en: 'Extra notes', roman: 'Izafi note' }[L]) + '</label>';
-        h += '<textarea id="ctExtra" style="min-height:70px" oninput="CT.notes.extra=this.value" placeholder="' +
+        bodyAcute += ctDiseaseChips();
+        bodyAcute += '<div class="form-group" style="margin-top:12px"><label>' + ({ ur: 'اضافی نوٹ', en: 'Extra notes', roman: 'Izafi note' }[L]) + '</label>';
+        bodyAcute += '<textarea style="min-height:70px" oninput="CT.notes.extra=this.value;ctAuto()" placeholder="' +
             ({ ur: 'جو سوال میں نہ ہو یہاں لکھیں...', en: 'Anything not in the questions...', roman: 'Jo sawal mein na ho...' }[L]) + '">' + ctEsc(CT.notes.extra) + '</textarea></div>';
+        var acuteCount = Object.keys(CT.sel).length + (CT.notes.extra ? 1 : 0);
+        h += ctPanel('acute', '⚡', '', ({ ur: 'حاد کیس — بنیادی معلومات', en: 'Acute case — basics', roman: 'Haad case — bunyadi maloomat' }[L]), '', acuteCount, bodyAcute);
     } else {
         h += '<div class="alert alert-warning" style="margin-bottom:12px">🌿 <b>' + ({ ur: 'کرانک کیس ٹیکنگ:', en: 'Chronic case taking:', roman: 'Chronic case taking:' }[L]) + '</b> ' +
-            ({ ur: 'مریض کی مکمل ہسٹری کے مطابق — پارٹیکلر علامات + مینٹل جنرلز + فزیکل جنرلز + موڈیلیٹیز + مکمل ٹوٹیلیٹی کو مدنظر رکھ کر انفرادی علامات پر دوا کا انتخاب ہوگا۔',
-               en: 'Remedy selected on individualizing symptoms — particulars + mental generals + physical generals + modalities = complete totality, per full patient history.',
-               roman: 'Mukammal history ke mutabiq — particulars + mental + physical + modalities = totality, individual alamaat par dawa.' }[L]) + '</div>';
+            ({ ur: 'ہر سیکشن کھولیں → علامات ٹک کریں → مکمل ٹوٹیلیٹی پر انفرادی دوا۔',
+               en: 'Open each section → tick symptoms → individual remedy from complete totality.',
+               roman: 'Har section kholein → alamaat tick karein → mukammal totality par dawa.' }[L]) + '</div>';
 
         // ---------- 1) مکمل ہسٹری ----------
-        h += ctSection(1, '📋', { ur: 'مریض کی مکمل ہسٹری', en: 'Complete Case History', roman: 'Mareez ki mukammal history' },
-            { ur: '— کرانک دوا کی بنیاد', en: '— foundation of the chronic remedy', roman: '— chronic dawa ki bunyad' });
-        h += '<div class="form-group"><label>📌 ' + ({ ur: 'بنیادی شکایت + مدت (Chief Complaint & Duration)', en: 'Chief Complaint & Duration', roman: 'Buniyadi shikayat + muddat' }[L]) + '</label>';
-        h += '<textarea id="ctCc" style="min-height:60px" oninput="CT.hist.cc=this.value" placeholder="' + ({ ur: 'مثلاً: قبل از وقت خون آنا — 2 سال سے', en: 'e.g. Rectal bleeding off and on — for 2 years', roman: 'Maslan: khoon aana — 2 saal se' }[L]) + '">' + ctEsc(CT.hist.cc) + '</textarea></div>';
-        h += '<div class="form-group"><label>📖 ' + ({ ur: 'موجودہ بیماری کی ہسٹری (شروع کیسے ہوا، کیسے بڑھا)', en: 'History of present illness (onset & progress)', roman: 'Hazir bimari ki history' }[L]) + '</label>';
-        h += '<textarea id="ctHpi" style="min-height:60px" oninput="CT.hist.hpi=this.value">' + ctEsc(CT.hist.hpi) + '</textarea></div>';
-        h += '<div class="form-group"><label>🏥 ' + ({ ur: 'پرانے مرض / سرجری / استعمال شدہ ادویات (Past History)', en: 'Past history — old illness / surgery / medicines', roman: 'Puranay marz / surgery / dawaein' }[L]) + '</label>';
-        h += '<textarea id="ctPast" style="min-height:60px" oninput="CT.hist.past=this.value">' + ctEsc(CT.hist.past) + '</textarea></div>';
-        h += '<div class="tst-sub">👨‍👩‍👧 ' + ({ ur: 'خاندانی ہسٹری', en: 'Family history', roman: 'Khandani history' }[L]) + '</div>';
-        h += ctChips(CT_FAMILY, 'family');
-        h += '<div class="tst-sub">🎯 ' + ({ ur: 'مرض کی وجہ / آغاز (Etiology)', en: 'Cause / onset (Etiology)', roman: 'Marz ki wajah' }[L]) + '</div>';
-        h += ctChips(CT_CAUSE, 'cause');
-        h += '<div class="tst-sub">🧬 ' + ({ ur: 'میاسم (Miasm) — ایک منتخب کریں', en: 'Miasm — select one', roman: 'Miasm — ek muntakhib karein' }[L]) + '</div>';
-        h += ctChips(CT_MIASM, 'miasm', true);
+        var bodyHist = '';
+        bodyHist += '<div class="form-group"><label>📌 ' + ({ ur: 'بنیادی شکایت + مدت (Chief Complaint & Duration)', en: 'Chief Complaint & Duration', roman: 'Buniyadi shikayat + muddat' }[L]) + '</label>';
+        bodyHist += '<textarea style="min-height:60px" oninput="CT.hist.cc=this.value;ctAuto()" placeholder="' + ({ ur: 'مثلاً: قبل از وقت خون آنا — 2 سال سے', en: 'e.g. Rectal bleeding off and on — for 2 years', roman: 'Maslan: khoon aana — 2 saal se' }[L]) + '">' + ctEsc(CT.hist.cc) + '</textarea></div>';
+        bodyHist += '<div class="form-group"><label>📖 ' + ({ ur: 'موجودہ بیماری کی ہسٹری (شروع کیسے ہوا، کیسے بڑھا)', en: 'History of present illness (onset & progress)', roman: 'Hazir bimari ki history' }[L]) + '</label>';
+        bodyHist += '<textarea style="min-height:60px" oninput="CT.hist.hpi=this.value;ctAuto()">' + ctEsc(CT.hist.hpi) + '</textarea></div>';
+        bodyHist += '<div class="form-group"><label>🏥 ' + ({ ur: 'پرانے مرض / سرجری / استعمال شدہ ادویات (Past History)', en: 'Past history — old illness / surgery / medicines', roman: 'Puranay marz / surgery / dawaein' }[L]) + '</label>';
+        bodyHist += '<textarea style="min-height:60px" oninput="CT.hist.past=this.value;ctAuto()">' + ctEsc(CT.hist.past) + '</textarea></div>';
+        bodyHist += '<div class="tst-sub">👨‍👩‍👧 ' + ({ ur: 'خاندانی ہسٹری', en: 'Family history', roman: 'Khandani history' }[L]) + '</div>';
+        bodyHist += ctChips(CT_FAMILY, 'family');
+        bodyHist += '<div class="tst-sub">🎯 ' + ({ ur: 'مرض کی وجہ / آغاز (Etiology)', en: 'Cause / onset (Etiology)', roman: 'Marz ki wajah' }[L]) + '</div>';
+        bodyHist += ctChips(CT_CAUSE, 'cause');
+        bodyHist += '<div class="tst-sub">🧬 ' + ({ ur: 'میاسم (Miasm) — ایک منتخب کریں', en: 'Miasm — select one', roman: 'Miasm — ek muntakhib karein' }[L]) + '</div>';
+        bodyHist += ctChips(CT_MIASM, 'miasm', true);
+        h += ctPanel('hist', 1, '📋', ({ ur: 'مریض کی مکمل ہسٹری', en: 'Complete Case History', roman: 'Mareez ki mukammal history' }[L]),
+            { ur: '— کرانک دوا کی بنیاد', en: '— foundation of the chronic remedy', roman: '— chronic dawa ki bunyad' }[L], cov.hist.n, bodyHist);
 
         // ---------- 2) مینٹل جنرلز ----------
-        h += ctSection(2, '🧠', { ur: 'مینٹل جنرلز', en: 'Mental Generals', roman: 'Mental Generals' },
-            { ur: '— انفرادیت کا سب سے اہم حصہ (وزن 12)', en: '— highest individualizing value (weight 12)', roman: '— individualiat ka aham hissa (weight 12)' });
-        h += ctChips(CT_MENTAL, 'mental');
+        h += ctPanel('mental', 2, '🧠', ({ ur: 'مینٹل جنرلز', en: 'Mental Generals', roman: 'Mental Generals' }[L]),
+            { ur: '— انفرادیت کا سب سے اہم حصہ ', en: '— highest individualizing value ', roman: '— individualiat ka aham hissa ' }[L] + ctWTag('mental'), cov.mental.n,
+            ctChips(CT_MENTAL, 'mental'));
 
         // ---------- 3) فزیکل جنرلز ----------
-        h += ctSection(3, '🌡️', { ur: 'فزیکل جنرلز', en: 'Physical Generals', roman: 'Physical Generals' },
-            { ur: '— تھرمل، پیاس، پسینہ، نیند، خوراک (وزن 9)', en: '— thermal, thirst, sweat, sleep, food (weight 9)', roman: '— thermal, pyas, paseena, neend (weight 9)' });
-        h += ctChips(CT_PHYSICAL, 'phys');
+        h += ctPanel('phys', 3, '🌡️', ({ ur: 'فزیکل جنرلز', en: 'Physical Generals', roman: 'Physical Generals' }[L]),
+            { ur: '— تھرمل، پیاس، پسینہ، نیند، خوراک ', en: '— thermal, thirst, sweat, sleep, food ', roman: '— thermal, pyas, paseena, neend ' }[L] + ctWTag('phys'), cov.phys.n,
+            ctChips(CT_PHYSICAL, 'phys'));
 
         // ---------- 4) موڈیلیٹیز ----------
-        h += ctSection(4, '🔄', { ur: 'موڈیلیٹیز', en: 'Modalities', roman: 'Modalities' },
-            { ur: '— بڑھوتری اور کمی (وزن 11)', en: '— aggravations & ameliorations (weight 11)', roman: '— barhotori aur kami (weight 11)' });
-        h += '<div class="tst-sub">⬇️ ' + ({ ur: 'اگراویشن — جس سے بڑھتا ہے (Worse)', en: 'Aggravation — worse from', roman: 'Aggravation — jis se barhta hai' }[L]) + '</div>';
-        h += ctChips(CT_MODAGG, 'modagg');
-        h += '<div class="tst-sub">⬆️ ' + ({ ur: 'امیلوریشن — جس سے کم ہوتا ہے (Better)', en: 'Amelioration — better from', roman: 'Amelioration — jis se kam hota hai' }[L]) + '</div>';
-        h += ctChips(CT_MODAMEL, 'modamel');
+        var bodyMod = '';
+        bodyMod += '<div class="tst-sub">⬇️ ' + ({ ur: 'اگراویشن — جس سے بڑھتا ہے (Worse)', en: 'Aggravation — worse from', roman: 'Aggravation — jis se barhta hai' }[L]) + '</div>';
+        bodyMod += ctChips(CT_MODAGG, 'modagg');
+        bodyMod += '<div class="tst-sub">⬆️ ' + ({ ur: 'امیلوریشن — جس سے کم ہوتا ہے (Better)', en: 'Amelioration — better from', roman: 'Amelioration — jis se kam hota hai' }[L]) + '</div>';
+        bodyMod += ctChips(CT_MODAMEL, 'modamel');
+        h += ctPanel('mod', 4, '🔄', ({ ur: 'موڈیلیٹیز', en: 'Modalities', roman: 'Modalities' }[L]),
+            { ur: '— بڑھوتری اور کمی ', en: '— aggravations & ameliorations ', roman: '— barhotori aur kami ' }[L] + ctWTag('mod'), cov.mod.n, bodyMod);
 
         // ---------- 5) پارٹیکلر علامات ----------
-        h += ctSection(5, '🔑', { ur: 'پارٹیکلر علامات', en: 'Particular Symptoms', roman: 'Particular alamaat' },
-            { ur: '— مقام، محسوسات، خصوصیت (وزن 10)', en: '— location, sensation, character (weight 10)', roman: '— maqam, mehsoosat, khasusiyat (weight 10)' });
-        h += '<div class="form-group"><label>📚 ' + ({ ur: 'متعلقہ بیماری (اختیاری — ریپرٹوری حد بندی)', en: 'Related disease (optional — repertory scope)', roman: 'Mutaliqa bimari (ikhtiyari)' }[L]) + '</label>' + ctDiseaseOptions() + '</div>';
-        h += ctDiseaseChips();
-        h += '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">';
-        h += '<div style="flex:1;min-width:180px"><label style="font-size:12px;font-weight:bold;color:#2c3e50">📍 ' + ({ ur: 'مقام (Location)', en: 'Location', roman: 'Maqam' }[L]) + '</label>';
-        h += '<input type="text" class="form-control" style="padding:8px;border:1px solid #cbd5e1;border-radius:6px;margin-top:4px" oninput="CT.notes.loc=this.value" value="' + ctEsc(CT.notes.loc) + '"></div>';
-        h += '<div style="flex:1;min-width:180px"><label style="font-size:12px;font-weight:bold;color:#2c3e50">⚡ ' + ({ ur: 'محسوسات / کیفیت (Sensation)', en: 'Sensation / character', roman: 'Mehsoosat' }[L]) + '</label>';
-        h += '<input type="text" class="form-control" style="padding:8px;border:1px solid #cbd5e1;border-radius:6px;margin-top:4px" oninput="CT.notes.sens=this.value" value="' + ctEsc(CT.notes.sens) + '"></div>';
-        h += '</div>';
-        h += '<div class="form-group" style="margin-top:10px"><label>✍️ ' + ({ ur: 'پارٹیکلر تفصیل — مریض کے الفاظ میں', en: 'Particulars in patient own words', roman: 'Particular tafseel — mareez ke alfaaz mein' }[L]) + '</label>';
-        h += '<textarea id="ctPart" style="min-height:70px" oninput="CT.notes.particular=this.value">' + ctEsc(CT.notes.particular) + '</textarea></div>';
+        var bodyPart = '';
+        bodyPart += '<div class="form-group"><label>📚 ' + ({ ur: 'متعلقہ بیماری (اختیاری — ریپرٹوری حد بندی)', en: 'Related disease (optional — repertory scope)', roman: 'Mutaliqa bimari (ikhtiyari)' }[L]) + '</label>' + ctDiseaseOptions() + '</div>';
+        bodyPart += ctDiseaseChips();
+        bodyPart += '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">';
+        bodyPart += '<div style="flex:1;min-width:180px"><label style="font-size:12px;font-weight:bold;color:#2c3e50">📍 ' + ({ ur: 'مقام (Location)', en: 'Location', roman: 'Maqam' }[L]) + '</label>';
+        bodyPart += '<input type="text" class="form-control" style="padding:8px;border:1px solid #cbd5e1;border-radius:6px;margin-top:4px" oninput="CT.notes.loc=this.value;ctAuto()" value="' + ctEsc(CT.notes.loc) + '"></div>';
+        bodyPart += '<div style="flex:1;min-width:180px"><label style="font-size:12px;font-weight:bold;color:#2c3e50">⚡ ' + ({ ur: 'محسوسات / کیفیت (Sensation)', en: 'Sensation / character', roman: 'Mehsoosat' }[L]) + '</label>';
+        bodyPart += '<input type="text" class="form-control" style="padding:8px;border:1px solid #cbd5e1;border-radius:6px;margin-top:4px" oninput="CT.notes.sens=this.value;ctAuto()" value="' + ctEsc(CT.notes.sens) + '"></div>';
+        bodyPart += '</div>';
+        bodyPart += '<div class="form-group" style="margin-top:10px"><label>✍️ ' + ({ ur: 'پارٹیکلر تفصیل — مریض کے الفاظ میں', en: 'Particulars in patient own words', roman: 'Particular tafseel — mareez ke alfaaz mein' }[L]) + '</label>';
+        bodyPart += '<textarea style="min-height:70px" oninput="CT.notes.particular=this.value;ctAuto()">' + ctEsc(CT.notes.particular) + '</textarea></div>';
+        h += ctPanel('part', 5, '🔑', ({ ur: 'پارٹیکلر علامات', en: 'Particular Symptoms', roman: 'Particular alamaat' }[L]),
+            { ur: '— مقام، محسوسات، خصوصیت ', en: '— location, sensation, character ', roman: '— maqam, mehsoosat, khasusiyat ' }[L] + ctWTag('part'), cov.part.n, bodyPart);
 
-        // ---------- 6) ٹوٹیلیٹی سمری ----------
-        h += ctSection(6, '🧩', { ur: 'مکمل ٹوٹیلیٹی — خلاصہ', en: 'Complete Totality — Summary', roman: 'Mukammal totality — khulasa' },
-            { ur: '— چاروں ستون مکمل کریں پھر دوا تلاش کریں', en: '— complete all pillars, then find the remedy', roman: '— charon sutoon mukammal karein' });
-        h += ctTotalityHtml();
+        // ---------- 6) ٹوٹیلیٹی سمری + وزن ایڈجسٹ ----------
+        var doneP = 0;
+        ['hist', 'mental', 'phys', 'mod', 'part'].forEach(function(p) { if (cov[p].c) doneP += 1; });
+        var bodySum = ctWeightsHtml() + ctTotalityHtml();
+        h += ctPanel('sum', 6, '🧩', ({ ur: 'مکمل ٹوٹیلیٹی — خلاصہ', en: 'Complete Totality — Summary', roman: 'Mukammal totality — khulasa' }[L]),
+            { ur: '— چاروں ستون مکمل کریں پھر دوا تلاش کریں', en: '— complete all pillars, then find the remedy', roman: '— charon sutoon mukammal karein' }[L], doneP, bodySum);
     }
 
     h += '<div style="display:flex;gap:8px;flex-wrap:wrap;margin:14px 0">';
@@ -582,6 +805,7 @@ function renderCaseTaking() {
     el.innerHTML = h;
     var dx = document.getElementById('ctDx');
     if (dx) dx.value = CT.dx;
+    ctSaveInd();
     if (scrollY) window.scrollTo(0, scrollY);
 }
 
@@ -590,9 +814,13 @@ function ctClearAll() {
     CT.hist = { cc: '', hpi: '', past: '' };
     CT.notes = { particular: '', loc: '', sens: '', extra: '' };
     CT.results = [];
+    ctSave();
     renderCaseTaking();
 }
 window.ctClearAll = ctClearAll;
+
+// پہلی لوڈ پر محفوظ شدہ کیس بحال کریں (آٹو سیو)
+ctLoad();
 
 window.renderCaseTaking = renderCaseTaking;
 window.ctToggle = ctToggle;

@@ -154,6 +154,11 @@ function toggleLanguage() {
             if (typeof renderStudioAll === 'function') renderStudioAll();
         }
     }
+    // Case-taking form (اکارڈین): زبان بدلتے ہی فوری دوبارہ رینڈر — بھرا ہوا ڈیٹا CT state میں محفوظ رہتا ہے
+    const ctRoot = document.getElementById('ct-page-root');
+    if (ctRoot && ctRoot.innerHTML.trim() && typeof renderCaseTaking === 'function') {
+        try { renderCaseTaking(); } catch (e) { console.error('case re-render', e); }
+    }
 }
 
 // ==================== CONNECTION ====================
