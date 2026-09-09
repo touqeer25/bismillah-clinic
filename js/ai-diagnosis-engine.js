@@ -1,378 +1,1381 @@
-/* Bismillah Clinic — js/ai-diagnosis-engine.js
-   Smart AI Homeopathic Diagnosis Assistant Module */
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bismillah Homeopathic Clinic</title>
+    <meta name="theme-color" content="#1a5276">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>" type="image/svg+xml">
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json?v=33">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="BHC Clinic">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="diagnosis-data.js?v=33"></script>
+    <script src="diagnosis-custom.js?v=33"></script>
+    <script src="custom-data-help.js?v=33"></script>
+    <script src="advanced-diagnosis-knowledge.js?v=33"></script>
+    <script src="advanced-diagnosis-engine.js?v=33"></script>
+    <!-- Style alag file me: css/style.css -->
+    <link rel="stylesheet" href="css/style.css?v=33">
 
-const AI_SERVER_URL = "http://localhost:8000";
+</head>
+<body dir="rtl" class="lang-ur">
 
-const AIState = {
-    step: 1,
-    chief_complaint: "",
-    case_type: "🔴 حاد (Acute)",
-    search_mode: "books", // 'books' or 'ai'
-    categories: [],
-    selected_answers: [],
-    extra_notes: "",
-    candidate_remedies: [],
-    diff_categories: [],
-    final_prescription: "",
-    sources: []
-};
+<div id="loadingOverlay" class="loading-overlay">
+    <div class="spinner"></div>
+</div>
 
-// Main Modal/Panel Renderer
-function openAIDiagnosisModal() {
-    let overlay = document.getElementById("ai-modal-overlay");
-    if (!overlay) {
-        overlay = document.createElement("div");
-        overlay.id = "ai-modal-overlay";
-        overlay.className = "modal-overlay active";
-        document.body.appendChild(overlay);
-    }
-    overlay.classList.add("active");
-    renderAIStep();
-}
-
-function closeAIDiagnosisModal() {
-    const overlay = document.getElementById("ai-modal-overlay");
-    if (overlay) overlay.classList.remove("active");
-}
-
-function renderAIStep() {
-    const overlay = document.getElementById("ai-modal-overlay");
-    if (!overlay) return;
-
-    let html = `
-    <div class="modal" style="max-width: 900px; font-family: 'Segoe UI', 'Noto Nastaliq Urdu', sans-serif;">
-        <div class="modal-title">
-            <span>🩺 Bismillah Clinic — AI Homeopathic Diagnosis Studio</span>
-            <button class="modal-close" onclick="closeAIDiagnosisModal()">&times;</button>
+<!-- ============================================ -->
+<!-- LOGIN PAGE -->
+<!-- ============================================ -->
+<div id="loginPage" class="login-container">
+    <div class="login-box">
+        <div class="bismillah">بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِیْم</div>
+        <div class="clinic-name" data-ur="بسم اللہ ہومیوپیتھک کلینک" data-en="Bismillah Homeopathic Clinic" data-roman="Bismillah Homeopathic Clinic">بسم اللہ ہومیوپیتھک کلینک</div>
+        <div class="doctor-name" data-ur="ہومیوپیتھک ڈاکٹر توقیر احمد خان" data-en="Homeopathic Doctor Tauqeer Ahmad Khan" data-roman="Homeopathic Doctor Tauqeer Ahmad Khan">ہومیوپیتھک ڈاکٹر توقیر احمد خان</div>
+        <div class="subtitle" data-ur="مریض ریکارڈ مینجمنٹ سسٹم" data-en="Patient Record Management System" data-roman="Patient Record Management System">مریض ریکارڈ مینجمنٹ سسٹم</div>
+        
+        <div id="loginError" class="alert alert-error hidden"></div>
+        
+        <div class="form-group">
+            <label data-ur="👤 صارف نام" data-en="👤 Username" data-roman="👤 Username">👤 صارف نام</label>
+            <input type="text" id="loginUsername" placeholder="Username" autocomplete="username">
+        </div>
+        <div class="form-group">
+            <label data-ur="🔒 پاسورڈ" data-en="🔒 Password" data-roman="🔒 Password">🔒 پاسورڈ</label>
+            <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password">
         </div>
         
-        <!-- Mode & Case Type Bar -->
-        <div class="disease-suggest-panel" style="display: flex; gap: 10px; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-            <div>
-                <label style="font-weight: bold; margin-right: 5px;">تلاش کا طریقہ (Search Mode):</label>
-                <select id="ai-search-mode" onchange="AIState.search_mode = this.value;" class="btn btn-sm btn-light">
-                    <option value="books" ${AIState.search_mode === 'books' ? 'selected' : ''}>📚 کتب موڈ (Local Books Only)</option>
-                    <option value="ai" ${AIState.search_mode === 'ai' ? 'selected' : ''}>🧠 AI موڈ (Gemini Knowledge)</option>
-                </select>
-            </div>
-            <div>
-                <label style="font-weight: bold; margin-right: 5px;">نوعیت (Case Type):</label>
-                <select id="ai-case-type" onchange="AIState.case_type = this.value;" class="btn btn-sm btn-light">
-                    <option value="🔴 حاد (Acute)" ${AIState.case_type.includes('حاد') ? 'selected' : ''}>🔴 حاد (Acute)</option>
-                    <option value="🔵 مزمن (Chronic)" ${AIState.case_type.includes('مزمن') ? 'selected' : ''}>🔵 مزمن (Chronic)</option>
-                </select>
-            </div>
+        <div class="form-group" style="text-align:right;">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:normal;">
+                <input type="checkbox" id="rememberMe" style="width:auto;margin:0;transform:scale(1.3);cursor:pointer;">
+                <span data-ur="🔒 مجھے یاد رکھیں" data-en="🔒 Remember Me" data-roman="🔒 Mujhe Yaad Rakhein">🔒 مجھے یاد رکھیں</span>
+            </label>
+            <div class="hint" style="margin-top:5px;" data-ur="اگلی بار خودکار لاگ ان" data-en="Auto-login next time" data-roman="Agli baar auto-login">اگلی بار خودکار لاگ ان</div>
         </div>
         
-        <div id="ai-step-body"></div>
+        <button type="button" class="btn btn-primary" id="loginBtn">
+            <span data-ur="🔓 لاگ ان" data-en="🔓 Login" data-roman="🔓 Login">🔓 لاگ ان</span>
+        </button>
+        
+        <div style="margin-top:15px; font-size:11px; color:#95a5a6;">
+            Demo: doctor / 1234
+        </div>
+        
+        <div style="margin-top:15px;">
+            <button type="button" class="icon-btn" id="langBtnLogin" style="background:#2980b9; margin:0 auto;" title="Change Language">🌐</button>
+        </div>
     </div>
-    `;
+</div>
 
-    overlay.innerHTML = html;
-    const body = document.getElementById("ai-step-body");
-
-    if (AIState.step === 1) renderAIStep1(body);
-    else if (AIState.step === 2) renderAIStep2(body);
-    else if (AIState.step === 3) renderAIStep3(body);
-}
-
-// STEP 1 UI
-function renderAIStep1(container) {
-    container.innerHTML = `
-        <div class="card">
-            <div class="card-title">📋 مرحلہ 1: بنیادی شکایت (Chief Complaint)</div>
-            <div class="form-group">
-                <label>مریض کی بنیادی تکلیف کیا ہے؟</label>
-                <textarea id="ai-chief-input" placeholder="مثال: کھانسی، بخار، پیٹ درد، جلد پر خارش..." style="min-height: 90px; direction: rtl;">${AIState.chief_complaint}</textarea>
+<!-- ============================================ -->
+<!-- MAIN APP -->
+<!-- ============================================ -->
+<div id="mainApp" class="hidden">
+    <header class="app-header">
+        <div class="header-center">
+            <div class="clinic-title" data-ur="بسم اللہ ہومیوپیتھک کلینک" data-en="Bismillah Homeopathic Clinic" data-roman="Bismillah Homeopathic Clinic">بسم اللہ ہومیوپیتھک کلینک</div>
+            <div class="doctor-title" data-ur="ڈاکٹر توقیر احمد خان — ہومیوپیتھک فزیشن" data-en="Dr. Tauqeer Ahmad Khan — Homeopathic Physician" data-roman="Dr. Tauqeer Ahmad Khan — Homeopathic Physician">ڈاکٹر توقیر احمد خان — ہومیوپیتھک فزیشن</div>
+        </div>
+        <div class="header-right">
+            <div class="connection-status" id="connStatus">
+                <span class="status-dot"></span>
+                <span class="status-text">Online</span>
             </div>
-            <div style="display: flex; gap: 10px; justify-content: flex-end;">
-                <button class="btn btn-purple" onclick="startAICaseTaking()">
-                    🚀 پوچھ گچھ شروع کریں (Start Case Taking)
-                </button>
+            <span id="pendingBadge" class="pending-badge hidden" title="Pending Sync">0</span>
+            <div class="header-btns-grid">
+                <button class="icon-btn" id="logoutBtn" title="Logout">🚪</button>
+                <button class="icon-btn" id="langBtn" title="Change Language">🌐</button>
+                <button class="icon-btn" onclick="syncCustomData()" title="Sync Custom Data" style="background:rgba(23,162,184,0.3);">☁️</button>
+                <button class="icon-btn" id="backupBtn" title="Backup Data">💾</button>
             </div>
         </div>
-    `;
-}
-
-// STEP 2 UI (Clickable Option Chips)
-function renderAIStep2(container) {
-    let catsHtml = "";
-    AIState.categories.forEach((cat, idx) => {
-        catsHtml += `<div style="margin-bottom: 12px;">
-            <div style="font-weight: bold; color: #1a5276; margin-bottom: 5px;">📂 ${cat.category}</div>
-            <div class="tst-kw">`;
-        
-        cat.options.forEach(opt => {
-            const isSel = AIState.selected_answers.includes(opt);
-            catsHtml += `<span class="${isSel ? 'sel' : ''}" onclick="toggleAIAnswer('${opt.replace(/'/g, "\\'")}')">${isSel ? '✅ ' : ''}${opt}</span>`;
-        });
-        
-        catsHtml += `</div></div>`;
-    });
-
-    let selectedChips = "";
-    AIState.selected_answers.forEach(ans => {
-        selectedChips += `<span class="selected-chip" onclick="toggleAIAnswer('${ans.replace(/'/g, "\\'")}')">${ans}</span>`;
-    });
-
-    container.innerHTML = `
-        <div class="card">
-            <div class="card-title">🔍 مرحلہ 2: کیس ٹیکنگ (سوالات پر کلک کر کے جواب منتخب کریں)</div>
-            <div style="margin-bottom: 10px; font-size: 13px; color: #555;"><b>بنیادی شکایت:</b> ${AIState.chief_complaint}</div>
+    </header>
+    
+    <nav class="nav-bar">
+        <button class="nav-btn active" data-page="dashboard">
+            🏠 <span data-ur="ڈیش بورڈ" data-en="Dashboard" data-roman="Dashboard">ڈیش بورڈ</span>
+        </button>
+        <button class="nav-btn" data-page="newPatient">
+            ➕ <span data-ur="نئی رجسٹریشن" data-en="New Registration" data-roman="Nayi Registration">نئی رجسٹریشن</span>
+        </button>
+        <button class="nav-btn" data-page="newVisitPage">
+            🩺 <span data-ur="نئی وزٹ" data-en="New Visit" data-roman="Nayi Visit">نئی وزٹ</span>
+        </button>
+        <button class="nav-btn" data-page="searchPatient">
+            🔍 <span data-ur="تلاش" data-en="Search" data-roman="Talash">تلاش</span>
+        </button>
+        <button class="nav-btn" data-page="allPatients">
+            📋 <span data-ur="تمام مریض" data-en="All Patients" data-roman="Tamam Mareez">تمام مریض</span>
+        </button>
+        <button class="nav-btn" data-page="diagnosis">
+            🔬 <span data-ur="تشخیص" data-en="Diagnosis" data-roman="Tashkhees">تشخیص</span>
+        </button>
+        <button class="nav-btn" data-page="settings">
+            ⚙️ <span data-ur="سیٹنگز" data-en="Settings" data-roman="Settings">سیٹنگز</span>
+        </button>
+        <button class="nav-btn" data-page="repertoryBrowser">
+            📖 <span data-ur="ریپرٹری" data-en="Repertory" data-roman="Repertory">ریپرٹری</span>
+        </button>
+        <button type="button" class="nav-btn nav-action" id="navPrefsBtn" onclick="if(typeof openPreferencesModal==='function')openPreferencesModal()">
+            🎛️ <span data-ur="ترجیحات" data-en="Preferences" data-roman="Tarjeehaat">ترجیحات</span>
+        </button>
+        <button type="button" class="nav-btn nav-action" id="navHelpBtn" onclick="if(typeof openHelpCenter==='function')openHelpCenter()">
+            ❓ <span data-ur="مدد" data-en="Help" data-roman="Madad">مدد</span>
+        </button>
+        <button type="button" class="nav-btn nav-action" id="navTourBtn" onclick="if(typeof showTourWelcome==='function')showTourWelcome()">
+            🎓 <span data-ur="ٹور" data-en="Tour" data-roman="Tour">ٹور</span>
+        </button>
+        <button type="button" class="nav-btn nav-action" id="navTipBtn" onclick="if(typeof showTipOfTheDay==='function')showTipOfTheDay()">
+            💡 <span data-ur="مشورہ" data-en="Tip" data-roman="Mashwara">مشورہ</span>
+        </button>
+    </nav>
+    
+    <!-- ============================================ -->
+    <!-- DASHBOARD -->
+    <!-- ============================================ -->
+    <div id="page-dashboard" class="page active">
+        <div class="dashboard">
+            <div id="offlineNotice" class="offline-notice hidden">
+                ⚠️ <span id="offlineNoticeText">آپ آفلائن ہیں</span>
+                <button class="btn btn-info btn-xs" id="syncNowBtn" style="margin-right:10px;">🔄 Sync Now</button>
+            </div>
             
-            ${catsHtml}
+            <!-- Stats Tabs -->
+            <div class="stats-grid">
+                <div class="stat-card" id="statTabToday" onclick="showStatPatients(&#39;today&#39;)" style="cursor:pointer;">
+                    <div class="stat-number" id="statToday">-</div>
+                    <div class="stat-label" data-ur="📅 آج کے مریض" data-en="📅 Today&#39;s Patients" data-roman="📅 Aaj ke Mareez">📅 آج کے مریض</div>
+                </div>
+                <div class="stat-card purple" id="statTabFollowups" onclick="showStatPatients(&#39;followups&#39;)" style="cursor:pointer;">
+                    <div class="stat-number" id="statFollowups">-</div>
+                    <div class="stat-label" data-ur="🔄 فالو اپ وزٹس" data-en="🔄 Follow-up Visits" data-roman="🔄 Follow-ups">🔄 فالو اپ وزٹس</div>
+                </div>
+                <div class="stat-card orange" id="statTabNewMonth" onclick="showStatPatients(&#39;newMonth&#39;)" style="cursor:pointer;">
+                    <div class="stat-number" id="statNewMonth">-</div>
+                    <div class="stat-label" data-ur="🆕 نئے مریض (اس ماہ)" data-en="🆕 New Patients (This Month)" data-roman="🆕 Naye Mareez (Is Mah)">🆕 نئے مریض (اس ماہ)</div>
+                </div>
+                <div class="stat-card green" id="statTabMonth" onclick="showStatPatients(&#39;month&#39;)" style="cursor:pointer;">
+                    <div class="stat-number" id="statMonth">-</div>
+                    <div class="stat-label" data-ur="📆 اس ماہ کے مریض" data-en="📆 This Month&#39;s Patients" data-roman="📆 Is Mah ke Mareez">📆 اس ماہ کے مریض</div>
+                </div>
+                <div class="stat-card" id="statTabAllTime" onclick="showStatPatients(&#39;allTime&#39;)" style="cursor:pointer;">
+                    <div class="stat-number" id="statAllTime">-</div>
+                    <div class="stat-label" data-ur="📊 آل ٹائم مریض" data-en="📊 All-Time Patients" data-roman="📊 All-Time Mareez">📊 آل ٹائم مریض</div>
+                </div>
+            </div>
             
-            <div class="section-divider">✅ منتخب شدہ جوابات</div>
-            <div class="selected-symptoms-box">
-                ${selectedChips || '<span style="color:#999; font-size:12px;">ابھی کوئی آپشن منتخب نہیں کیا گیا...</span>'}
+            <!-- Stats Patient List Panel -->
+            <div class="card" id="statPatientsPanel">
+                <div class="card-title" style="display:flex;justify-content:space-between;align-items:center;">
+                    <span id="statPanelTitle">📋</span>
+                </div>
+                <div id="statPatientsList"></div>
             </div>
 
-            <div class="form-group">
-                <label>اضافی نوٹ (اختیاری):</label>
-                <textarea id="ai-extra-notes" onchange="AIState.extra_notes = this.value" placeholder="جو تفصیل بٹنوں میں نہ ہو، یہاں لکھیں...">${AIState.extra_notes}</textarea>
-            </div>
-
-            <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 15px;">
-                <button class="btn btn-light" onclick="AIState.step = 1; renderAIStep();">⬅️ پیچھے</button>
-                <button class="btn btn-primary" onclick="submitAIStep2()">ادویات کی تلاش اور تفریقی تشخیص ➔</button>
-            </div>
         </div>
-    `;
-}
-
-// STEP 3 UI (Prescription & Auto-fill)
-function renderAIStep3(container) {
-    let remediesHtml = "";
-    AIState.candidate_remedies.forEach((rem, i) => {
-        remediesHtml += `
-        <div class="remedy-item">
-            <div class="remedy-name">${i + 1}. ${rem.remedy} (${rem.urdu_name || ''})</div>
-            <div class="remedy-use"><b>وجہ:</b> ${rem.why}</div>
-            <div class="remedy-dose"><b>کلیدی نکات:</b> ${Array.isArray(rem.keynotes) ? rem.keynotes.join(' • ') : rem.keynotes}</div>
-            ${rem.source ? `<div style="font-size:10px; color:#17a2b8;">📖 ${rem.source}</div>` : ''}
-        </div>`;
-    });
-
-    let diffHtml = "";
-    AIState.diff_categories.forEach((cat, idx) => {
-        diffHtml += `<div style="margin-bottom: 10px;">
-            <div style="font-weight: bold; color: #8e44ad; margin-bottom: 4px;">⚖️ ${cat.category}</div>
-            <div class="tst-kw">`;
-        cat.options.forEach(opt => {
-            const isSel = AIState.selected_answers.includes(opt);
-            diffHtml += `<span class="${isSel ? 'sel' : ''}" onclick="toggleAIAnswer('${opt.replace(/'/g, "\\'")}')">${isSel ? '✅ ' : ''}${opt}</span>`;
-        });
-        diffHtml += `</div></div>`;
-    });
-
-    let sourcesTags = "";
-    AIState.sources.forEach(s => {
-        sourcesTags += `<span class="test-item">📖 ${s.book} (ص ${s.page})</span> `;
-    });
-
-    container.innerHTML = `
-        <div class="card">
-            <div class="card-title">🌿 مرحلہ 3: تفریقی تشخیص اور حتمی نسخہ</div>
-            
-            <div class="form-row">
-                <div>
-                    <h4>ممکنہ ادویات (Candidate Remedies)</h4>
-                    ${remediesHtml || '<p style="color:#999;">کوئی ادویات نہیں ملیں</p>'}
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- NEW PATIENT -->
+    <!-- ============================================ -->
+    <div id="page-newPatient" class="page">
+        <div class="content">
+            <div class="card">
+                <div class="card-title">
+                    ➕ <span data-ur="نئی رجسٹریشن (پہلی ملاقات)" data-en="New Registration" data-roman="Nayi Registration">نئی رجسٹریشن (پہلی ملاقات)</span>
                 </div>
-                <div>
-                    <h4>تفریقی سوالات (درست دوائی چننے کے لیے)</h4>
-                    ${diffHtml}
+                <div id="newPatientMsg"></div>
+                
+                <div class="section-divider">
+                    👤 <span data-ur="مریض کی معلومات" data-en="Patient Information" data-roman="Mareez ki Malumat">مریض کی معلومات</span>
                 </div>
-            </div>
-
-            <div style="margin-top: 15px; text-align: center;">
-                <button class="btn btn-success btn-lg" onclick="generateAIFinalPrescription()">
-                    ✅ حتمی نسخہ تجویز کریں (Generate Final Prescription)
-                </button>
-            </div>
-
-            ${AIState.final_prescription ? `
-            <div class="advice-box" style="margin-top: 20px; font-size: 14px; direction: rtl; white-space: pre-wrap;">
-                <h3 style="color: #1e8449;">📋 حتمی نسخہ (Final Prescription)</h3>
-                ${AIState.final_prescription}
                 
-                <hr>
-                <div><b>📚 استعمال شدہ کتابی حوالے:</b><br>${sourcesTags}</div>
+                <!-- Row 1: Ref + Visit + Family -->
+                <div class="fg-row" style="grid-template-columns: 130px 130px 1fr;">
+                    <div class="form-group">
+                        <label data-ur="📋 حوالہ" data-en="📋 Ref" data-roman="📋 Ref">📋 حوالہ</label>
+                        <input type="text" id="refNo" readonly style="background:#ecf0f1;font-weight:bold;color:#2980b9;">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="📋 وزٹ" data-en="📋 Visit" data-roman="📋 Visit">📋 وزٹ</label>
+                        <input type="text" id="firstVisitRef" readonly style="background:#ecf0f1;font-weight:bold;color:#8e44ad;">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="👨‍👩‍👧‍👦 فیملی" data-en="👨‍👩‍👧‍👦 Family" data-roman="👨‍👩‍👧‍👦 Family">👨‍👩‍👧‍👦 فیملی</label>
+                        <input type="text" id="familyNo" placeholder="F-0001">
+                    </div>
+                </div>
                 
-                <div style="margin-top: 15px; text-align: left;">
-                    <button class="btn btn-purple" onclick="autoFillClinicPrescription()">
-                        📋 کلینک فارم میں آٹو سیو کریں (Auto-Fill Clinic Form)
+                <!-- Row 2: Name + Phone + Age + Gender + Weight -->
+                <div class="fg-row" style="grid-template-columns: 1fr 150px 75px 95px 75px;">
+                    <div class="form-group">
+                        <label data-ur="👤 نام *" data-en="👤 Name *" data-roman="👤 Naam *">👤 نام *</label>
+                        <input type="text" id="patientName">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="📱 فون *" data-en="📱 Phone *" data-roman="📱 Phone *">📱 فون *</label>
+                        <input type="tel" id="phone" dir="ltr" style="text-align:left;">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="🎂 عمر" data-en="🎂 Age" data-roman="🎂 Umar">🎂 عمر</label>
+                        <input type="text" id="age" placeholder="25" style="text-align:center;">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="⚧ جنس" data-en="⚧ Gender" data-roman="⚧ Jins">⚧ جنس</label>
+                        <select id="gender">
+                            <option value="">--</option>
+                            <option value="male" data-ur="مرد" data-en="Male" data-roman="Mard">مرد</option>
+                            <option value="female" data-ur="عورت" data-en="Female" data-roman="Aurat">عورت</option>
+                            <option value="boy" data-ur="بچہ" data-en="Boy" data-roman="Bacha">بچہ</option>
+                            <option value="girl" data-ur="بچی" data-en="Girl" data-roman="Bachi">بچی</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="⚖️ وزن" data-en="⚖️ Wt" data-roman="⚖️ Wt">⚖️ وزن</label>
+                        <input type="text" id="weight" placeholder="kg" style="text-align:center;">
+                    </div>
+                </div>
+                
+                <!-- Row 3: Father + Address -->
+                <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
+                    <div class="form-group">
+                        <label data-ur="👨 ولدیت / زوجیت" data-en="👨 Father / Spouse" data-roman="👨 Waldiyat / Zojiyat">👨 ولدیت / زوجیت</label>
+                        <input type="text" id="fatherName">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="🏠 پتہ" data-en="🏠 Address" data-roman="🏠 Pata">🏠 پتہ</label>
+                        <input type="text" id="address">
+                    </div>
+                </div>
+                
+                <div class="section-divider">
+                    🩺 <span data-ur="پہلی ملاقات" data-en="First Consultation" data-roman="Pehli Mulaqat">پہلی ملاقات</span>
+                </div>
+                
+                <!-- Row 5: Date + Time + BP + Sugar + Temp + Pulse -->
+                <div class="fg-row" style="grid-template-columns: 140px 120px 95px 80px 80px 80px 1fr;">
+                    <div class="form-group">
+                        <label data-ur="📅 تاریخ" data-en="📅 Date" data-roman="📅 Date">📅 تاریخ</label>
+                        <input type="date" id="firstVisitDate">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="🕐 وقت" data-en="🕐 Time" data-roman="🕐 Waqt">🕐 وقت</label>
+                        <input type="time" id="firstVisitTime">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="🩸 BP" data-en="🩸 BP" data-roman="🩸 BP">🩸 BP</label>
+                        <input type="text" id="firstBP" placeholder="120/80" style="text-align:center;">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="🍬 شوگر" data-en="🍬 Sugar" data-roman="🍬 Sugar">🍬 شوگر</label>
+                        <input type="text" id="firstSugar" placeholder="mg/dL" style="text-align:center;">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="🌡️ ٹمپ" data-en="🌡️ Temp" data-roman="🌡️ Temp">🌡️ ٹمپ</label>
+                        <input type="text" id="firstTemp" placeholder="98.6°F" style="text-align:center;">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="💓 نبض" data-en="💓 Pulse" data-roman="💓 Pulse">💓 نبض</label>
+                        <input type="text" id="firstPulse" placeholder="72" style="text-align:center;">
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="⚠️ الرجی" data-en="⚠️ Allergy" data-roman="⚠️ Allergy">⚠️ الرجی</label>
+                        <input type="text" id="allergy">
+                    </div>
+                </div>
+                
+                <!-- Row 6: Symptoms + Diagnosis -->
+                <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
+                    <div class="form-group">
+                        <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
+                        <span class="symptom-mode-btns"><button class="mode-btn active-disease" id="regModeDisease" onclick="setSymptomMode('reg','disease')" title="Disease">🧠</button><button class="mode-btn" id="regModeRepertory" onclick="setSymptomMode('reg','repertory')" title="Repertory">📊</button><button class="mode-btn" id="regModeAI" onclick="toggleAIPanel('reg','regAIResult','firstVisitSymptoms')" title="AI" style="background:#fde8ec;border-color:#e94560;">🤖</button><button class="mode-btn" id="regModeStudio" onclick="studioFromField('newPatient','firstVisitSymptoms')" title="Treatment Studio" style="background:#f3ecfb;border-color:#8e44ad;">🧪</button></span>
+                        <textarea id="firstVisitSymptoms" style="min-height:55px;" oninput="autoSuggestDiseases('firstVisitSymptoms','regDiseaseSuggest')"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
+                        <div id="regAIResult" class="ai-panel hidden"></div>
+                        <div id="regAIResult" class="ai-panel hidden"></div>
+                        <textarea id="firstVisitDiagnosis" style="min-height:55px;"></textarea>
+                    </div>
+                </div>
+                
+                <!-- Disease Suggest Panel -->
+                <div id="regDiseaseSuggest" class="disease-suggest-panel hidden">
+                    <div class="disease-suggest-header">
+                        🧠 <span data-ur="علامات سے تجویز کردہ" data-en="Suggested from Symptoms" data-roman="Alamat se Tajweez">علامات سے تجویز کردہ</span>
+                        <span style="font-size:11px;opacity:0.7;" id="regDiseaseCount"></span>
+                    </div>
+                    <div id="regDiseaseSuggestContent"></div>
+                </div>
+                
+                <!-- Row 7: Prescription + Method -->
+                <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
+                    <div class="form-group">
+                        <label data-ur="💊 نسخہ" data-en="💊 Prescription" data-roman="💊 Nuskha">💊 نسخہ</label>
+                        <textarea id="firstVisitPrescription" style="min-height:55px;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="📖 طریقہ" data-en="📖 Method" data-roman="📖 Tareeqa">📖 طریقہ</label>
+                        <textarea id="firstVisitMethod" style="min-height:55px;"></textarea>
+                    </div>
+                </div>
+                
+                <!-- Row 8: Days + Notes (Days small, Notes big) -->
+                <div class="fg-row" style="grid-template-columns: 100px 1fr;">
+                    <div class="form-group">
+                        <label data-ur="📆 دن" data-en="📆 Days" data-roman="📆 Din">📆 دن</label>
+                        <textarea id="firstVisitDays" placeholder="7" style="min-height:45px;text-align:center;resize:vertical;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label data-ur="📝 نوٹس" data-en="📝 Notes" data-roman="📝 Notes">📝 نوٹس</label>
+                        <textarea id="firstVisitNotes" style="min-height:45px;"></textarea>
+                    </div>
+                </div>
+                
+                <div class="action-buttons" style="margin-top:20px;">
+                    <button class="btn btn-success" id="savePatientBtn">
+                        <span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Save">💾 محفوظ کریں</span>
+                    </button>
+                    <button class="btn btn-light" id="clearFormBtn">
+                        <span data-ur="🔄 فارم صاف کریں" data-en="🔄 Clear" data-roman="🔄 Clear">🔄 فارم صاف کریں</span>
                     </button>
                 </div>
             </div>
-            ` : ''}
-
-            <div style="display: flex; justify-content: space-between; margin-top: 15px;">
-                <button class="btn btn-light" onclick="AIState.step = 2; renderAIStep();">⬅️ پیچھے</button>
-                <button class="btn btn-danger" onclick="resetAIState(); renderAIStep();">🔄 نیا کیس</button>
+        </div>
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- SEARCH -->
+    <!-- ============================================ -->
+    <div id="page-searchPatient" class="page">
+        <div class="content">
+            <div class="card">
+                <div class="card-title">
+                    🔍 <span data-ur="مریض تلاش کریں" data-en="Search Patient" data-roman="Talash">مریض تلاش کریں</span>
+                </div>
+                <input type="text" class="search-input" id="searchInput" placeholder="🔍 Name, Phone, Reference No, or Family No..." data-ph-ur="🔍 نام، فون، حوالہ نمبر، یا فیملی نمبر..." data-ph-en="🔍 Name, Phone, Reference No, or Family No..." data-ph-roman="🔍 Naam, Phone, Hawala Number, ya Family Number...">
+                <div id="searchResults">
+                    <div class="empty-state"><div class="icon">🔍</div><p data-ur="تلاش کے لیے اوپر لکھیں" data-en="Type above to search" data-roman="Talash ke liye upar likhein">تلاش کے لیے اوپر لکھیں</p></div>
+                </div>
             </div>
         </div>
-    `;
-}
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- ALL PATIENTS -->
+    <!-- ============================================ -->
+    <div id="page-allPatients" class="page">
+        <div class="content">
+            <div class="card">
+                <div class="card-title">
+                    📋 <span data-ur="تمام مریض" data-en="All Patients" data-roman="Tamam Mareez">تمام مریض</span>
+                </div>
+                <div id="allPatientsList">
+                    <div class="empty-state"><div class="icon">⏳</div><p>Loading...</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PATIENT DETAIL -->
+    <div id="page-patientDetail" class="page">
+        <div class="content"><div id="patientDetailContent"></div></div>
+    </div>
+    
+    <!-- FAMILY MEMBERS -->
+    <div id="page-familyMembers" class="page">
+        <div class="content"><div class="card"><div id="familyMembersContent"></div></div></div>
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- DIAGNOSIS PAGE -->
+    <!-- ============================================ -->
+    <div id="page-diagnosis" class="page">
+        <div class="diagnosis-container">
+            <!-- ===== VIEW SWITCHER: Treatment Studio / Classic Modes ===== -->
+            <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;">
+                <button id="dxViewBtnStudio" class="btn btn-sm btn-purple" type="button" onclick="switchDxView('studio')">🌿 <span data-ur="علاج اسٹوڈیو" data-en="Treatment Studio" data-roman="Ilaj Studio">علاج اسٹوڈیو</span></button>
+                <button id="dxViewBtnClassic" class="btn btn-sm btn-light" type="button" onclick="switchDxView('classic')">🔬 <span data-ur="ایڈوانس تشخیص موڈز" data-en="Advanced Diagnosis Modes" data-roman="Advanced Diagnosis Modes">ایڈوانس تشخیص موڈز</span></button>
+                <button id="dxViewBtnAI" class="btn btn-sm btn-light" type="button" onclick="switchDxView('ai')">🤖 <span data-ur="AI ہومیو اسسٹنٹ" data-en="AI Homeo Assistant" data-roman="AI Homeo Assistant">AI ہومیو اسسٹنٹ</span></button>
+            </div>
 
-// TOGGLE ANSWER CLICK
-function toggleAIAnswer(ans) {
-    const idx = AIState.selected_answers.indexOf(ans);
-    if (idx > -1) {
-        AIState.selected_answers.splice(idx, 1);
-    } else {
-        AIState.selected_answers.push(ans);
-    }
-    renderAIStep();
-}
+            <!-- ===== NEW: HYBRID TREATMENT STUDIO (Option 3+4: system tabs + left list + right detail) ===== -->
+            <div id="dxStudioView">
+                <div class="card" style="background:linear-gradient(135deg,#ffffff,#f9fbff);border:1px solid #d1e3f8;box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+                    <div class="card-title">🧪 <span data-ur="ہائبرڈ علاج اسٹوڈیو" data-en="Hybrid Treatment Studio" data-roman="Hybrid Ilaj Studio">ہائبرڈ علاج اسٹوڈیو</span>
+                        <span style="font-size:11px;color:#7f8c8d;font-weight:normal;" data-ur="— علامات سے نسخہ تک" data-en="— Symptoms to Prescription" data-roman="— Alamat se Nuskhah tak">— علامات سے نسخہ تک</span>
+                    </div>
 
-// API CALLS
-async function startAICaseTaking() {
-    const input = document.getElementById("ai-chief-input");
-    if (!input || !input.value.trim()) {
-        alert("براہ کرم بنیادی شکایت درج کریں۔");
-        return;
-    }
-    AIState.chief_complaint = input.value.trim();
+                    <!-- Body system tabs -->
+                    <div class="tst-systabs" id="studioSysTabs"></div>
 
-    showAILoader("کیس ٹیکنگ کے سوالات تیار ہو رہے ہیں...");
-    try {
-        const res = await fetch(`${AI_SERVER_URL}/api/ai/step1-categories`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                chief_complaint: AIState.chief_complaint,
-                case_type: AIState.case_type,
-                search_mode: AIState.search_mode
-            })
-        });
-        const data = await res.json();
-        hideAILoader();
-        if (res.ok) {
-            AIState.categories = data.categories;
-            AIState.step = 2;
-            renderAIStep();
-        } else {
-            alert(data.detail || "ایرر آیا");
-        }
-    } catch (err) {
-        hideAILoader();
-        alert("پائتھن AI سرور سے کنکشن نہیں ہو سکا۔ یقینی بنائیں کہ server.py چل رہا ہے۔");
-    }
-}
+                    <div class="tst-cols">
+                        <!-- FIRST column (RIGHT in RTL / LEFT in LTR): DETAIL -->
+                        <div class="tst-panel">
+                            <div class="tst-phead"><span id="studioDHead"></span><span id="studioDMeta" style="font-size:10px;color:#7f8c8d;"></span></div>
+                            <div id="studioPatientBar" class="tst-pbar">
+                                <span>👤 <strong id="studioPatientName"></strong></span>
+                                <span><button class="btn btn-light btn-xs" onclick="studioClearPatient()">✕</button></span>
+                            </div>
+                            <div id="studioPatientSearch" class="tst-psearch">
+                                <input type="text" id="studioPatientQuery" placeholder="🔍"
+                                    data-ph-ur="🔍 مریض کا نام / فون / حوالہ لکھیں..."
+                                    data-ph-en="🔍 Patient name / phone / ref..."
+                                    data-ph-roman="🔍 Mareez ka naam / phone / ref...">
+                                <div id="studioPatientResults"></div>
+                            </div>
+                            <div class="tst-dtabs" id="studioTabs"></div>
+                            <div class="tst-dbody" id="studioBody"></div>
+                        </div>
+                        <!-- SECOND column (LEFT in RTL / RIGHT in LTR): NAV LIST -->
+                        <div class="tst-panel tst-navp">
+                            <div class="tst-phead"><span data-ur="📚 بیماری فہرست" data-en="📚 Disease List" data-roman="📚 Bimari List">📚 بیماری فہرست</span></div>
+                            <input class="tst-search" id="studioSearch" placeholder="🔍"
+                                data-ph-ur="🔍 بیماری تلاش کریں..."
+                                data-ph-en="🔍 Search disease..."
+                                data-ph-roman="🔍 Bimari talash karein...">
+                            <div class="tst-list" id="studioList"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-async function submitAIStep2() {
-    const notesInput = document.getElementById("ai-extra-notes");
-    if (notesInput) AIState.extra_notes = notesInput.value;
+            <!-- ===== AI HOMEO ASSISTANT (full page, not popup) ===== -->
+            <div id="dxAIView" class="hidden">
+                <div class="card" style="background:linear-gradient(135deg,#ffffff,#f9fbff);border:1px solid #d1e3f8;box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+                    <div id="ai-page-root"></div>
+                </div>
+            </div>
 
-    if (AIState.selected_answers.length === 0 && !AIState.extra_notes) {
-        alert("کم از کم کچھ علامات یا نوٹس درج کریں۔");
-        return;
-    }
+            <!-- ===== CLASSIC DIAGNOSIS MODES (AI / Structured / Manual) ===== -->
+            <div id="dxClassicView" class="hidden">
+            <div class="card" style="background:linear-gradient(135deg,#ffffff,#f9fbff);border:1px solid #d1e3f8;box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+                <div class="card-title" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+                    <div>
+                        🔬 <span data-ur="ہائبرڈ تشخیصی و ریپرٹوری اسٹوڈیو" data-en="Hybrid Diagnostic & Repertory Studio" data-roman="Hybrid Diagnostic & Repertory Studio">ہائبرڈ تشخیصی و ریپرٹوری اسٹوڈیو</span>
+                    </div>
+                    <div style="font-size:12px;background:#eef7ff;color:#1a5276;padding:4px 10px;border-radius:20px;border:1px solid #b7d7f0;">
+                        🌟 Advanced Clinical + Homeopathic Decision Support
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning" style="margin-bottom:15px;display:flex;align-items:center;gap:10px;">
+                    ⚠️ <div>
+                        <strong data-ur="کلینیکل نوٹ:" data-en="Clinical Note:" data-roman="Clinical Note:">کلینیکل نوٹ:</strong>
+                        <span data-ur="یہ نظام کلینیکل اور ہومیوپیتھک رہنمائی کے لیے ہے۔ حتمی تشخیص اور نسخہ معالج ڈاکٹر خود تجویز کریں۔" data-en="This system is for guidance. Final diagnosis and prescription rests with the physician." data-roman="Yeh nizam rahnumai ke liye hai.">یہ نظام کلینیکل اور ہومیوپیتھک رہنمائی کے لیے ہے۔ حتمی تشخیص اور نسخہ معالج ڈاکٹر خود تجویز کریں۔</span>
+                    </div>
+                </div>
 
-    showAILoader("کتابوں سے ادویات کی تلاش اور تفریقی سوالات تیار ہو رہے ہیں...");
-    try {
-        const res = await fetch(`${AI_SERVER_URL}/api/ai/step2-candidates`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                chief_complaint: AIState.chief_complaint,
-                case_type: AIState.case_type,
-                selected_answers: AIState.selected_answers,
-                extra_notes: AIState.extra_notes,
-                search_mode: AIState.search_mode
-            })
-        });
-        const data = await res.json();
-        hideAILoader();
-        if (res.ok) {
-            AIState.candidate_remedies = data.candidates;
-            AIState.diff_categories = data.diff_categories;
-            AIState.sources = data.sources;
-            AIState.step = 3;
-            renderAIStep();
-        } else {
-            alert(data.detail || "ایرر آیا");
-        }
-    } catch (err) {
-        hideAILoader();
-        alert("سرور ایرر!");
-    }
-}
+                <!-- Quick Clinical Templates Bar -->
+                <div style="margin-bottom:15px;background:#f2f7fc;padding:10px;border-radius:8px;border:1px solid #d0e3f0;">
+                    <div style="font-size:12px;font-weight:bold;color:#2c3e50;margin-bottom:6px;">
+                        ⚡ <span data-ur="فوری کیس ٹیمپلیٹس (Templates):" data-en="Quick Case Templates:" data-roman="Quick Templates:">فوری کیس ٹیمپلیٹس:</span>
+                    </div>
+                    <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                        <button class="btn btn-xs btn-outline-primary" type="button" onclick="loadDxTemplate('fever')">🌡️ بخار (Fever)</button>
+                        <button class="btn btn-xs btn-outline-primary" type="button" onclick="loadDxTemplate('cough')">🤧 کھانسی (Cough)</button>
+                        <button class="btn btn-xs btn-outline-primary" type="button" onclick="loadDxTemplate('stomach')">🍔 پیٹ/معدہ (Stomach)</button>
+                        <button class="btn btn-xs btn-outline-primary" type="button" onclick="loadDxTemplate('joint')">🦴 جوڑوں کا درد (Joints)</button>
+                        <button class="btn btn-xs btn-outline-primary" type="button" onclick="loadDxTemplate('chronic')">🌿 دائمی مزاج (Chronic)</button>
+                    </div>
+                </div>
 
-async function generateAIFinalPrescription() {
-    showAILoader("میٹیریا میڈیکا سے تصدیق اور حتمی نسخہ تیار ہو رہا ہے...");
-    try {
-        const res = await fetch(`${AI_SERVER_URL}/api/ai/step3-prescription`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                chief_complaint: AIState.chief_complaint,
-                case_type: AIState.case_type,
-                selected_answers: AIState.selected_answers,
-                extra_notes: AIState.extra_notes,
-                candidate_remedies: AIState.candidate_remedies,
-                search_mode: AIState.search_mode
-            })
-        });
-        const data = await res.json();
-        hideAILoader();
-        if (res.ok) {
-            AIState.final_prescription = data.prescription;
-            AIState.sources = data.sources;
-            renderAIStep();
-        } else {
-            alert(data.detail || "ایرر آیا");
-        }
-    } catch (err) {
-        hideAILoader();
-        alert("سرور ایرر!");
-    }
-}
+                <!-- Diagnosis Mode Tabs (AI Text vs Structured Case vs Manual Repertory) -->
+                <div style="display:flex;gap:5px;margin-bottom:15px;border-bottom:2px solid #e2e8f0;padding-bottom:8px;flex-wrap:wrap;">
+                    <button class="btn btn-sm btn-purple" id="dxTabBtnAI" type="button" onclick="switchDxMode('ai')">🧠 <span data-ur="AI ٹیکسٹ تجزیہ" data-en="AI Text Analysis" data-roman="AI Text Analysis">AI ٹیکسٹ تجزیہ</span></button>
+                    <button class="btn btn-sm btn-light" id="dxTabBtnStruct" type="button" onclick="switchDxMode('struct')">🩺 <span data-ur="سٹرکچرڈ کیس فارم" data-en="Structured Case" data-roman="Structured Case">سٹرکچرڈ کیس فارم</span></button>
+                    <button class="btn btn-sm btn-light" id="dxTabBtnManual" type="button" onclick="switchDxMode('manual')">📋 <span data-ur="دستی علامت چیک لسٹ" data-en="Manual Checklist" data-roman="Manual Checklist">دستی علامت چیک لسٹ</span></button>
+                </div>
 
-// Auto-fill into Bismillah Clinic Patient Form
-function autoFillClinicPrescription() {
-    // Search for clinic app's symptoms or diagnosis textareas
-    const symptomsField = document.querySelector("textarea[name='symptoms'], #symptoms, .tst-note");
-    const diagnosisField = document.querySelector("textarea[name='diagnosis'], #diagnosis");
+                <!-- Mode 1: AI Text Analysis (Default active) -->
+                <div id="dxModeAIContainer">
+                    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+                        <div style="font-weight:bold;color:#1a5276;font-size:14px;">
+                            🧠 <span data-ur="ایڈوانس تشخیص انجن (مریض کی علامات درج کریں)" data-en="Advanced Diagnosis Engine (Enter patient statement)" data-roman="Advanced Diagnosis Engine">ایڈوانس تشخیص انجن</span>
+                        </div>
+                        <div style="font-size:11px;color:#7f8c8d;">
+                            <span data-ur="Ctrl+Enter سے تجزیہ کریں" data-en="Ctrl+Enter to analyze" data-roman="Ctrl+Enter to analyze">Ctrl+Enter سے analyze</span>
+                        </div>
+                    </div>
+                    <textarea id="adxStatement" style="width:100%;min-height:110px;border:1px solid #b7d7f0;border-radius:8px;padding:12px;font-family:inherit;font-size:13px;line-height:1.7;box-sizing:border-box;background:white;"
+                        placeholder="مریض کی مکمل موجودہ علامات یہاں تفصیلی لکھیں: کب سے، کہاں درد ہے، کس چیز سے بڑھتا یا کم ہوتا ہے، بخار، کھانسی، پیٹ، پیشاب، سانس، نیند، پیاس، ذہنی حالت وغیرہ..."
+                        data-ph-ur="مریض کی مکمل موجودہ علامات یہاں تفصیلی لکھیں..."
+                        data-ph-en="Write full patient statement here..."
+                        data-ph-roman="Mareez ki alamat yahan likhein..."></textarea>
+                    
+                    <div class="action-buttons" style="margin-top:10px;">
+                        <button class="btn btn-purple" id="adxAnalyzeBtn" type="button" style="flex:1;">🧠 <span data-ur="ہائبرڈ تشخیصی تجزیہ کریں" data-en="Run Hybrid Analysis" data-roman="Run Analysis">ہائبرڈ تشخیصی تجزیہ کریں</span></button>
+                        <button class="btn btn-info" type="button" onclick="if(window.ADX_copySummary)ADX_copySummary();">📋 <span data-ur="کاپی سمری" data-en="Copy Summary" data-roman="Copy Summary">کاپی سمری</span></button>
+                        <button class="btn btn-light" id="adxClearBtn" type="button">🔄 <span data-ur="صاف کریں" data-en="Clear" data-roman="Clear">صاف کریں</span></button>
+                    </div>
+                </div>
 
-    if (symptomsField) {
-        symptomsField.value = `[AI Chief]: ${AIState.chief_complaint}\n[Symptoms]: ${AIState.selected_answers.join(", ")}`;
-    }
-    if (diagnosisField && AIState.final_prescription) {
-        diagnosisField.value = AIState.final_prescription;
-    }
+                <!-- Mode 2: Structured Case Form (Hidden by default) -->
+                <div id="dxModeStructContainer" style="display:none;">
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-bottom:12px;">
+                        <div>
+                            <label style="font-size:12px;font-weight:bold;color:#2c3e50;">مرکزی شکایت (Chief Complaint):</label>
+                            <input type="text" id="structComplaint" class="form-control" placeholder="مثلاً: سر درد اور بخار" style="width:100%;padding:8px;border:1px solid #cbd5e1;border-radius:6px;margin-top:4px;">
+                        </div>
+                        <div>
+                            <label style="font-size:12px;font-weight:bold;color:#2c3e50;">مدت (Duration):</label>
+                            <input type="text" id="structDuration" class="form-control" placeholder="مثلاً: 3 دن سے" style="width:100%;padding:8px;border:1px solid #cbd5e1;border-radius:6px;margin-top:4px;">
+                        </div>
+                        <div>
+                            <label style="font-size:12px;font-weight:bold;color:#2c3e50;">تھرمل اسٹیٹس (Thermal):</label>
+                            <select id="structThermal" class="form-control" style="width:100%;padding:8px;border:1px solid #cbd5e1;border-radius:6px;margin-top:4px;">
+                                <option value="hot">گرمی پسند / گرم مزاج (Hot)</option>
+                                <option value="chilly" selected>سردی پسند / سرد مزاج (Chilly)</option>
+                                <option value="ambivert">عام (Ambivert)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-size:12px;font-weight:bold;color:#2c3e50;">پیاس (Thirst):</label>
+                            <select id="structThirst" class="form-control" style="width:100%;padding:8px;border:1px solid #cbd5e1;border-radius:6px;margin-top:4px;">
+                                <option value="normal">معمول کے مطابق</option>
+                                <option value="thirsty" selected>زیادہ پیاس (تھوڑی تھوڑی یا بہت)</option>
+                                <option value="less">کم پیاس / پیاس کی کمی</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="margin-bottom:12px;">
+                        <label style="font-size:12px;font-weight:bold;color:#2c3e50;">بڑھوتری اور کمی (Modalities - Aggravation & Amelioration):</label>
+                        <input type="text" id="structModalities" class="form-control" placeholder="مثلاً: حرکت سے بڑھتا ہے، گرم سیک سے آرام ملتا ہے..." style="width:100%;padding:8px;border:1px solid #cbd5e1;border-radius:6px;margin-top:4px;">
+                    </div>
+                    <div style="margin-bottom:12px;">
+                        <label style="font-size:12px;font-weight:bold;color:#2c3e50;">ذہنی و جسمانی علامات (Mental & Physical Generals):</label>
+                        <textarea id="structMentals" class="form-control" placeholder="غصہ، خوف، نیند، پسینہ، خواب وغیرہ..." style="width:100%;min-height:70px;padding:8px;border:1px solid #cbd5e1;border-radius:6px;margin-top:4px;"></textarea>
+                    </div>
+                    <button class="btn btn-purple" type="button" onclick="generateFromStructuredForm()" style="width:100%;">🚀 سٹرکچرڈ ڈیٹا سے تجزیہ کریں (Run Structured Analysis)</button>
+                </div>
 
-    alert("✅ AI کا نسخہ اور علامات مریض کے کلینک فارم میں آٹو فل (Auto-fill) ہو گئی ہیں!");
-    closeAIDiagnosisModal();
-}
+                <!-- Mode 3: Manual Repertory Checklist (Hidden by default) -->
+                <div id="dxModeManualContainer" style="display:none;">
+                    <div class="form-group" id="diagnosisPatientLink" style="display:none;margin-bottom:10px;">
+                        <div style="background:#e8f4f8;padding:10px;border-radius:6px;">
+                            👤 <strong>Patient:</strong>
+                            <span id="diagnosisPatientName"></span>
+                            <button class="btn btn-light btn-xs" onclick="clearDiagnosisPatient()" style="margin-right:10px;">✕</button>
+                        </div>
+                    </div>
+                    
+                    <input type="text" class="symptom-search" id="symptomSearch" placeholder="🔍 Search symptoms..." data-ph-ur="🔍 علامت تلاش کریں..." data-ph-en="🔍 Search symptoms..." data-ph-roman="🔍 Alamat talash karein..." style="margin-bottom:10px;width:100%;padding:8px;border:1px solid #cbd5e1;border-radius:6px;">
+                    
+                    <div class="category-tabs" id="categoryTabs" style="margin-bottom:10px;display:flex;gap:5px;flex-wrap:wrap;"></div>
+                    
+                    <div style="margin-bottom:10px; font-weight:bold; color:#8e44ad;">
+                        📋 <span data-ur="منتخب شدہ علامات:" data-en="Selected Symptoms:" data-roman="Muntakhib Alamat:">منتخب شدہ علامات:</span>
+                        <span id="selectedCount" style="background:#8e44ad;color:white;padding:2px 8px;border-radius:10px;font-size:12px;">0</span>
+                    </div>
+                    <div class="selected-symptoms-box" id="selectedSymptomsBox" style="margin-bottom:10px;"></div>
+                    
+                    <div style="margin-bottom:10px; font-weight:bold; color:#2c3e50; margin-top:15px;">
+                        💡 <span data-ur="علامات کی فہرست:" data-en="Symptoms List:" data-roman="Alamat:">علامات کی فہرست:</span>
+                    </div>
+                    <div class="symptoms-grid" id="symptomsGrid" style="max-height:250px;overflow-y:auto;"></div>
+                    
+                    <div class="action-buttons" style="margin-top:15px;display:flex;gap:10px;">
+                        <button class="btn btn-purple" id="analyzeBtn" style="flex:1;">
+                            🔬 <span data-ur="چیک لسٹ سے تشخیص کریں" data-en="Analyze Checklist" data-roman="Analyze">چیک لسٹ سے تشخیص کریں</span>
+                        </button>
+                        <button class="btn btn-light" id="clearSymptomsBtn">
+                            🔄 <span data-ur="صاف کریں" data-en="Clear" data-roman="Clear">صاف کریں</span>
+                        </button>
+                    </div>
+                </div>
 
-function resetAIState() {
-    AIState.step = 1;
-    AIState.chief_complaint = "";
-    AIState.categories = [];
-    AIState.selected_answers = [];
-    AIState.extra_notes = "";
-    AIState.candidate_remedies = [];
-    AIState.diff_categories = [];
-    AIState.final_prescription = "";
-}
+            </div>
+            
+            <div id="adxResults" style="margin-top:20px;"></div>
+            <div id="diagnosisResults" style="margin-top:20px;"></div>
+            </div> <!-- /dxClassicView -->
+        </div>
+    </div>
+    
 
-function showAILoader(msg) {
-    let loader = document.getElementById("ai-loader");
-    if (!loader) {
-        loader = document.createElement("div");
-        loader.id = "ai-loader";
-        loader.className = "loading-overlay active";
-        loader.innerHTML = `<div style="text-align:center;"><div class="spinner"></div><p style="margin-top:10px; font-weight:bold; color:#1a5276;">${msg}</p></div>`;
-        document.body.appendChild(loader);
-    } else {
-        loader.querySelector("p").innerText = msg;
-        loader.classList.add("active");
-    }
-}
+    
+    <!-- ============================================ -->
+    <!-- NEW VISIT PAGE -->
+    <!-- ============================================ -->
+    <div id="page-newVisitPage" class="page">
+        <div class="content">
+            <div class="card">
+                <div class="card-title">
+                    🩺 <span data-ur="نئی وزٹ" data-en="New Visit" data-roman="Nayi Visit">نئی وزٹ</span>
+                </div>
+                <div id="newVisitPageMsg"></div>
+                
+                <!-- Search Bar -->
+                <div class="form-group" style="margin-bottom:12px;">
+                    <input type="text" class="search-input" id="visitSearchInput" style="margin-bottom:0;"
+                        placeholder="🔍 Name, Phone, Ref, Family, Address..."
+                        data-ph-ur="🔍 نام، فون، حوالہ، فیملی، پتہ..."
+                        data-ph-en="🔍 Name, Phone, Ref, Family, Address..."
+                        data-ph-roman="🔍 Naam, Phone, Ref, Family, Pata...">
+                </div>
+                <div id="visitSearchResults" style="max-height:180px;overflow-y:auto;margin-bottom:12px;"></div>
+                
+                <!-- Selected Patient Info -->
+                <div id="nvSelectedPatient" class="hidden" style="background:linear-gradient(135deg,#1a5276,#2980b9);color:white;border-radius:10px;padding:12px 15px;margin-bottom:12px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+                        <div>
+                            <div id="nvPatientName" style="font-size:18px;font-weight:bold;"></div>
+                            <div id="nvPatientMeta" style="font-size:12px;opacity:0.85;margin-top:3px;"></div>
+                        </div>
+                        <div style="display:flex;gap:6px;align-items:center;">
+                            <button class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;" onclick="nvPrevFamily()" title="Previous">◀</button>
+                            <select id="nvFamilySelect" onchange="nvSelectFamilyMember(this.value)" style="padding:5px 8px;border-radius:6px;border:none;font-family:inherit;font-size:12px;min-width:140px;"></select>
+                            <button class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;" onclick="nvNextFamily()" title="Next">▶</button>
+                            <button class="btn btn-sm" style="background:rgba(39,174,96,0.5);color:white;" onclick="nvShowFullHistory()" title="History">📋</button>
+                            <button class="btn btn-sm" style="background:rgba(231,76,60,0.6);color:white;" onclick="nvClearPatient()">✕</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Visit Form -->
+                <div id="nvFormArea" class="hidden">
+                    <input type="hidden" id="nvPatientId">
+                    
+                    <!-- Row 1: Visit Ref + Family -->
+                    <div class="fg-row" style="grid-template-columns: 130px 1fr;">
+                        <div class="form-group">
+                            <label data-ur="📋 وزٹ" data-en="📋 Visit" data-roman="📋 Visit">📋 وزٹ</label>
+                            <input type="text" id="nvVisitRef" readonly style="background:#ecf0f1;font-weight:bold;color:#8e44ad;">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="👨‍👩‍👧‍👦 فیملی" data-en="👨‍👩‍👧‍👦 Family" data-roman="👨‍👩‍👧‍👦 Family">👨‍👩‍👧‍👦 فیملی</label>
+                            <input type="text" id="nvFamilyNo" style="color:#2c3e50;">
+                        </div>
+                    </div>
+                    
+                    <!-- Row 2: Date + Time + Vitals + Allergy -->
+                    <div class="fg-row" style="grid-template-columns: 140px 120px 95px 80px 80px 80px 1fr;">
+                        <div class="form-group">
+                            <label data-ur="📅 تاریخ" data-en="📅 Date" data-roman="📅 Date">📅 تاریخ</label>
+                            <input type="date" id="nvDate">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="🕐 وقت" data-en="🕐 Time" data-roman="🕐 Waqt">🕐 وقت</label>
+                            <input type="time" id="nvTime">
+                        </div>
+                        <div class="form-group">
+                            <label>🩸 BP</label>
+                            <input type="text" id="nvBP" placeholder="120/80" style="text-align:center;">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="🍬 شوگر" data-en="🍬 Sugar" data-roman="🍬 Sugar">🍬 شوگر</label>
+                            <input type="text" id="nvSugar" placeholder="mg/dL" style="text-align:center;">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="🌡️ ٹمپ" data-en="🌡️ Temp" data-roman="🌡️ Temp">🌡️ ٹمپ</label>
+                            <input type="text" id="nvTemp" placeholder="98.6°F" style="text-align:center;">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="💓 نبض" data-en="💓 Pulse" data-roman="💓 Pulse">💓 نبض</label>
+                            <input type="text" id="nvPulse" placeholder="72" style="text-align:center;">
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="⚠️ الرجی" data-en="⚠️ Allergy" data-roman="⚠️ Allergy">⚠️ الرجی</label>
+                            <input type="text" id="nvAllergy" style="color:#2c3e50;">
+                        </div>
+                    </div>
+                    
+                    <!-- Row 3: Symptoms + Diagnosis -->
+                    <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
+                        <div class="form-group">
+                            <label data-ur="📝 علامات" data-en="📝 Symptoms" data-roman="📝 Alamat">📝 علامات</label>
+                            <span class="symptom-mode-btns"><button class="mode-btn active-disease" id="nvModeDisease" onclick="setSymptomMode('nv','disease')" title="Disease">🧠</button><button class="mode-btn" id="nvModeRepertory" onclick="setSymptomMode('nv','repertory')" title="Repertory">📊</button><button class="mode-btn" id="nvModeAI" onclick="toggleAIPanel('nv','nvAIResult','nvSymptoms')" title="AI" style="background:#fde8ec;border-color:#e94560;">🤖</button><button class="mode-btn" id="nvModeStudio" onclick="studioFromField('newVisitPage','nvSymptoms')" title="Treatment Studio" style="background:#f3ecfb;border-color:#8e44ad;">🧪</button></span>
+                            <textarea id="nvSymptoms" style="min-height:55px;" oninput="autoSuggestDiseases('nvSymptoms','nvDiseaseSuggest')"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="🔬 تشخیص" data-en="🔬 Diagnosis" data-roman="🔬 Tashkhees">🔬 تشخیص</label>
+                            <div id="nvAIResult" class="ai-panel hidden"></div>
+                            <div id="nvAIResult" class="ai-panel hidden"></div>
+                            <textarea id="nvDiagnosis" style="min-height:55px;"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Disease Suggest Panel -->
+                    <div id="nvDiseaseSuggest" class="disease-suggest-panel hidden">
+                        <div class="disease-suggest-header">
+                            🧠 <span data-ur="علامات سے تجویز کردہ" data-en="Suggested from Symptoms" data-roman="Alamat se Tajweez">علامات سے تجویز کردہ</span>
+                            <span style="font-size:11px;opacity:0.7;" id="nvDiseaseCount"></span>
+                        </div>
+                        <div id="nvDiseaseSuggestContent"></div>
+                    </div>
+                    
+                    <!-- Row 4: Prescription + Method -->
+                    <div class="fg-row" style="grid-template-columns: 1fr 1fr;">
+                        <div class="form-group">
+                            <label data-ur="💊 نسخہ" data-en="💊 Prescription" data-roman="💊 Nuskha">💊 نسخہ</label>
+                            <textarea id="nvPrescription" style="min-height:55px;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="📖 طریقہ" data-en="📖 Method" data-roman="📖 Tareeqa">📖 طریقہ</label>
+                            <textarea id="nvMethod" style="min-height:55px;"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 5: Days + Notes -->
+                    <div class="fg-row" style="grid-template-columns: 100px 1fr;">
+                        <div class="form-group">
+                            <label data-ur="📆 دن" data-en="📆 Days" data-roman="📆 Din">📆 دن</label>
+                            <textarea id="nvDays" placeholder="7" style="min-height:45px;text-align:center;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label data-ur="📝 نوٹس" data-en="📝 Notes" data-roman="📝 Notes">📝 نوٹس</label>
+                            <textarea id="nvNotes" style="min-height:45px;"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons" style="margin-top:12px;">
+                        <button class="btn btn-success" id="nvSaveBtn">
+                            <span data-ur="💾 محفوظ کریں" data-en="💾 Save" data-roman="💾 Mehfooz">💾 محفوظ کریں</span>
+                        </button>
+                        <button class="btn btn-light" onclick="nvClearForm()">
+                            <span data-ur="🔄 صاف" data-en="🔄 Clear" data-roman="🔄 Saaf">🔄 صاف</span>
+                        </button>
+                        <button class="btn btn-info btn-sm" onclick="nvToggleAllHistory()">
+                            <span data-ur="📋 ہسٹری" data-en="📋 History" data-roman="📋 History">📋 ہسٹری</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Last Visit History -->
+                <div id="nvLastVisit" class="hidden" style="margin-top:15px;">
+                    <div class="section-divider">
+                        📋 <span data-ur="آخری وزٹ" data-en="Last Visit" data-roman="Aakhri Visit">آخری وزٹ</span>
+                    </div>
+                    <div id="nvLastVisitContent"></div>
+                </div>
+                
+                <!-- All History (toggle) -->
+                <div id="nvAllHistory" class="hidden" style="margin-top:15px;">
+                    <div class="section-divider">
+                        📚 <span data-ur="تمام کنسلٹیشنز" data-en="All Consultations" data-roman="Tamam Consultations">تمام کنسلٹیشنز</span>
+                    </div>
+                    <div id="nvAllHistoryContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- REPERTORY BROWSER -->
+    <!-- ============================================ -->
+    <div id="page-repertoryBrowser" class="page">
+        <div class="content">
+            <div class="card" style="margin-bottom:10px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;">
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                    <span style="font-size:18px;">📖</span>
+                    <select id="repBookSelect" onchange="switchRepertoryBook()" style="padding:6px 10px;border-radius:6px;border:none;font-family:inherit;font-size:13px;min-width:200px;">
+                        <option value="publicum">📗 Repertorium Publicum (Polony)</option>
+                        <option value="kent">📘 Kent Repertory (English)</option>
+                        <option value="kent_de">📕 Kent Repertory (German)</option>
+                        <option value="synthesis91">📙 Synthesis 9.1</option>
+                    </select>
+                    <!-- 🔑 Search bar with 3-mode toggle button INSIDE it (left side) -->
+                    <div style="position:relative;flex:1;min-width:200px;">
+                        <button id="repSearchModeBtn" type="button" onclick="toggleRepSearchMode()" title="Switch search scope" style="position:absolute;top:3px;left:3px;bottom:3px;padding:0 10px;border:none;border-radius:5px;background:linear-gradient(135deg,#1a5276,#2980b9);color:white;font-size:11px;font-weight:bold;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,0.3);">
+                            <span id="repSearchModeIcon">📚</span><span id="repSearchModeLabel">This Book</span>
+                        </button>
+                        <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="🔍 Search this whole repertory... (e.g. pain, forehead)" style="padding:6px 10px 6px 115px;border-radius:6px;border:none;font-family:inherit;font-size:12px;width:100%;box-sizing:border-box;">
+                    </div>
+                    <span style="font-size:11px;opacity:0.8;" id="repBrowserInfo"></span>
+                </div>
+            </div>
+            <div style="display:flex;gap:10px;">
+                <div style="width:200px;min-width:140px;background:white;border-radius:10px;padding:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05);max-height:70vh;overflow-y:auto;" id="repChapterList">
+                    <div class="empty-state"><p>Loading...</p></div>
+                </div>
+                <div style="flex:1;background:white;border-radius:10px;padding:15px;box-shadow:0 2px 8px rgba(0,0,0,0.05);max-height:70vh;overflow-y:auto;" id="repRubricContent">
+                    <div class="empty-state"><div class="icon">📖</div><p>Select a chapter or search</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="repChartOverlay" class="rep-chart-overlay" onclick="if(event.target===this)closeRepertoryChart()">
+        <div class="rep-chart-modal"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;"><span style="font-weight:bold;font-size:16px;color:#1a5276;">📊 Repertorisation Chart</span><button onclick="closeRepertoryChart()" style="background:none;border:none;font-size:20px;cursor:pointer;">✕</button></div><div id="repChartContent" style="overflow-x:auto;"></div></div>
+    </div>
 
-function hideAILoader() {
-    const loader = document.getElementById("ai-loader");
-    if (loader) loader.classList.remove("active");
-}
+    <!-- ============================================ -->
+    <!-- SETTINGS (Clean - No Duplicates!) -->
+    <!-- ============================================ -->
+    <div id="page-settings" class="page">
+        <div class="content">
+            <div class="card">
+                <div class="card-title">
+                    ⚙️ <span data-ur="سیٹنگز" data-en="Settings" data-roman="Settings">سیٹنگز</span>
+                </div>
+                
+                <!-- Sync Section -->
+                <div id="syncSection" class="sync-box hidden">
+                    <h4 style="color:#17a2b8; margin-bottom:10px;">🔄 Pending Sync</h4>
+                    <p style="font-size:13px; margin-bottom:10px;" id="syncInfo"></p>
+                    <button class="btn btn-info" id="manualSyncBtn">🔄 <span data-ur="ابھی سنک کریں" data-en="Sync Now" data-roman="Abhi Sync Karein">ابھی سنک کریں</span></button>
+                    <button class="btn btn-danger btn-sm" id="clearPendingBtn" style="margin-top:8px;">🗑️ <span data-ur="ناکام ڈیٹا صاف کریں" data-en="Clear Failed Data" data-roman="Nakaam Data Saaf Karein">ناکام ڈیٹا صاف کریں</span></button>
+                </div>
+        <!-- Sync Status Indicator -->
+<div id="customSyncStatus" style="background:#e8f5e9;border:1px solid #27ae60;padding:8px 12px;border-radius:6px;margin-bottom:12px;font-size:12px;color:#1e8449;display:flex;align-items:center;gap:8px;">
+    <span>☁️</span>
+    <span><span data-ur="کسٹم ڈیٹا کلاؤڈ سنک:" data-en="Custom Data Cloud Sync:" data-roman="Custom Data Cloud Sync:">کسٹم ڈیٹا کلاؤڈ سنک:</span> <strong id="syncStatusText" data-ur="تیار" data-en="Ready" data-roman="Tayyar">تیار</strong></span>
+</div>
+                
+                <!-- ============================================ -->
+<!-- ✅ CUSTOM DATA MANAGER v4 (Cloud + Backup + GitHub) -->
+<!-- ============================================ -->
+<div class="custom-manager-box">
+    <h4>
+        🏷️ <span data-ur="کسٹم ڈیٹا مینیجر (کلاؤڈ سنک)" data-en="Custom Data Manager (Cloud Sync)" data-roman="Custom Data Manager (Cloud Sync)">کسٹم ڈیٹا مینیجر (کلاؤڈ سنک)</span>
+
+        <button class="btn btn-info btn-xs" onclick="syncCustomData()" title="Sync now" style="margin-right:auto;">
+            🔄 <span data-ur="سنک" data-en="Sync" data-roman="Sync">سنک</span>
+        </button>
+    </h4>
+    <p class="description">
+        <span data-ur="کیٹگریز، علامات اور بیماریاں شامل، ترمیم اور حذف کریں۔ ☁️ کلاؤڈ پر خودکار سنک۔" 
+              data-en="Add, edit, delete categories, symptoms and diseases. ☁️ Auto-sync to cloud." 
+              data-roman="Categories, Alamaat aur Bimariyan shamil, tarmeemi aur hazf karein. ☁️ Cloud par khudkar sync.">
+            کیٹگریز، علامات اور بیماریاں شامل، ترمیم اور حذف کریں۔ ☁️ کلاؤڈ پر خودکار سنک۔
+        </span>
+    </p>
+    
+    <!-- ➕ ADD ROW -->
+    <div class="btn-group-row" style="margin-top:8px;">
+        <button class="btn btn-purple btn-sm" onclick="openAddCategoryModal()">
+            ➕ <span data-ur="کیٹگری" data-en="Category" data-roman="Category">کیٹگری</span>
+        </button>
+        <button class="btn btn-info btn-sm" onclick="openAddSymptomModal()">
+            💡 <span data-ur="علامت" data-en="Symptom" data-roman="Alamat">علامت</span>
+        </button>
+        <button class="btn btn-success btn-sm" onclick="openAddDiseaseModal()">
+            🔬 <span data-ur="بیماری" data-en="Disease" data-roman="Bimari">بیماری</span>
+        </button>
+    </div>
+    
+    <!-- 📋 MANAGE ROW -->
+    <div class="btn-group-row" style="margin-top:6px;">
+        <button class="btn btn-light btn-sm" onclick="viewCustomData()">
+            📋 <span data-ur="دیکھیں / ایڈٹ / ڈیلیٹ" data-en="View / Edit / Delete" data-roman="Dekhein / Edit / Delete">دیکھیں / ایڈٹ / ڈیلیٹ</span>
+        </button>
+        <button class="btn btn-light btn-sm" onclick="viewHistory()">
+            📚 <span data-ur="ہسٹری" data-en="History" data-roman="History">ہسٹری</span>
+        </button>
+        <button class="btn btn-info btn-sm" onclick="smartImport()">
+            📥 <span data-ur="امپورٹ (جے سن/سی ایس وی)" data-en="Import (JSON/CSV)" data-roman="Import (JSON/CSV)">امپورٹ (جے سن/سی ایس وی)</span>
+
+        </button>
+    </div>
+    
+    <!-- 💾 BACKUP ROW -->
+    <div style="margin-top:10px;padding:10px;background:#fff;border:2px dashed #17a2b8;border-radius:8px;">
+        <div style="font-weight:bold;color:#17a2b8;margin-bottom:8px;font-size:13px;">
+            💾 <span data-ur="بیک اپ اور گٹ ہب" data-en="Backup & GitHub" data-roman="Backup aur GitHub">بیک اپ اور گٹ ہب</span>
+        </div>
+        <div class="btn-group-row">
+            <button class="btn btn-warning btn-sm" onclick="exportCustomData()" title="Full backup - includes everything">
+                📦 <span data-ur="مکمل بیک اپ" data-en="Full Backup" data-roman="Mukammal Backup">مکمل بیک اپ</span>
+            </button>
+            <button class="btn btn-warning btn-sm" onclick="exportOnlyNew()" title="Only unpromoted items">
+                🆕 <span data-ur="صرف نئی بیک اپ" data-en="Only New Backup" data-roman="Sirf Nayi Backup">صرف نئی بیک اپ</span>
+            </button>
+        </div>
+        <div class="btn-group-row" style="margin-top:6px;">
+            <button class="btn" style="background:#24292e;color:white;font-size:12px;padding:6px 12px;" onclick="exportForGitHub()" title="Ready-to-paste for diagnosis-data.js">
+                📝 <span data-ur="گٹ ہب ایکسپورٹ" data-en="Export for GitHub" data-roman="GitHub Export">گٹ ہب ایکسپورٹ</span>
+            </button>
+            <button class="btn btn-purple btn-sm" onclick="migrationWizard()" title="Guided workflow">
+                🚀 <span data-ur="مائیگریشن وزرڈ" data-en="Migration Wizard" data-roman="Migration Wizard">مائیگریشن وزرڈ</span>
+            </button>
+        </div>
+        <div style="font-size:11px;color:#7f8c8d;margin-top:6px;padding:4px 8px;background:#f8f9fa;border-radius:4px;">
+            💡 <strong><span data-ur="مشورہ:" data-en="Tip:" data-roman="Mashwara:">مشورہ:</span></strong> <span data-ur="&quot;مائیگریشن وزرڈ&quot; استعمال کریں — یہ آپ کو مرحلہ وار رہنمائی کرے گا" data-en="Use &quot;Migration Wizard&quot; — it will guide you step-by-step" data-roman="&quot;Migration Wizard&quot; istemal karein — yeh aap ko qadam ba qadam rahnumai karega">"مائیگریشن وزرڈ" استعمال کریں — یہ آپ کو مرحلہ وار رہنمائی کرے گا</span>
+        </div>
+    </div>
+    
+    <!-- 🧹 CLEANUP ROW -->
+    <div style="margin-top:8px;">
+        <button class="btn btn-danger btn-sm" onclick="cleanupPromoted()" style="font-size:12px;">
+            🧹 <span data-ur="پروموٹڈ صاف کریں" data-en="Cleanup Promoted" data-roman="Promoted Saaf Karein">پروموٹڈ صاف کریں</span>
+        </button>
+        <small style="color:#7f8c8d;margin-right:6px;"><span data-ur="← گٹ ہب پر شامل شدہ چیزیں مٹائیں" data-en="← Delete items already added to GitHub" data-roman="← GitHub par shamil cheezein mitayein">← گٹ ہب پر شامل شدہ چیزیں مٹائیں</span></small>
+    </div>
+    
+    <!-- Hidden file input -->
+    <input type="file" id="importCustomFile" accept=".json,.csv" style="display:none;">
+                </div>
+
+                <!-- ============================================ -->
+                <!-- DISEASE AUTO-SUGGEST SETTINGS -->
+                <!-- ============================================ -->
+                <div style="margin-top:20px;padding:15px;background:#fdf2e9;border:2px solid #f39c12;border-radius:12px;">
+                    <h4 style="color:#d68910;margin-bottom:10px;">
+                        🧠 <span data-ur="علامات سے بیماری کی تجویز (سیٹنگز)" data-en="Disease Suggest Settings" data-roman="Alamat se Bimari Tajweez Settings">علامات سے بیماری کی تجویز (سیٹنگز)</span>
+                    </h4>
+                    <p style="font-size:12px;color:#7f8c8d;margin-bottom:12px;">
+                        <span data-ur="جب ڈاکٹر علامات لکھے گا تو متعلقہ بیماریاں، ٹیسٹ اور پرہیز خودکار دکھائی دیں گے" data-en="When doctor types symptoms, related diseases, tests and dietary advice appear automatically" data-roman="Jab doctor alamat likhenge to mutalliqa bimariyan, test aur parhez khudkar dikhayi denge">جب ڈاکٹر علامات لکھے گا تو متعلقہ بیماریاں، ٹیسٹ اور پرہیز خودکار دکھائی دیں گے</span>
+                    </p>
+                    
+                    <div style="display:flex;gap:15px;flex-wrap:wrap;align-items:start;">
+                        <div style="flex:1;min-width:200px;">
+                            <label style="font-weight:bold;display:block;margin-bottom:4px;font-size:13px;">
+                                📊 <span data-ur="کم از کم میچ پرسنٹیج" data-en="Minimum Match %" data-roman="Minimum Match %">کم از کم میچ پرسنٹیج</span>
+                            </label>
+                            <input type="range" id="suggestThreshold" min="10" max="90" value="30" step="5" oninput="$('suggestThresholdVal').textContent=this.value+'%';saveDiseaseSuggestSettings()" style="width:100%;">
+                            <div style="text-align:center;font-weight:bold;color:#d68910;font-size:16px;" id="suggestThresholdVal">30%</div>
+                        </div>
+                        <div style="flex:1;min-width:200px;">
+                            <label style="font-weight:bold;display:block;margin-bottom:4px;font-size:13px;">
+                                🔢 <span data-ur="زیادہ سے زیادہ بیماریاں دکھائیں" data-en="Max Diseases to Show" data-roman="Max Bimariyan Dikhayein">زیادہ سے زیادہ بیماریاں دکھائیں</span>
+                            </label>
+                            <select id="suggestMaxDiseases" onchange="saveDiseaseSuggestSettings()" style="padding:8px 12px;border:2px solid #ddd;border-radius:8px;font-family:inherit;font-size:14px;width:100%;">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3" selected>3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- DASHBOARD FILTER SETTINGS -->
+                <!-- ============================================ -->
+                <div style="margin-top:20px;padding:15px;background:#f0f8ff;border:2px solid #2980b9;border-radius:12px;">
+                    <h4 style="color:#2980b9;margin-bottom:10px;">
+                        📊 <span data-ur="ڈیش بورڈ فلٹر سیٹنگز" data-en="Dashboard Filter Settings" data-roman="Dashboard Filter Settings">ڈیش بورڈ فلٹر سیٹنگز</span>
+                    </h4>
+                    
+                    <!-- Time Duration Filter -->
+                    <div style="margin-bottom:12px;">
+                        <label style="font-weight:bold;display:block;margin-bottom:4px;">
+                            ⏱️ <span data-ur="دورانیہ فلٹر" data-en="Duration Filter" data-roman="Duration Filter">دورانیہ فلٹر</span>
+                        </label>
+                        <select id="filterDuration" onchange="applyDashboardFilter()" style="padding:8px 12px;border:2px solid #ddd;border-radius:8px;font-family:inherit;font-size:14px;width:100%;max-width:300px;">
+                            <option value="1month" data-ur="📅 1 ماہ" data-en="📅 1 Month" data-roman="📅 1 Month">📅 1 ماہ</option>
+                            <option value="3months" data-ur="📅 3 ماہ" data-en="📅 3 Months" data-roman="📅 3 Months">📅 3 ماہ</option>
+                            <option value="6months" data-ur="📅 6 ماہ" data-en="📅 6 Months" data-roman="📅 6 Months">📅 6 ماہ</option>
+                            <option value="1year" data-ur="📅 1 سال" data-en="📅 1 Year" data-roman="📅 1 Saal">📅 1 سال</option>
+                            <option value="allTime" data-ur="📊 آل ٹائم" data-en="📊 All Time" data-roman="📊 All Time">📊 آل ٹائم</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Date Range Filter -->
+                    <div style="margin-bottom:12px;">
+                        <label style="font-weight:bold;display:block;margin-bottom:4px;">
+                            📆 <span data-ur="تاریخ کی حد" data-en="Date Range" data-roman="Date Range">تاریخ کی حد</span>
+                        </label>
+                        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+                            <span style="font-size:13px;" data-ur="از:" data-en="From:" data-roman="Se:">از:</span>
+                            <input type="date" id="filterDateFrom" onchange="applyDashboardFilter()" style="padding:7px 10px;border:2px solid #ddd;border-radius:8px;font-family:inherit;font-size:13px;">
+                            <span style="font-size:13px;" data-ur="تا:" data-en="To:" data-roman="Tak:">تا:</span>
+                            <input type="date" id="filterDateTo" onchange="applyDashboardFilter()" style="padding:7px 10px;border:2px solid #ddd;border-radius:8px;font-family:inherit;font-size:13px;">
+                            <button class="btn btn-light btn-sm" onclick="clearDateRange()">
+                                <span data-ur="🔄 صاف" data-en="🔄 Clear" data-roman="🔄 Saaf">🔄 صاف</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab Visibility Toggles -->
+                    <div style="margin-bottom:12px;">
+                        <label style="font-weight:bold;display:block;margin-bottom:8px;">
+                            👁️ <span data-ur="ڈیش بورڈ پر دکھائیں" data-en="Show on Dashboard" data-roman="Dashboard par Dikhayein">ڈیش بورڈ پر دکھائیں</span>
+                        </label>
+                        <div id="dashboardTabToggles" style="display:flex;flex-direction:column;gap:6px;">
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;">
+                                <input type="checkbox" id="toggleTabToday" checked onchange="saveDashboardTabSettings()">
+                                <span data-ur="📅 آج کے مریض" data-en="📅 Today&#39;s Patients" data-roman="📅 Aaj ke Mareez">📅 آج کے مریض</span>
+                            </label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;">
+                                <input type="checkbox" id="toggleTabFollowups" checked onchange="saveDashboardTabSettings()">
+                                <span data-ur="🔄 فالو اپ وزٹس" data-en="🔄 Follow-up Visits" data-roman="🔄 Follow-ups">🔄 فالو اپ وزٹس</span>
+                            </label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;">
+                                <input type="checkbox" id="toggleTabNewMonth" checked onchange="saveDashboardTabSettings()">
+                                <span data-ur="🆕 نئے مریض (اس ماہ)" data-en="🆕 New Patients (This Month)" data-roman="🆕 Naye Mareez (Is Mah)">🆕 نئے مریض (اس ماہ)</span>
+                            </label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;">
+                                <input type="checkbox" id="toggleTabMonth" checked onchange="saveDashboardTabSettings()">
+                                <span data-ur="📆 اس ماہ کے مریض" data-en="📆 This Month&#39;s Patients" data-roman="📆 Is Mah ke Mareez">📆 اس ماہ کے مریض</span>
+                            </label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;">
+                                <input type="checkbox" id="toggleTabAllTime" checked onchange="saveDashboardTabSettings()">
+                                <span data-ur="📊 آل ٹائم مریض" data-en="📊 All-Time Patients" data-roman="📊 All-Time Mareez">📊 آل ٹائم مریض</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-sm" onclick="applyDashboardFilter()">
+                        ✅ <span data-ur="اپلائی کریں" data-en="Apply" data-roman="Apply Karein">اپلائی کریں</span>
+                    </button>
+                    <button class="btn btn-light btn-sm" onclick="resetDashboardFilters()">
+                        🔄 <span data-ur="ری سیٹ" data-en="Reset" data-roman="Reset">ری سیٹ</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Preferences & Help moved to nav bar -->
+
+<!-- Visit Modal removed - using New Visit Page instead -->
+
+<!-- ============================================ -->
+<!-- EDIT PATIENT MODAL -->
+<!-- ============================================ -->
+<!-- EDIT PATIENT MODAL -->
+<!-- ============================================ -->
+<div id="editPatientModal" class="modal-overlay">
+    <div class="modal">
+        <div class="modal-title">
+            <span id="editPatientModalTitle">✏️ مریض کی معلومات ترمیم</span>
+            <button class="modal-close" id="closeEditPatientBtn">✕</button>
+        </div>
+        <div id="editPatientMsg"></div>
+        <input type="hidden" id="editPatientId">
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label data-ur="👤 نام *" data-en="👤 Name *" data-roman="👤 Naam *">👤 نام *</label>
+                <input type="text" id="editName">
+            </div>
+            <div class="form-group">
+                <label data-ur="📱 فون *" data-en="📱 Phone *" data-roman="📱 Phone *">📱 فون *</label>
+                <input type="tel" id="editPhone" dir="ltr" style="text-align:left;">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label data-ur="👨 ولدیت" data-en="👨 Father" data-roman="👨 Waldiyat">👨 ولدیت</label>
+                <input type="text" id="editFatherName">
+            </div>
+            <div class="form-group">
+                <label data-ur="🎂 عمر" data-en="🎂 Age" data-roman="🎂 Umar">🎂 عمر</label>
+                <input type="text" id="editAge">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label data-ur="⚧ جنس" data-en="⚧ Gender" data-roman="⚧ Jins">⚧ جنس</label>
+                <select id="editGender">
+                    <option value="">--</option>
+                    <option value="male" data-ur="مرد" data-en="Male" data-roman="Mard">مرد</option>
+                    <option value="female" data-ur="عورت" data-en="Female" data-roman="Aurat">عورت</option>
+                    <option value="boy" data-ur="بچہ" data-en="Boy" data-roman="Bacha">بچہ</option>
+                    <option value="girl" data-ur="بچی" data-en="Girl" data-roman="Bachi">بچی</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label data-ur="⚖️ وزن" data-en="⚖️ Weight" data-roman="⚖️ Wazan">⚖️ وزن</label>
+                <input type="text" id="editWeight">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label data-ur="👨‍👩‍👧‍👦 فیملی نمبر" data-en="👨‍👩‍👧‍👦 Family No" data-roman="👨‍👩‍👧‍👦 Family No">👨‍👩‍👧‍👦 فیملی نمبر</label>
+                <input type="text" id="editFamilyNo">
+            </div>
+            <div class="form-group">
+                <label data-ur="⚠️ الرجی" data-en="⚠️ Allergy" data-roman="⚠️ Allergy">⚠️ الرجی</label>
+                <input type="text" id="editAllergy">
+            </div>
+        </div>
+        <div class="form-group">
+            <label data-ur="🏠 پتہ" data-en="🏠 Address" data-roman="🏠 Pata">🏠 پتہ</label>
+            <input type="text" id="editAddress">
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-success" id="saveEditPatientBtn">
+                <span data-ur="💾 محفوظ کریں" data-en="💾 Save Changes" data-roman="💾 Save">💾 محفوظ کریں</span>
+            </button>
+            <button class="btn btn-light" id="cancelEditPatientBtn">
+                <span data-ur="❌ منسوخ" data-en="❌ Cancel" data-roman="❌ Cancel">❌ منسوخ</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CONFIRM MODAL -->
+<!-- ============================================ -->
+<div id="confirmModal" class="modal-overlay">
+    <div class="modal modal-sm">
+        <div class="modal-title">
+            <span>⚠️ <span data-ur="تصدیق کریں" data-en="Confirm" data-roman="Tasdeeq Karein">تصدیق کریں</span></span>
+            <button class="modal-close" id="closeConfirmBtn">✕</button>
+        </div>
+        <div id="confirmMessage" style="margin-bottom: 20px; color: #555; font-size: 15px;"></div>
+        <div class="action-buttons">
+            <button class="btn btn-danger" id="confirmYesBtn">
+                <span data-ur="🗑️ ہاں" data-en="🗑️ Yes" data-roman="🗑️ Haan">🗑️ ہاں</span>
+            </button>
+            <button class="btn btn-light" id="confirmNoBtn">
+                <span data-ur="❌ نہیں" data-en="❌ No" data-roman="❌ Nahi">❌ نہیں</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ✅ ADD/EDIT CATEGORY MODAL (with Icon Picker) -->
+<!-- ============================================ -->
+<div id="addCategoryModal" class="modal-overlay">
+    <div class="modal" style="max-width:550px;">
+        <div class="modal-title">
+            <span id="addCategoryTitle">➕ <span data-ur="کیٹگری شامل کریں" data-en="Add Category" data-roman="Category Shamil Karein">کیٹگری شامل کریں</span></span>
+            <button class="modal-close" onclick="closeAddCategoryModal()">✕</button>
+        </div>
+        <div id="addCategoryMsg"></div>
+        <input type="hidden" id="editCategoryOldId">
+        
+        <div class="form-group">
+            <label>🔑 ID <small style="color:#95a5a6;">(<span data-ur="انگلش، بغیر خالی جگہ" data-en="English, no spaces, e.g. cancer_care" data-roman="English, baghair space">انگلش، بغیر خالی جگہ</span>)</small></label>
+            <input type="text" id="newCategoryId" placeholder="my_category" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🇵🇰 <span data-ur="اردو نام *" data-en="Urdu Name *" data-roman="Urdu *">اردو نام *</span></label>
+                <input type="text" id="newCategoryUr" placeholder="مثلاً: کینسر" dir="rtl">
+            </div>
+            <div class="form-group">
+                <label>🇬🇧 <span data-ur="انگلش نام *" data-en="English Name *" data-roman="English *">English Name *</span></label>
+                <input type="text" id="newCategoryEn" placeholder="Cancer Care" dir="ltr">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🔤 <span data-ur="رومن اردو" data-en="Roman Urdu" data-roman="Roman Urdu">رومن اردو</span></label>
+                <input type="text" id="newCategoryRoman" placeholder="Cancer Care" dir="ltr">
+            </div>
+            <div class="form-group">
+                <label>🎨 <span data-ur="منتخب شدہ آئکن" data-en="Selected Icon" data-roman="Selected Icon">Selected Icon</span></label>
+                <input type="text" id="newCategoryIcon" value="📌" readonly style="font-size:24px;text-align:center;background:#f8f9fa;cursor:default;">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>🎨 <span data-ur="آئکن چنیں (نیچے سے)" data-en="Select Icon (below)" data-roman="Icon Chunein">Select Icon</span></label>
+            <div id="iconPickerContainer"></div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-success" onclick="saveNewCategory()">
+                💾 <span data-ur="محفوظ" data-en="Save" data-roman="Mehfooz">محفوظ</span>
+            </button>
+            <button class="btn btn-light" onclick="closeAddCategoryModal()">
+                ❌ <span data-ur="منسوخ" data-en="Cancel" data-roman="Mansookh">منسوخ</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ✅ ADD/EDIT SYMPTOM MODAL -->
+<!-- ============================================ -->
+<div id="addSymptomModal" class="modal-overlay">
+    <div class="modal" style="max-width:550px;">
+        <div class="modal-title">
+            <span id="addSymptomTitle">➕ <span data-ur="علامت شامل کریں" data-en="Add Symptom" data-roman="Alamat Shamil Karein">علامت شامل کریں</span></span>
+            <button class="modal-close" onclick="closeAddSymptomModal()">✕</button>
+        </div>
+        <div id="addSymptomMsg"></div>
+        <input type="hidden" id="editSymptomOldId">
+        
+        <div class="form-group">
+            <label>🔑 ID <small style="color:#95a5a6;">(English, e.g. chest_burning)</small></label>
+            <input type="text" id="newSymptomId" placeholder="chest_burning" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🇵🇰 <span data-ur="اردو *" data-en="Urdu *" data-roman="Urdu *">اردو *</span></label>
+                <input type="text" id="newSymptomUr" placeholder="سینے میں جلن" dir="rtl">
+            </div>
+            <div class="form-group">
+                <label>🇬🇧 <span data-ur="انگلش *" data-en="English *" data-roman="English *">انگلش *</span></label>
+                <input type="text" id="newSymptomEn" placeholder="Chest Burning" dir="ltr">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🔤 <span data-ur="رومن" data-en="Roman" data-roman="Roman">رومن</span></label>
+                <input type="text" id="newSymptomRoman" placeholder="Seenay mein Jalan" dir="ltr">
+            </div>
+            <div class="form-group">
+                <label>🏷️ <span data-ur="کیٹگری *" data-en="Category *" data-roman="Category *">کیٹگری *</span></label>
+                <select id="newSymptomCategory"></select>
+            </div>
+        </div>
+        
+        <div class="form-group" style="background:#fff5f5;padding:10px;border-radius:6px;border:1px solid #ffcccc;">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:normal;">
+                <input type="checkbox" id="newSymptomSevere" style="width:auto;margin:0;transform:scale(1.3);cursor:pointer;">
+                <span>⚠️ <strong><span data-ur="خطرناک / ریڈ فلیگ علامت" data-en="Severe / Red Flag Symptom" data-roman="Khatarnak / Red Flag Alamat">خطرناک علامت</span></strong></span>
+            </label>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-success" onclick="saveNewSymptom()">
+                💾 <span data-ur="محفوظ" data-en="Save" data-roman="Save">Save</span>
+            </button>
+            <button class="btn btn-light" onclick="closeAddSymptomModal()">
+                ❌ <span data-ur="منسوخ" data-en="Cancel" data-roman="Cancel">Cancel</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ✅ ADD/EDIT DISEASE MODAL (with Icon Picker!) -->
+<!-- ============================================ -->
+<div id="addDiseaseModal" class="modal-overlay">
+    <div class="modal" style="max-width:800px;">
+        <div class="modal-title">
+            <span id="addDiseaseTitle">➕ <span data-ur="بیماری شامل کریں" data-en="Add Disease" data-roman="Bimari Shamil Karein">بیماری شامل کریں</span></span>
+            <button class="modal-close" onclick="closeAddDiseaseModal()">✕</button>
+        </div>
+        <div id="addDiseaseMsg"></div>
+        <input type="hidden" id="editDiseaseOldId">
+        
+        <div class="form-group">
+            <label>🔑 ID <small style="color:#95a5a6;">(<span data-ur="مثلاً kidney_cancer" data-en="e.g. kidney_cancer" data-roman="maslan kidney_cancer">مثلاً kidney_cancer</span>)</small></label>
+            <input type="text" id="newDiseaseId" placeholder="kidney_cancer" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🇵🇰 <span data-ur="اردو نام *" data-en="Urdu Name *" data-roman="Urdu *">اردو نام *</span></label>
+                <input type="text" id="newDiseaseUr" placeholder="گردے کا سرطان" dir="rtl">
+            </div>
+            <div class="form-group">
+                <label>🇬🇧 <span data-ur="انگلش نام *" data-en="English Name *" data-roman="English Naam *">انگلش نام *</span></label>
+                <input type="text" id="newDiseaseEn" placeholder="Kidney Cancer" dir="ltr">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>🔤 <span data-ur="رومن اردو" data-en="Roman Urdu" data-roman="Roman Urdu">رومن اردو</span></label>
+                <input type="text" id="newDiseaseRoman" placeholder="Gurday ka Sartan" dir="ltr">
+            </div>
+            <div class="form-group">
+                <label>🏷️ Category *</label>
+                <select id="newDiseaseCategory"></select>
+            </div>
+        </div>
+        
+        <!-- ✅ NEW: Icon Picker for Disease -->
+        <div class="form-row">
+            <div class="form-group">
+                <label>🎨 <span data-ur="منتخب آئکن" data-en="Selected Icon" data-roman="Muntakhib Icon">منتخب آئکن</span></label>
+                <input type="text" id="newDiseaseIcon" value="💊" readonly style="font-size:24px;text-align:center;background:#f8f9fa;cursor:default;">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>🎨 <span data-ur="بیماری کا آئکن چنیں" data-en="Select Disease Icon" data-roman="Bimari ka Icon Chunein">بیماری کا آئکن چنیں</span></label>
+            <div id="diseaseIconPickerContainer"></div>
+        </div>
+        
+        <div class="form-group">
+            <label>💡 <span data-ur="علامات" data-en="Symptoms" data-roman="Alamaat">علامات</span> <small style="color:#95a5a6;">(<span data-ur="کاما سے الگ، مثلاً fever, headache" data-en="comma separated IDs, e.g. fever, headache" data-roman="comma se alag, maslan fever, headache">کاما سے الگ</span>)</small></label>
+            <textarea id="newDiseaseSymptoms" placeholder="fever, headache, weakness, body_ache" style="min-height:50px;direction:ltr;text-align:left;"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>⭐ <span data-ur="اہم علامات" data-en="Key Symptoms" data-roman="Ahem Alamaat">اہم علامات</span> <small style="color:#95a5a6;">(<span data-ur="اہم، کاما سے الگ" data-en="main symptoms, comma separated" data-roman="ahem, comma se alag">اہم، کاما سے الگ</span>)</small></label>
+            <input type="text" id="newDiseaseKeySymptoms" placeholder="fever, headache" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-group">
+            <label>🔬 <span data-ur="ٹیسٹ" data-en="Tests" data-roman="Tests">ٹیسٹ</span> <small style="color:#95a5a6;">(<span data-ur="ہر سطر میں ایک" data-en="one per line" data-roman="har line mein ek">ہر سطر میں ایک</span>)</small></label>
+            <textarea id="newDiseaseTests" placeholder="CBC&#10;X-Ray&#10;Urine Test" style="min-height:60px;direction:ltr;text-align:left;"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>⚠️ <span data-ur="خطرے کی علامات" data-en="Red Flags" data-roman="Khatre ki Alamaat">خطرے کی علامات</span> <small style="color:#95a5a6;">(<span data-ur="کاما سے الگ" data-en="symptom IDs, comma separated" data-roman="comma se alag">کاما سے الگ</span>)</small></label>
+            <input type="text" id="newDiseaseRedFlags" placeholder="high_fever, unconscious, bleeding" style="direction:ltr;text-align:left;">
+        </div>
+        
+        <div class="form-group">
+            <label>💊 <span data-ur="ادویات" data-en="Remedies" data-roman="Adwiyaat">ادویات</span> <small style="color:#95a5a6;">(<span data-ur="ہر سطر: نام | استعمال | خوراک" data-en="one per line: Name | Use | Dose" data-roman="har line: Naam | Istemal | Khurak">ہر سطر: نام | استعمال | خوراک</span>)</small></label>
+            <textarea id="newDiseaseRemedies" placeholder="Arnica 30 | For injury | 3 times daily&#10;Bryonia 200 | For pain | 4 hourly" style="min-height:80px;direction:ltr;text-align:left;"></textarea>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>📖 <span data-ur="ہدایات (اردو)" data-en="Advice (Urdu)" data-roman="Hidayaat (Urdu)">ہدایات (اردو)</span></label>
+                <textarea id="newDiseaseAdviceUr" placeholder="آرام، پانی زیادہ..." style="min-height:50px;" dir="rtl"></textarea>
+            </div>
+            <div class="form-group">
+                <label>📖 <span data-ur="ہدایات (انگلش)" data-en="Advice (English)" data-roman="Hidayaat (English)">ہدایات (انگلش)</span></label>
+                <textarea id="newDiseaseAdviceEn" placeholder="Rest, more water..." style="min-height:50px;direction:ltr;text-align:left;"></textarea>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-success" onclick="saveNewDisease()">
+                💾 <span data-ur="بیماری محفوظ کریں" data-en="Save Disease" data-roman="Bimari Mehfooz Karein">بیماری محفوظ کریں</span>
+            </button>
+            <button class="btn btn-light" onclick="closeAddDiseaseModal()">
+                ❌ <span data-ur="منسوخ" data-en="Cancel" data-roman="Cancel">Cancel</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ✅ VIEW ALL CUSTOM DATA MODAL v4 -->
+<!-- ============================================ -->
+<div id="viewCustomModal" class="modal-overlay">
+    <div class="modal" style="max-width:750px;">
+        <div class="modal-title">
+            <span>📋 <span data-ur="اپنا کسٹم ڈیٹا" data-en="My Custom Data" data-roman="Apna Custom Data">اپنا کسٹم ڈیٹا</span></span>
+            <button class="modal-close" onclick="closeViewCustomModal()">✕</button>
+        </div>
+        <div id="customDataContent">Loading...</div>
+        <div class="action-buttons" style="margin-top:15px;border-top:1px solid #ecf0f1;padding-top:12px;flex-wrap:wrap;">
+            <button class="btn btn-purple btn-sm" onclick="closeViewCustomModal();openAddCategoryModal()">➕ Category</button>
+            <button class="btn btn-info btn-sm" onclick="closeViewCustomModal();openAddSymptomModal()">➕ Symptom</button>
+            <button class="btn btn-success btn-sm" onclick="closeViewCustomModal();openAddDiseaseModal()">➕ Disease</button>
+            <button class="btn btn-warning btn-sm" onclick="closeViewCustomModal();exportOnlyNew()">🆕 Export New</button>
+            <button class="btn" style="background:#24292e;color:white;font-size:12px;padding:6px 12px;" onclick="closeViewCustomModal();exportForGitHub()">📝 GitHub</button>
+            <button class="btn btn-light btn-sm" onclick="closeViewCustomModal();viewHistory()">📚 History</button>
+            <button class="btn btn-light btn-sm" onclick="closeViewCustomModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+</div> <!-- ========== END mainApp ========== -->
+
+
+<!-- ============================================================ -->
+<!-- APP SCRIPTS — pehle ek inline script thi, ab organized files -->
+<!-- ⚠️ IN FILES KA ORDER KABHI NA BADLEIN (original order hai)   -->
+<!-- ============================================================ -->
+<script src="js/01-app-core.js?v=33"></script>
+<script src="js/02-app-auth.js?v=33"></script>
+<script src="js/03-app-patients.js?v=33"></script>
+<script src="js/04-app-visit-modal.js?v=33"></script>
+<script src="js/05-app-diagnosis.js?v=33"></script>
+<script src="js/06-app-new-visit.js?v=33"></script>
+<script src="js/07-app-settings.js?v=33"></script>
+<script src="js/08-app-repertory.js?v=33"></script>
+<script src="js/10-treatment-data.js?v=33"></script>
+<script src="js/12-treatment-more.js?v=33"></script>
+<script src="js/11-app-studio.js?v=39"></script>
+<script src="js/09-app-init.js?v=33"></script>
+<script src="js/pwa.js?v=33"></script>
+<script src="js/ai-diagnosis-engine.js?v=2"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a386f17adbc1d439',t:'MTc4ODk2NDc3Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
