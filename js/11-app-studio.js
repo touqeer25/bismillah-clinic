@@ -293,14 +293,17 @@ function renderStudioDetail() {
             hh += '<textarea id="studioNoteBox" class="tst-note" oninput="studioNote=this.value" placeholder="' +
                 ({ ur: 'مریض کی علامات یہاں لکھیں...', en: 'Write patient symptoms here...', roman: 'Mareez ki alamat yahan likhein...' }[L]) + '">' + studioEsc(studioNote) + '</textarea>';
         }
-        function studioKwGroup(kind, title) {
+        function studioKwGroup(kind, title, always) {
             var chips = [];
             poolSyms.forEach(function(item, i) {
                 if ((item.kind || 'sym') !== kind) return;
                 chips.push('<span class="' + (studioSelSyms.has(i) ? 'sel' : '') + '" onclick="studioToggleSym(' + i + ')">' + studioEsc(item.t[currentLang] || item.t.ur) + '</span>');
             });
-            if (!chips.length) return '';
-            return '<div class="tst-sub" style="margin-top:12px">' + title + '</div><div class="tst-kw">' + chips.join('') + '</div>';
+            if (!chips.length && !always) return '';
+            var body = chips.length
+                ? '<div class="tst-kw">' + chips.join('') + '</div>'
+                : '<div class="tst-poolhint" style="margin:4px 0 8px">' + ({ ur: 'اس بیماری کی متعلقہ ادویات میں الگ concomitant درج نہیں', en: 'No separate concomitant listed for this disease’s remedies', roman: 'Is bimari ki adviat mein alag concomitant nahi' }[L]) + '</div>';
+            return '<div class="tst-sub" style="margin-top:12px">' + title + '</div>' + body;
         }
         hh += studioKwGroup('sym', '🩺 ' + ({ ur: 'بیماری کی علامات', en: 'Disease symptoms', roman: 'Bimari ki alamaat' }[L]));
         hh += studioKwGroup('hs', '💊 ' + ({ ur: 'ہومیوپیتھک علامات (بغیر دوا کے نام)', en: 'Homeopathic symptoms (no drug names)', roman: 'Homeopathic alamaat' }[L]));
@@ -310,7 +313,7 @@ function renderStudioDetail() {
             hh += '<div class="tst-sub" style="margin-top:14px;font-weight:700">🔄 ' + ({ ur: 'موڈیلیٹیز', en: 'Modalities', roman: 'Modalities' }[L]) + '</div>';
             hh += modAgg + modAmel;
         }
-        hh += studioKwGroup('acc', '🤝 ' + ({ ur: 'Concomitant علامات', en: 'Concomitant symptoms', roman: 'Concomitant alamaat' }[L]));
+        hh += studioKwGroup('acc', '🤝 ' + ({ ur: 'Concomitant علامات', en: 'Concomitant symptoms', roman: 'Concomitant alamaat' }[L]), true);
         hh += '<div class="tst-poolhint" style="margin:8px 0 4px;color:#7d3c98;font-size:12px">👆 ' +
             ({ ur: 'منتخب (ٹک شدہ) علامات کے مطابق علاج ٹیب میں ادویات رینک ہوں گی', en: 'Ticked symptoms will rank remedies on the Treatment tab', roman: 'Tick shuda alamaat ke mutabiq Ilaj tab mein adviat rank hongi' }[L]) + '</div>';
         hh += '<div class="tst-intro">📖 ' + studioTx(d.intro) + '</div>';
