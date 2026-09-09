@@ -404,6 +404,26 @@
                 <button id="dxViewBtnClassic" class="btn btn-sm btn-light" type="button" onclick="switchDxView('classic')">🔬 <span data-ur="ایڈوانس تشخیص موڈز" data-en="Advanced Diagnosis Modes" data-roman="Advanced Diagnosis Modes">ایڈوانس تشخیص موڈز</span></button>
                 <button id="dxViewBtnAI" class="btn btn-sm btn-light" type="button" onclick="switchDxView('ai')">🤖 <span data-ur="AI ہومیو اسسٹنٹ" data-en="AI Homeo Assistant" data-roman="AI Homeo Assistant">AI ہومیو اسسٹنٹ</span></button>
             </div>
+            <script>
+            window.switchDxView = window.switchDxView || function(v) {
+                v = (v === 'classic' || v === 'ai') ? v : 'studio';
+                var ids = { studio: 'dxStudioView', classic: 'dxClassicView', ai: 'dxAIView' };
+                var btns = { studio: 'dxViewBtnStudio', classic: 'dxViewBtnClassic', ai: 'dxViewBtnAI' };
+                Object.keys(ids).forEach(function(k) {
+                    var el = document.getElementById(ids[k]);
+                    if (!el) return;
+                    var on = k === v;
+                    el.classList.toggle('hidden', !on);
+                    el.style.display = on ? '' : 'none';
+                });
+                Object.keys(btns).forEach(function(k) {
+                    var b = document.getElementById(btns[k]);
+                    if (b) b.className = k === v ? 'btn btn-sm btn-purple' : 'btn btn-sm btn-light';
+                });
+                if (v === 'studio' && typeof renderStudioAll === 'function') renderStudioAll();
+                if (v === 'ai' && typeof renderAIStep === 'function') renderAIStep();
+            };
+            </script>
 
             <!-- ===== NEW: HYBRID TREATMENT STUDIO (Option 3+4: system tabs + left list + right detail) ===== -->
             <div id="dxStudioView">
@@ -419,7 +439,7 @@
                         <!-- FIRST column (RIGHT in RTL / LEFT in LTR): DETAIL -->
                         <div class="tst-panel">
                             <div class="tst-phead"><span id="studioDHead"></span><span id="studioDMeta" style="font-size:10px;color:#7f8c8d;"></span></div>
-                            <div id="studioPatientBar" class="tst-pbar">
+                            <div id="studioPatientBar" class="tst-pbar" style="display:none">
                                 <span>👤 <strong id="studioPatientName"></strong></span>
                                 <span><button class="btn btn-light btn-xs" onclick="studioClearPatient()">✕</button></span>
                             </div>
@@ -1364,7 +1384,7 @@
 <!-- ⚠️ IN FILES KA ORDER KABHI NA BADLEIN (original order hai)   -->
 <!-- ============================================================ -->
 <script src="js/01-app-core.js?v=33"></script>
-<script src="js/02-app-auth.js?v=33"></script>
+<script src="js/02-app-auth.js?v=40"></script>
 <script src="js/03-app-patients.js?v=33"></script>
 <script src="js/04-app-visit-modal.js?v=33"></script>
 <script src="js/05-app-diagnosis.js?v=33"></script>
@@ -1373,9 +1393,9 @@
 <script src="js/08-app-repertory.js?v=33"></script>
 <script src="js/10-treatment-data.js?v=33"></script>
 <script src="js/12-treatment-more.js?v=33"></script>
-<script src="js/11-app-studio.js?v=39"></script>
+<script src="js/11-app-studio.js?v=40"></script>
 <script src="js/09-app-init.js?v=33"></script>
 <script src="js/pwa.js?v=33"></script>
 <script src="js/ai-diagnosis-engine.js?v=2"></script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a386f17adbc1d439',t:'MTc4ODk2NDc3Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
