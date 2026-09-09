@@ -180,13 +180,15 @@ function studioScoreRem(it, d) {
 
 // ---------- VIEW SWITCHER (studio ↔ classic modes) ----------
 function switchDxView(v) {
-    if (v !== 'studio' && v !== 'classic' && v !== 'ai') v = 'studio';
+    if (v !== 'studio' && v !== 'classic' && v !== 'ai' && v !== 'case') v = 'studio';
     var s = document.getElementById('dxStudioView');
     var c = document.getElementById('dxClassicView');
     var a = document.getElementById('dxAIView');
+    var k = document.getElementById('dxCaseView');
     var bs = document.getElementById('dxViewBtnStudio');
     var bc = document.getElementById('dxViewBtnClassic');
     var ba = document.getElementById('dxViewBtnAI');
+    var bk = document.getElementById('dxViewBtnCase');
     function vis(el, on) {
         if (!el) return;
         el.classList.toggle('hidden', !on);
@@ -195,15 +197,20 @@ function switchDxView(v) {
     vis(s, v === 'studio');
     vis(c, v === 'classic');
     vis(a, v === 'ai');
+    vis(k, v === 'case');
     if (bs) bs.className = v === 'studio' ? 'btn btn-sm btn-purple' : 'btn btn-sm btn-light';
     if (bc) bc.className = v === 'classic' ? 'btn btn-sm btn-purple' : 'btn btn-sm btn-light';
     if (ba) ba.className = v === 'ai' ? 'btn btn-sm btn-purple' : 'btn btn-sm btn-light';
+    if (bk) bk.className = v === 'case' ? 'btn btn-sm btn-purple' : 'btn btn-sm btn-light';
     if (v === 'studio') {
         studioViewInit = true;
         try { renderStudioAll(); } catch (e) { console.error('studio render', e); }
     }
     if (v === 'ai' && typeof renderAIStep === 'function') {
         try { renderAIStep(); } catch (e) { console.error('ai render', e); }
+    }
+    if (v === 'case' && typeof renderCaseTaking === 'function') {
+        try { renderCaseTaking(); } catch (e) { console.error('case render', e); }
     }
     try { localStorage.setItem('dx_view', v); } catch (e) {}
 }
@@ -654,6 +661,7 @@ function studioBindViewButtons() {
     bind('dxViewBtnStudio', 'studio');
     bind('dxViewBtnClassic', 'classic');
     bind('dxViewBtnAI', 'ai');
+    bind('dxViewBtnCase', 'case');
 }
 
 function studioBoot() {
@@ -670,7 +678,7 @@ function studioBoot() {
     }
     var saved = null;
     try { saved = localStorage.getItem('dx_view'); } catch (e) {}
-    if (saved !== 'classic' && saved !== 'ai') saved = 'studio';
+    if (saved !== 'classic' && saved !== 'ai' && saved !== 'case') saved = 'studio';
     switchDxView(saved);
     try { renderStudioAll(); } catch (e) { console.error(e); }
 }
