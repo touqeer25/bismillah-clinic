@@ -220,7 +220,11 @@ async function showPage(pageId, btn) {
                 $('firstVisitDate').value = now.toISOString().split('T')[0];
                 $('firstVisitTime').value = now.toTimeString().substring(0, 5);
             }
-            if (pageId === 'diagnosis') { initDiagnosis(); if (typeof renderStudioAll === 'function') renderStudioAll(); }
+            if (pageId === 'diagnosis') {
+                try { if (typeof initDiagnosis === 'function') initDiagnosis(); } catch (e) { console.error('initDiagnosis', e); }
+                try { if (typeof renderStudioAll === 'function') renderStudioAll(); } catch (e) { console.error('renderStudioAll', e); }
+                if (typeof studioBindViewButtons === 'function') studioBindViewButtons();
+            }
             if (pageId === 'newVisitPage') {
                 if ($('nvVisitRef') && !nvCurrentPatientId) $('nvVisitRef').value = generateVisitRef();
                 var now2 = new Date();
