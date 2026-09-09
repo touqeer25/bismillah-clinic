@@ -2,6 +2,7 @@
 // Bismillah Clinic — js/11-app-studio.js
 // HYBRID TREATMENT STUDIO (Option 3+4: system tabs + left list + right detail)
 // Tabs: علامات → علاج → خوراک → احتیاط  (3 languages: ur/en/roman)
+// Symptoms tab = disease symptoms only. Treatment tab = remedies ranked by ticked symptoms.
 // Needs: js/10-treatment-data.js (TREATMENT_LIB, STUDIO_SYS, T)
 // ============================================================
 
@@ -23,9 +24,60 @@ var STUDIO_TABS = [
     ['rf',   '⚠️', { ur: 'احتیاط', en: 'Caution', roman: 'Ehtiyat' }]
 ];
 
+var STUDIO_STOP = {
+    the:1, and:1, with:1, from:1, of:1, in:1, to:1, for:1, a:1, an:1, or:1, on:1, at:1,
+    is:1, it:1, by:1, after:1, before:1, without:1, much:1, more:1, than:1, this:1, that:1,
+    se:1, ki:1, ka:1, ke:1, ko:1, mein:1, aur:1, wali:1, wala:1, walay:1, hai:1, hain:1,
+    ka:1, ki:1, ke:1, par:1, tak:1, nahi:1, ho:1, hona:1, the:1
+};
+
 function studioEsc(s) { return escapeHtml(s || ''); }
 function studioL() { return ({ ur: 'ur', en: 'en', roman: 'roman' })[currentLang] || 'ur'; }
 function studioTx(obj) { return studioEsc(obj ? (obj[currentLang] || obj.ur) : ''); }
+
+function studioNorm(s) {
+    return String(s || '').toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function studioTokens(s) {
+    return studioNorm(s).split(' ').filter(function(w) {
+        return w.length >= 3 && !STUDIO_STOP[w];
+    });
+}
+
+function studioBlob(r) {
+    var parts = [];
+    (r.syms || []).forEach(function(s) {
+        parts.push(s.ur || '', s.en || '', s.roman || '');
+    });
+    if (r.mod) parts.push(r.mod.ur || '', r.mod.en || '', r.mod.roman || '');
+    if (r.n) parts.push(r.n);
+    return studioNorm(parts.join(' '));
+}
+
+function studioScoreRem(r, d) {
+    if (!studioSelSyms.size) return 0;
+    var blob = studioBlob(r);
+    var score = 0;
+    var hits = 0;
+    studioSelSyms.forEach(function(i) {
+        var s = d.syms[i]; if (!s) return;
+        var variants = [s.ur, s.en, s.roman].map(studioNorm).filter(Boolean);
+        var hit = false;
+        variants.forEach(function(v) {
+            if (v.length >= 2 && blob.indexOf(v) >= 0) hit = true;
+        });
+        if (!hit) {
+            variants.forEach(function(v) {
+                studioTokens(v).forEach(function(t) {
+                    if (blob.indexOf(t) >= 0) hit = true;
+                });
+            });
+        }
+        if (hit) { hits += 1; score += 10; }
+    });
+    return score + hits;
+}
 
 // ---------- VIEW SWITCHER (studio ↔ classic modes) ----------
 function switchDxView(v) {
@@ -83,11 +135,18 @@ function renderStudioDetail() {
     var L = currentLang;
     var head = $('studioDHead'), meta = $('studioDMeta');
     if (head) head.innerHTML = d.ic + ' ' + studioTx(d.name) + (L !== 'en' ? ' <span class="latin">(' + studioEsc(d.name.en) + ')</span>' : '');
-    var pool = studioPool(d);
-    if (meta) meta.textContent = (studioTab === 'sym' || studioTab === 'rem')
-        ? (studioTab === 'sym' ? pool.length : d.rem.length) + ' ' + ({ ur: 'ادویات', en: 'remedies', roman: 'adviat' }[L]) : '';
+    var ranked = studioRankedRems(d);
+    if (meta) {
+        if (studioTab === 'sym') {
+            meta.textContent = d.syms.length + ' ' + ({ ur: 'علامات', en: 'symptoms', roman: 'alamaat' }[L]);
+        } else if (studioTab === 'rem') {
+            var shown = studioSelSyms.size ? ranked.filter(function(x) { return x.score > 0; }).length : ranked.length;
+            meta.textContent = shown + ' ' + ({ ur: 'ادویات', en: 'remedies', roman: 'adviat' }[L]);
+        } else {
+            meta.textContent = '';
+        }
+    }
 
-    // linked patient bar
     var pb = $('studioPatientBar');
     if (pb) {
         if (diagnosisPatientId) {
@@ -98,7 +157,6 @@ function renderStudioDetail() {
         } else { pb.style.display = 'none'; }
     }
 
-    // tabs
     var tabsEl = $('studioTabs');
     if (tabsEl) {
         tabsEl.innerHTML = STUDIO_TABS.map(function(t) {
@@ -115,7 +173,7 @@ function renderStudioDetail() {
 
     if (studioTab === 'sym') {
         if (studioFieldSrc) {
-            hh += '<div class="tst-fieldbar"><span>📝 ' + ({ ur: 'آپ وزٹ/رجسٹریشن فارم سے آئے ہیں — علامات اور ادویات منتخب کر کے «محفوظ کریں» دبائیں', en: 'You came from the Visit/Registration form — select symptoms & remedies, then press Save', roman: 'Aap visit/registration form se aaye hain — alamat aur adviat muntakhib kar ke Mehfooz dabain' }[L]) + '</span>';
+            hh += '<div class="tst-fieldbar"><span>📝 ' + ({ ur: 'آپ وزٹ/رجسٹریشن فارم سے آئے ہیں — علامات منتخب کر کے «محفوظ کریں» دبائیں', en: 'You came from the Visit/Registration form — select symptoms, then press Save', roman: 'Aap visit/registration form se aaye hain — alamat muntakhib kar ke Mehfooz dabain' }[L]) + '</span>';
             hh += '<button class="tst-btn i" style="padding:2px 10px" onclick="studioCancelField()">✕ ' + ({ ur: 'واپس', en: 'Back', roman: 'Wapas' }[L]) + '</button></div>';
         }
         hh += '<div class="tst-dtitle"><h3>🔑 ' + ({ ur: 'علامات — ', en: 'Symptoms — ', roman: 'Alamaat — ' }[L]) + studioTx(d.name) + '</h3>';
@@ -127,23 +185,42 @@ function renderStudioDetail() {
             hh += '<textarea id="studioNoteBox" class="tst-note" oninput="studioNote=this.value" placeholder="' +
                 ({ ur: 'مریض کی علامات یہاں لکھیں...', en: 'Write patient symptoms here...', roman: 'Mareez ki alamat yahan likhein...' }[L]) + '">' + studioEsc(studioNote) + '</textarea>';
         }
-        hh += '<div class="tst-sub">🩺 ' + ({ ur: 'بیماری کی اہم علامات (بٹن پریس کر کے منتخب کریں)', en: 'Key symptoms of the disease (press to select)', roman: 'Bimari ki aham alamaat (button dabakar muntakhib karein)' }[L]) + '</div>';
+        hh += '<div class="tst-sub">🩺 ' + ({ ur: 'صرف منتخب بیماری کی علامات — کلک کر کے ٹک کریں', en: 'Symptoms of the selected disease only — click to tick', roman: 'Sirf muntakhib bimari ki alamaat — click karke tick karein' }[L]) + '</div>';
         hh += '<div class="tst-kw">' + d.syms.map(function(s, i) {
             return '<span class="' + (studioSelSyms.has(i) ? 'sel' : '') + '" onclick="studioToggleSym(' + i + ')">' + studioEsc(s[currentLang] || s.ur) + '</span>';
         }).join('') + '</div>';
+        hh += '<div class="tst-poolhint" style="margin:8px 0 4px;color:#7d3c98;font-size:12px">👆 ' +
+            ({ ur: 'منتخب (ٹک شدہ) علامات کے مطابق علاج ٹیب میں ادویات رینک ہوں گی', en: 'Ticked symptoms will rank remedies on the Treatment tab', roman: 'Tick shuda alamaat ke mutabiq Ilaj tab mein adviat rank hongi' }[L]) + '</div>';
         hh += '<div class="tst-intro">📖 ' + studioTx(d.intro) + '</div>';
-        hh += '<div class="tst-sub" style="color:#6c3483">💊 ' + ({ ur: 'تمام متعلقہ ہومیوپیتھک ادویات — ', en: 'All related homeopathic remedies — ', roman: 'Tamam mutaliqa homeopathic adviat — ' }[L]) +
-            studioTx(d.name) + ' (' + pool.length + ' ' + ({ ur: 'ادویات', en: 'remedies', roman: 'adviat' }[L]) + ')</div>';
-        hh += '<div class="tst-poolhint" style="margin:0 0 6px">👆 ' + ({ ur: 'دوا کارڈ پر کلک کر کے منتخب کریں (سبز = منتخب شدہ)', en: 'Click a remedy card to select it (green = selected)', roman: 'Dawa card par click kar ke muntakhib karein (sabz = muntakhib shuda)' }[L]) + '</div>';
-        hh += studioRemCards(d, L, true);
+        if (studioSelSyms.size) {
+            hh += '<div class="tst-acts" style="margin-top:10px"><button class="tst-btn p" onclick="studioPickTab(\'rem\')">💊 ' +
+                ({ ur: 'منتخب علامات کے مطابق علاج دیکھیں', en: 'See remedies for selected symptoms', roman: 'Muntakhib alamaat ke mutabiq ilaj dekhein' }[L]) +
+                ' (' + studioSelSyms.size + ')</button></div>';
+        }
     } else if (studioTab === 'rem') {
-        hh += '<div class="tst-dtitle"><h3>💊 ' + ({ ur: 'تجویز شدہ دوائیں (', en: 'Prescribed Remedies (', roman: 'Tajweez shuda dwain (' }[L]) + d.rem.length + ')</h3>';
+        var matchItems = studioSelSyms.size ? ranked.filter(function(x) { return x.score > 0; }) : ranked;
+        hh += '<div class="tst-dtitle"><h3>💊 ' + ({ ur: 'تجویز شدہ دوائیں (', en: 'Prescribed Remedies (', roman: 'Tajweez shuda dwain (' }[L]) + matchItems.length + ')</h3>';
         hh += '<div class="tst-acts">';
         hh += '<button class="tst-btn g" onclick="studioMakeRx()">📋 ' + ({ ur: 'نسخہ بنائیں', en: 'Make Prescription', roman: 'Nuskhah banayein' }[L]) + '</button>';
         hh += '<button class="tst-btn p" onclick="studioCaseAnalysis()">🔬 ' + ({ ur: 'کیس تجزیہ', en: 'Case Analysis', roman: 'Case tajzia' }[L]) + '</button>';
         hh += '<button class="tst-btn i" onclick="studioTogglePatientSearch(true)">👤 ' + ({ ur: 'مریض سے جوڑیں', en: 'Link Patient', roman: 'Mareez se jorein' }[L]) + '</button>';
         hh += '</div></div>';
-        hh += studioRemCards(d, L, false);
+        if (!studioSelSyms.size) {
+            hh += '<div class="tst-poolhint" style="margin:0 0 10px">🔑 ' +
+                ({ ur: 'علامات ٹیب سے بیماری کی علامات ٹک کریں تاکہ ادویات انہی کے مطابق اوپر آئیں۔ ابھی بیماری کی تمام ادویات دکھائی جا رہی ہیں۔', en: 'Tick disease symptoms on the Symptoms tab to rank remedies. Showing all disease remedies for now.', roman: 'Alamaat tab se tick karein taake adviat rank hon. Abhi tamam adviat dikhai ja rahi hain.' }[L]) +
+                '</div>';
+        } else {
+            var selNames = Array.from(studioSelSyms).sort(function(a, b2) { return a - b2; })
+                .map(function(i) { return studioEsc(d.syms[i][currentLang] || d.syms[i].ur); });
+            hh += '<div class="tst-sub">🔑 ' + ({ ur: 'منتخب علامات: ', en: 'Selected symptoms: ', roman: 'Muntakhib alamaat: ' }[L]) + selNames.join(' · ') + '</div>';
+        }
+        if (!matchItems.length) {
+            hh += '<div class="tst-empty">😔 ' + ({ ur: 'منتخب علامات سے کوئی دوا میچ نہیں ہوئی — علامات بدل کر دیکھیں', en: 'No remedy matched the selected symptoms — try different ticks', roman: 'Muntakhib alamaat se koi dawa match nahi hui' }[L]) + '</div>';
+        } else {
+            hh += '<div class="tst-poolhint" style="margin:0 0 6px">👆 ' +
+                ({ ur: 'سبز کارڈ = منتخب۔ اوپر والی ادویات منتخب علامات سے زیادہ میچ کرتی ہیں', en: 'Green card = selected. Top remedies match the ticked symptoms most', roman: 'Sabz card = muntakhib. Upar wali adviat zyada match karti hain' }[L]) + '</div>';
+            hh += studioRemCardsFromItems(matchItems, L, true);
+        }
         hh += '<div class="tst-rem"><div class="dose">🕐 ' + ({ ur: 'ہر دوا ڈاکٹر کی ہدایت کے مطابق', en: 'Every remedy as directed by the doctor', roman: 'Har dawa doctor ki hidayat ke mutabiq' }[L]) + '</div></div>';
         hh += '<div class="tst-two"><div class="tst-box rf">⚠️ ' + studioTx(d.rf) + '</div><div class="tst-box diet">🥗 ' + studioTx(d.diet) + '</div></div>';
     } else if (studioTab === 'diet') {
@@ -158,7 +235,6 @@ function renderStudioDetail() {
     b.innerHTML = hh;
 }
 
-// pool = standard remedies + supplementary pool (TREATMENT_MORE), duplicates removed
 function studioPool(d) {
     var extra = (typeof TREATMENT_MORE !== 'undefined' && TREATMENT_MORE[studioDx]) ? TREATMENT_MORE[studioDx] : [];
     var names = d.rem.map(function(r) { return (r.n || '').toLowerCase(); });
@@ -167,12 +243,25 @@ function studioPool(d) {
             .map(function(r, i) { return { r: r, key: 'm' + i }; }));
 }
 
-function studioRemCards(d, L, sel) {
-    var items = sel ? studioPool(d) : d.rem.map(function(r, i) { return { r: r, key: 'r' + i }; });
+function studioRankedRems(d) {
+    return studioPool(d).map(function(it) {
+        return { r: it.r, key: it.key, score: studioScoreRem(it.r, d) };
+    }).sort(function(a, b) {
+        if (b.score !== a.score) return b.score - a.score;
+        return String(a.key).localeCompare(String(b.key));
+    });
+}
+
+function studioRemCardsFromItems(items, L, sel) {
     return items.map(function(it, i) {
         var r = it.r, on = sel && studioSelRems.has(it.key);
         var h = '<div class="tst-rem' + (sel ? ' click' : '') + (on ? ' selrem' : '') + '"' + (sel ? ' onclick="studioToggleRem(\'' + it.key + '\')"' : '') + '>';
-        h += '<div class="top"><span class="nm">' + (i + 1) + '. ' + studioEsc(r.n) + '</span>' + (r.pot ? '<span class="pot">' + studioEsc(r.pot) + '</span>' : '') + '</div>';
+        h += '<div class="top"><span class="nm">' + (i + 1) + '. ' + studioEsc(r.n) + '</span>';
+        if (typeof it.score === 'number' && studioSelSyms.size) {
+            h += '<span class="pot" style="background:#6c3483">' + it.score + '</span>';
+        }
+        if (r.pot) h += '<span class="pot">' + studioEsc(r.pot) + '</span>';
+        h += '</div>';
         h += r.syms.map(function(s) { return '<div class="use">▸ ' + studioEsc(s[currentLang] || s.ur) + '</div>'; }).join('');
         if (r.mod) h += '<div class="tst-mod">🔄 ' + ({ ur: 'موڈیلیٹیز: ', en: 'Modalities: ', roman: 'Modalities: ' }[L]) + studioEsc(r.mod[currentLang] || r.mod.ur) + '</div>';
         return h + '</div>';
@@ -184,7 +273,6 @@ function studioToggleRem(k) {
     renderStudioDetail();
 }
 
-// ---------- ACTIONS ----------
 function renderStudioAll() { renderStudioSysTabs(); renderStudioList(); renderStudioDetail(); }
 
 function studioPickSys(k) {
@@ -230,7 +318,6 @@ function studioSaveSymptoms() {
         return;
     }
     var text = parts.join('\n');
-    // (A) opened from New Visit / Registration form → fill that field and go back
     if (studioFieldSrc) {
         var el = $(studioFieldSrc);
         if (el) el.value = el.value.trim() ? (el.value.trim() + '\n' + text) : text;
@@ -238,10 +325,9 @@ function studioSaveSymptoms() {
         studioFieldSrc = null; studioFieldPage = null;
         studioSelSyms.clear(); studioSelRems.clear(); studioNote = ''; studioShowNoteBox = false;
         if (pg) showPage(pg, document.querySelector('.nav-btn[data-page="' + pg + '"]'));
-        showToast('✅ ' + ({ ur: 'علامات و ادویات فارم میں منتقل ہو گئیں', en: 'Symptoms & remedies moved to the form', roman: 'Alamat aur adviat form mein muntaqil ho gain' }[L]));
+        showToast('✅ ' + ({ ur: 'علامات فارم میں منتقل ہو گئیں', en: 'Symptoms moved to the form', roman: 'Alamat form mein muntaqil ho gain' }[L]));
         return;
     }
-    // (B) normal studio flow (needs linked patient)
     if (!diagnosisPatientId) {
         showToast({ ur: '⚠️ پہلے مریض جوڑیں', en: '⚠️ Link a patient first', roman: '⚠️ Pehle mareez jorein' }[L], 'error');
         studioTogglePatientSearch(true);
@@ -252,13 +338,12 @@ function studioSaveSymptoms() {
     showToast('✅ ' + ({ ur: 'علامات وزٹ فارم میں محفوظ ہو گئیں', en: 'Symptoms saved to visit form', roman: 'Alamat visit form mein mehfooz ho gain' }[L]));
 }
 
-// ---------- LINK FROM NEW VISIT / REGISTRATION FORM ----------
 function studioFromField(pageId, fieldId) {
     studioFieldPage = pageId; studioFieldSrc = fieldId; studioTab = 'sym';
     showPage('diagnosis', document.querySelector('.nav-btn[data-page="diagnosis"]'));
     switchDxView('studio');
     renderStudioAll();
-    showToast('🧪 ' + ({ ur: 'بیماری منتخب کریں، علامات اور ادویات پر کلک کریں پھر «محفوظ کریں» دبائیں', en: 'Pick a disease, click symptoms & remedies, then press Save', roman: 'Bimari muntakhib karein, alamat aur adviat par click karein phir Mehfooz dabain' }[currentLang]));
+    showToast('🧪 ' + ({ ur: 'بیماری منتخب کریں، علامات ٹک کریں پھر «محفوظ کریں» دبائیں', en: 'Pick a disease, tick symptoms, then press Save', roman: 'Bimari muntakhib karein, alamat tick karein phir Mehfooz dabain' }[currentLang]));
 }
 
 function studioCancelField() {
@@ -276,8 +361,14 @@ function studioMakeRx() {
         studioTogglePatientSearch(true);
         return;
     }
-    var rx = d.rem.map(function(r, i) {
-        return (i + 1) + '. ' + r.n + ' (' + r.pot + ')\n   → ' + r.syms.map(function(s) { return s[currentLang] || s.ur; }).join('; ') + '\n   → 🔄 ' + (r.mod[currentLang] || r.mod.ur);
+    var ranked = studioRankedRems(d);
+    var items = studioSelSyms.size ? ranked.filter(function(x) { return x.score > 0; }) : ranked;
+    if (studioSelRems.size) {
+        items = ranked.filter(function(x) { return studioSelRems.has(x.key); });
+    }
+    var rx = items.map(function(it, i) {
+        var r = it.r;
+        return (i + 1) + '. ' + r.n + (r.pot ? ' (' + r.pot + ')' : '') + '\n   → ' + r.syms.map(function(s) { return s[currentLang] || s.ur; }).join('; ') + (r.mod ? '\n   → 🔄 ' + (r.mod[currentLang] || r.mod.ur) : '');
     }).join('\n\n');
     goToNewVisitPage(diagnosisPatientId);
     setTimeout(function() {
@@ -291,14 +382,16 @@ function studioMakeRx() {
 function studioCaseAnalysis() {
     var d = TREATMENT_LIB[studioDx]; if (!d) return;
     var L = currentLang;
-    var text = d.syms.map(function(s) { return s[currentLang] || s.ur; }).join('، ') + '. ' + (d.intro[currentLang] || d.intro.ur);
+    var list = studioSelSyms.size
+        ? Array.from(studioSelSyms).sort(function(a, b) { return a - b; }).map(function(i) { return d.syms[i][currentLang] || d.syms[i].ur; })
+        : d.syms.map(function(s) { return s[currentLang] || s.ur; });
+    var text = list.join('، ') + '. ' + (d.intro[currentLang] || d.intro.ur);
     switchDxView('classic');
     switchDxMode('ai');
     if ($('adxStatement')) $('adxStatement').value = text;
     showToast('🔬 ' + ({ ur: 'کیس تجزیہ (AI) میں منتقل ہو گیا', en: 'Moved to Case Analysis (AI)', roman: 'Case tajzia (AI) mein muntaqil ho gaya' }[L]));
 }
 
-// ---------- PATIENT LINK ----------
 function studioRefreshPatient() { if ($('studioSysTabs')) renderStudioDetail(); }
 
 function studioTogglePatientSearch(show) {
@@ -354,14 +447,12 @@ function studioClearPatient() {
     renderStudioDetail();
 }
 
-// ---------- INIT ----------
 document.addEventListener('DOMContentLoaded', function() {
     if (!$('studioSysTabs')) return;
     var q = $('studioSearch');
     if (q) q.addEventListener('input', renderStudioList);
     var pq = $('studioPatientQuery');
     if (pq) pq.addEventListener('input', studioSearchPatients);
-    // restore last view
     var saved = null;
     try { saved = localStorage.getItem('dx_view'); } catch (e) {}
     switchDxView(saved === 'classic' ? 'classic' : 'studio');
