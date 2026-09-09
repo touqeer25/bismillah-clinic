@@ -78,23 +78,39 @@ function studioEnsureSymPool(d) {
     if (studioSymPoolDx === studioDx && studioSymPool && studioSymPool.length) return studioSymPool;
     var map = {};
     var list = [];
-    function add(t, key) {
+    function add(t, key, kind) {
         if (!t) return;
-        var k = studioDedupKey(t);
-        if (!k) return;
+        var k = kind + '|' + studioDedupKey(t);
+        if (!k || k === kind + '|') return;
         if (map[k]) {
             if (key && map[k].keys.indexOf(key) < 0) map[k].keys.push(key);
             return;
         }
-        var item = { t: t, keys: key ? [key] : [] };
+        var item = { t: t, keys: key ? [key] : [], kind: kind || 'sym' };
         map[k] = item;
         list.push(item);
     }
-    (d.syms || []).forEach(function(s) { add(s, null); });
+    (d.syms || []).forEach(function(s) { add(s, null, 'sym'); });
     studioPool(d).forEach(function(it) {
-        (it.r.syms || []).forEach(function(s) { add(s, it.key); });
+        if (it.r.mod) {
+            var raw = it.r.mod;
+            var parts = [];
+            ['ur', 'en', 'roman'].forEach(function(lang) {
+                if (!raw[lang]) return;
+                raw[lang].split(/[;؛]/).forEach(function(p, idx) {
+                    if (!parts[idx]) parts[idx] = { ur: '', en: '', roman: '' };
+                    parts[idx][lang] = p.trim();
+                });
+            });
+            if (!parts.length) parts = [raw];
+            parts.forEach(function(p) { add(p, it.key, 'mod'); });
+        }
+        (it.r.syms || []).forEach(function(s) { add(s, it.key, 'acc'); });
     });
-    studioSymPool = studioShuffle(list, studioDx);
+    var a = list.filter(function(x) { return x.kind === 'sym'; });
+    var b = studioShuffle(list.filter(function(x) { return x.kind === 'mod'; }), studioDx + '-m');
+    var c = studioShuffle(list.filter(function(x) { return x.kind === 'acc'; }), studioDx + '-a');
+    studioSymPool = a.concat(b, c);
     studioSymPoolDx = studioDx;
     return studioSymPool;
 }
@@ -243,10 +259,18 @@ function renderStudioDetail() {
             hh += '<textarea id="studioNoteBox" class="tst-note" oninput="studioNote=this.value" placeholder="' +
                 ({ ur: 'مریض کی علامات یہاں لکھیں...', en: 'Write patient symptoms here...', roman: 'Mareez ki alamat yahan likhein...' }[L]) + '">' + studioEsc(studioNote) + '</textarea>';
         }
-        hh += '<div class="tst-sub">🩺 ' + ({ ur: 'بیماری کی پیتھالوجیکل علامات + متعلقہ ہومیوپیتھک ادویات کی علامات (بغیر دوا کے نام) — کلک کر کے ٹک کریں', en: 'Pathological + related homeopathic symptoms (no drug names) — click to tick', roman: 'Pathological + mutaliqa homeopathic alamaat (baghair dawa ke naam) — click karke tick karein' }[L]) + '</div>';
-        hh += '<div class="tst-kw">' + poolSyms.map(function(item, i) {
-            return '<span class="' + (studioSelSyms.has(i) ? 'sel' : '') + '" onclick="studioToggleSym(' + i + ')">' + studioEsc(item.t[currentLang] || item.t.ur) + '</span>';
-        }).join('') + '</div>';
+        function studioKwGroup(kind, title) {
+            var chips = [];
+            poolSyms.forEach(function(item, i) {
+                if ((item.kind || 'sym') !== kind) return;
+                chips.push('<span class="' + (studioSelSyms.has(i) ? 'sel' : '') + '" onclick="studioToggleSym(' + i + ')">' + studioEsc(item.t[currentLang] || item.t.ur) + '</span>');
+            });
+            if (!chips.length) return '';
+            return '<div class="tst-sub" style="margin-top:12px">' + title + '</div><div class="tst-kw">' + chips.join('') + '</div>';
+        }
+        hh += studioKwGroup('sym', '🩺 ' + ({ ur: 'علامات (کلک کر کے ٹک کریں)', en: 'Symptoms (click to tick)', roman: 'Alamaat (click karke tick karein)' }[L]));
+        hh += studioKwGroup('mod', '🔄 ' + ({ ur: 'موڈیلیٹیز', en: 'Modalities', roman: 'Modalities' }[L]));
+        hh += studioKwGroup('acc', '🤝 ' + ({ ur: 'ہمراہی علامات', en: 'Accompanying symptoms', roman: 'Hamrahi alamaat' }[L]));
         hh += '<div class="tst-poolhint" style="margin:8px 0 4px;color:#7d3c98;font-size:12px">👆 ' +
             ({ ur: 'منتخب (ٹک شدہ) علامات کے مطابق علاج ٹیب میں ادویات رینک ہوں گی', en: 'Ticked symptoms will rank remedies on the Treatment tab', roman: 'Tick shuda alamaat ke mutabiq Ilaj tab mein adviat rank hongi' }[L]) + '</div>';
         hh += '<div class="tst-intro">📖 ' + studioTx(d.intro) + '</div>';
