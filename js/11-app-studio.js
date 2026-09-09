@@ -57,28 +57,75 @@ function studioBlob(r) {
     return studioNorm(parts.join(' '));
 }
 
-function studioScoreRem(r, d) {
+function studioShuffle(arr, seed) {
+    var a = arr.slice();
+    var s = 2166136261;
+    seed = String(seed || 'x');
+    for (var i = 0; i < seed.length; i++) s = ((s ^ seed.charCodeAt(i)) * 16777619) >>> 0;
+    function rnd() { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }
+    for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(rnd() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+}
+
+function studioDedupKey(t) {
+    return studioNorm((t && (t.en || t.ur || t.roman)) || '');
+}
+
+function studioEnsureSymPool(d) {
+    if (studioSymPoolDx === studioDx && studioSymPool && studioSymPool.length) return studioSymPool;
+    var map = {};
+    var list = [];
+    function add(t, key) {
+        if (!t) return;
+        var k = studioDedupKey(t);
+        if (!k) return;
+        if (map[k]) {
+            if (key && map[k].keys.indexOf(key) < 0) map[k].keys.push(key);
+            return;
+        }
+        var item = { t: t, keys: key ? [key] : [] };
+        map[k] = item;
+        list.push(item);
+    }
+    (d.syms || []).forEach(function(s) { add(s, null); });
+    studioPool(d).forEach(function(it) {
+        (it.r.syms || []).forEach(function(s) { add(s, it.key); });
+    });
+    studioSymPool = studioShuffle(list, studioDx);
+    studioSymPoolDx = studioDx;
+    return studioSymPool;
+}
+
+function studioSelTexts(d) {
+    var pool = studioEnsureSymPool(d);
+    return Array.from(studioSelSyms).sort(function(a, b) { return a - b; }).map(function(i) {
+        var it = pool[i];
+        return it ? (it.t[currentLang] || it.t.ur) : '';
+    }).filter(Boolean);
+}
+
+function studioScoreRem(it, d) {
     if (!studioSelSyms.size) return 0;
-    var blob = studioBlob(r);
+    var pool = studioEnsureSymPool(d);
+    var blob = studioBlob(it.r || it);
     var score = 0;
-    var hits = 0;
     studioSelSyms.forEach(function(i) {
-        var s = d.syms[i]; if (!s) return;
-        var variants = [s.ur, s.en, s.roman].map(studioNorm).filter(Boolean);
+        var item = pool[i]; if (!item) return;
+        if (it.key && item.keys.indexOf(it.key) >= 0) { score += 14; return; }
+        var variants = [item.t.ur, item.t.en, item.t.roman].map(studioNorm).filter(Boolean);
         var hit = false;
-        variants.forEach(function(v) {
-            if (v.length >= 2 && blob.indexOf(v) >= 0) hit = true;
-        });
+        variants.forEach(function(v) { if (v.length >= 2 && blob.indexOf(v) >= 0) hit = true; });
         if (!hit) {
             variants.forEach(function(v) {
-                studioTokens(v).forEach(function(t) {
-                    if (blob.indexOf(t) >= 0) hit = true;
-                });
+                studioTokens(v).forEach(function(tok) { if (blob.indexOf(tok) >= 0) hit = true; });
             });
         }
-        if (hit) { hits += 1; score += 10; }
+        if (hit) score += 8;
     });
-    return score + hits;
+    return score;
 }
 
 // ---------- VIEW SWITCHER (studio ↔ classic modes) ----------
@@ -137,8 +184,16 @@ function renderStudioDetail() {
     var L = currentLang;
     var head = $('studioDHead'), meta = $('studioDMeta');
     if (head) head.innerHTML = d.ic + ' ' + studioTx(d.name) + (L !== 'en' ? ' <span class="latin">(' + studioEsc(d.name.en) + ')</span>' : '');
-    var poolSyms = studioEnsureSymPool(d);
-    var ranked = studioRankedRems(d);
+    var poolSyms = [];
+    var ranked = [];
+    try {
+        poolSyms = studioEnsureSymPool(d) || [];
+        ranked = studioRankedRems(d) || [];
+    } catch (err) {
+        console.error('studio pool', err);
+        poolSyms = (d.syms || []).map(function(s) { return { t: s, keys: [] }; });
+        ranked = studioPool(d).map(function(it) { return { r: it.r, key: it.key, score: 0 }; });
+    }
     if (meta) {
         if (studioTab === 'sym') {
             meta.textContent = poolSyms.length + ' ' + ({ ur: 'علامات', en: 'symptoms', roman: 'alamaat' }[L]);
@@ -385,9 +440,8 @@ function studioMakeRx() {
 function studioCaseAnalysis() {
     var d = TREATMENT_LIB[studioDx]; if (!d) return;
     var L = currentLang;
-    var list = studioSelSyms.size
-        ? Array.from(studioSelSyms).sort(function(a, b) { return a - b; }).map(function(i) { return d.syms[i][currentLang] || d.syms[i].ur; })
-        : d.syms.map(function(s) { return s[currentLang] || s.ur; });
+    var list = studioSelSyms.size ? studioSelTexts(d)
+        : studioEnsureSymPool(d).map(function(it) { return it.t[currentLang] || it.t.ur; });
     var text = list.join('، ') + '. ' + (d.intro[currentLang] || d.intro.ur);
     switchDxView('classic');
     switchDxMode('ai');
