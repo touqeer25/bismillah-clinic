@@ -309,19 +309,59 @@ function studioRankedRems(d) {
     });
 }
 
+function studioMatchedSelForRem(it, d) {
+    if (!studioSelSyms.size) return [];
+    var pool = studioEnsureSymPool(d);
+    var blob = studioBlob(it.r);
+    var out = [];
+    Array.from(studioSelSyms).sort(function(a, b) { return a - b; }).forEach(function(i) {
+        var item = pool[i]; if (!item) return;
+        var hit = !!(it.key && item.keys && item.keys.indexOf(it.key) >= 0);
+        if (!hit) {
+            var variants = [item.t.ur, item.t.en, item.t.roman].map(studioNorm).filter(Boolean);
+            variants.forEach(function(v) { if (v.length >= 2 && blob.indexOf(v) >= 0) hit = true; });
+            if (!hit) {
+                variants.forEach(function(v) {
+                    studioTokens(v).forEach(function(tok) { if (blob.indexOf(tok) >= 0) hit = true; });
+                });
+            }
+        }
+        if (hit) out.push(item.t[currentLang] || item.t.ur);
+    });
+    return out;
+}
+
 function studioRemCardsFromItems(items, L, sel) {
+    var d = TREATMENT_LIB[studioDx];
+    var ownLbl = { ur: 'دوا کی علامات', en: 'Remedy symptoms', roman: 'Dawa ki alamaat' }[L];
+    var patLbl = { ur: 'مریض کی منتخب علامات (اس دوا میں)', en: 'Patient selected symptoms (in this remedy)', roman: 'Mareez ki muntakhib alamaat' }[L];
+    var noneLbl = { ur: 'منتخب علامات اس دوا میں نہیں ملیں', en: 'No selected symptoms found in this remedy', roman: 'Is dawa mein nahi milin' }[L];
     return items.map(function(it, i) {
         var r = it.r, on = sel && studioSelRems.has(it.key);
+        var matched = studioSelSyms.size ? studioMatchedSelForRem(it, d) : [];
         var h = '<div class="tst-rem' + (sel ? ' click' : '') + (on ? ' selrem' : '') + '"' + (sel ? ' onclick="studioToggleRem(\'' + it.key + '\')"' : '') + '>';
         h += '<div class="top"><span class="nm">' + (i + 1) + '. ' + studioEsc(r.n) + '</span>';
-        if (typeof it.score === 'number' && studioSelSyms.size) {
-            h += '<span class="pot" style="background:#6c3483">' + it.score + '</span>';
-        }
+        if (studioSelSyms.size) h += '<span class="pot" style="background:#6c3483">' + matched.length + '/' + studioSelSyms.size + '</span>';
         if (r.pot) h += '<span class="pot">' + studioEsc(r.pot) + '</span>';
         h += '</div>';
-        h += r.syms.map(function(s) { return '<div class="use">▸ ' + studioEsc(s[currentLang] || s.ur) + '</div>'; }).join('');
+        h += '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;align-items:stretch">';
+        h += '<div style="flex:1;min-width:220px;background:#eafaf1;border:1px solid #a9dfbf;border-radius:8px;padding:8px 10px">';
+        h += '<div style="font-size:11px;font-weight:700;color:#196f3d;margin-bottom:6px">💊 ' + ownLbl + '</div>';
+        h += (r.syms || []).map(function(s) { return '<div class="use">▸ ' + studioEsc(s[currentLang] || s.ur) + '</div>'; }).join('');
         if (r.mod) h += '<div class="tst-mod">🔄 ' + ({ ur: 'موڈیلیٹیز: ', en: 'Modalities: ', roman: 'Modalities: ' }[L]) + studioEsc(r.mod[currentLang] || r.mod.ur) + '</div>';
-        return h + '</div>';
+        h += '</div>';
+        if (studioSelSyms.size) {
+            h += '<div style="flex:1;min-width:220px;background:#f5eef8;border:1px solid #d2b4de;border-radius:8px;padding:8px 10px">';
+            h += '<div style="font-size:11px;font-weight:700;color:#6c3483;margin-bottom:6px">🔑 ' + patLbl + '</div>';
+            if (matched.length) {
+                h += matched.map(function(t) { return '<div class="use" style="color:#4a235a">✓ ' + studioEsc(t) + '</div>'; }).join('');
+            } else {
+                h += '<div class="use" style="opacity:.7">— ' + noneLbl + '</div>';
+            }
+            h += '</div>';
+        }
+        h += '</div></div>';
+        return h;
     }).join('');
 }
 
