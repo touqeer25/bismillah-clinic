@@ -74,6 +74,41 @@ function studioDedupKey(t) {
     return studioNorm((t && (t.en || t.ur || t.roman)) || '');
 }
 
+function studioParseMod(raw) {
+    var out = { agg: { ur: '', en: '', roman: '' }, amel: { ur: '', en: '', roman: '' } };
+    if (!raw) return out;
+    var marks = {
+        ur: { agg: /بدتر\s*[:：]?\s*/g, amel: /بہتر\s*[:：]?\s*/g },
+        en: { agg: /worse\s*[:：]?\s*/gi, amel: /better\s*[:：]?\s*/gi },
+        roman: { agg: /badtar\s*[:：]?\s*/gi, amel: /behtar\s*[:：]?\s*/gi }
+    };
+    ['ur', 'en', 'roman'].forEach(function(lang) {
+        var s = String(raw[lang] || '').trim();
+        if (!s) return;
+        var aggIdx = s.search(marks[lang].agg);
+        var amelIdx = s.search(marks[lang].amel);
+        function strip(txt, kind) {
+            return txt.replace(marks[lang][kind], '').replace(/^[,،;؛\-\s]+/, '').replace(/[,،;؛\s]+$/, '').trim();
+        }
+        if (aggIdx >= 0 && amelIdx >= 0) {
+            if (aggIdx < amelIdx) {
+                out.agg[lang] = strip(s.slice(aggIdx, amelIdx), 'agg');
+                out.amel[lang] = strip(s.slice(amelIdx), 'amel');
+            } else {
+                out.amel[lang] = strip(s.slice(amelIdx, aggIdx), 'amel');
+                out.agg[lang] = strip(s.slice(aggIdx), 'agg');
+            }
+        } else if (aggIdx >= 0) {
+            out.agg[lang] = strip(s.slice(aggIdx), 'agg');
+        } else if (amelIdx >= 0) {
+            out.amel[lang] = strip(s.slice(amelIdx), 'amel');
+        } else {
+            out.agg[lang] = s;
+        }
+    });
+    return out;
+}
+
 function studioEnsureSymPool(d) {
     if (studioSymPoolDx === studioDx && studioSymPool && studioSymPool.length) return studioSymPool;
     var map = {};
@@ -268,9 +303,14 @@ function renderStudioDetail() {
             if (!chips.length) return '';
             return '<div class="tst-sub" style="margin-top:12px">' + title + '</div><div class="tst-kw">' + chips.join('') + '</div>';
         }
-        hh += studioKwGroup('sym', '🩺 ' + ({ ur: 'علامات (کلک کر کے ٹک کریں)', en: 'Symptoms (click to tick)', roman: 'Alamaat (click karke tick karein)' }[L]));
-        hh += studioKwGroup('mod', '🔄 ' + ({ ur: 'موڈیلیٹیز', en: 'Modalities', roman: 'Modalities' }[L]));
-        hh += studioKwGroup('acc', '🤝 ' + ({ ur: 'ہمراہی علامات', en: 'Accompanying symptoms', roman: 'Hamrahi alamaat' }[L]));
+        hh += studioKwGroup('sym', '🩺 ' + ({ ur: 'علامات', en: 'Symptoms', roman: 'Alamaat' }[L]));
+        var modAgg = studioKwGroup('agg', '⬇️ ' + ({ ur: 'اگراویشن (Worse)', en: 'Aggravation (Worse)', roman: 'Aggravation (Worse)' }[L]));
+        var modAmel = studioKwGroup('amel', '⬆️ ' + ({ ur: 'امیلوریشن (Better)', en: 'Amelioration (Better)', roman: 'Amelioration (Better)' }[L]));
+        if (modAgg || modAmel) {
+            hh += '<div class="tst-sub" style="margin-top:14px">🔄 ' + ({ ur: 'موڈیلیٹیز', en: 'Modalities', roman: 'Modalities' }[L]) + '</div>';
+            hh += modAgg + modAmel;
+        }
+        hh += studioKwGroup('acc', '🤝 ' + ({ ur: 'Concomitant علامات', en: 'Concomitant symptoms', roman: 'Concomitant alamaat' }[L]));
         hh += '<div class="tst-poolhint" style="margin:8px 0 4px;color:#7d3c98;font-size:12px">👆 ' +
             ({ ur: 'منتخب (ٹک شدہ) علامات کے مطابق علاج ٹیب میں ادویات رینک ہوں گی', en: 'Ticked symptoms will rank remedies on the Treatment tab', roman: 'Tick shuda alamaat ke mutabiq Ilaj tab mein adviat rank hongi' }[L]) + '</div>';
         hh += '<div class="tst-intro">📖 ' + studioTx(d.intro) + '</div>';
