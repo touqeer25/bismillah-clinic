@@ -127,25 +127,24 @@ function studioEnsureSymPool(d) {
     }
     (d.syms || []).forEach(function(s) { add(s, null, 'sym'); });
     studioPool(d).forEach(function(it) {
+        (it.r.syms || []).forEach(function(s) { add(s, it.key, 'hs'); });
         if (it.r.mod) {
-            var raw = it.r.mod;
-            var parts = [];
-            ['ur', 'en', 'roman'].forEach(function(lang) {
-                if (!raw[lang]) return;
-                raw[lang].split(/[;؛]/).forEach(function(p, idx) {
-                    if (!parts[idx]) parts[idx] = { ur: '', en: '', roman: '' };
-                    parts[idx][lang] = p.trim();
-                });
-            });
-            if (!parts.length) parts = [raw];
-            parts.forEach(function(p) { add(p, it.key, 'mod'); });
+            var parsed = studioParseMod(it.r.mod);
+            if (parsed.agg.ur || parsed.agg.en || parsed.agg.roman) add(parsed.agg, it.key, 'agg');
+            if (parsed.amel.ur || parsed.amel.en || parsed.amel.roman) add(parsed.amel, it.key, 'amel');
         }
-        (it.r.syms || []).forEach(function(s) { add(s, it.key, 'acc'); });
+        var conc = it.r.conc || it.r.concomitant || it.r.acc || it.r.concom;
+        if (conc) {
+            (Array.isArray(conc) ? conc : [conc]).forEach(function(s) { add(s, it.key, 'acc'); });
+        }
     });
-    var a = list.filter(function(x) { return x.kind === 'sym'; });
-    var b = studioShuffle(list.filter(function(x) { return x.kind === 'mod'; }), studioDx + '-m');
-    var c = studioShuffle(list.filter(function(x) { return x.kind === 'acc'; }), studioDx + '-a');
-    studioSymPool = a.concat(b, c);
+    var order = ['sym', 'hs', 'agg', 'amel', 'acc'];
+    studioSymPool = [];
+    order.forEach(function(kind) {
+        var chunk = list.filter(function(x) { return x.kind === kind; });
+        if (kind !== 'sym') chunk = studioShuffle(chunk, studioDx + kind);
+        studioSymPool = studioSymPool.concat(chunk);
+    });
     studioSymPoolDx = studioDx;
     return studioSymPool;
 }
@@ -303,11 +302,12 @@ function renderStudioDetail() {
             if (!chips.length) return '';
             return '<div class="tst-sub" style="margin-top:12px">' + title + '</div><div class="tst-kw">' + chips.join('') + '</div>';
         }
-        hh += studioKwGroup('sym', '🩺 ' + ({ ur: 'علامات', en: 'Symptoms', roman: 'Alamaat' }[L]));
+        hh += studioKwGroup('sym', '🩺 ' + ({ ur: 'بیماری کی علامات', en: 'Disease symptoms', roman: 'Bimari ki alamaat' }[L]));
+        hh += studioKwGroup('hs', '💊 ' + ({ ur: 'ہومیوپیتھک علامات (بغیر دوا کے نام)', en: 'Homeopathic symptoms (no drug names)', roman: 'Homeopathic alamaat' }[L]));
         var modAgg = studioKwGroup('agg', '⬇️ ' + ({ ur: 'اگراویشن (Worse)', en: 'Aggravation (Worse)', roman: 'Aggravation (Worse)' }[L]));
         var modAmel = studioKwGroup('amel', '⬆️ ' + ({ ur: 'امیلوریشن (Better)', en: 'Amelioration (Better)', roman: 'Amelioration (Better)' }[L]));
         if (modAgg || modAmel) {
-            hh += '<div class="tst-sub" style="margin-top:14px">🔄 ' + ({ ur: 'موڈیلیٹیز', en: 'Modalities', roman: 'Modalities' }[L]) + '</div>';
+            hh += '<div class="tst-sub" style="margin-top:14px;font-weight:700">🔄 ' + ({ ur: 'موڈیلیٹیز', en: 'Modalities', roman: 'Modalities' }[L]) + '</div>';
             hh += modAgg + modAmel;
         }
         hh += studioKwGroup('acc', '🤝 ' + ({ ur: 'Concomitant علامات', en: 'Concomitant symptoms', roman: 'Concomitant alamaat' }[L]));
