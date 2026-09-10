@@ -25,6 +25,172 @@ st.set_page_config(
 )
 
 # ==========================
+# LANGUAGE (ur / en / roman) — main app sends ?lang= in the iframe URL
+# ==========================
+def get_lang():
+    try:
+        v = st.query_params.get("lang", "ur")
+    except Exception:
+        v = "ur"
+    if isinstance(v, list):
+        v = v[0] if v else "ur"
+    return v if v in ("ur", "en", "roman") else "ur"
+
+LANG = get_lang()
+
+T = {
+    "ur": {
+        "studio_title": "🧠 اے آئی تشخیص اسٹوڈیو — علامات سے نسخہ تک",
+        "search_label": "🔎 سرچ موڈ (تلاش کا طریقہ):",
+        "opt_books": "📚 کتب موڈ (Local Books Only)",
+        "opt_ai": "🧠 اے آئی موڈ",
+        "search_help": "کتب موڈ: جواب صرف آپ کی کتابوں سے • اے آئی موڈ: ماڈل کے علم سے",
+        "ctype_label": "⏱ کیس کی قسم:",
+        "opt_acute": "🔴 حاد (Acute)",
+        "opt_chronic": "🔵 مزمن (Chronic)",
+        "ctype_help": "حاد = اچانک/مختصر شکایت • مزمن = پرانی/دائمی شکایت",
+        "progress": "مرحلہ {n} از 3",
+        "summary_title": "🧾 کیس سمری",
+        "mode_word": "موڈ",
+        "shikayat": "شکایت:",
+        "book_sources": "📚 استعمال شدہ کتابی حوالے",
+        "step1_title": "📋 مرحلہ 1 — بنیادی شکایت",
+        "chief_label": "مریض کی بنیادی شکایت",
+        "chief_ph": "مثال: کھانسی، بخار، پائلز، سر درد...",
+        "start_btn": "🚀 کیس ٹیکنگ شروع کریں",
+        "reset_btn": "🔄 ری سیٹ",
+        "warn_chief": "بنیادی شکایت لکھیں",
+        "spinner_cats": "کیٹگری سوالات تیار ہو رہے ہیں...",
+        "err_books_nomat": "کتب موڈ: اس شکایت پر آپ کی کتابوں میں کافی مواد نہیں ملا۔ اے آئی موڈ آزمائیں یا مزید کتابیں اپلوڈ کریں۔",
+        "err_cats": "کیٹگریز نہیں بن سکیں۔ دوبارہ کوشش کریں۔",
+        "step2_title": "🔍 مرحلہ 2 — کیس ٹیکنگ (کلک کر کے منتخب کریں)",
+        "step2_cap": "کلک = منتخب ✅ • دوبارہ کلک = ہٹے • نیچے ✕ سے بھی ڈیلیٹ",
+        "sel_title": "✅ منتخب شدہ جوابات",
+        "sel_empty": "ابھی کچھ منتخب نہیں۔",
+        "notes_label": "اضافی تفصیل / Extra notes",
+        "notes_ph": "جو بٹن میں نہ ہو یہاں لکھیں...",
+        "back_btn": "⬅️ واپس",
+        "clear_btn": "🧹 صاف کریں",
+        "find_btn": "امیدوار ادویات تلاش کریں ➔",
+        "warn_sel": "کم از کم کچھ منتخب کریں",
+        "spinner_rem": "ادویات تلاش کی جا رہی ہیں...",
+        "err_books_match": "کتب موڈ: کافی میچ نہیں ملا۔",
+        "step3_title": "🌿 مرحلہ 3 — امیدوار ادویات اور تفریق",
+        "no_cand": "کوئی امیدوار دوائی نہیں ملی",
+        "diff_title": "#### ⚖️ تفریقی سوالات",
+        "allsel_title": "#### ✅ تمام منتخب شدہ",
+        "finalnote": "آخری نوٹ",
+        "final_ph": "آخری نوٹ...",
+        "final_btn": "✅ حتمی نسخہ",
+        "spinner_rx": "نسخہ تیار ہو رہا ہے...",
+        "err_books_nomat2": "کتب موڈ: کافی مواد نہیں",
+        "rx_title": "📋 حتمی ہومیوپیتھک نسخہ",
+        "sources_word": "حوالہ جات:",
+        "new_case": "🔄 نیا کیس",
+    },
+    "en": {
+        "studio_title": "🧠 AI Diagnosis Studio — Symptoms to Prescription",
+        "search_label": "🔎 Search Mode:",
+        "opt_books": "📚 Books Mode (Local Books Only)",
+        "opt_ai": "🧠 AI Mode",
+        "search_help": "Books: answers only from your books • AI: from the model's knowledge",
+        "ctype_label": "⏱ Case Type:",
+        "opt_acute": "🔴 Acute",
+        "opt_chronic": "🔵 Chronic",
+        "ctype_help": "Acute = sudden/short complaint • Chronic = old/persistent complaint",
+        "progress": "Step {n} of 3",
+        "summary_title": "🧾 Case Summary",
+        "mode_word": "Mode",
+        "shikayat": "Complaint:",
+        "book_sources": "📚 Book Sources used",
+        "step1_title": "📋 Step 1 — Chief Complaint",
+        "chief_label": "Patient's chief complaint",
+        "chief_ph": "e.g., cough, fever, piles, headache...",
+        "start_btn": "🚀 Start Case Taking",
+        "reset_btn": "🔄 Reset",
+        "warn_chief": "Please write the chief complaint",
+        "spinner_cats": "Preparing category questions...",
+        "err_books_nomat": "Books mode: not enough material in your books for this complaint. Try AI mode or upload more books.",
+        "err_cats": "Could not create categories. Please try again.",
+        "step2_title": "🔍 Step 2 — Case Taking (Click to select)",
+        "step2_cap": "Click = select ✅ • click again = remove • or delete with ✕ below",
+        "sel_title": "✅ Selected Answers",
+        "sel_empty": "Nothing selected yet.",
+        "notes_label": "Extra notes",
+        "notes_ph": "Write anything not covered by the buttons...",
+        "back_btn": "⬅️ Back",
+        "clear_btn": "🧹 Clear",
+        "find_btn": "Find Remedies ➔",
+        "warn_sel": "Select at least something",
+        "spinner_rem": "Searching remedies...",
+        "err_books_match": "Books mode: not enough matches.",
+        "step3_title": "🌿 Step 3 — Candidate Remedies & Differential",
+        "no_cand": "No candidate remedies found",
+        "diff_title": "#### ⚖️ Differential Questions",
+        "allsel_title": "#### ✅ All selected",
+        "finalnote": "Final note",
+        "final_ph": "Final note...",
+        "final_btn": "✅ Final Prescription",
+        "spinner_rx": "Preparing prescription...",
+        "err_books_nomat2": "Books mode: not enough material",
+        "rx_title": "📋 Final Homeopathic Prescription",
+        "sources_word": "Sources:",
+        "new_case": "🔄 New Case",
+    },
+    "roman": {
+        "studio_title": "🧠 AI Diagnosis Studio — Alamaat se Nuskhah tak",
+        "search_label": "🔎 Search Mode (Talash ka tareeqa):",
+        "opt_books": "📚 Kitab Mode (Local Books Only)",
+        "opt_ai": "🧠 AI Mode",
+        "search_help": "Kitab mode: jawab sirf aap ki kitabon se • AI mode: model ke ilm se",
+        "ctype_label": "⏱ Case Type (Qism):",
+        "opt_acute": "🔴 Acute (Haad)",
+        "opt_chronic": "🔵 Chronic (Muzmin)",
+        "ctype_help": "Haad = achanak/mukhtasar shikayat • Muzmin = purani/daimi shikayat",
+        "progress": "Step {n} of 3",
+        "summary_title": "🧾 Case Summary",
+        "mode_word": "Mode",
+        "shikayat": "Shikayat:",
+        "book_sources": "📚 Istemal shuda kitabi hawale",
+        "step1_title": "📋 Step 1 — Bunyadi Shikayat",
+        "chief_label": "Mareez ki bunyadi shikayat",
+        "chief_ph": "Misal: khansi, bukhar, piles, sar dard...",
+        "start_btn": "🚀 Case Taking Shuru Karein",
+        "reset_btn": "🔄 Reset",
+        "warn_chief": "Bunyadi shikayat likhein",
+        "spinner_cats": "Category sawalat tayyar ho rahe hain...",
+        "err_books_nomat": "Kitab mode: is shikayat par aap ki kitabon mein kafi material nahi mila. AI mode azmain ya mazeed kitabein upload karein.",
+        "err_cats": "Categories nahi ban sakeen. Dobara koshish karein.",
+        "step2_title": "🔍 Step 2 — Case Taking (Click kar ke select karein)",
+        "step2_cap": "Click = select ✅ • dobara click = hat jaye • neeche ✕ se bhi delete",
+        "sel_title": "✅ Selected Jawabaat",
+        "sel_empty": "Abhi kuch select nahi hua.",
+        "notes_label": "Extra notes / Izafi tafseel",
+        "notes_ph": "Jo button mein na ho yahan likhein...",
+        "back_btn": "⬅️ Wapis",
+        "clear_btn": "🧹 Saaf Karein",
+        "find_btn": "Remedies Talash Karein ➔",
+        "warn_sel": "Kam az kam kuch select karein",
+        "spinner_rem": "Adviat talash ki ja rahi hain...",
+        "err_books_match": "Kitab mode: kafi match nahi mila.",
+        "step3_title": "🌿 Step 3 — Candidate Remedies aur Tafreeq",
+        "no_cand": "Koi candidate dawai nahi mili",
+        "diff_title": "#### ⚖️ Tafreeqi Sawalat",
+        "allsel_title": "#### ✅ Tamam selected",
+        "finalnote": "Aakhri note",
+        "final_ph": "Aakhri note...",
+        "final_btn": "✅ Final Nuskhah",
+        "spinner_rx": "Nuskhah tayyar ho raha hai...",
+        "err_books_nomat2": "Kitab mode: kafi material nahi",
+        "rx_title": "📋 Final Homeopathic Nuskhah",
+        "sources_word": "Hawale:",
+        "new_case": "🔄 Naya Case",
+    },
+}
+
+T = T[LANG]
+
+# ==========================
 # CSS — Bismillah Clinic Exact Look
 # ==========================
 st.markdown("""
@@ -75,23 +241,6 @@ div[role="progressbar"] > div {
     font-weight: 700;
     font-size: 1rem;
     margin: 8px 0;
-}
-
-/* ===== MODE SWITCH ===== */
-.mode-box {
-    background: #ffffff;
-    border: 1px solid #dfe8f0;
-    border-radius: 12px;
-    padding: 12px 14px;
-    margin-bottom: 12px;
-}
-.mode-books {
-    background: linear-gradient(135deg, #eaf2f8, #ffffff);
-    border-left: 5px solid #2980b9;
-}
-.mode-ai {
-    background: linear-gradient(135deg, #f4ecf7, #ffffff);
-    border-left: 5px solid #8e44ad;
 }
 
 /* ===== CHIPS / BADGES (clinic hues) ===== */
@@ -337,7 +486,7 @@ Task:
 
 
 def generate(task: str, context: str = "") -> str:
-    if st.session_state.search_mode == "📚 کتب موڈ (Local Books Only)":
+    if st.session_state.search_mode.startswith("📚"):
         return generate_books_mode(task, context)
     return generate_ai_mode(task, context)
 
@@ -364,80 +513,65 @@ for k, v in defaults.items():
 
 def reset_case():
     keep_mode = st.session_state.search_mode
+    keep_type = st.session_state.case_type
     for k, v in defaults.items():
         st.session_state[k] = v
     st.session_state.search_mode = keep_mode
+    st.session_state.case_type = keep_type
 
 # ==========================
-# TITLE + SEARCH MODE + CASE TYPE
+# TITLE + SEARCH MODE (left) + CASE TYPE (right)
 # ==========================
-st.markdown('<div class="bhc-card-title">🧠 AI Diagnosis Studio — Symptoms to Prescription</div>', unsafe_allow_html=True)
+st.markdown(f'<div class="bhc-card-title">{T["studio_title"]}</div>', unsafe_allow_html=True)
 
-mode = st.radio(
-    "🔎 Search Mode (تلاش کا طریقہ):",
-    [
-        "📚 کتب موڈ (Local Books Only)",
-        "🧠 AI موڈ (Gemini Knowledge)"
-    ],
-    horizontal=True,
-    index=0 if st.session_state.search_mode.startswith("📚") else 1,
-    help="کتب موڈ: صرف آپ کی PDFs سے۔ AI موڈ: Gemini کے مکمل علم سے۔"
-)
+mode_col, type_col = st.columns([1.7, 1])
+with mode_col:
+    mode = st.radio(
+        T["search_label"],
+        [T["opt_books"], T["opt_ai"]],
+        horizontal=True,
+        index=0 if st.session_state.search_mode.startswith("📚") else 1,
+        help=T["search_help"]
+    )
 st.session_state.search_mode = mode
-
-st.session_state.case_type = st.radio(
-    "⏱ Case Type (کیس کی قسم):",
-    ["🔴 حاد (Acute)", "🔵 مزمن (Chronic)"],
-    horizontal=True,
-    index=0 if st.session_state.case_type.startswith("🔴") else 1,
-    help="حاد = اچانک/مختصر شکایت • مزمن = پرانی/دائمی شکایت"
-)
-if mode.startswith("📚"):
-    st.markdown("""
-    <div class="mode-box mode-books">
-        <b>📚 کتب موڈ فعال ہے</b><br>
-        جواب صرف آپ کی اپلوڈ شدہ ہومیوپیتھک کتب (Qdrant) سے آئے گا۔<br>
-        اگر کتاب میں نہ ملے تو سسٹم صاف انکار کرے گا۔ • آف لائن مستقبل کے لیے بہترین
-    </div>
-    """, unsafe_allow_html=True)
-else:
-    st.markdown("""
-    <div class="mode-box mode-ai">
-        <b>🧠 AI موڈ فعال ہے</b><br>
-        جواب Gemini کے وسیع ہومیوپیتھک علم سے آئے گا۔<br>
-        کتب کا ڈیٹا معاون ہو سکتا ہے، مگر پابندی نہیں۔ • وسیع کوریج
-    </div>
-    """, unsafe_allow_html=True)
+with type_col:
+    st.session_state.case_type = st.radio(
+        T["ctype_label"],
+        [T["opt_acute"], T["opt_chronic"]],
+        horizontal=True,
+        index=0 if st.session_state.case_type.startswith("🔴") else 1,
+        help=T["ctype_help"]
+    )
 
 # Progress
-st.progress(st.session_state.step / 3, text=f"Step {st.session_state.step} of 3")
+st.progress(st.session_state.step / 3, text=T["progress"].format(n=st.session_state.step))
 
 # ==========================
 # STEP 1
 # ==========================
 if st.session_state.step == 1:
-    st.markdown('<div class="bhc-card-title">📋 Step 1 — Chief Complaint</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="bhc-card-title">{T["step1_title"]}</div>', unsafe_allow_html=True)
 
     chief = st.text_area(
-        "مریض کی بنیادی شکایت / Chief Complaint",
+        T["chief_label"],
         value=st.session_state.chief_complaint,
-        placeholder="مثال: کھانسی، بخار، piles، سر درد...",
+        placeholder=T["chief_ph"],
         height=110
     )
 
     b1, b2 = st.columns([3, 1])
     with b1:
-        start = st.button("🚀 Start Case Taking / پوچھ گچھ شروع کریں", type="primary", use_container_width=True)
+        start = st.button(T["start_btn"], type="primary", use_container_width=True)
     with b2:
-        if st.button("🔄 Reset", use_container_width=True):
+        if st.button(T["reset_btn"], use_container_width=True):
             reset_case()
             st.rerun()
 
     if start:
         if not chief.strip():
-            st.warning("بنیادی شکایت لکھیں")
+            st.warning(T["warn_chief"])
         else:
-            with st.spinner("کیٹگری سوالات تیار ہو رہے ہیں..."):
+            with st.spinner(T["spinner_cats"]):
                 st.session_state.chief_complaint = chief.strip()
                 st.session_state.selected_answers = []
 
@@ -447,7 +581,7 @@ if st.session_state.step == 1:
                     results = search_books(chief, limit=8)
                     context = format_context(results)
                     if not context:
-                        st.error("کتب موڈ: اس شکایت پر آپ کی PDFs میں کافی مواد نہیں ملا۔ AI موڈ آزمائیں یا مزید کتابیں اپلوڈ کریں۔")
+                        st.error(T["err_books_nomat"])
                         st.stop()
 
                 task = f"""
@@ -473,7 +607,7 @@ Rules:
                     data = extract_json(raw)
                     cats = data.get("categories", [])
                     if not cats:
-                        st.error("کیٹگریز نہیں بن سکیں۔ دوبارہ کوشش کریں۔")
+                        st.error(T["err_cats"])
                     else:
                         st.session_state.categories = cats
                         st.session_state.context_results = results
@@ -489,25 +623,25 @@ elif st.session_state.step == 2:
     # summary
     st.markdown(f"""
     <div class="bhc-card">
-      <div class="bhc-card-title">🧾 Case Summary</div>
+      <div class="bhc-card-title">{T["summary_title"]}</div>
       <span class="badge-purple">{st.session_state.case_type}</span>
-      <span class="badge-green">{st.session_state.search_mode.split(' ')[0]} Mode</span>
-      <div class="urdu" style="margin-top:10px;"><b>شکایت:</b> {st.session_state.chief_complaint}</div>
+      <span class="badge-green">{st.session_state.search_mode.split(' ')[0]} {T["mode_word"]}</span>
+      <div class="urdu" style="margin-top:10px;"><b>{T["shikayat"]}</b> {st.session_state.chief_complaint}</div>
     </div>
     """, unsafe_allow_html=True)
 
     if st.session_state.context_results:
-        with st.expander("📚 Book Sources used"):
+        with st.expander(T["book_sources"]):
             st.markdown(sources_html(st.session_state.context_results), unsafe_allow_html=True)
 
-    st.markdown('<div class="bhc-card-title">🔍 Step 2 — Case Taking (Click to select)</div>', unsafe_allow_html=True)
-    st.caption("کلک = منتخب ✅ • دوبارہ کلک = ہٹے • نیچے ✕ سے بھی ڈیلیٹ")
+    st.markdown(f'<div class="bhc-card-title">{T["step2_title"]}</div>', unsafe_allow_html=True)
+    st.caption(T["step2_cap"])
 
     for i, cat in enumerate(st.session_state.categories):
         st.markdown(f"<div class='category-title'>📂 {cat.get('category', f'Category {i+1}')}</div>", unsafe_allow_html=True)
         render_options(f"c{i}", cat.get("options", []))
 
-    st.markdown('<div class="section-title">✅ Selected Answers</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="section-title">{T["sel_title"]}</div>', unsafe_allow_html=True)
     if st.session_state.selected_answers:
         cols = st.columns(4)
         for i, ans in enumerate(list(st.session_state.selected_answers)):
@@ -519,27 +653,27 @@ elif st.session_state.step == 2:
         st.markdown("<div class='selected-box'>ابھی کچھ منتخب نہیں۔</div>", unsafe_allow_html=True)
 
     st.session_state.extra_notes = st.text_area(
-        "Extra notes / اضافی تفصیل",
+        T["notes_label"],
         value=st.session_state.extra_notes,
         height=90,
-        placeholder="جو بٹن میں نہ ہو یہاں لکھیں..."
+        placeholder=T["notes_ph"]
     )
 
     c1, c2, c3 = st.columns([1, 1, 2])
     with c1:
-        if st.button("⬅️ Back", use_container_width=True):
+        if st.button(T["back_btn"], use_container_width=True):
             st.session_state.step = 1
             st.rerun()
     with c2:
-        if st.button("🧹 Clear", use_container_width=True):
+        if st.button(T["clear_btn"], use_container_width=True):
             st.session_state.selected_answers = []
             st.rerun()
     with c3:
-        if st.button("Find Remedies / تفریقی تشخیص ➔", type="primary", use_container_width=True):
+        if st.button(T["find_btn"], type="primary", use_container_width=True):
             if not st.session_state.selected_answers and not st.session_state.extra_notes.strip():
-                st.warning("کم از کم کچھ منتخب کریں")
+                st.warning(T["warn_sel"])
             else:
-                with st.spinner("ادویات تلاش کی جا رہی ہیں..."):
+                with st.spinner(T["spinner_rem"]):
                     full = (
                         f"Chief: {st.session_state.chief_complaint}. "
                         f"Details: {answers_text()}. Notes: {st.session_state.extra_notes}"
@@ -550,7 +684,7 @@ elif st.session_state.step == 2:
                         results = search_books(full, limit=10)
                         context = format_context(results)
                         if not context:
-                            st.error("کتب موڈ: کافی میچ نہیں ملا۔")
+                            st.error(T["err_books_match"])
                             st.stop()
                     else:
                         # AI mode: books optional support
@@ -598,7 +732,7 @@ Return ONLY valid JSON:
 # STEP 3
 # ==========================
 elif st.session_state.step == 3:
-    st.markdown('<div class="bhc-card-title">🌿 Step 3 — Candidate Remedies & Differential</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="bhc-card-title">{T["step3_title"]}</div>', unsafe_allow_html=True)
 
     if st.session_state.candidate_data:
         for i, rem in enumerate(st.session_state.candidate_data, 1):
@@ -613,15 +747,15 @@ elif st.session_state.step == 3:
             </div>
             """, unsafe_allow_html=True)
     else:
-        st.warning("کوئی امیدوار دوائی نہیں ملی")
+        st.warning(T["no_cand"])
 
     if st.session_state.diff_categories:
-        st.markdown("#### ⚖️ Differential Questions")
+        st.markdown(T["diff_title"])
         for i, cat in enumerate(st.session_state.diff_categories):
             st.markdown(f"<div class='category-title'>⚖️ {cat.get('category','Diff')}</div>", unsafe_allow_html=True)
             render_options(f"d{i}", cat.get("options", []))
 
-    st.markdown("#### ✅ All selected")
+    st.markdown(T["allsel_title"])
     if st.session_state.selected_answers:
         cols = st.columns(4)
         for i, ans in enumerate(list(st.session_state.selected_answers)):
@@ -630,16 +764,16 @@ elif st.session_state.step == 3:
                     st.session_state.selected_answers.remove(ans)
                     st.rerun()
 
-    extra = st.text_area("Final note", height=70, placeholder="آخری نوٹ...")
+    extra = st.text_area(T["finalnote"], height=70, placeholder=T["final_ph"])
 
     c1, c2 = st.columns([1, 3])
     with c1:
-        if st.button("⬅️ Back", use_container_width=True):
+        if st.button(T["back_btn"], use_container_width=True):
             st.session_state.step = 2
             st.rerun()
     with c2:
-        if st.button("✅ Final Prescription / حتمی نسخہ", type="primary", use_container_width=True):
-            with st.spinner("نسخہ تیار ہو رہا ہے..."):
+        if st.button(T["final_btn"], type="primary", use_container_width=True):
+            with st.spinner(T["spinner_rx"]):
                 all_ans = answers_text()
                 if extra.strip():
                     all_ans += "۔ " + extra.strip()
@@ -651,7 +785,7 @@ elif st.session_state.step == 3:
                     results = search_books(combined, limit=10)
                     context = format_context(results)
                     if not context:
-                        st.error("کتب موڈ: کافی مواد نہیں")
+                        st.error(T["err_books_nomat2"])
                         st.stop()
                 else:
                     results = search_books(combined, limit=6, min_score=0.22)
@@ -679,17 +813,15 @@ Write FINAL prescription in URDU with headings:
                 except Exception as e:
                     st.error(f"Error: {e}")
 
-
     if st.session_state.final_prescription:
         st.markdown(f"""
         <div class="rx-card">
-          <h3 style="color:#1e8449;margin-top:0;">📋 Final Homeopathic Prescription</h3>
+          <h3 style="color:#1e8449;margin-top:0;">{T["rx_title"]}</h3>
           {st.session_state.final_prescription}
           <hr>
-          <div><b>Sources:</b><br>{sources_html(st.session_state.context_results)}</div>
+          <div><b>{T["sources_word"]}</b><br>{sources_html(st.session_state.context_results)}</div>
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("🔄 New Case", use_container_width=True):
+        if st.button(T["new_case"], use_container_width=True):
             reset_case()
-            st.rerun()

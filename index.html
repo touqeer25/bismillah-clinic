@@ -409,13 +409,33 @@
 <!-- AI Homeo Assistant Tab Panel (بٹن والے ڈِو کے باہر) -->
 <div id="dxAIView" class="card" style="display: none; padding: 0; overflow: hidden; border-radius: 12px; border: 1px solid #d8e2ec; margin-top: 10px; background: white;">
     <iframe 
-        src="https://bismillah-clinic-homeo.streamlit.app/?embed=true" 
+        id="dxAIframe"
+        src="https://bismillah-clinic-homeo.streamlit.app/?embed=true&lang=ur" 
         width="100%" 
         height="800px" 
         style="border: none; width: 100%; height: 800px; display: block;"
         allow="camera; microphone; clipboard-read; clipboard-write;"
     ></iframe>
 </div>
+<script>
+/* AI Homeo Assistant: زبان ہم آہنگی — iframe کو ?lang= بھیجتا ہے (ur/en/roman) */
+(function(){
+    function syncAILang(){
+        var f = document.getElementById('dxAIframe');
+        if (!f) return;
+        var lang = (localStorage.getItem('clinic_lang') || 'ur');
+        try {
+            var u = new URL(f.src, location.href);
+            if (u.searchParams.get('lang') !== lang) {
+                u.searchParams.set('lang', lang);
+                f.src = u.toString();
+            }
+        } catch(e){}
+    }
+    window.syncAILang = syncAILang;
+    syncAILang();
+})();
+</script>
             <script>
             window.switchDxView = window.switchDxView || function(v) {
                 v = (v === 'classic' || v === 'ai' || v === 'case') ? v : 'studio';
@@ -1395,7 +1415,7 @@
 <!-- APP SCRIPTS — pehle ek inline script thi, ab organized files -->
 <!-- ⚠️ IN FILES KA ORDER KABHI NA BADLEIN (original order hai)   -->
 <!-- ============================================================ -->
-<script src="js/01-app-core.js?v=34"></script>
+<script src="js/01-app-core.js?v=35"></script>
 <script src="js/02-app-auth.js?v=40"></script>
 <script src="js/03-app-patients.js?v=33"></script>
 <script src="js/04-app-visit-modal.js?v=33"></script>
