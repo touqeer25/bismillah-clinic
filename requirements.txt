@@ -1,7 +1,9 @@
-fastapi
-uvicorn
-pydantic
+streamlit
 qdrant-client
 fastembed
 google-generativeai
 python-dotenv
+pymupdf
+pypdf
+pillow
+tqdm
