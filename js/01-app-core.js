@@ -139,6 +139,7 @@ function toggleLanguage() {
     currentLang = LANGUAGES[(idx + 1) % LANGUAGES.length];
     localStorage.setItem('clinic_lang', currentLang);
     applyLanguage();
+    if (window.syncAILang) syncAILang(); /* AI ہوميو اسسٹنٹ iframe کو نئی زبان بھیجو */
     updateConnectionStatus(navigator.onLine);
     const names = { ur: 'اردو', en: 'English', roman: 'Roman Urdu' };
     showToast('🌐 ' + names[currentLang]);
