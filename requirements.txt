@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pydantic
+qdrant-client
+fastembed
+google-generativeai
+python-dotenv
