@@ -402,8 +402,18 @@
             <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;">
                 <button id="dxViewBtnStudio" class="btn btn-sm btn-purple" type="button" onclick="switchDxView('studio')">🌿 <span data-ur="علاج اسٹوڈیو" data-en="Treatment Studio" data-roman="Ilaj Studio">علاج اسٹوڈیو</span></button>
                 <button id="dxViewBtnClassic" class="btn btn-sm btn-light" type="button" onclick="switchDxView('classic')">🔬 <span data-ur="ایڈوانس تشخیص موڈز" data-en="Advanced Diagnosis Modes" data-roman="Advanced Diagnosis Modes">ایڈوانس تشخیص موڈز</span></button>
-                <button id="dxViewBtnAI" class="btn btn-sm btn-light" type="button" onclick="switchDxView('ai')">🤖 <span data-ur="AI ہومیو اسسٹنٹ" data-en="AI Homeo Assistant" data-roman="AI Homeo Assistant">AI ہومیو اسسٹنٹ</span></button>
                 <button id="dxViewBtnCase" class="btn btn-sm btn-light" type="button" onclick="switchDxView('case')">📋 <span data-ur="کیس ٹیکنگ" data-en="Case Taking" data-roman="Case Taking">کیس ٹیکنگ</span></button>
+                <button id="dxViewBtnAI" class="btn btn-sm btn-light" type="button" onclick="switchDxView('ai')">🤖 <span data-ur="AI ہومیو اسسٹنٹ" data-en="AI Homeo Assistant" data-roman="AI Homeo Assistant">AI ہومیو اسسٹنٹ</span></button>
+                <!-- AI Homeo Assistant Tab Panel -->
+<div id="ai-assistant-panel" class="card" style="padding: 0; overflow: hidden; border-radius: 12px; border: 1px solid #d8e2ec; margin-top: 10px; background: white;">
+    <iframe 
+        src="https://YOUR-APP-NAME.streamlit.app/?embed=true" 
+        width="100%" 
+        height="800px" 
+        style="border: none; width: 100%; height: 800px; display: block;"
+        allow="camera; microphone; clipboard-read; clipboard-write;"
+    ></iframe>
+</div>
             </div>
             <script>
             window.switchDxView = window.switchDxView || function(v) {
