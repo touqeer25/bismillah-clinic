@@ -32,7 +32,8 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Segoe+UI:wght@400;600;700&display=swap');
 
 html, body, [data-testid="stAppViewContainer"] {
-    background: #eef3f8 !important;
+    background: #f0f4f8 !important;
+    color: #2c3e50;
     font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
@@ -45,25 +46,32 @@ html, body, [data-testid="stAppViewContainer"] {
     max-width: 1200px;
 }
 
-/* ===== CARDS ===== */
+/* ===== CLINIC ACCENT (radio ticks, progress, focus) ===== */
+:root {
+    --primary-color: #2980b9;
+}
+div[role="progressbar"] > div {
+    background: linear-gradient(90deg, #2980b9, #1a5276) !important;
+}
+
+/* ===== CARDS (same as .card in clinic style.css) ===== */
 .bhc-card {
     background: #ffffff;
-    border-radius: 16px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 10px rgba(15, 40, 70, 0.05);
-    padding: 18px 20px;
-    margin-bottom: 14px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    padding: 20px;
+    margin-bottom: 15px;
 }
 .bhc-card-title {
-    color: #0b4f75;
-    font-size: 1.08rem;
+    color: #1a5276;
+    font-size: 17px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     padding-bottom: 8px;
-    border-bottom: 2px dashed #f0c14b;
+    border-bottom: 2px solid #ecf0f1;
 }
 .section-title {
-    color: #0b4f75;
+    color: #1a5276;
     font-weight: 700;
     font-size: 1rem;
     margin: 8px 0;
@@ -71,32 +79,32 @@ html, body, [data-testid="stAppViewContainer"] {
 
 /* ===== MODE SWITCH ===== */
 .mode-box {
-    background: #f8fafc;
-    border: 1px solid #dbe3ee;
-    border-radius: 14px;
+    background: #ffffff;
+    border: 1px solid #dfe8f0;
+    border-radius: 12px;
     padding: 12px 14px;
     margin-bottom: 12px;
 }
 .mode-books {
-    background: linear-gradient(135deg, #eff6ff, #ffffff);
-    border-left: 5px solid #1a6aa8;
+    background: linear-gradient(135deg, #eaf2f8, #ffffff);
+    border-left: 5px solid #2980b9;
 }
 .mode-ai {
-    background: linear-gradient(135deg, #f5f3ff, #ffffff);
-    border-left: 5px solid #7c3aed;
+    background: linear-gradient(135deg, #f4ecf7, #ffffff);
+    border-left: 5px solid #8e44ad;
 }
 
-/* ===== CHIPS / BADGES ===== */
-.badge-blue {background:#dbeafe;color:#1e40af;padding:3px 10px;border-radius:999px;font-size:0.78rem;font-weight:600;}
-.badge-purple {background:#ede9fe;color:#6d28d9;padding:3px 10px;border-radius:999px;font-size:0.78rem;font-weight:600;}
-.badge-green {background:#dcfce7;color:#166534;padding:3px 10px;border-radius:999px;font-size:0.78rem;font-weight:600;}
-.badge-pink {background:#fce7f3;color:#9d174d;padding:3px 10px;border-radius:999px;font-size:0.78rem;font-weight:600;}
-.badge-gold {background:#fef3c7;color:#92400e;padding:3px 10px;border-radius:999px;font-size:0.78rem;font-weight:600;}
+/* ===== CHIPS / BADGES (clinic hues) ===== */
+.badge-blue {background:#d6eaf8;color:#1a5276;padding:3px 10px;border-radius:999px;font-size:0.78rem;font-weight:600;}
+.badge-purple {background:#e8daef;color:#6c3483;padding:3px 10px;border-radius:999px;font-size:0.78rem;font-weight:600;}
+.badge-green {background:#d5f5e3;color:#1e8449;padding:3px 10px;border-radius:999px;font-size:0.78rem;font-weight:600;}
+.badge-pink {background:#fadbd8;color:#943126;padding:3px 10px;border-radius:999px;font-size:0.78rem;font-weight:600;}
+.badge-gold {background:#fdebd0;color:#9c640c;padding:3px 10px;border-radius:999px;font-size:0.78rem;font-weight:600;}
 
 .source-tag {
     display:inline-block;
-    background:#e0f2fe;
-    color:#075985;
+    background:#d6eaf8;
+    color:#1a5276;
     padding:3px 10px;
     border-radius:12px;
     font-size:0.75rem;
@@ -112,12 +120,12 @@ html, body, [data-testid="stAppViewContainer"] {
 }
 
 .category-title {
-    background: linear-gradient(90deg, #e8f3fb, #ffffff);
-    border-right: 5px solid #1a6aa8;
+    background: linear-gradient(90deg, #eaf2f8, #ffffff);
+    border-right: 5px solid #2980b9;
     border-radius: 10px;
     padding: 9px 12px;
     margin: 12px 0 8px 0;
-    color: #0b4f75;
+    color: #1a5276;
     font-weight: 700;
     direction: RTL;
     text-align: right;
@@ -125,8 +133,8 @@ html, body, [data-testid="stAppViewContainer"] {
 }
 
 .selected-box {
-    background: #f0fdf4;
-    border: 1px solid #86efac;
+    background: #eafaf1;
+    border: 1px solid #a9dfbf;
     border-radius: 12px;
     padding: 12px;
     min-height: 54px;
@@ -137,9 +145,9 @@ html, body, [data-testid="stAppViewContainer"] {
 }
 
 .remedy-card {
-    background: #f8fbff;
-    border: 1px solid #dbeafe;
-    border-right: 4px solid #1a6aa8;
+    background: #fbfdfe;
+    border: 1px solid #d6eaf8;
+    border-right: 4px solid #2980b9;
     border-radius: 12px;
     padding: 12px 14px;
     margin-bottom: 10px;
@@ -150,9 +158,9 @@ html, body, [data-testid="stAppViewContainer"] {
 }
 
 .rx-card {
-    background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 70%);
-    border: 1px solid #bbf7d0;
-    border-right: 6px solid #16a34a;
+    background: linear-gradient(135deg, #eafaf1 0%, #ffffff 70%);
+    border: 1px solid #a9dfbf;
+    border-right: 6px solid #27ae60;
     border-radius: 16px;
     padding: 20px;
     margin-top: 12px;
@@ -171,9 +179,9 @@ html, body, [data-testid="stAppViewContainer"] {
     border-radius: 10px !important;
 }
 
-/* buttons */
+/* buttons — same gradients as clinic .btn-primary */
 div.stButton > button {
-    border-radius: 12px !important;
+    border-radius: 8px !important;
     font-weight: 600 !important;
     min-height: 2.3rem;
     white-space: normal !important;
@@ -181,8 +189,13 @@ div.stButton > button {
     font-family: 'Noto Nastaliq Urdu', 'Segoe UI', sans-serif;
 }
 div.stButton > button[kind="primary"] {
-    background: #1a6aa8 !important;
-    border-color: #1a6aa8 !important;
+    background: linear-gradient(135deg, #2980b9, #1a5276) !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(41,128,185,0.35);
+}
+div.stButton > button[kind="primary"]:hover {
+    filter: brightness(1.07);
 }
 </style>
 """, unsafe_allow_html=True)
@@ -360,24 +373,25 @@ def reset_case():
 # ==========================
 st.markdown('<div class="bhc-card-title">🧠 AI Diagnosis Studio — Symptoms to Prescription</div>', unsafe_allow_html=True)
 
-mode_col, type_col = st.columns([2.6, 1])
-with mode_col:
-    mode = st.radio(
-        "🔎 Search Mode (تلاش کا طریقہ):",
-        [
-            "📚 کتب موڈ (Local Books Only)",
-            "🧠 AI موڈ (Gemini Knowledge)"
-        ],
-        horizontal=True,
-        index=0 if st.session_state.search_mode.startswith("📚") else 1,
-        help="کتب موڈ: صرف آپ کی PDFs سے۔ AI موڈ: Gemini کے مکمل علم سے۔"
-    )
-with type_col:
-    st.session_state.case_type = st.selectbox(
-        "⏱ Case Type (کیس کی قسم)",
-        ["🔴 حاد (Acute)", "🔵 مزمن (Chronic)"]
-    )
+mode = st.radio(
+    "🔎 Search Mode (تلاش کا طریقہ):",
+    [
+        "📚 کتب موڈ (Local Books Only)",
+        "🧠 AI موڈ (Gemini Knowledge)"
+    ],
+    horizontal=True,
+    index=0 if st.session_state.search_mode.startswith("📚") else 1,
+    help="کتب موڈ: صرف آپ کی PDFs سے۔ AI موڈ: Gemini کے مکمل علم سے۔"
+)
 st.session_state.search_mode = mode
+
+st.session_state.case_type = st.radio(
+    "⏱ Case Type (کیس کی قسم):",
+    ["🔴 حاد (Acute)", "🔵 مزمن (Chronic)"],
+    horizontal=True,
+    index=0 if st.session_state.case_type.startswith("🔴") else 1,
+    help="حاد = اچانک/مختصر شکایت • مزمن = پرانی/دائمی شکایت"
+)
 if mode.startswith("📚"):
     st.markdown("""
     <div class="mode-box mode-books">
@@ -669,7 +683,7 @@ Write FINAL prescription in URDU with headings:
     if st.session_state.final_prescription:
         st.markdown(f"""
         <div class="rx-card">
-          <h3 style="color:#166534;margin-top:0;">📋 Final Homeopathic Prescription</h3>
+          <h3 style="color:#1e8449;margin-top:0;">📋 Final Homeopathic Prescription</h3>
           {st.session_state.final_prescription}
           <hr>
           <div><b>Sources:</b><br>{sources_html(st.session_state.context_results)}</div>
