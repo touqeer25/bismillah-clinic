@@ -45,67 +45,6 @@ html, body, [data-testid="stAppViewContainer"] {
     max-width: 1200px;
 }
 
-/* ===== TOP HEADER ===== */
-.bhc-header {
-    background: linear-gradient(180deg, #0a4a6e 0%, #0c5a82 100%);
-    border-radius: 0 0 28px 28px;
-    padding: 18px 24px 16px 24px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 4px 14px rgba(10,74,110,0.28);
-    margin-bottom: 14px;
-}
-.bhc-title {
-    color: #f5d76e;
-    font-size: 1.85rem;
-    font-weight: 700;
-    margin: 0;
-    letter-spacing: 0.3px;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-}
-.bhc-sub {
-    color: #dbeafe;
-    font-size: 0.82rem;
-    margin-top: 2px;
-    letter-spacing: 0.8px;
-    font-weight: 500;
-}
-.bhc-online {
-    position: absolute;
-    top: 14px;
-    right: 18px;
-    background: #e8f8ef;
-    color: #166534;
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-/* ===== NAV PILLS ===== */
-.nav-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    margin: 8px 0 16px 0;
-}
-.nav-pill {
-    background: #ffffff;
-    border: 1px solid #d8e2ec;
-    color: #334155;
-    border-radius: 12px;
-    padding: 8px 14px;
-    font-size: 0.86rem;
-    font-weight: 600;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-}
-.nav-pill.active {
-    background: #1a6aa8 !important;
-    color: #fff !important;
-    border-color: #1a6aa8 !important;
-}
-
 /* ===== CARDS ===== */
 .bhc-card {
     background: #ffffff;
@@ -397,9 +336,6 @@ defaults = {
     "search_mode": "📚 کتب موڈ (Local Books Only)",
     "case_type": "🔴 حاد (Acute)",
     "chief_complaint": "",
-    "patient_name": "",
-    "patient_age": "",
-    "patient_gender": "—",
     "categories": [],
     "selected_answers": [],
     "extra_notes": "",
@@ -420,69 +356,28 @@ def reset_case():
     st.session_state.search_mode = keep_mode
 
 # ==========================
-# HEADER (exact clinic style)
+# TITLE + SEARCH MODE + CASE TYPE
 # ==========================
-st.markdown(f"""
-<div class="bhc-header">
-  <div class="bhc-online">● Online</div>
-  <div class="bhc-title">Bismillah Homeopathic Clinic</div>
-  <div class="bhc-sub">DR. TAUQEER AHMAD KHAN — HOMEOPATHIC PHYSICIAN</div>
-</div>
-""", unsafe_allow_html=True)
-
-# Fake nav look (Diagnosis active)
-st.markdown("""
-<div class="nav-row">
-  <div class="nav-pill">🏠 Dashboard</div>
-  <div class="nav-pill">➕ New Registration</div>
-  <div class="nav-pill">🩺 New Visit</div>
-  <div class="nav-pill">🔎 Search</div>
-  <div class="nav-pill">📋 All Patients</div>
-  <div class="nav-pill active">🧠 Diagnosis</div>
-  <div class="nav-pill">⚙️ Settings</div>
-  <div class="nav-pill">📖 Repertory</div>
-</div>
-""", unsafe_allow_html=True)
-
-# ==========================
-# MODE SELECTOR + PATIENT STRIP
-# ==========================
-st.markdown('<div class="bhc-card">', unsafe_allow_html=True)
 st.markdown('<div class="bhc-card-title">🧠 AI Diagnosis Studio — Symptoms to Prescription</div>', unsafe_allow_html=True)
 
-c1, c2, c3, c4 = st.columns([1.4, 1, 0.7, 0.8])
-with c1:
-    st.session_state.patient_name = st.text_input("👤 Patient Name", value=st.session_state.patient_name)
-with c2:
-    st.session_state.patient_age = st.text_input("🎂 Age", value=st.session_state.patient_age)
-with c3:
-    st.session_state.patient_gender = st.selectbox(
-        "⚧ Gender",
-        ["—", "Male", "Female", "Boy", "Girl"],
-        index=["—", "Male", "Female", "Boy", "Girl"].index(st.session_state.patient_gender)
-        if st.session_state.patient_gender in ["—", "Male", "Female", "Boy", "Girl"] else 0
+mode_col, type_col = st.columns([2.6, 1])
+with mode_col:
+    mode = st.radio(
+        "🔎 Search Mode (تلاش کا طریقہ):",
+        [
+            "📚 کتب موڈ (Local Books Only)",
+            "🧠 AI موڈ (Gemini Knowledge)"
+        ],
+        horizontal=True,
+        index=0 if st.session_state.search_mode.startswith("📚") else 1,
+        help="کتب موڈ: صرف آپ کی PDFs سے۔ AI موڈ: Gemini کے مکمل علم سے۔"
     )
-with c4:
+with type_col:
     st.session_state.case_type = st.selectbox(
-        "⏱ Case Type",
+        "⏱ Case Type (کیس کی قسم)",
         ["🔴 حاد (Acute)", "🔵 مزمن (Chronic)"]
     )
-
-st.markdown("---")
-
-# TWO MODES
-mode = st.radio(
-    "🔎 Search Mode (تلاش کا طریقہ):",
-    [
-        "📚 کتب موڈ (Local Books Only)",
-        "🧠 AI موڈ (Gemini Knowledge)"
-    ],
-    horizontal=True,
-    index=0 if st.session_state.search_mode.startswith("📚") else 1,
-    help="کتب موڈ: صرف آپ کی PDFs سے۔ AI موڈ: Gemini کے مکمل علم سے۔"
-)
 st.session_state.search_mode = mode
-
 if mode.startswith("📚"):
     st.markdown("""
     <div class="mode-box mode-books">
@@ -500,8 +395,6 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
-st.markdown('</div>', unsafe_allow_html=True)
-
 # Progress
 st.progress(st.session_state.step / 3, text=f"Step {st.session_state.step} of 3")
 
@@ -509,7 +402,6 @@ st.progress(st.session_state.step / 3, text=f"Step {st.session_state.step} of 3"
 # STEP 1
 # ==========================
 if st.session_state.step == 1:
-    st.markdown('<div class="bhc-card">', unsafe_allow_html=True)
     st.markdown('<div class="bhc-card-title">📋 Step 1 — Chief Complaint</div>', unsafe_allow_html=True)
 
     chief = st.text_area(
@@ -575,7 +467,6 @@ Rules:
                         st.rerun()
                 except Exception as e:
                     st.error(f"Error: {e}")
-    st.markdown('</div>', unsafe_allow_html=True)
 
 # ==========================
 # STEP 2
@@ -585,9 +476,6 @@ elif st.session_state.step == 2:
     st.markdown(f"""
     <div class="bhc-card">
       <div class="bhc-card-title">🧾 Case Summary</div>
-      <span class="badge-blue">{st.session_state.patient_name or 'Patient'}</span>
-      <span class="badge-gold">{st.session_state.patient_age or 'Age —'}</span>
-      <span class="badge-pink">{st.session_state.patient_gender}</span>
       <span class="badge-purple">{st.session_state.case_type}</span>
       <span class="badge-green">{st.session_state.search_mode.split(' ')[0]} Mode</span>
       <div class="urdu" style="margin-top:10px;"><b>شکایت:</b> {st.session_state.chief_complaint}</div>
@@ -598,7 +486,6 @@ elif st.session_state.step == 2:
         with st.expander("📚 Book Sources used"):
             st.markdown(sources_html(st.session_state.context_results), unsafe_allow_html=True)
 
-    st.markdown('<div class="bhc-card">', unsafe_allow_html=True)
     st.markdown('<div class="bhc-card-title">🔍 Step 2 — Case Taking (Click to select)</div>', unsafe_allow_html=True)
     st.caption("کلک = منتخب ✅ • دوبارہ کلک = ہٹے • نیچے ✕ سے بھی ڈیلیٹ")
 
@@ -692,13 +579,11 @@ Return ONLY valid JSON:
                         st.rerun()
                     except Exception as e:
                         st.error(f"Error: {e}")
-    st.markdown('</div>', unsafe_allow_html=True)
 
 # ==========================
 # STEP 3
 # ==========================
 elif st.session_state.step == 3:
-    st.markdown('<div class="bhc-card">', unsafe_allow_html=True)
     st.markdown('<div class="bhc-card-title">🌿 Step 3 — Candidate Remedies & Differential</div>', unsafe_allow_html=True)
 
     if st.session_state.candidate_data:
@@ -760,7 +645,6 @@ elif st.session_state.step == 3:
 
                 task = f"""
 Case type: {st.session_state.case_type}
-Patient: {st.session_state.patient_name}, {st.session_state.patient_age}, {st.session_state.patient_gender}
 Chief: {st.session_state.chief_complaint}
 All answers: {all_ans}
 Candidates: {json.dumps(st.session_state.candidate_data, ensure_ascii=False)}
@@ -781,7 +665,6 @@ Write FINAL prescription in URDU with headings:
                 except Exception as e:
                     st.error(f"Error: {e}")
 
-    st.markdown('</div>', unsafe_allow_html=True)
 
     if st.session_state.final_prescription:
         st.markdown(f"""

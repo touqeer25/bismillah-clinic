@@ -433,7 +433,6 @@
                     if (b) b.className = k === v ? 'btn btn-sm btn-purple' : 'btn btn-sm btn-light';
                 });
                 if (v === 'studio' && typeof renderStudioAll === 'function') renderStudioAll();
-                if (v === 'ai' && typeof renderAIStep === 'function') renderAIStep();
                 if (v === 'case' && typeof renderCaseTaking === 'function') renderCaseTaking();
             };
             </script>
@@ -483,13 +482,6 @@
             <div id="dxCaseView" class="hidden">
                 <div class="card" style="background:linear-gradient(135deg,#ffffff,#f9fbff);border:1px solid #d1e3f8;box-shadow:0 4px 15px rgba(0,0,0,0.05);">
                     <div id="ct-page-root"></div>
-                </div>
-            </div>
-
-            <!-- ===== AI HOMEO ASSISTANT (full page, not popup) ===== -->
-            <div id="dxAIView" class="hidden">
-                <div class="card" style="background:linear-gradient(135deg,#ffffff,#f9fbff);border:1px solid #d1e3f8;box-shadow:0 4px 15px rgba(0,0,0,0.05);">
-                    <div id="ai-page-root"></div>
                 </div>
             </div>
 
