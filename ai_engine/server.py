@@ -1,6 +1,7 @@
 import os
 import re
 import json
+import time
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -25,17 +26,17 @@ if not GEMINI_API_KEY or not QDRANT_URL or not QDRANT_API_KEY:
 genai.configure(api_key=GEMINI_API_KEY)
 llm_model = genai.GenerativeModel("models/gemini-flash-latest")
 
+# Qdrant Client with 90s Timeout
 qdrant_client = QdrantClient(
     url=QDRANT_URL,
     api_key=QDRANT_API_KEY,
-    timeout=60,
+    timeout=90,
     check_compatibility=False
 )
 embedding_model = TextEmbedding(model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
 
 app = FastAPI(title="Bismillah Clinic AI Engine")
 
-# کلینک ایپ (Browser/Local) کے ساتھ CORS کھوئلیں
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -44,11 +45,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Request Models
 class Step1Request(BaseModel):
     chief_complaint: str
     case_type: str = "🔴 حاد (Acute)"
-    search_mode: str = "books"  # 'books' or 'ai'
+    search_mode: str = "books"
 
 class Step2Request(BaseModel):
     chief_complaint: str
@@ -67,18 +67,40 @@ class Step3Request(BaseModel):
 
 
 def search_qdrant(query: str, limit: int = 8, min_score: float = 0.25):
-    try:
-        query_vector = list(embedding_model.embed([query]))[0].tolist()
-        results = qdrant_client.query_points(
-            collection_name=COLLECTION_NAME,
-            query=query_vector,
-            limit=limit
-        ).points
-        filtered = [r for r in results if (r.score or 0) >= min_score]
-        return filtered
-    except Exception as e:
-        print(f"Qdrant Search Error: {e}")
-        return []
+    """Qdrant سرچ محفوظ طریقے سے اور 2 بار ری ٹرائی کے ساتھ"""
+    for attempt in range(2):
+        try:
+            query_vector = list(embedding_model.embed([query]))[0].tolist()
+            results = qdrant_client.query_points(
+                collection_name=COLLECTION_NAME,
+                query=query_vector,
+                limit=limit
+            ).points
+            return [r for r in results if (r.score or 0) >= min_score]
+        except Exception as e:
+            print(f"Qdrant Attempt {attempt+1} Error: {e}")
+            time.sleep(1)
+    return []
+
+
+def safe_gemini_generate(prompt: str, retries: int = 2):
+    """جیمنی AI کال 120 سیکنڈ ٹائم آؤٹ اور آٹو ری ٹرائی کے ساتھ"""
+    for attempt in range(retries + 1):
+        try:
+            # 120 سیکنڈ کا بڑا ٹائم آؤٹ
+            resp = llm_model.generate_content(
+                prompt,
+                request_options={"timeout": 120.0}
+            )
+            return resp
+        except Exception as e:
+            err_msg = str(e)
+            print(f"Gemini Call Attempt {attempt + 1} Error: {err_msg}")
+            if ("504" in err_msg or "Deadline" in err_msg or "timeout" in err_msg.lower()) and attempt < retries:
+                time.sleep(2)
+                continue
+            raise e
+
 
 def format_context(results):
     if not results:
@@ -112,7 +134,7 @@ def generate_step1_categories(req: Step1Request):
         results = search_qdrant(req.chief_complaint, limit=6)
         context = format_context(results)
         if not context:
-            raise HTTPException(status_code=404, detail="کتب موڈ: آپ کی اپلوڈ شدہ کتب میں اس شکایت پر مواد نہیں ملا۔")
+            raise HTTPException(status_code=404, detail="کتب موڈ: آپ کی اپلوڈ شدہ کتب میں اس شکایت پر مواد نہیں ملا۔ AI موڈ استعمال کر کے دیکھیں۔")
 
     prompt = f"""
 Chief complaint: "{req.chief_complaint}"
@@ -135,11 +157,12 @@ Rules:
 - JSON only.
 """
     try:
-        resp = llm_model.generate_content(prompt)
+        resp = safe_gemini_generate(prompt)
         data = extract_json(resp.text)
         return {"status": "success", "categories": data.get("categories", [])}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"Step 1 Exception: {e}")
+        raise HTTPException(status_code=504, detail="گوگل سرور یا انٹرنیٹ کی تاخیر کی وجہ سے جواب نہ مل سکا۔ براہ کرم 'AI موڈ' منتخب کر کے دوبارہ کوشش کریں۔")
 
 
 @app.post("/api/ai/step2-candidates")
@@ -151,7 +174,7 @@ def generate_step2_candidates(req: Step2Request):
     context = format_context(results)
 
     if req.search_mode == "books" and not context:
-        raise HTTPException(status_code=404, detail="کتب موڈ: اس علامت کے لیے کتب میں مناسب حوالہ نہیں ملا۔")
+        raise HTTPException(status_code=404, detail="کتب موڈ: اس علامت کے لیے کتب میں مناسب حوالہ نہیں ملا۔ AI موڈ منتخب کریں۔")
 
     prompt = f"""
 Case type: {req.case_type}
@@ -182,7 +205,7 @@ Return ONLY valid JSON:
 - JSON only.
 """
     try:
-        resp = llm_model.generate_content(prompt)
+        resp = safe_gemini_generate(prompt)
         data = extract_json(resp.text)
         
         sources = []
@@ -197,7 +220,8 @@ Return ONLY valid JSON:
             "sources": sources
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"Step 2 Exception: {e}")
+        raise HTTPException(status_code=504, detail="AI سرور سے جواب انے میں تاخیر ہوئی۔ دوبارہ کوشش کریں۔")
 
 
 @app.post("/api/ai/step3-prescription")
@@ -233,7 +257,7 @@ Note:
 Must provide professional homeopathic reasoning.
 """
     try:
-        resp = llm_model.generate_content(prompt)
+        resp = safe_gemini_generate(prompt)
         sources = []
         for r in results:
             p = r.payload or {}
@@ -245,7 +269,8 @@ Must provide professional homeopathic reasoning.
             "sources": sources
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"Step 3 Exception: {e}")
+        raise HTTPException(status_code=504, detail="نسخہ جنریٹ کرنے میں وقت زیادہ لگا۔ دوبارہ کوشش کریں۔")
 
 
 if __name__ == "__main__":
