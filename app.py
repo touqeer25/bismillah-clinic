@@ -697,7 +697,14 @@ def reset_case():
 # ==========================
 st.markdown(f'<div class="bhc-card-title">{T["studio_title"]}</div>', unsafe_allow_html=True)
 
-mode_col, type_col = st.columns([1.7, 1])
+# — compact row: Search Mode | Case Type | AI Engine (limits inside the ? tooltip) —
+st.session_state.setdefault("engine_choice", "auto")
+_engine_labels = [T["model_auto"]] + [p["label"] for p in PROVIDERS]
+_engine_ids = ["auto"] + [p["id"] for p in PROVIDERS]
+_engine_idx = _engine_ids.index(st.session_state.engine_choice) if st.session_state.engine_choice in _engine_ids else 0
+_engine_help = T["engine_help"] + "\n\n" + "\n".join([f"{p['label']} — {p['limit']}" for p in PROVIDERS])
+
+mode_col, type_col, engine_col = st.columns([1.7, 1, 1.3])
 with mode_col:
     mode = st.radio(
         T["search_label"],
@@ -715,15 +722,8 @@ with type_col:
         index=0 if st.session_state.case_type.startswith("🔴") else 1,
         help=T["ctype_help"]
     )
-
-# ==========================
-# AI ENGINE SELECTOR + STATUS (active model + limits + usage)
-# ==========================
-st.session_state.setdefault("engine_choice", "auto")
-_engine_labels = [T["model_auto"]] + [p["label"] for p in PROVIDERS]
-_engine_ids = ["auto"] + [p["id"] for p in PROVIDERS]
-_engine_idx = _engine_ids.index(st.session_state.engine_choice) if st.session_state.engine_choice in _engine_ids else 0
-_engine_choice = st.selectbox(T["model_label"], _engine_labels, index=_engine_idx, help=T["engine_help"])
+with engine_col:
+    _engine_choice = st.selectbox(T["model_label"], _engine_labels, index=_engine_idx, help=_engine_help)
 st.session_state.engine_choice = _engine_ids[_engine_labels.index(_engine_choice)]
 
 _usage = st.session_state.get("usage") or {}
@@ -734,9 +734,6 @@ if _last_prov:
 _last_fb = st.session_state.get("last_fallback")
 if _last_fb:
     st.info(T["fallback_note"].format(prev=_last_fb[0], cur=_last_fb[1]))
-with st.expander(f"🔌 {T['engine_status']}", expanded=False):
-    for _p in PROVIDERS:
-        st.markdown(f"- **{_p['label']}** — {_p['limit']} • {T['today_used']}: {_usage.get(_p['id'], 0)}")
 
 # Progress
 st.progress(st.session_state.step / 3, text=T["progress"].format(n=st.session_state.step))
