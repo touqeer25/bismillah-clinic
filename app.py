@@ -139,6 +139,7 @@ T = {
         "qd_404": "📦 Qdrant میں کلیکشن نہیں ملی (404)۔ COLLECTION_NAME چیک کریں (موجودہ: {col}) یا کتابوں کا ڈیٹا دوبارہ اپلوڈ کریں۔",
         "qd_conn": "🌐 Qdrant سرور تک کنکشن نہیں بن سکا (خودکار کوششیں ناکام)۔ انٹرنیٹ چیک کریں اور QDRANT_URL درست ہو: https://xxxx.cloud.qdrant.io",
         "qd_other": "Qdrant سرچ ناکام: {err}",
+        "err_bad_json": "🤖 ماڈل کا جواب نامکمل/غیر JSON تھا — دوبارہ کوشش کریں یا AI انجن بدلیں۔ جواب کا آغاز: {snippet}",
     },
     "en": {
         "studio_title": "🧠 AI Diagnosis Studio — Symptoms to Prescription",
@@ -212,6 +213,7 @@ T = {
         "qd_404": "📦 Collection not found in Qdrant (404). Check COLLECTION_NAME (current: {col}) or re-upload your books data.",
         "qd_conn": "🌐 Could not reach the Qdrant server (automatic retries failed). Check your internet and verify QDRANT_URL: https://xxxx.cloud.qdrant.io",
         "qd_other": "Qdrant search failed: {err}",
+        "err_bad_json": "🤖 The model reply was incomplete/not valid JSON — try again or switch the AI engine. Reply began with: {snippet}",
     },
     "roman": {
         "studio_title": "🧠 AI Diagnosis Studio — Alamaat se Nuskhah tak",
@@ -285,6 +287,7 @@ T = {
         "qd_404": "📦 Qdrant mein collection nahi mili (404). COLLECTION_NAME check karein (current: {col}) ya kitabon ka data dobara upload karein.",
         "qd_conn": "🌐 Qdrant server tak connection nahi ban saka (automatic koshishein nakam). Internet check karein aur QDRANT_URL durust ho: https://xxxx.cloud.qdrant.io",
         "qd_other": "Qdrant search nakam: {err}",
+        "err_bad_json": "🤖 Model ka jawab namaqool/ghair-JSON tha — dobara koshish karein ya AI engine tabdeel karein. Jawab ka aaghaz: {snippet}",
     },
 }
 
@@ -574,7 +577,12 @@ def extract_json(text: str):
     a, b = text.find("{"), text.rfind("}")
     if a != -1 and b != -1 and b > a:
         text = text[a:b+1]
-    return json.loads(text)
+    try:
+        return json.loads(text)
+    except Exception as e:
+        # خام JSONDecodeError ke bajaye dostana pegham + jawab ka jhalak
+        snippet = " ".join(str(text).split())[:120]
+        raise RuntimeError(T["err_bad_json"].format(snippet=snippet)) from e
 
 def toggle_answer(item: str):
     s = st.session_state.selected_answers
@@ -706,8 +714,10 @@ def _call_openai_compat(pid: str, model: str, prompt: str) -> str:
     msg = resp.choices[0].message if resp.choices else None
     text = (getattr(msg, "content", None) or "") if msg is not None else ""
     if not str(text).strip():
-        # agar thinking disabled na ho aur content khali aaye
-        text = (getattr(msg, "reasoning_content", None) or "") if msg is not None else ""
+        # thinking ignore ho to reasoning_content aata hai — us me se sirf JSON hissa (agar ho)
+        rc = (getattr(msg, "reasoning_content", None) or "") if msg is not None else ""
+        a2, b2 = rc.find("{"), rc.rfind("}")
+        text = rc[a2:b2 + 1] if (a2 != -1 and b2 > a2) else ""
     return text
 
 def _call_gemini(prompt: str) -> str:
@@ -735,6 +745,8 @@ def ask_llm(prompt: str):
                 text = _call_openai_compat(pid, p["model"], prompt)
             if not text or not str(text).strip():
                 raise RuntimeError("empty response")
+            if "{" not in str(text) and "[" not in str(text):
+                raise RuntimeError("non-JSON reply (no braces) -> agli engine")
             _bump_usage(pid)
             st.session_state["last_provider"] = p["label"]
             st.session_state["last_fallback"] = (prev_label, p["label"]) if prev_label else None
@@ -753,6 +765,9 @@ def generate(task: str, context: str = "") -> str:
     else:
         prompt = generate_ai_mode(task, context)
     text, _prov = ask_llm(prompt)
+    if "{" not in text and "[" not in text:
+        # ek khudkar dobara koshish — sakht JSON hidayat ke sath
+        text, _prov = ask_llm(prompt + "\n\nIMPORTANT: Reply with ONLY the valid JSON object. No explanations, no markdown, no extra text.")
     return text
 
 # ==========================
