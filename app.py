@@ -725,8 +725,9 @@ def _call_gemini(prompt: str) -> str:
         raise RuntimeError("GEMINI_API_KEY missing")
     return llm_model.generate_content(prompt).text
 
-def ask_llm(prompt: str):
-    """Try engines in priority order; auto-fallback on any failure. Returns (text, provider)."""
+def ask_llm(prompt: str, require_json: bool = True):
+    """Try engines in priority order; auto-fallback on any failure. Returns (text, provider).
+    require_json=False (e.g. final prescription plain text) par braces check skip hota hai."""
     choice = st.session_state.get("engine_choice", "auto")
     if choice in PROVIDERS_BY_ID:
         chain = [choice] + [c for c in AUTO_CHAIN if c != choice]
@@ -745,7 +746,7 @@ def ask_llm(prompt: str):
                 text = _call_openai_compat(pid, p["model"], prompt)
             if not text or not str(text).strip():
                 raise RuntimeError("empty response")
-            if "{" not in str(text) and "[" not in str(text):
+            if require_json and "{" not in str(text) and "[" not in str(text):
                 raise RuntimeError("non-JSON reply (no braces) -> agli engine")
             _bump_usage(pid)
             st.session_state["last_provider"] = p["label"]
@@ -757,16 +758,16 @@ def ask_llm(prompt: str):
             continue
     raise RuntimeError(T["err_engines_all"] + " (" + "; ".join(errs) + ")")
 
-def generate(task: str, context: str = "") -> str:
+def generate(task: str, context: str = "", json_mode: bool = True) -> str:
     if st.session_state.search_mode.startswith("📚"):
         if not context.strip():
             return BOOKS_EMPTY_MSG
         prompt = generate_books_mode(task, context)
     else:
         prompt = generate_ai_mode(task, context)
-    text, _prov = ask_llm(prompt)
-    if "{" not in text and "[" not in text:
-        # ek khudkar dobara koshish — sakht JSON hidayat ke sath
+    text, _prov = ask_llm(prompt, require_json=json_mode)
+    if json_mode and "{" not in text and "[" not in text:
+        # ek khudkar dobara koshish — sakht JSON hidayat ke sath (sirf JSON steps par)
         text, _prov = ask_llm(prompt + "\n\nIMPORTANT: Reply with ONLY the valid JSON object. No explanations, no markdown, no extra text.")
     return text
 
@@ -1120,7 +1121,7 @@ Write FINAL prescription in URDU with headings:
 (AI assisted suggestion; final decision by physician)
 """
                 try:
-                    rx = generate(task, context)
+                    rx = generate(task, context, json_mode=False)
                     st.session_state.final_prescription = rx
                     st.session_state.context_results = results
                 except Exception as e:
