@@ -2,6 +2,7 @@ import os
 import re
 import json
 import datetime
+import time
 import streamlit as st
 import google.generativeai as genai
 from dotenv import load_dotenv
@@ -39,10 +40,10 @@ OPENROUTER_API_KEY = _get_key("OPENROUTER_API_KEY")
 
 # --- model ids (env se override ho sakte hain) ---
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "models/gemini-flash-latest")
-GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
 ZAI_MODEL = os.getenv("ZAI_MODEL", "glm-4.5-flash")
 ZAI_BASE = os.getenv("ZAI_BASE", "https://api.z.ai/api/paas/v4")
-OR_MODEL = os.getenv("OR_MODEL", "deepseek/deepseek-chat-v3-0324:free")
+OR_MODEL = os.getenv("OR_MODEL", "openrouter/free")
 
 st.set_page_config(
     page_title="Bismillah Homeopathic Clinic — AI Diagnosis",
@@ -117,19 +118,27 @@ T = {
         "model_label": "🤖 اے آئی انجن (ماڈل):",
         "model_auto": "🤖 اوتو — تیز ترین پہلے (فال بیک کے ساتھ)",
         "engine_help": "اوتو = سب سے تیز دستیاب انجن سے جواب • limit ختم ہو تو خود بخود اگلا انجن",
-        "prov_groq": "⚡ Groq — Llama 3.3 70B (سب سے تیز)",
-        "prov_groq_lim": "مفت ~14,400 درخواست/دن • 30/منٹ",
+        "prov_groq": "⚡ Groq — GPT-OSS 120B (سب سے تیز)",
+        "prov_groq_lim": "مفت ~1,000 درخواست/دن • 30/منٹ",
         "prov_gemini": "✨ Gemini Flash (گوگل)",
         "prov_gemini_lim": "مفت: روزانہ محدود حد (ماڈل کے مطابق)",
         "prov_glm": "🧊 GLM Flash (Z.ai — مستقل مفت)",
         "prov_glm_lim": "مستقل مفت — کوئی سخت روزانہ حد نہیں",
-        "prov_or": "🛟 OpenRouter (DeepSeek/Qwen مفت)",
+        "prov_or": "🛟 OpenRouter (خودکار مفت ماڈل)",
         "prov_or_lim": "مفت: ~50–200 درخواست/دن ($10 کریڈٹ پر ~1,000)",
         "engine_status": "دستیاب انجن",
         "active_model": "فعال ماڈل",
         "today_used": "آج کی درخواستیں",
         "fallback_note": "⚠️ {prev} کی حد بھر چکی تھی — جواب {cur} سے دیا گیا",
         "err_engines_all": "تمام اے آئی انجن ناکام رہے۔ Streamlit Secrets میں keys چیک کریں۔",
+        "qd_test_title": "🩺 کتب ڈیٹا (Qdrant) کنکشن",
+        "qd_test_btn": "🔍 کنکشن ٹیسٹ کریں",
+        "qd_ok": "✅ کنکشن ٹھیک ہے — کلیکشنز: {cols}",
+        "qd_empty": "🔎 Qdrant سرور نے خالی/نامکمل جواب دیا۔ عام وجوہات:\n1) Qdrant Cloud کلسٹر paused/archived ہو — cloud.qdrant.io کھول کر کلسٹر دوبارہ Resume/Restore کریں (مفت کلسٹر چند دن غیر استعمال رہنے پر خود روک دیا جاتا ہے)۔\n2) QDRANT_URL غلط ہو — فارمیٹ: https://xxxx.eu-central.aws.cloud.qdrant.io (https:// شامل ہو، آخر میں اضافی سلیش یا پاتھ نہ ہو)۔\n3) عارضی نیٹ ورک مسئلہ — صفحہ refresh کر کے دوبارہ کوشش کریں۔",
+        "qd_auth": "🔑 Qdrant نے رسائی مسترد کی (401/403)۔ QDRANT_API_KEY غلط یا ختم ہو چکی ہے — cloud.qdrant.io سے نئی key لیں اور Secrets/.env اپڈیٹ کریں۔",
+        "qd_404": "📦 Qdrant میں کلیکشن نہیں ملی (404)۔ COLLECTION_NAME چیک کریں (موجودہ: {col}) یا کتابوں کا ڈیٹا دوبارہ اپلوڈ کریں۔",
+        "qd_conn": "🌐 Qdrant سرور تک کنکشن نہیں بن سکا (خودکار کوششیں ناکام)۔ انٹرنیٹ چیک کریں اور QDRANT_URL درست ہو: https://xxxx.cloud.qdrant.io",
+        "qd_other": "Qdrant سرچ ناکام: {err}",
     },
     "en": {
         "studio_title": "🧠 AI Diagnosis Studio — Symptoms to Prescription",
@@ -182,19 +191,27 @@ T = {
         "model_label": "🤖 AI Engine (Model):",
         "model_auto": "🤖 Auto — fastest first (with fallback)",
         "engine_help": "Auto = answers from the fastest available engine; if its limit is hit, the next engine is used automatically",
-        "prov_groq": "⚡ Groq — Llama 3.3 70B (Fastest)",
-        "prov_groq_lim": "Free ~14,400 requests/day • 30/min",
+        "prov_groq": "⚡ Groq — GPT-OSS 120B (Fastest)",
+        "prov_groq_lim": "Free ~1,000 requests/day • 30/min",
         "prov_gemini": "✨ Gemini Flash (Google)",
         "prov_gemini_lim": "Free: limited daily quota (model dependent)",
         "prov_glm": "🧊 GLM Flash (Z.ai — always free)",
         "prov_glm_lim": "Always free — no hard daily cap",
-        "prov_or": "🛟 OpenRouter (DeepSeek/Qwen free)",
+        "prov_or": "🛟 OpenRouter (auto free model)",
         "prov_or_lim": "Free: ~50–200 requests/day (~1,000 with $10 credit)",
         "engine_status": "Available engines",
         "active_model": "Active model",
         "today_used": "requests today",
         "fallback_note": "⚠️ {prev} limit reached — answered by {cur}",
         "err_engines_all": "All AI engines failed. Check the keys in Streamlit Secrets.",
+        "qd_test_title": "🩺 Books Data (Qdrant) Connection",
+        "qd_test_btn": "🔍 Test connection",
+        "qd_ok": "✅ Connection OK — collections: {cols}",
+        "qd_empty": "🔎 Qdrant returned an empty/invalid response. Common causes:\n1) The Qdrant Cloud cluster is paused/archived — open cloud.qdrant.io and Resume/Restore it (free clusters auto-pause after inactivity).\n2) Wrong QDRANT_URL — format: https://xxxx.eu-central.aws.cloud.qdrant.io (must start with https://, no extra slash or path at the end).\n3) Temporary network issue — refresh the page and try again.",
+        "qd_auth": "🔑 Qdrant rejected access (401/403). QDRANT_API_KEY is wrong or expired — get a new key from cloud.qdrant.io and update Secrets/.env.",
+        "qd_404": "📦 Collection not found in Qdrant (404). Check COLLECTION_NAME (current: {col}) or re-upload your books data.",
+        "qd_conn": "🌐 Could not reach the Qdrant server (automatic retries failed). Check your internet and verify QDRANT_URL: https://xxxx.cloud.qdrant.io",
+        "qd_other": "Qdrant search failed: {err}",
     },
     "roman": {
         "studio_title": "🧠 AI Diagnosis Studio — Alamaat se Nuskhah tak",
@@ -247,19 +264,27 @@ T = {
         "model_label": "🤖 AI Engine (Model):",
         "model_auto": "🤖 Auto — sab se tez pehle (fallback ke sath)",
         "engine_help": "Auto = sab se tez available engine se jawab; limit bhar jaye to khud agla engine",
-        "prov_groq": "⚡ Groq — Llama 3.3 70B (Sab se tez)",
-        "prov_groq_lim": "Muft ~14,400 request/din • 30/min",
+        "prov_groq": "⚡ Groq — GPT-OSS 120B (Sab se tez)",
+        "prov_groq_lim": "Muft ~1,000 request/din • 30/min",
         "prov_gemini": "✨ Gemini Flash (Google)",
         "prov_gemini_lim": "Muft: rozana mehdood had (model par munhasir)",
         "prov_glm": "🧊 GLM Flash (Z.ai — hamesha muft)",
         "prov_glm_lim": "Hamesha muft — koi sakht rozana had nahi",
-        "prov_or": "🛟 OpenRouter (DeepSeek/Qwen muft)",
+        "prov_or": "🛟 OpenRouter (khud-kaar mift model)",
         "prov_or_lim": "Muft: ~50–200 request/din ($10 credit par ~1,000)",
         "engine_status": "Available engines",
         "active_model": "Active model",
         "today_used": "aaj ki requests",
         "fallback_note": "⚠️ {prev} ki had bhar gayi thi — jawab {cur} se diya gaya",
         "err_engines_all": "Tamam AI engine nakam rahe. Streamlit Secrets mein keys check karein.",
+        "qd_test_title": "🩺 Kitabon ka Data (Qdrant) Connection",
+        "qd_test_btn": "🔍 Connection test karein",
+        "qd_ok": "✅ Connection theek hai — collections: {cols}",
+        "qd_empty": "🔎 Qdrant server ne khali/invalid jawab diya. Aam wajuhat:\n1) Qdrant Cloud cluster paused/archived ho — cloud.qdrant.io khol kar cluster Resume/Restore karein (free cluster kuch din ghair-istemaal rehne par khud pause ho jata hai).\n2) QDRANT_URL ghalat ho — format: https://xxxx.eu-central.aws.cloud.qdrant.io (https:// shamil ho, aakhir mein extra slash ya path na ho).\n3) Aarzi network masla — page refresh kar ke dobara koshish karein.",
+        "qd_auth": "🔑 Qdrant ne access reject kiya (401/403). QDRANT_API_KEY ghalat ya expire ho chuki hai — cloud.qdrant.io se nayi key lein aur Secrets/.env update karein.",
+        "qd_404": "📦 Qdrant mein collection nahi mili (404). COLLECTION_NAME check karein (current: {col}) ya kitabon ka data dobara upload karein.",
+        "qd_conn": "🌐 Qdrant server tak connection nahi ban saka (automatic koshishein nakam). Internet check karein aur QDRANT_URL durust ho: https://xxxx.cloud.qdrant.io",
+        "qd_other": "Qdrant search nakam: {err}",
     },
 }
 
@@ -470,14 +495,55 @@ PROVIDERS_BY_ID = {p["id"]: p for p in PROVIDERS}
 # ==========================
 # HELPERS
 # ==========================
+def _qdrant_kind(e):
+    """Qdrant/client error ki type — friendly message ke liye"""
+    s = str(e).lower()
+    t = type(e).__name__.lower()
+    if "jsondecode" in t or "expecting value" in s or "char 0" in s:
+        return "empty"
+    if ("401" in s or "402" in s or "403" in s or "unauthorized" in s or "forbidden" in s
+            or "api key" in s or "permission" in s):
+        return "auth"
+    if "404" in s or "not found" in s or "doesn't exist" in s or "does not exist" in s:
+        return "404"
+    if ("timeout" in s or "timed out" in s or "connection" in s or "max retries" in s
+            or "unreachable" in s or "getaddrinfo" in s or "failed to resolve" in s
+            or "ssl" in s or "500" in s or "502" in s or "503" in s or "server error" in s):
+        return "conn"
+    return "other"
+
+
+def _qdrant_msg(e):
+    """Error ko dostana localized message me badalna"""
+    k = _qdrant_kind(e)
+    if k == "empty":
+        return T["qd_empty"]
+    if k == "auth":
+        return T["qd_auth"]
+    if k == "404":
+        return T["qd_404"].format(col=COLLECTION_NAME)
+    if k == "conn":
+        return T["qd_conn"]
+    return T["qd_other"].format(err=str(e))
+
+
 def search_books(query, limit=8, min_score=0.28):
     vec = list(embedding_model.embed([query]))[0].tolist()
-    res = client.query_points(
-        collection_name=COLLECTION_NAME,
-        query=vec,
-        limit=limit
-    ).points
-    return [r for r in res if (r.score or 0) >= min_score]
+    last = None
+    for attempt in range(3):
+        try:
+            res = client.query_points(
+                collection_name=COLLECTION_NAME,
+                query=vec,
+                limit=limit
+            ).points
+            return [r for r in res if (r.score or 0) >= min_score]
+        except Exception as e:
+            last = e
+            if _qdrant_kind(last) in ("empty", "auth", "404"):
+                break  # retry se faida nahi
+            time.sleep(0.7 * (attempt + 1))  # transient net issue → chhota wait
+    raise RuntimeError(_qdrant_msg(last)) from last
 
 def format_context(results):
     if not results:
@@ -590,6 +656,20 @@ def _bump_usage(pid: str):
     u["date"] = today
     st.session_state["usage"] = u
 
+def _short_err(e) -> str:
+    """Engine error ko mukhtasar magar fehem banana (class + status + message)"""
+    name = type(e).__name__
+    sc = getattr(e, "status_code", None)
+    msg = getattr(e, "message", None) or str(e)
+    try:
+        if msg and str(msg) == str(e) and getattr(e, "body", None):
+            msg = str(e.body)
+    except Exception:
+        pass
+    msg = " ".join(str(msg).split())[:110]
+    return f"{name}" + (f"[{sc}]" if sc else "") + (f": {msg}" if msg else "")
+
+
 def _call_openai_compat(pid: str, model: str, prompt: str) -> str:
     """Groq / GLM(Z.ai) / OpenRouter — sab OpenAI-compatible"""
     if pid not in _OPENAI_CLIENTS:
@@ -610,13 +690,25 @@ def _call_openai_compat(pid: str, model: str, prompt: str) -> str:
             }
         _OPENAI_CLIENTS[pid] = OpenAI(**kw)
     cli = _OPENAI_CLIENTS[pid]
+    kw2 = {}
+    mt = 4096
+    if pid == "glm":
+        # GLM-4.5 reasoning model: thinking tokens max_tokens kha jate hain -> content khali
+        kw2["extra_body"] = {"thinking": {"type": "disabled"}}
+        mt = 8192
     resp = cli.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}],
         temperature=0.4,
-        max_tokens=4096,
+        max_tokens=mt,
+        **kw2,
     )
-    return resp.choices[0].message.content
+    msg = resp.choices[0].message if resp.choices else None
+    text = (getattr(msg, "content", None) or "") if msg is not None else ""
+    if not str(text).strip():
+        # agar thinking disabled na ho aur content khali aaye
+        text = (getattr(msg, "reasoning_content", None) or "") if msg is not None else ""
+    return text
 
 def _call_gemini(prompt: str) -> str:
     if llm_model is None:
@@ -648,7 +740,7 @@ def ask_llm(prompt: str):
             st.session_state["last_fallback"] = (prev_label, p["label"]) if prev_label else None
             return str(text), p
         except Exception as e:
-            errs.append(f"{p['label']}: {type(e).__name__}")
+            errs.append(f"{p['label']}: {_short_err(e)}")
             prev_label = p["label"]
             continue
     raise RuntimeError(T["err_engines_all"] + " (" + "; ".join(errs) + ")")
@@ -735,6 +827,16 @@ _last_fb = st.session_state.get("last_fallback")
 if _last_fb:
     st.info(T["fallback_note"].format(prev=_last_fb[0], cur=_last_fb[1]))
 
+# --- Qdrant (books data) connection self-test ---
+with st.expander(T["qd_test_title"]):
+    if st.button(T["qd_test_btn"], key="btn_qd_test"):
+        try:
+            _cols = client.get_collections().collections
+            _names = ", ".join(c.name for c in _cols) if _cols else "-"
+            st.success(T["qd_ok"].format(cols=_names))
+        except Exception as _qe:
+            st.error(_qdrant_msg(_qe))
+
 # Progress
 st.progress(st.session_state.step / 3, text=T["progress"].format(n=st.session_state.step))
 
@@ -770,7 +872,11 @@ if st.session_state.step == 1:
                 results = []
                 context = ""
                 if st.session_state.search_mode.startswith("📚"):
-                    results = search_books(chief, limit=8)
+                    try:
+                        results = search_books(chief, limit=8)
+                    except RuntimeError as _se:
+                        st.error(str(_se))
+                        st.stop()
                     context = format_context(results)
                     if not context:
                         st.error(T["err_books_nomat"])
