@@ -1,6 +1,7 @@
 import os
 import re
 import json
+import datetime
 import streamlit as st
 import google.generativeai as genai
 from dotenv import load_dotenv
@@ -12,10 +13,36 @@ from fastembed import TextEmbedding
 # ==========================
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), ".env"))
 
-QDRANT_URL = os.getenv("QDRANT_URL")
-QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
-COLLECTION_NAME = os.getenv("COLLECTION_NAME", "homeopathy_knowledge")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+def _get_key(name: str) -> str:
+    """Read a key from env (.env) or Streamlit Secrets (Cloud)"""
+    v = os.getenv(name)
+    if v and v.strip():
+        return v.strip()
+    try:
+        if name in st.secrets:
+            v = st.secrets[name]
+            if v and str(v).strip():
+                return str(v).strip()
+    except Exception:
+        pass
+    return ""
+
+QDRANT_URL = _get_key("QDRANT_URL")
+QDRANT_API_KEY = _get_key("QDRANT_API_KEY")
+COLLECTION_NAME = _get_key("COLLECTION_NAME") or "homeopathy_knowledge"
+
+# --- LLM engines (kam az kam ek key honi chahiye) ---
+GEMINI_API_KEY = _get_key("GEMINI_API_KEY")
+GROQ_API_KEY = _get_key("GROQ_API_KEY")
+ZAI_API_KEY = _get_key("ZAI_API_KEY")
+OPENROUTER_API_KEY = _get_key("OPENROUTER_API_KEY")
+
+# --- model ids (env se override ho sakte hain) ---
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "models/gemini-flash-latest")
+GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+ZAI_MODEL = os.getenv("ZAI_MODEL", "glm-4.5-flash")
+ZAI_BASE = os.getenv("ZAI_BASE", "https://api.z.ai/api/paas/v4")
+OR_MODEL = os.getenv("OR_MODEL", "deepseek/deepseek-chat-v3-0324:free")
 
 st.set_page_config(
     page_title="Bismillah Homeopathic Clinic — AI Diagnosis",
@@ -87,6 +114,22 @@ T = {
         "rx_title": "📋 حتمی ہومیوپیتھک نسخہ",
         "sources_word": "حوالہ جات:",
         "new_case": "🔄 نیا کیس",
+        "model_label": "🤖 اے آئی انجن (ماڈل):",
+        "model_auto": "🤖 اوتو — تیز ترین پہلے (فال بیک کے ساتھ)",
+        "engine_help": "اوتو = سب سے تیز دستیاب انجن سے جواب • limit ختم ہو تو خود بخود اگلا انجن",
+        "prov_groq": "⚡ Groq — Llama 3.3 70B (سب سے تیز)",
+        "prov_groq_lim": "مفت ~14,400 درخواست/دن • 30/منٹ",
+        "prov_gemini": "✨ Gemini Flash (گوگل)",
+        "prov_gemini_lim": "مفت: روزانہ محدود حد (ماڈل کے مطابق)",
+        "prov_glm": "🧊 GLM Flash (Z.ai — مستقل مفت)",
+        "prov_glm_lim": "مستقل مفت — کوئی سخت روزانہ حد نہیں",
+        "prov_or": "🛟 OpenRouter (DeepSeek/Qwen مفت)",
+        "prov_or_lim": "مفت: ~50–200 درخواست/دن ($10 کریڈٹ پر ~1,000)",
+        "engine_status": "دستیاب انجن",
+        "active_model": "فعال ماڈل",
+        "today_used": "آج کی درخواستیں",
+        "fallback_note": "⚠️ {prev} کی حد بھر چکی تھی — جواب {cur} سے دیا گیا",
+        "err_engines_all": "تمام اے آئی انجن ناکام رہے۔ Streamlit Secrets میں keys چیک کریں۔",
     },
     "en": {
         "studio_title": "🧠 AI Diagnosis Studio — Symptoms to Prescription",
@@ -136,6 +179,22 @@ T = {
         "rx_title": "📋 Final Homeopathic Prescription",
         "sources_word": "Sources:",
         "new_case": "🔄 New Case",
+        "model_label": "🤖 AI Engine (Model):",
+        "model_auto": "🤖 Auto — fastest first (with fallback)",
+        "engine_help": "Auto = answers from the fastest available engine; if its limit is hit, the next engine is used automatically",
+        "prov_groq": "⚡ Groq — Llama 3.3 70B (Fastest)",
+        "prov_groq_lim": "Free ~14,400 requests/day • 30/min",
+        "prov_gemini": "✨ Gemini Flash (Google)",
+        "prov_gemini_lim": "Free: limited daily quota (model dependent)",
+        "prov_glm": "🧊 GLM Flash (Z.ai — always free)",
+        "prov_glm_lim": "Always free — no hard daily cap",
+        "prov_or": "🛟 OpenRouter (DeepSeek/Qwen free)",
+        "prov_or_lim": "Free: ~50–200 requests/day (~1,000 with $10 credit)",
+        "engine_status": "Available engines",
+        "active_model": "Active model",
+        "today_used": "requests today",
+        "fallback_note": "⚠️ {prev} limit reached — answered by {cur}",
+        "err_engines_all": "All AI engines failed. Check the keys in Streamlit Secrets.",
     },
     "roman": {
         "studio_title": "🧠 AI Diagnosis Studio — Alamaat se Nuskhah tak",
@@ -185,6 +244,22 @@ T = {
         "rx_title": "📋 Final Homeopathic Nuskhah",
         "sources_word": "Hawale:",
         "new_case": "🔄 Naya Case",
+        "model_label": "🤖 AI Engine (Model):",
+        "model_auto": "🤖 Auto — sab se tez pehle (fallback ke sath)",
+        "engine_help": "Auto = sab se tez available engine se jawab; limit bhar jaye to khud agla engine",
+        "prov_groq": "⚡ Groq — Llama 3.3 70B (Sab se tez)",
+        "prov_groq_lim": "Muft ~14,400 request/din • 30/min",
+        "prov_gemini": "✨ Gemini Flash (Google)",
+        "prov_gemini_lim": "Muft: rozana mehdood had (model par munhasir)",
+        "prov_glm": "🧊 GLM Flash (Z.ai — hamesha muft)",
+        "prov_glm_lim": "Hamesha muft — koi sakht rozana had nahi",
+        "prov_or": "🛟 OpenRouter (DeepSeek/Qwen muft)",
+        "prov_or_lim": "Muft: ~50–200 request/din ($10 credit par ~1,000)",
+        "engine_status": "Available engines",
+        "active_model": "Active model",
+        "today_used": "aaj ki requests",
+        "fallback_note": "⚠️ {prev} ki had bhar gayi thi — jawab {cur} se diya gaya",
+        "err_engines_all": "Tamam AI engine nakam rahe. Streamlit Secrets mein keys check karein.",
     },
 }
 
@@ -352,18 +427,19 @@ div.stButton > button[kind="primary"]:hover {
 # ==========================
 # CHECK KEYS
 # ==========================
-if not GEMINI_API_KEY:
-    st.error("❌ GEMINI_API_KEY غائب ہے (.env)")
+if not (GEMINI_API_KEY or GROQ_API_KEY or ZAI_API_KEY or OPENROUTER_API_KEY):
+    st.error("❌ کوئی اے آئی key نہیں ملی — GEMINI_API_KEY / GROQ_API_KEY / ZAI_API_KEY / OPENROUTER_API_KEY (.env یا Streamlit Secrets)")
     st.stop()
 if not QDRANT_URL or not QDRANT_API_KEY:
     st.error("❌ Qdrant keys غائب ہیں (.env)")
     st.stop()
 
-genai.configure(api_key=GEMINI_API_KEY)
-
 @st.cache_resource
 def init_services():
-    llm = genai.GenerativeModel("models/gemini-flash-latest")
+    llm = None
+    if GEMINI_API_KEY:
+        genai.configure(api_key=GEMINI_API_KEY)
+        llm = genai.GenerativeModel(GEMINI_MODEL)
     qdrant = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY)
     embedder = TextEmbedding(
         model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
@@ -375,6 +451,21 @@ try:
 except Exception as e:
     st.error(f"سروسز کنیکٹ نہیں ہوئیں: {e}")
     st.stop()
+
+# ==========================
+# MULTI-MODEL REGISTRY — order = fallback priority (fastest first)
+# ==========================
+PROVIDERS = []
+if GROQ_API_KEY:
+    PROVIDERS.append({"id": "groq", "label": T["prov_groq"], "limit": T["prov_groq_lim"], "model": GROQ_MODEL})
+if GEMINI_API_KEY:
+    PROVIDERS.append({"id": "gemini", "label": T["prov_gemini"], "limit": T["prov_gemini_lim"], "model": GEMINI_MODEL})
+if ZAI_API_KEY:
+    PROVIDERS.append({"id": "glm", "label": T["prov_glm"], "limit": T["prov_glm_lim"], "model": ZAI_MODEL})
+if OPENROUTER_API_KEY:
+    PROVIDERS.append({"id": "openrouter", "label": T["prov_or"], "limit": T["prov_or_lim"], "model": OR_MODEL})
+AUTO_CHAIN = [p["id"] for p in PROVIDERS]
+PROVIDERS_BY_ID = {p["id"]: p for p in PROVIDERS}
 
 # ==========================
 # HELPERS
@@ -450,7 +541,7 @@ def answers_text():
 def generate_books_mode(task: str, context: str) -> str:
     """STRICT: only local books"""
     if not context.strip():
-        return "معذرت، فراہم کردہ کتابی مواد میں اس کیس کے لیے کافی معلومات موجود نہیں ہیں۔"
+        return ""
 
     prompt = f"""
 STRICT BOOKS-ONLY MODE:
@@ -466,7 +557,7 @@ Books Context:
 Task:
 {task}
 """
-    return llm_model.generate_content(prompt).text
+    return prompt
 
 
 def generate_ai_mode(task: str, context: str = "") -> str:
@@ -482,13 +573,95 @@ Optional Books Context (may be empty):
 Task:
 {task}
 """
+    return prompt
+
+
+BOOKS_EMPTY_MSG = "معذرت، فراہم کردہ کتابی مواد میں اس کیس کے لیے کافی معلومات موجود نہیں ہیں۔"
+
+_OPENAI_CLIENTS = {}
+
+def _bump_usage(pid: str):
+    """Per-session daily usage counter (Streamlit session scope)"""
+    today = datetime.date.today().isoformat()
+    u = dict(st.session_state.get("usage") or {})
+    if u.get("date") != today:
+        u = {"date": today}
+    u[pid] = u.get(pid, 0) + 1
+    u["date"] = today
+    st.session_state["usage"] = u
+
+def _call_openai_compat(pid: str, model: str, prompt: str) -> str:
+    """Groq / GLM(Z.ai) / OpenRouter — sab OpenAI-compatible"""
+    if pid not in _OPENAI_CLIENTS:
+        try:
+            from openai import OpenAI
+        except Exception:
+            raise RuntimeError("openai package missing (requirements.txt: openai)")
+        base, key = {
+            "groq": ("https://api.groq.com/openai/v1", GROQ_API_KEY),
+            "glm": (ZAI_BASE, ZAI_API_KEY),
+            "openrouter": ("https://openrouter.ai/api/v1", OPENROUTER_API_KEY),
+        }[pid]
+        kw = {"api_key": key, "base_url": base}
+        if pid == "openrouter":
+            kw["default_headers"] = {
+                "HTTP-Referer": "https://bismillah-clinic-homeo.streamlit.app",
+                "X-Title": "Bismillah Homeo Assistant",
+            }
+        _OPENAI_CLIENTS[pid] = OpenAI(**kw)
+    cli = _OPENAI_CLIENTS[pid]
+    resp = cli.chat.completions.create(
+        model=model,
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.4,
+        max_tokens=4096,
+    )
+    return resp.choices[0].message.content
+
+def _call_gemini(prompt: str) -> str:
+    if llm_model is None:
+        raise RuntimeError("GEMINI_API_KEY missing")
     return llm_model.generate_content(prompt).text
 
+def ask_llm(prompt: str):
+    """Try engines in priority order; auto-fallback on any failure. Returns (text, provider)."""
+    choice = st.session_state.get("engine_choice", "auto")
+    if choice in PROVIDERS_BY_ID:
+        chain = [choice] + [c for c in AUTO_CHAIN if c != choice]
+    else:
+        chain = list(AUTO_CHAIN)
+    prev_label = None
+    errs = []
+    for pid in chain:
+        p = PROVIDERS_BY_ID.get(pid)
+        if not p:
+            continue
+        try:
+            if pid == "gemini":
+                text = _call_gemini(prompt)
+            else:
+                text = _call_openai_compat(pid, p["model"], prompt)
+            if not text or not str(text).strip():
+                raise RuntimeError("empty response")
+            _bump_usage(pid)
+            st.session_state["last_provider"] = p["label"]
+            st.session_state["last_fallback"] = (prev_label, p["label"]) if prev_label else None
+            return str(text), p
+        except Exception as e:
+            errs.append(f"{p['label']}: {type(e).__name__}")
+            prev_label = p["label"]
+            continue
+    raise RuntimeError(T["err_engines_all"] + " (" + "; ".join(errs) + ")")
 
 def generate(task: str, context: str = "") -> str:
     if st.session_state.search_mode.startswith("📚"):
-        return generate_books_mode(task, context)
-    return generate_ai_mode(task, context)
+        if not context.strip():
+            return BOOKS_EMPTY_MSG
+        prompt = generate_books_mode(task, context)
+    else:
+        prompt = generate_ai_mode(task, context)
+    text, _prov = ask_llm(prompt)
+    return text
 
 # ==========================
 # SESSION
@@ -542,6 +715,28 @@ with type_col:
         index=0 if st.session_state.case_type.startswith("🔴") else 1,
         help=T["ctype_help"]
     )
+
+# ==========================
+# AI ENGINE SELECTOR + STATUS (active model + limits + usage)
+# ==========================
+st.session_state.setdefault("engine_choice", "auto")
+_engine_labels = [T["model_auto"]] + [p["label"] for p in PROVIDERS]
+_engine_ids = ["auto"] + [p["id"] for p in PROVIDERS]
+_engine_idx = _engine_ids.index(st.session_state.engine_choice) if st.session_state.engine_choice in _engine_ids else 0
+_engine_choice = st.selectbox(T["model_label"], _engine_labels, index=_engine_idx, help=T["engine_help"])
+st.session_state.engine_choice = _engine_ids[_engine_labels.index(_engine_choice)]
+
+_usage = st.session_state.get("usage") or {}
+_last_prov = st.session_state.get("last_provider")
+if _last_prov:
+    _used_total = sum(v for k, v in _usage.items() if isinstance(v, int))
+    st.caption(f"🤖 {T['active_model']}: {_last_prov} • {T['today_used']}: {_used_total}")
+_last_fb = st.session_state.get("last_fallback")
+if _last_fb:
+    st.info(T["fallback_note"].format(prev=_last_fb[0], cur=_last_fb[1]))
+with st.expander(f"🔌 {T['engine_status']}", expanded=False):
+    for _p in PROVIDERS:
+        st.markdown(f"- **{_p['label']}** — {_p['limit']} • {T['today_used']}: {_usage.get(_p['id'], 0)}")
 
 # Progress
 st.progress(st.session_state.step / 3, text=T["progress"].format(n=st.session_state.step))

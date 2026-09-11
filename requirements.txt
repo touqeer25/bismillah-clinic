@@ -7,3 +7,4 @@ pymupdf
 pypdf
 pillow
 tqdm
+openai
