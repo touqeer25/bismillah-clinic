@@ -1,0 +1,123 @@
+{
+  "ailments": [
+    {"id": "fever", "ur": "بخار", "en": "Fever", "roman": "Bukhar"},
+    {"id": "cough", "ur": "کھانسی", "en": "Cough", "roman": "Khansi"},
+    {"id": "cold_flu", "ur": "نزلہ زکام", "en": "Cold / Flu", "roman": "Nazla Zukam"},
+    {"id": "headache", "ur": "سر درد", "en": "Headache", "roman": "Sar Dard"},
+    {"id": "sore_throat", "ur": "گلے کی خراش", "en": "Sore throat", "roman": "Galay Ki Kharash"},
+    {"id": "body_ache", "ur": "جسمانی درد", "en": "Body ache", "roman": "Jismani Dard"},
+    {"id": "stomach_pain", "ur": "پیٹ درد", "en": "Stomach pain", "roman": "Pait Dard"},
+    {"id": "diarrhea", "ur": "اسہال", "en": "Diarrhea", "roman": "Ishaal"},
+    {"id": "vomiting", "ur": "قے", "en": "Vomiting", "roman": "Qay"},
+    {"id": "constipation", "ur": "قبض", "en": "Constipation", "roman": "Qabz"},
+    {"id": "weakness", "ur": "کمزوری", "en": "Weakness", "roman": "Kamzori"},
+    {"id": "loss_appetite", "ur": "بھوک کی کمی", "en": "Loss of appetite", "roman": "Bhook Ki Kami"},
+    {"id": "skin_rash", "ur": "جلد کے دانے", "en": "Skin rash", "roman": "Jild Ke Danay"},
+    {"id": "earache", "ur": "کان کا درد", "en": "Earache", "roman": "Kaan Ka Dard"},
+    {"id": "toothache", "ur": "دانت کا درد", "en": "Toothache", "roman": "Daant Ka Dard"},
+    {"id": "dizziness", "ur": "چکر آنا", "en": "Dizziness", "roman": "Chakkar Aana"}
+  ],
+  "causation": [
+    {"id": "cold_exposure", "ur": "سردی لگنا", "en": "Cold exposure", "roman": "Sardi Lagna"},
+    {"id": "heat_sun", "ur": "گرمی / دھوپ", "en": "Heat / sun exposure", "roman": "Garmi / Dhoop"},
+    {"id": "anger", "ur": "غصہ", "en": "Anger / vexation", "roman": "Ghussa"},
+    {"id": "fright", "ur": "ڈر / خوف", "en": "Fright", "roman": "Dar / Khauf"},
+    {"id": "shock", "ur": "صدمہ", "en": "Shock / trauma", "roman": "Sadma"},
+    {"id": "overexertion", "ur": "زیادہ کام / تھکاوٹ", "en": "Overexertion", "roman": "Zyada Kaam / Thakawat"},
+    {"id": "getting_wet", "ur": "گیلا ہونا", "en": "Getting wet", "roman": "Geela Hona"},
+    {"id": "infection", "ur": "انفیکشن", "en": "Infection", "roman": "Infection"}
+  ],
+  "stage": [
+    {"id": "sudden", "ur": "اچانک آغاز", "en": "Sudden onset", "roman": "Achanak Aghaz"},
+    {"id": "gradual", "ur": "تدریجی آغاز", "en": "Gradual onset", "roman": "Tadreeji Aghaz"},
+    {"id": "onset", "ur": "شروع میں ہے", "en": "Early stage", "roman": "Shuru Mein Hai"},
+    {"id": "peak", "ur": "عروج پر ہے", "en": "At peak", "roman": "Urooj Par Hai"},
+    {"id": "decline", "ur": "افول / کم ہو رہی", "en": "Declining", "roman": "Afool / Kam Ho Rahi"},
+    {"id": "recurrent", "ur": "بار بار آتی ہے", "en": "Recurrent", "roman": "Bar Bar Aati Hai"}
+  ],
+  "aggravation": [
+    {"id": "motion", "ur": "حرکت سے بڑھتا ہے", "en": "Worse from motion", "roman": "Harkat Se Barhta"},
+    {"id": "rest", "ur": "آرام سے بڑھتا ہے", "en": "Worse from rest", "roman": "Aaram Se Barhta"},
+    {"id": "morning", "ur": "صبح بڑھتا ہے", "en": "Worse in morning", "roman": "Subah Barhta"},
+    {"id": "evening", "ur": "شام بڑھتا ہے", "en": "Worse in evening", "roman": "Shaam Barhta"},
+    {"id": "night", "ur": "رات بڑھتا ہے", "en": "Worse at night", "roman": "Raat Barhta"},
+    {"id": "cold", "ur": "سردی سے بڑھتا ہے", "en": "Worse from cold", "roman": "Sardi Se Barhta"},
+    {"id": "heat", "ur": "گرمی سے بڑھتا ہے", "en": "Worse from heat", "roman": "Garmi Se Barhta"},
+    {"id": "eating", "ur": "کھانے کے بعد بڑھتا ہے", "en": "Worse after eating", "roman": "Khanay Ke Baad Barhta"},
+    {"id": "touch", "ur": "چھونے / دباؤ سے بڑھتا ہے", "en": "Worse from touch / pressure", "roman": "Chhoone / Dabao Se Barhta"},
+    {"id": "damp", "ur": "مرطوب موسم سے بڑھتا ہے", "en": "Worse in damp weather", "roman": "Martoob Mausam Se Barhta"}
+  ],
+  "amelioration": [
+    {"id": "rest", "ur": "آرام سے راحت", "en": "Better from rest", "roman": "Aaram Se Rahat"},
+    {"id": "motion", "ur": "حرکت سے راحت", "en": "Better from motion", "roman": "Harkat Se Rahat"},
+    {"id": "warm", "ur": "گرم سینک سے راحت", "en": "Better from warmth", "roman": "Garam Senk Se Rahat"},
+    {"id": "cold_app", "ur": "ٹھنڈے سے راحت", "en": "Better from cold", "roman": "Thanday Se Rahat"},
+    {"id": "pressure", "ur": "دباؤ سے راحت", "en": "Better from pressure", "roman": "Dabao Se Rahat"},
+    {"id": "open_air", "ur": "کھلی ہوا میں راحت", "en": "Better in open air", "roman": "Khuli Hawa Mein Rahat"},
+    {"id": "lying", "ur": "لیٹنے سے راحت", "en": "Better lying down", "roman": "Letnay Se Rahat"},
+    {"id": "sitting", "ur": "بیٹھنے سے راحت", "en": "Better sitting", "roman": "Baithnay Se Rahat"}
+  ],
+  "concomitants": [
+    {"id": "irritability", "ur": "چڑچڑاپن", "en": "Irritability", "roman": "Chirchirapan"},
+    {"id": "restlessness", "ur": "بے چینی", "en": "Restlessness", "roman": "Be Chaini"},
+    {"id": "drowsiness", "ur": "غنودگی", "en": "Drowsiness", "roman": "Ghunoodgi"},
+    {"id": "sweating", "ur": "پسینہ", "en": "Sweating", "roman": "Paseena"},
+    {"id": "nausea", "ur": "متلی", "en": "Nausea", "roman": "Matli"},
+    {"id": "runny_nose", "ur": "بہتی ناک", "en": "Runny nose", "roman": "Behti Naak"},
+    {"id": "sneezing", "ur": "چھینکیں", "en": "Sneezing", "roman": "Chheenkein"},
+    {"id": "no_appetite", "ur": "بھوک نہ لگنا", "en": "No appetite", "roman": "Bhook Na Lagna"}
+  ],
+  "thirst": [
+    {"id": "thirsty", "ur": "زیادہ پیاس", "en": "Very thirsty", "roman": "Zyada Pyas"},
+    {"id": "thirstless", "ur": "بے پیاسی", "en": "Thirstless", "roman": "Be Pyasi"},
+    {"id": "sips", "ur": "تھوڑا تھوڑا پانی", "en": "Small sips", "roman": "Thora Thora Pani"},
+    {"id": "cold_water", "ur": "ٹھنڈا پانی چاہتا ہے", "en": "Craves cold water", "roman": "Thanda Pani Chahta"},
+    {"id": "warm_water", "ur": "گرم پانی چاہتا ہے", "en": "Craves warm water", "roman": "Garam Pani Chahta"},
+    {"id": "large_qty", "ur": "بڑی مقدار میں پانی", "en": "Large quantities", "roman": "Bari Miqdar Mein Pani"}
+  ],
+  "thermal": [
+    {"id": "chilly", "ur": "سردی محسوس ہوتی ہے", "en": "Chilly patient", "roman": "Sardi Mehsoos Hoti"},
+    {"id": "hot", "ur": "گرمی محسوس ہوتی ہے", "en": "Hot patient", "roman": "Garmi Mehsoos Hoti"},
+    {"id": "cold_extremities", "ur": "سرد ہاتھ پاؤں", "en": "Cold hands / feet", "roman": "Sard Haath Paon"},
+    {"id": "heat_head", "ur": "سر میں گرمی", "en": "Heat in head", "roman": "Sar Mein Garmi"},
+    {"id": "open_air_better", "ur": "کھلی ہوا پسند", "en": "Desires open air", "roman": "Khuli Hawa Pasand"},
+    {"id": "covers", "ur": "چادر اوڑھنا چاہتا ہے", "en": "Wants to be covered", "roman": "Chadar Orhna Chahta"}
+  ],
+  "mental": [
+    {"id": "sadness", "ur": "اداسی / غم", "en": "Sadness / grief", "roman": "Udasi / Gham"},
+    {"id": "weeping", "ur": "رونا چاہتا ہے", "en": "Wants to weep", "roman": "Rona Chahta"},
+    {"id": "fear", "ur": "خوف", "en": "Fear", "roman": "Khauf"},
+    {"id": "anxiety", "ur": "بے چینی / پریشانی", "en": "Anxiety", "roman": "Be Chaini / Pareshani"},
+    {"id": "anger", "ur": "غصہ", "en": "Anger", "roman": "Ghussa"},
+    {"id": "alone", "ur": "اکیلا رہنا چاہتا ہے", "en": "Wants to be alone", "roman": "Akela Rehna Chahta"},
+    {"id": "consolation", "ur": "تسلی سے بہتر", "en": "Better from consolation", "roman": "Tasalli Se Behtar"},
+    {"id": "indifferent", "ur": "بے توجہی", "en": "Indifference", "roman": "Be Tawajjuhi"},
+    {"id": "memory", "ur": "یادداشت کمزور", "en": "Weak memory", "roman": "Yaddasht Kamzor"}
+  ],
+  "appetite": [
+    {"id": "good", "ur": "اچھی بھوک", "en": "Good appetite", "roman": "Achhi Bhook"},
+    {"id": "poor", "ur": "کم بھوک", "en": "Poor appetite", "roman": "Kam Bhook"},
+    {"id": "no_appetite", "ur": "بھوک نہیں لگتی", "en": "No appetite", "roman": "Bhook Nahi Lagti"},
+    {"id": "ravenous", "ur": "شدید بھوک", "en": "Ravenous appetite", "roman": "Shadeed Bhook"},
+    {"id": "aversion_meat", "ur": "گوشت سے نفرت", "en": "Aversion to meat", "roman": "Gosht Se Nafrat"},
+    {"id": "craving_sweets", "ur": "میٹھا پسند", "en": "Craves sweets", "roman": "Meetha Pasand"}
+  ],
+  "sleep": [
+    {"id": "sleepless", "ur": "نیند نہیں آتی", "en": "Sleeplessness", "roman": "Neend Nahi Aati"},
+    {"id": "waking", "ur": "بار بار جاگنا", "en": "Wakes frequently", "roman": "Bar Bar Jagna"},
+    {"id": "dreams", "ur": "خواب آتے ہیں", "en": "Dreams", "roman": "Khwab Aate Hain"},
+    {"id": "nightmares", "ur": "ڈراؤنے خواب", "en": "Nightmares", "roman": "Daraone Khwab"},
+    {"id": "early_waking", "ur": "صبح جلدی جاگنا", "en": "Wakes too early", "roman": "Subah Jaldi Jagna"},
+    {"id": "unrefreshing", "ur": "بے آرام نیند", "en": "Unrefreshing sleep", "roman": "Be Aaram Neend"},
+    {"id": "position_side", "ur": "کروٹ لے کر سوتا ہے", "en": "Sleeps on side", "roman": "Karwat Le Kar Sota"},
+    {"id": "position_back", "ur": "پیٹھ کے بل سوتا ہے", "en": "Sleeps on back", "roman": "Peeth Ke Bal Sota"}
+  ],
+  "history": [
+    {"id": "family", "ur": "خاندانی بیماری", "en": "Family history", "roman": "Khandani Bimari"},
+    {"id": "past_illness", "ur": "ماضی کی بیماریاں", "en": "Past illnesses", "roman": "Maazi Ki Bimariyan"},
+    {"id": "vaccination", "ur": "ویکسین", "en": "Vaccination", "roman": "Vaccine"},
+    {"id": "medication", "ur": "ادویات کا استعمال", "en": "Medication", "roman": "Adwiyat Ka Istemaal"},
+    {"id": "surgery", "ur": "آپریشن", "en": "Surgery", "roman": "Operation"},
+    {"id": "allergies", "ur": "الرجی", "en": "Allergies", "roman": "Allergy"}
+  ]
+}

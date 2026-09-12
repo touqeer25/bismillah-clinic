@@ -1,6 +1,6 @@
 {
   "id": "acute",
-  "label": {"ur": "حاد (ایکیوٹ)", "en": "Acute", "roman": "Acute"},
+  "label": {"ur": "ایکوٹ", "en": "Acute", "roman": "Acute"},
   "description": {
     "ur": "سطحی، اچانک خلل — تیز اور مرتکز کیس ٹیکنگ",
     "en": "Superficial, sudden disturbance — fast and focused case-taking"
@@ -22,29 +22,104 @@
   "steps": [
     {
       "id": "chief",
-      "order": 1,
-      "title": {"ur": "بنیادی شکایت", "en": "Chief Complaint"},
-      "required": true,
-      "topics": ["محل (کہاں)", "احساس (کیسا درد)", "پھیلاؤ", "آغاز", "دورانیہ"]
+      "title": {"ur": "بنیادی شکایت", "en": "Chief Complaint", "roman": "Bunyadi Shikayat"},
+      "fields": [
+        {
+          "id": "chief_complaint",
+          "type": "textarea",
+          "height": 100,
+          "required": true,
+          "label": {"ur": "مریض کی بنیادی شکایت لکھیں", "en": "Write the patient's chief complaint", "roman": "Mareez ki bunyadi shikayat likhein"},
+          "placeholder": {"ur": "مثال: بخار، خشک کھانسی، حرکت سے بڑھتی ہے...", "en": "e.g. fever, dry cough, worse from motion...", "roman": "e.g. bukhar, khushk khansi, harkat se barhti hai..."},
+          "chips": {"set": "ailments", "title": {"ur": "عام امراض — کلک کر کے شامل کریں", "en": "Common ailments — click to add", "roman": "Aam amraaz — click kar ke shamil karein"}}
+        }
+      ]
+    },
+    {
+      "id": "other_symptoms",
+      "title": {"ur": "دیگر علامات", "en": "Other Symptoms", "roman": "Deegar Alamaat"},
+      "fields": [
+        {
+          "id": "other_symptoms",
+          "type": "textarea",
+          "height": 100,
+          "label": {"ur": "ساتھ والی دیگر علامات لکھیں", "en": "Write other accompanying symptoms", "roman": "Saath wali deegar alamaat likhein"},
+          "placeholder": {"ur": "مثال: بخار کے ساتھ کھانسی، نزلہ زکام...", "en": "e.g. cough, cold along with the fever...", "roman": "e.g. bukhar ke saath khansi, nazla zukam..."},
+          "chips": {"set": "ailments", "title": {"ur": "عام امراض — کلک کر کے شامل کریں", "en": "Common ailments — click to add", "roman": "Aam amraaz — click kar ke shamil karein"}}
+        }
+      ]
     },
     {
       "id": "causation",
-      "order": 2,
-      "title": {"ur": "وجہ بیماری + مرحلہ", "en": "Causation & Stage"},
-      "required": false,
-      "topics": ["سردی/گرمی", "غصہ", "صدمہ", "انفیکشن", "مرحلہ (شروع/عروج/افول)"]
+      "title": {"ur": "وجہ بیماری + مرحلہ", "en": "Causation & Stage", "roman": "Wajah-e-Bimari + Marhala"},
+      "fields": [
+        {
+          "id": "causation",
+          "type": "textarea",
+          "height": 70,
+          "label": {"ur": "بیماری کی وجہ کیا لگتی ہے؟", "en": "What seems to have caused it?", "roman": "Bimari ki wajah kya lagti hai?"},
+          "placeholder": {"ur": "مثال: سردی لگنا، غصہ، صدمہ...", "en": "e.g. cold exposure, anger, shock...", "roman": "e.g. sardi lagna, ghussa, sadma..."},
+          "chips": {"set": "causation", "title": {"ur": "ممکنہ وجوہات — کلک کریں", "en": "Possible causes — click", "roman": "Mumkina wajohaat — click karein"}}
+        },
+        {
+          "id": "stage",
+          "type": "textarea",
+          "height": 70,
+          "label": {"ur": "بیماری کا مرحلہ / آغاز", "en": "Stage / onset", "roman": "Marhala / aghaz"},
+          "placeholder": {"ur": "مثال: اچانک آغاز، عروج پر ہے...", "en": "e.g. sudden onset, at peak...", "roman": "e.g. achanak aghaz, urooj par hai..."},
+          "chips": {"set": "stage", "title": {"ur": "ممکنہ مرحلے — کلک کریں", "en": "Possible stages — click", "roman": "Mumkina marahil — click karein"}}
+        }
+      ]
     },
     {
       "id": "modalities",
-      "order": 3,
-      "title": {"ur": "موڈیلٹیز + ہم راہ + پیاس/حرارت", "en": "Modalities, Concomitants, Thirst & Thermal"},
-      "required": true,
-      "topics": ["کس سے بڑھتا ہے", "کس سے راحت", "ہم راہ علامات", "پیاس", "گرم/ٹھنڈا رجحان"]
+      "title": {"ur": "موڈیلٹیز، ہم راہ علامات، پیاس و حرارت", "en": "Modalities, Concomitants, Thirst & Thermal", "roman": "Modalities, Humrah Alamaat, Pyas-o-Hararat"},
+      "fields": [
+        {
+          "id": "aggravation",
+          "type": "textarea",
+          "height": 70,
+          "label": {"ur": "علامت کس سے بڑھتی ہے؟", "en": "What aggravates the symptom?", "roman": "Alamat kis se barhti hai?"},
+          "placeholder": {"ur": "مثال: حرکت سے، رات کو، سردی سے...", "en": "e.g. from motion, at night, from cold...", "roman": "e.g. harkat se, raat ko, sardi se..."},
+          "chips": {"set": "aggravation", "title": {"ur": "بڑھنے کے اسباب — کلک کریں", "en": "Aggravations — click", "roman": "Barhnay ke asbaab — click karein"}}
+        },
+        {
+          "id": "amelioration",
+          "type": "textarea",
+          "height": 70,
+          "label": {"ur": "کس سے راحت ملتی ہے؟", "en": "What relieves it?", "roman": "Kis se rahat milti hai?"},
+          "placeholder": {"ur": "مثال: آرام سے، گرم سینک سے...", "en": "e.g. from rest, from warmth...", "roman": "e.g. aaram se, garam senk se..."},
+          "chips": {"set": "amelioration", "title": {"ur": "راحت کے اسباب — کلک کریں", "en": "Ameliorations — click", "roman": "Rahat ke asbaab — click karein"}}
+        },
+        {
+          "id": "concomitants",
+          "type": "textarea",
+          "height": 70,
+          "label": {"ur": "ہم راہ علامات", "en": "Concomitant symptoms", "roman": "Humrah alamaat"},
+          "placeholder": {"ur": "مثال: بے چینی، پسینہ، متلی...", "en": "e.g. restlessness, sweating, nausea...", "roman": "e.g. be chaini, paseena, matli..."},
+          "chips": {"set": "concomitants", "title": {"ur": "ہم راہ علامات — کلک کریں", "en": "Concomitants — click", "roman": "Humrah alamaat — click karein"}}
+        },
+        {
+          "id": "thirst",
+          "type": "textarea",
+          "height": 70,
+          "label": {"ur": "پیاس کیسی ہے؟", "en": "How is the thirst?", "roman": "Pyas kaisi hai?"},
+          "placeholder": {"ur": "مثال: زیادہ پیاس، بے پیاسی...", "en": "e.g. very thirsty, thirstless...", "roman": "e.g. zyada pyas, be pyasi..."},
+          "chips": {"set": "thirst", "title": {"ur": "پیاس — کلک کریں", "en": "Thirst — click", "roman": "Pyas — click karein"}}
+        },
+        {
+          "id": "thermal",
+          "type": "textarea",
+          "height": 70,
+          "label": {"ur": "گرم / سرد طبیعت", "en": "Thermal (hot / chilly) nature", "roman": "Garm / sardi ki tabiyat"},
+          "placeholder": {"ur": "مثال: سردی محسوس، سر میں گرمی...", "en": "e.g. feels chilly, heat in head...", "roman": "e.g. sardi mehsoos, sar mein garmi..."},
+          "chips": {"set": "thermal", "title": {"ur": "طبیعت — کلک کریں", "en": "Thermal — click", "roman": "Tabiyat — click karein"}}
+        }
+      ]
     },
     {
-      "id": "remedy",
-      "order": 4,
-      "title": {"ur": "ریپرٹورائزیشن → تفریق → نسخہ", "en": "Repertorization → Differential → Prescription"},
+      "id": "repertory",
+      "title": {"ur": "ریپرٹورائزیشن → تفریق → نسخہ", "en": "Repertorization → Differential → Prescription", "roman": "Repertorization → Tafreeq → Nuskha"},
       "module": "repertorize"
     }
   ]

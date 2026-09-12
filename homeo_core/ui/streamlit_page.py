@@ -1,21 +1,24 @@
 """
-streamlit_page.py — اڈاپٹو ایڈوانس اسسٹنٹ (کلینک جیسا ڈیزائن)
-------------------------------------------------------------
-homeo_core کے FlowRunner پر مبنی اڈاپٹو یو آئی، جو باقی صفحات
-(ٹریٹمنٹ اسٹوڈیو / ایڈوانس تشخیص موڈز / کیس ٹیکنگ) جیسی
-رنگ سکیم اور ترتیب اپناتی ہے:
+streamlit_page.py — اڈاپٹو ایڈوانس اسسٹنٹ (ٹیب پر مبنی، صاف لے آؤٹ)
+----------------------------------------------------------------
+ڈیزائن (آخری ہدایت کے مطابق):
+  - کوئی ہیڈر نہیں، کوئی زبان کا سوئچر نہیں، کوئی مکملیت بار نہیں
+  - زبان والد ایپ (?lang=) سے آتی ہے
+  - ٹاپ پر دو ٹوگل ٹیبز: ایکوٹ | کرانک
+  - نیچے سیکشن ٹیبز — پہلا ٹیب ڈیفالٹ "بنیادی شکایت (Chief Complaint)"
+  - ہر ٹیب میں فیلڈز (text area) اور ہر فیلڈ کے نیچے
+    "کلک ایبل چیپ بٹن" — کلک کرنے پر متن اسی فیلڈ میں شامل ہو جاتا ہے
 
-  - چھوٹا (کمپیکٹ) نیلا ٹاپ بار — عنوان + زبان + کیس کی قسم، سب اوپر
-  - تین زبانیں: اردو / English / Roman
-  - اکیوٹ: 4 مراحل | کرانک: 8 مراحل + میازم + فالو اپ
-  - رنگ: #1a5276 → #2980b9 (نیلا)، سفید کارڈز
-
-نوٹ: زبان اور کیس کی قسم ویجٹس کو session_state سے باندھا گیا ہے
-(Streamlit کا مقامی طریقہ) — کوئی دستی st.rerun() لوپ نہیں۔
+ڈیٹا کا نظام (الگ فائلوں میں — کوڈ چھوئے بغیر ترمیم):
+  - config/acute_flow.json  /  chronic_flow.json
+      → ہر فلو کے سیکشن ٹیبز اور ہر ٹیب کے فیلڈز (سوال + placeholder + chips)
+  - config/quick_picks.json
+      → ہر فیلڈ کے نیچے دکھنے والے ممکنہ جوابات / عام امراض
 """
-
 from __future__ import annotations
 
+import json
+import re
 import sys
 from pathlib import Path
 
@@ -25,31 +28,23 @@ ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+CONFIG_DIR = ROOT / "homeo_core" / "config"
+
 from homeo_core.flows.flow_runner import FlowRunner          # noqa: E402
 from homeo_core.engine import llm as llm_mod                  # noqa: E402
 from homeo_core.engine import miasm as miasm_mod              # noqa: E402
 from homeo_core.engine import sources as sources_mod          # noqa: E402
 
-LANG_LIST = ["ur", "en", "roman"]
-LANG_LABELS = {"ur": "اردو", "en": "English", "roman": "Roman"}
-
-# موجودہ زبان — render_app() کے اندر سیٹ ہوتی ہے
 _LANG = "ur"
 
 T = {
-    "title": {"ur": "⚕️ ایڈوانس اسسٹنٹ 2.0", "en": "⚕️ Advanced Assistant 2.0", "roman": "⚕️ Advanced Assistant 2.0"},
-    "subtitle": {"ur": "مریض کی انفرادیت — علامات سے نسخہ تک", "en": "Patient Individualization — Symptoms to Prescription", "roman": "Mareez ki infiradiyat — Alamat se Nuskha tak"},
-    "language": {"ur": "زبان", "en": "Language", "roman": "Language"},
-    "case_type": {"ur": "کیس کی قسم", "en": "Case Type", "roman": "Case Type"},
-    "acute": {"ur": "🔴 حاد (ایکیوٹ)", "en": "🔴 Acute", "roman": "🔴 Acute"},
-    "chronic": {"ur": "🔵 مزمن (کرانک)", "en": "🔵 Chronic", "roman": "🔵 Chronic"},
-    "completeness": {"ur": "کیس کی مکملیت", "en": "Case Completeness", "roman": "Case Completeness"},
-    "missing": {"ur": "یہ جہتیں ادھوری ہیں", "en": "Incomplete dimensions", "roman": "Yeh jihatein adhuri hain"},
-    "chief_label": {"ur": "مریض کی بنیادی شکایت", "en": "Chief Complaint", "roman": "Mareez ki bunyadi shikayat"},
-    "chief_ph": {"ur": "مثال: خشک کھانسی، حرکت سے بڑھتی ہے...", "en": "e.g. dry cough, worse from motion...", "roman": "e.g. khushk khansi, harkat se barhti hai..."},
-    "select_topics": {"ur": "منتخب کریں (کلک کریں)", "en": "Select topics", "roman": "Muntakhab karein"},
-    "free_text": {"ur": "اضافی تفصیل / نوٹس", "en": "Additional details / notes", "roman": "Izafi tafseel / notes"},
-    "free_ph": {"ur": "جو اوپر نہ ہو یہاں لکھیں...", "en": "Write anything not listed above...", "roman": "Jo upar na ho yahan likhein..."},
+    "acute_short": {"ur": "ایکوٹ", "en": "Acute", "roman": "Acute"},
+    "chronic_short": {"ur": "کرانک", "en": "Chronic", "roman": "Chronic"},
+    "chief_added": {
+        "ur": "بنیادی شکایت درج ہو گئی — اگلا ٹیب: دیگر علامات",
+        "en": "Chief complaint recorded — next tab: Other Symptoms",
+        "roman": "Bunyadi shikayat darj ho gayi — agla tab: Deegar Alamaat",
+    },
     "symptoms_collected": {"ur": "جمع شدہ علامات", "en": "Collected Symptoms", "roman": "Jama shuda alamaat"},
     "run_repertorization": {"ur": "🌿 ریپرٹورائزیشن چلائیں", "en": "🌿 Run Repertorization", "roman": "🌿 Repertorization chalain"},
     "running": {"ur": "ربرکس اور ادویات تلاش کی جا رہی ہیں...", "en": "Searching rubrics and remedies...", "roman": "Rubrics aur adwiyat talash ho rahi hain..."},
@@ -61,16 +56,18 @@ T = {
     "potency_title": {"ur": "⚡ پوٹینسی اور خوراک", "en": "⚡ Potency & Dosage", "roman": "⚡ Potency aur Khurak"},
     "followup_title": {"ur": "🔁 فالو اپ", "en": "🔁 Follow-up", "roman": "🔁 Follow-up"},
     "response_q": {"ur": "علاج کے بعد کیا ہوا؟", "en": "What happened after treatment?", "roman": "Ilaj ke baad kya hua?"},
+    "fu_improved": {"ur": "✅ بہتری (عمومی)", "en": "✅ Improvement (general)", "roman": "✅ Behtari (umoomi)"},
+    "fu_aggr_imp": {"ur": "⚠️ پہلے بڑھنا، پھر بہتری", "en": "⚠️ Aggravation then improvement", "roman": "⚠️ Pehle barhna, phir behtari"},
+    "fu_no_change": {"ur": "❌ کوئی تبدیلی نہیں", "en": "❌ No change", "roman": "❌ Koi tabdeeli nahin"},
+    "fu_worse": {"ur": "🔻 خرابی / نئی علامات", "en": "🔻 Worse / new symptoms", "roman": "🔻 Kharabi / nayi alamaat"},
+    "dominant": {"ur": "غالب میازم", "en": "Dominant Miasm", "roman": "Ghalib Miasm"},
     "decision": {"ur": "فیصلہ", "en": "Decision", "roman": "Faisla"},
     "reason": {"ur": "وجہ", "en": "Reason", "roman": "Wajah"},
     "next_steps": {"ur": "اگلے اقدامات", "en": "Next Steps", "roman": "Agle iqdamaat"},
-    "back": {"ur": "⬅️ واپس", "en": "⬅️ Back", "roman": "⬅️ Wapis"},
-    "next": {"ur": "آگے ➔", "en": "Next ➔", "roman": "Aage ➔"},
-    "reset": {"ur": "🔄 نیا کیس", "en": "🔄 New Case", "roman": "🔄 Naya Case"},
     "rubrics_used": {"ur": "استعمال شدہ ربرکس", "en": "Rubrics Used", "roman": "Istemaal shuda rubrics"},
     "final_prescription": {"ur": "📋 حتمی نسخہ تیار کریں (اے آئی)", "en": "📋 Generate Final Prescription (AI)", "roman": "📋 Nuskha taiyar karein (AI)"},
     "ai_offline": {"ur": "اے آئی کیز دستیاب نہیں — مقامی ریپرٹری موڈ چل رہا ہے", "en": "No AI keys — running local repertory mode", "roman": "AI keys nahin — local repertory mode"},
-    "no_symptoms": {"ur": "پہلے کچھ علامات درج کریں", "en": "Enter some symptoms first", "roman": "Pehle kuch alamaat likhein"},
+    "no_symptoms": {"ur": "پہلے دیگر ٹیبز میں علامات درج کریں", "en": "Enter symptoms in the other tabs first", "roman": "Pehle doosri tabs me alamaat likhein"},
     "final_note": {"ur": "⚠️ یہ اے آئی کی رہنمائی ہے — حتمی فیصلہ معالج کا ہے", "en": "⚠️ AI guidance — final decision rests with the physician", "roman": "⚠️ AI rahnumai — aakhri faisla mu'alij ka hai"},
 }
 
@@ -79,7 +76,8 @@ def t(key: str) -> str:
     return T.get(key, {}).get(_LANG, T.get(key, {}).get("ur", key))
 
 
-def _lang_from_query() -> str:
+def _get_lang() -> str:
+    """زبان صرف ?lang= سے آتی ہے (والد ایپ آئی فریم میں بھیجتی ہے)"""
     try:
         v = st.query_params.get("lang", "ur")
     except Exception:
@@ -90,7 +88,7 @@ def _lang_from_query() -> str:
 
 
 # ------------------------------------------------------------------ #
-# کلینک جیسا اسٹائل (app.py کی اصل CSS + کمپیکٹ ٹاپ بار)
+# کلینک جیسا اسٹائل
 # ------------------------------------------------------------------ #
 CSS = """
 <style>
@@ -101,11 +99,10 @@ html, body, [data-testid="stAppViewContainer"] {
     color: #2c3e50;
     font-family: 'Segoe UI', Tahoma, sans-serif;
 }
-/* Streamlit کا اپنا ہیڈر/مینو چھپائیں — پیج صاف نظر آئے */
 #MainMenu, footer, header {visibility: hidden;}
 [data-testid="stToolbar"] {display:none;}
 .block-container {
-    padding-top: 0.7rem !important;
+    padding-top: 0.6rem !important;
     padding-bottom: 2rem !important;
     max-width: 1200px;
 }
@@ -114,70 +111,65 @@ div[role="progressbar"] > div {
     background: linear-gradient(90deg, #2980b9, #1a5276) !important;
 }
 
-/* ===== کمپیکٹ ٹاپ بار ===== */
-.bhc-topbar {
-    background: linear-gradient(135deg, #1a5276, #2980b9);
-    color: #fff;
-    border-radius: 12px;
-    padding: 10px 18px;
-    margin-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    box-shadow: 0 2px 10px rgba(26,82,118,.25);
+/* ===== اوپر کا ایکوٹ/کرانک ٹوگل ===== */
+[data-testid="stSegmentedControl"] { width: 100%; }
+[data-testid="stSegmentedControl"] button {
+    font-family: 'Noto Nastaliq Urdu', 'Segoe UI', sans-serif;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    padding: 8px 16px !important;
 }
-.bhc-topbar .t { font-size: 17px; font-weight: 800; }
-.bhc-topbar .s { font-size: 11.5px; opacity: .92; }
-
-/* ===== لیبل (زبان / کیس کی قسم) ===== */
-.bhc-label {
-    font-size: 12px; font-weight: 700; color: #1a5276; margin-bottom: 2px;
+[data-testid="stSegmentedControl"] button[aria-checked="true"] {
+    background: linear-gradient(135deg, #2980b9, #1a5276) !important;
+    color: #fff !important;
 }
 
-/* ===== کارڈ (index.html کے .card جیسا) ===== */
-.bhc-card {
-    background: #ffffff;
-    border: 1px solid #d1e3f8;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    padding: 18px;
-    margin-bottom: 14px;
-}
-.bhc-card-title {
-    color: #1a5276;
-    font-size: 16px;
+/* ===== نیچے کی سیکشن ٹیبز ===== */
+.stTabs [data-baseweb="tab-list"] { gap: 4px; }
+.stTabs [data-baseweb="tab"] {
+    font-family: 'Noto Nastaliq Urdu', 'Segoe UI', sans-serif;
     font-weight: 700;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #ecf0f1;
+    padding: 8px 14px;
 }
 
-/* ===== سٹیپر ===== */
-.bhc-step {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: #fff; border: 1.5px solid #e1e8f0; border-radius: 20px;
-    padding: 3px 12px; font-size: 11.5px; font-weight: 700; color: #7f8c9a;
-    margin: 2px; direction: rtl;
+/* ===== فیلڈ لیبل ===== */
+.bhc-field-label {
+    color: #1a5276; font-size: 15px; font-weight: 700;
+    margin: 10px 0 2px; direction: rtl;
 }
-.bhc-step .c {
-    width: 18px; height: 18px; border-radius: 50%;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 10px; background: #eef2f7; color: #7f8c9a;
-}
-.bhc-step.on { background: #eaf2f8; border-color: #2980b9; color: #1a5276; }
-.bhc-step.on .c { background: #2980b9; color: #fff; }
-.bhc-step.done .c { background: #27ae60; color: #fff; }
 
-/* ===== چپس ===== */
+/* ===== چیپ بٹن (کلک ایبل ٹیبز) ===== */
+.bhc-chip-title {
+    color: #7f8c9a; font-size: 12px; font-weight: 700;
+    margin: 10px 0 4px; direction: rtl;
+}
+div.stButton button[class*="st-key-chip_"] {
+    background: #f4faf7 !important;
+    border: 1px solid #cde9dc !important;
+    color: #1e6b50 !important;
+    border-radius: 999px !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 5px 10px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+    font-family: 'Noto Nastaliq Urdu', 'Segoe UI', sans-serif !important;
+    box-shadow: none !important;
+}
+div.stButton button[class*="st-key-chip_"]:hover {
+    background: #dcf0e7 !important;
+    border-color: #9fd4be !important;
+    color: #14513a !important;
+}
+
+/* ===== چپس / کارڈز / مواد ===== */
 .bhc-chip {
     display: inline-block; background: #eafaf1; border: 1px solid #a9dfbf;
     color: #1e8449; border-radius: 20px; padding: 3px 12px; font-size: 12px;
     font-weight: 600; margin: 2px; direction: rtl;
 }
-
-/* ===== دوا کارڈ ===== */
 .bhc-remedy {
     background: #fbfdfe; border: 1px solid #d6eaf8; border-right: 4px solid #2980b9;
     border-radius: 12px; padding: 11px 14px; margin-bottom: 9px; direction: rtl;
@@ -186,6 +178,19 @@ div[role="progressbar"] > div {
     display: inline-block; background: #e8f0fe; color: #1a5276;
     border: 1px solid #cfe0f4; border-radius: 8px; padding: 1px 8px;
     font-size: 11px; font-weight: 600; margin: 2px;
+}
+.bhc-card-title {
+    color: #1a5276; font-size: 16px; font-weight: 700;
+    margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #ecf0f1;
+}
+.bhc-card {
+    background: #ffffff; border: 1px solid #d1e3f8; border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06); padding: 18px; margin-bottom: 14px;
+}
+.bhc-done-hint {
+    background: #eafaf1; border: 1px solid #a9dfbf; color: #1e8449;
+    border-radius: 10px; padding: 8px 12px; margin-top: 8px;
+    font-size: 13px; font-weight: 600; direction: rtl;
 }
 
 /* ===== ان پٹس ===== */
@@ -196,13 +201,10 @@ div[role="progressbar"] > div {
     border-radius: 10px !important;
 }
 
-/* ===== بٹن — کلینک جیسے ===== */
+/* ===== بٹن ===== */
 div.stButton > button {
-    border-radius: 8px !important;
-    font-weight: 600 !important;
-    min-height: 2.3rem;
-    white-space: normal !important;
-    height: auto !important;
+    border-radius: 8px; font-weight: 600; min-height: 2.3rem;
+    white-space: normal !important; height: auto !important;
     font-family: 'Noto Nastaliq Urdu', 'Segoe UI', sans-serif;
 }
 div.stButton > button[kind="primary"] {
@@ -223,22 +225,24 @@ def _cached_runner(case_type: str) -> FlowRunner:
     return FlowRunner(case_type)
 
 
+@st.cache_data(show_spinner=False)
+def _cached_quick_picks() -> dict:
+    fpath = CONFIG_DIR / "quick_picks.json"
+    if fpath.exists():
+        return json.loads(fpath.read_text(encoding="utf-8"))
+    return {}
+
+
 # ------------------------------------------------------------------ #
 # سیشن سٹیٹ
 # ------------------------------------------------------------------ #
 def _init_state():
-    if "bc_lang" not in st.session_state:
-        st.session_state.bc_lang = _lang_from_query()
     st.session_state.setdefault("bc_case_type", "acute")
-    st.session_state.setdefault("bc_step", 0)
-    st.session_state.setdefault("bc_data", {})
     st.session_state.setdefault("bc_result", None)
     st.session_state.setdefault("bc_rx", None)
 
 
 def _reset_case_state():
-    st.session_state.bc_step = 0
-    st.session_state.bc_data = {}
     st.session_state.bc_result = None
     st.session_state.bc_rx = None
 
@@ -247,98 +251,136 @@ def _on_case_change():
     _reset_case_state()
 
 
-def _collected_symptoms() -> list:
+def _case_type() -> str:
+    return st.session_state.get("bc_case_type", "acute")
+
+
+def _field_key(sid: str, fid: str) -> str:
+    """ہر فیلڈ کا منفرد session_state کلید (کیس ٹائپ سمیت)"""
+    return f"f_{_case_type()}_{sid}_{fid}"
+
+
+# ------------------------------------------------------------------ #
+# علامات اکٹھا کرنا
+# ------------------------------------------------------------------ #
+def _split_symptoms(text: str) -> list:
+    """فیلڈ کے متن کو الگ الگ علامات میں توڑنا (کاما / سطر / ۔)"""
+    parts = re.split(r"[\n,،。؛;]+", text or "")
+    return [p.strip() for p in parts if p and p.strip()]
+
+
+def _collected_symptoms(steps: list) -> list:
     out = []
-    data = st.session_state.bc_data
-    if data.get("chief", {}).get("notes"):
-        out.append(data["chief"]["notes"])
-    for step_id, d in data.items():
-        if step_id == "chief":
-            continue
-        for x in d.get("topics", []):
-            out.append(x)
-        if d.get("notes", "").strip():
-            out.append(d["notes"].strip())
-    return [s for s in out if s and str(s).strip()]
+    for step in steps:
+        for f in step.get("fields", []):
+            txt = st.session_state.get(_field_key(step["id"], f["id"]), "")
+            out.extend(_split_symptoms(txt))
+    return out
 
 
 # ------------------------------------------------------------------ #
-# سٹیپر
+# فیلڈز اور چیپ بٹن
 # ------------------------------------------------------------------ #
-def _render_stepper(runner: FlowRunner):
-    steps = runner.steps
-    cur = st.session_state.bc_step
-    html = ['<div style="margin:4px 0 10px;">']
-    for i, s in enumerate(steps):
-        label = s["title"].get(_LANG, s["title"].get("ur", s["id"]))
-        if i < cur:
-            cls, mark = "done", "✓"
-        elif i == cur:
-            cls, mark = "on", str(i + 1)
-        else:
-            cls, mark = "", str(i + 1)
-        html.append(f'<span class="bhc-step {cls}"><span class="c">{mark}</span>{label}</span>')
-    html.append("</div>")
-    st.markdown("".join(html), unsafe_allow_html=True)
+def _pick_label(item) -> str:
+    if isinstance(item, dict):
+        return item.get(_LANG) or item.get("ur") or item.get("en") or ""
+    return str(item)
 
 
-# ------------------------------------------------------------------ #
-# مکملیت (کمپیکٹ)
-# ------------------------------------------------------------------ #
-def _render_completeness(runner: FlowRunner):
-    comp = runner.completeness()
-    c1, c2 = st.columns([1, 2])
-    with c1:
-        st.progress(min(comp["percent"] / 100, 1.0), text=f"{t('completeness')}: {comp['percent']}%")
-    with c2:
-        if comp["suggestions"]:
-            with st.expander(t("missing")):
-                for s in comp["suggestions"][:4]:
-                    st.markdown(f"💡 {s}")
+def _append_chip(field_key: str, text: str):
+    """چیپ پر کلک → متن فیلڈ میں شامل"""
+    cur = (st.session_state.get(field_key, "") or "").strip()
+    st.session_state[field_key] = (cur + "\n" + text).strip() if cur else text
 
 
-# ------------------------------------------------------------------ #
-# مراحل
-# ------------------------------------------------------------------ #
-def _render_step(runner: FlowRunner):
-    step = runner.steps[st.session_state.bc_step]
+def _render_chips(sid: str, fid: str, chip_def: dict):
+    """فیلڈ کے نیچے کلک ایبل چیپ بٹن (امراض / ممکنہ جوابات)"""
+    if not chip_def:
+        return
+    picks = _cached_quick_picks()
+    items = picks.get(chip_def.get("set", ""), [])
+    if not items:
+        return
+
+    title = chip_def.get("title", {})
+    title_text = title.get(_LANG) or title.get("ur", "")
+    if title_text:
+        st.markdown(f'<div class="bhc-chip-title">▸ {title_text}</div>', unsafe_allow_html=True)
+
+    labels = [_pick_label(it) for it in items]
+    fkey = _field_key(sid, fid)
+    per_row = 4
+    for i in range(0, len(labels), per_row):
+        cols = st.columns(per_row)
+        for j, col in enumerate(cols):
+            idx = i + j
+            if idx >= len(labels):
+                break
+            with col:
+                st.button(
+                    labels[idx],
+                    key=f"chip_{_case_type()}_{sid}_{fid}_{idx}",
+                    on_click=_append_chip,
+                    args=(fkey, labels[idx]),
+                    use_container_width=True,
+                )
+
+
+def _render_field(sid: str, f: dict):
+    """ایک فیلڈ (سوال + text area) + اس کے نیچے چیپ بٹن"""
+    fid = f["id"]
+    fkey = _field_key(sid, fid)
+    label = f.get("label", {})
+    label_text = label.get(_LANG) or label.get("ur") or fid
+    ph = f.get("placeholder", {})
+    ph_text = ph.get(_LANG) or ph.get("ur", "")
+    height = f.get("height", 80)
+
+    if label_text:
+        st.markdown(f'<div class="bhc-field-label">{label_text}</div>', unsafe_allow_html=True)
+    st.text_area(label_text, key=fkey, height=height, placeholder=ph_text,
+                 label_visibility="collapsed")
+    _render_chips(sid, fid, f.get("chips"))
+
+
+def _render_step_content(step: dict, runner: FlowRunner):
     sid = step["id"]
-    st.markdown(
-        f'<div class="bhc-card-title">{step["title"].get(_LANG, step["title"].get("ur", sid))}</div>',
-        unsafe_allow_html=True,
-    )
 
-    data = st.session_state.bc_data.setdefault(sid, {"topics": [], "notes": ""})
+    if step.get("module") == "repertorize":
+        _render_remedy_tab(runner)
+        return
+    if step.get("module") == "miasm":
+        _render_miasm_tab(runner)
+        return
+    if step.get("module") == "followup":
+        _render_followup_tab()
+        return
 
+    for f in step.get("fields", []):
+        _render_field(sid, f)
+
+    # چیف کمپلینٹ درج ہو جائے تو اگلے ٹیب کی نرم رہنمائی
     if sid == "chief":
-        data["notes"] = st.text_area(t("chief_label"), value=data["notes"], height=100, placeholder=t("chief_ph"))
-    elif step.get("module") == "repertorize":
-        _render_remedy_step(runner)
-        return
-    elif step.get("module") == "miasm":
-        _render_miasm_step()
-        return
-    elif step.get("module") == "followup":
-        _render_followup_step()
-        return
-    else:
-        topics = step.get("topics", [])
-        if topics:
-            data["topics"] = st.multiselect(t("select_topics"), topics, default=data.get("topics", []))
-        data["notes"] = st.text_area(t("free_text"), value=data.get("notes", ""), height=80, placeholder=t("free_ph"))
+        chief_key = _field_key("chief", "chief_complaint")
+        if (st.session_state.get(chief_key, "") or "").strip():
+            st.markdown(f'<div class="bhc-done-hint">✅ {t("chief_added")}</div>',
+                        unsafe_allow_html=True)
 
 
-def _render_remedy_step(runner: FlowRunner):
-    symptoms = _collected_symptoms()
+# ------------------------------------------------------------------ #
+# ریپرٹورائزیشن / میازم / فالو اپ ٹیبز
+# ------------------------------------------------------------------ #
+def _render_remedy_tab(runner: FlowRunner):
+    symptoms = _collected_symptoms(runner.steps)
     if not symptoms:
-        st.warning(t("no_symptoms"))
+        st.info(t("no_symptoms"))
         return
 
     st.markdown(f"**{t('symptoms_collected')}** ({len(symptoms)}):")
     st.markdown('<div style="margin:6px 0 10px;">' + "".join(
         f'<span class="bhc-chip">{s}</span>' for s in symptoms) + "</div>", unsafe_allow_html=True)
 
-    if st.button(t("run_repertorization"), type="primary", use_container_width=True):
+    if st.button(t("run_repertorization"), type="primary", use_container_width=True, key="run_repert"):
         with st.spinner(t("running")):
             try:
                 st.session_state.bc_result = runner.run_repertorization(symptoms)
@@ -390,7 +432,7 @@ def _render_remedy_step(runner: FlowRunner):
         for ru in res.get("rubrics_used", [])[:20]:
             st.markdown(f"• [{ru['source']}][{ru['dimension']}] {ru['rubric']}")
 
-    if st.button(t("final_prescription"), use_container_width=True):
+    if st.button(t("final_prescription"), use_container_width=True, key="final_rx_btn"):
         with st.spinner("نسخہ تیار ہو رہا ہے..."):
             try:
                 prompt = f"""You are an expert classical homeopathic physician.
@@ -414,8 +456,8 @@ Write a final prescription in Urdu with headings: منتخب بہترین دوا
     st.markdown(f"<div style='font-size:11px;color:#7f8c9a;margin-top:8px;'>{t('final_note')}</div>", unsafe_allow_html=True)
 
 
-def _render_miasm_step():
-    symptoms = _collected_symptoms()
+def _render_miasm_tab(runner: FlowRunner):
+    symptoms = _collected_symptoms(runner.steps)
     if not symptoms:
         st.info(t("no_symptoms"))
         return
@@ -424,15 +466,15 @@ def _render_miasm_step():
     for m, v in profile.items():
         st.markdown(f"**{m}** — {v['percent']}%")
         st.progress(min(v["percent"] / 100, 1.0))
-    st.markdown(f"**{t('decision')}** — {dom}")
+    st.markdown(f"**{t('dominant')}:** {dom}")
 
 
-def _render_followup_step():
+def _render_followup_tab():
     options = {
-        "improved": "✅ بہتری (عمومی)",
-        "aggravated_then_improved": "⚠️ پہلے بڑھنا، پھر بہتری",
-        "no_change": "❌ کوئی تبدیلی نہیں",
-        "worse": "🔻 خرابی / نئی علامات",
+        "improved": t("fu_improved"),
+        "aggravated_then_improved": t("fu_aggr_imp"),
+        "no_change": t("fu_no_change"),
+        "worse": t("fu_worse"),
     }
     labels = list(options.values())
     choice = st.radio(t("response_q"), labels, horizontal=True, key="followup_choice")
@@ -457,63 +499,27 @@ def _render_followup_step():
 def render_app():
     global _LANG
 
-    st.set_page_config(page_title="Bismillah Homeo Assistant — Advanced", page_icon="🩺", layout="wide")
+    st.set_page_config(page_title="Advanced Assistant", page_icon="🩺", layout="wide")
     st.markdown(CSS, unsafe_allow_html=True)
     _init_state()
+    _LANG = _get_lang()
 
-    # موجودہ زبان کو پہلے ہی عالمی متغیر میں رکھیں (تاکہ اوپر کے لیبل بھی درست زبان میں ہوں)
-    _LANG = st.session_state.bc_lang
+    # ===== ٹاپ: ایکوٹ | کرانک ٹوگل =====
+    st.segmented_control(
+        "case_type", ["acute", "chronic"],
+        format_func=lambda c: t("acute_short") if c == "acute" else t("chronic_short"),
+        key="bc_case_type",
+        label_visibility="collapsed",
+        on_change=_on_case_change,
+        width="stretch",
+    )
 
-    # ===== ٹاپ بار: عنوان + زبان + کیس کی قسم =====
-    c1, c2, c3 = st.columns([2.0, 1.15, 1.15])
-    with c1:
-        st.markdown(
-            '<div class="bhc-topbar"><div><div class="t">⚕️ ایڈوانس اسسٹنٹ 2.0</div>'
-            '<div class="s">مریض کی انفرادیت — علامات سے نسخہ تک</div></div></div>',
-            unsafe_allow_html=True,
-        )
-    with c2:
-        st.markdown(f'<div class="bhc-label">{t("language")}</div>', unsafe_allow_html=True)
-        # key=bc_lang → سیس مین اسٹیٹ سے براہِ راست بندھا (کوئی دستی ریرن نہیں)
-        st.radio(
-            t("language"), LANG_LIST, horizontal=True,
-            format_func=lambda c: LANG_LABELS[c],
-            key="bc_lang", label_visibility="collapsed",
-        )
-    with c3:
-        st.markdown(f'<div class="bhc-label">{t("case_type")}</div>', unsafe_allow_html=True)
-        # key=bc_case_type → سیس مین اسٹیٹ سے بندھا؛ تبدیلی پر کیس ری سیٹ
-        st.radio(
-            t("case_type"), ["acute", "chronic"], horizontal=True,
-            format_func=lambda c: t("acute") if c == "acute" else t("chronic"),
-            key="bc_case_type", label_visibility="collapsed",
-            on_change=_on_case_change,
-        )
+    runner = _cached_runner(_case_type())
 
-    runner = _cached_runner(st.session_state.bc_case_type)
-
-    # ===== سٹیپر + مکملیت =====
-    _render_stepper(runner)
-    _render_completeness(runner)
-
-    # ===== مواد (کارڈ میں) =====
-    st.markdown('<div class="bhc-card">', unsafe_allow_html=True)
-    _render_step(runner)
-    st.markdown('</div>', unsafe_allow_html=True)
-
-    # ===== نیویگیشن =====
-    total = runner.total_steps
-    cur = st.session_state.bc_step
-    b1, b2, b3 = st.columns([1, 1, 2])
-    with b1:
-        if cur > 0 and st.button(t("back"), use_container_width=True):
-            st.session_state.bc_step -= 1
-            st.rerun()
-    with b2:
-        if st.button(t("reset"), use_container_width=True):
-            _reset_case_state()
-            st.rerun()
-    with b3:
-        if cur < total - 1 and st.button(t("next"), type="primary", use_container_width=True):
-            st.session_state.bc_step += 1
-            st.rerun()
+    # ===== نیچے: سیکشن ٹیبز (پہلا ٹیب = بنیادی شکایت، ڈیفالٹ) =====
+    steps = runner.steps
+    titles = [s["title"].get(_LANG, s["title"].get("ur", s["id"])) for s in steps]
+    tabs = st.tabs(titles, key=f"section_tabs_{runner.case_type}")
+    for tab, step in zip(tabs, steps):
+        with tab:
+            _render_step_content(step, runner)

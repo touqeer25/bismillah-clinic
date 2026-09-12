@@ -1,9 +1,9 @@
 {
   "id": "chronic",
-  "label": {"ur": "مزمن (کرانک)", "en": "Chronic", "roman": "Chronic"},
+  "label": {"ur": "کرانک", "en": "Chronic", "roman": "Chronic"},
   "description": {
-    "ur": "گہرا، دائمی خلل — انفرادیت کی مکمل چھان بین",
-    "en": "Deep, long-standing disturbance — full individualization"
+    "ur": "گہری، پرانی بیماری — مکمل آئینی کیس ٹیکنگ",
+    "en": "Deep, long-standing disease — full constitutional case-taking"
   },
   "miasm_enabled": true,
   "followup_enabled": true,
@@ -13,66 +13,149 @@
   "dimension_weights": {
     "mind": 3.0,
     "generals": 2.5,
-    "modalities": 2.0,
-    "particulars": 1.0,
-    "causation": 2.0,
-    "concomitants": 1.0,
-    "history": 2.0,
-    "miasm": 1.5
+    "modalities": 3.0,
+    "particulars": 1.5,
+    "causation": 2.5,
+    "concomitants": 1.5
   },
 
   "steps": [
     {
       "id": "chief",
-      "order": 1,
-      "title": {"ur": "بنیادی شکایت + دورانیہ و وقفے", "en": "Chief Complaint, Duration & Periodicity"},
-      "required": true,
-      "topics": ["کتنا پرانا", "وقفے (پیریوڈیسٹی)", "آغاز کیسے ہوا", "بڑھنے کا رجحان"]
+      "title": {"ur": "بنیادی شکایت", "en": "Chief Complaint", "roman": "Bunyadi Shikayat"},
+      "fields": [
+        {
+          "id": "chief_complaint",
+          "type": "textarea",
+          "height": 100,
+          "required": true,
+          "label": {"ur": "مریض جس شکایت کے علاج کے لیے آیا ہے وہ لکھیں", "en": "Write the complaint the patient came to treat", "roman": "Mareez jis shikayat ke ilaj ke liye aaya hai wo likhein"},
+          "placeholder": {"ur": "مثال: پرانا جوڑوں کا درد، کھانسی، جلدی مرض...", "en": "e.g. long-standing joint pain, cough, skin disease...", "roman": "e.g. purana joron ka dard, khansi, jildi marz..."},
+          "chips": {"set": "ailments", "title": {"ur": "عام امراض — کلک کر کے شامل کریں", "en": "Common ailments — click to add", "roman": "Aam amraaz — click kar ke shamil karein"}}
+        }
+      ]
     },
     {
-      "id": "mind",
-      "order": 2,
-      "title": {"ur": "ذہنی / جذباتی گہرائی", "en": "Mental / Emotional State"},
-      "required": true,
-      "topics": ["غم", "خوف", "غصہ", "اضطراب", "تنہائی", "وسوسے"]
+      "id": "other_symptoms",
+      "title": {"ur": "دیگر علامات", "en": "Other Symptoms", "roman": "Deegar Alamaat"},
+      "fields": [
+        {
+          "id": "other_symptoms",
+          "type": "textarea",
+          "height": 100,
+          "label": {"ur": "باقی متعلقہ علامات لکھیں", "en": "Write the remaining related symptoms", "roman": "Baaqi mutaliqa alamaat likhein"},
+          "placeholder": {"ur": "مثال: بنیادی شکایت کے ساتھ اور علامات...", "en": "e.g. other symptoms along with the chief complaint...", "roman": "e.g. bunyadi shikayat ke saath aur alamaat..."},
+          "chips": {"set": "ailments", "title": {"ur": "عام امراض — کلک کر کے شامل کریں", "en": "Common ailments — click to add", "roman": "Aam amraaz — click kar ke shamil karein"}}
+        }
+      ]
+    },
+    {
+      "id": "causation",
+      "title": {"ur": "وجہ بیماری + مرحلہ", "en": "Causation & Stage", "roman": "Wajah-e-Bimari + Marhala"},
+      "fields": [
+        {
+          "id": "causation",
+          "type": "textarea",
+          "height": 70,
+          "label": {"ur": "بیماری کی وجہ کیا لگتی ہے؟", "en": "What seems to have caused it?", "roman": "Bimari ki wajah kya lagti hai?"},
+          "placeholder": {"ur": "مثال: سردی، غم، صدمہ، وراثت...", "en": "e.g. cold, grief, shock, heredity...", "roman": "e.g. sardi, gham, sadma, wirasat..."},
+          "chips": {"set": "causation", "title": {"ur": "ممکنہ وجوہات — کلک کریں", "en": "Possible causes — click", "roman": "Mumkina wajohaat — click karein"}}
+        },
+        {
+          "id": "stage",
+          "type": "textarea",
+          "height": 70,
+          "label": {"ur": "بیماری کا مرحلہ / آغاز", "en": "Stage / onset", "roman": "Marhala / aghaz"},
+          "placeholder": {"ur": "مثال: تدریجی آغاز، پرانا مرض...", "en": "e.g. gradual onset, old-standing...", "roman": "e.g. tadreeji aghaz, purana marz..."},
+          "chips": {"set": "stage", "title": {"ur": "ممکنہ مرحلے — کلک کریں", "en": "Possible stages — click", "roman": "Mumkina marahil — click karein"}}
+        }
+      ]
+    },
+    {
+      "id": "mental",
+      "title": {"ur": "ذہنی / جذباتی حالت", "en": "Mental / Emotional State", "roman": "Zehni / Jazbati Haalat"},
+      "fields": [
+        {
+          "id": "mental",
+          "type": "textarea",
+          "height": 90,
+          "label": {"ur": "ذہنی و جذباتی کیفیت لکھیں", "en": "Write the mental / emotional state", "roman": "Zehni-o-jazbati kafiyat likhein"},
+          "placeholder": {"ur": "مثال: اداسی، خوف، غصہ، بے چینی...", "en": "e.g. sadness, fear, anger, anxiety...", "roman": "e.g. udasi, khauf, ghussa, be chaini..."},
+          "chips": {"set": "mental", "title": {"ur": "ذہنی کیفیات — کلک کریں", "en": "Mental states — click", "roman": "Zehni kafiyat — click karein"}}
+        }
+      ]
     },
     {
       "id": "generals",
-      "order": 3,
-      "title": {"ur": "عمومیات (جنرلز)", "en": "Generals"},
-      "required": true,
-      "topics": ["حرارتی طبیعت", "پیاس", "بھوک", "خواہش/نفرت", "پاخانہ", "پیشاب", "پسینہ", "حیض"]
+      "title": {"ur": "عمومیات (جنرلز)", "en": "Generals", "roman": "Umoomiyat (Generals)"},
+      "fields": [
+        {
+          "id": "appetite",
+          "type": "textarea",
+          "height": 70,
+          "label": {"ur": "بھوک کیسی ہے؟", "en": "How is the appetite?", "roman": "Bhook kaisi hai?"},
+          "placeholder": {"ur": "مثال: کم بھوک، شدید بھوک...", "en": "e.g. poor appetite, ravenous...", "roman": "e.g. kam bhook, shadeed bhook..."},
+          "chips": {"set": "appetite", "title": {"ur": "بھوک — کلک کریں", "en": "Appetite — click", "roman": "Bhook — click karein"}}
+        },
+        {
+          "id": "thirst",
+          "type": "textarea",
+          "height": 70,
+          "label": {"ur": "پیاس کیسی ہے؟", "en": "How is the thirst?", "roman": "Pyas kaisi hai?"},
+          "placeholder": {"ur": "مثال: زیادہ پیاس، بے پیاسی...", "en": "e.g. very thirsty, thirstless...", "roman": "e.g. zyada pyas, be pyasi..."},
+          "chips": {"set": "thirst", "title": {"ur": "پیاس — کلک کریں", "en": "Thirst — click", "roman": "Pyas — click karein"}}
+        },
+        {
+          "id": "thermal",
+          "type": "textarea",
+          "height": 70,
+          "label": {"ur": "گرم / سرد طبیعت", "en": "Thermal (hot / chilly) nature", "roman": "Garm / sardi ki tabiyat"},
+          "placeholder": {"ur": "مثال: سردی محسوس، سر میں گرمی...", "en": "e.g. feels chilly, heat in head...", "roman": "e.g. sardi mehsoos, sar mein garmi..."},
+          "chips": {"set": "thermal", "title": {"ur": "طبیعت — کلک کریں", "en": "Thermal — click", "roman": "Tabiyat — click karein"}}
+        }
+      ]
     },
     {
       "id": "sleep",
-      "order": 4,
-      "title": {"ur": "نیند اور خواب", "en": "Sleep & Dreams"},
-      "required": false,
-      "topics": ["نیند کا انداز", "بے خوابی کی نوعیت", "خواب"]
+      "title": {"ur": "نیند اور خواب", "en": "Sleep & Dreams", "roman": "Neend Aur Khwab"},
+      "fields": [
+        {
+          "id": "sleep",
+          "type": "textarea",
+          "height": 90,
+          "label": {"ur": "نیند اور خواب کیسے ہیں؟", "en": "How is sleep and dreams?", "roman": "Neend aur khwab kaise hain?"},
+          "placeholder": {"ur": "مثال: نیند نہیں آتی، ڈراؤنے خواب...", "en": "e.g. sleeplessness, nightmares...", "roman": "e.g. neend nahi aati, daraone khwab..."},
+          "chips": {"set": "sleep", "title": {"ur": "نیند — کلک کریں", "en": "Sleep — click", "roman": "Neend — click karein"}}
+        }
+      ]
     },
     {
       "id": "history",
-      "order": 5,
-      "title": {"ur": "ماضی + خاندانی تاریخ", "en": "Past & Family History"},
-      "required": false,
-      "topics": ["پرانی بیماریاں", "دبائی گئی علامات (سپریشن)", "پرانی ادویات", "خاندانی رجحان"]
+      "title": {"ur": "ماضی + خاندانی تاریخ", "en": "Past & Family History", "roman": "Maazi + Khandani Tareekh"},
+      "fields": [
+        {
+          "id": "history",
+          "type": "textarea",
+          "height": 90,
+          "label": {"ur": "ماضی کی بیماریاں اور خاندانی رجحان لکھیں", "en": "Write past illnesses and family tendencies", "roman": "Maazi ki bimariyan aur khandani rujhan likhein"},
+          "placeholder": {"ur": "مثال: خاندان میں شوگر، ماضی میں جگر کی بیماری...", "en": "e.g. diabetes in family, past liver disease...", "roman": "e.g. khandan mein sugar, maazi mein jigar ki bimari..."},
+          "chips": {"set": "history", "title": {"ur": "تاریخ — کلک کریں", "en": "History — click", "roman": "Tareekh — click karein"}}
+        }
+      ]
     },
     {
       "id": "miasm",
-      "order": 6,
-      "title": {"ur": "میازم تجزیہ", "en": "Miasm Analysis"},
+      "title": {"ur": "میازم تجزیہ", "en": "Miasm Analysis", "roman": "Miasm Tajziya"},
       "module": "miasm"
     },
     {
-      "id": "remedy",
-      "order": 7,
-      "title": {"ur": "ریپرٹورائزیشن → تفریق → نسخہ + پوٹینسی", "en": "Repertorization → Differential → Prescription + Potency"},
+      "id": "repertory",
+      "title": {"ur": "ریپرٹورائزیشن → تفریق → نسخہ + پوٹینسی", "en": "Repertorization → Differential → Prescription + Potency", "roman": "Repertorization → Tafreeq → Nuskha + Potency"},
       "module": "repertorize"
     },
     {
       "id": "followup",
-      "order": 8,
-      "title": {"ur": "فالو اپ ماڈیول", "en": "Follow-up Module"},
+      "title": {"ur": "فالو اپ", "en": "Follow-up", "roman": "Follow-up"},
       "module": "followup"
     }
   ]
