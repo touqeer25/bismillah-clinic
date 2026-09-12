@@ -1,18 +1,14 @@
 """
-app.py — ایڈوانس اسسٹنٹ 2.0 کا انٹری پوائنٹ
--------------------------------------------
-نوٹ: یہ پرانی AI Diagnosis ایپ کی جگہ لیتا ہے۔
+app.py — اسٹریم لٹ انٹری پوائنٹ (ڈسپیچر)
+-----------------------------------------
+ایک ہی ایپ دونوں صفحات چلاتی ہے — فرق ?view= سے:
 
-یہ فائل اور advanced_assistant.py دونوں ایک ہی نیا اڈاپٹو یو آئی چلاتے ہیں:
-  - ایکوٹ: 5 ٹیبز | کرانک: 10 ٹیبز + میازم + فالو اپ
-  - ملٹی ریپرٹری (کینٹ + سنتھیسس 9.1) + ایل ایل ایم ربرک انتخاب
-  - تفریق میٹرکس، پوٹینسی انجن
-  - زبان والد ایپ سے (?lang=) آتی ہے — اردو / English / Roman
+    ?embed=true&lang=ur            → پرانا AI ہومیو اسسٹنٹ (AI Diagnosis)
+    ?embed=true&lang=ur&view=ai2   → ایڈوانس اسسٹنٹ 2.0 (نیا اڈاپٹو اسسٹنٹ)
 
-اسٹریم لٹ کلاؤڈ پر "Main file path" چاہے app.py ہو یا advanced_assistant.py،
-دونوں صورتوں میں یہی نیا صفحہ کھلے گا۔
+تفصیل homeo_core/ui/dispatch.py میں ہے۔
 """
 
-from homeo_core.ui.streamlit_page import render_app
+from homeo_core.ui.dispatch import run
 
-render_app()
+run()

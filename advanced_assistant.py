@@ -1,15 +1,14 @@
 """
-advanced_assistant.py — اڈاپٹو ایڈوانس اسسٹنٹ کا انٹری پوائنٹ
--------------------------------------------------------------
-چلانے کا طریقہ:
-    streamlit run advanced_assistant.py
+advanced_assistant.py — اسٹریم لٹ انٹری پوائنٹ (ڈسپیچر)
+-------------------------------------------------------
+app.py کی طرح یہ بھی وہی ڈسپیچر چلاتا ہے:
 
-یہ homeo_core کے FlowRunner پر مبنی مکمل اڈاپٹو یو آئی چلاتا ہے:
-  - ایکوٹ: 5 ٹیبز | کرانک: 10 ٹیبز + میازم + فالو اپ
-  - ملٹی ریپرٹری (کینٹ + سنتھیسس 9.1) + ایل ایل ایم ربرک انتخاب
-  - تفریق میٹرکس، پوٹینسی انجن
+    ?embed=true&lang=ur            → پرانا AI ہومیو اسسٹنٹ (AI Diagnosis)
+    ?embed=true&lang=ur&view=ai2   → ایڈوانس اسسٹنٹ 2.0 (نیا اڈاپٹو اسسٹنٹ)
+
+تفصیل homeo_core/ui/dispatch.py میں ہے۔
 """
 
-from homeo_core.ui.streamlit_page import render_app
+from homeo_core.ui.dispatch import run
 
-render_app()
+run()
