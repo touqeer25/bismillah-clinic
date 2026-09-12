@@ -17,6 +17,7 @@ streamlit_page.py — اڈاپٹو ایڈوانس اسسٹنٹ (ٹیب پر مب
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -66,6 +67,9 @@ T = {
     "next_steps": {"ur": "اگلے اقدامات", "en": "Next Steps", "roman": "Agle iqdamaat"},
     "rubrics_used": {"ur": "استعمال شدہ ربرکس", "en": "Rubrics Used", "roman": "Istemaal shuda rubrics"},
     "final_prescription": {"ur": "📋 حتمی نسخہ تیار کریں (اے آئی)", "en": "📋 Generate Final Prescription (AI)", "roman": "📋 Nuskha taiyar karein (AI)"},
+    "rx_local": {"ur": "منتخب بہترین دوا", "en": "Selected best remedy", "roman": "Muntakhab behtareen dawa"},
+    "rx_local_dose": {"ur": "طاقت اور خوراک", "en": "Potency & dosage", "roman": "Taqat aur khurak"},
+    "rx_local_note": {"ur": "اے آئی دستیاب نہیں — سب سے زیادہ اسکور والی دوا (میٹیریا میڈیکا تصدیق کے بغیر)", "en": "AI unavailable — highest-scored remedy (without materia medica verification)", "roman": "AI nahin — sab se zyada score wali dawa (materia medica tasdeeq ke baghair)"},
     "ai_offline": {"ur": "اے آئی کیز دستیاب نہیں — مقامی ریپرٹری موڈ چل رہا ہے", "en": "No AI keys — running local repertory mode", "roman": "AI keys nahin — local repertory mode"},
     "no_symptoms": {"ur": "پہلے دیگر ٹیبز میں علامات درج کریں", "en": "Enter symptoms in the other tabs first", "roman": "Pehle doosri tabs me alamaat likhein"},
     "final_note": {"ur": "⚠️ یہ اے آئی کی رہنمائی ہے — حتمی فیصلہ معالج کا ہے", "en": "⚠️ AI guidance — final decision rests with the physician", "roman": "⚠️ AI rahnumai — aakhri faisla mu'alij ka hai"},
@@ -240,11 +244,13 @@ def _init_state():
     st.session_state.setdefault("bc_case_type", "acute")
     st.session_state.setdefault("bc_result", None)
     st.session_state.setdefault("bc_rx", None)
+    st.session_state.setdefault("bc_rx_sig", None)
 
 
 def _reset_case_state():
     st.session_state.bc_result = None
     st.session_state.bc_rx = None
+    st.session_state.bc_rx_sig = None
 
 
 def _on_case_change():
@@ -415,37 +421,33 @@ def _render_remedy_tab(runner: FlowRunner):
         rows = [{"rubric": row["rubric"][:48], **row["cells"]} for row in mat["rows"]]
         st.dataframe(pd.DataFrame(rows), width="stretch")
 
-    st.markdown(f'<div class="bhc-card-title">{t("potency_title")}</div>', unsafe_allow_html=True)
-    pot = runner.run_potency()
+    # ===== استعمال شدہ ربرکس — کھلے عام دکھائیں (چھپے نہیں) =====
+    rubrics_used = res.get("rubrics_used", [])
     st.markdown(
-        f"""
-        <div class="bhc-card" style="background:linear-gradient(135deg,#eafaf1,#fff);border:1px solid #a9dfbf;">
-          <b>💊 {pot['potency']}</b> ({pot.get('range', '')})<br>
-          <span style="font-size:13px;">🔄 {pot['repetition']} — {pot['duration']}</span><br>
-          <span style="font-size:12px;color:#7f8c9a;">{pot['note']}</span>
-        </div>
-        """,
+        f'<div class="bhc-card-title">{t("rubrics_used")} ({len(rubrics_used)})</div>',
         unsafe_allow_html=True,
     )
+    if rubrics_used:
+        items = []
+        for ru in rubrics_used:
+            sym = str(ru.get("symptom", ""))
+            rub = str(ru.get("rubric", ""))
+            src = str(ru.get("source", ""))
+            dim = str(ru.get("dimension", ""))
+            items.append(
+                f'<div style="padding:5px 0;border-bottom:1px dashed #ecf0f1;">'
+                f'<b style="color:#1a5276;">▸ {rub}</b><br>'
+                f'<span style="font-size:12px;color:#7f8c9a;">🩺 {sym} &nbsp;•&nbsp; 📚 {src} &nbsp;•&nbsp; {dim}</span>'
+                f'</div>'
+            )
+        st.markdown('<div class="bhc-card">' + "".join(items) + "</div>", unsafe_allow_html=True)
+    else:
+        st.caption(t("no_symptoms"))
 
-    with st.expander(t("rubrics_used")):
-        for ru in res.get("rubrics_used", [])[:20]:
-            st.markdown(f"• [{ru['source']}][{ru['dimension']}] {ru['rubric']}")
-
+    # ===== حتمی نسخہ (مستقل — ایک ہی کیس پر ہمیشہ ایک ہی نتیجہ) =====
     if st.button(t("final_prescription"), use_container_width=True, key="final_rx_btn"):
         with st.spinner("نسخہ تیار ہو رہا ہے..."):
-            try:
-                prompt = f"""You are an expert classical homeopathic physician.
-Case type: {runner.case_type}
-Symptoms: {', '.join(symptoms)}
-Top repertorized remedies: {', '.join(r['remedy'] for r in res['remedies'][:5])}
-Write a final prescription in Urdu with headings: منتخب بہترین دوا، دلیل، طاقت اور خوراک، فالو اپ، نوٹ."""
-                rx, prov = llm_mod.ask_llm(prompt, require_json=False)
-                st.session_state.bc_rx = rx
-                st.caption(f"🤖 {prov}")
-            except Exception as e:
-                st.session_state.bc_rx = None
-                st.info(t("ai_offline") + f" ({e})")
+            _generate_prescription(runner, symptoms, res)
 
     if st.session_state.bc_rx:
         st.markdown(
@@ -454,6 +456,74 @@ Write a final prescription in Urdu with headings: منتخب بہترین دوا
             unsafe_allow_html=True,
         )
     st.markdown(f"<div style='font-size:11px;color:#7f8c9a;margin-top:8px;'>{t('final_note')}</div>", unsafe_allow_html=True)
+
+
+def _symptom_signature(symptoms: list) -> str:
+    return hashlib.md5("|".join(symptoms).encode("utf-8")).hexdigest()
+
+
+def _generate_prescription(runner: FlowRunner, symptoms: list, res: dict):
+    """حتمی نسخہ — درست طریقہ کار کے مطابق:
+    ٹاپ 3–5 امیدوار دوائیں لیں، ہر ایک کی علاماتِ کلیہ اور میٹیریا میڈیکا /
+    لٹریچر سے تصدیق کریں، جو پوری علامات پر اترے وہی فائنل۔
+    (ایک ہی کیس پر نتیجہ مستقل رہتا ہے — temperature=0 + کیش)"""
+    sig = _symptom_signature(symptoms)
+    # پہلے سے تیار ہے تو دوبارہ AI کال نہ کریں — نتیجہ وہی رہے گا
+    if st.session_state.get("bc_rx_sig") == sig and st.session_state.bc_rx:
+        return
+
+    # ٹاپ 5 امیدوار — ہر ایک کے ساتھ اسکور، ربرکس اور سورسز (تصدیق کے لیے ڈیٹا)
+    ranked_lines = []
+    for i, r in enumerate(res["remedies"][:5], 1):
+        rubs = "; ".join(rb["rubric"][:48] for rb in r.get("rubrics", [])[:6])
+        ranked_lines.append(
+            f"{i}. {r['remedy']} — score {r['score']} "
+            f"(matched rubrics: {r['rubric_count']}, sources: {len(r.get('sources', []))})\n"
+            f"   rubrics: {rubs}"
+        )
+    ranked = "\n".join(ranked_lines)
+
+    prompt = f"""You are an expert classical homeopathic physician.
+Case type: {runner.case_type}
+
+Patient symptoms (totality):
+{', '.join(symptoms)}
+
+Repertorization chart — top candidates (score is only a starting point):
+{ranked}
+
+Method:
+1. Treat the repertorization chart as a starting point only. The final remedy must be
+   chosen from among these top 3–5 candidates.
+2. Verify each candidate against the TOTALITY of the patient's symptoms using classical
+   homeopathic materia medica, keynotes and literature. A candidate with a lower score
+   may be chosen if it covers the characteristic symptoms better.
+3. Select the ONE remedy whose materia medica picture best matches the case.
+4. In the 'دلیل' section, give a short differential: why the chosen remedy fits, and
+   why the other top candidates were rejected.
+
+Write the final prescription in Urdu with exactly these headings:
+منتخب بہترین دوا، دلیل (تفریق)، طاقت اور خوراک، فالو اپ، نوٹ."""
+    try:
+        rx, prov = llm_mod.ask_llm(prompt, require_json=False, temperature=0.0)
+        st.session_state.bc_rx = rx
+        st.session_state.bc_rx_sig = sig
+        st.caption(f"🤖 {prov}")
+    except Exception as e:
+        # اے آئی دستیاب نہ ہو تو مقامی ریپرٹری + پوٹینسی انجن سے تجویز
+        # (بغیر میٹیریا میڈیکا تصدیق — صرف سب سے زیادہ اسکور والی دوا)
+        top = res["remedies"][0] if res.get("remedies") else None
+        if top:
+            pot = runner.run_potency()
+            st.session_state.bc_rx = (
+                f"<b>{t('rx_local')}:</b> {top['remedy']} ({t('score')}: {top['score']})<br><br>"
+                f"<b>{t('rx_local_dose')}:</b> 💊 {pot['potency']} — {pot['repetition']} — {pot['duration']}<br><br>"
+                f"<i>{t('rx_local_note')}</i>"
+            )
+            st.session_state.bc_rx_sig = sig
+        else:
+            st.session_state.bc_rx = None
+            st.info(t("ai_offline") + f" ({e})")
 
 
 def _render_miasm_tab(runner: FlowRunner):

@@ -91,7 +91,7 @@ def usage_today() -> dict:
 # ------------------------------------------------------------------ #
 # انفرادی انجن کالز
 # ------------------------------------------------------------------ #
-def _call_openai_compat(pid: str, model: str, prompt: str) -> str:
+def _call_openai_compat(pid: str, model: str, prompt: str, temperature: float = 0.4) -> str:
     """Groq / GLM(Z.ai) / OpenRouter — سب OpenAI-compatible"""
     if pid not in _OPENAI_CLIENTS:
         try:
@@ -122,7 +122,7 @@ def _call_openai_compat(pid: str, model: str, prompt: str) -> str:
     resp = cli.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}],
-        temperature=0.4,
+        temperature=temperature,
         max_tokens=max_tokens,
         **kw2,
     )
@@ -135,20 +135,23 @@ def _call_openai_compat(pid: str, model: str, prompt: str) -> str:
     return text
 
 
-def _call_gemini(prompt: str) -> str:
+def _call_gemini(prompt: str, temperature: float = 0.4) -> str:
     global _gemini_model
     if _gemini_model is None:
         import google.generativeai as genai
 
         genai.configure(api_key=GEMINI_API_KEY)
         _gemini_model = genai.GenerativeModel(GEMINI_MODEL)
-    return _gemini_model.generate_content(prompt).text
+    return _gemini_model.generate_content(
+        prompt, generation_config={"temperature": temperature}
+    ).text
 
 
 # ------------------------------------------------------------------ #
 # مرکزی کال — ترتیب سے کوشش، ناکامی پر اگلا انجن
 # ------------------------------------------------------------------ #
-def ask_llm(prompt: str, require_json: bool = True, engine_choice: str = "auto") -> Tuple[str, str]:
+def ask_llm(prompt: str, require_json: bool = True, engine_choice: str = "auto",
+            temperature: float = 0.4) -> Tuple[str, str]:
     """
     انجنوں کو ترتیب سے آزماتا ہے؛ کسی بھی ناکامی پر خودکار فال بیک۔
 
@@ -170,9 +173,9 @@ def ask_llm(prompt: str, require_json: bool = True, engine_choice: str = "auto")
             continue
         try:
             if pid == "gemini":
-                text = _call_gemini(prompt)
+                text = _call_gemini(prompt, temperature=temperature)
             else:
-                text = _call_openai_compat(pid, p["model"], prompt)
+                text = _call_openai_compat(pid, p["model"], prompt, temperature=temperature)
             if not text or not str(text).strip():
                 raise RuntimeError("empty response")
             if require_json and "{" not in str(text) and "[" not in str(text):

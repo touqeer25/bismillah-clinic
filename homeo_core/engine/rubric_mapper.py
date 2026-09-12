@@ -332,6 +332,35 @@ class RubricIndex:
 # ------------------------------------------------------------------ #
 _llm_cache: Dict[str, List[dict]] = {}
 
+_translate_cache: Dict[str, str] = {}
+
+
+def _llm_translate_symptom(symptom: str) -> str:
+    """اردو رسم الخط کی علامت کو انگریزی ریپرٹری الفاظ میں بدلنا (کیش شدہ)"""
+    from . import llm
+
+    key = symptom.strip()
+    if key in _translate_cache:
+        return _translate_cache[key]
+    try:
+        raw, _ = llm.ask_llm(
+            "You are a homeopathic repertory translator. "
+            "Convert this patient symptom into concise English repertory keywords. "
+            "Keep modality terms like 'worse from' or 'better from'.\n\n"
+            f'Symptom: "{symptom}"\n\n'
+            "Return ONLY the English keywords, comma-separated, no explanation.",
+            require_json=False,
+            temperature=0.0,
+        )
+        out = str(raw).strip()
+        if out and _is_latin(out):
+            _translate_cache[key] = out
+            return out
+    except Exception:
+        pass
+    _translate_cache[key] = ""
+    return ""
+
 
 def select_rubrics_llm(symptom: str, candidates: List[dict], index: RubricIndex,
                        max_pick: int = 3) -> Optional[List[dict]]:
@@ -408,14 +437,20 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
     گہری علامت→ربرک میپنگ:
       مقامی مماثلت + (اختیاری) ایل ایل ایم کا انتخاب — اعتماد اور وجہ کے ساتھ
 
-    اردو رسم الخط کی صورت میں ایل ایل ایم راستہ ہی کارآمد ہو گا
-    (لفظی مماثلت انگریزی ربرکس پر اردو متن سے نہیں چلتی)۔
+    اردو رسم الخط کی صورت میں ایل ایل ایم سے انگریزی ریپرٹری الفاظ میں
+    ترجمہ کر کے تلاش کی جاتی ہے (لفظی مماثلت اردو متن پر نہیں چلتی)۔
     """
     index = index or get_index()
     local = index.search(symptom, top_k=12)
 
     if not local:
-        return []
+        # اردو رسم الخط: LLM سے انگریزی ریپرٹری الفاظ میں ترجمہ کر کے دوبارہ تلاش
+        if use_llm and not _is_latin(symptom):
+            translated = _llm_translate_symptom(symptom)
+            if translated:
+                local = index.search(translated, top_k=12)
+        if not local:
+            return []
 
     if use_llm:
         picked = select_rubrics_llm(symptom, local, index)
