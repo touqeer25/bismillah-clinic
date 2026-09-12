@@ -180,14 +180,16 @@ function studioScoreRem(it, d) {
 
 // ---------- VIEW SWITCHER (studio ↔ classic modes) ----------
 function switchDxView(v) {
-    if (v !== 'studio' && v !== 'classic' && v !== 'ai' && v !== 'case') v = 'studio';
+    if (v !== 'studio' && v !== 'classic' && v !== 'ai' && v !== 'ai2' && v !== 'case') v = 'studio';
     var s = document.getElementById('dxStudioView');
     var c = document.getElementById('dxClassicView');
     var a = document.getElementById('dxAIView');
+    var a2 = document.getElementById('dxAI2View');
     var k = document.getElementById('dxCaseView');
     var bs = document.getElementById('dxViewBtnStudio');
     var bc = document.getElementById('dxViewBtnClassic');
     var ba = document.getElementById('dxViewBtnAI');
+    var ba2 = document.getElementById('dxViewBtnAI2');
     var bk = document.getElementById('dxViewBtnCase');
     function vis(el, on) {
         if (!el) return;
@@ -197,10 +199,12 @@ function switchDxView(v) {
     vis(s, v === 'studio');
     vis(c, v === 'classic');
     vis(a, v === 'ai');
+    vis(a2, v === 'ai2');
     vis(k, v === 'case');
     if (bs) bs.className = v === 'studio' ? 'btn btn-sm btn-purple' : 'btn btn-sm btn-light';
     if (bc) bc.className = v === 'classic' ? 'btn btn-sm btn-purple' : 'btn btn-sm btn-light';
     if (ba) ba.className = v === 'ai' ? 'btn btn-sm btn-purple' : 'btn btn-sm btn-light';
+    if (ba2) ba2.className = v === 'ai2' ? 'btn btn-sm btn-purple' : 'btn btn-sm btn-light';
     if (bk) bk.className = v === 'case' ? 'btn btn-sm btn-purple' : 'btn btn-sm btn-light';
     if (v === 'studio') {
         studioViewInit = true;
@@ -208,6 +212,9 @@ function switchDxView(v) {
     }
     if (v === 'ai' && typeof renderAIStep === 'function') {
         try { renderAIStep(); } catch (e) { console.error('ai render', e); }
+    }
+    if (v === 'ai2') {
+        try { if (window.syncAILang) syncAILang(); } catch (e) { console.error('ai2 sync', e); }
     }
     if (v === 'case' && typeof renderCaseTaking === 'function') {
         try { renderCaseTaking(); } catch (e) { console.error('case render', e); }
