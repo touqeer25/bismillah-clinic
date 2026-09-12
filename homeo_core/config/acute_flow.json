@@ -1,0 +1,51 @@
+{
+  "id": "acute",
+  "label": {"ur": "حاد (ایکیوٹ)", "en": "Acute", "roman": "Acute"},
+  "description": {
+    "ur": "سطحی، اچانک خلل — تیز اور مرتکز کیس ٹیکنگ",
+    "en": "Superficial, sudden disturbance — fast and focused case-taking"
+  },
+  "miasm_enabled": false,
+  "followup_enabled": true,
+  "sources": ["kent", "synthesis"],
+  "use_llm_rubrics": true,
+
+  "dimension_weights": {
+    "mind": 3.0,
+    "generals": 2.5,
+    "modalities": 3.0,
+    "particulars": 1.5,
+    "causation": 2.5,
+    "concomitants": 1.5
+  },
+
+  "steps": [
+    {
+      "id": "chief",
+      "order": 1,
+      "title": {"ur": "بنیادی شکایت", "en": "Chief Complaint"},
+      "required": true,
+      "topics": ["محل (کہاں)", "احساس (کیسا درد)", "پھیلاؤ", "آغاز", "دورانیہ"]
+    },
+    {
+      "id": "causation",
+      "order": 2,
+      "title": {"ur": "وجہ بیماری + مرحلہ", "en": "Causation & Stage"},
+      "required": false,
+      "topics": ["سردی/گرمی", "غصہ", "صدمہ", "انفیکشن", "مرحلہ (شروع/عروج/افول)"]
+    },
+    {
+      "id": "modalities",
+      "order": 3,
+      "title": {"ur": "موڈیلٹیز + ہم راہ + پیاس/حرارت", "en": "Modalities, Concomitants, Thirst & Thermal"},
+      "required": true,
+      "topics": ["کس سے بڑھتا ہے", "کس سے راحت", "ہم راہ علامات", "پیاس", "گرم/ٹھنڈا رجحان"]
+    },
+    {
+      "id": "remedy",
+      "order": 4,
+      "title": {"ur": "ریپرٹورائزیشن → تفریق → نسخہ", "en": "Repertorization → Differential → Prescription"},
+      "module": "repertorize"
+    }
+  ]
+}

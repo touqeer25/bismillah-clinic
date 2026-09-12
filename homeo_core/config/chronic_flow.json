@@ -1,0 +1,79 @@
+{
+  "id": "chronic",
+  "label": {"ur": "مزمن (کرانک)", "en": "Chronic", "roman": "Chronic"},
+  "description": {
+    "ur": "گہرا، دائمی خلل — انفرادیت کی مکمل چھان بین",
+    "en": "Deep, long-standing disturbance — full individualization"
+  },
+  "miasm_enabled": true,
+  "followup_enabled": true,
+  "sources": ["kent", "synthesis"],
+  "use_llm_rubrics": true,
+
+  "dimension_weights": {
+    "mind": 3.0,
+    "generals": 2.5,
+    "modalities": 2.0,
+    "particulars": 1.0,
+    "causation": 2.0,
+    "concomitants": 1.0,
+    "history": 2.0,
+    "miasm": 1.5
+  },
+
+  "steps": [
+    {
+      "id": "chief",
+      "order": 1,
+      "title": {"ur": "بنیادی شکایت + دورانیہ و وقفے", "en": "Chief Complaint, Duration & Periodicity"},
+      "required": true,
+      "topics": ["کتنا پرانا", "وقفے (پیریوڈیسٹی)", "آغاز کیسے ہوا", "بڑھنے کا رجحان"]
+    },
+    {
+      "id": "mind",
+      "order": 2,
+      "title": {"ur": "ذہنی / جذباتی گہرائی", "en": "Mental / Emotional State"},
+      "required": true,
+      "topics": ["غم", "خوف", "غصہ", "اضطراب", "تنہائی", "وسوسے"]
+    },
+    {
+      "id": "generals",
+      "order": 3,
+      "title": {"ur": "عمومیات (جنرلز)", "en": "Generals"},
+      "required": true,
+      "topics": ["حرارتی طبیعت", "پیاس", "بھوک", "خواہش/نفرت", "پاخانہ", "پیشاب", "پسینہ", "حیض"]
+    },
+    {
+      "id": "sleep",
+      "order": 4,
+      "title": {"ur": "نیند اور خواب", "en": "Sleep & Dreams"},
+      "required": false,
+      "topics": ["نیند کا انداز", "بے خوابی کی نوعیت", "خواب"]
+    },
+    {
+      "id": "history",
+      "order": 5,
+      "title": {"ur": "ماضی + خاندانی تاریخ", "en": "Past & Family History"},
+      "required": false,
+      "topics": ["پرانی بیماریاں", "دبائی گئی علامات (سپریشن)", "پرانی ادویات", "خاندانی رجحان"]
+    },
+    {
+      "id": "miasm",
+      "order": 6,
+      "title": {"ur": "میازم تجزیہ", "en": "Miasm Analysis"},
+      "module": "miasm"
+    },
+    {
+      "id": "remedy",
+      "order": 7,
+      "title": {"ur": "ریپرٹورائزیشن → تفریق → نسخہ + پوٹینسی", "en": "Repertorization → Differential → Prescription + Potency"},
+      "module": "repertorize"
+    },
+    {
+      "id": "followup",
+      "order": 8,
+      "title": {"ur": "فالو اپ ماڈیول", "en": "Follow-up Module"},
+      "module": "followup"
+    }
+  ]
+}

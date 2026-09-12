@@ -404,6 +404,7 @@
     <button id="dxViewBtnClassic" class="btn btn-sm btn-light" type="button" onclick="switchDxView('classic')">🔬 <span data-ur="ایڈوانس تشخیص موڈز" data-en="Advanced Diagnosis Modes">ایڈوانس تشخیص موڈز</span></button>
     <button id="dxViewBtnCase" class="btn btn-sm btn-light" type="button" onclick="switchDxView('case')">📋 <span data-ur="کیس ٹیکنگ" data-en="Case Taking">کیس ٹیکنگ</span></button>
     <button id="dxViewBtnAI" class="btn btn-sm btn-light" type="button" onclick="switchDxView('ai')">🤖 <span data-ur="AI ہومیو اسسٹنٹ" data-en="AI Homeo Assistant">AI ہومیو اسسٹنٹ</span></button>
+    <button id="dxViewBtnAI2" class="btn btn-sm btn-light" type="button" onclick="switchDxView('ai2')">⚕️ <span data-ur="ایڈوانس اسسٹنٹ 2.0" data-en="Advanced Assistant 2.0">ایڈوانس اسسٹنٹ 2.0</span></button>
 </div> <!-- 👈 بٹن کا فلیکس ڈِو یہاں بند ہو گیا -->
 
 <!-- AI Homeo Assistant Tab Panel (بٹن والے ڈِو کے باہر) -->
@@ -417,20 +418,36 @@
         allow="camera; microphone; clipboard-read; clipboard-write;"
     ></iframe>
 </div>
+
+<!-- ⚕️ ADVANCED ASSISTANT 2.0 — homeo_core پیکیج پر مبنی اڈاپٹو اسسٹنٹ -->
+<!-- تعیناتی: advanced_assistant.py کو Streamlit پر ڈیپلائے کریں اور نیچے URL بدل دیں -->
+<!-- مقامی طور پر:  streamlit run advanced_assistant.py  (پورٹ 8501) -->
+<div id="dxAI2View" class="card" style="display: none; padding: 0; overflow: hidden; border-radius: 12px; border: 1px solid #d8e2ec; margin-top: 10px; background: white;">
+    <iframe 
+        id="dxAI2frame"
+        src="https://bismillah-clinic-homeo2.streamlit.app/?embed=true&lang=ur" 
+        width="100%" 
+        height="820px" 
+        style="border: none; width: 100%; height: 820px; display: block;"
+        allow="camera; microphone; clipboard-read; clipboard-write;"
+    ></iframe>
+</div>
 <script>
-/* AI Homeo Assistant: زبان ہم آہنگی — iframe کو ?lang= بھیجتا ہے (ur/en/roman) */
+/* AI Homeo Assistant: زبان ہم آہنگی — دونوں iframe کو ?lang= بھیجتا ہے (ur/en/roman) */
 (function(){
     function syncAILang(){
-        var f = document.getElementById('dxAIframe');
-        if (!f) return;
-        var lang = (localStorage.getItem('clinic_lang') || 'ur');
-        try {
-            var u = new URL(f.src, location.href);
-            if (u.searchParams.get('lang') !== lang) {
-                u.searchParams.set('lang', lang);
-                f.src = u.toString();
-            }
-        } catch(e){}
+        ['dxAIframe', 'dxAI2frame'].forEach(function(id){
+            var f = document.getElementById(id);
+            if (!f) return;
+            var lang = (localStorage.getItem('clinic_lang') || 'ur');
+            try {
+                var u = new URL(f.src, location.href);
+                if (u.searchParams.get('lang') !== lang) {
+                    u.searchParams.set('lang', lang);
+                    f.src = u.toString();
+                }
+            } catch(e){}
+        });
     }
     window.syncAILang = syncAILang;
     syncAILang();
@@ -438,9 +455,9 @@
 </script>
             <script>
             window.switchDxView = window.switchDxView || function(v) {
-                v = (v === 'classic' || v === 'ai' || v === 'case') ? v : 'studio';
-                var ids = { studio: 'dxStudioView', classic: 'dxClassicView', ai: 'dxAIView', case: 'dxCaseView' };
-                var btns = { studio: 'dxViewBtnStudio', classic: 'dxViewBtnClassic', ai: 'dxViewBtnAI', case: 'dxViewBtnCase' };
+                v = (v === 'classic' || v === 'ai' || v === 'ai2' || v === 'case') ? v : 'studio';
+                var ids = { studio: 'dxStudioView', classic: 'dxClassicView', ai: 'dxAIView', ai2: 'dxAI2View', case: 'dxCaseView' };
+                var btns = { studio: 'dxViewBtnStudio', classic: 'dxViewBtnClassic', ai: 'dxViewBtnAI', ai2: 'dxViewBtnAI2', case: 'dxViewBtnCase' };
                 Object.keys(ids).forEach(function(k) {
                     var el = document.getElementById(ids[k]);
                     if (!el) return;
