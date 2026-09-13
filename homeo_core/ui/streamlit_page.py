@@ -96,8 +96,9 @@ T = {
     "case_note_ph": {"ur": "پورا کیس نوٹ یہاں پیسٹ کریں (اردو / رومن / انگریزی)", "en": "Paste the full case note here (Urdu / Roman / English)", "roman": "Pora case note yahan paste karein"},
     "case_note_done": {"ur": "✅ ٹیبز خودکار بھر دیے گئے — ضروریات کے مطابق جانچ لیں", "en": "✅ Tabs auto-filled — please review", "roman": "✅ Tabs auto-fill — check karein"},
     "voice_exp": {"ur": "🎤 آواز سے درج کریں", "en": "🎤 Voice input", "roman": "🎤 Awaaz se darj karein"},
-    "voice_btn": {"ur": "🎙️ ٹرانسکرِب کریں", "en": "🎙️ Transcribe", "roman": "🎙️ Transcribe karein"},
+    "voice_btn": {"ur": "🎙️ آواز ریکارڈ کریں یا فائل بھیجیں", "en": "🎙️ Record audio or send file", "roman": "🎙️ Awaaz record karein ya file bhejein"},
     "voice_done": {"ur": "✅ آواز درج ہو گئی", "en": "✅ Voice captured", "roman": "✅ Awaaz darj ho gayi"},
+    "voice_failed": {"ur": "آواز سمجھ نہیں آ سکی — دوبارہ کوشش کریں", "en": "Could not understand the audio — please try again", "roman": "Awaaz samajh nahi aayi"},
     "hering_title": {"ur": "ہیرنگ کے قوانین (قوانینِ شفا) — بہتری کی سمت", "en": "Hering's Laws — direction of cure", "roman": "Hering qawaneen — behtari ki samt"},
     "hering_1": {"ur": "علامتیں اوپر سے نیچے کے اعتبار سے گئیں", "en": "Symptoms resolved top → bottom", "roman": "Ooper se neeche ki tarteeb"},
     "hering_2": {"ur": "اندر سے باہر (اعضاء پہلے، جلد بعد میں)", "en": "In → out (organs first, skin later)", "roman": "Andar se bahar"},
@@ -689,28 +690,47 @@ def _groq_transcribe(audio_obj) -> str:
     import io
     from openai import OpenAI
     cli = OpenAI(api_key=llm_mod.GROQ_API_KEY, base_url="https://api.groq.com/openai/v1")
-    buf = io.BytesIO(audio_obj.getvalue())
+    try:
+        data = audio_obj.getvalue()
+    except Exception:
+        data = bytes(audio_obj)
+    buf = io.BytesIO(data)
     buf.name = "voice.webm"
     r = cli.audio.transcriptions.create(model="whisper-large-v3", file=buf)
     return str(getattr(r, "text", "") or "").strip()
 
 
 def _render_voice_expander():
+    """آواز سے درج کرنا — ورژن کے مطابق محفوظ:
+    نئے اسٹریم لٹ پر st.audio_input (براؤزر میں براہِ راست ریکارڈنگ)،
+    پرانے ورژنز پر st.file_uploader (آڈیو فائل اپ لوڈ)۔
+    نوٹ: st.audio_recorder / st.audio_uploader ایسے آئی پی آئی نہیں —
+    پرانی ورژن پر اٹری بیٹ ایرر آتا تھا (مرمت)۔"""
     if not getattr(llm_mod, "GROQ_API_KEY", ""):
         return
-    with st.expander(t("voice_exp")):
-        audio = st.audio_recorder(t("voice_btn"), key="bc_voice")
-        if audio is not None:
-            with st.spinner("..."):
-                try:
-                    text = _groq_transcribe(audio)
-                except Exception:
-                    text = ""
-            if text:
-                fkey = _field_key("chief", "chief_complaint")
-                cur = (st.session_state.get(fkey, "") or "").strip()
-                st.session_state[fkey] = (cur + "\n" + text).strip() if cur else text
-                st.success(t("voice_done"))
+    audio = None
+    try:
+        with st.expander(t("voice_exp")):
+            if hasattr(st, "audio_input"):
+                audio = st.audio_input(t("voice_btn"), key="bc_voice")
+            else:
+                audio = st.file_uploader(t("voice_btn"), key="bc_voice",
+                                         type=["webm", "wav", "mp3", "m4a", "ogg"])
+    except Exception:
+        return
+    if audio is not None:
+        with st.spinner("..."):
+            try:
+                text = _groq_transcribe(audio)
+            except Exception:
+                text = ""
+        if text:
+            fkey = _field_key("chief", "chief_complaint")
+            cur = (st.session_state.get(fkey, "") or "").strip()
+            st.session_state[fkey] = (cur + "\n" + text).strip() if cur else text
+            st.success(t("voice_done"))
+        else:
+            st.warning(t("voice_failed"))
 
 
 # ------------------------------------------------------------------ #
