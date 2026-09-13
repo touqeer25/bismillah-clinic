@@ -209,6 +209,7 @@ function copyToVisit(diseaseId) {
 function clearDiagnosisPatient() {
     diagnosisPatientId = null;
     $('diagnosisPatientLink').style.display = 'none';
+    if (typeof syncAI2Context === 'function') syncAI2Context();
 }
 
 function openDiagnosisForPatient(patientId) {
@@ -217,6 +218,7 @@ function openDiagnosisForPatient(patientId) {
     diagnosisPatientId = patientId;
     $('diagnosisPatientLink').style.display = 'block';
     $('diagnosisPatientName').textContent = patient.name + ' (' + patient.refNo + ')';
+    if (typeof syncAI2Context === 'function') syncAI2Context();
     if (typeof studioRefreshPatient === 'function') studioRefreshPatient();
     const btn = document.querySelector('[data-page="diagnosis"]');
     showPage('diagnosis', btn);

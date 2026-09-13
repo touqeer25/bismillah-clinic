@@ -14,11 +14,13 @@ def recommend_potency(
     case_type: str,
     sensitivity: str = "medium",
     miasm: str = None,
+    age: int = None,
 ) -> Dict[str, str]:
     """
     case_type: "acute" | "chronic"
     sensitivity: "low" | "medium" | "high" (حساسیت / ردِعمل کی شدت)
     miasm: اختیاری — میازم کے مطابق رہنمائی
+    age: اختیاری — عمر کے مطابق احتیاطی ترمیم (نسخہ 2.1)
     """
 
     # حساسیت کی وضاحت (کم = عام، زیادہ = بچے/بزرگ/کمزور)
@@ -47,6 +49,13 @@ def recommend_potency(
             base["range"] = "LM1 سے LM6 تک تدریجی"
             base["repetition"] = "روزانہ ایک خوراک (پانی میں)"
             base["note"] = "حساس/بزرگ/بچے — ایل ایم نرم اور محفوظ رہتی ہے"
+
+    # عمر کے مطابق احتیاطی ترمیم (نسخہ 2.1)
+    if age is not None:
+        try:
+            base = adjust_by_age(int(age), base)
+        except (TypeError, ValueError):
+            pass
 
     if miasm:
         base["miasm_note"] = {

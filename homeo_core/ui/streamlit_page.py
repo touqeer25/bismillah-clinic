@@ -1,19 +1,18 @@
 """
-streamlit_page.py — اڈاپٹو ایڈوانس اسسٹنٹ (ٹیب پر مبنی، صاف لے آؤٹ)
-----------------------------------------------------------------
-ڈیزائن (آخری ہدایت کے مطابق):
-  - کوئی ہیڈر نہیں، کوئی زبان کا سوئچر نہیں، کوئی مکملیت بار نہیں
-  - زبان والد ایپ (?lang=) سے آتی ہے
-  - ٹاپ پر دو ٹوگل ٹیبز: ایکوٹ | کرانک
-  - نیچے سیکشن ٹیبز — پہلا ٹیب ڈیفالٹ "بنیادی شکایت (Chief Complaint)"
-  - ہر ٹیب میں فیلڈز (text area) اور ہر فیلڈ کے نیچے
-    "کلک ایبل چیپ بٹن" — کلک کرنے پر متن اسی فیلڈ میں شامل ہو جاتا ہے
-
-ڈیٹا کا نظام (الگ فائلوں میں — کوڈ چھوئے بغیر ترمیم):
-  - config/acute_flow.json  /  chronic_flow.json
-      → ہر فلو کے سیکشن ٹیبز اور ہر ٹیب کے فیلڈز (سوال + placeholder + chips)
-  - config/quick_picks.json
-      → ہر فیلڈ کے نیچے دکھنے والے ممکنہ جوابات / عام امراض
+streamlit_page.py — اڈاپٹو ایڈوانس اسسٹنٹ 2.1 (ٹیب پر مبنی، صاف لے آؤٹ)
+--------------------------------------------------------------------
+نسخہ 2.1 اضافے:
+  - ریپرٹری منتخب کرنے کا ڈراپ ڈاؤن (بنیادی شکایت ٹیب، اوپر دائیں)
+  - خاص/کاریکٹرسٹک علامات کا اضافی وزن (1.5x)
+  - سیفٹی ریڈ فلیگز (ایمرجنسی بینر)
+  - اسکور کی تفصیل (ایلپینیبلٹی ایکسپینڈر)
+  - اگلا سوال (اسٹیٹک رہنمائی + ایل ایل ایم متلاشی سوالات)
+  - سیاق و سباق والی چیپس (کھانسی → بلغم وغیرہ)
+  - مکمل کیس نوٹ سے خودکار بھرنا (ایل ایل ایم)
+  - آواز سے درج کرنا (گروک وِساپر، اگر کیز موجود ہو)
+  - مریض کا سیاق (?patient= پیرامیٹر: نام/عمر/جنس)
+  - پوٹینسی کارڈ (عمر/میازم سمیت) + پچھلے نتائج (اسناپ شاٹس)
+  - فالو اپ میں ہیرنگ کے قوانین کی چیک باکسز
 """
 from __future__ import annotations
 
@@ -21,6 +20,7 @@ import hashlib
 import json
 import re
 import sys
+import time
 from pathlib import Path
 
 import streamlit as st
@@ -38,6 +38,9 @@ from homeo_core.engine import sources as sources_mod          # noqa: E402
 
 _LANG = "ur"
 
+# ------------------------------------------------------------------ #
+# متن (تین زبانیں)
+# ------------------------------------------------------------------ #
 T = {
     "acute_short": {"ur": "ایکوٹ", "en": "Acute", "roman": "Acute"},
     "chronic_short": {"ur": "کرانک", "en": "Chronic", "roman": "Chronic"},
@@ -69,10 +72,39 @@ T = {
     "final_prescription": {"ur": "📋 حتمی نسخہ تیار کریں (اے آئی)", "en": "📋 Generate Final Prescription (AI)", "roman": "📋 Nuskha taiyar karein (AI)"},
     "rx_local": {"ur": "منتخب بہترین دوا", "en": "Selected best remedy", "roman": "Muntakhab behtareen dawa"},
     "rx_local_dose": {"ur": "طاقت اور خوراک", "en": "Potency & dosage", "roman": "Taqat aur khurak"},
-    "rx_local_note": {"ur": "اے آئی دستیاب نہیں — سب سے زیادہ اسکور والی دوا (میٹیریا میڈیکا تصدیق کے بغیر)", "en": "AI unavailable — highest-scored remedy (without materia medica verification)", "roman": "AI nahin — sab se zyada score wali dawa (materia medica tasdeeq ke baghair)"},
+    "rx_local_note": {"ur": "اے آئی دستیاب نہیں — سب سے زیادہ اسکور والی دوا (میٹیریا میڈیکا تصدیق کے بغیر)", "en": "AI unavailable — highest-scored remedy (without materia medica verification)", "roman": "AI nahin — sab se zyada score wali dawa"},
     "ai_offline": {"ur": "اے آئی کیز دستیاب نہیں — مقامی ریپرٹری موڈ چل رہا ہے", "en": "No AI keys — running local repertory mode", "roman": "AI keys nahin — local repertory mode"},
     "no_symptoms": {"ur": "پہلے دیگر ٹیبز میں علامات درج کریں", "en": "Enter symptoms in the other tabs first", "roman": "Pehle doosri tabs me alamaat likhein"},
     "final_note": {"ur": "⚠️ یہ اے آئی کی رہنمائی ہے — حتمی فیصلہ معالج کا ہے", "en": "⚠️ AI guidance — final decision rests with the physician", "roman": "⚠️ AI rahnumai — aakhri faisla mu'alij ka hai"},
+    # ===== نسخہ 2.1 =====
+    "repertory_select": {"ur": "ریپرٹری منتخب کریں", "en": "Select repertory", "roman": "Repertory select karein"},
+    "rep_only_one": {"ur": "صرف ایک ریپرٹری — کراس ویلیڈیشن بند", "en": "Only one repertory — cross-validation off", "roman": "Sirf aik repertory"},
+    "repertories_used": {"ur": "استعمال شدہ ریپرٹریز", "en": "Repertories used", "roman": "Istemaal shuda repertories"},
+    "no_sources": {"ur": "کام کے لیے کم از کم ایک ریپرٹری منتخب کریں", "en": "Select at least one repertory to run", "roman": "Kam az kam aik repertory select karein"},
+    "german_note": {"ur": "جرمن ریپرٹری پر کوئی میچ نہیں ملا — اردو/رومن علامات کے لیے اے آئی کیز درکار ہیں", "en": "No match in German repertory — AI keys are needed to match Urdu/Roman symptoms", "roman": "German repertory me koi match nahi"},
+    "char_symptom": {"ur": "خاص / کاریکٹرسٹک علامت (اختیاری)", "en": "Characteristic / key symptom (optional)", "roman": "Khas / characteristic alamat (ikhtiyari)"},
+    "char_ph": {"ur": "سب سے نایاب/خاص علامت لکھیں — اسے اضافی وزن ملے گا (1.5x)", "en": "Write the rarest / most peculiar symptom — it gets extra weight (1.5x)", "roman": "Sab se nayaab/khas alamat likhein"},
+    "emergency": {"ur": "⛑️ ایمرجنسی", "en": "⛑️ Emergency", "roman": "⛑️ Emergency"},
+    "safety_note": {"ur": "دی گئی علامات میں ایمرجنسی کے اشارے ہیں — ریپرٹورائزیشن سے پہلے طبی حاضری/حوالگی غور کریں", "en": "The entered symptoms contain emergency indicators — consider medical referral before repertorization", "roman": "Alamat me emergency ke ishara hain"},
+    "score_breakdown": {"ur": "اسکور کی تفصیل دیکھیں", "en": "Score breakdown", "roman": "Score ki tafseel"},
+    "prev_remedy_badge": {"ur": "⚠ پہلے دی گئی دوا", "en": "⚠ previously tried", "roman": "⚠ pehle di gayi dawa"},
+    "prev_results": {"ur": "🕓 پچھلے نتائج (اس سیشن)", "en": "🕓 Previous results (this session)", "roman": "🕓 Pehle ke natija"},
+    "ai_questions": {"ur": "🤖 اگلا سوال کیا پوچھوں؟", "en": "🤖 What should I ask next?", "roman": "🤖 Agla sawal kya poochho?"},
+    "ai_questions_btn": {"ur": "🤖 اے آئی: ان پٹ کے مطابق متلاشی سوالات", "en": "🤖 AI: targeted questions from your input", "roman": "🤖 AI: input ke mutabiq sawalat"},
+    "ai_questions_short": {"ur": "ابھی تک درج شدہ معلومات پر مبنی تجاویز", "en": "Suggestions based on what you have entered", "roman": "Inpurt par mabni tajweez"},
+    "case_note_fill": {"ur": "📝 میرے پاس مکمل کیس نوٹ ہے — خودکار بھر دیں (اے آئی)", "en": "📝 I have a full case note — auto-fill (AI)", "roman": "📝 Mukammal case note — auto-fill (AI)"},
+    "case_note_ph": {"ur": "پورا کیس نوٹ یہاں پیسٹ کریں (اردو / رومن / انگریزی)", "en": "Paste the full case note here (Urdu / Roman / English)", "roman": "Pora case note yahan paste karein"},
+    "case_note_done": {"ur": "✅ ٹیبز خودکار بھر دیے گئے — ضروریات کے مطابق جانچ لیں", "en": "✅ Tabs auto-filled — please review", "roman": "✅ Tabs auto-fill — check karein"},
+    "voice_exp": {"ur": "🎤 آواز سے درج کریں", "en": "🎤 Voice input", "roman": "🎤 Awaaz se darj karein"},
+    "voice_btn": {"ur": "🎙️ ٹرانسکرِب کریں", "en": "🎙️ Transcribe", "roman": "🎙️ Transcribe karein"},
+    "voice_done": {"ur": "✅ آواز درج ہو گئی", "en": "✅ Voice captured", "roman": "✅ Awaaz darj ho gayi"},
+    "hering_title": {"ur": "ہیرنگ کے قوانین (قوانینِ شفا) — بہتری کی سمت", "en": "Hering's Laws — direction of cure", "roman": "Hering qawaneen — behtari ki samt"},
+    "hering_1": {"ur": "علامتیں اوپر سے نیچے کے اعتبار سے گئیں", "en": "Symptoms resolved top → bottom", "roman": "Ooper se neeche ki tarteeb"},
+    "hering_2": {"ur": "اندر سے باہر (اعضاء پہلے، جلد بعد میں)", "en": "In → out (organs first, skin later)", "roman": "Andar se bahar"},
+    "hering_3": {"ur": "اہم عضو پہلے، غیر اہم بعد میں", "en": "Important organs first, less important later", "roman": "Ahem aza pehle"},
+    "hering_4": {"ur": "پرانی علامات الٹی ترتیب میں واپس آئیں", "en": "Older symptoms returned in reverse order", "roman": "Purani alamaat ulti tarteeb"},
+    "hering_compliant": {"ur": "ہیرنگ مطابقت", "en": "Hering compliance", "roman": "Hering muwafaqat"},
+    "patient_prev": {"ur": "پچھلی دوا", "en": "Previous remedy", "roman": "Pehli dawa"},
 }
 
 
@@ -91,8 +123,79 @@ def _get_lang() -> str:
     return v if v in ("ur", "en", "roman") else "ur"
 
 
+def _source_label(name: str) -> str:
+    lbl = sources_mod.SOURCE_DEFS.get(name, {}).get("label", {})
+    return lbl.get(_LANG) or lbl.get("en", name)
+
+
 # ------------------------------------------------------------------ #
-# کلینک جیسا اسٹائل
+# سیفٹی ریڈ فلیگز — ایمرجنسی کے اشارے (نسخہ 2.1)
+# ------------------------------------------------------------------ #
+SAFETY_FLAGS = [
+    (["chest pain", "seenay ka dard", "seena ka dard", "seene ka dard"],
+     "Seene ka dard — foran tibs ke liye rujoo karein"),
+    (["breathing difficulty", "saans phoolna", "saans ki takleef", "shortness of breath"],
+     "Saans ki takleef — foran rujoo karein"),
+    (["seizure", "convulsion", "fit hai", "hosh kho na", "be hoshi"],
+     "Fait / hosh kho na — foran rujoo karein"),
+    (["suicidal", "suicide", "khudkushi"],
+     "Khudkushi ka khyal — foran rujoo karein, makhooz nadar raheem"),
+    (["vomiting blood", "qay me khon", "khon ki qay", "blood in vomit"],
+     "Khoon ki qay — foran rujoo karein"),
+    (["gadday me khon", "stool me khon", "dast me khon", "blood in stool"],
+     "Gadday me khon — foran rujoo karein"),
+]
+SAFETY_COMBOS = [
+    (["bukhar", "fever"], ["shishay", "infant", "newborn", "baby"],
+     "Shishay me bhari bukhār — foran rujoo karein"),
+    (["hamal", "pregnant", "pregnancy"], ["bleeding", "khon"],
+     "Hamal me khon — foran rujoo karein"),
+]
+
+
+def _safety_alerts(symptoms: list) -> list:
+    text = " ".join(str(s).lower() for s in symptoms)
+    alerts = []
+    for kws, msg in SAFETY_FLAGS:
+        if all(k in text for k in kws):
+            alerts.append(msg)
+    for g1, g2, msg in SAFETY_COMBOS:
+        if any(a in text for a in g1) and any(b in text for b in g2):
+            alerts.append(msg)
+    return alerts
+
+
+# ------------------------------------------------------------------ #
+# مریض کا سیاق (?patient= JSON) (نسخہ 2.1)
+# ------------------------------------------------------------------ #
+def _get_patient() -> dict:
+    try:
+        raw = st.query_params.get("patient", "")
+        if isinstance(raw, list):
+            raw = raw[0] if raw else ""
+        raw = str(raw or "").strip()
+        if not raw:
+            return {}
+        import urllib.parse
+        try:
+            d = json.loads(raw)
+        except Exception:
+            d = json.loads(urllib.parse.unquote_plus(raw))
+        return d if isinstance(d, dict) else {}
+    except Exception:
+        return {}
+
+
+def _patient_age(p: dict):
+    try:
+        a = int(str(p.get("age", "")).strip()[:3])
+        return a if 0 < a < 130 else None
+    except Exception:
+        return None
+
+
+# ------------------------------------------------------------------ #
+# ڈسائن اسٹائل
 # ------------------------------------------------------------------ #
 CSS = """
 <style>
@@ -142,6 +245,12 @@ div[role="progressbar"] > div {
     margin: 10px 0 2px; direction: rtl;
 }
 
+/* ===== ریپرٹری ڈراپ ڈاؤن ===== */
+.bhc-rep-wrap {
+    background: #f4f9fd; border: 1px solid #cfe4f5; border-radius: 10px;
+    padding: 8px 10px;
+}
+
 /* ===== چیپ بٹن (کلک ایبل ٹیبز) ===== */
 .bhc-chip-title {
     color: #7f8c9a; font-size: 12px; font-weight: 700;
@@ -155,8 +264,8 @@ div.stButton button[class*="st-key-chip_"] {
     min-height: 0 !important;
     height: auto !important;
     padding: 5px 10px !important;
-    font-size: 13px !important;
-    font-weight: 600 !important;
+    font-size: 13px;
+    font-weight: 600;
     white-space: nowrap;
     overflow: hidden; text-overflow: ellipsis;
     font-family: 'Noto Nastaliq Urdu', 'Segoe UI', sans-serif !important;
@@ -245,12 +354,15 @@ def _init_state():
     st.session_state.setdefault("bc_result", None)
     st.session_state.setdefault("bc_rx", None)
     st.session_state.setdefault("bc_rx_sig", None)
+    st.session_state.setdefault("bc_sources", ["kent", "synthesis"])
+    st.session_state.setdefault("bc_snaps", [])
 
 
 def _reset_case_state():
     st.session_state.bc_result = None
     st.session_state.bc_rx = None
     st.session_state.bc_rx_sig = None
+    st.session_state.bc_snaps = []
 
 
 def _on_case_change():
@@ -281,6 +393,35 @@ def _collected_symptoms(steps: list) -> list:
         for f in step.get("fields", []):
             txt = st.session_state.get(_field_key(step["id"], f["id"]), "")
             out.extend(_split_symptoms(txt))
+    return out
+
+
+# ------------------------------------------------------------------ #
+# سیاق و سباق والی چیپس (نسخہ 2.1)
+# ------------------------------------------------------------------ #
+CONTEXT_CHIPS = [
+    (("cough", "khansi", "کھانسی", "respiratory"), "expectoration",
+     {"ur": "بلغم — کلک کریں", "en": "Expectoration — click", "roman": "Balgham — click"}),
+    (("skin", "jild", "khujli", "rash", "danay", "خارش", "جلد"), "skin_detail",
+     {"ur": "جلد کی تفصیل — کلک کریں", "en": "Skin details — click", "roman": "Jild ki tafseel — click"}),
+    (("head", "sar", "sardard", "migraine", "سردرد"), "head_detail",
+     {"ur": "سردرد کی تفصیل — کلک کریں", "en": "Headache details — click", "roman": "Sardard ki tafseel — click"}),
+    (("joint", "joron", "ghutna", "kandha", "taang", "جوڑ"), "joint_detail",
+     {"ur": "جوڑوں کی تفصیل — کلک کریں", "en": "Joint details — click", "roman": "Joron ki tafseel — click"}),
+]
+
+
+def _context_chips_for(sid: str, fid: str) -> list:
+    """بنیادی شکایت کے سیاق میں اضافی چیپ سیٹس"""
+    if not (sid == "other_symptoms" and fid == "other_symptoms"):
+        return []
+    chief_txt = (st.session_state.get(_field_key("chief", "chief_complaint"), "") or "").lower()
+    if not chief_txt.strip():
+        return []
+    out = []
+    for kws, extra_set, extra_title in CONTEXT_CHIPS:
+        if any(k in chief_txt for k in kws):
+            out.append({"set": extra_set, "title": extra_title})
     return out
 
 
@@ -325,15 +466,31 @@ def _render_chips(sid: str, fid: str, chip_def: dict):
             with col:
                 st.button(
                     labels[idx],
-                    key=f"chip_{_case_type()}_{sid}_{fid}_{idx}",
+                    key=f"chip_{_case_type()}_{sid}_{fid}_{chip_def.get('set','x')}_{idx}",
                     on_click=_append_chip,
                     args=(fkey, labels[idx]),
                     use_container_width=True,
                 )
 
 
+def _render_repertory_selector():
+    """ریپرٹری منتخب کرنے کا ڈراپ ڈاؤن (لال باکس کی جگہ)"""
+    # نوٹ: ڈیفالٹ سیشن اسٹیٹ میں (_init_state) سیٹ ہوتا ہے —
+    # default پیرامیٹر نہیں دیں ورنہ اسٹریم لٹ وارنнг دیتا ہے
+    options = list(sources_mod.SOURCE_DEFS.keys())
+    sel = st.multiselect(
+        t("repertory_select"),
+        options,
+        format_func=lambda k: _source_label(k),
+        key="bc_sources",
+    )
+    if sel and len(sel) == 1:
+        st.caption(f"⚠️ {t('rep_only_one')}")
+
+
 def _render_field(sid: str, f: dict):
-    """ایک فیلڈ (سوال + text area) + اس کے نیچے چیپ بٹن"""
+    """ایک فیلڈ (سوال + text area) + اس کے نیچے چیپ بٹن
+    بنیادی شکایت کے لیبل کے ساتھ دائیں جانب ریپرٹری ڈراپ ڈاؤن"""
     fid = f["id"]
     fkey = _field_key(sid, fid)
     label = f.get("label", {})
@@ -343,12 +500,222 @@ def _render_field(sid: str, f: dict):
     height = f.get("height", 80)
 
     if label_text:
-        st.markdown(f'<div class="bhc-field-label">{label_text}</div>', unsafe_allow_html=True)
+        if sid == "chief" and fid == "chief_complaint":
+            c1, c2 = st.columns([3, 1])
+            with c1:
+                st.markdown(f'<div class="bhc-field-label">{label_text}</div>',
+                            unsafe_allow_html=True)
+            with c2:
+                _render_repertory_selector()
+        else:
+            st.markdown(f'<div class="bhc-field-label">{label_text}</div>', unsafe_allow_html=True)
     st.text_area(label_text, key=fkey, height=height, placeholder=ph_text,
                  label_visibility="collapsed")
     _render_chips(sid, fid, f.get("chips"))
+    for extra in _context_chips_for(sid, fid):
+        _render_chips(sid, fid, extra)
 
 
+# ------------------------------------------------------------------ #
+# اگلا سوال — اسٹیٹک رہنمائی + ایل ایل ایم (نسخہ 2.1)
+# ------------------------------------------------------------------ #
+STATIC_QUESTION_HINTS = {
+    "chief": {
+        "ur": ["دورانیہ: کتنا دن/ہفتہ سے ہے؟", "جسم کے کس حصے میں ہے، اور کیا محل بدلتا ہے؟", "صبح، دوپہر یا رات زیادہ ہے؟"],
+        "en": ["Duration: how long has it been there?", "Where exactly, and does it move?", "Worse in morning, afternoon or night?"],
+        "roman": ["Doraana: kitne din se hai?", "Jis hisse me hai, kya mahal badalta hai?", "Subah, dopehar ya raat zyada hai?"],
+    },
+    "other_symptoms": {
+        "ur": ["پہلے کون سی علامت آئی، اور پھر کون سی؟", "کیا کوئی علامت باقاعدگی سے آتی جاتی ہے؟", "علاج یا کسی واقعے کے بعد کیا بدل گیا؟"],
+        "en": ["Which symptom came first?", "Any symptom that comes and goes regularly?", "What changed after treatment or an event?"],
+        "roman": ["Pehle kon si alamat aayi?", "Koi alamat baqaidgi se aati jaati hai?", "Ilaj ya waqiye ke baad kya badla?"],
+    },
+    "causation": {
+        "ur": ["کیا یہ جذبات (غصہ، غم، صدمہ) کے بعد شروع ہوا؟", "سردی لگنا، ویکسین یا پرانی بیماری؟", "خاندان میں اسی مرض کا رجحان؟"],
+        "en": ["Did it start after an emotion (anger, grief, shock)?", "Cold exposure, vaccination or past illness?", "Family tendency for this disease?"],
+        "roman": ["Kya yeh jazbati (ghussa, gham, sadma) ke baad shuru hua?", "Sardi, vaccine ya purani bimari?", "Khandan me is marz ka rojhan?"],
+    },
+    "mental": {
+        "ur": ["اضطراب، خوف یا چڑچڑاپن؟ کیا اس کا محرک ہے؟", "بھوک یا کسی کھانے کی خاص خواہش/نفرت؟", "نیند کی کیفیت: کیسے سوتے ہیں؟"],
+        "en": ["Anxiety, fear or irritability? What triggers it?", "Appetite or craving/aversion for any food?", "Sleep quality: how do they fall asleep?"],
+        "roman": ["Iztirab, khauf ya chirchirapan? Kis se chalta hai?", "Bhook ya kisi khanay ki khwahish/nafrat?", "Neend ki kawaif: kaise sote hain?"],
+    },
+    "generals": {
+        "ur": ["بھوک: اچھی ہے یا کم؟", "پیاس: زیادہ ہے یا تقریباً نہیں؟", "گرمی یا سردی کی طبیعت؟"],
+        "en": ["Appetite: good or poor?", "Thirst: excessive or almost none?", "Hot or chilly nature?"],
+        "roman": ["Bhook: achi hai ya kam?", "Pyas: zyada hai ya taa'ayan nahin?", "Garmi ya sardi ki tabiyat?"],
+    },
+    "sleep": {
+        "ur": ["کیسے سوتے ہیں؟", "رات میں جاگتے ہیں؟ کس وقت؟", "خواب آتے ہیں؟ کس قسم کے؟"],
+        "en": ["How do they fall asleep?", "Do they wake at night? What time?", "Dreams? What kind?"],
+        "roman": ["Kaise sote hain?", "Raat me jagte hain? Kis waqt?", "Khwab aate hain? Kis qism ke?"],
+    },
+    "history": {
+        "ur": ["ماضی کی بیماریاں اور علاج؟", "خاندانی امراض (شوگر، بلڈ پریشر، جلد)؟", "ایلرگیاں یا کھانے کی نفرت؟"],
+        "en": ["Past illnesses and treatments?", "Family diseases (sugar, BP, skin)?", "Allergies or food aversions?"],
+        "roman": ["Maazi ke bimariyan aur ilaj?", "Khandani amraaz (shugar, BP, jild)?", "Allergy ya khanay ki nafrat?"],
+    },
+    "modalities": {
+        "ur": ["کیا بڑھاتا ہے؟ (وقت، حرکت، موسم)", "کیا آرام دیتا ہے؟", "موسم یا وضع کی کوئی خواہش؟"],
+        "en": ["What aggravates? (time, motion, weather)", "What brings relief?", "Any desire for climate or posture?"],
+        "roman": ["Kya barhata hai? (waqt, harakat, mausam)", "Kya aaram deta hai?", "Mausam ya waz'ah ki khwahish?"],
+    },
+}
+
+_QUESTIONS_CACHE = {}
+
+
+def _llm_questions(text: str, sid: str) -> list:
+    """درج شدہ متن کے مطابق ایل ایل ایم سے 3 متلاشی سوالات (کیش شدہ)"""
+    import hashlib as _h
+    key = _h.md5(f"{sid}|{text}".encode("utf-8")).hexdigest()
+    if key in _QUESTIONS_CACHE:
+        return _QUESTIONS_CACHE[key]
+    static = STATIC_QUESTION_HINTS.get(sid, {}).get(_LANG) or STATIC_QUESTION_HINTS.get(sid, {}).get("ur", [])
+    try:
+        lang_name = {"ur": "Urdu", "en": "English", "roman": "Roman Urdu"}[_LANG]
+        prompt = (
+            "You are an expert homeopathic case-taking assistant. "
+            "Based on the patient data entered so far, suggest EXACTLY 3 specific "
+            "follow-up questions that would sharpen the case (modalities, particulars, "
+            "generals, or causation). Do not repeat information already given. "
+            f"Write the questions in {lang_name}.\n\n"
+            f"Patient data so far:\n{text}\n\n"
+            'Return ONLY valid JSON: {"questions":["q1","q2","q3"]}'
+        )
+        raw, _ = llm_mod.ask_llm(prompt, require_json=True, temperature=0.2)
+        data = llm_mod.extract_json(raw)
+        qs = [str(q).strip() for q in data.get("questions", []) if str(q).strip()][:3]
+        if qs:
+            if len(_QUESTIONS_CACHE) >= 300:
+                try:
+                    _QUESTIONS_CACHE.pop(next(iter(_QUESTIONS_CACHE)))
+                except Exception:
+                    pass
+            _QUESTIONS_CACHE[key] = qs
+            return qs
+    except Exception:
+        pass
+    return static
+
+
+def _render_next_questions(step: dict):
+    """ہر مواد ٹیب کے آخر میں: اسٹیٹک رہنمائی + ایل ایل ایم بٹن"""
+    sid = step["id"]
+    with st.expander(t("ai_questions")):
+        # اسٹیٹک تجاویز
+        static = STATIC_QUESTION_HINTS.get(sid, {})
+        items = static.get(_LANG) or static.get("ur", [])
+        if items:
+            st.markdown(f'<div style="direction:rtl;">{t("ai_questions_short")}:</div>', unsafe_allow_html=True)
+            for q in items:
+                st.markdown(f'&nbsp;&nbsp;• {q}', unsafe_allow_html=True)
+        # ایل ایل ایم
+        if st.button(t("ai_questions_btn"), key=f"aiq_{_case_type()}_{sid}"):
+            text = " | ".join(
+                (st.session_state.get(_field_key(sid, f["id"]), "") or "")
+                for f in step.get("fields", [])
+            ).strip()
+            if len(text) < 10:
+                st.info(t("no_symptoms"))
+                return
+            with st.spinner("..."):
+                qs = _llm_questions(text, sid)
+            for q in qs:
+                st.markdown(f'🤖 {q}')
+
+
+# ------------------------------------------------------------------ #
+# مکمل کیس نوٹ سے خودکار بھرنا (نسخہ 2.1)
+# ------------------------------------------------------------------ #
+def _auto_fill_from_note(runner: FlowRunner, note: str) -> tuple:
+    fields = []
+    for step in runner.steps:
+        for f in step.get("fields", []):
+            label = f.get("label", {}).get(_LANG) or f.get("label", {}).get("ur", "")
+            fields.append((step["id"], f["id"], label))
+    lines = "\n".join(f"{sid}::{fid} — {lbl}" for sid, fid, lbl in fields)
+    prompt = f"""You are a homeopathic case-taking assistant. Below is a raw case note (it may be in Urdu, Roman Urdu or English). Extract the relevant information into the structured fields.
+
+Fields (use the "sid::fid" format as keys EXACTLY as listed):
+{lines}
+
+Case note:
+\"\"\"{note}\"\"\"
+
+Rules:
+- For each field, output the relevant text from the note, keeping the original wording.
+- If a field has no information in the note, output an empty string.
+- Do not invent information.
+
+Return ONLY valid JSON: {{"sid::fid": "text", ...}}"""
+    raw, prov = llm_mod.ask_llm(prompt, require_json=True, temperature=0.0)
+    data = llm_mod.extract_json(raw)
+    filled = 0
+    for sid, fid, _lbl in fields:
+        v = str(data.get(f"{sid}::{fid}", "") or "").strip()
+        if v:
+            st.session_state[_field_key(sid, fid)] = v
+            filled += 1
+    return filled, prov
+
+
+def _render_case_note_expander(runner: FlowRunner):
+    with st.expander(t("case_note_fill")):
+        note = st.text_area(t("case_note_ph"), key="bc_case_note", height=150,
+                            label_visibility="collapsed")
+        if st.button(t("case_note_fill"), use_container_width=True, key="case_note_btn"):
+            if not (note or "").strip():
+                st.info(t("no_symptoms"))
+                return
+            with st.spinner("..."):
+                try:
+                    filled, prov = _auto_fill_from_note(runner, note.strip())
+                    if filled:
+                        st.session_state.pop("bc_case_note", None)
+                        st.success(f"{t('case_note_done')} ({filled}) 🤖 {prov}")
+                    else:
+                        st.warning(t("ai_offline"))
+                except Exception as e:
+                    st.error(f"غلطی: {e}")
+
+
+# ------------------------------------------------------------------ #
+# آواز سے درج کرنا (گروک وِساپر — اگر کیز موجود ہو) (نسخہ 2.1)
+# ------------------------------------------------------------------ #
+def _groq_transcribe(audio_obj) -> str:
+    if not getattr(llm_mod, "GROQ_API_KEY", ""):
+        return ""
+    import io
+    from openai import OpenAI
+    cli = OpenAI(api_key=llm_mod.GROQ_API_KEY, base_url="https://api.groq.com/openai/v1")
+    buf = io.BytesIO(audio_obj.getvalue())
+    buf.name = "voice.webm"
+    r = cli.audio.transcriptions.create(model="whisper-large-v3", file=buf)
+    return str(getattr(r, "text", "") or "").strip()
+
+
+def _render_voice_expander():
+    if not getattr(llm_mod, "GROQ_API_KEY", ""):
+        return
+    with st.expander(t("voice_exp")):
+        audio = st.audio_recorder(t("voice_btn"), key="bc_voice")
+        if audio is not None:
+            with st.spinner("..."):
+                try:
+                    text = _groq_transcribe(audio)
+                except Exception:
+                    text = ""
+            if text:
+                fkey = _field_key("chief", "chief_complaint")
+                cur = (st.session_state.get(fkey, "") or "").strip()
+                st.session_state[fkey] = (cur + "\n" + text).strip() if cur else text
+                st.success(t("voice_done"))
+
+
+# ------------------------------------------------------------------ #
+# رینڈرنگ: سٹیپ مواد
+# ------------------------------------------------------------------ #
 def _render_step_content(step: dict, runner: FlowRunner):
     sid = step["id"]
 
@@ -371,121 +738,63 @@ def _render_step_content(step: dict, runner: FlowRunner):
         if (st.session_state.get(chief_key, "") or "").strip():
             st.markdown(f'<div class="bhc-done-hint">✅ {t("chief_added")}</div>',
                         unsafe_allow_html=True)
+        # اضافی اسسٹنٹ ٹولز (صرف بنیادی شکایت ٹیب)
+        _render_case_note_expander(runner)
+        _render_voice_expander()
+
+    _render_next_questions(step)
 
 
 # ------------------------------------------------------------------ #
-# ریپرٹورائزیشن / میازم / فالو اپ ٹیبز
+# ریپرٹورائزیشن ٹیب
 # ------------------------------------------------------------------ #
-def _render_remedy_tab(runner: FlowRunner):
-    symptoms = _collected_symptoms(runner.steps)
-    if not symptoms:
-        st.info(t("no_symptoms"))
-        return
-
-    st.markdown(f"**{t('symptoms_collected')}** ({len(symptoms)}):")
-    st.markdown('<div style="margin:6px 0 10px;">' + "".join(
-        f'<span class="bhc-chip">{s}</span>' for s in symptoms) + "</div>", unsafe_allow_html=True)
-
-    if st.button(t("run_repertorization"), type="primary", use_container_width=True, key="run_repert"):
-        with st.spinner(t("running")):
-            try:
-                st.session_state.bc_result = runner.run_repertorization(symptoms)
-            except Exception as e:
-                st.error(f"غلطی: {e}")
-                return
-
-    res = st.session_state.bc_result
-    if not res:
-        return
-
-    st.markdown(f'<div class="bhc-card-title">{t("results_title")}</div>', unsafe_allow_html=True)
-    for i, r in enumerate(res["remedies"][:6], 1):
-        srcs = " + ".join(sources_mod.source_labels().get(s, s) for s in r.get("sources", []))
-        keynotes = " ".join(f'<span class="bhc-ktag">{rb["rubric"][:40]}</span>' for rb in r["rubrics"][:4])
-        st.markdown(
-            f"""
-            <div class="bhc-remedy">
-              <b style="font-size:15px;">{i}. {r['remedy']}</b> &nbsp;
-              <span style="color:#1e8449;font-weight:700;">{t('score')}: {r['score']}</span><br>
-              <span style="font-size:12px;color:#7f8c9a;">{t('rubrics')}: {r['rubric_count']} • {t('sources')}: {srcs}</span>
-              <div style="margin-top:4px;">{keynotes}</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    mat = res.get("differential", {})
-    if mat.get("rows"):
-        st.markdown(f'<div class="bhc-card-title">{t("differential")}</div>', unsafe_allow_html=True)
-        import pandas as pd
-        rows = [{"rubric": row["rubric"][:48], **row["cells"]} for row in mat["rows"]]
-        st.dataframe(pd.DataFrame(rows), width="stretch")
-
-    # ===== استعمال شدہ ربرکس — کھلے عام دکھائیں (چھپے نہیں) =====
-    rubrics_used = res.get("rubrics_used", [])
-    st.markdown(
-        f'<div class="bhc-card-title">{t("rubrics_used")} ({len(rubrics_used)})</div>',
-        unsafe_allow_html=True,
-    )
-    if rubrics_used:
-        items = []
-        for ru in rubrics_used:
-            sym = str(ru.get("symptom", ""))
-            rub = str(ru.get("rubric", ""))
-            src = str(ru.get("source", ""))
-            dim = str(ru.get("dimension", ""))
-            items.append(
-                f'<div style="padding:5px 0;border-bottom:1px dashed #ecf0f1;">'
-                f'<b style="color:#1a5276;">▸ {rub}</b><br>'
-                f'<span style="font-size:12px;color:#7f8c9a;">🩺 {sym} &nbsp;•&nbsp; 📚 {src} &nbsp;•&nbsp; {dim}</span>'
-                f'</div>'
-            )
-        st.markdown('<div class="bhc-card">' + "".join(items) + "</div>", unsafe_allow_html=True)
-    else:
-        st.caption(t("no_symptoms"))
-
-    # ===== حتمی نسخہ (مستقل — ایک ہی کیس پر ہمیشہ ایک ہی نتیجہ) =====
-    if st.button(t("final_prescription"), use_container_width=True, key="final_rx_btn"):
-        with st.spinner("نسخہ تیار ہو رہا ہے..."):
-            _generate_prescription(runner, symptoms, res)
-
-    if st.session_state.bc_rx:
-        st.markdown(
-            f'<div class="bhc-card" style="background:linear-gradient(135deg,#eafaf1,#fff);'
-            f'border:1px solid #a9dfbf;border-right:6px solid #27ae60;">{st.session_state.bc_rx}</div>',
-            unsafe_allow_html=True,
-        )
-    st.markdown(f"<div style='font-size:11px;color:#7f8c9a;margin-top:8px;'>{t('final_note')}</div>", unsafe_allow_html=True)
-
-
 def _symptom_signature(symptoms: list) -> str:
     return hashlib.md5("|".join(symptoms).encode("utf-8")).hexdigest()
 
 
-def _generate_prescription(runner: FlowRunner, symptoms: list, res: dict):
+def _generate_prescription(runner: FlowRunner, symptoms: list, res: dict,
+                           char_syms: list, patient: dict):
     """حتمی نسخہ — درست طریقہ کار کے مطابق:
     ٹاپ 3–5 امیدوار دوائیں لیں، ہر ایک کی علاماتِ کلیہ اور میٹیریا میڈیکا /
     لٹریچر سے تصدیق کریں، جو پوری علامات پر اترے وہی فائنل۔
     (ایک ہی کیس پر نتیجہ مستقل رہتا ہے — temperature=0 + کیش)"""
     sig = _symptom_signature(symptoms)
-    # پہلے سے تیار ہے تو دوبارہ AI کال نہ کریں — نتیجہ وہی رہے گا
     if st.session_state.get("bc_rx_sig") == sig and st.session_state.bc_rx:
         return
 
-    # ٹاپ 5 امیدوار — ہر ایک کے ساتھ اسکور، ربرکس اور سورسز (تصدیق کے لیے ڈیٹا)
     ranked_lines = []
+    prev = (patient.get("last_remedy") or "").strip().lower()
     for i, r in enumerate(res["remedies"][:5], 1):
         rubs = "; ".join(rb["rubric"][:48] for rb in r.get("rubrics", [])[:6])
+        tag = " (previously tried, no improvement)" if prev and r["remedy"].lower() == prev else ""
         ranked_lines.append(
-            f"{i}. {r['remedy']} — score {r['score']} "
+            f"{i}. {r['remedy']}{tag} — score {r['score']} "
             f"(matched rubrics: {r['rubric_count']}, sources: {len(r.get('sources', []))})\n"
             f"   rubrics: {rubs}"
         )
     ranked = "\n".join(ranked_lines)
 
+    rep_labels = ", ".join(_source_label(s) for s in res.get("sources", []))
+    patient_line = ""
+    if patient.get("name") or patient.get("age"):
+        bits = []
+        if patient.get("name"):
+            bits.append(str(patient["name"]))
+        if patient.get("age"):
+            bits.append(f"{patient['age']} years")
+        if patient.get("gender"):
+            bits.append(str(patient["gender"]))
+        patient_line = f"\nPatient: {' , '.join(bits)}\n"
+    prev_line = ""
+    if prev:
+        prev_line = (f"\nPreviously tried remedy: {prev} — no significant improvement. "
+                     f"Avoid choosing it as primary unless strongly justified.\n")
+
     prompt = f"""You are an expert classical homeopathic physician.
 Case type: {runner.case_type}
-
+Repertories used in this chart: {rep_labels}
+Characteristic (key) symptoms: {', '.join(char_syms) if char_syms else 'none marked'}
+{patient_line}{prev_line}
 Patient symptoms (totality):
 {', '.join(symptoms)}
 
@@ -511,10 +820,9 @@ Write the final prescription in Urdu with exactly these headings:
         st.caption(f"🤖 {prov}")
     except Exception as e:
         # اے آئی دستیاب نہ ہو تو مقامی ریپرٹری + پوٹینسی انجن سے تجویز
-        # (بغیر میٹیریا میڈیکا تصدیق — صرف سب سے زیادہ اسکور والی دوا)
         top = res["remedies"][0] if res.get("remedies") else None
         if top:
-            pot = runner.run_potency()
+            pot = runner.run_potency(age=_patient_age(patient))
             st.session_state.bc_rx = (
                 f"<b>{t('rx_local')}:</b> {top['remedy']} ({t('score')}: {top['score']})<br><br>"
                 f"<b>{t('rx_local_dose')}:</b> 💊 {pot['potency']} — {pot['repetition']} — {pot['duration']}<br><br>"
@@ -526,6 +834,178 @@ Write the final prescription in Urdu with exactly these headings:
             st.info(t("ai_offline") + f" ({e})")
 
 
+def _render_remedy_tab(runner: FlowRunner):
+    symptoms = _collected_symptoms(runner.steps)
+
+    # خاص/کاریکٹرسٹک علامات (اختیاری) — 1.5x وزن
+    char_text = st.session_state.get("bc_char", "") or ""
+    char_syms = _split_symptoms(char_text)
+    all_syms = symptoms + [c for c in char_syms if c not in symptoms]
+
+    if not all_syms:
+        st.info(t("no_symptoms"))
+        return
+
+    # سیفٹی ریڈ فلیگز
+    for a in _safety_alerts(all_syms):
+        st.error(f"{t('emergency')}: {a} — {t('safety_note')}")
+
+    st.markdown(f"**{t('symptoms_collected')}** ({len(all_syms)}):")
+    st.markdown('<div style="margin:6px 0 10px;">' + "".join(
+        f'<span class="bhc-chip">{"⭐ " if s in char_syms else ""}{s}</span>'
+        for s in all_syms) + "</div>", unsafe_allow_html=True)
+
+    st.text_input(t("char_symptom"), key="bc_char",
+                  placeholder=t("char_ph"))
+
+    selected = st.session_state.get("bc_sources", ["kent", "synthesis"])
+    if not selected:
+        st.warning(t("no_sources"))
+        return
+
+    weights = {s: 1.5 for s in char_syms}  # خاص علامات کو اضافی وزن
+
+    if st.button(t("run_repertorization"), type="primary", use_container_width=True, key="run_repert"):
+        with st.spinner(t("running")):
+            try:
+                st.session_state.bc_result = runner.run_repertorization(
+                    all_syms, sources=selected, symptom_weights=weights)
+            except Exception as e:
+                st.error(f"غلطی: {e}")
+                return
+        # اسناپ شاٹ (آخری 5)
+        res_tmp = st.session_state.bc_result
+        snaps = st.session_state.setdefault("bc_snaps", [])
+        snaps.append({
+            "ts": time.strftime("%d %b %H:%M"),
+            "sig": _symptom_signature(all_syms),
+            "sources": selected,
+            "top": [(r["remedy"], r["score"]) for r in res_tmp["remedies"][:5]],
+        })
+        del snaps[:-5]
+
+    res = st.session_state.bc_result
+    if not res:
+        return
+
+    # جرمن ریپرٹری پر کوئی میچ نہ ہو تو نوٹ
+    if "kent_de" in selected and not any(ru.get("source") == "kent_de" for ru in res.get("rubrics_used", [])):
+        st.caption(t("german_note"))
+
+    st.markdown(
+        f'<div class="bhc-card-title">{t("results_title")} — '
+        f'{t("repertories_used")}: {" + ".join(_source_label(s) for s in res.get("sources", []))}</div>',
+        unsafe_allow_html=True)
+
+    patient = _get_patient()
+    prev = (patient.get("last_remedy") or "").strip().lower()
+
+    import pandas as pd
+    for i, r in enumerate(res["remedies"][:6], 1):
+        srcs = " + ".join(_source_label(s) for s in r.get("sources", []))
+        keynotes = " ".join(
+            f'<span class="bhc-ktag">{rb["rubric"][:40]}</span>' for rb in r["rubrics"][:4])
+        badge = f' <span style="color:#c0392b;font-size:12px;">{t("prev_remedy_badge")}</span>' \
+            if prev and r["remedy"].lower() == prev else ""
+        st.markdown(
+            f"""
+            <div class="bhc-remedy">
+              <b style="font-size:15px;">{i}. {r['remedy']}</b>{badge} &nbsp;
+              <span style="color:#1e8449;font-weight:700;">{t('score')}: {r['score']}</span><br>
+              <span style="font-size:12px;color:#7f8c9a;">{t('rubrics')}: {r['rubric_count']} • {t('sources')}: {srcs}</span>
+              <div style="margin-top:4px;">{keynotes}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        # ایلپینیبلٹی: اسکور کی تفصیل
+        with st.expander(t("score_breakdown")):
+            rows = [{
+                "Symptom": x.get("symptom", ""),
+                "Rubric": x["rubric"][:60],
+                "Repertory": _source_label(x.get("source", "")),
+                "Grade": x.get("grade", ""),
+                "Weight": x.get("weight", ""),
+                "Conf": x.get("confidence", ""),
+                "Contribution": x.get("contribution", ""),
+            } for x in r["rubrics"][:15]]
+            st.dataframe(pd.DataFrame(rows), width="stretch")
+
+    mat = res.get("differential", {})
+    if mat.get("rows"):
+        st.markdown(f'<div class="bhc-card-title">{t("differential")}</div>', unsafe_allow_html=True)
+        rows = [{"rubric": row["rubric"][:48], **row["cells"]} for row in mat["rows"]]
+        st.dataframe(pd.DataFrame(rows), width="stretch")
+
+    # ===== استعمال شدہ ربرکس =====
+    rubrics_used = res.get("rubrics_used", [])
+    st.markdown(
+        f'<div class="bhc-card-title">{t("rubrics_used")} ({len(rubrics_used)})</div>',
+        unsafe_allow_html=True,
+    )
+    if rubrics_used:
+        items = []
+        for ru in rubrics_used:
+            sym = str(ru.get("symptom", ""))
+            rub = str(ru.get("rubric", ""))
+            src = _source_label(str(ru.get("source", "")))
+            dim = str(ru.get("dimension", ""))
+            star = "⭐ " if sym in char_syms else ""
+            items.append(
+                f'<div style="padding:5px 0;border-bottom:1px dashed #ecf0f1;">'
+                f'<b style="color:#1a5276;">▸ {rub}</b><br>'
+                f'<span style="font-size:12px;color:#7f8c9a;">🩺 {star}{sym} &nbsp;•&nbsp; 📚 {src} &nbsp;•&nbsp; {dim}</span>'
+                f'</div>'
+            )
+        st.markdown('<div class="bhc-card">' + "".join(items) + "</div>", unsafe_allow_html=True)
+    else:
+        st.caption(t("no_symptoms"))
+
+    # ===== پوٹینسی اور خوراک (نسخہ 2.1) =====
+    pot = runner.run_potency(miasm=res.get("miasm_dominant"), age=_patient_age(patient))
+    pot_lines = [f"💊 <b>{pot['potency']}</b> — {pot.get('range','')}"]
+    if pot.get("repetition"):
+        pot_lines.append(f"🔁 {pot['repetition']}")
+    if pot.get("duration"):
+        pot_lines.append(f"⏱ {pot['duration']}")
+    if pot.get("note"):
+        pot_lines.append(f"📌 {pot['note']}")
+    if pot.get("miasm_note"):
+        pot_lines.append(f"🌀 {pot['miasm_note']}")
+    st.markdown(
+        f'<div class="bhc-card-title">{t("potency_title")}</div>', unsafe_allow_html=True)
+    st.markdown('<div class="bhc-card" style="direction:rtl;">' + "<br>".join(pot_lines) + "</div>",
+                unsafe_allow_html=True)
+
+    # ===== پچھلے نتائج (اسناپ شاٹس) =====
+    snaps = st.session_state.get("bc_snaps", [])
+    if len(snaps) > 1:
+        with st.expander(f"{t('prev_results')} ({len(snaps)})"):
+            for s in reversed(snaps[-5:]):
+                top3 = ", ".join(f"{n} ({sc})" for n, sc in s["top"][:3])
+                srcs = " + ".join(_source_label(x) for x in s["sources"])
+                st.markdown(
+                    f'<div style="direction:rtl;padding:4px 0;border-bottom:1px dashed #ecf0f1;">'
+                    f'<b>{s["ts"]}</b> • {srcs} • {top3}</div>')
+
+    # ===== حتمی نسخہ =====
+    if st.button(t("final_prescription"), use_container_width=True, key="final_rx_btn"):
+        with st.spinner("نسخہ تیار ہو رہا ہے..."):
+            _generate_prescription(runner, all_syms, res, char_syms, patient)
+
+    if st.session_state.bc_rx:
+        st.markdown(
+            f'<div class="bhc-card" style="background:linear-gradient(135deg,#eafaf1,#fff);'
+            f'border:1px solid #a9dfbf;border-right:6px solid #27ae60;">{st.session_state.bc_rx}</div>',
+            unsafe_allow_html=True,
+        )
+    st.markdown(f"<div style='font-size:11px;color:#7f8c9a;margin-top:8px;'>{t('final_note')}</div>",
+                unsafe_allow_html=True)
+
+
+# ------------------------------------------------------------------ #
+# میازم ٹیب
+# ------------------------------------------------------------------ #
 def _render_miasm_tab(runner: FlowRunner):
     symptoms = _collected_symptoms(runner.steps)
     if not symptoms:
@@ -539,6 +1019,9 @@ def _render_miasm_tab(runner: FlowRunner):
     st.markdown(f"**{t('dominant')}:** {dom}")
 
 
+# ------------------------------------------------------------------ #
+# فالو اپ ٹیب (ہیرنگ کے قوانین سمیت — نسخہ 2.1)
+# ------------------------------------------------------------------ #
 def _render_followup_tab():
     options = {
         "improved": t("fu_improved"),
@@ -556,11 +1039,38 @@ def _render_followup_tab():
         <div class="bhc-card">
           <b>{t('decision')}:</b> {d['action']}<br>
           <b>{t('reason')}:</b> {d['reason']}<br>
-          <b>{t('next_steps')}:</b> {" • ".join(d['next_steps'])}
+          <b>{t('next_steps')}:</b> {chr(8226).join(d['next_steps'])}
         </div>
         """,
         unsafe_allow_html=True,
     )
+
+    # ہیرنگ کے قوانین — بہتری کی سمت کی چیک
+    st.markdown(f'<div class="bhc-card-title">{t("hering_title")}</div>', unsafe_allow_html=True)
+    h1 = st.checkbox(t("hering_1"), key="hering_1")
+    h2 = st.checkbox(t("hering_2"), key="hering_2")
+    h3 = st.checkbox(t("hering_3"), key="hering_3")
+    h4 = st.checkbox(t("hering_4"), key="hering_4")
+    if any([h1, h2, h3, h4]):
+        hcheck = followup_mod.hering_check({
+            "direction": h1,
+            "center_to_periphery": h2,
+            "organ_priority": h3,
+            "reverse_order": h4,
+        })
+        bits = []
+        for k, c in hcheck.items():
+            if k == "compliant":
+                continue
+            mark = "✅" if c["observed"] else "❌"
+            bits.append(f"{mark} {c['desc']}")
+        verdict = "✅" if hcheck["compliant"] else "⚠️"
+        st.markdown(
+            f'<div class="bhc-card" style="direction:rtl;">'
+            f"<br>".join(bits) + f"<br><b>{t('hering_compliant')}:</b> {verdict}"
+            f"{' ' + t('fu_improved') if hcheck['compliant'] else ''}</div>",
+            unsafe_allow_html=True,
+        )
 
 
 # ------------------------------------------------------------------ #
@@ -573,6 +1083,18 @@ def render_app():
     st.markdown(CSS, unsafe_allow_html=True)
     _init_state()
     _LANG = _get_lang()
+
+    # ===== مریض کا سیاق (?patient=) =====
+    patient = _get_patient()
+    if patient.get("name"):
+        parts = [f"🧾 {patient['name']}"]
+        if patient.get("age"):
+            parts.append(str(patient["age"]))
+        if patient.get("gender"):
+            parts.append(patient["gender"])
+        if patient.get("last_remedy"):
+            parts.append(f"{t('patient_prev')}: {patient['last_remedy']}")
+        st.caption(" • ".join(parts))
 
     # ===== ٹاپ: ایکوٹ | کرانک ٹوگل =====
     st.segmented_control(

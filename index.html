@@ -432,7 +432,8 @@
     ></iframe>
 </div>
 <script>
-/* AI Homeo Assistant: زبان ہم آہنگی — دونوں iframe کو ?lang= بھیجتا ہے (ur/en/roman) */
+/* AI Homeo Assistant: زبان ہم آہنگی — دونوں iframe کو ?lang= بھیجتا ہے (ur/en/roman)
+   + ایڈوانس اسسٹنٹ 2.0 کو فعال مریض کا سیاق بھیجتا ہے (?patient= JSON) */
 (function(){
     function syncAILang(){
         ['dxAIframe', 'dxAI2frame'].forEach(function(id){
@@ -448,8 +449,36 @@
             } catch(e){}
         });
     }
+    var lastPatientSent = undefined;
+    function syncAI2Context(){
+        var f = document.getElementById('dxAI2frame');
+        if (!f) return;
+        var pid = null;
+        try { pid = (typeof diagnosisPatientId !== 'undefined') ? diagnosisPatientId : null; } catch(e){}
+        if (pid === lastPatientSent) return;
+        lastPatientSent = pid;
+        try {
+            var u = new URL(f.src, location.href);
+            var p = null;
+            if (pid) {
+                var cpl = [];
+                try { cpl = JSON.parse(localStorage.getItem('cached_patients') || '[]'); } catch(e){}
+                p = cpl.find(function(x){ return x.id === pid; });
+            }
+            if (p && p.name) {
+                u.searchParams.set('patient', JSON.stringify({
+                    name: p.name, age: p.age || '', gender: p.gender || ''
+                }));
+            } else {
+                u.searchParams.delete('patient');
+            }
+            f.src = u.toString();
+        } catch(e){}
+    }
     window.syncAILang = syncAILang;
+    window.syncAI2Context = syncAI2Context;
     syncAILang();
+    syncAI2Context();
 })();
 </script>
             <script>

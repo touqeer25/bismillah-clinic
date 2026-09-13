@@ -94,9 +94,15 @@ def repertorize_multi(
     use_llm: bool = True,
     min_grade: int = 1,
     top_rubrics_per_symptom: int = 4,
+    symptom_weights: Optional[Dict[str, float]] = None,
 ) -> Dict:
     """
-    مکمل پائپ لائن: علامات → (ہر سورس پر) ربرکس → اسکورنگ → رینکنگ
+    مکمل پائپ لائن: علامات → (ہر سورس پر) ربرکس → اسکورنگ → رینکنگ (نسخہ 2.1)
+
+    نئی خصوصیات:
+      - symptom_weights: خاص/کاریکٹرسٹک علامتوں کو اضافی وزن (مثلاً 1.5)
+      - پرت کی حد: ہر (علامت × جہت) میں صرف ٹاپ 2 ربرکس پورا وزن لیتے ہیں،
+        باقی آدھا — تاکہ ایک علامت کا ایک جہت پر بے جا قبضہ نہ ہو
 
     واپسی: {
         "remedies": [ {remedy, score, rubric_count, avg_grade, sources, source_count, rubrics} ],
@@ -106,6 +112,7 @@ def repertorize_multi(
     """
     weights = dimension_weights or DEFAULT_DIMENSION_WEIGHTS
     sources = get_sources(source_names)
+    sw = symptom_weights or {}
 
     remedy_scores: Dict[str, float] = defaultdict(float)
     remedy_rubrics: Dict[str, List[dict]] = defaultdict(list)
@@ -116,50 +123,62 @@ def repertorize_multi(
         for sym in symptoms:
             if not str(sym).strip():
                 continue
+            sym_weight = float(sw.get(sym, 1.0) or 1.0)  # خاص علامت کا اضافی وزن
             matches = rubric_mapper.map_symptom_deep(
                 sym, index=src.index, top_k=top_rubrics_per_symptom, use_llm=use_llm
             )
+            # پرت کی حد: جہت کی بنیاد پر گروپ، ٹاپ 2 پورا وزن
+            by_dim: Dict[str, List[dict]] = {}
             for m in matches:
                 rid = m["rubric_id"]
                 if rid not in src.index.rubrics:
                     continue
-                rb = src.index.rubrics[rid]
-                dim = src.index.dimensions(rb["chapter"])
-                weight = weights.get(dim, weights.get("particulars", 1.0))
-                confidence = float(m.get("confidence", 1.0) or 1.0)
+                dim = src.index.dimensions(src.index.rubrics[rid]["chapter"])
+                by_dim.setdefault(dim, []).append(m)
 
-                raw = src.index.load_rubric(rid)
-                grades = raw.get("r", {}) if raw else {}
+            for dim, mlist in by_dim.items():
+                mlist.sort(key=lambda m: -float(m.get("confidence", 1.0) or 1.0))
+                for pos, m in enumerate(mlist):
+                    cap_factor = 1.0 if pos < 2 else 0.5  # باقی آدھا وزن
+                    rid = m["rubric_id"]
+                    rb = src.index.rubrics[rid]
+                    weight = weights.get(dim, weights.get("particulars", 1.0))
+                    confidence = float(m.get("confidence", 1.0) or 1.0) * cap_factor
 
-                rubrics_used.append({
-                    "symptom": sym,
-                    "rubric": rb["t"],
-                    "chapter": rb["chapter"],
-                    "dimension": dim,
-                    "source": src.name,
-                    "confidence": confidence,
-                    "rationale": m.get("rationale", ""),
-                })
+                    raw = src.index.load_rubric(rid)
+                    grades = raw.get("r", {}) if raw else {}
 
-                for remedy, grade in grades.items():
-                    if grade < min_grade:
-                        continue
-                    remedy = src.normalize_remedy(remedy)
-                    g_norm = src.normalize_grade(grade)
-                    contribution = g_norm * float(weight) * confidence
-                    remedy_scores[remedy] += contribution
-                    remedy_sources[remedy].add(src.name)
-                    remedy_rubrics[remedy].append({
+                    rubrics_used.append({
+                        "symptom": sym,
                         "rubric": rb["t"],
                         "chapter": rb["chapter"],
                         "dimension": dim,
-                        "grade": grade,
-                        "grade_norm": g_norm,
-                        "weight": weight,
-                        "confidence": confidence,
-                        "contribution": round(contribution, 2),
                         "source": src.name,
+                        "confidence": confidence,
+                        "rationale": m.get("rationale", ""),
                     })
+
+                    for remedy, grade in grades.items():
+                        if grade < min_grade:
+                            continue
+                        remedy = src.normalize_remedy(remedy)
+                        g_norm = src.normalize_grade(grade)
+                        contribution = g_norm * float(weight) * confidence * sym_weight
+                        remedy_scores[remedy] += contribution
+                        remedy_sources[remedy].add(src.name)
+                        remedy_rubrics[remedy].append({
+                            "rubric": rb["t"],
+                            "symptom": sym,
+                            "chapter": rb["chapter"],
+                            "dimension": dim,
+                            "grade": grade,
+                            "grade_norm": g_norm,
+                            "weight": weight,
+                            "confidence": confidence,
+                            "contribution": round(contribution, 2),
+                            "source": src.name,
+                            "characteristic": sym_weight > 1.0,
+                        })
 
     results = _finalize(remedy_scores, remedy_rubrics, remedy_sources)
     return {

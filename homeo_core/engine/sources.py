@@ -25,20 +25,26 @@ SOURCE_DEFS = {
     "kent": {
         "dir": "kent_chapters",
         "grade_max": 3,
-        "label": {"ur": "کینٹ ریپرٹری", "en": "Kent Repertory"},
+        "label": {"ur": "کینٹ", "en": "Kent", "roman": "Kent"},
         "remedy_style": "lower",
     },
     "synthesis": {
         "dir": "synthesis91_raw_chapters",
         "grade_max": 4,
-        "label": {"ur": "سنتھیسس 9.1", "en": "Synthesis 9.1"},
+        "label": {"ur": "سنتھیسس 9.1", "en": "Synthesis 9.1", "roman": "Synthesis 9.1"},
         "remedy_style": "lower",
     },
     "general": {
         "dir": "repertory_chapters",
         "grade_max": 3,
-        "label": {"ur": "عمومی ریپرٹری", "en": "General Repertory"},
+        "label": {"ur": "عمومی", "en": "General", "roman": "General"},
         "remedy_style": "capitalized",  # "Hep." → "hep"
+    },
+    "kent_de": {
+        "dir": "kent_de_chapters",
+        "grade_max": 3,
+        "label": {"ur": "کینٹ (جرمن)", "en": "Kent (German)", "roman": "Kent (German)"},
+        "remedy_style": "lower",
     },
 }
 
@@ -46,7 +52,7 @@ SOURCE_DEFS = {
 class RepertorySource:
     """ایک ریپرٹری سورس — ڈیٹا ڈائریکٹری + درجہ اسکیل + نام کی مطابقت"""
 
-    def __init__(self, name: str):
+    def __init__(self, name: Optional[str] = None, build_index: bool = True):
         if name not in SOURCE_DEFS:
             raise KeyError(f"نامعلوم ریپرٹری سورس: {name}")
         d = SOURCE_DEFS[name]
@@ -55,8 +61,9 @@ class RepertorySource:
         self.label = d["label"]
         self.remedy_style = d["remedy_style"]
         self.data_dir = ROOT / d["dir"]
-        self.index = RubricIndex(
-            data_dir=self.data_dir, name=name, grade_max=self.grade_max
+        self.index = (
+            RubricIndex(data_dir=self.data_dir, name=name, grade_max=self.grade_max)
+            if build_index else None
         )
 
     def normalize_remedy(self, remedy: str) -> str:
@@ -99,5 +106,14 @@ def all_sources() -> List[RepertorySource]:
     return get_sources()
 
 
-def source_labels() -> Dict[str, str]:
-    return {k: v["label"]["ur"] for k, v in SOURCE_DEFS.items()}
+def source_labels(lang: str = "ur") -> Dict[str, str]:
+    out = {}
+    for k, v in SOURCE_DEFS.items():
+        out[k] = v["label"].get(lang) or v["label"].get("en", k)
+    return out
+
+
+def source_options(lang: str = "ur") -> List[tuple]:
+    """(key, label) فہرست — ڈراپ ڈاؤن/ملٹی سیلیکٹ کے لیے"""
+    labels = source_labels(lang)
+    return [(k, labels[k]) for k in SOURCE_DEFS.keys()]

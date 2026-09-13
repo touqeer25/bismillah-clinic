@@ -40,12 +40,41 @@ GENERAL_CHAPTERS = {
 
 MIND_CHAPTERS = {"mind", "gemuet"}
 
+# جرمن ابواب (کینٹ ڈی) — جہتی درجہ بندی کے لیے
+GERMAN_MIND_CHAPTERS = {"gemuet"}
+GERMAN_GENERAL_CHAPTERS = {
+    "allgemeines", "fieber", "frost", "schlaf", "schweiss", "schwindel",
+}
+
 _STOPWORDS = {
     "the", "of", "in", "on", "at", "when", "while", "after", "before", "during",
-    "and", "or", "with", "without", "from", "to", "for", "as", "is", "are", "be",
+    "and", "or", "from", "to", "for", "as", "is", "are", "be",
     "a", "an", "his", "her", "she", "he", "it", "its", "their", "see", "saw",
     "my", "me", "i", "you", "very", "much", "too", "some", "have", "has",
     "great", "intense", "severe", "lots", "excessive", "zyada", "bohat",
+    # نوٹ: "with"/"without" اب اسٹاپ ورڈ نہیں — ہم راہ علامات
+    # ("anxiety with restlessness") اور نفی ("without sweating") کے لیے ضروری ہیں
+}
+
+# ------------------------------------------------------------------ #
+# رومن اردو: دستوری الفاظ (ہٹانے کے لیے) + دو لفظی فقرے (نسخہ 2.1)
+# ------------------------------------------------------------------ #
+_UR_GRAMMATICAL = {
+    "ka", "ki", "ke", "hai", "hain", "tha", "thi", "the", "ko", "mein",
+    "par", "bhi", "thoda", "thora", "thodi", "bahut", "bohot", "kafi",
+    "zara", "bas", "wala", "wali", "jo", "na", "ya", "jab", "kiya", "karo",
+}
+
+_UR_PHRASES = {
+    "se barhti": "agg", "se barhta": "agg", "se barhi": "agg",
+    "se barhe": "agg", "se barhna": "agg", "se badhti": "agg",
+    "se badhta": "agg", "se barha": "agg", "se badh": "agg",
+    "se behtar": "amel", "se behtari": "amel", "se rahat": "amel",
+    "se aasaan": "amel", "se kami": "amel", "se kam": "amel",
+    "ke baad": "after", "ki baad": "after",
+    "ke waqt": "during", "ki waqt": "during", "ke doran": "during",
+    "raat ko": "night", "subah ko": "morning", "sham ko": "evening",
+    "dopehar ko": "afternoon",
 }
 
 # ------------------------------------------------------------------ #
@@ -107,6 +136,14 @@ SYNONYM_MAP = {
     "menses": "menses", "menstruation": "menses", "menstrual": "menses", "period": "menses",
     "fever": "fever", "feverish": "fever",
     "headache": "headache",
+    # نفی (نسخہ 2.1) — "بے پیاسی"، "کوئی پسینہ نہیں" جیسے منفی حصے
+    "nahin": "no", "nahi": "no", "not": "no", "none": "no",
+    "absence": "no", "bina": "no", "without": "no",
+    # رومن اردو موڈیلٹیز (نسخہ 2.1)
+    "barhta": "agg", "barhti": "agg", "barhi": "agg", "barhe": "agg",
+    "barhna": "agg", "badhta": "agg", "badhti": "agg", "barhadne": "agg",
+    "behtar": "amel", "behtari": "amel", "rahat": "amel", "aasaan": "amel",
+    "baad": "after", "waqt": "during", "duran": "during",
 }
 
 # ------------------------------------------------------------------ #
@@ -128,6 +165,23 @@ ROMAN_URDU = {
     "bal": "hair", "daant": "teeth", "zabaan": "tongue", "hont": "lips",
     "hath": "hands", "paon": "feet", "pair": "feet", "naaf": "navel",
     "kandha": "shoulder", "taang": "leg", "ghutna": "knee", "nakseer": "nosebleed",
+    # مزید رومن اردو (نسخہ 2.1)
+    "harkat": "motion", "aaram": "rest", "paani": "water", "garam": "heat",
+    "thanda": "cold", "thandi": "cold", "sona": "sleep", "neend": "sleep",
+    "bhook": "appetite", "khana": "food", "dil": "heart", "haddi": "bone",
+    "jhonka": "spasm", "kanpna": "tremor", "kanpana": "tremor", "dhadkan": "palpitation",
+    "phoolna": "swelling", "sujan": "swelling", "ulti": "vomiting", "meetha": "sweets",
+    "khatta": "sour", "kadwa": "bitter", "namkeen": "salty", "tel": "oil",
+    "ghee": "ghee", "doodh": "milk", "paani": "water", "sharbat": "juice",
+    "chai": "tea", "kahwa": "kahwa", "meetha": "sweets", "namak": "salt",
+    "masla": "spicy", "andezay": "eggs", "gosht": "meat", "sabzi": "vegetable",
+    "roti": "bread", "chapati": "bread", "daal": "lentils", "chick": "chicken",
+    "pila": "yellow", "surkh": "red", "safaid": "white", "kala": "black",
+    "hara": "green", "bhook": "appetite", "bhok": "appetite", "khushi": "cheerful",
+    "udasi": "grief", "mota": "obese", "patla": "thin", "kamzor": "weakness",
+    "zor": "strength", "tan": "muscle", "jorda": "small", "bara": "great",
+    "tezi": "fast", "aahista": "slow", "bojhool": "drowsiness", "sona": "sleep",
+    "uthna": "waking", "jagna": "waking", "sawan": "dreams", "khwab": "dreams",
 }
 
 
@@ -150,12 +204,24 @@ def _tokenize(text: str) -> List[str]:
 
 
 def _tokens_canonical(text: str) -> List[str]:
-    """متن کے الفاظ — رومن اردو کی تبدیلی + مترادفات + معیاری کاری"""
+    """متن کے الفاظ — دو لفظی فقرے + دستوری الفاظ + رومن اردو + مترادفات"""
     raw = _tokenize(text)
-    out = []
-    for w in raw:
-        w = ROMAN_URDU.get(w, w)   # رومن اردو → انگریزی
-        out.append(_canonical(w))  # مترادف → معیاری
+    out: List[str] = []
+    i = 0
+    while i < len(raw):
+        if i + 1 < len(raw):
+            pair = raw[i] + " " + raw[i + 1]
+            if pair in _UR_PHRASES:          # "se barhti" → agg
+                out.append(_canonical(_UR_PHRASES[pair]))
+                i += 2
+                continue
+        w = raw[i]
+        if w in _UR_GRAMMATICAL:             # "ka/ki/hai/..." چھپا دیا
+            i += 1
+            continue
+        w = ROMAN_URDU.get(w, w)             # رومن اردو → انگریزی
+        out.append(_canonical(w))            # مترادف → معیاری
+        i += 1
     return out
 
 
@@ -215,6 +281,7 @@ class RubricIndex:
         self._chapters = chapters
         self.rubrics: Dict[str, dict] = {}   # "chapter::key" -> {"t","chapter","key","path",...}
         self._index: Dict[str, List[str]] = {}
+        self._chap_cache: Dict[str, dict] = {}  # باب کا پارس شدہ ڈیٹا (دوبارہ پارسنگ سے بچاؤ)
         self._load()
 
     # ---------------- لوڈنگ ----------------
@@ -261,15 +328,19 @@ class RubricIndex:
                     self._index.setdefault(bg, []).append(rid)
 
     def load_rubric(self, rid: str) -> dict:
-        """ربرک کا اصل خام ریکارڈ (بشمول r: {دوا: درجہ})"""
+        """ربرک کا اصل خام ریکارڈ (بشمول r: {دوا: درجہ})
+        نوٹ: پورا باب صرف ایک بار پارس ہوتا ہے — بعد میں میموری سے (فیز 0 مرمت)"""
         chapter, key = rid.split("::", 1)
-        fpath = self.data_dir / f"{chapter}.json"
-        try:
-            data = json.loads(fpath.read_text(encoding="utf-8"))
-            rec = data.get(key, {})
-            return rec if isinstance(rec, dict) else {}
-        except Exception:
-            return {}
+        data = self._chap_cache.get(chapter)
+        if data is None:
+            fpath = self.data_dir / f"{chapter}.json"
+            try:
+                data = json.loads(fpath.read_text(encoding="utf-8"))
+                self._chap_cache[chapter] = data
+            except Exception:
+                return {}
+        rec = data.get(key, {})
+        return rec if isinstance(rec, dict) else {}
 
     # ---------------- تلاش ----------------
     def search(self, symptom: str, top_k: int = 10, min_words: int = 1) -> List[dict]:
@@ -319,10 +390,10 @@ class RubricIndex:
         return results[:top_k]
 
     def dimensions(self, chapter: str) -> str:
-        """باب کی جہت — mind / generals / particulars"""
-        if chapter in MIND_CHAPTERS:
+        """باب کی جہت — mind / generals / particulars (جرمن ابواب سمیت)"""
+        if chapter in MIND_CHAPTERS or chapter in GERMAN_MIND_CHAPTERS:
             return "mind"
-        if chapter in GENERAL_CHAPTERS:
+        if chapter in GENERAL_CHAPTERS or chapter in GERMAN_GENERAL_CHAPTERS:
             return "generals"
         return "particulars"
 
@@ -334,32 +405,92 @@ _llm_cache: Dict[str, List[dict]] = {}
 
 _translate_cache: Dict[str, str] = {}
 
+_expand_cache: Dict[str, List[str]] = {}
 
-def _llm_translate_symptom(symptom: str) -> str:
-    """اردو رسم الخط کی علامت کو انگریزی ریپرٹری الفاظ میں بدلنا (کیش شدہ)"""
+_CACHE_LIMIT = 500
+
+
+def _cache_put(cache: Dict, key: str, value) -> None:
+    """کیش میں رکھنا — حجم کی حد کے ساتھ (بے پناہ بڑھنا روکنے کے لیے)"""
+    if len(cache) >= _CACHE_LIMIT:
+        try:
+            cache.pop(next(iter(cache)))
+        except Exception:
+            pass
+    cache[key] = value
+
+
+def _llm_translate_symptom(symptom: str, index_name: str = "kent") -> str:
+    """علامت کو مطلوبہ ریپرٹری کی زبان میں کلیدی الفاظ میں بدلنا (کیش شدہ)
+    - انگریزی ریپرٹریز: اردو/رومن → انگریزی
+    - جرمن کینٹ (kent_de): اردو/رومن/انگریزی → جرمن
+    """
     from . import llm
 
-    key = symptom.strip()
+    key = f"{index_name}::{symptom.strip()}"
     if key in _translate_cache:
         return _translate_cache[key]
-    try:
-        raw, _ = llm.ask_llm(
+
+    if index_name == "kent_de":
+        prompt = (
+            "You are a homeopathic repertory translator. "
+            "Convert this patient symptom into concise GERMAN repertory keywords "
+            "(as used in German homeopathic repertories, e.g. 'Husten', "
+            "'Besserung durch Bewegung', 'Verschlechterung bei Bewegung', 'Nachts'). "
+            "Keep modality phrases in German.\n\n"
+            f'Symptom: "{symptom}"\n\n'
+            "Return ONLY the German keywords, comma-separated, no explanation."
+        )
+        ok = lambda s: bool(re.search(r"[A-Za-zÄÖÜäöüß]", s))
+    else:
+        prompt = (
             "You are a homeopathic repertory translator. "
             "Convert this patient symptom into concise English repertory keywords. "
             "Keep modality terms like 'worse from' or 'better from'.\n\n"
             f'Symptom: "{symptom}"\n\n'
-            "Return ONLY the English keywords, comma-separated, no explanation.",
-            require_json=False,
-            temperature=0.0,
+            "Return ONLY the English keywords, comma-separated, no explanation."
         )
-        out = str(raw).strip()
-        if out and _is_latin(out):
-            _translate_cache[key] = out
+        ok = _is_latin
+
+    try:
+        raw, _ = llm.ask_llm(prompt, require_json=False, temperature=0.0)
+        out = str(raw).strip().strip('"').strip()
+        if out and ok(out):
+            _cache_put(_translate_cache, key, out)
             return out
     except Exception:
         pass
-    _translate_cache[key] = ""
+    _cache_put(_translate_cache, key, "")
     return ""
+
+
+def _llm_expand_symptom(symptom: str, index_name: str = "kent") -> List[str]:
+    """کم اعتماد میچ پر: لے سے 2-3 متبادل فارمولے (کیش شدہ)"""
+    from . import llm
+
+    key = f"expand::{index_name}::{symptom.strip().lower()}"
+    if key in _expand_cache:
+        return _expand_cache[key]
+
+    lang = "GERMAN (as in German homeopathic repertories)" if index_name == "kent_de" else "English"
+    prompt = (
+        f"You are a homeopathic repertory scholar. The patient symptom below did not "
+        f"clearly match any repertory rubric. Suggest 2 to 3 alternative concise phrasings "
+        f"in {lang} that a repertory would likely use for the SAME clinical meaning "
+        f"(different wording, e.g. 'cannot sleep' -> 'insomnia', 'sleeplessness, nights'). "
+        f"Keep modality terms.\n\n"
+        f'Symptom: "{symptom}"\n\n'
+        'Return ONLY valid JSON: {"variants":["...","..."]}'
+    )
+    try:
+        raw, _ = llm.ask_llm(prompt, require_json=True, temperature=0.2)
+        data = llm.extract_json(raw)
+        variants = [str(v).strip() for v in data.get("variants", []) if str(v).strip()][:3]
+        _cache_put(_expand_cache, key, variants)
+        return variants
+    except Exception:
+        _cache_put(_expand_cache, key, [])
+        return []
 
 
 def select_rubrics_llm(symptom: str, candidates: List[dict], index: RubricIndex,
@@ -424,33 +555,65 @@ Return ONLY valid JSON:
                     "rationale": str(s.get("rationale", ""))[:140],
                 })
         if out:
-            _llm_cache[key] = out
+            _cache_put(_llm_cache, key, out)
             return out
     except Exception:
         pass
     return None
 
 
+def _merge_candidates(base: List[dict], extra: List[dict]) -> List[dict]:
+    """دو امیدوار فہرستیں ملاؤ — ایک ہی ربرک میں سے بہترین اسکور رکھو"""
+    merged: Dict[str, dict] = {}
+    for c in list(base) + list(extra):
+        rid = c.get("rubric_id")
+        if not rid:
+            continue
+        if rid not in merged or (c.get("score", 0) or 0) > (merged[rid].get("score", 0) or 0):
+            merged[rid] = c
+    out = list(merged.values())
+    out.sort(key=lambda c: -(c.get("score", 0) or 0))
+    return out
+
+
 def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
                      top_k: int = 5, use_llm: bool = True) -> List[dict]:
     """
-    گہری علامت→ربرک میپنگ:
-      مقامی مماثلت + (اختیاری) ایل ایل ایم کا انتخاب — اعتماد اور وجہ کے ساتھ
-
-    اردو رسم الخط کی صورت میں ایل ایل ایم سے انگریزی ریپرٹری الفاظ میں
-    ترجمہ کر کے تلاش کی جاتی ہے (لفظی مماثلت اردو متن پر نہیں چلتی)۔
+    گہری علامت→ربرک میپنگ (نسخہ 2.1):
+      1) مقامی مماثلت
+      2) اردو رسم الخط → ایل ایل ایم ترجمہ کر کے دوبارہ تلاش
+      3) جرمن کینٹ پر لاطینی علامت → جرمن کلیدی الفاظ میں ترجمہ
+      4) کم اعتماد میچ پر ایل ایل ایم سے متبادل فارمولے (کوئری پھیلاؤ)
+      5) ایل ایل ایم کا حتمی انتخاب — اعتماد اور وجہ کے ساتھ (یا مقامی فال بیک)
     """
     index = index or get_index()
     local = index.search(symptom, top_k=12)
 
-    if not local:
-        # اردو رسم الخط: LLM سے انگریزی ریپرٹری الفاظ میں ترجمہ کر کے دوبارہ تلاش
-        if use_llm and not _is_latin(symptom):
-            translated = _llm_translate_symptom(symptom)
+    if use_llm:
+        # اردو رسم الخط (یا خالی میچ): لے سے ریپرٹری زبان میں ترجمہ
+        if not local and not _is_latin(symptom):
+            translated = _llm_translate_symptom(symptom, index.name)
             if translated:
                 local = index.search(translated, top_k=12)
-        if not local:
-            return []
+        # جرمن کینٹ: لاطینی/رومن علامت کو جرمن کلیدی الفاظ میں بدل کر ملاؤ
+        elif index.name == "kent_de" and _is_latin(symptom):
+            translated = _llm_translate_symptom(symptom, index.name)
+            if translated:
+                tlocal = index.search(translated, top_k=12)
+                if tlocal:
+                    local = _merge_candidates(local, tlocal)
+        # کم کوریج پر کوئری پھیلاؤ
+        if local:
+            best_cov = max((c.get("coverage", 0) or 0) for c in local)
+            if best_cov < 0.5:
+                for v in _llm_expand_symptom(symptom, index.name):
+                    vv = index.search(v, top_k=12)
+                    if vv:
+                        local = _merge_candidates(local, vv)
+                local = local[:12]
+
+    if not local:
+        return []
 
     if use_llm:
         picked = select_rubrics_llm(symptom, local, index)

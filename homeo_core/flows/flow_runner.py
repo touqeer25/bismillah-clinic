@@ -135,16 +135,20 @@ class FlowRunner:
         return suggestions.get(dim, f"{dim} جہت مکمل کریں")
 
     # ---------------- مرکزی پائپ لائن ----------------
-    def run_repertorization(self, symptoms: List[str]) -> Dict:
+    def run_repertorization(self, symptoms: List[str],
+                            sources: Optional[List[str]] = None,
+                            symptom_weights: Optional[Dict[str, float]] = None) -> Dict:
         """
         علامات → (ملٹی سورس) ربرکس → اسکور → (میازم فلٹر) → تفریق
         مکمل پائپ لائن ایک فنکشن میں۔
 
         سورسز اور ایل ایل ایم کا استعمال کنفیگریشن سے آتا ہے:
             "sources": ["kent", "synthesis"], "use_llm_rubrics": true
+        (نسخہ 2.1) sources خالی ہو تو کنفیگریشن کا ڈیفالٹ؛
+        symptom_weights میں خاص/کاریکٹرسٹک علامتوں کا اضافی وزن۔
         """
         weights = self.config.get("dimension_weights")
-        source_names = self.config.get("sources", ["kent"])
+        source_names = sources or self.config.get("sources", ["kent"])
         use_llm = self.config.get("use_llm_rubrics", True)
 
         # 1+2) علامات → ربرکس → ملٹی سورس اسکورنگ
@@ -153,6 +157,7 @@ class FlowRunner:
             source_names=source_names,
             dimension_weights=weights,
             use_llm=use_llm,
+            symptom_weights=symptom_weights,
         )
         results = out["remedies"]
 
@@ -175,8 +180,10 @@ class FlowRunner:
             "sources": out.get("sources", []),
         }
 
-    def run_potency(self, sensitivity: str = "medium") -> Dict:
-        return potency.recommend_potency(self.case_type, sensitivity)
+    def run_potency(self, sensitivity: str = "medium",
+                    miasm: Optional[str] = None, age: Optional[int] = None) -> Dict:
+        return potency.recommend_potency(self.case_type, sensitivity,
+                                         miasm=miasm, age=age)
 
     def run_followup(self, response: str, progress: Optional[Dict] = None) -> Dict:
         decision = followup.decide(response)

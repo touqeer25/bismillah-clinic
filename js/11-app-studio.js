@@ -646,6 +646,7 @@ function studioPickPatient(id) {
     studioTogglePatientSearch(false);
     renderStudioDetail();
     showToast('👤 ' + p.name);
+    if (typeof syncAI2Context === 'function') syncAI2Context();
 }
 
 function studioClearPatient() {
@@ -653,6 +654,7 @@ function studioClearPatient() {
     var link = $('diagnosisPatientLink');
     if (link) link.style.display = 'none';
     renderStudioDetail();
+    if (typeof syncAI2Context === 'function') syncAI2Context();
 }
 
 function studioBindViewButtons() {

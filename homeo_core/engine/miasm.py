@@ -39,7 +39,9 @@ MIASM_INDICATORS: Dict[str, List[tuple]] = {
     ],
     "tubercular": [
         ("weight loss", 3), ("wazan kam", 3), ("emaciation", 3),
-        ("cough", 1), ("weakness", 1), ("kamzori", 1),
+        # نوٹ: "cough" اکہرا ہٹا دیا — ہر کھانسی ٹیوبرکولر میں بڑھتا تھا
+        ("chronic cough", 2), ("purana khansi", 2), ("recurring infections", 2),
+        ("weakness", 1), ("kamzori", 1),
         ("travel", 2), ("safar ki khwahish", 2), ("change", 1), ("tabdeeli", 1),
         ("restless", 2), ("impatient", 2), ("besabri", 2),
         ("tired but active", 2), ("recurring cold", 2), ("bar bar nazla", 2),
