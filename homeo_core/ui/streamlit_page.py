@@ -103,6 +103,16 @@ T = {
     "mic_help": {"ur": "آواز سے بول کر نوٹ لکھیں", "en": "Dictate the note by voice", "roman": "Awaaz se bol kar note likhein"},
     "voice_hint": {"ur": "مائک کھلا ہے — بولیں، متن نیچے نوٹ میں خود شامل ہو جائے گا", "en": "Mic is on — speak and the text will be added to the note below", "roman": "Mic khula hai — bolein, text note me shamil ho jayega"},
     "voice_no_key": {"ur": "آواز کی سہولت کے لیے گروک کلید (GROQ_API_KEY) سیکرٹس میں شامل کریں", "en": "Voice input needs GROQ_API_KEY in secrets", "roman": "Awaaz ke liye GROQ_API_KEY secrets me daalein"},
+    "method_select": {"ur": "طریقہ منتخب کریں", "en": "Select method", "roman": "Tareeqa select karein"},
+    "method_active": {"ur": "فعال طریقہ", "en": "Active method", "roman": "Faal tareeqa"},
+    "method_structure_only": {"ur": "ڈھانچہ تیار — ڈیٹا مرحلہ وار شامل ہو رہا ہے", "en": "Structure ready — data is being added step by step", "roman": "Dhancha tayyar — data shamil ho raha hai"},
+    "method_needs_data": {"ur": "درکار ڈیٹا", "en": "Data needed", "roman": "Darkar data"},
+    "method_fallback": {"ur": "اس طریقے کا ڈیٹا ابھی نہیں بھرا — نیچے کلاسیکل (تصدیقی) نتیجہ دکھایا جا رہا ہے", "en": "This method's data is not filled yet — showing the classical cross-check below", "roman": "Is tareeqe ka data nahi bhara — classical natija dikhaya ja raha hai"},
+    "method_showing_classical": {"ur": "⚠️ نیچے کے نتائج کلاسیکل انجن سے ہیں، منتخب طریقے کا ڈیٹا بھرنے پر یہی نتائج اس طریقے کے ہوں گے", "en": "Results below come from the classical engine until this method's data is filled", "roman": "Neeche ke natija classical engine se hain"},
+    "method_structure": {"ur": "🗂 طریقوں کے ڈھانچے اور ڈیٹا کی حالت", "en": "🗂 Methods structure & data status", "roman": "🗂 Methods ka dhancha aur data ki halat"},
+    "methods_list": {"ur": "طریقے (ترتیب و حالت)", "en": "Methods (order & status)", "roman": "Tareeqay (tarteeb o halat)"},
+    "data_status": {"ur": "ڈیٹا فائلوں کی حالت", "en": "Data files status", "roman": "Data files ki halat"},
+    "data_status_note": {"ur": "یہ جدول ہر اس فائل کا بھرنے کا عمل دکھاتا ہے جو نئے طریقوں کو درکار ہے — کوئی چیز بھولے سے نہ رہے", "en": "This table tracks every data file the new methods need", "roman": "Ye table har data file ka amal dikhata hai"},
     "hering_title": {"ur": "ہیرنگ کے قوانین (قوانینِ شفا) — بہتری کی سمت", "en": "Hering's Laws — direction of cure", "roman": "Hering qawaneen — behtari ki samt"},
     "hering_1": {"ur": "علامتیں اوپر سے نیچے کے اعتبار سے گئیں", "en": "Symptoms resolved top → bottom", "roman": "Ooper se neeche ki tarteeb"},
     "hering_2": {"ur": "اندر سے باہر (اعضاء پہلے، جلد بعد میں)", "en": "In → out (organs first, skin later)", "roman": "Andar se bahar"},
@@ -346,23 +356,14 @@ div.stButton > button[kind="primary"]:hover { filter: brightness(1.07); }
 }
 .st-key-bhc_reps div.stButton > button[kind="secondary"]:hover { background: #eaf3fc !important; }
 
-/* ===== نسخہ 2.2: مکمل کیس نوٹ کے نیچے کونے میں مائک (گوگل سرچ کی طرز) ===== */
-.st-key-bhc_notebox { position: relative; }
-.st-key-bhc_notebox .stTextArea textarea { padding-bottom: 3.1rem !important; }
-.st-key-bhc_notebox div.stButton {
-    position: absolute; right: 12px; bottom: 16px; z-index: 10; width: auto;
-}
-.st-key-bhc_notebox div.stButton > button {
-    width: 38px; height: 38px; min-height: 38px; padding: 0;
-    border-radius: 50%; font-size: 17px; line-height: 1;
-    background: #ffffff !important; color: #1a5276 !important;
-    border: 1px solid #a9c7e8 !important;
-    box-shadow: 0 2px 8px rgba(26,82,118,0.18);
-}
-.st-key-bhc_notebox div.stButton > button:hover { background: #eaf3fc !important; }
-.st-key-bhc_notebox div.stButton > button[kind="primary"] {
-    background: linear-gradient(135deg, #c0392b, #e74c3c) !important;
-    color: #ffffff !important; border: none !important;
+/* ===== نسخہ 2.2: مکمل کیس نوٹ کے نیچے — مائک قطار (تیسری کوشش: سادہ و مضبوط) =====
+   سابقہ کوششوں میں absolute کونہ (بائیں/دائیں) مختلف ڈیوائس پر مختلف جگہ
+   بیٹھ رہا تھا۔ اب کوئی absolute نہیں: textarea کے فوراً نیچے ایک قطار
+   [ اشارہ .......... مائک ] — یعنی مائک بالکل فیلڈ کے نیچے دائیں کونے میں۔ */
+.st-key-bhc_microw { margin-top: -10px; }   /* مائک فیلڈ سے چپکا رہے */
+.st-key-bhc_microw div.stButton > button {
+    height: 38px; min-height: 38px;
+    border-radius: 19px; font-size: 16px; padding: 0 10px;
 }
 </style>
 """
@@ -393,6 +394,9 @@ def _init_state():
     st.session_state.setdefault("bc_rx", None)
     st.session_state.setdefault("bc_rx_sig", None)
     st.session_state.setdefault("bc_sources", ["kent", "synthesis"])
+    st.session_state.setdefault("bc_method", "classical")            # نسخہ 2.3: طریقہ
+    st.session_state.setdefault("bc_method_used", "classical")
+    st.session_state.setdefault("bc_method_fallback", False)
     st.session_state.setdefault("bc_snaps", [])
     st.session_state.setdefault("bc_mic_open", False)
     st.session_state.setdefault("bc_voice_sig", None)
@@ -404,6 +408,11 @@ def _reset_case_state():
     st.session_state.bc_rx = None
     st.session_state.bc_rx_sig = None
     st.session_state.bc_snaps = []
+
+
+def _on_method_change():
+    """طریقہ بدلا → پرانے نتائج و نسخہ صاف (دونوں طریقوں کا ڈیٹا نہ ملے)"""
+    _reset_case_state()
 
 
 def _on_case_change():
@@ -552,6 +561,186 @@ def _toggle_source(key: str) -> None:
     else:
         sel.append(key)
     st.session_state.bc_sources = sel
+
+
+# ================================================================== #
+# طریقہ منتخب کرنا (نسخہ 2.3) — کلاسیکل / بینننگ ہاؤزن / مائنڈ / ایسنس / سنسیشن
+# ================================================================== #
+_METHOD_LABELS = {
+    "classical": {"ur": "📚 کلاسیکل", "en": "📚 Classical", "roman": "📚 Classical"},
+    "boenninghausen": {"ur": "🧩 بینننگ ہاؤزن", "en": "🧩 Boenninghausen", "roman": "🧩 Boenninghausen"},
+    "sehgal_mind": {"ur": "🧠 مائنڈ (سہگل)", "en": "🧠 Mind (Sehgal)", "roman": "🧠 Mind (Sehgal)"},
+    "vithoulkas_essence": {"ur": "💠 ایسنس (وتھالکس)", "en": "💠 Essence (Vithoulkas)", "roman": "💠 Essence (Vithoulkas)"},
+    "sankaran_sensation": {"ur": "🌐 سنسیشن (سنکرن)", "en": "🌐 Sensation (Sankaran)", "roman": "🌐 Sensation (Sankaran)"},
+}
+_METHOD_ORDER = ["classical", "boenninghausen", "sehgal_mind",
+                 "vithoulkas_essence", "sankaran_sensation"]
+
+
+def _methods_api():
+    """طریقوں کی رجسٹری (ہر بار تازہ امپورٹ — ڈیٹا/اسٹرکچر بدلتا رہتا ہے)"""
+    from homeo_core.engine import methods as methods_api
+    return methods_api
+
+
+def _method_label(mid: str) -> str:
+    d = _METHOD_LABELS.get(mid) or {}
+    return d.get(_LANG) or d.get("ur") or mid
+
+
+def _method_meta(mid: str) -> dict:
+    try:
+        return _methods_api().method_meta(mid, _LANG)
+    except Exception:
+        return {"id": mid, "label": _method_label(mid), "status": "active",
+                "description": "", "required_data": [], "principle": ""}
+
+
+def _toggle_method(mid: str) -> None:
+    """طریقہ چننا (ٹوگل نہیں — ہر وقت ایک ہی طریقہ فعال)"""
+    if st.session_state.get("bc_method") != mid:
+        st.session_state.bc_method = mid
+        _on_method_change()
+
+
+def _render_method_chips() -> None:
+    """طریقے کی چپس — ایک ہی لائن میں؛ 🧩 والوں کا ڈیٹا ابھی بھر رہا ہے"""
+    st.markdown(f'<div class="bhc-rep-label">{t("method_select")}</div>',
+                unsafe_allow_html=True)
+    cur = st.session_state.get("bc_method", "classical")
+    meta_cache = {}
+    with st.container(key="bhc_methods"):
+        cols = st.columns(len(_METHOD_ORDER))
+        for col, mid in zip(cols, _METHOD_ORDER):
+            m = _method_meta(mid)
+            meta_cache[mid] = m
+            label = _METHOD_LABELS.get(mid, {}).get(_LANG) or m.get("label", mid)
+            if m.get("status") != "active":
+                label = f"{label} 🧩"
+            tip = m.get("principle") or m.get("description") or ""
+            if m.get("required_data"):
+                tip += "\n" + t("method_needs_data") + ": " + " | ".join(m["required_data"])
+            with col:
+                st.button(label, key=f"method_chip_{mid}",
+                          type="primary" if mid == cur else "secondary",
+                          on_click=_toggle_method, args=(mid,),
+                          use_container_width=True, help=tip)
+    m = meta_cache.get(cur) or _method_meta(cur)
+    if m.get("status") != "active":
+        st.caption(f"🧩 {t('method_structure_only')}: {m.get('description','')}")
+    else:
+        st.caption(f"{t('method_active')}: {m.get('principle','')}")
+
+
+def _run_selected_method(runner, symptoms, sources, weights):
+    """
+    منتخب طریقے سے نتیجہ — کلاسیکل ہو تو وہی پرانا راستہ، ورنہ methods رجسٹری۔
+    اگر کسی طریقے کا ڈیٹا ابھی نہ بھرا ہو (skeleton) تو "تصدیقی ستون" کے
+    طور پر کلاسیکل نتیجہ دکھایا جاتا ہے (ڈاکٹر خالی ہاتھ نہ رہے)۔
+    واپسی: (res, method_id, fell_back)
+    """
+    mid = st.session_state.get("bc_method", "classical")
+    if mid == "classical":
+        return runner.run_repertorization(symptoms, sources=sources,
+                                          symptom_weights=weights), mid, False
+    try:
+        res = _methods_api().run_method(mid, symptoms, case_type=runner.case_type,
+                                        sources=sources, symptom_weights=weights)
+    except Exception as e:                                   # noqa: BLE001
+        res = {"method": mid, "status": "error", "remedies": [],
+               "meta": {"note": f"طریقہ چلانے میں مسئلہ: {e}"}}
+    if res.get("status") == "skeleton" or not res.get("remedies"):
+        base = runner.run_repertorization(symptoms, sources=sources,
+                                          symptom_weights=weights)
+        base["method"] = mid
+        base["status"] = "fallback"
+        base["meta"] = {
+            "fallback_from": mid,
+            "note": (res.get("meta") or {}).get("note", ""),
+            "required_data": (res.get("meta") or {}).get("required_data", []),
+        }
+        return base, mid, True
+    return res, mid, False
+
+
+def _render_method_panel(res: dict, method_id: str, fell_back: bool) -> None:
+    """نتیجے کے اوپر طریقے کا پینل — حیثیت، اصول، اور (خرابی کی صورت میں) درکار ڈیٹا"""
+    meta = res.get("meta") or {}
+    label = _method_label(method_id)
+    if fell_back:
+        st.warning(
+            f"🧩 {label}: {t('method_fallback')}\n\n"
+            + (meta.get("note") or "")
+        )
+        req = meta.get("required_data") or []
+        if req:
+            with st.expander(t("method_needs_data")):
+                for r in req:
+                    st.markdown(f"- {r}")
+        st.caption(t("method_showing_classical"))
+        return
+    if method_id == "boenninghausen":
+        elems = meta.get("elements") or ["location", "sensation", "modality", "concomitant"]
+        names = {"location": "مقام", "sensation": "احساس", "modality": "موڈیلٹی",
+                 "concomitant": "ہم راہ", "general": "عمومی/ذہنی"}
+        rows = []
+        import pandas as pd
+        for r in (res.get("remedies") or [])[:8]:
+            present = set(r.get("elements") or [])
+            row = {"دوا": r["remedy"], "اسکور": r["score"],
+                   "کامل علامت": "✔" if r.get("complete_symptom") else ""}
+            for e in elems:
+                row[names.get(e, e)] = "✔" if e in present else "—"
+            rows.append(row)
+        st.markdown(f'<div class="bhc-card-title">🧩 بینننگ ہاؤزن — کامل علامت کا جدول '
+                    f'(بونس ×{meta.get("bonus","")}, {meta.get("min_elements_for_bonus","")} اجزاء پر)</div>',
+                    unsafe_allow_html=True)
+        st.dataframe(pd.DataFrame(rows), width="stretch")
+    elif meta.get("top_types"):
+        st.markdown('<div class="bhc-card-title">🧠 نمایاں ذہنی ٹائپس</div>',
+                    unsafe_allow_html=True)
+        for tt in meta["top_types"]:
+            st.markdown(f"- **{tt.get('type','')}** — {tt.get('score','')} "
+                        f"({', '.join(tt.get('hits', []))})")
+    if meta.get("principle"):
+        st.caption(f"🛠 طریقہ: {label} — {meta['principle']}")
+
+
+def _render_method_structure_expander() -> None:
+    """صفحے کے نیچے: تمام طریقے + ان کی فائلیں/ڈیٹا کی حالت
+    (مقصد: 'کوئی چیز بھولے سے رہ نہ جائے')"""
+    try:
+        from homeo_core.engine import method_base as mb
+        methods = _methods_api().list_methods(_LANG)
+        status = mb.data_status()
+    except Exception as e:                                    # noqa: BLE001
+        st.caption(f"طریقوں کی معلومات دستیاب نہیں: {e}")
+        return
+    with st.expander(t("method_structure")):
+        st.markdown(f"**{t('methods_list')}**")
+        for m in methods:
+            tag = "✅" if m.get("status") == "active" else "🧩"
+            st.markdown(f"{tag} **{m.get('label')}** — {m.get('principle','')}")
+            if m.get("description"):
+                st.caption("　" + m["description"])
+            for req in (m.get("required_data") or []):
+                st.caption(f"　　• {req}")
+        st.markdown("---")
+        st.markdown(f"**{t('data_status')}**")
+        import pandas as pd
+        rows = []
+        for k, v in status.items():
+            total = v.get("total", 0)
+            filled = v.get("filled", v.get("full_names", 0))
+            rows.append({
+                "فائل": v.get("file", k),
+                "کل": total,
+                "بھرا": filled,
+                "باقی": max(total - filled, 0) if total else "—",
+                "کیا ہے": v.get("hint", ""),
+            })
+        st.dataframe(pd.DataFrame(rows), width="stretch")
+        st.caption(t("data_status_note"))
 
 
 def _render_repertory_chips() -> None:
@@ -751,17 +940,25 @@ def _render_case_note_expander(runner: FlowRunner):
     """نسخہ 2.2: یہ بلاک اب ٹیبز سے اوپر ہے، اور مائک اسی خانے کے
     نیچے کونے میں ہے (گوگل سرچ کی طرز)۔"""
     with st.expander(t("case_note_fill")):
-        with st.container(key="bhc_notebox"):
-            note = st.text_area(t("case_note_ph"), key="bc_case_note", height=160,
-                                label_visibility="collapsed")
-            mic_on = bool(st.session_state.get("bc_mic_open"))
-            if st.button("🎙️", key="bc_mic_btn", help=t("mic_help"),
-                         type="primary" if mic_on else "secondary"):
-                st.session_state.bc_mic_open = not mic_on
-                st.rerun()
+        note = st.text_area(t("case_note_ph"), key="bc_case_note", height=160,
+                            label_visibility="collapsed")
 
-        # مائک کھلا ہو تو ریکارڈنگ والا وجٹ (اسی بلاک کے اندر)
-        if st.session_state.get("bc_mic_open"):
+        # مائک — بالکل فیلڈ کے نیچے، دائیں کونے میں (absolute نہیں: سادہ قطار)
+        mic_on = bool(st.session_state.get("bc_mic_open"))
+        c_hint, c_mic = st.columns([5, 1])
+        with c_hint:
+            st.caption("🎙️ " + (t("voice_hint") if mic_on else t("mic_help")))
+        with c_mic:
+            with st.container(key="bhc_microw"):
+                if st.button("🎙️" if not mic_on else "⏹️", key="bc_mic_btn",
+                             help=t("mic_help"),
+                             type="primary" if mic_on else "secondary",
+                             use_container_width=True):
+                    st.session_state.bc_mic_open = not mic_on
+                    st.rerun()
+
+        # مائک کھلا ہو تو ریکارڈنگ والا وجٹ اسی بلاک میں
+        if mic_on:
             _voice_capture("bc_case_note")
 
         toast = st.session_state.pop("bc_note_toast", None)
@@ -901,7 +1098,8 @@ def _generate_prescription(runner: FlowRunner, symptoms: list, res: dict,
     ٹاپ 3–5 امیدوار دوائیں لیں، ہر ایک کی علاماتِ کلیہ اور میٹیریا میڈیکا /
     لٹریچر سے تصدیق کریں، جو پوری علامات پر اترے وہی فائنل۔
     (ایک ہی کیس پر نتیجہ مستقل رہتا ہے — temperature=0 + کیش)"""
-    sig = _symptom_signature(symptoms)
+    method_used = st.session_state.get("bc_method_used", "classical")
+    sig = _symptom_signature(symptoms) + "|" + str(method_used)
     if st.session_state.get("bc_rx_sig") == sig and st.session_state.bc_rx:
         return
 
@@ -933,8 +1131,18 @@ def _generate_prescription(runner: FlowRunner, symptoms: list, res: dict,
         prev_line = (f"\nPreviously tried remedy: {prev} — no significant improvement. "
                      f"Avoid choosing it as primary unless strongly justified.\n")
 
+    method_note = ""
+    if method_used == "boenninghausen":
+        method_note = ("\nMethod used for this chart: BOENNINGHAUSEN (complete symptom: "
+                       "location + sensation + modality + concomitant; modalities and "
+                       "concomitants carry the most weight). In the 'دلیل' section, state "
+                       "which of the four elements each top candidate covers.\n")
+    elif method_used != "classical":
+        method_note = (f"\nMethod used for this chart: {method_used} — mention in the "
+                       f"'دلیل' section how the chosen remedy fits that method.\n")
+
     prompt = f"""You are an expert classical homeopathic physician.
-Case type: {runner.case_type}
+Case type: {runner.case_type}{method_note}
 Repertories used in this chart: {rep_labels}
 Characteristic (key) symptoms: {', '.join(char_syms) if char_syms else 'none marked'}
 {patient_line}{prev_line}
@@ -1025,8 +1233,11 @@ def _render_remedy_tab(runner: FlowRunner):
     if st.button(t("run_repertorization"), type="primary", use_container_width=True, key="run_repert"):
         with st.spinner(t("running")):
             try:
-                st.session_state.bc_result = runner.run_repertorization(
-                    all_syms, sources=selected, symptom_weights=weights)
+                res_run, used_method, fell_back = _run_selected_method(
+                    runner, all_syms, selected, weights)
+                st.session_state.bc_result = res_run
+                st.session_state.bc_method_used = used_method
+                st.session_state.bc_method_fallback = fell_back
             except Exception as e:
                 st.error(f"غلطی: {e}")
                 return
@@ -1037,6 +1248,7 @@ def _render_remedy_tab(runner: FlowRunner):
             "ts": time.strftime("%d %b %H:%M"),
             "sig": _symptom_signature(all_syms),
             "sources": selected,
+            "method": st.session_state.get("bc_method_used", "classical"),
             "top": [(r["remedy"], r["score"]) for r in res_tmp["remedies"][:5]],
         })
         del snaps[:-5]
@@ -1058,6 +1270,9 @@ def _render_remedy_tab(runner: FlowRunner):
     # جرمن ریپرٹری پر کوئی میچ نہ ہو تو نوٹ
     if "kent_de" in selected and not any(ru.get("source") == "kent_de" for ru in res.get("rubrics_used", [])):
         st.caption(t("german_note"))
+
+    _render_method_panel(res, st.session_state.get("bc_method_used", "classical"),
+                         bool(st.session_state.get("bc_method_fallback")))
 
     st.markdown(
         f'<div class="bhc-card-title">{t("results_title")} — '
@@ -1168,9 +1383,10 @@ def _render_remedy_tab(runner: FlowRunner):
             for s in reversed(snaps[-5:]):
                 top3 = ", ".join(f"{n} ({sc})" for n, sc in s["top"][:3])
                 srcs = " + ".join(_source_label(x) for x in s["sources"])
+                m_lbl = _method_label(s.get("method", "classical")) if s.get("method") else ""
                 st.markdown(
                     f'<div style="direction:rtl;padding:4px 0;border-bottom:1px dashed #ecf0f1;">'
-                    f'<b>{s["ts"]}</b> • {srcs} • {top3}</div>')
+                    f'<b>{s["ts"]}</b> • {m_lbl} • {srcs} • {top3}</div>')
 
     # ===== حتمی نسخہ =====
     if st.button(t("final_prescription"), use_container_width=True, key="final_rx_btn"):
@@ -1293,10 +1509,12 @@ def render_app():
 
     runner = _cached_runner(_case_type())
 
-    # ===== نسخہ 2.2 کا نیا لے آؤٹ =====
-    # ٹوگل کے نیچے پہلی لائن: ریپرٹریز کے کلک ایبل نام (ایک ہی لائن میں)
+    # ===== نسخہ 2.3 کا لے آؤٹ =====
+    # پہلی لائن: طریقہ (کلاسیکل / بینننگ ہاؤزن / مائنڈ / ایسنس / سنسیشن)
+    _render_method_chips()
+    # دوسری لائن: ریپرٹریز کے کلک ایبل نام (ایک ہی لائن میں)
     _render_repertory_chips()
-    # دوسری لائن: "مکمل کیس نوٹ" — مائک اسی خانے کے نیچے کونے میں
+    # تیسری لائن: "مکمل کیس نوٹ" — مائک اسی فیلڈ کے نیچے دائیں کونے میں
     _render_case_note_expander(runner)
 
     # ===== نیچے: سیکشن ٹیبز (پہلا ٹیب = بنیادی شکایت، ڈیفالٹ) =====
@@ -1306,3 +1524,7 @@ def render_app():
     for tab, step in zip(tabs, steps):
         with tab:
             _render_step_content(step, runner)
+
+    # ===== سب سے نیچے: طریقوں کا ڈھانچہ اور ڈیٹا کی حالت =====
+    st.divider()
+    _render_method_structure_expander()
