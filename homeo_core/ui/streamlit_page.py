@@ -106,6 +106,8 @@ T = {
     "hering_4": {"ur": "پرانی علامات الٹی ترتیب میں واپس آئیں", "en": "Older symptoms returned in reverse order", "roman": "Purani alamaat ulti tarteeb"},
     "hering_compliant": {"ur": "ہیرنگ مطابقت", "en": "Hering compliance", "roman": "Hering muwafaqat"},
     "patient_prev": {"ur": "پچھلی دوا", "en": "Previous remedy", "roman": "Pehli dawa"},
+    "mm_title": {"ur": "📖 میٹیریا میڈیکا میچ ریٹ (کلینک کے کتب خانے سے)", "en": "📖 Materia Medica match rate (clinic library)", "roman": "📖 MM match rate"},
+    "mm_off": {"ur": "میٹیریا میڈیکا کی تصدیق دستیاب نہیں — Qdrant کلید (QDRANT_API_KEY) اسٹریم لٹ سیکرٹس میں شامل کریں", "en": "MM verification unavailable — add QDRANT_API_KEY to Streamlit secrets", "roman": "MM verification band — QDRANT_API_KEY secrets me daalein"},
 }
 
 
@@ -833,6 +835,20 @@ Method:
 
 Write the final prescription in Urdu with exactly these headings:
 منتخب بہترین دوا، دلیل (تفریق)، طاقت اور خوراک، فالو اپ، نوٹ."""
+
+    # میٹیریا میڈیکا کی حقیقی تصدیق (کوانٹ سے کتابوں کے صفحات)
+    mm_v = st.session_state.get("bc_mm") or {}
+    if mm_v:
+        from homeo_core.engine import materia_medica as mm_mod
+        mm_text = mm_mod.format_for_prompt(mm_v)
+        if mm_text:
+            prompt += (
+                "\n\nMateria Medica verification — real pages from the clinic's own "
+                f"MM library (Qdrant):\n{mm_text}\n\n"
+                "Instruction: base the final choice on these real keynotes as well as the chart. "
+                "In the 'دلیل (تفریق)' section, quote 2-3 matching keynotes for the chosen remedy, "
+                "and mention one or two points that did not fit."
+            )
     try:
         rx, prov = llm_mod.ask_llm(prompt, require_json=False, temperature=0.0)
         st.session_state.bc_rx = rx
@@ -893,8 +909,8 @@ def _render_remedy_tab(runner: FlowRunner):
             except Exception as e:
                 st.error(f"غلطی: {e}")
                 return
-        # اسناپ شاٹ (آخری 5)
         res_tmp = st.session_state.bc_result
+        # اسناپ شاٹ (آخری 5)
         snaps = st.session_state.setdefault("bc_snaps", [])
         snaps.append({
             "ts": time.strftime("%d %b %H:%M"),
@@ -903,6 +919,16 @@ def _render_remedy_tab(runner: FlowRunner):
             "top": [(r["remedy"], r["score"]) for r in res_tmp["remedies"][:5]],
         })
         del snaps[:-5]
+        # میٹیریا میڈیکا تصدیق (کوانٹ) — ہر run میں صرف ایک بار
+        try:
+            from homeo_core.engine import materia_medica as mm_mod
+            st.session_state.bc_mm = (
+                mm_mod.verify_remedies([r["remedy"] for r in res_tmp["remedies"][:5]],
+                                       all_syms[:10])
+                if mm_mod.available() else {}
+            )
+        except Exception:
+            st.session_state.bc_mm = {}
 
     res = st.session_state.bc_result
     if not res:
@@ -980,6 +1006,23 @@ def _render_remedy_tab(runner: FlowRunner):
         st.markdown('<div class="bhc-card">' + "".join(items) + "</div>", unsafe_allow_html=True)
     else:
         st.caption(t("no_symptoms"))
+
+    # ===== میٹیریا میڈیکا میچ ریٹ (کوانٹ سے) =====
+    mm_v = st.session_state.get("bc_mm") or {}
+    if mm_v:
+        st.markdown(f'<div class="bhc-card-title">{t("mm_title")}</div>', unsafe_allow_html=True)
+        rows_mm = []
+        for r in res["remedies"][:6]:
+            v = mm_v.get(r["remedy"])
+            book = (v["chunks"][0]["book"] if v and v.get("chunks") else "")[:55]
+            rows_mm.append({
+                "Remedy": r["remedy"],
+                "MM Match %": int(v["match_rate"] * 100) if v else "—",
+                "Source Book": book,
+            })
+        st.dataframe(pd.DataFrame(rows_mm), width="stretch")
+    else:
+        st.caption("ℹ️ " + t("mm_off"))
 
     # ===== پوٹینسی اور خوراک (نسخہ 2.1) =====
     pot = runner.run_potency(miasm=res.get("miasm_dominant"), age=_patient_age(patient))

@@ -234,3 +234,32 @@ def test_chronic_miasm_pipeline():
     )
     assert res["miasm_dominant"] in ("psora", "sycosis", "syphilis", "tubercular")
     assert res["miasm_profile"]
+
+
+# ------------------------------------------------------------------ #
+# میٹیریا میڈیکا تصدیق (کوانٹ) — بغیر نیٹ ورک کے ٹیسٹس
+# ------------------------------------------------------------------ #
+def test_mm_format_for_prompt():
+    from homeo_core.engine import materia_medica as mm
+    out = mm.format_for_prompt({})
+    assert out == ""
+    verdicts = {"bell": {"chunks": [{"book": "Absolute MM", "page": 5,
+                                     "text": "Sudden onset high fever"}],
+                         "match_rate": 0.6}}
+    text = mm.format_for_prompt(verdicts)
+    assert "bell" in text
+    assert "60%" in text
+    assert "Sudden onset high fever" in text
+
+
+def test_mm_graceful_without_key(monkeypatch):
+    from homeo_core.engine import materia_medica as mm
+    monkeypatch.setattr(mm, "QDRANT_API_KEY", "")
+    assert mm.available() is False
+    assert mm.verify_remedies(["bell"], ["fever"]) == {}
+
+
+def test_mm_symptom_tokens():
+    from homeo_core.engine import materia_medica as mm
+    toks = mm._symptom_tokens(["dry cough", "ثست", "thirst for cold water"])
+    assert "cough" in toks and "thirst" in toks
