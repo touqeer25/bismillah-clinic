@@ -99,6 +99,10 @@ T = {
     "voice_btn": {"ur": "🎙️ آواز ریکارڈ کریں یا فائل بھیجیں", "en": "🎙️ Record audio or send file", "roman": "🎙️ Awaaz record karein ya file bhejein"},
     "voice_done": {"ur": "✅ آواز درج ہو گئی", "en": "✅ Voice captured", "roman": "✅ Awaaz darj ho gayi"},
     "voice_failed": {"ur": "آواز سمجھ نہیں آ سکی — دوبارہ کوشش کریں", "en": "Could not understand the audio — please try again", "roman": "Awaaz samajh nahi aayi"},
+    "rep_chip_hint": {"ur": "کلک → منتخب | دوبارہ کلک → سلیکشن ختم", "en": "Click to select | click again to deselect", "roman": "Click = select | dobara click = deselect"},
+    "mic_help": {"ur": "آواز سے بول کر نوٹ لکھیں", "en": "Dictate the note by voice", "roman": "Awaaz se bol kar note likhein"},
+    "voice_hint": {"ur": "مائک کھلا ہے — بولیں، متن نیچے نوٹ میں خود شامل ہو جائے گا", "en": "Mic is on — speak and the text will be added to the note below", "roman": "Mic khula hai — bolein, text note me shamil ho jayega"},
+    "voice_no_key": {"ur": "آواز کی سہولت کے لیے گروک کلید (GROQ_API_KEY) سیکرٹس میں شامل کریں", "en": "Voice input needs GROQ_API_KEY in secrets", "roman": "Awaaz ke liye GROQ_API_KEY secrets me daalein"},
     "hering_title": {"ur": "ہیرنگ کے قوانین (قوانینِ شفا) — بہتری کی سمت", "en": "Hering's Laws — direction of cure", "roman": "Hering qawaneen — behtari ki samt"},
     "hering_1": {"ur": "علامتیں اوپر سے نیچے کے اعتبار سے گئیں", "en": "Symptoms resolved top → bottom", "roman": "Ooper se neeche ki tarteeb"},
     "hering_2": {"ur": "اندر سے باہر (اعضاء پہلے، جلد بعد میں)", "en": "In → out (organs first, skin later)", "roman": "Andar se bahar"},
@@ -329,6 +333,37 @@ div.stButton > button[kind="primary"] {
     box-shadow: 0 2px 8px rgba(41,128,185,0.35);
 }
 div.stButton > button[kind="primary"]:hover { filter: brightness(1.07); }
+
+/* ===== نسخہ 2.2: ٹاپ لائن ریپرٹری چپس ===== */
+.bhc-rep-label {
+    font-size: 13px; font-weight: 700; color: #1a5276; direction: rtl;
+    margin: 2px 0 4px 0;
+}
+.st-key-bhc_reps div.stButton > button { min-height: 2.1rem; font-size: 13px; }
+.st-key-bhc_reps div.stButton > button[kind="secondary"] {
+    background: #ffffff !important; color: #1a5276 !important;
+    border: 1px solid #a9c7e8 !important; box-shadow: none;
+}
+.st-key-bhc_reps div.stButton > button[kind="secondary"]:hover { background: #eaf3fc !important; }
+
+/* ===== نسخہ 2.2: مکمل کیس نوٹ کے نیچے کونے میں مائک (گوگل سرچ کی طرز) ===== */
+.st-key-bhc_notebox { position: relative; }
+.st-key-bhc_notebox .stTextArea textarea { padding-bottom: 2.9rem !important; }
+.st-key-bhc_notebox div.stButton {
+    position: absolute; left: 10px; bottom: 10px; z-index: 10; width: auto;
+}
+.st-key-bhc_notebox div.stButton > button {
+    width: 40px; height: 40px; min-height: 40px; padding: 0;
+    border-radius: 50%; font-size: 17px; line-height: 1;
+    background: #ffffff !important; color: #1a5276 !important;
+    border: 1px solid #a9c7e8 !important;
+    box-shadow: 0 2px 8px rgba(26,82,118,0.18);
+}
+.st-key-bhc_notebox div.stButton > button:hover { background: #eaf3fc !important; }
+.st-key-bhc_notebox div.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, #c0392b, #e74c3c) !important;
+    color: #ffffff !important; border: none !important;
+}
 </style>
 """
 
@@ -359,6 +394,9 @@ def _init_state():
     st.session_state.setdefault("bc_rx_sig", None)
     st.session_state.setdefault("bc_sources", ["kent", "synthesis"])
     st.session_state.setdefault("bc_snaps", [])
+    st.session_state.setdefault("bc_mic_open", False)
+    st.session_state.setdefault("bc_voice_sig", None)
+    st.session_state.setdefault("bc_pending_voice", None)
 
 
 def _reset_case_state():
@@ -476,18 +514,40 @@ def _render_chips(sid: str, fid: str, chip_def: dict):
                 )
 
 
-def _render_repertory_selector():
-    """ریپرٹری منتخب کرنے کا ڈراپ ڈاؤن (لال باکس کی جگہ)"""
-    # نوٹ: ڈیفالٹ سیشن اسٹیٹ میں (_init_state) سیٹ ہوتا ہے —
-    # default پیرامیٹر نہیں دیں ورنہ اسٹریم لٹ وارنнг دیتا ہے
+def _toggle_source(key: str) -> None:
+    """ریپرٹری چپ: کلک → سلیکٹ | دوبارہ کلک → سلیکشن ختم
+    (on_click کال بیک — اگلے رن سے پہلے چلتا ہے، اس لیے محفوظ ہے)"""
+    sel = list(st.session_state.get("bc_sources") or [])
+    if key in sel:
+        sel.remove(key)
+    else:
+        sel.append(key)
+    st.session_state.bc_sources = sel
+
+
+def _render_repertory_chips() -> None:
+    """ریپرٹری منتخب کرنے کی کلک ایبل چپس — ایک ہی لائن میں (نسخہ 2.2)
+    (پہلے یہ فیلڈ بنیادی شکایت ٹیب میں ڈراپ ڈاؤن تھی؛ اب ٹاپ پر ہے)"""
+    st.markdown(f'<div class="bhc-rep-label">{t("repertory_select")}</div>',
+                unsafe_allow_html=True)
     options = list(sources_mod.SOURCE_DEFS.keys())
-    sel = st.multiselect(
-        t("repertory_select"),
-        options,
-        format_func=lambda k: _source_label(k),
-        key="bc_sources",
-    )
-    if sel and len(sel) == 1:
+    sel = list(st.session_state.get("bc_sources") or [])
+    with st.container(key="bhc_reps"):
+        cols = st.columns(len(options))
+        for col, key in zip(cols, options):
+            with col:
+                st.button(
+                    _source_label(key),
+                    key=f"rep_chip_{key}",
+                    type="primary" if key in sel else "secondary",
+                    on_click=_toggle_source,
+                    args=(key,),
+                    use_container_width=True,
+                    help=t("rep_chip_hint"),
+                )
+    if not sel:
+        st.caption(f"⚠️ {t('no_sources')}")
+    elif len(sel) == 1:
         st.caption(f"⚠️ {t('rep_only_one')}")
 
 
@@ -503,15 +563,7 @@ def _render_field(sid: str, f: dict):
     height = f.get("height", 80)
 
     if label_text:
-        if sid == "chief" and fid == "chief_complaint":
-            c1, c2 = st.columns([3, 1])
-            with c1:
-                st.markdown(f'<div class="bhc-field-label">{label_text}</div>',
-                            unsafe_allow_html=True)
-            with c2:
-                _render_repertory_selector()
-        else:
-            st.markdown(f'<div class="bhc-field-label">{label_text}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="bhc-field-label">{label_text}</div>', unsafe_allow_html=True)
     st.text_area(label_text, key=fkey, height=height, placeholder=ph_text,
                  label_visibility="collapsed")
     _render_chips(sid, fid, f.get("chips"))
@@ -664,9 +716,26 @@ Return ONLY valid JSON: {{"sid::fid": "text", ...}}"""
 
 
 def _render_case_note_expander(runner: FlowRunner):
+    """نسخہ 2.2: یہ بلاک اب ٹیبز سے اوپر ہے، اور مائک اسی خانے کے
+    نیچے کونے میں ہے (گوگل سرچ کی طرز)۔"""
     with st.expander(t("case_note_fill")):
-        note = st.text_area(t("case_note_ph"), key="bc_case_note", height=150,
-                            label_visibility="collapsed")
+        with st.container(key="bhc_notebox"):
+            note = st.text_area(t("case_note_ph"), key="bc_case_note", height=160,
+                                label_visibility="collapsed")
+            mic_on = bool(st.session_state.get("bc_mic_open"))
+            if st.button("🎙️", key="bc_mic_btn", help=t("mic_help"),
+                         type="primary" if mic_on else "secondary"):
+                st.session_state.bc_mic_open = not mic_on
+                st.rerun()
+
+        # مائک کھلا ہو تو ریکارڈنگ والا وجٹ (اسی بلاک کے اندر)
+        if st.session_state.get("bc_mic_open"):
+            _voice_capture("bc_case_note")
+
+        toast = st.session_state.pop("bc_note_toast", None)
+        if toast:
+            st.success(toast)
+
         if st.button(t("case_note_fill"), use_container_width=True, key="case_note_btn"):
             if not (note or "").strip():
                 st.info(t("no_symptoms"))
@@ -675,8 +744,9 @@ def _render_case_note_expander(runner: FlowRunner):
                 try:
                     filled, prov = _auto_fill_from_note(runner, note.strip())
                     if filled:
-                        st.session_state.pop("bc_case_note", None)
-                        st.success(f"{t('case_note_done')} ({filled}) 🤖 {prov}")
+                        st.session_state.bc_note_toast = f"{t('case_note_done')} ({filled}) 🤖 {prov}"
+                        st.session_state.bc_clear_note = True   # اگلے رن میں خانہ صاف
+                        st.rerun()
                     else:
                         st.warning(t("ai_offline"))
                 except Exception as e:
@@ -684,7 +754,7 @@ def _render_case_note_expander(runner: FlowRunner):
 
 
 # ------------------------------------------------------------------ #
-# آواز سے درج کرنا (گروک وِساپر — اگر کیز موجود ہو) (نسخہ 2.1)
+# آواز سے درج کرنا (گروک وِساپر — اگر کیز موجود ہو) (نسخہ 2.2)
 # ------------------------------------------------------------------ #
 def _groq_transcribe(audio_obj) -> str:
     if not getattr(llm_mod, "GROQ_API_KEY", ""):
@@ -702,37 +772,59 @@ def _groq_transcribe(audio_obj) -> str:
     return str(getattr(r, "text", "") or "").strip()
 
 
-def _render_voice_expander():
-    """آواز سے درج کرنا — ورژن کے مطابق محفوظ:
-    نئے اسٹریم لٹ پر st.audio_input (براؤزر میں براہِ راست ریکارڈنگ)،
-    پرانے ورژنز پر st.file_uploader (آڈیو فائل اپ لوڈ)۔
-    نوٹ: st.audio_recorder / st.audio_uploader ایسے آئی پی آئی نہیں —
-    پرانی ورژن پر اٹری بیٹ ایرر آتا تھا (مرمت)۔"""
+def _apply_pending_edits() -> None:
+    """رن کے آغاز پر (وجٹ بننے سے پہلے): آواز کا متن شامل کرنا / نوٹ خانہ صاف کرنا
+    نوٹ: وجٹ بننے کے بعد سیشن اسٹیٹ بدلنا اسٹریم لٹ میں منع ہے،
+    اسی لیے یہ کام 'زیرِ التوا' رکھ کر rerun پر کیا جاتا ہے۔"""
+    pending = st.session_state.pop("bc_pending_voice", None)
+    if pending:
+        key = pending.get("key") or "bc_case_note"
+        text = (pending.get("text") or "").strip()
+        if text:
+            cur = (st.session_state.get(key, "") or "").strip()
+            st.session_state[key] = (cur + "\n" + text).strip() if cur else text
+    if st.session_state.pop("bc_clear_note", False):
+        st.session_state["bc_case_note"] = ""
+
+
+def _voice_capture(target_key: str) -> None:
+    """آواز → گروک وہسپر → ٹرانسکرپٹ → مطلوبہ فیلڈ (نسخہ 2.2)
+    نئے اسٹریم لٹ پر st.audio_input (براؤزر میں ریکارڈنگ)،
+    پرانے ورژن پر st.file_uploader (آڈیو فائل اپ لوڈ)۔"""
     if not getattr(llm_mod, "GROQ_API_KEY", ""):
+        st.caption("ℹ️ " + t("voice_no_key"))
         return
     audio = None
     try:
-        with st.expander(t("voice_exp")):
-            if hasattr(st, "audio_input"):
-                audio = st.audio_input(t("voice_btn"), key="bc_voice")
-            else:
-                audio = st.file_uploader(t("voice_btn"), key="bc_voice",
-                                         type=["webm", "wav", "mp3", "m4a", "ogg"])
+        if hasattr(st, "audio_input"):
+            audio = st.audio_input(t("voice_btn"), key="bc_voice_rec")
+        else:
+            audio = st.file_uploader(t("voice_btn"), key="bc_voice_rec",
+                                     type=["webm", "wav", "mp3", "m4a", "ogg"])
     except Exception:
         return
-    if audio is not None:
-        with st.spinner("..."):
-            try:
-                text = _groq_transcribe(audio)
-            except Exception:
-                text = ""
-        if text:
-            fkey = _field_key("chief", "chief_complaint")
-            cur = (st.session_state.get(fkey, "") or "").strip()
-            st.session_state[fkey] = (cur + "\n" + text).strip() if cur else text
-            st.success(t("voice_done"))
-        else:
-            st.warning(t("voice_failed"))
+    st.caption(t("voice_hint"))
+    if audio is None:
+        return
+    # ایک ہی ریکارڈنگ دوبارہ پروسیس نہ ہو
+    try:
+        sig = getattr(audio, "file_id", None) or (
+            str(getattr(audio, "name", "")) + "|" + str(len(audio.getvalue())))
+    except Exception:
+        sig = str(time.time())
+    if sig == st.session_state.get("bc_voice_sig"):
+        return
+    with st.spinner("..."):
+        try:
+            text = _groq_transcribe(audio)
+        except Exception:
+            text = ""
+    if text:
+        st.session_state.bc_voice_sig = sig
+        st.session_state.bc_pending_voice = {"key": target_key, "text": text}
+        st.rerun()
+    else:
+        st.warning(t("voice_failed"))
 
 
 # ------------------------------------------------------------------ #
@@ -760,9 +852,6 @@ def _render_step_content(step: dict, runner: FlowRunner):
         if (st.session_state.get(chief_key, "") or "").strip():
             st.markdown(f'<div class="bhc-done-hint">✅ {t("chief_added")}</div>',
                         unsafe_allow_html=True)
-        # اضافی اسسٹنٹ ٹولز (صرف بنیادی شکایت ٹیب)
-        _render_case_note_expander(runner)
-        _render_voice_expander()
 
     _render_next_questions(step)
 
@@ -1145,6 +1234,7 @@ def render_app():
     st.set_page_config(page_title="Advanced Assistant", page_icon="🩺", layout="wide")
     st.markdown(CSS, unsafe_allow_html=True)
     _init_state()
+    _apply_pending_edits()      # آواز/صفائی کے زیرِ التوا کام (وجٹس سے پہلے)
     _LANG = _get_lang()
 
     # ===== مریض کا سیاق (?patient=) =====
@@ -1170,6 +1260,12 @@ def render_app():
     )
 
     runner = _cached_runner(_case_type())
+
+    # ===== نسخہ 2.2 کا نیا لے آؤٹ =====
+    # ٹوگل کے نیچے پہلی لائن: ریپرٹریز کے کلک ایبل نام (ایک ہی لائن میں)
+    _render_repertory_chips()
+    # دوسری لائن: "مکمل کیس نوٹ" — مائک اسی خانے کے نیچے کونے میں
+    _render_case_note_expander(runner)
 
     # ===== نیچے: سیکشن ٹیبز (پہلا ٹیب = بنیادی شکایت، ڈیفالٹ) =====
     steps = runner.steps
