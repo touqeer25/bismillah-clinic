@@ -23,6 +23,48 @@ var repTreeCache = {};
 var _repFullData = null;
 var repCurrentChKey = '', repCurrentChName = '', repCurrentFlatTree = [];
 
+/* ============================================================
+   ابواب کی کلاسیکل ترتیب (Kent کی اصل ترتیب — سر سے پاؤں تک)
+   کینٹ کی ریپرٹری اصل میں اسی ترتیب سے چھپی ہے: ذہن → چکر → سر → ...
+   → جلد → عمومیات۔ پہلے یہ فہرست ہر بار الف بائی (A-Z) کر دی جاتی تھی
+   جس سے کتاب کا اصل نظم ٹوٹ جاتا تھا۔ اب: کینٹ (انگریزی و جرمن) اسی
+   کلاسیکل ترتیب میں، باقی کتابیں حسبِ سابق الف بائی۔
+   ============================================================ */
+var REP_KENT_CLASSICAL_ORDER = [
+    'mind','vertigo','head','eye','vision','ear','hearing','nose','face','mouth',
+    'teeth','throat','external_throat','stomach','abdomen','rectum','stool','bladder',
+    'kidneys','prostate_gland','urethra','urine','genitalia_male','genitalia_female',
+    'larynx_and_trachea','respiration','cough','expectoration','chest','back',
+    'extremities','sleep','chill','fever','perspiration','skin','generalities'
+];
+
+/* جرمن کینٹ وہی کتاب ہے — یہ نقشہ جرمن ابواب کو اسی کلاسیکل ترتیب پر رکھتا ہے */
+var REP_KENT_DE_ORDER = [
+    'gemuet','schwindel','kopf','auge','sehen','ohr','gehoer','nase','gesicht','mund',
+    'zaehne','hals','hals_aussenseite','magen','bauch','mastdarm','stuhl','blase',
+    'nieren','prostata','harnroehre','urin','geschlechtsorgane_maennlich','geschlechtsorgane_weiblich',
+    'kehlkopf_und_luftroehre','atmung','husten','auswurf','brust','ruecken',
+    'extremitaeten','schlaf','frost','fieber','schweiss','haut','allgemeines'
+];
+
+/* کتاب کے مطابق ابواب کی ترتیب — نہ کہ ہر بار الف بائی */
+function sortChaptersForBook(book, arr) {
+    var order = book === 'kent' ? REP_KENT_CLASSICAL_ORDER
+              : book === 'kent_de' ? REP_KENT_DE_ORDER
+              : null;
+    if (!order) {
+        return arr.slice().sort(function(a, b) { return a.name.localeCompare(b.name); });
+    }
+    var pos = {};
+    order.forEach(function(k, i) { pos[k] = i; });
+    return arr.slice().sort(function(a, b) {
+        var ia = (a.key in pos) ? pos[a.key] : 9999;
+        var ib = (b.key in pos) ? pos[b.key] : 9999;
+        if (ia !== ib) return ia - ib;
+        return a.name.localeCompare(b.name);
+    });
+}
+
 function switchRepertoryBook() {
     var sel = document.getElementById('repBookSelect');
     if (sel) repCurrentBook = sel.value;
@@ -42,8 +84,7 @@ function initRepertoryBrowser() {
         var indexFile = basePath + '_index.json';
         fetch(indexFile).then(function(r){return r.json();}).then(function(data){
             // data is array of {key, name, rubrics}
-            repChapterNames = data;
-            repChapterNames.sort(function(a,b){return a.name.localeCompare(b.name);});
+            repChapterNames = sortChaptersForBook(repCurrentBook, data);
             var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
             if(infoEl) infoEl.textContent = repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';
             renderChapterList();
@@ -55,7 +96,7 @@ function initRepertoryBrowser() {
             } else {
                 repChapterNames = [];
             }
-            repChapterNames.sort(function(a,b){return a.name.localeCompare(b.name);});
+            repChapterNames = sortChaptersForBook(repCurrentBook, repChapterNames);
             var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
             if(infoEl) infoEl.textContent = repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';
             renderChapterList();
