@@ -348,12 +348,12 @@ div.stButton > button[kind="primary"]:hover { filter: brightness(1.07); }
 
 /* ===== نسخہ 2.2: مکمل کیس نوٹ کے نیچے کونے میں مائک (گوگل سرچ کی طرز) ===== */
 .st-key-bhc_notebox { position: relative; }
-.st-key-bhc_notebox .stTextArea textarea { padding-bottom: 2.9rem !important; }
+.st-key-bhc_notebox .stTextArea textarea { padding-bottom: 3.1rem !important; }
 .st-key-bhc_notebox div.stButton {
-    position: absolute; left: 10px; bottom: 10px; z-index: 10; width: auto;
+    position: absolute; right: 12px; bottom: 16px; z-index: 10; width: auto;
 }
 .st-key-bhc_notebox div.stButton > button {
-    width: 40px; height: 40px; min-height: 40px; padding: 0;
+    width: 38px; height: 38px; min-height: 38px; padding: 0;
     border-radius: 50%; font-size: 17px; line-height: 1;
     background: #ffffff !important; color: #1a5276 !important;
     border: 1px solid #a9c7e8 !important;
@@ -514,6 +514,35 @@ def _render_chips(sid: str, fid: str, chip_def: dict):
                 )
 
 
+# ================================================================== #
+# ریپرٹریز کی مقررہ ترتیب (نسخہ 2.2)
+# ------------------------------------------------------------------ #
+# اصول (نظم): پہلے بنیادی کلاسیکل ماخذ، پھر توسیعی جدید مجموعہ،
+# پھر عمومی ذخیرہ، آخر میں معاون ایڈیشن (زبان کی وجہ سے ثانوی)۔
+# ڈکشنری کی ترتیب پر انحصار نہیں — ترتیب یہاں ایک بار طے ہے۔
+REP_CHIP_ORDER = ["kent", "synthesis", "general", "kent_de"]
+
+REP_CHIP_ROLE = {
+    "kent": {"ur": "① بنیادی ماخذ — کینٹ کا کلاسیکل ریپرٹری (درجہ 1 تا 3)",
+             "en": "1) Primary source — Kent's classical repertory (grades 1-3)",
+             "roman": "1) Bunyadi makhaz — Kent classical (grade 1-3)"},
+    "synthesis": {"ur": "② توسیعی مجموعہ — سنتھیسس 9.1 (درجہ 1 تا 4، راستہ و حوالہ جات)",
+                  "en": "2) Expanded — Synthesis 9.1 (grades 1-4, path + sources)",
+                  "roman": "2) Tauseei — Synthesis 9.1 (grade 1-4)"},
+    "general": {"ur": "③ عمومی ذخیرہ — ریپرٹوریم پبلیکم (کلینک کا عمومی سیٹ)",
+                "en": "3) General collection — Repertorium Publicum",
+                "roman": "3) Umoomi zakheera — Repertorium Publicum"},
+    "kent_de": {"ur": "④ معاون — کینٹ کا جرمن ایڈیشن (اردو/رومن کے لیے اے آئی ترجمہ درکار)",
+                "en": "4) Supplementary — Kent German edition (needs AI translation from Urdu/Roman)",
+                "roman": "4) Muawin — Kent German (AI tarjuma darkar)"},
+}
+
+
+def _rep_role(key: str) -> str:
+    d = REP_CHIP_ROLE.get(key, {})
+    return d.get(_LANG) or d.get("ur", "")
+
+
 def _toggle_source(key: str) -> None:
     """ریپرٹری چپ: کلک → سلیکٹ | دوبارہ کلک → سلیکشن ختم
     (on_click کال بیک — اگلے رن سے پہلے چلتا ہے، اس لیے محفوظ ہے)"""
@@ -530,7 +559,10 @@ def _render_repertory_chips() -> None:
     (پہلے یہ فیلڈ بنیادی شکایت ٹیب میں ڈراپ ڈاؤن تھی؛ اب ٹاپ پر ہے)"""
     st.markdown(f'<div class="bhc-rep-label">{t("repertory_select")}</div>',
                 unsafe_allow_html=True)
-    options = list(sources_mod.SOURCE_DEFS.keys())
+    # مقررہ ترتیب — جو کلیدیں REP_CHIP_ORDER میں نہ ہوں وہ آخر میں (حسبِ حروف)
+    known = [k for k in REP_CHIP_ORDER if k in sources_mod.SOURCE_DEFS]
+    rest = sorted(k for k in sources_mod.SOURCE_DEFS if k not in known)
+    options = known + rest
     sel = list(st.session_state.get("bc_sources") or [])
     with st.container(key="bhc_reps"):
         cols = st.columns(len(options))
@@ -543,7 +575,7 @@ def _render_repertory_chips() -> None:
                     on_click=_toggle_source,
                     args=(key,),
                     use_container_width=True,
-                    help=t("rep_chip_hint"),
+                    help=f"{_rep_role(key)}\n{t('rep_chip_hint')}",
                 )
     if not sel:
         st.caption(f"⚠️ {t('no_sources')}")
