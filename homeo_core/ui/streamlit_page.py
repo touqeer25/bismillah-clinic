@@ -69,6 +69,32 @@ T = {
     "reason": {"ur": "وجہ", "en": "Reason", "roman": "Wajah"},
     "next_steps": {"ur": "اگلے اقدامات", "en": "Next Steps", "roman": "Agle iqdamaat"},
     "rubrics_used": {"ur": "استعمال شدہ ربرکس", "en": "Rubrics Used", "roman": "Istemaal shuda rubrics"},
+    "skipped_syms": {"ur": "نظر انداز شدہ علامات", "en": "Skipped symptoms",
+                     "roman": "Nazar andaz shuda alamat"},
+    "skipped_note": {
+        "ur": "یہ علامات کسی واضح ربرک سے نہیں مل سکیں — یا الفاظ ادھورے تھے، یا صرف صفت/سمت تھی "
+              "(مثلاً «especially the right»)، یا تشخیصی اطلاع تھی (مثلاً «no organic lesion»)。 "
+              "الفاظ مکمل کر کے دوبارہ لکھیں تو یہ بھی شمار ہوں گی۔",
+        "en": "These symptoms could not be matched to a clear rubric — wording was partial, "
+              "adjective-only, or a diagnostic note. Rewrite them fully and they will be counted.",
+        "roman": "Yeh alamat kisi wazeh rubric se nahi mil sakin — alfaz adhoore the, ya sirf sift thi, "
+                 "ya tashkheesi ittila thi. Alfaz mukammal kar ke dobara likhein.",
+    },
+    "match_quality": {"ur": "میچ", "en": "match", "roman": "match"},
+    # نسخہ 3.2: لفظ بلفظ
+    "unmatched_title": {"ur": "ریپرٹری میں نہ ملنے والے الفاظ (فیصلہ آپ کا)",
+                        "en": "Words not found in the repertory (your call)",
+                        "roman": "Repertory me na milne wale alfaz (faisla aap ka)"},
+    "unmatched_note": {
+        "ur": "ریپرٹری کے الفاظ پروور کے اپنے الفاظ ہیں — انجن اُن کے ہم معنی (synonym) خود نہیں بناتا۔ "
+              "نیچے وہ الفاظ ہیں جو ریپرٹری میں اِسی شکل میں نہیں ملے۔ اگر آپ چاہیں تو مریض سے دوبارہ پوچھ کر "
+              "اُس کے اپنے الفاظ محفوظ کریں، یا خود کوئی ربرکی لفظ چُنیں — فیصلہ آپ کا۔",
+        "en": "Repertory words are the provers' own words — the engine never auto-substitutes synonyms. "
+              "Below are the words not found as such. Re-ask the patient or choose a repertory word yourself.",
+        "roman": "Repertory ke alfaz prover ke apne alfaz hain — engine synonym khud nahi banata. "
+                 "Neeche wo alfaz hain jo isi shakal me nahi mile. Faisla aap ka.",
+    },
+    "unmatched_spelling": {"ur": "ہجے کے قریب", "en": "close spellings", "roman": "hijje ke qareeb"},
     "final_prescription": {"ur": "📋 حتمی نسخہ تیار کریں (اے آئی)", "en": "📋 Generate Final Prescription (AI)", "roman": "📋 Nuskha taiyar karein (AI)"},
     "rx_local": {"ur": "منتخب بہترین دوا", "en": "Selected best remedy", "roman": "Muntakhab behtareen dawa"},
     "rx_local_dose": {"ur": "طاقت اور خوراک", "en": "Potency & dosage", "roman": "Taqat aur khurak"},
@@ -736,7 +762,7 @@ def _render_method_structure_expander() -> None:
                 "فائل": v.get("file", k),
                 "کل": total,
                 "بھرا": filled,
-                "باقی": max(total - filled, 0) if total else "—",
+                "باقی": max(total - filled, 0),
                 "کیا ہے": v.get("hint", ""),
             })
         st.dataframe(pd.DataFrame(rows), width="stretch")
@@ -1333,15 +1359,58 @@ def _render_remedy_tab(runner: FlowRunner):
             src = _source_label(str(ru.get("source", "")))
             dim = str(ru.get("dimension", ""))
             star = "⭐ " if sym in char_syms else ""
+            # نسخہ 2.4: ربرک کے سامنے میچ کا معیار (کمزور میچ پر تنبیہ)
+            cov = ru.get("coverage")
+            badge = ""
+            if isinstance(cov, (int, float)):
+                pct = int(round(float(cov) * 100))
+                if pct >= 60:
+                    badge = f'<span style="color:#1e8449;font-weight:700;">✅ {pct}%</span>'
+                elif pct >= 35:
+                    badge = f'<span style="color:#b9770e;font-weight:700;">🟡 {pct}%</span>'
+                else:
+                    badge = f'<span style="color:#c0392b;font-weight:700;">⚠️ {pct}%</span>'
             items.append(
                 f'<div style="padding:5px 0;border-bottom:1px dashed #ecf0f1;">'
-                f'<b style="color:#1a5276;">▸ {rub}</b><br>'
+                f'<b style="color:#1a5276;">▸ {rub}</b> {badge}<br>'
                 f'<span style="font-size:12px;color:#7f8c9a;">🩺 {star}{sym} &nbsp;•&nbsp; 📚 {src} &nbsp;•&nbsp; {dim}</span>'
                 f'</div>'
             )
         st.markdown('<div class="bhc-card">' + "".join(items) + "</div>", unsafe_allow_html=True)
     else:
         st.caption(t("no_symptoms"))
+
+    # ===== نسخہ 2.4: جو علامات ربرک نہ بن سکیں (شفاف وجہ کے ساتھ) =====
+    skipped = res.get("skipped", []) or []
+    if skipped:
+        with st.expander(f"⚠️ {t('skipped_syms')} ({len(skipped)})"):
+            st.caption(t("skipped_note"))
+            for sk in skipped:
+                st.markdown(
+                    f'<div style="padding:4px 0;border-bottom:1px dashed #ecf0f1;">'
+                    f'<b style="color:#8e44ad;">✗ {sk.get("symptom", "")}</b><br>'
+                    f'<span style="font-size:12px;color:#7f8c9a;">{sk.get("reason", "")}'
+                    + (f' — قریب ترین: {sk.get("nearest", "")}' if sk.get("nearest") else "")
+                    + '</span></div>',
+                    unsafe_allow_html=True,
+                )
+
+    # ===== نسخہ 3.2: لفظ بلفظ — جو الفاظ ریپرٹری میں اصلًا نہیں ملے =====
+    unmatched = res.get("unmatched_words", []) or []
+    if unmatched:
+        with st.expander(f"🔎 {t('unmatched_title')} ({len(unmatched)})"):
+            st.caption(t("unmatched_note"))
+            for u in unmatched:
+                spell = u.get("spelling_candidates") or []
+                st.markdown(
+                    f'<div style="padding:4px 0;border-bottom:1px dashed #ecf0f1;">'
+                    f'<b style="color:#b9770e;">«{u.get("word", "")}»</b>'
+                    f'<br><span style="font-size:12px;color:#7f8c9a;">'
+                    f'🩺 {u.get("symptom", "")[:70]}'
+                    + (f' &nbsp;•&nbsp; {t("unmatched_spelling")}: ' + "، ".join(spell) if spell else "")
+                    + '</span></div>',
+                    unsafe_allow_html=True,
+                )
 
     # ===== میٹیریا میڈیکا میچ ریٹ (کوانٹ سے) =====
     mm_v = st.session_state.get("bc_mm") or {}
