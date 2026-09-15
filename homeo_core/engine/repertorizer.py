@@ -14,12 +14,32 @@ repertorizer.py — ریپرٹورائزیشن انجن (نظام کا دل)
 
 from __future__ import annotations
 
+import re
 from collections import defaultdict
 from typing import Dict, List, Optional
 
 from . import rubric_mapper
 from .rubric_mapper import RubricIndex, get_index
 from .sources import RepertorySource, get_sources
+
+# نسخہ 2.4: تشخیی نفی — "no organic lesion discovered" جیسی باتیں علامت نہیں، رپورٹ ہے
+# ادھوری علامت کے شروع ہونے والے الفاظ (اسے پچھلی علامت کے ساتھ جوڑ دیں)
+_FRAGMENT_START = (
+    "especially", "specially", "particularly", "mainly", "mostly", "only",
+    "also", "and", "or", "more", "less", "again", "now", "but", "however",
+    "sometimes", "occasionally", "frequently", "usually", "generally",
+    "first", "then", "after", "before", "during", "while", "with", "without",
+    "left", "right", "both", "the same",
+)
+
+_NEG_FINDING_RX = re.compile(
+    r"\bno (organic|abnormality|abnormal|lesion|pathology|lesions)\b"
+    r"|\bnothing (abnormal|found|wrong)\b|\bno abnormality\b"
+    r"|\bnormal (examination|auscultation|exam|x-ray|ecg|echo|investigations?)\b"
+    r"|\bnothing significant\b",
+    re.I,
+)
+
 
 # ڈیفالٹ جہتی وزن (کنفیگریشن سے اوور رائیڈ ہو سکتے ہیں)
 DEFAULT_DIMENSION_WEIGHTS = {
@@ -114,6 +134,41 @@ def repertorize_multi(
     sources = get_sources(source_names)
     sw = symptom_weights or {}
 
+    # نسخہ 2.4: علامات کی چھانٹی — مکرر ہٹائیں، تشخیصی نفی الگ کریں
+    orig_symptoms: List[str] = [str(x) for x in symptoms if str(x).strip()]
+    seen_sym = set()
+    clean_symptoms: List[str] = []
+    skipped: List[dict] = []
+    for sym in symptoms:
+        s_norm = " ".join(str(sym).lower().split())
+        if not s_norm:
+            continue
+        if _NEG_FINDING_RX.search(s_norm):
+            skipped.append({
+                "symptom": sym,
+                "reason": "تشخیصی نفی — یہ علامت نہیں، معائنے کی اطلاع ہے",
+            })
+            continue
+        if s_norm in seen_sym:
+            skipped.append({"symptom": sym, "reason": "مکرر علامت — ایک ہی بار گنی گئی"})
+            continue
+        seen_sym.add(s_norm)
+        clean_symptoms.append(sym)
+
+    # ادھوری علامت (مثلاً "especially the right") → پچھلی علامت میں ضم کر دیں
+    merged: List[str] = []
+    for sym in clean_symptoms:
+        words = str(sym).split()
+        is_frag = bool(merged) and (
+            (len(words) <= 4 and str(sym).strip().lower().startswith(_FRAGMENT_START))
+            or len(words) <= 2
+        )
+        if is_frag:
+            merged[-1] = f"{merged[-1]}, {sym}"
+        else:
+            merged.append(sym)
+    symptoms = merged
+
     remedy_scores: Dict[str, float] = defaultdict(float)
     remedy_rubrics: Dict[str, List[dict]] = defaultdict(list)
     remedy_sources: Dict[str, set] = defaultdict(set)
@@ -155,6 +210,9 @@ def repertorize_multi(
                         "dimension": dim,
                         "source": src.name,
                         "confidence": confidence,
+                        "score": m.get("score"),
+                        "coverage": m.get("coverage"),
+                        "matched": m.get("matched", []),
                         "rationale": m.get("rationale", ""),
                     })
 
@@ -181,10 +239,42 @@ def repertorize_multi(
                         })
 
     results = _finalize(remedy_scores, remedy_rubrics, remedy_sources)
+
+    # نسخہ 2.4: جو علامات کوئی ربرک نہ بنا سکیں، اُن کی وجہ کے ساتھ فہرست
+    matched_syms = {ru["symptom"] for ru in rubrics_used}
+    if sources:
+        for sym in symptoms:
+            if sym in matched_syms:
+                continue
+            try:
+                exp = sources[0].index.explain(sym, top_k=1)
+                why = exp.get("reason") or "قریب ترین ربرک نہیں ملا"
+                near = exp.get("nearest") or ""
+            except Exception:
+                why, near = "قریب ترین ربرک نہیں ملا", ""
+            skipped.append({"symptom": sym, "reason": why, "nearest": near})
+
+    # نسخہ 3.2: «لفظ بلفظ» — جو الفاظ ریپرٹری میں اصلًا موجود نہیں، اُن کی فہرست
+    unmatched: List[dict] = []
+    if sources:
+        seen_w = set()
+        for sym in orig_symptoms:
+            try:
+                for item in sources[0].index.unmatched_words(sym):
+                    key = (sym, item["word"])
+                    if key in seen_w:
+                        continue
+                    seen_w.add(key)
+                    unmatched.append({"symptom": sym, **item})
+            except Exception:
+                pass
+
     return {
         "remedies": results,
         "rubrics_used": rubrics_used,
         "sources": [s.name for s in sources],
+        "skipped": skipped,
+        "unmatched_words": unmatched,
     }
 
 
