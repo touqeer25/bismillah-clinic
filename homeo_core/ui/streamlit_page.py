@@ -103,6 +103,34 @@ T = {
     "cw_story": {"ur": "کیس ہسٹری کے الفاظ (ربرک نہیں بنتے)", "en": "case-history words",
                  "roman": "case history ke alfaz"},
     "cw_unplaced": {"ur": "بےجگہ (ربرک نہ بن سکے)", "en": "unplaced", "roman": "bejaga"},
+    # نسخہ 3.6: مکمل علامات (مقام · سینسیشن · موڈیلٹی · سمت · کمی زیادتی · پھیلاؤ)
+    "built_title": {"ur": "مکمل علامات (پہلے علامت مکمل — پھر ربرک)",
+                    "en": "Complete symptoms (complete the symptom first, then the rubric)",
+                    "roman": "Mukammal alamat (pehle alamat mukammal — phir rubric)"},
+    "built_note": {
+        "ur": "کیس ہسٹری کے ٹکڑے اپنی علامت میں ضم کر دیے گئے ہیں، اور ہر علامت کے اجزاء کے خانے "
+              "دکھائے گئے ہیں: مقام · سینسیشن · موڈیلٹی · سمت · کمی/زیادتی · پھیلاؤ · ہمراہ · وجہ۔ "
+              "ربرکس اِنہی مکمل علامات سے بنی ہیں۔ جو خانہ خالی ہے، وہیں سے اگلا سوال بنتا ہے۔",
+        "en": "Case fragments are merged into their own symptom, and each symptom's component boxes are shown: "
+              "location, sensation, modality, side, amel/agg, extension, concomitant, causation. "
+              "Rubrics were built from these completed symptoms; an empty box becomes the next question.",
+        "roman": "Case history ke tukre apni alamat me zam ho gaye; har alamat ke khane: maqam, sensation, "
+                 "modality, simt, kami/ziadati, phailao. Rubrics inhi mukammal alamat se bane.",
+    },
+    "bp_location": {"ur": "مقام", "en": "location", "roman": "maqam"},
+    "bp_sensation": {"ur": "سینسیشن", "en": "sensation", "roman": "sensation"},
+    "bp_modality": {"ur": "موڈیلٹی", "en": "modality", "roman": "modality"},
+    "bp_side": {"ur": "سمت", "en": "side", "roman": "simt"},
+    "bp_time": {"ur": "وقت", "en": "time", "roman": "waqt"},
+    "bp_complaint": {"ur": "شکایت", "en": "complaint", "roman": "shikayat"},
+    "bp_amel_agg": {"ur": "کمی/زیادتی", "en": "amel/agg", "roman": "kami/ziadati"},
+    "bp_extension": {"ur": "پھیلاؤ", "en": "extension", "roman": "phailao"},
+    "bp_concomitant": {"ur": "ہمراہ", "en": "concomitant", "roman": "hamrah"},
+    "bp_causation": {"ur": "وجہ", "en": "causation", "roman": "wajah"},
+    "bp_merged": {"ur": "ضم ہوئے ٹکڑے", "en": "merged fragments", "roman": "zam hue tukre"},
+    "bp_missing_q": {"ur": "اِن خالی خانوں کے لیے اگلے سوال", "en": "questions for the empty boxes",
+                     "roman": "khali khano ke liye agle sawal"},
+
     "cw_all_placed": {"ur": "✅ مریض کے تمام اہم الفاظ اپنی ربرک میں بیٹھ گئے۔",
                       "en": "All key patient words took their place in a rubric.",
                       "roman": "Mareez ke tamam aham alfaz apni rubric me baith gaye."},
@@ -1278,6 +1306,44 @@ def _render_remedy_tab(runner: FlowRunner):
     st.markdown('<div style="margin:6px 0 10px;">' + "".join(
         f'<span class="bhc-chip">{"⭐ " if s in char_syms else ""}{s}</span>'
         for s in all_syms) + "</div>", unsafe_allow_html=True)
+
+    # ===== نسخہ 3.6: مکمل علامات — اجزاء کے خانے =====
+    try:
+        from homeo_core.engine.symptom_builder import build_symptoms as _build_syms
+        _built = _build_syms(all_syms)
+    except Exception:
+        _built = None
+    if _built and _built.get("symptoms"):
+        with st.expander(f"🧩 {t('built_title')} ({len(_built['symptoms'])})", expanded=False):
+            st.caption(t("built_note"))
+            _labels = [("complaint", t("bp_complaint")), ("location", t("bp_location")),
+                       ("sensation", t("bp_sensation")), ("modality", t("bp_modality")),
+                       ("side", t("bp_side")), ("time", t("bp_time")),
+                       ("amel_agg", t("bp_amel_agg")), ("extension", t("bp_extension")),
+                       ("concomitant", t("bp_concomitant")), ("causation", t("bp_causation"))]
+            for _i, _sp in enumerate(_built["symptoms"], 1):
+                st.markdown(
+                    f'<div style="border:1px solid #e6eef5;border-radius:10px;padding:8px 10px;'
+                    f'margin:6px 0;background:#fafdff;">'
+                    f'<b style="color:#1a5276;">{_i}. {_sp["symptom"]}</b>'
+                    + (f'<div style="font-size:12px;color:#7f8c9a;margin-top:2px;">'
+                       f'{t("bp_merged")}: {" | ".join(_sp["merged"])}</div>' if _sp.get("merged") else "")
+                    + '<div style="margin-top:5px;">'
+                    + "".join(
+                        f'<span style="display:inline-block;font-size:12px;margin:2px 4px 2px 0;'
+                        f'padding:2px 7px;border-radius:8px;'
+                        + ('background:#eafaf1;color:#1e8449;border:1px solid #c9eed8;'
+                           if _sp["parts"].get(_k) else
+                           'background:#fdf2f2;color:#a04000;border:1px dashed #f0c8c8;')
+                        + f'">{_lbl}: {"، ".join(_sp["parts"].get(_k, [])) if _sp["parts"].get(_k) else "— خالی"}</span>'
+                        for _k, _lbl in _labels)
+                    + '</div></div>',
+                    unsafe_allow_html=True,
+                )
+            if _built.get("questions"):
+                st.markdown(f'**{t("bp_missing_q")}**')
+                for _q in _built["questions"][:12]:
+                    st.markdown(f"- {_q}")
 
     st.text_input(t("char_symptom"), key="bc_char",
                   placeholder=t("char_ph"))
