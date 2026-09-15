@@ -146,6 +146,21 @@ def repertorize_multi(
 
     # نسخہ 2.4: علامات کی چھانٹی — مکرر ہٹائیں، تشخیصی نفی الگ کریں
     orig_symptoms: List[str] = [str(x) for x in symptoms if str(x).strip()]
+
+    # نسخہ 3.6: پہلے علامت کو مکمل کریں، پھر ربرک ڈھونڈیں
+    #   (مقام · سینسیشن · موڈیلٹی · سمت · کمی/زیادتی · پھیلاؤ — ٹکڑے اپنی علامت میں ضم)
+    symptom_parts: List[dict] = []
+    symptom_questions: List[str] = []
+    try:
+        from homeo_core.engine.symptom_builder import build_symptoms as _build
+        built = _build(orig_symptoms)
+        if built.get("symptoms"):
+            symptoms = [b["complete"] for b in built["symptoms"]]
+            symptom_parts = built["symptoms"]
+            symptom_questions = built.get("questions", [])
+    except Exception:
+        pass
+
     seen_sym = set()
     clean_symptoms: List[str] = []
     skipped: List[dict] = []
@@ -171,8 +186,12 @@ def repertorize_multi(
         clean_symptoms.append(sym)
 
     # ادھوری علامت (مثلاً "especially the right") → پچھلی علامت میں ضم کر دیں
+    # (نسخہ 3.6: اگر علامت مکمل کرنے والا مرحلہ چل چکا ہو تو یہ پرانا قاعدہ بند رہے —
+    #  ورنہ «violent palpitation» جیسی دو لفظوں والی مکمل علامت بھی ضم ہو جاتی ہے)
     merged: List[str] = []
-    for sym in clean_symptoms:
+    if symptom_parts:
+        merged = list(clean_symptoms)
+    for sym in ([] if symptom_parts else clean_symptoms):
         words = str(sym).split()
         is_frag = bool(merged) and (
             (len(words) <= 4 and str(sym).strip().lower().startswith(_FRAGMENT_START))
@@ -359,6 +378,8 @@ def repertorize_multi(
         "skipped": skipped,
         "unmatched_words": unmatched,
         "rejected_rubrics": rejected_rubrics,
+        "symptom_parts": symptom_parts,        # نسخہ 3.6: مکمل علامات کے اجزاء
+        "symptom_questions": symptom_questions, # نسخہ 3.6: خالی خانوں کے سوالات
         "case_words": case_words,
     }
 

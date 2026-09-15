@@ -1224,10 +1224,8 @@ def _apply_compat(symptom: str, items: List[dict],
         if not kind:
             strict = []
             for words, _r in conds:
-                if any(_cond_present(w, s_tokens, s_text) for w in words):
-                    continue
                 for w in words:
-                    if str(w).lower() in _STRICT_EXTRA:
+                    if str(w).lower() in _STRICT_EXTRA and not _cond_present(w, s_tokens, s_text):
                         strict.append(w)
             if strict:
                 kind, why = "unstated", "شرط نہیں بتائی: " + "، ".join(strict[:3])
