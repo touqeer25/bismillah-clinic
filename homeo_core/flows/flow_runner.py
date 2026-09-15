@@ -182,6 +182,8 @@ class FlowRunner:
             "unmatched_words": out.get("unmatched_words", []),   # نسخہ 3.2: ریپرٹری میں نہ ملنے والے الفاظ
             "case_words": out.get("case_words", {}),             # نسخہ 3.3: مریض بمقابلہ پروور کی گنتی
             "rejected_rubrics": out.get("rejected_rubrics", []),  # نسخہ 3.4: شرطِ ادھوری والی رد ربرکیں
+            "symptom_parts": out.get("symptom_parts", []),        # نسخہ 3.6: مکمل علامات کے اجزاء
+            "symptom_questions": out.get("symptom_questions", []), # نسخہ 3.6: خالی خانوں کے سوالات
         }
 
     def run_potency(self, sensitivity: str = "medium",
