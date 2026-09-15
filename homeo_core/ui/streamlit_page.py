@@ -82,18 +82,51 @@ T = {
     },
     "match_quality": {"ur": "میچ", "en": "match", "roman": "match"},
     # نسخہ 3.2: لفظ بلفظ
-    "unmatched_title": {"ur": "ریپرٹری میں نہ ملنے والے الفاظ (فیصلہ آپ کا)",
-                        "en": "Words not found in the repertory (your call)",
-                        "roman": "Repertory me na milne wale alfaz (faisla aap ka)"},
+    "unmatched_title": {"ur": "مریض کے وہ الفاظ جو ربرک نہ بن سکے (فیصلہ آپ کا)",
+                        "en": "Patient words that could not become a rubric (your call)",
+                        "roman": "Mareez ke wo alfaz jo rubric na ban sake (faisla aap ka)"},
     "unmatched_note": {
-        "ur": "ریپرٹری کے الفاظ پروور کے اپنے الفاظ ہیں — انجن اُن کے ہم معنی (synonym) خود نہیں بناتا۔ "
-              "نیچے وہ الفاظ ہیں جو ریپرٹری میں اِسی شکل میں نہیں ملے۔ اگر آپ چاہیں تو مریض سے دوبارہ پوچھ کر "
-              "اُس کے اپنے الفاظ محفوظ کریں، یا خود کوئی ربرکی لفظ چُنیں — فیصلہ آپ کا۔",
-        "en": "Repertory words are the provers' own words — the engine never auto-substitutes synonyms. "
-              "Below are the words not found as such. Re-ask the patient or choose a repertory word yourself.",
-        "roman": "Repertory ke alfaz prover ke apne alfaz hain — engine synonym khud nahi banata. "
-                 "Neeche wo alfaz hain jo isi shakal me nahi mile. Faisla aap ka.",
+        "ur": "مریض اور پروور میں فرق ہے: میٹیریا میڈیکا اور ریپرٹری کے الفاظ پروور کے اپنے الفاظ ہیں — "
+              "مریض عام آدمی ہے، وہ اِس زبان میں بات نہیں کرتا۔ اس لیے مریض کا ہر لفظ ریپرٹری میں ہونا ضروری نہیں۔ "
+              "ربرکس مریض کی کیس ہسٹری سے نکالی جاتی ہیں، اور ربرکس کے الفاظ ریپرٹری کے ہی ہوتے ہیں۔ "
+              "نیچے صرف وہ الفاظ ہیں جو ربرک کی زبان میں نہ بیٹھ سکے — انجن اُن کی جگہ کوئی ہم معنی لفظ خود نہیں چُنتا। "
+              "فیصلہ آپ کا: مریض سے دوبارہ پوچھیں، یا خود کوئی ربرکی لفظ چُنیں۔",
+        "en": "Patient and prover differ: repertory words are the provers' own words, and a patient does not "
+              "speak that language. Not every patient word has to exist in the repertory — rubrics are derived "
+              "from the case history. Listed below are only the words that could not take their place in a rubric.",
+        "roman": "Mareez aur prover me farq hai: repertory ke alfaz prover ke apne alfaz hain, mareez wo zaban "
+                 "nahi bolta. Is liye mareez ka har lafz repertory me hona zaroori nahi — rubrics case history se "
+                 "nikali jati hain. Neeche sirf wo alfaz hain jo rubric ki zaban me na baith sake.",
     },
+    "cw_stats": {"ur": "مریض کے کل الفاظ", "en": "total patient words", "roman": "kul mareez alfaz"},
+    "cw_known": {"ur": "ریپرٹری کے الفاظ", "en": "repertory words", "roman": "repertory ke alfaz"},
+    "cw_story": {"ur": "کیس ہسٹری کے الفاظ (ربرک نہیں بنتے)", "en": "case-history words",
+                 "roman": "case history ke alfaz"},
+    "cw_unplaced": {"ur": "بےجگہ (ربرک نہ بن سکے)", "en": "unplaced", "roman": "bejaga"},
+    "cw_all_placed": {"ur": "✅ مریض کے تمام اہم الفاظ اپنی ربرک میں بیٹھ گئے۔",
+                      "en": "All key patient words took their place in a rubric.",
+                      "roman": "Mareez ke tamam aham alfaz apni rubric me baith gaye."},
+    "cw_group_noland": {"ur": "جن علامات پر کوئی ربرک نہ بنی", "en": "symptoms with no rubric",
+                        "roman": "jin alamat par koi rubric na bani"},
+    "cw_group_land": {"ur": "باقی (علامت بن گئی، یہ لفظ اپنی جگہ نہ بیٹھا)", "en": "rest",
+                      "roman": "baqi"},
+    # نسخہ 3.5: جزو بمقابلہ جزو — رد کی گئی ربرکیں
+    "rej_title": {"ur": "رد کی گئی ربرکیں (شرط ادھوری)", "en": "Rejected rubrics (condition not stated)",
+                  "roman": "Rad ki gayi rubrics (shart adhoori)"},
+    "rej_note": {
+        "ur": "ربرک ایک مکمل جملہ ہے — ہر کاما ایک شرط۔ اگر ربرک میں ایسی شرط ہو جو مریض کے الفاظ میں نہیں، "
+              "تو وہ ربرک اِس کیس کی نہیں — اُسے رد کر دیا جاتا ہے اور یہاں وجہ کے ساتھ دکھایا جاتا ہے۔ "
+              "آپ چاہیں تو مریض سے وہ شرط پوچھ کر دوبارہ کیس بنائیں۔",
+        "en": "A rubric is a complete sentence — every comma is a condition. If a condition is not in the "
+              "patient's words, the rubric does not belong to this case; it is rejected and shown here with the reason.",
+        "roman": "Rubric ek mukammal jumla hai — har comma ek shart. Jo shart mareez ke alfaz me nahi, wo rubric "
+                 "is case ki nahi — rad kar di jati hai, wajah ke sath.",
+    },
+    "rej_unstated": {"ur": "شرط مریض نے نہیں بتائی", "en": "condition not stated", "roman": "shart nahi batai"},
+    "rej_head": {"ur": "سرِ ربرک کیس میں موجود نہیں", "en": "head of rubric absent", "roman": "sar-e-rubric mojood nahi"},
+    "rej_region": {"ur": "دوسرے حصے کا عضو", "en": "different body region", "roman": "doosre hisse ka uzu"},
+    "rej_polarity": {"ur": "الٹا رخ (بڑھتا/کم ہوتا)", "en": "opposite polarity", "roman": "ulta rukh"},
+    "rej_side": {"ur": "الٹی سمت (دایاں/بایاں)", "en": "opposite side", "roman": "ulti simt"},
     "unmatched_spelling": {"ur": "ہجے کے قریب", "en": "close spellings", "roman": "hijje ke qareeb"},
     "final_prescription": {"ur": "📋 حتمی نسخہ تیار کریں (اے آئی)", "en": "📋 Generate Final Prescription (AI)", "roman": "📋 Nuskha taiyar karein (AI)"},
     "rx_local": {"ur": "منتخب بہترین دوا", "en": "Selected best remedy", "roman": "Muntakhab behtareen dawa"},
@@ -1395,22 +1428,75 @@ def _render_remedy_tab(runner: FlowRunner):
                     unsafe_allow_html=True,
                 )
 
-    # ===== نسخہ 3.2: لفظ بلفظ — جو الفاظ ریپرٹری میں اصلًا نہیں ملے =====
+    # ===== نسخہ 3.5: رد کی گئی ربرکیں (جزو بمقابلہ جزو) =====
+    rej = res.get("rejected_rubrics", []) or []
+    if rej:
+        groups = {}
+        for rr in rej:
+            groups.setdefault(rr.get("kind", ""), []).append(rr)
+        with st.expander(f"⛔ {t('rej_title')} ({len(rej)})"):
+            st.caption(t("rej_note"))
+            name_map = {"unstated": t("rej_unstated"), "head": t("rej_head"),
+                        "other_region": t("rej_region"), "polarity": t("rej_polarity"),
+                        "side": t("rej_side")}
+            for kind, items in groups.items():
+                st.markdown(f'<div style="margin-top:6px;"><b>{name_map.get(kind, kind)}</b> '
+                            f'<span style="color:#7f8c9a;">({len(items)})</span></div>',
+                            unsafe_allow_html=True)
+                for rr in items[:8]:
+                    st.markdown(
+                        f'<div style="padding:3px 0;border-bottom:1px dashed #ecf0f1;font-size:13px;">'
+                        f'<span style="color:#c0392b;">✗</span> {rr.get("rubric", "")[:100]}'
+                        f'<br><span style="font-size:12px;color:#7f8c9a;">{rr.get("why", "")}'
+                        f' &nbsp;•&nbsp; 🩺 {rr.get("symptom", "")[:60]}'
+                        f' &nbsp;•&nbsp; 📚 {rr.get("source", "")}</span></div>',
+                        unsafe_allow_html=True,
+                    )
+
+    # ===== نسخہ 3.3: مریض اور پروور کا فرق =====
+    cw = res.get("case_words") or {}
+    if cw:
+        st.markdown(
+            f'<div style="background:#f4f9fd;border:1px solid #d6e6f2;border-radius:10px;'
+            f'padding:8px 12px;margin-top:8px;font-size:13px;color:#2c3e50;">'
+            f'👤 {t("cw_stats")}: <b>{cw.get("total", 0)}</b> &nbsp;→&nbsp; '
+            f'🗂 {t("cw_known")}: <b>{cw.get("known", 0)}</b> &nbsp;|&nbsp; '
+            f'📖 {t("cw_story")}: <b>{cw.get("story", 0)}</b> &nbsp;|&nbsp; '
+            f'❓ {t("cw_unplaced")}: <b>{cw.get("unplaced", 0)}</b></div>',
+            unsafe_allow_html=True,
+        )
+
     unmatched = res.get("unmatched_words", []) or []
     if unmatched:
+        noland = [u for u in unmatched if not u.get("landed")]
+        landed = [u for u in unmatched if u.get("landed")]
         with st.expander(f"🔎 {t('unmatched_title')} ({len(unmatched)})"):
             st.caption(t("unmatched_note"))
-            for u in unmatched:
-                spell = u.get("spelling_candidates") or []
-                st.markdown(
-                    f'<div style="padding:4px 0;border-bottom:1px dashed #ecf0f1;">'
-                    f'<b style="color:#b9770e;">«{u.get("word", "")}»</b>'
-                    f'<br><span style="font-size:12px;color:#7f8c9a;">'
-                    f'🩺 {u.get("symptom", "")[:70]}'
-                    + (f' &nbsp;•&nbsp; {t("unmatched_spelling")}: ' + "، ".join(spell) if spell else "")
-                    + '</span></div>',
-                    unsafe_allow_html=True,
-                )
+
+            def _uwords(items):
+                for u in items:
+                    spell = u.get("spelling_candidates") or []
+                    st.markdown(
+                        f'<div style="padding:4px 0;border-bottom:1px dashed #ecf0f1;">'
+                        f'<b style="color:#b9770e;">«{u.get("word", "")}»</b>'
+                        f'<br><span style="font-size:12px;color:#7f8c9a;">'
+                        f'🩺 {u.get("symptom", "")[:80]}'
+                        + (f' &nbsp;•&nbsp; {t("unmatched_spelling")}: ' + "، ".join(spell) if spell else "")
+                        + '</span></div>',
+                        unsafe_allow_html=True,
+                    )
+
+            if noland:
+                st.markdown(f'**{t("cw_group_noland")}** ({len(noland)})')
+                _uwords(noland)
+            if landed:
+                st.markdown(f'**{t("cw_group_land")}** ({len(landed)})')
+                _uwords(landed)
+    elif cw:
+        st.markdown(
+            f'<div style="font-size:13px;color:#1e8449;padding:6px 0;">{t("cw_all_placed")}</div>',
+            unsafe_allow_html=True,
+        )
 
     # ===== میٹیریا میڈیکا میچ ریٹ (کوانٹ سے) =====
     mm_v = st.session_state.get("bc_mm") or {}
