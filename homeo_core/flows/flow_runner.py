@@ -178,6 +178,8 @@ class FlowRunner:
             "differential": matrix,
             "rubrics_used": out.get("rubrics_used", []),
             "sources": out.get("sources", []),
+            "skipped": out.get("skipped", []),
+            "unmatched_words": out.get("unmatched_words", []),   # نسخہ 3.2: ریپرٹری میں نہ ملنے والے الفاظ
         }
 
     def run_potency(self, sensitivity: str = "medium",
