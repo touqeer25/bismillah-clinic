@@ -107,6 +107,16 @@ def repertorize(
 # ------------------------------------------------------------------ #
 # ملٹی سورس ریپرٹورائزیشن (تجویز کردہ راستہ)
 # ------------------------------------------------------------------ #
+try:
+    from homeo_core.engine.word_policy import _NARRATIVE_WORDS as _NARRATIVE
+    from homeo_core.engine.word_policy import classify_words
+    from homeo_core.engine.word_policy import RepertoryVocabulary
+except Exception:  # احتیاطی محفوظ صورت
+    _NARRATIVE = set()
+    classify_words = None
+    RepertoryVocabulary = None
+
+
 def repertorize_multi(
     symptoms: List[str],
     source_names: Optional[List[str]] = None,
@@ -139,6 +149,9 @@ def repertorize_multi(
     seen_sym = set()
     clean_symptoms: List[str] = []
     skipped: List[dict] = []
+    # نسخہ 3.3: جو سطریں ربرک بنانے کے لیے نہیں رکھی گئیں (معائنہ/تشخیصی نفی/مکرر) —
+    # اُن کے الفاظ «کہانی» ہیں، فہرست میں نہیں آئیں گے
+    story_syms: List[str] = []
     for sym in symptoms:
         s_norm = " ".join(str(sym).lower().split())
         if not s_norm:
@@ -148,9 +161,11 @@ def repertorize_multi(
                 "symptom": sym,
                 "reason": "تشخیصی نفی — یہ علامت نہیں، معائنے کی اطلاع ہے",
             })
+            story_syms.append(str(sym))
             continue
         if s_norm in seen_sym:
             skipped.append({"symptom": sym, "reason": "مکرر علامت — ایک ہی بار گنی گئی"})
+            story_syms.append(str(sym))
             continue
         seen_sym.add(s_norm)
         clean_symptoms.append(sym)
@@ -173,15 +188,31 @@ def repertorize_multi(
     remedy_rubrics: Dict[str, List[dict]] = defaultdict(list)
     remedy_sources: Dict[str, set] = defaultdict(set)
     rubrics_used = []
+    # نسخہ 3.4: رد شدہ ربرکیں (شرط ادھوری / الٹا رخ / الٹی سمت / دوسرا عضو)
+    rejected_rubrics: List[dict] = []
+    seen_kept: set = set()
 
     for src in sources:
         for sym in symptoms:
             if not str(sym).strip():
                 continue
             sym_weight = float(sw.get(sym, 1.0) or 1.0)  # خاص علامت کا اضافی وزن
+            rej_tmp: List[dict] = []
             matches = rubric_mapper.map_symptom_deep(
-                sym, index=src.index, top_k=top_rubrics_per_symptom, use_llm=use_llm
+                sym, index=src.index, top_k=top_rubrics_per_symptom, use_llm=use_llm,
+                reject_log=rej_tmp,
             )
+            for rj in rej_tmp:
+                rejected_rubrics.append({"symptom": sym, "source": src.name, **rj})
+            # مکرر (سورس + ربرک + علامت) ایک بار
+            uniq = []
+            for m in matches:
+                key3 = (src.name, m.get("rubric_id") or m.get("text"), sym)
+                if key3 in seen_kept:
+                    continue
+                seen_kept.add(key3)
+                uniq.append(m)
+            matches = uniq
             # پرت کی حد: جہت کی بنیاد پر گروپ، ٹاپ 2 پورا وزن
             by_dim: Dict[str, List[dict]] = {}
             for m in matches:
@@ -246,28 +277,80 @@ def repertorize_multi(
         for sym in symptoms:
             if sym in matched_syms:
                 continue
-            try:
-                exp = sources[0].index.explain(sym, top_k=1)
-                why = exp.get("reason") or "قریب ترین ربرک نہیں ملا"
-                near = exp.get("nearest") or ""
-            except Exception:
-                why, near = "قریب ترین ربرک نہیں ملا", ""
+            near = ""
+            why = ""
+            for rj in rejected_rubrics:
+                if rj.get("symptom") == sym:
+                    why = f'ربرکیں شرطِ ادھوری کی وجہ سے رد: {rj.get("why", "")}'
+                    near = rj.get("rubric", "")
+                    break
+            if not why:
+                try:
+                    exp = sources[0].index.explain(sym, top_k=1)
+                    why = exp.get("reason") or "قریب ترین ربرک نہیں ملا"
+                    near = exp.get("nearest") or ""
+                except Exception:
+                    why, near = "قریب ترین ربرک نہیں ملا", ""
             skipped.append({"symptom": sym, "reason": why, "nearest": near})
 
-    # نسخہ 3.2: «لفظ بلفظ» — جو الفاظ ریپرٹری میں اصلًا موجود نہیں، اُن کی فہرست
+    # نسخہ 3.3: مریض اور پروور کا فرق
+    #   مریض عام آدمی ہے — اُس کے تمام الفاظ کا ریپرٹری میں ہونا ضروری نہیں۔
+    #   اِس فہرست میں صرف وہی الفاظ آتے ہیں جو ربرک کی زبان میں نہ بیٹھ سکے («بےجگہ»)۔
+    #   کہانی/معائنے/گنتی کے الفاظ اپنی جگہ درست ہیں — اُنہیں شمار کیا جاتا ہے، دکھایا نہیں جاتا۔
     unmatched: List[dict] = []
+    case_words = {"total": 0, "known": 0, "story": 0, "unplaced": 0}
     if sources:
         seen_w = set()
+        try:
+            vocab = None
+            if RepertoryVocabulary is not None:
+                repo = (getattr(sources[0], "repo_dir", None)
+                        or getattr(sources[0].index, "repo_dir", None)
+                        or getattr(sources[0].index, "data_dir", None))
+                if repo:
+                    vocab = RepertoryVocabulary(repo)
+        except Exception:
+            vocab = None
         for sym in orig_symptoms:
             try:
-                for item in sources[0].index.unmatched_words(sym):
-                    key = (sym, item["word"])
+                if vocab is not None and classify_words is not None and sym not in story_syms:
+                    cl = classify_words(sym, vocab)
+                    case_words["total"] += cl["total"]
+                    case_words["known"] += len(cl["known"])
+                    case_words["story"] += len(cl["narrative"])
+                    words, is_story = cl["unplaced"], False
+                else:
+                    # پرانا راستہ: ریپرٹری انڈیکس سے غیر موجود الفاظ، کہانی کے فلٹر کے ساتھ
+                    words = []
+                    for item in sources[0].index.unmatched_words(sym):
+                        w = str(item.get("word", ""))
+                        if w.lower() in _NARRATIVE or sym in story_syms or len(w) <= 2 or w.isdigit():
+                            case_words["story"] += 1
+                            continue
+                        words.append(w)
+                    case_words["total"] += len(words)
+                    case_words["story"] += 0
+                    is_story = sym in story_syms
+                landed = sym in matched_syms
+                added = 0
+                for w in words:
+                    key = (w, )
                     if key in seen_w:
                         continue
                     seen_w.add(key)
-                    unmatched.append({"symptom": sym, **item})
+                    added += 1
+                    cands = []
+                    try:
+                        cands = sources[0].index._spelling_candidates(w)
+                    except Exception:
+                        cands = []
+                    unmatched.append({"symptom": sym, "word": w, "landed": landed,
+                                      "spelling_candidates": cands})
+                case_words["unplaced"] += added
             except Exception:
                 pass
+        if case_words["known"] + case_words["story"] + case_words["unplaced"] != case_words["total"]:
+            case_words["known"] = max(0, case_words["total"] - case_words["story"] - case_words["unplaced"])
 
     return {
         "remedies": results,
@@ -275,6 +358,8 @@ def repertorize_multi(
         "sources": [s.name for s in sources],
         "skipped": skipped,
         "unmatched_words": unmatched,
+        "rejected_rubrics": rejected_rubrics,
+        "case_words": case_words,
     }
 
 
