@@ -180,6 +180,8 @@ class FlowRunner:
             "sources": out.get("sources", []),
             "skipped": out.get("skipped", []),
             "unmatched_words": out.get("unmatched_words", []),   # نسخہ 3.2: ریپرٹری میں نہ ملنے والے الفاظ
+            "case_words": out.get("case_words", {}),             # نسخہ 3.3: مریض بمقابلہ پروور کی گنتی
+            "rejected_rubrics": out.get("rejected_rubrics", []),  # نسخہ 3.4: شرطِ ادھوری والی رد ربرکیں
         }
 
     def run_potency(self, sensitivity: str = "medium",
