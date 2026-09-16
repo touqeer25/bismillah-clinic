@@ -184,6 +184,8 @@ class FlowRunner:
             "rejected_rubrics": out.get("rejected_rubrics", []),  # نسخہ 3.4: شرطِ ادھوری والی رد ربرکیں
             "symptom_parts": out.get("symptom_parts", []),        # نسخہ 3.6: مکمل علامات کے اجزاء
             "symptom_questions": out.get("symptom_questions", []), # نسخہ 3.6: خالی خانوں کے سوالات
+            "case_grading": out.get("case_grading", {}),          # نسخہ 4.0: کینٹ کی درجہ بندی
+            "eliminated_remedies": out.get("eliminated_remedies", []),  # نسخہ 4.0: خارج شدہ دوائیں
         }
 
     def run_potency(self, sensitivity: str = "medium",
