@@ -1010,6 +1010,12 @@ _REGION = {
     "axilla": "upper", "axillae": "upper", "armpit": "upper",
     "head": "head", "occiput": "head", "vertex": "head", "forehead": "head", "temple": "head",
     "temples": "head", "scalp": "head", "brain": "head",
+    "abdomen": "abdomen", "abdominal": "abdomen", "belly": "abdomen", "navel": "abdomen",
+    "stomach": "stomach", "gastric": "stomach", "epigastrium": "stomach",
+    "chest": "chest", "breast": "chest", "throat": "throat", "mouth": "mouth", "tongue": "mouth",
+    "tooth": "teeth", "teeth": "teeth", "nose": "nose", "ear": "ear", "ears": "ear",
+    "eye": "eye", "eyes": "eye", "face": "face", "bladder": "bladder", "rectum": "rectum",
+    "skin": "skin", "blood": "blood",
     "back": "back", "spine": "back", "lumbar": "back", "sacrum": "back", "coccyx": "back",
     "neck": "back", "nape": "back",
     "chest": "chest", "heart": "chest", "breast": "chest", "breasts": "chest",
@@ -1058,6 +1064,198 @@ _AMEL_RX = re.compile(r"(?:\bamel\b|ameliorat|better|best|reliev|eases?|comforta
 
 
 # عام الفاظ جو کسی ربرک کو «سہارا» نہیں دیتے (یہ ہر جگہ آ جاتے ہیں)
+# نسخہ 4.2 — «درست ربرک» کی جانچ (ٹائلر-ویر: «be sure that you have your very rubric»)
+_CROSSREF_RX = re.compile(r"\(\s*see|\bsee\s+[a-z]|see also", re.I)
+# الٹا درجہ/مقدار — «appetite poor» کے لیے «Appetite - excessive» غلط ہے
+_DEGREE_RX = re.compile(
+    r"\b(poor|want of|loss of|diminished|decreased|decrease|less|absent|lacking|suppressed|small)\b", re.I)
+_DEGREE_OPP_RX = re.compile(
+    r"\b(excessive|increased|increase|great|ravenous|excess|enormous|too much|avarice|bulimy|"
+    r"morbid appetite|voracious)\b", re.I)
+# رُخ: مریض «بہتر/کم» کہے اور ربرک بگاڑ کی ہو (اور اُلٹا)
+_FIXED_STRICT_EXTRA = {"labor", "labour", "snakes", "goitre", "goiter", "writing", "reading",
+                       "cheese", "swinging", "sneezing", "smoking", "onions", "coition", "coryza",
+                       "bending", "kneeling", "fasting", "butter", "bread", "pastry", "wine",
+                       "beer", "fright", "chagrin", "mortification", "jealousy", "bathing", "fever"}
+# موضوع کے الفاظ (اگر ربرک کا سرِ جملہ اِن میں سے ہو اور مریض کے الفاظ سے نہ ملے → رد)
+_SUBJECT_WORDS = {
+    "abdomen", "abdominal", "stomach", "gastric", "head", "headache", "vertex", "temple", "occiput",
+    "eye", "eyes", "ear", "ears", "nose", "face", "tooth", "teeth", "mouth", "tongue", "throat",
+    "chest", "heart", "lung", "lungs", "back", "spine", "knee", "knees", "calf", "foot", "feet",
+    "hand", "hands", "arm", "arms", "shoulder", "leg", "legs", "skin", "urine", "stool", "menses",
+    "cough", "sneeze", "vomiting", "vomit", "nausea", "flatulence", "appetite", "thirst", "sleep",
+    "dream", "dreams", "pain", "fear", "fears", "anxiety", "hoarseness", "eruption", "sweat",
+    "perspiration", "palpitation", "respiration", "breathing", "hunger", "craving", "desire",
+    "aversion", "distension", "rumbling", "eructation", "heartburn", "constipation",
+}
+# عام ربرکیں (GENERALITIES/MODALITIES/MIND) — اِن پر موضوع کی شرط نہیں لگتی
+_GENERIC_CHAPTERS = {"GENERALITIES", "MODALITIES", "CONDITIONS OF AGGRAVATION AND AMELIORATION IN GENERAL",
+                     "MIND", "MIND - 2", "GENERALS"}
+
+
+# سرِ ربرک کے ہم معنی — مریض «gets angry» کہے اور ربرک «vexation, anger» ہو
+_HEAD_SYN_GROUPS = [
+    {"angry", "anger", "vexation", "rage", "furious", "wrath", "indignation"},
+    {"flatus", "flatulence", "rumbling", "borborygmus", "wind"},
+    {"coffee", "tea", "drinks", "drink", "wine", "beer"},
+    {"heat", "warmth", "warm", "hot", "summer", "sun"},
+    {"cold", "chill", "chilly", "winter", "coldness"},
+    {"noise", "noises", "sound", "sounds"},
+    {"consolation", "consoling", "sympathy", "comforting"},
+    {"menses", "menstruation", "period", "periods"},
+    {"sleep", "sleeping", "sleepless", "waking", "waked"},
+    {"fear", "fears", "afraid", "anxiety", "anxious", "dread"},
+    {"touch", "touched", "contact", "pressure"},
+    {"eating", "food", "meal", "meals", "drinking"},
+    {"motion", "movement", "walking", "exertion"},
+    {"storm", "thunder", "tempest"},
+]
+
+
+def _lax_pref(word: str, tokens: set) -> bool:
+    """پہلے 4 حروف کا اشتراک (coffee ↔ coffe، anger ↔ angry)"""
+    wp = _pref(word)
+    return bool(wp) and any(wp == _pref(t) for t in tokens)
+
+
+def _head_present(word: str, s_tokens: set, s_text: str) -> bool:
+    """سرِ ربرک کیس میں ہے؟ (لفظ، اسٹیم، یا ہم معنی کے ساتھ)"""
+    if _cond_present(word, s_tokens, s_text):
+        return True
+    if _lax_pref(word, s_tokens):
+        return True
+    w = str(word).lower()
+    for grp in _HEAD_SYN_GROUPS:
+        if w in grp:
+            for g in grp:
+                if _cond_present(g, s_tokens, s_text) or _lax_pref(g, s_tokens):
+                    return True
+    return False
+
+
+def _pref(w: str) -> str:
+    """تقابل کے لیے پہلے 4 حروف (aversion/averse/averse ← aver)"""
+    w = re.sub(r"[^a-z]", "", str(w).lower())
+    return w[:4]
+
+
+_QUERY_STOP = {"for", "and", "the", "with", "from", "last", "three", "year", "years", "especially",
+               "much", "very", "some", "time", "times", "after", "before", "when", "which", "has",
+               "have", "been", "gets", "get", "his", "her", "him", "she", "out", "off", "not", "was",
+               "were", "that", "this", "then", "than", "them", "they", "there", "into", "upon", "onto",
+               "causes", "caused", "roll", "rolling", "coming", "comes", "feeling", "feels", "seems",
+               "being", "while", "still", "again", "about", "over", "under", "same", "only", "also",
+               "last", "next", "very", "well", "made", "makes", "take", "takes", "took"}
+_POLARITY_WORDS = {"worse", "better", "agg", "amel", "aggravat", "ameliorat", "cannot", "bear",
+                    "intoleran", "averse", "sensitive", "aggravated", "ameliorated"}
+_REACTION_WORDS = {"anger", "angry", "coffee", "heat", "cold", "consolation", "noise", "noises",
+                   "motion", "touch", "pressure", "eating", "food", "sleep", "weather", "storm",
+                   "thunder", "sun", "bath", "menses", "crowd", "light", "smell", "walking"}
+
+# عضو → ریپرٹری کا باب (باب کے مطابق ترجیح کے لیے)
+_REGION_CHAPTERS = {
+    "abdomen": {"abdomen", "external_abdomen", "inguinal_and_pubic_region", "stomach"},
+    "stomach": {"stomach", "abdomen", "appetite"},
+    "head": {"head"}, "eye": {"eye", "vision"}, "ear": {"ear", "hearing"},
+    "mouth": {"mouth", "teeth", "tongue"}, "teeth": {"teeth", "mouth"}, "face": {"face"},
+    "throat": {"throat", "external_throat"}, "chest": {"chest", "respiration", "cough", "expectoration"},
+    "back": {"back"}, "bladder": {"bladder", "urine", "urinary_organs"}, "rectum": {"rectum", "anus_and_rectum"},
+    "skin": {"skin"}, "lower": {"extremities", "lower_extremities"}, "upper": {"extremities", "upper_extremities"},
+    "menses": {"genitalia_female", "genitalia_male", "urinary_organs"},
+    "sleep": {"sleep"}, "dreams": {"sleep"}, "cough": {"cough", "respiration"}, "nausea": {"nausea_and_vomiting", "stomach"},
+    "vomiting": {"nausea_and_vomiting", "stomach"}, "appetite": {"appetite", "stomach"},
+    "thirst": {"appetite", "stomach"}, "flatulence": {"abdomen", "rectum"}, "rumbling": {"abdomen"},
+    "heartburn": {"stomach", "abdomen"}, "constipation": {"rectum", "stool", "abdomen"},
+    "fear": {"mind"}, "fears": {"mind"}, "anxiety": {"mind"}, "hoarseness": {"larynx_and_trachea", "throat"},
+    "vertigo": {"vertigo"}, "itching": {"skin"}, "pain": set(), "perspiration": {"perspiration"},
+    "sweat": {"perspiration"}, "palpitation": {"chest", "heart"}, "breathing": {"respiration"},
+    "eructation": {"stomach", "abdomen"}, "distension": {"abdomen", "external_abdomen"},
+    "vision": {"vision", "eye"}, "hunger": {"appetite", "stomach"}, "craving": {"appetite", "stomach"},
+    "desire": {"appetite", "stomach"}, "aversion": {"appetite", "stomach"},
+}
+
+# موضوع کے ہم معنی (مریض کے لفظ → ریپرٹری کا لفظ)
+_SUBJECT_ALIASES = {
+    "sick": "nausea", "sickness": "nausea", "faint": "fainting", "faintish": "fainting",
+    "gas": "flatulence", "wind": "flatulence", "belch": "eructation", "belching": "eructation",
+    "hoarse": "hoarseness", "sleepless": "sleep", "sleeplessness": "sleep", "dreaming": "dreams",
+    "dizzy": "vertigo", "giddiness": "vertigo", "giddy": "vertigo", "itch": "itching",
+    "soreness": "pain", "aching": "pain", "belly": "abdomen", "bowels": "stool",
+    "menses": "menses", "period": "menses", "breath": "respiration", "windy": "flatulence",
+}
+
+
+def _subject_stem_hit(word: str, path_words: set) -> bool:
+    wp = _pref(word)
+    return any(wp == _pref(x) for x in path_words)
+
+
+def _subject_guard(symptom: str, items: List[dict],
+                   reject_log: Optional[List[dict]] = None) -> List[dict]:
+    """⛔ رد: (6) حوالہ جاتی ربرک «(See …)» (7) الٹا درجہ/مقدار (8) ربرک کا موضوع مریض کی شکایت سے نہیں ملتا
+       (9) عام شرط جو مریض نے نہ بتائی (labor، snakes، writing…)"""
+    if not items:
+        return items
+    s_raw = str(symptom).lower()
+    s_toks = _tokens_canonical(symptom)
+    s_pref = {_pref(t) for t in s_toks}
+    s_subject = {w for w in _SUBJECT_WORDS if w in s_raw or _pref(w) in s_pref}
+    s_region = _symptom_regions(s_toks, " ".join(s_toks))
+    s_deg = bool(_DEGREE_RX.search(s_raw))
+    s_deg_opp = bool(_DEGREE_OPP_RX.search(s_raw))
+    out: List[dict] = []
+    for it in items:
+        path = str(it.get("path") or it.get("text") or "")
+        text = str(it.get("text") or "")
+        chap = str(it.get("chapter") or "")
+        low = (path + " " + text + " " + chap).lower()
+        kind, why = "", ""
+        if _CROSSREF_RX.search(low):
+            kind, why = "crossref", "حوالہ جاتی ربرک (See …) — اپنی ربرک نہیں"
+        if not kind and s_deg and _DEGREE_OPP_RX.search(low):
+            kind, why = "degree", "کیس: «کمی/بہت کم» — ربرک: «زیادہ/بڑھا ہوا»"
+        if not kind and s_deg_opp and _DEGREE_RX.search(low):
+            kind, why = "degree", "کیس: «زیادہ» — ربرک: «کمی»"
+        if not kind:
+            conds = _path_conditions(path, chap)
+            head = _head_words(conds)
+            strict = [w for (words, _r) in conds for w in words
+                      if str(w).lower() in _FIXED_STRICT_EXTRA
+                      and not _cond_present(w, s_toks, " ".join(s_toks))]
+            if strict:
+                kind, why = "unstated", "خاص شرط نہیں بتائی: " + "، ".join(strict[:3])
+        if not kind and s_subject:
+            # مریض کا موضوع ربرک میں ہے ہی نہیں → غلط ربرک (جیسے «rumbling» کے لیے «PENDULOUS abdomen»)
+            pw = {str(w).lower() for w in re.findall(r"[a-z-]{3,}", low)}
+            pw |= {_pref(w) for w in pw}
+            subj_hit = any(_subject_stem_hit(w, pw) for w in s_subject)
+            subj_hit = subj_hit or any(any(_head_present(w, s_toks, " ".join(s_toks)) for w in g)
+                                       for g in _HEAD_SYN_GROUPS if g & s_subject)
+            alias_hit = any(_subject_stem_hit(_SUBJECT_ALIASES[w], pw) for w in s_subject
+                            if w in _SUBJECT_ALIASES)
+            region_hit = bool(s_region) and any(_subject_stem_hit(w, pw) for w in s_region)
+            if not (subj_hit or alias_hit or region_hit):
+                kind, why = ("other_subject",
+                             "ربرک میں مریض کی شکایت («" + "، ".join(sorted(s_subject)[:3])
+                             + "») یا عضو موجود نہیں")
+        if not kind and chap.upper() not in _GENERIC_CHAPTERS:
+            # (8) ربرک کا موضوع/عضو مریض کی شکایت سے نہیں ملتا
+            conds = _path_conditions(path, chap)
+            head_pref = {_pref(w) for (words, _r) in conds[:1] for w in words}
+            head_subj = {w for w in _SUBJECT_WORDS if _pref(w) in head_pref}
+            if head_subj and s_subject and not (head_subj & s_subject):
+                reg = {_REGION.get(w) for w in head_subj if _REGION.get(w)}
+                if not (reg and reg & s_region):
+                    kind, why = ("other_subject",
+                                 "ربرک کا موضوع: " + "، ".join(sorted(head_subj)[:3])
+                                 + " — مریض کی شکایت: " + "، ".join(sorted(s_subject)[:3]))
+        if not kind:
+            out.append(it)
+        elif reject_log is not None:
+            reject_log.append({"rubric": text, "path": path, "kind": kind, "why": why, "missing": []})
+    return out
+
+
 _GENERIC_SUPPORT = {"attack", "attacks", "fit", "fits", "paroxysm", "paroxysms", "spell", "spells",
                     "interval", "intervals", "day", "days", "time", "times", "period", "periods",
                     "frequent", "frequently", "sometimes", "often", "always", "generally"}
@@ -1215,7 +1413,8 @@ def _apply_compat(symptom: str, items: List[dict],
                    if _cond_role(w) in ("complaint", "loc", "sens")
                    and str(w).lower() not in _GENERIC_SUPPORT]
         support_n = sum(1 for w in support if _cond_present(w, s_tokens, s_text))
-        head_ok = bool(head) and any(_cond_present(w, s_tokens, s_text) for w in head)
+        head_ok = bool(head) and any(_head_present(w, s_tokens, s_text) for w in head)
+        # سرِ ربرک «کمزور» ہو (pendulous جیسی صفت) تو تائید کے لیے عضو/موضوع کی جانچ آگے ہوتی ہے
         # (1) سرِ جملہ غائب اور سہارا بھی کمزور → رد
         kind, why = "", ""
         if not head_ok and support_n < 2 and not it.get("derived"):
@@ -1263,7 +1462,8 @@ def _apply_compat(symptom: str, items: List[dict],
                 "rubric": it.get("text", ""), "path": path, "kind": kind, "why": why,
                 "missing": [{"piece": " ".join(words)} for (words, _r) in conds][:6],
             })
-    return out
+    # نسخہ 4.2: موضوع/حوالہ/درجے کی جانچ
+    return _subject_guard(symptom, out, reject_log)
 
 
 def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
@@ -1279,6 +1479,7 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
     """
     index = index or get_index()
     local = index.search(symptom, top_k=12)
+    local0 = list(local)          # نسخہ 4.2: اصل امیدوار محفوظ — کوئی مرحلہ اِنہیں کھو نہ دے
 
     # (نسخہ 2.4) مقامی بچاؤ — جب لفظی مماثلت سے کچھ نہ ملے، یا لمبی علامت بکھر جائے
     toks = _tokens_canonical(symptom)
@@ -1297,11 +1498,120 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
             base_ids = {c["rubric_id"] for c in local}
             local = _tag_derived(base_ids, _merge_candidates(local, index.search(v, top_k=3)))
     if len(toks) >= 5 and best_cov < 0.55:          # لمبی علامت → ٹکڑے الگ الگ
+        # نسخہ 4.2: ہر ٹکڑے سے اُس کی اپنی ربرک — ورنہ لمبی علامت کا ایک ہی پہلو سب پر چھا جاتا ہے
+        # (کینٹ نے بھی «< 6 a.m.»، «< anger»، «> coffee» الگ الگ ربرکیں گنی تھیں)
+        part_groups: List[dict] = []
         for part in _sub_symptoms(symptom):
             if len(_tokens_canonical(part)) >= 1:
-                base_ids = {c["rubric_id"] for c in local}
-                local = _tag_derived(base_ids, _merge_candidates(local, index.search(part, top_k=2)))
+                phits = [c for c in index.search(part, top_k=3)
+                         if not _apply_compat(part, [c], None) == []]
+                if phits:
+                    part_groups.append({"part": part, "hits": phits[:2]})
+        have = {c["rubric_id"] for c in local}
+        extra: List[dict] = []
+        for g in part_groups:
+            for c in g["hits"]:
+                if c["rubric_id"] in have:
+                    continue
+                have.add(c["rubric_id"])
+                c2 = dict(c)
+                c2["derived"] = True
+                c2["part"] = g["part"]
+                extra.append(c2)
+        if extra:
+            local = _merge_candidates(local, extra)
         local = local[:12]
+
+    # نسخہ 4.2-ج: قابلِ قبول ابواب (مریض کے عضو/موضوع کے مطابق) — تلاش کے نتیجے کی چھانٹی کے لیے
+    _GENERIC_CH = {"generalities", "modalities", "conditions_of_aggravation_and_amelioration_in_general",
+                   "sensations_and_complaints_in_general", "mind", "sleep", "appetite", "skin"}
+    allow: set = set()
+    try:
+        _regs = _symptom_regions(toks, " ".join(toks))
+        _subj = {w for w in _SUBJECT_WORDS if w in str(symptom).lower()}
+        for w in list(_regs) + list(_subj):
+            allow |= _REGION_CHAPTERS.get(w, set())
+            allow.add(w)
+    except Exception:
+        pass
+
+    def _chapter_ok(ch) -> bool:
+        c = str(ch or "").lower()
+        if not allow:
+            return True
+        if c in allow or c in _GENERIC_CH:
+            return True
+        return c.replace("_", " ").split()[0] in allow
+
+    # نسخہ 4.2: اگر سادہ تلاش خالی یا کمزور رہے تو ہم جوڑ (عضو + شکایت / شکایت + وقت) آزمائیں —
+    # «pain» اکیلے کچھ نہیں دیتا، مگر «abdomen pain» اپنی درست ربرک لے آتا ہے
+    if not local or best_cov < 0.35 or len(toks) >= 6:
+        # سوال اصل الفاظ سے بنائیں (canonical شکل «coffee»→«coffe» بنا دیتی ہے، جس سے تلاش چوک جاتی ہے)
+        base = [w for w in re.findall(r"[a-zA-Z-]{3,}", str(symptom).lower())
+                if w not in _QUERY_STOP]
+        base = [w for w in base if len(w) > 2 and w not in
+                {"for", "and", "the", "with", "from", "last", "thre", "year", "years", "especially",
+                 "causes", "caused", "roll", "rolling", "gets", "getting", "comes", "coming",
+                 "feels", "feeling", "seems", "makes", "made", "when", "while", "again", "still",
+                 "much", "very", "some", "time", "times", "after", "before", "when", "which", "has",
+                 "have", "been", "gets", "get", "his", "her", "him", "she", "out", "off", "not"}]
+        # نسخہ 4.2-ب: ہر پہلو (فيسٹ) کا اپنا سوال — «better coffee»، «vexation anger»، «rumbling abdomen»
+        # ہر سوال سے صرف ایک بہترین ربرک لیا جاتا ہے (کینٹ: ہر علامت کی اپنی ربرک)
+        base = base[:24]
+        regions = [t for t in base if t in _REGION or t.rstrip("s") in _REGION]
+        others = [t for t in base if t not in regions]
+        # ترتیبِ ترجیح: (1) بگاڑ/بہتری + اُس کا سبب  (2) ردِعمل کے لفظ  (3) شکایت + عضو  (4) پاس پاس والے
+        polar = [i for i, t in enumerate(base) if t in _POLARITY_WORDS]
+        queries: List[tuple] = []
+        for i in polar:
+            for t in base[i + 1:i + 4]:
+                if t not in _POLARITY_WORDS:
+                    queries.append((base[i], t))
+        for i, t in enumerate(base):
+            if t in _REACTION_WORDS:
+                if i > 0 and base[i - 1] in _POLARITY_WORDS:
+                    queries.append((base[i - 1], t))
+                queries.append((t, "abdomen") if "abdomen" in base else (t, base[0]))
+        # ہم معنی کے الفاظ بھی ریپرٹری کی زبان میں آزمائیں (angry → vexation، anger)
+        for t in base:
+            for grp in _HEAD_SYN_GROUPS:
+                if t in grp:
+                    for alt in sorted(grp - {t})[:3]:
+                        queries.append((alt, regions[0]) if regions else (alt, base[0]))
+        queries += [(o, r) for r in regions for o in others]
+        queries += [(base[i], base[i + 1]) for i in range(len(base) - 1)]
+        facet_best: List[dict] = []
+        seen_ids = {c["rubric_id"] for c in local}
+        tries = 0
+        for pair in queries:
+            if tries >= 40:
+                break
+            tries += 1
+            q = " ".join(dict.fromkeys(pair))
+            if len(q) < 6:
+                continue
+            try:
+                hits = index.search(q, top_k=4, strict=False)
+            except TypeError:
+                hits = index.search(q, top_k=4)
+            cand = None
+            for c in hits:
+                if c["rubric_id"] in seen_ids:
+                    continue
+                if cand is None:
+                    cand = c
+                if _chapter_ok(c.get("chapter")):
+                    cand = c
+                    break
+            if cand is not None:
+                seen_ids.add(cand["rubric_id"])
+                c2 = dict(cand)
+                c2["derived"] = True
+                c2["query"] = q
+                facet_best.append(c2)   # ایک سوال = ایک ربرک
+        if facet_best:
+            # لمبی علامت: پہلوؤں کی ربرکیں اوّل (کینٹ نے بھی ایسے ہی گنی تھیں)
+            local = (facet_best + local[:3] + local[3:]) if len(toks) >= 6 else (local[:2] + facet_best + local[2:])
 
     if use_llm:
         # اردو رسم الخط (یا خالی میچ): لے سے ریپرٹری زبان میں ترجمہ
@@ -1327,8 +1637,17 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
                         local = _tag_derived(base_ids, _merge_candidates(local, vv))
                 local = local[:12]
 
+    if len(local) < max(int(top_k), 3) and local0:
+        have0 = {c["rubric_id"] for c in local}
+        for c in local0:
+            if c["rubric_id"] not in have0:
+                local.append(c)
+                have0.add(c["rubric_id"])
     if not local:
         return []
+
+    if allow:
+        local.sort(key=lambda c: 0 if _chapter_ok(c.get("chapter")) else 1)
 
     if use_llm:
         picked = select_rubrics_llm(symptom, local, index)
@@ -1336,16 +1655,18 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
             return _apply_compat(symptom, picked, reject_log)
         # ایل ایل ایم ناکام → مقامی نتائج، اعتماد اسکور سے نکال کر
         out = []
-        for c in local[:top_k]:
+        for c in local[:14]:
             out.append({
                 "rubric_id": c["rubric_id"], "chapter": c["chapter"], "text": c["text"],
                 "path": c.get("path", ""), "score": c["score"],
                 "confidence": round(min(c["coverage"], 1.0), 2),
                 "rationale": "لفظی مماثلت (ایل ایل ایم دستیاب نہیں)",
             })
-        return _apply_compat(symptom, out, reject_log)
+        kept = _apply_compat(symptom, out, reject_log)
+        return kept[:max(int(top_k), 1)]
 
-    return _apply_compat(symptom, local[:top_k], reject_log)
+    kept = _apply_compat(symptom, local[:14], reject_log)
+    return kept[:max(int(top_k), 1)]
 
 
 # ------------------------------------------------------------------ #

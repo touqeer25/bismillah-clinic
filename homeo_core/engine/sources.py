@@ -95,10 +95,14 @@ def get_source(name: str) -> RepertorySource:
     return _sources[name]
 
 
+# نسخہ 4.2: ڈیفالٹ میں صرف انگریزی ریپرٹریاں (جرمن کینٹ الگ سے طلب کی جائے تو ہی)
+DEFAULT_SOURCE_NAMES = ["kent", "synthesis", "general"]
+
+
 def get_sources(names: Optional[List[str]] = None) -> List[RepertorySource]:
-    """درخواست کردہ سورسز (یا تمام دستیاب)"""
+    """درخواست کردہ سورسز (یا ڈیفالٹ انگریزی سورسز)"""
     if names is None:
-        names = list(SOURCE_DEFS.keys())
+        names = list(DEFAULT_SOURCE_NAMES)
     return [get_source(n) for n in names]
 
 

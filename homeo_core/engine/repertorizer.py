@@ -161,6 +161,15 @@ def repertorize_multi(
     except Exception:
         pass
 
+    # نسخہ 4.0: کینٹ/ٹائلر کی درجہ بندی — ذہنی (1) → جنرل (2) → خواہش/نفرت (3) → حیض (4) → پارٹیکولر (5)
+    case_grading: dict = {}
+    try:
+        from homeo_core.engine.symptom_grading import grade_case as _grade_case, thermal_lean as _lean
+        _parts_map = {b["symptom"]: b.get("parts") for b in (symptom_parts or [])}
+        case_grading = _grade_case(list(symptoms), _parts_map)
+    except Exception:
+        case_grading = {}
+
     seen_sym = set()
     clean_symptoms: List[str] = []
     skipped: List[dict] = []
@@ -216,6 +225,13 @@ def repertorize_multi(
             if not str(sym).strip():
                 continue
             sym_weight = float(sw.get(sym, 1.0) or 1.0)  # خاص علامت کا اضافی وزن
+            # نسخہ 4.0: درجے کا وزن (ذہنی 3.0 · جنرل 2.2 · خواہش 1.6 · حیض 1.3 · پارٹ 1.0)
+            if case_grading.get("weights"):
+                gsum = case_grading["weights"]
+                sym_weight *= float(
+                    gsum.get(sym)
+                    or next((v for k, v in gsum.items() if sym.startswith(k) or k.startswith(sym[:24])), 1.0)
+                    or 1.0)
             rej_tmp: List[dict] = []
             matches = rubric_mapper.map_symptom_deep(
                 sym, index=src.index, top_k=top_rubrics_per_symptom, use_llm=use_llm,
@@ -271,7 +287,10 @@ def repertorize_multi(
                             continue
                         remedy = src.normalize_remedy(remedy)
                         g_norm = src.normalize_grade(grade)
-                        contribution = g_norm * float(weight) * confidence * sym_weight
+                        # نسخہ 4.2: کینٹ کی اپنی ریپرٹری بنیاد ہے (ٹائلر-ویر کے حوالے کینٹ کے صفحات ہیں)
+                        src_factor = {"kent": 1.0, "synthesis": 0.8, "general": 0.7,
+                                      "kent_de": 0.5}.get(src.name, 0.8)
+                        contribution = g_norm * float(weight) * confidence * sym_weight * src_factor
                         remedy_scores[remedy] += contribution
                         remedy_sources[remedy].add(src.name)
                         remedy_rubrics[remedy].append({
@@ -289,6 +308,38 @@ def repertorize_multi(
                         })
 
     results = _finalize(remedy_scores, remedy_rubrics, remedy_sources)
+
+    # نسخہ 4.0: «eliminating symptom» — نمایاں جنرل (مثلاً گرمی سے بگاڑ) سے مخالف مزاج
+    # کی دوائیں شروع ہی میں خارج کر دی جاتی ہیں (کینٹ: "ruthlessly cut out").
+    # خارج شدہ دوائیں چھپائی نہیں جاتیں — معالج کے سامنے دکھائی جاتی ہیں۔
+    eliminated_remedies: List[dict] = []
+    try:
+        from homeo_core.engine.symptom_grading import (build_thermal_profile, thermal_lean as _tl,
+                                                       thermal_source as _src)
+        # نسخہ 4.1: راستہ خود ماڈیول سے لیا جاتا ہے (پہلے sources کا راستہ غلط نکلتا تھا
+        # اور ریپرٹری کا اندازہ خالی آ رہا تھا)
+        prof = build_thermal_profile()
+        want = None
+        for el in (case_grading.get("eliminating") or []):
+            if el.get("kind") == "heat":
+                want = "chilly"      # مریض گرمی سے بگڑتا ہے → سرد مزاج دوائیں خارج
+            elif el.get("kind") == "cold":
+                want = "warm"        # مریض سردی سے بگڑتا ہے → گرم مزاج دوائیں خارج
+            if want:
+                break
+        if want:
+            kept = []
+            for r in results:
+                lean, strength = _tl(prof, r["remedy"])
+                if lean == want and strength >= 0.5:
+                    eliminated_remedies.append({**r, "lean": lean, "why": "eliminating symptom",
+                                                "src": _src(r["remedy"])})
+                else:
+                    kept.append(r)
+            if kept:
+                results = kept
+    except Exception:
+        eliminated_remedies = []
 
     # نسخہ 2.4: جو علامات کوئی ربرک نہ بنا سکیں، اُن کی وجہ کے ساتھ فہرست
     matched_syms = {ru["symptom"] for ru in rubrics_used}
@@ -380,6 +431,8 @@ def repertorize_multi(
         "rejected_rubrics": rejected_rubrics,
         "symptom_parts": symptom_parts,        # نسخہ 3.6: مکمل علامات کے اجزاء
         "symptom_questions": symptom_questions, # نسخہ 3.6: خالی خانوں کے سوالات
+        "case_grading": case_grading,           # نسخہ 4.0: کینٹ کی درجہ بندی + eliminating + تضاد
+        "eliminated_remedies": eliminated_remedies,  # نسخہ 4.0: خارج کی گئی دوائیں (وجہ کے ساتھ)
         "case_words": case_words,
     }
 

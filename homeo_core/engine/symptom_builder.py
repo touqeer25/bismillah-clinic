@@ -275,6 +275,21 @@ _NEG_MOD = re.compile(r"\b(cannot|can not|will not|unable|has to|must)\b", re.I)
 _AMEL_SELF = re.compile(r"\b(best|better|ameliorat|reliev|comfortable|prefer)\b", re.I)
 _CAUSE_VERB = re.compile(r"(brings? on|brought on|causes?|excites?|produc(?:es|ed))", re.I)
 
+# نسخہ 4.2: دماغی علامتیں اپنی الگ علامت ہیں — کسی اور علامت میں نہیں جڑتیں
+# (کینٹ: «نمایاں ذہنی علامت بہت سی کمزور علامتوں کو رد کر دیتی ہے»)
+_MIND_RX = re.compile(
+    r"\b(suspici|offen[dc]|fidget|depress|indifferen|fear|afraid|anxiet|anxious|dread|"
+    r"irritab|impatien|discontent|hurr|hasty|weep|crying|cry|sad|grief|anger|angry|jealous|"
+    r"envy|mood|excitable|excite|sensitiv|consolation|cheerful|hopeless|despair|restless|"
+    r"quick tempered|compan|alone|delusion|memor|concentrat|confus|absent|delir)", re.I)
+# جو فقرہ موڈیلٹی (بڑھنا/کم ہونا/وقت/حالت) سے شروع ہو وہ ٹکڑا ہے، اپنی علامت نہیں
+_MOD_START_RX = re.compile(
+    r"^\s*(?:better|worse|ameliorat|aggravat|<|>|at\s+\d|from|after|before|during|on\s+|in\s+|with\s+|when\b)", re.I)
+_QUALIFIER_ONLY = {"irregular", "regular", "intervals", "offensive", "offensiv", "gradually",
+                   "sometimes", "often", "occasionally", "always", "never", "again", "still",
+                   "somewhat", "rather", "quite", "very", "much", "slight", "severe", "violent",
+                   "great", "little", "less", "more", "now", "then", "afterwards", "offensive,"}
+
 _STOPFILL = {"on", "at", "of", "the", "a", "an", "in", "to", "from", "by", "with", "and",
              "as", "if", "for", "is", "are", "was", "were", "it", "its", "his", "her",
              "then", "than", "they", "their", "feels", "feel", "feeling", "seems", "times",
@@ -305,10 +320,18 @@ def _key_of(text: str, B: "SymptomBuilder"):
         before = raw[: m.start()].strip().split()
         for w in before[-2:]:
             drop.add(_norm(w))
+    # ذہنی/جذباتی علامت — اپنی علامت (درجہ 1)
+    mm = _MIND_RX.search(raw)
+    if mm and not re.search(r"\b(craves?|craving|desires?|aversion|averse|loathes?|dislikes?)\b", raw):
+        return ("m", mm.group(1).lower())
     comps = [t for t, r in zip(toks, roles) if r == "complaint" and t not in drop]
     locs = [t for t, r in zip(toks, roles) if r == "location"]
     sens = [t for t, r in zip(toks, roles) if r == "sensation"]
     mods = [t for t, r in zip(toks, roles) if r == "modality"]
+    # خواہش/نفرت اپنی علامت ہے (درجہ 3)
+    m = re.search(r"\b(craves?|craving|desires?|aversion|averse|loathes?|dislikes?)\b\s*([a-z-]+)?", raw)
+    if m and m.group(2):
+        return ("cr", m.group(2))
     if comps:
         return ("c", comps[0])
     if locs and sens:
@@ -320,6 +343,12 @@ def _key_of(text: str, B: "SymptomBuilder"):
     if mods and (_NEG_MOD.search(text) or _AMEL_SELF.search(text)):
         pol = "neg" if _NEG_MOD.search(text) else "amel"
         return ("m", mods[0], pol)
+    # آخری سہارا: موڈیلٹی/حالت سے شروع نہ ہو اور کوئی بامعنی لفظ ہو → اپنا موضوع
+    if not _MOD_START_RX.match(raw):
+        for t in toks:
+            if t in _STOPFILL or t in _QUALIFIER_ONLY or len(t) <= 2:
+                continue
+            return ("x", t)
     return None
 
 
