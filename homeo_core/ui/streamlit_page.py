@@ -760,7 +760,11 @@ def _render_method_chips() -> None:
     if m.get("status") != "active":
         st.caption(f"🧩 {t('method_structure_only')}: {m.get('description','')}")
     else:
-        st.caption(f"{t('method_active')}: {m.get('principle','')}")
+        # "Active method:" کی ہیڈنگ صرف اُس وقت دکھائیں جب اصل متن موجود ہو
+        # (خالی principle پر صرف ہیڈنگ نظر آتی تھی — ہٹا دی گئی)
+        _ptxt = (m.get("principle") or m.get("description") or "").strip()
+        if _ptxt:
+            st.caption(f"{t('method_active')}: {_ptxt}")
 
 
 def _run_selected_method(runner, symptoms, sources, weights):

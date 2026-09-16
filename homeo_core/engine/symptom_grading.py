@@ -328,10 +328,15 @@ _ELIM_RX = {
 
 def find_eliminating(graded: List[dict]) -> List[dict]:
     """نمایاں جنرل/ذہنی علامات جو «eliminating symptom» بن سکتی ہیں
-    (کینٹ: «a few only, and only if strongly marked»)"""
+    (کینٹ: «a few only, and only if strongly marked»)
+
+    نسخہ 4.5 اصلاح: خالی موڈیلٹی لکیریں («worse from heat», «very chilly, worse from cold»)
+    پہلے پارٹیکولر (درجہ 5) گنی جاتی تھیں اور eliminating سے باہر رہ جاتی تھیں —
+    جب کہ Tyler-ویر کے چھوں کیسز میں یہی لکیریں پورے کام کی بنیاد ہیں۔
+    اب: درجہ 0 ہٹا دیں؛ درجہ 5 صرف تھرمل (heat/cold) کے لیے قابلِ قبول۔"""
     out = []
     for g in graded:
-        if g["grade"] in (0, 5):
+        if g["grade"] == 0:
             continue
         t = g["symptom"]
         for key, rx in _ELIM_RX.items():
@@ -339,6 +344,8 @@ def find_eliminating(graded: List[dict]) -> List[dict]:
                 # «worse from heat» جیسا مختصر مگر نمایاں جنرل بھی eliminating ہے
                 pol = bool(re.search(r"worse|agg|aggravat|cannot bear|intoleran|averse|"
                                      r"better|amel|reliev|suit", t, re.I))
+                if g["grade"] == 5 and not (key in ("heat", "cold") and pol):
+                    continue  # پارٹیکولر درجے کی غیر تھرمل علامت eliminating نہیں بنتی
                 strong = (len(t.split()) >= 3) or (key in ("heat", "cold") and pol)
                 out.append({"symptom": t, "kind": key, "grade": g["grade"], "strong": strong})
     # صرف نمایاں (strong) والی، زیادہ سے زیادہ 3
