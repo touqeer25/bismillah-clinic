@@ -71,6 +71,23 @@ _EXTRA_TIME = {"morning", "evening", "night", "midnight", "noon", "afternoon", "
 
 # وجہ (causation) — یہ الفاظ «کیوں/کب سے» بتاتے ہیں
 _CAUSE_MARK = ("after", "before", "during", "from", "by", "since", "because", "on", "at", "coming", "brought")
+# «کب» — عرصہ، وقفہ، بار بار ہونا
+_WHEN_RX = re.compile(
+    r"for\s+\w+\s+(?:year|years|month|months|week|weeks|day|days)"
+    r"|for\s+\d+|since\s+\w+|\w+\s+years?|\d+\s*years?"
+    r"|irregular intervals|at intervals|regular intervals|periodical|periodic"
+    r"|frequent|frequently|at times|sometimes|often|always|daily|nightly"
+    r"|morning|evening|night|midnight|noon|afternoon"
+    r"|now more severe|now worse|now better|sudden|gradually|thirteen years", re.I)
+# وجہ صرف وہی مناسبے جو واقعی وجہ بتاتے ہیں (وقت/پھیلاؤ والے «from/on» نہیں)
+_WHY_RX = re.compile(
+    r"(?:brought on by|coming on after|first coming on after|due to|because of|after|before|since)"
+    r"\s+([a-z]{3,24})", re.I)
+_WHY_LEAD_RX = re.compile(r"([a-z]{3,24})\s+(?:brings? on|brought on|causes?|excites?)\s+", re.I)
+_HOW_RX = re.compile(
+    r"(lying|lie|sitting|sit|standing|walking|motion|rest|talking|eating|drinking|sleeping|"
+    r"exertion|pressure|touch|climbing|stooping|swallowing|breathing|on the|during|while|"
+    r"with|when|as if|feels as if|sensation)", re.I)
 # کمی/زیادتی
 _AGG_RX = re.compile(r"(worse|worst|aggravat|agg\b|more severe|increas|brings? on|brought on|violent|intense|severe)", re.I)
 _AMEL_RX = re.compile(r"(better|best|ameliorat|amel\b|reliev|eases?|comfortable|prefer)", re.I)
@@ -136,6 +153,7 @@ class SymptomBuilder:
         parts: Dict[str, List[str]] = {
             "location": [], "sensation": [], "modality": [], "side": [], "time": [],
             "complaint": [], "causation": [], "amel_agg": [], "extension": [], "concomitant": [],
+            "how": [], "when": [], "why": [],
         }
         for w in words:
             r = self.role(w)
@@ -163,21 +181,65 @@ class SymptomBuilder:
             parts["concomitant"].append(m.group(1).strip() if m else "ہمراہ ذکر موجود")
         # وجہ (پھیلاؤ والے «from A to B» کو وجہ نہ سمجھیں)
         if not re.search(r"from\s+[a-z ]{3,20}?\s+to\s+[a-z ]{3,20}", raw):
-            m = re.search(r"\b(after|before|during|by|since|because of)\s+([a-z ]{3,24})", raw)
+            m = re.search(r"\b(after|before|since|because of|brought on by|coming on after)\s+([a-z ]{3,24})", raw)
             if m:
                 parts["causation"].append(f"{m.group(2).strip()} ({m.group(1)})")
+        # ---- کیسے / کب / کیوں (how / when / why) ----
+        # «کیسے» — علامت کن حالتوں میں ہوتی/بدلتی ہے
+        if parts["modality"]:
+            parts["how"].append("، ".join(parts["modality"]))
+        if parts["amel_agg"]:
+            parts["how"].extend(parts["amel_agg"])
+        if parts["concomitant"]:
+            parts["how"].append("ہمراہ: " + "، ".join(parts["concomitant"]))
+        # «کب» — عرصہ/وقفہ/وقت
+        for m in re.findall(_WHEN_RX, raw):
+            m = " ".join(str(m).split())
+            if m and m.lower() not in [x.lower() for x in parts["when"]]:
+                parts["when"].append(m)
+        if parts["time"]:
+            joined = " ".join(parts["when"]).lower()
+            for t in parts["time"]:
+                t = str(t).lower()
+                if t in ("on", "at", "in", "of") or t in joined:
+                    continue
+                parts["when"].append(t)
+        # «کیوں» — وجہ/مناسبہ
+        for m in _WHY_RX.finditer(raw):
+            why = m.group(1).strip()
+            if why in ("the", "a", "an") or why in parts["why"]:
+                continue
+            parts["why"].append(why)
+        for m in _WHY_LEAD_RX.finditer(raw):      # «excitement brings on…»
+            why = m.group(1).strip()
+            if self.role(why) in ("location", "modality", "time", "sensation"):
+                continue                          # «side brings on» جیسی بات سبب نہیں
+            if why not in parts["why"]:
+                parts["why"].append(why + " (سبب)")
+        if parts["causation"]:
+            for c in parts["causation"]:
+                if c not in parts["why"]:
+                    parts["why"].append(c)
         return {k: v for k, v in parts.items() if v}
 
     # ---------- اہم خانے خالی ہوں تو سوال ----------
     def questions(self, text: str, parts: Dict[str, List[str]]) -> List[str]:
         q: List[str] = []
+        short = text[:40]
         has_anchor = bool(parts.get("location") or parts.get("complaint") or parts.get("sensation"))
         if not has_anchor:
-            q.append(f"«{text[:40]}» — یہ کس عضو/شکایت کی بات ہے؟ (مقام)")
+            q.append(f"«{short}» — یہ کس عضو/شکایت کی بات ہے؟ (مقام)")
         if not parts.get("sensation") and parts.get("location"):
-            q.append(f"«{text[:40]}» — «{parts['location'][0]}» میں کیا احساس ہے؟ (سینسیشن)")
-        if not parts.get("modality") and not parts.get("amel_agg"):
-            q.append(f"«{text[:40]}» — کس حالت میں بڑھتا/کم ہوتا ہے؟ (موڈیلٹی/کمی زیادتی)")
+            q.append(f"«{short}» — «{parts['location'][0]}» میں کیا احساس ہے؟ (سینسیشن)")
+        # کیسے (how)
+        if not parts.get("how"):
+            q.append(f"«{short}» — کیسے؟ کس حالت میں (لیٹنے/بیٹھنے/بات کرنے/کھانے…) بڑھتا یا کم ہوتا ہے؟ (how)")
+        # کب (when)
+        if not parts.get("when"):
+            q.append(f"«{short}» — کب؟ کس وقت/وقفے سے ہوتا ہے، اور کتنے عرصے سے؟ (when)")
+        # کیوں (why)
+        if not parts.get("why"):
+            q.append(f"«{short}» — کیوں؟ کس وجہ/مناسبے سے ہوتا ہے؟ (why)")
         sided = ("arm", "leg", "hand", "foot", "eye", "ear", "cheek", "breast", "mamma",
                  "kidney", "ovary", "shoulder", "knee", "toe", "finger", "thigh", "axilla")
         if (not parts.get("side") and parts.get("location")
@@ -193,11 +255,82 @@ def _toks(text: str) -> List[str]:
     return [_norm(w) for w in re.split(r"[^A-Za-zæœß'-]+", str(text)) if len(_norm(w)) > 1]
 
 
+def _narrative_tokens() -> set:
+    """کیس ہسٹری/معائنے کے الفاظ (ربرک نہیں بنتے)"""
+    try:
+        from homeo_core.engine.word_policy import _NARRATIVE_WORDS
+        return set(_NARRATIVE_WORDS)
+    except Exception:
+        return set()
+
+
+_NARR_RX = re.compile(
+    r"\b(auscultation|x-?ray|ultrasound|ecg|ekg|examination|examined|report|test|scan|"
+    r"investigation|diagnosis|allopathic|no organic|organic lesion|no lesion)\b", re.I)
+# وجہ/عرصہ والے فقرے — یہ نئی علامت نہیں، کسی علامت کی تفصیل ہیں
+_CAUSE_CLAUSE_RX = re.compile(
+    r"^\s*(?:first\s+)?(?:coming on|brought on|due to|because of|since|for\s+\d|for\s+\w+\s+year)", re.I)
+_FRAG_RX = re.compile(r"^\s*(?:irregular|regular|at)\s+intervals|^\s*(?:more|less|now)\b", re.I)
+_NEG_MOD = re.compile(r"\b(cannot|can not|will not|unable|has to|must)\b", re.I)
+_AMEL_SELF = re.compile(r"\b(best|better|ameliorat|reliev|comfortable|prefer)\b", re.I)
+_CAUSE_VERB = re.compile(r"(brings? on|brought on|causes?|excites?|produc(?:es|ed))", re.I)
+
+_STOPFILL = {"on", "at", "of", "the", "a", "an", "in", "to", "from", "by", "with", "and",
+             "as", "if", "for", "is", "are", "was", "were", "it", "its", "his", "her",
+             "then", "than", "they", "their", "feels", "feel", "feeling", "seems", "times",
+             "time", "especially", "frequent", "frequently", "very", "much", "more", "down",
+             "up", "back", "about", "over", "under", "after", "before", "during", "coming",
+             "brings", "brought", "cannot", "can", "will", "not", "no", "first", "both",
+             "each", "other", "same", "all", "any", "some", "day", "days", "subject", "now",
+             "severe", "violent", "slight", "great", "about", "into"}
+
+
+def _meaningful(toks: List[str], B: "SymptomBuilder") -> set:
+    out = set()
+    for t in toks:
+        if t in _STOPFILL or len(t) <= 2:
+            continue
+        out.add(t)
+    return out
+
+
+def _key_of(text: str, B: "SymptomBuilder"):
+    """علامت کا موضوع: شکایت (ترجیحاً غیر دماغی) یا عضو+احساس یا موڈیلٹی (نفی/آرام کے ساتھ)"""
+    toks = _toks(text)
+    roles = [B.role(t) for t in toks]
+    raw = str(text).lower()
+    # «excitement brings on palpitation» — «excitement» وجہ ہے، شکایت نہیں
+    drop = set()
+    for m in _CAUSE_VERB.finditer(raw):
+        before = raw[: m.start()].strip().split()
+        for w in before[-2:]:
+            drop.add(_norm(w))
+    comps = [t for t, r in zip(toks, roles) if r == "complaint" and t not in drop]
+    locs = [t for t, r in zip(toks, roles) if r == "location"]
+    sens = [t for t, r in zip(toks, roles) if r == "sensation"]
+    mods = [t for t, r in zip(toks, roles) if r == "modality"]
+    if comps:
+        return ("c", comps[0])
+    if locs and sens:
+        return ("ls", locs[0], sens[0])
+    if locs:
+        return ("l", locs[0])
+    if sens:
+        return ("s", sens[0])
+    if mods and (_NEG_MOD.search(text) or _AMEL_SELF.search(text)):
+        pol = "neg" if _NEG_MOD.search(text) else "amel"
+        return ("m", mods[0], pol)
+    return None
+
+
 def build_symptoms(items: List[str], vocab=None, max_attach: int = 3) -> dict:
-    """ٹکڑوں کی فہرست → مکمل علامات (اجزاء + خالی خانوں کے سوالات)"""
+    """ٹکڑوں کی فہرست → مکمل علامات
+    (مقام · سینسیشن · موڈیلٹی · سمت · کمی/زیادتی · پھیلاؤ + کیسے/کب/کیوں)"""
     B = SymptomBuilder()
-    # 1) صفائی + مکرر ہٹانا
-    seen, phrases = set(), []
+    narr_words = _narrative_tokens()
+
+    # ---------- (0) صفائی، مکرر ہٹانا، اور «کیس ہسٹری» الگ کرنا ----------
+    seen, phrases, narratives = set(), [], []
     for it in items:
         t = " ".join(str(it or "").split())
         if not t:
@@ -206,128 +339,92 @@ def build_symptoms(items: List[str], vocab=None, max_attach: int = 3) -> dict:
         if not key or key in seen:
             continue
         seen.add(key)
+        toks = _toks(t)
+        n_ratio = (sum(1 for w in toks if w in narr_words) / max(1, len(toks)))
+        if _NARR_RX.search(t) and not B.role(toks[0] if toks else ""):
+            narratives.append(t)
+            continue
         phrases.append(t)
 
-    # 2) جو ٹکڑا کسی بڑی علامت کے اندر مکمل موجود ہے — الگ نہ گنیں
-    tset = [set(_toks(p)) for p in phrases]
-    keep: List[bool] = [True] * len(phrases)
-    for i, p in enumerate(phrases):
-        if not tset[i]:
-            keep[i] = False
+    # ---------- (1) مکمل علامتیں (ایک موضوع = ایک مکمل علامت) ----------
+    groups: Dict[tuple, List[int]] = {}
+    frag_idx: List[int] = []
+    for idx, ph in enumerate(phrases):
+        if _CAUSE_CLAUSE_RX.search(ph) or _FRAG_RX.search(ph):
+            frag_idx.append(idx)
             continue
-        for j, q in enumerate(phrases):
-            if i == j or not keep[i]:
-                continue
-            if tset[i] < tset[j]:          # مکمل طور پر اندر موجود (dup)
-                keep[i] = False
-            elif tset[i] == tset[j] and i > j:
-                keep[i] = False
-    phrases = [p for p, k in zip(phrases, keep) if k]
-    tset = [set(_toks(p)) for p in phrases]
-
-    # 3) ٹکڑے (بغیر لنگر) کو گھر (host) میں ضم کرنا — «جُڑے ٹکڑوں کی قطار» کا قاعدہ
-    def anchored(p: str) -> bool:
-        for w in _toks(p):
-            if B.role(w) in ("complaint", "location", "sensation"):
-                return True
-        return False
-
-    STOPFILL = {"on", "at", "of", "the", "a", "an", "in", "to", "from", "by", "with", "and",
-                "as", "if", "for", "is", "are", "was", "were", "it", "its", "his", "her",
-                "then", "than", "they", "their", "feels", "feel", "feeling", "seems", "seems",
-                "times", "time", "especially", "frequent", "frequently", "very", "much", "more",
-                "down", "up", "back", "about", "over", "under", "after", "before", "during",
-                "coming", "brings", "brought", "cannot", "can", "will", "not", "no", "first",
-                "both", "each", "other", "same", "all", "any", "some", "day", "days"}
-    # نفی/آرام والی موڈیلٹی اپنی علامت ہوتی ہے (cannot lie down، can lie best left side)
-    _NEG_MOD_RX = re.compile(r"\b(cannot|can not|will not|unable|has to|must)\b", re.I)
-    _AMEL_SELF_RX = re.compile(r"\b(best|better|ameliorat|reliev|comfortable|prefer)\b", re.I)
-
-    def meaningful(p: str) -> set:
-        return {w for w in _toks(p) if w not in STOPFILL}
-
-    # نسبتی الفاظ — یہ پہلے بتائی گئی علامت کی تشریح ہوتے ہیں، نئی علامت نہیں
-    _COMPARATIVE_RX = re.compile(
-        r"\b(more|less|worse than|better than|than they were|than before|than usual|"
-        r"again|still|as before|as usual)\b", re.I)
-
-    def own_symptom(p: str) -> bool:
-        toks = _toks(p)
-        roles = [B.role(t) for t in toks]
-        has_loc = "location" in roles
-        has_name = any(r in ("complaint", "location", "sensation") for r in roles)
-        # (ب) نئے اکیسے نام — مگر صرف دماغی لفظ اکیلا نہیں (وہ عموماً وجہ ہوتا ہے)
-        if len(toks) == 1 and has_name:
-            if roles[0] == "complaint" and toks[0] in B.MENT:
-                return False
-            return True
-        # (ا) مقام + کوئی دوسرا جزو → اپنی مکمل علامت
-        if has_loc and any(r in ("complaint", "sensation", "modality") for r in roles):
-            return True
-        # (ج) نفی والی موڈیلٹی یا آرام کی بات → اپنی علامت
-        if _NEG_MOD_RX.search(p) or _AMEL_SELF_RX.search(p):
-            return True
-        # (د) شکایت/احساس + کیفیت — مگر نسبتی الفاظ والی بات پرانی علامت کی تشریح ہے
-        if has_name and not _COMPARATIVE_RX.search(p):
-            if _AGG_RX.search(p) or _AMEL_RX.search(p) or len([r for r in roles if r]) >= 2:
-                return True
-        return False
+        k = _key_of(ph, B)
+        if k is None:
+            frag_idx.append(idx)
+            continue
+        groups.setdefault(k, []).append(idx)
 
     hosts: List[dict] = []
-    frag_run_host: Optional[int] = None      # جُڑے ٹکڑوں کی قطار کا گھر
-    prev_src: Optional[int] = None
-    for idx, p in enumerate(phrases):
-        if own_symptom(p):
-            hosts.append({"text": p, "extra": [], "src": [idx]})
-            frag_run_host = None
-            prev_src = idx
-            continue
-        # ٹکڑا: (1) اُس گھر میں جس کے اصل الفاظ ملتے ہیں
-        target = None
-        mt = meaningful(p)
-        best_overlap = 0
-        for hi in range(len(hosts)):
-            ov = len(mt & meaningful(hosts[hi]["text"]))
-            if ov > best_overlap:
-                best_overlap, target = ov, hi
-        # (2) ورنہ پچھلی قطار کا گھر
-        if target is None and frag_run_host is not None and prev_src is not None and idx - prev_src <= 3:
-            target = frag_run_host
-        # (3) ورنہ قریب ترین مکمل علامت
-        if target is None and hosts:
-            target = min(range(len(hosts)),
-                         key=lambda hi: min(abs(idx - sr) for sr in hosts[hi]["src"]))
-        if target is not None:
-            hosts[target]["extra"].append(p)
-            hosts[target]["src"].append(idx)
-            frag_run_host = target
-        else:
-            hosts.append({"text": p, "extra": [], "src": [idx]})
-            frag_run_host = len(hosts) - 1
-        prev_src = idx
+    for k, idxs in groups.items():
+        # سب سے مختصر اور بامعنی فقرہ = مکمل علامت کا نام (باقی اُس کی تفصیل)
+        def rank(ix):
+            toks = _toks(phrases[ix])
+            r = [B.role(t) for t in toks]
+            return (0 if ("location" in r and "complaint" in r) else 1, len(toks))
+        main = sorted(idxs, key=rank)[0]
+        extras = [phrases[ix] for ix in idxs if ix != main]
+        hosts.append({"text": phrases[main], "extra": extras, "src": list(idxs), "key": k})
 
-    # 4) اجزاء نکالنا + سوالات
+    # ---------- (2) ٹکڑے: قریب ترین مکمل علامت میں ----------
+    for ix in frag_idx:
+        if not hosts:
+            hosts.append({"text": phrases[ix], "extra": [], "src": [ix], "key": None})
+            continue
+        tgt = min(range(len(hosts)),
+                  key=lambda hi: min(abs(ix - sr) for sr in hosts[hi]["src"]))
+        hosts[target if False else tgt]["extra"].append(phrases[ix])
+        hosts[tgt]["src"].append(ix)
+
+    # ---------- (2.5) جو مکمل علامت دوسری کے اندر سما جائے → یکجا ----------
+    i = 0
+    while i < len(hosts):
+        ti = _meaningful(_toks(hosts[i]["text"]), B)
+        merged = False
+        for j in range(len(hosts)):
+            if i == j:
+                continue
+            tj = _meaningful(_toks(hosts[j]["text"]), B)
+            if ti and tj and ti <= tj:
+                hosts[j]["extra"].append(hosts[i]["text"])
+                hosts[j]["extra"].extend(hosts[i]["extra"])
+                hosts[j]["src"].extend(hosts[i]["src"])
+                hosts.pop(i)
+                merged = True
+                break
+        if not merged:
+            i += 1
+
+    # ---------- (3) اجزاء + کیسے/کب/کیوں + سوالات ----------
     out = []
     for h in hosts:
-        text = h["text"] + (", " + ", ".join(h["extra"]) if h["extra"] else "")
+        extra = [e for e in dict.fromkeys(h["extra"]) if e]      # مکرر ہٹائیں
+        text = h["text"] + (", " + ", ".join(extra) if extra else "")
         parts = B.components(text)
         out.append({
             "symptom": h["text"],
             "complete": text,
             "parts": parts,
             "questions": B.questions(h["text"], parts),
-            "merged": h["extra"],
-            "score": len([k for k in parts if k in ("location", "sensation", "modality",
-                                                    "side", "amel_agg", "extension")]),
+            "merged": extra,
+            "hww": {"how": parts.get("how", []), "when": parts.get("when", []), "why": parts.get("why", [])},
+            "hww_ok": int(bool(parts.get("how"))) + int(bool(parts.get("when"))) + int(bool(parts.get("why"))),
+            "score": (3 if (parts.get("location") and parts.get("sensation")) else 0)
+                     + (2 if parts.get("modality") else 0)
+                     + int(bool(parts.get("how"))) + int(bool(parts.get("when"))) + int(bool(parts.get("why"))),
         })
-    out.sort(key=lambda x: -x["score"])
+    out.sort(key=lambda x: (-x["hww_ok"], -x["score"]))
     seen_q, questions = set(), []
     for sy in out:
         for q in sy["questions"]:
             if q not in seen_q:
                 seen_q.add(q)
                 questions.append(q)
-    return {"symptoms": out, "questions": questions,
+    return {"symptoms": out, "questions": questions, "narrative": narratives,
             "raw_count": len(items), "complete_count": len(out)}
 
 

@@ -991,6 +991,8 @@ _STRICT_EXTRA = {
     "afternoon", "periodical", "intervals", "regular", "lying", "sitting", "standing",
     # بیماریوں/خرابیوں کے نام — مریض نے نہ بتائے ہوں تو ربرک رد
     "hydropericardium", "pericarditis", "aneurism", "aneurysm", "hypertrophy", "dilatation",
+    "fever", "ague", "typhoid", "cholera", "measles", "scarlatina", "pneumonia", "influenza",
+    "rheumatism", "gout", "asthma", "phthisis", "consumption", "diphtheria", "erysipelas",
     "valvular", "organic", "lesion", "tubercular", "tuberculosis", "syphilitic", "syphilis",
     "cancer", "cancerous", "tumour", "tumor", "polypus", "calculus", "stone", "dropsy",
     "ascites", "jaundice", "diabetes", "epileptic", "hysterical", "apoplectic", "sprained",

@@ -226,7 +226,7 @@ def repertorize_multi(
             # مکرر (سورس + ربرک + علامت) ایک بار
             uniq = []
             for m in matches:
-                key3 = (src.name, m.get("rubric_id") or m.get("text"), sym)
+                key3 = (src.name, m.get("text") or m.get("rubric_id"), sym)
                 if key3 in seen_kept:
                     continue
                 seen_kept.add(key3)
