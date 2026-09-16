@@ -124,10 +124,21 @@ class SymptomBuilder:
         self.MENT = _voc("MENTAL_UR")
 
     # ---------- الفاظ کے کردار ----------
+    # نسخہ 4.3: ریپرٹری کے مانوس حسی الفاظ (جو ربرک کے سروں میں آتے ہیں)
+    SENSE_EXTRA = {
+        "rumbling", "gurgling", "borborygmus", "bubbling", "bubble", "flatulence", "flatus",
+        "noise", "noises", "sound", "sounds", "distension", "distended", "rumbling,", "rattle",
+        "gurgle", "borborygmi", "emptiness", "weight", "heaviness", "fullness", "nausea",
+        "sickness", "vomiting", "burning", "soreness", "sore", "drawing", "cramp", "cramps",
+        "spasm", "spasms", "wakened", "waking", "sleeplessness", "weariness", "weakness",
+    }
+
     def role(self, word: str) -> str:
         w = _norm(word)
         if not w:
             return ""
+        if w in self.SENSE_EXTRA or _stem(w) in {_stem(x) for x in self.SENSE_EXTRA}:
+            return "sensation"
         if w in self.COMP or w in self.MENT:
             return "complaint"
         if w in self.LOC:
@@ -300,6 +311,59 @@ _STOPFILL = {"on", "at", "of", "the", "a", "an", "in", "to", "from", "by", "with
              "severe", "violent", "slight", "great", "about", "into"}
 
 
+_OBJ_SKIP = {"a", "an", "the", "of", "in", "at", "from", "by", "with", "to", "on", "for", "is",
+             "am", "are", "was", "were", "it", "his", "her", "them", "they", "and", "that", "this",
+             "easily", "readily", "much", "very", "always", "often", "every", "night", "day",
+             "when", "while", "being", "been", "gets", "get", "getting", "becomes", "come", "comes",
+             "but", "controls", "control", "can", "cannot", "will", "would", "yet", "still"}
+# حالت/سبب کے مانوس الفاظ (موڈیلٹی کی علامت کے لیے)
+_CONDITION_WORDS = {
+    "anger": {"angry", "anger", "rage", "vexation", "furious", "irritable"},
+    "heat": {"heat", "hot", "warmth", "warm", "summer", "sun", "fire", "stove"},
+    "cold": {"cold", "chilly", "chill", "winter", "coldness", "draught", "wind"},
+    "coffee": {"coffee", "tea"},
+    "consolation": {"consolation", "sympathy", "comfort"},
+    "noise": {"noise", "noises", "sound", "sounds"},
+    "storm": {"storm", "thunder", "thunderstorm", "tempest"},
+    "menses": {"menses", "menstruation", "period", "periods"},
+    "eating": {"eating", "food", "meal", "meals", "dinner", "breakfast"},
+    "drinks": {"drinks", "drink", "water", "milk", "wine", "beer"},
+    "motion": {"motion", "movement", "walking", "exertion", "rowing", "ascending"},
+    "rest": {"rest", "lying", "sitting", "standing", "pressure", "touch"},
+    "sleep": {"sleep", "sleeping", "waking", "night", "morning", "evening"},
+    "weather": {"weather", "damp", "wet", "dry", "spring", "autumn", "air"},
+}
+
+
+def _mind_object(raw: str, word: str) -> str:
+    """«fears a crowd» → «crowd» · «fear of suffocation» → «suffocation»"""
+    after = raw.split(word, 1)[-1] if word in raw else ""
+    for tok in re.findall(r"[a-z-]{3,}", after):
+        if tok in _OBJ_SKIP or tok == word:
+            continue
+        return tok
+    return ""
+
+
+def _condition_object(raw: str) -> str:
+    """«worse if he gets angry» → «anger» · «better from coffee» → «coffee»
+    نسخہ 4.4: اصل لفظ کو ترجیح (spring، storm، hot drinks…) — صرف غصے جیسے الفاظ کی
+    مانوس شکل بدلی جاتی ہے، ورنہ لفظ جوں کا توں لیا جاتا ہے"""
+    toks = [t for t in re.findall(r"[a-z-]{3,}", raw)
+            if t not in _OBJ_SKIP and t not in
+            ("worse", "better", "agg", "amel", "aggravat", "ameliorat", "cannot", "bear",
+             "drinks", "drink", "thing", "things", "very", "much")]
+    if not toks:
+        return ""
+    canon_map = {"angry": "anger", "vexation": "anger", "rage": "anger", "furious": "anger",
+                 "hot": "heat", "warm": "heat", "warmth": "heat", "chilly": "cold", "coldness": "cold"}
+    first = canon_map.get(toks[0], toks[0])
+    # دو بامعنی الفاظ ہوں تو جوڑ بنائیں («hot drinks»، «cold drinks»، «open air»)
+    if len(toks) >= 2 and toks[0] in ("hot", "cold", "warm", "open", "cold"):
+        return f"{toks[0]} {toks[1]}"
+    return first
+
+
 def _meaningful(toks: List[str], B: "SymptomBuilder") -> set:
     out = set()
     for t in toks:
@@ -320,10 +384,24 @@ def _key_of(text: str, B: "SymptomBuilder"):
         before = raw[: m.start()].strip().split()
         for w in before[-2:]:
             drop.add(_norm(w))
+    # نسخہ 4.3: «worse if he gets angry» جیسی بات موڈیلٹی ہے (غصے کے بعد بگاڑ)،
+    # «quick tempered» دماغی علامت ہے — دُونوں الگ رہیں
+    _pol_now = bool(re.search(r"\b(worse|better|agg|amel|aggravat|ameliorat|after|from|during|when|if)\b", raw))
+    if _pol_now and re.search(r"\bconsolation\b", raw):
+        return ("m", "consolat")          # تسلی سے بگاڑ — دماغی علامت (درجہ 1)
+    if _pol_now and re.match(r"^\s*(worse|better|agg|amel|aggravat|ameliorat)", raw):
+        _obj = _condition_object(raw)
+        if _obj in ("anger", "heat", "cold", "coffee", "menses", "motion", "storm", "weather",
+                    "eating", "drinks", "sleep", "noise"):
+            return ("mod", _obj)
     # ذہنی/جذباتی علامت — اپنی علامت (درجہ 1)
+    # نسخہ 4.3: ڈر/خواہش کے ساتھ اُس کا «موضوع» بھی لیا جاتا ہے،
+    # ورنہ «fears a crowd» اور «fear of suffocation» ایک ہی علامت بن جاتی ہیں
     mm = _MIND_RX.search(raw)
     if mm and not re.search(r"\b(craves?|craving|desires?|aversion|averse|loathes?|dislikes?)\b", raw):
-        return ("m", mm.group(1).lower())
+        word = mm.group(1).lower()
+        obj = _mind_object(raw, word)
+        return ("m", word, obj) if obj else ("m", word)
     comps = [t for t, r in zip(toks, roles) if r == "complaint" and t not in drop]
     locs = [t for t, r in zip(toks, roles) if r == "location"]
     sens = [t for t, r in zip(toks, roles) if r == "sensation"]
@@ -343,6 +421,12 @@ def _key_of(text: str, B: "SymptomBuilder"):
     if mods and (_NEG_MOD.search(text) or _AMEL_SELF.search(text)):
         pol = "neg" if _NEG_MOD.search(text) else "amel"
         return ("m", mods[0], pol)
+    # نسخہ 4.3: «کب/کیسے سے بگڑتا یا بہتر ہوتا ہے» — یہ اپنی الگ علامت ہے (موضوع = وہ سبب)
+    pol = bool(re.search(r"\b(worse|better|agg|amel|aggravat|ameliorat|cannot bear|intoleran)\b", raw))
+    if pol:
+        obj = _condition_object(raw)
+        if obj:
+            return ("mod", obj)
     # آخری سہارا: موڈیلٹی/حالت سے شروع نہ ہو اور کوئی بامعنی لفظ ہو → اپنا موضوع
     if not _MOD_START_RX.match(raw):
         for t in toks:
@@ -357,6 +441,22 @@ def build_symptoms(items: List[str], vocab=None, max_attach: int = 3) -> dict:
     (مقام · سینسیشن · موڈیلٹی · سمت · کمی/زیادتی · پھیلاؤ + کیسے/کب/کیوں)"""
     B = SymptomBuilder()
     narr_words = _narrative_tokens()
+
+    # نسخہ 4.4: لمبی علامت میں چھپی ہوئی موڈیلٹی الگ کر لیں —
+    # «pain in stomach, better from hot drinks» → دو علامتیں (کینٹ: ہر موڈیلٹی کی اپنی ربرک)
+    expanded: List[str] = []
+    _MOD_CLAUSE = re.compile(r"^\s*(?:better|worse|ameliorat|aggravat|amel|agg)\b|^\s*(?:<|>)", re.I)
+    for it in items:
+        t = " ".join(str(it or "").split())
+        if not t:
+            continue
+        parts = [x.strip() for x in re.split(r",\s+", t)]
+        main = parts[0] if parts else t
+        mods = [x for x in parts[1:] if _MOD_CLAUSE.match(x) and len(x.split()) >= 2]
+        keep = [main] + [x for x in parts[1:] if x not in mods]
+        expanded.append(", ".join(keep))
+        expanded.extend(mods)
+    items = expanded
 
     # ---------- (0) صفائی، مکرر ہٹانا، اور «کیس ہسٹری» الگ کرنا ----------
     seen, phrases, narratives = set(), [], []

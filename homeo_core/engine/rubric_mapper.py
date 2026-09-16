@@ -1065,7 +1065,9 @@ _AMEL_RX = re.compile(r"(?:\bamel\b|ameliorat|better|best|reliev|eases?|comforta
 
 # عام الفاظ جو کسی ربرک کو «سہارا» نہیں دیتے (یہ ہر جگہ آ جاتے ہیں)
 # نسخہ 4.2 — «درست ربرک» کی جانچ (ٹائلر-ویر: «be sure that you have your very rubric»)
-_CROSSREF_RX = re.compile(r"\(\s*see|\bsee\s+[a-z]|see also", re.I)
+# نسخہ 4.3: صرف وہ ربرک حوالہ ہے جس کے بعد کوئی شرط نہ ہو («FLATULENCE (See Rumbling)») —
+# «OFFENDED, easily (See Sensitive)» حقیقی ربرک ہے، اُسے رد نہیں کرنا
+_CROSSREF_RX = re.compile(r"^[A-Za-z' -]*\(\s*See[^)]*\)\s*$")
 # الٹا درجہ/مقدار — «appetite poor» کے لیے «Appetite - excessive» غلط ہے
 _DEGREE_RX = re.compile(
     r"\b(poor|want of|loss of|diminished|decreased|decrease|less|absent|lacking|suppressed|small)\b", re.I)
@@ -1078,6 +1080,16 @@ _FIXED_STRICT_EXTRA = {"labor", "labour", "snakes", "goitre", "goiter", "writing
                        "bending", "kneeling", "fasting", "butter", "bread", "pastry", "wine",
                        "beer", "fright", "chagrin", "mortification", "jealousy", "bathing", "fever"}
 # موضوع کے الفاظ (اگر ربرک کا سرِ جملہ اِن میں سے ہو اور مریض کے الفاظ سے نہ ملے → رد)
+_FOOD_WORDS = {"fats", "fat", "fatty", "milk", "butter", "cheese", "acids", "acid", "sweets",
+                "sweet", "salt", "salty", "sour", "bitter", "bread", "meat", "fish", "eggs",
+                "vegetables", "fruit", "coffee", "tea", "wine", "beer", "spices", "water",
+                "smoking", "tobacco", "cold food", "warm food", "sour things"}
+_COMPLAINT_WORDS = {"rumbling", "gurgling", "borborygmus", "bubbling", "flatulence", "flatus",
+                    "distension", "emptiness", "heaviness", "fullness", "pain", "headache",
+                    "cough", "vomiting", "nausea", "burning", "cramp", "spasm", "weakness",
+                    "hoarseness", "sleeplessness", "itching", "eruption", "sweat", "perspiration",
+                    "palpitation", "constipation", "diarrhoea", "heartburn", "eructation",
+                    "appetite", "thirst", "hunger", "weak", "faint", "sensitive"}
 _SUBJECT_WORDS = {
     "abdomen", "abdominal", "stomach", "gastric", "head", "headache", "vertex", "temple", "occiput",
     "eye", "eyes", "ear", "ears", "nose", "face", "tooth", "teeth", "mouth", "tongue", "throat",
@@ -1087,7 +1099,7 @@ _SUBJECT_WORDS = {
     "dream", "dreams", "pain", "fear", "fears", "anxiety", "hoarseness", "eruption", "sweat",
     "perspiration", "palpitation", "respiration", "breathing", "hunger", "craving", "desire",
     "aversion", "distension", "rumbling", "eructation", "heartburn", "constipation",
-}
+} | _FOOD_WORDS | _COMPLAINT_WORDS
 # عام ربرکیں (GENERALITIES/MODALITIES/MIND) — اِن پر موضوع کی شرط نہیں لگتی
 _GENERIC_CHAPTERS = {"GENERALITIES", "MODALITIES", "CONDITIONS OF AGGRAVATION AND AMELIORATION IN GENERAL",
                      "MIND", "MIND - 2", "GENERALS"}
@@ -1201,6 +1213,7 @@ def _subject_guard(symptom: str, items: List[dict],
     s_pref = {_pref(t) for t in s_toks}
     s_subject = {w for w in _SUBJECT_WORDS if w in s_raw or _pref(w) in s_pref}
     s_region = _symptom_regions(s_toks, " ".join(s_toks))
+    s_region_w = {w for w in _REGION if w in s_raw or _pref(w) in s_pref}
     s_deg = bool(_DEGREE_RX.search(s_raw))
     s_deg_opp = bool(_DEGREE_OPP_RX.search(s_raw))
     out: List[dict] = []
@@ -1224,11 +1237,36 @@ def _subject_guard(symptom: str, items: List[dict],
                       and not _cond_present(w, s_toks, " ".join(s_toks))]
             if strict:
                 kind, why = "unstated", "خاص شرط نہیں بتائی: " + "، ".join(strict[:3])
-        if not kind and s_subject:
-            # مریض کا موضوع ربرک میں ہے ہی نہیں → غلط ربرک (جیسے «rumbling» کے لیے «PENDULOUS abdomen»)
+        if not kind:
+            # نسخہ 4.3: علامت میں شکایت اور عضو دونوں ہیں تو ربرک میں بھی شکایت لازمی
+            # (ورنہ «rumbling in abdomen» کے لیے «PENDULOUS abdomen» رکھ لی جاتی ہے)
+            s_comp = {w for w in _COMPLAINT_WORDS if w in s_raw or _pref(w) in s_pref}
+            if s_comp and not (s_comp & (s_subject - s_region_w)) if False else False:
+                pass
+            if s_comp:
+                pw = {str(w).lower() for w in re.findall(r"[a-z-]{3,}", low)}
+                pw |= {_pref(w) for w in pw}
+                comp_hit = any(_subject_stem_hit(w, pw) for w in s_comp)
+                if not comp_hit:
+                    kind, why = ("other_subject",
+                                 "ربرک میں مریض کی شکایت («" + "، ".join(sorted(s_comp)[:3])
+                                 + "») موجود نہیں")
+        if not kind:
+            # نسخہ 4.3: «لازم الموضوع» — چیز/شکایت (fats، salt، rumbling…) ربرک میں لازمی ہو
+            required = {w for w in (s_subject & (_FOOD_WORDS | _COMPLAINT_WORDS))}
+            if required:
+                pw = {str(w).lower() for w in re.findall(r"[a-z-]{3,}", low)}
+                pw |= {_pref(w) for w in pw}
+                if not any(_subject_stem_hit(w, pw) for w in required):
+                    kind, why = ("other_subject",
+                                 "ربرک میں مریض کی چیز/شکایت («" + "، ".join(sorted(required)[:3])
+                                 + "») موجود نہیں")
+        if not kind and s_subject - _FOOD_WORDS - _COMPLAINT_WORDS:
+            # مریض کا موضوع ربرک میں ہے ہی نہیں → غلط ربرک
             pw = {str(w).lower() for w in re.findall(r"[a-z-]{3,}", low)}
             pw |= {_pref(w) for w in pw}
-            subj_hit = any(_subject_stem_hit(w, pw) for w in s_subject)
+            _subj_only = s_subject - _FOOD_WORDS - _COMPLAINT_WORDS
+            subj_hit = any(_subject_stem_hit(w, pw) for w in _subj_only)
             subj_hit = subj_hit or any(any(_head_present(w, s_toks, " ".join(s_toks)) for w in g)
                                        for g in _HEAD_SYN_GROUPS if g & s_subject)
             alias_hit = any(_subject_stem_hit(_SUBJECT_ALIASES[w], pw) for w in s_subject
@@ -1466,9 +1504,112 @@ def _apply_compat(symptom: str, items: List[dict],
     return _subject_guard(symptom, out, reject_log)
 
 
+def pick_modality_rubric(obj: str, pol: str, index: Optional[RubricIndex] = None,
+                         case_region: str = "", top_k: int = 2,
+                         reject_log: Optional[List[dict]] = None) -> List[dict]:
+    """«< anger» / «> coffee» جیسی موڈیلٹی کی اپنی ربرک — سبب کا لفظ ربرک میں لازمی،
+       پھر کیس کے باب والی ربرک کو ترجیح، اور جتنے کم اضافی شرائط ہوں اُتنی بہتر"""
+    index = index or get_index()
+    obj = str(obj or "").strip().lower()
+    if not obj:
+        return []
+    pol_word = "amel" if pol == "amel" else "agg"
+    cands: List[dict] = []
+    seen: set = set()
+    # (الف) اُن تمام ربرکوں کی فہرست جو اِس سبب کا لفظ رکھتی ہیں (index کی اندرونی فہرست سے)
+    rids: List[str] = []
+    for word in dict.fromkeys([obj] + obj.split()):
+        tok = _canonical(word)
+        for g in (tok, _stem(tok), word):
+            rids.extend(index._index.get(g, []) or [])
+    if not rids:
+        for q in (f"{pol_word} {obj}", obj):
+            for c in index.search(q, top_k=10, strict=False):
+                rids.append(c["rubric_id"])
+    for q in (obj, f"amel {obj}", f"agg {obj}"):
+        for c in index.search(q, top_k=12, strict=False):
+            rids.append(c["rubric_id"])
+    for rid in list(dict.fromkeys(rids))[:1500]:
+        rb = index.rubrics.get(rid)
+        if not rb:
+            continue
+        if rid in seen:
+            continue
+        seen.add(rid)
+        cands.append({"rubric_id": rid, "chapter": rb["chapter"], "text": rb["t"],
+                      "path": rb.get("path", ""), "score": 100.0 - len(rb["t"]) / 8.0,
+                      "coverage": 0.8})
+    ok: List[tuple] = []
+    for c in cands:
+        txt = str(c.get("text", "")).lower()
+        toks_obj = [w for w in re.findall(r"[a-z-]{3,}", obj)]
+        pw_all = {_pref(w) for w in re.findall(r"[a-z-]{3,}", txt)} | set(re.findall(r"[a-z-]{3,}", txt))
+        if not all(_subject_stem_hit(w, pw_all) for w in toks_obj):
+            continue
+        # رُخ ملنا لازمی: «> coffee» کے لیے بگاڑ والی ربرک نہ اُٹھائی جائے (اور اُلٹا)
+        has_amel = bool(re.search(r"amel|amelior|\bbetter\b", txt))
+        has_agg = bool(re.search(r"\bagg\b|aggravat|\bworse\b", txt))
+        if pol == "amel" and has_agg and not has_amel:
+            continue
+        if pol != "amel" and has_amel and not has_agg:
+            continue
+        chap = str(c.get("chapter", "")).lower()
+        if case_region and chap == case_region:
+            chap_rank = 0                      # بالکل وہی باب (سب سے بہتر)
+        elif case_region and chap_rank_of(chap, case_region):
+            chap_rank = 1                      # اُسی عضو کا قریبی باب
+        elif chap in {"generalities", "modalities", "mind",
+                      "conditions_of_aggravation_and_amelioration_in_general"}:
+            chap_rank = 2                      # عام/موڈیلٹی/دماغی باب
+        else:
+            chap_rank = 3
+        conds = _path_conditions(str(c.get("path") or c.get("text") or ""), chap)
+        extra = 0
+        for words, _r in conds:
+            for w in words:
+                wl = str(w).lower()
+                if wl in _STRICT_EXTRA and wl != obj:
+                    extra += 1
+        # سرِ ربرک شکایت ہو (pain، cough…) — تو اُسے ترجیح
+        try:
+            head = _head_words(conds)
+        except Exception:
+            head = []
+        head_ok = 0 if any(str(h).lower() in _COMPLAINT_WORDS or _subject_stem_hit(str(h), {obj}) for h in head) else 1
+        ok.append((chap_rank, head_ok, extra, -float(c.get("score", 0) or 0), c))
+    if not ok:
+        return []
+    ok.sort(key=lambda t: (t[0], t[1], t[2], t[3]))
+    out = []
+    for _r, _h, _e, _s, c in ok[:max(int(top_k), 1)]:
+        out.append({"rubric_id": c["rubric_id"], "chapter": c.get("chapter", ""),
+                    "text": c.get("text", ""), "path": c.get("path", ""),
+                    "score": c.get("score"), "confidence": round(min(float(c.get("coverage", 0.6) or 0.6), 1.0), 2),
+                    "derived": True, "modality": obj})
+    return out
+
+
+def chap_rank_of(chap: str, region: str) -> bool:
+    """کیا یہ باب اِس عضو کا ہے؟"""
+    ch = str(chap or "").lower()
+    if not region:
+        return False
+    if ch == region or ch.replace("_", " ").split()[0] == region:
+        return True
+    for w, chs in _REGION_CHAPTERS.items():
+        if region in w or w in region:
+            if ch in chs:
+                return True
+    return False
+
+
 def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
                      top_k: int = 5, use_llm: bool = True,
-                     reject_log: Optional[List[dict]] = None) -> List[dict]:
+                     reject_log: Optional[List[dict]] = None,
+                     search_text: Optional[str] = None,
+                     modality_obj: str = "",
+                     modality_pol: str = "",
+                     case_region: str = "") -> List[dict]:
     """
     گہری علامت→ربرک میپنگ (نسخہ 2.1):
       1) مقامی مماثلت
@@ -1478,6 +1619,18 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
       5) ایل ایل ایم کا حتمی انتخاب — اعتماد اور وجہ کے ساتھ (یا مقامی فال بیک)
     """
     index = index or get_index()
+    # نسخہ 4.3: محض موڈیلٹی کی علامت → مخصوص راستہ (سبب کی اپنی ربرک)
+    if modality_obj:
+        got = pick_modality_rubric(modality_obj, modality_pol or "agg", index=index,
+                                   case_region=case_region or "", top_k=max(int(top_k), 1),
+                                   reject_log=reject_log)
+        if got:
+            return got
+    # نسخہ 4.3: «search_text» — جب علامت محض موڈیلٹی ہو («worse if he gets angry»)،
+    # تو تلاش کے لیے کیس کا عضو بھی ساتھ دیا جاتا ہے (ورنہ غلط باب کی ربرک آ جاتی ہے)
+    query = str(search_text or symptom)
+    if query != symptom:
+        symptom = query
     local = index.search(symptom, top_k=12)
     local0 = list(local)          # نسخہ 4.2: اصل امیدوار محفوظ — کوئی مرحلہ اِنہیں کھو نہ دے
 
@@ -1666,6 +1819,23 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
         return kept[:max(int(top_k), 1)]
 
     kept = _apply_compat(symptom, local[:14], reject_log)
+    if not kept:
+        # نسخہ 4.3: سب رد ہو گئے → مریض کے اصل الفاظ سے سادہ تلاش (جیسے «RUMBLING»، «AVERSION to acids»)
+        core = [w for w in re.findall(r"[a-zA-Z-]{4,}", str(symptom).lower())
+                if w not in _QUERY_STOP]
+        got: List[dict] = []
+        seen_c: set = set()
+        for q in ([core[0]] if core else []) + [" ".join(core[:2])] + [" ".join(core[:1] + core[-1:])]:
+            if not q.strip():
+                continue
+            for c in index.search(q, top_k=6, strict=False):
+                if c["rubric_id"] in seen_c:
+                    continue
+                seen_c.add(c["rubric_id"])
+                c2 = dict(c); c2["derived"] = True
+                got.append(c2)
+        if got:
+            kept = _apply_compat(symptom, got[:12], reject_log)
     return kept[:max(int(top_k), 1)]
 
 

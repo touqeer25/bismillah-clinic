@@ -220,10 +220,40 @@ def repertorize_multi(
     rejected_rubrics: List[dict] = []
     seen_kept: set = set()
 
+    # نسخہ 4.3: کیس کا نمایاں عضو (موڈیلٹی والی علامتوں کے لیے)
+    _dom_region = ""
+    try:
+        from homeo_core.engine.rubric_mapper import _REGION as _RG
+        _freq: Dict[str, int] = defaultdict(int)
+        for _s in symptoms:
+            for _w in re.findall(r"[a-z-]{3,}", str(_s).lower()):
+                _r = _RG.get(_w) or _RG.get(_w.rstrip("s"))
+                if _r and _r not in ("upper", "lower"):
+                    _freq[_r] += 1
+        if _freq:
+            _dom_region = max(_freq.items(), key=lambda kv: kv[1])[0]
+    except Exception:
+        _dom_region = ""
+    _MODALITY_RX = re.compile(r"^\s*(worse|better|agg|amel|aggravat|ameliorat)", re.I)
+
     for src in sources:
         for sym in symptoms:
             if not str(sym).strip():
                 continue
+            # موڈیلٹی کی علامت: تلاش میں کیس کا عضو بھی شامل کریں
+            _st = None
+            _mo = ""
+            _mp = ""
+            _mr = ""
+            if _MODALITY_RX.match(str(sym)):
+                _sraw = str(sym).lower()
+                _mp = "amel" if re.match(r"\s*(better|amel)", _sraw) else "agg"
+                try:
+                    from homeo_core.engine.symptom_builder import _condition_object
+                    _mo = _condition_object(_sraw)
+                except Exception:
+                    _mo = ""
+                _mr = _dom_region
             sym_weight = float(sw.get(sym, 1.0) or 1.0)  # خاص علامت کا اضافی وزن
             # نسخہ 4.0: درجے کا وزن (ذہنی 3.0 · جنرل 2.2 · خواہش 1.6 · حیض 1.3 · پارٹ 1.0)
             if case_grading.get("weights"):
@@ -235,7 +265,8 @@ def repertorize_multi(
             rej_tmp: List[dict] = []
             matches = rubric_mapper.map_symptom_deep(
                 sym, index=src.index, top_k=top_rubrics_per_symptom, use_llm=use_llm,
-                reject_log=rej_tmp,
+                reject_log=rej_tmp, search_text=_st,
+                modality_obj=_mo, modality_pol=_mp, case_region=_mr,
             )
             for rj in rej_tmp:
                 rejected_rubrics.append({"symptom": sym, "source": src.name, **rj})
