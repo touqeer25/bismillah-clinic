@@ -1603,6 +1603,193 @@ def chap_rank_of(chap: str, region: str) -> bool:
     return False
 
 
+# وقت/دن کے وہ الفاظ جو بچاؤ کے مرحلے میں «شرط» گنے جائیں (تاکہ «RUMBLING, daytime» مین ربرک پر ترجیح پائے)
+_TIME_COND_WORDS = {"daytime", "forenoon", "night", "midnight", "noon", "afternoon", "evening",
+                    "morning", "sunrise", "sunset", "midday", "daylight"}
+
+_RECOVER_GENERIC_CH = {"generalities", "modalities", "mind", "sleep", "appetite", "skin",
+                       "conditions_of_aggravation_and_amelioration_in_general",
+                       "sensations_and_complaints_in_general"}
+
+
+# نسخہ 4.6 — موضوع + حالت کے جوڑے («appetite poor» وغیرہ)
+_APPE_VERDICT_RX = re.compile(
+    r"\bappetite\b[^.۔]{0,30}?\b(poor|weak|lost|no|absent|defective|diminish\w*|fail\w*|bad|want\w*)\b"
+    r"|\b(no|poor|weak|lost|absent|diminish\w*|defective|fail\w*|bad)\b[^.۔]{0,20}?\bappetite\b",
+    re.I)
+_APPE_SYN = ("want of", "without", "defective", "lost", "diminished", "wanting", "absent", "weak", "poor")
+# «appetite good/fair» — یہ کوئی علامت ہی نہیں (معمول کی بات)، سو ربرک نہیں بننی چاہیے
+_APPE_NORMAL_RX = re.compile(
+    r"\bappetite\b[^.۔]{0,20}?\b(good|fair|normal|regular)\b"
+    r"|\b(good|fair|normal)\b[^.۔]{0,12}?\bappetite\b", re.I)
+
+
+def _subject_value_candidates(symptom: str, index: "RubricIndex", top_k: int = 3) -> List[dict]:
+    """
+    «appetite poor» جیسی علامت کے لیے اُس ریپرٹری کی اپنی ربرک ڈھونڈیں جس میں
+    موضوع (appetite) اور حالت (defective/lost/want of) دونوں موجود ہوں۔
+
+    مسئلہ جو حل ہوا: پہلے یہ علامت کینٹ کی «appetite, apyrexia, during» لے آتی تھی
+    (صرف «appetite» لفظ ملا تو ربرک وہی چن لی گئی) — حالانکہ مریض کی بات «بھوک نہ لگنا» ہے۔
+    """
+    s = str(symptom).lower()
+    out: List[dict] = []
+    seen: set = set()
+    if not _APPE_VERDICT_RX.search(s):
+        return out
+    for c in index.search("appetite lost want of defective", top_k=30, strict=False):
+        if str(c.get("chapter", "")).lower() not in ("appetite", "stomach"):
+            continue
+        t = str(c.get("text", "")).lower()
+        head = t.replace(" - ", ",").split(",")[0].strip()
+        if not head.startswith("appetite"):
+            continue
+        if not any(w in t for w in _APPE_SYN):
+            continue
+        if c["rubric_id"] in seen:
+            continue
+        seen.add(c["rubric_id"])
+        out.append(c)
+        if len(out) >= top_k:
+            break
+    return out
+
+
+def _appetite_filter(items: List[dict], symptom: str) -> List[dict]:
+    """
+    نسخہ 4.6 — بھوک کی حالت والی علامت کا حتمی پہرا
+    ----------------------------------------------
+    «appetite poor / no appetite / appetite lost» جیسی علامت میں ریپرٹری کی وہ ربرک
+    قبول نہیں کی جاتی جس میں بھوک کی حالت کا کوئی لفظ («want of»، «lost»، «without»،
+    «defective») موجود نہ ہو۔ پہلے یہاں «appetite, apyrexia, during» (بخار کے دوران بھوک)
+    آ جاتی تھی — جو مریض کی بات ہی نہیں تھی۔
+    """
+    if not items:
+        return items
+    s_low = str(symptom).lower()
+    normal = bool(_APPE_NORMAL_RX.search(s_low))
+    if not normal and not _APPE_VERDICT_RX.search(s_low):
+        return items
+    out = []
+    for c in items:
+        t = str(c.get("text", "")).lower()
+        head = t.replace(" - ", ",").split(",")[0].strip()
+        if head.startswith("appetite") or head.startswith("hunger"):
+            if normal:
+                continue          # بھوک معمول کی ہے → ربرک کا سوال ہی نہیں
+            if not any(w in t for w in _APPE_SYN):
+                continue          # ریپرٹری کی اپنی حالت کا لفظ موجود نہیں → رد
+        out.append(c)
+    return out
+
+
+def _drop_far_chapters(items: List[dict], case_region: str) -> List[dict]:
+    """
+    نسخہ 4.6 — دور کا باب صاف کریں
+    ---------------------------------
+    جب کیس کا نمایاں عضو معلوم ہو (case_region) اور اُس کے باب موجود ہوں، تو
+    ایسی ربرکیں نکال دی جائیں جو واضح طور پر کسی دوسرے عضو کی ہیں — مثلاً
+    «much rumbling in abdomen» کے لیے کینٹ کی «rumbling» (کان)۔
+
+    شرطِ حفاظت: اگر صرف ایک بھی ربرک اصل عضو کے باب کی مل جائے تو تب ہی
+    ہٹاؤ ہوتا ہے — ورنہ (جب عضو کا کوئی باب نہ ملا) فہرست جوں کی توں رہتی ہے۔
+    عام ابواب (generalities، mind، appetite وغیرہ) کبھی نہیں ہٹتے۔
+    """
+    reg = str(case_region or "").strip().lower()
+    if not reg or not items:
+        return items
+    home = set(_REGION_CHAPTERS.get(reg, []) or [])
+    if not home:
+        return items
+    if not any(str(c.get("chapter", "")).lower() in home for c in items):
+        return items                      # اصل عضو کا کوئی باب نہیں → کچھ نہ چھیڑیں
+    keep = []
+    for c in items:
+        ch = str(c.get("chapter", "")).lower()
+        if ch in home or ch in _RECOVER_GENERIC_CH:
+            keep.append(c)
+    return keep or items
+
+
+def _recover_rubrics(symptom: str, index: "RubricIndex", top_k: int = 3,
+                     reject_log: Optional[List[dict]] = None, case_region: str = "") -> List[dict]:
+    """نسخہ 4.5: جب عام راستے سے کوئی ربرک نہ بچے تو —
+       (الف) سب سے پہلے **سادہ مین ربرک** ڈھونڈیں («much rumbling in abdomen» → «RUMBLING»)
+            یعنی وہی لفظ، جس کے ساتھ کوئی اضافی شرط نہ ہو۔
+       (ب) اگر وہ نہ ملے تو مریض کے اصل الفاظ سے سادہ تلاش۔
+       اُصول (ٹائلر-ویر): جب مریض نے کوئی موڈیلٹی نہیں بتائی تو مین ربرک لینی ہے،
+       اور جب موڈیلٹی بتائی ہو («in the morning») تو اُس کے حساب سے سب ربرک۔"""
+    words = [w for w in re.findall(r"[a-zA-Z-]{4,}", str(symptom).lower()) if w not in _QUERY_STOP]
+    s_toks = set(_tokens_canonical(symptom))
+    s_text = " ".join(s_toks)
+    plain: List[tuple] = []
+    seen: set = set()
+    for w in words[:4]:
+        for c in index.search(w, top_k=10, strict=False):
+            toks = re.findall(r"[a-z-]{3,}", str(c.get("text", "")).lower())
+            # لفظ ربرک میں کہیں بھی ہو (جیسے «Flatulency - Gurgling, rumbling, borborygmus»)
+            if not toks or not any(t.startswith(w[:4]) for t in toks):
+                continue
+            if c["rubric_id"] in seen:
+                continue
+            seen.add(c["rubric_id"])
+            path = str(c.get("path") or c.get("text") or "")
+            chap = str(c.get("chapter", ""))
+            conds = _path_conditions(path, chap)
+            # شرطیں: جو مریض نے بتائیں (matched) اور جو نہیں بتائیں (unstated)
+            matched = unstated = 0
+            for ws, _r in conds[1:]:
+                for x in ws:
+                    if str(x).lower() in _STRICT_EXTRA or str(x).lower() in _TIME_COND_WORDS:
+                        if _cond_present(x, s_toks, s_text):
+                            matched += 1
+                        else:
+                            unstated += 1
+            # باب کی ترجیح: پہلے کیس کے عضو کا باب، پھر قریبی، پھر عام/دماغی، پھر باقی
+            cl = chap.lower()
+            if case_region and cl == case_region:
+                cr = 0
+            elif case_region and chap_rank_of(cl, case_region):
+                cr = 1
+            elif cl in _RECOVER_GENERIC_CH:
+                cr = 2
+            else:
+                cr = 3
+            plain.append((cr, unstated, -matched, len(toks), -float(c.get("score", 0) or 0), c))
+    plain.sort(key=lambda t: (t[0], t[1], t[2], t[3], t[4]))
+    # جب کیس کا عضو معلوم ہو تو غیرمتعلق باب والی ربرکیں (جیسے کان کی «rumbling») نکال دیں
+    if case_region:
+        keep_first = [c for r, _u, _m, _n, _s, c in plain if r <= 2]
+        if keep_first:
+            plain = [t for t in plain if t[0] <= 2]
+    cands = [c for _r, _u, _m, _n, _s, c in plain]
+    if not cands:
+        # (ب) عام الفاظ سے تلاش
+        for q in ([words[0]] if words else []) + [" ".join(words[:2])]:
+            if not q.strip():
+                continue
+            for c in index.search(q, top_k=6, strict=False):
+                if c["rubric_id"] in seen:
+                    continue
+                seen.add(c["rubric_id"])
+                cands.append(c)
+    out: List[dict] = []
+    for c in cands[:12]:
+        c2 = dict(c)
+        c2["derived"] = True
+        c2["recovered"] = True
+        # نسخہ 4.6: بچاؤ والی ربرک فہرست میں دکھے گی مگر کیس کے اسکور پر آدھا اثر ڈالے گی۔
+        # وجہ: بغیر اس کمی کے، ہر وہ علامت جس سے پہلے کوئی ربرک نہ نکلتی تھی، اب ایک
+        # نئی ربرک لاتی ہے — جس سے مجموعی درجہ بندی بگڑ جاتی تھی (نمونہ کیس IV کی دوا
+        # درجہ 4 سے 7 پر چلی گئی تھی)۔ آدھے وزن سے نہ کوئی علامت خالی رہتی ہے، نہ ترتیب بگڑتی ہے۔
+        c2["confidence"] = round(min(float(c.get("coverage", 0.5) or 0.5), 0.5), 2)
+        out.append(c2)
+    if not out:
+        return []
+    kept = _apply_compat(symptom, out, reject_log)
+    return kept[:max(int(top_k), 1)]
+
+
 def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
                      top_k: int = 5, use_llm: bool = True,
                      reject_log: Optional[List[dict]] = None,
@@ -1619,13 +1806,27 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
       5) ایل ایل ایم کا حتمی انتخاب — اعتماد اور وجہ کے ساتھ (یا مقامی فال بیک)
     """
     index = index or get_index()
+    # نسخہ 4.6: اگر کال کرنے والے نے کیس کا عضو نہ بتایا ہو تو علامت کے اپنے الفاظ سے
+    # پہچان لیں — ایپ کے اُن راستوں کے لیے ضروری ہے جو member/region نہیں بھیجتے
+    # (ورنہ «much rumbling in abdomen» میں کینٹ کی «rumbling» (کان کا باب) اوّل آ جاتی تھی)
+    if not case_region:
+        try:
+            _freq: Dict[str, int] = {}
+            for _w in re.findall(r"[a-z-]{3,}", str(symptom).lower()):
+                _r = _REGION.get(_w) or _REGION.get(_w.rstrip("s"))
+                if _r and _r not in ("upper", "lower"):
+                    _freq[_r] = _freq.get(_r, 0) + 1
+            if _freq:
+                case_region = max(_freq.items(), key=lambda kv: kv[1])[0]
+        except Exception:
+            pass
     # نسخہ 4.3: محض موڈیلٹی کی علامت → مخصوص راستہ (سبب کی اپنی ربرک)
     if modality_obj:
         got = pick_modality_rubric(modality_obj, modality_pol or "agg", index=index,
                                    case_region=case_region or "", top_k=max(int(top_k), 1),
                                    reject_log=reject_log)
         if got:
-            return got
+            return _appetite_filter(got, symptom)
     # نسخہ 4.3: «search_text» — جب علامت محض موڈیلٹی ہو («worse if he gets angry»)،
     # تو تلاش کے لیے کیس کا عضو بھی ساتھ دیا جاتا ہے (ورنہ غلط باب کی ربرک آ جاتی ہے)
     query = str(search_text or symptom)
@@ -1766,6 +1967,12 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
             # لمبی علامت: پہلوؤں کی ربرکیں اوّل (کینٹ نے بھی ایسے ہی گنی تھیں)
             local = (facet_best + local[:3] + local[3:]) if len(toks) >= 6 else (local[:2] + facet_best + local[2:])
 
+    # نسخہ 4.6: موضوع + حالت کا جوڑا («appetite poor») → اُسی کی اپنی ربرک سب سے اوّل
+    _boost = _subject_value_candidates(symptom, index)
+    if _boost:
+        _ids = {c["rubric_id"] for c in _boost}
+        local = _boost + [c for c in local if c["rubric_id"] not in _ids]
+
     if use_llm:
         # اردو رسم الخط (یا خالی میچ): لے سے ریپرٹری زبان میں ترجمہ
         if not local and not _is_latin(symptom):
@@ -1816,27 +2023,18 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
                 "rationale": "لفظی مماثلت (ایل ایل ایم دستیاب نہیں)",
             })
         kept = _apply_compat(symptom, out, reject_log)
-        return kept[:max(int(top_k), 1)]
+        kept = _drop_far_chapters(kept, case_region or "")
+        if not kept:
+            # نسخہ 4.5: ایل ایل ایم دستیاب نہ ہو اور سب رد ہو جائیں → سادہ مین ربرک ڈھونڈیں
+            kept = _recover_rubrics(symptom, index, top_k, reject_log, case_region or "")
+        return _appetite_filter(kept[:max(int(top_k), 1)], symptom)
 
     kept = _apply_compat(symptom, local[:14], reject_log)
+    kept = _drop_far_chapters(kept, case_region or "")
     if not kept:
-        # نسخہ 4.3: سب رد ہو گئے → مریض کے اصل الفاظ سے سادہ تلاش (جیسے «RUMBLING»، «AVERSION to acids»)
-        core = [w for w in re.findall(r"[a-zA-Z-]{4,}", str(symptom).lower())
-                if w not in _QUERY_STOP]
-        got: List[dict] = []
-        seen_c: set = set()
-        for q in ([core[0]] if core else []) + [" ".join(core[:2])] + [" ".join(core[:1] + core[-1:])]:
-            if not q.strip():
-                continue
-            for c in index.search(q, top_k=6, strict=False):
-                if c["rubric_id"] in seen_c:
-                    continue
-                seen_c.add(c["rubric_id"])
-                c2 = dict(c); c2["derived"] = True
-                got.append(c2)
-        if got:
-            kept = _apply_compat(symptom, got[:12], reject_log)
-    return kept[:max(int(top_k), 1)]
+        # نسخہ 4.3/4.5: سب رد ہو گئے → سادہ مین ربرک (جیسے «RUMBLING»، «AVERSION to acids»)
+        kept = _recover_rubrics(symptom, index, top_k, reject_log, case_region or "")
+    return _appetite_filter(kept[:max(int(top_k), 1)], symptom)
 
 
 # ------------------------------------------------------------------ #
