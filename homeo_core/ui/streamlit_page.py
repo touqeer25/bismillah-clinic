@@ -142,6 +142,39 @@ T = {
                "en": "how / when / why — a symptom is complete when all three are known",
                "roman": "kaise? kab? kyun? — teeno maloom hon to alamat mukammal hoti hai"},
 
+    # نسخہ 4.0: کینٹ کی درجہ بندی + eliminating symptom
+    "gr_title": {"ur": "علامات کی درجہ بندی اور کیس کی مکملیت (کینٹ کا طریقہ)",
+                 "en": "Symptom grading and case completeness (Kent's method)",
+                 "roman": "Alamat ki darjabandi aur case ki mukammaliyat (Kent ka tareeqa)"},
+    "gr_note": {"ur": "کینٹ کا طریقہ: پہلے ذہنی علامات، پھر بطورِ مجموعی جنرل (گرمی/سردی، موسم، وقت، حرکت)، "
+                      "پھر خواہشات و نفرتیں، پھر حیض کی حالت، اور سب سے آخر میں پارٹیکولر (کسی عضو کی) علامات۔ "
+                      "جنرل ہی «eliminating symptom» بنتی ہیں جن سے مخالف مزاج کی دوائیں شروع ہی میں خارج ہوتی ہیں۔",
+                "en": "Kent's order: mental first, then generals (heat/cold, weather, time, motion), then cravings "
+                      "and aversions, then the menstrual state, and particulars last. Generals serve as "
+                      "eliminating symptoms that strike out opposite-temperament remedies from the start.",
+                "roman": "Kent ka tareeqa: pehle zehni alamat, phir general, phir khwahishat, phir haiz, aur aakhir "
+                         "mein particulars. General hi eliminating symptom banti hain."},
+    "gr_complete": {"ur": "کیس کی مکملیت", "en": "case completeness", "roman": "case ki mukammaliyat"},
+    "gr_mental": {"ur": "ذہنی/جذباتی (درجہ 1)", "en": "mental (grade 1)", "roman": "zehni (darja 1)"},
+    "gr_general": {"ur": "جنرل (درجہ 2)", "en": "general (grade 2)", "roman": "general (darja 2)"},
+    "gr_craving": {"ur": "خواہش/نفرت (درجہ 3)", "en": "cravings/aversions (grade 3)", "roman": "khwahish/nafrat"},
+    "gr_menses": {"ur": "حیض (درجہ 4)", "en": "menstrual", "roman": "haiz"},
+    "gr_part": {"ur": "پارٹیکولر (درجہ 5)", "en": "particulars (grade 5)", "roman": "particulars"},
+    "gr_elim": {"ur": "eliminating symptom (کینٹ)", "en": "eliminating symptoms (Kent)",
+                "roman": "eliminating symptom"},
+    "gr_thermal_src": {"ur": "دوا کی گرم/سرد شناخت: ڈاکٹر گبسن ملر کی فہرست (ماخوذ از کینٹ کے کاموں سے)۔ "
+                             "Merc. · Ip. · Nat-c. · Cinnabar · Ant-cr. دونوں انتہاؤں پر حساس ہیں، اِس لیے خارج نہیں ہوتیں۔",
+                       "en": "Thermal leaning from Dr. Gibson Miller's list (extracted from Kent's works)",
+                       "roman": "Dawa ki garam/sard shanakht: Dr. Gibson Miller ki fehrist"},
+    "gr_elim_note": {"ur": "یہ نمایاں جنرل ہیں — کینٹ کے مطابق اِن سے مخالف مزاج کی دوائیں شروع ہی میں خارج کی جاتی ہیں",
+                     "en": "These marked generals strike out opposite-temperament remedies from the start",
+                     "roman": "Ye numaya general hain — in se mukhalif mizaj ki dawaen kharj ki jati hain"},
+    "gr_elim_out": {"ur": "اِس eliminating symptom سے خارج کی گئی دوائیں (چھپائی نہیں گئیں)",
+                    "en": "Remedies struck out by this eliminating symptom", "roman": "Is eliminating symptom se kharj"},
+    "gr_contr": {"ur": "جنرل اور پارٹ کا تضاد", "en": "general vs particular contradiction", "roman": "tazad"},
+    "gr_disc": {"ur": "پارٹیکولر (سب سے آخر میں تولنے والی)", "en": "particulars (weighed last)",
+                "roman": "particulars"},
+
     "cw_all_placed": {"ur": "✅ مریض کے تمام اہم الفاظ اپنی ربرک میں بیٹھ گئے۔",
                       "en": "All key patient words took their place in a rubric.",
                       "roman": "Mareez ke tamam aham alfaz apni rubric me baith gaye."},
@@ -1546,6 +1579,63 @@ def _render_remedy_tab(runner: FlowRunner):
                     + '</span></div>',
                     unsafe_allow_html=True,
                 )
+
+    # ===== نسخہ 4.0: کینٹ کی درجہ بندی + کیس کی مکملیت =====
+    _cg = res.get("case_grading") or {}
+    if _cg.get("graded"):
+        with st.expander(f"⚖️ {t('gr_title')}", expanded=False):
+            st.caption(t("gr_note"))
+            _c = _cg.get("completeness") or {}
+            _vcol = "#1e8449" if (_c.get("mental") and _c.get("general")) else (
+                "#c0392b" if not _c.get("mental") and not _c.get("general") else "#b9770e")
+            st.markdown(
+                f'<div style="background:#fbfbfb;border:1px solid #eee;border-radius:10px;padding:8px 11px;">'
+                f'<b>{t("gr_complete")}:</b> <span style="color:{_vcol};">{_c.get("verdict", "")}</span><br>'
+                f'<span style="font-size:12.5px;color:#2c3e50;">'
+                f'{t("gr_mental")}: <b>{_c.get("mental", 0)}</b> &nbsp;·&nbsp; '
+                f'{t("gr_general")}: <b>{_c.get("general", 0)}</b> &nbsp;·&nbsp; '
+                f'{t("gr_craving")}: <b>{_c.get("craving", 0)}</b> &nbsp;·&nbsp; '
+                f'{t("gr_menses")}: <b>{_c.get("menses", 0)}</b> &nbsp;·&nbsp; '
+                f'{t("gr_part")}: <b>{_c.get("particular", 0)}</b> &nbsp;·&nbsp; '
+                f'عجیب/انوکھا: <b>{_c.get("peculiar", 0)}</b></span></div>',
+                unsafe_allow_html=True)
+            for _n in (_c.get("notes") or []):
+                st.markdown(f"- {_n}")
+            _groups = {1: [], 2: [], 3: [], 4: [], 5: []}
+            for _g in _cg["graded"]:
+                _groups.setdefault(_g["grade"], []).append(_g)
+            _names = {1: t("gr_mental"), 2: t("gr_general"), 3: t("gr_craving"),
+                      4: t("gr_menses"), 5: t("gr_part")}
+            for _gr in (1, 2, 3, 4, 5):
+                items = _groups.get(_gr) or []
+                if not items:
+                    continue
+                st.markdown(f'<div style="margin-top:7px;"><b>{_names[_gr]}</b> '
+                            f'<span style="color:#7f8c9a;">({len(items)})</span></div>',
+                            unsafe_allow_html=True)
+                for _g in items:
+                    _pec = " ✦" if _g.get("peculiar") else ""
+                    _com = " (عام — کم قیمت)" if _g.get("common") else ""
+                    st.markdown(
+                        f'<div style="padding:2px 0 2px 10px;font-size:13px;color:#2c3e50;">'
+                        f'{_pec} {_g["symptom"][:96]}<span style="color:#a0896a;">{_com}</span></div>',
+                        unsafe_allow_html=True)
+            _el = _cg.get("eliminating") or []
+            if _el:
+                st.markdown(f'<div style="margin-top:8px;"><b style="color:#8e44ad;">'
+                            f'⛔ {t("gr_elim")}</b>: '
+                            + "، ".join(f'{e["symptom"][:40]} ({e["kind"]})' for e in _el) + '</div>',
+                            unsafe_allow_html=True)
+                st.caption(t("gr_elim_note"))
+                st.caption(t("gr_thermal_src"))
+                _out = res.get("eliminated_remedies") or []
+                if _out:
+                    st.markdown(f'**{t("gr_elim_out")}** ({len(_out)}): ' +
+                                "، ".join(f'{r["remedy"]} ({round(float(r["score"]),1)})' for r in _out[:14]),
+                                unsafe_allow_html=True)
+            for _ct in (_cg.get("contradictions") or [])[:4]:
+                st.warning(f'⚖️ جنرل «{_ct["general"]} {_ct["general_pol"]}» مگر پارٹ «{_ct["particular"][:40]}» — '
+                           f'پارٹ کی موڈیلٹی کو عام نہ کریں (کینٹ)')
 
     # ===== نسخہ 3.5: رد کی گئی ربرکیں (جزو بمقابلہ جزو) =====
     rej = res.get("rejected_rubrics", []) or []
