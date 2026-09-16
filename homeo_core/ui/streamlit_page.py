@@ -130,6 +130,17 @@ T = {
     "bp_merged": {"ur": "ضم ہوئے ٹکڑے", "en": "merged fragments", "roman": "zam hue tukre"},
     "bp_missing_q": {"ur": "اِن خالی خانوں کے لیے اگلے سوال", "en": "questions for the empty boxes",
                      "roman": "khali khano ke liye agle sawal"},
+    "bp_how": {"ur": "کیسے", "en": "how", "roman": "kaise"},
+    "bp_when": {"ur": "کب", "en": "when", "roman": "kab"},
+    "bp_why": {"ur": "کیوں", "en": "why", "roman": "kyun"},
+    "symptoms_complete": {"ur": "مکمل علامات (مقام + سینسیشن + موڈیلٹی)",
+                          "en": "Complete symptoms (location + sensation + modality)",
+                          "roman": "Mukammal alamat (maqam + sensation + modality)"},
+    "raw_frags": {"ur": "خام ٹکڑے (کیس نوٹ سے)", "en": "raw fragments (from the case note)",
+                  "roman": "kham tukre (case note se)"},
+    "hw_ask": {"ur": "کیسے؟ کب؟ کیوں؟ — یہ تینوں معلوم ہوں تو علامت مکمل ہوتی ہے",
+               "en": "how / when / why — a symptom is complete when all three are known",
+               "roman": "kaise? kab? kyun? — teeno maloom hon to alamat mukammal hoti hai"},
 
     "cw_all_placed": {"ur": "✅ مریض کے تمام اہم الفاظ اپنی ربرک میں بیٹھ گئے۔",
                       "en": "All key patient words took their place in a rubric.",
@@ -1302,10 +1313,51 @@ def _render_remedy_tab(runner: FlowRunner):
     for a in _safety_alerts(all_syms):
         st.error(f"{t('emergency')}: {a} — {t('safety_note')}")
 
-    st.markdown(f"**{t('symptoms_collected')}** ({len(all_syms)}):")
-    st.markdown('<div style="margin:6px 0 10px;">' + "".join(
-        f'<span class="bhc-chip">{"⭐ " if s in char_syms else ""}{s}</span>'
-        for s in all_syms) + "</div>", unsafe_allow_html=True)
+    # ===== نسخہ 3.6: مکمل علامات سامنے، خام ٹکڑے پیچھے =====
+    try:
+        from homeo_core.engine.symptom_builder import build_symptoms as _build2
+        _built2 = _build2(all_syms)
+    except Exception:
+        _built2 = None
+
+    _complete = (_built2 or {}).get("symptoms") or []
+    if _complete:
+        st.markdown(f"**{t('symptoms_complete')}** ({len(_complete)}) "
+                    f"<span style='font-size:12px;color:#7f8c9a;'>· {t('hw_ask')}</span>",
+                    unsafe_allow_html=True)
+        _rows = []
+        for _sp in _complete:
+            _h = _sp.get("hww") or {}
+            def _cell(lst):
+                return ("، ".join(lst)) if lst else "— خالی ❓"
+            _rows.append(
+                f'<div style="border:1px solid #e6eef5;border-radius:10px;padding:7px 10px;'
+                f'margin:5px 0;background:#fff;">'
+                f'<b style="color:#145a32;">{"⭐ " if _sp["symptom"] in char_syms else ""}'
+                f'{_sp["symptom"]}</b>'
+                + (f'<div style="font-size:11.5px;color:#7f8c9a;">{t("bp_merged")}: '
+                   f'{" | ".join(_sp["merged"])[:150]}</div>' if _sp.get("merged") else "")
+                + '<div style="margin-top:4px;font-size:12px;">'
+                + "".join(
+                    f'<span style="display:inline-block;margin:2px 5px 2px 0;padding:2px 7px;'
+                    f'border-radius:8px;'
+                    + ('background:#eafaf1;color:#1e8449;border:1px solid #c9eed8;'
+                       if _h.get(_k) else 'background:#fdf2f2;color:#a04000;border:1px dashed #f0c8c8;')
+                    + f'">{_lbl}: {_cell(_h.get(_k))}</span>'
+                    for _k, _lbl in (("how", t("bp_how")), ("when", t("bp_when")), ("why", t("bp_why"))))
+                + '</div></div>')
+        st.markdown("".join(_rows), unsafe_allow_html=True)
+        with st.expander(f"🧾 {t('raw_frags')} ({len(all_syms)})"):
+            st.markdown("".join(
+                f'<span class="bhc-chip">{"⭐ " if sx in char_syms else ""}{sx}</span>'
+                for sx in all_syms), unsafe_allow_html=True)
+        if (_built2 or {}).get("narrative"):
+            st.caption("🩺 " + " · ".join(_built2["narrative"]))
+    else:
+        st.markdown(f"**{t('symptoms_collected')}** ({len(all_syms)}):")
+        st.markdown('<div style="margin:6px 0 10px;">' + "".join(
+            f'<span class="bhc-chip">{"⭐ " if s in char_syms else ""}{s}</span>'
+            for s in all_syms) + "</div>", unsafe_allow_html=True)
 
     # ===== نسخہ 3.6: مکمل علامات — اجزاء کے خانے =====
     try:
@@ -1313,10 +1365,11 @@ def _render_remedy_tab(runner: FlowRunner):
         _built = _build_syms(all_syms)
     except Exception:
         _built = None
-    if _built and _built.get("symptoms"):
+    if False and _built and _built.get("symptoms"):   # نسخہ 3.6: یہ پینل اوپر کارڈز میں ضم ہو گیا
         with st.expander(f"🧩 {t('built_title')} ({len(_built['symptoms'])})", expanded=False):
             st.caption(t("built_note"))
-            _labels = [("complaint", t("bp_complaint")), ("location", t("bp_location")),
+            _labels = [("how", t("bp_how")), ("when", t("bp_when")), ("why", t("bp_why")),
+                       ("complaint", t("bp_complaint")), ("location", t("bp_location")),
                        ("sensation", t("bp_sensation")), ("modality", t("bp_modality")),
                        ("side", t("bp_side")), ("time", t("bp_time")),
                        ("amel_agg", t("bp_amel_agg")), ("extension", t("bp_extension")),
