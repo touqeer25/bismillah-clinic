@@ -1,14 +1,25 @@
 """
-advanced_assistant.py — اسٹریم لٹ انٹری پوائنٹ (ڈسپیچر)
--------------------------------------------------------
-app.py کی طرح یہ بھی وہی ڈسپیچر چلاتا ہے:
+advanced_assistant.py — ایڈوانس اسسٹنٹ 2.0 کا انٹری پوائنٹ (مکمل الگ ایپ)
+-------------------------------------------------------------------------
+چلانے کا طریقہ:
+    streamlit run advanced_assistant.py
 
-    ?embed=true&lang=ur            → پرانا AI ہومیو اسسٹنٹ (AI Diagnosis)
-    ?embed=true&lang=ur&view=ai2   → ایڈوانس اسسٹنٹ 2.0 (نیا اڈاپٹو اسسٹنٹ)
+یہ صرف homeo_core کا ایڈوانس اسسٹنٹ 2.0 چلاتا ہے:
+  - اکیوٹ: 4 مراحل | کرانک: 8 مراحل + میازم + فالو اپ
+  - ملٹی ریپرٹری (کینٹ + سنتھیسس 9.1 + عمومی + جرمن کینٹ)
+  - میٹیریا میڈیکا تصدیق (Qdrant)، پوٹینسی انجن، مکملیت اسکور
 
-تفصیل homeo_core/ui/dispatch.py میں ہے۔
+نوٹ: app.py پرانا AI ہومیو اسسٹنٹ ہے — دونوں مکمل الگ ایپس ہیں،
+کوئی ڈسپیچر/?view= پیرامیٹر درکار نہیں۔
 """
 
-from homeo_core.ui.dispatch import run
+import sys
+from pathlib import Path
 
-run()
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from homeo_core.ui.streamlit_page import render_app
+
+render_app()
