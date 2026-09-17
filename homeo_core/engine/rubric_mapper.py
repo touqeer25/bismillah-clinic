@@ -89,6 +89,8 @@ _UR_GRAMMATICAL = {
     "mera", "meri", "tera", "uska", "uski", "apna", "apni", "kuch", "bahut",
     # (نسخہ 4.7) «لگتی/لگتا/لگتے ہیں» — دستوری فعل
     "lagti", "lagta", "lagte", "lag", "raha", "rahi", "rahe",
+    # (نسخہ 4.8) «آتا/آتی/آتے ہے» — دستوری فعل (neend aati hai)
+    "aata", "aati", "aate",
 }
 
 _UR_PHRASES = {
@@ -101,6 +103,8 @@ _UR_PHRASES = {
     "ke waqt": "during", "ki waqt": "during", "ke doran": "during",
     "raat ko": "night", "subah ko": "morning", "sham ko": "evening",
     "dopehar ko": "afternoon",
+    # (نسخہ 4.8) «سر درد» — اردو کا ایک لفظ، ریپرٹری کا ایک لفظ (headache)
+    "sar dard": "headache", "sar dukh": "headache", "sir dard": "headache",
 }
 
 # ------------------------------------------------------------------ #
@@ -157,6 +161,8 @@ ROMAN_URDU = {
     "harkat": "motion", "aaram": "rest", "paani": "water", "thanda": "cold",
     "thandi": "cold", "thand": "cold", "garam": "hot", "garmi": "heat", "sona": "sleep",
     "neend": "sleep", "bhook": "appetite", "bhok": "appetite", "khana": "food",
+    "akela": "alone", "akeli": "alone",                       # اکلا
+    "dhoop": "sun", "sooraj": "sun", "suraj": "sun",           # دھوپ / سورج
     # وقت
     "rat": "night", "subah": "morning", "sham": "evening", "dopehar": "afternoon",
     "din": "day", "khwab": "dreams", "jagna": "waking", "uthna": "rising",
@@ -391,7 +397,12 @@ def _tokens_canonical(text: str) -> List[str]:
         if i + 1 < len(raw):
             pair = raw[i] + " " + raw[i + 1]
             if pair in _UR_PHRASES:          # "se barhti" → agg
-                out.append(_canonical(_UR_PHRASES[pair]))
+                # نسخہ 4.8: فقرے کی پیداوار پر بھی وہی راستہ — ہجے + اسٹیم
+                # (ورنہ "sar dard"→headache کا ٹوکن "headache" رہ جاتا، ربرک "headach")
+                c = _canonical(_UR_PHRASES[pair])
+                c = _SP.get(c, c)
+                if c not in _FILLER:
+                    out.append(_stem(c))
                 i += 2
                 continue
         w = raw[i]
@@ -411,6 +422,12 @@ def _tokens_canonical(text: str) -> List[str]:
                 if part and part not in _STOPWORDS:
                     out.append(_stem(part))
         i += 1
+    # (نسخہ 4.8) مرکب شکایت: head + pain (سر درد) = ریپرٹری کا اپنا لفظ «headache»
+    # — جب دونوں لفظ ساتھ ساتھ آئیں اور headache ابھی نہ بنے ہو
+    for _j in range(len(out) - 1):
+        if out[_j] == "head" and out[_j + 1] == "pain":
+            out.append(_stem("headache"))
+            break
     return out
 
 
@@ -505,6 +522,14 @@ def _qualifier_penalty(rb_tokens: List[str], sym_tokens: List[str]) -> float:
 
 # نسخہ 4.7: باب-اشارے کے کلیدی الفاظ کی اسٹیمڈ شکلیں (match اسی سے ہوتا ہے)
 _CHAPTER_HINTS_STEMMED: dict = {}
+
+# نسخہ 4.8: عضو-لفظ → اُس کے ابواب (رینج-میپ) — باب-بنیاد مقام کے لیے
+# («burning in stomach» میں "stomach" stomach-باب کی ربرکوں کے متن میں نہیں ہوتا،
+#  مقام خود باب کے نام میں ہے — organ-گارڈ کو باب بھی دیکھنا ہوگا)
+_ORGAN_CHAPTERS: Dict[str, set] = {}
+for _ch, _kws in CHAPTER_HINTS.items():
+    for _kw in _kws:
+        _ORGAN_CHAPTERS.setdefault(_stem(_canonical(_kw)), set()).add(_ch)
 
 
 def _chapter_hint(tokens: List[str]) -> set:
@@ -675,7 +700,16 @@ class RubricIndex:
             # (ج2) عضو/مقام کا لفظ: علامت میں عضو ہے تو ربرک میں بھی ہونا لازمی
             sym_organs = {t for t in tokens if t in _qualifier_tokens()}
             if not reason and strict and sym_organs and not (sym_organs & set(rb_tokens)):
-                reason = "عضو کا لفظ ربرک میں نہیں"
+                # نسخہ 4.8: پریفکس-بردار — مریض کا عضو ربرک کے لفظ کا پہلا حصہ ہو تو ملایا جائے
+                # («sar dard» کا "head" ← ربرک کا "headache") — ورنہ سر-باب کی درست ربرک رد ہو جاتی تھی
+                _rb_pref = {_pref(t) for t in rb_tokens}
+                _pref_ok = any(_pref(o) in _rb_pref for o in sym_organs)
+                # نسخہ 4.8: باب-بنیاد مقام — عضو کا اپنا باب ہو تو متن میں لفظ نہ بھی ہو تو چلے گا
+                # («PAIN, burning» (stomach باب) ← «burning in stomach»)
+                _chap_ok = any(rb["chapter"] in _ORGAN_CHAPTERS.get(o, set())
+                               for o in sym_organs)
+                if not _pref_ok and not _chap_ok:
+                    reason = "عضو کا لفظ ربرک میں نہیں"
             if not reason and strict:
                 head_tok = rb_tokens[0] if rb_tokens else ""
                 strong_single = (
@@ -1073,6 +1107,10 @@ _EXTRA_COMPLAINT = {
     "chattering", "shivering", "chilliness", "flushes", "itching", "eruption", "diarrhoea",
     "diarrhea", "constipation", "perspiration", "sweat", "haemorrhage", "hemorrhage",
     "sleeplessness", "vertigo", "dizziness", "headache", "cramp", "cramps", "stiffness",
+    # (نسخہ 4.8) "pain" بھی شکایت کا نام ہے — ورنہ «PAIN, headache in general»
+    # جیسی ربرک کا سرِ جملہ صرف «PAIN» بنتا تھا (کردار sens) اور مریض کے لفظ
+    # «headache» سے سرِ غائب نہ معفو ہوتا («headache from sun» رد ہو جاتی تھی)
+    "pain", "pains", "ache", "aches",
     "swelling", "oedema", "edema", "ulcer", "ulcers", "discharge", "menses", "menstruation",
     "hoarseness", "soreness", "smarting", "burning", "numbness", "weakness", "debility",
     "pulse", "beating", "beats", "pulsation", "pulsations", "rhythm", "fluttering",
@@ -1421,8 +1459,13 @@ def _subject_guard(symptom: str, items: List[dict],
             head_pref = {_pref(w) for (words, _r) in conds[:1] for w in words}
             head_subj = {w for w in _SUBJECT_WORDS if _pref(w) in head_pref}
             if head_subj and s_subject and not (head_subj & s_subject):
+                # نسخہ 4.8: سرِ ربرک عام شکایت ہو تو اگلی شرط ہی مخصوص شکایت ہے
+                # («PAIN, headache in general, sun…» ← مریض: «headache from sun»)
+                # اگلی شرط میں مریض کا موضوع مل جائے تو رد نہیں ہوگی
+                _next_pref = {_pref(w) for (words, _r) in conds[1:2] for w in words}
+                _next_hit = any(_pref(w) in _next_pref for w in s_subject)
                 reg = {_REGION.get(w) for w in head_subj if _REGION.get(w)}
-                if not (reg and reg & s_region):
+                if not _next_hit and not (reg and reg & s_region):
                     kind, why = ("other_subject",
                                  "ربرک کا موضوع: " + "، ".join(sorted(head_subj)[:3])
                                  + " — مریض کی شکایت: " + "، ".join(sorted(s_subject)[:3]))
@@ -1596,6 +1639,13 @@ def _apply_compat(symptom: str, items: List[dict],
         if not head_ok and head:
             head_reg = {_REGION.get(str(w).lower()) for w in head if _REGION.get(str(w).lower())}
             if head_reg and s_regions and (head_reg & s_regions):
+                head_ok = True
+        # نسخہ 4.8: سرِ عام شکایت (PAIN) کے بعد اگلی شرط ہی مخصوص احساس/شکایت ہو
+        # («PAIN, burning» (stomach باب) ← مریض: «burning in stomach») — وہ مل جائے تو معاف
+        # (باقی پہرے — خاص شرط، دوسرا عضو — آگے بھی لگتے رہتے ہیں)
+        if not head_ok and head and len(conds) > 1:
+            _nxt = [w for w in conds[1][0] if _cond_role(w) in ("complaint", "sens", "loc")]
+            if _nxt and any(_cond_present(w, s_tokens, s_text) for w in _nxt):
                 head_ok = True
         # سرِ ربرک «کمزور» ہو (pendulous جیسی صفت) تو تائید کے لیے عضو/موضوع کی جانچ آگے ہوتی ہے
         # (1) سرِ جملہ غائب اور سہارا بھی کمزور → رد
@@ -1936,6 +1986,52 @@ def _recover_rubrics(symptom: str, index: "RubricIndex", top_k: int = 3,
     return kept[:max(int(top_k), 1)]
 
 
+# ------------------------------------------------------------------ #
+# نسخہ 4.8: فقرے کا تصور-ترجمہ — مریض کا فقرہ → ریپرٹری کی اپنی زبان
+# ------------------------------------------------------------------ #
+# «لفظ بلفظ» پالیسی لفظ کے مترادف روکتی ہے (sadness ≠ grief) — مگر جب مریض کا
+# پورا فقرہ ریپرٹری میں «ایک ہی لفظ» کی صورت موجود ہو تو وہ مترادف سازی نہیں،
+# ریپرٹری کی زبان میں اُس فقرے کا ترجمہ ہے:
+#   • «cannot sleep» = نیند + نفی = «SLEEPLESSNESS» (کینٹ کا اپنا سرِعنوان)
+#   • «wants to be alone» = «COMPANY, aversion to» (کینٹ خود «FEAR, alone,
+#     of being (See Company)» لکھتا ہے — یعنی ریپرٹری خود اکلا کو صحبت سے
+#     جوڑتی ہے)
+#   • «insomnia» لفظ ریپرٹری میں ہے ہی نہیں — ریپرٹری اِسی تصور کو
+#     «SLEEPLESSNESS» کہتی ہے
+# یہ صرف نیچے فہرست شدہ تھوڑے فقروں پر لاگو ہوتا ہے — باقی الفاظ مریض کے ہی رہتے ہیں۔
+_CONCEPT_PHRASES: List[Tuple["re.Pattern", str]] = [
+    # نیند کی نفی → sleeplessness
+    (re.compile(r"\b(?:can\s?not|can't|cant|unable\s+to)\s+(?:fall\s+)?(?:back\s+)?"
+                r"(?:to\s+)?(?:be\s+)?a?slee\w*\b", re.I), "sleeplessness"),
+    (re.compile(r"\binsomnia\b", re.I), "sleeplessness"),
+    (re.compile(r"\bneend\s+(?:nahin|nahi|nhi|na)\b[^.۔,;]{0,15}", re.I), "sleeplessness"),
+    (re.compile(r"\b(?:nahin|nahi|nhi)\s+aati\s+neend\b", re.I), "sleeplessness"),
+    # اکلا → صحبت سے بیزاری (کینٹ کا اپنا حوالہ: alone (See Company))
+    (re.compile(r"\bwant\w*\s+to\s+(?:be|stay|remain|sit|live)\s+alone\b", re.I),
+     "aversion to company"),
+    (re.compile(r"\b(?:prefers?|preferring|desires?|desiring|likes?|liking)"
+                r"\s+(?:to\s+be\s+|being\s+)?alone\b", re.I), "aversion to company"),
+    (re.compile(r"\bwants?\s+(?:solitude|to\s+be\s+left\s+alone)\b", re.I),
+     "aversion to company"),
+    (re.compile(r"\bakel[aei]\w*\s+(?:rehn|reht|rah|rahn)\w*"
+                r"(?:\s+chaht\w*)?(?:\s+(?:hai|hain|thi|tha)\b)?", re.I),
+     "aversion to company"),
+    (re.compile(r"\bakel[aei]\w*\s+chaht\w*\s+(?:akel[aei]\w*\s+)?"
+                r"(?:rehn|reht|rah|rahn)\w*(?:\s+(?:hai|hain|thi|tha)\b)?", re.I),
+     "aversion to company"),
+    (re.compile(r"\bakelapan\s+chaht\w*(?:\s+(?:hai|hain|thi|tha)\b)?", re.I),
+     "aversion to company"),
+]
+
+
+def _concept_rewrite(symptom: str) -> str:
+    """فقرے کا تصور-ترجمہ — صرف فہرست شدہ فقروں پر (ورنہ متن جوں کا توں)"""
+    s = str(symptom or "")
+    for rx, rep in _CONCEPT_PHRASES:
+        s = rx.sub(rep, s)
+    return s
+
+
 def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
                      top_k: int = 5, use_llm: bool = True,
                      reject_log: Optional[List[dict]] = None,
@@ -1952,6 +2048,13 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
       5) ایل ایل ایم کا حتمی انتخاب — اعتماد اور وجہ کے ساتھ (یا مقامی فال بیک)
     """
     index = index or get_index()
+    # نسخہ 4.8: پہلے فقرے کا تصور-ترجمہ (cannot sleep → sleeplessness،
+    # wants to be alone → aversion to company) — پھر سب گارڈز اسی دیکھیں گے
+    _src = str(search_text or symptom)
+    _rw = _concept_rewrite(_src)
+    if _rw != _src:
+        search_text = _rw
+        symptom = _rw
     # نسخہ 4.6: اگر کال کرنے والے نے کیس کا عضو نہ بتایا ہو تو علامت کے اپنے الفاظ سے
     # پہچان لیں — ایپ کے اُن راستوں کے لیے ضروری ہے جو member/region نہیں بھیجتے
     # (ورنہ «much rumbling in abdomen» میں کینٹ کی «rumbling» (کان کا باب) اوّل آ جاتی تھی)

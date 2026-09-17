@@ -77,7 +77,23 @@ def test_urdu_modality_phrases():
     assert "night" in toks      # "raat ko" → night
     toks2 = _tokens_canonical("dard se behtar hai subah ko")
     assert "amel" in toks2
-    assert "morning" in toks2
+    # نسخہ 4.8: فقرے کی پیداوار اب اسٹیمڈ ہوتی ہے — "morn" وہی ٹوکن ہے جو ربرک
+    # («SLEEPLESSNESS, morning») کے ٹوکنائزیشن سے بنتا ہے، اس لیے میچ اسی سے لگتا ہے
+    assert "morn" in toks2
+
+
+def test_concept_phrases_v48():
+    """نسخہ 4.8 — فقرے کا تصور-ترجمہ (مریض کا فقرہ → ریپرٹری کی اپنی زبان)"""
+    from homeo_core.engine.rubric_mapper import _concept_rewrite
+    assert _concept_rewrite("cannot sleep") == "sleeplessness"
+    assert _concept_rewrite("can't fall asleep at night") == "sleeplessness at night"
+    assert _concept_rewrite("insomnia") == "sleeplessness"
+    assert _concept_rewrite("neend nahin aati") == "sleeplessness"
+    assert _concept_rewrite("wants to be alone") == "aversion to company"
+    assert _concept_rewrite("akela rehna chahta hai") == "aversion to company"
+    # باقی الفاظ مریض کے ہی رہتے ہیں — کوئی خودکار مترادف نہیں
+    assert _concept_rewrite("sadness") == "sadness"
+    assert _concept_rewrite("constipation in morning") == "constipation in morning"
 
 
 def test_negation_tokens():
