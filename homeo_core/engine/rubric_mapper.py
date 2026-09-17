@@ -69,9 +69,11 @@ _STOPWORDS = {
     "and", "or", "from", "to", "for", "as", "is", "are", "be",
     "a", "an", "his", "her", "she", "he", "it", "its", "their", "see", "saw",
     "my", "me", "i", "you", "very", "much", "too", "some", "have", "has",
-    "great", "intense", "severe", "lots", "excessive", "zyada", "bohat",
+    "great", "intense", "severe", "lots", "excessive", "bohat",
     # نوٹ: "with"/"without" اب اسٹاپ ورڈ نہیں — ہم راہ علامات
     # ("anxiety with restlessness") اور نفی ("without sweating") کے لیے ضروری ہیں
+    # نسخہ 4.7: "zyada" اسٹاپ ورڈ سے نکالا گیا — یہ «زیادہ» ہے، ROMAN_URDU میں
+    # «increased» کا لفظی ترجمہ دیا جاتا ہے (بھوک زیادہ → appetite increased)
 }
 
 # ------------------------------------------------------------------ #
@@ -85,6 +87,8 @@ _UR_GRAMMATICAL = {
     "aur", "se", "tak", "phir", "ab", "to", "hi", "wo", "woh", "ye", "yeh",
     "is", "us", "in", "un", "kuch", "koi", "sab", "har", "jab", "tab", "kab",
     "mera", "meri", "tera", "uska", "uski", "apna", "apni", "kuch", "bahut",
+    # (نسخہ 4.7) «لگتی/لگتا/لگتے ہیں» — دستوری فعل
+    "lagti", "lagta", "lagte", "lag", "raha", "rahi", "rahe",
 }
 
 _UR_PHRASES = {
@@ -151,7 +155,7 @@ ROMAN_URDU = {
     "bal": "hair", "nakseer": "nosebleed", "saans": "respiration",
     # حالت و موڈیلٹی
     "harkat": "motion", "aaram": "rest", "paani": "water", "thanda": "cold",
-    "thandi": "cold", "garam": "hot", "garmi": "heat", "sona": "sleep",
+    "thandi": "cold", "thand": "cold", "garam": "hot", "garmi": "heat", "sona": "sleep",
     "neend": "sleep", "bhook": "appetite", "bhok": "appetite", "khana": "food",
     # وقت
     "rat": "night", "subah": "morning", "sham": "evening", "dopehar": "afternoon",
@@ -159,6 +163,12 @@ ROMAN_URDU = {
     # خارجی اخراجات
     "khoon": "blood", "pasina": "sweat", "peshab": "urine", "qabz": "constipation",
     "dast": "diarrhoea", "pyas": "thirst",
+    # نسخہ 4.7: مقدار/پتھری — لفظی ترجمے (مترادف سازی نہیں)
+    "ziyada": "increased", "zyada": "increased",       # «زیادہ» = increased
+    "kam": "diminished", "kami": "diminished",         # «کم» = diminished
+    "pathri": "stone", "pathree": "stone",             # «پتھری» = stone
+    "nahin": "no", "nahi": "no", "nhi": "no",          # نفی — ٹوکن "no" (test_negation_tokens)
+    "bina": "no",                                       # «بغیر» = without → "no"
     # ذہنی
     "ghabrahat": "restlessness", "khauf": "fear", "dar": "fear", "gham": "grief",
     "udasi": "sadness", "ghussa": "anger", "tayesh": "rage", "khushi": "cheerful",
@@ -209,11 +219,45 @@ ANTONYM_PAIRS = (
     ("amelioration", "aggravation"),
 )
 
+# ------------------------------------------------------------------ #
+# نسخہ 4.7: «موڈیلٹی-اصول» — صارف کا اصول:
+#   «جہاں علامت کے ساتھ موڈیلٹی ہو وہاں موڈیلٹی ملا کر ربرک، اور جہاں
+#    موڈیلٹی نہ ہو وہاں صرف مین ربرک» —
+#   یعنی مریض نے بگاڑ/بہتری/وقت نہیں بتایا تو شرط-والی ربرک («CONSTIPATION
+#   amel.»، «Foot, heat agg.»، «Feet, heat, after») مین ربرک سے آگے نہیں جا سکتیں
+# ------------------------------------------------------------------ #
+_SYM_POLARITY_RX = re.compile(
+    r"\b(agg|amel|worse|worst|better|best|aggravat\w*|ameliorat\w*)\b")
+_SYM_TIME_RX = re.compile(
+    r"\b(during|after|before|while|when|morning|evening|night|noon|afternoon|"
+    r"daytime|forenoon|midnight|midday|sunrise|sunset)\b")
+_RB_POLARITY_RX = re.compile(
+    r"\b(agg\.|amel\.|aggravat\w*|ameliorat\w*|worse|worst|better|best)\b")
+_RB_TIME_RX = _SYM_TIME_RX
+# وہ وقت-الفاظ جو ٹوکنائزیشن کے بعد بھی بچ جاتے ہیں (بقیہ اسٹاپ ورڈ ہیں)
+_RB_TIME_WORDS = {"morning", "evening", "night", "noon", "afternoon", "daytime",
+                  "forenoon", "midnight", "midday", "sunrise", "sunset"}
+
 
 def _is_negative(text: str) -> bool:
     """کیا علامت میں نفی ہے؟ (cannot / no / without / nahi ...)"""
     t = " " + str(text).lower() + " "
     return any(m in t for m in _NEG_MARKERS)
+
+
+def _top_level_segments(text: str) -> int:
+    """بریکٹ کے اندر کے کاما چھوڑ کر سطح-1 حصے گننا
+    «APPETITE, increased (hunger in general)» → 2
+    «APPETITE, increased, intermittent, in (See Chill)» → 4"""
+    n, depth = 1, 0
+    for ch in str(text):
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth = max(0, depth - 1)
+        elif ch == "," and depth == 0:
+            n += 1
+    return n
 
 
 _STEM_KEEP = {
@@ -320,11 +364,22 @@ def _unligature(text: str) -> str:
 
 
 def _tokenize(text: str) -> List[str]:
-    """متن کو صاف کر کے الفاظ کی فہرست بنانا"""
+    """متن کو صاف کر کے الفاظ کی فہرست بنانا
+    نسخہ 4.7: ہائفن-والے الفاظ کے حصے بھی شامل («gall-stones» → gall-stones،
+    gall، stones) — تاکہ «gall stone»/«gallstone» سے بھی میچ لگے"""
     text = _unligature(_strip_refs(str(text).lower()))
     text = re.sub(r"[^a-z0-9\s-]", " ", text)
     words = [w.strip("-") for w in text.split() if w.strip("-")]
-    return [w for w in words if w and w not in _STOPWORDS]
+    out = []
+    for w in words:
+        if not w or w in _STOPWORDS:
+            continue
+        out.append(w)
+        if "-" in w:
+            for part in w.split("-"):
+                if part and part not in _STOPWORDS:
+                    out.append(part)
+    return out
 
 
 def _tokens_canonical(text: str) -> List[str]:
@@ -349,13 +404,23 @@ def _tokens_canonical(text: str) -> List[str]:
         if c in _FILLER:                     # بھرتی لفظ → چھوڑ دیں
             i += 1
             continue
-        out.append(_stem(c))                 # ایک ہی لفظ کی صرفی صورت
+        c = _stem(c)                         # ایک ہی لفظ کی صرفی صورت
+        out.append(c)
+        if "-" in c:                         # نسخہ 4.7: ہائفن-والے لفظ کے حصے بھی
+            for part in c.split("-"):
+                if part and part not in _STOPWORDS:
+                    out.append(_stem(part))
         i += 1
     return out
 
 
 def _bigrams(tokens: List[str]) -> List[str]:
-    return ["_".join(tokens[i:i + 2]) for i in range(len(tokens) - 1)]
+    """نسخہ 4.7: ترتیب سے آزاد بائی گرام — «burning feet» اور «feet burning»
+    دونوں کا گرام «burn_foot» بنتا ہے۔ پہلے ترتیب-منحصر گرام کی وجہ سے
+    «burning feet» کا میچ «Foot, burning» سے نہیں لگتا تھا (اور رومن اردو
+    «paon mein jalan» کی ترتیب قریب قریب ربرک جیسی ہونے سے لگ جاتا تھا) —
+    یعنی نتیجہ علامت کے الفاظ کی ترتیب پر منحصر تھا، جو غلطی تھی۔"""
+    return ["_".join(sorted(tokens[i:i + 2])) for i in range(len(tokens) - 1)]
 
 
 # ------------------------------------------------------------------ #
@@ -370,18 +435,23 @@ CHAPTER_HINTS = {
     "nose": ["nose", "coryza", "sneeze", "sneezing", "naak", "nazla"],
     "throat": ["throat", "tonsil", "gala"],
     "stomach": ["stomach", "thirst", "thirsty", "appetite", "hunger", "hungry",
-                "nausea", "vomiting", "vomit", "maida", "pait", "pyas", "qay", "matli"],
-    "abdomen": ["abdomen", "belly", "pait"],
-    "rectum": ["rectum", "piles", "hemorrhoid", "haemorrhoid"],
+                "nausea", "vomiting", "vomit", "maida", "pait", "pyas", "qay", "matli",
+                "increased"],
+    "abdomen": ["abdomen", "belly", "pait", "gall", "gallstone", "gallbladder",
+                "gall-stone", "gall-bladder", "stone", "calculus"],
+    "rectum": ["rectum", "constipation", "qabz", "piles", "hemorrhoid", "haemorrhoid",
+               "fissure", "anus"],
     "stool": ["stool", "constipation", "diarrhea", "diarrhoea", "qabz", "dast"],
-    "urine": ["urine", "urination", "urinary", "peshab"],
+    "urine": ["urine", "urination", "urinary", "peshab", "stone", "calculus"],
+    "kidneys": ["kidney", "kidneys", "stone", "calculus", "gravel"],
     "genitalia_female": ["menses", "menstrual", "menstruation"],
     "skin": ["skin", "itching", "itch", "eruption", "rash", "khujli"],
     "sleep": ["sleep", "dream", "dreams", "insomnia", "neend"],
     "mind": ["anxiety", "fear", "grief", "anger", "sadness", "depression",
              "irritability", "weeping", "khauf", "gham", "ghussa", "ghabrahat"],
-    "extremities": ["hand", "hands", "foot", "feet", "leg", "arm", "joint", "joints",
-                    "knee", "shoulder", "hath", "paon", "joron"],
+    "extremities": ["hand", "hands", "foot", "feet", "leg", "legs", "arm", "arms",
+                    "joint", "joints", "knee", "knees", "shoulder", "toe", "toes",
+                    "finger", "fingers", "thigh", "thighs", "hath", "paon", "joron"],
     "back": ["back", "spine", "peeth", "kamar"],
     "chest": ["chest", "heart", "palpitation", "seenah"],
     "fever": ["fever", "chill", "chills", "bukhar"],
@@ -391,9 +461,7 @@ CHAPTER_HINTS = {
                     "asthma", "asthmatic", "saans", "suffocation"],
     "generalities": ["lying", "lying_down", "sitting", "standing", "walking",
                      "rest"],
-    "extremities": ["hand", "hands", "foot", "feet", "leg", "legs", "arm", "arms",
-                    "joint", "joints", "knee", "knees", "shoulder", "toe", "toes",
-                    "finger", "fingers", "thigh", "thighs", "hath", "paon", "joron"],
+    # (نسخہ 4.7) پہلے یہاں "extremities" کی دوہری کلید تھی — یکجا کر دیا
 }
 
 
@@ -435,11 +503,21 @@ def _qualifier_penalty(rb_tokens: List[str], sym_tokens: List[str]) -> float:
     return max(0.5, 0.78 ** len(extra))
 
 
+# نسخہ 4.7: باب-اشارے کے کلیدی الفاظ کی اسٹیمڈ شکلیں (match اسی سے ہوتا ہے)
+_CHAPTER_HINTS_STEMMED: dict = {}
+
+
 def _chapter_hint(tokens: List[str]) -> set:
-    """علامت کے الفاظ کی بنیاد پر متعلقہ ابواب کا اندازہ"""
+    """علامت کے الفاظ کی بنیاد پر متعلقہ ابواب کا اندازہ
+    نسخہ 4.7: موازنہ اسٹیمڈ شکلوں سے — پہلے خام الفاظ سے موازنہ تھا،
+    اس لیے «appetite»→«appetit» اور «increased»→«increas» کا اشارہ
+    کبھی نہیں لگتا تھا اور درست باب کو ×1.20 بونس نہیں ملتا تھا"""
+    if not _CHAPTER_HINTS_STEMMED:
+        for ch, kws in CHAPTER_HINTS.items():
+            _CHAPTER_HINTS_STEMMED[ch] = {_stem(_canonical(k)) for k in kws}
     hints = set()
     for tok in tokens:
-        for chap, kws in CHAPTER_HINTS.items():
+        for chap, kws in _CHAPTER_HINTS_STEMMED.items():
             if tok in kws:
                 hints.add(chap)
     return hints
@@ -572,6 +650,13 @@ class RubricIndex:
             coverage = matched_w / total_w
             hit_u = {g for g in matched if "_" not in g}
 
+            # نسخہ 4.7: موڈیلٹی-اصول کے جھنڈے — ایک بار، لوپ سے پہلے
+            sym_low = str(symptom).lower()
+            sym_pol = bool(_SYM_POLARITY_RX.search(sym_low)) or "agg" in tokens or "amel" in tokens
+            sym_time = bool(_SYM_TIME_RX.search(sym_low)) or bool(set(tokens) & _RB_TIME_WORDS)
+            sym_plain = not sym_pol and not sym_time and len(tokens) <= 3
+            sym_nseg_lim = _top_level_segments(symptom)
+
             reason = ""
             # (الف) نفی کا تضاد
             rb_neg = _is_negative(rb["t"]) or "cannot" in rb_low or "unable" in rb_low
@@ -636,6 +721,21 @@ class RubricIndex:
                 elif rb["chapter"] not in MIND_CHAPTERS:
                     score *= 0.85
             score *= _qualifier_penalty(rb_tokens, tokens)   # غیر بتائی گئی شرائط پر سزا
+            # نسخہ 4.7: موڈیلٹی-اصول — مریض نے رخ/وقت نہیں بتایا تو وہ ربرک نہیں
+            rb_pol = bool(_RB_POLARITY_RX.search(rb_low))
+            rb_time = bool(_RB_TIME_RX.search(rb_low))
+            if rb_pol and not sym_pol:
+                score *= 0.55        # ربرک بگاڑ/بہتری کی ہے — مریض نے رخ نہیں بتایا
+            if rb_time and not sym_time:
+                score *= 0.72        # ربرک وقت کی شرط رکھتی ہے — مریض نے وقت نہیں بتایا
+            # نسخہ 4.7: مین ربرک کی ترجیح — سادہ علامت پر ہر اضافی شرط موڈیلٹی ہے:
+            # جتنی کم سطحیں ( topLevel کاما)، اُتنی قریب مین ربرک
+            if sym_plain:
+                n_seg = _top_level_segments(rb["t"])
+                if n_seg <= max(2, sym_nseg_lim):
+                    score *= 1.25
+                elif n_seg >= 4:
+                    score *= 0.80
             if anchor in hit_u:                       # بنیادی لفظ ملا → بونس
                 score *= 1.10
             elif anchor_idf >= 4.0:                   # بنیادی لفظ غائب → سزا
@@ -877,7 +977,9 @@ def select_rubrics_llm(symptom: str, candidates: List[dict], index: RubricIndex,
 
     numbered = []
     for i, c in enumerate(candidates, 1):
-        numbered.append(f"{i}. [{c['chapter']}] {c['text']}")
+        # نسخہ 4.7: سادہ مین ربرک کی نشان دہی — تاکہ ایل ایل ایم موڈیلٹی-اصول لاگو کر سکے
+        tag = " [main rubric]" if str(c.get("text", "")).count(",") <= 1 and "(" not in str(c.get("text", "")) else ""
+        numbered.append(f"{i}. [{c['chapter']}]{tag} {c['text']}")
 
     prompt = f"""You are an expert classical homeopath and repertory scholar.
 Convert the patient symptom into the best matching repertory rubric(s).
@@ -889,9 +991,12 @@ Candidate rubrics (pre-filtered by keyword matching):
 
 Rules:
 - Choose 1 to {max_pick} rubrics that genuinely represent the symptom.
-- Prefer the MOST SPECIFIC rubric that still matches (e.g. prefer "cough, motion agg."
-  over a general "cough" rubric).
-- A modality ("worse from motion") must map to a modality rubric.
+- MODALITY RULE: if the patient stated NO modality (no worse/better, no time,
+  no condition), prefer the PLAIN MAIN rubric. Pick a sub-rubric only when its
+  extra condition words are actually stated by the patient
+  (e.g. for "constipation" prefer "CONSTIPATION" over "CONSTIPATION, painful").
+- If the patient DID state a modality, map it to the rubric that carries that
+  same modality (e.g. "cough worse from motion" -> the motion-agg. rubric).
 - Do NOT invent rubrics; only pick from the numbered list.
 - confidence: 0.0 to 1.0 (how sure you are this rubric matches the symptom).
 
@@ -1011,6 +1116,7 @@ _REGION = {
     "head": "head", "occiput": "head", "vertex": "head", "forehead": "head", "temple": "head",
     "temples": "head", "scalp": "head", "brain": "head",
     "abdomen": "abdomen", "abdominal": "abdomen", "belly": "abdomen", "navel": "abdomen",
+    "gall": "abdomen", "gallstone": "abdomen", "gallbladder": "abdomen",   # نسخہ 4.7
     "stomach": "stomach", "gastric": "stomach", "epigastrium": "stomach",
     "chest": "chest", "breast": "chest", "throat": "throat", "mouth": "mouth", "tongue": "mouth",
     "tooth": "teeth", "teeth": "teeth", "nose": "nose", "ear": "ear", "ears": "ear",
@@ -1068,6 +1174,38 @@ _AMEL_RX = re.compile(r"(?:\bamel\b|ameliorat|better|best|reliev|eases?|comforta
 # نسخہ 4.3: صرف وہ ربرک حوالہ ہے جس کے بعد کوئی شرط نہ ہو («FLATULENCE (See Rumbling)») —
 # «OFFENDED, easily (See Sensitive)» حقیقی ربرک ہے، اُسے رد نہیں کرنا
 _CROSSREF_RX = re.compile(r"^[A-Za-z' -]*\(\s*See[^)]*\)\s*$")
+
+
+def _drop_pure_crossrefs(items: List[dict], index: "RubricIndex",
+                         reject_log: Optional[List[dict]] = None) -> List[dict]:
+    """نسخہ 4.7: خالی حوالہ-ربرک (See …) کا اصل پہرہ
+    -----------------------------------------------
+    پہلا اصول (subject_guard کا ^…$ پیٹرن) مؤثر نہیں تھا کیونکہ path+text+chapter
+    کے جوڑ کے آخر میں باب کا نام ہوتا ہے جو $ کو توڑ دیتا ہے۔ مگر محض متن پر
+    پیٹرن لگانا بھی غلط ہو گا: «CONSTIPATION (See Inactivity)» (213 ادویات) اور
+    «OFFENDED, easily (See Sensitive)» حقیقی ربرکیں ہیں۔
+    درست پہچان: حوالہ-ربرک اُسی وقت رد ہو جب اُس کے پاس ادویات ہی نہ ہوں
+    («GALL stone colic (See Pain in Liver)» — r=0 — محض اشارہ ہے)۔"""
+    out: List[dict] = []
+    for it in items:
+        t = str(it.get("text") or "").strip()
+        if _CROSSREF_RX.search(t):
+            rec = {}
+            rid = it.get("rubric_id")
+            if rid:
+                try:
+                    rec = index.load_rubric(rid) or {}
+                except Exception:
+                    rec = {}
+            if not (rec.get("r") if isinstance(rec, dict) else None):
+                if reject_log is not None:
+                    reject_log.append({"rubric": t, "path": it.get("path", ""),
+                                       "kind": "crossref",
+                                       "why": "خالی حوالہ-ربرک (See …) — ادویات نہیں",
+                                       "missing": []})
+                continue
+        out.append(it)
+    return out
 # الٹا درجہ/مقدار — «appetite poor» کے لیے «Appetite - excessive» غلط ہے
 _DEGREE_RX = re.compile(
     r"\b(poor|want of|loss of|diminished|decreased|decrease|less|absent|lacking|suppressed|small)\b", re.I)
@@ -1177,6 +1315,7 @@ _REGION_CHAPTERS = {
     "sleep": {"sleep"}, "dreams": {"sleep"}, "cough": {"cough", "respiration"}, "nausea": {"nausea_and_vomiting", "stomach"},
     "vomiting": {"nausea_and_vomiting", "stomach"}, "appetite": {"appetite", "stomach"},
     "thirst": {"appetite", "stomach"}, "flatulence": {"abdomen", "rectum"}, "rumbling": {"abdomen"},
+    "gall": {"abdomen"}, "gallstone": {"abdomen"}, "gallbladder": {"abdomen"},   # نسخہ 4.7
     "heartburn": {"stomach", "abdomen"}, "constipation": {"rectum", "stool", "abdomen"},
     "fear": {"mind"}, "fears": {"mind"}, "anxiety": {"mind"}, "hoarseness": {"larynx_and_trachea", "throat"},
     "vertigo": {"vertigo"}, "itching": {"skin"}, "pain": set(), "perspiration": {"perspiration"},
@@ -1452,6 +1591,12 @@ def _apply_compat(symptom: str, items: List[dict],
                    and str(w).lower() not in _GENERIC_SUPPORT]
         support_n = sum(1 for w in support if _cond_present(w, s_tokens, s_text))
         head_ok = bool(head) and any(_head_present(w, s_tokens, s_text) for w in head)
+        # نسخہ 4.7: سرِ ربرک کا عضو مریض کے عضو-علاقے میں ہو تو سرِ غائب معاف
+        # («gall stone» → «Liver, colic, gall-stones» — سر liver ہے مگر علاقہ abdomen ہی ہے)
+        if not head_ok and head:
+            head_reg = {_REGION.get(str(w).lower()) for w in head if _REGION.get(str(w).lower())}
+            if head_reg and s_regions and (head_reg & s_regions):
+                head_ok = True
         # سرِ ربرک «کمزور» ہو (pendulous جیسی صفت) تو تائید کے لیے عضو/موضوع کی جانچ آگے ہوتی ہے
         # (1) سرِ جملہ غائب اور سہارا بھی کمزور → رد
         kind, why = "", ""
@@ -1786,6 +1931,7 @@ def _recover_rubrics(symptom: str, index: "RubricIndex", top_k: int = 3,
         out.append(c2)
     if not out:
         return []
+    out = _drop_pure_crossrefs(out, index, reject_log)   # نسخہ 4.7
     kept = _apply_compat(symptom, out, reject_log)
     return kept[:max(int(top_k), 1)]
 
@@ -2009,6 +2155,12 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
     if allow:
         local.sort(key=lambda c: 0 if _chapter_ok(c.get("chapter")) else 1)
 
+    # نسخہ 4.7: خالی حوالہ-ربرک (See …، بغیر ادویات) پہلے صاف کریں —
+    # ایل ایل ایم اور مقامی دونوں راستوں کے لیے
+    local = _drop_pure_crossrefs(local, index, reject_log)
+    if not local:
+        return []
+
     if use_llm:
         picked = select_rubrics_llm(symptom, local, index)
         if picked:
@@ -2029,6 +2181,7 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
             kept = _recover_rubrics(symptom, index, top_k, reject_log, case_region or "")
         return _appetite_filter(kept[:max(int(top_k), 1)], symptom)
 
+    # نسخہ 4.7: خالی حوالہ-ربرک صاف — پھر مطابقت کی جانچ
     kept = _apply_compat(symptom, local[:14], reject_log)
     kept = _drop_far_chapters(kept, case_region or "")
     if not kept:

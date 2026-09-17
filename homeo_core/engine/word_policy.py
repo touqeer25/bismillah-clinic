@@ -87,6 +87,9 @@ SAME_WORD_FORMS: Dict[str, str] = {
     "thirsty": "thirst", "sleepy": "sleepiness", "numbness": "numb",
     "weakness": "weak", "heaviness": "heavy", "soreness": "sore",
     "tiredness": "tired", "chilliness": "chilly",
+    # (نسخہ 4.7) ہائفن-والے ریپرٹری الفاظ کی جُڑی ہوئی لکھائی — ایک ہی لفظ
+    "gallstone": "gall-stones", "gallstones": "gall-stones",
+    "gallbladder": "gall-bladder", "gallbladders": "gall-bladder",
 }
 
 # ریپرٹری کے اپنے مخففات (ریپرٹری خود اِنہیں لکھتی ہے: «motion agg.»)
