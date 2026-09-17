@@ -31,7 +31,7 @@ SOURCE_DEFS = {
     "synthesis": {
         "dir": "synthesis91_raw_chapters",
         "grade_max": 4,
-        "label": {"ur": "سنتھیسس 9.1", "en": "Synthesis 9.1", "roman": "Synthesis 9.1"},
+        "label": {"ur": "سنتھیسس 9.1 (ضمیمہ)", "en": "Syn 9.1 (Supplement)", "roman": "Syn 9.1 (Supplement)"},
         "remedy_style": "lower",
     },
     "general": {

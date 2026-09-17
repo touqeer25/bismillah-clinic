@@ -487,7 +487,7 @@ function bookInfo(book){
     return {
         publicum:{abbr:'Pub',name:'Repertorium Publicum',chapDir:'repertory_chapters/'},
         kent:{abbr:'Kent',name:'Kent English',chapDir:'kent_chapters/'},
-        synthesis91:{abbr:'Syn',name:'Synthesis 9.1',chapDir:'synthesis91_raw_chapters/'},
+        synthesis91:{abbr:'Syn',name:'Syn 9.1 (Supplement)',chapDir:'synthesis91_raw_chapters/'},
         kent_de:{abbr:'K-DE',name:'Kent German',chapDir:'kent_de_chapters/'}
     }[book] || {abbr:book,name:book,chapDir:''};
 }

@@ -209,7 +209,7 @@ T = {
     "final_note": {"ur": "⚠️ یہ اے آئی کی رہنمائی ہے — حتمی فیصلہ معالج کا ہے", "en": "⚠️ AI guidance — final decision rests with the physician", "roman": "⚠️ AI rahnumai — aakhri faisla mu'alij ka hai"},
     # ===== نسخہ 2.1 =====
     "repertory_select": {"ur": "ریپرٹری منتخب کریں", "en": "Select repertory", "roman": "Repertory select karein"},
-    "rep_only_one": {"ur": "صرف ایک ریپرٹری — کراس ویلیڈیشن بند", "en": "Only one repertory — cross-validation off", "roman": "Sirf aik repertory"},
+    "rep_only_one": {"ur": "صرف ایک ریپرٹری چل رہی ہے — تصدیق کے لیے مزید ریپرٹریاں بھی منتخب کی جا سکتی ہیں", "en": "Single repertory running — select more repertories for cross-confirmation", "roman": "Sirf aik repertory chal rahi hai — mazeed repertories bhi select kar sakte hain"},
     "repertories_used": {"ur": "استعمال شدہ ریپرٹریز", "en": "Repertories used", "roman": "Istemaal shuda repertories"},
     "no_sources": {"ur": "کام کے لیے کم از کم ایک ریپرٹری منتخب کریں", "en": "Select at least one repertory to run", "roman": "Kam az kam aik repertory select karein"},
     "german_note": {"ur": "جرمن ریپرٹری پر کوئی میچ نہیں ملا — اردو/رومن علامات کے لیے اے آئی کیز درکار ہیں", "en": "No match in German repertory — AI keys are needed to match Urdu/Roman symptoms", "roman": "German repertory me koi match nahi"},
@@ -666,9 +666,9 @@ REP_CHIP_ROLE = {
     "kent": {"ur": "① بنیادی ماخذ — کینٹ کا کلاسیکل ریپرٹری (درجہ 1 تا 3)",
              "en": "1) Primary source — Kent's classical repertory (grades 1-3)",
              "roman": "1) Bunyadi makhaz — Kent classical (grade 1-3)"},
-    "synthesis": {"ur": "② توسیعی مجموعہ — سنتھیسس 9.1 (درجہ 1 تا 4، راستہ و حوالہ جات)",
-                  "en": "2) Expanded — Synthesis 9.1 (grades 1-4, path + sources)",
-                  "roman": "2) Tauseei — Synthesis 9.1 (grade 1-4)"},
+    "synthesis": {"ur": "② ضمیمہ/توسیعی مجموعہ — Syn 9.1 (درجہ 1 تا 4، راستہ و حوالہ جات)",
+                  "en": "2) Supplement / expanded set — Syn 9.1 (grades 1-4, path + sources)",
+                  "roman": "2) Supplement / tauseei — Syn 9.1 (grade 1-4)"},
     "general": {"ur": "③ عمومی ذخیرہ — ریپرٹوریم پبلیکم (کلینک کا عمومی سیٹ)",
                 "en": "3) General collection — Repertorium Publicum",
                 "roman": "3) Umoomi zakheera — Repertorium Publicum"},
@@ -758,7 +758,9 @@ def _render_method_chips() -> None:
                           use_container_width=True, help=tip)
     m = meta_cache.get(cur) or _method_meta(cur)
     if m.get("status") != "active":
-        st.caption(f"🧩 {t('method_structure_only')}: {m.get('description','')}")
+        _dtxt = (m.get("description") or "").strip()
+        if _dtxt:  # خالی متن پر صرف ہیڈنگ نہ دکھے
+            st.caption(f"🧩 {t('method_structure_only')}: {_dtxt}")
     else:
         # "Active method:" کی ہیڈنگ صرف اُس وقت دکھائیں جب اصل متن موجود ہو
         # (خالی principle پر صرف ہیڈنگ نظر آتی تھی — ہٹا دی گئی)
@@ -904,7 +906,8 @@ def _render_repertory_chips() -> None:
     if not sel:
         st.caption(f"⚠️ {t('no_sources')}")
     elif len(sel) == 1:
-        st.caption(f"⚠️ {t('rep_only_one')}")
+        # ہشدار نہیں — صرف اطلاع: ایک ریپرٹری بھی جائز انتخاب ہے
+        st.caption(f"ℹ️ {t('rep_only_one')}")
 
 
 def _render_field(sid: str, f: dict):
