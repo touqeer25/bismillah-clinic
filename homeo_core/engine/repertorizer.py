@@ -135,12 +135,23 @@ def _related_rubrics(ta: str, tb: str) -> bool:
 
 
 def _sibling_alerts(matches: List[dict], rejected: List[dict],
-                    source: str, sym: str) -> List[dict]:
+                    source: str, sym: str, index=None) -> List[dict]:
     """قریبی ربرک جوڑے: (ا) رکھی گئی دو ربرکس کے اعتماد قریب اور رشتہ دار؛
     (ب) اوّل ربرک کی قریبی رد شدہ ربرک (شرطِ ادھوری) — معالج دیکھے"""
     out: List[dict] = []
     cands = [m for m in matches if m.get("text")]
     cands.sort(key=lambda m: -float(m.get("confidence", 1.0) or 1.0))
+
+    # نسخہ 5.1: ادویات کی گنتی — «ایک لفظ کا فرق = ادویات کا فرق» کا ثبوت
+    def _nrub(rid):
+        if not index or not rid:
+            return ""
+        try:
+            rec = index.load_rubric(str(rid)) or {}
+            return len(rec.get("r") or {})
+        except Exception:
+            return ""
+
     for i in range(len(cands)):
         for j in range(i + 1, len(cands)):
             a, b = cands[i], cands[j]
@@ -151,8 +162,10 @@ def _sibling_alerts(matches: List[dict], rejected: List[dict],
             if abs(ca - cb) <= 0.35:
                 out.append({
                     "symptom": sym, "source": source,
-                    "chosen": {"rubric": a["text"], "confidence": round(ca, 2)},
-                    "nearby": {"rubric": b["text"], "confidence": round(cb, 2)},
+                    "chosen": {"rubric": a["text"], "confidence": round(ca, 2),
+                               "remedies": _nrub(a.get("rubric_id"))},
+                    "nearby": {"rubric": b["text"], "confidence": round(cb, 2),
+                               "remedies": _nrub(b.get("rubric_id"))},
                     "note": "قریبی ربرک بھی برابر قابلِ غور ہے — ایک لفظ کا فرق ادویات بدل سکتا ہے",
                 })
     for a in cands[:2]:
@@ -161,8 +174,10 @@ def _sibling_alerts(matches: List[dict], rejected: List[dict],
             if rt and _related_rubrics(str(a.get("text", "")), rt):
                 out.append({
                     "symptom": sym, "source": source,
-                    "chosen": {"rubric": a["text"], "confidence": round(float(a.get("confidence", 1.0) or 1.0), 2)},
-                    "nearby": {"rubric": rt, "confidence": ""},
+                    "chosen": {"rubric": a["text"], "confidence": round(float(a.get("confidence", 1.0) or 1.0), 2),
+                               "remedies": _nrub(a.get("rubric_id"))},
+                    "nearby": {"rubric": rt, "confidence": "",
+                               "remedies": _nrub(rj.get("rubric_id"))},
                     "status": "rejected",
                     "note": f"قریبی ربرک رد ہوئی: {rj.get('why', '')}",
                 })
@@ -178,6 +193,7 @@ def repertorize_multi(
     min_grade: int = 1,
     top_rubrics_per_symptom: int = 4,
     symptom_weights: Optional[Dict[str, float]] = None,
+    rubric_overrides: Optional[Dict[str, str]] = None,
 ) -> Dict:
     """
     مکمل پائپ لائن: علامات → (ہر سورس پر) ربرکس → اسکورنگ → رینکنگ (نسخہ 2.1)
@@ -283,7 +299,10 @@ def repertorize_multi(
             # نسخہ 5.0: _tokens_canonical — اردو رسم الخط والی علامت بھی عضو بتائے گی
             for _w in _tkc(str(_s)):
                 _r = _RG.get(_w) or _RG.get(_w.rstrip("s"))
-                if _r and _r not in ("upper", "lower"):
+                # نسخہ 5.1: ہاتھ/پاؤں کے اعضاء — upper/lower باب نہیں، extremities ہے
+                if _r in ("upper", "lower"):
+                    _r = "extremities"
+                if _r:
                     _freq[_r] += 1
         if _freq:
             _dom_region = max(_freq.items(), key=lambda kv: kv[1])[0]
@@ -325,12 +344,33 @@ def repertorize_multi(
                 reject_log=rej_tmp, search_text=_st,
                 modality_obj=_mo, modality_pol=_mp, case_region=_mr,
             )
+            # نسخہ 5.1 (تجویز د): ڈاکٹر کی تصدیق شدہ ربرک — تصدیقی مرحلے کا انتخاب
+            # ہر سورس پر اُسی متن والی ربرک لگائی جاتی ہے (سورس کی اپنی ساخت میں نہ
+            # ہو تو اُس سورس کا اپنا اوّل میچ رہے گا)
+            _ov = (rubric_overrides or {}).get(sym)
+            if _ov:
+                _ovn = " ".join(str(_ov).lower().split()).rstrip(".")
+                _flt = [m for m in matches
+                        if " ".join(str(m.get("text", "")).lower().split()).rstrip(".") == _ovn]
+                if not _flt:
+                    # پوری انڈیکس سے — ڈاکٹر قریبی/شرط-والے ربرک کی نشاندہی کرے
+                    for _rid, _rb in src.index.rubrics.items():
+                        if " ".join(str(_rb.get("t", "")).lower().split()).rstrip(".") == _ovn:
+                            matches = [{
+                                "rubric_id": _rid, "chapter": _rb.get("chapter", ""),
+                                "text": _rb.get("t", ""), "path": _rb.get("path", ""),
+                                "score": 0.0, "coverage": 1.0, "confidence": 1.0,
+                                "override": True,
+                            }]
+                            break
+                else:
+                    matches = _flt
             for rj in rej_tmp:
                 rejected_rubrics.append({"symptom": sym, "source": src.name, **rj})
-            # نسخہ 5.0: قریبی ربرک کے جوڑے — خاموش غلطی سے بچاؤ
+            # نسخہ 5.0: قریبی ربرک کے جوڑے — خاموش غلطی سے بچاؤ (5.1: ادویات کی گنتی سمیت)
             try:
                 sibling_alerts.extend(
-                    _sibling_alerts(matches, rej_tmp, src.name, sym))
+                    _sibling_alerts(matches, rej_tmp, src.name, sym, index=src.index))
             except Exception:
                 pass
             # مکرر (سورس + ربرک + علامت) ایک بار
@@ -374,6 +414,9 @@ def repertorize_multi(
                         "coverage": m.get("coverage"),
                         "matched": m.get("matched", []),
                         "rationale": m.get("rationale", ""),
+                        # نسخہ 5.1: خاندان ربرک جھنڈا + ادویات کی گنتی (UI نمائش کے لیے)
+                        "family": bool(m.get("family")),
+                        "n_remedies": len(grades) if grades else 0,
                     })
 
                     for remedy, grade in grades.items():

@@ -383,3 +383,112 @@ def test_mixed_urdu_english_case_v50():
     ur_rubrics = [r for r in res["rubrics_used"] if "پیٹ" in r["symptom"]]
     assert ur_rubrics, "اردو علامت کی ربرکس پائپ لائن سے گم ہو گئیں"
     assert any("PAIN, burning, morning" == r["rubric"] for r in ur_rubrics)
+
+
+# ==================== نسخہ 5.1 — پرانے رویوں کی مرمت + مرحلہ 4 ====================
+
+def test_family_fallback_knee_stitching_v51():
+    """«right knee stitching» — پرانا رویہ: خالی! نیا: خاندان ربرک PAIN, knee
+    (کتاب میں سادہ PAIN, stitching, knee نہیں — والد خاندان دکھایا جائے)"""
+    from homeo_core.engine.rubric_mapper import map_symptom_deep
+    for sym in ("right knee stitching", "دائیں گھٹنے میں چبھن"):
+        res = map_symptom_deep(sym, use_llm=False, top_k=3)
+        assert res, f"{sym} → خالی (پرانا رویہ)"
+        assert res[0]["text"] == "PAIN, knee", res[0]["text"]
+        assert res[0].get("family") is True
+
+
+def test_case_region_limb_organs_v51():
+    """knee/shoulder → extremities باب — پہلے upper/lower پر ضائع ہو جاتے تھے"""
+    from homeo_core.engine.rubric_mapper import _REGION, _REGION_CHAPTERS
+    assert _REGION.get("knee") in ("upper", "lower")
+    assert "extremities" in _REGION_CHAPTERS
+    res = _m_knee = __import__("homeo_core.engine.rubric_mapper", fromlist=["x"]).map_symptom_deep(
+        "knee pain", use_llm=False, top_k=2)
+    assert res[0]["text"] == "PAIN, knee"
+    assert res[0].get("main_rule") is True
+
+
+def test_word_boundary_subject_v51():
+    """«stitching» میں «itching» سب اسٹرنگ — بہرا پن: guard شکایت غلط سمجھتا تھا"""
+    from homeo_core.engine.rubric_mapper import _has_word
+    assert _has_word("itching", "right knee stitching") is False
+    assert _has_word("itching", "itching of skin") is True
+    assert _has_word("right", "fright") is False
+    assert _has_word("ear", "heart") is False
+
+
+def test_seat_guard_limb_v51():
+    """«left shoulder pain» — پرانا رویہ: elbow-alternates ربرک اوّل!"""
+    from homeo_core.engine.rubric_mapper import map_symptom_deep
+    res = map_symptom_deep("left shoulder pain", use_llm=False, top_k=4)
+    assert res, "خالی"
+    assert "elbow" not in res[0]["text"], res[0]["text"]
+    assert "shoulder" in res[0]["text"]
+
+
+def test_back_pain_family_v51():
+    """«peeth mein dard» — پرانا رویہ: urine باب کی COPIOUS اوّل!"""
+    from homeo_core.engine.rubric_mapper import map_symptom_deep
+    for sym in ("peeth mein dard", "back pain"):
+        res = map_symptom_deep(sym, use_llm=False, top_k=3)
+        assert res[0]["chapter"] == "back", (sym, res[0]["chapter"])
+        assert res[0]["text"] == "PAIN", res[0]["text"]
+
+
+def test_chilliness_phrase_v51():
+    """«سردی لگتی ہے» — پرانا رویہ: خالی یا stool کی COLD!"""
+    from homeo_core.engine.rubric_mapper import map_symptom_deep
+    res = map_symptom_deep("سردی لگتی ہے", use_llm=False, top_k=2)
+    assert res and "CHILLINESS" in res[0]["text"], res[0]["text"] if res else "خالی"
+
+
+def test_rubric_overrides_v51():
+    """(تجویز د) — ڈاکٹر کا چنا ربرک استعمال ہو (انڈیکس تلاش سمیت)"""
+    from homeo_core.engine.repertorizer import repertorize_multi
+    ov = {"دائیں گھٹنے میں چبھن": "PAIN, knee, motion, amel."}
+    res = repertorize_multi(["دائیں گھٹنے میں چبھن"], source_names=["kent"],
+                            use_llm=False, rubric_overrides=ov)
+    knee = [r for r in res["rubrics_used"] if "گھٹنے" in r["symptom"]]
+    assert knee and knee[0]["rubric"] == "PAIN, knee, motion, amel."
+
+
+def test_sibling_alerts_remedy_counts_v51():
+    """(تجویز الف) — بہن ربرک کے جھنڈے میں ادویات کی گنتی (168 بمقابلہ 14)"""
+    from homeo_core.engine.repertorizer import repertorize_multi
+    res = repertorize_multi(["burning in abdomen"], source_names=["kent"], use_llm=False)
+    sib = res.get("sibling_alerts", [])
+    assert sib, "بہن ربرک کے جھنڈے خالی"
+    a = sib[0]
+    assert isinstance(a["chosen"].get("remedies"), int)
+    assert a["chosen"]["remedies"] > 0
+
+
+def test_family_flag_in_rubrics_used_v51():
+    """خاندان جھنڈا rubrics_used تک پہنچے (UI نمائش کے لیے)"""
+    from homeo_core.engine.repertorizer import repertorize_multi
+    res = repertorize_multi(["right knee stitching"], source_names=["kent"], use_llm=False)
+    knee = [r for r in res["rubrics_used"] if "knee" in r["symptom"].lower()]
+    assert knee and knee[0].get("family") is True
+    assert knee[0].get("n_remedies", 0) > 100
+
+
+def test_rubric_notes_module_v51():
+    """(تجویز ب) — ربرک کے اردو معنی نوٹ + حس نوٹ"""
+    from homeo_core.engine.rubric_notes import annotate_rubric, sense_note, rubric_note
+    ann = annotate_rubric("PAIN, knee")
+    assert ann.get("pain") == "درد"
+    note = sense_note("PAIN, stitching, knee")
+    assert "سوئی" in note
+    assert "درد" in rubric_note("PAIN, knee")
+
+
+def test_glossary_full_coverage_v51():
+    """مرحلہ 2 — مکمل لغت (6,000+ الفاظ، رسائی 99%+)"""
+    import json
+    from pathlib import Path
+    g = json.loads((Path(__file__).resolve().parents[1] / "glossary_en_ur.json").read_text(encoding="utf-8"))
+    words = g["words"]
+    assert len(words) >= 6000
+    assert all(e.get("ur") for e in words.values()), "غیر ترجمہ شدہ الفاظ باقی"
+    assert len(g.get("sense_notes", {})) >= 40

@@ -137,7 +137,8 @@ class FlowRunner:
     # ---------------- مرکزی پائپ لائن ----------------
     def run_repertorization(self, symptoms: List[str],
                             sources: Optional[List[str]] = None,
-                            symptom_weights: Optional[Dict[str, float]] = None) -> Dict:
+                            symptom_weights: Optional[Dict[str, float]] = None,
+                            rubric_overrides: Optional[Dict[str, str]] = None) -> Dict:
         """
         علامات → (ملٹی سورس) ربرکس → اسکور → (میازم فلٹر) → تفریق
         مکمل پائپ لائن ایک فنکشن میں۔
@@ -158,6 +159,7 @@ class FlowRunner:
             dimension_weights=weights,
             use_llm=use_llm,
             symptom_weights=symptom_weights,
+            rubric_overrides=rubric_overrides,
         )
         results = out["remedies"]
 
@@ -179,6 +181,7 @@ class FlowRunner:
             "rubrics_used": out.get("rubrics_used", []),
             "sources": out.get("sources", []),
             "skipped": out.get("skipped", []),
+            "sibling_alerts": out.get("sibling_alerts", []),      # نسخہ 5.1: قریبی ربرک کے جھنڈے
             "unmatched_words": out.get("unmatched_words", []),   # نسخہ 3.2: ریپرٹری میں نہ ملنے والے الفاظ
             "case_words": out.get("case_words", {}),             # نسخہ 3.3: مریض بمقابلہ پروور کی گنتی
             "rejected_rubrics": out.get("rejected_rubrics", []),  # نسخہ 3.4: شرطِ ادھوری والی رد ربرکیں

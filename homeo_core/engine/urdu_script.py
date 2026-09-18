@@ -34,7 +34,6 @@ from typing import Dict, List
 _STRIP_CHARS = "\u064b\u064c\u064d\u064e\u064f\u0650\u0651\u0652\u0670\u0640\u200c\u200d\u200e\u200f"
 
 _UNIFY = {
-    "\u06be": "\u06c1",   # ھ (دو چشمی ہے) → ہ
     "\u0629": "\u06c1",   # ة → ہ
     "\u064a": "\u06cc",   # عربی ي → اردو ی
     "\u0649": "\u06cc",   # ى → ی
@@ -42,6 +41,9 @@ _UNIFY = {
     "\u0623": "\u0627",   # أ → ا
     "\u0625": "\u0627",   # إ → ا
 }
+# نسخہ 5.1: ھ (دو چشمی ہے) لفظ کے آخر میں ہی ہ→ہ بنتی ہے —
+# درمیان میں ھ = بھ/پھ/تھ/ٹھ/جھ/چھ/دھ/ڈھ/ڑھ/کھ/گھ کا حصہ ہے
+# («آنکھ» کو «آنکہ» بنانا غلطی تھی — آنکھوں جیسے الفاظ ٹوٹ جاتے تھے)
 
 _UR_RX = re.compile(r"[\u0600-\u06FF\u0750-\u077F]")
 _WORD_RX = re.compile(r"[\u0600-\u06FF\u0750-\u077F]+")
@@ -50,13 +52,21 @@ _URDU_DIGITS = str.maketrans("۰۱۲۳۴۵۶۷۸۹", "0123456789")
 
 
 def normalize(text: str) -> str:
-    """اردو متن کی یکسانی — اعراب ہٹانا، ہے/ی/ک کے اختلاف مٹانا"""
+    """اردو متن کی یکسانی — اعراب ہٹانا، ہے/ی/ک کے اختلاف مٹانا
+    (نسخہ 5.1: لفظ کے آخر والی ھ → ہ — درمیان والی ھ برقرار)"""
     t = str(text)
     for ch in _STRIP_CHARS:
         t = t.replace(ch, "")
     for k, v in _UNIFY.items():
         t = t.replace(k, v)
     t = t.translate(_URDU_DIGITS)
+    # ھ → ہ صرف لفظ کے آخر میں («آنکھوں» محفوظ رہے، «اوچھا» نہیں تو ٹھیک)
+    words = []
+    for w in t.split(" "):
+        if w.endswith("\u06be"):
+            w = w[:-1] + "\u06c1"
+        words.append(w)
+    t = " ".join(words)
     return " ".join(t.split())
 
 
@@ -73,7 +83,7 @@ def has_urdu(text: str) -> bool:
 URDU_WORDS: Dict[str, str] = {
     # ---- جگہیں (سر تا پاؤں) ----
     "سر": "head", "ماتھا": "forehead", "پیشانی": "forehead", "کنپٹی": "temple",
-    "کنپٹیاں": "temples", "آنکھ": "eyes", "آنکھیں": "eyes", "پپوٹا": "eyelids",
+    "کنپٹیاں": "temples", "آنکھ": "eyes", "آنکھیں": "eyes", "آنکھوں": "eyes", "پپوٹا": "eyelids",
     "پپوٹے": "eyelids", "کان": "ears", "ناک": "nose", "نتھنے": "nostrils",
     "منہ": "mouth", "ہونٹ": "lips", "دانت": "teeth", "دانت": "teeth",
     "مسوڑھے": "gums", "زبان": "tongue", "گلا": "throat", "ٹانسل": "tonsils",
@@ -162,10 +172,15 @@ URDU_WORDS = {normalize(k): v for k, v in URDU_WORDS.items() if v}   # کلید�
 
 URDU_PHRASES: Dict[str, str] = {
     "نیند نہیں": "sleeplessness", "نیند نہ آئے": "sleeplessness",
-    "کھلی ہوا": "open air", "بچہ دانی": "uterus", "ماہواری کی": "menses",
+    # نسخہ 5.1: عام ملا جلا صورت — فاصلے کے ساتھ بھی لکھی جاتی ہیں
+    "بے خوابی": "sleeplessness", "بے ہوشی": "unconsciousness",
+    "آدھے سر": "hemicrania", "آدھے دن": "hemicrania",
+    "نیند نہیں": "sleeplessness", "کھلی ہوا": "open air", "بچہ دانی": "uterus", "ماہواری کی": "menses",
     "اکیلے رہنا": "wants to be alone", "دل دھڑکنا": "palpitation",
     "جی متلنا": "nausea", "سانس پھول": "breathless",
     "سردی سے": "cold", "گرمی سے": "heat", "بار بار": "frequent",
+    # نسخہ 5.1: سردی لگنا — ریپرٹری کا اپنا سرِعنوان CHILLINESS
+    "سردی لگتی": "chilliness", "سردی لگتی ہے": "chilliness", "سردی لگ رہی": "chilliness",
     "دن میں": "daytime", "رات کو": "night", "دوپہر کو": "afternoon",
     "کھانے کے": "eating", "نہ سوئے": "sleeplessness",
     "سر درد": "headache", "درد سر": "headache", "سردرد": "headache",
@@ -182,6 +197,8 @@ _GENERIC_UR = {
     "گی", "گا", "گے", "کر", "کرنے", "لگتا", "لگتی", "ہوا", "ہوئی", "ہوئے",
     "دوران", "بعد", "پہلے", "مگر", "لیکن", "صرف", "ضرور", "درد", "بدن",
     "نہیں", "نہ", "آنا", "جانا", "اپنے", "اپنی", "ان", "اس", "یہ", "وہ",
+    # نسخہ 5.1: معاون فعل («اکیلے رہنا چاہتا ہے» میں «چاہتا» شور بنے گا)
+    "چاہتا", "چاہتی", "چاہتے", "چاہنا", "چاہے", "چاہیے", "چاہئے",
 }
 
 # ------------------------------------------------------------------ #
@@ -210,6 +227,9 @@ def _reverse() -> Dict[str, List[str]]:
             ur = str(e.get("ur", ""))
             if not ur:
                 continue
+            # نسخہ 5.1: پرانتستھیسی توضیحات نہیں — («sparks = چنگاریاں
+            # (آنکھوں کے سامنے)» سے «آنکھوں» sparks پر نہیں پوائنٹ کرے)
+            ur = re.sub(r"\([^)]*\)", " ", ur)
             for uw in _WORD_RX.findall(normalize(ur)):
                 if len(uw) < 2 or uw in _GENERIC_UR:
                     continue
@@ -226,7 +246,9 @@ _SUFFIXES = ("نے", "نا", "تے", "تی", "تا", "کر", "یں", "وں", "ے
 
 def _lookup(word: str) -> str:
     """ایک اردو لفظ کی انگریزی کلید — جدول پہلے، ریورس بعد میں،
-    پھر صرفی سابقہ اتر کر (جھکنے → جھک) دوبارہ کوشش"""
+    پھر صرفی سابقہ اتر کر (جھکنے → جھک) دوبارہ کوشش
+    (نسخہ 5.1: داخل بھی پہلے یکساں — ھ→ہ وغیرہ)"""
+    word = normalize(word)
     en = URDU_WORDS.get(word)
     if en:
         return en

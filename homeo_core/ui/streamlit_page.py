@@ -253,6 +253,21 @@ T = {
     "patient_prev": {"ur": "پچھلی دوا", "en": "Previous remedy", "roman": "Pehli dawa"},
     "mm_title": {"ur": "📖 میٹیریا میڈیکا میچ ریٹ (کلینک کے کتب خانے سے)", "en": "📖 Materia Medica match rate (clinic library)", "roman": "📖 MM match rate"},
     "mm_off": {"ur": "میٹیریا میڈیکا کی تصدیق دستیاب نہیں — Qdrant کلید (QDRANT_API_KEY) اسٹریم لٹ سیکرٹس میں شامل کریں", "en": "MM verification unavailable — add QDRANT_API_KEY to Streamlit secrets", "roman": "MM verification band — QDRANT_API_KEY secrets me daalein"},
+    # ===== نسخہ 5.1 — مرحلہ 4 (تجاویز ب، ج، د + بہن ربرک جھنڈے) =====
+    "confirm_title": {"ur": "🔍 ربرک کی تصدیق (تصدیقی مرحلہ)", "en": "🔍 Rubric confirmation", "roman": "🔍 Rubric ki tasdeeq"},
+    "confirm_note": {"ur": "درست ربرک ہی گیم چینجر ہے — ہر علامت کے لیے انجن کے چنے ہوئے ربرکس دیکھیں؛ غلط لگی تو خود چنیں۔ ریپرٹری کا اصول: ہر ربرک کا اپنا مطلب اور اپنی ادویات ہیں۔", "en": "The right rubric is the game-changer — review the engine's rubric per symptom and pick a different one if needed.", "roman": "Sahi rubric hi game-changer hai — har alamat ke rubric dekh kar tasdeeq karein"},
+    "confirm_pick": {"ur": "چنیں", "en": "Pick", "roman": "Chunein"},
+    "confirm_no_cand": {"ur": "اِس علامت کے لیے کوئی امیدوار ربرک نہ بن سکی — علامت میں مقام/احساس/موڈیلٹی مکمل کریں", "en": "No candidate rubric for this symptom — complete location/sensation/modality", "roman": "Is alamat ka koi rubric nahi bana"},
+    "confirm_off": {"ur": "ہر علامت کے امیدوار ربرک دکھانے کے لیے چالو کریں (انجن کی تیز جانچ)", "en": "Enable to review candidate rubrics per symptom", "roman": "Rubric review ke liye chalu karein"},
+    "sibling_title": {"ur": "⚖️ قریبی/بہن ربرک — ایک لفظ کا فرق", "en": "⚖️ Nearby/sibling rubrics — one word apart", "roman": "⚖️ Qareebi rubrics — ek lafz ka farq"},
+    "sibling_note": {"ur": "یہ جوڑے ایک دوسرے کے قریب ہیں مگر ادویات کی فہرستیں مختلف ہیں — ہر ربرک کا اپنا مطلب ہے۔ درست انتخاب کے لیے مریض کا لفظ دیکھیں۔", "en": "These pairs are close but carry different remedy lists — each rubric has its own meaning.", "roman": "Ye joray qareeb hain mager adviyat mukhtalif"},
+    "sibling_remedies": {"ur": "ادویہ", "en": "remedies", "roman": "adviya"},
+    "family_badge": {"ur": "خاندان ربرک — کتاب میں مریض کی احساس-سطح کی سادہ ربرک موجود نہیں؛ یہ بنیاد درست ہے، شرط-والے قریبی ربرک نیچے دیکھیں", "en": "Family rubric — the book has no plain rubric at the patient's sensation level; base shown", "roman": "Khandan rubric — kitab me sada rubric nahi; ye bunyad hai"},
+    "meaning_note": {"ur": "معنی", "en": "Meaning", "roman": "Maani"},
+    "sense_note": {"ur": "حس-نوٹ", "en": "Sensation note", "roman": "Hass-notes"},
+    "conf_high": {"ur": "اعتماد اعلٰی", "en": "high confidence", "roman": "aitmaad aala"},
+    "conf_mid": {"ur": "اعتماد درمیانہ", "en": "medium confidence", "roman": "aitmaad darmiyana"},
+    "conf_low": {"ur": "اعتماد کم — علامت/ربرک دیکھ لیں", "en": "low confidence — review symptom/rubric", "roman": "aitmaad kam"},
 }
 
 
@@ -769,17 +784,19 @@ def _render_method_chips() -> None:
             st.caption(f"{t('method_active')}: {_ptxt}")
 
 
-def _run_selected_method(runner, symptoms, sources, weights):
+def _run_selected_method(runner, symptoms, sources, weights, rubric_overrides=None):
     """
     منتخب طریقے سے نتیجہ — کلاسیکل ہو تو وہی پرانا راستہ، ورنہ methods رجسٹری۔
     اگر کسی طریقے کا ڈیٹا ابھی نہ بھرا ہو (skeleton) تو "تصدیقی ستون" کے
     طور پر کلاسیکل نتیجہ دکھایا جاتا ہے (ڈاکٹر خالی ہاتھ نہ رہے)۔
+    نسخہ 5.1: rubric_overrides — تصدیقی مرحلے (د) میں ڈاکٹر کے چنے ربرک۔
     واپسی: (res, method_id, fell_back)
     """
     mid = st.session_state.get("bc_method", "classical")
     if mid == "classical":
         return runner.run_repertorization(symptoms, sources=sources,
-                                          symptom_weights=weights), mid, False
+                                          symptom_weights=weights,
+                                          rubric_overrides=rubric_overrides), mid, False
     try:
         res = _methods_api().run_method(mid, symptoms, case_type=runner.case_type,
                                         sources=sources, symptom_weights=weights)
@@ -788,7 +805,8 @@ def _run_selected_method(runner, symptoms, sources, weights):
                "meta": {"note": f"طریقہ چلانے میں مسئلہ: {e}"}}
     if res.get("status") == "skeleton" or not res.get("remedies"):
         base = runner.run_repertorization(symptoms, sources=sources,
-                                          symptom_weights=weights)
+                                          symptom_weights=weights,
+                                          rubric_overrides=rubric_overrides)
         base["method"] = mid
         base["status"] = "fallback"
         base["meta"] = {
@@ -1337,6 +1355,95 @@ Write the final prescription in Urdu with exactly these headings:
             st.info(t("ai_offline") + f" ({e})")
 
 
+def _render_rubric_confirmation(all_syms: list, char_syms: list) -> None:
+    """نسخہ 5.1 (تجویز د): تصدیقی مرحلہ — ہر علامت کے امیدوار ربرک دکھا کر
+    ڈاکٹر سے تصدیق/تبدیلی۔ اصول: درست ربرک = گیم چینجر (ہر ربرک کی اپنی ادویات)۔
+    انتخاب st.session_state.bc_rubric_overrides = {علامت: ربرک کا متن}"""
+    if not all_syms:
+        return
+    on = st.checkbox(t("confirm_off"), key="bc_confirm_on", value=False)
+    if not on:
+        st.session_state.pop("bc_rubric_overrides", None)
+        return
+    from homeo_core.engine.rubric_mapper import map_symptom_deep, get_index as _gi
+    from homeo_core.engine.rubric_notes import rubric_note
+
+    sig = _symptom_signature(all_syms)
+    cache = st.session_state.setdefault("bc_confirm_cache", {})
+    if st.session_state.get("bc_confirm_sig") != sig:
+        cache.clear()
+        st.session_state.bc_confirm_sig = sig
+
+    try:
+        idx = _gi()
+    except Exception:
+        return
+    overrides = st.session_state.setdefault("bc_rubric_overrides", {})
+
+    with st.expander(f"{t('confirm_title')} ({len(all_syms)})", expanded=True):
+        st.caption(t("confirm_note"))
+        # انڈیکس کی تیاری ایک بار — باقی علامتیں تیز چھانٹی
+        for i, sym in enumerate(all_syms[:20], 1):
+            cands = cache.get(sym)
+            if cands is None:
+                near = []
+                try:
+                    _rej = []
+                    got = map_symptom_deep(sym, index=idx, use_llm=False, top_k=5,
+                                           reject_log=_rej)
+                    cands = [str(g.get("text", "")) for g in got if g.get("text")]
+                    # قریبی/شرط-والے ربرک بھی آپشن — ڈاکٹر شرط سمیت چن سکتا ہے
+                    for _r in _rej[:3]:
+                        _rt = str(_r.get("rubric", ""))
+                        if _rt and _rt not in cands:
+                            near.append(_rt)
+                except Exception:
+                    cands = []
+                cache[sym] = {"cands": cands, "near": near}
+                cands = cache[sym]
+            if isinstance(cands, dict):
+                _near = cands.get("near", [])
+                cands = cands.get("cands", [])
+            else:
+                _near = []          # پرانا کیش
+            if not cands:
+                st.markdown(f'<div style="font-size:13px;color:#7f8c9a;">{i}. '
+                            f'{sym[:70]} — {t("confirm_no_cand")}</div>',
+                            unsafe_allow_html=True)
+                overrides.pop(sym, None)
+                continue
+            # قریبی ربرک الگ لیبل کے ساتھ — (شرط والی، احتیاط سے)
+            opts = cands + [f"◇ {n}" for n in _near] + ["— انجن کا انتخاب (کوئی تبدیلی نہیں) —"]
+            def _fmt(s, _near_n=len(_near), _cands_n=len(cands)):
+                if s.startswith("◇ "):
+                    return "◇ " + (s[2:52] + "…") if len(s) > 54 else s
+                return (s[:60] + "…") if len(s) > 60 else s
+            cur = overrides.get(sym)
+            default = len(opts) - 1
+            if cur in cands:
+                default = cands.index(cur)
+            elif cur and ("◇ " + cur) in opts:
+                default = opts.index("◇ " + cur)
+            star = "⭐ " if sym in char_syms else ""
+            pick = st.radio(
+                f"{i}. {star}{sym[:80]}",
+                opts, index=default, key=f"bc_conf_{i}",
+                format_func=_fmt,
+            )
+            _raw_pick = pick[2:] if pick.startswith("◇ ") else pick
+            note = rubric_note(_raw_pick) if _raw_pick not in ("",) and not pick.startswith("—") else ""
+            if note:
+                st.caption(f"📖 {t('meaning_note')}: {note}")
+            if pick.startswith("◇ "):
+                overrides[sym] = _raw_pick          # قریبی ربرک — انڈیکس-تلاش سے لگے گی
+            elif pick.startswith("—"):
+                overrides.pop(sym, None)
+            elif pick in cands:
+                overrides[sym] = pick
+            else:
+                overrides.pop(sym, None)
+
+
 def _render_remedy_tab(runner: FlowRunner):
     symptoms = _collected_symptoms(runner.steps)
 
@@ -1448,11 +1555,15 @@ def _render_remedy_tab(runner: FlowRunner):
 
     weights = {s: 1.5 for s in char_syms}  # خاص علامات کو اضافی وزن
 
+    # نسخہ 5.1 (تجویز د): تصدیقی مرحلہ — بٹن سے پہلے ربرک کا جائزہ
+    _render_rubric_confirmation(all_syms, char_syms)
+
     if st.button(t("run_repertorization"), type="primary", use_container_width=True, key="run_repert"):
         with st.spinner(t("running")):
             try:
                 res_run, used_method, fell_back = _run_selected_method(
-                    runner, all_syms, selected, weights)
+                    runner, all_syms, selected, weights,
+                    rubric_overrides=st.session_state.get("bc_rubric_overrides") or None)
                 st.session_state.bc_result = res_run
                 st.session_state.bc_method_used = used_method
                 st.session_state.bc_method_fallback = fell_back
@@ -1562,15 +1673,74 @@ def _render_remedy_tab(runner: FlowRunner):
                     badge = f'<span style="color:#b9770e;font-weight:700;">🟡 {pct}%</span>'
                 else:
                     badge = f'<span style="color:#c0392b;font-weight:700;">⚠️ {pct}%</span>'
+            # نسخہ 5.1 (تجویز ج): اعتماد کا رنگ — 🟢 اعلٰی 🟡 درمیانہ 🔴 کم
+            conf = ru.get("confidence")
+            conf_html = ""
+            if isinstance(conf, (int, float)) and conf:
+                c = float(conf)
+                if c >= 0.6:
+                    conf_html = f'<span style="color:#1e8449;font-size:11px;">🟢 {t("conf_high")} {round(c, 2)}</span>'
+                elif c >= 0.35:
+                    conf_html = f'<span style="color:#b9770e;font-size:11px;">🟡 {t("conf_mid")} {round(c, 2)}</span>'
+                else:
+                    conf_html = f'<span style="color:#c0392b;font-size:11px;">🔴 {t("conf_low")} {round(c, 2)}</span>'
+            # نسخہ 5.1: خاندان ربرک کا جھنڈا
+            fam_html = ""
+            if ru.get("family"):
+                fam_html = (f'<div style="font-size:11.5px;color:#8e44ad;background:#f9f2fc;'
+                            f'border:1px dashed #d7bde2;border-radius:8px;padding:2px 8px;margin-top:3px;">'
+                            f'👨‍👩‍👧 {t("family_badge")}</div>')
+            # نسخہ 5.1 (تجویز ب): اردو معنی نوٹ — لغت سے
+            note_html = ""
+            try:
+                from homeo_core.engine.rubric_notes import rubric_note as _rn, sense_note as _sn
+                _mn = _rn(rub)
+                if _mn:
+                    note_html = (f'<div style="font-size:12px;color:#5d6d7e;margin-top:2px;">'
+                                 f'📖 {t("meaning_note")}: {_mn}</div>')
+                _snote = _sn(rub)
+                if _snote:
+                    note_html += (f'<div style="font-size:12px;color:#935116;margin-top:1px;">'
+                                  f'💡 {t("sense_note")}: {_snote}</div>')
+            except Exception:
+                pass
+            rat = str(ru.get("rationale", "") or "")
+            rat_html = (f'<div style="font-size:11.5px;color:#909497;">🧭 {rat}</div>'
+                        if rat and rat != "لفظی مماثلت (ایل ایل ایم دستیاب نہیں)" else "")
             items.append(
                 f'<div style="padding:5px 0;border-bottom:1px dashed #ecf0f1;">'
                 f'<b style="color:#1a5276;">▸ {rub}</b> {badge}<br>'
-                f'<span style="font-size:12px;color:#7f8c9a;">🩺 {star}{sym} &nbsp;•&nbsp; 📚 {src} &nbsp;•&nbsp; {dim}</span>'
+                f'<span style="font-size:12px;color:#7f8c9a;">🩺 {star}{sym} &nbsp;•&nbsp; 📚 {src} &nbsp;•&nbsp; {dim}</span> '
+                f'&nbsp;{conf_html}'
+                f'{fam_html}{note_html}{rat_html}'
                 f'</div>'
             )
         st.markdown('<div class="bhc-card">' + "".join(items) + "</div>", unsafe_allow_html=True)
     else:
         st.caption(t("no_symptoms"))
+
+    # ===== نسخہ 5.1 (تجویز الف کی نمائش): قریبی/بہن ربرک کے جوڑے =====
+    sib = res.get("sibling_alerts", []) or []
+    if sib:
+        with st.expander(f"⚖️ {t('sibling_title')} ({len(sib)})"):
+            st.caption(t("sibling_note"))
+            for si, s in enumerate(sib, 1):
+                ch = s.get("chosen") or {}
+                nb = s.get("nearby") or {}
+                _rem = lambda v: (f' ({v} {t("sibling_remedies")})' if v not in ("", None) else "")
+                st.markdown(
+                    f'<div style="padding:5px 0;border-bottom:1px dashed #ecf0f1;font-size:13px;">'
+                    f'<b style="color:#1a5276;">{si}. {s.get("symptom", "")[:60]}</b><br>'
+                    f'✅ <b>{ch.get("rubric", "")[:70]}</b>'
+                    f'<span style="color:#7f8c9a;font-size:11.5px;">{_rem(ch.get("remedies"))} · conf {ch.get("confidence", "")}</span><br>'
+                    f'{"⛔ رد شدہ:" if s.get("status") == "rejected" else "⚖️ برابر قابلِ غور:"} '
+                    f'<b>{nb.get("rubric", "")[:70]}</b>'
+                    f'<span style="color:#7f8c9a;font-size:11.5px;">{_rem(nb.get("remedies"))}'
+                    + (f' · conf {nb.get("confidence")}' if nb.get("confidence") != "" else '')
+                    + f'</span><br>'
+                    f'<span style="font-size:11.5px;color:#935116;">{s.get("note", "")}</span></div>',
+                    unsafe_allow_html=True,
+                )
 
     # ===== نسخہ 2.4: جو علامات ربرک نہ بن سکیں (شفاف وجہ کے ساتھ) =====
     skipped = res.get("skipped", []) or []

@@ -1371,6 +1371,9 @@ _REGION_CHAPTERS = {
     "throat": {"throat", "external_throat"}, "chest": {"chest", "respiration", "cough", "expectoration"},
     "back": {"back"}, "bladder": {"bladder", "urine", "urinary_organs"}, "rectum": {"rectum", "anus_and_rectum"},
     "skin": {"skin"}, "lower": {"extremities", "lower_extremities"}, "upper": {"extremities", "upper_extremities"},
+    # نسخہ 5.1: ہاتھ پاؤں کے اعضاء — پہلے یہ کلید نہ تھی، اِس لئے «right knee
+    # stitching» کے لیے kidneys باب کی ربرک بچ جاتی تھی
+    "extremities": {"extremities"},
     "menses": {"genitalia_female", "genitalia_male", "urinary_organs"},
     "sleep": {"sleep"}, "dreams": {"sleep"}, "cough": {"cough", "respiration"}, "nausea": {"nausea_and_vomiting", "stomach"},
     "vomiting": {"nausea_and_vomiting", "stomach"}, "appetite": {"appetite", "stomach"},
@@ -1401,6 +1404,20 @@ def _subject_stem_hit(word: str, path_words: set) -> bool:
     return any(wp == _pref(x) for x in path_words)
 
 
+_WORD_B_RX_CACHE: Dict[str, "re.Pattern"] = {}
+
+
+def _has_word(w: str, s_raw: str) -> bool:
+    """نسخہ 5.1: لفظ-حد کی تلاش — سب اسٹرنگ کا بگ ختم
+    («stitching» کے اندر «itching»، «fright» میں «right»، «heart» میں «ear» —
+    پہلے یہ سب غلط مثبت تھے: مریض «stitching» کہے اور guard شکایت «itching» سمجھے)"""
+    rx = _WORD_B_RX_CACHE.get(w)
+    if rx is None:
+        rx = re.compile(r"\b" + re.escape(w) + r"\b")
+        _WORD_B_RX_CACHE[w] = rx
+    return bool(rx.search(s_raw))
+
+
 def _subject_guard(symptom: str, items: List[dict],
                    reject_log: Optional[List[dict]] = None) -> List[dict]:
     """⛔ رد: (6) حوالہ جاتی ربرک «(See …)» (7) الٹا درجہ/مقدار (8) ربرک کا موضوع مریض کی شکایت سے نہیں ملتا
@@ -1410,9 +1427,10 @@ def _subject_guard(symptom: str, items: List[dict],
     s_raw = str(symptom).lower()
     s_toks = _tokens_canonical(symptom)
     s_pref = {_pref(t) for t in s_toks}
-    s_subject = {w for w in _SUBJECT_WORDS if w in s_raw or _pref(w) in s_pref}
+    # نسخہ 5.1: لفظ-حد — پہلے `w in s_raw` تھا (سب اسٹرنگ غلط مثبت)
+    s_subject = {w for w in _SUBJECT_WORDS if _has_word(w, s_raw) or _pref(w) in s_pref}
     s_region = _symptom_regions(s_toks, " ".join(s_toks))
-    s_region_w = {w for w in _REGION if w in s_raw or _pref(w) in s_pref}
+    s_region_w = {w for w in _REGION if _has_word(w, s_raw) or _pref(w) in s_pref}
     s_deg = bool(_DEGREE_RX.search(s_raw))
     s_deg_opp = bool(_DEGREE_OPP_RX.search(s_raw))
     out: List[dict] = []
@@ -1439,7 +1457,7 @@ def _subject_guard(symptom: str, items: List[dict],
         if not kind:
             # نسخہ 4.3: علامت میں شکایت اور عضو دونوں ہیں تو ربرک میں بھی شکایت لازمی
             # (ورنہ «rumbling in abdomen» کے لیے «PENDULOUS abdomen» رکھ لی جاتی ہے)
-            s_comp = {w for w in _COMPLAINT_WORDS if w in s_raw or _pref(w) in s_pref}
+            s_comp = {w for w in _COMPLAINT_WORDS if _has_word(w, s_raw) or _pref(w) in s_pref}
             if s_comp and not (s_comp & (s_subject - s_region_w)) if False else False:
                 pass
             if s_comp:
@@ -1450,6 +1468,19 @@ def _subject_guard(symptom: str, items: List[dict],
                     kind, why = ("other_subject",
                                  "ربرک میں مریض کی شکایت («" + "، ".join(sorted(s_comp)[:3])
                                  + "») موجود نہیں")
+            # (نسخہ 5.1) محض احساس والی علامت: ربرک میں وہی احساس یا درد-خاندان ہونا چاہیے
+            # («right knee stitching» ← «Knee, right» (مخلوط مقامی شکایات) قبول نہ ہو —
+            #  احساس کے بغیر مقامی نوڈ خاندان سے کم درجے کی ہے)
+            if not kind and not s_comp:
+                s_sens = {w for w in _STRICT_EXTRA if _has_word(w, s_raw)}
+                if s_sens:
+                    pw = {str(w).lower() for w in re.findall(r"[a-z-]{3,}", low)}
+                    pw |= {_pref(w) for w in pw}
+                    sens_or_pain = s_sens | {"pain", "pains", "ache", "aches"}
+                    if not any(_subject_stem_hit(w, pw) for w in sens_or_pain):
+                        kind, why = ("other_subject",
+                                     "ربرک میں مریض کا احساس («" + "، ".join(sorted(s_sens)[:3])
+                                     + "») نہ احساس نہ درد-خاندان موجود",)
         if not kind:
             # نسخہ 4.3: «لازم الموضوع» — چیز/شکایت (fats، salt، rumbling…) ربرک میں لازمی ہو
             required = {w for w in (s_subject & (_FOOD_WORDS | _COMPLAINT_WORDS))}
@@ -1477,10 +1508,13 @@ def _subject_guard(symptom: str, items: List[dict],
                              + "») یا عضو موجود نہیں")
         if not kind and chap.upper() not in _GENERIC_CHAPTERS:
             # (8) ربرک کا موضوع/عضو مریض کی شکایت سے نہیں ملتا
+            # نسخہ 5.1: خاندان ربرک معفو — باب ہی عضو ہے («PAIN» extremities = ہاتھ
+            # پاؤں کا درد) — باب-جانچ _family_fallback_rubrics میں ہو چکی
             conds = _path_conditions(path, chap)
             head_pref = {_pref(w) for (words, _r) in conds[:1] for w in words}
             head_subj = {w for w in _SUBJECT_WORDS if _pref(w) in head_pref}
-            if head_subj and s_subject and not (head_subj & s_subject):
+            if head_subj and s_subject and not (head_subj & s_subject) \
+                    and not (it.get("family") and _top_level_segments(text) == 1):
                 # نسخہ 4.8: سرِ ربرک عام شکایت ہو تو اگلی شرط ہی مخصوص شکایت ہے
                 # («PAIN, headache in general, sun…» ← مریض: «headache from sun»)
                 # اگلی شرط میں مریض کا موضوع مل جائے تو رد نہیں ہوگی
@@ -1625,6 +1659,12 @@ def _head_words(conds: List[Tuple[List[str], str]]) -> List[str]:
     return head
 
 
+# نسخہ 5.1: اعضائے اربعہ کے الفاظ — seat-جانچ کے لیے (ہاتھ پاؤں کا عضو اپنی جگہ)
+# ماخذ: _REGION کے upper/lower والے تمام اعضاء (elbow/wrist/heel CHAPTER_HINTS میں نہیں تھے)
+_LIMB_ORGANS = {_stem(k) for k, v in _REGION.items()
+                if v in ("upper", "lower") and " " not in k}
+
+
 def _apply_compat(symptom: str, items: List[dict],
                   reject_log: Optional[List[dict]] = None) -> List[dict]:
     """جزو بمقابلہ جزو جانچ — ربرک ایک مکمل جملہ ہے، ہر کاما ایک شرط:
@@ -1639,7 +1679,7 @@ def _apply_compat(symptom: str, items: List[dict],
     s_tokens = _tokens_canonical(symptom)
     s_text = " ".join(s_tokens)
     s_raw = str(symptom).lower()
-    s_side = {w for w in ("left", "right") if w in s_raw}
+    s_side = {w for w in ("left", "right") if _has_word(w, s_raw)}
     s_regions = _symptom_regions(s_tokens, s_text)
     s_agg = bool(_AGG_RX.search(s_raw))
     s_amel = bool(_AMEL_RX.search(s_raw))
@@ -1696,6 +1736,20 @@ def _apply_compat(symptom: str, items: List[dict],
                         break
                 if kind:
                     break
+        # (3.ب) نسخہ 5.1: اعضائے اربعہ کا seat-جانچ — عضو کی درستگی باب سے باریک ہے
+        #  («PAIN, elbow, alternates with pain in shoulder» ← مریض: «shoulder pain» —
+        #   ربرک کی نشیمن elbow ہے، shoulder محض پھیلاؤ ہے — پہلے یہ اوّل آ جاتی تھی)
+        if not kind and s_regions:
+            s_limb = {t for t in s_tokens if t in _LIMB_ORGANS}
+            if s_limb:
+                seat = [str(w).lower() for words, _r in conds[1:2] for w in words
+                        if _cond_role(w) == "loc"]
+                seat_limb = {w for w in seat if _stem(_canonical(w)) in _LIMB_ORGANS
+                             or w.rstrip("s") in _LIMB_ORGANS}
+                if seat_limb and not (seat_limb & s_limb):
+                    kind = "other_region"
+                    why = ("ربرک کی نشیمن: " + "، ".join(sorted(seat_limb)[:2])
+                           + " ← مریض کا عضو: " + "، ".join(sorted(s_limb)[:2]))
         # (4) الٹا رخ
         if not kind:
             rpol = "amel" if re.search(r"ameliorat|\bamel\b", low) else (
@@ -1715,6 +1769,8 @@ def _apply_compat(symptom: str, items: List[dict],
         elif reject_log is not None:
             reject_log.append({
                 "rubric": it.get("text", ""), "path": path, "kind": kind, "why": why,
+                # نسخہ 5.1: id — تاکہ بہن ربرک کے جھنڈے میں ادویات کی گنتی دکھ سکے
+                "rubric_id": it.get("rubric_id", ""),
                 "missing": [{"piece": " ".join(words)} for (words, _r) in conds][:6],
             })
     # نسخہ 4.2: موضوع/حوالہ/درجے کی جانچ
@@ -1928,6 +1984,176 @@ def _drop_far_chapters(items: List[dict], case_region: str) -> List[dict]:
     return keep or items
 
 
+# نسخہ 5.1: خاندان ربرک میں معفو اضافی الفاظ — سمت + سرِ شکایت
+# («left shoulder pain» → «PAIN, shoulder, right, left» — ربرک کا «right» معفو)
+_FAMILY_OK_EXTRA = {"left", "right", "side", "sides", "pain", "pains", "ache", "aches",
+                    "limbs", "limb", "extremities"}
+
+
+def _finalize_kept(symptom: str, kept: List[dict], index: "RubricIndex", top_k: int,
+                   reject_log: Optional[List[dict]], case_region: str) -> List[dict]:
+    """نسخہ 5.1: حتمی چھانٹی — دور باب صاف، پھر خالی یا «غیرمتعلق باب» صورت میں بچاؤ/خاندان
+    پرانا رویہ: «right knee stitching» → kidneys کی «PAIN, swelling of right knee»
+    (لفظی مماثلت اچھی مگر باب غلط) خاموشی سے اوّل رہتی تھی — اب کیس-باب کی
+    خاندان ربرک («PAIN, knee» 229) اوّل آئے گی۔"""
+    kept = _drop_far_chapters(kept, case_region or "")
+    _chaps_case = ({case_region} | set(_REGION_CHAPTERS.get(case_region, set()))) if case_region else set()
+    _home_hit = bool(_chaps_case) and any(
+        str(c.get("chapter", "")).lower() in _chaps_case for c in kept)
+    if not kept or (case_region and not _home_hit):
+        _rej2: List[dict] = [] if kept else reject_log
+        # جب صرف دور-باب کی ربرکیں بچیں تو اُنہیں رد-لگر میں ڈال کر بچاؤ چلائیں
+        if kept and reject_log is not None:
+            for c in kept:
+                reject_log.append({
+                    "rubric": c.get("text", ""), "path": c.get("path", ""),
+                    "kind": "far",
+                    "why": "کیس-باب («" + str(case_region) + "») کی ربرک نہیں — خاندان/بچاؤ اوّل",
+                    "missing": [],
+                })
+        rec = _recover_rubrics(symptom, index, max(int(top_k), 1), _rej2, case_region or "")
+        if rec:
+            kept = rec
+    return kept
+
+
+def _family_fallback_rubrics(symptom: str, index: "RubricIndex", case_region: str,
+                             s_toks: set) -> List[dict]:
+    """نسخہ 5.1: خاندان ربرک — عضو + شکایت والی سادہ ربرک
+    ------------------------------------------------
+    مسئلہ (پرانا رویہ): «right knee stitching» کے لیے کتاب میں سادہ
+    «PAIN, stitching, knee» موجود نہیں (کینٹ کی اصل: «…, motion, amel.») —
+    شرط-والے ربرک strict-جانچ سے رد، اور سادہ «PAIN, knee» (229 ادویہ)
+    امیدوار ہی نہیں بنتی تھی → نتیجہ **خالی**۔
+
+    حل (صارف کا اصول): پہلے اُسی «جزو-بمقابلہ-جزو» اصول پر قائم رہیں —
+    مگر جب کوئی ربرک نہ بچے تو **خاندان ربرک** (عضو + شکایت، کوئی
+    غیربتائی شرط نہیں) دکھائیں، `family` جھنڈے کے ساتھ — معالج فیصلہ
+    کرے گا کہ خاندان کافی ہے یا شرط-والے قریبی ربرک (reject_log میں
+    بہن ربرک کے طور پر دکھائے جاتے ہیں)۔"""
+    if not s_toks:
+        return []
+    chaps = ({case_region} | set(_REGION_CHAPTERS.get(case_region, set()))) if case_region else set()
+    comp_words = {_stem(_canonical(x)) for x in _EXTRA_COMPLAINT}
+    comps = [t for t in s_toks if t in comp_words]
+    # نسخہ 5.1: محض احساس-لفظ (stitching/tearing/drawing…) کے لیے والد-شکایت
+    # «pain» — ریپرٹری کا اپنا درجہ (PAIN > stitching > knee) — مترادف سازی نہیں:
+    # کتاب میں سادہ «PAIN, stitching, knee» نہیں، ادویات والد «PAIN, knee» میں ہیں
+    sens_words = {_stem(_canonical(x)) for x in _STRICT_EXTRA}
+    if not comps and any(t in sens_words for t in s_toks):
+        comps = ["pain"]
+    organs = [t for t in s_toks if _ORGAN_CHAPTERS.get(t)]
+    if not organs:
+        return []
+    # نسخہ 5.1: case_region خالی ہو تو باب عضو-ٹوکنوں سے — ورنہ فیملی کا
+    # باب-فلٹر بند رہ جاتا ہے («constipation» کے لیے vertigo باب کی
+    # «CONSTIPATION, during» بچ نکلی تھی)
+    if not chaps:
+        for o in organs:
+            chaps |= _ORGAN_CHAPTERS.get(o, set())
+    queries: List[str] = []
+    for c in comps[:2]:
+        for o in organs[:3]:
+            queries += [f"{c} {o}", f"{o} {c}"]
+    if not queries:
+        queries = organs[:3]
+    fam: List[dict] = []
+    seen_f: set = set()
+    s_side = {t for t in s_toks if t in ("left", "right")}
+
+    def _accept(c, need_complaint: bool) -> Optional[dict]:
+        """فیملی امیدوار کی جانچ — شکایت-خاندان (پہلا مرحلہ) یا مقامی نوڈ (دوسرا)"""
+        rid = c["rubric_id"]
+        if rid in seen_f:
+            return None
+        ch = str(c.get("chapter", ""))
+        if chaps and ch not in chaps:
+            return None
+        text = str(c.get("text", ""))
+        if "(" in text or "see" in text.lower():
+            return None
+        if _top_level_segments(text) > 2:
+            return None                      # صرف سادہ خاندان (ایک معیار تک)
+        rtoks = set(_tokens_canonical(_strip_refs(text)))
+        organ_ok = any(o in rtoks for o in organs)
+        # نسخہ 5.1: باب-مطابقت — ربرک کا اپنا باب ہی عضو ہے
+        # («PAIN» back-باب میں = کمر کا درد — متن میں «back» نہیں لکھا)
+        chapter_plain = (bool(case_region) and ch.lower() == str(case_region).lower()
+                         and _top_level_segments(text) == 1)
+        if not organ_ok and not chapter_plain:
+            return None                      # ربرک میں عضو لازمی (یا اپنا سادہ باب-مین)
+        if need_complaint and comps and not any(c2 in rtoks for c2 in comps):
+            return None                      # شکایت کا لفظ بھی
+        # سائٹ کا تضاد — مریض «left» کہے اور ربرک صرف «right» کی ہو
+        r_side = {t for t in rtoks if t in ("left", "right")}
+        if s_side and r_side and not (s_side & r_side):
+            return None
+        extra = {t for t in rtoks if t not in s_toks}
+        if extra - _FAMILY_OK_EXTRA:
+            return None                      # غیربتائی شرط (motion/menses…) → نہیں
+        try:
+            rec = index.load_rubric(rid)
+        except Exception:
+            rec = {}
+        if not (rec.get("r") or {}):
+            return None
+        seen_f.add(rid)
+        return dict(c, family=True, family_note=text)
+
+    # مرحلہ 1: شکایت + عضو («PAIN, knee» — احساس کے لیے والد-شکایت pain)
+    # نسخہ 5.1: براہِ راست گرام-اشاریہ — باب کے اندر چھانٹ (سرچ کی ترتیب باب
+    # نہیں دیکھتی: «PAIN» (back، 200 ادویہ) سرچ-ٹاپ ٹین میں کبھی نہیں آتی تھی)
+    gram_cands: List[dict] = []
+    _chaps_low = {c.lower() for c in chaps}
+    for g in (comps[:2] + organs[:3]):
+        # نسخہ 5.1: پہلے باب-فلٹر، پھر کاٹ — ورنہ دیر سے index میں آنے والی
+        # مین ربرکیں («PAIN, knee» g-key آخری پوزیشن) ہمیشہ باہر رہ جاتی تھیں
+        # ساتھ ہی سستا پری-فلٹر (≤1 کاما) — _tokens_canonical صرف مختصر ربرکس پر
+        for rid in index._index.get(g, []):
+            ch, _k = rid.split("::", 1)
+            if _chaps_low and ch.lower() not in _chaps_low:
+                continue
+            rb = index.rubrics.get(rid)
+            if not rb:
+                continue
+            text = rb["t"]
+            if text.count(",") > 1 or "(" in text or "see" in text.lower():
+                continue
+            gram_cands.append({"rubric_id": rid, "chapter": ch, "text": text,
+                               "path": rb.get("path", ""), "score": 0.0, "coverage": 1.0})
+    for c in gram_cands:
+        got = _accept(c, need_complaint=True)
+        if got:
+            fam.append(got)
+    # (بیک اپ) سرچ راستہ — اگر گرام-چھانٹ سے کچھ نہ ملا
+    if not fam:
+        for q in queries:
+            for c in index.search(q, top_k=4, strict=False):
+                got = _accept(c, need_complaint=True)
+                if got:
+                    fam.append(got)
+    # مرحلہ 2: شکایت-خاندان نہ ملا تو مقامی نوڈ («Shoulder» 270 — کینٹ کا اپنا سرِعنوان)
+    if not fam:
+        for c in gram_cands:
+            got = _accept(c, need_complaint=False)
+            if got:
+                fam.append(got)
+        if not fam:
+            for o in organs[:3]:
+                for c in index.search(o, top_k=3, strict=False):
+                    got = _accept(c, need_complaint=False)
+                    if got:
+                        fam.append(got)
+    # کم حصوں والی (خاندان کی سر) پہلے، پھر ادویات کی کثیر
+    def _nrub(c):
+        try:
+            return len(index.load_rubric(c["rubric_id"]).get("r") or {})
+        except Exception:
+            return 0
+    fam.sort(key=lambda c: (_top_level_segments(str(c.get("text", ""))), -_nrub(c)))
+    return fam[:2]
+
+
 def _recover_rubrics(symptom: str, index: "RubricIndex", top_k: int = 3,
                      reject_log: Optional[List[dict]] = None, case_region: str = "") -> List[dict]:
     """نسخہ 4.5: جب عام راستے سے کوئی ربرک نہ بچے تو —
@@ -1935,7 +2161,9 @@ def _recover_rubrics(symptom: str, index: "RubricIndex", top_k: int = 3,
             یعنی وہی لفظ، جس کے ساتھ کوئی اضافی شرط نہ ہو۔
        (ب) اگر وہ نہ ملے تو مریض کے اصل الفاظ سے سادہ تلاش۔
        اُصول (ٹائلر-ویر): جب مریض نے کوئی موڈیلٹی نہیں بتائی تو مین ربرک لینی ہے،
-       اور جب موڈیلٹی بتائی ہو («in the morning») تو اُس کے حساب سے سب ربرک۔"""
+       اور جب موڈیلٹی بتائی ہو («in the morning») تو اُس کے حساب سے سب ربرک۔
+       (ج) نسخہ 5.1: سب رد ہو جائیں تو **خاندان ربرک** — عضو + شکایت والی سادہ
+           ربرک («right knee stitching» → «PAIN, knee»)، family جھنڈے کے ساتھ۔"""
     words = [w for w in re.findall(r"[a-zA-Z-]{4,}", str(symptom).lower()) if w not in _QUERY_STOP]
     s_toks = set(_tokens_canonical(symptom))
     s_text = " ".join(s_toks)
@@ -1990,8 +2218,24 @@ def _recover_rubrics(symptom: str, index: "RubricIndex", top_k: int = 3,
                     continue
                 seen.add(c["rubric_id"])
                 cands.append(c)
+    # (ج) نسخہ 5.1: خاندان ربرک اوّل — باب-درست بنیاد («PAIN» back 200،
+    # «PAIN, knee» 229) — (الف)/(ب) کی سرچ-ترتیب باب نہیں دیکھتی تھی
+    fam_out: List[dict] = []
+    for c in _family_fallback_rubrics(symptom, index, case_region, s_toks):
+        c2 = dict(c)
+        c2["derived"] = True
+        c2["recovered"] = True
+        c2["family"] = True
+        c2["confidence"] = round(min(float(c.get("coverage", 0.5) or 0.5), 0.5), 2)
+        fam_out.append(c2)
+    _fam_ids = {c["rubric_id"] for c in fam_out}
+    cands = fam_out + [c for c in cands if c["rubric_id"] not in _fam_ids]
     out: List[dict] = []
+    _seen_out: set = set()
     for c in cands[:12]:
+        if c["rubric_id"] in _seen_out:
+            continue
+        _seen_out.add(c["rubric_id"])
         c2 = dict(c)
         c2["derived"] = True
         c2["recovered"] = True
@@ -2004,8 +2248,7 @@ def _recover_rubrics(symptom: str, index: "RubricIndex", top_k: int = 3,
     if not out:
         return []
     out = _drop_pure_crossrefs(out, index, reject_log)   # نسخہ 4.7
-    kept = _apply_compat(symptom, out, reject_log)
-    return kept[:max(int(top_k), 1)]
+    return _apply_compat(symptom, out, reject_log)[:max(int(top_k), 1)]
 
 
 # ------------------------------------------------------------------ #
@@ -2022,6 +2265,9 @@ def _recover_rubrics(symptom: str, index: "RubricIndex", top_k: int = 3,
 #     «SLEEPLESSNESS» کہتی ہے
 # یہ صرف نیچے فہرست شدہ تھوڑے فقروں پر لاگو ہوتا ہے — باقی الفاظ مریض کے ہی رہتے ہیں۔
 _CONCEPT_PHRASES: List[Tuple["re.Pattern", str]] = [
+    # نسخہ 5.1: سردی لگنا — ریپرٹری کا اپنا سرِعنوان «CHILLINESS»
+    (re.compile(r"\bsard?[iey]+\s+lagt\w*", re.I), "chilliness"),
+    (re.compile(r"سردی\s+لگت"), "chilliness"),
     # نیند کی نفی → sleeplessness
     (re.compile(r"\b(?:can\s?not|can't|cant|unable\s+to)\s+(?:fall\s+)?(?:back\s+)?"
                 r"(?:to\s+)?(?:be\s+)?a?slee\w*\b", re.I), "sleeplessness"),
@@ -2100,7 +2346,13 @@ def _main_rubric_candidates(symptom: str, index: "RubricIndex",
         out: List[dict] = []
         seen: set = set()
         for gram in sorted(content)[:3]:
-            for rid in list(index._index.get(gram, []))[:600]:
+            all_hits = list(index._index.get(gram, []))
+            # نسخہ 5.1: کیس-باب کی ربرکیں پہلے — «pain» گرام 16,000+ ربرکس لاتا ہے،
+            # پہلا [:600] کاٹ back/extremities کی مین ربرک («PAIN» 200، «PAIN, knee» 229)
+            # ہمیشہ باہر رکھ دیتا تھا (بہت دیر سے index میں ہوتی ہیں)
+            home = [h for h in all_hits if h.split("::", 1)[0] in chaps]
+            rest = [h for h in all_hits if h.split("::", 1)[0] not in chaps]
+            for rid in (home + rest)[:4000]:
                 if rid in seen:
                     continue
                 seen.add(rid)
@@ -2169,15 +2421,22 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
     if not case_region:
         try:
             _freq: Dict[str, int] = {}
+            # نسخہ 5.1: ہاتھ/پاؤں کے اعضاء (knee/shoulder/hand…) کا _REGION
+            # «upper/lower» ہے — پہلے یہیں ضائع ہو جاتے تھے، اِس لئے extremities
+            # کی ساری خاندان ربرکیں (PAIN, knee …) کبھی امیدوار ہی نہیں بنتی تھیں
             for _w in re.findall(r"[a-z-]{3,}", str(symptom).lower()):
                 _r = _REGION.get(_w) or _REGION.get(_w.rstrip("s"))
-                if _r and _r not in ("upper", "lower"):
+                if _r in ("upper", "lower"):
+                    _r = "extremities"
+                if _r:
                     _freq[_r] = _freq.get(_r, 0) + 1
             # نسخہ 4.9: کینونیکل ٹوکن بھی — رومن اردو کا عضو-لفظ («pait»،
             # «paon») خام صورت میں _REGION سے نہیں ملتا، مترجم ہی سے ملتا ہے
             for _t in _tokens_canonical(str(symptom)):
                 _r = _REGION.get(_t) or _REGION.get(_t.rstrip("s"))
-                if _r and _r not in ("upper", "lower"):
+                if _r in ("upper", "lower"):
+                    _r = "extremities"
+                if _r:
                     _freq[_r] = _freq.get(_r, 0) + 1
             if _freq:
                 case_region = max(_freq.items(), key=lambda kv: kv[1])[0]
@@ -2402,7 +2661,7 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
                 "rationale": "لفظی مماثلت (ایل ایل ایم دستیاب نہیں)",
             })
         kept = _apply_compat(symptom, out, reject_log)
-        kept = _drop_far_chapters(kept, case_region or "")
+        kept = _finalize_kept(symptom, kept, index, top_k, reject_log, case_region or "")
         if not kept:
             # نسخہ 4.5: ایل ایل ایم دستیاب نہ ہو اور سب رد ہو جائیں → سادہ مین ربرک ڈھونڈیں
             kept = _recover_rubrics(symptom, index, top_k, reject_log, case_region or "")
@@ -2410,7 +2669,7 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
 
     # نسخہ 4.7: خالی حوالہ-ربرک صاف — پھر مطابقت کی جانچ
     kept = _apply_compat(symptom, local[:14], reject_log)
-    kept = _drop_far_chapters(kept, case_region or "")
+    kept = _finalize_kept(symptom, kept, index, top_k, reject_log, case_region or "")
     if not kept:
         # نسخہ 4.3/4.5: سب رد ہو گئے → سادہ مین ربرک (جیسے «RUMBLING»، «AVERSION to acids»)
         kept = _recover_rubrics(symptom, index, top_k, reject_log, case_region or "")
