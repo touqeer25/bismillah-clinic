@@ -106,6 +106,29 @@ def test_negation_tokens():
     assert "sweat" in toks2
 
 
+def test_main_rubric_rule_v49():
+    """نسخہ 4.9 — بغیر-موڈیلٹی سادہ علامت → باب کی مین ربرک اوّل
+    («burning in abdomen» → abdomen کی «PAIN, burning» — نہ کہ lower abdomen)"""
+    from homeo_core.engine.rubric_mapper import map_symptom_deep, get_index
+    kent = get_index()
+    for sym in ("burning in abdomen", "jalan pait mein"):
+        picks = map_symptom_deep(sym, index=kent, top_k=3, use_llm=False)
+        assert picks, f"خالی: {sym}"
+        top = picks[0]
+        assert top["chapter"] == "abdomen", f"{sym}: باب {top['chapter']}"
+        assert top["text"] == "PAIN, burning", f"{sym}: {top['text']}"
+
+
+def test_roman_stooping_coffee_v49():
+    """نسخہ 4.9 — رومن اردو: jhukne se chakkar → STOOPING، coffee se bigarta → agg"""
+    from homeo_core.engine.rubric_mapper import map_symptom_deep, get_index
+    kent = get_index()
+    picks = map_symptom_deep("jhukne se chakkar", index=kent, top_k=3, use_llm=False)
+    assert picks and picks[0]["text"].startswith("STOOPING"), picks
+    picks2 = map_symptom_deep("coffee se bigarta hai", index=kent, top_k=3, use_llm=False)
+    assert picks2 and "COFFEE agg" in picks2[0]["text"], picks2
+
+
 # ------------------------------------------------------------------ #
 # میازم
 # ------------------------------------------------------------------ #

@@ -97,6 +97,10 @@ _UR_PHRASES = {
     "se barhti": "agg", "se barhta": "agg", "se barhi": "agg",
     "se barhe": "agg", "se barhna": "agg", "se badhti": "agg",
     "se badhta": "agg", "se barha": "agg", "se badh": "agg",
+    # (نسخہ 4.9) «… سے بگڑتا/بگڑتی/خراب» = agg — مریض کا ردِعمل کا فقرہ
+    "se bigarta": "agg", "se bigarti": "agg", "se bigarte": "agg",
+    "se bigadta": "agg", "se bigadti": "agg", "se bigadte": "agg",
+    "se kharab": "agg",
     "se behtar": "amel", "se behtari": "amel", "se rahat": "amel",
     "se aasaan": "amel", "se kami": "amel", "se kam": "amel",
     "ke baad": "after", "ki baad": "after",
@@ -182,6 +186,14 @@ ROMAN_URDU = {
     # جسمانی عمومی
     "kamzori": "weakness", "kamzor": "weakness", "thakan": "tiredness",
     "chakkar": "dizziness", "mota": "obese", "patla": "thin", "zor": "strength",
+    # (نسخہ 4.9) جھکنا = stooping — «jhukne se chakkar» → «stooping dizziness»
+    "jhukna": "stooping", "jhukne": "stooping", "jhukkar": "stooping",
+    "jhukta": "stooping", "jhukti": "stooping", "jhukte": "stooping",
+    "jhookna": "stooping", "jhookne": "stooping",
+    # (نسخہ 4.9) بگڑنا = worse — «coffee se bigarta hai» (فقرہ پہلے ملتا ہے،
+    # یہ لفظی جوڑ اسٹاپ-گپ کے لیے)
+    "bigarta": "worse", "bigarti": "worse", "bigarte": "worse",
+    "bigadta": "worse", "bigadti": "worse", "bigadte": "worse",
     "tezi": "fast", "aahista": "slow", "bara": "large",
     # کھانے پینے
     "meetha": "sweets", "khatta": "sour", "kadwa": "bitter", "namkeen": "salty",
@@ -2032,6 +2044,85 @@ def _concept_rewrite(symptom: str) -> str:
     return s
 
 
+# ------------------------------------------------------------------ #
+# نسخہ 4.9: بغیر-موڈیلٹی سادہ علامت → باب کی **مین ربرک** (ٹائلر-ویر اصول)
+# «burning in abdomen» → abdomen باب کی «PAIN, burning» (168 ادویات) —
+# نہ کہ «PAIN, burning, lower abdomen» جس کی شرط «lower» مریض نے ہرگز
+# نہیں کہی۔ بحال شدہ مین ربرک تلاش کے دو-لفظ فلٹر سے نہیں گزرتی تھی۔
+# ------------------------------------------------------------------ #
+_MAIN_SUBLOC = {"lower", "upper", "left", "right", "central", "inner", "outer",
+                "front", "back", "sides", "side", "below", "above", "beneath"}
+_MAIN_HEADS = {"pain", "pains", "ache", "aches"}       # سرِ شکایت معاف
+
+
+def _main_rubric_candidates(symptom: str, index: "RubricIndex",
+                            case_region: str) -> List[dict]:
+    """کیس-باب معلوم ہو اور علامت سادہ ہو (نہ موڈیلٹی، نہ وقت، نہ ذیلی-جگہ)
+    تو اُس باب کی وہ مین ربرک جو مریض کے سارے معیار-الفاظ آپس میں رکھتی ہو۔
+    دو حفاظتی شرطیں:
+      - ربرک کا کوئی لفظ مریض نے نہ بتایا ہو تو صرف سرِ شکایت (pain/ache)
+        معاف — باقی لفظ آیا تو یہ «اضافی شرط» ہے، انجیکشن رد۔
+      - مریض کا کوئی معیار-لفظ ربرک میں نہ ہو («burning feet» میں foot) تو
+        رد — مریض کی بتائی جگہ گم نہیں ہونی چاہیے۔"""
+    if not case_region:
+        return []
+    try:
+        s_toks = set(_tokens_canonical(str(symptom)))
+        raw = set(re.findall(r"[a-z-]{3,}", str(symptom).lower()))
+        if not s_toks:
+            return []
+        pol = _POLARITY_WORDS | {_stem(x) for x in _POLARITY_WORDS}
+        if (s_toks & pol) or (raw & _POLARITY_WORDS):
+            return []                       # موڈیلٹی ہے → شرط-والا ربرک درست
+        tim = _TIME_COND_WORDS | {_stem(x) for x in _TIME_COND_WORDS}
+        if (s_toks & tim) or (raw & _TIME_COND_WORDS):
+            return []                       # وقت-شرط ہے → مین نہیں
+        sub = _MAIN_SUBLOC | {_stem(x) for x in _MAIN_SUBLOC}
+        if (s_toks & sub) or (raw & _MAIN_SUBLOC):
+            return []                       # مریض نے ذیلی-جگہ خود بتائی
+        heads = _MAIN_HEADS | {_stem(x) for x in _MAIN_HEADS}
+        heads |= {_stem(x) for x in _EXTRA_COMPLAINT}
+        gen = _stem(_canonical(case_region))
+        content = {t for t in s_toks if t != gen}
+        if not content:
+            return []
+        chaps = {case_region} | set(_REGION_CHAPTERS.get(case_region, set()))
+        out: List[dict] = []
+        seen: set = set()
+        for gram in sorted(content)[:3]:
+            for rid in list(index._index.get(gram, []))[:600]:
+                if rid in seen:
+                    continue
+                seen.add(rid)
+                ch, _k = rid.split("::", 1)
+                if ch not in chaps:
+                    continue
+                rb = index.rubrics.get(rid)
+                if not rb:
+                    continue
+                text = str(rb.get("t", ""))
+                if text.count(",") > 1 or "(" in text or "see" in text.lower():
+                    continue                # مین/ایک-معیار سطح ہی لینی ہے
+                rtoks = set(_tokens_canonical(_strip_refs(text)))
+                extra = {t for t in rtoks if t not in s_toks}
+                if not extra.issubset(heads):
+                    continue                # اضافی شرط جو مریض نے نہیں کہی
+                if content - rtoks:
+                    continue                # مریض کا لفظ ربرک میں نہیں (جگہ گم)
+                rec = index.load_rubric(rid)
+                if not (rec.get("r") or {}):
+                    continue                # خالی حوالہ-ربرک
+                out.append({"rubric_id": rid, "chapter": rb.get("chapter", ch),
+                            "text": text, "path": rb.get("path", ""),
+                            "score": 0.0, "coverage": 1.0,
+                            "derived": True, "main_rule": True})
+        # جس باب کا نام عین کیس-باب ہے وہ پہلے
+        out.sort(key=lambda c: 0 if c["chapter"] == case_region else 1)
+        return out[:2]
+    except Exception:
+        return []
+
+
 def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
                      top_k: int = 5, use_llm: bool = True,
                      reject_log: Optional[List[dict]] = None,
@@ -2063,6 +2154,12 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
             _freq: Dict[str, int] = {}
             for _w in re.findall(r"[a-z-]{3,}", str(symptom).lower()):
                 _r = _REGION.get(_w) or _REGION.get(_w.rstrip("s"))
+                if _r and _r not in ("upper", "lower"):
+                    _freq[_r] = _freq.get(_r, 0) + 1
+            # نسخہ 4.9: کینونیکل ٹوکن بھی — رومن اردو کا عضو-لفظ («pait»،
+            # «paon») خام صورت میں _REGION سے نہیں ملتا، مترجم ہی سے ملتا ہے
+            for _t in _tokens_canonical(str(symptom)):
+                _r = _REGION.get(_t) or _REGION.get(_t.rstrip("s"))
                 if _r and _r not in ("upper", "lower"):
                     _freq[_r] = _freq.get(_r, 0) + 1
             if _freq:
@@ -2221,6 +2318,16 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
     if _boost:
         _ids = {c["rubric_id"] for c in _boost}
         local = _boost + [c for c in local if c["rubric_id"] not in _ids]
+
+    # نسخہ 4.9: بغیر-موڈیلٹی سادہ علامت → باب کی مین ربرک اوّل (ٹائلر-ویر اصول)
+    _main = _main_rubric_candidates(symptom, index, case_region or "")
+    if _main:
+        _best = max((c.get("score", 0) or 0) for c in local) if local else 0.0
+        _mscore = round((_best or 60.0) + 1.0, 2) if local else 60.0
+        _ids = {c["rubric_id"] for c in _main}
+        for _c in _main:
+            _c["score"] = _mscore
+        local = _main + [c for c in local if c["rubric_id"] not in _ids]
 
     if use_llm:
         # اردو رسم الخط (یا خالی میچ): لے سے ریپرٹری زبان میں ترجمہ
