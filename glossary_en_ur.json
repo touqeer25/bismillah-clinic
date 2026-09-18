@@ -1,21 +1,22 @@
 {
  "meta": {
   "name": "Kent repertory — English–Urdu glossary",
-  "version": 2,
-  "date": "2026-09-18",
+  "version": 3,
+  "date": "2026-09-19",
   "source": "kent_repertory.json (61,124 rubrics, ligature-normalized)",
-  "phase": "2 — مکمل لغت (Tier A+B+C+D: تمام 6,058 الفاظ)",
+  "phase": "3 — نادر الفاظ (68 میں سے 63 نئے + 5 aliases میں پہلے سے)",
   "counts": {
    "tier_a_words": 473,
-   "total_words": 6060,
-   "translated": 6060,
+   "total_words": 6123,
+   "translated": 6123,
    "pending": 0,
    "grammar_phrases": 27,
    "sense_notes": 65,
    "added_phase2": 5587,
-   "skipped": 0
+   "skipped": 0,
+   "added_phase3": 63
   },
-  "coverage_note": "تمام ربرکس کے الفاظ کا احاطہ — رسائی ≈ 99.9%"
+  "coverage_note": "تمام طبی مواد کے الفاظ کا احاطہ — مواد-سطح 100% (قواعدی/stopwords مستثنیٰ)"
  },
  "words": {
   "pain": {
@@ -26,6 +27,16 @@
     "extremities": 4009,
     "head": 3164,
     "back": 1638
+   }
+  },
+  "see": {
+   "ur": "دیکھنا",
+   "part": "other",
+   "freq": 5729,
+   "chapters": {
+    "mind": 1088,
+    "head": 825,
+    "face": 518
    }
   },
   "morning": {
@@ -46,6 +57,16 @@
     "extremities": 979,
     "head": 976,
     "back": 496
+   }
+  },
+  "while": {
+   "ur": "جب کہ / دوران",
+   "part": "other",
+   "freq": 4491,
+   "chapters": {
+    "extremities": 1198,
+    "head": 632,
+    "back": 455
    }
   },
   "right": {
@@ -645,6 +666,16 @@
     "extremities": 253,
     "back": 76,
     "head": 69
+   }
+  },
+  "her": {
+   "ur": "اُس کی (عورت کا)",
+   "part": "other",
+   "freq": 725,
+   "chapters": {
+    "mind": 701,
+    "sleep": 7,
+    "genitalia_female": 5
    }
   },
   "discoloration": {
@@ -3053,6 +3084,16 @@
     "mind": 4
    }
   },
+  "his": {
+   "ur": "اُس کا (مرد کا)",
+   "part": "other",
+   "freq": 161,
+   "chapters": {
+    "mind": 142,
+    "stomach": 4,
+    "sleep": 4
+   }
+  },
   "dark": {
    "ur": "گہرا / تاریک",
    "part": "color",
@@ -4215,6 +4256,16 @@
     "back": 6
    }
   },
+  "she": {
+   "ur": "وہ (عورت)",
+   "part": "other",
+   "freq": 115,
+   "chapters": {
+    "mind": 98,
+    "genitalia_female": 4,
+    "bladder": 3
+   }
+  },
   "old": {
    "ur": "پرانا / بوڑھا",
    "part": "quality",
@@ -5159,6 +5210,16 @@
     "generalities": 70,
     "ear": 6,
     "cough": 2
+   }
+  },
+  "has": {
+   "ur": "رکھتا ہے",
+   "part": "other",
+   "freq": 84,
+   "chapters": {
+    "mind": 67,
+    "bladder": 5,
+    "sleep": 3
    }
   },
   "lain": {
@@ -7908,6 +7969,14 @@
     "extremities": 11
    }
   },
+  "caecal": {
+   "ur": "اعور آنت (سیکم) کا",
+   "part": "location",
+   "freq": 45,
+   "chapters": {
+    "abdomen": 45
+   }
+  },
   "persons": {
    "ur": "افراد",
    "part": "structural",
@@ -8727,6 +8796,16 @@
    "freq": 39,
    "chapters": {
     "extremities": 39
+   }
+  },
+  "excessive": {
+   "ur": "حد سے زیادہ",
+   "part": "quality",
+   "freq": 39,
+   "chapters": {
+    "stomach": 21,
+    "genitalia_male": 4,
+    "genitalia_female": 4
    }
   },
   "nodding": {
@@ -9732,6 +9811,16 @@
    "freq": 32,
    "chapters": {
     "extremities": 32
+   }
+  },
+  "great": {
+   "ur": "بڑا / شدید",
+   "part": "quality",
+   "freq": 32,
+   "chapters": {
+    "extremities": 6,
+    "mind": 5,
+    "chest": 4
    }
   },
   "suicidal": {
@@ -10959,6 +11048,16 @@
    "chapters": {
     "genitalia_female": 26,
     "cough": 1
+   }
+  },
+  "gonorrhoea": {
+   "ur": "سوزاک",
+   "part": "complaint",
+   "freq": 27,
+   "chapters": {
+    "urethra": 7,
+    "extremities": 6,
+    "genitalia_male": 4
    }
   },
   "shortly": {
@@ -12527,6 +12626,16 @@
     "generalities": 1
    }
   },
+  "have": {
+   "ur": "رکھنا",
+   "part": "other",
+   "freq": 21,
+   "chapters": {
+    "mind": 13,
+    "head": 2,
+    "abdomen": 1
+   }
+  },
   "what": {
    "ur": "کیا",
    "part": "structural",
@@ -13977,6 +14086,16 @@
     "back": 1
    }
   },
+  "oedematous": {
+   "ur": "سوجن والا (ایڈیمیٹوس)",
+   "part": "quality",
+   "freq": 17,
+   "chapters": {
+    "extremities": 9,
+    "face": 2,
+    "throat": 2
+   }
+  },
   "cheerfulness": {
    "ur": "خوش مزاجی",
    "part": "mind",
@@ -15334,6 +15453,15 @@
     "extremities": 14
    }
   },
+  "leucorrhoea": {
+   "ur": "سفید پانی (لیوکوریا)",
+   "part": "complaint",
+   "freq": 14,
+   "chapters": {
+    "back": 12,
+    "genitalia_female": 2
+   }
+  },
   "buried": {
    "ur": "دفن (اندر گڑھا)",
    "part": "sensation",
@@ -15999,6 +16127,26 @@
    "chapters": {
     "extremities": 10,
     "cough": 3
+   }
+  },
+  "dyspnoea": {
+   "ur": "سانس کی تکلیف / ہانپتے رہنا",
+   "part": "complaint",
+   "freq": 13,
+   "chapters": {
+    "extremities": 3,
+    "cough": 2,
+    "perspiration": 2
+   }
+  },
+  "much": {
+   "ur": "بہت زیادہ",
+   "part": "quality",
+   "freq": 13,
+   "chapters": {
+    "head": 5,
+    "extremities": 3,
+    "mind": 2
    }
   },
   "timidity": {
@@ -16680,6 +16828,16 @@
    "chapters": {
     "generalities": 8,
     "chill": 4
+   }
+  },
+  "saw": {
+   "ur": "دیکھا",
+   "part": "other",
+   "freq": 12,
+   "chapters": {
+    "mind": 8,
+    "head": 1,
+    "vision": 1
    }
   },
   "forsaken": {
@@ -17435,6 +17593,15 @@
     "chill": 1
    }
   },
+  "petechiae": {
+   "ur": "جلد پر نقطہ نما خونی دھبے",
+   "part": "complaint",
+   "freq": 11,
+   "chapters": {
+    "extremities": 9,
+    "skin": 2
+   }
+  },
   "minded": {
    "ur": "مزاج والا",
    "part": "structural",
@@ -18186,6 +18353,14 @@
    "freq": 10,
    "chapters": {
     "generalities": 10
+   }
+  },
+  "vertebrae": {
+   "ur": "ریڑھ کی ہڈیاں",
+   "part": "location",
+   "freq": 10,
+   "chapters": {
+    "back": 10
    }
   },
   "bells": {
@@ -19214,6 +19389,44 @@
    "chapters": {
     "extremities": 7,
     "generalities": 2
+   }
+  },
+  "foetus": {
+   "ur": "جنین",
+   "part": "location",
+   "freq": 9,
+   "chapters": {
+    "abdomen": 8,
+    "genitalia_female": 1
+   }
+  },
+  "gonorrhoeal": {
+   "ur": "سوزاک والا / سوزاک سے",
+   "part": "quality",
+   "freq": 9,
+   "chapters": {
+    "urethra": 6,
+    "eye": 1,
+    "genitalia_male": 1
+   }
+  },
+  "intense": {
+   "ur": "شدید / تیز",
+   "part": "quality",
+   "freq": 9,
+   "chapters": {
+    "fever": 7,
+    "head": 2
+   }
+  },
+  "severe": {
+   "ur": "شدید",
+   "part": "quality",
+   "freq": 9,
+   "chapters": {
+    "head": 4,
+    "face": 1,
+    "cough": 1
    }
   },
   "amorous": {
@@ -20308,6 +20521,16 @@
    "freq": 8,
    "chapters": {
     "fever": 8
+   }
+  },
+  "fraenum": {
+   "ur": "جھلی کی کھینچ (زبان/لپ کی فرینم)",
+   "part": "location",
+   "freq": 8,
+   "chapters": {
+    "genitalia_male": 4,
+    "mouth": 3,
+    "urethra": 1
    }
   },
   "hyperaesthesia": {
@@ -21446,6 +21669,35 @@
     "fever": 3,
     "skin": 3,
     "sleep": 1
+   }
+  },
+  "haemorrhoids": {
+   "ur": "بواسیر",
+   "part": "complaint",
+   "freq": 7,
+   "chapters": {
+    "nose": 2,
+    "extremities": 2,
+    "head": 1
+   }
+  },
+  "haemorrhagica": {
+   "ur": "خون بہاؤ والی (طبقی اصطلاح)",
+   "part": "quality",
+   "freq": 7,
+   "chapters": {
+    "extremities": 4,
+    "skin": 3
+   }
+  },
+  "haemorrhoidal": {
+   "ur": "بواسیر کا / بواسیر والا",
+   "part": "quality",
+   "freq": 7,
+   "chapters": {
+    "abdomen": 2,
+    "bladder": 2,
+    "stomach": 1
    }
   },
   "abusive": {
@@ -23022,6 +23274,45 @@
    "freq": 6,
    "chapters": {
     "fever": 6
+   }
+  },
+  "amenorrhoea": {
+   "ur": "حیض کا رک جانا (مہینواری بند)",
+   "part": "complaint",
+   "freq": 6,
+   "chapters": {
+    "urine": 2,
+    "genitalia_female": 2,
+    "nose": 1
+   }
+  },
+  "diarrhoeic": {
+   "ur": "دست والا / اسہالی",
+   "part": "complaint",
+   "freq": 6,
+   "chapters": {
+    "abdomen": 5,
+    "rectum": 1
+   }
+  },
+  "dysmenorrhoea": {
+   "ur": "تکلیف دہ حیض (مہینواری میں درد)",
+   "part": "complaint",
+   "freq": 6,
+   "chapters": {
+    "genitalia_female": 3,
+    "face": 1,
+    "bladder": 1
+   }
+  },
+  "haemorrhagic": {
+   "ur": "خون بہاؤ والا",
+   "part": "quality",
+   "freq": 6,
+   "chapters": {
+    "fever": 4,
+    "urethra": 1,
+    "genitalia_female": 1
    }
   },
   "angry": {
@@ -25408,6 +25699,26 @@
    "freq": 5,
    "chapters": {
     "skin": 5
+   }
+  },
+  "haemorrhages": {
+   "ur": "خون بہاؤ (متعدد مرتبہ)",
+   "part": "complaint",
+   "freq": 5,
+   "chapters": {
+    "chest": 2,
+    "head": 1,
+    "sleep": 1
+   }
+  },
+  "haematodes": {
+   "ur": "خون جیسا (پرانے خون کا رنگ)",
+   "part": "quality",
+   "freq": 5,
+   "chapters": {
+    "skin": 2,
+    "chest": 1,
+    "extremities": 1
    }
   },
   "plays": {
@@ -28307,6 +28618,14 @@
    "freq": 4,
    "chapters": {
     "generalities": 4
+   }
+  },
+  "ozaena": {
+   "ur": "ناک کی بدبو دار سوزش (اوزینا)",
+   "part": "complaint",
+   "freq": 4,
+   "chapters": {
+    "nose": 4
    }
   },
   "theorizing": {
@@ -32410,6 +32729,14 @@
    "freq": 3,
    "chapters": {
     "generalities": 3
+   }
+  },
+  "vesiculae": {
+   "ur": "چھوٹی تھیلیاں (منوی تھیلیاں)",
+   "part": "location",
+   "freq": 3,
+   "chapters": {
+    "genitalia_male": 3
    }
   },
   "abstraction": {
@@ -38888,6 +39215,74 @@
    "freq": 2,
    "chapters": {
     "generalities": 2
+   }
+  },
+  "papillae": {
+   "ur": "زبان/جلد کے ننھے پپڑے جیسے ابھار",
+   "part": "location",
+   "freq": 2,
+   "chapters": {
+    "mouth": 2
+   }
+  },
+  "praecordial": {
+   "ur": "دل کے اوپر والے حصے کا",
+   "part": "location",
+   "freq": 2,
+   "chapters": {
+    "cough": 1,
+    "chest": 1
+   }
+  },
+  "vesicae": {
+   "ur": "تھیلیاں (مثانہ/پتتھاشی)",
+   "part": "location",
+   "freq": 2,
+   "chapters": {
+    "bladder": 2
+   }
+  },
+  "faeces": {
+   "ur": "پاخانہ / فضلہ",
+   "part": "complaint",
+   "freq": 2,
+   "chapters": {
+    "rectum": 1,
+    "stool": 1
+   }
+  },
+  "muscae": {
+   "ur": "آنکھ کے آگے اُڑتی مکھیاں",
+   "part": "complaint",
+   "freq": 2,
+   "chapters": {
+    "vision": 2
+   }
+  },
+  "oedema": {
+   "ur": "پانی بھرنے کی سوجن (ایڈیما)",
+   "part": "complaint",
+   "freq": 2,
+   "chapters": {
+    "abdomen": 1,
+    "respiration": 1
+   }
+  },
+  "sequelae": {
+   "ur": "بعد کے اثرات / پیچیدگیاں",
+   "part": "complaint",
+   "freq": 2,
+   "chapters": {
+    "ear": 1,
+    "larynx_and_trachea": 1
+   }
+  },
+  "taeniae": {
+   "ur": "پیٹ کے ٹیپ کیڑے (ٹینیا)",
+   "part": "complaint",
+   "freq": 2,
+   "chapters": {
+    "rectum": 2
    }
   },
   " terrified": {
@@ -53868,6 +54263,174 @@
    "freq": 1,
    "chapters": {
     "fever": 1
+   }
+  },
+  "alae": {
+   "ur": "ناک/ہونٹ کے پر (کنارے)",
+   "part": "location",
+   "freq": 1,
+   "chapters": {
+    "face": 1
+   }
+  },
+  "areolae": {
+   "ur": "نپ کے گرد حلقے",
+   "part": "location",
+   "freq": 1,
+   "chapters": {
+    "extremities": 1
+   }
+  },
+  "axillae": {
+   "ur": "بغلیں",
+   "part": "location",
+   "freq": 1,
+   "chapters": {
+    "chest": 1
+   }
+  },
+  "bursae": {
+   "ur": "جوڑوں کی رگڑ تھیلیاں",
+   "part": "location",
+   "freq": 1,
+   "chapters": {
+    "extremities": 1
+   }
+  },
+  "carunculae": {
+   "ur": "گوشت کے چھوٹے لعلے",
+   "part": "location",
+   "freq": 1,
+   "chapters": {
+    "eye": 1
+   }
+  },
+  "choanae": {
+   "ur": "ناک کے اندرونی راستے (حلق کی طرف)",
+   "part": "location",
+   "freq": 1,
+   "chapters": {
+    "throat": 1
+   }
+  },
+  "nymphae": {
+   "ur": "شرم گاہ کے اندرونی ہونٹ",
+   "part": "location",
+   "freq": 1,
+   "chapters": {
+    "genitalia_female": 1
+   }
+  },
+  "perinaeum": {
+   "ur": "شرم گاہ اور مقعد کے درمیان کی جگہ",
+   "part": "location",
+   "freq": 1,
+   "chapters": {
+    "urethra": 1
+   }
+  },
+  "uvulae": {
+   "ur": "گلو کی ننھی گومڑی (لووُولا)",
+   "part": "location",
+   "freq": 1,
+   "chapters": {
+    "throat": 1
+   }
+  },
+  "vaginae": {
+   "ur": "فرج کی/فرجیں",
+   "part": "location",
+   "freq": 1,
+   "chapters": {
+    "genitalia_female": 1
+   }
+  },
+  "aphthae": {
+   "ur": "منہ کے چھالے (اپھٹھے)",
+   "part": "complaint",
+   "freq": 1,
+   "chapters": {
+    "mouth": 1
+   }
+  },
+  "haemoptysis": {
+   "ur": "کھانسی میں خون (بلغم کے ساتھ خون)",
+   "part": "complaint",
+   "freq": 1,
+   "chapters": {
+    "fever": 1
+   }
+  },
+  "maculae": {
+   "ur": "چپٹے دھبے",
+   "part": "complaint",
+   "freq": 1,
+   "chapters": {
+    "back": 1
+   }
+  },
+  "naevus": {
+   "ur": "پیدائشی تل",
+   "part": "complaint",
+   "freq": 1,
+   "chapters": {
+    "face": 1
+   }
+  },
+  "otorrhoea": {
+   "ur": "کان سے پیپ/پانی بہنا",
+   "part": "complaint",
+   "freq": 1,
+   "chapters": {
+    "hearing": 1
+   }
+  },
+  "anaemic": {
+   "ur": "کم خونی والا",
+   "part": "quality",
+   "freq": 1,
+   "chapters": {
+    "urethra": 1
+   }
+  },
+  "toxaemic": {
+   "ur": "زہریلے خون والا (ٹاکسیمیا)",
+   "part": "quality",
+   "freq": 1,
+   "chapters": {
+    "kidneys": 1
+   }
+  },
+  "uraemic": {
+   "ur": "پیشاب کی زہریلیت والا (یوریمیا)",
+   "part": "quality",
+   "freq": 1,
+   "chapters": {
+    "generalities": 1
+   }
+  },
+  "anaesthesia": {
+   "ur": "بے حسی / سن ہو جانا",
+   "part": "sensation",
+   "freq": 1,
+   "chapters": {
+    "throat": 1
+   }
+  },
+  "homoeopathic": {
+   "ur": "ہومیوپیتھک (مثل کے مثل)",
+   "part": "other",
+   "freq": 1,
+   "chapters": {
+    "fever": 1
+   }
+  },
+  "their": {
+   "ur": "اُن کا",
+   "part": "other",
+   "freq": 1,
+   "chapters": {
+    "teeth": 1
    }
   }
  },
