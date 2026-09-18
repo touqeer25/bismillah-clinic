@@ -69,8 +69,10 @@ function switchRepertoryBook() {
     var sel = document.getElementById('repBookSelect');
     if (sel) repCurrentBook = sel.value;
     repCurrentChapter = ''; repTreeCache = {}; _repFullData = null;
+    repHistBack = []; repHistFwd = []; repFolderPath = []; repFolderFilter = '';
+    repPendingPath = null; repPendingNavRid = null;
     document.getElementById('repChapterList').innerHTML = '<div class="empty-state"><p>Loading...</p></div>';
-    document.getElementById('repRubricContent').innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Select a chapter</p></div>';
+    repRenderEmptyState();
     initRepertoryBrowser();
 }
 
@@ -86,7 +88,6 @@ function initRepertoryBrowser() {
             // data is array of {key, name, rubrics}
             repChapterNames = sortChaptersForBook(repCurrentBook, data);
             var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
-            if(infoEl) infoEl.textContent = repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';
             renderChapterList();
         }).catch(function(e){
             console.error('Failed to load index', e);
@@ -97,30 +98,21 @@ function initRepertoryBrowser() {
                 repChapterNames = [];
             }
             repChapterNames = sortChaptersForBook(repCurrentBook, repChapterNames);
-            var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
-            if(infoEl) infoEl.textContent = repChapterNames.length+' chapters | '+t.toLocaleString()+' rubrics';
             renderChapterList();
         });
     }
 
-    function renderChapterList(){
-        var d=document.getElementById('repChapterList');if(!d)return;
-        var ch=repChapterNames;
-        var h='';
-        ch.forEach(function(c){h+='<div class="rep-chapter-item'+(c.key===repCurrentChapter?' active':'')+'" onclick="selectChapter(\''+c.key+'\')">'+c.name+' <small style="opacity:0.6;">('+c.rubrics+')</small></div>';});
-        d.innerHTML=h;
-    }
-
     loadChaptersAndRender();
-    document.getElementById('repRubricContent').innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>Select a chapter</p></div>';
+    repRenderEmptyState();
 
 }
 function renderChapterList(f){
     var d=document.getElementById('repChapterList');if(!d)return;
     var ch=repChapterNames;
     if(f){f=f.toLowerCase();ch=ch.filter(function(c){return c.name.toLowerCase().indexOf(f)!==-1;});}
-    var h='<div style="font-weight:bold;font-size:13px;margin-bottom:8px;color:#1a5276;">Chapters ('+ch.length+')</div>';
-    ch.forEach(function(c){h+='<div class="rep-chapter-item'+(c.key===repCurrentChapter?' active':'')+'" onclick="selectChapter(\''+c.key+'\')">'+c.name+' <small style="opacity:0.6;">('+c.rubrics+')</small></div>';});
+    var h='';
+    ch.forEach(function(c){h+='<div class="rep-chapter-item'+(c.key===repCurrentChapter?' active':'')+'" onclick="repOpenChapter(\''+String(c.key).replace(/'/g,"\\'")+'\')" title="'+escapeHtml(c.name)+' ('+c.rubrics+' rubrics)"><span class="rep-ch-ico">📖</span><span class="rep-ch-name">'+escapeHtml(c.name)+'</span><span class="rep-ch-n">'+c.rubrics+'</span></div>';});
+    if(!ch.length)h='<div style="text-align:center;padding:16px;color:#9fb0bf;font-size:12px;">'+(currentLang==='ur'?'کوئی باب نہیں ملا':'No chapters')+'</div>';
     d.innerHTML=h;
 }
 
@@ -310,67 +302,402 @@ function buildRubricTree(data){
 }
 
 var repTreePage=0,repTreePageSize=50;
-var repRidToFlatIndex={};   // 🔑 rubric ID -> flat index (for precise navigation)
+var repRidToFlatIndex={};   // (kept for API compat)
 var repPendingNavRid=null;  // 🔑 rubric ID waiting to be scrolled-to after render
-function renderTree(chKey,chName,tree){
-    repCurrentTree=tree;repCurrentChName=chName;repCurrentChKey=chKey;
-    var flat=[];
-    repRidToFlatIndex={};   // rebuild index for this chapter
-    function flatten(node,depth){
+
+// ============================================================
+// 🔑 HOMEOSETU-STYLE FOLDER NAVIGATION (layout clone)
+// Chapter = root folder; each rubric with children = folder card;
+// leaf rubric = document card. back/forward/up + breadcrumb.
+// ============================================================
+var repViewMode='grid';        // 'grid' | 'list'
+var repFolderPath=[];          // labels from chapter root to current folder
+var repHistBack=[];            // [{ch,path,page}]
+var repHistFwd=[];
+var repFolderFilter='';
+var repSortAsc=true;
+var repRidPathMap={};          // rid -> {path:[labels], fullPath, node}
+var repPendingPath=null;       // path to open after chapter tree loads
+
+function _repJoinSeg(parentFull,label){
+    var joiner=(repCurrentBook==='synthesis91')?' - ':', ';
+    return parentFull?parentFull+joiner+label:label;
+}
+function repFullPathOf(pathLabels){
+    var full='';
+    for(var i=0;i<pathLabels.length;i++) full=_repJoinSeg(full,pathLabels[i]);
+    return full;
+}
+function buildRidPathMap(tree){
+    repRidPathMap={};
+    (function walk(node,pathLabels,fullPath){
         (node.order||Object.keys(node.children)).forEach(function(k){
-            var c=node.children[k];
-            if(!c)return;
+            var c=node.children[k]; if(!c)return;
+            var labels=pathLabels.concat([k]);
+            var fp=_repJoinSeg(fullPath,k);
+            if(c.hasRubric&&c.rid){ repRidPathMap[c.rid]={path:labels,fullPath:fp,node:c}; }
             var hc=(c.order&&c.order.length>0)||Object.keys(c.children||{}).length>0;
-            // 🔑 every node carries its rid (if it is a true rubric leaf) so we can navigate to it
-            flat.push({name:k,depth:depth,remedies:c.remedies||{},count:c.count||0,hasChildren:hc,hasRubric:!!c.hasRubric,path:c.path||'',oorep_id:c.oorep_id||null,rid:c.rid||null});
-            // 🔑 map rubric ID -> position in flat list (only when this node IS the rubric leaf)
-            if(c.hasRubric && c.rid){ repRidToFlatIndex[c.rid]=flat.length-1; }
-            if(hc)flatten(c,depth+1);
+            if(hc) walk(c,labels,fp);
         });
-    }
-    flatten(tree,0);repCurrentFlatTree=flat;repTreePage=0;
-    // 🔑 if a navigation is pending, jump to the page containing that rubric
-    if(repPendingNavRid && repRidToFlatIndex.hasOwnProperty(repPendingNavRid)){
-        var targetPage=Math.floor(repRidToFlatIndex[repPendingNavRid]/repTreePageSize);
-        var flashRid=repPendingNavRid; repPendingNavRid=null;
-        renderTreePage(chKey,chName,targetPage);
-        setTimeout(function(){ flashRubricRow(flashRid); },80);
+    })(tree,[],'');
+}
+function repResolveNode(path){
+    var n=repCurrentTree;
+    for(var i=0;i<path.length;i++){ if(!n)return null; n=n.children[path[i]]; }
+    return n||null;
+}
+function repCurrentState(){ return {ch:repCurrentChapter,path:repFolderPath.slice(),page:repTreePage}; }
+function repApplyState(st){
+    if(!st)return;
+    if(!st.ch||st.ch!==repCurrentChapter){
+        repPendingPath=st.path||[]; repTreePage=st.page||0;
+        selectChapter(st.ch);
     } else {
-        renderTreePage(chKey,chName,0);
+        repFolderPath=(st.path||[]).slice();
+        repTreePage=st.page||0; repFolderFilter='';
+        renderFolderView();
     }
 }
-    function renderTreePage(chKey,chName,page){
-    var cd=document.getElementById('repRubricContent');if(!cd)return;
-    var flat=repCurrentFlatTree,total=flat.length,totalPages=Math.ceil(total/repTreePageSize)||1;
-    if(page<0)page=0;if(page>=totalPages)page=totalPages-1;repTreePage=page;
-    var start=page*repTreePageSize,end=Math.min(start+repTreePageSize,total);
-    var h='';
-    if(repLastSearchView){
-        h+='<div style="margin-bottom:10px;padding:8px 10px;background:linear-gradient(135deg,#fef9e7,#fdf2e9);border:1px solid #f39c12;border-radius:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">';
-        h+='<button onclick="backToSearchResults()" style="padding:6px 14px;border:none;border-radius:5px;background:linear-gradient(135deg,#f39c12,#d68910);color:white;font-weight:bold;cursor:pointer;font-family:inherit;font-size:12px;box-shadow:0 1px 4px rgba(0,0,0,0.2);">🔙 '+(currentLang==='ur'?'سرچ رزلٹس پر واپس':'Back to results')+'</button>';
-        h+='<span style="font-size:11px;color:#856404;">'+(currentLang==='ur'?'آپ ایک سرچ ربرک پر آئے تھے — یہاں سے واپس جا سکتے ہیں':'You arrived here from a search — return anytime')+'</span>';
-        h+='</div>';
+function repGo(path,keepFwd){
+    if(!keepFwd){ repHistBack.push(repCurrentState()); repHistFwd=[]; }
+    repFolderPath=path.slice(); repTreePage=0; repFolderFilter='';
+    renderFolderView();
+}
+function repBack(){
+    if(!repHistBack.length)return;
+    repHistFwd.push(repCurrentState());
+    repApplyState(repHistBack.pop());
+}
+function repFwd(){
+    if(!repHistFwd.length)return;
+    repHistBack.push(repCurrentState());
+    repApplyState(repHistFwd.pop());
+}
+function repUp(){ if(repFolderPath.length) repGo(repFolderPath.slice(0,-1)); }
+function repOpenChapter(chKey){
+    if(chKey===repCurrentChapter)return;
+    repHistBack.push(repCurrentState()); repHistFwd=[];
+    selectChapter(chKey);
+}
+function repBcGo(i){
+    if(i<0){ return; }
+    repGo(repFolderPath.slice(0,i+1));
+}
+function repUpdateNavButtons(){
+    var b=document.getElementById('repBtnBack'),f=document.getElementById('repBtnFwd'),u=document.getElementById('repBtnUp');
+    if(b)b.disabled=!repHistBack.length;
+    if(f)f.disabled=!repHistFwd.length;
+    if(u)u.disabled=!repFolderPath.length;
+}
+function repRenderBreadcrumb(){
+    var bc=document.getElementById('repBreadcrumb'); if(!bc)return;
+    var bookInfo=REP_BOOK_INFO[repCurrentBook]||{abbr:'?',name:repCurrentBook};
+    var h='<span class="rep-bc-seg rep-bc-book" onclick="repOpenBookRoot()">📖 '+escapeHtml(bookInfo.name)+'</span>';
+    if(repCurrentChapter){
+        h+='<span class="rep-bc-sep">›</span><span class="rep-bc-seg'+(repFolderPath.length?'':' active')+'" onclick="repGo([])">📁 '+escapeHtml(repCurrentChName)+'</span>';
+        for(var i=0;i<repFolderPath.length;i++){
+            h+='<span class="rep-bc-sep">›</span><span class="rep-bc-seg'+(i===repFolderPath.length-1?' active':'')+'" onclick="repBcGo('+i+')">'+escapeHtml(repFolderPath[i])+'</span>';
+        }
+    } else {
+        h+='<span class="rep-bc-sep">›</span><span class="rep-bc-dim">'+repLangText({ur:'باب منتخب کریں',en:'Select a chapter',roman:'Chapter select karein'})+'</span>';
     }
-    h+='<div class="rep-breadcrumb">📖 Repertory / <span>'+escapeHtml(chName)+'</span> ('+total.toLocaleString()+' rubrics)';
-    if(totalPages>1)h+=' <span style="font-size:11px;color:#7f8c8d;">Page '+(page+1)+'/'+totalPages+'</span>';h+='</div>';
-    if(totalPages>1){h+='<div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;">';h+='<button onclick="renderTreePage(repCurrentChKey,repCurrentChName,'+(page-1)+')" style="padding:4px 12px;border:1px solid #ddd;background:white;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px;"'+(page===0?' disabled':'')+'>◀ Prev</button>';h+='<span style="font-size:11px;color:#555;">'+(start+1)+'-'+end+' of '+total.toLocaleString()+'</span>';h+='<button onclick="renderTreePage(repCurrentChKey,repCurrentChName,'+(page+1)+')" style="padding:4px 12px;border:1px solid #ddd;background:white;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px;"'+(page>=totalPages-1?' disabled':'')+'>Next ▶</button>';h+='<span style="flex:1;"></span>';h+='<select onchange="repTreePageSize=parseInt(this.value);renderTree(repCurrentChKey,repCurrentChName,repCurrentTree);" style="padding:3px 6px;border:1px solid #ddd;border-radius:4px;font-size:11px;font-family:inherit;"><option value="50"'+(repTreePageSize===50?' selected':'')+'>50/page</option><option value="100"'+(repTreePageSize===100?' selected':'')+'>100/page</option><option value="200"'+(repTreePageSize===200?' selected':'')+'>200/page</option><option value="500"'+(repTreePageSize===500?' selected':'')+'>500/page</option></select></div>';}
-    h+='<div class="rep-tree">';
-    for(var i=start;i<end;i++){var leaf=flat[i],d=leaf.depth;var rems=Object.keys(leaf.remedies||{});rems.sort(function(a,b){return(leaf.remedies[b]||1)-(leaf.remedies[a]||1)||a.localeCompare(b);});
-        var ridAttr=leaf.rid?(' data-rid="'+escapeHtml(leaf.rid)+'"'):'';
-        var ridData=leaf.rid?(' <small style="color:#bbb;font-size:9px;" title="Rubric ID">#'+escapeHtml(leaf.rid)+'</small>'):'';
-        if(d===0){
-            h+='<div class="rep-rubric-main-wrapper"'+ridAttr+'><div class="rep-rubric-main" style="margin-bottom:1px; text-transform: uppercase; font-weight: bold;">'+escapeHtml(leaf.name)+ridData+' <span style="font-weight:bold;">:</span></div>';
-            if(rems.length>0){h+='<div class="rep-rubric-main-rems">';rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</div>';}
-            h+='</div>';
-        }else{
-            var cls='rep-rubric-d'+(d>3?3:d);h+='<div class="rep-tree-leaf '+cls+'"'+ridAttr+'>';
-            if(d<=3)h+='<span class="rep-bullet"></span>';
-            h+='<span class="rep-rubric-name">'+escapeHtml(leaf.name)+ridData+' <span style="font-weight:bold;">:</span></span>';
-            if(rems.length>0){h+='<span style="margin-left:8px;">';rems.forEach(function(abbr){var g=leaf.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});h+='</span>';}
-            h+='</div>';
+    bc.innerHTML=h;
+}
+function repOpenBookRoot(){
+    repHistBack.push(repCurrentState()); repHistFwd=[];
+    repCurrentChapter=''; repFolderPath=[]; repFolderFilter='';
+    renderChapterList();
+    repRenderEmptyState();
+}
+
+// 🔑 renders the whole folder view: header (RUBRICS IN X + filter) + cards + dock
+function renderFolderView(){
+    var cd=document.getElementById('repRubricContent'); if(!cd)return;
+    repUpdateNavButtons(); repRenderBreadcrumb();
+    var node=repResolveNode(repFolderPath);
+    if(!node){ repFolderPath=[]; node=repCurrentTree; }
+    var nm=repFolderPath.length?repFolderPath[repFolderPath.length-1]:repCurrentChName;
+    var h='';
+    h+='<div class="rep-content-head">'
+      +'<div class="rep-content-title"><span class="rep-content-folder">📁</span>'
+      +'<span>'+repLangText({ur:'ربرکس:',en:'RUBRICS IN',roman:'RUBRICS IN'})+'</span>'
+      +'<b>'+escapeHtml(String(nm).toUpperCase())+'</b>'
+      +'<span>('+String(node.order.length).toLocaleString()+')</span></div>'
+      +'<input type="text" class="rep-folder-filter" id="repFolderFilterInput" value="'+escapeHtml(repFolderFilter)+'" oninput="repOnFolderFilter(this.value)" placeholder="'+escapeHtml(repLangText({ur:'اس فولڈر میں فلٹر کریں...',en:'Filter in current folder...',roman:'Is folder mein filter karein...'}))+'">'
+      +'</div>';
+    h+='<div id="repCardsArea"></div>';
+    h+='<div id="repDockArea"></div>';
+    cd.innerHTML=h;
+    renderFolderCards();
+    cd.scrollTop=0;
+}
+function repOnFolderFilter(v){
+    repFolderFilter=v; repTreePage=0;
+    renderFolderCards();
+}
+function repSetView(m){
+    repViewMode=m;
+    var g=document.getElementById('repViewGrid'),l=document.getElementById('repViewList');
+    if(g)g.classList.toggle('active',m==='grid');
+    if(l)l.classList.toggle('active',m==='list');
+    renderFolderCards();
+}
+
+// 🔑 card building helpers
+function _repNodeKids(c){ return (c.order&&c.order.length>0)||Object.keys(c.children||{}).length>0; }
+function _repAttr(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function repCardHtml(it){
+    var c=it.node,kids=_repNodeKids(c);
+    var rems=Object.keys(c.remedies||{}).length;
+    var rid=c.hasRubric&&c.rid?String(c.rid):'';
+    var full=_repJoinSeg(repFullPathOf(repFolderPath),it.label);
+    var badges='';
+    if(kids) badges+='<span class="rpc-badge kids">📁 '+c.order.length+'</span>';
+    if(rems) badges+='<span class="rpc-badge rems" onclick="event.stopPropagation();repOpenRubricPanel(_repFullOf(this),_repRidOf(this))" data-full="'+_repAttr(full)+'" data-rid="'+_repAttr(rid)+'">⚡ '+rems+' '+repLangText({ur:'ادویات',en:'remedies',roman:'remedies'})+'</span>';
+    if(!badges) badges='<span class="rpc-empty">Empty</span>';
+    return '<div class="rpc-card" data-kids="'+(kids?1:0)+'" data-label="'+_repAttr(it.label)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+' onclick="repCardClick(this)">'
+        +'<div class="rpc-card-top"><div class="rpc-ico '+(kids?'folder':'doc')+'">'+(kids?'📁':'📄')+'</div>'
+        +'<button class="rpc-kebab" onclick="event.stopPropagation();repKebabShow(event,this)" data-full="'+_repAttr(full)+'" data-rid="'+_repAttr(rid)+'">⋮</button></div>'
+        +'<div class="rpc-title" dir="ltr">'+escapeHtml(it.label)+'</div>'
+        +'<div class="rpc-badges">'+badges+'</div>'
+        +'</div>';
+}
+function repListRowHtml(it){
+    var c=it.node,kids=_repNodeKids(c);
+    var rems=Object.keys(c.remedies||{}).length;
+    var rid=c.hasRubric&&c.rid?String(c.rid):'';
+    var full=_repJoinSeg(repFullPathOf(repFolderPath),it.label);
+    var badges='';
+    if(kids) badges+='<span class="rpc-badge kids">📁 '+c.order.length+'</span>';
+    if(rems) badges+='<span class="rpc-badge rems" onclick="event.stopPropagation();repOpenRubricPanel(_repFullOf(this),_repRidOf(this))" data-full="'+_repAttr(full)+'" data-rid="'+_repAttr(rid)+'">⚡ '+rems+'</span>';
+    if(!badges) badges='<span class="rpc-empty">Empty</span>';
+    return '<div class="rpl-row" data-kids="'+(kids?1:0)+'" data-label="'+_repAttr(it.label)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+' onclick="repCardClick(this)">'
+        +'<div class="rpc-ico '+(kids?'folder':'doc')+'" style="width:30px;height:30px;font-size:14px;">'+(kids?'📁':'📄')+'</div>'
+        +'<div class="rpl-name" dir="ltr">'+escapeHtml(it.label)+'</div>'
+        +'<div class="rpl-badges">'+badges+'</div>'
+        +'</div>';
+}
+function _repFullOf(el){ return el.getAttribute('data-full')||''; }
+function _repRidOf(el){ return el.getAttribute('data-rid')||''; }
+function repCardClick(el){
+    repKebabHide();
+    if(el.getAttribute('data-kids')==='1'){ repGo(repFolderPath.concat([el.getAttribute('data-label')])); }
+    else { repOpenRubricPanel(_repFullOf(el),_repRidOf(el)); }
+}
+
+function renderFolderCards(){
+    var area=document.getElementById('repCardsArea'); if(!area)return;
+    var node=repResolveNode(repFolderPath);
+    if(!node){ area.innerHTML=''; renderFolderDock(0,0,0,0); return; }
+    var items=node.order.map(function(k){ return {label:k,node:node.children[k]}; });
+    if(repFolderFilter){
+        var f=repFolderFilter.toLowerCase();
+        items=items.filter(function(it){ return it.label.toLowerCase().indexOf(f)!==-1; });
+    }
+    items.sort(function(a,b){ var c=a.label.localeCompare(b.label); return repSortAsc?c:-c; });
+    // 🔑 pending search navigation: jump to the page containing that rubric
+    if(repPendingNavRid){
+        for(var q=0;q<items.length;q++){
+            if(items[q].node&&items[q].node.rid===repPendingNavRid){ repTreePage=Math.floor(q/repTreePageSize); break; }
         }
     }
-    h+='</div>';cd.innerHTML=h;cd.scrollTop=0;
+    var total=items.length,totalPages=Math.ceil(total/repTreePageSize)||1;
+    if(repTreePage>=totalPages)repTreePage=totalPages-1;
+    if(repTreePage<0)repTreePage=0;
+    var start=repTreePage*repTreePageSize,end=Math.min(start+repTreePageSize,total);
+    var h='';
+    if(!total){ h='<div class="rep-empty-folder">'+repLangText({ur:'اس فولڈر میں کوئی ربرک نہیں',en:'No rubrics in this folder',roman:'Is folder mein koi rubric nahi'})+'</div>'; }
+    else if(repViewMode==='grid'){
+        h='<div class="rep-cards-grid">';
+        for(var i=start;i<end;i++) h+=repCardHtml(items[i]);
+        h+='</div>';
+    } else {
+        h='<div class="rep-cards-list">';
+        for(var j=start;j<end;j++) h+=repListRowHtml(items[j]);
+        h+='</div>';
+    }
+    area.innerHTML=h;
+    renderFolderDock(totalPages,total,start,end);
+    if(repPendingNavRid){
+        var fr=repPendingNavRid; repPendingNavRid=null;
+        setTimeout(function(){ flashRubricRow(fr); },80);
+    }
+}
+
+// 🔑 bottom floating dock: page pills + sort + page size (HomeoSetu clipboards bar)
+function repPageWindow(cur,totalPages){
+    var arr=[],shown={};
+    function add(p){ if(p>=0&&p<totalPages&&!shown[p]){ shown[p]=1; arr.push(p); } }
+    add(0); add(totalPages-1);
+    [cur-1,cur,cur+1].forEach(add);
+    add(cur-2); add(cur+2);
+    arr.sort(function(a,b){return a-b;});
+    var out=[],prev=-1;
+    arr.forEach(function(p){
+        if(prev!==-1&&p-prev>1) out.push('...');
+        out.push(p); prev=p;
+    });
+    return out;
+}
+function renderFolderDock(totalPages,total,start,end){
+    var d=document.getElementById('repDockArea'); if(!d)return;
+    if(!totalPages){ d.innerHTML=''; return; }
+    var h='<div class="rep-dock">';
+    h+='<span class="rep-dock-label">'+repLangText({ur:'صفحات',en:'PAGES',roman:'PAGES'})+'</span>';
+    repPageWindow(repTreePage,totalPages).forEach(function(p){
+        if(p==='...'){ h+='<span class="rep-dock-dots">…</span>'; return; }
+        h+='<button class="rep-dock-page'+(p===repTreePage?' active':'')+'" onclick="repGoPage('+p+')">'+(p+1)+'</button>';
+    });
+    h+='<span class="rep-dock-div"></span>';
+    h+='<button class="rep-dock-ico" onclick="repToggleSort()" title="Sort A-Z / Z-A">⇅ '+(repSortAsc?'A-Z':'Z-A')+'</button>';
+    h+='<button class="rep-dock-ico" onclick="repCyclePageSize()" title="Cards per page">≡ '+repTreePageSize+'</button>';
+    if(total) h+='<span class="rep-dock-info">'+(start+1)+'–'+end+' / '+total.toLocaleString()+'</span>';
+    h+='</div>';
+    d.innerHTML=h;
+}
+function repGoPage(p){ repTreePage=p; renderFolderCards(); }
+function repToggleSort(){ repSortAsc=!repSortAsc; renderFolderCards(); }
+function repCyclePageSize(){
+    var sizes=[50,100,200,500];
+    var idx=sizes.indexOf(repTreePageSize); if(idx===-1)idx=0;
+    repTreePageSize=sizes[(idx+1)%sizes.length];
+    repTreePage=0; renderFolderCards();
+}
+
+// 🔑 empty state (no chapter selected) — HomeoSetu-style dashed box
+function repRenderEmptyState(){
+    var cd=document.getElementById('repRubricContent'); if(!cd)return;
+    cd.innerHTML='<div class="rep-empty-state"><div class="res-icon">📁</div>'
+        +'<p class="res-title">'+repLangText({ur:'بائیں مینو سے کوئی باب منتخب کریں',en:'Select a chapter from the left menu',roman:'Bayen menu se koi chapter select karein'})+'</p>'
+        +'<p class="res-sub">'+repLangText({ur:'ربرکس اور ادویات دیکھیں',en:'Browse rubrics and remedies',roman:'Rubrics aur remedies dekhein'})+'</p></div>';
+    repRenderBreadcrumb(); repUpdateNavButtons();
+}
+
+// 🔑 kebab (⋮) popup menu
+var _repKebabTarget=null;
+function repKebabShow(ev,btn){
+    ev.stopPropagation(); repKebabHide();
+    _repKebabTarget={full:btn.getAttribute('data-full')||'',rid:btn.getAttribute('data-rid')||''};
+    var m=document.getElementById('repKebabMenu'); if(!m)return;
+    m.innerHTML='<button onclick="repKebabCopy()">📋 '+repLangText({ur:'پورا ربرک کاپی کریں',en:'Copy full rubric',roman:'Poora rubric copy karein'})+'</button>'
+        +'<button onclick="repKebabMeaning()">📖 '+repLangText({ur:'اردو معنی / ادویات دیکھیں',en:'Urdu meaning / remedies',roman:'Urdu matlab / adwiyat dekhein'})+'</button>';
+    var r=btn.getBoundingClientRect();
+    m.style.display='block';
+    m.style.top=(r.bottom+window.scrollY+4)+'px';
+    m.style.left=Math.max(8,r.right+window.scrollX-190)+'px';
+}
+function repKebabHide(){ var m=document.getElementById('repKebabMenu'); if(m)m.style.display='none'; }
+function repKebabCopy(){
+    var t=(_repKebabTarget&&_repKebabTarget.full)||'';
+    if(t&&navigator.clipboard){ navigator.clipboard.writeText(t).then(function(){ if(typeof showToast==='function')showToast('✅ '+t); }); }
+    repKebabHide();
+}
+function repKebabMeaning(){
+    var t=_repKebabTarget||{};
+    repOpenRubricPanel(t.full,t.rid);
+    repKebabHide();
+}
+if(typeof document!=='undefined'){
+    document.addEventListener('click',function(ev){
+        var m=document.getElementById('repKebabMenu');
+        if(m&&m.style.display==='block'&&!m.contains(ev.target)) repKebabHide();
+    });
+}
+
+// 🔑 Urdu glossary (lazy load) for word-by-word meaning
+var _repGlossary=null,_repGlossaryLoading=false;
+function ensureRepGlossary(cb){
+    if(_repGlossary){ cb(); return; }
+    if(_repGlossaryLoading){ setTimeout(function(){ ensureRepGlossary(cb); },300); return; }
+    _repGlossaryLoading=true;
+    fetch('glossary_en_ur.json?v=4').then(function(r){ return r.json(); }).then(function(d){
+        _repGlossary=d; _repGlossaryLoading=false; cb();
+    }).catch(function(e){ console.error('glossary load fail',e); _repGlossaryLoading=false; cb(); });
+}
+function repUrduMeaning(text){
+    if(!_repGlossary||!text)return'';
+    var W=_repGlossary.words||{},A=_repGlossary.aliases||{};
+    var toks=String(text).toLowerCase().match(/[a-z]+/g)||[];
+    var out=[],seen={};
+    for(var i=0;i<toks.length&&out.length<14;i++){
+        var t=toks[i]; if(seen[t])continue; seen[t]=1;
+        var e=W[t]||(A[t]?W[A[t]]:null);
+        if(e&&e.ur) out.push(e.ur);
+    }
+    return out.join(' ، ');
+}
+
+// 🔑 Remedy Details slide-in panel (HomeoSetu style)
+function repOpenRubricPanel(fullPath,rid){
+    var entry=(rid&&repRidPathMap[rid])?repRidPathMap[rid]:null;
+    var node=entry?entry.node:null;
+    var fp=fullPath||(entry?entry.fullPath:'');
+    ensureRepGlossary(function(){ repRenderRemedyPanel(fp,rid,node); });
+}
+function repRenderRemedyPanel(fullPath,rid,node){
+    var body=document.getElementById('repRemedyPanelBody'); if(!body)return;
+    var title=document.getElementById('repPanelTitle');
+    if(title) title.textContent=repLangText({ur:'💊 ربرک کی ادویات',en:'💊 Remedy Details',roman:'💊 Rubric ki adwiyat'});
+    var rems=(node&&node.remedies)||{};
+    var abbrs=Object.keys(rems);
+    abbrs.sort(function(a,b){ return (rems[b]||1)-(rems[a]||1)||a.localeCompare(b); });
+    var g3=[],g2=[],g1=[];
+    abbrs.forEach(function(a){ var g=rems[a]||1; if(g>=3)g3.push(a); else if(g===2)g2.push(a); else g1.push(a); });
+    var meaning=repUrduMeaning(fullPath||'');
+    var h='';
+    h+='<div class="rrp-name" dir="ltr">'+escapeHtml(fullPath||'—')+'</div>';
+    h+='<div class="rrp-path">'+(rid?repLangText({ur:'ربرک #: ',en:'Rubric #: ',roman:'Rubric #: '})+escapeHtml(rid):'')+'</div>';
+    if(meaning) h+='<div class="rrp-meaning"><div class="rrp-meaning-label">📖 '+repLangText({ur:'اردو معنی (لفظ بہ لفظ)',en:'URDU MEANING (word by word)',roman:'Urdu matlab (lafz ba lafz)'})+'</div>'+escapeHtml(meaning)+'</div>';
+    if(!abbrs.length){
+        h+='<div class="rrp-norems">'+repLangText({ur:'اس ربرک میں کوئی ادویات محفوظ نہیں',en:'No remedies recorded under this rubric',roman:'Is rubric mein koi adwiyat mehfooz nahi'})+'</div>';
+    } else {
+        h+='<div style="font-size:12px;color:#5d6d7e;margin-bottom:4px;">'+abbrs.length.toLocaleString()+' '+repLangText({ur:'ادویات — کلک سے پریسکرپشن میں کاپی ہوگی',en:'remedies — click to copy',roman:'adwiyat — click se copy'})+'</div>';
+        [[g3,'3',repLangText({ur:'درجہ 3 — مضبوط',en:'Grade 3 — strong',roman:'Darja 3 — mazboot'})],
+         [g2,'2',repLangText({ur:'درجہ 2 — درمیانہ',en:'Grade 2 — medium',roman:'Darja 2 — darmiyana'})],
+         [g1,'1',repLangText({ur:'درجہ 1 — معمولی',en:'Grade 1 — light',roman:'Darja 1 — mamooli'})]].forEach(function(gr){
+            if(!gr[0].length)return;
+            h+='<div class="rrp-grade-head"><span class="rep-gr-dot d'+gr[1]+'"></span>'+gr[2]+' ('+gr[0].length+')</div><div class="rrp-chips">';
+            gr[0].forEach(function(a){ h+='<span class="rep-remedy-tag g'+gr[1]+'" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')">'+escapeHtml(a)+'</span>'; });
+            h+='</div>';
+        });
+    }
+    body.innerHTML=h;
+    repShowRemedyPanel();
+}
+function repShowRemedyPanel(){
+    var p=document.getElementById('repRemedyPanel'),o=document.getElementById('repPanelOverlay');
+    if(p)p.classList.add('open');
+    if(o)o.classList.add('show');
+}
+function repCloseRemedyPanel(){
+    var p=document.getElementById('repRemedyPanel'),o=document.getElementById('repPanelOverlay');
+    if(p)p.classList.remove('open');
+    if(o)o.classList.remove('show');
+}
+
+// 🔑 chapter tree is ready -> enter folder view (root of chapter)
+function renderTree(chKey,chName,tree){
+    repCurrentTree=tree; repCurrentChName=chName; repCurrentChKey=chKey;
+    buildRidPathMap(tree);
+    repCurrentFlatTree=[]; repRidToFlatIndex={};
+    repFolderFilter='';
+    if(repPendingNavRid&&repRidPathMap.hasOwnProperty(repPendingNavRid)){
+        var entry=repRidPathMap[repPendingNavRid];
+        repFolderPath=entry.path.slice(0,-1);   // parent folder of the target rubric
+        repTreePage=0;
+        renderChapterList();
+        renderFolderView();
+        return;   // renderFolderCards flashes the pending rubric card
+    }
+    if(repPendingPath){ repFolderPath=repPendingPath.slice(); repPendingPath=null; }
+    else { repFolderPath=[]; repTreePage=0; }
+    renderChapterList();
+    renderFolderView();
+}
+// 🔑 compat alias — old callers (restoreRepSearchContext) land here
+function renderTreePage(chKey,chName,page){
+    if(typeof page==='number') repTreePage=page;
+    if(repCurrentTree) renderFolderView();
 }
 
 // 🔑 SEARCH MODE TOGGLE: 'all' = whole repertory, 'chapter' = only the open chapter
@@ -401,16 +728,15 @@ function restoreRepSearchContext(){
 
     function showCurrentOrEmpty(){
         if(repCurrentChapter){
-            if(repCurrentFlatTree && repCurrentFlatTree.length && repCurrentChKey===repCurrentChapter){
-                renderTreePage(repCurrentChKey, repCurrentChName, repTreePage || 0);
+            if(repCurrentTree && repCurrentChKey===repCurrentChapter){
+                renderFolderView();
             } else {
                 var nm=repCurrentChapter; repChapterNames.forEach(function(c){ if(c.key===repCurrentChapter) nm=c.name; });
                 if(repTreeCache[repCurrentChapter]) renderTree(repCurrentChapter, nm, repTreeCache[repCurrentChapter]);
                 else selectChapter(repCurrentChapter);
             }
         } else {
-            var cd=document.getElementById('repRubricContent');
-            if(cd) cd.innerHTML='<div class="empty-state"><div class="icon">📖</div><p>'+repLangText({ur:'کوئی چیکٹر منتخب کریں',en:'Select a chapter',roman:'Koi chapter select karein'})+'</p></div>';
+            repRenderEmptyState();
         }
     }
 
@@ -432,8 +758,9 @@ function restoreRepSearchContext(){
 
     if(ctx && ctx.chapter){
         repTreePageSize = ctx.pageSize || repTreePageSize;
-        if(repCurrentChapter===ctx.chapter && repCurrentFlatTree && repCurrentFlatTree.length){
-            renderTreePage(repCurrentChKey, repCurrentChName, ctx.page || 0);
+        if(repCurrentChapter===ctx.chapter && repCurrentTree && repCurrentChKey===ctx.chapter){
+            // 🔑 folder state was never touched by the search — just re-render it
+            renderFolderView();
         } else {
             selectChapter(ctx.chapter);
         }
@@ -460,42 +787,30 @@ function toggleRepSearchMode(){
     showToast(repLangText(m));
 }
 function updateRepSearchModeUI(){
-    var icon=document.getElementById('repSearchModeIcon');
-    var lbl=document.getElementById('repSearchModeLabel');
-    var btn=document.getElementById('repSearchModeBtn');
-    if(!icon||!lbl||!btn)return;
-    var labels = {
-        chapter:{ur:'یہ چیکٹر', en:'Open Ch', roman:'Open Ch'},
-        book:   {ur:'یہ کتاب',   en:'This Book', roman:'This Book'},
-        all:    {ur:'سب کتابیں', en:'All Books', roman:'All Books'}
-    };
-    var titles = {
-        chapter:{ur:'Mode 1/3: صرف کھلے چیکٹر میں سرچ۔ بدلنے کے لیے کلک کریں', en:'Mode 1/3: search only the OPEN chapter. Click to change', roman:'Mode 1/3: sirf open chapter mein search'},
-        book:   {ur:'Mode 2/3: اس ریپرٹری کے تمام چیپٹرز میں سرچ۔ بدلنے کے لیے کلک کریں', en:'Mode 2/3: search this WHOLE repertory (all chapters). Click to change', roman:'Mode 2/3: is repertory ke tamam chapters mein search'},
-        all:    {ur:'Mode 3/3: تمام ریپرٹریز کے تمام چیپٹرز میں سرچ۔ بدلنے کے لیے کلک کریں', en:'Mode 3/3: search ALL repertories (all chapters). Click to change', roman:'Mode 3/3: tamam repertories ke tamam chapters mein search'}
-    };
+    // 🔑 new toolbar has a scope DROPDOWN instead of the old toggle button
+    var sel=document.getElementById('repScopeSelect');
+    if(sel&&sel.value!==repSearchMode) sel.value=repSearchMode;
     var placeholders = {
         chapter:{ur:'🔍 صرف کھلے چیکٹر میں تلاش کریں... (مثلاً pain)', en:'🔍 Search open chapter only... (e.g. pain)', roman:'🔍 Sirf open chapter mein search... (e.g. pain)'},
         book:   {ur:'🔍 اس ریپرٹری کے تمام چیپٹرز میں تلاش کریں... (مثلاً pain)', en:'🔍 Search this repertory — all chapters... (e.g. pain)', roman:'🔍 Is repertory ke tamam chapters mein search... (e.g. pain)'},
         all:    {ur:'🔍 تمام ریپرٹریز کے تمام چیپٹرز میں تلاش کریں... (مثلاً pain)', en:'🔍 Search all repertories — all chapters... (e.g. pain)', roman:'🔍 Tamam repertories ke tamam chapters mein search... (e.g. pain)'}
     };
-    if(repSearchMode==='chapter'){
-        icon.textContent='📖'; lbl.textContent=repLangText(labels.chapter);
-        btn.style.background='linear-gradient(135deg,#8e44ad,#6c3483)';
-        btn.title=repLangText(titles.chapter);
-    } else if(repSearchMode==='book'){
-        icon.textContent='📚'; lbl.textContent=repLangText(labels.book);
-        btn.style.background='linear-gradient(135deg,#1a5276,#2980b9)';
-        btn.title=repLangText(titles.book);
-    } else {
-        icon.textContent='🌐'; lbl.textContent=repLangText(labels.all);
-        btn.style.background='linear-gradient(135deg,#c0392b,#e74c3c)';
-        btn.title=repLangText(titles.all);
-    }
     var inp=document.getElementById('repBrowserSearch');
     if(inp){
         inp.placeholder = repLangText(placeholders[repSearchMode] || placeholders.book);
     }
+}
+// 🔑 scope dropdown changed from the toolbar (HomeoSetu "Rubric / Subrubric" style)
+function setRepSearchScope(v){
+    if(REP_MODE_ORDER.indexOf(v)===-1) return;
+    if(v===repSearchMode) return;
+    repSearchMode=v;
+    _repSearchSeq++;
+    _repSearchCache=''; _repSearchResults=null;
+    updateRepSearchModeUI();
+    var inp=document.getElementById('repBrowserSearch');
+    if(inp&&inp.value.trim().length>=2){ searchRepertoryBrowser(); }
+    else { restoreRepSearchContext(); }
 }
 function showRepSearchPlaceholder(){
     var cd=document.getElementById('repRubricContent');
@@ -1017,12 +1332,15 @@ function navigateToRubric(bookKey, chKey, rid){
         return;
     }
 
-    // 🔑 same book, same chapter already rendered -> jump+flash
-    if(repCurrentChapter===chKey && repCurrentFlatTree && repCurrentFlatTree.length){
-        if(repRidToFlatIndex && repRidToFlatIndex.hasOwnProperty(rid)){
-            var targetPage = Math.floor(repRidToFlatIndex[rid]/repTreePageSize);
-            renderTreePage(repCurrentChKey, repCurrentChName, targetPage);
-            setTimeout(function(){ flashRubricRow(rid); }, 60);
+    // 🔑 same book, same chapter already rendered -> jump+flash (folder view)
+    if(repCurrentChapter===chKey && repCurrentTree){
+        var entry = repRidPathMap ? repRidPathMap[rid] : null;
+        if(entry){
+            repFolderPath = entry.path.slice(0,-1);   // parent folder of the target rubric
+            repFolderFilter = '';
+            repTreePage = 0;
+            repPendingNavRid = rid;                   // renderFolderCards will flash it
+            renderFolderView();
             return;
         }
     }
@@ -1052,7 +1370,7 @@ function flashRubricRow(rid){
     row.style.transition='background 0.4s';
     row.style.background='#fff3cd';
     row.style.boxShadow='0 0 0 3px #f39c12';
-    var ring=row.querySelector('.rep-rubric-main, .rep-rubric-name');
+    var ring=row.querySelector('.rep-rubric-main, .rep-rubric-name, .rpc-title, .rpl-name');
     if(ring){ ring.style.color='#d68910'; }
     setTimeout(function(){
         row.style.background='';
