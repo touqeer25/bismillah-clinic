@@ -465,7 +465,10 @@ def build_symptoms(items: List[str], vocab=None, max_attach: int = 3) -> dict:
         if not t:
             continue
         key = tuple(sorted(_toks(t)))
-        if not key or key in seen:
+        if not key:
+            # نسخہ 5.0: خالص اردو علامت — لاطینی ٹوکن نہیں بنتے؛ خام متن ہی کلید
+            key = ("ur", t.lower())
+        if key in seen:
             continue
         seen.add(key)
         toks = _toks(t)
@@ -476,9 +479,18 @@ def build_symptoms(items: List[str], vocab=None, max_attach: int = 3) -> dict:
         phrases.append(t)
 
     # ---------- (1) مکمل علامتیں (ایک موضوع = ایک مکمل علامت) ----------
+    try:
+        from homeo_core.engine import urdu_script as _us5
+    except Exception:
+        _us5 = None
     groups: Dict[tuple, List[int]] = {}
     frag_idx: List[int] = []
     for idx, ph in enumerate(phrases):
+        if _us5 is not None and _us5.has_urdu(ph):
+            # نسخہ 5.0: اردو علامت اپنی مکمل علامت بنی رہے —
+            # (ٹکڑا نہ بنے، کسی انگریزی علامت کے extra میں نہ ضم ہو)
+            groups.setdefault(("ur", ph), []).append(idx)
+            continue
         if _CAUSE_CLAUSE_RX.search(ph) or _FRAG_RX.search(ph):
             frag_idx.append(idx)
             continue

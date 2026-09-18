@@ -30,6 +30,12 @@ DATA_DIR = Path(
     os.getenv("HOMEOPATHY_DATA_DIR", Path(__file__).resolve().parents[2] / "kent_chapters")
 )
 
+# نسخہ 5.0: اردو رسم الخط کا آف لائن راستہ — بغیر انٹرنیٹ مریض کی زبان سے کلیدوں تک
+try:
+    from homeo_core.engine import urdu_script as _US
+except Exception:                      # ماڈیول غائب ہو تو نظام پرانا راستہ چلائے
+    _US = None
+
 # عمومی (جنرلز) ابواب — ان کا وزن زیادہ ہو گا
 GENERAL_CHAPTERS = {
     "generalities", "appetite", "sleep", "perspiration", "sweat",
@@ -386,6 +392,10 @@ def _tokenize(text: str) -> List[str]:
     نسخہ 4.7: ہائفن-والے الفاظ کے حصے بھی شامل («gall-stones» → gall-stones،
     gall، stones) — تاکہ «gall stone»/«gallstone» سے بھی میچ لگے"""
     text = _unligature(_strip_refs(str(text).lower()))
+    # نسخہ 5.0: اردو رسم الخط کے الفاظ پہلے انگریزی کلیدوں میں —
+    # (ورنہ نیچے والی regex اردو حروف مکمل ضائع کر دیتی تھی)
+    if _US is not None and _US.has_urdu(text):
+        text = _US.rewrite_urdu(text)
     text = re.sub(r"[^a-z0-9\s-]", " ", text)
     words = [w.strip("-") for w in text.split() if w.strip("-")]
     out = []
@@ -2139,6 +2149,13 @@ def map_symptom_deep(symptom: str, index: Optional[RubricIndex] = None,
       5) ایل ایل ایم کا حتمی انتخاب — اعتماد اور وجہ کے ساتھ (یا مقامی فال بیک)
     """
     index = index or get_index()
+    # نسخہ 5.0: اردو رسم الخط کا آف لائن راستہ — پہلے پورا جملہ انگریزی کلیدوں میں،
+    # پھر تصور-ترجمہ اور تمام گارڈز انگریزی پر چلیں گے (پولرٹی/وقت کی پہچان بھی)
+    if _US is not None and _US.has_urdu(str(search_text or symptom)):
+        _tr = _US.rewrite_urdu(str(search_text or symptom))
+        if _tr and _tr.strip():
+            search_text = _tr
+            symptom = _tr
     # نسخہ 4.8: پہلے فقرے کا تصور-ترجمہ (cannot sleep → sleeplessness،
     # wants to be alone → aversion to company) — پھر سب گارڈز اسی دیکھیں گے
     _src = str(search_text or symptom)

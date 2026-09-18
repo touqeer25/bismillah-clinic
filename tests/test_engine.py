@@ -302,3 +302,84 @@ def test_mm_symptom_tokens():
     from homeo_core.engine import materia_medica as mm
     toks = mm._symptom_tokens(["dry cough", "ثست", "thirst for cold water"])
     assert "cough" in toks and "thirst" in toks
+
+
+# ------------------------------------------------------------------ #
+# نسخہ 5.0 — اردو رسم الخط کا آف لائن راستہ + بہن ربرک کا جھنڈا
+# ------------------------------------------------------------------ #
+def test_urdu_script_rewrite_v50():
+    """اردو رسم الخط → انگریزی کلیدیں — یکسانی (ھ→ہ) اور صرفی سابقے سمیت"""
+    from homeo_core.engine import urdu_script as us
+    cases = {
+        "پیٹ میں جلن": "abdomen burning",
+        "صبح سر درد": "morning headache",
+        "جھکنے سے چکر": "stooping vertigo",
+        "کافی سے بگڑتا ہے": "coffee agg",
+        "دائیں گھٹنے میں چبھن": "right knee stitching",   # ھ → ہ یکسانی
+        "آنکھوں میں خارش": "eyes itching",                 # وں سابقہ
+        "کھلی ہوا میں بہتر": "open air amel",
+        "اکیلے رہنا چاہتا ہے": "wants to be alone",
+    }
+    for ur, expect in cases.items():
+        got = us.rewrite_urdu(ur)
+        assert got == expect, f"{ur}: {got!r} != {expect!r}"
+    assert us.has_urdu("پیٹ") and not us.has_urdu("pait mein jalan")
+
+
+def test_urdu_script_engine_path_v50():
+    """انجن میں اردو رسم الخط علامت — بغیر انٹرنیٹ کے درست ربرک"""
+    from homeo_core.engine.rubric_mapper import map_symptom_deep, get_index
+    kent = get_index()
+    picks = map_symptom_deep("پیٹ میں جلن", index=kent, top_k=3, use_llm=False)
+    assert picks and picks[0]["chapter"] == "abdomen"
+    assert picks[0]["text"] == "PAIN, burning"
+    picks2 = map_symptom_deep("نیند نہیں آتی", index=kent, top_k=3, use_llm=False)
+    assert picks2 and picks2[0]["text"].startswith("SLEEPLESSNESS")
+    picks3 = map_symptom_deep("پیٹھ میں جکڑن صبح", index=kent, top_k=3, use_llm=False)
+    assert picks3 and picks3[0]["chapter"] == "back" and "STIFFNESS" in picks3[0]["text"]
+
+
+def test_sibling_alerts_v50():
+    """بہن ربرک کا جھنڈا — رشتہ دار ربرکس کی پہچان (والد-ذیلی/بہن)"""
+    from homeo_core.engine.repertorizer import _related_rubrics
+    # والد-ذیلی
+    assert _related_rubrics("PAIN, burning", "PAIN, burning, left")
+    assert _related_rubrics("PAIN", "PAIN, burning")
+    # بہن (ایک ہی والد)
+    assert _related_rubrics("PAIN, morning", "PAIN, evening")
+    # غیر متعلق
+    assert not _related_rubrics("PAIN, burning", "SLEEPLESSNESS")
+    assert not _related_rubrics("PAIN, burning", "PAIN, burning")
+
+
+def test_repertorize_sibling_alerts_key_v50():
+    """repertorize_multi کے جواب میں sibling_alerts موجود ہو"""
+    from homeo_core.engine.repertorizer import repertorize_multi
+    res = repertorize_multi(
+        ["burning in abdomen", "headache worse in morning"],
+        source_names=["kent"], use_llm=False,
+    )
+    assert "sibling_alerts" in res
+    assert isinstance(res["sibling_alerts"], list)
+
+
+def test_reverse_index_glossary_v50():
+    """لغت سے ریورس انڈیکس — جدول میں نہ ہونے والا لفظ بھی ملے"""
+    from homeo_core.engine import urdu_script as us
+    rev = us._reverse()
+    assert rev, "ریورس انڈیکس خالی — glossary_en_ur.json لوڈ نہیں ہوا"
+    # لغت میں پلسیشن کا اردو معنی «دھڑکن» ہے — ریورس سے انگریزی ملنی چاہیے
+    assert any("pulsat" in w for w in rev.get(us.normalize("دھڑکن"), []))
+
+
+def test_mixed_urdu_english_case_v50():
+    """ملا جلا کیس (اردو + انگریزی) — اردو علامت گم نہ ہو، اپنی ربرک لے
+    (symptom_builder خالص اردو علامت کو نہیں گراتا اب)"""
+    from homeo_core.engine.repertorizer import repertorize_multi
+    res = repertorize_multi(
+        ["burning in abdomen", "پیٹ میں جلن صبح", "headache worse in morning"],
+        source_names=["kent"], use_llm=False,
+    )
+    ur_rubrics = [r for r in res["rubrics_used"] if "پیٹ" in r["symptom"]]
+    assert ur_rubrics, "اردو علامت کی ربرکس پائپ لائن سے گم ہو گئیں"
+    assert any("PAIN, burning, morning" == r["rubric"] for r in ur_rubrics)

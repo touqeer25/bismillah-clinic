@@ -1,0 +1,4822 @@
+{
+ "meta": {
+  "name": "Kent repertory — English–Urdu glossary",
+  "version": 1,
+  "date": "2026-09-18",
+  "source": "kent_repertory.json (61,124 rubrics, ligature-normalized)",
+  "phase": "1 — Tier A (فراوانی ≥ 100 ربرکس)",
+  "counts": {
+   "tier_a_words": 473,
+   "translated": 473,
+   "pending": 0,
+   "grammar_phrases": 27
+  },
+  "coverage_note": "Tier A الفاظ ≥100 ربرکس میں آتے ہیں؛ رسائی ≈ 95.8%",
+  "next_phases": [
+   "Phase 2: Tier B (20-99) + Tier C (3-19) + نادر الفاظ",
+   "Phase 3: انجن ضم (اردو رسم الخط کا راستہ، ریورس انڈیکس، لگیچر نارملائزیشن)",
+   "Phase 4: UI — معنی اظہار، تصدیقی مرحلہ"
+  ]
+ },
+ "words": {
+  "pain": {
+   "ur": "درد",
+   "part": "sensation",
+   "freq": 16565,
+   "chapters": {
+    "extremities": 4009,
+    "head": 3164,
+    "back": 1638
+   }
+  },
+  "morning": {
+   "ur": "صبح",
+   "part": "time",
+   "freq": 5240,
+   "chapters": {
+    "head": 909,
+    "extremities": 906,
+    "ear": 518
+   }
+  },
+  "amel": {
+   "ur": "آرام (amel.) — جس سے بہتر ہو",
+   "part": "modality",
+   "freq": 4766,
+   "chapters": {
+    "extremities": 979,
+    "head": 976,
+    "back": 496
+   }
+  },
+  "right": {
+   "ur": "دائیں",
+   "part": "side",
+   "freq": 3560,
+   "chapters": {
+    "extremities": 857,
+    "head": 717,
+    "face": 609
+   }
+  },
+  "extending": {
+   "ur": "پھیلاؤ (درد کہاں تک)",
+   "part": "direction",
+   "freq": 3279,
+   "chapters": {
+    "extremities": 712,
+    "back": 562,
+    "head": 560
+   }
+  },
+  "region": {
+   "ur": "علاقہ",
+   "part": "location",
+   "freq": 3012,
+   "chapters": {
+    "back": 1978,
+    "abdomen": 778,
+    "chest": 119
+   }
+  },
+  "agg": {
+   "ur": "بگاڑ (agg.) — جس سے بگڑتا ہو",
+   "part": "modality",
+   "freq": 2996,
+   "chapters": {
+    "head": 511,
+    "extremities": 447,
+    "back": 281
+   }
+  },
+  "evening": {
+   "ur": "شام",
+   "part": "time",
+   "freq": 2823,
+   "chapters": {
+    "extremities": 668,
+    "head": 362,
+    "cough": 167
+   }
+  },
+  "night": {
+   "ur": "رات",
+   "part": "time",
+   "freq": 2553,
+   "chapters": {
+    "extremities": 574,
+    "cough": 210,
+    "mind": 177
+   }
+  },
+  "stitching": {
+   "ur": "سوئی جیسی چبھن",
+   "part": "sensation",
+   "freq": 2421,
+   "chapters": {
+    "extremities": 662,
+    "chest": 355,
+    "head": 291
+   }
+  },
+  "left": {
+   "ur": "بائیں",
+   "part": "side",
+   "freq": 2393,
+   "chapters": {
+    "extremities": 564,
+    "eye": 450,
+    "chest": 325
+   }
+  },
+  "with": {
+   "ur": "کے ساتھ",
+   "part": "structural",
+   "freq": 2150,
+   "chapters": {
+    "extremities": 325,
+    "mind": 232,
+    "head": 203
+   }
+  },
+  "walking": {
+   "ur": "چلنا",
+   "part": "modality",
+   "freq": 2069,
+   "chapters": {
+    "extremities": 687,
+    "head": 244,
+    "back": 216
+   }
+  },
+  "limbs": {
+   "ur": "اعضا",
+   "part": "location",
+   "freq": 1951,
+   "chapters": {
+    "extremities": 1880,
+    "back": 16,
+    "abdomen": 12
+   }
+  },
+  "pressing": {
+   "ur": "دبانے والا درد",
+   "part": "sensation",
+   "freq": 1826,
+   "chapters": {
+    "head": 771,
+    "abdomen": 440,
+    "chest": 114
+   }
+  },
+  "menses": {
+   "ur": "حیض",
+   "part": "location",
+   "freq": 1818,
+   "chapters": {
+    "genitalia_female": 292,
+    "extremities": 227,
+    "head": 216
+   }
+  },
+  "drawing": {
+   "ur": "کھینچاؤ",
+   "part": "sensation",
+   "freq": 1787,
+   "chapters": {
+    "extremities": 692,
+    "abdomen": 352,
+    "head": 229
+   }
+  },
+  "afternoon": {
+   "ur": "سہ پہر",
+   "part": "time",
+   "freq": 1780,
+   "chapters": {
+    "extremities": 606,
+    "abdomen": 136,
+    "head": 131
+   }
+  },
+  "bed": {
+   "ur": "بستر (بستر پر/میں)",
+   "part": "time",
+   "freq": 1668,
+   "chapters": {
+    "extremities": 593,
+    "head": 213,
+    "back": 110
+   }
+  },
+  "lying": {
+   "ur": "لیٹنا",
+   "part": "modality",
+   "freq": 1594,
+   "chapters": {
+    "extremities": 307,
+    "head": 186,
+    "chest": 185
+   }
+  },
+  "air": {
+   "ur": "ہوا",
+   "part": "modality",
+   "freq": 1571,
+   "chapters": {
+    "head": 337,
+    "extremities": 256,
+    "cough": 102
+   }
+  },
+  "upper": {
+   "ur": "اوپری",
+   "part": "direction",
+   "freq": 1532,
+   "chapters": {
+    "extremities": 1352,
+    "face": 69,
+    "teeth": 26
+   }
+  },
+  "tearing": {
+   "ur": "پھاڑنے جیسی",
+   "part": "sensation",
+   "freq": 1503,
+   "chapters": {
+    "extremities": 722,
+    "head": 360,
+    "face": 67
+   }
+  },
+  "waking": {
+   "ur": "جاگنا",
+   "part": "modality",
+   "freq": 1436,
+   "chapters": {
+    "ear": 481,
+    "extremities": 216,
+    "mind": 120
+   }
+  },
+  "side": {
+   "ur": "طرف",
+   "part": "side",
+   "freq": 1410,
+   "chapters": {
+    "head": 466,
+    "extremities": 310,
+    "chest": 106
+   }
+  },
+  "motion": {
+   "ur": "حرکت",
+   "part": "modality",
+   "freq": 1372,
+   "chapters": {
+    "extremities": 505,
+    "back": 268,
+    "head": 220
+   }
+  },
+  "sensation": {
+   "ur": "احساس",
+   "part": "structural",
+   "freq": 1332,
+   "chapters": {
+    "head": 232,
+    "extremities": 190,
+    "ear": 105
+   }
+  },
+  "sitting": {
+   "ur": "بیٹھنا",
+   "part": "modality",
+   "freq": 1320,
+   "chapters": {
+    "extremities": 446,
+    "head": 180,
+    "back": 170
+   }
+  },
+  "cold": {
+   "ur": "سردی",
+   "part": "sensation",
+   "freq": 1311,
+   "chapters": {
+    "extremities": 262,
+    "head": 184,
+    "chill": 70
+   }
+  },
+  "heat": {
+   "ur": "گرمی",
+   "part": "location",
+   "freq": 1289,
+   "chapters": {
+    "fever": 194,
+    "face": 187,
+    "head": 182
+   }
+  },
+  "forehead": {
+   "ur": "پیشانی",
+   "part": "location",
+   "freq": 1263,
+   "chapters": {
+    "head": 1173,
+    "face": 44,
+    "eye": 10
+   }
+  },
+  "general": {
+   "ur": "عمومی",
+   "part": "location",
+   "freq": 1252,
+   "chapters": {
+    "head": 624,
+    "teeth": 564,
+    "stomach": 32
+   }
+  },
+  "burning": {
+   "ur": "جلن",
+   "part": "sensation",
+   "freq": 1243,
+   "chapters": {
+    "extremities": 352,
+    "abdomen": 106,
+    "back": 79
+   }
+  },
+  "daytime": {
+   "ur": "دن کے وقت",
+   "part": "time",
+   "freq": 1238,
+   "chapters": {
+    "head": 345,
+    "extremities": 300,
+    "genitalia_female": 153
+   }
+  },
+  "foot": {
+   "ur": "پاؤں",
+   "part": "location",
+   "freq": 1213,
+   "chapters": {
+    "extremities": 1191,
+    "head": 4,
+    "mind": 3
+   }
+  },
+  "etc": {
+   "ur": "وغیرہ",
+   "part": "structural",
+   "freq": 1188,
+   "chapters": {
+    "abdomen": 408,
+    "mind": 279,
+    "head": 279
+   }
+  },
+  "lower": {
+   "ur": "زیریں / نیچے والا",
+   "part": "direction",
+   "freq": 1159,
+   "chapters": {
+    "extremities": 850,
+    "face": 115,
+    "chest": 70
+   }
+  },
+  "open": {
+   "ur": "کھلی (ہوا)",
+   "part": "modality",
+   "freq": 1159,
+   "chapters": {
+    "head": 289,
+    "extremities": 255,
+    "mind": 83
+   }
+  },
+  "back": {
+   "ur": "پیٹھ",
+   "part": "location",
+   "freq": 1136,
+   "chapters": {
+    "extremities": 417,
+    "back": 165,
+    "head": 122
+   }
+  },
+  "eruptions": {
+   "ur": "پھنسیاں / دانے",
+   "part": "skin",
+   "freq": 1114,
+   "chapters": {
+    "skin": 460,
+    "face": 335,
+    "ear": 92
+   }
+  },
+  "sides": {
+   "ur": "دونوں طرف",
+   "part": "side",
+   "freq": 1111,
+   "chapters": {
+    "head": 474,
+    "chest": 319,
+    "abdomen": 173
+   }
+  },
+  "leg": {
+   "ur": "ٹانگ",
+   "part": "location",
+   "freq": 1098,
+   "chapters": {
+    "extremities": 1078,
+    "abdomen": 10,
+    "mind": 3
+   }
+  },
+  "hand": {
+   "ur": "ہاتھ",
+   "part": "location",
+   "freq": 1066,
+   "chapters": {
+    "extremities": 992,
+    "chest": 25,
+    "head": 17
+   }
+  },
+  "aching": {
+   "ur": "ٹسٹساہٹ/درد",
+   "part": "sensation",
+   "freq": 1029,
+   "chapters": {
+    "eye": 458,
+    "abdomen": 313,
+    "back": 102
+   }
+  },
+  "itching": {
+   "ur": "خارش",
+   "part": "sensation",
+   "freq": 1012,
+   "chapters": {
+    "extremities": 374,
+    "skin": 115,
+    "ear": 68
+   }
+  },
+  "rising": {
+   "ur": "اٹھنے پر (بستر سے)",
+   "part": "time",
+   "freq": 1005,
+   "chapters": {
+    "extremities": 283,
+    "head": 136,
+    "mind": 115
+   }
+  },
+  "fingers": {
+   "ur": "انگلیاں",
+   "part": "location",
+   "freq": 1002,
+   "chapters": {
+    "extremities": 933,
+    "back": 37,
+    "mind": 4
+   }
+  },
+  "eating": {
+   "ur": "کھاتے ہوئے",
+   "part": "modality",
+   "freq": 976,
+   "chapters": {
+    "stomach": 151,
+    "head": 150,
+    "abdomen": 131
+   }
+  },
+  "head": {
+   "ur": "سر",
+   "part": "location",
+   "freq": 922,
+   "chapters": {
+    "head": 527,
+    "back": 102,
+    "mind": 40
+   }
+  },
+  "knee": {
+   "ur": "گھٹنا",
+   "part": "location",
+   "freq": 863,
+   "chapters": {
+    "extremities": 847,
+    "abdomen": 5,
+    "genitalia_female": 3
+   }
+  },
+  "heart": {
+   "ur": "دل",
+   "part": "location",
+   "freq": 856,
+   "chapters": {
+    "chest": 785,
+    "extremities": 14,
+    "head": 9
+   }
+  },
+  "stool": {
+   "ur": "پاخانہ",
+   "part": "location",
+   "freq": 852,
+   "chapters": {
+    "rectum": 197,
+    "abdomen": 186,
+    "back": 96
+   }
+  },
+  "thigh": {
+   "ur": "ران",
+   "part": "location",
+   "freq": 850,
+   "chapters": {
+    "extremities": 821,
+    "abdomen": 13,
+    "back": 6
+   }
+  },
+  "spots": {
+   "ur": "دھبے",
+   "part": "skin",
+   "freq": 841,
+   "chapters": {
+    "extremities": 332,
+    "vision": 229,
+    "skin": 53
+   }
+  },
+  "delusions": {
+   "ur": "وہم",
+   "part": "mental",
+   "freq": 833,
+   "chapters": {
+    "mind": 832,
+    "vision": 1
+   }
+  },
+  "lumbar": {
+   "ur": "کمر",
+   "part": "location",
+   "freq": 825,
+   "chapters": {
+    "back": 817,
+    "extremities": 4,
+    "abdomen": 2
+   }
+  },
+  "sleep": {
+   "ur": "نیند",
+   "part": "location",
+   "freq": 817,
+   "chapters": {
+    "extremities": 231,
+    "mind": 90,
+    "head": 78
+   }
+  },
+  "were": {
+   "ur": "جیسے ہوں",
+   "part": "structural",
+   "freq": 811,
+   "chapters": {
+    "mind": 650,
+    "head": 44,
+    "extremities": 25
+   }
+  },
+  "headache": {
+   "ur": "سر درد",
+   "part": "complaint",
+   "freq": 792,
+   "chapters": {
+    "head": 627,
+    "vision": 23,
+    "stomach": 22
+   }
+  },
+  "sore": {
+   "ur": "زخم جیسا درد",
+   "part": "sensation",
+   "freq": 775,
+   "chapters": {
+    "extremities": 253,
+    "head": 101,
+    "back": 84
+   }
+  },
+  "occiput": {
+   "ur": "سر کے پچھلے حصے",
+   "part": "location",
+   "freq": 770,
+   "chapters": {
+    "head": 703,
+    "back": 33,
+    "eye": 8
+   }
+  },
+  "arm": {
+   "ur": "بازو",
+   "part": "location",
+   "freq": 767,
+   "chapters": {
+    "extremities": 586,
+    "back": 54,
+    "eye": 36
+   }
+  },
+  "coldness": {
+   "ur": "ٹھنڈک",
+   "part": "sensation",
+   "freq": 725,
+   "chapters": {
+    "extremities": 253,
+    "back": 76,
+    "head": 69
+   }
+  },
+  "discoloration": {
+   "ur": "بےرنگی",
+   "part": "complaint",
+   "freq": 722,
+   "chapters": {
+    "face": 242,
+    "extremities": 201,
+    "mouth": 93
+   }
+  },
+  "forenoon": {
+   "ur": "پیشین (صبح کا دوسرا پہر)",
+   "part": "time",
+   "freq": 721,
+   "chapters": {
+    "extremities": 167,
+    "head": 60,
+    "stomach": 59
+   }
+  },
+  "down": {
+   "ur": "نیچے کی طرف",
+   "part": "direction",
+   "freq": 711,
+   "chapters": {
+    "extremities": 161,
+    "back": 96,
+    "head": 85
+   }
+  },
+  "against": {
+   "ur": "سے لگا کر / سہارے",
+   "part": "direction",
+   "freq": 710,
+   "chapters": {
+    "mind": 647,
+    "head": 31,
+    "back": 13
+   }
+  },
+  "standing": {
+   "ur": "کھڑا ہونا",
+   "part": "modality",
+   "freq": 704,
+   "chapters": {
+    "extremities": 216,
+    "back": 118,
+    "chill": 78
+   }
+  },
+  "weakness": {
+   "ur": "کمزوری",
+   "part": "quality",
+   "freq": 702,
+   "chapters": {
+    "generalities": 281,
+    "extremities": 253,
+    "back": 40
+   }
+  },
+  "toes": {
+   "ur": "پاؤں کی انگلیاں",
+   "part": "location",
+   "freq": 695,
+   "chapters": {
+    "extremities": 674,
+    "back": 7,
+    "chill": 5
+   }
+  },
+  "like": {
+   "ur": "جیسا",
+   "part": "structural",
+   "freq": 686,
+   "chapters": {
+    "extremities": 136,
+    "genitalia_female": 56,
+    "mouth": 53
+   }
+  },
+  "eruption": {
+   "ur": "پھنسی / دانہ",
+   "part": "skin",
+   "freq": 670,
+   "chapters": {
+    "extremities": 585,
+    "head": 42,
+    "external_throat": 14
+   }
+  },
+  "chill": {
+   "ur": "سردی لگنا",
+   "part": "location",
+   "freq": 669,
+   "chapters": {
+    "extremities": 142,
+    "fever": 110,
+    "back": 96
+   }
+  },
+  "thought": {
+   "ur": "خیال",
+   "part": "mind",
+   "freq": 668,
+   "chapters": {
+    "mind": 662,
+    "stomach": 4,
+    "throat": 2
+   }
+  },
+  "conspiracies": {
+   "ur": "سازشیں",
+   "part": "mind",
+   "freq": 644,
+   "chapters": {
+    "mind": 644
+   }
+  },
+  "landlord": {
+   "ur": "مکان مالک",
+   "part": "mind",
+   "freq": 644,
+   "chapters": {
+    "mind": 644
+   }
+  },
+  "father": {
+   "ur": "والد",
+   "part": "mind",
+   "freq": 644,
+   "chapters": {
+    "mind": 644
+   }
+  },
+  "bills": {
+   "ur": "ادائیگی کے بل",
+   "part": "mind",
+   "freq": 644,
+   "chapters": {
+    "mind": 644
+   }
+  },
+  "joints": {
+   "ur": "جوڑ",
+   "part": "location",
+   "freq": 640,
+   "chapters": {
+    "extremities": 619,
+    "face": 9,
+    "head": 6
+   }
+  },
+  "anxiety": {
+   "ur": "بےچینی",
+   "part": "sensation",
+   "freq": 633,
+   "chapters": {
+    "mind": 524,
+    "chest": 33,
+    "fever": 19
+   }
+  },
+  "black": {
+   "ur": "کالا",
+   "part": "color",
+   "freq": 614,
+   "chapters": {
+    "vision": 203,
+    "extremities": 110,
+    "urine": 62
+   }
+  },
+  "abdomen": {
+   "ur": "پیٹ",
+   "part": "location",
+   "freq": 608,
+   "chapters": {
+    "back": 93,
+    "abdomen": 92,
+    "stomach": 57
+   }
+  },
+  "urination": {
+   "ur": "پیشاب کا عمل",
+   "part": "location",
+   "freq": 599,
+   "chapters": {
+    "bladder": 300,
+    "urethra": 105,
+    "genitalia_male": 49
+   }
+  },
+  "eyes": {
+   "ur": "آنکھیں",
+   "part": "location",
+   "freq": 599,
+   "chapters": {
+    "head": 272,
+    "eye": 108,
+    "vision": 93
+   }
+  },
+  "boring": {
+   "ur": "کھودتا ہوا درد (چپے کی طرح)",
+   "part": "sensation",
+   "freq": 594,
+   "chapters": {
+    "abdomen": 313,
+    "head": 133,
+    "ear": 47
+   }
+  },
+  "dorsal": {
+   "ur": "پیٹھ کے مہروں کا حصہ",
+   "part": "location",
+   "freq": 584,
+   "chapters": {
+    "back": 583,
+    "chill": 1
+   }
+  },
+  "toothache": {
+   "ur": "دانت کا درد",
+   "part": "complaint",
+   "freq": 574,
+   "chapters": {
+    "teeth": 564,
+    "face": 3,
+    "extremities": 3
+   }
+  },
+  "shoulder": {
+   "ur": "کندھا",
+   "part": "location",
+   "freq": 574,
+   "chapters": {
+    "extremities": 519,
+    "chest": 14,
+    "back": 14
+   }
+  },
+  "bruised": {
+   "ur": "چوٹ لگی ہوئی جیسا (فوٹے کا درد)",
+   "part": "sensation",
+   "freq": 553,
+   "chapters": {
+    "extremities": 240,
+    "head": 96,
+    "generalities": 47
+   }
+  },
+  "temples": {
+   "ur": "کنپٹیاں",
+   "part": "location",
+   "freq": 548,
+   "chapters": {
+    "head": 527,
+    "face": 6,
+    "ear": 5
+   }
+  },
+  "warm": {
+   "ur": "گرم",
+   "part": "quality",
+   "freq": 547,
+   "chapters": {
+    "head": 85,
+    "extremities": 80,
+    "generalities": 33
+   }
+  },
+  "vomiting": {
+   "ur": "قے",
+   "part": "sensation",
+   "freq": 532,
+   "chapters": {
+    "stomach": 457,
+    "head": 11,
+    "abdomen": 9
+   }
+  },
+  "pressure": {
+   "ur": "دباؤ",
+   "part": "sensation",
+   "freq": 512,
+   "chapters": {
+    "head": 136,
+    "back": 72,
+    "extremities": 72
+   }
+  },
+  "umbilicus": {
+   "ur": "ناف",
+   "part": "location",
+   "freq": 511,
+   "chapters": {
+    "abdomen": 500,
+    "rectum": 4,
+    "back": 3
+   }
+  },
+  "first": {
+   "ur": "پہلا",
+   "part": "structural",
+   "freq": 507,
+   "chapters": {
+    "extremities": 452,
+    "sleep": 22,
+    "cough": 7
+   }
+  },
+  "spine": {
+   "ur": "ریڑھ کی ہڈی",
+   "part": "location",
+   "freq": 506,
+   "chapters": {
+    "back": 438,
+    "extremities": 38,
+    "stomach": 7
+   }
+  },
+  "eructations": {
+   "ur": "ڈکار",
+   "part": "sensation",
+   "freq": 505,
+   "chapters": {
+    "stomach": 417,
+    "respiration": 46,
+    "abdomen": 10
+   }
+  },
+  "noises": {
+   "ur": "شور",
+   "part": "modality",
+   "freq": 489,
+   "chapters": {
+    "ear": 484,
+    "hearing": 5
+   }
+  },
+  "bending": {
+   "ur": "جھکنا",
+   "part": "modality",
+   "freq": 481,
+   "chapters": {
+    "back": 227,
+    "extremities": 66,
+    "head": 52
+   }
+  },
+  "chest": {
+   "ur": "سینہ",
+   "part": "location",
+   "freq": 481,
+   "chapters": {
+    "back": 89,
+    "cough": 64,
+    "chest": 58
+   }
+  },
+  "water": {
+   "ur": "پانی",
+   "part": "modality",
+   "freq": 480,
+   "chapters": {
+    "extremities": 102,
+    "stomach": 91,
+    "sleep": 39
+   }
+  },
+  "diarrhoea": {
+   "ur": "دست",
+   "part": "complaint",
+   "freq": 479,
+   "chapters": {
+    "rectum": 378,
+    "skin": 25,
+    "abdomen": 20
+   }
+  },
+  "alternating": {
+   "ur": "باری باری",
+   "part": "time",
+   "freq": 471,
+   "chapters": {
+    "mind": 96,
+    "extremities": 88,
+    "head": 63
+   }
+  },
+  "skin": {
+   "ur": "جلد",
+   "part": "location",
+   "freq": 469,
+   "chapters": {
+    "face": 404,
+    "extremities": 16,
+    "chill": 8
+   }
+  },
+  "noon": {
+   "ur": "دوپہر",
+   "part": "time",
+   "freq": 458,
+   "chapters": {
+    "head": 103,
+    "extremities": 89,
+    "stomach": 39
+   }
+  },
+  "dinner": {
+   "ur": "دوپہر کا کھانا",
+   "part": "time",
+   "freq": 458,
+   "chapters": {
+    "abdomen": 92,
+    "stomach": 64,
+    "head": 57
+   }
+  },
+  "uterus": {
+   "ur": "رحم",
+   "part": "location",
+   "freq": 450,
+   "chapters": {
+    "genitalia_female": 338,
+    "abdomen": 94,
+    "back": 9
+   }
+  },
+  "sour": {
+   "ur": "کھٹا",
+   "part": "quality",
+   "freq": 446,
+   "chapters": {
+    "mouth": 312,
+    "stomach": 79,
+    "stool": 14
+   }
+  },
+  "hip": {
+   "ur": "کولہا",
+   "part": "location",
+   "freq": 440,
+   "chapters": {
+    "extremities": 404,
+    "abdomen": 20,
+    "back": 7
+   }
+  },
+  "dreams": {
+   "ur": "خواب",
+   "part": "location",
+   "freq": 439,
+   "chapters": {
+    "sleep": 426,
+    "mind": 5,
+    "head": 3
+   }
+  },
+  "difficult": {
+   "ur": "مشکل",
+   "part": "quality",
+   "freq": 438,
+   "chapters": {
+    "respiration": 278,
+    "throat": 47,
+    "extremities": 26
+   }
+  },
+  "ascending": {
+   "ur": "سیڑھیاں چڑھنا",
+   "part": "modality",
+   "freq": 436,
+   "chapters": {
+    "back": 182,
+    "extremities": 114,
+    "chest": 73
+   }
+  },
+  "midnight": {
+   "ur": "آدھی رات",
+   "part": "time",
+   "freq": 433,
+   "chapters": {
+    "cough": 89,
+    "extremities": 54,
+    "mind": 30
+   }
+  },
+  "cutting": {
+   "ur": "کٹنے جیسی",
+   "part": "sensation",
+   "freq": 427,
+   "chapters": {
+    "chest": 70,
+    "head": 69,
+    "abdomen": 58
+   }
+  },
+  "perspiration": {
+   "ur": "پسینہ",
+   "part": "location",
+   "freq": 427,
+   "chapters": {
+    "extremities": 90,
+    "head": 78,
+    "face": 42
+   }
+  },
+  "cervical": {
+   "ur": "گردن کے مہروں کا",
+   "part": "location",
+   "freq": 426,
+   "chapters": {
+    "back": 398,
+    "head": 13,
+    "extremities": 8
+   }
+  },
+  "stooping": {
+   "ur": "خم ہونا",
+   "part": "modality",
+   "freq": 420,
+   "chapters": {
+    "head": 133,
+    "back": 93,
+    "abdomen": 32
+   }
+  },
+  "larynx": {
+   "ur": "حنجرہ",
+   "part": "location",
+   "freq": 420,
+   "chapters": {
+    "larynx_and_trachea": 264,
+    "cough": 93,
+    "throat": 49
+   }
+  },
+  "vertex": {
+   "ur": "سر کے اوپری حصے",
+   "part": "location",
+   "freq": 419,
+   "chapters": {
+    "head": 396,
+    "back": 13,
+    "eye": 3
+   }
+  },
+  "ear": {
+   "ur": "کان",
+   "part": "location",
+   "freq": 417,
+   "chapters": {
+    "ear": 219,
+    "head": 62,
+    "face": 34
+   }
+  },
+  "gnawing": {
+   "ur": "چباتا ہوا درد",
+   "part": "sensation",
+   "freq": 414,
+   "chapters": {
+    "abdomen": 316,
+    "extremities": 29,
+    "teeth": 16
+   }
+  },
+  "acid": {
+   "ur": "تیزابی / کھٹا",
+   "part": "quality",
+   "freq": 414,
+   "chapters": {
+    "mouth": 312,
+    "nose": 72,
+    "stool": 14
+   }
+  },
+  "painful": {
+   "ur": "درد بھرا",
+   "part": "quality",
+   "freq": 412,
+   "chapters": {
+    "extremities": 115,
+    "bladder": 56,
+    "skin": 26
+   }
+  },
+  "elbow": {
+   "ur": "کہنی",
+   "part": "location",
+   "freq": 411,
+   "chapters": {
+    "extremities": 404,
+    "chest": 3,
+    "generalities": 2
+   }
+  },
+  "tension": {
+   "ur": "کھنچاؤ",
+   "part": "sensation",
+   "freq": 406,
+   "chapters": {
+    "chest": 95,
+    "head": 74,
+    "extremities": 65
+   }
+  },
+  "absurd": {
+   "ur": "بےتکہ / بےمعنی",
+   "part": "mind",
+   "freq": 405,
+   "chapters": {
+    "sleep": 402,
+    "mind": 3
+   }
+  },
+  "tongue": {
+   "ur": "زبان",
+   "part": "location",
+   "freq": 396,
+   "chapters": {
+    "mouth": 372,
+    "throat": 7,
+    "mind": 5
+   }
+  },
+  "scapulae": {
+   "ur": "کندے کی ہڈیاں",
+   "part": "location",
+   "freq": 395,
+   "chapters": {
+    "back": 394,
+    "head": 1
+   }
+  },
+  "heaviness": {
+   "ur": "بھاری پن",
+   "part": "sensation",
+   "freq": 395,
+   "chapters": {
+    "head": 147,
+    "extremities": 122,
+    "stomach": 38
+   }
+  },
+  "exertion": {
+   "ur": "محنت",
+   "part": "modality",
+   "freq": 392,
+   "chapters": {
+    "extremities": 70,
+    "head": 67,
+    "chest": 34
+   }
+  },
+  "coughing": {
+   "ur": "کھانسی",
+   "part": "sensation",
+   "freq": 386,
+   "chapters": {
+    "abdomen": 113,
+    "chest": 47,
+    "head": 45
+   }
+  },
+  "cramping": {
+   "ur": "اینٹھنے والا",
+   "part": "sensation",
+   "freq": 385,
+   "chapters": {
+    "abdomen": 261,
+    "stomach": 88,
+    "genitalia_female": 12
+   }
+  },
+  "into": {
+   "ur": "میں (اندر)",
+   "part": "structural",
+   "freq": 382,
+   "chapters": {
+    "head": 107,
+    "extremities": 43,
+    "back": 36
+   }
+  },
+  "room": {
+   "ur": "کمرہ",
+   "part": "structural",
+   "freq": 377,
+   "chapters": {
+    "head": 82,
+    "mind": 57,
+    "extremities": 28
+   }
+  },
+  "red": {
+   "ur": "سرخ",
+   "part": "color",
+   "freq": 374,
+   "chapters": {
+    "extremities": 86,
+    "face": 79,
+    "skin": 33
+   }
+  },
+  "dull": {
+   "ur": "مدھم",
+   "part": "quality",
+   "freq": 373,
+   "chapters": {
+    "abdomen": 313,
+    "head": 42,
+    "teeth": 11
+   }
+  },
+  "reading": {
+   "ur": "پڑھنا",
+   "part": "modality",
+   "freq": 371,
+   "chapters": {
+    "vision": 192,
+    "eye": 34,
+    "head": 33
+   }
+  },
+  "food": {
+   "ur": "خوراک",
+   "part": "modality",
+   "freq": 370,
+   "chapters": {
+    "stomach": 165,
+    "generalities": 82,
+    "mouth": 39
+   }
+  },
+  "hypochondria": {
+   "ur": "پسلیوں کے نیچے کے حصے",
+   "part": "location",
+   "freq": 370,
+   "chapters": {
+    "abdomen": 365,
+    "respiration": 4,
+    "stomach": 1
+   }
+  },
+  "swelling": {
+   "ur": "سوجن",
+   "part": "sensation",
+   "freq": 365,
+   "chapters": {
+    "extremities": 127,
+    "face": 78,
+    "nose": 40
+   }
+  },
+  "pulsation": {
+   "ur": "دھڑکن",
+   "part": "sensation",
+   "freq": 364,
+   "chapters": {
+    "head": 151,
+    "stomach": 42,
+    "ear": 39
+   }
+  },
+  "excitement": {
+   "ur": "جذباتی ہیجان",
+   "part": "sensation",
+   "freq": 362,
+   "chapters": {
+    "chest": 172,
+    "mind": 75,
+    "genitalia_male": 25
+   }
+  },
+  "nausea": {
+   "ur": "متلی",
+   "part": "sensation",
+   "freq": 359,
+   "chapters": {
+    "stomach": 298,
+    "vertigo": 17,
+    "abdomen": 7
+   }
+  },
+  "between": {
+   "ur": "درمیان میں",
+   "part": "direction",
+   "freq": 356,
+   "chapters": {
+    "back": 176,
+    "extremities": 106,
+    "genitalia_male": 12
+   }
+  },
+  "fullness": {
+   "ur": "بھرا ہوا احساس",
+   "part": "sensation",
+   "freq": 354,
+   "chapters": {
+    "head": 160,
+    "stomach": 75,
+    "abdomen": 30
+   }
+  },
+  "digging": {
+   "ur": "کھودنے جیسا درد",
+   "part": "sensation",
+   "freq": 353,
+   "chapters": {
+    "abdomen": 313,
+    "ear": 8,
+    "face": 7
+   }
+  },
+  "paroxysmal": {
+   "ur": "دورے دار",
+   "part": "quality",
+   "freq": 351,
+   "chapters": {
+    "cough": 131,
+    "extremities": 68,
+    "head": 27
+   }
+  },
+  "one": {
+   "ur": "ایک",
+   "part": "structural",
+   "freq": 349,
+   "chapters": {
+    "mind": 74,
+    "extremities": 54,
+    "head": 48
+   }
+  },
+  "constriction": {
+   "ur": "سکڑاؤ",
+   "part": "sensation",
+   "freq": 349,
+   "chapters": {
+    "chest": 98,
+    "head": 77,
+    "rectum": 36
+   }
+  },
+  "inguinal": {
+   "ur": "خاجہ (پیٹ اور ران کا جوڑ)",
+   "part": "location",
+   "freq": 347,
+   "chapters": {
+    "abdomen": 341,
+    "back": 2,
+    "rectum": 1
+   }
+  },
+  "calf": {
+   "ur": "پنڈلی",
+   "part": "location",
+   "freq": 346,
+   "chapters": {
+    "extremities": 344,
+    "mind": 1,
+    "abdomen": 1
+   }
+  },
+  "ulcers": {
+   "ur": "ناسور",
+   "part": "complaint",
+   "freq": 346,
+   "chapters": {
+    "skin": 151,
+    "mouth": 61,
+    "genitalia_male": 36
+   }
+  },
+  "pimples": {
+   "ur": "پھنسیاں (چھوٹے دانے)",
+   "part": "skin",
+   "freq": 345,
+   "chapters": {
+    "extremities": 174,
+    "face": 43,
+    "skin": 31
+   }
+  },
+  "forearm": {
+   "ur": "بازو کا نچلا حصہ (کہنی سے کلائی)",
+   "part": "location",
+   "freq": 340,
+   "chapters": {
+    "extremities": 340
+   }
+  },
+  "discharge": {
+   "ur": "اخراج",
+   "part": "sensation",
+   "freq": 339,
+   "chapters": {
+    "nose": 215,
+    "urethra": 83,
+    "genitalia_male": 22
+   }
+  },
+  "convulsions": {
+   "ur": "دورے",
+   "part": "complaint",
+   "freq": 336,
+   "chapters": {
+    "generalities": 206,
+    "mind": 26,
+    "extremities": 19
+   }
+  },
+  "pulsating": {
+   "ur": "نبض جیسی دھڑکن",
+   "part": "sensation",
+   "freq": 334,
+   "chapters": {
+    "head": 181,
+    "extremities": 51,
+    "back": 33
+   }
+  },
+  "dry": {
+   "ur": "خشک",
+   "part": "quality",
+   "freq": 331,
+   "chapters": {
+    "cough": 152,
+    "fever": 44,
+    "nose": 35
+   }
+  },
+  "fever": {
+   "ur": "بخار",
+   "part": "location",
+   "freq": 331,
+   "chapters": {
+    "fever": 128,
+    "extremities": 39,
+    "stomach": 16
+   }
+  },
+  "numbness": {
+   "ur": "بےحسی",
+   "part": "sensation",
+   "freq": 326,
+   "chapters": {
+    "extremities": 239,
+    "face": 16,
+    "generalities": 13
+   }
+  },
+  "mental": {
+   "ur": "ذہنی",
+   "part": "structural",
+   "freq": 325,
+   "chapters": {
+    "mind": 163,
+    "head": 56,
+    "back": 16
+   }
+  },
+  "twitching": {
+   "ur": "پھڑکن",
+   "part": "sensation",
+   "freq": 322,
+   "chapters": {
+    "extremities": 119,
+    "head": 32,
+    "face": 30
+   }
+  },
+  "griping": {
+   "ur": "مروڑ (آنتوں کا پکڑنا)",
+   "part": "sensation",
+   "freq": 322,
+   "chapters": {
+    "abdomen": 262,
+    "stomach": 29,
+    "chest": 12
+   }
+  },
+  "only": {
+   "ur": "صرف",
+   "part": "structural",
+   "freq": 319,
+   "chapters": {
+    "genitalia_female": 152,
+    "cough": 56,
+    "bladder": 19
+   }
+  },
+  "part": {
+   "ur": "حصہ",
+   "part": "structural",
+   "freq": 317,
+   "chapters": {
+    "extremities": 113,
+    "chest": 64,
+    "urethra": 30
+   }
+  },
+  "sole": {
+   "ur": "تلا",
+   "part": "location",
+   "freq": 317,
+   "chapters": {
+    "extremities": 317
+   }
+  },
+  "taste": {
+   "ur": "ذائقہ",
+   "part": "food",
+   "freq": 316,
+   "chapters": {
+    "mouth": 265,
+    "expectoration": 48,
+    "throat": 1
+   }
+  },
+  "white": {
+   "ur": "سفید",
+   "part": "color",
+   "freq": 315,
+   "chapters": {
+    "vision": 60,
+    "extremities": 56,
+    "mouth": 49
+   }
+  },
+  "body": {
+   "ur": "جسم",
+   "part": "location",
+   "freq": 314,
+   "chapters": {
+    "head": 41,
+    "mind": 37,
+    "extremities": 36
+   }
+  },
+  "downward": {
+   "ur": "نیچے کی طرف",
+   "part": "direction",
+   "freq": 314,
+   "chapters": {
+    "extremities": 162,
+    "abdomen": 34,
+    "head": 29
+   }
+  },
+  "distress": {
+   "ur": "تکلیف / جی بھری ہوئی حالت",
+   "part": "sensation",
+   "freq": 314,
+   "chapters": {
+    "abdomen": 313,
+    "head": 1
+   }
+  },
+  "trembling": {
+   "ur": "کپکپی",
+   "part": "sensation",
+   "freq": 311,
+   "chapters": {
+    "extremities": 79,
+    "generalities": 77,
+    "head": 42
+   }
+  },
+  "fear": {
+   "ur": "خوف",
+   "part": "sensation",
+   "freq": 311,
+   "chapters": {
+    "mind": 302,
+    "teeth": 3,
+    "head": 1
+   }
+  },
+  "not": {
+   "ur": "نہیں",
+   "part": "structural",
+   "freq": 306,
+   "chapters": {
+    "mind": 91,
+    "stomach": 38,
+    "urethra": 33
+   }
+  },
+  "falling": {
+   "ur": "گرنا (بالوں کا گرنا بھی)",
+   "part": "complaint",
+   "freq": 302,
+   "chapters": {
+    "head": 102,
+    "sleep": 56,
+    "mind": 28
+   }
+  },
+  "nose": {
+   "ur": "ناک",
+   "part": "location",
+   "freq": 302,
+   "chapters": {
+    "head": 82,
+    "face": 82,
+    "nose": 55
+   }
+  },
+  "over": {
+   "ur": "اوپر / پر",
+   "part": "structural",
+   "freq": 302,
+   "chapters": {
+    "head": 118,
+    "mind": 30,
+    "extremities": 30
+   }
+  },
+  "redness": {
+   "ur": "سرخی",
+   "part": "color",
+   "freq": 301,
+   "chapters": {
+    "extremities": 179,
+    "nose": 42,
+    "eye": 29
+   }
+  },
+  "urging": {
+   "ur": "دھتکار (فوری آنے کا احساس)",
+   "part": "complaint",
+   "freq": 300,
+   "chapters": {
+    "bladder": 173,
+    "rectum": 69,
+    "back": 13
+   }
+  },
+  "congestion": {
+   "ur": "لہو بھراؤ (خون کی کثرت)",
+   "part": "complaint",
+   "freq": 296,
+   "chapters": {
+    "head": 235,
+    "chest": 28,
+    "face": 20
+   }
+  },
+  "brain": {
+   "ur": "دماغ",
+   "part": "location",
+   "freq": 291,
+   "chapters": {
+    "head": 253,
+    "nose": 15,
+    "eye": 7
+   }
+  },
+  "lassitude": {
+   "ur": "سستی / بےدلی",
+   "part": "quality",
+   "freq": 286,
+   "chapters": {
+    "generalities": 284,
+    "mind": 1,
+    "extremities": 1
+   }
+  },
+  "under": {
+   "ur": "نیچے",
+   "part": "direction",
+   "freq": 286,
+   "chapters": {
+    "back": 84,
+    "chest": 68,
+    "extremities": 66
+   }
+  },
+  "about": {
+   "ur": "تقریباً / گرد",
+   "part": "structural",
+   "freq": 285,
+   "chapters": {
+    "mind": 94,
+    "eye": 48,
+    "ear": 28
+   }
+  },
+  "hands": {
+   "ur": "ہاتھ",
+   "part": "location",
+   "freq": 284,
+   "chapters": {
+    "extremities": 173,
+    "mind": 35,
+    "chill": 26
+   }
+  },
+  "writing": {
+   "ur": "لکھنا",
+   "part": "modality",
+   "freq": 283,
+   "chapters": {
+    "extremities": 127,
+    "head": 32,
+    "mind": 24
+   }
+  },
+  "weariness": {
+   "ur": "تھکاوٹ",
+   "part": "quality",
+   "freq": 282,
+   "chapters": {
+    "generalities": 280,
+    "kidneys": 1,
+    "sleep": 1
+   }
+  },
+  "wrist": {
+   "ur": "کلائی",
+   "part": "location",
+   "freq": 281,
+   "chapters": {
+    "extremities": 276,
+    "chest": 2,
+    "head": 1
+   }
+  },
+  "out": {
+   "ur": "باہر",
+   "part": "structural",
+   "freq": 281,
+   "chapters": {
+    "extremities": 56,
+    "head": 36,
+    "mind": 32
+   }
+  },
+  "swallowing": {
+   "ur": "نگلنا",
+   "part": "modality",
+   "freq": 280,
+   "chapters": {
+    "throat": 126,
+    "ear": 31,
+    "larynx_and_trachea": 20
+   }
+  },
+  "weather": {
+   "ur": "موسم",
+   "part": "modality",
+   "freq": 278,
+   "chapters": {
+    "extremities": 73,
+    "head": 36,
+    "generalities": 26
+   }
+  },
+  "yellow": {
+   "ur": "پیلا",
+   "part": "color",
+   "freq": 275,
+   "chapters": {
+    "vision": 44,
+    "extremities": 34,
+    "mouth": 23
+   }
+  },
+  "cough": {
+   "ur": "کھانسی",
+   "part": "location",
+   "freq": 275,
+   "chapters": {
+    "extremities": 40,
+    "chest": 38,
+    "stomach": 33
+   }
+  },
+  "drinks": {
+   "ur": "پینے کی چیزیں",
+   "part": "food",
+   "freq": 272,
+   "chapters": {
+    "stomach": 163,
+    "chest": 26,
+    "abdomen": 19
+   }
+  },
+  "riding": {
+   "ur": "سواری",
+   "part": "modality",
+   "freq": 271,
+   "chapters": {
+    "rectum": 69,
+    "head": 38,
+    "back": 24
+   }
+  },
+  "desire": {
+   "ur": "خواہش",
+   "part": "mental",
+   "freq": 271,
+   "chapters": {
+    "mind": 60,
+    "rectum": 59,
+    "bladder": 31
+   }
+  },
+  "face": {
+   "ur": "چہرہ",
+   "part": "location",
+   "freq": 270,
+   "chapters": {
+    "eye": 55,
+    "head": 52,
+    "nose": 32
+   }
+  },
+  "sudden": {
+   "ur": "اچانک",
+   "part": "time",
+   "freq": 270,
+   "chapters": {
+    "chest": 74,
+    "extremities": 47,
+    "bladder": 25
+   }
+  },
+  "blood": {
+   "ur": "خون",
+   "part": "location",
+   "freq": 270,
+   "chapters": {
+    "generalities": 50,
+    "expectoration": 49,
+    "mouth": 25
+   }
+  },
+  "backward": {
+   "ur": "پیچھے کی طرف",
+   "part": "direction",
+   "freq": 270,
+   "chapters": {
+    "head": 130,
+    "back": 65,
+    "chest": 11
+   }
+  },
+  "ankle": {
+   "ur": "ٹخنہ",
+   "part": "location",
+   "freq": 267,
+   "chapters": {
+    "extremities": 266,
+    "stomach": 1
+   }
+  },
+  "colors": {
+   "ur": "رنگ",
+   "part": "color",
+   "freq": 265,
+   "chapters": {
+    "vision": 262,
+    "mind": 2,
+    "chest": 1
+   }
+  },
+  "scratching": {
+   "ur": "کھنجھوڑے جا رہے جیسا",
+   "part": "sensation",
+   "freq": 265,
+   "chapters": {
+    "extremities": 115,
+    "skin": 39,
+    "back": 30
+   }
+  },
+  "enervation": {
+   "ur": "ناتوانی / قوت کی کمی",
+   "part": "quality",
+   "freq": 263,
+   "chapters": {
+    "generalities": 263
+   }
+  },
+  "mammae": {
+   "ur": "پستان",
+   "part": "location",
+   "freq": 263,
+   "chapters": {
+    "chest": 256,
+    "back": 3,
+    "face": 2
+   }
+  },
+  "shaking": {
+   "ur": "ہلانے / کانپنے سے",
+   "part": "modality",
+   "freq": 262,
+   "chapters": {
+    "head": 155,
+    "chill": 81,
+    "extremities": 7
+   }
+  },
+  "jerking": {
+   "ur": "جھٹکے",
+   "part": "sensation",
+   "freq": 262,
+   "chapters": {
+    "head": 86,
+    "extremities": 66,
+    "teeth": 22
+   }
+  },
+  "drinking": {
+   "ur": "پینا",
+   "part": "modality",
+   "freq": 260,
+   "chapters": {
+    "throat": 47,
+    "stomach": 44,
+    "abdomen": 25
+   }
+  },
+  "thumb": {
+   "ur": "انگوٹھا",
+   "part": "location",
+   "freq": 260,
+   "chapters": {
+    "extremities": 259,
+    "head": 1
+   }
+  },
+  "warmth": {
+   "ur": "حرارت (نرم گرمی)",
+   "part": "modality",
+   "freq": 256,
+   "chapters": {
+    "extremities": 106,
+    "head": 20,
+    "back": 14
+   }
+  },
+  "aversion": {
+   "ur": "نفرت/گریز",
+   "part": "mental",
+   "freq": 255,
+   "chapters": {
+    "mind": 118,
+    "stomach": 105,
+    "genitalia_female": 11
+   }
+  },
+  "then": {
+   "ur": "پھر",
+   "part": "structural",
+   "freq": 253,
+   "chapters": {
+    "extremities": 91,
+    "mind": 31,
+    "fever": 27
+   }
+  },
+  "touch": {
+   "ur": "لمس",
+   "part": "modality",
+   "freq": 252,
+   "chapters": {
+    "extremities": 85,
+    "head": 41,
+    "nose": 16
+   }
+  },
+  "penis": {
+   "ur": "عضوِ تناسل (مرد)",
+   "part": "location",
+   "freq": 251,
+   "chapters": {
+    "genitalia_male": 219,
+    "kidneys": 8,
+    "rectum": 7
+   }
+  },
+  "drops": {
+   "ur": "قطرے",
+   "part": "complaint",
+   "freq": 250,
+   "chapters": {
+    "bladder": 224,
+    "chest": 7,
+    "urethra": 6
+   }
+  },
+  "inspiration": {
+   "ur": "سانس اندر لینا",
+   "part": "modality",
+   "freq": 249,
+   "chapters": {
+    "chest": 118,
+    "abdomen": 34,
+    "cough": 16
+   }
+  },
+  "going": {
+   "ur": "جانا",
+   "part": "structural",
+   "freq": 248,
+   "chapters": {
+    "extremities": 59,
+    "mind": 25,
+    "cough": 22
+   }
+  },
+  "chilliness": {
+   "ur": "سردی لگنے کا احساس",
+   "part": "sensation",
+   "freq": 247,
+   "chapters": {
+    "chill": 94,
+    "head": 55,
+    "fever": 36
+   }
+  },
+  "sacral": {
+   "ur": "تکونی ہڈی (ساکرم) کا",
+   "part": "location",
+   "freq": 245,
+   "chapters": {
+    "back": 243,
+    "head": 1,
+    "chest": 1
+   }
+  },
+  "neck": {
+   "ur": "گردن",
+   "part": "location",
+   "freq": 245,
+   "chapters": {
+    "bladder": 95,
+    "head": 58,
+    "back": 27
+   }
+  },
+  "turning": {
+   "ur": "مڑنا",
+   "part": "modality",
+   "freq": 243,
+   "chapters": {
+    "back": 57,
+    "head": 53,
+    "extremities": 21
+   }
+  },
+  "deep": {
+   "ur": "گہری",
+   "part": "quality",
+   "freq": 242,
+   "chapters": {
+    "head": 45,
+    "chest": 41,
+    "sleep": 32
+   }
+  },
+  "inflammation": {
+   "ur": "سوزش",
+   "part": "complaint",
+   "freq": 241,
+   "chapters": {
+    "eye": 83,
+    "chest": 27,
+    "throat": 18
+   }
+  },
+  "behind": {
+   "ur": "پیچھے",
+   "part": "direction",
+   "freq": 241,
+   "chapters": {
+    "ear": 134,
+    "chest": 47,
+    "head": 13
+   }
+  },
+  "stairs": {
+   "ur": "سیڑھیاں",
+   "part": "modality",
+   "freq": 240,
+   "chapters": {
+    "back": 178,
+    "extremities": 35,
+    "head": 5
+   }
+  },
+  "vesicles": {
+   "ur": "پانی والے چھالے",
+   "part": "skin",
+   "freq": 238,
+   "chapters": {
+    "extremities": 160,
+    "ear": 17,
+    "mouth": 17
+   }
+  },
+  "backwards": {
+   "ur": "پیچھے کی طرف",
+   "part": "direction",
+   "freq": 236,
+   "chapters": {
+    "back": 170,
+    "head": 21,
+    "extremities": 16
+   }
+  },
+  "delirium": {
+   "ur": "بک بک",
+   "part": "sensation",
+   "freq": 235,
+   "chapters": {
+    "mind": 209,
+    "sleep": 6,
+    "chill": 4
+   }
+  },
+  "moving": {
+   "ur": "ہلنے سے",
+   "part": "modality",
+   "freq": 233,
+   "chapters": {
+    "back": 51,
+    "head": 40,
+    "extremities": 32
+   }
+  },
+  "ashy": {
+   "ur": "راکھ جیسا (سلیٹی)",
+   "part": "color",
+   "freq": 232,
+   "chapters": {
+    "face": 232
+   }
+  },
+  "faintness": {
+   "ur": "غشی",
+   "part": "sensation",
+   "freq": 231,
+   "chapters": {
+    "generalities": 153,
+    "stomach": 73,
+    "kidneys": 1
+   }
+  },
+  "paralysis": {
+   "ur": "فالج",
+   "part": "complaint",
+   "freq": 230,
+   "chapters": {
+    "extremities": 126,
+    "generalities": 23,
+    "eye": 20
+   }
+  },
+  "bursting": {
+   "ur": "پھٹنے جیسی",
+   "part": "sensation",
+   "freq": 228,
+   "chapters": {
+    "head": 194,
+    "eye": 10,
+    "chest": 8
+   }
+  },
+  "forward": {
+   "ur": "آگے کی طرف",
+   "part": "direction",
+   "freq": 228,
+   "chapters": {
+    "head": 74,
+    "back": 42,
+    "chest": 29
+   }
+  },
+  "every": {
+   "ur": "ہر",
+   "part": "structural",
+   "freq": 225,
+   "chapters": {
+    "perspiration": 38,
+    "head": 32,
+    "bladder": 29
+   }
+  },
+  "arms": {
+   "ur": "بازو",
+   "part": "location",
+   "freq": 222,
+   "chapters": {
+    "back": 49,
+    "extremities": 39,
+    "chest": 38
+   }
+  },
+  "talking": {
+   "ur": "بات کرنا",
+   "part": "modality",
+   "freq": 222,
+   "chapters": {
+    "head": 42,
+    "mind": 30,
+    "extremities": 20
+   }
+  },
+  "dribbling": {
+   "ur": "بوندا بوندا گرنا",
+   "part": "complaint",
+   "freq": 221,
+   "chapters": {
+    "bladder": 217,
+    "kidneys": 2,
+    "genitalia_male": 2
+   }
+  },
+  "palpitation": {
+   "ur": "دل کی دھڑکن",
+   "part": "sensation",
+   "freq": 221,
+   "chapters": {
+    "chest": 196,
+    "mind": 3,
+    "face": 3
+   }
+  },
+  "hard": {
+   "ur": "سخت",
+   "part": "quality",
+   "freq": 221,
+   "chapters": {
+    "extremities": 40,
+    "abdomen": 18,
+    "skin": 18
+   }
+  },
+  "anger": {
+   "ur": "غصہ",
+   "part": "sensation",
+   "freq": 220,
+   "chapters": {
+    "mind": 140,
+    "larynx_and_trachea": 22,
+    "head": 7
+   }
+  },
+  "finger": {
+   "ur": "انگلی",
+   "part": "location",
+   "freq": 216,
+   "chapters": {
+    "extremities": 183,
+    "ear": 16,
+    "head": 7
+   }
+  },
+  "spasmodic": {
+   "ur": "مروڑ والا",
+   "part": "sensation",
+   "freq": 214,
+   "chapters": {
+    "cough": 87,
+    "back": 32,
+    "genitalia_female": 19
+   }
+  },
+  "violent": {
+   "ur": "شدید",
+   "part": "quality",
+   "freq": 214,
+   "chapters": {
+    "back": 70,
+    "cough": 44,
+    "mind": 18
+   }
+  },
+  "acrid": {
+   "ur": "تکھا / خراش کرنے والا (تیز)",
+   "part": "quality",
+   "freq": 211,
+   "chapters": {
+    "urethra": 83,
+    "mouth": 36,
+    "genitalia_female": 34
+   }
+  },
+  "shooting": {
+   "ur": "چبھڑتا ہوا (تیز چبھن)",
+   "part": "sensation",
+   "freq": 210,
+   "chapters": {
+    "head": 81,
+    "back": 75,
+    "extremities": 33
+   }
+  },
+  "hollow": {
+   "ur": "خلا جیسا (خالی گڑھا)",
+   "part": "sensation",
+   "freq": 206,
+   "chapters": {
+    "extremities": 148,
+    "head": 28,
+    "cough": 14
+   }
+  },
+  "desires": {
+   "ur": "خواہش",
+   "part": "mental",
+   "freq": 206,
+   "chapters": {
+    "stomach": 127,
+    "mind": 74,
+    "head": 2
+   }
+  },
+  "coition": {
+   "ur": "ہم بستری",
+   "part": "location",
+   "freq": 206,
+   "chapters": {
+    "genitalia_male": 31,
+    "genitalia_female": 28,
+    "extremities": 27
+   }
+  },
+  "lids": {
+   "ur": "پپوٹے",
+   "part": "location",
+   "freq": 205,
+   "chapters": {
+    "eye": 202,
+    "head": 2,
+    "face": 1
+   }
+  },
+  "throat": {
+   "ur": "گلا",
+   "part": "location",
+   "freq": 199,
+   "chapters": {
+    "external_throat": 50,
+    "throat": 28,
+    "cough": 20
+   }
+  },
+  "beginning": {
+   "ur": "شروع میں",
+   "part": "time",
+   "freq": 197,
+   "chapters": {
+    "extremities": 72,
+    "chill": 50,
+    "back": 10
+   }
+  },
+  "brown": {
+   "ur": "بھورا",
+   "part": "color",
+   "freq": 197,
+   "chapters": {
+    "mouth": 83,
+    "extremities": 27,
+    "urine": 18
+   }
+  },
+  "ovaries": {
+   "ur": "بیضہ دانی",
+   "part": "location",
+   "freq": 196,
+   "chapters": {
+    "genitalia_female": 195,
+    "back": 1
+   }
+  },
+  "sternum": {
+   "ur": "سینے کی ہڈی",
+   "part": "location",
+   "freq": 195,
+   "chapters": {
+    "chest": 178,
+    "back": 7,
+    "stomach": 5
+   }
+  },
+  "testes": {
+   "ur": "خصیے",
+   "part": "location",
+   "freq": 194,
+   "chapters": {
+    "genitalia_male": 174,
+    "back": 7,
+    "kidneys": 6
+   }
+  },
+  "suppressed": {
+   "ur": "دبا دیا گیا (بند کر دیا گیا)",
+   "part": "complaint",
+   "freq": 193,
+   "chapters": {
+    "genitalia_female": 37,
+    "extremities": 20,
+    "mind": 11
+   }
+  },
+  "through": {
+   "ur": "درمیان سے",
+   "part": "direction",
+   "freq": 192,
+   "chapters": {
+    "back": 89,
+    "head": 19,
+    "teeth": 8
+   }
+  },
+  "feeling": {
+   "ur": "محسوس ہونا",
+   "part": "structural",
+   "freq": 191,
+   "chapters": {
+    "stomach": 73,
+    "back": 28,
+    "mind": 17
+   }
+  },
+  "paralytic": {
+   "ur": "فلج کا جیسا (پارلیس جیسا کمزور)",
+   "part": "quality",
+   "freq": 189,
+   "chapters": {
+    "extremities": 165,
+    "generalities": 9,
+    "back": 8
+   }
+  },
+  "coryza": {
+   "ur": "نزلہ",
+   "part": "complaint",
+   "freq": 189,
+   "chapters": {
+    "nose": 161,
+    "head": 7,
+    "eye": 3
+   }
+  },
+  "sensitive": {
+   "ur": "حساس",
+   "part": "mental",
+   "freq": 189,
+   "chapters": {
+    "mind": 43,
+    "head": 28,
+    "teeth": 20
+   }
+  },
+  "until": {
+   "ur": "تک",
+   "part": "time",
+   "freq": 188,
+   "chapters": {
+    "cough": 40,
+    "head": 32,
+    "sleep": 23
+   }
+  },
+  "rubbing": {
+   "ur": "ملنا/رگڑنا",
+   "part": "modality",
+   "freq": 187,
+   "chapters": {
+    "extremities": 79,
+    "head": 29,
+    "back": 12
+   }
+  },
+  "muscles": {
+   "ur": "پٹھے",
+   "part": "location",
+   "freq": 187,
+   "chapters": {
+    "extremities": 65,
+    "generalities": 33,
+    "head": 32
+   }
+  },
+  "bones": {
+   "ur": "ہڈیاں",
+   "part": "location",
+   "freq": 186,
+   "chapters": {
+    "extremities": 95,
+    "nose": 30,
+    "generalities": 28
+   }
+  },
+  "axilla": {
+   "ur": "بغل",
+   "part": "location",
+   "freq": 184,
+   "chapters": {
+    "chest": 90,
+    "abdomen": 72,
+    "extremities": 19
+   }
+  },
+  "rheumatic": {
+   "ur": "باد آوردہ (ریمیٹک)",
+   "part": "quality",
+   "freq": 184,
+   "chapters": {
+    "extremities": 144,
+    "back": 10,
+    "eye": 7
+   }
+  },
+  "rawness": {
+   "ur": "کچی جلد جیسا جلن",
+   "part": "sensation",
+   "freq": 183,
+   "chapters": {
+    "extremities": 115,
+    "throat": 22,
+    "chest": 22
+   }
+  },
+  "middle": {
+   "ur": "درمیانی",
+   "part": "direction",
+   "freq": 183,
+   "chapters": {
+    "chest": 78,
+    "extremities": 62,
+    "head": 30
+   }
+  },
+  "anus": {
+   "ur": "مقعد کا منہ",
+   "part": "location",
+   "freq": 183,
+   "chapters": {
+    "rectum": 76,
+    "abdomen": 47,
+    "back": 35
+   }
+  },
+  "must": {
+   "ur": "ضرور",
+   "part": "structural",
+   "freq": 183,
+   "chapters": {
+    "mind": 55,
+    "bladder": 34,
+    "head": 18
+   }
+  },
+  "stinging": {
+   "ur": "ڈنک مارنے جیسا",
+   "part": "sensation",
+   "freq": 181,
+   "chapters": {
+    "bladder": 40,
+    "extremities": 39,
+    "skin": 21
+   }
+  },
+  "bone": {
+   "ur": "ہڈی",
+   "part": "location",
+   "freq": 181,
+   "chapters": {
+    "extremities": 111,
+    "face": 26,
+    "teeth": 15
+   }
+  },
+  "wind": {
+   "ur": "تیز ہوا",
+   "part": "modality",
+   "freq": 180,
+   "chapters": {
+    "face": 33,
+    "ear": 30,
+    "head": 16
+   }
+  },
+  "hypogastrium": {
+   "ur": "پیٹ کے نچلے حصے",
+   "part": "location",
+   "freq": 180,
+   "chapters": {
+    "abdomen": 176,
+    "urethra": 3,
+    "genitalia_female": 1
+   }
+  },
+  "that": {
+   "ur": "کہ",
+   "part": "structural",
+   "freq": 180,
+   "chapters": {
+    "mind": 128,
+    "extremities": 15,
+    "sleep": 15
+   }
+  },
+  "dryness": {
+   "ur": "خشکی",
+   "part": "complaint",
+   "freq": 180,
+   "chapters": {
+    "nose": 62,
+    "throat": 38,
+    "mouth": 23
+   }
+  },
+  "jaw": {
+   "ur": "جبڑا",
+   "part": "location",
+   "freq": 179,
+   "chapters": {
+    "face": 120,
+    "head": 30,
+    "ear": 24
+   }
+  },
+  "stiffness": {
+   "ur": "جکڑن / سختی",
+   "part": "sensation",
+   "freq": 179,
+   "chapters": {
+    "extremities": 120,
+    "back": 33,
+    "face": 9
+   }
+  },
+  "yawning": {
+   "ur": "جمائی",
+   "part": "sensation",
+   "freq": 177,
+   "chapters": {
+    "sleep": 82,
+    "chest": 14,
+    "head": 12
+   }
+  },
+  "breakfast": {
+   "ur": "ناشتہ (صبح کا کھانا)",
+   "part": "time",
+   "freq": 177,
+   "chapters": {
+    "stomach": 46,
+    "abdomen": 28,
+    "head": 24
+   }
+  },
+  "perineum": {
+   "ur": "فرج اور مقعد کے درمیان",
+   "part": "location",
+   "freq": 176,
+   "chapters": {
+    "rectum": 171,
+    "abdomen": 2,
+    "genitalia_male": 1
+   }
+  },
+  "voice": {
+   "ur": "آواز",
+   "part": "complaint",
+   "freq": 176,
+   "chapters": {
+    "larynx_and_trachea": 161,
+    "mouth": 4,
+    "mind": 3
+   }
+  },
+  "labor": {
+   "ur": "زچگی کے درد",
+   "part": "complaint",
+   "freq": 175,
+   "chapters": {
+    "genitalia_female": 85,
+    "mind": 28,
+    "back": 18
+   }
+  },
+  "stretching": {
+   "ur": "تناوٹ / اپھڑانا",
+   "part": "sensation",
+   "freq": 174,
+   "chapters": {
+    "extremities": 76,
+    "generalities": 49,
+    "abdomen": 17
+   }
+  },
+  "mucus": {
+   "ur": "بلغم",
+   "part": "complaint",
+   "freq": 174,
+   "chapters": {
+    "throat": 58,
+    "mouth": 25,
+    "eye": 21
+   }
+  },
+  "oppression": {
+   "ur": "بوجھ/دباؤ",
+   "part": "sensation",
+   "freq": 174,
+   "chapters": {
+    "chest": 128,
+    "stomach": 37,
+    "head": 3
+   }
+  },
+  "barking": {
+   "ur": "کتے جیسی کھانسی/آواز",
+   "part": "quality",
+   "freq": 173,
+   "chapters": {
+    "larynx_and_trachea": 159,
+    "cough": 13,
+    "mind": 1
+   }
+  },
+  "odor": {
+   "ur": "بو",
+   "part": "quality",
+   "freq": 172,
+   "chapters": {
+    "perspiration": 43,
+    "mouth": 36,
+    "urine": 33
+   }
+  },
+  "floating": {
+   "ur": "تیرنے جیسا (ہلکا پھلکا)",
+   "part": "sensation",
+   "freq": 172,
+   "chapters": {
+    "vision": 161,
+    "mind": 5,
+    "vertigo": 3
+   }
+  },
+  "above": {
+   "ur": "اوپر",
+   "part": "direction",
+   "freq": 172,
+   "chapters": {
+    "head": 75,
+    "extremities": 29,
+    "nose": 21
+   }
+  },
+  "time": {
+   "ur": "وقت",
+   "part": "time",
+   "freq": 171,
+   "chapters": {
+    "chill": 94,
+    "bladder": 37,
+    "mind": 21
+   }
+  },
+  "sneezing": {
+   "ur": "چھینک",
+   "part": "sensation",
+   "freq": 171,
+   "chapters": {
+    "nose": 64,
+    "head": 23,
+    "chest": 13
+   }
+  },
+  "hot": {
+   "ur": "گرم / تپ",
+   "part": "quality",
+   "freq": 170,
+   "chapters": {
+    "extremities": 44,
+    "head": 18,
+    "face": 11
+   }
+  },
+  "inside": {
+   "ur": "اندر",
+   "part": "direction",
+   "freq": 170,
+   "chapters": {
+    "nose": 133,
+    "face": 10,
+    "ear": 8
+   }
+  },
+  "feet": {
+   "ur": "پاؤں",
+   "part": "location",
+   "freq": 168,
+   "chapters": {
+    "extremities": 75,
+    "chill": 26,
+    "mind": 10
+   }
+  },
+  "without": {
+   "ur": "کے بغیر / باہر",
+   "part": "direction",
+   "freq": 168,
+   "chapters": {
+    "fever": 76,
+    "chill": 24,
+    "nose": 11
+   }
+  },
+  "sticking": {
+   "ur": "چبھنا (لگا رہنے والا)",
+   "part": "sensation",
+   "freq": 168,
+   "chapters": {
+    "extremities": 93,
+    "abdomen": 31,
+    "generalities": 7
+   }
+  },
+  "erections": {
+   "ur": "عضو کا تناؤ",
+   "part": "complaint",
+   "freq": 167,
+   "chapters": {
+    "genitalia_male": 82,
+    "back": 68,
+    "urethra": 9
+   }
+  },
+  "restlessness": {
+   "ur": "بےآرامی",
+   "part": "sensation",
+   "freq": 167,
+   "chapters": {
+    "mind": 118,
+    "extremities": 25,
+    "abdomen": 17
+   }
+  },
+  "would": {
+   "ur": "ہوتا / چاہیے",
+   "part": "structural",
+   "freq": 166,
+   "chapters": {
+    "head": 41,
+    "mind": 32,
+    "abdomen": 29
+   }
+  },
+  "looking": {
+   "ur": "دیکھنا",
+   "part": "structural",
+   "freq": 164,
+   "chapters": {
+    "eye": 40,
+    "vision": 33,
+    "head": 26
+   }
+  },
+  "fainting": {
+   "ur": "بے ہوشی",
+   "part": "sensation",
+   "freq": 164,
+   "chapters": {
+    "generalities": 153,
+    "mind": 4,
+    "head": 1
+   }
+  },
+  "washing": {
+   "ur": "دھونا",
+   "part": "modality",
+   "freq": 162,
+   "chapters": {
+    "extremities": 77,
+    "head": 23,
+    "skin": 11
+   }
+  },
+  "lips": {
+   "ur": "ہونٹ",
+   "part": "location",
+   "freq": 161,
+   "chapters": {
+    "face": 146,
+    "mouth": 6,
+    "mind": 4
+   }
+  },
+  "dark": {
+   "ur": "گہرا / تاریک",
+   "part": "color",
+   "freq": 160,
+   "chapters": {
+    "vision": 32,
+    "extremities": 22,
+    "mind": 17
+   }
+  },
+  "mouth": {
+   "ur": "منہ",
+   "part": "location",
+   "freq": 160,
+   "chapters": {
+    "face": 54,
+    "mind": 38,
+    "ear": 15
+   }
+  },
+  "heel": {
+   "ur": "ایڑی",
+   "part": "location",
+   "freq": 159,
+   "chapters": {
+    "extremities": 158,
+    "generalities": 1
+   }
+  },
+  "inner": {
+   "ur": "اندرونی",
+   "part": "direction",
+   "freq": 158,
+   "chapters": {
+    "extremities": 98,
+    "eye": 31,
+    "back": 13
+   }
+  },
+  "hair": {
+   "ur": "بال",
+   "part": "location",
+   "freq": 158,
+   "chapters": {
+    "chill": 76,
+    "head": 41,
+    "mind": 6
+   }
+  },
+  "upward": {
+   "ur": "اوپر کی طرف",
+   "part": "direction",
+   "freq": 157,
+   "chapters": {
+    "extremities": 47,
+    "head": 29,
+    "back": 17
+   }
+  },
+  "cramps": {
+   "ur": "تشنج (اینٹھن)",
+   "part": "sensation",
+   "freq": 157,
+   "chapters": {
+    "extremities": 148,
+    "cough": 3,
+    "mind": 2
+   }
+  },
+  "formication": {
+   "ur": "چیونٹیوں چلنے جیسی حس",
+   "part": "sensation",
+   "freq": 157,
+   "chapters": {
+    "extremities": 42,
+    "skin": 23,
+    "back": 17
+   }
+  },
+  "gums": {
+   "ur": "مسوڑھے",
+   "part": "location",
+   "freq": 156,
+   "chapters": {
+    "mouth": 151,
+    "teeth": 5
+   }
+  },
+  "weeping": {
+   "ur": "رونا",
+   "part": "sensation",
+   "freq": 156,
+   "chapters": {
+    "mind": 147,
+    "chest": 2,
+    "extremities": 2
+   }
+  },
+  "around": {
+   "ur": "گرد / ارد گرد",
+   "part": "direction",
+   "freq": 155,
+   "chapters": {
+    "face": 34,
+    "vision": 26,
+    "mouth": 17
+   }
+  },
+  "externally": {
+   "ur": "باہر سے / بیرونی طور",
+   "part": "direction",
+   "freq": 155,
+   "chapters": {
+    "generalities": 123,
+    "nose": 25,
+    "head": 2
+   }
+  },
+  "urticaria": {
+   "ur": "پتہ (خارش والے چکتے)",
+   "part": "skin",
+   "freq": 154,
+   "chapters": {
+    "extremities": 99,
+    "skin": 38,
+    "face": 4
+   }
+  },
+  "blotches": {
+   "ur": "بڑے دھبے / چکتے",
+   "part": "skin",
+   "freq": 153,
+   "chapters": {
+    "extremities": 109,
+    "skin": 13,
+    "face": 11
+   }
+  },
+  "tingling": {
+   "ur": "جھنجھناہٹ",
+   "part": "sensation",
+   "freq": 153,
+   "chapters": {
+    "extremities": 73,
+    "nose": 17,
+    "face": 12
+   }
+  },
+  "pustules": {
+   "ur": "پیپ والے دانے",
+   "part": "skin",
+   "freq": 152,
+   "chapters": {
+    "extremities": 73,
+    "face": 23,
+    "skin": 20
+   }
+  },
+  "sleepiness": {
+   "ur": "اُگھنا / نیند",
+   "part": "quality",
+   "freq": 152,
+   "chapters": {
+    "sleep": 139,
+    "mind": 4,
+    "generalities": 4
+   }
+  },
+  "increased": {
+   "ur": "زیادہ ہوا",
+   "part": "quality",
+   "freq": 151,
+   "chapters": {
+    "stomach": 52,
+    "urine": 45,
+    "genitalia_female": 23
+   }
+  },
+  "objects": {
+   "ur": "اشیاء",
+   "part": "structural",
+   "freq": 151,
+   "chapters": {
+    "vision": 83,
+    "mind": 26,
+    "vertigo": 19
+   }
+  },
+  "asleep": {
+   "ur": "سن ہو جانا / سو جانا",
+   "part": "quality",
+   "freq": 151,
+   "chapters": {
+    "sleep": 41,
+    "extremities": 34,
+    "head": 15
+   }
+  },
+  "bloody": {
+   "ur": "خونی",
+   "part": "complaint",
+   "freq": 151,
+   "chapters": {
+    "expectoration": 51,
+    "urine": 18,
+    "genitalia_male": 18
+   }
+  },
+  "urine": {
+   "ur": "پیشاب",
+   "part": "location",
+   "freq": 150,
+   "chapters": {
+    "bladder": 91,
+    "urethra": 14,
+    "kidneys": 13
+   }
+  },
+  "smoking": {
+   "ur": "تمباکو نوشی",
+   "part": "food",
+   "freq": 150,
+   "chapters": {
+    "stomach": 56,
+    "cough": 21,
+    "head": 8
+   }
+  },
+  "long": {
+   "ur": "طویل",
+   "part": "quality",
+   "freq": 148,
+   "chapters": {
+    "extremities": 18,
+    "back": 16,
+    "bladder": 14
+   }
+  },
+  "offensive": {
+   "ur": "بدبودار",
+   "part": "quality",
+   "freq": 147,
+   "chapters": {
+    "genitalia_female": 28,
+    "urine": 27,
+    "mouth": 16
+   }
+  },
+  "becoming": {
+   "ur": "ہو جانا",
+   "part": "structural",
+   "freq": 147,
+   "chapters": {
+    "extremities": 31,
+    "cough": 20,
+    "generalities": 20
+   }
+  },
+  "tip": {
+   "ur": "سِرا (ناک/زبان کا)",
+   "part": "location",
+   "freq": 147,
+   "chapters": {
+    "extremities": 57,
+    "nose": 47,
+    "mouth": 20
+   }
+  },
+  "mind": {
+   "ur": "ذہن و دماغ",
+   "part": "location",
+   "freq": 147,
+   "chapters": {
+    "mind": 50,
+    "mouth": 50,
+    "extremities": 24
+   }
+  },
+  "illusions": {
+   "ur": "فریبِ نظر",
+   "part": "mental",
+   "freq": 147,
+   "chapters": {
+    "mind": 138,
+    "vision": 4,
+    "hearing": 3
+   }
+  },
+  "emptiness": {
+   "ur": "خالی خالی احساس",
+   "part": "sensation",
+   "freq": 146,
+   "chapters": {
+    "stomach": 97,
+    "abdomen": 29,
+    "chest": 16
+   }
+  },
+  "being": {
+   "ur": "ہوتے ہوئے",
+   "part": "structural",
+   "freq": 145,
+   "chapters": {
+    "mind": 64,
+    "sleep": 40,
+    "head": 6
+   }
+  },
+  "hammering": {
+   "ur": "ہتھوڑے جیسی",
+   "part": "sensation",
+   "freq": 145,
+   "chapters": {
+    "head": 143,
+    "ear": 1,
+    "abdomen": 1
+   }
+  },
+  "asthmatic": {
+   "ur": "دمے جیسا",
+   "part": "complaint",
+   "freq": 145,
+   "chapters": {
+    "respiration": 140,
+    "cough": 2,
+    "nose": 1
+   }
+  },
+  "throbbing": {
+   "ur": "دھک دھک کے ساتھ",
+   "part": "sensation",
+   "freq": 144,
+   "chapters": {
+    "head": 137,
+    "eye": 2,
+    "nose": 2
+   }
+  },
+  "involuntary": {
+   "ur": "بےاختیار",
+   "part": "complaint",
+   "freq": 144,
+   "chapters": {
+    "bladder": 68,
+    "rectum": 32,
+    "mind": 15
+   }
+  },
+  "beating": {
+   "ur": "دھڑکن / مارتا ہوا",
+   "part": "sensation",
+   "freq": 143,
+   "chapters": {
+    "head": 139,
+    "ear": 2,
+    "urethra": 1
+   }
+  },
+  "irritability": {
+   "ur": "چڑچڑاپن",
+   "part": "sensation",
+   "freq": 142,
+   "chapters": {
+    "mind": 135,
+    "generalities": 6,
+    "chest": 1
+   }
+  },
+  "gland": {
+   "ur": "غدود (گرنٹھی)",
+   "part": "location",
+   "freq": 142,
+   "chapters": {
+    "face": 80,
+    "rectum": 29,
+    "external_throat": 18
+   }
+  },
+  "thinking": {
+   "ur": "سوچنا",
+   "part": "modality",
+   "freq": 141,
+   "chapters": {
+    "mind": 85,
+    "head": 15,
+    "stomach": 9
+   }
+  },
+  "loss": {
+   "ur": "کمی / نقصان",
+   "part": "quality",
+   "freq": 141,
+   "chapters": {
+    "vision": 97,
+    "generalities": 11,
+    "head": 5
+   }
+  },
+  "haemorrhage": {
+   "ur": "خون کا بہاؤ",
+   "part": "complaint",
+   "freq": 140,
+   "chapters": {
+    "expectoration": 47,
+    "rectum": 21,
+    "chest": 21
+   }
+  },
+  "seat": {
+   "ur": "جگہ (شکایت کی جگہ)",
+   "part": "structural",
+   "freq": 140,
+   "chapters": {
+    "extremities": 58,
+    "back": 26,
+    "chest": 12
+   }
+  },
+  "pains": {
+   "ur": "درد",
+   "part": "sensation",
+   "freq": 139,
+   "chapters": {
+    "genitalia_female": 70,
+    "head": 23,
+    "mind": 10
+   }
+  },
+  "vexation": {
+   "ur": "دل آزاری",
+   "part": "modality",
+   "freq": 139,
+   "chapters": {
+    "generalities": 52,
+    "extremities": 13,
+    "mind": 11
+   }
+  },
+  "light": {
+   "ur": "روشنی",
+   "part": "modality",
+   "freq": 139,
+   "chapters": {
+    "vision": 45,
+    "eye": 41,
+    "head": 21
+   }
+  },
+  "mood": {
+   "ur": "مزاج",
+   "part": "mind",
+   "freq": 139,
+   "chapters": {
+    "mind": 139
+   }
+  },
+  "vision": {
+   "ur": "نظر",
+   "part": "location",
+   "freq": 137,
+   "chapters": {
+    "vision": 114,
+    "eye": 10,
+    "mind": 4
+   }
+  },
+  "blowing": {
+   "ur": "پھونک (دل/سینے کی آواز)",
+   "part": "quality",
+   "freq": 137,
+   "chapters": {
+    "nose": 33,
+    "ear": 29,
+    "vision": 13
+   }
+  },
+  "vagina": {
+   "ur": "فرج (نسوانی راستہ)",
+   "part": "location",
+   "freq": 135,
+   "chapters": {
+    "genitalia_female": 114,
+    "abdomen": 10,
+    "back": 7
+   }
+  },
+  "coccyx": {
+   "ur": "دم",
+   "part": "location",
+   "freq": 135,
+   "chapters": {
+    "back": 131,
+    "rectum": 3,
+    "genitalia_female": 1
+   }
+  },
+  "contraction": {
+   "ur": "سکڑاؤ / کھنچاؤ",
+   "part": "sensation",
+   "freq": 135,
+   "chapters": {
+    "rectum": 35,
+    "extremities": 35,
+    "abdomen": 16
+   }
+  },
+  "alcoholic": {
+   "ur": "شراب / نشہ آور",
+   "part": "food",
+   "freq": 135,
+   "chapters": {
+    "stomach": 129,
+    "generalities": 3,
+    "vertigo": 1
+   }
+  },
+  "child": {
+   "ur": "بچہ",
+   "part": "structural",
+   "freq": 135,
+   "chapters": {
+    "bladder": 75,
+    "mind": 16,
+    "chest": 11
+   }
+  },
+  "copious": {
+   "ur": "کثیر (بہت زیادہ)",
+   "part": "quality",
+   "freq": 135,
+   "chapters": {
+    "urine": 47,
+    "genitalia_female": 38,
+    "expectoration": 15
+   }
+  },
+  "glands": {
+   "ur": "غدود",
+   "part": "location",
+   "freq": 134,
+   "chapters": {
+    "generalities": 61,
+    "face": 14,
+    "abdomen": 13
+   }
+  },
+  "epistaxis": {
+   "ur": "نکسیر",
+   "part": "complaint",
+   "freq": 134,
+   "chapters": {
+    "nose": 109,
+    "genitalia_female": 11,
+    "head": 8
+   }
+  },
+  "root": {
+   "ur": "جڑ (ناک/دانت کی)",
+   "part": "location",
+   "freq": 134,
+   "chapters": {
+    "nose": 66,
+    "head": 22,
+    "genitalia_male": 15
+   }
+  },
+  "imaginations": {
+   "ur": "تصورات / وہم",
+   "part": "mind",
+   "freq": 133,
+   "chapters": {
+    "mind": 133
+   }
+  },
+  "fourth": {
+   "ur": "چوتھا",
+   "part": "structural",
+   "freq": 133,
+   "chapters": {
+    "extremities": 129,
+    "rectum": 2,
+    "nose": 1
+   }
+  },
+  "something": {
+   "ur": "کوئی چیز",
+   "part": "structural",
+   "freq": 133,
+   "chapters": {
+    "mind": 51,
+    "head": 24,
+    "back": 15
+   }
+  },
+  "sadness": {
+   "ur": "اداسی",
+   "part": "sensation",
+   "freq": 133,
+   "chapters": {
+    "mind": 130,
+    "stomach": 2,
+    "perspiration": 1
+   }
+  },
+  "rumbling": {
+   "ur": "گوڑگور (آنتوں کی آواز)",
+   "part": "sensation",
+   "freq": 133,
+   "chapters": {
+    "abdomen": 124,
+    "ear": 7,
+    "cough": 1
+   }
+  },
+  "shivering": {
+   "ur": "کپکپاہٹ",
+   "part": "sensation",
+   "freq": 132,
+   "chapters": {
+    "chill": 88,
+    "back": 19,
+    "fever": 9
+   }
+  },
+  "urinating": {
+   "ur": "پیشاب کرنا",
+   "part": "complaint",
+   "freq": 132,
+   "chapters": {
+    "urethra": 58,
+    "back": 25,
+    "bladder": 11
+   }
+  },
+  "day": {
+   "ur": "دن",
+   "part": "time",
+   "freq": 131,
+   "chapters": {
+    "chill": 21,
+    "mind": 16,
+    "head": 15
+   }
+  },
+  "hallucinations": {
+   "ur": "خیالی",
+   "part": "mental",
+   "freq": 131,
+   "chapters": {
+    "mind": 131
+   }
+  },
+  "appetite": {
+   "ur": "بھوک",
+   "part": "sensation",
+   "freq": 131,
+   "chapters": {
+    "stomach": 131
+   }
+  },
+  "tenesmus": {
+   "ur": "مستقل دھتکار (مقعد/مثانے کی)",
+   "part": "complaint",
+   "freq": 131,
+   "chapters": {
+    "rectum": 114,
+    "bladder": 16,
+    "genitalia_male": 1
+   }
+  },
+  "trachea": {
+   "ur": "سنسنی کی نالی",
+   "part": "location",
+   "freq": 130,
+   "chapters": {
+    "larynx_and_trachea": 77,
+    "cough": 26,
+    "chest": 22
+   }
+  },
+  "sleeplessness": {
+   "ur": "بےخوابی",
+   "part": "quality",
+   "freq": 129,
+   "chapters": {
+    "sleep": 118,
+    "fever": 4,
+    "nose": 2
+   }
+  },
+  "liver": {
+   "ur": "جگر",
+   "part": "location",
+   "freq": 129,
+   "chapters": {
+    "abdomen": 109,
+    "chest": 3,
+    "extremities": 3
+   }
+  },
+  "toward": {
+   "ur": "کی طرف",
+   "part": "direction",
+   "freq": 129,
+   "chapters": {
+    "sleep": 47,
+    "chest": 19,
+    "abdomen": 13
+   }
+  },
+  "things": {
+   "ur": "چیزیں",
+   "part": "structural",
+   "freq": 129,
+   "chapters": {
+    "mind": 79,
+    "stomach": 17,
+    "sleep": 6
+   }
+  },
+  "steps": {
+   "ur": "سیڑھیاں / قدم",
+   "part": "modality",
+   "freq": 129,
+   "chapters": {
+    "extremities": 90,
+    "head": 19,
+    "chest": 8
+   }
+  },
+  "milk": {
+   "ur": "دودھ",
+   "part": "food",
+   "freq": 128,
+   "chapters": {
+    "stomach": 40,
+    "chest": 34,
+    "abdomen": 15
+   }
+  },
+  "him": {
+   "ur": "اُسے",
+   "part": "structural",
+   "freq": 128,
+   "chapters": {
+    "mind": 61,
+    "back": 10,
+    "chill": 9
+   }
+  },
+  "eye": {
+   "ur": "آنکھ",
+   "part": "location",
+   "freq": 128,
+   "chapters": {
+    "head": 53,
+    "eye": 26,
+    "vision": 11
+   }
+  },
+  "sees": {
+   "ur": "دیکھتا ہے",
+   "part": "structural",
+   "freq": 127,
+   "chapters": {
+    "mind": 125,
+    "vision": 2
+   }
+  },
+  "posterior": {
+   "ur": "پیچھے والا",
+   "part": "direction",
+   "freq": 126,
+   "chapters": {
+    "extremities": 60,
+    "nose": 49,
+    "throat": 5
+   }
+  },
+  "teeth": {
+   "ur": "دانت",
+   "part": "location",
+   "freq": 126,
+   "chapters": {
+    "head": 41,
+    "teeth": 38,
+    "mouth": 18
+   }
+  },
+  "stomach": {
+   "ur": "معدہ",
+   "part": "location",
+   "freq": 125,
+   "chapters": {
+    "throat": 20,
+    "back": 16,
+    "stomach": 15
+   }
+  },
+  "children": {
+   "ur": "بچے",
+   "part": "structural",
+   "freq": 125,
+   "chapters": {
+    "mind": 43,
+    "bladder": 32,
+    "abdomen": 9
+   }
+  },
+  "parts": {
+   "ur": "حصے",
+   "part": "structural",
+   "freq": 125,
+   "chapters": {
+    "generalities": 40,
+    "perspiration": 19,
+    "skin": 15
+   }
+  },
+  "nail": {
+   "ur": "ناخن",
+   "part": "location",
+   "freq": 125,
+   "chapters": {
+    "extremities": 65,
+    "head": 58,
+    "eye": 1
+   }
+  },
+  "people": {
+   "ur": "لوگ",
+   "part": "structural",
+   "freq": 125,
+   "chapters": {
+    "mind": 52,
+    "generalities": 10,
+    "cough": 8
+   }
+  },
+  "bitter": {
+   "ur": "کڑوا",
+   "part": "quality",
+   "freq": 125,
+   "chapters": {
+    "mouth": 59,
+    "stomach": 58,
+    "nose": 2
+   }
+  },
+  "shocks": {
+   "ur": "جھٹکے",
+   "part": "sensation",
+   "freq": 124,
+   "chapters": {
+    "head": 48,
+    "extremities": 22,
+    "generalities": 20
+   }
+  },
+  "tickling": {
+   "ur": "گدگدی",
+   "part": "sensation",
+   "freq": 124,
+   "chapters": {
+    "cough": 57,
+    "larynx_and_trachea": 41,
+    "extremities": 9
+   }
+  },
+  "hyperaemia": {
+   "ur": "لہو کی کثرت (عضو میں خون کا بھراؤ)",
+   "part": "complaint",
+   "freq": 124,
+   "chapters": {
+    "head": 100,
+    "chest": 24
+   }
+  },
+  "bent": {
+   "ur": "مڑا ہوا / جھکا ہوا",
+   "part": "quality",
+   "freq": 123,
+   "chapters": {
+    "back": 33,
+    "abdomen": 23,
+    "chest": 17
+   }
+  },
+  "thinks": {
+   "ur": "سوچتا ہے",
+   "part": "structural",
+   "freq": 123,
+   "chapters": {
+    "mind": 121,
+    "head": 2
+   }
+  },
+  "ears": {
+   "ur": "کان",
+   "part": "location",
+   "freq": 123,
+   "chapters": {
+    "head": 53,
+    "ear": 48,
+    "face": 9
+   }
+  },
+  "bluish": {
+   "ur": "نیلا سا",
+   "part": "color",
+   "freq": 122,
+   "chapters": {
+    "face": 39,
+    "mouth": 22,
+    "extremities": 13
+   }
+  },
+  "enlarged": {
+   "ur": "بڑھا ہوا",
+   "part": "quality",
+   "freq": 122,
+   "chapters": {
+    "head": 77,
+    "mind": 11,
+    "genitalia_female": 8
+   }
+  },
+  "absent": {
+   "ur": "غائب دھن",
+   "part": "mind",
+   "freq": 122,
+   "chapters": {
+    "fever": 53,
+    "mind": 22,
+    "chest": 19
+   }
+  },
+  "weak": {
+   "ur": "کمزوری",
+   "part": "sensation",
+   "freq": 122,
+   "chapters": {
+    "stomach": 72,
+    "eye": 22,
+    "vision": 9
+   }
+  },
+  "crawling": {
+   "ur": "رینگنے کی حس (کچھ چل رہا ہے)",
+   "part": "sensation",
+   "freq": 122,
+   "chapters": {
+    "extremities": 50,
+    "cough": 13,
+    "throat": 10
+   }
+  },
+  "weight": {
+   "ur": "بوجھ",
+   "part": "sensation",
+   "freq": 121,
+   "chapters": {
+    "stomach": 38,
+    "head": 31,
+    "rectum": 21
+   }
+  },
+  "second": {
+   "ur": "دوسرا",
+   "part": "structural",
+   "freq": 120,
+   "chapters": {
+    "extremities": 108,
+    "genitalia_female": 10,
+    "head": 1
+   }
+  },
+  "palm": {
+   "ur": "ہتھیلی",
+   "part": "location",
+   "freq": 120,
+   "chapters": {
+    "extremities": 119,
+    "generalities": 1
+   }
+  },
+  "sediment": {
+   "ur": "تلچھٹ (پیشاب کی)",
+   "part": "complaint",
+   "freq": 120,
+   "chapters": {
+    "urine": 114,
+    "bladder": 4,
+    "stool": 1
+   }
+  },
+  "blue": {
+   "ur": "نیلا",
+   "part": "color",
+   "freq": 119,
+   "chapters": {
+    "extremities": 48,
+    "vision": 22,
+    "ear": 15
+   }
+  },
+  "sacrum": {
+   "ur": "کمر کے نچلے مہروں",
+   "part": "location",
+   "freq": 119,
+   "chapters": {
+    "back": 97,
+    "abdomen": 6,
+    "genitalia_female": 6
+   }
+  },
+  "raising": {
+   "ur": "اٹھانے پر",
+   "part": "modality",
+   "freq": 119,
+   "chapters": {
+    "extremities": 43,
+    "head": 21,
+    "chest": 16
+   }
+  },
+  "all": {
+   "ur": "سب",
+   "part": "structural",
+   "freq": 119,
+   "chapters": {
+    "mind": 35,
+    "head": 24,
+    "chill": 9
+   }
+  },
+  "outward": {
+   "ur": "باہر کی طرف",
+   "part": "direction",
+   "freq": 119,
+   "chapters": {
+    "head": 46,
+    "extremities": 22,
+    "abdomen": 10
+   }
+  },
+  "frequent": {
+   "ur": "بار بار",
+   "part": "quality",
+   "freq": 117,
+   "chapters": {
+    "generalities": 61,
+    "bladder": 20,
+    "sleep": 11
+   }
+  },
+  "mucous": {
+   "ur": "بلغم والا",
+   "part": "complaint",
+   "freq": 117,
+   "chapters": {
+    "stool": 49,
+    "expectoration": 21,
+    "mouth": 20
+   }
+  },
+  "drawn": {
+   "ur": "کھینچا ہوا",
+   "part": "sensation",
+   "freq": 117,
+   "chapters": {
+    "head": 49,
+    "extremities": 35,
+    "face": 5
+   }
+  },
+  "other": {
+   "ur": "دوسرا",
+   "part": "structural",
+   "freq": 117,
+   "chapters": {
+    "extremities": 33,
+    "mind": 12,
+    "head": 11
+   }
+  },
+  "canthi": {
+   "ur": "آنکھ کے کنارے (پپوٹے کا کونا)",
+   "part": "location",
+   "freq": 116,
+   "chapters": {
+    "eye": 116
+   }
+  },
+  "tearful": {
+   "ur": "آنسو بہاتا ہوا",
+   "part": "mind",
+   "freq": 116,
+   "chapters": {
+    "mind": 116
+   }
+  },
+  "thirst": {
+   "ur": "پیاس",
+   "part": "sensation",
+   "freq": 115,
+   "chapters": {
+    "stomach": 73,
+    "fever": 20,
+    "chill": 12
+   }
+  },
+  "meatus": {
+   "ur": "منہِ راستہ (نالی کا)",
+   "part": "location",
+   "freq": 115,
+   "chapters": {
+    "urethra": 77,
+    "ear": 30,
+    "vision": 3
+   }
+  },
+  "wine": {
+   "ur": "شراب",
+   "part": "food",
+   "freq": 115,
+   "chapters": {
+    "extremities": 19,
+    "stomach": 18,
+    "head": 13
+   }
+  },
+  "nates": {
+   "ur": "ساڑھے (بٹ)",
+   "part": "location",
+   "freq": 115,
+   "chapters": {
+    "extremities": 109,
+    "back": 4,
+    "rectum": 2
+   }
+  },
+  "external": {
+   "ur": "بیرونی",
+   "part": "direction",
+   "freq": 115,
+   "chapters": {
+    "fever": 27,
+    "chill": 24,
+    "extremities": 12
+   }
+  },
+  "plug": {
+   "ur": "کلوتھ/کانٹے جیسا احساس (plug)",
+   "part": "sensation",
+   "freq": 115,
+   "chapters": {
+    "head": 51,
+    "throat": 40,
+    "back": 6
+   }
+  },
+  "old": {
+   "ur": "پرانا / بوڑھا",
+   "part": "quality",
+   "freq": 114,
+   "chapters": {
+    "expectoration": 14,
+    "skin": 14,
+    "chest": 11
+   }
+  },
+  "anterior": {
+   "ur": "سامنے والا",
+   "part": "direction",
+   "freq": 114,
+   "chapters": {
+    "extremities": 49,
+    "urethra": 26,
+    "chest": 25
+   }
+  },
+  "small": {
+   "ur": "چھوٹا",
+   "part": "quality",
+   "freq": 114,
+   "chapters": {
+    "back": 20,
+    "head": 15,
+    "abdomen": 13
+   }
+  },
+  "scrotum": {
+   "ur": "دبان (خصیوں کی تھیلی)",
+   "part": "location",
+   "freq": 114,
+   "chapters": {
+    "genitalia_male": 110,
+    "mind": 3,
+    "abdomen": 1
+   }
+  },
+  "swollen": {
+   "ur": "سوجا ہوا",
+   "part": "quality",
+   "freq": 114,
+   "chapters": {
+    "eye": 34,
+    "head": 31,
+    "genitalia_female": 16
+   }
+  },
+  "also": {
+   "ur": "بھی",
+   "part": "structural",
+   "freq": 113,
+   "chapters": {
+    "head": 73,
+    "genitalia_female": 20,
+    "mind": 5
+   }
+  },
+  "unconsciousness": {
+   "ur": "بےہوشی",
+   "part": "quality",
+   "freq": 113,
+   "chapters": {
+    "mind": 101,
+    "head": 3,
+    "eye": 2
+   }
+  },
+  "cannot": {
+   "ur": "نہیں سکتا",
+   "part": "structural",
+   "freq": 113,
+   "chapters": {
+    "mind": 53,
+    "bladder": 37,
+    "mouth": 5
+   }
+  },
+  "pregnancy": {
+   "ur": "حمل",
+   "part": "location",
+   "freq": 112,
+   "chapters": {
+    "stomach": 20,
+    "extremities": 17,
+    "genitalia_female": 12
+   }
+  },
+  "supper": {
+   "ur": "رات کا کھانا",
+   "part": "time",
+   "freq": 112,
+   "chapters": {
+    "abdomen": 25,
+    "stomach": 22,
+    "mind": 17
+   }
+  },
+  "discharges": {
+   "ur": "اخراج",
+   "part": "sensation",
+   "freq": 112,
+   "chapters": {
+    "ear": 54,
+    "eye": 33,
+    "generalities": 7
+   }
+  },
+  "flatus": {
+   "ur": "گیس",
+   "part": "complaint",
+   "freq": 111,
+   "chapters": {
+    "rectum": 59,
+    "abdomen": 20,
+    "back": 6
+   }
+  },
+  "depression": {
+   "ur": "افسردگی",
+   "part": "mental",
+   "freq": 111,
+   "chapters": {
+    "mind": 110,
+    "generalities": 1
+   }
+  },
+  "speech": {
+   "ur": "بولنا",
+   "part": "modality",
+   "freq": 111,
+   "chapters": {
+    "mouth": 59,
+    "mind": 50,
+    "larynx_and_trachea": 1
+   }
+  },
+  "moist": {
+   "ur": "نم",
+   "part": "quality",
+   "freq": 110,
+   "chapters": {
+    "skin": 23,
+    "genitalia_male": 20,
+    "extremities": 17
+   }
+  },
+  "dim": {
+   "ur": "دھندلا",
+   "part": "quality",
+   "freq": 110,
+   "chapters": {
+    "vision": 104,
+    "extremities": 3,
+    "eye": 2
+   }
+  },
+  "wet": {
+   "ur": "گیلا",
+   "part": "quality",
+   "freq": 110,
+   "chapters": {
+    "extremities": 27,
+    "head": 17,
+    "generalities": 15
+   }
+  },
+  "tibia": {
+   "ur": "پنڈلی کی ہڈی (خوہستنی)",
+   "part": "location",
+   "freq": 110,
+   "chapters": {
+    "extremities": 110
+   }
+  },
+  "third": {
+   "ur": "تیسرا",
+   "part": "structural",
+   "freq": 109,
+   "chapters": {
+    "extremities": 102,
+    "genitalia_female": 2,
+    "mind": 1
+   }
+  },
+  "breathing": {
+   "ur": "سانس لینا",
+   "part": "location",
+   "freq": 109,
+   "chapters": {
+    "back": 36,
+    "chest": 13,
+    "abdomen": 11
+   }
+  },
+  "iliac": {
+   "ur": "کولے کی ہڈی کا علاقہ",
+   "part": "location",
+   "freq": 108,
+   "chapters": {
+    "abdomen": 93,
+    "back": 15
+   }
+  },
+  "waving": {
+   "ur": "لہریں اٹھنے جیسا",
+   "part": "sensation",
+   "freq": 108,
+   "chapters": {
+    "head": 101,
+    "vision": 4,
+    "mind": 1
+   }
+  },
+  "cramp": {
+   "ur": "تشنج (اینٹھن)",
+   "part": "sensation",
+   "freq": 107,
+   "chapters": {
+    "extremities": 52,
+    "chest": 15,
+    "face": 8
+   }
+  },
+  "sweat": {
+   "ur": "پسینہ بہنا",
+   "part": "location",
+   "freq": 107,
+   "chapters": {
+    "fever": 51,
+    "chill": 21,
+    "perspiration": 9
+   }
+  },
+  "intermittent": {
+   "ur": "وقفے کے ساتھ",
+   "part": "time",
+   "freq": 106,
+   "chapters": {
+    "head": 14,
+    "extremities": 14,
+    "fever": 12
+   }
+  },
+  "constant": {
+   "ur": "مسلسل",
+   "part": "quality",
+   "freq": 106,
+   "chapters": {
+    "cough": 16,
+    "eye": 14,
+    "throat": 14
+   }
+  },
+  "distension": {
+   "ur": "پھولاؤ",
+   "part": "sensation",
+   "freq": 106,
+   "chapters": {
+    "abdomen": 97,
+    "bladder": 2,
+    "chest": 2
+   }
+  },
+  "blindness": {
+   "ur": "بینائی کا اندھیرا",
+   "part": "quality",
+   "freq": 106,
+   "chapters": {
+    "vision": 101,
+    "head": 2,
+    "generalities": 2
+   }
+  },
+  "nervousness": {
+   "ur": "اعصابی بےچینی",
+   "part": "mind",
+   "freq": 106,
+   "chapters": {
+    "mind": 104,
+    "generalities": 2
+   }
+  },
+  "frontal": {
+   "ur": "پیشانی کا",
+   "part": "location",
+   "freq": 105,
+   "chapters": {
+    "head": 95,
+    "nose": 8,
+    "eye": 2
+   }
+  },
+  "boils": {
+   "ur": "پھنسیاں",
+   "part": "complaint",
+   "freq": 105,
+   "chapters": {
+    "extremities": 33,
+    "face": 14,
+    "ear": 13
+   }
+  },
+  "biting": {
+   "ur": "کاٹنے جیسا چبھن",
+   "part": "sensation",
+   "freq": 105,
+   "chapters": {
+    "teeth": 13,
+    "extremities": 13,
+    "skin": 13
+   }
+  },
+  "looseness": {
+   "ur": "ڈھیلا پن (آنتوں کا)",
+   "part": "complaint",
+   "freq": 105,
+   "chapters": {
+    "head": 94,
+    "teeth": 10,
+    "extremities": 1
+   }
+  },
+  "confusion": {
+   "ur": "الجھن",
+   "part": "mental",
+   "freq": 105,
+   "chapters": {
+    "mind": 100,
+    "head": 4,
+    "hearing": 1
+   }
+  },
+  "passages": {
+   "ur": "راستے (نالیاں)",
+   "part": "location",
+   "freq": 104,
+   "chapters": {
+    "cough": 56,
+    "larynx_and_trachea": 48
+   }
+  },
+  "nails": {
+   "ur": "ناخن",
+   "part": "location",
+   "freq": 104,
+   "chapters": {
+    "extremities": 100,
+    "mind": 1,
+    "ear": 1
+   }
+  },
+  "laughing": {
+   "ur": "ہنسنا",
+   "part": "mental",
+   "freq": 104,
+   "chapters": {
+    "mind": 56,
+    "head": 13,
+    "chest": 6
+   }
+  },
+  "pit": {
+   "ur": "گڑھا (معدے/دل کا)",
+   "part": "location",
+   "freq": 103,
+   "chapters": {
+    "external_throat": 48,
+    "cough": 16,
+    "larynx_and_trachea": 13
+   }
+  },
+  "palate": {
+   "ur": "تالو",
+   "part": "location",
+   "freq": 103,
+   "chapters": {
+    "mouth": 101,
+    "head": 2
+   }
+  },
+  "stepping": {
+   "ur": "قدم رکھنے پر",
+   "part": "modality",
+   "freq": 102,
+   "chapters": {
+    "extremities": 49,
+    "head": 27,
+    "back": 17
+   }
+  },
+  "odors": {
+   "ur": "بوئیں",
+   "part": "modality",
+   "freq": 102,
+   "chapters": {
+    "nose": 83,
+    "head": 7,
+    "generalities": 6
+   }
+  },
+  "sharp": {
+   "ur": "تیز",
+   "part": "quality",
+   "freq": 101,
+   "chapters": {
+    "chest": 68,
+    "genitalia_female": 18,
+    "cough": 4
+   }
+  },
+  "tightness": {
+   "ur": "تنی ہوئی",
+   "part": "sensation",
+   "freq": 100,
+   "chapters": {
+    "chest": 94,
+    "skin": 2,
+    "head": 1
+   }
+  },
+  "profuse": {
+   "ur": "برہمن (بہت زیادہ)",
+   "part": "quality",
+   "freq": 100,
+   "chapters": {
+    "perspiration": 81,
+    "head": 3,
+    "mind": 2
+   }
+  },
+  "urinate": {
+   "ur": "پیشاب کرنا",
+   "part": "complaint",
+   "freq": 100,
+   "chapters": {
+    "bladder": 46,
+    "urethra": 10,
+    "abdomen": 9
+   }
+  },
+  "walk": {
+   "ur": "چلنا",
+   "part": "modality",
+   "freq": 100,
+   "chapters": {
+    "mind": 42,
+    "extremities": 24,
+    "back": 9
+   }
+  },
+  "oesophagus": {
+   "ur": "حلقہ (گلا سے معدے تک نالی)",
+   "part": "location",
+   "freq": 100,
+   "chapters": {
+    "throat": 94,
+    "stomach": 3,
+    "teeth": 1
+   }
+  },
+  "thighs": {
+   "ur": "ران",
+   "part": "location",
+   "freq": 100,
+   "chapters": {
+    "back": 31,
+    "genitalia_female": 17,
+    "abdomen": 14
+   }
+  },
+  "hyperaesthesia": {
+   "ur": "حساسیتِ زائدہ",
+   "part": "quality",
+   "freq": 7,
+   "chapters": {
+    "back": 2,
+    "eye": 1,
+    "bladder": 1
+   }
+  }
+ },
+ "grammar_phrases": {
+  "cervical region": {
+   "ur": "گردن کے مہروں",
+   "part": "location"
+  },
+  "genitalia male": {
+   "ur": "مردانہ عضو",
+   "part": "location"
+  },
+  "genitalia female": {
+   "ur": "زنانہ عضو",
+   "part": "location"
+  },
+  "lumbar region": {
+   "ur": "کمر میں",
+   "part": "location"
+  },
+  "dorsal region": {
+   "ur": "پشت کے درمیانی حصے",
+   "part": "location"
+  },
+  "upper limbs": {
+   "ur": "بازو (اوپری عضو)",
+   "part": "location"
+  },
+  "lower limbs": {
+   "ur": "ٹانگیں (نچلا عضو)",
+   "part": "location"
+  },
+  "nervous system": {
+   "ur": "عصبی نظام",
+   "part": "location"
+  },
+  "heart and region of": {
+   "ur": "دل اور اُس کے ارد گرد",
+   "part": "location"
+  },
+  "heat sensation": {
+   "ur": "گرمی کا احساس",
+   "part": "sensation"
+  },
+  "weakness in chest": {
+   "ur": "سینے میں کمزوری",
+   "part": "sensation"
+  },
+  "midnight to morning": {
+   "ur": "آدھی رات سے صبح",
+   "part": "time"
+  },
+  "lying down": {
+   "ur": "لیٹ کر",
+   "part": "modality"
+  },
+  "lying in bed": {
+   "ur": "بستر پر لیٹنا",
+   "part": "modality"
+  },
+  "lying (in bed)": {
+   "ur": "بستر پر لیٹنا",
+   "part": "modality"
+  },
+  "bent forward": {
+   "ur": "آگے جھک کر",
+   "part": "modality"
+  },
+  "sits up": {
+   "ur": "اٹھ کر بیٹھنا",
+   "part": "modality"
+  },
+  "air open": {
+   "ur": "کھلی ہوا",
+   "part": "modality"
+  },
+  "cold air": {
+   "ur": "ٹھنڈی ہوا",
+   "part": "modality"
+  },
+  "warm room": {
+   "ur": "گرم کمرہ",
+   "part": "modality"
+  },
+  "warm bed": {
+   "ur": "گرم بستر",
+   "part": "modality"
+  },
+  "cold water": {
+   "ur": "ٹھنڈا پانی",
+   "part": "modality"
+  },
+  "mental exertion": {
+   "ur": "ذہنی محنت",
+   "part": "modality"
+  },
+  "closing eyes": {
+   "ur": "آنکھیں بند کرنا",
+   "part": "modality"
+  },
+  "opening eyes": {
+   "ur": "آنکھیں کھولنا",
+   "part": "modality"
+  },
+  "urging to": {
+   "ur": "دباؤ/تاکید",
+   "part": "complaint"
+  },
+  "alternating sides": {
+   "ur": "باری باری طرف",
+   "part": "side"
+  }
+ },
+ "aliases": {
+  "diarrh": "diarrhoea",
+  "scapul": "scapulae",
+  "mamm": "mammae",
+  "sophagus": "oesophagus",
+  "morrhage": "haemorrhage",
+  "hyper": "hyperaesthesia",
+  "mia": "haematuria"
+ }
+}

@@ -117,6 +117,59 @@ except Exception:  # احتیاطی محفوظ صورت
     RepertoryVocabulary = None
 
 
+# نسخہ 5.0: بہن ربرک کا جھنڈا — ایک لفظ کا فرق ادویات بدل سکتا ہے (ماڈیول سطح)
+def _parent_text(t: str) -> str:
+    parts = [p.strip() for p in str(t).strip().rstrip(".").split(",")]
+    return (", ".join(parts[:-1]) if len(parts) > 1 else "").lower()
+
+
+def _related_rubrics(ta: str, tb: str) -> bool:
+    """والد-ذیلی (ایک دوسرے کا سابقہ) یا بہن (ایک ہی والد)"""
+    ta, tb = ta.lower().rstrip("."), tb.lower().rstrip(".")
+    if not ta or not tb or ta == tb:
+        return False
+    if tb.startswith(ta + ",") or ta.startswith(tb + ","):
+        return True
+    pa, pb = _parent_text(ta), _parent_text(tb)
+    return bool(pa and pa == pb)
+
+
+def _sibling_alerts(matches: List[dict], rejected: List[dict],
+                    source: str, sym: str) -> List[dict]:
+    """قریبی ربرک جوڑے: (ا) رکھی گئی دو ربرکس کے اعتماد قریب اور رشتہ دار؛
+    (ب) اوّل ربرک کی قریبی رد شدہ ربرک (شرطِ ادھوری) — معالج دیکھے"""
+    out: List[dict] = []
+    cands = [m for m in matches if m.get("text")]
+    cands.sort(key=lambda m: -float(m.get("confidence", 1.0) or 1.0))
+    for i in range(len(cands)):
+        for j in range(i + 1, len(cands)):
+            a, b = cands[i], cands[j]
+            if not _related_rubrics(a["text"], b["text"]):
+                continue
+            ca = float(a.get("confidence", 1.0) or 1.0)
+            cb = float(b.get("confidence", 1.0) or 1.0)
+            if abs(ca - cb) <= 0.35:
+                out.append({
+                    "symptom": sym, "source": source,
+                    "chosen": {"rubric": a["text"], "confidence": round(ca, 2)},
+                    "nearby": {"rubric": b["text"], "confidence": round(cb, 2)},
+                    "note": "قریبی ربرک بھی برابر قابلِ غور ہے — ایک لفظ کا فرق ادویات بدل سکتا ہے",
+                })
+    for a in cands[:2]:
+        for rj in rejected:
+            rt = str(rj.get("rubric", ""))
+            if rt and _related_rubrics(str(a.get("text", "")), rt):
+                out.append({
+                    "symptom": sym, "source": source,
+                    "chosen": {"rubric": a["text"], "confidence": round(float(a.get("confidence", 1.0) or 1.0), 2)},
+                    "nearby": {"rubric": rt, "confidence": ""},
+                    "status": "rejected",
+                    "note": f"قریبی ربرک رد ہوئی: {rj.get('why', '')}",
+                })
+                break
+    return out[:3]
+
+
 def repertorize_multi(
     symptoms: List[str],
     source_names: Optional[List[str]] = None,
@@ -223,10 +276,12 @@ def repertorize_multi(
     # نسخہ 4.3: کیس کا نمایاں عضو (موڈیلٹی والی علامتوں کے لیے)
     _dom_region = ""
     try:
-        from homeo_core.engine.rubric_mapper import _REGION as _RG
+        from homeo_core.engine.rubric_mapper import (_REGION as _RG,
+                                                     _tokens_canonical as _tkc)
         _freq: Dict[str, int] = defaultdict(int)
         for _s in symptoms:
-            for _w in re.findall(r"[a-z-]{3,}", str(_s).lower()):
+            # نسخہ 5.0: _tokens_canonical — اردو رسم الخط والی علامت بھی عضو بتائے گی
+            for _w in _tkc(str(_s)):
                 _r = _RG.get(_w) or _RG.get(_w.rstrip("s"))
                 if _r and _r not in ("upper", "lower"):
                     _freq[_r] += 1
@@ -235,6 +290,8 @@ def repertorize_multi(
     except Exception:
         _dom_region = ""
     _MODALITY_RX = re.compile(r"^\s*(worse|better|agg|amel|aggravat|ameliorat)", re.I)
+
+    sibling_alerts: List[dict] = []
 
     for src in sources:
         for sym in symptoms:
@@ -270,6 +327,12 @@ def repertorize_multi(
             )
             for rj in rej_tmp:
                 rejected_rubrics.append({"symptom": sym, "source": src.name, **rj})
+            # نسخہ 5.0: قریبی ربرک کے جوڑے — خاموش غلطی سے بچاؤ
+            try:
+                sibling_alerts.extend(
+                    _sibling_alerts(matches, rej_tmp, src.name, sym))
+            except Exception:
+                pass
             # مکرر (سورس + ربرک + علامت) ایک بار
             uniq = []
             for m in matches:
@@ -458,6 +521,7 @@ def repertorize_multi(
         "rubrics_used": rubrics_used,
         "sources": [s.name for s in sources],
         "skipped": skipped,
+        "sibling_alerts": sibling_alerts,       # نسخہ 5.0: قریبی ربرک کے جھنڈے
         "unmatched_words": unmatched,
         "rejected_rubrics": rejected_rubrics,
         "symptom_parts": symptom_parts,        # نسخہ 3.6: مکمل علامات کے اجزاء
