@@ -980,7 +980,8 @@ body[dir="rtl"] #repRemedyPanel.open{transform:translateX(0)}
 .rpd-chev{flex:0 0 auto;width:30px;height:30px;border-radius:8px;border:1px solid #dfe6ee;background:white;color:#2980b9;font-size:15px;font-weight:bold;cursor:pointer;line-height:1;transition:transform 0.18s ease,background 0.13s,color 0.13s;margin-top:2px}
 .rpd-chev:hover{background:#e8f1fb;border-color:#2980b9}
 .rpd-chev.open{transform:rotate(-90deg);background:#2980b9;color:white;border-color:#2980b9}
-.rpd-title{flex:1;min-width:0;font-size:16.5px;font-weight:bold;color:#1a5276;font-family:'Segoe UI',sans-serif;direction:ltr;text-align:left;line-height:1.5;word-wrap:break-word}
+.rep-content-title .rpd-chev{margin-top:0;flex:0 0 auto}
+.rpd-title{flex:0 1 auto;min-width:0;font-size:16.5px;font-weight:bold;color:#1a5276;font-family:'Segoe UI',sans-serif;direction:ltr;text-align:left;line-height:1.5;word-wrap:break-word}
 .rpd-meta{font-size:11px;color:#8aa0b2;margin:2px 0 12px;display:flex;gap:9px;align-items:center;flex-wrap:wrap;font-family:'Segoe UI',sans-serif}
 .rpd-meta span{display:inline-flex;align-items:center;gap:3px}
 .rpd-info{display:none;margin-bottom:14px}
