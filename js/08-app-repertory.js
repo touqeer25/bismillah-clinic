@@ -538,7 +538,7 @@ function repCardHtml(it){
     if(kids) badges+='<span class="rpc-badge kids">📁 '+c.order.length+'</span>';
     if(rems) badges+='<span class="rpc-badge rems" onclick="event.stopPropagation();repOpenRubricDetail(_repFullOf(this),_repRidOf(this))" data-full="'+_repAttr(full)+'" data-rid="'+_repAttr(rid)+'">⚡ '+rems+' '+repLangText({ur:'ادویات',en:'remedies',roman:'remedies'})+'</span>';
     if(!badges) badges='<span class="rpc-empty">Empty</span>';
-    return '<div class="rpc-card" data-kids="'+(kids?1:0)+'" data-label="'+_repAttr(it.label)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+' onclick="repCardClick(this)">'
+    return '<div class="rpc-card" data-kids="'+(kids?1:0)+'" data-label="'+_repAttr(it.label)+'" data-full="'+_repAttr(full)+'" data-rems="'+rems+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+' onclick="repCardClick(this)">'
         +'<div class="rpc-card-top"><div class="rpc-ico '+(kids?'folder':'doc')+'">'+(kids?'📁':'📄')+'</div>'
         +'<button class="rpc-kebab" onclick="event.stopPropagation();repKebabShow(event,this)" data-full="'+_repAttr(full)+'" data-rid="'+_repAttr(rid)+'">⋮</button></div>'
         +'<div class="rpc-title" dir="ltr">'+escapeHtml(it.label)+'</div>'
@@ -554,7 +554,7 @@ function repListRowHtml(it){
     if(kids) badges+='<span class="rpc-badge kids">📁 '+c.order.length+'</span>';
     if(rems) badges+='<span class="rpc-badge rems" onclick="event.stopPropagation();repOpenRubricDetail(_repFullOf(this),_repRidOf(this))" data-full="'+_repAttr(full)+'" data-rid="'+_repAttr(rid)+'">⚡ '+rems+'</span>';
     if(!badges) badges='<span class="rpc-empty">Empty</span>';
-    return '<div class="rpl-row" data-kids="'+(kids?1:0)+'" data-label="'+_repAttr(it.label)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+' onclick="repCardClick(this)">'
+    return '<div class="rpl-row" data-kids="'+(kids?1:0)+'" data-label="'+_repAttr(it.label)+'" data-full="'+_repAttr(full)+'" data-rems="'+rems+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+' onclick="repCardClick(this)">'
         +'<div class="rpc-ico '+(kids?'folder':'doc')+'" style="width:30px;height:30px;font-size:14px;">'+(kids?'📁':'📄')+'</div>'
         +'<div class="rpl-name" dir="ltr">'+escapeHtml(it.label)+'</div>'
         +'<div class="rpl-badges">'+badges+'</div>'
@@ -566,8 +566,13 @@ function _repRidOf(el){ return el.getAttribute('data-rid')||''; }
 function _repJs(s){ return String(s==null?'':s).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function repCardClick(el){
     repKebabHide();
-    if(el.getAttribute('data-kids')==='1'){ repGo(repFolderPath.concat([el.getAttribute('data-label')])); }
-    else { repOpenRubricDetail(_repFullOf(el),_repRidOf(el),repFolderPath.concat([el.getAttribute('data-label')])); }
+    var labels=repFolderPath.concat([el.getAttribute('data-label')]);
+    // 🔑 v46: ربرک کی اپنی ریمیڈیز ہوں تو پہلے ہی کلک پر ڈیٹیل پیج (ریمیڈیز فوراً نظر آئیں) —
+    // فولڈر ویو کا اضافی قدم ختم (صارف: پہلا کلک صرف چوڑائی بڑھاتا تھا، دوسرے کلک پر ریمیڈیز آتی تھیں)۔
+    // ذیلی ربرکس ڈیٹیل پیج کے SUB-RUBRICS سیکشن میں ہی مل جاتے ہیں۔
+    if((el.getAttribute('data-rems')||'0')!=='0'){ repOpenRubricDetail(_repFullOf(el),_repRidOf(el),labels); return; }
+    if(el.getAttribute('data-kids')==='1'){ repGo(labels); }
+    else { repOpenRubricDetail(_repFullOf(el),_repRidOf(el),labels); }
 }
 
 function renderFolderCards(){
@@ -676,6 +681,16 @@ function repCloseClipView(){ repGo(repFolderPath); }
 
 // 🔑 dock renderer — v45: 12 کلپ بورڈ چپس (+ ✕ واپس جب لسٹ کھلی ہو)؛ CLIPBOARDS ہیڈنگ ختم (صارف درخواست)؛
 // پیجینشن گروپ (صفحات/ترتیب/صفحہ سائز) مکمل ہٹا دیا گیا — ڈیسک ٹاپ پر یہ ڈاک بائیں خالی پٹی میں عمودی ہے
+// 🔑 v46: ڈاک اوپر والی ٹول بار/بریڈکمب بار پر نہ چڑھے — 12 چپس کی بلندی پر سینٹرنگ اوپر бар سے ٹکراتی تھی؛
+// اب ڈاک کی اوپری حد سائیڈبار/کنٹینٹ کے ٹاپ سے ہم قالب (ڈائنامک — ٹول بار لپیٹنے پر بھی درست رہتا ہے)۔
+function repSyncDockTop(){
+    var a=document.getElementById('repDockArea'); if(!a)return;
+    var col=document.querySelector('#page-repertoryBrowser .rep-side-col');
+    if(!col)return;
+    var t=Math.round(col.getBoundingClientRect().top);
+    if(t>120) a.style.top=t+'px';
+}
+window.addEventListener('resize',repSyncDockTop);
 function repRenderDock(){
     var d=document.getElementById('repDockArea'); if(!d)return;
     var h='<div class="rep-dock">';
@@ -688,6 +703,7 @@ function repRenderDock(){
     if(repClipViewOpen) h+='<button class="rep-dock-ico" onclick="repCloseClipView()" title="'+repLangText({ur:'واپس',en:'Back',roman:'Wapas'})+'">✕</button>';
     h+='</div>';
     d.innerHTML=h;
+    repSyncDockTop();
     repUpdateSelCount();
 }
 // 🔑 v42: repGoPage/repToggleSort/repCyclePageSize/renderFolderDock/repDockNoFolder ہٹا دیے — پیجینشن ختم

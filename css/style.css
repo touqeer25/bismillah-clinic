@@ -1056,8 +1056,10 @@ body[dir="rtl"] .rpd-sec{border-left:none;border-right:4px solid #dfe6ee}
      v43: ڈاک بائیں طرف عمودی — دایاں کنارہ فل چوڑائی؛ RTL میں بھی محفوظ (physical padding) ---- */
 @media(min-width:821px){
     .rep-layout{padding-left:50px}
-    #repDockArea{right:auto;left:8px;top:50%;bottom:auto;transform:translateY(-50%);flex-direction:column;align-items:center;justify-content:flex-start}
-    #repDockArea .rep-dock{flex-direction:column;gap:5px;padding:9px 8px;border-radius:18px;max-height:calc(100vh - 170px);overflow-y:auto}
+    /* 🔑 v46: ڈاک اوپر والی ٹول بار/بریڈکمب پر نہ چڑھے — اوپری حد سائیڈبار ٹاپ سے ہم قالب
+       (fallback 290px؛ JS repSyncDockTop() درست ٹاپ سیٹ کرتا ہے) — 12 چپس بھی نیچے ہی رہتے ہیں */
+    #repDockArea{right:auto;left:8px;top:290px;bottom:14px;transform:none;flex-direction:column;align-items:center;justify-content:center}
+    #repDockArea .rep-dock{flex-direction:column;gap:5px;padding:9px 8px;border-radius:18px;max-height:100%;overflow-y:auto}
 }
 /* ---- dock tool buttons: Workbench + Analysis Grid ---- */
 .rep-dock-tool{border:1px solid #dfe6ee;background:white;color:#1a5276}
