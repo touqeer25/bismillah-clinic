@@ -433,24 +433,40 @@ function repOpenBookRoot(){
     repRenderEmptyState();
 }
 
-// 🔑 renders the whole folder view: header (RUBRICS IN X + filter) + cards + dock
+// 🔑 renders the whole folder view: header (name + count + < expander) + cards + dock
+// مین ربرک فولڈر کے ہیڈر میں بھی < آئکن (ٹیکسٹ کے بعد) — کلک پر مطلب/مریض کا ورژن/
+// صحیح استعمال/کراس ریفرنس ایکسپینڈ ہو کر دکھتا ہے، دوبارہ کلک پر چھپ جاتا ہے۔
 function renderFolderView(){
     var cd=document.getElementById('repRubricContent'); if(!cd)return;
     repUpdateNavButtons(); repRenderBreadcrumb();
     var node=repResolveNode(repFolderPath);
     if(!node){ repFolderPath=[]; node=repCurrentTree; }
+    if(repFolderPath.length&&!_repGlossary&&!_repGlossaryFailed){ ensureRepGlossary(function(){ renderFolderView(); }); return; }
     var nm=repFolderPath.length?repFolderPath[repFolderPath.length-1]:repCurrentChName;
     var h='';
     h+='<div class="rep-content-head">'
       +'<div class="rep-content-title"><span class="rep-content-folder">📁</span>'
-      +'<span>'+repLangText({ur:'ربرکس:',en:'RUBRICS IN',roman:'RUBRICS IN'})+'</span>'
       +'<b>'+escapeHtml(String(nm).toUpperCase())+'</b>'
-      +'<span>('+String(node.order.length).toLocaleString()+')</span></div>'
+      +'<span>('+String(node.order.length).toLocaleString()+')</span>'
+      +(repFolderPath.length?'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&lt;</button>':'')
+      +'</div>'
       +'<input type="text" class="rep-folder-filter" id="repFolderFilterInput" value="'+escapeHtml(repFolderFilter)+'" oninput="repOnFolderFilter(this.value)" placeholder="'+escapeHtml(repLangText({ur:'اس فولڈر میں فلٹر کریں...',en:'Filter in current folder...',roman:'Is folder mein filter karein...'}))+'">'
       +'</div>';
+    // 🔑 مین ربرک کی مکمل تفصیل (ایکسپینڈ ایبل — صرف اصل ربرک فولڈر میں، باب کے روٹ پر نہیں)
+    if(repFolderPath.length){
+        var fFull=repFullPathOf(repFolderPath);
+        var fRid=(node.hasRubric&&node.rid)?String(node.rid):'';
+        var fAbbrs=Object.keys(node.remedies||{});
+        var fG3=fAbbrs.filter(function(a){ return (node.remedies[a]||1)>=3; });
+        var fSeeT=repExtractSeeTargets(fFull);
+        h+=repDetailInfoHtml({full:fFull,rid:fRid,kidsCount:node.order.length,abbrs:fAbbrs,g3:fG3,
+            pureXref:(!fAbbrs.length&&fSeeT.length>0&&!node.order.length),
+            seeT:fSeeT,parentLabels:repFolderPath.slice(0,-1)});
+    }
     h+='<div id="repCardsArea"></div>';
     h+='<div id="repDockArea"></div>';
     cd.innerHTML=h;
+    if(repFolderPath.length&&fFull) repRenderXrefAppBody(fFull,fRid);
     renderFolderCards();
     cd.scrollTop=0;
 }
@@ -772,14 +788,15 @@ if(typeof document!=='undefined'){
 }
 
 // 🔑 Urdu glossary (lazy load) for word-by-word meaning
-var _repGlossary=null,_repGlossaryLoading=false;
+var _repGlossary=null,_repGlossaryLoading=false,_repGlossaryFailed=false;
 function ensureRepGlossary(cb){
     if(_repGlossary){ cb(); return; }
+    if(_repGlossaryFailed){ cb(); return; }   // فیل ہو چکی — دوبارہ لوپ نہیں
     if(_repGlossaryLoading){ setTimeout(function(){ ensureRepGlossary(cb); },300); return; }
     _repGlossaryLoading=true;
     fetch('glossary_en_ur.json?v=4').then(function(r){ return r.json(); }).then(function(d){
         _repGlossary=d; _repGlossaryLoading=false; cb();
-    }).catch(function(e){ console.error('glossary load fail',e); _repGlossaryLoading=false; cb(); });
+    }).catch(function(e){ console.error('glossary load fail',e); _repGlossaryLoading=false; _repGlossaryFailed=true; cb(); });
 }
 function repUrduMeaning(text){
     if(!_repGlossary||!text)return'';
@@ -998,41 +1015,22 @@ function repRenderXrefAppBody(full,rid){
     }
     setTimeout(next,40);
 }
-// 🔑 the detail page itself (glossary ensured first — meaning tokens need it)
-function renderRubricDetail(){
-    if(!_repGlossary){ ensureRepGlossary(function(){ renderRubricDetail(); }); return; }
-    var cd=document.getElementById('repRubricContent'); if(!cd)return;
-    repUpdateNavButtons(); repRenderBreadcrumb();
-    var d=repCurrentDetail||{full:'',rid:'',labels:repFolderPath.slice()};
-    var node=repDetailNode();
-    var full=d.full||((node&&node.path)||'');
-    var bi=REP_BOOK_INFO[repCurrentBook]||{abbr:repCurrentBook,name:repCurrentBook};
-    var kids=node?node.order.slice():[];
-    var rems=(node&&node.remedies)||{};
-    var abbrs=Object.keys(rems);
-    abbrs.sort(function(a,b){ return (rems[b]||1)-(rems[a]||1)||a.localeCompare(b); });
-    var g3=[],g2=[],g1=[];
-    abbrs.forEach(function(a){ var g=rems[a]||1; if(g>=3)g3.push(a); else if(g===2)g2.push(a); else g1.push(a); });
-    var seeT=repExtractSeeTargets(full);
-    var pureXref=!abbrs.length&&seeT.length>0&&!kids.length;
-    var h='';
-    // ---- title row: < chevron + rubric text + copy
-    h+='<div class="rpd-titlerow">'
-      +'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&lt;</button>'
-      +'<div class="rpd-title" dir="ltr">'+escapeHtml(full||'—')+'</div>'
-      +'<button class="rc-btn" onclick="repDetailCopy()">📋</button>'
-      +'</div>';
-    h+='<div class="rpd-meta">'+repBookBadgeHtml(repCurrentBook)+'<span>'+escapeHtml(bi.name)+'</span>'
-      +'<span>📁 '+escapeHtml(repCurrentChName||'')+'</span>'
-      +(d.rid?'<span>#'+escapeHtml(String(d.rid))+'</span>':'')
-      +'<span>⚡ '+abbrs.length+' '+repLangText({ur:'ادویات',en:'remedies',roman:'remedies'})+'</span>'
-      +(kids.length?'<span>📁 '+kids.length+' '+repLangText({ur:'ذیلی ربرکس',en:'sub-rubrics',roman:'zeli rubrics'})+'</span>':'')
-      +'</div>';
-    // ---- expandable details (collapsed by default, < toggles)
-    h+='<div class="rpd-info" id="repDetailInfo">';
-    // 1) MEANING
+// 🔑 shared expandable details block (detail page + folder header دونوں استعمال کرتے ہیں)
+// سیکشنز: مطلب (لغت) | مریض کا ورژن | صحیح استعمال | کراس ریفرنس (کھلی کتاب)
+//         | کراس ریفرنس (ایپ — باقی تینوں ریپرٹریز)
+// o: {full, rid, kidsCount, abbrs, g3, pureXref, seeT, parentLabels}
+function repDetailInfoHtml(o){
+    var full=o.full||'';
+    var seeT=o.seeT||[];
+    var pureXref=!!o.pureXref;
+    var kidsCount=o.kidsCount||0;
+    var abbrs=o.abbrs||[];
+    var g3=o.g3||[];
     var toks=repMeaningTokens(full);
     var sense=repSenseNoteFor(toks);
+    var chUr=REP_CHAPTER_UR[String(repCurrentChapter).toLowerCase()]||'';
+    var h='<div class="rpd-info" id="repDetailInfo">';
+    // 1) MEANING
     h+='<div class="rpd-sec meaning"><span class="rpd-lab">📖 '+repLangText({ur:'مطلب (MEANING)',en:'MEANING',roman:'MATLAB (MEANING)'})+'</span>';
     if(toks.length){
         h+='<div class="rpd-tokchips">';
@@ -1055,13 +1053,12 @@ function renderRubricDetail(){
     }
     h+='</div>';
     // 3) WHEN TO USE
-    var chUr=REP_CHAPTER_UR[String(repCurrentChapter).toLowerCase()]||'';
     h+='<div class="rpd-sec when"><span class="rpd-lab">✅ '+repLangText({ur:'صحیح استعمال کہاں (WHEN TO USE)',en:'WHEN TO USE',roman:'SAHIH ISTEMAL KAHAN'})+'</span>';
     h+='<div>'+(chUr?('یہ ربرک «<b>'+escapeHtml(chUr)+'</b>» باب میں آتی ہے۔ '):'');
     if(pureXref){
         h+='<span class="rpd-warn">⚠ '+repLangText({ur:'یہ صرفِ اشارہ ربرک ہے — خود کوئی ادویہ نہیں رکھتی۔ اصل ربرک «',en:'This is a cross-reference only — no remedies of its own. Open the real rubric «',roman:'Ye sirf ishara rubric hai — asal rubric «'})+'<b dir="ltr">'+escapeHtml(seeT[0]||'')+'</b>» '+repLangText({ur:'کھول کر استعمال کریں۔',en:'instead.',roman:'khol kar istemal karein.'})+'</span>';
     } else {
-        if(kids.length) h+=repLangText({ur:'اس کے نیچے ',en:'It has ',roman:'Is ke neeche '})+'<b>'+kids.length+'</b> '+repLangText({ur:'ذیلی ربرکس ہیں (وقت، جگہ، حالت کے مطابق) — اگر مریض کی تفصیل معلوم ہو تو ذیلی ربرک زیادہ درست انتخاب ہے۔ ',en:'sub-rubrics (time, place, condition) — if details are known, a sub-rubric is more accurate. ',roman:'zeli rubrics hain — tafseel maloom ho to zeli rubric behtar hai.'});
+        if(kidsCount) h+=repLangText({ur:'اس کے نیچے ',en:'It has ',roman:'Is ke neeche '})+'<b>'+kidsCount+'</b> '+repLangText({ur:'ذیلی ربرکس ہیں (وقت، جگہ، حالت کے مطابق) — اگر مریض کی تفصیل معلوم ہو تو ذیلی ربرک زیادہ درست انتخاب ہے۔ ',en:'sub-rubrics (time, place, condition) — if details are known, a sub-rubric is more accurate. ',roman:'zeli rubrics hain — tafseel maloom ho to zeli rubric behtar hai.'});
         if(abbrs.length) h+=repLangText({ur:'اس ربرک پر ',en:'',roman:'Is rubric par '})+'<b>'+abbrs.length+'</b> '+repLangText({ur:'ادویات درج ہیں، جن میں ',en:' remedies are listed, including ',roman:'adwiyat darj hain, jin mein '})+'<b>'+g3.length+'</b> '+repLangText({ur:'مضبوط درجے (گریڈ 3) کی ہیں — ریپرٹورائزیشن میں پہلے انہی پر غور کریں۔ ',en:' strong grade-3 remedies — consider those first in repertorisation. ',roman:'grade-3 mazboot hain — pehle inhi par ghour karein.'});
         h+=repLangText({ur:'کیس ٹیکنگ میں مریض کے اپنے الفاظ اسی ربرک سے ملتے ہوں تو یہی ربرک منتخب کریں۔',en:'Pick this rubric when the patient\'s own words match it during case-taking.',roman:'Case-taking mein mareez ke alfaaz is rubric se milte hon to yehi muntakhib karein.'});
     }
@@ -1073,7 +1070,7 @@ function renderRubricDetail(){
         seeT.forEach(function(t){ h+='<span class="rpd-xchip" onclick="repXrefGo(\''+_repJs(t)+'\')">➡ '+escapeHtml(t)+'</span>'; });
         h+='</div>';
     } else {
-        var parentLabels=(d.labels&&d.labels.length>1)?d.labels.slice(0,-1):[];
+        var parentLabels=o.parentLabels||[];
         h+='<div style="color:#8aa0b2;font-size:11.5px;">'+repLangText({ur:'اس ربرک میں کتابی کراس ریفرنس درج نہیں۔',en:'No printed cross-reference on this rubric.',roman:'Is rubric mein kitabi cross reference darj nahi.'});
         if(parentLabels.length) h+=' '+repLangText({ur:'والدہ ربرک:',en:'Parent rubric:',roman:'Walida rubric:'})+' <span class="rpd-xchip" onclick="repGo('+JSON.stringify(parentLabels).replace(/"/g,'&quot;')+')" dir="ltr">'+escapeHtml(parentLabels[parentLabels.length-1])+'</span>';
         h+='</div>';
@@ -1082,26 +1079,59 @@ function renderRubricDetail(){
     // 5) CROSS REFERENCE (APP)
     h+='<div class="rpd-sec xapp"><span class="rpd-lab">🔗 '+repLangText({ur:'کراس ریفرنس — ایپ (APP: باقی تینوں ریپرٹریز)',en:'CROSS REFERENCE (APP: other 3 repertories)',roman:'CROSS REFERENCE — app (baqi teen repertories)'})+'</span><div id="repXrefAppBody" class="rpd-xbody"><span style="color:#8aa0b2;font-size:11.5px;">⏳ '+repLangText({ur:'دوسری ریپرٹریز میں متبادل تلاش ہو رہا ہے...',en:'Searching other repertories for matches...',roman:'Doosri repertories mein mutabad talash ho raha hai...'})+'</span></div></div>';
     h+='</div>'; // /rpd-info
+    return h;
+}
+// 🔑 the detail page itself (glossary ensured first — meaning tokens need it)
+function renderRubricDetail(){
+    if(!_repGlossary&&!_repGlossaryFailed){ ensureRepGlossary(function(){ renderRubricDetail(); }); return; }
+    var cd=document.getElementById('repRubricContent'); if(!cd)return;
+    repUpdateNavButtons(); repRenderBreadcrumb();
+    var d=repCurrentDetail||{full:'',rid:'',labels:repFolderPath.slice()};
+    var node=repDetailNode();
+    var full=d.full||((node&&node.path)||'');
+    var bi=REP_BOOK_INFO[repCurrentBook]||{abbr:repCurrentBook,name:repCurrentBook};
+    var kids=node?node.order.slice():[];
+    var rems=(node&&node.remedies)||{};
+    var abbrs=Object.keys(rems);
+    abbrs.sort(function(a,b){ return (rems[b]||1)-(rems[a]||1)||a.localeCompare(b); });
+    var g3=[],g2=[],g1=[];
+    abbrs.forEach(function(a){ var g=rems[a]||1; if(g>=3)g3.push(a); else if(g===2)g2.push(a); else g1.push(a); });
+    var seeT=repExtractSeeTargets(full);
+    var pureXref=!abbrs.length&&seeT.length>0&&!kids.length;
+    var h='';
+    // ---- title row: rubric text + < expander AFTER text + copy
+    h+='<div class="rpd-titlerow">'
+      +'<div class="rpd-title" dir="ltr">'+escapeHtml(full||'—')+'</div>'
+      +'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&lt;</button>'
+      +'<button class="rc-btn" onclick="repDetailCopy()">📋</button>'
+      +'</div>';
+    h+='<div class="rpd-meta">'+repBookBadgeHtml(repCurrentBook)+'<span>'+escapeHtml(bi.name)+'</span>'
+      +'<span>📁 '+escapeHtml(repCurrentChName||'')+'</span>'
+      +(d.rid?'<span>#'+escapeHtml(String(d.rid))+'</span>':'')
+      +'<span>⚡ '+abbrs.length+' '+repLangText({ur:'ادویات',en:'remedies',roman:'remedies'})+'</span>'
+      +(kids.length?'<span>📁 '+kids.length+' '+repLangText({ur:'ذیلی ربرکس',en:'sub-rubrics',roman:'zeli rubrics'})+'</span>':'')
+      +'</div>';
+    // ---- expandable details (collapsed by default, < toggles) — shared builder
+    h+=repDetailInfoHtml({full:full,rid:d.rid,kidsCount:kids.length,abbrs:abbrs,g3:g3,
+        pureXref:pureXref,seeT:seeT,
+        parentLabels:(d.labels&&d.labels.length>1)?d.labels.slice(0,-1):[]});
     // ---- REMEDIES (FIRST — per user requirement)
     h+='<div class="rpd-sec-head">💊 '+repLangText({ur:'ادویات',en:'REMEDIES',roman:'ADWIYAT'})+' <span class="cnt">('+abbrs.length+')</span></div>';
     if(!abbrs.length){
         h+='<div class="rrp-norems">'+(pureXref?repLangText({ur:'یہ کراس ریفرنس ربرک ہے — اوپر اصل ربرک کھولیں',en:'This is a cross-reference rubric — open the real rubric above',roman:'Ye cross-reference rubric hai — asal rubric kholen'}):repLangText({ur:'اس ربرک میں کوئی ادویات محفوظ نہیں',en:'No remedies recorded under this rubric',roman:'Is rubric mein koi adwiyat mehfooz nahi'}))+'</div>';
     } else {
-        h+='<div style="font-size:11.5px;color:#5d6d7e;margin-bottom:4px;">'+repLangText({ur:'کلک سے پریسکرپشن میں کاپی ہوگی',en:'click to copy to prescription',roman:'click se prescription mein copy'})+'</div>';
-        [[g3,'3',repLangText({ur:'درجہ 3 — مضبوط',en:'Grade 3 — strong',roman:'Darja 3 — mazboot'})],
-         [g2,'2',repLangText({ur:'درجہ 2 — درمیانہ',en:'Grade 2 — medium',roman:'Darja 2 — darmiyana'})],
-         [g1,'1',repLangText({ur:'درجہ 1 — معمولی',en:'Grade 1 — light',roman:'Darja 1 — mamooli'})]].forEach(function(gr){
-            if(!gr[0].length)return;
-            h+='<div class="rrp-grade-head"><span class="rep-gr-dot d'+gr[1]+'"></span>'+gr[2]+' ('+gr[0].length+')</div><div class="rpd-chips">';
-            gr[0].forEach(function(a){ h+='<span class="rep-remedy-tag g'+gr[1]+'" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')">'+escapeHtml(a)+'</span>'; });
-            h+='</div>';
+        h+='<div style="font-size:11.5px;color:#5d6d7e;margin-bottom:4px;">'+repLangText({ur:'کلک سے پریسکرپشن میں کاپی ہوگی — رنگ: گہرا = مضبوط گریڈ',en:'click to copy to prescription — color: darker = stronger grade',roman:'click se prescription mein copy — rang: gehra = mazboot grade'})+'</div>';
+        // 🔑 تمام ریمیڈیز ایک ہی لسٹ میں (گریڈ ہیڈنگز نہیں) — ترتیب: گریڈ 3 → 2 → 1، رنگ سے گریڈ پہچان
+        h+='<div class="rpd-chips">';
+        abbrs.forEach(function(a){
+            var g=rems[a]||1; g=(g>=3)?3:((g===2)?2:1);
+            h+='<span class="rep-remedy-tag g'+g+'" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')">'+escapeHtml(a)+'</span>';
         });
+        h+='</div>';
     }
-    // ---- SUB-RUBRICS (BELOW remedies — per user requirement)
-    h+='<div class="rpd-sec-head">📁 '+repLangText({ur:'ذیلی ربرکس',en:'SUB-RUBRICS',roman:'ZELI RUBRICS'})+' <span class="cnt">('+kids.length+')</span></div>';
-    if(!kids.length){
-        h+='<div class="rrp-norems" style="font-style:italic;">'+repLangText({ur:'اس ربرک کے نیچے کوئی ذیلی ربرک نہیں',en:'No sub-rubrics under this rubric',roman:'Is rubric ke neeche koi zeli rubric nahi'})+'</div>';
-    } else {
+    // ---- SUB-RUBRICS (بس جب ذیلی ربرکس موجود ہوں — خالی سیکشن بالکل نہیں دکھانا)
+    if(kids.length){
+        h+='<div class="rpd-sec-head">📁 '+repLangText({ur:'ذیلی ربرکس',en:'SUB-RUBRICS',roman:'ZELI RUBRICS'})+' <span class="cnt">('+kids.length+')</span></div>';
         var items=kids.map(function(k){ return {label:k,node:node.children[k]}; });
         items.sort(function(a,b){ var c=a.label.localeCompare(b.label); return repSortAsc?c:-c; });
         var LIMIT=60;
