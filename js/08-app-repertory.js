@@ -697,7 +697,13 @@ function repCloseClipView(){ repGo(repFolderPath); }
 // اب ڈاک کی اوپری حد سائیڈبار/کنٹینٹ کے ٹاپ سے ہم قالب (ڈائنامک — ٹول بار لپیٹنے پر بھی درست رہتا ہے)۔
 function repSyncDockTop(){
     var a=document.getElementById('repDockArea'); if(!a)return;
-    var col=document.querySelector('#page-repertoryBrowser .rep-side-col');
+    // 🔑 v49: موبائل (≤820px) پر افقی ڈاک نیچے ہی ہے — کوئی top قید نہیں؛
+    // ڈیسک ٹاپ سے resize ہو کر موبائل آئے تو پرانا inline top صاف بھی کرو
+    if(window.innerWidth<=820){ a.style.top=''; return; }
+    // 🔑 v49 (صارف): ڈاک کے چپس چیپٹر لسٹ (.rep-sidebar) کے اوپری کنارے کے عین برابر شروع ہوں —
+    // پہلے .rep-side-col (اینالائز بار سمیت پورا کالم) اور justify-content:center تھا جس سے
+    // چپس لسٹ سے اوپر/نیچے تیرتے تھے؛ اب لسٹ ٹاپ = پینل ٹاپ، چپس نیچے کی جانب بڑھتے ہیں
+    var col=document.querySelector('#page-repertoryBrowser .rep-sidebar');
     if(!col)return;
     var t=Math.round(col.getBoundingClientRect().top);
     if(t>120) a.style.top=t+'px';

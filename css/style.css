@@ -1063,9 +1063,14 @@ body[dir="rtl"] .rpd-sec{border-left:none;border-right:4px solid #dfe6ee}
 @media(min-width:821px){
     .rep-layout{padding-left:50px}
     /* 🔑 v46: ڈاک اوپر والی ٹول بار/بریڈکمب پر نہ چڑھے — اوپری حد سائیڈبار ٹاپ سے ہم قالب
-       (fallback 290px؛ JS repSyncDockTop() درست ٹاپ سیٹ کرتا ہے) — 12 چپس بھی نیچے ہی رہتے ہیں */
-    #repDockArea{right:auto;left:8px;top:290px;bottom:14px;transform:none;flex-direction:column;align-items:center;justify-content:center}
+       🔑 v49 (صارف): ڈاک کے چپس چیپٹر لسٹ کے اوپری کنارے کے عین برابر شروع ہوں — centering ختم
+       (justify-content:flex-start؛ fallback 317px؛ JS repSyncDockTop() درست ٹاپ سیٹ کرتا ہے) */
+    #repDockArea{right:auto;left:8px;top:317px;bottom:14px;transform:none;flex-direction:column;align-items:center;justify-content:flex-start}
     #repDockArea .rep-dock{flex-direction:column;gap:5px;padding:9px 8px;border-radius:18px;max-height:100%;overflow-y:auto}
+    /* 🔑 v49 (صارف): اینالائز بار (0 selected/Clear/Analyze) ڈاک کے کالم پر پھیلا کر بائیں کونے تک —
+       بایاں کنارہ = ڈاک کا بایاں کنارہ (8px)، دایاں کنارہ چیپٹر لسٹ کے ساتھ ہم قالب رہتا ہے؛
+       چپس اینالائز بار کے نیچے سے شروع ہوتے ہیں اس لیے اوورلیپ ناممکن؛ RTL میں بھی layout ltr مقفل ہے */
+    .rep-side-tools{margin-left:-57px}
 }
 /* ---- dock tool buttons: Workbench + Analysis Grid ---- */
 .rep-dock-tool{border:1px solid #dfe6ee;background:white;color:#1a5276}
