@@ -1074,6 +1074,39 @@ body[dir="rtl"] .rpd-sec{border-left:none;border-right:4px solid #dfe6ee}
 .rwb-btn{border:none;background:transparent;color:#5d6d7e;font-size:12px;width:22px;height:22px;border-radius:6px;cursor:pointer;line-height:1;padding:0;font-family:inherit}
 .rwb-btn:hover{background:#e8f1fb;color:#1a5276}
 .rwb-btn.danger:hover{background:#fdecea;color:#c0392b}
+/* ---- v38 workbench: tabs / elimination / selection / weight chips / status bar / 3-dots menu ---- */
+.rep-wb-tabs{display:flex;gap:6px;margin-bottom:10px;border-bottom:2px solid #e3e9f0;padding-bottom:0}
+.rep-wb-tabs button{border:none;background:transparent;color:#5d6d7e;font-size:13px;font-weight:bold;font-family:'Segoe UI',sans-serif;padding:8px 14px;cursor:pointer;border-radius:9px 9px 0 0;margin-bottom:-2px}
+.rep-wb-tabs button:hover{background:#e8f1fb;color:#1a5276}
+.rep-wb-tabs button.on{color:#1a5276;border-bottom:3px solid #2980b9;background:#f4f9fd}
+.rep-wb-tabs .cnt{color:#8aa0b2;font-weight:normal;font-size:11px}
+.rep-wb-panel.elim{border-color:#e6b0aa;background:#fdf3f2}
+.rep-wb-elim{display:flex;align-items:center;gap:6px;font-size:11.5px;color:#7d6608;background:#fef9e7;border:1px solid #f7dc6f;border-radius:8px;padding:4px 8px;margin:0 0 6px 0;cursor:pointer;user-select:none;font-family:'Segoe UI',sans-serif}
+.rep-wb-panel.elim .rep-wb-elim{background:#fdebd0;color:#943126;border-color:#e6b0aa}
+.rep-wb-elim input{accent-color:#c0392b;margin:0}
+.rep-wb-item.sel{background:#eaf5fc;border-color:#85c1e9}
+.rep-wb-check{accent-color:#2980b9;width:15px;height:15px;margin:0;flex:0 0 auto;cursor:pointer}
+.w-chip{display:inline-block;font-size:9.5px;font-weight:bold;padding:1px 6px;border-radius:8px;flex:0 0 auto;font-family:'Segoe UI',sans-serif}
+.w-chip.w-half{background:#eef2f5;color:#5d6d7e}
+.w-chip.w-plus{background:#d6eaf8;color:#1a5276}
+.w-chip.w-max{background:#d7bde2;color:#6c3483}
+.w-chip.w-neg{background:#fadbd8;color:#c0392b}
+.wb-elim-badge{font-size:10px;margin-left:4px}
+.rep-wb-status{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#f4f9fd;border:1px solid #d6e7f3;border-radius:10px;padding:8px 14px;margin-top:12px;font-size:12px;color:#5d6d7e;font-family:'Segoe UI',sans-serif}
+.rep-wb-status b{color:#1a5276}
+.rep-wb-status b.on{color:#2980b9;font-size:13px}
+.rep-wb-status .sp{color:#b3c5d4}
+.rep-wb-menu{position:absolute;display:none;background:white;border:1px solid #e3e9f0;border-radius:12px;box-shadow:0 10px 30px rgba(26,82,118,0.22);padding:6px;z-index:1250;min-width:215px;max-height:78vh;overflow-y:auto}
+.rep-wb-menu button{display:block;width:100%;text-align:left;padding:7px 12px;border:none;background:transparent;font-size:12px;color:#2c3e50;cursor:pointer;border-radius:7px;font-family:'Segoe UI',sans-serif;white-space:nowrap}
+.rep-wb-menu button:hover{background:#e8f1fb;color:#1a5276}
+.rep-wb-menu button.on{color:#1e8449;background:#f4fbf7;font-weight:bold}
+.rep-wb-menu button.danger{color:#c0392b}
+.rep-wb-menu button.danger:hover{background:#fdecea;color:#943126}
+.rep-wb-menu .wbm-head{font-size:10px;font-weight:bold;color:#8aa0b2;letter-spacing:1px;padding:2px 12px 5px 12px;border-bottom:1px solid #eef2f5;margin-bottom:4px}
+.rep-wb-menu .wbm-label{font-size:10px;font-weight:bold;color:#2980b9;text-transform:uppercase;letter-spacing:0.5px;padding:6px 12px 2px 12px}
+.rep-ana-elim{font-size:11px;color:#c0392b;background:#fdecea;border:1px solid #e6b0aa;border-radius:8px;padding:1px 8px}
+/* remedy search highlight (Remedy / Rubric+Remedy modes) */
+.rep-remedy-tag.rem-hl{outline:2px solid #f39c12;background:#fff3cd;color:#7d6608}
 /* ---- 📊 Case Analysis Grid ---- */
 .rep-ana-sum{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#f4f9fd;border:1px solid #d6e7f3;border-radius:10px;padding:8px 12px;margin-bottom:10px;font-size:12.5px;color:#1a5276;font-family:'Segoe UI',sans-serif}
 .rep-ana-winner b{color:#2980b9;font-size:14px}

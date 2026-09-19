@@ -21,7 +21,7 @@
     <script src="advanced-diagnosis-knowledge.js?v=33"></script>
     <script src="advanced-diagnosis-engine.js?v=33"></script>
     <!-- Style alag file me: css/style.css -->
-    <link rel="stylesheet" href="css/style.css?v=37">
+    <link rel="stylesheet" href="css/style.css?v=38">
 
 </head>
 <body dir="rtl" class="lang-ur">
@@ -876,14 +876,15 @@
                     <option value="kent_de">📕 Kent Repertory (German)</option>
                     <option value="synthesis91">📙 Syn 9.1 (Supplement)</option>
                 </select>
-                <select id="repScopeSelect" onchange="setRepSearchScope(this.value)" class="rep-toolbar-select rep-scope-select" title="Search scope">
-                    <option value="book">📚 <span data-ur="پوری کتاب" data-en="This Repertory">پوری کتاب</span></option>
-                    <option value="chapter">📖 <span data-ur="کھلا باب" data-en="Open Chapter">کھلا باب</span></option>
-                    <option value="all">🌐 <span data-ur="سب کتابیں" data-en="All Repertories">سب کتابیں</span></option>
+                <select id="repScopeSelect" onchange="setRepSearchScope(this.value)" class="rep-toolbar-select rep-scope-select" title="Search type (HomeoSetu style)">
+                    <option value="rubric">🔤 <span data-ur="ربرک / سب ربرک" data-en="Rubric / Subrubric" data-roman="Rubric / Subrubric">ربرک / سب ربرک</span></option>
+                    <option value="remedy">💊 <span data-ur="ادویہ" data-en="Remedy" data-roman="Remedy">ادویہ</span></option>
+                    <option value="rubric_remedy">🔤💊 <span data-ur="ربرک + ادویہ" data-en="Rubric + Remedy" data-roman="Rubric + Remedy">ربرک + ادویہ</span></option>
+                    <option value="clinical">🏥 <span data-ur="کلینیکل حالت" data-en="Clinical Condition" data-roman="Clinical Condition">کلینیکل حالت</span></option>
                 </select>
                 <div class="rep-search-wrap">
                     <span class="rep-search-ico">🔍</span>
-                    <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="🔍 Search this whole repertory... (e.g. pain, forehead)">
+                    <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="🔍 ربرک / سب ربرک تلاش کریں... (مثلاً fear، headache)">
                 </div>
                 <button class="rep-cmp-btn" onclick="repOpenCompare()" title="Compare clipboards side by side">⇄ <span data-ur="موازنہ" data-en="Compare" data-roman="Compare">Compare</span></button>
             </div>
@@ -1528,7 +1529,7 @@
 <script src="js/05-app-diagnosis.js?v=33"></script>
 <script src="js/06-app-new-visit.js?v=33"></script>
 <script src="js/07-app-settings.js?v=33"></script>
-<script src="js/08-app-repertory.js?v=37"></script>
+<script src="js/08-app-repertory.js?v=38"></script>
 <script src="js/10-treatment-data.js?v=33"></script>
 <script src="js/12-treatment-more.js?v=33"></script>
 <script src="js/11-app-studio.js?v=41"></script>
