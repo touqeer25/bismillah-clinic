@@ -1268,6 +1268,9 @@ var REP_TYPE_LABELS = {
     clinical:     {ur:'🏥 کلینیکل حالت', en:'🏥 Clinical Condition', roman:'🏥 Clinical Condition'}
 };
 var repSearchMode = 'rubric';   // 🔑 default type: rubric / subrubric text search
+// 🔑 v40 RESTORED: search SCOPE dropdown — 'chapter' = open chapter only | 'book' = current repertory | 'all' = ALL repertories
+var REP_SCOPE_ORDER = ['chapter', 'book', 'all'];
+var repSearchScope = 'book';    // default: whole current repertory (old v47 behaviour)
 var repSearchAllBooks = false;  // sidebar "Search across all books" flag — searches all 4 repertories with the chosen type
 var _repSearchBeforeContext = null; // where to return when the search box is cleared
 var _repSearchSeq = 0;              // cancels old async searches when user clears/changes text
@@ -1349,9 +1352,11 @@ function toggleRepSearchMode(){
     showToast(repLangText(REP_TYPE_LABELS[repSearchMode] || REP_TYPE_LABELS.rubric));
 }
 function updateRepSearchModeUI(){
-    // 🔑 toolbar dropdown = HomeoSetu search TYPE (Rubric/Subrubric | Remedy | Rubric+Remedy | Clinical Condition)
-    var sel=document.getElementById('repScopeSelect');
-    if(sel&&sel.value!==repSearchMode) sel.value=repSearchMode;
+    // 🔑 v40: TWO toolbar dropdowns — TYPE (Rubric/Subrubric | Remedy | Rubric+Remedy | Clinical) + restored SCOPE (chapter/book/all)
+    var tsel=document.getElementById('repTypeSelect');
+    if(tsel&&tsel.value!==repSearchMode) tsel.value=repSearchMode;
+    var ssel=document.getElementById('repScopeSelect');
+    if(ssel&&ssel.value!==repSearchScope) ssel.value=repSearchScope;
     var placeholders = {
         rubric:       {ur:'🔍 ربرک / سب ربرک تلاش کریں... (مثلاً fear، headache)', en:'🔍 Search rubric / subrubric... (e.g. fear, headache)', roman:'🔍 Rubric / subrubric talash karein... (e.g. fear, headache)'},
         remedy:       {ur:'🔍 ادویہ تلاش کریں... (مثلاً nux vom، arsen)', en:'🔍 Search a remedy... (e.g. nux vom, arsen)', roman:'🔍 Adwiyeh talash karein... (e.g. nux vom, arsen)'},
@@ -1364,7 +1369,7 @@ function updateRepSearchModeUI(){
     }
 }
 // 🔑 search TYPE changed from the toolbar dropdown (HomeoSetu "Rubric / Subrubric" style)
-function setRepSearchScope(v){
+function setRepSearchType(v){
     if(REP_SEARCH_TYPES.indexOf(v)===-1) return;
     if(v===repSearchMode && !repSearchAllBooks) return;
     repSearchMode=v; repSearchAllBooks=false;
@@ -1375,9 +1380,26 @@ function setRepSearchScope(v){
     if(inp&&inp.value.trim().length>=2){ searchRepertoryBrowser(); }
     else { restoreRepSearchContext(); }
 }
+// 🔑 v40 RESTORED: search SCOPE changed from the toolbar dropdown — Search in Open Chapter / Open Repertory / All Repertories
+function setRepSearchScope(v){
+    if(REP_SCOPE_ORDER.indexOf(v)===-1) return;
+    if(v===repSearchScope && !repSearchAllBooks) return;
+    repSearchScope=v;
+    _repSearchSeq++;
+    _repSearchCache=''; _repSearchResults=null;
+    updateRepSearchModeUI();
+    var inp=document.getElementById('repBrowserSearch');
+    if(inp&&inp.value.trim().length>=2){ searchRepertoryBrowser(); }
+    else { restoreRepSearchContext(); }
+}
 function showRepSearchPlaceholder(){
     var cd=document.getElementById('repRubricContent');
     if(!cd)return;
+    // 🔑 chapter scope needs an open chapter
+    if(repSearchScope==='chapter' && !repSearchAllBooks && !repCurrentChapter){
+        cd.innerHTML='<div class="empty-state"><div class="icon">📖</div><p>'+repLangText({ur:'پہلے کوئی چیکٹر کھولیں، پھر سرچ کریں',en:'Open a chapter first, then search',roman:'Pehle koi chapter kholen, phir search karein'})+'</p></div>';
+        return;
+    }
     cd.innerHTML='<div class="empty-state"><div class="icon">📖</div><p>'+repLangText({ur:'سرچ کے لیے کم از کم 2 حرف لکھیں',en:'Type 2+ characters to search',roman:'Search ke liye kam az kam 2 harf likhein'})+'</p></div>';
 }
 
@@ -1455,7 +1477,7 @@ function searchRepertoryBrowser(){
     repCurrentDetail=null; repClipViewOpen=false;repWorkbenchOpen=false;repCompareOpen=false;repAnalysisOpen=-1;   // new search leaves detail/clipboard view
     var searchSeq = ++_repSearchSeq;
     var cd=document.getElementById('repRubricContent');
-    cd.innerHTML='<div style="text-align:center;padding:20px;">🔍 '+repLangText({ur:'تلاش جاری ہے...',en:'Searching...',roman:'Search ho raha hai...'})+(repSearchAllBooks?' <br><small style="font-size:10px;">('+repLangText({ur:'تمام ریپرٹریز لوڈ ہو رہی ہیں — تھوڑا وقفہ',en:'loading all repertories — one moment',roman:'tamam repertories load ho rahi hain — ek lamha'})+')</small>':'')+'</div>';
+    cd.innerHTML='<div style="text-align:center;padding:20px;">🔍 '+repLangText({ur:'تلاش جاری ہے...',en:'Searching...',roman:'Search ho raha hai...'})+((repSearchAllBooks||repSearchScope==='all')?' <br><small style="font-size:10px;">('+repLangText({ur:'تمام ریپرٹریز لوڈ ہو رہی ہیں — تھوڑا وقفہ',en:'loading all repertories — one moment',roman:'tamam repertories load ho rahi hain — ek lamha'})+')</small>':'')+'</div>';
 
     // legacy @chapter filter
     var chF=null,ai=q.indexOf('@');
@@ -1466,8 +1488,8 @@ function searchRepertoryBrowser(){
         if(q.length<2){ showRepSearchPlaceholder(); return; }
     }
 
-    var cacheKey=q+'|'+(chF||'')+'|'+repSearchMode+'|'+(repSearchAllBooks?'all':'cur')+'|'+repCurrentChapter+'|'+repCurrentBook;
-    if(cacheKey===_repSearchCache && _repSearchResults!==null && !repSearchAllBooks){
+    var cacheKey=q+'|'+(chF||'')+'|'+repSearchMode+'|'+repSearchScope+'|'+(repSearchAllBooks?'sb':'')+'|'+repCurrentChapter+'|'+repCurrentBook;
+    if(cacheKey===_repSearchCache && _repSearchResults!==null && !repSearchAllBooks && repSearchScope!=='all'){
         displaySearchResults(_repSearchResults.results,_repSearchResults.info);
         return;
     }
@@ -1577,8 +1599,15 @@ function searchRepertoryBrowser(){
     }
     function buildSearchInfo(total, perBookCount){
         var typeLabel = repLangText(REP_TYPE_LABELS[repSearchMode] || REP_TYPE_LABELS.rubric);
-        var scopeLabel = repSearchAllBooks ? repLangText({ur:'🌐 تمام ریپرٹریز',en:'🌐 ALL repertories',roman:'🌐 Tamam repertories'})
-                                           : repLangText({ur:'📚 اس ریپرٹری میں',en:'📚 in this repertory',roman:'📚 is repertory mein'});
+        // 🔑 v40: scope label from the restored SCOPE dropdown (chapter | book | all) or sidebar all-books
+        var scopeLabel;
+        if(repSearchAllBooks || repSearchScope==='all'){
+            scopeLabel = repLangText({ur:'🌐 تمام ریپرٹریز',en:'🌐 ALL repertories',roman:'🌐 Tamam repertories'});
+        } else if(repSearchScope==='chapter'){
+            scopeLabel = repLangText({ur:'📖 کھلے چیکٹر میں',en:'📖 in open chapter',roman:'📖 khule chapter mein'});
+        } else {
+            scopeLabel = repLangText({ur:'📚 اس ریپرٹری میں',en:'📚 in this repertory',roman:'📚 is repertory mein'});
+        }
         var info='🔍 '+typeLabel+' &nbsp;"'+escapeHtml(qw.join(' '))+'" '+scopeLabel;
         if(chF){ info+=' '+repLangText({ur:'میں',en:'in',roman:'mein'})+' <b>'+escapeHtml(getChapterDisplayName(repCurrentBook,chF))+'</b>'; }
         info+=' → <b>'+total.toLocaleString()+'</b> '+repLangText({ur:'ربرکس',en:'rubrics',roman:'rubrics'});
@@ -1764,33 +1793,43 @@ function searchRepertoryBrowser(){
     }
 
     // ---------- mode routing ----------
-    // 🔑 v38: search TYPE (rubric | remedy | rubric_remedy | clinical) × scope (current book | all books via sidebar)
+    // 🔑 v40: search TYPE (rubric | remedy | rubric_remedy | clinical) × restored SCOPE (chapter | book | all)
+    // sidebar all-books flag also routes to the all-repertories engine
+    var scopeAll = repSearchAllBooks || repSearchScope==='all';
+    var scopeChapter = (!scopeAll && repSearchScope==='chapter');
+    if(scopeChapter && !repCurrentChapter){
+        // open-chapter scope without an open chapter — ask the user to open one first
+        cd.innerHTML='<div class="empty-state"><div class="icon">📖</div><p>'+repLangText({ur:'پہلے کوئی چیکٹر کھولیں، پھر سرچ کریں',en:'Open a chapter first, then search',roman:'Pehle koi chapter kholen, phir search karein'})+'</p></div>';
+        return;
+    }
+    // effective single-chapter filter: chapter-scope wins over the legacy @chapter filter
+    var scopeChFilter = scopeChapter ? normalizeChapterKey(repCurrentBook, repCurrentChapter) : chF;
     if(repSearchMode==='clinical'){
         // clinical matching needs the glossary (Urdu→English reverse lookup) → build synonym groups first
         cd.innerHTML='<div style="text-align:center;padding:20px;">🏥 '+repLangText({ur:'کلینیکل ہم معنی تیار ہو رہے ہیں (لغت لوڈ ہو رہی ہے)...',en:'Preparing clinical synonyms (loading glossary)...',roman:'Clinical hum-maani tayyar ho rahe hain...'})+'</div>';
         buildClinicalGroups(function(){
             if(!searchStillActive()) return;
-            if(repSearchAllBooks){ setTimeout(runIncrementalAllSearch,10); return; }
+            if(scopeAll){ setTimeout(runIncrementalAllSearch,10); return; }
             setTimeout(function(){
                 if(!searchStillActive()) return;
-                function ds(sd){ finalize(scanData(sd, repCurrentBook, chF)); }
+                function ds(sd){ finalize(scanData(sd, repCurrentBook, scopeChFilter)); }
                 if(_repFullData!==null){ ds(_repFullData); } else { loadRepData(function(d){ ds(d); }); }
             },10);
         });
         return;
     }
-    if(repSearchAllBooks){
-        // sidebar "Search across all books" — incremental search over ALL repertories with the chosen type
+    if(scopeAll){
+        // 🌐 All Repertories scope (or sidebar "Search across all books") — incremental search over ALL repertories with the chosen type
         setTimeout(function(){
             if(!searchStillActive()) return;
             runIncrementalAllSearch();
         },10);
         return;
     }
-    // current-book search (all chapters, optional @chapter filter) — HomeoSetu style
+    // 📖 chapter scope (single chapter) / 📚 current-book search (all chapters, optional @chapter filter) — HomeoSetu style
     setTimeout(function(){
         if(!searchStillActive()) return;
-        function ds(sd){ finalize(scanData(sd, repCurrentBook, chF)); }
+        function ds(sd){ finalize(scanData(sd, repCurrentBook, scopeChFilter)); }
         if(_repFullData!==null){ ds(_repFullData); } else { loadRepData(function(d){ ds(d); }); }
     },10);
 }
@@ -2608,7 +2647,7 @@ function repAskAnswer(q){
         return B(repLangText({ur:'<b>گریڈ (GRADATION)</b> — ریپرٹری میں ادویہ کی طاقت: <span class="rep-gr-dot d3"></span> 3 = مضبوط (سب سے پہلے غور), <span class="rep-gr-dot d2"></span> 2 = درمیانہ, <span class="rep-gr-dot d1"></span> 1 = معمولی۔ تجزیہ گرڈ میں ڈاٹ کا رنگ اسی سے بنتا ہے۔',en:'<b>GRADATION</b> — remedy strength in the repertory: <span class="rep-gr-dot d3"></span> 3 = strong (consider first), <span class="rep-gr-dot d2"></span> 2 = medium, <span class="rep-gr-dot d1"></span> 1 = light. The analysis grid dot colours follow this.',roman:'Grade — adwiyeh ki taaqat: 3 mazboot, 2 darmiyana, 1 mamooli.'}));
     }
     if(/(سرچ|search|تلاش|dhundh|find)/.test(lq)){
-        return B(repLangText({ur:'<b>🔍 سرچ ٹپس</b> — ٹائپ ڈراپ ڈاؤن سے چنیں: <b>ربرک / سب ربرک</b> (عام)، <b>ادویہ</b> (مثلاً nux vom)، <b>ربرک + ادویہ</b> (دونوں)، <b>کلینیکل حالت</b> (مثلاً headache یا اردو میں «بخار» — لغت خود ہم معنی ڈھونڈتی ہے)۔ <code>@mind</code> لگائیں تو صرف اسی باب میں۔ سائیڈبار کا «Search across all books» چاروں ریپرٹریز میں ڈھونڈتا ہے۔',en:'<b>🔍 Search tips</b> — pick a TYPE from the dropdown: <b>Rubric / Subrubric</b> (normal), <b>Remedy</b> (e.g. nux vom), <b>Rubric + Remedy</b> (both), <b>Clinical Condition</b> (e.g. headache or Urdu «بخار» — the glossary finds synonyms for you). Add <code>@mind</code> to restrict to one chapter. The sidebar «Search across all books» searches all four repertories.',roman:'Search tips — type dropdown: Rubric/Subrubric, Remedy, Rubric+Remedy, Clinical Condition; @chapter filter.'}));
+        return B(repLangText({ur:'<b>🔍 سرچ ٹپس</b> — پہلا ڈراپ ڈاؤن <b>سکوپ</b> چنیں: <b>سرچ ان اوپن چیپٹر</b> (صرف کھلا باب)، <b>سرچ ان اوپن ریپرٹری</b> (پوری کتاب)، <b>سرچ ان آل ریپرٹریز</b> (چاروں کتابیں)۔ دوسرا ڈراپ ڈاؤن <b>ٹائپ</b> چنیں: <b>ربرک / سب ربرک</b> (عام)، <b>ادویہ</b> (مثلاً nux vom)، <b>ربرک + ادویہ</b> (دونوں)، <b>کلینیکل حالت</b> (مثلاً headache یا اردو میں «بخار» — لغت خود ہم معنی ڈھونڈتی ہے)۔ <code>@mind</code> لگائیں تو صرف اسی باب میں۔ سائیڈبار کا «Search across all books» بھی چاروں ریپرٹریز میں ڈھونڈتا ہے۔',en:'<b>🔍 Search tips</b> — first dropdown picks the SCOPE: <b>Search in Open Chapter</b> (open chapter only), <b>Search in Open Repertory</b> (whole book), <b>Search in All Repertories</b> (all four books). Second dropdown picks the TYPE: <b>Rubric / Subrubric</b> (normal), <b>Remedy</b> (e.g. nux vom), <b>Rubric + Remedy</b> (both), <b>Clinical Condition</b> (e.g. headache or Urdu «بخار» — the glossary finds synonyms for you). Add <code>@mind</code> to restrict to one chapter. The sidebar «Search across all books» also searches all four repertories.',roman:'Search tips — scope dropdown: Open Chapter / Open Repertory / All Repertories; type dropdown: Rubric/Subrubric, Remedy, Rubric+Remedy, Clinical Condition; @chapter filter.'}));
     }
     if(/(معنی|matlab|مطلب|meaning|مریض کا ورژن)/.test(lq)){
         return B(repLangText({ur:'<b>📖 ربرک کا مطلب</b> — ربرک کھولیں (کارڈ یا ڈیٹیل پیج) اور عنوان کے بعد <b>&lt;</b> آئکن دبائیں: مطلب (لغت سے)، مریض کا ورژن، صحیح استعمال اور کراس ریفرنس ایکسپینڈ ہو کر آئیں گے۔',en:'<b>📖 Rubric meaning</b> — open a rubric (card or detail page) and press the <b>&lt;</b> icon after the title: meaning (from the glossary), patient version, when to use and cross-references expand.',roman:'Rubric kholen aur < icon dabaein — matlab, mareez ka version, istemal, xref.'}));

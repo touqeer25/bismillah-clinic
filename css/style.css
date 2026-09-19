@@ -822,7 +822,8 @@ body[dir="ltr"] .tst-row.on{border-right:none;border-left:4px solid #8e44ad}
 .rep-toolbar-select{padding:9px 12px;border-radius:9px;border:1px solid #dfe6ee;background:white;font-family:inherit;font-size:13px;color:#2c3e50;cursor:pointer;box-sizing:border-box}
 .rep-toolbar-select:focus{outline:none;border-color:#2980b9}
 .rep-book-select{min-width:200px;flex:0 1 260px}
-.rep-scope-select{min-width:150px;flex:0 1 190px}
+.rep-scope-select{min-width:170px;flex:0 1 210px}
+.rep-type-select{min-width:150px;flex:0 1 175px}
 .rep-search-wrap{position:relative;flex:1;min-width:190px}
 .rep-search-ico{position:absolute;top:50%;transform:translateY(-50%);left:12px;font-size:13px;opacity:0.55;pointer-events:none}
 body[dir="rtl"] .rep-search-ico{left:auto;right:12px}
