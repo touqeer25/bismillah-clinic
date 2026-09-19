@@ -905,7 +905,6 @@ body[dir="rtl"] .rep-search-wrap input{padding:9px 34px 9px 12px}
 .rep-empty-folder{text-align:center;padding:34px 10px;color:#9fb0bf;font-size:12.5px;font-style:italic}
 /* ---- dock (bottom floating bar) ---- */
 .rep-dock{position:sticky;bottom:8px;display:flex;align-items:center;justify-content:center;gap:6px;margin:14px auto 2px;width:max-content;max-width:100%;background:white;border:1px solid #e3e9f0;border-radius:24px;padding:7px 16px;box-shadow:0 6px 20px rgba(26,82,118,0.16);flex-wrap:wrap;z-index:5;box-sizing:border-box}
-.rep-dock-label{font-size:9.5px;font-weight:bold;letter-spacing:1px;color:#9fb0bf;margin-right:3px;font-family:'Segoe UI',sans-serif}
 .rep-dock-page{min-width:28px;height:28px;border-radius:50%;border:none;background:transparent;color:#3d4f5d;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;padding:0 4px;transition:all 0.13s}
 .rep-dock-page:hover{background:#e8f1fb}
 .rep-dock-page.active{background:#2980b9;color:white}
@@ -1039,13 +1038,12 @@ body[dir="rtl"] .rpd-sec{border-left:none;border-right:4px solid #dfe6ee}
 .rep-main-inner{padding-bottom:80px}
 #repDockArea{position:fixed;left:0;right:0;bottom:14px;display:flex;justify-content:center;pointer-events:none;z-index:60}
 #repDockArea .rep-dock{position:static;margin:0;pointer-events:auto;box-shadow:0 10px 30px rgba(26,82,118,0.26)}
-/* ---- v42 مارکنگ A/B: مین پیج کا دایاں کنارہ سکوپ ڈراپ ڈاؤن کے بایں بارڈر پر (257 = ٹولبار پیڈنگ 12 + بک 260 + گیپ 10 + سکوپ 210 - سائیڈبار 225 - گیپ 10 - ... محاسہ براؤزر پیمائش سے)؛ ----
-     سائیڈبار (چیپٹرز + Analyze ٹیب) بھی اتنا ہی اندر؛ باقی بچی 257px خالی پٹی میں کلپ بورڈ ڈاک عمودی (لمبائی کے رخ) ---- */
+/* ---- v43: کلپ بورڈ ڈاک اب بائیں طرف عمودی (لمبائی کے رخ) — v42 کا 257px دایاں ریزرو ختم (دایاں کنارہ واپس فل چوڑائی)؛
+     صفحہ بائیں سے صرف ڈاک جتنی جگہ (left 8 + ڈاک ~62 + گیپ = 76px) چھوٹا تاکہ سائیڈبار/مین ڈاک پر نہ چڑھیں؛ RTL میں بھی محفوظ (physical padding) ---- */
 @media(min-width:821px){
-    .rep-layout{padding-right:257px}
-    #repDockArea{left:auto;right:8px;top:50%;bottom:auto;transform:translateY(-50%);flex-direction:column;align-items:center;justify-content:flex-start}
+    .rep-layout{padding-left:76px}
+    #repDockArea{right:auto;left:8px;top:50%;bottom:auto;transform:translateY(-50%);flex-direction:column;align-items:center;justify-content:flex-start}
     #repDockArea .rep-dock{flex-direction:column;gap:5px;padding:9px 8px;border-radius:18px;max-height:calc(100vh - 170px);overflow-y:auto}
-    .rep-dock-label{margin:0 0 2px;text-align:center}
 }
 /* ---- dock tool buttons: Workbench + Analysis Grid ---- */
 .rep-dock-tool{border:1px solid #dfe6ee;background:white;color:#1a5276}

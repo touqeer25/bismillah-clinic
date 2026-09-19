@@ -622,12 +622,11 @@ function repToggleClipView(i){
 }
 function repCloseClipView(){ repGo(repFolderPath); }
 
-// 🔑 dock renderer — v42: صرف 8 کلپ بورڈ چپس (+ ✕ واپس جب لسٹ کھلی ہو)؛
-// پیجینشن گروپ (صفحات/ترتیب/صفحہ سائز) مکمل ہٹا دیا گیا — ڈیسک ٹاپ پر یہ ڈاک دائیں خالی پٹی میں عمودی ہے
+// 🔑 dock renderer — v43: صرف 8 کلپ بورڈ چپس (+ ✕ واپس جب لسٹ کھلی ہو)؛ CLIPBOARDS ہیڈنگ ختم (صارف درخواست)؛
+// پیجینشن گروپ (صفحات/ترتیب/صفحہ سائز) مکمل ہٹا دیا گیا — ڈیسک ٹاپ پر یہ ڈاک بائیں خالی پٹی میں عمودی ہے
 function repRenderDock(){
     var d=document.getElementById('repDockArea'); if(!d)return;
     var h='<div class="rep-dock">';
-    h+='<span class="rep-dock-label">'+repLangText({ur:'کلپ بورڈز',en:'CLIPBOARDS',roman:'CLIPBOARDS'})+'</span>';
     for(var i=0;i<REP_N_CLIPS;i++){
         var n=(repClipboards[i]||[]).length;
         h+='<button class="rep-dock-clip'+((repClipViewOpen&&repActiveClip===i)?' active':'')+'" onclick="repToggleClipView('+i+')" title="'+repLangText({ur:'کلپ بورڈ '+(i+1),en:'Clipboard '+(i+1),roman:'Clipboard '+(i+1)})+'">'+(i+1)+(n?'<i class="rep-clip-n">'+n+'</i>':'')+'</button>';
