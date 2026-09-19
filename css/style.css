@@ -977,9 +977,14 @@ body[dir="rtl"] #repRemedyPanel.open{transform:translateX(0)}
 .rep-kebab-menu button.kb-in:hover{background:#e6f7ef;color:#166a37}
 /* ---- rubric detail page ---- */
 .rpd-titlerow{display:flex;align-items:flex-start;gap:8px;margin-bottom:4px}
-.rpd-chev{flex:0 0 auto;width:30px;height:30px;border-radius:8px;border:1px solid #dfe6ee;background:white;color:#2980b9;font-size:15px;font-weight:bold;cursor:pointer;line-height:1;transition:transform 0.18s ease,background 0.13s,color 0.13s;margin-top:2px}
+.rpd-chev{flex:0 0 auto;width:30px;height:30px;border-radius:8px;border:1px solid #dfe6ee;background:white;color:#2980b9;font-size:13px;font-weight:bold;cursor:pointer;line-height:1;transition:transform 0.18s ease,background 0.13s,color 0.13s;margin-top:2px}
 .rpd-chev:hover{background:#e8f1fb;border-color:#2980b9}
-.rpd-chev.open{transform:rotate(-90deg);background:#2980b9;color:white;border-color:#2980b9}
+/* 🔑 v39: ▾ بند = نیچے اشارہ (expand)؛ کھلا = rotate(180) → ▴ اوپر (collapse)۔
+   نوٹ: ❯/❮ glyphs RTL میں bidi-mirror ہو جاتے ہیں اس لیے ▾ (غیر-mirrored) استعمال ہوا۔ */
+.rpd-chev.open{transform:rotate(180deg);background:#2980b9;color:white;border-color:#2980b9}
+/* 🔑 v39: 📋 بٹن کی الائنمنٹ — چیورن کے ساتھ ہم قالب + عمودی مرکز */
+.rpd-titlerow .rc-btn{flex:0 0 auto;width:30px;height:30px;padding:0;margin-top:2px;font-size:14px;line-height:1;text-align:center}
+.rc-btn.danger.armed{background:#fdecea;border-color:#e74c3c;color:#a93226}
 .rep-content-title .rpd-chev{margin-top:0;flex:0 0 auto}
 .rpd-title{flex:0 1 auto;min-width:0;font-size:16.5px;font-weight:bold;color:#1a5276;font-family:'Segoe UI',sans-serif;direction:ltr;text-align:left;line-height:1.5;word-wrap:break-word}
 .rpd-meta{font-size:11px;color:#8aa0b2;margin:2px 0 12px;display:flex;gap:9px;align-items:center;flex-wrap:wrap;font-family:'Segoe UI',sans-serif}
