@@ -528,57 +528,36 @@ function repCardClick(el){
 function renderFolderCards(){
     var area=document.getElementById('repCardsArea'); if(!area)return;
     var node=repResolveNode(repFolderPath);
-    if(!node){ area.innerHTML=''; renderFolderDock(0,0,0,0); return; }
+    if(!node){ area.innerHTML=''; repRenderDock(); return; }
     var items=node.order.map(function(k){ return {label:k,node:node.children[k]}; });
     if(repFolderFilter){
         var f=repFolderFilter.toLowerCase();
         items=items.filter(function(it){ return it.label.toLowerCase().indexOf(f)!==-1; });
     }
     items.sort(function(a,b){ var c=a.label.localeCompare(b.label); return repSortAsc?c:-c; });
-    // 🔑 pending search navigation: jump to the page containing that rubric
-    if(repPendingNavRid){
-        for(var q=0;q<items.length;q++){
-            if(items[q].node&&items[q].node.rid===repPendingNavRid){ repTreePage=Math.floor(q/repTreePageSize); break; }
-        }
-    }
-    var total=items.length,totalPages=Math.ceil(total/repTreePageSize)||1;
-    if(repTreePage>=totalPages)repTreePage=totalPages-1;
-    if(repTreePage<0)repTreePage=0;
-    var start=repTreePage*repTreePageSize,end=Math.min(start+repTreePageSize,total);
+    // 🔑 v42 صارف درخواست: پیجیشن ختم — پورے فولڈر/باب کی تمام ربرکس ایک ہی صفحے پر رینڈر ہوتی ہیں
+    var total=items.length;
     var h='';
     if(!total){ h='<div class="rep-empty-folder">'+repLangText({ur:'اس فولڈر میں کوئی ربرک نہیں',en:'No rubrics in this folder',roman:'Is folder mein koi rubric nahi'})+'</div>'; }
     else if(repViewMode==='grid'){
         h='<div class="rep-cards-grid">';
-        for(var i=start;i<end;i++) h+=repCardHtml(items[i]);
+        for(var i=0;i<total;i++) h+=repCardHtml(items[i]);
         h+='</div>';
     } else {
         h='<div class="rep-cards-list">';
-        for(var j=start;j<end;j++) h+=repListRowHtml(items[j]);
+        for(var j=0;j<total;j++) h+=repListRowHtml(items[j]);
         h+='</div>';
     }
     area.innerHTML=h;
-    renderFolderDock(totalPages,total,start,end);
+    repRenderDock();
     if(repPendingNavRid){
         var fr=repPendingNavRid; repPendingNavRid=null;
         setTimeout(function(){ flashRubricRow(fr); },80);
     }
 }
 
-// 🔑 bottom floating dock: CLIPBOARDS (1-8) + page pills + sort + page size (HomeoSetu-style)
-function repPageWindow(cur,totalPages){
-    var arr=[],shown={};
-    function add(p){ if(p>=0&&p<totalPages&&!shown[p]){ shown[p]=1; arr.push(p); } }
-    add(0); add(totalPages-1);
-    [cur-1,cur,cur+1].forEach(add);
-    add(cur-2); add(cur+2);
-    arr.sort(function(a,b){return a-b;});
-    var out=[],prev=-1;
-    arr.forEach(function(p){
-        if(prev!==-1&&p-prev>1) out.push('...');
-        out.push(p); prev=p;
-    });
-    return out;
-}
+// 🔑 v42: پیجیشن ہٹا دی گئی — repPageWindow/repGoPage/repTreePageSize سلائسنگ اب موجود نہیں؛
+// تمام ربرکس ایک صفحے پر، ڈاک میں صرف 8 کلپ بورڈ چپس (موبائل پر افقی، ڈیسک ٹاپ پر دائیں پٹی میں عمودی)
 
 // ==================== 8 CLIPBOARDS (floating, persisted) ====================
 // HomeoSetu فنکشن کلون: نیچے فلوٹنگ ڈاک میں 8 کلپ بورڈز — ہر کلپ بورڈ ایک
@@ -597,7 +576,6 @@ function repClipOptsLoad(){
 function repClipOptsSave(){ try{ localStorage.setItem('bc_rep_clip_opts',JSON.stringify({elims:repClipElims,names:repClipNames})); }catch(e){} }
 var repClipViewOpen=false;repWorkbenchOpen=false;repCompareOpen=false;repAnalysisOpen=-1;         // clipboard list view currently shown?
 var repDockTrashArm=0;             // 🗑 double-click arm (confirm)
-var repDockCtx={folder:false,cur:0,totalPages:0,total:0,start:0,end:0};
 function repClipsLoad(){
     try{ var s=localStorage.getItem('bc_rep_clipboards'); if(s){ var d=JSON.parse(s); if(d&&d.length){ // 🔑 v39 migration: پرانا 4-کلپ بورڈ ڈیٹا محفوظ رہتے ہوئے 8 تک بڑھایا جاتا ہے
         while(d.length<REP_N_CLIPS)d.push([]); if(d.length===REP_N_CLIPS)repClipboards=d; } } }catch(e){}
@@ -644,7 +622,8 @@ function repToggleClipView(i){
 }
 function repCloseClipView(){ repGo(repFolderPath); }
 
-// 🔑 dock renderer — CLIPBOARDS group always; PAGES group only in folder view
+// 🔑 dock renderer — v42: صرف 8 کلپ بورڈ چپس (+ ✕ واپس جب لسٹ کھلی ہو)؛
+// پیجینشن گروپ (صفحات/ترتیب/صفحہ سائز) مکمل ہٹا دیا گیا — ڈیسک ٹاپ پر یہ ڈاک دائیں خالی پٹی میں عمودی ہے
 function repRenderDock(){
     var d=document.getElementById('repDockArea'); if(!d)return;
     var h='<div class="rep-dock">';
@@ -656,38 +635,11 @@ function repRenderDock(){
     // 🔑 صارف درخواست (v39): ڈاک سے ورک بینچ/اینالیسس گرڈ/کاپی/کلیئر بٹن ہٹا دیے —
     // یہ چار بٹن اب کلپ بورڈ لسٹ ویو کے ہیڈر میں ہیں۔ ڈاک صرف 8 کلپ بورڈز دکھاتا ہے۔
     if(repClipViewOpen) h+='<button class="rep-dock-ico" onclick="repCloseClipView()" title="'+repLangText({ur:'واپس',en:'Back',roman:'Wapas'})+'">✕</button>';
-    if(repDockCtx.folder&&repDockCtx.totalPages>0){
-        h+='<span class="rep-dock-div"></span>';
-        h+='<span class="rep-dock-label">'+repLangText({ur:'صفحات',en:'PAGES',roman:'PAGES'})+'</span>';
-        repPageWindow(repDockCtx.cur,repDockCtx.totalPages).forEach(function(p){
-            if(p==='...'){ h+='<span class="rep-dock-dots">…</span>'; return; }
-            h+='<button class="rep-dock-page'+(p===repDockCtx.cur?' active':'')+'" onclick="repGoPage('+p+')">'+(p+1)+'</button>';
-        });
-        h+='<span class="rep-dock-div"></span>';
-        h+='<button class="rep-dock-ico" onclick="repToggleSort()" title="Sort A-Z / Z-A">⇅ '+(repSortAsc?'A-Z':'Z-A')+'</button>';
-        h+='<button class="rep-dock-ico" onclick="repCyclePageSize()" title="Cards per page">≡ '+repTreePageSize+'</button>';
-        if(repDockCtx.total) h+='<span class="rep-dock-info">'+(repDockCtx.start+1)+'–'+repDockCtx.end+' / '+repDockCtx.total.toLocaleString()+'</span>';
-    }
     h+='</div>';
     d.innerHTML=h;
     repUpdateSelCount();
 }
-function renderFolderDock(totalPages,total,start,end){
-    repDockCtx={folder:true,cur:repTreePage,totalPages:totalPages,total:total,start:start,end:end};
-    repRenderDock();
-}
-function repDockNoFolder(){
-    repDockCtx={folder:false,cur:0,totalPages:0,total:0,start:0,end:0};
-    repRenderDock();
-}
-function repGoPage(p){ repTreePage=p; renderFolderCards(); }
-function repToggleSort(){ repSortAsc=!repSortAsc; renderFolderCards(); }
-function repCyclePageSize(){
-    var sizes=[50,100,200,500];
-    var idx=sizes.indexOf(repTreePageSize); if(idx===-1)idx=0;
-    repTreePageSize=sizes[(idx+1)%sizes.length];
-    repTreePage=0; renderFolderCards();
-}
+// 🔑 v42: repGoPage/repToggleSort/repCyclePageSize/renderFolderDock/repDockNoFolder ہٹا دیے — پیجینشن ختم
 
 // 🔑 clipboard contents view (main area)
 function renderClipView(){
@@ -719,7 +671,7 @@ function renderClipView(){
     }
     cd.innerHTML=h;
     cd.scrollTop=0;
-    repDockNoFolder();
+    repRenderDock();
 }
 function repClipRemoveItem(i){
     var l=repClipboards[repActiveClip]||[];
@@ -738,7 +690,7 @@ function repRenderEmptyState(){
     cd.innerHTML='<div class="rep-empty-state"><div class="res-icon">📁</div>'
         +'<p class="res-title">'+repLangText({ur:'بائیں مینو سے کوئی باب منتخب کریں',en:'Select a chapter from the left menu',roman:'Bayen menu se koi chapter select karein'})+'</p>'
         +'<p class="res-sub">'+repLangText({ur:'ربرکس اور ادویات دیکھیں',en:'Browse rubrics and remedies',roman:'Rubrics aur remedies dekhein'})+'</p></div>';
-    repRenderBreadcrumb(); repUpdateNavButtons(); repDockNoFolder();
+    repRenderBreadcrumb(); repUpdateNavButtons(); repRenderDock();
 }
 
 // 🔑 kebab (⋮) popup menu — copy + detail + ADD/REMOVE in 8 clipboards
@@ -1159,7 +1111,7 @@ function renderRubricDetail(){
     }
     cd.innerHTML=h;
     cd.scrollTop=0;
-    repDockNoFolder();
+    repRenderDock();
     // async: app cross-reference (other books)
     repRenderXrefAppBody(full,d.rid);
 }
@@ -1357,11 +1309,12 @@ function updateRepSearchModeUI(){
     if(tsel&&tsel.value!==repSearchMode) tsel.value=repSearchMode;
     var ssel=document.getElementById('repScopeSelect');
     if(ssel&&ssel.value!==repSearchScope) ssel.value=repSearchScope;
+    // 🔑 v42: placeholder میں 🔍 ہٹا دیا — ڈپلیکیٹ آئکن ختم؛ ایک ہی styled .rep-search-ico span رہتا ہے
     var placeholders = {
-        rubric:       {ur:'🔍 ربرک / سب ربرک تلاش کریں... (مثلاً fear، headache)', en:'🔍 Search rubric / subrubric... (e.g. fear, headache)', roman:'🔍 Rubric / subrubric talash karein... (e.g. fear, headache)'},
-        remedy:       {ur:'🔍 ادویہ تلاش کریں... (مثلاً nux vom، arsen)', en:'🔍 Search a remedy... (e.g. nux vom, arsen)', roman:'🔍 Adwiyeh talash karein... (e.g. nux vom, arsen)'},
-        rubric_remedy:{ur:'🔍 ربرک اور ادویہ دونوں میں تلاش...', en:'🔍 Search rubrics and remedies both...', roman:'🔍 Rubric aur adwiyeh dono mein talash...'},
-        clinical:     {ur:'🔍 کلینیکل حالت / اردو علامت... (مثلاً بخار، headache)', en:'🔍 Clinical condition / Urdu symptom... (e.g. بخار, headache)', roman:'🔍 Clinical condition / Urdu alaamat... (e.g. bukhar, headache)'}
+        rubric:       {ur:'ربرک / سب ربرک تلاش کریں... (مثلاً fear، headache)', en:'Search rubric / subrubric... (e.g. fear, headache)', roman:'Rubric / subrubric talash karein... (e.g. fear, headache)'},
+        remedy:       {ur:'ادویہ تلاش کریں... (مثلاً nux vom، arsen)', en:'Search a remedy... (e.g. nux vom, arsen)', roman:'Adwiyeh talash karein... (e.g. nux vom, arsen)'},
+        rubric_remedy:{ur:'ربرک اور ادویہ دونوں میں تلاش...', en:'Search rubrics and remedies both...', roman:'Rubric aur adwiyeh dono mein talash...'},
+        clinical:     {ur:'کلینیکل حالت / اردو علامت... (مثلاً بخار، headache)', en:'Clinical condition / Urdu symptom... (e.g. بخار, headache)', roman:'Clinical condition / Urdu alaamat... (e.g. bukhar, headache)'}
     };
     var inp=document.getElementById('repBrowserSearch');
     if(inp){
@@ -1886,7 +1839,7 @@ function displaySearchResults(results, info){
     var rc=document.getElementById('repRubricContent'); if(!rc)return;
     if(results.length===0){
         rc.innerHTML='<div class="empty-state"><div class="icon">🔍</div><p>'+(currentLang==='ur'?'کوئی ربرک نہیں ملی':'No rubrics found')+'</p></div>';
-        repDockNoFolder();
+        repRenderDock();
         return;
     }
     function truncateTitle(t){return t.length>180?t.substring(0,177)+'...':t;}
@@ -1945,7 +1898,7 @@ function displaySearchResults(results, info){
     });
     rc.innerHTML=h;
     rc.scrollTop=0;
-    repDockNoFolder();
+    repRenderDock();
 }
 
 // 🔑 PRECISE navigation: open the chapter (in the right book) and scroll/flash the exact rubric (by ID)
@@ -2274,7 +2227,7 @@ function renderWorkbench(){
         +'</div>';
     cd.innerHTML=h; cd.scrollTop=0;
     if(repWbTab==='grid') renderWbGrid(); else renderWbClips();
-    repDockNoFolder();
+    repRenderDock();
     repWbUpdateCounts();
 }
 function renderWbClips(){
@@ -2411,7 +2364,7 @@ function renderAnalysis(){
         +'<button class="rc-btn" onclick="repCloseToolView()">✕ '+repLangText({ur:'بند کریں',en:'Close',roman:'Band karein'})+'</button></div>';
     h+='<div id="repAnaBody"><div class="rep-tool-loading">⏳ '+repLangText({ur:'ریپرٹری ڈیٹا لوڈ ہو رہا ہے...',en:'Loading repertory data...',roman:'Repertory data load ho raha hai...'})+'</div></div>';
     cd.innerHTML=h; cd.scrollTop=0;
-    repDockNoFolder();
+    repRenderDock();
     repEnsureAllBooks(function(all){
         var body=document.getElementById('repAnaBody'); if(!body)return;
         var res=_repAnaCompute(l,all);
@@ -2499,10 +2452,10 @@ function renderCompare(){
     h+='</div>';
     if(sel.length<2){
         h+='<div class="rep-tool-loading">'+repLangText({ur:'موازنے کے لیے کم از کم 2 غیر خالی کلپ بورڈز منتخب کریں — اوپر چپس سے منتخب کریں۔',en:'Select at least 2 non-empty clipboards above to compare.',roman:'Moazne ke liye kam az kam 2 ghair khali clipboards muntakhib karein.'})+'</div>';
-        cd.innerHTML=h; cd.scrollTop=0; repDockNoFolder(); return;
+        cd.innerHTML=h; cd.scrollTop=0; repRenderDock(); return;
     }
     h+='<div id="repCmpBody"><div class="rep-tool-loading">⏳ '+repLangText({ur:'ریپرٹری ڈیٹا لوڈ ہو رہا ہے...',en:'Loading repertory data...',roman:'Repertory data load ho raha hai...'})+'</div></div>';
-    cd.innerHTML=h; cd.scrollTop=0; repDockNoFolder();
+    cd.innerHTML=h; cd.scrollTop=0; repRenderDock();
     repEnsureAllBooks(function(all){
         var body=document.getElementById('repCmpBody'); if(!body)return;
         var res=_repCmpCompute(sel,all);

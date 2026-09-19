@@ -821,8 +821,8 @@ body[dir="ltr"] .tst-row.on{border-right:none;border-left:4px solid #8e44ad}
 .rep-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:white;border-radius:12px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);margin-bottom:10px}
 .rep-toolbar-select{padding:9px 12px;border-radius:9px;border:1px solid #dfe6ee;background:white;font-family:inherit;font-size:13px;color:#2c3e50;cursor:pointer;box-sizing:border-box}
 .rep-toolbar-select:focus{outline:none;border-color:#2980b9}
-.rep-book-select{min-width:200px;flex:0 1 260px}
-.rep-scope-select{min-width:170px;flex:0 1 210px}
+.rep-book-select{flex:0 0 260px;min-width:260px;width:260px}
+.rep-scope-select{flex:0 0 210px;min-width:210px;width:210px}
 .rep-type-select{min-width:150px;flex:0 1 175px}
 .rep-search-wrap{position:relative;flex:1;min-width:190px}
 .rep-search-ico{position:absolute;top:50%;transform:translateY(-50%);left:12px;font-size:13px;opacity:0.55;pointer-events:none}
@@ -1039,6 +1039,14 @@ body[dir="rtl"] .rpd-sec{border-left:none;border-right:4px solid #dfe6ee}
 .rep-main-inner{padding-bottom:80px}
 #repDockArea{position:fixed;left:0;right:0;bottom:14px;display:flex;justify-content:center;pointer-events:none;z-index:60}
 #repDockArea .rep-dock{position:static;margin:0;pointer-events:auto;box-shadow:0 10px 30px rgba(26,82,118,0.26)}
+/* ---- v42 مارکنگ A/B: مین پیج کا دایاں کنارہ سکوپ ڈراپ ڈاؤن کے بایں بارڈر پر (257 = ٹولبار پیڈنگ 12 + بک 260 + گیپ 10 + سکوپ 210 - سائیڈبار 225 - گیپ 10 - ... محاسہ براؤزر پیمائش سے)؛ ----
+     سائیڈبار (چیپٹرز + Analyze ٹیب) بھی اتنا ہی اندر؛ باقی بچی 257px خالی پٹی میں کلپ بورڈ ڈاک عمودی (لمبائی کے رخ) ---- */
+@media(min-width:821px){
+    .rep-layout{padding-right:257px}
+    #repDockArea{left:auto;right:8px;top:50%;bottom:auto;transform:translateY(-50%);flex-direction:column;align-items:center;justify-content:flex-start}
+    #repDockArea .rep-dock{flex-direction:column;gap:5px;padding:9px 8px;border-radius:18px;max-height:calc(100vh - 170px);overflow-y:auto}
+    .rep-dock-label{margin:0 0 2px;text-align:center}
+}
 /* ---- dock tool buttons: Workbench + Analysis Grid ---- */
 .rep-dock-tool{border:1px solid #dfe6ee;background:white;color:#1a5276}
 .rep-dock-tool:hover{background:#e8f1fb;border-color:#2980b9}
