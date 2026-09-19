@@ -1271,7 +1271,7 @@ var repSearchMode = 'rubric';   // 🔑 default type: rubric / subrubric text se
 // 🔑 v40 RESTORED: search SCOPE dropdown — 'chapter' = open chapter only | 'book' = current repertory | 'all' = ALL repertories
 var REP_SCOPE_ORDER = ['chapter', 'book', 'all'];
 var repSearchScope = 'book';    // default: whole current repertory (old v47 behaviour)
-var repSearchAllBooks = false;  // sidebar "Search across all books" flag — searches all 4 repertories with the chosen type
+var repSearchAllBooks = false;  // 🔒 v41: sidebar all-books search REMOVED — flag kept (always false) for engine routing; use scope dropdown 'all' instead
 var _repSearchBeforeContext = null; // where to return when the search box is cleared
 var _repSearchSeq = 0;              // cancels old async searches when user clears/changes text
 
@@ -1819,7 +1819,7 @@ function searchRepertoryBrowser(){
         return;
     }
     if(scopeAll){
-        // 🌐 All Repertories scope (or sidebar "Search across all books") — incremental search over ALL repertories with the chosen type
+        // 🌐 All Repertories scope — incremental search over ALL repertories with the chosen type
         setTimeout(function(){
             if(!searchStillActive()) return;
             runIncrementalAllSearch();
@@ -2051,7 +2051,7 @@ function closeRepertoryChart(){document.getElementById('repChartOverlay').classL
 // 3) 📊 Case Analysis Grid — ریپرٹورائزیشن چارٹ (ربرک × ادویہ، گریڈ ڈاٹس)
 // 4) ⇄ Compare — کلپ بورڈز کا موازنہ + مشترکہ ادویات
 // 5) 🤖 Ask AI — فلوٹنگ اسسٹنٹ (علامت → میچنگ ربرکس + استعمال کی مدد)
-// 6) سائیڈبار ٹولز — N selected / Clear / Analyze + Search across all books
+// 6) سائیڈبار ٹولز — N selected / Clear / Analyze
 // ============================================================
 var repWorkbenchOpen=false, repCompareOpen=false, repAnalysisOpen=-1;
 var repCompareSel=[false,false,false,false,false,false,false,false];
@@ -2647,7 +2647,7 @@ function repAskAnswer(q){
         return B(repLangText({ur:'<b>گریڈ (GRADATION)</b> — ریپرٹری میں ادویہ کی طاقت: <span class="rep-gr-dot d3"></span> 3 = مضبوط (سب سے پہلے غور), <span class="rep-gr-dot d2"></span> 2 = درمیانہ, <span class="rep-gr-dot d1"></span> 1 = معمولی۔ تجزیہ گرڈ میں ڈاٹ کا رنگ اسی سے بنتا ہے۔',en:'<b>GRADATION</b> — remedy strength in the repertory: <span class="rep-gr-dot d3"></span> 3 = strong (consider first), <span class="rep-gr-dot d2"></span> 2 = medium, <span class="rep-gr-dot d1"></span> 1 = light. The analysis grid dot colours follow this.',roman:'Grade — adwiyeh ki taaqat: 3 mazboot, 2 darmiyana, 1 mamooli.'}));
     }
     if(/(سرچ|search|تلاش|dhundh|find)/.test(lq)){
-        return B(repLangText({ur:'<b>🔍 سرچ ٹپس</b> — پہلا ڈراپ ڈاؤن <b>سکوپ</b> چنیں: <b>سرچ ان اوپن چیپٹر</b> (صرف کھلا باب)، <b>سرچ ان اوپن ریپرٹری</b> (پوری کتاب)، <b>سرچ ان آل ریپرٹریز</b> (چاروں کتابیں)۔ دوسرا ڈراپ ڈاؤن <b>ٹائپ</b> چنیں: <b>ربرک / سب ربرک</b> (عام)، <b>ادویہ</b> (مثلاً nux vom)، <b>ربرک + ادویہ</b> (دونوں)، <b>کلینیکل حالت</b> (مثلاً headache یا اردو میں «بخار» — لغت خود ہم معنی ڈھونڈتی ہے)۔ <code>@mind</code> لگائیں تو صرف اسی باب میں۔ سائیڈبار کا «Search across all books» بھی چاروں ریپرٹریز میں ڈھونڈتا ہے۔',en:'<b>🔍 Search tips</b> — first dropdown picks the SCOPE: <b>Search in Open Chapter</b> (open chapter only), <b>Search in Open Repertory</b> (whole book), <b>Search in All Repertories</b> (all four books). Second dropdown picks the TYPE: <b>Rubric / Subrubric</b> (normal), <b>Remedy</b> (e.g. nux vom), <b>Rubric + Remedy</b> (both), <b>Clinical Condition</b> (e.g. headache or Urdu «بخار» — the glossary finds synonyms for you). Add <code>@mind</code> to restrict to one chapter. The sidebar «Search across all books» also searches all four repertories.',roman:'Search tips — scope dropdown: Open Chapter / Open Repertory / All Repertories; type dropdown: Rubric/Subrubric, Remedy, Rubric+Remedy, Clinical Condition; @chapter filter.'}));
+        return B(repLangText({ur:'<b>🔍 سرچ ٹپس</b> — پہلا ڈراپ ڈاؤن <b>سکوپ</b> چنیں: <b>سرچ ان اوپن چیپٹر</b> (صرف کھلا باب)، <b>سرچ ان اوپن ریپرٹری</b> (پوری کتاب)، <b>سرچ ان آل ریپرٹریز</b> (چاروں کتابیں)۔ دوسرا ڈراپ ڈاؤن <b>ٹائپ</b> چنیں: <b>ربرک / سب ربرک</b> (عام)، <b>ادویہ</b> (مثلاً nux vom)، <b>ربرک + ادویہ</b> (دونوں)، <b>کلینیکل حالت</b> (مثلاً headache یا اردو میں «بخار» — لغت خود ہم معنی ڈھونڈتی ہے)۔ <code>@mind</code> لگائیں تو صرف اسی باب میں۔',en:'<b>🔍 Search tips</b> — first dropdown picks the SCOPE: <b>Search in Open Chapter</b> (open chapter only), <b>Search in Open Repertory</b> (whole book), <b>Search in All Repertories</b> (all four books). Second dropdown picks the TYPE: <b>Rubric / Subrubric</b> (normal), <b>Remedy</b> (e.g. nux vom), <b>Rubric + Remedy</b> (both), <b>Clinical Condition</b> (e.g. headache or Urdu «بخار» — the glossary finds synonyms for you). Add <code>@mind</code> to restrict to one chapter.',roman:'Search tips — scope dropdown: Open Chapter / Open Repertory / All Repertories; type dropdown: Rubric/Subrubric, Remedy, Rubric+Remedy, Clinical Condition; @chapter filter.'}));
     }
     if(/(معنی|matlab|مطلب|meaning|مریض کا ورژن)/.test(lq)){
         return B(repLangText({ur:'<b>📖 ربرک کا مطلب</b> — ربرک کھولیں (کارڈ یا ڈیٹیل پیج) اور عنوان کے بعد <b>&lt;</b> آئکن دبائیں: مطلب (لغت سے)، مریض کا ورژن، صحیح استعمال اور کراس ریفرنس ایکسپینڈ ہو کر آئیں گے۔',en:'<b>📖 Rubric meaning</b> — open a rubric (card or detail page) and press the <b>&lt;</b> icon after the title: meaning (from the glossary), patient version, when to use and cross-references expand.',roman:'Rubric kholen aur < icon dabaein — matlab, mareez ka version, istemal, xref.'}));
@@ -2675,26 +2675,9 @@ function repAskAnswer(q){
     B(repLangText({ur:'میں ربرکس تلاش کرنے اور کلپ بورڈز، ورک بینچ، تجزیہ گرڈ، Compare، گریڈ و سرچ سمجھانے میں مدد کر سکتا ہوں — علامت لکھ کر دیکھیں!',en:'I can find rubrics and explain clipboards, workbench, the analysis grid, Compare, grades and search — try typing a symptom!',roman:'Main rubrics talash aur features samjha sakta hoon — alaamat likhein!'}));
 }
 
-// ==================== SIDEBAR TOOLS (N selected / Clear / Analyze / all-books search) ====================
+// ==================== SIDEBAR TOOLS (N selected / Clear / Analyze) ====================
 function repUpdateSelCount(){
     var el=document.getElementById('repSelCount'); if(!el)return;
     var n=0; for(var i=0;i<REP_N_CLIPS;i++) n+=(repClipboards[i]||[]).length;
     el.textContent=repLangText({ur:n+' منتخب',en:n+' selected',roman:n+' selected'});
-}
-var _repAbsDeb=null;
-function repAllBooksSearchDeb(){
-    if(_repAbsDeb)clearTimeout(_repAbsDeb);
-    _repAbsDeb=setTimeout(function(){
-        var inp=document.getElementById('repAllBooksSearch');
-        if(inp&&inp.value.trim().length>=2) repAllBooksSearchGo();
-    },550);
-}
-function repAllBooksSearchGo(){
-    var inp=document.getElementById('repAllBooksSearch'); if(!inp)return;
-    var q=inp.value.trim();
-    if(q.length<2){ showToast(repLangText({ur:'کم از کم 2 حرف لکھیں',en:'Type at least 2 characters',roman:'Kam az kam 2 harf likhein'})); return; }
-    repSearchAllBooks=true; _repSearchSeq++; _repSearchCache=''; _repSearchResults=null;
-    var main=document.getElementById('repBrowserSearch'); if(main)main.value=q;
-    updateRepSearchModeUI();
-    searchRepertoryBrowser();
 }
