@@ -418,9 +418,19 @@ function repOpenChapter(chKey){
     repCurrentDetail=null; repClipViewOpen=false;repWorkbenchOpen=false;repCompareOpen=false;repAnalysisOpen=-1; repPendingDetail=null;
     selectChapter(chKey);
 }
+// 🔑 v48 (صارف): ڈیٹیل ویو کا راستہ repCurrentDetail.labels میں ہوتا ہے (ون کلک فلو کے بعد
+// repFolderPath پرانا رہ جاتا ہے) — اوورلیز بند ہوں تو ڈیٹیل کی پوری زنجیر استعمال کرو
+function repActivePathLabels(){
+    var overlay=repClipViewOpen||repWorkbenchOpen||repCompareOpen||(repAnalysisOpen!==undefined&&repAnalysisOpen!==-1);
+    if(!overlay&&repCurrentDetail&&repCurrentDetail.labels&&repCurrentDetail.labels.length) return repCurrentDetail.labels.slice();
+    return null;
+}
 function repBcGo(i){
     if(i<0){ return; }
-    repGo(repFolderPath.slice(0,i+1));
+    var dp=repActivePathLabels();
+    var path=dp?dp:repFolderPath;
+    // ڈیٹیل ویو سے زنجیر کے کسی نام پر کلک = اسی سطح کا فولڈر ویو (repGo ڈیٹیل بند کر دیتا ہے)
+    repGo(path.slice(0,i+1));
 }
 function repUpdateNavButtons(){
     var b=document.getElementById('repBtnBack'),f=document.getElementById('repBtnFwd'),u=document.getElementById('repBtnUp');
@@ -431,11 +441,13 @@ function repUpdateNavButtons(){
 function repRenderBreadcrumb(){
     var bc=document.getElementById('repBreadcrumb'); if(!bc)return;
     var bookInfo=REP_BOOK_INFO[repCurrentBook]||{abbr:'?',name:repCurrentBook};
+    var dp=repActivePathLabels();
+    var path=dp?dp:repFolderPath.slice();
     var h='<span class="rep-bc-seg rep-bc-book" onclick="repOpenBookRoot()">📖 '+escapeHtml(bookInfo.name)+'</span>';
     if(repCurrentChapter){
-        h+='<span class="rep-bc-sep">›</span><span class="rep-bc-seg'+(repFolderPath.length?'':' active')+'" onclick="repGo([])">📁 '+escapeHtml(repCurrentChName)+'</span>';
-        for(var i=0;i<repFolderPath.length;i++){
-            h+='<span class="rep-bc-sep">›</span><span class="rep-bc-seg'+(i===repFolderPath.length-1?' active':'')+'" onclick="repBcGo('+i+')">'+escapeHtml(repFolderPath[i])+'</span>';
+        h+='<span class="rep-bc-sep">›</span><span class="rep-bc-seg'+(path.length?'':' active')+'" onclick="repGo([])">📁 '+escapeHtml(repCurrentChName)+'</span>';
+        for(var i=0;i<path.length;i++){
+            h+='<span class="rep-bc-sep">›</span><span class="rep-bc-seg'+(i===path.length-1?' active':'')+'" onclick="repBcGo('+i+')">'+escapeHtml(path[i])+'</span>';
         }
     } else {
         h+='<span class="rep-bc-sep">›</span><span class="rep-bc-dim">'+repLangText({ur:'باب منتخب کریں',en:'Select a chapter',roman:'Chapter select karein'})+'</span>';
@@ -1259,7 +1271,9 @@ function repDetailChildHtml(it){
     var rems=Object.keys(c.remedies||{}).length;
     var rid=c.hasRubric&&c.rid?String(c.rid):'';
     var full=_repJoinSeg(repDetailParentFull(),it.label);
-    var labels=(repCurrentDetail&&repCurrentDetail.labels?repCurrentDetail.labels.slice(0,-1):repFolderPath.slice()).concat([it.label]);
+    // 🔑 v48: والد کی پوری زنجیر محفوظ رکھو — پہلے slice(0,-1) موجودہ ربرک خود کو ہٹا دیتا تھا،
+    // جس سے گہرائی میں جاتے ہوئے breadcrumb زنجیر مین ربرک کھو دیتی تھی (صارف کی شکایت)
+    var labels=(repCurrentDetail&&repCurrentDetail.labels?repCurrentDetail.labels.slice():repFolderPath.slice()).concat([it.label]);
     var badges='';
     if(kids) badges+='<span class="rpc-badge kids">📁 '+c.order.length+'</span>';
     if(rems) badges+='<span class="rpc-badge rems">⚡ '+rems+'</span>';

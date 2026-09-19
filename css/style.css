@@ -832,6 +832,12 @@ body[dir="rtl"] .rep-search-ico{left:auto;right:12px}
 body[dir="rtl"] .rep-search-wrap input{padding:9px 34px 9px 12px}
 /* ---- layout: sidebar + main ---- */
 .rep-layout{display:flex;gap:10px;align-items:stretch}
+/* 🔑 v48 (صارف): تینوں زبانوں (ur/en/roman) میں ریپرٹری لے آؤٹ عین ایک جیسا —
+   اینالائز بار + چیپٹر لسٹ + کلپ بورڈ ڈاک ہمیشہ بائیں، الائنمنٹ کبھی نہیں بدلتی۔
+   body rtl ہونے پر flex ترتیب الٹ جاتی تھی (سائیڈبار دائیں چلی جاتی تھی) — layout کو ltr مقفل۔
+   اردو متن والے حصے (ڈیٹیل انفو) اندر ہی rtl رہتے ہیں تاکہ پڑھنا آسان رہے۔ */
+#page-repertoryBrowser .rep-layout{direction:ltr}
+body[dir="rtl"] #page-repertoryBrowser .rpd-info{direction:rtl;text-align:right}
 .rep-sidebar{width:225px;flex:0 0 225px;background:white;border-radius:12px;padding:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05);max-height:72vh;overflow-y:auto;box-sizing:border-box}
 .rep-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px}
 .rep-main-inner{flex:1;background:white;border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.05);max-height:72vh;overflow-y:auto;box-sizing:border-box}
@@ -848,7 +854,7 @@ body[dir="rtl"] .rep-search-wrap input{padding:9px 34px 9px 12px}
 .rep-navbtn{width:34px;height:34px;border-radius:9px;border:1px solid #dfe6ee;background:white;color:#3d4f5d;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:all 0.14s;padding:0;line-height:1}
 .rep-navbtn:hover:not(:disabled){border-color:#2980b9;color:#1a5276;background:#f4f8fc}
 .rep-navbtn:disabled{opacity:0.35;cursor:default}
-.rep-breadcrumb{flex:1;min-width:150px;background:#fbfcfe;border:1px solid #e7ecf2;border-radius:9px;padding:7px 12px;font-size:12px;color:#5d6d7e;display:flex;align-items:center;gap:5px;overflow:hidden;white-space:nowrap;font-family:'Segoe UI',sans-serif}
+.rep-breadcrumb{flex:1;min-width:150px;background:#fbfcfe;border:1px solid #e7ecf2;border-radius:9px;padding:7px 12px;font-size:12px;color:#5d6d7e;display:flex;align-items:center;gap:5px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;font-family:'Segoe UI',sans-serif;scrollbar-width:thin}
 .rep-bc-seg{cursor:pointer;border-radius:5px;padding:1px 5px}
 .rep-bc-seg:hover{background:#e8f1fb;color:#1a5276}
 .rep-bc-seg.active{color:#1a5276;font-weight:bold;cursor:default}
