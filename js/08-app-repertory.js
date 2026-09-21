@@ -16,10 +16,7 @@ var REP_BOOK_INFO = {
 var _allBooksData = null;       // {publicum:{...}, kent:{...}, ...} cache for all-books mode
 var _allBookChapters = {};      // {publicum:[{key,name,rubrics}], ...} per-book chapter index (for name lookup)
 var repLastSearchView = null;   // {results, info} saved for the "back to results" button
-// 🔑 v45: ڈیفالٹ کتاب = Kent (صارف درخواست — ڈراپ ڈاؤن میں کینٹ ٹاپ پر)
-var repCurrentBook = 'kent';
-// 🔑 v45: ہر ریپرٹری کا ڈیفالٹ چیپٹر — کتاب کھلنے پر مائنڈ خود بخود کھلتا ہے (صارف درخواست)
-var REP_DEFAULT_CHAPTER = { kent:'mind', publicum:'mind', synthesis91:'mind', kent_de:'gemuet' };
+var repCurrentBook = 'publicum';
 var repChapterNames = [];
 var repCurrentChapter = '';
 var repTreeCache = {};
@@ -81,21 +78,10 @@ function switchRepertoryBook() {
 }
 
 
-function initRepertoryBrowser(noAutoChapter) {
+function initRepertoryBrowser() {
     var infoEl = document.getElementById('repCountInfo');
     if (infoEl) infoEl.textContent = 'Loading chapters...';
-
-    // 🔑 v45: کتاب کھلنے پر ڈیفالٹ چیپٹر (مائنڈ) خود بخود کھولو — جب کوئی چیپٹر پہلے سے کھلا نہ ہو
-    // (noAutoChapter=true اندرونی فلو (سرچ بحالی / ربرک نیویگیشن) کے لیے — وہاں منزل بعد میں خود آتی ہے)
-    function repAutoOpenDefaultChapter(){
-        if(noAutoChapter) return;
-        if(repCurrentChapter) return;
-        var dk = REP_DEFAULT_CHAPTER[repCurrentBook] || 'mind';
-        var found = false;
-        for(var i=0;i<repChapterNames.length;i++){ if(repChapterNames[i].key===dk){ found=true; break; } }
-        if(found) selectChapter(dk);
-    }
-
+    
     function loadChaptersAndRender() {
         var basePath = repCurrentBook==='kent'?'kent_chapters/':(repCurrentBook==='kent_de'?'kent_de_chapters/':(repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/'));
         var indexFile = basePath + '_index.json';
@@ -104,7 +90,6 @@ function initRepertoryBrowser(noAutoChapter) {
             repChapterNames = sortChaptersForBook(repCurrentBook, data);
             var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
             renderChapterList();
-            repAutoOpenDefaultChapter();
         }).catch(function(e){
             console.error('Failed to load index', e);
             // Fallback to hardcoded for kent
@@ -115,7 +100,6 @@ function initRepertoryBrowser(noAutoChapter) {
             }
             repChapterNames = sortChaptersForBook(repCurrentBook, repChapterNames);
             renderChapterList();
-            repAutoOpenDefaultChapter();
         });
     }
 
@@ -141,7 +125,7 @@ function selectChapter(chKey, navRid){
     cd.innerHTML='<div style="text-align:center;padding:30px;">Loading <b>'+nm+'</b>...</div>';
     if(repTreeCache[chKey]){renderTree(chKey,nm,repTreeCache[chKey]);return;}
     var basePath=repCurrentBook==='kent'?'kent_chapters/':(repCurrentBook==='kent_de'?'kent_de_chapters/':(repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/'));
-    fetch(basePath+chKey+'.json?v=8').then(function(r){return r.json();}).then(function(d){
+    fetch(basePath+chKey+'.json?v=9').then(function(r){return r.json();}).then(function(d){
         var tree=buildRubricTree(d);repTreeCache[chKey]=tree;renderTree(chKey,nm,tree);
     }).catch(function(e){
         // 🔑 fallback: chapter FILE missing (e.g. kent_de) -> extract chapter from book's full data file
@@ -418,19 +402,9 @@ function repOpenChapter(chKey){
     repCurrentDetail=null; repClipViewOpen=false;repWorkbenchOpen=false;repCompareOpen=false;repAnalysisOpen=-1; repPendingDetail=null;
     selectChapter(chKey);
 }
-// 🔑 v48 (صارف): ڈیٹیل ویو کا راستہ repCurrentDetail.labels میں ہوتا ہے (ون کلک فلو کے بعد
-// repFolderPath پرانا رہ جاتا ہے) — اوورلیز بند ہوں تو ڈیٹیل کی پوری زنجیر استعمال کرو
-function repActivePathLabels(){
-    var overlay=repClipViewOpen||repWorkbenchOpen||repCompareOpen||(repAnalysisOpen!==undefined&&repAnalysisOpen!==-1);
-    if(!overlay&&repCurrentDetail&&repCurrentDetail.labels&&repCurrentDetail.labels.length) return repCurrentDetail.labels.slice();
-    return null;
-}
 function repBcGo(i){
     if(i<0){ return; }
-    var dp=repActivePathLabels();
-    var path=dp?dp:repFolderPath;
-    // ڈیٹیل ویو سے زنجیر کے کسی نام پر کلک = اسی سطح کا فولڈر ویو (repGo ڈیٹیل بند کر دیتا ہے)
-    repGo(path.slice(0,i+1));
+    repGo(repFolderPath.slice(0,i+1));
 }
 function repUpdateNavButtons(){
     var b=document.getElementById('repBtnBack'),f=document.getElementById('repBtnFwd'),u=document.getElementById('repBtnUp');
@@ -441,13 +415,11 @@ function repUpdateNavButtons(){
 function repRenderBreadcrumb(){
     var bc=document.getElementById('repBreadcrumb'); if(!bc)return;
     var bookInfo=REP_BOOK_INFO[repCurrentBook]||{abbr:'?',name:repCurrentBook};
-    var dp=repActivePathLabels();
-    var path=dp?dp:repFolderPath.slice();
     var h='<span class="rep-bc-seg rep-bc-book" onclick="repOpenBookRoot()">📖 '+escapeHtml(bookInfo.name)+'</span>';
     if(repCurrentChapter){
-        h+='<span class="rep-bc-sep">›</span><span class="rep-bc-seg'+(path.length?'':' active')+'" onclick="repGo([])">📁 '+escapeHtml(repCurrentChName)+'</span>';
-        for(var i=0;i<path.length;i++){
-            h+='<span class="rep-bc-sep">›</span><span class="rep-bc-seg'+(i===path.length-1?' active':'')+'" onclick="repBcGo('+i+')">'+escapeHtml(path[i])+'</span>';
+        h+='<span class="rep-bc-sep">›</span><span class="rep-bc-seg'+(repFolderPath.length?'':' active')+'" onclick="repGo([])">📁 '+escapeHtml(repCurrentChName)+'</span>';
+        for(var i=0;i<repFolderPath.length;i++){
+            h+='<span class="rep-bc-sep">›</span><span class="rep-bc-seg'+(i===repFolderPath.length-1?' active':'')+'" onclick="repBcGo('+i+')">'+escapeHtml(repFolderPath[i])+'</span>';
         }
     } else {
         h+='<span class="rep-bc-sep">›</span><span class="rep-bc-dim">'+repLangText({ur:'باب منتخب کریں',en:'Select a chapter',roman:'Chapter select karein'})+'</span>';
@@ -476,7 +448,7 @@ function renderFolderView(){
       +'<div class="rep-content-title"><span class="rep-content-folder">📁</span>'
       +'<b>'+escapeHtml(String(nm).toUpperCase())+'</b>'
       +'<span>('+String(node.order.length).toLocaleString()+')</span>'
-      +(repFolderPath.length?'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&#9662;</button>':'')
+      +(repFolderPath.length?'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&lt;</button>':'')
       +'</div>'
       +'<input type="text" class="rep-folder-filter" id="repFolderFilterInput" value="'+escapeHtml(repFolderFilter)+'" oninput="repOnFolderFilter(this.value)" placeholder="'+escapeHtml(repLangText({ur:'اس فولڈر میں فلٹر کریں...',en:'Filter in current folder...',roman:'Is folder mein filter karein...'}))+'">'
       +'</div>';
@@ -489,8 +461,7 @@ function renderFolderView(){
         var fSeeT=repExtractSeeTargets(fFull);
         h+=repDetailInfoHtml({full:fFull,rid:fRid,kidsCount:node.order.length,abbrs:fAbbrs,g3:fG3,
             pureXref:(!fAbbrs.length&&fSeeT.length>0&&!node.order.length),
-            seeT:fSeeT,parentLabels:repFolderPath.slice(0,-1),
-            showRems:true,remsObj:(node.remedies||{})});
+            seeT:fSeeT,parentLabels:repFolderPath.slice(0,-1)});
     }
     h+='<div id="repCardsArea"></div>';
     cd.innerHTML=h;
@@ -513,34 +484,6 @@ function repSetView(m){
 // 🔑 card building helpers
 function _repNodeKids(c){ return (c.order&&c.order.length>0)||Object.keys(c.children||{}).length>0; }
 function _repAttr(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-// 🔑 v45: فولڈر ویو میں «یہ ربرک خود» کارڈ — مین ربرک کی اپنی ریمیڈیز اب یہاں سے کھلتی ہیں
-// (صارف: ABSENT-MINDED کی 111 ریمیڈیز فولڈر کھولنے پر نہیں دکھ رہی تھیں — چاروں ریپرٹریز کے ہر فولڈر پر لاگو)
-function repSelfOpen(){
-    var node=repResolveNode(repFolderPath);
-    if(!node||!node.rid) return;
-    repOpenRubricDetail(repFullPathOf(repFolderPath),String(node.rid),repFolderPath.slice());
-}
-function repSelfCardHtml(node){
-    var rems=Object.keys(node.remedies||{}).length;
-    var label=repFolderPath[repFolderPath.length-1];
-    return '<div class="rpc-card self" onclick="repSelfOpen()">'
-        +'<div class="rpc-card-top"><div class="rpc-ico doc self">📄</div>'
-        +'<span class="rpc-self-tag">'+repLangText({ur:'مین ربرک',en:'MAIN RUBRIC',roman:'MAIN RUBRIC'})+'</span></div>'
-        +'<div class="rpc-title" dir="ltr">'+escapeHtml(label)+'</div>'
-        +'<div class="rpc-badges"><span class="rpc-badge rems" onclick="event.stopPropagation();repSelfOpen()">⚡ '+rems+' '+repLangText({ur:'ادویات',en:'remedies',roman:'remedies'})+'</span>'
-        +'<span class="rpc-self-hint">👁 '+repLangText({ur:'اس ربرک کی اپنی ادویات دیکھیں',en:'view this rubric\'s own remedies',roman:'is rubric ki apni adwiyat dekhein'})+'</span></div>'
-        +'</div>';
-}
-function repSelfRowHtml(node){
-    var rems=Object.keys(node.remedies||{}).length;
-    var label=repFolderPath[repFolderPath.length-1];
-    return '<div class="rpl-row self" onclick="repSelfOpen()">'
-        +'<div class="rpc-ico doc self" style="width:30px;height:30px;font-size:14px;">📄</div>'
-        +'<div class="rpl-name" dir="ltr">'+escapeHtml(label)+'</div>'
-        +'<div class="rpl-badges"><span class="rpc-self-tag">'+repLangText({ur:'مین ربرک',en:'MAIN RUBRIC',roman:'MAIN RUBRIC'})+'</span>'
-        +'<span class="rpc-badge rems" onclick="event.stopPropagation();repSelfOpen()">⚡ '+rems+'</span></div>'
-        +'</div>';
-}
 function repCardHtml(it){
     var c=it.node,kids=_repNodeKids(c);
     var rems=Object.keys(c.remedies||{}).length;
@@ -550,7 +493,7 @@ function repCardHtml(it){
     if(kids) badges+='<span class="rpc-badge kids">📁 '+c.order.length+'</span>';
     if(rems) badges+='<span class="rpc-badge rems" onclick="event.stopPropagation();repOpenRubricDetail(_repFullOf(this),_repRidOf(this))" data-full="'+_repAttr(full)+'" data-rid="'+_repAttr(rid)+'">⚡ '+rems+' '+repLangText({ur:'ادویات',en:'remedies',roman:'remedies'})+'</span>';
     if(!badges) badges='<span class="rpc-empty">Empty</span>';
-    return '<div class="rpc-card" data-kids="'+(kids?1:0)+'" data-label="'+_repAttr(it.label)+'" data-full="'+_repAttr(full)+'" data-rems="'+rems+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+' onclick="repCardClick(this)">'
+    return '<div class="rpc-card" data-kids="'+(kids?1:0)+'" data-label="'+_repAttr(it.label)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+' onclick="repCardClick(this)">'
         +'<div class="rpc-card-top"><div class="rpc-ico '+(kids?'folder':'doc')+'">'+(kids?'📁':'📄')+'</div>'
         +'<button class="rpc-kebab" onclick="event.stopPropagation();repKebabShow(event,this)" data-full="'+_repAttr(full)+'" data-rid="'+_repAttr(rid)+'">⋮</button></div>'
         +'<div class="rpc-title" dir="ltr">'+escapeHtml(it.label)+'</div>'
@@ -566,7 +509,7 @@ function repListRowHtml(it){
     if(kids) badges+='<span class="rpc-badge kids">📁 '+c.order.length+'</span>';
     if(rems) badges+='<span class="rpc-badge rems" onclick="event.stopPropagation();repOpenRubricDetail(_repFullOf(this),_repRidOf(this))" data-full="'+_repAttr(full)+'" data-rid="'+_repAttr(rid)+'">⚡ '+rems+'</span>';
     if(!badges) badges='<span class="rpc-empty">Empty</span>';
-    return '<div class="rpl-row" data-kids="'+(kids?1:0)+'" data-label="'+_repAttr(it.label)+'" data-full="'+_repAttr(full)+'" data-rems="'+rems+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+' onclick="repCardClick(this)">'
+    return '<div class="rpl-row" data-kids="'+(kids?1:0)+'" data-label="'+_repAttr(it.label)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+' onclick="repCardClick(this)">'
         +'<div class="rpc-ico '+(kids?'folder':'doc')+'" style="width:30px;height:30px;font-size:14px;">'+(kids?'📁':'📄')+'</div>'
         +'<div class="rpl-name" dir="ltr">'+escapeHtml(it.label)+'</div>'
         +'<div class="rpl-badges">'+badges+'</div>'
@@ -578,79 +521,77 @@ function _repRidOf(el){ return el.getAttribute('data-rid')||''; }
 function _repJs(s){ return String(s==null?'':s).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function repCardClick(el){
     repKebabHide();
-    var labels=repFolderPath.concat([el.getAttribute('data-label')]);
-    // 🔑 v46: ربرک کی اپنی ریمیڈیز ہوں تو پہلے ہی کلک پر ڈیٹیل پیج (ریمیڈیز فوراً نظر آئیں) —
-    // فولڈر ویو کا اضافی قدم ختم (صارف: پہلا کلک صرف چوڑائی بڑھاتا تھا، دوسرے کلک پر ریمیڈیز آتی تھیں)۔
-    // ذیلی ربرکس ڈیٹیل پیج کے SUB-RUBRICS سیکشن میں ہی مل جاتے ہیں۔
-    if((el.getAttribute('data-rems')||'0')!=='0'){ repOpenRubricDetail(_repFullOf(el),_repRidOf(el),labels); return; }
-    if(el.getAttribute('data-kids')==='1'){ repGo(labels); }
-    else { repOpenRubricDetail(_repFullOf(el),_repRidOf(el),labels); }
+    if(el.getAttribute('data-kids')==='1'){ repGo(repFolderPath.concat([el.getAttribute('data-label')])); }
+    else { repOpenRubricDetail(_repFullOf(el),_repRidOf(el),repFolderPath.concat([el.getAttribute('data-label')])); }
 }
 
 function renderFolderCards(){
     var area=document.getElementById('repCardsArea'); if(!area)return;
     var node=repResolveNode(repFolderPath);
-    if(!node){ area.innerHTML=''; repRenderDock(); return; }
-    // 🔑 v45: فولڈر کی اپنی ربرک کے پاس ریمیڈیز ہوں تو اوپر خصوصی «مین ربرک» کارڈ — فلٹر سے متاثر نہیں ہوتا
-    var selfHtml='';
-    if(repFolderPath.length && node.hasRubric && node.rid && Object.keys(node.remedies||{}).length){
-        selfHtml = (repViewMode==='grid') ? repSelfCardHtml(node) : repSelfRowHtml(node);
-    }
+    if(!node){ area.innerHTML=''; renderFolderDock(0,0,0,0); return; }
     var items=node.order.map(function(k){ return {label:k,node:node.children[k]}; });
     if(repFolderFilter){
         var f=repFolderFilter.toLowerCase();
         items=items.filter(function(it){ return it.label.toLowerCase().indexOf(f)!==-1; });
     }
     items.sort(function(a,b){ var c=a.label.localeCompare(b.label); return repSortAsc?c:-c; });
-    // 🔑 v42 صارف درخواست: پیجیشن ختم — پورے فولڈر/باب کی تمام ربرکس ایک ہی صفحے پر رینڈر ہوتی ہیں
-    var total=items.length;
-    var h=selfHtml;
-    if(!total){
-        if(!selfHtml) h='<div class="rep-empty-folder">'+repLangText({ur:'اس فولڈر میں کوئی ربرک نہیں',en:'No rubrics in this folder',roman:'Is folder mein koi rubric nahi'})+'</div>';
+    // 🔑 pending search navigation: jump to the page containing that rubric
+    if(repPendingNavRid){
+        for(var q=0;q<items.length;q++){
+            if(items[q].node&&items[q].node.rid===repPendingNavRid){ repTreePage=Math.floor(q/repTreePageSize); break; }
+        }
     }
+    var total=items.length,totalPages=Math.ceil(total/repTreePageSize)||1;
+    if(repTreePage>=totalPages)repTreePage=totalPages-1;
+    if(repTreePage<0)repTreePage=0;
+    var start=repTreePage*repTreePageSize,end=Math.min(start+repTreePageSize,total);
+    var h='';
+    if(!total){ h='<div class="rep-empty-folder">'+repLangText({ur:'اس فولڈر میں کوئی ربرک نہیں',en:'No rubrics in this folder',roman:'Is folder mein koi rubric nahi'})+'</div>'; }
     else if(repViewMode==='grid'){
-        h+='<div class="rep-cards-grid">';
-        for(var i=0;i<total;i++) h+=repCardHtml(items[i]);
+        h='<div class="rep-cards-grid">';
+        for(var i=start;i<end;i++) h+=repCardHtml(items[i]);
         h+='</div>';
     } else {
-        h+='<div class="rep-cards-list">';
-        for(var j=0;j<total;j++) h+=repListRowHtml(items[j]);
+        h='<div class="rep-cards-list">';
+        for(var j=start;j<end;j++) h+=repListRowHtml(items[j]);
         h+='</div>';
     }
     area.innerHTML=h;
-    repRenderDock();
+    renderFolderDock(totalPages,total,start,end);
     if(repPendingNavRid){
         var fr=repPendingNavRid; repPendingNavRid=null;
         setTimeout(function(){ flashRubricRow(fr); },80);
     }
 }
 
-// 🔑 v42: پیجیشن ہٹا دی گئی — repPageWindow/repGoPage/repTreePageSize سلائسنگ اب موجود نہیں؛
-// تمام ربرکس ایک صفحے پر، ڈاک میں 12 کلپ بورڈ چپس (موبائل پر افقی، ڈیسک ٹاپ پر بائیں پٹی میں عمودی)
+// 🔑 bottom floating dock: CLIPBOARDS (1-4) + page pills + sort + page size (HomeoSetu-style)
+function repPageWindow(cur,totalPages){
+    var arr=[],shown={};
+    function add(p){ if(p>=0&&p<totalPages&&!shown[p]){ shown[p]=1; arr.push(p); } }
+    add(0); add(totalPages-1);
+    [cur-1,cur,cur+1].forEach(add);
+    add(cur-2); add(cur+2);
+    arr.sort(function(a,b){return a-b;});
+    var out=[],prev=-1;
+    arr.forEach(function(p){
+        if(prev!==-1&&p-prev>1) out.push('...');
+        out.push(p); prev=p;
+    });
+    return out;
+}
 
-// ==================== 12 CLIPBOARDS (floating, persisted) — v45: 8 سے 12 (صارف درخواست) ====================
-// HomeoSetu فنکشن کلون: فلوٹنگ ڈاک میں 12 کلپ بورڈز — ہر کلپ بورڈ ایک
+// ==================== 4 CLIPBOARDS (floating, persisted) ====================
+// HomeoSetu فنکشن کلون: نیچے فلوٹنگ ڈاک میں 4 کلپ بورڈز — ہر کلپ بورڈ ایک
 // محفوظ ورکنگ لسٹ ہے (ربرکس جو آپ ریپرٹورائزیشن کے لیے اکٹھا کر رہے ہیں)۔
 // ربرک کارڈ کے ⋮ مینو سے شامل/ہٹائیں؛ ڈاک کے نمبر پر کلک سے لسٹ کھلتی ہے۔
-var REP_N_CLIPS=12;
-var repClipboards=[[],[],[],[],[],[],[],[],[],[],[],[]];   // each item: {book,ch,rid,path,rems,ts,w,sel}
-var repActiveClip=0;               // 0..11 (displayed 1..12)
-var repClipElims=[false,false,false,false,false,false,false,false,false,false,false,false];  // 🔑 Elimination Mode per clipboard (workbench)
-var repClipNames=['','','','','','','','','','','',''];    // 🔑 custom clipboard names (workbench ✏ rename)
-function repClipOptsLoad(){
-    try{ var d=JSON.parse(localStorage.getItem('bc_rep_clip_opts')||'{}');
-        if(d){ if(d.elims)for(var i=0;i<REP_N_CLIPS;i++)repClipElims[i]=!!d.elims[i]; if(d.names)for(var j=0;j<REP_N_CLIPS;j++)repClipNames[j]=String(d.names[j]||''); }
-    }catch(e){}
-}
-function repClipOptsSave(){ try{ localStorage.setItem('bc_rep_clip_opts',JSON.stringify({elims:repClipElims,names:repClipNames})); }catch(e){} }
+var repClipboards=[[],[],[],[]];   // each item: {book,ch,rid,path,rems,ts}
+var repActiveClip=0;               // 0..3 (displayed 1..4)
 var repClipViewOpen=false;repWorkbenchOpen=false;repCompareOpen=false;repAnalysisOpen=-1;         // clipboard list view currently shown?
 var repDockTrashArm=0;             // 🗑 double-click arm (confirm)
+var repDockCtx={folder:false,cur:0,totalPages:0,total:0,start:0,end:0};
 function repClipsLoad(){
-    try{ var s=localStorage.getItem('bc_rep_clipboards'); if(s){ var d=JSON.parse(s); if(d&&d.length){ // 🔑 v39 migration: پرانا 4-کلپ بورڈ ڈیٹا محفوظ رہتے ہوئے 8 تک بڑھایا جاتا ہے
-        while(d.length<REP_N_CLIPS)d.push([]); if(d.length===REP_N_CLIPS)repClipboards=d; } } }catch(e){}
-    // 🔑 v38 migration: every item gets a multiplier weight (default 1x)
-    for(var i=0;i<REP_N_CLIPS;i++)(repClipboards[i]||[]).forEach(function(it){ if(typeof it.w!=='number')it.w=1; });
-    repClipOptsLoad();
+    try{ var s=localStorage.getItem('bc_rep_clipboards'); if(s){ var d=JSON.parse(s); if(d&&d.length===4){ repClipboards=d; return; } } }catch(e){}
+    repClipboards=[[],[],[],[]];
 }
 function repClipsSave(){ try{ localStorage.setItem('bc_rep_clipboards', JSON.stringify(repClipboards)); }catch(e){} }
 function repClipFind(ci,book,rid){
@@ -670,7 +611,7 @@ function repClipToggle(ci,book,ch,rid,path,rems){
 function repClipTrash(){
     var l=repClipboards[repActiveClip]||[];
     if(!l.length) return;
-    if(!repDockTrashArm){ repDockTrashArm=1; if(repClipViewOpen)renderClipView(); else repRenderDock(); setTimeout(function(){ repDockTrashArm=0; if(repClipViewOpen)renderClipView(); else repRenderDock(); },2600); return; }
+    if(!repDockTrashArm){ repDockTrashArm=1; repRenderDock(); setTimeout(function(){ repDockTrashArm=0; repRenderDock(); },2600); return; }
     repDockTrashArm=0;
     repClipboards[repActiveClip]=[]; repClipsSave();
     showToast(repLangText({ur:'🗑 کلپ بورڈ '+(repActiveClip+1)+' خالی کر دیا',en:'🗑 Clipboard '+(repActiveClip+1)+' cleared',roman:'🗑 Clipboard '+(repActiveClip+1)+' khali kar diya'}));
@@ -691,47 +632,55 @@ function repToggleClipView(i){
 }
 function repCloseClipView(){ repGo(repFolderPath); }
 
-// 🔑 dock renderer — v45: 12 کلپ بورڈ چپس (+ ✕ واپس جب لسٹ کھلی ہو)؛ CLIPBOARDS ہیڈنگ ختم (صارف درخواست)؛
-// پیجینشن گروپ (صفحات/ترتیب/صفحہ سائز) مکمل ہٹا دیا گیا — ڈیسک ٹاپ پر یہ ڈاک بائیں خالی پٹی میں عمودی ہے
-// 🔑 v46: ڈاک اوپر والی ٹول بار/بریڈکمب بار پر نہ چڑھے — 12 چپس کی بلندی پر سینٹرنگ اوپر бар سے ٹکراتی تھی؛
-// اب ڈاک کی اوپری حد سائیڈبار/کنٹینٹ کے ٹاپ سے ہم قالب (ڈائنامک — ٹول بار لپیٹنے پر بھی درست رہتا ہے)۔
-function repSyncDockTop(){
-    var a=document.getElementById('repDockArea'); if(!a)return;
-    // 🔑 v49: موبائل (≤820px) پر افقی ڈاک نیچے ہی ہے — کوئی top قید نہیں؛
-    // ڈیسک ٹاپ سے resize ہو کر موبائل آئے تو پرانا inline top صاف بھی کرو
-    if(window.innerWidth<=820){ a.style.top=''; return; }
-    // 🔑 v49 (صارف): ڈاک کے چپس چیپٹر لسٹ (.rep-sidebar) کے اوپری کنارے کے عین برابر شروع ہوں —
-    // پہلے .rep-side-col (اینالائز بار سمیت پورا کالم) اور justify-content:center تھا جس سے
-    // چپس لسٹ سے اوپر/نیچے تیرتے تھے؛ اب لسٹ ٹاپ = پینل ٹاپ، چپس نیچے کی جانب بڑھتے ہیں
-    var col=document.querySelector('#page-repertoryBrowser .rep-sidebar');
-    if(!col)return;
-    var t=Math.round(col.getBoundingClientRect().top);
-    if(t>120) a.style.top=t+'px';
-}
-window.addEventListener('resize',repSyncDockTop);
-// 🔑 v47 (آڈٹ فکس): فونٹ لوڈ ہونے/دیر سے لے آؤٹ شفٹ ہونے پر سائیڈبار ٹاپ ~10px نیچے کھسک جاتا ہے —
-// repSyncDockTop پرانا ویلیو یاد رکھتی تھی (ڈاک 10.4px ڈرفٹ)۔ load + fonts.ready + دیر سے دوبارہ ہم قالب کرو۔
-if(document.fonts && document.fonts.ready && document.fonts.ready.then){ document.fonts.ready.then(function(){ repSyncDockTop(); }); }
-// 🔑 v47: RTL/اردو فونٹ bunch میں دیر سے لوڈ ہوتے ہیں — loadingdone ہر batch کے بعد فائر ہوتا ہے (آڈٹ: RTL ڈرفٹ)
-if(document.fonts && document.fonts.addEventListener){ try{ document.fonts.addEventListener('loadingdone', repSyncDockTop); }catch(e){} }
-window.addEventListener('load',repSyncDockTop);
-setTimeout(repSyncDockTop,600); setTimeout(repSyncDockTop,1500); setTimeout(repSyncDockTop,2500);
+// 🔑 dock renderer — CLIPBOARDS group always; PAGES group only in folder view
 function repRenderDock(){
     var d=document.getElementById('repDockArea'); if(!d)return;
     var h='<div class="rep-dock">';
-    for(var i=0;i<REP_N_CLIPS;i++){
+    h+='<span class="rep-dock-label">'+repLangText({ur:'کلپ بورڈز',en:'CLIPBOARDS',roman:'CLIPBOARDS'})+'</span>';
+    for(var i=0;i<4;i++){
         var n=(repClipboards[i]||[]).length;
         h+='<button class="rep-dock-clip'+((repClipViewOpen&&repActiveClip===i)?' active':'')+'" onclick="repToggleClipView('+i+')" title="'+repLangText({ur:'کلپ بورڈ '+(i+1),en:'Clipboard '+(i+1),roman:'Clipboard '+(i+1)})+'">'+(i+1)+(n?'<i class="rep-clip-n">'+n+'</i>':'')+'</button>';
     }
-    // 🔑 صارف درخواست (v39): ڈاک سے ورک بینچ/اینالیسس گرڈ/کاپی/کلیئر بٹن ہٹا دیے —
-    // یہ چار بٹن اب کلپ بورڈ لسٹ ویو کے ہیڈر میں ہیں۔ ڈاک 12 کلپ بورڈز دکھاتا ہے۔
+    // 🔑 HomeoSetu-style 2 tool buttons: Clipboard Workbench + Case Analysis Grid
+    h+='<button class="rep-dock-ico rep-dock-tool" onclick="repOpenWorkbench()" title="'+repLangText({ur:'کلپ بورڈ ورک بینچ کھولیں',en:'Open Clipboard Workbench',roman:'Clipboard Workbench kholen'})+'">⚙<span class="rep-dock-txt"> '+repLangText({ur:'ورک بینچ',en:'Workbench',roman:'Workbench'})+'</span></button>';
+    h+='<button class="rep-dock-ico rep-dock-tool" onclick="repOpenAnalysis()" title="'+repLangText({ur:'کیس اینالیسس گرڈ کھولیں (فعال کلپ بورڈ)',en:'Open Case Analysis Grid (active clipboard)',roman:'Case Analysis Grid kholen (faal clipboard)'})+'">📊<span class="rep-dock-txt"> '+repLangText({ur:'تجزیہ گرڈ',en:'Analysis Grid',roman:'Tajzia Grid'})+'</span></button>';
+    h+='<button class="rep-dock-ico" onclick="repClipCopyAll()" title="'+repLangText({ur:'لسٹ کاپی کریں',en:'Copy list',roman:'List copy karein'})+'">📄</button>';
+    if((repClipboards[repActiveClip]||[]).length){
+        h+='<button class="rep-dock-ico'+(repDockTrashArm?' armed':'')+'" onclick="repClipTrash()" title="'+repLangText({ur:'کلپ بورڈ '+(repActiveClip+1)+' خالی کریں',en:'Clear clipboard '+(repActiveClip+1),roman:'Clipboard '+(repActiveClip+1)+' khali karein'})+'">'+(repDockTrashArm?'🗑؟':'🗑')+'</button>';
+    }
     if(repClipViewOpen) h+='<button class="rep-dock-ico" onclick="repCloseClipView()" title="'+repLangText({ur:'واپس',en:'Back',roman:'Wapas'})+'">✕</button>';
+    if(repDockCtx.folder&&repDockCtx.totalPages>0){
+        h+='<span class="rep-dock-div"></span>';
+        h+='<span class="rep-dock-label">'+repLangText({ur:'صفحات',en:'PAGES',roman:'PAGES'})+'</span>';
+        repPageWindow(repDockCtx.cur,repDockCtx.totalPages).forEach(function(p){
+            if(p==='...'){ h+='<span class="rep-dock-dots">…</span>'; return; }
+            h+='<button class="rep-dock-page'+(p===repDockCtx.cur?' active':'')+'" onclick="repGoPage('+p+')">'+(p+1)+'</button>';
+        });
+        h+='<span class="rep-dock-div"></span>';
+        h+='<button class="rep-dock-ico" onclick="repToggleSort()" title="Sort A-Z / Z-A">⇅ '+(repSortAsc?'A-Z':'Z-A')+'</button>';
+        h+='<button class="rep-dock-ico" onclick="repCyclePageSize()" title="Cards per page">≡ '+repTreePageSize+'</button>';
+        if(repDockCtx.total) h+='<span class="rep-dock-info">'+(repDockCtx.start+1)+'–'+repDockCtx.end+' / '+repDockCtx.total.toLocaleString()+'</span>';
+    }
     h+='</div>';
     d.innerHTML=h;
-    repSyncDockTop();
     repUpdateSelCount();
 }
-// 🔑 v42: repGoPage/repToggleSort/repCyclePageSize/renderFolderDock/repDockNoFolder ہٹا دیے — پیجینشن ختم
+function renderFolderDock(totalPages,total,start,end){
+    repDockCtx={folder:true,cur:repTreePage,totalPages:totalPages,total:total,start:start,end:end};
+    repRenderDock();
+}
+function repDockNoFolder(){
+    repDockCtx={folder:false,cur:0,totalPages:0,total:0,start:0,end:0};
+    repRenderDock();
+}
+function repGoPage(p){ repTreePage=p; renderFolderCards(); }
+function repToggleSort(){ repSortAsc=!repSortAsc; renderFolderCards(); }
+function repCyclePageSize(){
+    var sizes=[50,100,200,500];
+    var idx=sizes.indexOf(repTreePageSize); if(idx===-1)idx=0;
+    repTreePageSize=sizes[(idx+1)%sizes.length];
+    repTreePage=0; renderFolderCards();
+}
 
 // 🔑 clipboard contents view (main area)
 function renderClipView(){
@@ -739,11 +688,9 @@ function renderClipView(){
     repUpdateNavButtons(); repRenderBreadcrumb();
     var l=repClipboards[repActiveClip]||[];
     var h='<div class="rep-clip-head"><div class="rep-content-title"><span>📋</span><span>'+repLangText({ur:'کلپ بورڈ',en:'CLIPBOARD',roman:'CLIPBOARD'})+'</span><b>'+(repActiveClip+1)+'</b><span class="cnt">('+l.length+')</span></div>'
-        +'<div style="display:flex;gap:6px;flex-wrap:wrap;">'
+        +'<div style="display:flex;gap:6px;">'
         +'<button class="rc-btn" onclick="repClipCopyAll()">📄 '+repLangText({ur:'کاپی',en:'Copy',roman:'Copy'})+'</button>'
-        +'<button class="rc-btn danger'+(repDockTrashArm?' armed':'')+'" onclick="repClipTrash()">🗑 '+(repDockTrashArm?repLangText({ur:'یقینی بنائیں؟',en:'Sure?',roman:'Yaqeeni banain?'}):repLangText({ur:'خالی کریں',en:'Clear',roman:'Khali karein'}))+'</button>'
-        +'<button class="rc-btn" onclick="repOpenWorkbench()">⚙ '+repLangText({ur:'ورک بینچ',en:'Workbench',roman:'Workbench'})+'</button>'
-        +'<button class="rc-btn" onclick="repOpenAnalysis('+repActiveClip+')">📊 '+repLangText({ur:'تجزیہ گرڈ',en:'Analysis Grid',roman:'Tajzia Grid'})+'</button>'
+        +'<button class="rc-btn danger" onclick="repClipTrash()">🗑 '+repLangText({ur:'خالی کریں',en:'Clear',roman:'Khali karein'})+'</button>'
         +'</div></div>';
     if(!l.length){
         h+='<div class="rep-empty-state"><div class="res-icon">📋</div><p class="res-title">'+repLangText({ur:'کلپ بورڈ '+(repActiveClip+1)+' خالی ہے',en:'Clipboard '+(repActiveClip+1)+' is empty',roman:'Clipboard '+(repActiveClip+1)+' khali hai'})+'</p><p class="res-sub">'+repLangText({ur:'کسی بھی ربرک کارڈ کے ⋮ مینو سے اسے شامل کریں',en:'Use the ⋮ menu on any rubric card to add it',roman:'Kisi bhi rubric card ke ⋮ menu se isay shamil karein'})+'</p></div>';
@@ -753,17 +700,15 @@ function renderClipView(){
             h+='<div class="rep-clip-row" onclick="repClipOpenItem('+i+')">'
                 +'<span class="rep-book-badge" style="background:'+(it.book==='publicum'?'#1a5276':(it.book==='kent'?'#16a085':(it.book==='kent_de'?'#d35400':'#8e44ad')))+'">'+escapeHtml(bi.abbr)+'</span>'
                 +'<span class="rc-path" dir="ltr">'+escapeHtml(it.path||'—')+'</span>'
-                +repWChip(it.w)
                 +(it.rems?'<span class="rpc-badge rems">⚡ '+it.rems+'</span>':'')
                 +'<button class="rc-btn" onclick="event.stopPropagation();repClipOpenItem('+i+')">↩ '+repLangText({ur:'کھولیں',en:'Open',roman:'Kholen'})+'</button>'
-                +'<button class="rc-btn" onclick="event.stopPropagation();repWbMenuShow(event,this,'+repActiveClip+','+i+')" title="'+repLangText({ur:'مزید فنکشنز',en:'More options',roman:'Mazeed functions'})+'">⋮</button>'
                 +'<button class="rc-btn danger" onclick="event.stopPropagation();repClipRemoveItem('+i+')">🗑</button>'
                 +'</div>';
         });
     }
     cd.innerHTML=h;
     cd.scrollTop=0;
-    repRenderDock();
+    repDockNoFolder();
 }
 function repClipRemoveItem(i){
     var l=repClipboards[repActiveClip]||[];
@@ -782,10 +727,10 @@ function repRenderEmptyState(){
     cd.innerHTML='<div class="rep-empty-state"><div class="res-icon">📁</div>'
         +'<p class="res-title">'+repLangText({ur:'بائیں مینو سے کوئی باب منتخب کریں',en:'Select a chapter from the left menu',roman:'Bayen menu se koi chapter select karein'})+'</p>'
         +'<p class="res-sub">'+repLangText({ur:'ربرکس اور ادویات دیکھیں',en:'Browse rubrics and remedies',roman:'Rubrics aur remedies dekhein'})+'</p></div>';
-    repRenderBreadcrumb(); repUpdateNavButtons(); repRenderDock();
+    repRenderBreadcrumb(); repUpdateNavButtons(); repDockNoFolder();
 }
 
-// 🔑 kebab (⋮) popup menu — copy + detail + ADD/REMOVE in 12 clipboards
+// 🔑 kebab (⋮) popup menu — copy + detail + ADD/REMOVE in 4 clipboards
 var _repKebabTarget=null;
 function repKebabShow(ev,btn){
     ev.stopPropagation(); repKebabHide();
@@ -804,7 +749,7 @@ function repKebabRenderMenu(){
     h+='<button onclick="repKebabDetail()">📖 '+repLangText({ur:'معنی اور ادویات کھولیں',en:'Open meaning & remedies',roman:'Meani aur adwiyat kholen'})+'</button>';
     if(t.rid){
         h+='<div class="rep-kebab-sep">'+repLangText({ur:'کلپ بورڈ',en:'CLIPBOARDS',roman:'CLIPBOARDS'})+'</div>';
-        for(var i=0;i<REP_N_CLIPS;i++){
+        for(var i=0;i<4;i++){
             var inside=repClipFind(i,repCurrentBook,t.rid)!==-1;
             h+='<button class="'+(inside?'kb-in':'')+'" onclick="repKebabClipToggle('+i+')">'+(inside?'✅':'➕')+' '+repLangText({ur:'کلپ بورڈ',en:'Clipboard',roman:'Clipboard'})+' '+(i+1)+' — '+(inside?repLangText({ur:'ہٹائیں',en:'remove',roman:'hataein'}):repLangText({ur:'شامل کریں',en:'add',roman:'shamil karein'}))+'</button>';
         }
@@ -842,8 +787,6 @@ if(typeof document!=='undefined'){
     document.addEventListener('click',function(ev){
         var m=document.getElementById('repKebabMenu');
         if(m&&m.style.display==='block'&&!m.contains(ev.target)) repKebabHide();
-        var wb=document.getElementById('repWbMenu');
-        if(wb&&wb.style.display==='block'&&!wb.contains(ev.target)) repWbMenuHide();
     });
 }
 
@@ -1000,39 +943,6 @@ function repNormXrefPath(p){
         .replace(/,+/g,',').replace(/^,+|,+$/g,'');
 }
 var _repXrefIndex={};   // book -> {map:{norm:{ch,rid,path,rems}}, heads:{head:[{np,e}]}}
-// 🔑 v45 فکس: loadSingleBookData/ensureSingleBookIndex پہلے searchRepertoryBrowser کے نیسٹڈ اسکوپ میں تھے —
-// buildXrefIndex (ٹاپ لیول) کے لیے ReferenceError دیتا تھا → ایپ کراس-ریفرنس پینل ⏳ پر اٹک جاتا تھا۔ اب ٹاپ لیول۔
-function loadSingleBookData(bookKey, cb){
-    if(bookKey===repCurrentBook && _repFullData!==null){ cb(_repFullData); return; }
-    if(_allBooksData && _allBooksData[bookKey]){ cb(_allBooksData[bookKey]); return; }
-    var info = REP_BOOK_INFO[bookKey];
-    if(!info){ cb(null); return; }
-    fetch(info.dataFile).then(function(r){return r.json();}).then(function(d){
-        if(!_allBooksData) _allBooksData = {};
-        _allBooksData[bookKey] = d;
-        if(bookKey===repCurrentBook) _repFullData = d;
-        cb(d);
-    }).catch(function(e){ console.error('book data load fail', bookKey, e); cb(null); });
-}
-function ensureSingleBookIndex(bookKey, dataForFallback, cb){
-    if(_allBookChapters[bookKey]){ cb(); return; }
-    if(bookKey===repCurrentBook && repChapterNames && repChapterNames.length){
-        _allBookChapters[bookKey] = repChapterNames;
-        cb(); return;
-    }
-    var info = REP_BOOK_INFO[bookKey];
-    if(!info){ cb(); return; }
-    fetch(info.chapDir+'_index.json').then(function(r){return r.json();}).then(function(d){
-        _allBookChapters[bookKey]=d;
-        cb();
-    }).catch(function(){
-        var src = dataForFallback || (_allBooksData && _allBooksData[bookKey]) || null;
-        _allBookChapters[bookKey] = src ? Object.keys(src).map(function(k){
-            return {key:k, name:k.replace(/_/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}), rubrics:Object.keys(src[k]||{}).length};
-        }) : [];
-        cb();
-    });
-}
 function buildXrefIndex(book,cb){
     if(_repXrefIndex[book]){ cb(_repXrefIndex[book]); return; }
     loadSingleBookData(book,function(sd){
@@ -1156,20 +1066,6 @@ function repDetailInfoHtml(o){
         h+=repLangText({ur:'کیس ٹیکنگ میں مریض کے اپنے الفاظ اسی ربرک سے ملتے ہوں تو یہی ربرک منتخب کریں۔',en:'Pick this rubric when the patient\'s own words match it during case-taking.',roman:'Case-taking mein mareez ke alfaaz is rubric se milte hon to yehi muntakhib karein.'});
     }
     h+='</div></div>';
-    // 3.5) 🔑 v45: ربرک کی اپنی ادویات (صرف فولڈر ویو کا ایکسپینڈ ایبل پینل — showRems فلیگ سے)
-    if(o.showRems && abbrs.length){
-        var rmObj=o.remsObj||{};
-        var sorted=abbrs.slice().sort(function(a,b){ return (rmObj[b]||1)-(rmObj[a]||1)||a.localeCompare(b); });
-        h+='<div class="rpd-sec rems"><span class="rpd-lab">💊 '+repLangText({ur:'اس ربرک کی اپنی ادویات (OWN REMEDIES)',en:'OWN REMEDIES OF THIS RUBRIC',roman:'IS RUBRIC KI APNI ADWIYAT'})+'</span>';
-        h+='<div class="rpd-chips">';
-        sorted.forEach(function(a){
-            var g=rmObj[a]||1; g=(g>=3)?3:((g===2)?2:1);
-            h+='<span class="rep-remedy-tag g'+g+'" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')">'+escapeHtml(a)+'</span>';
-        });
-        h+='</div>';
-        h+='<div style="font-size:10.5px;color:#9a7d0a;margin-top:4px;">'+repLangText({ur:'کلک سے پریسکرپشن میں کاپی ہوگی',en:'click a remedy to copy it',roman:'click se copy ho jayegi'})+'</div>';
-        h+='</div>';
-    }
     // 4) CROSS REFERENCE (open repertory)
     h+='<div class="rpd-sec xbook"><span class="rpd-lab">🔗 '+repLangText({ur:'کراس ریفرنس — کھلی ریپرٹری (OPEN REPERTORY)',en:'CROSS REFERENCE (OPEN REPERTORY)',roman:'CROSS REFERENCE — khuli repertory'})+'</span>';
     if(seeT.length){
@@ -1209,8 +1105,8 @@ function renderRubricDetail(){
     // ---- title row: rubric text + < expander AFTER text + copy
     h+='<div class="rpd-titlerow">'
       +'<div class="rpd-title" dir="ltr">'+escapeHtml(full||'—')+'</div>'
-      +'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&#9662;</button>'
-      +'<button class="rc-btn" onclick="repDetailAddClip()" title="'+repLangText({ur:'فعال کلپ بورڈ میں شامل کریں',en:'Add to active clipboard',roman:'Faal clipboard mein shamil karein'})+'">📋</button>'
+      +'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&lt;</button>'
+      +'<button class="rc-btn" onclick="repDetailCopy()">📋</button>'
       +'</div>';
     h+='<div class="rpd-meta">'+repBookBadgeHtml(repCurrentBook)+'<span>'+escapeHtml(bi.name)+'</span>'
       +'<span>📁 '+escapeHtml(repCurrentChName||'')+'</span>'
@@ -1227,7 +1123,8 @@ function renderRubricDetail(){
     if(!abbrs.length){
         h+='<div class="rrp-norems">'+(pureXref?repLangText({ur:'یہ کراس ریفرنس ربرک ہے — اوپر اصل ربرک کھولیں',en:'This is a cross-reference rubric — open the real rubric above',roman:'Ye cross-reference rubric hai — asal rubric kholen'}):repLangText({ur:'اس ربرک میں کوئی ادویات محفوظ نہیں',en:'No remedies recorded under this rubric',roman:'Is rubric mein koi adwiyat mehfooz nahi'}))+'</div>';
     } else {
-        // 🔑 تمام ریمیڈیز ایک ہی لسٹ میں (گریڈ ہیڈنگز نہیں) — ترتیب: گریڈ 3 → 2 → 1، رنگ سے گریڈ پہچان (v39: ہیلپر ٹیکسٹ ہٹا دیا گیا)
+        h+='<div style="font-size:11.5px;color:#5d6d7e;margin-bottom:4px;">'+repLangText({ur:'کلک سے پریسکرپشن میں کاپی ہوگی — رنگ: گہرا = مضبوط گریڈ',en:'click to copy to prescription — color: darker = stronger grade',roman:'click se prescription mein copy — rang: gehra = mazboot grade'})+'</div>';
+        // 🔑 تمام ریمیڈیز ایک ہی لسٹ میں (گریڈ ہیڈنگز نہیں) — ترتیب: گریڈ 3 → 2 → 1، رنگ سے گریڈ پہچان
         h+='<div class="rpd-chips">';
         abbrs.forEach(function(a){
             var g=rems[a]||1; g=(g>=3)?3:((g===2)?2:1);
@@ -1250,36 +1147,20 @@ function renderRubricDetail(){
     }
     cd.innerHTML=h;
     cd.scrollTop=0;
-    repRenderDock();
+    repDockNoFolder();
     // async: app cross-reference (other books)
     repRenderXrefAppBody(full,d.rid);
 }
-// 🔑 ڈیٹیل پیج کا 📋 بٹن: ربرک کا متن سسٹم کلپ بورڈ میں کاپی کرنے کے بجائے
-// اب ربرک کو فعال ریپرٹورائزیشن کلپ بورڈ (repActiveClip) میں شامل کرتا ہے۔
-function repDetailAddClip(){
+function repDetailCopy(){
     var d=repCurrentDetail||{};
-    if(!d.rid){ showToast(repLangText({ur:'یہ ربرک کلپ بورڈ میں شامل نہیں ہو سکتی',en:'This rubric cannot be added to a clipboard',roman:'Ye rubric clipboard mein shamil nahi ho sakti'})); return; }
-    var ci=repActiveClip;
-    if(repClipFind(ci,repCurrentBook,d.rid)!==-1){
-        showToast(repLangText({ur:'ℹ️ یہ ربرک پہلے سے '+repClipLabel(ci)+' میں موجود ہے',en:'ℹ️ Already in '+repClipLabel(ci),roman:'Ye rubric pehle se '+repClipLabel(ci)+' mein mojood hai'}));
-        return;
-    }
-    var remsCount=0;
-    var e=(d.rid&&repRidPathMap[d.rid])?repRidPathMap[d.rid]:null;
-    if(e) remsCount=Object.keys(e.node.remedies||{}).length;
-    repClipboards[ci].unshift({book:repCurrentBook,ch:repCurrentChapter,rid:String(d.rid),path:d.full,rems:remsCount,ts:Date.now()});
-    repClipsSave(); repRenderDock();
-    showToast('➕ '+repLangText({ur:repClipLabel(ci)+' میں شامل ہو گیا',en:'Added to '+repClipLabel(ci),roman:repClipLabel(ci)+' mein shamil ho gaya'}));
-    if(repClipViewOpen) renderClipView();
+    if(d.full&&navigator.clipboard){ navigator.clipboard.writeText(d.full).then(function(){ showToast('✅ '+d.full); }); }
 }
 function repDetailChildHtml(it){
     var c=it.node,kids=_repNodeKids(c);
     var rems=Object.keys(c.remedies||{}).length;
     var rid=c.hasRubric&&c.rid?String(c.rid):'';
     var full=_repJoinSeg(repDetailParentFull(),it.label);
-    // 🔑 v48: والد کی پوری زنجیر محفوظ رکھو — پہلے slice(0,-1) موجودہ ربرک خود کو ہٹا دیتا تھا،
-    // جس سے گہرائی میں جاتے ہوئے breadcrumb زنجیر مین ربرک کھو دیتی تھی (صارف کی شکایت)
-    var labels=(repCurrentDetail&&repCurrentDetail.labels?repCurrentDetail.labels.slice():repFolderPath.slice()).concat([it.label]);
+    var labels=(repCurrentDetail&&repCurrentDetail.labels?repCurrentDetail.labels.slice(0,-1):repFolderPath.slice()).concat([it.label]);
     var badges='';
     if(kids) badges+='<span class="rpc-badge kids">📁 '+c.order.length+'</span>';
     if(rems) badges+='<span class="rpc-badge rems">⚡ '+rems+'</span>';
@@ -1352,19 +1233,8 @@ function renderTreePage(chKey,chName,page){
 
 // 🔑 SEARCH MODE TOGGLE: 'all' = whole repertory, 'chapter' = only the open chapter
 // 🔑 3 SEARCH MODES: 'chapter' = open chapter only | 'book' = current book, all chapters | 'all' = ALL books
-// 🔑 HomeoSetu search TYPE dropdown (image 2026-09-19_06-12-59): 4 modes
-var REP_SEARCH_TYPES = ['rubric', 'remedy', 'rubric_remedy', 'clinical'];
-var REP_TYPE_LABELS = {
-    rubric:       {ur:'🔤 ربرک / سب ربرک', en:'🔤 Rubric / Subrubric', roman:'🔤 Rubric / Subrubric'},
-    remedy:       {ur:'💊 ادویہ', en:'💊 Remedy', roman:'💊 Remedy'},
-    rubric_remedy:{ur:'🔤💊 ربرک + ادویہ', en:'🔤💊 Rubric + Remedy', roman:'🔤💊 Rubric + Remedy'},
-    clinical:     {ur:'🏥 کلینیکل حالت', en:'🏥 Clinical Condition', roman:'🏥 Clinical Condition'}
-};
-var repSearchMode = 'rubric';   // 🔑 default type: rubric / subrubric text search
-// 🔑 v40 RESTORED: search SCOPE dropdown — 'chapter' = open chapter only | 'book' = current repertory | 'all' = ALL repertories
-var REP_SCOPE_ORDER = ['chapter', 'book', 'all'];
-var repSearchScope = 'book';    // default: whole current repertory (old v47 behaviour)
-var repSearchAllBooks = false;  // 🔒 v41: sidebar all-books search REMOVED — flag kept (always false) for engine routing; use scope dropdown 'all' instead
+var REP_MODE_ORDER = ['chapter', 'book', 'all'];
+var repSearchMode = 'book';   // 🔑 default: search the whole open/current repertory (all its chapters)
 var _repSearchBeforeContext = null; // where to return when the search box is cleared
 var _repSearchSeq = 0;              // cancels old async searches when user clears/changes text
 
@@ -1383,7 +1253,6 @@ function rememberRepSearchContext(){
 function restoreRepSearchContext(){
     _repSearchSeq++;
     _repSearchCache=''; _repSearchResults=null; _repSearchMode='';
-    repSearchAllBooks=false;
     repLastSearchView=null;
     repCurrentDetail=null; repClipViewOpen=false;repWorkbenchOpen=false;repCompareOpen=false;repAnalysisOpen=-1;
     var ctx = _repSearchBeforeContext;
@@ -1412,7 +1281,7 @@ function restoreRepSearchContext(){
         _repFullData = null;
         repRidToFlatIndex = {};
         repCurrentFlatTree = [];
-        if(typeof initRepertoryBrowser === 'function') initRepertoryBrowser(true);   // 🔑 v45: آٹو-مائنڈ نہیں — سرچ کے بعد پرانی منزل بحال ہوتی ہے
+        if(typeof initRepertoryBrowser === 'function') initRepertoryBrowser();
         if(ctx.chapter){
             setTimeout(function(){ selectChapter(ctx.chapter); }, 700);
         }
@@ -1433,52 +1302,41 @@ function restoreRepSearchContext(){
 }
 
 function toggleRepSearchMode(){
-    // 🔑 legacy helper: cycles through the 4 HomeoSetu search types
-    var idx = REP_SEARCH_TYPES.indexOf(repSearchMode);
-    repSearchMode = REP_SEARCH_TYPES[(idx+1) % REP_SEARCH_TYPES.length];
+    var idx = REP_MODE_ORDER.indexOf(repSearchMode);
+    repSearchMode = REP_MODE_ORDER[(idx+1) % REP_MODE_ORDER.length];
     updateRepSearchModeUI();
     _repSearchSeq++;
     _repSearchCache=''; _repSearchResults=null;
     var inp=document.getElementById('repBrowserSearch');
     if(inp && inp.value.trim().length>=2){ searchRepertoryBrowser(); }
     else { restoreRepSearchContext(); }
-    showToast(repLangText(REP_TYPE_LABELS[repSearchMode] || REP_TYPE_LABELS.rubric));
+    var msgs = {
+        chapter: {ur:'📖 صرف کھلے چیکٹر میں سرچ', en:'📖 Searching OPEN chapter only', roman:'📖 Open chapter mein search'},
+        book:    {ur:'📚 اس ریپرٹری کے تمام چیپٹرز میں سرچ', en:'📚 Searching this repertory — ALL chapters', roman:'📚 Is repertory ke tamam chapters mein search'},
+        all:     {ur:'🌐 تمام ریپرٹریز کے تمام چیپٹرز میں سرچ', en:'🌐 Searching ALL repertories — ALL chapters', roman:'🌐 Tamam repertories ke tamam chapters mein search'}
+    };
+    var m = msgs[repSearchMode] || msgs.book;
+    showToast(repLangText(m));
 }
 function updateRepSearchModeUI(){
-    // 🔑 v40: TWO toolbar dropdowns — TYPE (Rubric/Subrubric | Remedy | Rubric+Remedy | Clinical) + restored SCOPE (chapter/book/all)
-    var tsel=document.getElementById('repTypeSelect');
-    if(tsel&&tsel.value!==repSearchMode) tsel.value=repSearchMode;
-    var ssel=document.getElementById('repScopeSelect');
-    if(ssel&&ssel.value!==repSearchScope) ssel.value=repSearchScope;
-    // 🔑 v42: placeholder میں 🔍 ہٹا دیا — ڈپلیکیٹ آئکن ختم؛ ایک ہی styled .rep-search-ico span رہتا ہے
+    // 🔑 new toolbar has a scope DROPDOWN instead of the old toggle button
+    var sel=document.getElementById('repScopeSelect');
+    if(sel&&sel.value!==repSearchMode) sel.value=repSearchMode;
     var placeholders = {
-        rubric:       {ur:'ربرک / سب ربرک تلاش کریں... (مثلاً fear، headache)', en:'Search rubric / subrubric... (e.g. fear, headache)', roman:'Rubric / subrubric talash karein... (e.g. fear, headache)'},
-        remedy:       {ur:'ادویہ تلاش کریں... (مثلاً nux vom، arsen)', en:'Search a remedy... (e.g. nux vom, arsen)', roman:'Adwiyeh talash karein... (e.g. nux vom, arsen)'},
-        rubric_remedy:{ur:'ربرک اور ادویہ دونوں میں تلاش...', en:'Search rubrics and remedies both...', roman:'Rubric aur adwiyeh dono mein talash...'},
-        clinical:     {ur:'کلینیکل حالت / اردو علامت... (مثلاً بخار، headache)', en:'Clinical condition / Urdu symptom... (e.g. بخار, headache)', roman:'Clinical condition / Urdu alaamat... (e.g. bukhar, headache)'}
+        chapter:{ur:'🔍 صرف کھلے چیکٹر میں تلاش کریں... (مثلاً pain)', en:'🔍 Search open chapter only... (e.g. pain)', roman:'🔍 Sirf open chapter mein search... (e.g. pain)'},
+        book:   {ur:'🔍 اس ریپرٹری کے تمام چیپٹرز میں تلاش کریں... (مثلاً pain)', en:'🔍 Search this repertory — all chapters... (e.g. pain)', roman:'🔍 Is repertory ke tamam chapters mein search... (e.g. pain)'},
+        all:    {ur:'🔍 تمام ریپرٹریز کے تمام چیپٹرز میں تلاش کریں... (مثلاً pain)', en:'🔍 Search all repertories — all chapters... (e.g. pain)', roman:'🔍 Tamam repertories ke tamam chapters mein search... (e.g. pain)'}
     };
     var inp=document.getElementById('repBrowserSearch');
     if(inp){
-        inp.placeholder = repLangText(placeholders[repSearchMode] || placeholders.rubric);
+        inp.placeholder = repLangText(placeholders[repSearchMode] || placeholders.book);
     }
 }
-// 🔑 search TYPE changed from the toolbar dropdown (HomeoSetu "Rubric / Subrubric" style)
-function setRepSearchType(v){
-    if(REP_SEARCH_TYPES.indexOf(v)===-1) return;
-    if(v===repSearchMode && !repSearchAllBooks) return;
-    repSearchMode=v; repSearchAllBooks=false;
-    _repSearchSeq++;
-    _repSearchCache=''; _repSearchResults=null;
-    updateRepSearchModeUI();
-    var inp=document.getElementById('repBrowserSearch');
-    if(inp&&inp.value.trim().length>=2){ searchRepertoryBrowser(); }
-    else { restoreRepSearchContext(); }
-}
-// 🔑 v40 RESTORED: search SCOPE changed from the toolbar dropdown — Search in Open Chapter / Open Repertory / All Repertories
+// 🔑 scope dropdown changed from the toolbar (HomeoSetu "Rubric / Subrubric" style)
 function setRepSearchScope(v){
-    if(REP_SCOPE_ORDER.indexOf(v)===-1) return;
-    if(v===repSearchScope && !repSearchAllBooks) return;
-    repSearchScope=v;
+    if(REP_MODE_ORDER.indexOf(v)===-1) return;
+    if(v===repSearchMode) return;
+    repSearchMode=v;
     _repSearchSeq++;
     _repSearchCache=''; _repSearchResults=null;
     updateRepSearchModeUI();
@@ -1489,9 +1347,8 @@ function setRepSearchScope(v){
 function showRepSearchPlaceholder(){
     var cd=document.getElementById('repRubricContent');
     if(!cd)return;
-    // 🔑 chapter scope needs an open chapter
-    if(repSearchScope==='chapter' && !repSearchAllBooks && !repCurrentChapter){
-        cd.innerHTML='<div class="empty-state"><div class="icon">📖</div><p>'+repLangText({ur:'پہلے کوئی چیکٹر کھولیں، پھر سرچ کریں',en:'Open a chapter first, then search',roman:'Pehle koi chapter kholen, phir search karein'})+'</p></div>';
+    if(repSearchMode==='chapter' && !repCurrentChapter){
+        cd.innerHTML='<div class="empty-state"><div class="icon">📖</div><p>'+repLangText({ur:'پہلے کوئی چیکٹر کھولیں، پھر سرچ کریں',en:'Open a chapter first, then search',roman:'Pehle chapter open karein, phir search'})+'</p></div>';
         return;
     }
     cd.innerHTML='<div class="empty-state"><div class="icon">📖</div><p>'+repLangText({ur:'سرچ کے لیے کم از کم 2 حرف لکھیں',en:'Type 2+ characters to search',roman:'Search ke liye kam az kam 2 harf likhein'})+'</p></div>';
@@ -1536,25 +1393,6 @@ function normalizeChapterKey(bookKey, chKey){
     return String(chKey||'').toLowerCase();
 }
 
-// 🔑 Clinical Condition synonyms (English keyword groups — HomeoSetu "Clinical Condition" search mode)
-var REP_CLINICAL_SYN={
-    headache:['head','pain','cephalalgia'], migraine:['head','pain','hemicrania'],
-    fever:['fever','heat','pyrexia','febrile'], cough:['cough','expectoration'],
-    cold:['coryza','sneezing','nose','catarrh'], anxiety:['anxious','fear','apprehension','restless'],
-    depression:['sadness','sad','despair','gloom','melancholy'], insomnia:['sleeplessness','sleep','sleepless','wakeful'],
-    constipation:['constipation','stool','hard','inactive'], diarrhea:['diarrhoea','diarrhea','stool','loose','watery'],
-    vomiting:['vomit','nausea','sickness'], nausea:['nausea','sickness','stomach'],
-    vertigo:['vertigo','dizziness','giddiness'], weakness:['weak','exhaustion','prostration','fatigue'],
-    pain:['pain','aching','sore','pains'], swelling:['swollen','swelling','edema','oedema','inflammation'],
-    rash:['eruption','rash','skin','itching'], itching:['itch','itching','skin'],
-    bleeding:['bleeding','hemorrhage','haemorrhage','blood'], acidity:['acidity','heartburn','eructation','stomach'],
-    gas:['flatulence','distension','abdomen','eructation'], cramping:['cramp','colic','griping','pain'],
-    burning:['burning','smarting','scalding'], thirst:['thirst','thirstless','drinks'],
-    appetite:['appetite','hunger','craving','aversion'], backache:['back','pain','lumbago'],
-    jointpain:['joints','pain','arthritic','stiffness'], earache:['ear','pain','otitis'],
-    sorethroat:['throat','pain','swallowing','tonsils'], breathless:['respiration','breathing','dyspnoea','dyspnea','asthma']
-};
-
 var _repSearchCache='',_repSearchResults=null,_repSearchMode='';
 function searchRepertoryBrowser(){
     var inp=document.getElementById('repBrowserSearch');
@@ -1571,7 +1409,7 @@ function searchRepertoryBrowser(){
     repCurrentDetail=null; repClipViewOpen=false;repWorkbenchOpen=false;repCompareOpen=false;repAnalysisOpen=-1;   // new search leaves detail/clipboard view
     var searchSeq = ++_repSearchSeq;
     var cd=document.getElementById('repRubricContent');
-    cd.innerHTML='<div style="text-align:center;padding:20px;">🔍 '+repLangText({ur:'تلاش جاری ہے...',en:'Searching...',roman:'Search ho raha hai...'})+((repSearchAllBooks||repSearchScope==='all')?' <br><small style="font-size:10px;">('+repLangText({ur:'تمام ریپرٹریز لوڈ ہو رہی ہیں — تھوڑا وقفہ',en:'loading all repertories — one moment',roman:'tamam repertories load ho rahi hain — ek lamha'})+')</small>':'')+'</div>';
+    cd.innerHTML='<div style="text-align:center;padding:20px;">🔍 '+repLangText({ur:'تلاش جاری ہے...',en:'Searching...',roman:'Search ho raha hai...'})+(repSearchMode==='all'?' <br><small style="font-size:10px;">('+repLangText({ur:'تمام ریپرٹریز لوڈ ہو رہی ہیں — تھوڑا وقفہ',en:'loading all repertories — one moment',roman:'tamam repertories load ho rahi hain — ek lamha'})+')</small>':'')+'</div>';
 
     // legacy @chapter filter
     var chF=null,ai=q.indexOf('@');
@@ -1582,8 +1420,8 @@ function searchRepertoryBrowser(){
         if(q.length<2){ showRepSearchPlaceholder(); return; }
     }
 
-    var cacheKey=q+'|'+(chF||'')+'|'+repSearchMode+'|'+repSearchScope+'|'+(repSearchAllBooks?'sb':'')+'|'+repCurrentChapter+'|'+repCurrentBook;
-    if(cacheKey===_repSearchCache && _repSearchResults!==null && !repSearchAllBooks && repSearchScope!=='all'){
+    var cacheKey=q+'|'+(chF||'')+'|'+repSearchMode+'|'+repCurrentChapter+'|'+repCurrentBook;
+    if(cacheKey===_repSearchCache && _repSearchResults!==null && repSearchMode!=='all'){
         displaySearchResults(_repSearchResults.results,_repSearchResults.info);
         return;
     }
@@ -1595,63 +1433,12 @@ function searchRepertoryBrowser(){
         var activeInp=document.getElementById('repBrowserSearch');
         return searchSeq===_repSearchSeq && activeInp && activeInp.value.trim().length>=2;
     }
-    function matchesText(text){
+    function matches(text){
         if(!text) return false;
         if(qw.length===0) return true;
         var lt=text.toLowerCase();
         for(var i=0;i<qw.length;i++){ if(lt.indexOf(qw[i])===-1) return false; }
         return true;
-    }
-    // 🔑 Remedy-type matching: normalized bidirectional containment ("nux vom" → nux-v, "arsen" → arsenicum)
-    function normRem(s){ return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,''); }
-    var _remQ=null;
-    function remQ(){ if(!_remQ)_remQ=qw.map(normRem).filter(function(s){return s.length>=2;}); return _remQ; }
-    function matchedRemedyMap(rub){
-        var rq=remQ(); if(!rq.length) return null;
-        var out=null, rems=rub&&rub.r?Object.keys(rub.r):[];
-        for(var i=0;i<rems.length;i++){
-            var na=normRem(rems[i]); if(!na)continue;
-            for(var j=0;j<rq.length;j++){
-                if(na.indexOf(rq[j])!==-1||rq[j].indexOf(na)!==-1){ if(!out)out={}; out[rems[i]]=1; break; }
-            }
-        }
-        return out;
-    }
-    function remedyMatchRubric(rub){ return !!matchedRemedyMap(rub); }
-    // 🔑 Clinical Condition matching: synonym groups + Urdu→English reverse glossary
-    var _clinGroups=null;
-    function clinicalMatchText(text){
-        if(!_clinGroups) return matchesText(text);
-        var lt=String(text||'').toLowerCase(); if(!lt)return false;
-        for(var i=0;i<_clinGroups.length;i++){
-            var g=_clinGroups[i],ok=false;
-            for(var j=0;j<g.length;j++){ if(lt.indexOf(g[j])!==-1){ok=true;break;} }
-            if(!ok)return false;
-        }
-        return true;
-    }
-    function buildClinicalGroups(cb){
-        ensureRepGlossary(function(){
-            var groups=[];
-            var W=(_repGlossary&&_repGlossary.words)||{};
-            qw.forEach(function(w){
-                var set={}; if(w.length>=2)set[w]=1;
-                (REP_CLINICAL_SYN[w]||[]).forEach(function(s){ if(s.length>=2)set[s]=1; });
-                if(/[^\x00-\x7F]/.test(w)){   // Urdu query → English keys whose translation contains it
-                    var n=0;
-                    for(var ek in W){ if(n>=12)break; var e=W[ek]; if(e&&e.ur&&String(e.ur).indexOf(w)!==-1){ set[ek]=1; n++; } }
-                }
-                var arr=Object.keys(set); if(arr.length)groups.push(arr);
-            });
-            _clinGroups=groups.length?groups:null;
-            cb();
-        });
-    }
-    function matchRubric(rub,t){
-        if(repSearchMode==='remedy') return remedyMatchRubric(rub);
-        if(repSearchMode==='rubric_remedy') return matchesText(t)||remedyMatchRubric(rub);
-        if(repSearchMode==='clinical') return clinicalMatchText(t);
-        return matchesText(t);
     }
     function scanData(sd, bookKey, chFilter){
         var out=[];
@@ -1661,11 +1448,7 @@ function searchRepertoryBrowser(){
             Object.keys(rubs).forEach(function(rid){
                 var rub=rubs[rid]; if(!rub)return;
                 var t=rub.path||rub.de_path||rub.t||'';
-                if(matchRubric(rub,t)){
-                    var o={text:t, remedies:rub.r||{}, chapter:ck, rid:rid, book:bookKey};
-                    if(repSearchMode==='remedy'||repSearchMode==='rubric_remedy'){ var m=matchedRemedyMap(rub); if(m)o.matched=m; }
-                    out.push(o);
-                }
+                if(matches(t)) out.push({text:t, remedies:rub.r||{}, chapter:ck, rid:rid, book:bookKey});
             });
         });
         return out;
@@ -1692,21 +1475,14 @@ function searchRepertoryBrowser(){
         displaySearchResults(r, info);
     }
     function buildSearchInfo(total, perBookCount){
-        var typeLabel = repLangText(REP_TYPE_LABELS[repSearchMode] || REP_TYPE_LABELS.rubric);
-        // 🔑 v40: scope label from the restored SCOPE dropdown (chapter | book | all) or sidebar all-books
-        var scopeLabel;
-        if(repSearchAllBooks || repSearchScope==='all'){
-            scopeLabel = repLangText({ur:'🌐 تمام ریپرٹریز',en:'🌐 ALL repertories',roman:'🌐 Tamam repertories'});
-        } else if(repSearchScope==='chapter'){
-            scopeLabel = repLangText({ur:'📖 کھلے چیکٹر میں',en:'📖 in open chapter',roman:'📖 khule chapter mein'});
-        } else {
-            scopeLabel = repLangText({ur:'📚 اس ریپرٹری میں',en:'📚 in this repertory',roman:'📚 is repertory mein'});
-        }
-        var info='🔍 '+typeLabel+' &nbsp;"'+escapeHtml(qw.join(' '))+'" '+scopeLabel;
+        var modeLabel = repSearchMode==='chapter' ? repLangText({ur:'📖 کھلا چیکٹر',en:'📖 Open chapter',roman:'📖 Open chapter'})
+                      : repSearchMode==='book'    ? repLangText({ur:'📚 اس ریپرٹری کے تمام چیپٹرز',en:'📚 This repertory — all chapters',roman:'📚 Is repertory ke tamam chapters'})
+                      :                              repLangText({ur:'🌐 تمام ریپرٹریز کے تمام چیپٹرز',en:'🌐 ALL repertories — all chapters',roman:'🌐 Tamam repertories ke tamam chapters'});
+        var info='🔍 '+modeLabel+' &nbsp;"'+escapeHtml(qw.join(' '))+'"';
         if(chF){ info+=' '+repLangText({ur:'میں',en:'in',roman:'mein'})+' <b>'+escapeHtml(getChapterDisplayName(repCurrentBook,chF))+'</b>'; }
         info+=' → <b>'+total.toLocaleString()+'</b> '+repLangText({ur:'ربرکس',en:'rubrics',roman:'rubrics'});
         // show per-book breakdown in all-books mode; no cap, all matching rubrics are displayed.
-        if(repSearchAllBooks && perBookCount){
+        if(repSearchMode==='all' && perBookCount){
             var parts=[];
             Object.keys(perBookCount).forEach(function(bk){
                 var bi=REP_BOOK_INFO[bk]; if(!bi)return;
@@ -1717,6 +1493,37 @@ function searchRepertoryBrowser(){
         return info;
     }
 
+    function loadSingleBookData(bookKey, cb){
+        if(bookKey===repCurrentBook && _repFullData!==null){ cb(_repFullData); return; }
+        if(_allBooksData && _allBooksData[bookKey]){ cb(_allBooksData[bookKey]); return; }
+        var info = REP_BOOK_INFO[bookKey];
+        if(!info){ cb(null); return; }
+        fetch(info.dataFile).then(function(r){return r.json();}).then(function(d){
+            if(!_allBooksData) _allBooksData = {};
+            _allBooksData[bookKey] = d;
+            if(bookKey===repCurrentBook) _repFullData = d;
+            cb(d);
+        }).catch(function(e){ console.error('book data load fail', bookKey, e); cb(null); });
+    }
+    function ensureSingleBookIndex(bookKey, dataForFallback, cb){
+        if(_allBookChapters[bookKey]){ cb(); return; }
+        if(bookKey===repCurrentBook && repChapterNames && repChapterNames.length){
+            _allBookChapters[bookKey] = repChapterNames;
+            cb(); return;
+        }
+        var info = REP_BOOK_INFO[bookKey];
+        if(!info){ cb(); return; }
+        fetch(info.chapDir+'_index.json').then(function(r){return r.json();}).then(function(d){
+            _allBookChapters[bookKey]=d;
+            cb();
+        }).catch(function(){
+            var src = dataForFallback || (_allBooksData && _allBooksData[bookKey]) || null;
+            _allBookChapters[bookKey] = src ? Object.keys(src).map(function(k){
+                return {key:k, name:k.replace(/_/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}), rubrics:Object.keys(src[k]||{}).length};
+            }) : [];
+            cb();
+        });
+    }
     function runIncrementalAllSearch(){
         if(!searchStillActive()) return;
         var books = [repCurrentBook];
@@ -1736,8 +1543,8 @@ function searchRepertoryBrowser(){
             return parts.length ? ' <small style="color:#555;">('+parts.join(' · ')+')</small>' : '';
         }
         function currentInfoHtml(){
-            var typeLabel = repLangText(REP_TYPE_LABELS[repSearchMode] || REP_TYPE_LABELS.rubric);
-            return '🔍 '+typeLabel+' — '+repLangText({ur:'🌐 تمام ریپرٹریز کے تمام چیپٹرز',en:'🌐 ALL repertories — all chapters',roman:'🌐 Tamam repertories ke tamam chapters'})+' &nbsp;"'+escapeHtml(qw.join(' '))+'" → <b>'+total.toLocaleString()+'</b> '+repLangText({ur:'ربرکس',en:'rubrics',roman:'rubrics'})+countsText();
+            var modeLabel = repLangText({ur:'🌐 تمام ریپرٹریز کے تمام چیپٹرز',en:'🌐 ALL repertories — all chapters',roman:'🌐 Tamam repertories ke tamam chapters'});
+            return '🔍 '+modeLabel+' &nbsp;"'+escapeHtml(qw.join(' '))+'" → <b>'+total.toLocaleString()+'</b> '+repLangText({ur:'ربرکس',en:'rubrics',roman:'rubrics'})+countsText();
         }
         function updateHeader(msg){
             var infoEl=document.getElementById('repAllSearchInfo');
@@ -1785,7 +1592,7 @@ function searchRepertoryBrowser(){
             h+='<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:2px;">';
             var rems=Object.keys(r.remedies||{});
             rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1)||a.localeCompare(b);});
-            rems.slice(0,40).forEach(function(abbr){var g=r.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+((r.matched&&r.matched[abbr])?' rem-hl':'')+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
+            rems.slice(0,40).forEach(function(abbr){var g=r.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
             if(rems.length>40) h+='<span style="font-size:10px;color:#7f8c8d;align-self:center;">+'+(rems.length-40)+' more</span>';
             h+='</div><div style="margin-top:4px;font-size:10px;color:#2980b9;font-weight:bold;">'+repLangText({ur:'↩ یہاں کھولیں',en:'↩ open here',roman:'↩ yahan kholen'})+'</div></div>';
             return h;
@@ -1856,44 +1663,70 @@ function searchRepertoryBrowser(){
     }
 
     // ---------- mode routing ----------
-    // 🔑 v40: search TYPE (rubric | remedy | rubric_remedy | clinical) × restored SCOPE (chapter | book | all)
-    // sidebar all-books flag also routes to the all-repertories engine
-    var scopeAll = repSearchAllBooks || repSearchScope==='all';
-    var scopeChapter = (!scopeAll && repSearchScope==='chapter');
-    if(scopeChapter && !repCurrentChapter){
-        // open-chapter scope without an open chapter — ask the user to open one first
-        cd.innerHTML='<div class="empty-state"><div class="icon">📖</div><p>'+repLangText({ur:'پہلے کوئی چیکٹر کھولیں، پھر سرچ کریں',en:'Open a chapter first, then search',roman:'Pehle koi chapter kholen, phir search karein'})+'</p></div>';
-        return;
-    }
-    // effective single-chapter filter: chapter-scope wins over the legacy @chapter filter
-    var scopeChFilter = scopeChapter ? normalizeChapterKey(repCurrentBook, repCurrentChapter) : chF;
-    if(repSearchMode==='clinical'){
-        // clinical matching needs the glossary (Urdu→English reverse lookup) → build synonym groups first
-        cd.innerHTML='<div style="text-align:center;padding:20px;">🏥 '+repLangText({ur:'کلینیکل ہم معنی تیار ہو رہے ہیں (لغت لوڈ ہو رہی ہے)...',en:'Preparing clinical synonyms (loading glossary)...',roman:'Clinical hum-maani tayyar ho rahe hain...'})+'</div>';
-        buildClinicalGroups(function(){
-            if(!searchStillActive()) return;
-            if(scopeAll){ setTimeout(runIncrementalAllSearch,10); return; }
-            setTimeout(function(){
-                if(!searchStillActive()) return;
-                function ds(sd){ finalize(scanData(sd, repCurrentBook, scopeChFilter)); }
-                if(_repFullData!==null){ ds(_repFullData); } else { loadRepData(function(d){ ds(d); }); }
-            },10);
-        });
-        return;
-    }
-    if(scopeAll){
-        // 🌐 All Repertories scope — incremental search over ALL repertories with the chosen type
+    // @chapter always wins (searches current book, that one chapter)
+    if(chF){
         setTimeout(function(){
             if(!searchStillActive()) return;
-            runIncrementalAllSearch();
+            function ds(sd){ finalize(scanData(sd, repCurrentBook, chF)); }
+            if(_repFullData!==null){ ds(_repFullData); } else { loadRepData(function(d){ ds(d); }); }
         },10);
         return;
     }
-    // 📖 chapter scope (single chapter) / 📚 current-book search (all chapters, optional @chapter filter) — HomeoSetu style
+    if(repSearchMode==='chapter'){
+        // search only the open chapter
+        setTimeout(function(){
+            if(!searchStillActive()) return;
+            var chKey=repCurrentChapter;
+            if(!chKey){ showRepSearchPlaceholder(); return; }
+            function run(raw){
+                if(!searchStillActive()) return;
+                var out=[];
+                if(raw){
+                    Object.keys(raw).forEach(function(rid){
+                        var rub=raw[rid]; if(!rub)return;
+                        var t=(rub.path||rub.de_path||rub.t||'').replace(/\s+,/g,',').replace(/,\s*/g,', ').replace(/  +/g,' ').trim();
+                        if(matches(t)) out.push({text:t, remedies:rub.r||{}, chapter:chKey, rid:rid, book:repCurrentBook});
+                    });
+                }
+                finalize(out);
+            }
+            var basePath = REP_BOOK_INFO[repCurrentBook].chapDir;
+            fetch(basePath+chKey+'.json?v=9').then(function(rr){return rr.json();}).then(run).catch(function(){
+                if(!searchStillActive()) return;
+                // fallback to cached tree
+                if(repTreeCache[chKey]){
+                    var out=[];
+                    (function walk(node){
+                        (node.order||[]).forEach(function(k){
+                            var c=node.children[k]; if(!c)return;
+                            if(c.hasRubric&&c.rid){
+                                if(matches(c.path)) out.push({text:c.path, remedies:c.remedies||{}, chapter:chKey, rid:c.rid, book:repCurrentBook});
+                            }
+                            if(c.order&&c.order.length) walk(c);
+                        });
+                    })(repTreeCache[chKey]);
+                    finalize(out);
+                } else {
+                    cd.innerHTML='<div class="empty-state"><p>❌ '+escapeHtml('Chapter not loaded')+'</p></div>';
+                }
+            });
+        },10);
+        return;
+    }
+    if(repSearchMode==='book'){
+        // search the whole current book: ALL chapters, no result cap
+        setTimeout(function(){
+            if(!searchStillActive()) return;
+            function ds(sd){ finalize(scanData(sd, repCurrentBook, null)); }
+            if(_repFullData!==null){ ds(_repFullData); } else { loadRepData(function(d){ ds(d); }); }
+        },10);
+        return;
+    }
+    // 'all' mode: search ALL books, ALL chapters, incrementally.
+    // Current/open repertory is shown first; other repertories are appended one by one.
     setTimeout(function(){
         if(!searchStillActive()) return;
-        function ds(sd){ finalize(scanData(sd, repCurrentBook, scopeChFilter)); }
-        if(_repFullData!==null){ ds(_repFullData); } else { loadRepData(function(d){ ds(d); }); }
+        runIncrementalAllSearch();
     },10);
 }
 
@@ -1949,7 +1782,7 @@ function displaySearchResults(results, info){
     var rc=document.getElementById('repRubricContent'); if(!rc)return;
     if(results.length===0){
         rc.innerHTML='<div class="empty-state"><div class="icon">🔍</div><p>'+(currentLang==='ur'?'کوئی ربرک نہیں ملی':'No rubrics found')+'</p></div>';
-        repRenderDock();
+        repDockNoFolder();
         return;
     }
     function truncateTitle(t){return t.length>180?t.substring(0,177)+'...':t;}
@@ -2000,7 +1833,7 @@ function displaySearchResults(results, info){
         var rems=Object.keys(r.remedies);
         rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1)||a.localeCompare(b);});
         var remsShown=rems.slice(0,40);
-        remsShown.forEach(function(abbr){var g=r.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+((r.matched&&r.matched[abbr])?' rem-hl':'')+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
+        remsShown.forEach(function(abbr){var g=r.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
         if(rems.length>40) h+='<span style="font-size:10px;color:#7f8c8d;align-self:center;">+'+(rems.length-40)+' more</span>';
         h+='</div>';
         h+='<div style="margin-top:4px;font-size:10px;color:#2980b9;font-weight:bold;">'+(currentLang==='ur'?'↩ یہاں کھولیں':'↩ open here')+'</div>';
@@ -2008,7 +1841,7 @@ function displaySearchResults(results, info){
     });
     rc.innerHTML=h;
     rc.scrollTop=0;
-    repRenderDock();
+    repDockNoFolder();
 }
 
 // 🔑 PRECISE navigation: open the chapter (in the right book) and scroll/flash the exact rubric (by ID)
@@ -2030,7 +1863,7 @@ function navigateToRubric(bookKey, chKey, rid, openDetail){
         repRidToFlatIndex = {};
         repCurrentFlatTree = [];
         repCurrentDetail = null; repClipViewOpen = false;
-        if(typeof initRepertoryBrowser === 'function') initRepertoryBrowser(true);   // 🔑 v45: آٹو-مائنڈ نہیں — منزل نیچے setTimeout میں ہے
+        if(typeof initRepertoryBrowser === 'function') initRepertoryBrowser();
         showToast((currentLang==='ur'?'🔄 ریپرٹری بدلی: ':'🔄 Switched to ')+ (REP_BOOK_INFO[bookKey]?REP_BOOK_INFO[bookKey].name:bookKey));
         if(openDetail) repPendingDetail={rid:rid};
         setTimeout(function(){ selectChapter(chKey, rid); }, 700);
@@ -2110,14 +1943,14 @@ function closeRepertoryChart(){document.getElementById('repChartOverlay').classL
 // ============================================================
 // 🔑 HOMEOSETU LAYOUT CLONE — v37 TOOL VIEWS + ASK AI
 // 1) فلوٹنگ ڈاک (index.html میں repDockArea ہمیشہ نظر آنے والے حصے کے نیچے)
-// 2) ⚙ Clipboard Workbench — بارہ کلپ بورڈز ایک جگہ
+// 2) ⚙ Clipboard Workbench — چاروں کلپ بورڈز ایک جگہ
 // 3) 📊 Case Analysis Grid — ریپرٹورائزیشن چارٹ (ربرک × ادویہ، گریڈ ڈاٹس)
 // 4) ⇄ Compare — کلپ بورڈز کا موازنہ + مشترکہ ادویات
 // 5) 🤖 Ask AI — فلوٹنگ اسسٹنٹ (علامت → میچنگ ربرکس + استعمال کی مدد)
-// 6) سائیڈبار ٹولز — N selected / Clear / Analyze
+// 6) سائیڈبار ٹولز — N selected / Clear / Analyze + Search across all books
 // ============================================================
 var repWorkbenchOpen=false, repCompareOpen=false, repAnalysisOpen=-1;
-var repCompareSel=[false,false,false,false,false,false,false,false];
+var repCompareSel=[false,false,false,false];
 
 function _repTruncPath(s,n){ s=String(s==null?'':s); return s.length>n?s.substring(0,n-1)+'…':s; }
 function repCloseToolView(){ repGo(repFolderPath); }
@@ -2135,56 +1968,30 @@ function repClipItemRemedies(it,all){
     return (r&&r.r)?r.r:{};
 }
 function _repAnaCompute(items,all){
-    // 🔑 v38 weighted scoring: item.w = 0.5x | 1x | 2x | 4x | -1x (negative = subtract / eliminate)
-    var rows=[],col={},denom=0;
+    var rows=[],col={};
     items.forEach(function(it){
-        var w=(typeof it.w==='number')?it.w:1;
         var rems=repClipItemRemedies(it,all)||{};
-        rows.push({it:it,rems:rems,w:w});
-        if(w>0)denom+=w;
+        rows.push({it:it,rems:rems});
         Object.keys(rems).forEach(function(a){
             var g=rems[a]||1; g=g>=3?3:(g===2?2:1);
             var e=col[a]; if(!e)e=col[a]={cov:0,total:0};
-            if(w>0){ e.cov+=w; e.total+=g*w; }
-            else   { e.cov-=1; e.total-=g*Math.abs(w); }
+            e.cov++; e.total+=g;
         });
     });
-    if(denom<=0)denom=1;
     var abbrs=Object.keys(col).sort(function(a,b){
         var d=col[b].cov-col[a].cov; if(d)return d;
         d=col[b].total-col[a].total; if(d)return d;
         return a.localeCompare(b);
     });
-    return {rows:rows,col:col,abbrs:abbrs,denom:denom};
-}
-// 🔑 weighted coverage display: integer cov shows "cov/denom", fractional shows "%"
-function repFmtCov(cov,denom){
-    cov=Math.max(0,cov); denom=denom||1;
-    if(Math.abs(cov-Math.round(cov))<0.001 && cov<=denom+0.001){ return Math.round(cov)+'/'+Math.round(denom); }
-    return Math.round(cov*100/denom)+'%';
+    return {rows:rows,col:col,abbrs:abbrs};
 }
 
-// ==================== ⚙ CLIPBOARD WORKBENCH (HomeoSetu "Case Repertorisation" style) ====================
-// image 2026-09-19_01-17-32: tabs Clipboards|Grid، ہر کلپ بورڈ پر Elimination Mode + ✏ rename،
-// ہر ربرک پر ☑ + ⋮ مینو (Order / Multiplier Weight / Move to Clipboard / Delete Rubric)، نیچے اسٹیٹس بار
-var repWbTab='clips';   // 'clips' | 'grid'
+// ==================== ⚙ CLIPBOARD WORKBENCH ====================
 function repOpenWorkbench(){
-    repKebabHide(); repWbMenuHide();
+    repKebabHide();
     repHistBack.push(repCurrentState()); repHistFwd=[];
     repWorkbenchOpen=true; repCompareOpen=false; repAnalysisOpen=-1; repCurrentDetail=null; repClipViewOpen=false;
-    repWbTab='clips';
     renderWorkbench();
-}
-function repClipLabel(ci){
-    var custom=repClipNames[ci];
-    if(custom) return custom;
-    return repLangText({ur:'کلپ بورڈ',en:'Clipboard',roman:'Clipboard'})+' '+(ci+1);
-}
-function repWChip(w){
-    if(w==null||w===1) return '';
-    var cls=w<0?'w-neg':(w<1?'w-half':(w>=4?'w-max':'w-plus'));
-    var label=(w<0?'-':'')+w+'x';
-    return '<span class="w-chip '+cls+'" title="'+repLangText({ur:'ملٹی پلائر ویٹ',en:'Multiplier weight',roman:'Multiplier weight'})+': '+label+'">'+label+'</span>';
 }
 function repClipMove(ci,idx,dir){
     var l=repClipboards[ci]||[];
@@ -2192,7 +1999,7 @@ function repClipMove(ci,idx,dir){
     if(idx<0||idx>=l.length||j<0||j>=l.length)return;
     var t=l[idx]; l[idx]=l[j]; l[j]=t;
     repClipsSave();
-    if(repWorkbenchOpen)renderWorkbench(); else if(repClipViewOpen&&ci===repActiveClip)renderClipView(); else repRenderDock();
+    if(repWorkbenchOpen)renderWorkbench(); else repRenderDock();
 }
 function repClipRemoveAt(ci,idx){
     var l=repClipboards[ci]||[];
@@ -2201,7 +2008,6 @@ function repClipRemoveAt(ci,idx){
     if(repWorkbenchOpen)renderWorkbench();
     else if(repClipViewOpen&&ci===repActiveClip)renderClipView();
     else repRenderDock();
-    repUpdateSelCount();
 }
 function repClipOpenIdx(ci,i){
     var it=(repClipboards[ci]||[])[i]; if(!it)return;
@@ -2212,247 +2018,51 @@ function repClipOpenIdx(ci,i){
 function repSetClipActive(ci){
     repActiveClip=ci; repRenderDock();
     if(repWorkbenchOpen)renderWorkbench();
-    showToast(repLangText({ur:'🎯 '+repClipLabel(ci)+' فعال',en:'🎯 '+repClipLabel(ci)+' is now active',roman:'🎯 '+repClipLabel(ci)+' faal'}));
+    showToast(repLangText({ur:'🎯 کلپ بورڈ '+(ci+1)+' فعال',en:'🎯 Clipboard '+(ci+1)+' is now active',roman:'🎯 Clipboard '+(ci+1)+' faal'}));
 }
 var _repWbArm=-1;
 function repWorkbenchClear(ci){
-    if(_repWbArm!==ci){ _repWbArm=ci; showToast(repLangText({ur:'دوبارہ دبائیں — '+repClipLabel(ci)+' خالی ہوگا',en:'Press again — '+repClipLabel(ci)+' will be cleared',roman:'Dobara dabaein — '+repClipLabel(ci)+' khali hoga'})); return; }
+    if(_repWbArm!==ci){ _repWbArm=ci; showToast(repLangText({ur:'دوبارہ دبائیں — کلپ بورڈ '+(ci+1)+' خالی ہوگا',en:'Press again — clipboard '+(ci+1)+' will be cleared',roman:'Dobara dabaein — clipboard '+(ci+1)+' khali hoga'})); return; }
     _repWbArm=-1;
     repClipboards[ci]=[]; repClipsSave();
     if(repWorkbenchOpen)renderWorkbench(); else repRenderDock();
-    repUpdateSelCount();
-}
-// 🔑 workbench 3-dots menu actions
-function repClipSetWeight(ci,i,w){
-    var it=(repClipboards[ci]||[])[i]; if(!it)return;
-    it.w=w; repClipsSave();
-    showToast(repLangText({ur:'⚖ ویٹ '+w+'x — '+repClipLabel(ci),en:'⚖ Weight '+w+'x — '+repClipLabel(ci),roman:'⚖ Weight '+w+'x — '+repClipLabel(ci)}));
-    if(repWorkbenchOpen)renderWorkbench(); else repRenderDock();
-}
-function repClipMoveTo(ci,i,target){
-    if(target===ci)return;
-    var l=repClipboards[ci]||[]; var it=l[i]; if(!it)return;
-    l.splice(i,1); it.sel=false;
-    (repClipboards[target]=repClipboards[target]||[]).push(it);
-    repClipsSave();
-    showToast('📋 '+repClipLabel(ci)+' → '+repClipLabel(target));
-    if(repWorkbenchOpen)renderWorkbench(); else repRenderDock();
-}
-function repClipDelete(ci,i){ repClipRemoveAt(ci,i); }
-function repClipSelToggle(ci,i){
-    var it=(repClipboards[ci]||[])[i]; if(!it)return;
-    it.sel=!it.sel; repClipsSave();
-    if(repWorkbenchOpen){
-        var box=document.querySelector('[data-wbsel="'+ci+'-'+i+'"]');
-        if(box)box.classList.toggle('sel',!!it.sel);
-        var cb=document.querySelector('[data-wbchk="'+ci+'-'+i+'"]'); if(cb)cb.checked=!!it.sel;
-        repWbUpdateCounts();
-    }
-    repUpdateSelCount();
-}
-function repClipElimToggle(ci,on){
-    repClipElims[ci]=!!on; repClipOptsSave();
-    showToast(repLangText(
-        on? {ur:'🚫 '+repClipLabel(ci)+' — ایلی منیشن موڈ آن (گرڈ میں اس کے بغیر ادویات ہٹ جائیں گی)',en:'🚫 '+repClipLabel(ci)+' — Elimination Mode ON (grid keeps only remedies covered by it)',roman:'🚫 Elimination Mode ON — '+repClipLabel(ci)}
-          : {ur:'✅ '+repClipLabel(ci)+' — ایلی منیشن موڈ آف',en:'✅ '+repClipLabel(ci)+' — Elimination Mode OFF',roman:'✅ Elimination Mode OFF — '+repClipLabel(ci)}));
-    if(repWorkbenchOpen)renderWorkbench();
-}
-function repClipRename(ci){
-    var cur=repClipNames[ci]||('Clipboard '+(ci+1));
-    var n=prompt(repLangText({ur:'کلپ بورڈ کا نام:',en:'Clipboard name:',roman:'Clipboard ka naam:'}),cur);
-    if(n===null)return;
-    repClipNames[ci]=String(n).trim().substring(0,30); repClipOptsSave();
-    if(repWorkbenchOpen)renderWorkbench(); else repRenderDock();
-}
-function repWbSetTab(t){ repWbTab=(t==='grid')?'grid':'clips'; renderWorkbench(); }
-// 🔑 selection helpers + status bar counts
-function repWbSelCount(){ var n=0; for(var i=0;i<REP_N_CLIPS;i++)(repClipboards[i]||[]).forEach(function(it){ if(it.sel)n++; }); return n; }
-function repWbIncludedItems(){
-    var any=repWbSelCount()>0,out=[];
-    for(var ci=0;ci<REP_N_CLIPS;ci++)(repClipboards[ci]||[]).forEach(function(it){ if(!any||it.sel)out.push({it:it,ci:ci}); });
-    return out;
-}
-function repWbUpdateCounts(){
-    var sel=document.getElementById('repWbSelN'), rem=document.getElementById('repWbRemN'), gc=document.getElementById('repWbGridN');
-    if(sel)sel.textContent=String(repWbSelCount());
-    if(!rem&&!gc)return;
-    repEnsureAllBooks(function(all){
-        var set={};
-        repWbIncludedItems().forEach(function(r){ var rems=repClipItemRemedies(r.it,all)||{}; Object.keys(rems).forEach(function(a){set[a]=1;}); });
-        var n=Object.keys(set).length;
-        if(rem)rem.textContent=n.toLocaleString();
-        if(gc)gc.textContent='('+n.toLocaleString()+')';
-    });
-}
-// 🔑 3-dots options menu (image 2: OPTIONS / Order / Multiplier Weight / Move to Clipboard / Delete Rubric)
-function repWbMenuHide(){ var m=document.getElementById('repWbMenu'); if(m)m.style.display='none'; }
-function repWbMenuShow(ev,btn,ci,i){
-    ev.stopPropagation(); repWbMenuHide(); repKebabHide();
-    var m=document.getElementById('repWbMenu');
-    if(!m){ m=document.createElement('div'); m.id='repWbMenu'; m.className='rep-wb-menu'; document.body.appendChild(m); }
-    m.innerHTML=repWbMenuHtml(ci,i);
-    m.style.display='block';
-    var r=btn.getBoundingClientRect();
-    var mw=m.offsetWidth||230, mh=m.offsetHeight||300;
-    var vw=(document.documentElement&&document.documentElement.clientWidth)||window.innerWidth||1024;
-    var top=r.bottom+window.scrollY+4;
-    // 🔑 flip above when the menu would be cut off by the viewport bottom
-    if(r.bottom+mh+10>window.innerHeight && r.top-mh-4>0){ top=r.top+window.scrollY-mh-4; }
-    var left=Math.max(8,r.right+window.scrollX-mw);
-    if(left+mw>window.scrollX+vw-8){ left=window.scrollX+vw-mw-8; }
-    m.style.top=top+'px'; m.style.left=left+'px';
-}
-function repWbMenuHtml(ci,i){
-    var it=(repClipboards[ci]||[])[i]; if(!it)return '';
-    var w=(typeof it.w==='number')?it.w:1;
-    var h='<div class="wbm-head">'+repLangText({ur:'اختیارات',en:'OPTIONS',roman:'OPTIONS'})+'</div>';
-    h+='<div class="wbm-label">'+repLangText({ur:'ترتیب',en:'Order',roman:'Order'})+'</div>';
-    h+='<button onclick="repWbMenuHide();repClipMove('+ci+','+i+',-1)">↑ '+repLangText({ur:'اوپر لے جائیں',en:'Move Up',roman:'Move Up'})+'</button>';
-    h+='<button onclick="repWbMenuHide();repClipMove('+ci+','+i+',1)">↓ '+repLangText({ur:'نیچے لے جائیں',en:'Move Down',roman:'Move Down'})+'</button>';
-    h+='<div class="wbm-label">'+repLangText({ur:'ملٹی پلائر ویٹ',en:'Multiplier Weight',roman:'Multiplier Weight'})+'</div>';
-    [[0.5,'0.5x'],[1,'1x'],[2,'2x'],[4,'4x'],[-1,'-1x']].forEach(function(p){
-        h+='<button class="wbm-w'+(w===p[0]?' on':'')+'" onclick="repWbMenuHide();repClipSetWeight('+ci+','+i+','+p[0]+')">'+p[1]+(w===p[0]?' ✓':'')+(p[0]===-1?' 🚫':'')+'</button>';
-    });
-    h+='<div class="wbm-label">'+repLangText({ur:'کلپ بورڈ میں منتقل کریں',en:'Move to Clipboard',roman:'Move to Clipboard'})+'</div>';
-    for(var t=0;t<REP_N_CLIPS;t++){ if(t===ci)continue; h+='<button onclick="repWbMenuHide();repClipMoveTo('+ci+','+i+','+t+')">📋 '+escapeHtml(repClipLabel(t))+'</button>'; }
-    h+='<button class="danger" onclick="repWbMenuHide();repClipDelete('+ci+','+i+')">🗑 '+repLangText({ur:'ربرک ڈیلیٹ کریں',en:'Delete Rubric',roman:'Delete Rubric'})+'</button>';
-    return h;
 }
 function renderWorkbench(){
     var cd=document.getElementById('repRubricContent'); if(!cd)return;
     repUpdateNavButtons(); repRenderBreadcrumb();
-    var h='<div class="rep-tool-head"><div class="rep-content-title"><span>⚙</span><b>'+repLangText({ur:'کیس ریپرٹورائزیشن — ورک بینچ',en:'CASE REPERTORISATION — WORKBENCH',roman:'CASE REPERTORISATION — WORKBENCH'})+'</b></div>'
+    var h='<div class="rep-tool-head"><div class="rep-content-title"><span>⚙</span><b>'+repLangText({ur:'کلپ بورڈ ورک بینچ',en:'CLIPBOARD WORKBENCH',roman:'CLIPBOARD WORKBENCH'})+'</b></div>'
         +'<button class="rc-btn" onclick="repCloseToolView()">✕ '+repLangText({ur:'بند کریں',en:'Close',roman:'Band karein'})+'</button></div>';
-    // tabs: Clipboards | Grid (N remedies) — HomeoSetu style
-    h+='<div class="rep-wb-tabs">'
-        +'<button class="'+(repWbTab!=='grid'?'on':'')+'" onclick="repWbSetTab(\'clips\')">📋 '+repLangText({ur:'کلپ بورڈز',en:'Clipboards',roman:'Clipboards'})+'</button>'
-        +'<button class="'+(repWbTab==='grid'?'on':'')+'" onclick="repWbSetTab(\'grid\')">📊 '+repLangText({ur:'گرڈ',en:'Grid',roman:'Grid'})+' <span id="repWbGridN" class="cnt">…</span></button>'
-        +'</div>';
-    h+='<div id="repWbBody"></div>';
-    // bottom status bar (image 2: Active Clipboard | Rubrics Selected • Remedies found)
-    h+='<div class="rep-wb-status">'
-        +'<span>'+repLangText({ur:'فعال کلپ بورڈ:',en:'Active Clipboard:',roman:'Active Clipboard:'})+' <b class="on">'+escapeHtml(repClipLabel(repActiveClip))+'</b></span>'
-        +'<span class="sp">•</span><span>'+repLangText({ur:'منتخب ربرکس:',en:'Rubrics Selected:',roman:'Rubrics Selected:'})+' <b id="repWbSelN">'+repWbSelCount()+'</b></span>'
-        +'<span class="sp">•</span><span>'+repLangText({ur:'ملی ادویات:',en:'Remedies found:',roman:'Remedies found:'})+' <b id="repWbRemN">…</b></span>'
-        +'</div>';
-    cd.innerHTML=h; cd.scrollTop=0;
-    if(repWbTab==='grid') renderWbGrid(); else renderWbClips();
-    repRenderDock();
-    repWbUpdateCounts();
-}
-function renderWbClips(){
-    var body=document.getElementById('repWbBody'); if(!body)return;
-    var h='<p class="rep-tool-sub">'+repLangText({ur:'بارہ کلپ بورڈز ایک جگہ — ہر ربرک پر ⋮ مینو (ترتیب، ویٹ، منتقلی، ڈیلیٹ)۔ ایلی منیشن موڈ والے کلپ بورڈ کے بغیر ادویات گرڈ سے ہٹ جاتی ہیں۔',en:'All 12 clipboards in one place — every rubric has a ⋮ menu (order, weight, move, delete). Remedies not covered by an Elimination-Mode clipboard are removed from the Grid.',roman:'Barah clipboards aik jagah — har rubric ka ⋮ menu (tarteeb, weight, move, delete).'})+'</p>';
+    h+='<p class="rep-tool-sub">'+repLangText({ur:'چاروں کلپ بورڈز ایک جگہ — ↑↓ سے ترتیب، ✕ سے ہٹائیں، ↩ سے کھولیں، 📊 سے تجزیہ گرڈ چلائیں۔',en:'All 4 clipboards in one place — reorder with ↑↓, remove with ✕, open with ↩, run the analysis grid with 📊.',roman:'Charon clipboards aik jagah — ↑↓ se tarteeb, ✕ se hataein, ↩ se kholen, 📊 se tajzia grid chalaein.'})+'</p>';
     h+='<div class="rep-wb-grid">';
-    for(var ci=0;ci<REP_N_CLIPS;ci++){
+    for(var ci=0;ci<4;ci++){
         var l=repClipboards[ci]||[];
-        h+='<div class="rep-wb-panel'+(repActiveClip===ci?' active':'')+(repClipElims[ci]?' elim':'')+'">';
-        h+='<div class="rep-wb-head"><button class="rep-wb-title" onclick="repToggleClipView('+ci+')" title="'+repLangText({ur:'لسٹ ویو میں کھولیں',en:'Open in list view',roman:'List view mein kholen'})+'">📋 '+escapeHtml(repClipLabel(ci))+' <span class="cnt">('+l.length+')</span></button>'
+        h+='<div class="rep-wb-panel'+(repActiveClip===ci?' active':'')+'">';
+        h+='<div class="rep-wb-head"><button class="rep-wb-title" onclick="repToggleClipView('+ci+')" title="'+repLangText({ur:'لسٹ ویو میں کھولیں',en:'Open in list view',roman:'List view mein kholen'})+'">📋 '+repLangText({ur:'کلپ بورڈ',en:'Clipboard',roman:'Clipboard'})+' '+(ci+1)+' <span class="cnt">('+l.length+')</span></button>'
             +'<div class="rep-wb-actions">'
-            +'<button class="rc-btn" onclick="repClipRename('+ci+')" title="'+repLangText({ur:'نام بدلیں',en:'Rename',roman:'Rename'})+'">✏</button>'
             +'<button class="rc-btn" onclick="repSetClipActive('+ci+')" title="'+repLangText({ur:'فعال بنائیں',en:'Make active',roman:'Faal banayein'})+'">🎯</button>'
-            +'<button class="rc-btn" onclick="repOpenAnalysis('+ci+')" title="'+repLangText({ur:'اس کلپ بورڈ کا گرڈ',en:'This clipboard\'s grid',roman:'Is clipboard ka grid'})+'">📊</button>'
+            +'<button class="rc-btn" onclick="repOpenAnalysis('+ci+')" title="'+repLangText({ur:'تجزیہ گرڈ',en:'Analysis grid',roman:'Tajzia grid'})+'">📊</button>'
             +'<button class="rc-btn danger" onclick="repWorkbenchClear('+ci+')" title="'+repLangText({ur:'خالی کریں (دو بار دبائیں)',en:'Clear (press twice)',roman:'Khali karein (do bar dabaein)'})+'">🗑</button>'
             +'</div></div>';
-        h+='<label class="rep-wb-elim" title="'+repLangText({ur:'گرڈ میں صرف وہی ادویات رہیں گی جو اس کلپ بورڈ کے ربرکس میں موجود ہوں',en:'Grid keeps only remedies covered by this clipboard\'s rubrics',roman:'Grid mein sirf wohi adwiyat rahengi'})+'">'
-            +'<input type="checkbox" '+(repClipElims[ci]?'checked':'')+' onchange="repClipElimToggle('+ci+',this.checked)"> '
-            +repLangText({ur:'ایلی منیشن موڈ',en:'Elimination Mode',roman:'Elimination Mode'})+'</label>';
         if(!l.length){
             h+='<div class="rep-wb-empty">'+repLangText({ur:'خالی — کسی ربرک کارڈ کے ⋮ مینو سے شامل کریں',en:'Empty — use the ⋮ menu on any rubric card',roman:'Khali — kisi rubric card ke ⋮ menu se shamil karein'})+'</div>';
         } else {
             l.forEach(function(it,i){
-                h+='<div class="rep-wb-item'+(it.sel?' sel':'')+'" data-wbsel="'+ci+'-'+i+'">'
-                    +'<input type="checkbox" class="rep-wb-check" data-wbchk="'+ci+'-'+i+'" '+(it.sel?'checked':'')+' onchange="repClipSelToggle('+ci+','+i+')" title="'+repLangText({ur:'گرڈ کے لیے منتخب کریں',en:'Select for the Grid',roman:'Grid ke liye select karein'})+'">'
-                    +repBookBadgeHtml(it.book)
-                    +'<span class="rc-path" dir="ltr" onclick="repClipOpenIdx('+ci+','+i+')" title="'+_repAttr(it.path||'')+'">'+escapeHtml(_repTruncPath(it.path||'—',48))+'</span>'
-                    +repWChip(it.w)
+                h+='<div class="rep-wb-item">'+repBookBadgeHtml(it.book)
+                    +'<span class="rc-path" dir="ltr" onclick="repClipOpenIdx('+ci+','+i+')" title="'+_repAttr(it.path||'')+'">'+escapeHtml(_repTruncPath(it.path||'—',58))+'</span>'
                     +(it.rems?'<span class="rpc-badge rems">⚡ '+it.rems+'</span>':'')
                     +'<span class="rep-wb-ops">'
-                    +'<button class="rwb-btn" onclick="repClipMove('+ci+','+i+',-1)" title="'+repLangText({ur:'اوپر',en:'Move up',roman:'Ooper'})+'">↑</button>'
-                    +'<button class="rwb-btn" onclick="repClipMove('+ci+','+i+',1)" title="'+repLangText({ur:'نیچے',en:'Move down',roman:'Neeche'})+'">↓</button>'
-                    +'<button class="rwb-btn" onclick="repWbMenuShow(event,this,'+ci+','+i+')" title="'+repLangText({ur:'مزید فنکشنز',en:'More options',roman:'Mazeed functions'})+'">⋮</button>'
+                    +'<button class="rwb-btn" onclick="repClipMove('+ci+','+i+',-1)" title="Up">↑</button>'
+                    +'<button class="rwb-btn" onclick="repClipMove('+ci+','+i+',1)" title="Down">↓</button>'
+                    +'<button class="rwb-btn" onclick="repClipOpenIdx('+ci+','+i+')" title="'+repLangText({ur:'کھولیں',en:'Open',roman:'Kholen'})+'">↩</button>'
+                    +'<button class="rwb-btn danger" onclick="repClipRemoveAt('+ci+','+i+')" title="'+repLangText({ur:'ہٹائیں',en:'Remove',roman:'Hataein'})+'">✕</button>'
                     +'</span></div>';
             });
         }
         h+='</div>';
     }
     h+='</div>';
-    body.innerHTML=h;
-}
-// 🔑 combined Grid tab: selected rubrics of ALL clipboards, weighted, with elimination filtering
-function _repWbGridCompute(all){
-    var included=repWbIncludedItems();
-    var rows=[],col={},denom=0;
-    included.forEach(function(r){
-        var it=r.it, w=(typeof it.w==='number')?it.w:1;
-        var rems=repClipItemRemedies(it,all)||{};
-        rows.push({it:it,elim:repClipElims[r.ci],rems:rems,w:w});
-        if(w>0)denom+=w;
-        Object.keys(rems).forEach(function(a){
-            var g=rems[a]||1; g=g>=3?3:(g===2?2:1);
-            var e=col[a]; if(!e)e=col[a]={cov:0,total:0};
-            if(w>0){ e.cov+=w; e.total+=g*w; }
-            else   { e.cov-=1; e.total-=g*Math.abs(w); }
-        });
-    });
-    if(denom<=0)denom=1;
-    // Elimination Mode: a clipboard marked as elimination keeps ONLY remedies covered by its rubrics
-    var elimNotes=[];
-    for(var ci=0;ci<REP_N_CLIPS;ci++){
-        if(!repClipElims[ci])continue;
-        var items=(repClipboards[ci]||[]).filter(function(it){ return repWbSelCount()===0||it.sel; });
-        if(!items.length)continue;
-        var keep={};
-        items.forEach(function(it){ var rems=repClipItemRemedies(it,all)||{}; Object.keys(rems).forEach(function(a){keep[a]=1;}); });
-        var removed=0;
-        Object.keys(col).forEach(function(a){ if(!keep[a]){ removed++; delete col[a]; } });
-        if(removed||Object.keys(keep).length) elimNotes.push({clip:ci,removed:removed});
-    }
-    var abbrs=Object.keys(col).sort(function(a,b){
-        var d=col[b].cov-col[a].cov; if(d)return d;
-        d=col[b].total-col[a].total; if(d)return d;
-        return a.localeCompare(b);
-    });
-    return {rows:rows,col:col,abbrs:abbrs,denom:denom,elimNotes:elimNotes};
-}
-function renderWbGrid(){
-    var body=document.getElementById('repWbBody'); if(!body)return;
-    var total=0; for(var ci=0;ci<REP_N_CLIPS;ci++)total+=(repClipboards[ci]||[]).length;
-    if(!total){ body.innerHTML='<div class="rep-tool-loading">'+repLangText({ur:'بارہ کلپ بورڈز خالی ہیں — پہلے ربرکس شامل کریں',en:'All 12 clipboards are empty — add rubrics first',roman:'Barah clipboards khali hain — pehle rubrics shamil karein'})+'</div>'; return; }
-    body.innerHTML='<div class="rep-tool-loading">⏳ '+repLangText({ur:'ریپرٹری ڈیٹا لوڈ ہو رہا ہے...',en:'Loading repertory data...',roman:'Repertory data load ho raha hai...'})+'</div>';
-    repEnsureAllBooks(function(all){
-        var body2=document.getElementById('repWbBody'); if(!body2)return;
-        var res=_repWbGridCompute(all);
-        if(!res.rows.length){ body2.innerHTML='<div class="rep-tool-loading">'+repLangText({ur:'کوئی ربرک شامل/منتخب نہیں',en:'No rubrics included/selected',roman:'Koi rubric shamil/muntakhib nahi'})+'</div>'; return; }
-        if(!res.abbrs.length){ body2.innerHTML='<div class="rep-tool-loading">'+repLangText({ur:'ان ربرکس پر کوئی ادویہ درج نہیں',en:'No remedies recorded on these rubrics',roman:'In rubrics par koi adwiyeh darj nahi'})+'</div>'; return; }
-        var COLS=20, abbrs=res.abbrs.slice(0,COLS);
-        var winner=abbrs[0], wcol=res.col[winner];
-        var pct=Math.max(0,Math.round(wcol.cov*100/res.denom));
-        var hh='<div class="rep-ana-sum">'
-            +'<span class="rep-ana-winner">🏆 '+repLangText({ur:'سب سے زیادہ کور:',en:'Top coverage:',roman:'Sab se ziyada koor:'})+' <b dir="ltr">'+escapeHtml(winner)+'</b> — '+pct+'% <small>('+repFmtCov(wcol.cov,res.denom)+')</small></span>'
-            +res.elimNotes.map(function(n){ return '<span class="rep-ana-elim">🚫 '+escapeHtml(repClipLabel(n.clip))+': -'+n.removed+'</span>'; }).join('')
-            +(res.abbrs.length>COLS?'<span class="rep-ana-more">+'+(res.abbrs.length-COLS)+' '+repLangText({ur:'مزید ادویات',en:'more remedies',roman:'mazeed adwiyeh'})+'</span>':'')
-            +'</div>';
-        hh+='<div class="rep-ana-wrap"><table class="rep-ana-table"><thead><tr><th class="ana-rub">'+repLangText({ur:'ربرک',en:'Rubric',roman:'Rubric'})+'</th>';
-        abbrs.forEach(function(a){ hh+='<th class="ana-rem'+(a===winner?' win':'')+'" dir="ltr" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')" title="'+escapeHtml(a)+' — '+res.col[a].cov+' / w'+res.col[a].total+'">'+escapeHtml(a.length>10?a.substring(0,9)+'…':a)+'</th>'; });
-        hh+='</tr></thead><tbody>';
-        res.rows.forEach(function(r){
-            var it=r.it;
-            hh+='<tr><td class="ana-rub" onclick="navigateToRubric(\''+_repJs(it.book)+'\',\''+_repJs(it.ch)+'\',\''+_repJs(String(it.rid))+'\',true)">'
-                +repBookBadgeHtml(it.book)+' <span dir="ltr">'+escapeHtml(_repTruncPath(it.path||'—',44))+'</span>'
-                +repWChip(it.w)+(r.elim?'<span class="wb-elim-badge" title="Elimination">🚫</span>':'')+'</td>';
-            abbrs.forEach(function(a){
-                var g=r.rems[a]||0;
-                hh+='<td class="ana-cell">'+(g?'<i class="rep-gr-dot d'+(g>=3?3:(g===2?2:1))+'" title="'+escapeHtml(a)+' = '+g+'"></i>':'')+'</td>';
-            });
-            hh+='</tr>';
-        });
-        hh+='</tbody><tfoot><tr><td class="ana-rub">'+repLangText({ur:'کوریج',en:'Coverage',roman:'Koor'})+'</td>';
-        abbrs.forEach(function(a){ var e=res.col[a]; hh+='<td class="ana-total'+(a===winner?' win':'')+'">'+repFmtCov(e.cov,res.denom)+'</td>'; });
-        hh+='</tr></tfoot></table></div>';
-        hh+='<p class="rep-tool-note">'+repLangText({ur:'گرڈ = بارہ کلپ بورڈز کے منتخب ربرکس (بغیر سلیکشن سب شامل)۔ ویٹ (0.5x–4x) اسکور کو گنا دیتا ہے، ‎-1x منہا ہے۔ ایلی منیشن موڈ والے کلپ بورڈ کے بغیر ادویات نکل جاتی ہیں۔ ڈاٹ = گریڈ، ربرک پر کلک = کھولیں۔',en:'Grid = selected rubrics of ALL clipboards (everything if none selected). Weights (0.5x–4x) multiply the score, -1x subtracts. Remedies not covered by an Elimination-Mode clipboard are removed. Dot = grade, click a rubric to open it.',roman:'Grid = tamam clipboards ke muntakhib rubrics. Weight score ko guna deta hai, -1x manfi hai.'})+'</p>';
-        body2.innerHTML=hh;
-    });
+    cd.innerHTML=h; cd.scrollTop=0;
+    repDockNoFolder();
 }
 
 // ==================== 📊 CASE ANALYSIS GRID ====================
@@ -2474,7 +2084,7 @@ function renderAnalysis(){
         +'<button class="rc-btn" onclick="repCloseToolView()">✕ '+repLangText({ur:'بند کریں',en:'Close',roman:'Band karein'})+'</button></div>';
     h+='<div id="repAnaBody"><div class="rep-tool-loading">⏳ '+repLangText({ur:'ریپرٹری ڈیٹا لوڈ ہو رہا ہے...',en:'Loading repertory data...',roman:'Repertory data load ho raha hai...'})+'</div></div>';
     cd.innerHTML=h; cd.scrollTop=0;
-    repRenderDock();
+    repDockNoFolder();
     repEnsureAllBooks(function(all){
         var body=document.getElementById('repAnaBody'); if(!body)return;
         var res=_repAnaCompute(l,all);
@@ -2482,7 +2092,7 @@ function renderAnalysis(){
         var COLS=20, abbrs=res.abbrs.slice(0,COLS);
         var winner=abbrs[0], wcol=res.col[winner];
         var hh='<div class="rep-ana-sum">'
-            +'<span class="rep-ana-winner">🏆 '+repLangText({ur:'سب سے زیادہ کور:',en:'Top coverage:',roman:'Sab se ziyada koor:'})+' <b dir="ltr">'+escapeHtml(winner)+'</b> — '+repFmtCov(wcol.cov,res.denom)+' ('+Math.max(0,Math.round(wcol.cov*100/res.denom))+'%)</span>'
+            +'<span class="rep-ana-winner">🏆 '+repLangText({ur:'سب سے زیادہ کور:',en:'Top coverage:',roman:'Sab se ziyada koor:'})+' <b dir="ltr">'+escapeHtml(winner)+'</b> — '+wcol.cov+'/'+res.rows.length+' ('+Math.round(wcol.cov*100/res.rows.length)+'%)</span>'
             +(res.abbrs.length>COLS?'<span class="rep-ana-more">+'+(res.abbrs.length-COLS)+' '+repLangText({ur:'مزید ادویات',en:'more remedies',roman:'mazeed adwiyeh'})+'</span>':'')
             +'</div>';
         hh+='<div class="rep-ana-wrap"><table class="rep-ana-table"><thead><tr><th class="ana-rub">'+repLangText({ur:'ربرک',en:'Rubric',roman:'Rubric'})+'</th>';
@@ -2499,9 +2109,9 @@ function renderAnalysis(){
             hh+='</tr>';
         });
         hh+='</tbody><tfoot><tr><td class="ana-rub">'+repLangText({ur:'کوریج',en:'Coverage',roman:'Korage'})+'</td>';
-        abbrs.forEach(function(a){ var e=res.col[a]; hh+='<td class="ana-total'+(a===winner?' win':'')+'">'+repFmtCov(e.cov,res.denom)+'</td>'; });
+        abbrs.forEach(function(a){ var e=res.col[a]; hh+='<td class="ana-total'+(a===winner?' win':'')+'">'+e.cov+'<small>/'+res.rows.length+'</small></td>'; });
         hh+='</tr></tfoot></table></div>';
-        hh+='<p class="rep-tool-note">'+repLangText({ur:'ڈاٹ کا رنگ گریڈ دکھاتا ہے (1 ہلکا → 3 گہرا)۔ ربرک پر کلک = کھولیں، ادویہ کے نام پر کلک = کاپی۔ ویٹ ⋮ مینو سے بدلیں (ورک بینچ)۔',en:'Dot shade = grade (1 light → 3 dark). Click a rubric to open it, a remedy name to copy. Change weights from the ⋮ menu (Workbench).',roman:'Dot ka rang grade dikhaata hai. Weight ⋮ menu se badlein (Workbench).'})+'</p>';
+        hh+='<p class="rep-tool-note">'+repLangText({ur:'ڈاٹ کا رنگ گریڈ دکھاتا ہے (1 ہلکا → 3 گہرا)۔ ربرک پر کلک = کھولیں، ادویہ کے نام پر کلک = کاپی۔ گرڈ کے لیے گریڈ 3→2→1 ترتیب میں ادویہ کالم جُڑے ہیں۔',en:'Dot shade = grade (1 light → 3 dark). Click a rubric to open it, a remedy name to copy. Remedy columns are ranked by coverage then total grade.',roman:'Dot ka rang grade dikhata hai. Rubric par click = kholen, adwiyeh ke naam par click = copy.'})+'</p>';
         body.innerHTML=hh;
     });
 }
@@ -2511,7 +2121,7 @@ function repOpenCompare(){
     repKebabHide();
     repHistBack.push(repCurrentState()); repHistFwd=[];
     repCompareOpen=true; repWorkbenchOpen=false; repAnalysisOpen=-1; repCurrentDetail=null; repClipViewOpen=false;
-    for(var i=0;i<REP_N_CLIPS;i++) repCompareSel[i]=(repClipboards[i]||[]).length>0;
+    for(var i=0;i<4;i++) repCompareSel[i]=(repClipboards[i]||[]).length>0;
     var any=false; repCompareSel.forEach(function(x){ if(x)any=true; });
     if(!any) repCompareSel[repActiveClip]=true;
     renderCompare();
@@ -2551,21 +2161,21 @@ function _repCmpCompute(sel,all){
 function renderCompare(){
     var cd=document.getElementById('repRubricContent'); if(!cd)return;
     repUpdateNavButtons(); repRenderBreadcrumb();
-    var sel=[]; for(var i=0;i<REP_N_CLIPS;i++) if(repCompareSel[i]&&(repClipboards[i]||[]).length) sel.push(i);
+    var sel=[]; for(var i=0;i<4;i++) if(repCompareSel[i]&&(repClipboards[i]||[]).length) sel.push(i);
     var h='<div class="rep-tool-head"><div class="rep-content-title"><span>⇄</span><b>'+repLangText({ur:'موازنہ (COMPARE)',en:'COMPARE',roman:'COMPARE'})+'</b></div>'
         +'<button class="rc-btn" onclick="repCloseToolView()">✕ '+repLangText({ur:'بند کریں',en:'Close',roman:'Band karein'})+'</button></div>';
     h+='<div class="rep-cmp-chips">';
-    for(var ci=0;ci<REP_N_CLIPS;ci++){
+    for(var ci=0;ci<4;ci++){
         var n=(repClipboards[ci]||[]).length;
         h+='<button class="rep-cmp-chip'+(repCompareSel[ci]?' on':'')+(n?'':' dis')+'"'+(n?' onclick="repCompareToggle('+ci+')"':' disabled')+'>📋'+(ci+1)+' — '+n+' '+repLangText({ur:'ربرکس',en:'rubrics',roman:'rubrics'})+'</button>';
     }
     h+='</div>';
     if(sel.length<2){
         h+='<div class="rep-tool-loading">'+repLangText({ur:'موازنے کے لیے کم از کم 2 غیر خالی کلپ بورڈز منتخب کریں — اوپر چپس سے منتخب کریں۔',en:'Select at least 2 non-empty clipboards above to compare.',roman:'Moazne ke liye kam az kam 2 ghair khali clipboards muntakhib karein.'})+'</div>';
-        cd.innerHTML=h; cd.scrollTop=0; repRenderDock(); return;
+        cd.innerHTML=h; cd.scrollTop=0; repDockNoFolder(); return;
     }
     h+='<div id="repCmpBody"><div class="rep-tool-loading">⏳ '+repLangText({ur:'ریپرٹری ڈیٹا لوڈ ہو رہا ہے...',en:'Loading repertory data...',roman:'Repertory data load ho raha hai...'})+'</div></div>';
-    cd.innerHTML=h; cd.scrollTop=0; repRenderDock();
+    cd.innerHTML=h; cd.scrollTop=0; repDockNoFolder();
     repEnsureAllBooks(function(all){
         var body=document.getElementById('repCmpBody'); if(!body)return;
         var res=_repCmpCompute(sel,all);
@@ -2689,28 +2299,22 @@ function repAskAnswer(q){
     var lq=String(q).toLowerCase();
     function B(inner){ repAskFinish(inner); }
     if(/(ورک ?بینچ|workbench)/.test(lq)){
-        return B(repLangText({ur:'<b>⚙ ورک بینچ (کیس ریپرٹورائزیشن)</b> — بارہ کلپ بورڈز ایک ساتھ: ہر ربرک پر <b>⋮</b> مینو (ترتیب، ملٹی پلائر ویٹ، منتقلی، ڈیلیٹ)، ✏ سے نام، 🚫 ایلی منیشن موڈ، اور <b>📊 گرڈ</b> ٹیب پر مشترکہ تجزیہ۔',en:'<b>⚙ Workbench (Case Repertorisation)</b> — all 12 clipboards together: every rubric has a <b>⋮</b> menu (order, multiplier weight, move, delete), ✏ renames, 🚫 Elimination Mode, and the <b>📊 Grid</b> tab analyzes them combined.',roman:'Workbench — har rubric ka ⋮ menu, ✏ rename, 🚫 elimination, 📊 Grid tab.'})+repAskActs([{fn:'repOpenWorkbench()',lab:'⚙ '+repLangText({ur:'ورک بینچ کھولیں',en:'Open Workbench',roman:'Workbench kholen'})}]));
-    }
-    if(/(ویٹ|weight|0\.5|ملٹی ?پلائر|multiplier)/.test(lq)){
-        return B(repLangText({ur:'<b>⚖ ملٹی پلائر ویٹ</b> — ورک بینچ میں ہر ربرک کے ⋮ مینو سے: <b>0.5x</b> نصف اثر، <b>1x</b> عام، <b>2x/4x</b> زیادہ اثر (اہم ربرک)، <b>-1x 🚫</b> منہا (اس ربرک کی ادویات اسکور سے کٹ جاتی ہیں)۔ گرڈ کی کوریج اسی سے بڑھتی/گھٹتی ہے۔',en:'<b>⚖ Multiplier Weight</b> — in the Workbench, open a rubric\'s ⋮ menu: <b>0.5x</b> half effect, <b>1x</b> normal, <b>2x/4x</b> stronger (key rubrics), <b>-1x 🚫</b> negative (its remedies are subtracted from the score). The Grid coverage follows these weights.',roman:'Multiplier Weight — ⋮ menu se: 0.5x/1x/2x/4x/-1x; grid coverage mutabiq.'})+repAskActs([{fn:'repOpenWorkbench()',lab:'⚙ '+repLangText({ur:'ورک بینچ کھولیں',en:'Open Workbench',roman:'Workbench kholen'})}]));
-    }
-    if(/(ایلی ?منیشن|elimination|eliminate|خارج)/.test(lq)){
-        return B(repLangText({ur:'<b>🚫 ایلی منیشن موڈ</b> — ورک بینچ میں کسی کلپ بورڈ پر یہ باکس چیک کریں: <b>📊 گرڈ</b> ٹیب میں پھر صرف وہی ادویات رہیں گی جو اسی کلپ بورڈ کے ربرکس میں موجود ہوں — باقی سب خارج (eliminate) ہو جائیں گی۔ یہ کلاسک ہومیوپیتھک elimination ہے۔',en:'<b>🚫 Elimination Mode</b> — check it on a clipboard in the Workbench: the <b>📊 Grid</b> tab then keeps ONLY the remedies covered by that clipboard\'s rubrics — everything else is eliminated. Classic homeopathic elimination.',roman:'Elimination Mode — check karne par Grid mein sirf usi clipboard ki adwiyat rehti hain.'})+repAskActs([{fn:'repOpenWorkbench()',lab:'⚙ '+repLangText({ur:'ورک بینچ کھولیں',en:'Open Workbench',roman:'Workbench kholen'})}]));
+        return B(repLangText({ur:'<b>⚙ کلپ بورڈ ورک بینچ</b> — چاروں کلپ بورڈز ایک ساتھ ایک صفحے پر: ↑↓ سے ترتیب دیں، ✕ سے ہٹائیں، ↩ سے ربرک کھولیں، 🎯 سے فعال کلپ بورڈ بدلیں۔',en:'<b>⚙ Clipboard Workbench</b> — all 4 clipboards on one page: reorder with ↑↓, remove with ✕, open a rubric with ↩, switch the active clipboard with 🎯.',roman:'Clipboard Workbench — charon clipboards aik page par: ↑↓ tarteeb, ✕ remove, ↩ kholen, 🎯 faal badlein.'})+repAskActs([{fn:'repOpenWorkbench()',lab:'⚙ '+repLangText({ur:'ورک بینچ کھولیں',en:'Open Workbench',roman:'Workbench kholen'})}]));
     }
     if(/(گرڈ|grid|اینالیسس|analysis|تجزیہ|repertoriz|ریپرٹورائز)/.test(lq)){
         return B(repLangText({ur:'<b>📊 کیس اینالیسس گرڈ</b> — فعال کلپ بورڈ کی ربرکس قطاروں میں، ادویات کالموں میں؛ ہر ڈاٹ کا رنگ گریڈ (1 ہلکا → 3 گہرا)، نیچے کوریج۔ سب سے اوپر 🏆 سب سے زیادہ کور والی ادویہ۔',en:'<b>📊 Case Analysis Grid</b> — rubrics of the active clipboard as rows, remedies as columns; each dot is a grade (1 light → 3 dark), totals at the bottom. 🏆 marks the top-coverage remedy.',roman:'Case Analysis Grid — rubrics rows, remedies columns; dot = grade, neeche korage; 🏆 top remedy.'})+repAskActs([{fn:'repOpenAnalysis()',lab:'📊 '+repLangText({ur:'گرڈ کھولیں',en:'Open Grid',roman:'Grid kholen'})}]));
     }
     if(/(compare|کمپئیر|موازنہ)/.test(lq)){
-        return B(repLangText({ur:'<b>⇄ موازنہ (Compare)</b> — 2 سے 12 کلپ بورڈز منتخب کریں: پہلے ربرکس آمنے سامنے (✓)، پھر <b>مشترکہ ادویات</b> — جو ہر کلپ بورڈ کی کم از کم ایک ربرک میں موجود ہوں؛ Σ بڑا = زیادہ کور۔',en:'<b>⇄ Compare</b> — pick 2–12 clipboards: first the rubrics side by side (✓), then the <b>common remedies</b> — those present in at least one rubric of every clipboard; higher Σ = more coverage.',roman:'Compare — 2-12 clipboards chunein: rubrics ✓, phir mushtarka adwiyeh; Σ barha = ziyada koor.'})+repAskActs([{fn:'repOpenCompare()',lab:'⇄ '+repLangText({ur:'Compare کھولیں',en:'Open Compare',roman:'Compare kholen'})}]));
+        return B(repLangText({ur:'<b>⇄ موازنہ (Compare)</b> — 2 سے 4 کلپ بورڈز منتخب کریں: پہلے ربرکس آمنے سامنے (✓)، پھر <b>مشترکہ ادویات</b> — جو ہر کلپ بورڈ کی کم از کم ایک ربرک میں موجود ہوں؛ Σ بڑا = زیادہ کور۔',en:'<b>⇄ Compare</b> — pick 2–4 clipboards: first the rubrics side by side (✓), then the <b>common remedies</b> — those present in at least one rubric of every clipboard; higher Σ = more coverage.',roman:'Compare — 2-4 clipboards chunein: rubrics ✓, phir mushtarka adwiyeh; Σ barha = ziyada koor.'})+repAskActs([{fn:'repOpenCompare()',lab:'⇄ '+repLangText({ur:'Compare کھولیں',en:'Open Compare',roman:'Compare kholen'})}]));
     }
     if(/(کلپ|clip)/.test(lq)){
-        return B(repLangText({ur:'<b>📋 کلپ بورڈز (1–12)</b> — یہ آپ کی ریپرٹورائزیشن ورکنگ لسٹیں ہیں: کسی ربرک کارڈ کے <b>⋮</b> مینو سے شامل/ہٹائیں، نیچے ڈاک کے نمبر پر کلک سے لسٹ کھولیں۔ یہ localStorage میں محفوظ رہتے ہیں۔',en:'<b>📋 Clipboards (1–12)</b> — your repertorisation working lists: add/remove via the <b>⋮</b> menu on any rubric card, click a dock number to view the list. They persist in localStorage.',roman:'Clipboards 1-12 — ⋮ menu se add/remove, dock number par click se list; localStorage mein mehfooz.'})+repAskActs([{fn:'repOpenWorkbench()',lab:'⚙ '+repLangText({ur:'ورک بینچ کھولیں',en:'Open Workbench',roman:'Workbench kholen'})}]));
+        return B(repLangText({ur:'<b>📋 کلپ بورڈز (1–4)</b> — یہ آپ کی ریپرٹورائزیشن ورکنگ لسٹیں ہیں: کسی ربرک کارڈ کے <b>⋮</b> مینو سے شامل/ہٹائیں، نیچے ڈاک کے نمبر پر کلک سے لسٹ کھولیں۔ یہ localStorage میں محفوظ رہتے ہیں۔',en:'<b>📋 Clipboards (1–4)</b> — your repertorisation working lists: add/remove via the <b>⋮</b> menu on any rubric card, click a dock number to view the list. They persist in localStorage.',roman:'Clipboards 1-4 — ⋮ menu se add/remove, dock number par click se list; localStorage mein mehfooz.'})+repAskActs([{fn:'repOpenWorkbench()',lab:'⚙ '+repLangText({ur:'ورک بینچ کھولیں',en:'Open Workbench',roman:'Workbench kholen'})}]));
     }
     if(/(گریڈ|grade|gradation|درجہ)/.test(lq)){
         return B(repLangText({ur:'<b>گریڈ (GRADATION)</b> — ریپرٹری میں ادویہ کی طاقت: <span class="rep-gr-dot d3"></span> 3 = مضبوط (سب سے پہلے غور), <span class="rep-gr-dot d2"></span> 2 = درمیانہ, <span class="rep-gr-dot d1"></span> 1 = معمولی۔ تجزیہ گرڈ میں ڈاٹ کا رنگ اسی سے بنتا ہے۔',en:'<b>GRADATION</b> — remedy strength in the repertory: <span class="rep-gr-dot d3"></span> 3 = strong (consider first), <span class="rep-gr-dot d2"></span> 2 = medium, <span class="rep-gr-dot d1"></span> 1 = light. The analysis grid dot colours follow this.',roman:'Grade — adwiyeh ki taaqat: 3 mazboot, 2 darmiyana, 1 mamooli.'}));
     }
     if(/(سرچ|search|تلاش|dhundh|find)/.test(lq)){
-        return B(repLangText({ur:'<b>🔍 سرچ ٹپس</b> — پہلا ڈراپ ڈاؤن <b>سکوپ</b> چنیں: <b>سرچ ان اوپن چیپٹر</b> (صرف کھلا باب)، <b>سرچ ان اوپن ریپرٹری</b> (پوری کتاب)، <b>سرچ ان آل ریپرٹریز</b> (چاروں کتابیں)۔ دوسرا ڈراپ ڈاؤن <b>ٹائپ</b> چنیں: <b>ربرک / سب ربرک</b> (عام)، <b>ادویہ</b> (مثلاً nux vom)، <b>ربرک + ادویہ</b> (دونوں)، <b>کلینیکل حالت</b> (مثلاً headache یا اردو میں «بخار» — لغت خود ہم معنی ڈھونڈتی ہے)۔ <code>@mind</code> لگائیں تو صرف اسی باب میں۔',en:'<b>🔍 Search tips</b> — first dropdown picks the SCOPE: <b>Search in Open Chapter</b> (open chapter only), <b>Search in Open Repertory</b> (whole book), <b>Search in All Repertories</b> (all four books). Second dropdown picks the TYPE: <b>Rubric / Subrubric</b> (normal), <b>Remedy</b> (e.g. nux vom), <b>Rubric + Remedy</b> (both), <b>Clinical Condition</b> (e.g. headache or Urdu «بخار» — the glossary finds synonyms for you). Add <code>@mind</code> to restrict to one chapter.',roman:'Search tips — scope dropdown: Open Chapter / Open Repertory / All Repertories; type dropdown: Rubric/Subrubric, Remedy, Rubric+Remedy, Clinical Condition; @chapter filter.'}));
+        return B(repLangText({ur:'<b>🔍 سرچ ٹپس</b> — سکوپ ڈراپ ڈاؤن سے چنیں: پوری کتاب / کھلا باب / سب کتابیں۔ <code>@mind</code> لگائیں تو صرف اسی باب میں۔ سائیڈبار کا «Search across all books» ہمیشہ چاروں ریپرٹریز میں ڈھونڈتا ہے۔',en:'<b>🔍 Search tips</b> — pick a scope from the dropdown: this repertory / open chapter / all repertories. Add <code>@mind</code> to restrict to one chapter. The sidebar «Search across all books» always searches all four.',roman:'Search tips — scope dropdown se chunein; @chapter filter; sidebar all-books search.'}));
     }
     if(/(معنی|matlab|مطلب|meaning|مریض کا ورژن)/.test(lq)){
         return B(repLangText({ur:'<b>📖 ربرک کا مطلب</b> — ربرک کھولیں (کارڈ یا ڈیٹیل پیج) اور عنوان کے بعد <b>&lt;</b> آئکن دبائیں: مطلب (لغت سے)، مریض کا ورژن، صحیح استعمال اور کراس ریفرنس ایکسپینڈ ہو کر آئیں گے۔',en:'<b>📖 Rubric meaning</b> — open a rubric (card or detail page) and press the <b>&lt;</b> icon after the title: meaning (from the glossary), patient version, when to use and cross-references expand.',roman:'Rubric kholen aur < icon dabaein — matlab, mareez ka version, istemal, xref.'}));
@@ -2738,9 +2342,27 @@ function repAskAnswer(q){
     B(repLangText({ur:'میں ربرکس تلاش کرنے اور کلپ بورڈز، ورک بینچ، تجزیہ گرڈ، Compare، گریڈ و سرچ سمجھانے میں مدد کر سکتا ہوں — علامت لکھ کر دیکھیں!',en:'I can find rubrics and explain clipboards, workbench, the analysis grid, Compare, grades and search — try typing a symptom!',roman:'Main rubrics talash aur features samjha sakta hoon — alaamat likhein!'}));
 }
 
-// ==================== SIDEBAR TOOLS (N selected / Clear / Analyze) ====================
+// ==================== SIDEBAR TOOLS (N selected / Clear / Analyze / all-books search) ====================
 function repUpdateSelCount(){
     var el=document.getElementById('repSelCount'); if(!el)return;
-    var n=0; for(var i=0;i<REP_N_CLIPS;i++) n+=(repClipboards[i]||[]).length;
+    var n=0; for(var i=0;i<4;i++) n+=(repClipboards[i]||[]).length;
     el.textContent=repLangText({ur:n+' منتخب',en:n+' selected',roman:n+' selected'});
+}
+var _repAbsDeb=null;
+function repAllBooksSearchDeb(){
+    if(_repAbsDeb)clearTimeout(_repAbsDeb);
+    _repAbsDeb=setTimeout(function(){
+        var inp=document.getElementById('repAllBooksSearch');
+        if(inp&&inp.value.trim().length>=2) repAllBooksSearchGo();
+    },550);
+}
+function repAllBooksSearchGo(){
+    var inp=document.getElementById('repAllBooksSearch'); if(!inp)return;
+    var q=inp.value.trim();
+    if(q.length<2){ showToast(repLangText({ur:'کم از کم 2 حرف لکھیں',en:'Type at least 2 characters',roman:'Kam az kam 2 harf likhein'})); return; }
+    var sel=document.getElementById('repScopeSelect'); if(sel)sel.value='all';
+    repSearchMode='all'; _repSearchSeq++; _repSearchCache=''; _repSearchResults=null;
+    var main=document.getElementById('repBrowserSearch'); if(main)main.value=q;
+    updateRepSearchModeUI();
+    searchRepertoryBrowser();
 }
