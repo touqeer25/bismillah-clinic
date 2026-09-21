@@ -116,9 +116,7 @@ def test_main_rubric_rule_v49():
         assert picks, f"خالی: {sym}"
         top = picks[0]
         assert top["chapter"] == "abdomen", f"{sym}: باب {top['chapter']}"
-        # v53: homeoint arrangement میں سادہ 'PAIN, burning' ربرک کی جگہ
-        # مکمل لیبل والی ربرک اوّل آتی ہے — باب + PAIN, burning سیریز کافی
-        assert top["text"].startswith("PAIN, burning"), f"{sym}: {top['text']}"
+        assert top["text"] == "PAIN, burning", f"{sym}: {top['text']}"
 
 
 def test_roman_stooping_coffee_v49():
@@ -334,7 +332,7 @@ def test_urdu_script_engine_path_v50():
     kent = get_index()
     picks = map_symptom_deep("پیٹ میں جلن", index=kent, top_k=3, use_llm=False)
     assert picks and picks[0]["chapter"] == "abdomen"
-    assert picks[0]["text"].startswith("PAIN, burning")
+    assert picks[0]["text"] == "PAIN, burning"
     picks2 = map_symptom_deep("نیند نہیں آتی", index=kent, top_k=3, use_llm=False)
     assert picks2 and picks2[0]["text"].startswith("SLEEPLESSNESS")
     picks3 = map_symptom_deep("پیٹھ میں جکڑن صبح", index=kent, top_k=3, use_llm=False)
@@ -384,22 +382,24 @@ def test_mixed_urdu_english_case_v50():
     )
     ur_rubrics = [r for r in res["rubrics_used"] if "پیٹ" in r["symptom"]]
     assert ur_rubrics, "اردو علامت کی ربرکس پائپ لائن سے گم ہو گئیں"
-    # v53: homeoint لیبل 'PAIN, burning, morning' — کیس-انسیںسیٹ موازنہ
-    assert any(r["rubric"].upper().startswith("PAIN, BURNING, MORNING") for r in ur_rubrics)
+    assert any("PAIN, burning, morning" == r["rubric"] for r in ur_rubrics)
 
 
 # ==================== نسخہ 5.1 — پرانے رویوں کی مرمت + مرحلہ 4 ====================
 
 def test_family_fallback_knee_stitching_v51():
-    """«right knee stitching» — v53: homeoint کی symptom-پہلے ساخت میں
-    'PAIN, Knee, right' جیسی مخصوص ربرک براہِ راست ملتی ہے
-    (پرانا فال بیک 'PAIN, knee' خاندان پر ابھی بھی بیک اپ کے طور پر موجود)"""
-    from homeo_core.engine.rubric_mapper import map_symptom_deep
+    """«right knee stitching» — v51: خاندان ربرک PAIN, knee دکھائی جاتی تھی
+    (پرانے ڈیٹا میں مخصوص ربرک موجود نہیں تھی)۔ v52 (homeoint عین مطابق ڈیٹا):
+    مخصوص ربرک «PAIN, Knee, right» اب کتاب میں موجود ہے — وہی اوّل ملتی ہے؛
+    خاندان-جھنڈا راستہ یونٹ سطح پر بھی جانچا گیا۔"""
+    from homeo_core.engine.rubric_mapper import map_symptom_deep, _family_fallback_rubrics, get_index
     for sym in ("right knee stitching", "دائیں گھٹنے میں چبھن"):
         res = map_symptom_deep(sym, use_llm=False, top_k=3)
-        assert res, f"{sym} → خالی (پرانا رویہ)"
-        assert res[0]["text"].upper().startswith("PAIN, KNEE"), res[0]["text"]
-        assert res[0]["chapter"] == "extremities"
+        assert res, f"{sym} → خالی"
+        assert res[0]["text"].startswith("PAIN, Knee"), res[0]["text"]
+    fam = _family_fallback_rubrics("right knee whirling", get_index(),
+                                   "extremities", {"right", "knee", "whirling"})
+    assert fam and fam[0]["text"] == "PAIN, Knee"
 
 
 def test_case_region_limb_organs_v51():
@@ -409,8 +409,7 @@ def test_case_region_limb_organs_v51():
     assert "extremities" in _REGION_CHAPTERS
     res = _m_knee = __import__("homeo_core.engine.rubric_mapper", fromlist=["x"]).map_symptom_deep(
         "knee pain", use_llm=False, top_k=2)
-    # v53: homeoint لیبل 'PAIN, Knee' (بڑے حروف کی اصل ٹائپوگرافی)
-    assert res[0]["text"].upper() == "PAIN, KNEE"
+    assert res[0]["text"] == "PAIN, Knee"
     assert res[0].get("main_rule") is True
 
 
@@ -449,14 +448,13 @@ def test_chilliness_phrase_v51():
 
 
 def test_rubric_overrides_v51():
-    """(تجویز د) — ڈاکٹر کا چنا ربرک استعمال ہو (انڈیکس تلاش سمیت)
-    v53: homeoint لیبل 'PAIN, Knee, motion, amel.'"""
+    """(تجویز د) — ڈاکٹر کا چنا ربرک استعمال ہو (انڈیکس تلاش سمیت)"""
     from homeo_core.engine.repertorizer import repertorize_multi
     ov = {"دائیں گھٹنے میں چبھن": "PAIN, Knee, motion, amel."}
     res = repertorize_multi(["دائیں گھٹنے میں چبھن"], source_names=["kent"],
                             use_llm=False, rubric_overrides=ov)
     knee = [r for r in res["rubrics_used"] if "گھٹنے" in r["symptom"]]
-    assert knee and knee[0]["rubric"].upper() == "PAIN, KNEE, MOTION, AMEL."
+    assert knee and knee[0]["rubric"] == "PAIN, Knee, motion, amel."
 
 
 def test_sibling_alerts_remedy_counts_v51():
@@ -471,19 +469,20 @@ def test_sibling_alerts_remedy_counts_v51():
 
 
 def test_family_flag_in_rubrics_used_v51():
-    """خاندان جھنڈا rubrics_used تک پہنچے (UI نمائش کے لیے)
-    v53: homeoint ساخت میں 'PAIN, Knee, right' جیسی مخصوص ربرک ملتی ہے —
-    خاندان جھنڈا صرف خاندان-سربراہ میچ پر ہوتا ہے، اس لیے اب ادویات
-    کی موجودگی اور extremities باب چیک کریں"""
+    """خاندان جھنڈا — v52: نئے (homeoint عین مطابق) ڈیٹا میں مخصوص ربرکیں
+    موجود ہیں تو عام راستہ ہی کافی ہے؛ جھنڈا یونٹ سطح پر جانچا گیا —
+    خاندان ربرک 'PAIN, Knee' (162+ ادویات) _recover_rubrics سے جھنڈے کے ساتھ آتی ہے"""
     from homeo_core.engine.repertorizer import repertorize_multi
+    from homeo_core.engine.rubric_mapper import _recover_rubrics, get_index
     res = repertorize_multi(["right knee stitching"], source_names=["kent"], use_llm=False)
     knee = [r for r in res["rubrics_used"] if "knee" in r["symptom"].lower()]
-    assert knee and knee[0]["chapter"] == "extremities"
-    assert knee[0].get("n_remedies", 0) >= 0
-    # خاندان سربراہ 'PAIN, Knee' براہِ راست میچ ہو — مکمل ادویات (162) کے ساتھ
-    res2 = repertorize_multi(["knee pain"], source_names=["kent"], use_llm=False)
-    k2 = [r for r in res2["rubrics_used"] if r["rubric"].upper() == "PAIN, KNEE"]
-    assert k2 and k2[0].get("n_remedies", 0) > 100
+    assert knee and knee[0]["rubric"].startswith("PAIN, Knee")
+    rec = _recover_rubrics("right knee whirling", get_index(), top_k=3,
+                           case_region="extremities")
+    fam = [c for c in rec if c.get("family")]
+    assert fam and fam[0].get("text") == "PAIN, Knee"
+    rec_full = get_index().load_rubric(str(fam[0]["rubric_id"])) or {}
+    assert len(rec_full.get("r") or {}) > 100
 
 
 def test_rubric_notes_module_v51():
