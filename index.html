@@ -21,7 +21,7 @@
     <script src="advanced-diagnosis-knowledge.js?v=33"></script>
     <script src="advanced-diagnosis-engine.js?v=33"></script>
     <!-- Style alag file me: css/style.css -->
-    <link rel="stylesheet" href="css/style.css?v=37">
+    <link rel="stylesheet" href="css/style.css?v=50">
 
 </head>
 <body dir="rtl" class="lang-ur">
@@ -871,33 +871,41 @@
             <!-- Toolbar: book select + search scope + search box -->
             <div class="rep-toolbar">
                 <select id="repBookSelect" onchange="switchRepertoryBook()" class="rep-toolbar-select rep-book-select">
-                    <option value="publicum">📗 Repertorium Publicum (Polony)</option>
+                    <!-- 🔑 v45: کینٹ ٹاپ پر + ڈیفالٹ کتاب (صارف درخواست) -->
                     <option value="kent">📘 Kent Repertory (English)</option>
+                    <option value="publicum">📗 Repertorium Publicum (Polony)</option>
                     <option value="kent_de">📕 Kent Repertory (German)</option>
                     <option value="synthesis91">📙 Syn 9.1 (Supplement)</option>
                 </select>
+                <!-- 🔑 v40 RESTORED: search SCOPE dropdown (Search in Open Chapter / Open Repertory / All Repertories) -->
                 <select id="repScopeSelect" onchange="setRepSearchScope(this.value)" class="rep-toolbar-select rep-scope-select" title="Search scope">
-                    <option value="book">📚 <span data-ur="پوری کتاب" data-en="This Repertory">پوری کتاب</span></option>
-                    <option value="chapter">📖 <span data-ur="کھلا باب" data-en="Open Chapter">کھلا باب</span></option>
-                    <option value="all">🌐 <span data-ur="سب کتابیں" data-en="All Repertories">سب کتابیں</span></option>
+                    <option value="chapter">📖 <span data-ur="سرچ ان اوپن چیپٹر" data-en="Search in Open Chapter" data-roman="Search in Open Chapter">سرچ ان اوپن چیپٹر</span></option>
+                    <option value="book">📚 <span data-ur="سرچ ان اوپن ریپرٹری" data-en="Search in Open Repertory" data-roman="Search in Open Repertory">سرچ ان اوپن ریپرٹری</span></option>
+                    <option value="all">🌐 <span data-ur="سرچ ان آل ریپرٹریز" data-en="Search in All Repertories" data-roman="Search in All Repertories">سرچ ان آل ریپرٹریز</span></option>
+                </select>
+                <!-- 🔑 search TYPE dropdown (HomeoSetu style): rubric / remedy / both / clinical -->
+                <select id="repTypeSelect" onchange="setRepSearchType(this.value)" class="rep-toolbar-select rep-type-select" title="Search type (HomeoSetu style)">
+                    <option value="rubric">🔤 <span data-ur="ربرک / سب ربرک" data-en="Rubric / Subrubric" data-roman="Rubric / Subrubric">ربرک / سب ربرک</span></option>
+                    <option value="remedy">💊 <span data-ur="ادویہ" data-en="Remedy" data-roman="Remedy">ادویہ</span></option>
+                    <option value="rubric_remedy">🔤💊 <span data-ur="ربرک + ادویہ" data-en="Rubric + Remedy" data-roman="Rubric + Remedy">ربرک + ادویہ</span></option>
+                    <option value="clinical">🏥 <span data-ur="کلینیکل حالت" data-en="Clinical Condition" data-roman="Clinical Condition">کلینیکل حالت</span></option>
                 </select>
                 <div class="rep-search-wrap">
                     <span class="rep-search-ico">🔍</span>
-                    <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="🔍 Search this whole repertory... (e.g. pain, forehead)">
+                    <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="ربرک / سب ربرک تلاش کریں... (مثلاً fear، headache)">
                 </div>
                 <button class="rep-cmp-btn" onclick="repOpenCompare()" title="Compare clipboards side by side">⇄ <span data-ur="موازنہ" data-en="Compare" data-roman="Compare">Compare</span></button>
             </div>
             <!-- Layout: chapters sidebar + main column -->
             <div class="rep-layout">
                 <div class="rep-side-col">
-                    <!-- sidebar top tools (HomeoSetu-style: N selected / Clear / Analyze + all-books search) -->
+                    <!-- sidebar top tools (HomeoSetu-style: N selected / Clear / Analyze) -->
                     <div class="rep-side-tools">
                         <div class="rst-row">
                             <span class="rst-count" id="repSelCount">0 selected</span>
                             <button class="rc-btn" onclick="repClipTrash()" title="Clear the ACTIVE clipboard">Clear</button>
                             <button class="rc-btn primary" onclick="repOpenAnalysis()" title="Analyze the ACTIVE clipboard (Case Analysis Grid)">Analyze</button>
                         </div>
-                        <input type="text" class="rst-search" id="repAllBooksSearch" placeholder="🔍 Search across all books..." oninput="repAllBooksSearchDeb()" onkeydown="if(event.key==='Enter')repAllBooksSearchGo()">
                     </div>
                     <aside class="rep-sidebar" id="repChapterList">
                         <div class="empty-state"><p>Loading...</p></div>
@@ -1528,7 +1536,7 @@
 <script src="js/05-app-diagnosis.js?v=33"></script>
 <script src="js/06-app-new-visit.js?v=33"></script>
 <script src="js/07-app-settings.js?v=33"></script>
-<script src="js/08-app-repertory.js?v=38"></script>
+<script src="js/08-app-repertory.js?v=50"></script>
 <script src="js/10-treatment-data.js?v=33"></script>
 <script src="js/12-treatment-more.js?v=33"></script>
 <script src="js/11-app-studio.js?v=41"></script>
