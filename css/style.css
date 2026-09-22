@@ -1214,3 +1214,13 @@ body[dir="rtl"] .rep-ana-table .ana-rub{text-align:right}
     .rep-cmp-btn span{display:none}
     .rep-main-inner{padding-bottom:96px}
 }
+
+/* ===== 🔑 Homeosetu سے درآمد شدہ ربرک نوٹس (meaning / patient version / when to use / clinical) ===== */
+.rpd-note{margin:4px 0 6px 0;background:#fff;border:1px solid #d6eaf8;border-left:4px solid #2e86c1;border-radius:8px;padding:7px 10px;font-size:12.5px;line-height:1.75;color:#1b2631;text-align:left}
+.rpd-sec.patient .rpd-note{border-color:#e8daef;border-left-color:#8e44ad}
+.rpd-sec.when .rpd-note{border-color:#d5f5e3;border-left-color:#27ae60}
+.rpd-src{display:inline-block;background:#2e86c1;color:#fff;font-size:9px;font-weight:bold;border-radius:5px;padding:1px 6px;margin:0 6px 0 0;vertical-align:middle;letter-spacing:0.3px}
+.rpd-srcline{font-size:10.5px;color:#7f8c8d;margin-top:5px}
+.rpd-sec.clinical{border-color:#c0392b;background:#fdf5f4}
+.rpd-sec.clinical .rpd-lab{color:#a93226}
+.rpd-tok.rpd-cc{background:#fff;border:1px solid #f1948a;color:#922b21}
