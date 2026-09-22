@@ -491,7 +491,7 @@ function renderFolderView(){
       +'<div class="rep-content-title"><span class="rep-content-folder">📁</span>'
       +'<b>'+escapeHtml(String(nm).toUpperCase())+'</b>'
       +'<span>('+String(node.order.length).toLocaleString()+')</span>'
-      +(repFolderPath.length?'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&#9662;</button>':'')
+      +(repFolderPath.length?'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&#9656;</button>':'')
       +'</div>'
       +'<input type="text" class="rep-folder-filter" id="repFolderFilterInput" value="'+escapeHtml(repFolderFilter)+'" oninput="repOnFolderFilter(this.value)" placeholder="'+escapeHtml(repLangText({ur:'اس فولڈر میں فلٹر کریں...',en:'Filter in current folder...',roman:'Is folder mein filter karein...'}))+'">'
       +'</div>';
@@ -1113,8 +1113,10 @@ function repDetailParentFull(){
 }
 function repToggleDetailInfo(){
     var el=document.getElementById('repDetailInfo'),ch=document.getElementById('repDetailChev');
-    if(el)el.classList.toggle('open');
-    if(ch)ch.classList.toggle('open');
+    var open=false;
+    if(el){ el.classList.toggle('open'); open=el.classList.contains('open'); }
+    // 🔑 v54.3 (صارف): بٹن گھومتا نہیں — علامت بدلتی ہے: بند = ▸ (تفصیل کھولیں)، کھلا = ▾ (تفصیل نیچے کھلی ہے)
+    if(ch){ ch.classList.toggle('open',open); ch.innerHTML=open?'&#9662;':'&#9656;'; }
 }
 // 🔑 glossary-backed meaning tokens (grammar phrases first, then words)
 function repMeaningTokens(text){
@@ -1281,49 +1283,35 @@ function repDetailInfoHtml(o){
     var kidsCount=o.kidsCount||0;
     var abbrs=o.abbrs||[];
     var g3=o.g3||[];
-    var toks=repMeaningTokens(full);
-    var sense=repSenseNoteFor(toks);
-    var chUr=REP_CHAPTER_UR[String(repCurrentChapter).toLowerCase()]||'';
     var note=repNoteFor(full,o.rid)||{};   // 🔑 Homeosetu سے درآمد شدہ نوٹس (اگر اس ربرک کے لیے موجود ہوں)
     var srcTag='<span class="rpd-src">📘 Homeosetu</span>';
     var h='<div class="rpd-info" id="repDetailInfo">';
-    // 1) MEANING
-    h+='<div class="rpd-sec meaning"><span class="rpd-lab">📖 '+repLangText({ur:'مطلب (MEANING)',en:'MEANING',roman:'MATLAB (MEANING)'})+'</span>';
-    if(note.m) h+='<div class="rpd-note" dir="ltr">'+srcTag+escapeHtml(note.m)+'</div>';
-    if(toks.length){
-        h+='<div class="rpd-tokchips">';
-        toks.forEach(function(t){ h+='<span class="rpd-tok"><b dir="ltr">'+escapeHtml(t.t)+'</b> = '+escapeHtml(t.ur)+'</span>'; });
+    // 🔑 v54.3 (صارف): ایپ کے اپنے بنائے ہوئے مطلب (لغت کے ٹوکن)، مریض کا ورژن (خودکار جملہ) اور
+    // «کب استعمال» کا عمومی متن ختم — اب یہ تینوں سیکشن صرف Homeosetu کے اصل نوٹس کے ساتھ دکھتے ہیں
+    // (جس ربرک کا نوٹ نہ ہو، اس پر سیکشن ہی نہیں بنتا)۔ کراس ریفرنس اور کلینیکل سیکشن پہلے کی طرح ہیں۔
+    // 1) MEANING (Homeosetu)
+    if(note.m){
+        h+='<div class="rpd-sec meaning"><span class="rpd-lab">📖 '+repLangText({ur:'مطلب (MEANING)',en:'MEANING',roman:'MATLAB (MEANING)'})+'</span>';
+        h+='<div class="rpd-note" dir="ltr">'+srcTag+escapeHtml(note.m)+'</div>';
         h+='</div>';
-    } else {
-        h+='<div style="color:#8aa0b2;font-style:italic;">'+repLangText({ur:'اس ربرک کے الفاظ کا اردو ترجمہ لغت میں دستیاب نہیں',en:'No Urdu translation available for these words',roman:'In alfaaz ka Urdu tarjuma lughat mein dastiyab nahi'})+'</div>';
     }
-    if(sense) h+='<div class="rpd-sense">💡 '+escapeHtml(sense)+'</div>';
-    h+='</div>';
-    // 2) PATIENT VERSION
-    h+='<div class="rpd-sec patient"><span class="rpd-lab">🧑\u200d⚕ '+repLangText({ur:'مریض کا ورژن (PATIENT VERSION)',en:'PATIENT VERSION',roman:'MAREEZ KA VERSION'})+'</span>';
-    if(note.pv) h+='<div class="rpd-note" dir="ltr">'+srcTag+escapeHtml(note.pv)+'</div>';
-    if(note.pv2) h+='<div class="rpd-note" dir="ltr">'+srcTag+escapeHtml(note.pv2)+'</div>';
-    if(toks.length){
-        var urs=toks.map(function(t){ return t.ur; });
-        var label=full.replace(/\((?:see|cmp|comp|cf)\.?[^)]*\)/gi,'').trim();
-        h+='<div>مریض عام زبان میں اپنی شکایت یوں بیان کرے گا: <b>«'+escapeHtml(urs.join(' ، '))+'»</b></div>';
-        if(label) h+='<div style="font-size:11.5px;color:#7d6608;margin-top:2px;">('+repLangText({ur:'ڈاکٹری اصطلاح',en:'medical term',roman:'daktari istilah'})+': <span dir="ltr">'+escapeHtml(label)+'</span> = '+escapeHtml(urs.slice(0,4).join(' ، '))+')</div>';
-    } else {
-        h+='<div>'+repLangText({ur:'مریض اپنی شکایت اپنے الفاظ میں بیان کرے گا — ربرک کا متن مریض کے الفاظ سے ملا کر دیکھا جائے۔',en:'The patient describes the complaint in their own words — match them with this rubric text.',roman:'Mareez apni shikayat apne alfaaz mein bayan karega — rubric ke mutabiq dekha jaye.'})+'</div>';
+    // 2) PATIENT VERSION (Homeosetu)
+    if(note.pv||note.pv2){
+        h+='<div class="rpd-sec patient"><span class="rpd-lab">🧑\u200d⚕ '+repLangText({ur:'مریض کا ورژن (PATIENT VERSION)',en:'PATIENT VERSION',roman:'MAREEZ KA VERSION'})+'</span>';
+        if(note.pv) h+='<div class="rpd-note" dir="ltr">'+srcTag+escapeHtml(note.pv)+'</div>';
+        if(note.pv2) h+='<div class="rpd-note" dir="ltr">'+srcTag+escapeHtml(note.pv2)+'</div>';
+        h+='</div>';
     }
-    h+='</div>';
-    // 3) WHEN TO USE
-    h+='<div class="rpd-sec when"><span class="rpd-lab">✅ '+repLangText({ur:'صحیح استعمال کہاں (WHEN TO USE)',en:'WHEN TO USE',roman:'SAHIH ISTEMAL KAHAN'})+'</span>';
-    if(note.wu) h+='<div class="rpd-note" dir="ltr">'+srcTag+escapeHtml(note.wu)+'</div>';
-    h+='<div>'+(chUr?('یہ ربرک «<b>'+escapeHtml(chUr)+'</b>» باب میں آتی ہے۔ '):'');
+    // 3) WHEN TO USE (Homeosetu)
+    if(note.wu){
+        h+='<div class="rpd-sec when"><span class="rpd-lab">✅ '+repLangText({ur:'صحیح استعمال کہاں (WHEN TO USE)',en:'WHEN TO USE',roman:'SAHIH ISTEMAL KAHAN'})+'</span>';
+        h+='<div class="rpd-note" dir="ltr">'+srcTag+escapeHtml(note.wu)+'</div>';
+        h+='</div>';
+    }
+    // 3a) صرفِ اشارہ ربرک (اپنی ادویہ نہیں) — چھوٹی تنبیہ برقرار، کیونکہ یہ ڈیٹا کی وضاحت ہے نہ کہ «مطلب»
     if(pureXref){
-        h+='<span class="rpd-warn">⚠ '+repLangText({ur:'یہ صرفِ اشارہ ربرک ہے — خود کوئی ادویہ نہیں رکھتی۔ اصل ربرک «',en:'This is a cross-reference only — no remedies of its own. Open the real rubric «',roman:'Ye sirf ishara rubric hai — asal rubric «'})+'<b dir="ltr">'+escapeHtml(seeT[0]||'')+'</b>» '+repLangText({ur:'کھول کر استعمال کریں۔',en:'instead.',roman:'khol kar istemal karein.'})+'</span>';
-    } else {
-        if(kidsCount) h+=repLangText({ur:'اس کے نیچے ',en:'It has ',roman:'Is ke neeche '})+'<b>'+kidsCount+'</b> '+repLangText({ur:'ذیلی ربرکس ہیں (وقت، جگہ، حالت کے مطابق) — اگر مریض کی تفصیل معلوم ہو تو ذیلی ربرک زیادہ درست انتخاب ہے۔ ',en:'sub-rubrics (time, place, condition) — if details are known, a sub-rubric is more accurate. ',roman:'zeli rubrics hain — tafseel maloom ho to zeli rubric behtar hai.'});
-        if(abbrs.length) h+=repLangText({ur:'اس ربرک پر ',en:'',roman:'Is rubric par '})+'<b>'+abbrs.length+'</b> '+repLangText({ur:'ادویات درج ہیں، جن میں ',en:' remedies are listed, including ',roman:'adwiyat darj hain, jin mein '})+'<b>'+g3.length+'</b> '+repLangText({ur:'مضبوط درجے (گریڈ 3) کی ہیں — ریپرٹورائزیشن میں پہلے انہی پر غور کریں۔ ',en:' strong grade-3 remedies — consider those first in repertorisation. ',roman:'grade-3 mazboot hain — pehle inhi par ghour karein.'});
-        h+=repLangText({ur:'کیس ٹیکنگ میں مریض کے اپنے الفاظ اسی ربرک سے ملتے ہوں تو یہی ربرک منتخب کریں۔',en:'Pick this rubric when the patient\'s own words match it during case-taking.',roman:'Case-taking mein mareez ke alfaaz is rubric se milte hon to yehi muntakhib karein.'});
+        h+='<div class="rpd-sec when"><span class="rpd-warn">⚠ '+repLangText({ur:'یہ صرفِ اشارہ ربرک ہے — خود کوئی ادویہ نہیں رکھتی۔ اصل ربرک «',en:'This is a cross-reference only — no remedies of its own. Open the real rubric «',roman:'Ye sirf ishara rubric hai — asal rubric «'})+'<b dir="ltr">'+escapeHtml(seeT[0]||'')+'</b>» '+repLangText({ur:'کھول کر استعمال کریں۔',en:'» instead.',roman:'» khol kar istemal karein.'})+'</span></div>';
     }
-    h+='</div></div>';
     // 3.5) 🔑 v45: ربرک کی اپنی ادویات (صرف فولڈر ویو کا ایکسپینڈ ایبل پینل — showRems فلیگ سے)
     if(o.showRems && abbrs.length){
         var rmObj=o.remsObj||{};
@@ -1386,7 +1374,7 @@ function renderRubricDetail(){
     // ---- title row: rubric text + < expander AFTER text + copy
     h+='<div class="rpd-titlerow">'
       +'<div class="rpd-title" dir="ltr">'+escapeHtml(full||'—')+'</div>'
-      +'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&#9662;</button>'
+      +'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&#9656;</button>'
       +repDetailCmpBtnHtml()
       +'</div>';
     h+='<div class="rpd-meta">'+repBookBadgeHtml(repCurrentBook)+'<span>'+escapeHtml(bi.name)+'</span>'

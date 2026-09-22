@@ -991,13 +991,15 @@ body[dir="rtl"] #repRemedyPanel.open{transform:translateX(0)}
 .rep-kebab-menu button.kb-in:hover{background:#e6f7ef;color:#166a37}
 /* ---- rubric detail page ---- */
 .rpd-titlerow{display:flex;align-items:flex-start;gap:8px;margin-bottom:4px}
-.rpd-chev{flex:0 0 auto;width:30px;height:30px;border-radius:8px;border:1px solid #dfe6ee;background:white;color:#2980b9;font-size:13px;font-weight:bold;cursor:pointer;line-height:1;transition:transform 0.18s ease,background 0.13s,color 0.13s;margin-top:2px}
+.rpd-chev{flex:0 0 auto;width:30px;height:30px;border-radius:8px;border:1px solid #dfe6ee;background:white;color:#2980b9;font-size:14px;font-weight:bold;cursor:pointer;line-height:1;display:inline-flex;align-items:center;justify-content:center;padding:0;transition:background 0.13s,color 0.13s;margin-top:2px}
 .rpd-chev:hover{background:#e8f1fb;border-color:#2980b9}
 /* 🔑 v39: ▾ بند = نیچے اشارہ (expand)؛ کھلا = rotate(180) → ▴ اوپر (collapse)۔
    نوٹ: ❯/❮ glyphs RTL میں bidi-mirror ہو جاتے ہیں اس لیے ▾ (غیر-mirrored) استعمال ہوا۔ */
-.rpd-chev.open{transform:rotate(180deg);background:#2980b9;color:white;border-color:#2980b9}
+/* 🔑 v54.3 (صارف): گھماؤ ختم — علامت JS سے بدلتی ہے (بند ▸ / کھلا ▾)، بٹن اپنی جگہ ساکن */
+.rpd-chev.open{transform:none;background:#2980b9;color:white;border-color:#2980b9}
 /* 🔑 v39: 📋 بٹن کی الائنمنٹ — چیورن کے ساتھ ہم قالب + عمودی مرکز */
-.rpd-titlerow .rc-btn{flex:0 0 auto;width:30px;height:30px;padding:0;margin-top:2px;font-size:14px;line-height:1;text-align:center}
+/* 🔑 v54.3 (صارف): «+ موازنہ» بٹن — پہلے 30px مربع (📋 آئیکن) تھا اور متن باہر بہہ کر دوسرا بٹن لگتا تھا؛ اب pill + چیورن سے فاصلہ */
+.rpd-titlerow .rc-btn{flex:0 0 auto;width:auto;height:30px;padding:0 12px;margin:2px 0 0 8px;font-size:12.5px;font-weight:700;line-height:1;white-space:nowrap;display:inline-flex;align-items:center;gap:4px;border-radius:8px}
 .rc-btn.danger.armed{background:#fdecea;border-color:#e74c3c;color:#a93226}
 .rep-content-title .rpd-chev{margin-top:0;flex:0 0 auto}
 .rpd-title{flex:0 1 auto;min-width:0;font-size:16.5px;font-weight:bold;color:#1a5276;font-family:'Segoe UI',sans-serif;direction:ltr;text-align:left;line-height:1.5;word-wrap:break-word}
