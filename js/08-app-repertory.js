@@ -141,7 +141,7 @@ function selectChapter(chKey, navRid){
     cd.innerHTML='<div style="text-align:center;padding:30px;">Loading <b>'+nm+'</b>...</div>';
     if(repTreeCache[chKey]){renderTree(chKey,nm,repTreeCache[chKey]);return;}
     var basePath=repCurrentBook==='kent'?'kent_chapters/':(repCurrentBook==='kent_de'?'kent_de_chapters/':(repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/'));
-    fetch(basePath+chKey+'.json?v=12').then(function(r){return r.json();}).then(function(d){
+    fetch(basePath+chKey+'.json?v=13').then(function(r){return r.json();}).then(function(d){
         var tree=buildRubricTree(d);repTreeCache[chKey]=tree;renderTree(chKey,nm,tree);
     }).catch(function(e){
         // 🔑 fallback: chapter FILE missing (e.g. kent_de) -> extract chapter from book's full data file
@@ -1007,7 +1007,7 @@ function loadSingleBookData(bookKey, cb){
     if(_allBooksData && _allBooksData[bookKey]){ cb(_allBooksData[bookKey]); return; }
     var info = REP_BOOK_INFO[bookKey];
     if(!info){ cb(null); return; }
-    fetch(info.dataFile + '?v=12').then(function(r){return r.json();}).then(function(d){
+    fetch(info.dataFile + '?v=13').then(function(r){return r.json();}).then(function(d){
         if(!_allBooksData) _allBooksData = {};
         _allBooksData[bookKey] = d;
         if(bookKey===repCurrentBook) _repFullData = d;
@@ -1900,7 +1900,7 @@ function searchRepertoryBrowser(){
 function loadRepData(cb){
     if(_repFullData!==null){ cb(_repFullData); return; }
     var info = REP_BOOK_INFO[repCurrentBook];
-    fetch(info.dataFile + '?v=12').then(function(r){return r.json();}).then(function(d){
+    fetch(info.dataFile + '?v=13').then(function(r){return r.json();}).then(function(d){
         _repFullData=d; cb(d);
     }).catch(function(e){ console.error(e); });
 }
@@ -1919,7 +1919,7 @@ function loadAllBooksData(cb){
     books.forEach(function(bk){
         var info = REP_BOOK_INFO[bk];
         if(needData){
-            fetch(info.dataFile + '?v=12').then(function(r){return r.json();}).then(function(d){
+            fetch(info.dataFile + '?v=13').then(function(r){return r.json();}).then(function(d){
                 dataResult[bk]=d; pending--; done();
             }).catch(function(e){ console.error('data load fail',bk,e); pending--; done(); });
         }
