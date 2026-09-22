@@ -21,7 +21,7 @@
     <script src="advanced-diagnosis-knowledge.js?v=33"></script>
     <script src="advanced-diagnosis-engine.js?v=34"></script>
     <!-- Style alag file me: css/style.css -->
-    <link rel="stylesheet" href="css/style.css?v=51">
+    <link rel="stylesheet" href="css/style.css?v=52">
 
 </head>
 <body dir="rtl" class="lang-ur">
@@ -898,18 +898,22 @@
                     <span class="rep-search-ico">🔍</span>
                     <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="ربرک / سب ربرک تلاش کریں... (مثلاً fear، headache)">
                 </div>
-                <button class="rep-cmp-btn" onclick="repOpenCompare()" title="Compare clipboards side by side">⇄ <span data-ur="موازنہ" data-en="Compare" data-roman="Compare">Compare</span></button>
+                <!-- 🔑 v54: HomeoSetu-style Compare MODE (☐ on every rubric card → active clipboard); classic side-by-side view moved into Workbench / compare panel -->
+                <button class="rep-cmp-btn" id="repCmpModeBtn" onclick="repCmpModeToggle()" title="Compare Mode: tick rubric cards to collect them into the active clipboard, then Analyze">☑ <span data-ur="کمپیئر" data-en="Compare" data-roman="Compare">Compare</span></button>
             </div>
             <!-- Layout: chapters sidebar + main column -->
             <div class="rep-layout">
                 <div class="rep-side-col">
                     <!-- sidebar top tools (HomeoSetu-style: N selected / Clear / Analyze) -->
-                    <div class="rep-side-tools">
+                    <div class="rep-side-tools" id="repSideTools">
                         <div class="rst-row">
                             <span class="rst-count" id="repSelCount">0 selected</span>
-                            <button class="rc-btn" onclick="repClipTrash()" title="Clear the ACTIVE clipboard">Clear</button>
-                            <button class="rc-btn primary" onclick="repOpenAnalysis()" title="Analyze the ACTIVE clipboard (Case Analysis Grid)">Analyze</button>
+                            <button class="rc-btn" onclick="repClipTrash()" title="Clear the ACTIVE clipboard (press twice)">Clear</button>
+                            <!-- 🔑 v54: Analyze = HomeoSetu "Remedy Score Grid" → Workbench Grid (ALL clipboards, weights, elimination) -->
+                            <button class="rc-btn primary" onclick="repSideAnalyze()" title="Analyze ALL clipboards (Workbench Grid: weights + elimination)">Analyze</button>
                         </div>
+                        <!-- 🔑 v54: Compare-Mode panel (selected rubric chips of the active clipboard) — filled by repCmpPanelRender() -->
+                        <div id="repCmpPanel" class="rst-cmp" style="display:none"></div>
                     </div>
                     <aside class="rep-sidebar" id="repChapterList">
                         <div class="empty-state"><p>Loading...</p></div>
@@ -1540,7 +1544,7 @@
 <script src="js/05-app-diagnosis.js?v=33"></script>
 <script src="js/06-app-new-visit.js?v=33"></script>
 <script src="js/07-app-settings.js?v=33"></script>
-<script src="js/08-app-repertory.js?v=54"></script>
+<script src="js/08-app-repertory.js?v=55"></script>
 <script src="js/10-treatment-data.js?v=33"></script>
 <script src="js/12-treatment-more.js?v=33"></script>
 <script src="js/11-app-studio.js?v=41"></script>
