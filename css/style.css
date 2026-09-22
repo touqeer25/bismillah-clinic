@@ -1069,7 +1069,9 @@ body[dir="rtl"] .rpd-sec{border-left:none;border-right:4px solid #dfe6ee}
     /* 🔑 v54.1 (صارف): کمپیئر پینل کھلنے سے ڈاک کا ٹاپ نیچے جاتا ہے → جگہ کم → base .rep-dock کا flex-wrap:wrap
        چپس 10–12 کو دوسرے کالم میں لپیٹ کر چیپٹر لسٹ پر چڑھا دیتا تھا۔ اب nowrap: ایک ہی کالم، اوپر-نیچے سکرول
        (وہیل/ٹچ/پتلا سکرول بار) — آخری چپس اپنی جگہ رہتے ہیں اور سکرول کر کے کلک ہو سکتے ہیں */
-    #repDockArea .rep-dock{flex-direction:column;flex-wrap:nowrap;gap:5px;padding:9px 13px 9px 9px;border-radius:18px;max-height:100%;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#c3d3e0 transparent}
+    /* 🔑 v54.2 (صارف): base .rep-dock کا justify-content:center — کالم میں اوورفلو ہونے پر فلیکس باکس اوپر/نیچے دونوں طرف
+       برابر اوورفلو کرتا ہے اور اوپر والا حصہ (چپ 1) سکرول سے بھی نہیں ملتا؛ اس لیے یہاں flex-start لازم */
+    #repDockArea .rep-dock{flex-direction:column;flex-wrap:nowrap;justify-content:flex-start;align-items:center;gap:5px;padding:9px 13px 9px 9px;border-radius:18px;max-height:100%;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#c3d3e0 transparent}
     #repDockArea .rep-dock::-webkit-scrollbar{width:5px}
     #repDockArea .rep-dock::-webkit-scrollbar-thumb{background:#c3d3e0;border-radius:4px}
     #repDockArea .rep-dock::-webkit-scrollbar-track{background:transparent}
