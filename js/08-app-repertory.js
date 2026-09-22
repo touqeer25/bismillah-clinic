@@ -8,18 +8,26 @@
 // ==================== REPERTORY BROWSER ====================
 // 🔑 per-book metadata so we can (a) load data/index files, (b) show abbreviations
 var REP_BOOK_INFO = {
-    publicum:    { abbr: 'Pub',  name: 'Repertorium Publicum', dataFile: 'repertory-data.json',                 chapDir: 'repertory_chapters/' },
-    kent:        { abbr: 'Kent', name: 'Kent (English)',       dataFile: 'kent_repertory.json',                  chapDir: 'kent_chapters/' },
-    kent_de:     { abbr: 'K-DE', name: 'Kent (German)',        dataFile: 'kent_de_repertory_by_key.json',        chapDir: 'kent_de_chapters/' },
-    synthesis91: { abbr: 'Syn',  name: 'Syn 9.1 (Supplement)',  dataFile: 'synthesis91_raw_repertory_by_key.json', chapDir: 'synthesis91_raw_chapters/' }
+    publicum:    { abbr: 'Pub',  name: 'Repertorium Publicum', dataFile: 'repertory-data.json',                 chapDir: 'repertory_chapters/',        color:'#1a5276', tree:'prefix' },
+    kent:        { abbr: 'Kent', name: 'Kent (English)',       dataFile: 'kent_repertory.json',                  chapDir: 'kent_chapters/',             color:'#16a085', tree:'prefix', notesFile:'kent_rubric_notes.json' },
+    kent_de:     { abbr: 'K-DE', name: 'Kent (German)',        dataFile: 'kent_de_repertory_by_key.json',        chapDir: 'kent_de_chapters/',          color:'#d35400' },
+    synthesis91: { abbr: 'Syn',  name: 'Syn 9.1 (Supplement)',  dataFile: 'synthesis91_raw_repertory_by_key.json', chapDir: 'synthesis91_raw_chapters/', color:'#8e44ad' },
+    /* 🔑 Homeosetu سے کلون کی گئی 4 ریپرٹریز (Sep 2026) — ابواب کی ترتیب کتاب کے مطابق (keepOrder) */
+    allen_fever: { abbr: 'A-Fev', name: 'Allen Fever Repertory',              dataFile: 'allen_fever_repertory.json', chapDir: 'allen_fever_chapters/', color:'#c0392b', tree:'prefix', keepOrder:true },
+    hs_clinical: { abbr: 'Clin',  name: 'Clinical Repertory (Clarke/Boericke/Allen/Hering)', dataFile: 'hs_clinical_repertory.json', chapDir: 'hs_clinical_chapters/', color:'#2e86c1', tree:'prefix', keepOrder:true },
+    keynotes_cc: { abbr: 'Key',   name: 'Keynotes & Clinical Concordance',    dataFile: 'keynotes_cc_repertory.json', chapDir: 'keynotes_cc_chapters/', color:'#7d6608', tree:'prefix', keepOrder:true },
+    nosodes:     { abbr: 'Nos',   name: 'Intercurrent Nosodes & Sarcodes',    dataFile: 'nosodes_repertory.json',     chapDir: 'nosodes_chapters/',     color:'#117a65', tree:'prefix', keepOrder:true }
 };
+/* 🔑 کتاب کے مطابق رنگ / فولڈر — ہر جگہ یہی helper استعمال ہو (hard-coded ternaries نہیں) */
+function repBookColor(book){ var bi=REP_BOOK_INFO[book]; return (bi&&bi.color)||'#8e44ad'; }
+function repChapDir(book){ var bi=REP_BOOK_INFO[book||repCurrentBook]; return (bi&&bi.chapDir)||'repertory_chapters/'; }
 var _allBooksData = null;       // {publicum:{...}, kent:{...}, ...} cache for all-books mode
 var _allBookChapters = {};      // {publicum:[{key,name,rubrics}], ...} per-book chapter index (for name lookup)
 var repLastSearchView = null;   // {results, info} saved for the "back to results" button
 // 🔑 v45: ڈیفالٹ کتاب = Kent (صارف درخواست — ڈراپ ڈاؤن میں کینٹ ٹاپ پر)
 var repCurrentBook = 'kent';
 // 🔑 v45: ہر ریپرٹری کا ڈیفالٹ چیپٹر — کتاب کھلنے پر مائنڈ خود بخود کھلتا ہے (صارف درخواست)
-var REP_DEFAULT_CHAPTER = { kent:'mind', publicum:'mind', synthesis91:'mind', kent_de:'gemuet' };
+var REP_DEFAULT_CHAPTER = { kent:'mind', publicum:'mind', synthesis91:'mind', kent_de:'gemuet', allen_fever:'type', hs_clinical:'clinical_clarke', keynotes_cc:'generalities', nosodes:'generalities' };
 var repChapterNames = [];
 var repCurrentChapter = '';
 var repTreeCache = {};
@@ -55,6 +63,9 @@ function sortChaptersForBook(book, arr) {
     var order = book === 'kent' ? REP_KENT_CLASSICAL_ORDER
               : book === 'kent_de' ? REP_KENT_DE_ORDER
               : null;
+    if (!order && REP_BOOK_INFO[book] && REP_BOOK_INFO[book].keepOrder) {
+        return arr.slice();   // 🔑 _index.json کی ترتیب = کتاب کی اصل ترتیب (Allen Fever وغیرہ)
+    }
     if (!order) {
         return arr.slice().sort(function(a, b) { return a.name.localeCompare(b.name); });
     }
@@ -82,6 +93,8 @@ function switchRepertoryBook() {
 
 
 function initRepertoryBrowser(noAutoChapter) {
+    ensureRemedyNames();                                   // 🔑 background: ادویات کے پورے نام
+    ensureRepNotes(repCurrentBook, function(){});          // 🔑 background: ربرک نوٹس (اگر کتاب کے پاس ہوں)
     var infoEl = document.getElementById('repCountInfo');
     if (infoEl) infoEl.textContent = 'Loading chapters...';
 
@@ -93,11 +106,12 @@ function initRepertoryBrowser(noAutoChapter) {
         var dk = REP_DEFAULT_CHAPTER[repCurrentBook] || 'mind';
         var found = false;
         for(var i=0;i<repChapterNames.length;i++){ if(repChapterNames[i].key===dk){ found=true; break; } }
+        if(!found && repChapterNames.length){ dk=repChapterNames[0].key; found=true; }   // 🔑 نئی کتابیں: پہلا باب
         if(found) selectChapter(dk);
     }
 
     function loadChaptersAndRender() {
-        var basePath = repCurrentBook==='kent'?'kent_chapters/':(repCurrentBook==='kent_de'?'kent_de_chapters/':(repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/'));
+        var basePath = repChapDir(repCurrentBook);
         var indexFile = basePath + '_index.json';
         fetch(indexFile).then(function(r){return r.json();}).then(function(data){
             // data is array of {key, name, rubrics}
@@ -140,7 +154,7 @@ function selectChapter(chKey, navRid){
     var cd=document.getElementById('repRubricContent');if(!cd)return;
     cd.innerHTML='<div style="text-align:center;padding:30px;">Loading <b>'+nm+'</b>...</div>';
     if(repTreeCache[chKey]){renderTree(chKey,nm,repTreeCache[chKey]);return;}
-    var basePath=repCurrentBook==='kent'?'kent_chapters/':(repCurrentBook==='kent_de'?'kent_de_chapters/':(repCurrentBook==='synthesis91'?'synthesis91_raw_chapters/':'repertory_chapters/'));
+    var basePath=repChapDir(repCurrentBook);
     fetch(basePath+chKey+'.json?v=14').then(function(r){return r.json();}).then(function(d){
         var tree=buildRubricTree(d);repTreeCache[chKey]=tree;renderTree(chKey,nm,tree);
     }).catch(function(e){
@@ -286,7 +300,7 @@ function buildRubricTree(data){
     // a single rubric label. Therefore they must be nested by the longest
     // already-existing rubric prefix, not by every comma.
     // This fixes BUBO/BALL in Kent and oorep Publicum rubric ordering.
-    if(repCurrentBook === 'kent' || repCurrentBook === 'publicum') return _repBuildTreeByExistingRubrics(data);
+    if(repCurrentBook === 'kent' || repCurrentBook === 'publicum' || (REP_BOOK_INFO[repCurrentBook] && REP_BOOK_INFO[repCurrentBook].tree === 'prefix')) return _repBuildTreeByExistingRubrics(data);
 
     var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
     
@@ -751,7 +765,7 @@ function renderClipView(){
         l.forEach(function(it,i){
             var bi=REP_BOOK_INFO[it.book]||{abbr:it.book,name:it.book};
             h+='<div class="rep-clip-row" onclick="repClipOpenItem('+i+')">'
-                +'<span class="rep-book-badge" style="background:'+(it.book==='publicum'?'#1a5276':(it.book==='kent'?'#16a085':(it.book==='kent_de'?'#d35400':'#8e44ad')))+'">'+escapeHtml(bi.abbr)+'</span>'
+                +'<span class="rep-book-badge" style="background:'+repBookColor(it.book)+'">'+escapeHtml(bi.abbr)+'</span>'
                 +'<span class="rc-path" dir="ltr">'+escapeHtml(it.path||'—')+'</span>'
                 +repWChip(it.w)
                 +(it.rems?'<span class="rpc-badge rems">⚡ '+it.rems+'</span>':'')
@@ -901,7 +915,7 @@ function repRenderRemedyPanel(fullPath,rid,node){
          [g1,'1',repLangText({ur:'درجہ 1 — معمولی',en:'Grade 1 — light',roman:'Darja 1 — mamooli'})]].forEach(function(gr){
             if(!gr[0].length)return;
             h+='<div class="rrp-grade-head"><span class="rep-gr-dot d'+gr[1]+'"></span>'+gr[2]+' ('+gr[0].length+')</div><div class="rrp-chips">';
-            gr[0].forEach(function(a){ h+='<span class="rep-remedy-tag g'+gr[1]+'" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')">'+escapeHtml(a)+'</span>'; });
+            gr[0].forEach(function(a){ h+='<span class="rep-remedy-tag g'+gr[1]+'" title="'+_repAttr(repRemedyTitle(a))+'" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')">'+escapeHtml(a)+'</span>'; });
             h+='</div>';
         });
     }
@@ -926,7 +940,54 @@ function repCloseRemedyPanel(){
 // ڈیٹیلز: مطلب | مریض کا ورژن | صحیح استعمال | کراس ریفرنس (کھلی کتاب)
 //         | کراس ریفرنس (ایپ — باقی تینوں ریپرٹریز میں متبادل)
 // ============================================================
+var REP_CHAPTER_UR_EXTRA={type:'قسم',time:'وقت',cause:'سبب',prodrome:'ابتدائی علامات',commencement_of_chill:'لرزے کا آغاز',chill_location_of:'لرزہ — جگہ',chill_aggravated:'لرزہ — اضافہ',chill_ameliorated_by:'لرزہ — کمی',symptoms_during_the_chill:'لرزے کے دوران علامات',chill_character_of:'لرزے کی نوعیت',chill_symptoms_during:'لرزے کے دوران علامات',chill_followed_by:'لرزے کے بعد',heat_aggravated_by:'حرارت — اضافہ',heat_ameliorated_by:'حرارت — کمی',heat_absent:'حرارت غائب',heat_symptoms_during:'حرارت کے دوران علامات',heat_followed_by:'حرارت کے بعد',heat_characteristics_of:'حرارت کی نوعیت',sweat_aggravated_by:'پسینہ — اضافہ',sweat_ameliorated_by:'پسینہ — کمی',sweat_followed_by:'پسینے کے بعد',sweat_produced_by:'پسینہ کس سے',sweat_character_of:'پسینے کی نوعیت',sweat_time_of:'پسینے کا وقت',sweat_location_of:'پسینہ — جگہ',sweat_symptoms_during:'پسینے کے دوران علامات',symptoms_of_tongue_appetite_taste:'زبان، بھوک، ذائقہ',apyrexia_symptoms_during:'بخار کے وقفے کی علامات',typhoid_typhus_prodromic_stage:'ٹائیفائیڈ/ٹائیفس ابتدائی مرحلہ',symptoms_of_the_mind:'ذہنی علامات',sensorium:'حواس',head_internal:'سر (اندرونی)',head_external:'سر (بیرونی)',eyes_and_sight:'آنکھیں اور بینائی',hearing_and_ears:'سماعت اور کان',smell_and_nose:'سونگھنا اور ناک',gastric:'معدی',clinical_clarke:'کلینیکل (Clarke)',clinical_boericke:'کلینیکل (Boericke)',clinical_allen:'کلینیکل (Allen)',clinical_hering:'کلینیکل (Hering)',clinical_hempel:'کلینیکل (Hempel)',clinical_pulte:'کلینیکل (Pulte)',clinical_conditions:'کلینیکل حالتیں',children:'بچے',respiratory_system:'نظامِ تنفس',observation:'مشاہدہ',stools:'پاخانہ',urinary_organs:'پیشاب کے اعضا',larynx_trachea:'حلقوم و سانس کی نالی',ears_nose_throat:'کان ناک حلق',female_reproductive_system:'زنانہ تولیدی نظام',voice_speech:'آواز و گفتگو',circulatory_system_heart_pulse:'دورانِ خون (دل/نبض)',sensation:'احساس',relationships:'ادویات کے تعلقات',fever_chills_heat_sweat:'بخار-لرزہ-حرارت-پسینہ',central_nervous_system:'مرکزی اعصابی نظام',relations:'تعلقات',eyes:'آنکھیں',male:'مردانہ',female:'زنانہ',respiratory:'تنفس',circulation:'دورانِ خون'};
 var REP_CHAPTER_UR={mind:'ذہن',vertigo:'چکر آنا',head:'سر',eye:'آنکھ',vision:'بصارت',ear:'کان',hearing:'سماعت',nose:'ناک',face:'چہرہ',mouth:'منہ',teeth:'دانت',throat:'حلق (اندرونی)',external_throat:'حلق (بیرونی)',stomach:'معدہ',abdomen:'پیٹ',rectum:'ملاچر',stool:'پاخانہ',bladder:'مثانہ',kidneys:'گردے',prostate_gland:'پروسٹیٹ',urethra:'پیشاب کی نالی',urine:'پیشاب',genitalia_male:'مردانہ اعضا',genitalia_female:'زنانہ اعضا',larynx_and_trachea:'حلقوم و سانس کی نالی',respiration:'سانس',cough:'کھانسی',expectoration:'بلغم',chest:'سینہ',back:'کمر',extremities:'ہاتھ پاؤں',sleep:'نیند',chill:'لرزہ',fever:'بخار',perspiration:'پسینہ',skin:'جلد',generalities:'عمومیات',appetite:'بھوک',blood:'خون',clinical:'کلینیکل'};
+Object.keys(REP_CHAPTER_UR_EXTRA).forEach(function(k){ if(!REP_CHAPTER_UR[k]) REP_CHAPTER_UR[k]=REP_CHAPTER_UR_EXTRA[k]; });
+// ============================================================
+// 🔑 RUBRIC NOTES (Homeosetu سے درآمد: meaning / patient version / when to use / clinical conditions)
+//    فائل: REP_BOOK_INFO[book].notesFile → {chapterKey:{rid:{t,m,pv,pv2,wu,cc}}}
+//    Kent کا اصل ڈیٹا (kent_chapters/) بالکل نہیں چھیڑا گیا — نوٹس الگ فائل میں ہیں۔
+// ============================================================
+var _repNotes={};          // book -> data | null(failed)
+var _repNotesByTitle={};   // book -> {normTitle: note}
+function repNotesNorm(t){
+    return String(t||'').toLowerCase().replace(/\((?:see|cmp|comp|cf)\.?[^)]*\)/gi,' ').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();
+}
+function ensureRepNotes(book,cb){
+    book=book||repCurrentBook;
+    var bi=REP_BOOK_INFO[book];
+    if(!bi||!bi.notesFile){ cb(null); return; }
+    if(_repNotes.hasOwnProperty(book)){ cb(_repNotes[book]); return; }
+    fetch(bi.notesFile+'?v=1').then(function(r){ return r.json(); }).then(function(d){
+        _repNotes[book]=d||null;
+        var idx={};
+        Object.keys(d||{}).forEach(function(ck){ Object.keys(d[ck]).forEach(function(rid){ var e=d[ck][rid]; if(e&&e.t){ var k=repNotesNorm(e.t); if(!idx[k]) idx[k]=e; } }); });
+        _repNotesByTitle[book]=idx;
+        cb(_repNotes[book]);
+    }).catch(function(){ _repNotes[book]=null; _repNotesByTitle[book]={}; cb(null); });
+}
+function repNoteFor(full,rid,book,chKey){
+    book=book||repCurrentBook; chKey=chKey||repCurrentChapter;
+    var d=_repNotes[book]; if(!d) return null;
+    var ch=d[chKey]||d[String(chKey).toLowerCase()];
+    if(ch&&rid&&ch[rid]) return ch[rid];
+    var idx=_repNotesByTitle[book]||{};
+    return idx[repNotesNorm(full)]||null;
+}
+// 🔑 remedy full names (abbr -> Latin name) — remedy_names.json (homeosetu fullForm سے)
+var _repRemedyNames=null,_repRemedyNamesLoading=false;
+function ensureRemedyNames(cb){
+    if(_repRemedyNames){ if(cb)cb(_repRemedyNames); return; }
+    if(_repRemedyNamesLoading){ if(cb)setTimeout(function(){ensureRemedyNames(cb);},300); return; }
+    _repRemedyNamesLoading=true;
+    fetch('remedy_names.json?v=1').then(function(r){return r.json();}).then(function(d){ _repRemedyNames=d||{}; _repRemedyNamesLoading=false; if(cb)cb(_repRemedyNames); })
+    .catch(function(){ _repRemedyNames={}; _repRemedyNamesLoading=false; if(cb)cb(_repRemedyNames); });
+}
+function repRemedyTitle(abbr){
+    var a=String(abbr||'').toLowerCase();
+    var n=_repRemedyNames&&(_repRemedyNames[a]||_repRemedyNames[a.replace(/\.$/,'')]);
+    return n?(abbr+' = '+n):abbr;
+}
 function repOpenRubricDetail(full,rid,labels){
     repKebabHide();
     repHistBack.push(repCurrentState()); repHistFwd=[];
@@ -1056,7 +1117,7 @@ function buildXrefIndex(book,cb){
 }
 function repBookBadgeHtml(book){
     var bi=REP_BOOK_INFO[book]||{abbr:book,name:book};
-    var c=book==='publicum'?'#1a5276':(book==='kent'?'#16a085':(book==='kent_de'?'#d35400':'#8e44ad'));
+    var c=repBookColor(book);
     return '<span class="rep-book-badge" style="background:'+c+'">'+escapeHtml(bi.abbr)+'</span>';
 }
 var _repXrefSeq=0;   // cancels stale async fills when the detail view re-renders
@@ -1122,9 +1183,12 @@ function repDetailInfoHtml(o){
     var toks=repMeaningTokens(full);
     var sense=repSenseNoteFor(toks);
     var chUr=REP_CHAPTER_UR[String(repCurrentChapter).toLowerCase()]||'';
+    var note=repNoteFor(full,o.rid)||{};   // 🔑 Homeosetu سے درآمد شدہ نوٹس (اگر اس ربرک کے لیے موجود ہوں)
+    var srcTag='<span class="rpd-src">📘 Homeosetu</span>';
     var h='<div class="rpd-info" id="repDetailInfo">';
     // 1) MEANING
     h+='<div class="rpd-sec meaning"><span class="rpd-lab">📖 '+repLangText({ur:'مطلب (MEANING)',en:'MEANING',roman:'MATLAB (MEANING)'})+'</span>';
+    if(note.m) h+='<div class="rpd-note" dir="ltr">'+srcTag+escapeHtml(note.m)+'</div>';
     if(toks.length){
         h+='<div class="rpd-tokchips">';
         toks.forEach(function(t){ h+='<span class="rpd-tok"><b dir="ltr">'+escapeHtml(t.t)+'</b> = '+escapeHtml(t.ur)+'</span>'; });
@@ -1136,6 +1200,8 @@ function repDetailInfoHtml(o){
     h+='</div>';
     // 2) PATIENT VERSION
     h+='<div class="rpd-sec patient"><span class="rpd-lab">🧑\u200d⚕ '+repLangText({ur:'مریض کا ورژن (PATIENT VERSION)',en:'PATIENT VERSION',roman:'MAREEZ KA VERSION'})+'</span>';
+    if(note.pv) h+='<div class="rpd-note" dir="ltr">'+srcTag+escapeHtml(note.pv)+'</div>';
+    if(note.pv2) h+='<div class="rpd-note" dir="ltr">'+srcTag+escapeHtml(note.pv2)+'</div>';
     if(toks.length){
         var urs=toks.map(function(t){ return t.ur; });
         var label=full.replace(/\((?:see|cmp|comp|cf)\.?[^)]*\)/gi,'').trim();
@@ -1147,6 +1213,7 @@ function repDetailInfoHtml(o){
     h+='</div>';
     // 3) WHEN TO USE
     h+='<div class="rpd-sec when"><span class="rpd-lab">✅ '+repLangText({ur:'صحیح استعمال کہاں (WHEN TO USE)',en:'WHEN TO USE',roman:'SAHIH ISTEMAL KAHAN'})+'</span>';
+    if(note.wu) h+='<div class="rpd-note" dir="ltr">'+srcTag+escapeHtml(note.wu)+'</div>';
     h+='<div>'+(chUr?('یہ ربرک «<b>'+escapeHtml(chUr)+'</b>» باب میں آتی ہے۔ '):'');
     if(pureXref){
         h+='<span class="rpd-warn">⚠ '+repLangText({ur:'یہ صرفِ اشارہ ربرک ہے — خود کوئی ادویہ نہیں رکھتی۔ اصل ربرک «',en:'This is a cross-reference only — no remedies of its own. Open the real rubric «',roman:'Ye sirf ishara rubric hai — asal rubric «'})+'<b dir="ltr">'+escapeHtml(seeT[0]||'')+'</b>» '+repLangText({ur:'کھول کر استعمال کریں۔',en:'instead.',roman:'khol kar istemal karein.'})+'</span>';
@@ -1170,6 +1237,12 @@ function repDetailInfoHtml(o){
         h+='<div style="font-size:10.5px;color:#9a7d0a;margin-top:4px;">'+repLangText({ur:'کلک سے پریسکرپشن میں کاپی ہوگی',en:'click a remedy to copy it',roman:'click se copy ho jayegi'})+'</div>';
         h+='</div>';
     }
+    // 3b) CLINICAL CONDITIONS (Homeosetu tags — کن امراض میں یہ ربرک کام آتی ہے)
+    if(note.cc){
+        h+='<div class="rpd-sec clinical"><span class="rpd-lab">🩺 '+repLangText({ur:'کلینیکل حالتیں (CLINICAL CONDITIONS)',en:'CLINICAL CONDITIONS',roman:'CLINICAL CONDITIONS'})+'</span><div class="rpd-tokchips">';
+        String(note.cc).split(/\s*,\s*/).forEach(function(cc){ if(cc) h+='<span class="rpd-tok rpd-cc" dir="ltr">'+escapeHtml(cc)+'</span>'; });
+        h+='</div><div class="rpd-srcline">'+srcTag+repLangText({ur:'ماخذ: Homeosetu Kent — کلینیکل اشارے',en:'source: Homeosetu Kent clinical tags',roman:'source: Homeosetu Kent clinical tags'})+'</div></div>';
+    }
     // 4) CROSS REFERENCE (open repertory)
     h+='<div class="rpd-sec xbook"><span class="rpd-lab">🔗 '+repLangText({ur:'کراس ریفرنس — کھلی ریپرٹری (OPEN REPERTORY)',en:'CROSS REFERENCE (OPEN REPERTORY)',roman:'CROSS REFERENCE — khuli repertory'})+'</span>';
     if(seeT.length){
@@ -1184,13 +1257,16 @@ function repDetailInfoHtml(o){
     }
     h+='</div>';
     // 5) CROSS REFERENCE (APP)
-    h+='<div class="rpd-sec xapp"><span class="rpd-lab">🔗 '+repLangText({ur:'کراس ریفرنس — ایپ (APP: باقی تینوں ریپرٹریز)',en:'CROSS REFERENCE (APP: other 3 repertories)',roman:'CROSS REFERENCE — app (baqi teen repertories)'})+'</span><div id="repXrefAppBody" class="rpd-xbody"><span style="color:#8aa0b2;font-size:11.5px;">⏳ '+repLangText({ur:'دوسری ریپرٹریز میں متبادل تلاش ہو رہا ہے...',en:'Searching other repertories for matches...',roman:'Doosri repertories mein mutabad talash ho raha hai...'})+'</span></div></div>';
+    h+='<div class="rpd-sec xapp"><span class="rpd-lab">🔗 '+repLangText({ur:'کراس ریفرنس — ایپ (APP: باقی ریپرٹریز)',en:'CROSS REFERENCE (APP: other repertories)',roman:'CROSS REFERENCE — app (baqi repertories)'})+'</span><div id="repXrefAppBody" class="rpd-xbody"><span style="color:#8aa0b2;font-size:11.5px;">⏳ '+repLangText({ur:'دوسری ریپرٹریز میں متبادل تلاش ہو رہا ہے...',en:'Searching other repertories for matches...',roman:'Doosri repertories mein mutabad talash ho raha hai...'})+'</span></div></div>';
     h+='</div>'; // /rpd-info
     return h;
 }
 // 🔑 the detail page itself (glossary ensured first — meaning tokens need it)
 function renderRubricDetail(){
     if(!_repGlossary&&!_repGlossaryFailed){ ensureRepGlossary(function(){ renderRubricDetail(); }); return; }
+    var _bi=REP_BOOK_INFO[repCurrentBook];
+    if(_bi&&_bi.notesFile&&!_repNotes.hasOwnProperty(repCurrentBook)){ ensureRepNotes(repCurrentBook,function(){ renderRubricDetail(); }); return; }
+    if(!_repRemedyNames&&!_repRemedyNamesLoading){ ensureRemedyNames(function(){ renderRubricDetail(); }); return; }
     var cd=document.getElementById('repRubricContent'); if(!cd)return;
     repUpdateNavButtons(); repRenderBreadcrumb();
     var d=repCurrentDetail||{full:'',rid:'',labels:repFolderPath.slice()};
@@ -1231,7 +1307,7 @@ function renderRubricDetail(){
         h+='<div class="rpd-chips">';
         abbrs.forEach(function(a){
             var g=rems[a]||1; g=(g>=3)?3:((g===2)?2:1);
-            h+='<span class="rep-remedy-tag g'+g+'" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')">'+escapeHtml(a)+'</span>';
+            h+='<span class="rep-remedy-tag g'+g+'" title="'+_repAttr(repRemedyTitle(a))+'" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')">'+escapeHtml(a)+'</span>';
         });
         h+='</div>';
     }
@@ -1766,7 +1842,7 @@ function searchRepertoryBrowser(){
             var groupKey = r.book+'|'+r.chapter;
             if(groupKey !== state.lastGroup){
                 var isCur = (r.book===repCurrentBook && String(r.chapter).toLowerCase()===String(repCurrentChapter).toLowerCase());
-                var badgeColor = r.book==='publicum'?'#1a5276':(r.book==='kent'?'#16a085':(r.book==='kent_de'?'#d35400':'#8e44ad'));
+                var badgeColor = repBookColor(r.book);
                 h+='<div style="margin:10px 0 4px 0;padding:6px 10px;background:'+(isCur?'#eafaf1':'#f4f6f8')+';border-right:4px solid '+(isCur?'#27ae60':badgeColor)+';border-radius:4px;font-weight:bold;font-size:12px;color:#1a5276;font-family:Segoe UI,sans-serif;display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
                 h+='<span style="background:'+badgeColor+';color:white;padding:1px 7px;border-radius:8px;font-size:10px;">'+bookInfo.abbr+'</span>';
                 h+=(isCur?'📍':'📂')+' '+escapeHtml(chName);
@@ -1779,7 +1855,7 @@ function searchRepertoryBrowser(){
             var safeBook = escapeHtml(r.book);
             var safeChapter = escapeHtml(normalizeChapterKey(r.book, r.chapter));
             var safeRid = escapeHtml(String(r.rid||''));
-            var badge = (r.book==='publicum'?'#1a5276':(r.book==='kent'?'#16a085':(r.book==='kent_de'?'#d35400':'#8e44ad')));
+            var badge = repBookColor(r.book);
             h+='<div class="rep-rubric-item" style="cursor:pointer;border-radius:6px;margin:2px 0;padding:8px 10px;background:#fff;border:1px solid #eef2f5;" onclick="navigateToRubric(\''+safeBook+'\',\''+safeChapter+'\',\''+safeRid+'\')" onmouseover="this.style.background=\'#f0f8ff\'" onmouseout="this.style.background=\'#fff\'">';
             h+='<div class="rep-rubric-header" style="font-size:13px;line-height:1.5;"><span style="display:inline-block;background:'+badge+';color:white;padding:1px 6px;border-radius:5px;font-size:9px;font-weight:bold;margin-left:4px;vertical-align:middle;">'+bookInfo.abbr+'</span> '+highlighted+'</div>';
             h+='<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:2px;">';
@@ -1795,7 +1871,7 @@ function searchRepertoryBrowser(){
             var container=document.getElementById('repAllSearchResults');
             if(!container) return;
             var bookInfo=REP_BOOK_INFO[bookKey] || {abbr:'?', name:bookKey};
-            var color = bookKey==='publicum'?'#1a5276':(bookKey==='kent'?'#16a085':(bookKey==='kent_de'?'#d35400':'#8e44ad'));
+            var color = repBookColor(bookKey);
             container.insertAdjacentHTML('beforeend','<div style="margin:12px 0 6px 0;padding:8px 10px;background:#eef7fb;border-left:4px solid '+color+';border-radius:6px;font-weight:bold;color:#1a5276;"><span style="background:'+color+';color:white;padding:2px 8px;border-radius:10px;font-size:10px;margin-right:5px;">'+bookInfo.abbr+'</span> '+escapeHtml(bookInfo.name)+' — '+results.length.toLocaleString()+' '+repLangText({ur:'نتائج',en:'results',roman:'results'})+'</div>');
             if(results.length===0){
                 container.insertAdjacentHTML('beforeend','<div style="padding:8px 12px;color:#95a5a6;font-size:12px;">'+repLangText({ur:'اس ریپرٹری میں کوئی نتیجہ نہیں ملا',en:'No result in this repertory',roman:'Is repertory mein koi result nahi'})+'</div>');
@@ -1979,7 +2055,7 @@ function displaySearchResults(results, info){
         // 🔑 group header whenever book OR chapter changes — keeps results clean & tells you the source
         if(groupKey !== lastGroup){
             var isCur = (r.book===curBook && String(r.chapter).toLowerCase()===String(curCh).toLowerCase());
-            var badgeColor = r.book==='publicum'?'#1a5276':(r.book==='kent'?'#16a085':(r.book==='kent_de'?'#d35400':'#8e44ad'));
+            var badgeColor = repBookColor(r.book);
             h+='<div style="margin:10px 0 4px 0;padding:6px 10px;background:'+(isCur?'#eafaf1':'#f4f6f8')+';border-right:4px solid '+(isCur?'#27ae60':badgeColor)+';border-radius:4px;font-weight:bold;font-size:12px;color:#1a5276;font-family:Segoe UI,sans-serif;display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
             h+='<span style="background:'+badgeColor+';color:white;padding:1px 7px;border-radius:8px;font-size:10px;">'+bookInfo.abbr+'</span>';
             h+=(isCur?'📍':'📂')+' '+escapeHtml(chName);
@@ -1995,7 +2071,7 @@ function displaySearchResults(results, info){
         var safeRid = escapeHtml(String(r.rid||''));
         h+='<div class="rep-rubric-item" style="cursor:pointer;border-radius:6px;margin:2px 0;padding:8px 10px;background:#fff;border:1px solid #eef2f5;" onclick="navigateToRubric(\''+safeBook+'\',\''+safeChapter+'\',\''+safeRid+'\')" onmouseover="this.style.background=\'#f0f8ff\'" onmouseout="this.style.background=\'#fff\'">';
         // 🔑 [BookAbbr] instead of #rid (reference number hidden, repertory abbreviation shown)
-        h+='<div class="rep-rubric-header" style="font-size:13px;line-height:1.5;"><span style="display:inline-block;background:'+(''+(r.book==='publicum'?'#1a5276':(r.book==='kent'?'#16a085':(r.book==='kent_de'?'#d35400':'#8e44ad'))))+';color:white;padding:1px 6px;border-radius:5px;font-size:9px;font-weight:bold;margin-left:4px;vertical-align:middle;">'+bookInfo.abbr+'</span> '+highlighted+'</div>';
+        h+='<div class="rep-rubric-header" style="font-size:13px;line-height:1.5;"><span style="display:inline-block;background:'+repBookColor(r.book)+';color:white;padding:1px 6px;border-radius:5px;font-size:9px;font-weight:bold;margin-left:4px;vertical-align:middle;">'+bookInfo.abbr+'</span> '+highlighted+'</div>';
         h+='<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:2px;">';
         var rems=Object.keys(r.remedies);
         rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1)||a.localeCompare(b);});

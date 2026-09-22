@@ -488,7 +488,11 @@ function bookInfo(book){
         publicum:{abbr:'Pub',name:'Repertorium Publicum',chapDir:'repertory_chapters/'},
         kent:{abbr:'Kent',name:'Kent English',chapDir:'kent_chapters/'},
         synthesis91:{abbr:'Syn',name:'Syn 9.1 (Supplement)',chapDir:'synthesis91_raw_chapters/'},
-        kent_de:{abbr:'K-DE',name:'Kent German',chapDir:'kent_de_chapters/'}
+        kent_de:{abbr:'K-DE',name:'Kent German',chapDir:'kent_de_chapters/'},
+        allen_fever:{abbr:'A-Fev',name:'Allen Fever Repertory',chapDir:'allen_fever_chapters/'},
+        hs_clinical:{abbr:'Clin',name:'Clinical Repertory',chapDir:'hs_clinical_chapters/'},
+        keynotes_cc:{abbr:'Key',name:'Keynotes & Clinical Concordance',chapDir:'keynotes_cc_chapters/'},
+        nosodes:{abbr:'Nos',name:'Intercurrent Nosodes & Sarcodes',chapDir:'nosodes_chapters/'}
     }[book] || {abbr:book,name:book,chapDir:''};
 }
 function openRubricSearch(idx){
