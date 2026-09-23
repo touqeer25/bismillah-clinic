@@ -109,3 +109,7 @@ Builder: `tools/mm_build/ocr_books.py clarke <djvu.txt>` / `… farrington <djvu
 ## v64 — Hering's Guiding Symptoms (complete)
 
 `hering_guiding`: **394 remedies** (383 of the app's Kent remedies), 1.9 M words, Hering's 48 sections per remedy (Mind … Relations), θ marks kept for cured clinical conditions; source `archive.org/details/herings-guiding-symptoms-of-our-materia-medica-1891_20240318` (single clean OCR of the 10 volumes), 12 MB JSON (≈2.5 MB gzipped over the wire). Builder: `tools/mm_build/ocr_books.py hering_gs <djvu.txt>`. **16 books, 758 remedies with text, mm/ = 31 MB** (lazy, progressive, cached).
+
+## v65 — Allen's Materia Medica of the Nosodes (key-notes)
+
+`allen_nosodes`: Medorrhinum, Psorinum, Secale, Syphilinum, Tuberculinum, Lac defloratum — symptom lines with Allen's grades (II → **bold**, I → _italic_, θ clinical), from the PDF text layer of the public-domain 1910 book (Dr Nancy Malik's collection). Builder `tools/mm_build/allen_nosodes.py <pdf>` (needs `pip install pymupdf`). **17 books.**

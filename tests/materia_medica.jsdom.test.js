@@ -11,12 +11,12 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   const d=w.document; for(let i=0;i<w.REP_N_CLIPS;i++)w.repClipboards[i]=[]; w.localStorage.clear();
   // ---- data ----
   await new Promise(r=>w.repMMEnsureAll(r));
-  const ids=w.repMMBookIds(); ok(ids.length>=16&&w.repMMLoaded(),'MM books loaded ('+ids.length+'): '+ids.join(', '));
+  const ids=w.repMMBookIds(); ok(ids.length>=17&&w.repMMLoaded(),'MM books loaded ('+ids.length+'): '+ids.join(', '));
   ok(w.repMMEntry('clarke_dictionary','nat-m')&&w.repMMEntry('clarke_dictionary','nat-m').sections.some(s=>s.h==='Characteristics')&&w.repMMEntry('farrington_clinical','nat-m'),'Clarke (sectioned) + Farrington have Natrum mur');
   ok(w.repMMEntry('hering_condensed','nat-m')&&w.repMMEntry('hering_condensed','nat-m').sections[0].h==='Mind','Hering Condensed nat-m starts with Mind section');
   ok(w.repMMEntry('hering_guiding','nat-m')&&w.repMMEntry('hering_guiding','nat-m').sections.some(s=>s.h==='Mind'&&s.p.length>30),'Hering Guiding Symptoms nat-m has a Mind section with >30 symptoms');
   const ix=JSON.parse(fs.readFileSync(ROOT+'/mm/_index.json','utf8'));
-  ok(Object.values(ix.books).every(b=>b.remedies>60),'each book has >60 remedies: '+Object.entries(ix.books).map(([k,v])=>k+'='+v.remedies).join(' '));
+  ok(Object.values(ix.books).every(b=>b.remedies>=6),'each book has remedies: '+Object.entries(ix.books).map(([k,v])=>k+'='+v.remedies).join(' '));
   const av=w.repMMAvail('nat-m'); ok(av.indexOf('kent_lectures')!==-1&&av.indexOf('allen_keynotes')!==-1&&av.indexOf('nash_leaders')!==-1,'nat-m available in Kent/Allen/Nash ('+av.join(',')+')');
   const e=w.repMMEntry('kent_lectures','nat-m'); ok(e&&/Natrum/i.test(e.name)&&e.sections[0].p.length>40,'Kent lecture Natrum mur: '+(e&&e.sections[0].p.length)+' paragraphs');
   const eb=w.repMMEntry('boericke','nat-m'); if(eb) ok(eb.sections.some(s=>s.h==='Mind')&&eb.sections.some(s=>/Modalities|Relationship/.test(s.h)),'Boericke nat-m sections: '+eb.sections.map(s=>s.h||'(intro)').join(', '));
