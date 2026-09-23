@@ -6,7 +6,7 @@ usage: python3 make_llm_batch.py kent mind r2 [--top 5] [--theme "absent, forget
 Optional direct call: set OPENAI_API_KEY (model gpt-4o-mini by default) → drafts are written to batches/<...>.drafts.json,
 importable in the app via 📖 tab → 📥 (or merged with import_llm_drafts.py)."""
 import json, os, re, sys, math, argparse, urllib.request
-APP = '/home/user/bismillah-clinic'
+APP = os.environ.get('BHC_APP', '/home/user/bismillah-clinic')
 sys.path.insert(0, os.path.dirname(__file__))
 
 def load(p): return json.load(open(p, encoding='utf-8'))

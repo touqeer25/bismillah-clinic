@@ -493,7 +493,9 @@ function bookInfo(book){
         hs_clinical:{abbr:'Clin',name:'Clinical Repertory',chapDir:'hs_clinical_chapters/'},
         keynotes_cc:{abbr:'Key',name:'Keynotes & Clinical Concordance',chapDir:'keynotes_cc_chapters/'},
         nosodes:{abbr:'Nos',name:'Intercurrent Nosodes & Sarcodes',chapDir:'nosodes_chapters/'},
-        hering_mind:{abbr:'H-Mind',name:'Hering — Analytical Repertory of the Mind',chapDir:'hering_mind_chapters/'}
+        hering_mind:{abbr:'H-Mind',name:'Hering — Analytical Repertory of the Mind',chapDir:'hering_mind_chapters/'},
+        boger_times:{abbr:'Times',name:'Boger — Times of Remedies & Moon Phases',chapDir:'boger_times_chapters/'},
+        tissues_bd:{abbr:'Tiss',name:'Boericke & Dewey — Tissue Remedies',chapDir:'tissues_bd_chapters/'}
     }[book] || {abbr:book,name:book,chapDir:''};
 }
 function openRubricSearch(idx){

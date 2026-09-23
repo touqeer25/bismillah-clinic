@@ -123,3 +123,34 @@ Builder: `tools/mm_build/ocr_books.py clarke <djvu.txt>` / `… farrington <djvu
 ## v67 — 9th repertory: Hering's Analytical Repertory of the Symptoms of the Mind (1881)
 
 Converted from the archive.org OCR (`63731360R.nlm.nih.gov`) by `tools/mm_build/hering_mind_repertory.py` into the app's repertory format: **56 chapters** (Part I "Ailments from emotions and exertions of the mind" + the body regions of Part II "Mental concomitants of bodily symptoms"), **10,018 rubrics, 13,914 remedy references, 313 remedies**. Rubric titles are `Section, phrase[, sub-phrase]` so the prefix tree nests them; grades from Hering's marks where the OCR kept them (II → 3, I → 2, else 1). Remedy abbreviations (Hering style: "Natr. mur.", "Laches.") mapped to the app's; ~91 % of tokens resolved, the rest listed by the script. Files: `hering_mind_repertory.json`, `hering_mind_chapters/`. Selectable in the book dropdown («🧠 Hering — Analytical Repertory of the Mind»), works with search, Compare Mode, clipboards, Workbench and 🔬 extraction like the other books.
+
+## v68 — three small books from Dr. Nancy Malik's list (Boericke–Dewey · Allen's Therapeutics of Fevers · Boger's Times)
+
+Sources: homeoint.org (Boger, Séror edition) and the homeopathybooks.in text mirrors of the same public-domain books
+(the mirror Dr. Malik's page links to). Crawled with the new `tools/mm_build/crawl_wp_pages.py <index-url> <out-dir>`.
+
+- 🕰️ **`boger_times` — 10th repertory**: C. M. Boger, *Times of Remedies and Moon Phases* (179 p.) →
+  `tools/mm_build/boger_times_repertory.py`: **12 chapters, 2,606 rubrics, 12,354 remedy references, 354 remedies**.
+  Boger's I/II marks survived in the Séror HTML as *colours* (maroon → grade 3, red → 2, plain → 1), so grades come from
+  `COLOR=` spans, not from <b>/<i>. Chapter 12 is the Moon-Phases table (186 remedies × NL/PQ/PL/DQ counts → grade
+  ≥10 = 3, ≥5 = 2). Abbreviations resolved against the app's own remedy keys first (Boger prints "Calc-c.", "Nat-m."),
+  then `names.py`, then a 90-entry alias table; 126 of ~12.5k tokens stay unmatched (mostly words torn apart by the
+  colour markup, e.g. "Fer-", "yc."). Files: `boger_times_repertory.json`, `boger_times_chapters/`.
+- 🧂 **`tissues_bd` — 11th repertory**: Boericke & Dewey, *The Twelve Tissue Remedies of Schüssler* — the book's
+  therapeutic part (Abscess → Yellow Fever) → **114 disease rubrics, 710 references, all 12 Schüssler salts**, the
+  first salt named on a page graded 3 (Boericke's leading remedy) and the rest 2; each rubric keeps its indication
+  text as `note` (shown under the card). `tools/mm_build/boericke_dewey_tissues.py`. Six pages of the mirror carry no
+  salt list on the site (Dizziness, Enuresis, Marasmus, Mucous membranes, Scrofula/tuberculosis, Vaccination) — the
+  book's own Repertory part (Part 4) is still to be added from the archive.org scan.
+- 📖 **`allen_fevers` — 20th MM book**: H. C. Allen, *The Homoeopathic Therapeutics of Fevers* (1879) — the MM part,
+  **131 remedies, 86,732 words**, with Allen's own stage structure kept as sections (Characteristic · Type · Time ·
+  Cause · Prodrome · Chill · Concomitants of chill · Heat · Sweat · Tongue · Pulse · Apyrexia · Desires/Aversions ·
+  Skin · Breathing · Relation · Clinical) so the 📖 tab and viewer read a fever remedy exactly as Allen wrote it.
+  `tools/mm_build/allen_fevers_mm.py`. The mirror hosts 133 remedy pages of the book's 147 + 31 minor remedies.
+
+Housekeeping: hard-coded `/home/user/bismillah-clinic` in `tools/mm_build/{names,ocr_books,hering_mind_repertory,make_llm_batch}.py`
+→ `BHC_APP` env with the old path as default (scripts now run from any clone). Cloudflare's
+`/cdn-cgi/challenge-platform/...` beacon that had been committed into `index.html` (since e4d7a5a) is removed — it was
+the source of both `app_smoke` failures; the smoke test now also filters errors thrown from external <script>s and
+the JS-dom stack slice was widened so that filter can see the frame. `index.html` script versions bumped,
+`CACHE_NAME` → v76, both new repertories' index files added to CORE_ASSETS, tests cover 11 books / 20 MM books.

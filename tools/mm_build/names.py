@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Remedy-name → app abbreviation matcher (shared by all book parsers)."""
 import json, re, os
-APP='/home/user/bismillah-clinic'
+APP=os.environ.get('BHC_APP','/home/user/bismillah-clinic')
 _names=json.load(open(os.path.join(APP,'remedy_names.json')))
 # extra names for abbreviations that exist in the app's Kent but have no entry in remedy_names.json
 EXTRA={'cina':'Cina','sec':'Secale cornutum','act-r':'Actaea racemosa'}

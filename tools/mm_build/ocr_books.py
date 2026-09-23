@@ -6,7 +6,7 @@ Output: /home/user/bismillah-clinic/mm/<id>.json (same format as build_mm.py) an
 import re, os, sys, json, difflib
 sys.path.insert(0, '/home/user/mm_build')
 from names import match, _names, norm, _by_norm, ALIASES
-OUT = '/home/user/bismillah-clinic/mm'
+OUT = os.path.join(os.environ.get('BHC_APP','/home/user/bismillah-clinic'),'mm')
 DASH = r'[—–\-]{1,2}'
 
 def load_text(path):

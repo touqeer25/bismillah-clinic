@@ -5,7 +5,7 @@ Rubric = "<Section>, <phrase>[, <sub-phrase>]"; remedies = Hering abbreviations 
 import re, os, sys, json, collections, difflib
 sys.path.insert(0, '/home/user/mm_build')
 from names import match, norm
-APP = '/home/user/bismillah-clinic'
+APP = os.environ.get('BHC_APP', '/home/user/bismillah-clinic')
 SRC = sys.argv[1] if len(sys.argv) > 1 else '/tmp/arch/hering_analytical.txt'
 
 t = open(SRC, encoding='utf-8', errors='replace').read().replace('\r', '')

@@ -1,5 +1,5 @@
 // Bismillah Clinic - Service Worker (robust offline cache)
-const CACHE_NAME = 'bhc-clinic-v75';
+const CACHE_NAME = 'bhc-clinic-v76';
 
 // Keep this list same-origin and reliable. Missing/external files are not allowed
 // to break the whole install anymore.
@@ -50,6 +50,10 @@ const CORE_ASSETS = [
   './nosodes_chapters/_index.json',
   './hering_mind_repertory.json',
   './hering_mind_chapters/_index.json',
+  './boger_times_repertory.json',
+  './boger_times_chapters/_index.json',
+  './tissues_bd_repertory.json',
+  './tissues_bd_chapters/_index.json',
   './kent_rubric_notes.json',
   './remedy_names.json',
   './icon-192.png',

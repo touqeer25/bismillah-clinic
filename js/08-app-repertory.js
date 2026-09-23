@@ -18,7 +18,11 @@ var REP_BOOK_INFO = {
     keynotes_cc: { abbr: 'Key',   name: 'Keynotes & Clinical Concordance',    dataFile: 'keynotes_cc_repertory.json', chapDir: 'keynotes_cc_chapters/', color:'#7d6608', tree:'prefix', keepOrder:true },
     nosodes:     { abbr: 'Nos',   name: 'Intercurrent Nosodes & Sarcodes',    dataFile: 'nosodes_repertory.json',     chapDir: 'nosodes_chapters/',     color:'#117a65', tree:'prefix', keepOrder:true },
     // 🔑 v67: ہیرنگ — اینالیٹیکل ریپرٹری آف دی سمپٹمز آف دی مائنڈ (1881) — او سی آر سے تبدیل؛ گریڈ: II=3، I=2، باقی 1
-    hering_mind: { abbr: 'H-Mind', name: 'Hering — Analytical Repertory of the Mind', dataFile: 'hering_mind_repertory.json', chapDir: 'hering_mind_chapters/', color:'#6e2c00', tree:'prefix', keepOrder:true }
+    hering_mind: { abbr: 'H-Mind', name: 'Hering — Analytical Repertory of the Mind', dataFile: 'hering_mind_repertory.json', chapDir: 'hering_mind_chapters/', color:'#6e2c00', tree:'prefix', keepOrder:true },
+    // 🔑 v68: بوگر — ٹائمز آف دی ریمیڈیز اینڈ مون فیزز (homeoint.org Séror ایڈیشن) — رنگ = اصل I/II مارکس
+    boger_times: { abbr: 'Times', name: 'Boger — Times of Remedies & Moon Phases', dataFile: 'boger_times_repertory.json', chapDir: 'boger_times_chapters/', color:'#b9770e', tree:'prefix', keepOrder:true },
+    // 🔑 v68: بورک و ڈیوی — ٹشو ریمیڈیز کا تھراپیوٹک حصہ (homeopathybooks.in) — rubric = disease، remedies = 12 نمک
+    tissues_bd: { abbr: 'Tiss', name: 'Boericke & Dewey — Tissue Remedies', dataFile: 'tissues_bd_repertory.json', chapDir: 'tissues_bd_chapters/', color:'#16a085', tree:'prefix', keepOrder:true }
 };
 /* 🔑 کتاب کے مطابق رنگ / فولڈر — ہر جگہ یہی helper استعمال ہو (hard-coded ternaries نہیں) */
 function repBookColor(book){ var bi=REP_BOOK_INFO[book]; return (bi&&bi.color)||'#8e44ad'; }
@@ -29,7 +33,7 @@ var repLastSearchView = null;   // {results, info} saved for the "back to result
 // 🔑 v45: ڈیفالٹ کتاب = Kent (صارف درخواست — ڈراپ ڈاؤن میں کینٹ ٹاپ پر)
 var repCurrentBook = 'kent';
 // 🔑 v45: ہر ریپرٹری کا ڈیفالٹ چیپٹر — کتاب کھلنے پر مائنڈ خود بخود کھلتا ہے (صارف درخواست)
-var REP_DEFAULT_CHAPTER = { kent:'mind', publicum:'mind', synthesis91:'mind', kent_de:'gemuet', allen_fever:'type', hs_clinical:'clinical_clarke', keynotes_cc:'generalities', nosodes:'generalities', hering_mind:'ailments_from_emotions_and_exertions_of_the_mind' };
+var REP_DEFAULT_CHAPTER = { kent:'mind', publicum:'mind', synthesis91:'mind', kent_de:'gemuet', allen_fever:'type', hs_clinical:'clinical_clarke', keynotes_cc:'generalities', nosodes:'generalities', hering_mind:'ailments_from_emotions_and_exertions_of_the_mind', boger_times:'general_hour', tissues_bd:'tissue_therapeutics' };
 var repChapterNames = [];
 var repCurrentChapter = '';
 var repTreeCache = {};

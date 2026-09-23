@@ -61,7 +61,10 @@ Order = the order proposed in the discussion. `[x]` done · `[ ]` pending · `[~
 - [x] P2.9g v65: Allen MM of the Nosodes (key-notes PDF, graded) — 17 books
 - [x] P2.9h v66: Lippe Text-book (139) + Kent New Remedies (28) — 19 books
 - [x] P2.9i v67: Hering Analytical Repertory of the Mind → 9th repertory book (56 chapters, 10,018 rubrics, 313 remedies)
-- [ ] P2.9j Next: Boericke–Dewey Twelve Tissue Remedies; Allen Therapeutics of Fever; Hahnemann MM Pura + Chronic Diseases; Boger Times of Remedies; Boenninghausen repertory; Knerr's Repertory of Hering; Allen Encyclopaedia volumes
+- [x] P2.9j1 v68: Boger Times of Remedies & Moon Phases → 10th repertory (2,606 rubrics, 354 remedies, colour-graded)
+- [x] P2.9j2 v68: Boericke–Dewey Twelve Tissue Remedies (therapeutic part) → 11th repertory (114 disease rubrics × 12 salts)
+- [x] P2.9j3 v68: Allen Therapeutics of Fevers (MM part, 131 remedies) → 20th MM book with Allen's stage sections
+- [ ] P2.9j4 Next: Hahnemann MM Pura (Dudgeon) + Chronic Diseases (Tafel); Boericke–Dewey Part 4 repertory (archive.org scan); Allen Encyclopaedia volumes; Boenninghausen TPB; Knerr's Repertory of Hering; Cowperthwaite; Paterson Bowel Nosodes
 - [ ] P2.12 Sharded loading for very large books (per-letter files) to cut first-use download on mobile
 - [ ] P4 Symptom-level index across books (remedy × section × symptom, grade) → per-rubric comparison table "remedy × book" so the difference shows at once
 - [x] QA v61: import routing fix (private-books file in notes importer → 0 notes) + `tests/app_smoke.jsdom.test.js` (real index.html, all scripts, main flows)
