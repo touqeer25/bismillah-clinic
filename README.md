@@ -76,3 +76,12 @@ New books (homeoint.org): Boger — Synoptic Key, Part 2 Synopsis (305 remedies;
 - Rubric page: new section **✍ تفریقی نوٹس** listing this rubric's notes (approved first, then drafts, each with status, source and references) and ✎/✔ marks on the remedy chips; «✎ ترمیم» opens the 📖 tab.
 - **Shared notes**: commit the app's export as `mm/notes_shared.json` → every device merges it on start (an approved shared note overrides a local draft; a locally approved note is never overwritten by an older shared draft).
 - Seed drafts v2 (`mm/drafts_seed.json`, 15 notes): ABSENT-MINDED, GRIEF ailments from, CONSOLATION agg. × 5 remedies each, EN + UR, every claim referenced to the 12 books or to repertory facts (`[Rep: …]`). Seeds merge once (version flag), never overwrite.
+
+## v60 — Clarke's Dictionary + Farrington (archive.org OCR)
+
+| id | book | remedies | words | notes |
+|---|---|---|---|---|
+| clarke_dictionary | J. H. Clarke — A Dictionary of Practical Materia Medica (1900–02), complete | 634 (501 of the app's Kent remedies) | 1.06 M | sections: Clinical / Characteristics / Relations / Causation + the 27 numbered symptom sections (Mind … Fever); source `archive.org/details/clarkes-a-dictionary-of-practical-materia-medica` (clean OCR); 7.6 MB |
+| farrington_clinical | E. A. Farrington — A Clinical Materia Medica (lectures, 1887) | 75 remedy lectures | 0.2 M | comparative lectures ("Cina and Chamomilla") are attached to each remedy named; family/group lectures kept as essays; source `archive.org/details/clinicalmateriam00farr` |
+
+Builder: `tools/mm_build/ocr_books.py clarke <djvu.txt>` / `… farrington <djvu.txt>` (OCR-aware: page headers, hyphenation, joined title lines, strict remedy-heading matching). **14 books, 752 remedies with text, mm/ = 18 MB** — books load lazily and progressively (the 📖 tab fills in as each book arrives; first use ~26 MB, then served from the service-worker cache).
