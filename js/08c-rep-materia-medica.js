@@ -10,9 +10,9 @@ var REP_MM_DRAFT_N=4;           // مسودے میں جملے
 var repMMIndex=null;            // {books:{id:{title,author,year,file,remedies}}, avail:{abbr:[bookIds]}}
 var _repMMBooks={};             // id -> book json
 var _repMMLoading={};
-var repMMBookOrder=['kent_lectures','boericke','clarke_dictionary','hering_condensed','allen_keynotes','nash_leaders','farrington_clinical','lippe_keynotes','hutchison_700','guernsey_keynotes','allen_primer','boger_synoptic','boenninghausen_char','dewey_essentials','allen_clinical_hints'];
-var REP_MM_SHORT={kent_lectures:'Kent',boericke:'Boericke',allen_keynotes:'Allen',nash_leaders:'Nash',lippe_keynotes:'Lippe',hutchison_700:'Hutchison',guernsey_keynotes:'Guernsey',allen_primer:'T.F.Allen',boger_synoptic:'Boger',boenninghausen_char:'Boenn.',dewey_essentials:'Dewey',allen_clinical_hints:'Clin.Hints',clarke_dictionary:'Clarke',farrington_clinical:'Farrington',hering_condensed:'Hering'};
-var REP_MM_COLOR={kent_lectures:'#1a5276',boericke:'#117a65',allen_keynotes:'#7d6608',nash_leaders:'#6c3483',lippe_keynotes:'#a04000',hutchison_700:'#7b241c',guernsey_keynotes:'#1f618d',allen_primer:'#4d5656',boger_synoptic:'#0e6655',boenninghausen_char:'#784212',dewey_essentials:'#154360',allen_clinical_hints:'#9a7d0a',clarke_dictionary:'#922b21',farrington_clinical:'#1b4f72',hering_condensed:'#4a235a'};
+var repMMBookOrder=['kent_lectures','boericke','clarke_dictionary','hering_guiding','hering_condensed','allen_keynotes','nash_leaders','farrington_clinical','lippe_keynotes','hutchison_700','guernsey_keynotes','allen_primer','boger_synoptic','boenninghausen_char','dewey_essentials','allen_clinical_hints'];
+var REP_MM_SHORT={kent_lectures:'Kent',boericke:'Boericke',allen_keynotes:'Allen',nash_leaders:'Nash',lippe_keynotes:'Lippe',hutchison_700:'Hutchison',guernsey_keynotes:'Guernsey',allen_primer:'T.F.Allen',boger_synoptic:'Boger',boenninghausen_char:'Boenn.',dewey_essentials:'Dewey',allen_clinical_hints:'Clin.Hints',clarke_dictionary:'Clarke',farrington_clinical:'Farrington',hering_condensed:'Hering C.',hering_guiding:'Hering GS'};
+var REP_MM_COLOR={kent_lectures:'#1a5276',boericke:'#117a65',allen_keynotes:'#7d6608',nash_leaders:'#6c3483',lippe_keynotes:'#a04000',hutchison_700:'#7b241c',guernsey_keynotes:'#1f618d',allen_primer:'#4d5656',boger_synoptic:'#0e6655',boenninghausen_char:'#784212',dewey_essentials:'#154360',allen_clinical_hints:'#9a7d0a',clarke_dictionary:'#922b21',farrington_clinical:'#1b4f72',hering_condensed:'#4a235a',hering_guiding:'#6e2c00'};
 
 // ---------- لوڈنگ ----------
 function repMMEnsureIndex(cb){
@@ -329,7 +329,7 @@ function repDiffMMTabHtml(last){
     if(!repMMLoaded()){
         var rerender=function(){ if(typeof repDiffTab!=='undefined'&&repDiffTab==='mm'&&typeof repDiffRenderBody==='function') repDiffRenderBody(); };
         if(!_repMMEnsureKicked){ _repMMEnsureKicked=true; repMMEnsureAll(rerender,function(){ rerender(); }); }
-        if(!repMMIndex||!repMMLoadedCount()) return h+'<div class="rep-tool-loading">⏳ '+L({ur:'میٹیریا میڈیکا لوڈ ہو رہی ہے (پہلی بار ~28 ایم بی، پھر کیش سے)…',en:'Loading materia medica (first time ~28 MB, then cached)…',roman:'Materia medica load ho rahi hai…'})+'</div>';
+        if(!repMMIndex||!repMMLoadedCount()) return h+'<div class="rep-tool-loading">⏳ '+L({ur:'میٹیریا میڈیکا لوڈ ہو رہی ہے (پہلی بار ~40 ایم بی، پھر کیش سے)…',en:'Loading materia medica (first time ~40 MB, then cached)…',roman:'Materia medica load ho rahi hai…'})+'</div>';
         h+='<div class="rep-tool-note">⏳ '+L({ur:'کتابیں لوڈ ہو رہی ہیں: '+repMMLoadedCount()+' / '+repMMPublicIds().length+' — نتائج خودبخود مکمل ہوں گے',en:'Books loading: '+repMMLoadedCount()+' / '+repMMPublicIds().length+' — results fill in automatically',roman:'Books loading '+repMMLoadedCount()+'/'+repMMPublicIds().length})+'</div>';
     }
     var re=repMMThemeRegex(theme);

@@ -185,6 +185,72 @@ def build_hering_condensed(path):
         if not e['sections']: del book['remedies'][a]
     return book
 
+
+# ------------------------------------------------------------------ Hering, Guiding Symptoms (10 vols, 1879–91) — single OCR file
+GS_HEADER = re.compile(r'THE GUIDING SYMPTOMS\s*\n+\s*OF OUR MATERIA MEDICA\s*\n\s*BY CONSTANTINE HERING,? M\.? ?D\.?\s*\n')
+GS_SEC = re.compile(r"^([A-Z][A-Z ,.'\-]{2,45}?)\.?\s*\[(\d{1,2})\]\s*(?:\[[^\]]*\])?\s*(.*)$", re.S)
+def build_hering_gs(path):
+    book = {'id': 'hering_guiding', 'title': 'The Guiding Symptoms of our Materia Medica', 'author': 'Constantine Hering', 'year': 1891,
+            'source': 'https://archive.org/details/herings-guiding-symptoms-of-our-materia-medica-1891_20240318 — OCR', 'license': 'public domain', 'remedies': {}, 'unmatched': []}
+    from names import _names, KENT_ABBRS
+    t = load_text(path)
+    blocks = GS_HEADER.split(t)
+    def clean_title(x):
+        x = re.sub(r'\(.*?\)', '', x).strip().rstrip('.').strip()
+        x = x.replace('/7E', 'Ae').replace('/E', 'Ae').replace('^E', 'Ae').replace('(E', 'Oe')
+        return x
+    cur = None
+    for blk in blocks[1:]:
+        lines = [l.strip() for l in blk.split('\n')]
+        # remove TOC lines ("[1] Mind." … "[48] Relations." and their wrapped remnants like "nausea..")
+        body_lines = []; in_toc = False
+        for l in lines:
+            if re.match(r'^\[\d{1,2}\]\s', l): in_toc = True; continue
+            if in_toc and (not l or re.match(r'^[a-z][a-z ,.]*\.\.?$', l) or re.match(r'^(Trachea|nausea|stomach|circulation|weather|constitution)\.*$', l)): continue
+            in_toc = False; body_lines.append(l)
+        body = '\n'.join(body_lines)
+        first_sec = re.search(r'\n([A-Z][A-Z ,.\'\-]{2,45}?)\.?\s*\[(\d{1,2})\]\s*\[([^\]]*)\]', '\n' + body)
+        head = [l for l in body_lines[:12] if l] if not first_sec else [l for l in ('\n' + body)[:first_sec.start()].split('\n') if l.strip()]
+        abbr = None; title = None
+        for l in head[:6]:
+            ct = clean_title(l)
+            if re.search(r'\b(of|and)\b', ct, re.I) and not re.search(r'\band\b', ct, re.I): continue     # chemical/common names ("Silico Fluoride of Calcium") → use bracket abbr instead
+            if 3 <= len(ct) <= 60 and re.fullmatch(r"[A-Z][A-Za-z .\-']+", ct):
+                a, how = fuzzy_match(ct)
+                if a: abbr, title = a, ct; break
+                if title is None: title = ct
+        if not abbr and first_sec:
+            br = first_sec.group(3).lower().replace('.', '').strip(); br = re.sub(r'\s+', '-', br)
+            if br in _names or br in KENT_ABBRS: abbr = br; title = title or br
+        if not abbr:
+            if cur is not None and not first_sec:   # continuation page of the current remedy
+                paras = paragraphs(body, ['GUIDING SYMPTOMS', 'CONSTANTINE HERING'])
+                for p in paras: cur['sections'][-1]['p'].append(p)
+            elif title: book['unmatched'].append({'name': title})
+            continue
+        # drop CLINICAL AUTHORITIES citations
+        ca = body.find('CLINICAL AUTHORITIES')
+        if ca != -1:
+            fs = re.search(r'\n[A-Z][A-Z ,.\'\-]{2,45}\.?\s*\[\d{1,2}\]', body[ca:])
+            body = body[:ca] + (body[ca + fs.start():] if fs else '')
+        paras = paragraphs(body, ['GUIDING SYMPTOMS', 'CONSTANTINE HERING'])
+        if abbr in book['remedies']: cur = book['remedies'][abbr]
+        else: cur = {'name': title or abbr, 'src': 'gs', 'sections': [{'h': '', 'p': []}]}; book['remedies'][abbr] = cur
+        for p in paras:
+            if title and p.rstrip('.').strip() == title: continue
+            m = GS_SEC.match(p)
+            if m and 1 <= int(m.group(2)) <= 48:
+                cur['sections'].append({'h': m.group(1).strip().title(), 'p': []})
+                rest = m.group(3).strip()
+                if rest: cur['sections'][-1]['p'].append(rest)
+                continue
+            p = re.sub(r'(^|[.;]\s+)[0@6]\s+(?=[A-Z])', r'\1θ ', p)
+            cur['sections'][-1]['p'].append(p)
+    for a, e in list(book['remedies'].items()):
+        e['sections'] = [x for x in e['sections'] if x['p']]
+        if not e['sections']: del book['remedies'][a]
+    return book
+
 def plain(t): return re.sub(r'\*\*|_', '', t)
 def save(book):
     p = os.path.join(OUT, book['id'] + '.json')
@@ -207,3 +273,4 @@ if __name__ == '__main__':
     if which == 'clarke': save(build_clarke(paths))
     elif which == 'farrington': save(build_farrington(paths[0]))
     elif which == 'hering': save(build_hering_condensed(paths[0]))
+    elif which == 'hering_gs': save(build_hering_gs(paths[0]))

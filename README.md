@@ -105,3 +105,7 @@ Builder: `tools/mm_build/ocr_books.py clarke <djvu.txt>` / `… farrington <djvu
 - **Right pane**: the note editor for (rubric × selected remedy), sticky while scrolling (save draft / ✔ approve / delete / adopt draft), plus the other notes of the same rubric (click = switch).
 - **📊 سب کا خلاصہ**: Design-B table (remedy · first 2 draft sentences · sentence count · note status), rows switch the pane.
 - ≤ 900 px: panes stack, the editor sticks to the bottom (Design C behaviour). Design board: `docs/mm_tab_layouts.html`.
+
+## v64 — Hering's Guiding Symptoms (complete)
+
+`hering_guiding`: **394 remedies** (383 of the app's Kent remedies), 1.9 M words, Hering's 48 sections per remedy (Mind … Relations), θ marks kept for cured clinical conditions; source `archive.org/details/herings-guiding-symptoms-of-our-materia-medica-1891_20240318` (single clean OCR of the 10 volumes), 12 MB JSON (≈2.5 MB gzipped over the wire). Builder: `tools/mm_build/ocr_books.py hering_gs <djvu.txt>`. **16 books, 758 remedies with text, mm/ = 31 MB** (lazy, progressive, cached).
