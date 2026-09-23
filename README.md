@@ -154,3 +154,16 @@ Housekeeping: hard-coded `/home/user/bismillah-clinic` in `tools/mm_build/{names
 the source of both `app_smoke` failures; the smoke test now also filters errors thrown from external <script>s and
 the JS-dom stack slice was widened so that filter can see the frame. `index.html` script versions bumped,
 `CACHE_NAME` → v76, both new repertories' index files added to CORE_ASSETS, tests cover 11 books / 20 MM books.
+
+## v68.1 — making the new Allen MM book discoverable
+
+`allen_fevers` was wired correctly but sat **last** in `repMMBookOrder`, and the 📖 Materia Medica row shows only the
+7 badges with the most hits for the current theme — so on most remedies the new book was hidden behind the `+N`
+overflow (it surfaced for 1 of 9 sampled remedies). Fix: it now follows `allen_keynotes` in the order (position 6 of
+20) and surfaces for 9 of 9 sampled remedies; `mm/_index.json` and `mm/*.json` are fetched with `?v=2` and
+`CACHE_NAME` → **v77** so a device holding the pre-v68 index re-reads it instead of showing 19 books.
+`index.html` → `08c-rep-materia-medica.js?v=13`.
+Note the two Allen fever books in the app are *different works*: 🌡️ `allen_fever` (10th slot in the repertory picker) is
+Allen's fever **repertory** (rubrics → graded remedy lists), while 📖 `allen_fevers` is the **text/therapeutics** book
+(prose under Allen's own stage heads) and lives in the Materia Medica layer only — it is deliberately not a repertory
+entry, since that would duplicate the rubrics already in `allen_fever`.

@@ -64,6 +64,7 @@ Order = the order proposed in the discussion. `[x]` done · `[ ]` pending · `[~
 - [x] P2.9j1 v68: Boger Times of Remedies & Moon Phases → 10th repertory (2,606 rubrics, 354 remedies, colour-graded)
 - [x] P2.9j2 v68: Boericke–Dewey Twelve Tissue Remedies (therapeutic part) → 11th repertory (114 disease rubrics × 12 salts)
 - [x] P2.9j3 v68: Allen Therapeutics of Fevers (MM part, 131 remedies) → 20th MM book with Allen's stage sections
+- [x] P2.9j3b v68.1: `allen_fevers` ordered with Allen's other MM books (badge row caps at 7 → tail order hid it); `mm/*` fetch `?v=2`; `CACHE_NAME` v77 so pre-v68 index is re-read
 - [ ] P2.9j4 Next: Hahnemann MM Pura (Dudgeon) + Chronic Diseases (Tafel); Boericke–Dewey Part 4 repertory (archive.org scan); Allen Encyclopaedia volumes; Boenninghausen TPB; Knerr's Repertory of Hering; Cowperthwaite; Paterson Bowel Nosodes
 - [ ] P2.12 Sharded loading for very large books (per-letter files) to cut first-use download on mobile
 - [ ] P4 Symptom-level index across books (remedy × section × symptom, grade) → per-rubric comparison table "remedy × book" so the difference shows at once
