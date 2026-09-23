@@ -66,6 +66,9 @@ Order = the order proposed in the discussion. `[x]` done · `[ ]` pending · `[~
 - [x] P2.9j3 v68: Allen Therapeutics of Fevers (MM part, 131 remedies) → 20th MM book with Allen's stage sections
 - [x] P2.9j3b v68.1: `allen_fevers` ordered with Allen's other MM books (badge row caps at 7 → tail order hid it); `mm/*` fetch `?v=2`; `CACHE_NAME` v77 so pre-v68 index is re-read
 - [x] P2.9j3c v68.2: 🔒 private-book tabs labelled by book title (one author, many books looked duplicated) + one-tap ✕ removes a private book from this device
+- [x] P2.9j3d v68.3: «🔒 N چھپا دیں/دکھائیں» toggle in the 📖 book row — hides private tabs with nothing for this remedy (device preference, nothing deleted)
+- [x] P2.9j3e v68.4: private-book remedy detection accepts the short name («Hyoscyamus» without «niger») — tabs stop looking dead, hide-counter counts only true misses
+- [x] P2.9j3f v68.5: private books join the theme search and the 🤖 auto draft — no length cut-off at 300 chars, no score penalty, no 3-sentence cap; device switch `bc_rep_priv_prefs.inDraft` (default on)
 - [ ] P2.9j4 Next: Hahnemann MM Pura (Dudgeon) + Chronic Diseases (Tafel); Boericke–Dewey Part 4 repertory (archive.org scan); Allen Encyclopaedia volumes; Boenninghausen TPB; Knerr's Repertory of Hering; Cowperthwaite; Paterson Bowel Nosodes
 - [ ] P2.12 Sharded loading for very large books (per-letter files) to cut first-use download on mobile
 - [ ] P4 Symptom-level index across books (remedy × section × symptom, grade) → per-rubric comparison table "remedy × book" so the difference shows at once

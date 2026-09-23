@@ -11,9 +11,12 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   const d=w.document; for(let i=0;i<w.REP_N_CLIPS;i++)w.repClipboards[i]=[]; w.localStorage.clear();
   // ---- data ----
   await new Promise(r=>w.repMMEnsureAll(r));
-  const ids=w.repMMBookIds(); ok(ids.length>=3&&w.repMMLoaded(),'MM books loaded: '+ids.join(', '));
+  const ids=w.repMMBookIds(); ok(ids.length>=19&&w.repMMLoaded(),'MM books loaded ('+ids.length+'): '+ids.join(', '));
+  ok(w.repMMEntry('clarke_dictionary','nat-m')&&w.repMMEntry('clarke_dictionary','nat-m').sections.some(s=>s.h==='Characteristics')&&w.repMMEntry('farrington_clinical','nat-m'),'Clarke (sectioned) + Farrington have Natrum mur');
+  ok(w.repMMEntry('hering_condensed','nat-m')&&w.repMMEntry('hering_condensed','nat-m').sections[0].h==='Mind','Hering Condensed nat-m starts with Mind section');
+  ok(w.repMMEntry('hering_guiding','nat-m')&&w.repMMEntry('hering_guiding','nat-m').sections.some(s=>s.h==='Mind'&&s.p.length>30),'Hering Guiding Symptoms nat-m has a Mind section with >30 symptoms');
   const ix=JSON.parse(fs.readFileSync(ROOT+'/mm/_index.json','utf8'));
-  ok(Object.values(ix.books).every(b=>b.remedies>150),'each book has >150 remedies: '+Object.entries(ix.books).map(([k,v])=>k+'='+v.remedies).join(' '));
+  ok(Object.values(ix.books).every(b=>b.remedies>=6),'each book has remedies: '+Object.entries(ix.books).map(([k,v])=>k+'='+v.remedies).join(' '));
   const av=w.repMMAvail('nat-m'); ok(av.indexOf('kent_lectures')!==-1&&av.indexOf('allen_keynotes')!==-1&&av.indexOf('nash_leaders')!==-1,'nat-m available in Kent/Allen/Nash ('+av.join(',')+')');
   const e=w.repMMEntry('kent_lectures','nat-m'); ok(e&&/Natrum/i.test(e.name)&&e.sections[0].p.length>40,'Kent lecture Natrum mur: '+(e&&e.sections[0].p.length)+' paragraphs');
   const eb=w.repMMEntry('boericke','nat-m'); if(eb) ok(eb.sections.some(s=>s.h==='Mind')&&eb.sections.some(s=>/Modalities|Relationship/.test(s.h)),'Boericke nat-m sections: '+eb.sections.map(s=>s.h||'(intro)').join(', '));
@@ -43,10 +46,16 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   w.repDiffToggleRem('nat-m'); await sleep(30); w.repDiffToggleRem('ign'); await sleep(30);
   for(let i=0;i<60&&!(w.repDiffLast&&w.repDiffLast.res);i++)await sleep(50);
   w.repDiffSetTab('mm'); await sleep(80);
-  const cards=d.querySelectorAll('.rep-mm-card'); ok(cards.length===2,'📖 tab: one card per selected remedy ('+cards.length+')');
+  ok(d.querySelectorAll('.rep-mm-rtb').length===2&&d.querySelector('.rep-mm-rtb.on')&&d.querySelector('.rep-mm-e-left')&&d.querySelector('.rep-mm-e-right'),'📖 tab (Design E): 2 remedy chips, content pane + sticky editor');
   ok(d.querySelector('.rep-mm-draft')&&d.querySelectorAll('.rep-mm-draftline').length>=1&&d.querySelector('.rep-mm-ref'),'auto draft shown with references ('+d.querySelectorAll('.rep-mm-draftline').length+' lines, theme='+w.repDiffTheme+')');
   ok(d.querySelector('.rep-mm-more .rep-mm-sent mark'),'matching sentences highlight theme words');
-  ok(d.querySelectorAll('.rep-mm-note textarea').length===2,'note editor per remedy');
+  ok(d.querySelectorAll('.rep-mm-note textarea').length===1&&d.querySelectorAll('.rep-mm-pick').length>=2,'one editor for the selected remedy + «＋ to note» buttons ('+d.querySelectorAll('.rep-mm-pick').length+')');
+  const taBefore=d.querySelector('.rep-mm-note textarea').value; d.querySelector('.rep-mm-pick').click();
+  ok(d.querySelector('.rep-mm-note textarea').value.length>taBefore.length&&/\[/.test(d.querySelector('.rep-mm-note textarea').value),'«＋ to note» appends the sentence with its reference');
+  d.querySelector('.rep-mm-note textarea').value='';
+  w.repMMTabSelect('ign'); await sleep(40); ok(d.querySelector('.rep-mm-rtb.on').textContent.indexOf('ign')===0&&d.querySelector('.rep-mm-cardhead b').textContent==='ign','switching remedy chip changes the pane + editor');
+  w.repMMTabSummaryToggle(); await sleep(40); ok(d.querySelectorAll('.rep-mm-sumtbl tbody tr').length===2,'📊 summary table lists both remedies'); w.repMMTabSummaryToggle(); await sleep(20);
+  w.repMMTabSelect('nat-m'); await sleep(40);
   // adopt draft → approve
   const ta=d.querySelector('.rep-mm-note textarea'); const id=ta.id; const abbr=id.replace('repNote_','').replace(/_/g,'-');
   w.repNoteAdoptDraft(abbr,id); ok(d.getElementById(id).value.length>20,'adopt draft fills editor for '+abbr);
@@ -65,8 +74,82 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   ok(d.querySelectorAll('.rep-mm-p.hit').length>0&&d.querySelector('.rep-mm-p mark'),'in-text search highlights "consolation": '+d.querySelectorAll('.rep-mm-p.hit').length+' paragraphs');
   const nash=Array.from(tabs).find(b=>/Nash/.test(b.textContent)); if(nash&&!nash.disabled){ nash.click(); await sleep(20); ok(/Nash/.test(d.querySelector('.rep-mm-src').textContent),'switch to Nash tab'); }
   d.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Escape'})); ok(d.getElementById('repMMModal').style.display==='none','Esc closes viewer');
+  // ---- 🔒 private books (memory fallback in jsdom: no IndexedDB) ----
+  const priv={books:[{id:'priv_test_mm',title:'Test Private MM',author:'Dr. Tester',year:2020,private:true,format:'pages',pages:[{p:1,t:'Natrum muriaticum: silent grief, cannot weep before others; consolation aggravates. Absent-minded while reading.'},{p:2,t:'Ignatia amara: sighing, changeable mood after grief.'},{p:3,t:'Unrelated page about potency.'}]}]};
+  await new Promise(r=>w.repPrivImportText(JSON.stringify(priv),r));
+  ok(w.repPrivIds().indexOf('priv_test_mm')!==-1&&w.repMMBookIds().indexOf('priv_test_mm')!==-1,'private book imported and listed after public books');
+  ok(w.repMMAvail('nat-m').indexOf('priv_test_mm')!==-1&&w.repMMAvail('ign').indexOf('priv_test_mm')!==-1&&w.repMMAvail('apis').indexOf('priv_test_mm')===-1,'private availability by remedy-name detection (nat-m, ign yes; apis no)');
+  const pe=w.repMMEntry('priv_test_mm','nat-m'); ok(pe&&pe.sections.length===1&&pe.sections[0].h==='p. 1','private entry = pages mentioning the remedy (p. 1)');
+  const pm=w.repMMMatches('nat-m',w.repDiffThemeRegex('grief, consol')); ok(pm.some(m=>m.book==='priv_test_mm'&&/grief|consol/i.test(m.text)),'theme sentences found in private book with reference '+w.repMMRef(pm.find(m=>m.book==='priv_test_mm')||{book:'?'}));
+  ok(/🔒/.test(w.repMMBadge('priv_test_mm'))&&/Test Private MM/.test(w.repMMShort('priv_test_mm')),'private badge 🔒 + label = the book title (v68.2, not the author surname)');
+  { const same=w.repPrivIds().length;   // two books by ONE author must not print the same name
+    const two=JSON.stringify({books:[{id:'p1',title:'Treasures — Charts & Rubrics',author:'Prafull Vijayakar',private:true,format:'pages',pages:[{p:1,t:'nothing here'}]},{id:'p2',title:'Predictive Homoeopathy Part II — Theory of Acutes',author:'Prafull Vijayakar',private:true,format:'pages',pages:[{p:1,t:'nothing here'}]}]});
+    await new Promise(r=>w.repPrivImportText(two,r)); await sleep(40);
+    const lbl=w.repPrivIds().map(id=>w.repMMShort(id));
+    ok(new Set(lbl).size===lbl.length,'same author, different books → distinct labels: '+JSON.stringify(lbl));
+    w.repMMOpen('nat-m','grief',['nat-m']); await sleep(60);
+    ok(d.querySelectorAll('#repMMHead .rep-mm-tabx.del').length===2,'books with nothing for this remedy get a removable ✕ in the tab row');
+    d.querySelector('#repMMHead .rep-mm-tabx.del').dispatchEvent(new w.MouseEvent('click',{bubbles:true})); await sleep(60);
+    ok(w.repPrivIds().length===same+1,'✕ removes that private book from this device only (back to '+(same+1)+')'); w.repMMClose(); }
+  { const two=JSON.stringify({books:[{id:'p1',title:'Treasures — Charts & Rubrics',author:'Prafull Vijayakar',private:true,format:'pages',pages:[{p:1,t:'nothing here'}]},{id:'p2',title:'Predictive Homoeopathy Part II — Theory of Acutes',author:'Prafull Vijayakar',private:true,format:'pages',pages:[{p:1,t:'nothing here'}]}]});
+    await new Promise(r=>w.repPrivImportText(two,r)); await sleep(40);   // both books again: 2 private tabs with nothing for nat-m
+    w.repMMOpen('nat-m','grief',['nat-m']); await sleep(50);
+    const beforeRows=d.querySelectorAll('#repMMHead .rep-diff-ctl > .rep-diff-tabs button').length;
+    const tog=[...d.querySelectorAll('#repMMHead .rep-diff-ctl button')].find(b=>/🔒\s*\d+/.test(b.textContent));
+    ok(!!tog&&/چھپا دیں/.test(tog.textContent),'the row carries a «🔒 N چھپا دیں» button: '+(tog?tog.textContent:'none'));
+    tog.dispatchEvent(new w.MouseEvent('click',{bubbles:true})); await sleep(60);
+    const afterRows=d.querySelectorAll('#repMMHead .rep-diff-ctl > .rep-diff-tabs button').length;
+    ok(afterRows<beforeRows,'one tap hides the empty private tabs: '+beforeRows+' → '+afterRows);
+    ok(w.repMMBookIds().length===w.repMMBookIds().length&&JSON.parse(w.localStorage.getItem('bc_rep_priv_prefs')).hideEmpty===true,'the preference is remembered on this device');
+    const tog2=[...d.querySelectorAll('#repMMHead .rep-diff-ctl button')].find(b=>/🔒\s*\d+/.test(b.textContent));
+    ok(/دکھائیں/.test(tog2.textContent),'button flips to «دکھائیں»: '+tog2.textContent.trim());
+    tog2.dispatchEvent(new w.MouseEvent('click',{bubbles:true})); await sleep(60);
+    ok(d.querySelectorAll('#repMMHead .rep-diff-ctl > .rep-diff-tabs button').length===beforeRows,'tapping again brings them back'); w.repMMClose();
+    w.repDiffClose();   // back to the 📖 tab pane: the row must respect the same preference
+    await sleep(30); }
+  w.repDiffClose(); w.repMMOpen('nat-m','grief',['nat-m']); await sleep(80); w.repMMSetBook('priv_test_mm'); await sleep(30);
+  ok(/نجی|private/.test(d.querySelector('.rep-mm-src').textContent)&&d.querySelector('.rep-mm-section .rep-mm-h').textContent==='p. 1','viewer shows private book pages');
+  w.repMMView.q='potency'; w.repMMWholeToggle(true); await sleep(30); ok(d.querySelector('.rep-mm-section .rep-mm-h').textContent==='p. 3','whole-book search finds page 3 (not a remedy page)');
+  w.repMMClose(); w.repPrivIds().slice().forEach(function(id){ w.repPrivDelete(id); }); ok(w.repPrivIds().length===0&&w.repMMAvail('nat-m').indexOf('priv_test_mm')===-1,'private books removed from this device');
+  // ---- import routing: wrong button still works ----
+  const privFile=JSON.stringify({books:[{id:'priv_route_test',title:'Route Test',author:'X',pages:[{p:1,t:'Ignatia amara sighing grief.'}]}]});
+  w.toasts.length=0; const rn=w.repNotesImportText(privFile); await sleep(80);
+  ok(rn===-1&&w.repPrivIds().indexOf('priv_route_test')!==-1&&w.toasts.some(t=>/🔒/.test(t)),'notes importer given a private-books file → routed to private import');
+  w.repPrivDelete('priv_route_test');
+  const notesFile=JSON.stringify({notes:{'kent|mind|r9999|ign':{abbr:'ign',text:'routed note',status:'draft'}}});
+  w.toasts.length=0; await new Promise(r=>w.repPrivImportText(notesFile,r));
+  ok(w.repNoteGet({book:'kent',ch:'mind',rid:'r9999'},'ign')&&w.repNoteGet({book:'kent',ch:'mind',rid:'r9999'},'ign').text==='routed note'&&w.toasts.some(t=>/✍/.test(t)),'private importer given a notes file → routed to notes import');
+  w.toasts.length=0; ok(w.repNotesImportText('{"foo":1}')===0&&w.toasts.some(t=>/⚠/.test(t)),'unknown JSON → clear warning, nothing imported');
+  // ---- v62: junk filter, section boost, theme stems ----
+  ok(w.repMMIsJunk('X Contents FEAR of impending disease 164 ANXIETY, health about 165 ESCAPE attempts to 166 Medicines coming under the rubric cautious 169 Aconitum Napellus 169')&&!w.repMMIsJunk('Brooding over imaginary troubles, seems weighed down by grief.'),'junk filter: TOC/index sentence rejected, prose kept');
+  ok(w.repMMSecBoost('Mind','mind')>w.repMMSecBoost('Urine','mind')&&w.repMMSecBoost('Characteristics','mind')>w.repMMSecBoost('Fever','mind')&&w.repMMSecBoost('Head','head')>0,'section boost: Mind > generic > physical for a Mind rubric; Head boosted for a Head rubric');
+  const th=w.repDiffThemeWordsFor({book:'kent',ch:'mind',rid:'r380',full:'BROODING (See Anxiety, Sadness)',rems:{}}); ok(/brood/.test(th)&&/anxiety/.test(th)&&/sad/.test(th),'theme words for BROODING include brood, anxiety, sad: "'+th+'"');
+  const junkPriv={books:[{id:'priv_junk',title:'Junk Book',author:'Idx',pages:[{p:1,t:'Contents ANXIETY 1 BROODING 2 FEAR 3 GRIEF 4 SADNESS 5 Ignatia amara 12 Natrum muriaticum 14 ROH Series XIV.'},{p:2,t:'Ignatia amara: broods over imaginary troubles after grief; sighing.'}]}]};
+  await new Promise(r=>w.repPrivImportText(JSON.stringify(junkPriv),r));
+  const jm=w.repMMMatches('ign',w.repDiffThemeRegex('brood, anxiety, sad'),6,'mind').filter(m=>m.book==='priv_junk');
+  ok(jm.length===1&&/broods over imaginary/.test(jm[0].text),'private book: index page excluded, prose page kept ('+jm.length+')');
+  const dr2=w.repMMDraft('ign',w.repDiffThemeRegex('brood, anxiety, sad')); ok(dr2.filter(m=>m.book==='priv_junk').length<=1&&dr2.every(m=>m.score>=2),'draft: ≤1 sentence per private book, score threshold');
+  w.repPrivDelete('priv_junk');
   // seed drafts merged on first load
   w.localStorage.removeItem('bc_rep_notes_seed_v'); await new Promise(r=>w.repNotesSeed(r)); ok(w.repNoteGet({book:'kent',ch:'mind',rid:'r2'},'nux-m')&&w.repNoteGet({book:'kent',ch:'mind',rid:'r2'},'nux-m').src==='llm-seed'&&w.repNoteGet(w.repDiffCtx||{book:'kent',ch:'mind',rid:'r2'},'nat-m').status==='approved','seed drafts merged without overwriting the approved nat-m note');
+  // ---- v59: notes on the rubric page + shared notes file ----
+  w.localStorage.removeItem('bc_rep_notes_seed_v'); await new Promise(r=>w.repNotesSeed(r));
+  ok(w.repNotesCount().total>=15,'seed v2 merged: '+w.repNotesCount().total+' notes (ABSENT-MINDED, GRIEF, CONSOLATION)');
+  w.repOpenRubricDetail(mind.r2449.t,'r2449'); for(let i=0;i<60&&!d.querySelector('.rep-notes-list');i++)await sleep(50); await sleep(50);
+  ok(d.querySelectorAll('.rep-note-card').length===5,'GRIEF page shows 5 seed notes ('+d.querySelectorAll('.rep-note-card').length+')');
+  ok(d.querySelectorAll('.rpd-chips .rep-remedy-tag.noted').length===5&&d.querySelector('.rep-note-sup'),'remedy chips carry ✎ marks for noted remedies');
+  ok(/\[Rep:|\[Allen|\[Kent|\[Guernsey/.test(d.querySelector('.rep-note-text').textContent),'note text shows references');
+  // approve one → card turns ✔ and chip mark becomes ✔
+  w.repNoteSet({book:'kent',ch:'mind',rid:'r2449',full:mind.r2449.t},'staph',w.repNoteGet({book:'kent',ch:'mind',rid:'r2449'},'staph').text,'approved');
+  w.repOpenRubricDetail(mind.r2449.t,'r2449'); await sleep(80);
+  ok(d.querySelector('.rep-note-card.ok')&&d.querySelector('.rep-note-card').querySelector('.rep-remedy-tag').textContent==='staph'&&Array.from(d.querySelectorAll('.rep-note-sup')).some(e=>e.textContent==='✔'),'approved note listed first with ✔');
+  // shared notes file merge (repo-committed notes)
+  const sharedPath=ROOT+'/mm/notes_shared.json'; const hadShared=fs.existsSync(sharedPath);
+  fs.writeFileSync(sharedPath,JSON.stringify({notes:{'kent|mind|r2449|aur':{abbr:'aur',text:'SHARED APPROVED NOTE',status:'approved',ts:Date.now()+1000,src:'doctor'},'kent|mind|r2449|staph':{abbr:'staph',text:'older shared',status:'draft',ts:1}}}));
+  w._repNotesSharedDone=false; await new Promise(r=>w.repNotesShared(r));
+  if(!hadShared) fs.unlinkSync(sharedPath);
+  ok(w.repNoteGet({book:'kent',ch:'mind',rid:'r2449'},'aur').text==='SHARED APPROVED NOTE','shared approved note overrides local draft');
+  ok(w.repNoteGet({book:'kent',ch:'mind',rid:'r2449'},'staph').status==='approved'&&w.repNoteGet({book:'kent',ch:'mind',rid:'r2449'},'staph').text!=='older shared','locally approved note is NOT overwritten by an older shared draft');
   // Ask AI
   d.getElementById('repAskMsgs').innerHTML='<div id="repAskTyping">⏳</div>'; w.repAskAnswer('بورک کی کتاب'); await sleep(20); ok(/📖/.test(d.getElementById('repAskMsgs').innerHTML),'Ask AI answers on materia medica');
   console.log(fails?'FAILURES: '+fails:'ALL TESTS PASSED'); process.exit(fails?1:0);

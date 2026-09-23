@@ -187,3 +187,40 @@ Fix: private tabs now show the book's own title (26 chars, ellipsis); for a priv
 If the imported set itself has duplicates (the same book imported under two ids from two PDFs, e.g. a book also sitting
 inside `private_books_all.json`), they are separate IndexedDB records and cannot be told apart automatically — the new ✕
 is there exactly so a redundant one can be dropped in a click.
+
+## v68.3 — the 🔒 row can be silenced: «🔒 N چھپا دیں»
+
+The private books are the copyrighted ones imported into this browser only (`tools/qdrant_to_private_books.py` →
+IndexedDB), so they are never uploaded — that is what the 🔒 marks. Until now the 📖 viewer kept showing **every** one of
+them with a `✕`, which reads as noise whenever the selected remedy has nothing in them (Dr. Naveed's two screenshots:
+12 such tabs for `anac`, 12 for `hyos`, while the theme `abusive` matched 0 paragraphs in all of them).
+
+One toggle fixes it: the row now ends with `🔒 N چھپا دیں` / `🔒 N دکھائیں`. Hiding affects **only that row** — the books
+stay in IndexedDB, nothing is deleted, and the choice is remembered per device in `bc_rep_priv_prefs` (a private book
+that *does* have something for the current remedy is never hidden). Deleting a redundant copy is still the `✕` inside the
+private tab (v68.2). `index.html` → `?v=16`, `CACHE_NAME` → **v80**, `materia_medica` now asserts the toggle
+(`23 → 21` tabs, label flips, tapping again restores).
+
+## v68.4 — a 🔒 book that knows the remedy must not look dead
+
+`repPrivRemedyRegex()` only accepted the remedy's **two-word** form ("Hyoscyamus niger"), so a book that writes plain
+"Hyoscyamus" counted as knowing nothing — which is exactly what produced the walls of `✕` tabs in the two screenshots.
+It now also matches the first word on its own (and the abbreviation, as before), so: the tab is **clickable** instead of
+dead-looking, its remedy pages are found (`Absolute Homoeopathic Materia Medica` → 2 pages for Hyoscyamus in the test),
+and the `🔒 N چھپا دیں` counter in v68.3 now counts only books that genuinely do not name the remedy. When the theme words
+match nothing but the remedy *is* in the books, the note says so ("N کتابوں میں متن ہے — 📖 پورا متن دیکھیں") instead of
+looking like an empty library. Covered by `/tmp/check_v684.js` in this session (10 checks); the four app suites and the
+43 python tests pass.
+
+## v68.5 — 🔒 private books now take part in the search (not just in the row)
+
+v68.3/v68.4 made the private tabs *look* right; the doctor's actual ask was that they **count**. Three silent
+handicaps were removed in `repMMMatches()` / `repMMDraft()`:
+`if(priv&&plain.length>300) return` threw away every long private paragraph (it is now `>900`, i.e. only unreadable
+wall-of-text is dropped — and note the cap is per *paragraph*, its individual sentences still compete);
+the `-(priv?0.5:0)` penalty is gone (private pages now get `+0.15`, so one hit on a page they own is not outscored by a
+public book's stray mention); and the per-book cap of `min(3,…)` for private books is gone — they get the same
+`REP_MM_MAX_PER_BOOK` as the printed books. The 🤖 auto-draft no longer limits a private book to one sentence
+(`cap=1` → `2`), and a new device preference `bc_rep_priv_prefs.inDraft` (default **on**) lets the doctor decide whether
+private text may enter the auto-draft — the checkbox sits in the 🔒 panel. `tests/private_books_search.test.js` covers (with `tests/private_books_remedy_match.test.js` from v68.4)
+all of it (10 checks). `index.html` → `?v=17`, `CACHE_NAME` → **v81**.
