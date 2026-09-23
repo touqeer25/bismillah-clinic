@@ -55,7 +55,9 @@ Order = the order proposed in the discussion. `[x]` done · `[ ]` pending · `[~
 - [x] P2.9a v57: Lippe Keynotes, Hutchison 700 Red Line, Guernsey Key-notes, T.F. Allen Primer (homeoint.org) — 8 books, 642 remedies
 - [x] P2.9b v58: Boger Synoptic Key (Synopsis), Boenninghausen Characteristics, Dewey Essentials, Allen's Clinical Hints — 12 books, 658 remedies
 - [x] P2.9c v60: Clarke's Dictionary (complete, 634 remedies, sectioned) + Farrington Clinical MM (75 lectures) from archive.org OCR via `tools/mm_build/ocr_books.py`; 14 books, 752 remedies
-- [ ] P2.9d Hering (Condensed MM 1877; Guiding Symptoms 10 vols) — OCR available (condensedmateri00heri, guidingsymptomso00heri*), needs the numbered-section parser; Farrington group lectures (Ophidia, Acids …) still as essays
+- [x] P2.9d v61: Hering Condensed MM (145/184 remedies, 48 sections) — 15 books
+- [ ] P2.9e Hering Guiding Symptoms (10 vols, ~1.3 MB OCR each) with the same parser; Farrington group lectures (Ophidia, Acids …) still as essays; remaining 39 Hering Condensed headings
+- [x] QA v61: import routing fix (private-books file in notes importer → 0 notes) + `tests/app_smoke.jsdom.test.js` (real index.html, all scripts, main flows)
 - [x] P2.10 Qdrant Cloud inspected (13 PDFs, 29,139 chunks): only Kent is public domain (already structured in the app); 12 copyrighted → private backup (jsonl.gz) + 🔒 device-only import (IndexedDB), never in the repo; Qdrant kept for the AI assistant's semantic search
 - [x] P2.11 🔒 Private books module: import/delete panel, remedy-page detection, 📖 tab + drafts + viewer (whole-book search), tests
 

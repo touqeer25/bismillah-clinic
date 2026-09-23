@@ -12,7 +12,7 @@ DASH = r'[—–\-]{1,2}'
 def load_text(path):
     t = open(path, encoding='utf-8', errors='replace').read().replace('\r', '')
     t = t.replace('\ufeff', '').replace('\x0c', '\n')
-    t = re.sub(r'(\w)-\n(?=[a-z])', r'\1', t)            # hyphenation at line end
+    t = re.sub(r'(\w)-\s*\n\s*\n?(?=[a-z])', r'\1', t)      # hyphenation at line end (also across an OCR blank line)
     t = re.sub(r'[ \t]+\n', '\n', t)
     return t
 
@@ -148,6 +148,43 @@ def build_farrington(path):
     book['essays'] = [{'title': e['name'], 'paras': e['sections'][0]['p']} for e in book['essays'] if e['sections'][0]['p']]
     return book
 
+
+# ------------------------------------------------------------------ Hering, Condensed Materia Medica (1877)
+HER_SEC = re.compile(r'^(\d{1,2})\s+([A-Z][A-Za-z ,&\-]{2,40}?)\s*[\.,:;]\s*(.*)$', re.S)
+HER_NAMES = ['Mind','Sensorium','Head, Inner','Head, Outer','Sight and Eyes','Hearing and Ears','Smell and Nose','Face','Lower Face','Teeth and Gums','Taste and Tongue','Inner Mouth','Throat','Appetite, Thirst','Eating and Drinking','Hiccough, Belching, Nausea','Scrobiculum and Stomach','Hypochondria','Abdomen','Stool and Rectum','Urinary Organs','Male Sexual Organs','Female Sexual Organs','Pregnancy','Voice and Larynx','Respiration','Cough','Inner Chest and Lungs','Heart, Pulse','Outer Chest','Neck and Back','Upper Limbs','Lower Limbs','Limbs in General','Rest, Position, Motion','Nerves','Sleep','Time','Temperature and Weather','Chill, Fever, Sweat','Attacks, Periodicity','Locality and Direction','Sensations','Tissues','Touch, Passive Motion, Injuries','Skin','Stages of Life, Constitution','Relations']
+def build_hering_condensed(path):
+    book = {'id': 'hering_condensed', 'title': 'Condensed Materia Medica', 'author': 'Constantine Hering', 'year': 1877,
+            'source': 'https://archive.org/details/condensedmateri00heri — OCR', 'license': 'public domain', 'remedies': {}, 'unmatched': []}
+    words = ['CONDENSED MATERIA MEDICA']
+    paras = paragraphs(load_text(path), words)
+    cur = None; last_title = None
+    for i, p in enumerate(paras):
+        if 3 <= len(p) <= 40 and re.fullmatch(r"[A-Z][A-Z .\-']+\.", p):
+            title = p.rstrip('.').strip()
+            if title == last_title: continue                       # heading printed twice
+            win = ' '.join(paras[i + 1:i + 4])
+            if not re.match(r'\s*1\s+Mind', win) and not re.search(r'\b1\s+Mind\b', win[:200]): continue
+            abbr, how = fuzzy_match(title.title())
+            last_title = title
+            cur = {'name': title.title(), 'sections': [{'h': '', 'p': []}]}
+            if abbr and abbr not in book['remedies']: book['remedies'][abbr] = cur
+            elif abbr: book['unmatched'].append({'name': title, 'dup_of': abbr})
+            else: book['unmatched'].append({'name': title})
+            continue
+        if cur is None: continue
+        m = HER_SEC.match(p)
+        if m and 1 <= int(m.group(1)) <= 48:
+            name = m.group(2).strip()
+            # snap OCR'd section names to the canonical 48 (prefix match)
+            canon = next((c for c in HER_NAMES if c.lower().startswith(name.lower()[:6])), name)
+            cur['sections'].append({'h': canon, 'p': [m.group(3).strip()] if m.group(3).strip() else []})
+        else:
+            cur['sections'][-1]['p'].append(p)
+    for a, e in list(book['remedies'].items()):
+        e['sections'] = [s for s in e['sections'] if s['p']]
+        if not e['sections']: del book['remedies'][a]
+    return book
+
 def plain(t): return re.sub(r'\*\*|_', '', t)
 def save(book):
     p = os.path.join(OUT, book['id'] + '.json')
@@ -169,3 +206,4 @@ if __name__ == '__main__':
     which = sys.argv[1]; paths = sys.argv[2:]
     if which == 'clarke': save(build_clarke(paths))
     elif which == 'farrington': save(build_farrington(paths[0]))
+    elif which == 'hering': save(build_hering_condensed(paths[0]))

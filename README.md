@@ -85,3 +85,10 @@ New books (homeoint.org): Boger — Synoptic Key, Part 2 Synopsis (305 remedies;
 | farrington_clinical | E. A. Farrington — A Clinical Materia Medica (lectures, 1887) | 75 remedy lectures | 0.2 M | comparative lectures ("Cina and Chamomilla") are attached to each remedy named; family/group lectures kept as essays; source `archive.org/details/clinicalmateriam00farr` |
 
 Builder: `tools/mm_build/ocr_books.py clarke <djvu.txt>` / `… farrington <djvu.txt>` (OCR-aware: page headers, hyphenation, joined title lines, strict remedy-heading matching). **14 books, 752 remedies with text, mm/ = 18 MB** — books load lazily and progressively (the 📖 tab fills in as each book arrives; first use ~26 MB, then served from the service-worker cache).
+
+## v61 — import fix, Hering Condensed, full-app smoke test
+
+- **Fix**: the 📖 tab had two similar import buttons; choosing the private-books file in «📥 notes import» reported "0 notes". Both importers now detect the file type and route it (private-books file → 🔒 private import; notes file → notes import; anything else → clear warning). Labels renamed («📥 نوٹس امپورٹ», «📥 نجی کتابیں امپورٹ (JSON)» inside the 🔒 panel), progress toast while a big file is read.
+- **Hering — Condensed Materia Medica (1877)**: 145 remedies (of 184), 48 numbered sections (Mind, Sensorium, Head Inner … Stages of Life), from archive.org OCR (`tools/mm_build/ocr_books.py hering`). **15 books.**
+- `tests/app_smoke.jsdom.test.js`: loads the real `index.html` with every script from the local server, asserts no script errors, then walks the main flows (chapter → Compare Mode → rubric page → 🔬 window → 📖 tab). Run with `python3 -m http.server 8080` in the app folder.
+- Note: `index.html` ends with a Cloudflare "challenge-platform" snippet (saved from a proxied page); it only 404s on GitHub Pages and can be removed.

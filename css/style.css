@@ -1414,3 +1414,4 @@ body.rep-diff-open{overflow:hidden}
 .rep-note-src{color:#95a5a6;font-size:10.5px}
 .rep-note-text{font-size:13px;line-height:1.8;color:#2c3e50}
 .rep-note-en{font-size:12px;color:#5d6d7e;margin-top:4px;text-align:left;border-top:1px dotted #dfe6ee;padding-top:4px;font-family:'Segoe UI',sans-serif}
+.rst-link.priv{border-color:#c39bd3;color:#5b2c6f;background:#f9f4fb}

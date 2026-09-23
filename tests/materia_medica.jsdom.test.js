@@ -11,8 +11,9 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   const d=w.document; for(let i=0;i<w.REP_N_CLIPS;i++)w.repClipboards[i]=[]; w.localStorage.clear();
   // ---- data ----
   await new Promise(r=>w.repMMEnsureAll(r));
-  const ids=w.repMMBookIds(); ok(ids.length>=14&&w.repMMLoaded(),'MM books loaded ('+ids.length+'): '+ids.join(', '));
+  const ids=w.repMMBookIds(); ok(ids.length>=15&&w.repMMLoaded(),'MM books loaded ('+ids.length+'): '+ids.join(', '));
   ok(w.repMMEntry('clarke_dictionary','nat-m')&&w.repMMEntry('clarke_dictionary','nat-m').sections.some(s=>s.h==='Characteristics')&&w.repMMEntry('farrington_clinical','nat-m'),'Clarke (sectioned) + Farrington have Natrum mur');
+  ok(w.repMMEntry('hering_condensed','nat-m')&&w.repMMEntry('hering_condensed','nat-m').sections[0].h==='Mind','Hering Condensed nat-m starts with Mind section');
   const ix=JSON.parse(fs.readFileSync(ROOT+'/mm/_index.json','utf8'));
   ok(Object.values(ix.books).every(b=>b.remedies>60),'each book has >60 remedies: '+Object.entries(ix.books).map(([k,v])=>k+'='+v.remedies).join(' '));
   const av=w.repMMAvail('nat-m'); ok(av.indexOf('kent_lectures')!==-1&&av.indexOf('allen_keynotes')!==-1&&av.indexOf('nash_leaders')!==-1,'nat-m available in Kent/Allen/Nash ('+av.join(',')+')');
@@ -81,6 +82,15 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   ok(/نجی|private/.test(d.querySelector('.rep-mm-src').textContent)&&d.querySelector('.rep-mm-section .rep-mm-h').textContent==='p. 1','viewer shows private book pages');
   w.repMMView.q='potency'; w.repMMWholeToggle(true); await sleep(30); ok(d.querySelector('.rep-mm-section .rep-mm-h').textContent==='p. 3','whole-book search finds page 3 (not a remedy page)');
   w.repMMClose(); w.repPrivDelete('priv_test_mm'); ok(w.repPrivIds().length===0&&w.repMMAvail('nat-m').indexOf('priv_test_mm')===-1,'private book removed');
+  // ---- import routing: wrong button still works ----
+  const privFile=JSON.stringify({books:[{id:'priv_route_test',title:'Route Test',author:'X',pages:[{p:1,t:'Ignatia amara sighing grief.'}]}]});
+  w.toasts.length=0; const rn=w.repNotesImportText(privFile); await sleep(80);
+  ok(rn===-1&&w.repPrivIds().indexOf('priv_route_test')!==-1&&w.toasts.some(t=>/🔒/.test(t)),'notes importer given a private-books file → routed to private import');
+  w.repPrivDelete('priv_route_test');
+  const notesFile=JSON.stringify({notes:{'kent|mind|r9999|ign':{abbr:'ign',text:'routed note',status:'draft'}}});
+  w.toasts.length=0; await new Promise(r=>w.repPrivImportText(notesFile,r));
+  ok(w.repNoteGet({book:'kent',ch:'mind',rid:'r9999'},'ign')&&w.repNoteGet({book:'kent',ch:'mind',rid:'r9999'},'ign').text==='routed note'&&w.toasts.some(t=>/✍/.test(t)),'private importer given a notes file → routed to notes import');
+  w.toasts.length=0; ok(w.repNotesImportText('{"foo":1}')===0&&w.toasts.some(t=>/⚠/.test(t)),'unknown JSON → clear warning, nothing imported');
   // seed drafts merged on first load
   w.localStorage.removeItem('bc_rep_notes_seed_v'); await new Promise(r=>w.repNotesSeed(r)); ok(w.repNoteGet({book:'kent',ch:'mind',rid:'r2'},'nux-m')&&w.repNoteGet({book:'kent',ch:'mind',rid:'r2'},'nux-m').src==='llm-seed'&&w.repNoteGet(w.repDiffCtx||{book:'kent',ch:'mind',rid:'r2'},'nat-m').status==='approved','seed drafts merged without overwriting the approved nat-m note');
   // ---- v59: notes on the rubric page + shared notes file ----

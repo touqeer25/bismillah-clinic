@@ -10,9 +10,9 @@ var REP_MM_DRAFT_N=4;           // مسودے میں جملے
 var repMMIndex=null;            // {books:{id:{title,author,year,file,remedies}}, avail:{abbr:[bookIds]}}
 var _repMMBooks={};             // id -> book json
 var _repMMLoading={};
-var repMMBookOrder=['kent_lectures','boericke','clarke_dictionary','allen_keynotes','nash_leaders','farrington_clinical','lippe_keynotes','hutchison_700','guernsey_keynotes','allen_primer','boger_synoptic','boenninghausen_char','dewey_essentials','allen_clinical_hints'];
-var REP_MM_SHORT={kent_lectures:'Kent',boericke:'Boericke',allen_keynotes:'Allen',nash_leaders:'Nash',lippe_keynotes:'Lippe',hutchison_700:'Hutchison',guernsey_keynotes:'Guernsey',allen_primer:'T.F.Allen',boger_synoptic:'Boger',boenninghausen_char:'Boenn.',dewey_essentials:'Dewey',allen_clinical_hints:'Clin.Hints',clarke_dictionary:'Clarke',farrington_clinical:'Farrington'};
-var REP_MM_COLOR={kent_lectures:'#1a5276',boericke:'#117a65',allen_keynotes:'#7d6608',nash_leaders:'#6c3483',lippe_keynotes:'#a04000',hutchison_700:'#7b241c',guernsey_keynotes:'#1f618d',allen_primer:'#4d5656',boger_synoptic:'#0e6655',boenninghausen_char:'#784212',dewey_essentials:'#154360',allen_clinical_hints:'#9a7d0a',clarke_dictionary:'#922b21',farrington_clinical:'#1b4f72'};
+var repMMBookOrder=['kent_lectures','boericke','clarke_dictionary','hering_condensed','allen_keynotes','nash_leaders','farrington_clinical','lippe_keynotes','hutchison_700','guernsey_keynotes','allen_primer','boger_synoptic','boenninghausen_char','dewey_essentials','allen_clinical_hints'];
+var REP_MM_SHORT={kent_lectures:'Kent',boericke:'Boericke',allen_keynotes:'Allen',nash_leaders:'Nash',lippe_keynotes:'Lippe',hutchison_700:'Hutchison',guernsey_keynotes:'Guernsey',allen_primer:'T.F.Allen',boger_synoptic:'Boger',boenninghausen_char:'Boenn.',dewey_essentials:'Dewey',allen_clinical_hints:'Clin.Hints',clarke_dictionary:'Clarke',farrington_clinical:'Farrington',hering_condensed:'Hering'};
+var REP_MM_COLOR={kent_lectures:'#1a5276',boericke:'#117a65',allen_keynotes:'#7d6608',nash_leaders:'#6c3483',lippe_keynotes:'#a04000',hutchison_700:'#7b241c',guernsey_keynotes:'#1f618d',allen_primer:'#4d5656',boger_synoptic:'#0e6655',boenninghausen_char:'#784212',dewey_essentials:'#154360',allen_clinical_hints:'#9a7d0a',clarke_dictionary:'#922b21',farrington_clinical:'#1b4f72',hering_condensed:'#4a235a'};
 
 // ---------- لوڈنگ ----------
 function repMMEnsureIndex(cb){
@@ -99,13 +99,14 @@ function repPrivNormalize(b){
     return {id:id,title:String(b.title||id),author:String(b.author||''),year:b.year||0,private:true,format:'pages',source:String(b.source||''),pages:pages,imported:Date.now()};
 }
 function repPrivImportText(txt,cb){
-    var d; try{ d=JSON.parse(txt); }catch(e){ showToast('⚠ JSON?'); cb&&cb(0); return; }
+    var d; try{ d=JSON.parse(txt); }catch(e){ showToast('⚠ '+repLangText({ur:'یہ JSON فائل نہیں',en:'Not a JSON file',roman:'JSON nahi'})); cb&&cb(0); return; }
+    if(!repLooksLikePrivateBooks(d)&&repLooksLikeNotes(d)){ showToast('✍ '+repLangText({ur:'یہ نوٹس کی فائل ہے — نوٹس میں امپورٹ کر رہا ہوں',en:'This is a notes file — importing as notes',roman:'Ye notes file hai'})); repNotesImportText(txt); if(typeof repDiffRenderBody==='function') repDiffRenderBody(); cb&&cb(0); return; }
     var list=Array.isArray(d)?d:(d&&Array.isArray(d.books)?d.books:[d]); var books=list.map(repPrivNormalize).filter(Boolean);
     if(!books.length){ showToast(repLangText({ur:'⚠ فائل میں نجی کتاب کا فارمیٹ نہیں (pages چاہیے)',en:'⚠ Not a private-book file (needs pages)',roman:'⚠ Format ghalat'})); cb&&cb(0); return; }
     var pending=books.length, okN=0;
     books.forEach(function(b){ repPrivSave(b,function(){ okN++; if(--pending===0){ showToast('🔒 '+repLangText({ur:okN+' نجی کتابیں امپورٹ — صرف اس آلے پر',en:okN+' private books imported — this device only',roman:okN+' private books import'})); if(typeof repDiffRenderBody==='function') repDiffRenderBody(); cb&&cb(okN); } }); });
 }
-function repPrivImportFile(inp){ var f=inp&&inp.files&&inp.files[0]; if(!f)return; var r=new FileReader(); r.onload=function(){ repPrivImportText(String(r.result||'')); }; r.readAsText(f); inp.value=''; }
+function repPrivImportFile(inp){ var f=inp&&inp.files&&inp.files[0]; if(!f)return; showToast('⏳ '+repLangText({ur:'فائل پڑھی جا رہی ہے ('+Math.round(f.size/1e6)+' ایم بی)…',en:'Reading file ('+Math.round(f.size/1e6)+' MB)…',roman:'File parhi ja rahi hai…'})); var r=new FileReader(); r.onload=function(){ repPrivImportText(String(r.result||'')); }; r.onerror=function(){ showToast('⚠ '+repLangText({ur:'فائل پڑھی نہ جا سکی',en:'Could not read the file',roman:'File parhi na ja saki'})); }; r.readAsText(f); inp.value=''; }
 // ریمیڈی کا نام/مخفف پہچاننے والا ریجیکس
 function repPrivRemedyRegex(abbr){
     var name=repRemedyTitle(abbr).replace(/^.*= /,''); var parts=name.split(/\s+/).filter(Boolean); var pats=[];
@@ -133,7 +134,7 @@ function repPrivSearchPages(id,re,cap){ var b=_repPrivMem[id]; var out=[]; if(!b
 function repPrivPanelHtml(){
     var L=repLangText, ids=repPrivIds();
     var h='<div class="rep-mm-priv"><div class="rep-mm-privhead">🔒 '+L({ur:'نجی کتابیں — صرف اس آلے پر (IndexedDB)، گٹ ہب پر کبھی نہیں',en:'Private books — this device only (IndexedDB), never on GitHub',roman:'Private books — sirf is device par'})+' <span class="cnt">('+ids.length+')</span>'
-        +'<label class="rst-link" style="cursor:pointer;margin-inline-start:auto">📥 '+L({ur:'امپورٹ JSON',en:'Import JSON',roman:'Import JSON'})+'<input type="file" accept=".json" style="display:none" onchange="repPrivImportFile(this)"></label></div>';
+        +'<label class="rc-btn primary" style="cursor:pointer;margin-inline-start:auto">📥 '+L({ur:'نجی کتابیں امپورٹ (JSON)',en:'Import private books (JSON)',roman:'Private books import (JSON)'})+'<input type="file" accept=".json,application/json" style="display:none" onchange="repPrivImportFile(this)"></label></div>';
     if(!ids.length) h+='<div class="rep-tool-note">'+L({ur:'کیوڈرینٹ بیک اپ سے بنی فائل (tools/qdrant_to_private_books.py → private_books_all.json یا ایک کتاب کی فائل) امپورٹ کریں۔',en:'Import the file made by tools/qdrant_to_private_books.py (private_books_all.json or a single book).',roman:'qdrant_to_private_books.py se bani file import karein.'})+'</div>';
     else { h+='<div class="rep-mm-privlist">'; ids.forEach(function(id){ var b=_repPrivMem[id]; h+='<div class="rep-mm-privrow">'+repMMBadge(id)+' <span class="t">'+escapeHtml(b.title)+'</span> <small>'+escapeHtml(b.author||'')+' · '+b.pages.length+' '+L({ur:'صفحات',en:'pages',roman:'pages'})+'</small><button class="rst-chip-x" onclick="repPrivDelete(\''+_repJs(id)+'\')" title="'+L({ur:'اس آلے سے ہٹائیں',en:'Remove from this device',roman:'Hataein'})+'">✕</button></div>'; }); h+='</div>'; }
     return h+'</div>';
@@ -206,8 +207,14 @@ function repNotesExport(){
     try{ var blob=new Blob([data],{type:'application/json'}); var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='differentiation_notes.json'; document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },500); showToast('📤 '+repLangText({ur:Object.keys(st).length+' نوٹس ایکسپورٹ',en:Object.keys(st).length+' notes exported',roman:Object.keys(st).length+' notes export'})); }
     catch(e){ if(navigator.clipboard) navigator.clipboard.writeText(data); showToast('📋 JSON copied'); }
 }
+function repLooksLikePrivateBooks(d){ if(!d||typeof d!=='object') return false; if(Array.isArray(d.pages)) return true; if(Array.isArray(d.books)&&d.books.some(function(b){ return b&&Array.isArray(b.pages); })) return true; if(Array.isArray(d)&&d.some(function(b){ return b&&Array.isArray(b.pages); })) return true; return false; }
+function repLooksLikeNotes(d){ if(!d||typeof d!=='object') return false; var notes=d.notes||d; return Object.keys(notes).some(function(k){ return notes[k]&&typeof notes[k]==='object'&&typeof notes[k].text==='string'; }); }
 function repNotesImportText(txt){
-    try{ var d=JSON.parse(txt); var notes=d.notes||d; var st=repNotesLoad(); var n=0; Object.keys(notes).forEach(function(k){ if(notes[k]&&notes[k].text){ st[k]=notes[k]; n++; } }); repNotesSave(); showToast('📥 '+n+' notes'); return n; }catch(e){ showToast('⚠ JSON?'); return 0; }
+    var d; try{ d=JSON.parse(txt); }catch(e){ showToast('⚠ '+repLangText({ur:'یہ JSON فائل نہیں',en:'Not a JSON file',roman:'JSON nahi'})); return 0; }
+    if(repLooksLikePrivateBooks(d)){ showToast('🔒 '+repLangText({ur:'یہ نجی کتابوں کی فائل ہے — نجی کتابوں میں امپورٹ کر رہا ہوں',en:'This is a private-books file — importing as private books',roman:'Ye private books file hai'})); repPrivImportText(txt); return -1; }
+    if(!repLooksLikeNotes(d)){ showToast('⚠ '+repLangText({ur:'اس فائل میں نوٹس نہیں (differentiation_notes.json چاہیے)',en:'No notes in this file (expected differentiation_notes.json)',roman:'Is file mein notes nahi'})); return 0; }
+    var notes=d.notes||d, st=repNotesLoad(), n=0; Object.keys(notes).forEach(function(k){ if(notes[k]&&notes[k].text){ st[k]=notes[k]; n++; } }); repNotesSave();
+    showToast('📥 '+repLangText({ur:n+' نوٹس امپورٹ ہوئے',en:n+' notes imported',roman:n+' notes import'})); return n;
 }
 // 🌱 بیج مسودے (mm/drafts_seed.json) — پہلی بار خودکار ضم؛ موجودہ نوٹس کبھی اوور رائٹ نہیں ہوتے
 function repNotesSeed(cb){
@@ -288,16 +295,16 @@ function repDiffMMTabHtml(last){
     var nc=repNotesCount();
     h+='<div class="rep-diff-theme"><label>🔎 '+L({ur:'موضوع کے الفاظ:',en:'Theme words:',roman:'Theme words:'})+' <input type="text" id="repDiffThemeInp" value="'+_repAttr(theme)+'" dir="ltr" placeholder="grief, sigh, consol" onkeydown="if(event.key===\'Enter\')repDiffThemeApplyMM()"></label> <button class="rc-btn" onclick="repDiffThemeApplyMM()">↻</button>'
         +'<span class="cnt">✍ '+L({ur:'نوٹس:',en:'notes:',roman:'notes:'})+' '+nc.total+' ('+nc.approved+' ✔)</span>'
-        +'<button class="rst-link" onclick="repNotesExport()">📤 '+L({ur:'ایکسپورٹ',en:'Export',roman:'Export'})+'</button>'
-        +'<label class="rst-link" style="cursor:pointer">📥 '+L({ur:'امپورٹ',en:'Import',roman:'Import'})+'<input type="file" accept=".json" style="display:none" onchange="repNotesImportFile(this)"></label>'
-        +'<button class="rst-link" onclick="repPrivPanelToggle()">🔒 '+L({ur:'نجی کتابیں',en:'Private books',roman:'Private books'})+' ('+repPrivIds().length+')</button>'
+        +'<button class="rst-link" onclick="repNotesExport()" title="'+L({ur:'اپنے نوٹس JSON فائل میں (differentiation_notes.json) — مشترکہ کرنے کے لیے mm/notes_shared.json کے نام سے repo میں رکھیں',en:'Your notes as JSON (differentiation_notes.json) — commit as mm/notes_shared.json to share',roman:'Notes JSON export'})+'">📤 '+L({ur:'نوٹس ایکسپورٹ',en:'Export notes',roman:'Notes export'})+'</button>'
+        +'<label class="rst-link" style="cursor:pointer" title="'+L({ur:'نوٹس کی JSON فائل امپورٹ (نجی کتابوں کی فائل خودبخود پہچان لی جاتی ہے)',en:'Import a notes JSON (a private-books file is detected automatically)',roman:'Notes JSON import'})+'">📥 '+L({ur:'نوٹس امپورٹ',en:'Import notes',roman:'Notes import'})+'<input type="file" accept=".json" style="display:none" onchange="repNotesImportFile(this)"></label>'
+        +'<button class="rst-link priv" onclick="repPrivPanelToggle()" title="'+L({ur:'کاپی رائٹ کتابیں صرف اس آلے پر — امپورٹ/فہرست/حذف',en:'Copyrighted books on this device only — import / list / delete',roman:'Private books panel'})+'">🔒 '+L({ur:'نجی کتابیں',en:'Private books',roman:'Private books'})+' ('+repPrivIds().length+')</button>'
         +'</div>';
     if(_repPrivPanelOpen) h+=repPrivPanelHtml();
     if(!R.length) return h+'<div class="rep-tool-note">'+L({ur:'پہلے ریمیڈیز چنیں',en:'Pick remedies first',roman:'Pehle remedies chunein'})+'</div>';
     if(!repMMLoaded()){
         var rerender=function(){ if(typeof repDiffTab!=='undefined'&&repDiffTab==='mm'&&typeof repDiffRenderBody==='function') repDiffRenderBody(); };
         if(!_repMMEnsureKicked){ _repMMEnsureKicked=true; repMMEnsureAll(rerender,function(){ rerender(); }); }
-        if(!repMMIndex||!repMMLoadedCount()) return h+'<div class="rep-tool-loading">⏳ '+L({ur:'میٹیریا میڈیکا لوڈ ہو رہی ہے (پہلی بار ~26 ایم بی، پھر کیش سے)…',en:'Loading materia medica (first time ~26 MB, then cached)…',roman:'Materia medica load ho rahi hai…'})+'</div>';
+        if(!repMMIndex||!repMMLoadedCount()) return h+'<div class="rep-tool-loading">⏳ '+L({ur:'میٹیریا میڈیکا لوڈ ہو رہی ہے (پہلی بار ~28 ایم بی، پھر کیش سے)…',en:'Loading materia medica (first time ~28 MB, then cached)…',roman:'Materia medica load ho rahi hai…'})+'</div>';
         h+='<div class="rep-tool-note">⏳ '+L({ur:'کتابیں لوڈ ہو رہی ہیں: '+repMMLoadedCount()+' / '+repMMPublicIds().length+' — نتائج خودبخود مکمل ہوں گے',en:'Books loading: '+repMMLoadedCount()+' / '+repMMPublicIds().length+' — results fill in automatically',roman:'Books loading '+repMMLoadedCount()+'/'+repMMPublicIds().length})+'</div>';
     }
     var re=repMMThemeRegex(theme);
