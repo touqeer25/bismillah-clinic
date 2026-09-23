@@ -1,0 +1,48 @@
+# 🔬 Remedy Differentiation / Extraction — Checklist (v55)
+
+Order = the order proposed in the discussion. `[x]` done · `[ ]` pending · `[~]` partial.
+
+## A. Algorithm & data (no new data files)
+- [x] A1 Remedy size index per book (rubrics containing each remedy) — computed once per book, cached in memory (`_repRemSizeCache`)
+- [x] A2 Rubric vector per remedy set R (grade 0–3 per remedy) over the chosen scope
+- [x] A3 Classification: **exclusive** (only one of R present) · **partial** (some present) · **grade difference** (all present, grades differ) · **common** (all present, equal grades)
+- [x] A4 Specificity score `1 / log2(2 + N)` (N = rubric size); exclusive = grade × spec; grade-diff = (max−min) × spec; partial = Σgrades × spec
+- [x] A5 Sort modes: `score` (default) / `grade` (grade first, then smallest rubric)
+- [x] A6 Filters: max rubric size (10/30/60/100/all), min grade (1/2/3) — counts are always unfiltered, lists are filtered
+- [x] A7 Polychrest correction for remedy ranking: `score / log10(size + 10)` (rubric mode)
+- [x] A8 Scope: open chapter / whole book / all 8 books (uses existing loaders: `loadSingleBookData`, `repEnsureAllBooks`)
+- [x] A9 Single-remedy mode (R = 1) = keynote extraction (same code path)
+- [x] A10 Rubric mode (all remedies of the rubric vs. related cluster): sub-rubrics + "(See …)" targets + their sub-rubrics; feature rarity = 1/log2(2 + shared); rare features flagged
+- [x] A11 Four-book witness: theme words auto-derived from rubric title + cross-reference targets (editable), searched in every other book; rows only where a compared remedy is present
+- [x] A12 Pairwise summary (A vs B: only-A / only-B / both)
+- [x] A13 "Already in case" marker (rubric present in any clipboard)
+- [x] A14 Performance: whole Kent (65k rubrics) × 5 remedies < 100 ms; data cached after first run; long lists capped (400 rows/section, 60 features)
+
+## B. UI ("🔬 تفریق" modal — independent of navigation history/flags)
+- [x] B1 Entry: rubric detail page title-row button "🔬 تفریق" (opens in rubric mode with the rubric's remedies as picker chips)
+- [x] B2 Entry: Workbench Grid summary button "🔬 ٹاپ 3 / ٹاپ 5 کا موازنہ" (top remedies of the grid)
+- [x] B3 Entry: Ask AI keyword (تفریق / extraction / differentiate) → explanation + open button
+- [x] B4 Remedy picker: rubric remedy chips (grade-sorted, toggle, max 5) + typed abbreviation with autocomplete from remedy_names.json
+- [x] B5 Scope / max size / min grade / sort controls; settings persisted (`bc_rep_diff_opts`)
+- [x] B6 Tabs: exclusive · grade difference · partial · common · rubric-remedies comparison · books witness · (single-remedy keynotes when R = 1)
+- [x] B7 Summary strip: rubrics with any / all present / per-remedy exclusive counts / remedy sizes + pairwise matrix
+- [x] B8 Result rows: ☑ add to active clipboard · book badge (all-books scope) · chapter › rubric (click = open rubric, modal closes) · N · grade dots · 📋 in-case marker
+- [x] B9 Rubric mode table: rows = remedies (main grade desc, distinctiveness desc), columns = cluster features (rarest first), rare features listed per remedy; ☐ per row to pick 2–5 remedies → multi mode
+- [x] B10 Books witness: grouped by book, rubric rows with grades of compared remedies, theme words input + re-run
+- [x] B11 Copy result as text (📋)
+- [x] B12 Urdu / English / Roman labels via `repLangText`; RTL-safe; rubric text `dir="ltr"`
+- [x] B13 Keyboard: Esc closes modal; Enter in remedy input adds remedy
+- [x] B14 Mobile: modal full-screen, controls wrap, tables scroll horizontally
+
+## C. Integration & housekeeping
+- [x] C1 New file `js/08b-rep-differentiation.js` (loaded after 08) — no edits to Kent data; 3 small hooks in 08 (detail button, grid button, Ask AI)
+- [x] C2 CSS block appended to `css/style.css`
+- [x] C3 `index.html` script tag + cache-busting versions; `service-worker.js` asset list + CACHE_NAME bump
+- [x] C4 README section
+- [x] C5 Regression: existing jsdom tests (Compare Mode, detail page cleanup) still pass
+- [x] C6 New jsdom tests (`tests/differentiation.jsdom.test.js`, 47 checks; regression `tests/repertory_ui.jsdom.test.js`, 21 checks): algorithm counts on real Kent data (nat-m/ign/plat in Mind: any 780, all-present 101, exclusive 230/135/170), sort/filter behaviour, single mode, rubric mode (ABSENT-MINDED: nux-m rare "periodical attacks"), witness (Allen Fever "Absent minded"), UI flows (open, pick, run, ☑, close)
+- [x] C7 Deliverable zip + patch against GitHub HEAD; Urdu summary with this checklist
+
+## Phase 2 / 3 (not in this build)
+- [ ] P2 Materia-medica excerpts per remedy (public-domain: Kent Lectures, Boericke, Allen Keynotes, Nash, Hering, Clarke, Lippe, Boger, Farrington) + theme lexicon → "quality" line per remedy
+- [ ] P3 Doctor-reviewed differentiation notes (rubric × remedy), Urdu + English, in-app editor, JSON export

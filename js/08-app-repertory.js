@@ -1376,6 +1376,7 @@ function renderRubricDetail(){
       +'<div class="rpd-title" dir="ltr">'+escapeHtml(full||'—')+'</div>'
       +'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&#9656;</button>'
       +repDetailCmpBtnHtml()
+      +repDetailDiffBtnHtml()
       +'</div>';
     h+='<div class="rpd-meta">'+repBookBadgeHtml(repCurrentBook)+'<span>'+escapeHtml(bi.name)+'</span>'
       +'<span>📁 '+escapeHtml(repCurrentChName||'')+'</span>'
@@ -1388,7 +1389,7 @@ function renderRubricDetail(){
         pureXref:pureXref,seeT:seeT,
         parentLabels:(d.labels&&d.labels.length>1)?d.labels.slice(0,-1):[]});
     // ---- REMEDIES (FIRST — per user requirement)
-    h+='<div class="rpd-sec-head">💊 '+repLangText({ur:'ادویات',en:'REMEDIES',roman:'ADWIYAT'})+' <span class="cnt">('+abbrs.length+')</span></div>';
+    h+='<div class="rpd-sec-head">💊 '+repLangText({ur:'ادویات',en:'REMEDIES',roman:'ADWIYAT'})+' <span class="cnt">('+abbrs.length+')</span>'+(abbrs.length>1&&d.rid&&typeof repDiffOpenForRubric==='function'?' <button class="rst-link" onclick="repDiffOpenForRubric()" title="'+repLangText({ur:'ان ادویات میں کیا فرق ہے؟',en:'What distinguishes these remedies?',roman:'In adwiyat mein kya farq hai?'})+'">🔬 '+repLangText({ur:'ان میں فرق؟',en:'differentiate',roman:'farq?'})+'</button>':'')+'</div>';
     if(!abbrs.length){
         h+='<div class="rrp-norems">'+(pureXref?repLangText({ur:'یہ کراس ریفرنس ربرک ہے — اوپر اصل ربرک کھولیں',en:'This is a cross-reference rubric — open the real rubric above',roman:'Ye cross-reference rubric hai — asal rubric kholen'}):repLangText({ur:'اس ربرک میں کوئی ادویات محفوظ نہیں',en:'No remedies recorded under this rubric',roman:'Is rubric mein koi adwiyat mehfooz nahi'}))+'</div>';
     } else {
@@ -1422,6 +1423,11 @@ function renderRubricDetail(){
 // 🔑 ڈیٹیل پیج کا 📋 بٹن: ربرک کا متن سسٹم کلپ بورڈ میں کاپی کرنے کے بجائے
 // اب ربرک کو فعال ریپرٹورائزیشن کلپ بورڈ (repActiveClip) میں شامل کرتا ہے۔
 // 🔑 v54: HomeoSetu "+ Compare / ✓ Compared" — ڈیٹیل پیج سے فعال کلپ بورڈ میں شامل/خارج (ٹوگل)
+// 🔑 v55: 🔬 تفریق / ایکسٹریکشن (js/09-rep-differentiation.js) — ربرک کی ریمیڈیز کا تقابل + ریمیڈی بمقابلہ ریمیڈی
+function repDetailDiffBtnHtml(){
+    var d=repCurrentDetail||{}; if(!d.rid||typeof repDiffOpenForRubric!=='function') return '';
+    return '<button class="rc-btn rpd-diff" onclick="repDiffOpenForRubric()" title="'+repLangText({ur:'اس ربرک کی ریمیڈیز میں فرق — ذیلی/ہم رشتہ ربرکس، ریمیڈی بمقابلہ ریمیڈی ایکسٹریکشن، کتابوں کی گواہی',en:'Differentiate the remedies of this rubric — sub/related rubrics, remedy-vs-remedy extraction, books witness',roman:'Is rubric ki remedies mein farq — extraction'})+'">🔬 '+repLangText({ur:'تفریق',en:'Differentiate',roman:'Tafreeq'})+'</button>';
+}
 function repDetailCmpBtnHtml(){
     var d=repCurrentDetail||{}; if(!d.rid) return '';
     var on=repClipFind(repActiveClip,repCurrentBook,d.rid)!==-1;
@@ -2327,6 +2333,13 @@ function _repAnaAccum(col,rems,w){
         else   { e.cov-=1; e.total-=g*Math.abs(w); }      // -1x: منفی ربرک — کوریج بھی گھٹتی ہے، اسکور بھی
     });
 }
+// 🔑 v55: گرڈ کی سرِفہرست ریمیڈیز → 🔬 تفریق (ٹاپ 3 / ٹاپ 5)
+function repAnaDiffBtnsHtml(abbrs){
+    if(typeof repDiffOpenWithRemedies!=='function'||!abbrs||abbrs.length<2) return '';
+    var h='';
+    [3,5].forEach(function(n){ if(abbrs.length>=n||(n===3&&abbrs.length>=2)){ var top=abbrs.slice(0,n); h+='<button class="rc-btn rep-ana-diff" data-r="'+_repAttr(top.join(','))+'" onclick="repDiffOpenWithRemedies(this.getAttribute(\'data-r\').split(\',\'))" title="'+_repAttr(top.join(' vs '))+'">🔬 '+repLangText({ur:'ٹاپ '+top.length+' کا فرق',en:'differentiate top '+top.length,roman:'top '+top.length+' ka farq'})+'</button>'; } });
+    return h;
+}
 function repFmtScore(t){ t=Math.round(t*10)/10; return (Math.abs(t-Math.round(t))<0.001)?String(Math.round(t)):t.toFixed(1); }
 function repElimRuleDesc(){ return repAnaOpts.elim==='every'
     ? repLangText({ur:'گرڈ میں صرف وہی ادویات رہیں گی جو اس کلپ بورڈ کے ہر ایک ربرک میں موجود ہوں (ہومیوسیتو اصول)',en:'Grid keeps only remedies present in EVERY rubric of this clipboard (HomeoSetu rule)',roman:'Sirf wohi adwiyat jo is clipboard ke HAR rubric mein hon (HomeoSetu)'})
@@ -2707,6 +2720,7 @@ function renderWbGrid(){
             +'<span class="rep-ana-winner">🏆 '+repLangText({ur:'سب سے زیادہ کور:',en:'Top coverage:',roman:'Sab se ziyada koor:'})+' <b dir="ltr">'+escapeHtml(winner)+'</b> — '+pct+'% <small>('+repFmtCov(wcol.cov,res.denom)+')</small></span>'
             +res.elimNotes.map(function(n){ return '<span class="rep-ana-elim">🚫 '+escapeHtml(repClipLabel(n.clip))+': -'+n.removed+'</span>'; }).join('')
             +(res.abbrs.length>COLS?'<span class="rep-ana-more">+'+(res.abbrs.length-COLS)+' '+repLangText({ur:'مزید ادویات',en:'more remedies',roman:'mazeed adwiyeh'})+'</span>':'')
+            +repAnaDiffBtnsHtml(res.abbrs)
             +'</div>';
         hh+='<div class="rep-ana-wrap"><table class="rep-ana-table"><thead><tr><th class="ana-rub">'+repLangText({ur:'ربرک',en:'Rubric',roman:'Rubric'})+'</th>';
         abbrs.forEach(function(a){ hh+='<th class="ana-rem'+(a===winner?' win':'')+'" dir="ltr" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')" title="'+escapeHtml(a)+' — '+res.col[a].cov+' / w'+res.col[a].total+'">'+escapeHtml(a.length>10?a.substring(0,9)+'…':a)+'</th>'; });
@@ -2762,6 +2776,7 @@ function renderAnalysis(){
         var hh='<div class="rep-ana-sum">'
             +'<span class="rep-ana-winner">🏆 '+repLangText({ur:'سب سے زیادہ کور:',en:'Top coverage:',roman:'Sab se ziyada koor:'})+' <b dir="ltr">'+escapeHtml(winner)+'</b> — '+repFmtCov(wcol.cov,res.denom)+' ('+Math.max(0,Math.round(wcol.cov*100/res.denom))+'%)</span>'
             +(res.abbrs.length>COLS?'<span class="rep-ana-more">+'+(res.abbrs.length-COLS)+' '+repLangText({ur:'مزید ادویات',en:'more remedies',roman:'mazeed adwiyeh'})+'</span>':'')
+            +repAnaDiffBtnsHtml(res.abbrs)
             +'</div>';
         hh+='<div class="rep-ana-wrap"><table class="rep-ana-table"><thead><tr><th class="ana-rub">'+repLangText({ur:'ربرک',en:'Rubric',roman:'Rubric'})+'</th>';
         abbrs.forEach(function(a){ hh+='<th class="ana-rem'+(a===winner?' win':'')+'" dir="ltr" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')" title="'+escapeHtml(a)+' — '+res.col[a].cov+'/'+res.rows.length+'">'+escapeHtml(a.length>10?a.substring(0,9)+'…':a)+'</th>'; });
@@ -2979,6 +2994,9 @@ function repAskAnswer(q){
     }
     if(/(گرڈ|grid|اینالیسس|analysis|تجزیہ|repertoriz|ریپرٹورائز)/.test(lq)){
         return B(repLangText({ur:'<b>📊 کیس اینالیسس گرڈ</b> — فعال کلپ بورڈ کی ربرکس قطاروں میں، ادویات کالموں میں؛ ہر ڈاٹ کا رنگ گریڈ (1 ہلکا → 3 گہرا)، نیچے کوریج۔ سب سے اوپر 🏆 سب سے زیادہ کور والی ادویہ۔',en:'<b>📊 Case Analysis Grid</b> — rubrics of the active clipboard as rows, remedies as columns; each dot is a grade (1 light → 3 dark), totals at the bottom. 🏆 marks the top-coverage remedy.',roman:'Case Analysis Grid — rubrics rows, remedies columns; dot = grade, neeche korage; 🏆 top remedy.'})+repAskActs([{fn:'repOpenAnalysis()',lab:'📊 '+repLangText({ur:'گرڈ کھولیں',en:'Open Grid',roman:'Grid kholen'})}]));
+    }
+    if(/(تفریق|extract|differen|فرق|ایکسٹریکشن)/.test(lq)){
+        return B(repLangText({ur:'<b>🔬 تفریق / ایکسٹریکشن</b> — ربرک کے صفحے پر «🔬 تفریق» دبائیں: (1) ربرک کی تمام ریمیڈیز کا ذیلی/ہم رشتہ ربرکس پر پروفائل، (2) 2 تا 5 ریمیڈیز چن کر <b>خصوصی</b> ربرکس (صرف ایک موجود)، گریڈ کا فرق، جزوی، مشترک — چھوٹا ربرک + اونچا گریڈ اوپر، (3) ایک ریمیڈی = کی نوٹس، (4) کتابوں کی گواہی۔ گرڈ کے اوپر «🔬 ٹاپ 3» بھی ہے۔',en:'<b>🔬 Differentiation / Extraction</b> — press «🔬» on a rubric page: (1) profile of all its remedies over sub/related rubrics, (2) pick 2–5 remedies → <b>exclusive</b> rubrics (only one present), grade differences, partial, common — small rubric + high grade first, (3) one remedy = keynotes, (4) books witness. The grid also has «🔬 top 3».',roman:'Tafreeq / Extraction — rubric page par 🔬; 2–5 remedies → exclusive rubrics.'})+repAskActs([{fn:'repDiffOpenWithRemedies([])',lab:'🔬 '+repLangText({ur:'کھولیں',en:'Open',roman:'Kholen'})}]));
     }
     if(/(compare|کمپئیر|موازنہ)/.test(lq)){
         return B(repLangText({ur:'<b>☑ کمپیئر موڈ (Compare)</b> — ٹول بار کا Compare بٹن دبائیں: ہر ربرک کارڈ پر ☐ آ جاتا ہے، ٹک = فعال کلپ بورڈ میں شامل؛ سائیڈ بار میں N منتخب / کلیئر / اینالائز۔ اینالائز = ورک بینچ گرڈ (تمام کلپ بورڈز، ویٹ، ایلی منیشن)۔ کلپ بورڈز آمنے سامنے دیکھنے کے لیے <b>⇄ کلپ بورڈز کا موازنہ</b> (ورک بینچ)۔',en:'<b>☑ Compare Mode</b> — press the toolbar Compare button: every rubric card gets a ☐, tick = added to the active clipboard; sidebar shows N selected / Clear / Analyze. Analyze = Workbench Grid (all clipboards, weights, elimination). For clipboards side by side use <b>⇄ Compare clipboards</b> (Workbench).',roman:'Compare Mode — toolbar button; cards par ☐, tick = active clipboard; Analyze = Workbench Grid.'})+repAskActs([{fn:'repCmpModeToggle()',lab:'☑ Compare'},{fn:'repOpenCompare()',lab:'⇄ '+repLangText({ur:'کلپ بورڈز کا موازنہ',en:'Compare clipboards',roman:'Compare clipboards'})}]));
