@@ -7,6 +7,12 @@ import re, os, json, html, sys
 sys.path.insert(0, '/home/user/mm_build')
 from names import match, full_name
 RAW = '/tmp/mm'
+RAW2 = '/tmp/mm2'
+RAW_DIRS = ['/tmp/mm', '/tmp/mm2', '/tmp/mm3']
+def raw_path(sub):
+    for r in RAW_DIRS:
+        if os.path.isdir(os.path.join(r, sub)): return os.path.join(r, sub)
+    return os.path.join(RAW, sub)
 OUT = '/home/user/bismillah-clinic/mm'
 os.makedirs(OUT, exist_ok=True)
 
@@ -201,23 +207,142 @@ def build_nash():
             else: book['essays'].append({'title': title, 'src': f + '#' + anchor, 'paras': paras})
     return book
 
+
+# ---------------------------------------------------------------- generic builders (v56.1: more homeoint books)
+def _first_center_title(chunk):
+    m = re.search(r'<p[^>]*align="?center"?[^>]*>(.*?)</p>', chunk, flags=re.S | re.I)
+    if not m: return None, ''
+    lines = [x.strip() for x in plain(clean(m.group(1))).split('\n') if x.strip()]
+    if not lines: return None, ''
+    title = titlecase(re.sub(r'^\d+\.?\s*', '', lines[0]))
+    common = lines[1] if len(lines) > 1 else ''
+    return title, common
+
+def build_anchor_book(raw_dir, meta, page_re, header_re, label_re=None):
+    """books where each page holds several remedies separated by <a name="..."> anchors (Allen / Nash / Lippe / Hutchison / Boger style).
+    label_re: optional regex for paragraph-leading section labels (e.g. REGION:/WORSE:/BETTER:) → sections"""
+    book = dict(meta); book.update({'remedies': {}, 'unmatched': []})
+    d = raw_path(raw_dir)
+    for f in sorted(os.listdir(d)):
+        if not re.match(page_re, f): continue
+        b = body(read(os.path.join(d, f)))
+        blocks = re.split(r'<a name="([^"]+)">', b)
+        for i in range(1, len(blocks), 2):
+            anchor, chunk = blocks[i], blocks[i + 1]
+            title, common = _first_center_title(chunk)
+            if not title: title = titlecase(anchor.replace('_', ' '))
+            sections = []; cur = {'h': '', 'p': []}
+            for c in para_split(chunk):
+                t = clean(c)
+                if is_noise(t) or (header_re and re.search(header_re, plain(t))): continue
+                pt = plain(t).strip()
+                if pt.rstrip('.').upper() == title.upper() or (common and pt == common): continue
+                lm = label_re and re.match(label_re, t)
+                if lm:
+                    if cur['p']: sections.append(cur)
+                    cur = {'h': lm.group(1).strip().capitalize(), 'p': []}
+                    rest = t[lm.end():].strip()
+                    if rest: cur['p'].append(rest)
+                    continue
+                if label_re and cur['h'] and cur['h'] not in ('', 'Synopsis') and len(plain(t)) > 160 and '\n' not in t.strip()[:80]:
+                    # Boger: prose synopsis follows the short REGION/WORSE/BETTER lists → its own section
+                    if cur['p']: sections.append(cur)
+                    cur = {'h': 'Synopsis', 'p': []}
+                cur['p'].append(t)
+            if cur['p']: sections.append(cur)
+            paras = [x for sct in sections for x in sct['p']]
+            if not paras: continue
+            abbr, how = match(title)
+            entry = {'name': title, 'common': common, 'src': f + '#' + anchor, 'sections': sections}
+            if abbr and abbr not in book['remedies']: book['remedies'][abbr] = entry
+            elif abbr: book['remedies'][abbr]['sections'].append({'h': title, 'p': paras})
+            else: book['unmatched'].append({'name': title, 'src': f + '#' + anchor, 'paras': len(paras)})
+    return book
+
+def build_page_book(raw_dir, meta, skip_pages, header_re):
+    """books with one page per remedy (Kent lectures / Guernsey / Allen primer style)"""
+    book = dict(meta); book.update({'remedies': {}, 'unmatched': []})
+    d = raw_path(raw_dir)
+    for f in sorted(os.listdir(d)):
+        if not f.endswith('.htm') or f in skip_pages: continue
+        b = body(read(os.path.join(d, f)))
+        title = None
+        for m in re.finditer(r'<p[^>]*align="?center"?[^>]*>(.*?)</p>', b, flags=re.I | re.S):
+            t = plain(clean(m.group(1))).strip()
+            if not t or re.search(header_re, t) or 'Presented' in t or 'Copyright' in t: continue
+            title = titlecase(t.split('\n')[0]); break
+        if not title: title = f[:-4]
+        sections = []; cur = {'h': '', 'p': []}
+        for c in para_split(b):
+            t = clean(c)
+            if is_noise(t) or re.search(header_re, plain(t)): continue
+            if plain(t).strip().rstrip('.').upper() == title.upper(): continue
+            sm = SEC_RE.match(t)
+            if sm and len(sm.group(1)) <= 30:
+                if cur['p']: sections.append(cur)
+                cur = {'h': sm.group(1).strip(), 'p': []}
+                if sm.group(2).strip(): cur['p'].append(sm.group(2).strip())
+                continue
+            cur['p'].append(t)
+        if cur['p']: sections.append(cur)
+        paras = [x for sct in sections for x in sct['p']]
+        if not paras: continue
+        abbr, how = match(title)
+        entry = {'name': title, 'src': f, 'sections': sections}
+        if abbr and abbr in book['remedies']: book['unmatched'].append({'name': title, 'src': f, 'paras': len(paras), 'dup_of': abbr})
+        elif abbr: book['remedies'][abbr] = entry
+        else: book['unmatched'].append({'name': title, 'src': f, 'paras': len(paras)})
+    return book
+
+def build_boger():
+    return build_anchor_book('bogersyn', {'id': 'boger_synoptic', 'title': 'A Synoptic Key of the Materia Medica (Part 2: Synopsis)', 'author': 'Cyrus Maxwell Boger', 'year': 1915,
+        'source': 'http://www.homeoint.org/books2/bogersyn/', 'license': 'public domain'}, r'^mm.*\.htm$', r'SYNOPTIC KEY OF|Cyrus Maxwell BOGER|^SYNOPSIS$',
+        label_re=r'^\**\s*(REGION|WORSE|BETTER|RELATED|Related|MODALITIES|Modalities)\s*:?\**\s*:?\s*')
+def build_boenninghausen():
+    return build_anchor_book('boenchar', {'id': 'boenninghausen_char', 'title': "Boenninghausen's Characteristics Materia Medica", 'author': 'C. M. F. von Boenninghausen (ed. Allen)', 'year': 1900,
+        'source': 'http://www.homeoint.org/books2/boenchar/', 'license': 'public domain'}, r'^mm.*\.htm$', r"BOENNINGHAUSEN'S CHARACTERISTICS|Presented by",
+        label_re=r'^\**\s*([A-Z][A-Za-z ,&\-]{1,40}?)\.?\s*--\s*\**\s*')
+def build_dewey():
+    return build_anchor_book('dewey', {'id': 'dewey_essentials', 'title': 'Essentials of Homoeopathic Materia Medica', 'author': 'Willis Alonzo Dewey', 'year': 1894,
+        'source': 'http://www.homeoint.org/books5/dewey/', 'license': 'public domain'}, r'^chapter.*\.htm$', r'ESSENTIALS OF|DEWEY|Presented by')
+def build_allen_clinical():
+    return build_anchor_book('allenclin', {'id': 'allen_clinical_hints', 'title': "Allen's Clinical Hints", 'author': 'Aldo Farias Dias (after H. C. Allen)', 'year': 1990,
+        'source': 'http://www.homeoint.org/books2/allenclin/', 'license': 'public domain (homeoint.org)'}, r'^mm.*\.htm$', r"Allen's Clinical Hints|Presented by")
+def build_lippe():
+    return build_anchor_book('lippkeyn', {'id': 'lippe_keynotes', 'title': 'Keynotes of the Homoeopathic Materia Medica', 'author': 'Adolph von Lippe', 'year': 1866,
+        'source': 'http://www.homeoint.org/books2/lippkeyn/', 'license': 'public domain'}, r'^mmh.*\.htm$', r'Keynotes Of The Hom|by Dr\. Adolph')
+def build_hutchison():
+    return build_anchor_book('hutch700', {'id': 'hutchison_700', 'title': 'Seven Hundred Red Line Symptoms', 'author': 'J. W. Hutchison', 'year': 1900,
+        'source': 'http://www.homeoint.org/books2/hutch700/', 'license': 'public domain'}, r'^mm.*\.htm$', r'SEVEN-HUNDRED RED LINE|Hutchison')
+def build_guernsey():
+    return build_page_book('guernsey', {'id': 'guernsey_keynotes', 'title': 'Key-notes to the Materia Medica', 'author': 'Henry N. Guernsey', 'year': 1887,
+        'source': 'http://www.homeoint.org/books4/guernsey/', 'license': 'public domain'}, {'index.htm', 'preface.htm', 'liste.htm'}, r'KEY-NOTES TO THE MATERIA MEDICA|GUERNSEY')
+def build_primer():
+    return build_page_book('allenprimer', {'id': 'allen_primer', 'title': 'A Primer of Materia Medica', 'author': 'Timothy Field Allen', 'year': 1892,
+        'source': 'http://www.homeoint.org/books5/allenprimer/', 'license': 'public domain'}, {'index.htm', 'preface.htm'}, r'Primer of Materia Medica|ALLEN')
+
 if __name__ == '__main__':
-    which = sys.argv[1:] or ['kent', 'boericke', 'allen', 'nash']
+    which = sys.argv[1:] or ['kent', 'boericke', 'allen', 'nash', 'lippe', 'hutchison', 'guernsey', 'primer']
     index = {}
     if os.path.exists(os.path.join(OUT, '_index.json')):
         _old = json.load(open(os.path.join(OUT, '_index.json'))); index = _old.get('books', _old)
     for w in which:
-        book = {'kent': build_kent, 'boericke': build_boericke, 'allen': build_allen, 'nash': build_nash}[w]()
+        book = {'kent': build_kent, 'boericke': build_boericke, 'allen': build_allen, 'nash': build_nash, 'lippe': build_lippe, 'hutchison': build_hutchison, 'guernsey': build_guernsey, 'primer': build_primer, 'boger': build_boger, 'boenninghausen': build_boenninghausen, 'dewey': build_dewey, 'allen_clinical': build_allen_clinical}[w]()
         p = os.path.join(OUT, book['id'] + '.json')
         json.dump(book, open(p, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
         n = len(book['remedies']); words = sum(len(plain(x).split()) for r in book['remedies'].values() for s in r['sections'] for x in s['p'])
         index[book['id']] = {'title': book['title'], 'author': book['author'], 'year': book['year'], 'file': 'mm/' + book['id'] + '.json', 'remedies': n, 'words': words, 'bytes': os.path.getsize(p)}
         print(f"{book['id']}: {n} remedies matched, {len(book['unmatched'])} unmatched, {words:,} words, {os.path.getsize(p)/1e6:.2f} MB" + (f", essays {len(book.get('essays',[]))}" if 'essays' in book else ''))
         for u in book['unmatched'][:60]: print('   UNMATCHED:', u)
-    # availability map
+    # index + availability map from ALL book files present in OUT (raw HTML may be gone for books built earlier)
     avail = {}
-    for bid, meta in index.items():
-        bk = json.load(open(os.path.join(OUT, bid + '.json')))
+    for f in sorted(os.listdir(OUT)):
+        if not f.endswith('.json') or f.startswith('_') or f.startswith('drafts'): continue
+        bk = json.load(open(os.path.join(OUT, f)))
+        bid = bk.get('id', f[:-5]); p = os.path.join(OUT, f)
+        if bid not in index:
+            words = sum(len(plain(x).split()) for r in bk['remedies'].values() for s2 in r['sections'] for x in s2['p'])
+            index[bid] = {'title': bk['title'], 'author': bk['author'], 'year': bk['year'], 'file': 'mm/' + f, 'remedies': len(bk['remedies']), 'words': words, 'bytes': os.path.getsize(p)}
         for a in bk['remedies']: avail.setdefault(a, []).append(bid)
     json.dump({'books': index, 'avail': avail}, open(os.path.join(OUT, '_index.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
     print('index: books', list(index), '| remedies with any MM:', len(avail))

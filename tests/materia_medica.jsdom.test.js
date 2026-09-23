@@ -65,6 +65,21 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   ok(d.querySelectorAll('.rep-mm-p.hit').length>0&&d.querySelector('.rep-mm-p mark'),'in-text search highlights "consolation": '+d.querySelectorAll('.rep-mm-p.hit').length+' paragraphs');
   const nash=Array.from(tabs).find(b=>/Nash/.test(b.textContent)); if(nash&&!nash.disabled){ nash.click(); await sleep(20); ok(/Nash/.test(d.querySelector('.rep-mm-src').textContent),'switch to Nash tab'); }
   d.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Escape'})); ok(d.getElementById('repMMModal').style.display==='none','Esc closes viewer');
+  // ---- 🔒 private books (memory fallback in jsdom: no IndexedDB) ----
+  const priv={books:[{id:'priv_test_mm',title:'Test Private MM',author:'Dr. Tester',year:2020,private:true,format:'pages',pages:[{p:1,t:'Natrum muriaticum: silent grief, cannot weep before others; consolation aggravates. Absent-minded while reading.'},{p:2,t:'Ignatia amara: sighing, changeable mood after grief.'},{p:3,t:'Unrelated page about potency.'}]}]};
+  await new Promise(r=>w.repPrivImportText(JSON.stringify(priv),r));
+  ok(w.repPrivIds().indexOf('priv_test_mm')!==-1&&w.repMMBookIds().indexOf('priv_test_mm')!==-1,'private book imported and listed after public books');
+  ok(w.repMMAvail('nat-m').indexOf('priv_test_mm')!==-1&&w.repMMAvail('ign').indexOf('priv_test_mm')!==-1&&w.repMMAvail('apis').indexOf('priv_test_mm')===-1,'private availability by remedy-name detection (nat-m, ign yes; apis no)');
+  const pe=w.repMMEntry('priv_test_mm','nat-m'); ok(pe&&pe.sections.length===1&&pe.sections[0].h==='p. 1','private entry = pages mentioning the remedy (p. 1)');
+  const pm=w.repMMMatches('nat-m',w.repDiffThemeRegex('grief, consol')); ok(pm.some(m=>m.book==='priv_test_mm'&&/grief|consol/i.test(m.text)),'theme sentences found in private book with reference '+w.repMMRef(pm.find(m=>m.book==='priv_test_mm')||{book:'?'}));
+  ok(/🔒/.test(w.repMMBadge('priv_test_mm'))&&/Tester/.test(w.repMMShort('priv_test_mm')),'private badge 🔒 + short name from author');
+  w.repDiffOpenForRubric(); await sleep(50); w.repDiffToggleRem('nat-m'); await sleep(30); for(let i=0;i<60&&!(w.repDiffLast&&w.repDiffLast.res);i++)await sleep(50); w.repDiffSetTab('mm'); await sleep(80);
+  ok(Array.from(d.querySelectorAll('.rep-mm-av .rep-mm-badge')).some(b=>/🔒/.test(b.textContent)),'📖 tab card shows private badge for nat-m');
+  w.repPrivPanelToggle(); await sleep(30); ok(d.querySelector('.rep-mm-priv')&&d.querySelectorAll('.rep-mm-privrow').length===1,'private panel lists the imported book');
+  w.repDiffClose(); w.repMMOpen('nat-m','grief',['nat-m']); await sleep(80); w.repMMSetBook('priv_test_mm'); await sleep(30);
+  ok(/نجی|private/.test(d.querySelector('.rep-mm-src').textContent)&&d.querySelector('.rep-mm-section .rep-mm-h').textContent==='p. 1','viewer shows private book pages');
+  w.repMMView.q='potency'; w.repMMWholeToggle(true); await sleep(30); ok(d.querySelector('.rep-mm-section .rep-mm-h').textContent==='p. 3','whole-book search finds page 3 (not a remedy page)');
+  w.repMMClose(); w.repPrivDelete('priv_test_mm'); ok(w.repPrivIds().length===0&&w.repMMAvail('nat-m').indexOf('priv_test_mm')===-1,'private book removed');
   // seed drafts merged on first load
   w.localStorage.removeItem('bc_rep_notes_seed_v'); await new Promise(r=>w.repNotesSeed(r)); ok(w.repNoteGet({book:'kent',ch:'mind',rid:'r2'},'nux-m')&&w.repNoteGet({book:'kent',ch:'mind',rid:'r2'},'nux-m').src==='llm-seed'&&w.repNoteGet(w.repDiffCtx||{book:'kent',ch:'mind',rid:'r2'},'nat-m').status==='approved','seed drafts merged without overwriting the approved nat-m note');
   // Ask AI

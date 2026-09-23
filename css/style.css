@@ -1393,3 +1393,13 @@ body.rep-diff-open{overflow:hidden}
 .rep-mm-h{font-weight:700;color:#c0392b;font-size:12.5px;margin-bottom:4px;text-align:left;font-family:'Segoe UI',sans-serif}
 .rep-mm-p{font-size:13px;line-height:1.7;color:#2c3e50;text-align:left;margin:0 0 6px;font-family:Georgia,'Times New Roman',serif}
 .rep-mm-p.hit{background:#fffdf3;border-inline-start:3px solid #f1c40f;padding-inline-start:8px}
+
+/* ==== v58: 🔒 private books (IndexedDB) ==== */
+.rep-mm-badge.priv{border:1px solid #d7bde2}
+.rep-diff-tabs button.priv{border-style:dashed}
+.rep-mm-priv{background:#f9f4fb;border:1px dashed #c39bd3;border-radius:10px;padding:8px 12px;margin-bottom:8px}
+.rep-mm-privhead{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:#5b2c6f;font-weight:700}
+.rep-mm-privlist{display:flex;flex-direction:column;gap:3px;margin-top:6px}
+.rep-mm-privrow{display:flex;align-items:center;gap:6px;font-size:12px;color:#2c3e50;background:#fff;border:1px solid #eee3f3;border-radius:8px;padding:3px 8px}
+.rep-mm-privrow .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rep-mm-privrow small{color:#7f8c8d;white-space:nowrap}
