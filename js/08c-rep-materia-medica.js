@@ -334,35 +334,74 @@ function repDiffMMTabHtml(last){
     }
     var re=repMMThemeRegex(theme);
     if(!re) h+='<div class="rep-tool-note">'+L({ur:'موضوع کے الفاظ لکھیں — ورنہ صرف پورا متن (📖) دستیاب ہے',en:'Enter theme words — otherwise only the full text (📖) is available',roman:'Theme words likhein'})+'</div>';
-    h+='<div class="rep-mm-cards">';
-    R.forEach(function(a){
-        var av=repMMAvail(a);
-        var ms=(av.length&&re)?repMMMatches(a,re):[]; var cnt={}; ms.forEach(function(m){ cnt[m.book]=(cnt[m.book]||0)+1; });
-        var avSorted=av.slice().sort(function(x,y){ return (cnt[y]||0)-(cnt[x]||0); }); var shown=avSorted.slice(0,7), more=avSorted.length-shown.length;
-        h+='<div class="rep-mm-card"><div class="rep-mm-cardhead"><b dir="ltr">'+escapeHtml(a)+'</b> <small>'+escapeHtml(repRemedyTitle(a).replace(/^.*= /,''))+'</small>'
-            +(av.length?'<button class="rc-btn" onclick="repMMOpen(\''+_repJs(a)+'\')">📖 '+L({ur:'پورا متن',en:'Full text',roman:'Poora matn'})+'</button>':'')+'</div>'
-            +'<div class="rep-mm-av">'+(av.length?shown.map(function(id){ return repMMBadge(id)+(cnt[id]?'<sup>'+cnt[id]+'</sup>':''); }).join('')+(more>0?'<span class="rep-mm-more-b" title="'+_repAttr(avSorted.slice(7).map(repMMShort).join(', '))+'">+'+more+'</span>':''):'<i>'+L({ur:'ان کتابوں میں نہیں',en:'not in these books',roman:'in kitabon mein nahi'})+'</i>')
-            +' <small class="rep-mm-avn">'+av.length+' '+L({ur:'کتابیں',en:'books',roman:'books'})+' · '+ms.length+' '+L({ur:'جملے',en:'sentences',roman:'jumle'})+'</small></div>';
-        if(av.length&&re){
-            var draft=repMMDraftText(a,re); _repNoteDrafts[a]=draft;
-            if(draft){
-                h+='<div class="rep-mm-draft"><div class="rep-mm-drafthead">🤖 '+L({ur:'خودکار مسودہ (حوالہ جات کے ساتھ) — تصدیق باقی',en:'Auto draft (with references) — unverified',roman:'Khudkar musawwada — tasdeeq baqi'})+'</div>';
-                repMMDraft(a,re).forEach(function(m){ h+='<div class="rep-mm-draftline" dir="ltr">• '+repMMHighlight(repMMFmt(m.text),re)+' <span class="rep-mm-ref" style="color:'+(REP_MM_COLOR[m.book]||'#555')+'">'+escapeHtml(repMMRef(m))+'</span></div>'; });
-                h+='</div>';
-            } else h+='<div class="rep-tool-note">'+L({ur:'اس موضوع پر ان کتابوں میں اس ریمیڈی کا کوئی جملہ نہیں ملا — الفاظ بدل کر دیکھیں یا 📖 پورا متن',en:'No sentence for this remedy on this theme — try other words or 📖 full text',roman:'Koi jumla nahi mila'})+'</div>';
-            if(ms.length){
-                var byBook={}; ms.forEach(function(m){ (byBook[m.book]=byBook[m.book]||[]).push(m); });
-                h+='<details class="rep-mm-more"><summary>'+L({ur:'تمام متعلقہ جملے',en:'All matching sentences',roman:'Tamam jumle'})+' ('+ms.length+')</summary>';
-                repMMBookIds().forEach(function(id){ var arr=byBook[id]; if(!arr)return; h+='<div class="rep-mm-bookblk">'+repMMBadge(id)+' <small>'+escapeHtml(repMMBookLabel(id))+'</small>';
-                    arr.forEach(function(m){ h+='<div class="rep-mm-sent" dir="ltr">'+repMMHighlight(repMMFmt(m.text),re)+(m.section?' <span class="rep-mm-sec">§ '+escapeHtml(m.section)+'</span>':'')+'</div>'; }); h+='</div>'; });
-                h+='</details>';
-            }
+    // ---------- ڈیزائن E: لکھنے کا موڈ — بائیں ایک ریمیڈی کا مواد، دائیں مستقل ایڈیٹر؛ 📊 سب کا خلاصہ (ڈیزائن B)؛ تنگ سکرین پر ایڈیٹر نیچے چپکا ----------
+    if(!repMMTabRem||R.indexOf(repMMTabRem)===-1) repMMTabRem=R[0];
+    var a=repMMTabRem; _repMMPickPool=[];
+    var noteMark=function(x){ var n=repNoteGet(ctx,x); return n?(n.status==='approved'?' ✔':' ✎'):''; };
+    h+='<div class="rep-mm-rt">'+R.map(function(x){ return '<button class="rep-mm-rtb'+(x===a?' on':'')+'" onclick="repMMTabSelect(\''+_repJs(x)+'\')" title="'+_repAttr(repRemedyTitle(x))+'"><span dir="ltr">'+escapeHtml(x)+'</span>'+noteMark(x)+'</button>'; }).join('')
+        +'<button class="rst-link" onclick="repMMTabSummaryToggle()">📊 '+L({ur:'سب کا خلاصہ',en:'Summary of all',roman:'Sab ka khulasa'})+(repMMTabSummary?' ▴':' ▾')+'</button></div>';
+    if(repMMTabSummary){
+        h+='<div class="rep-mm-sumwrap"><table class="rep-mm-sumtbl"><thead><tr><th>'+L({ur:'ریمیڈی',en:'Remedy',roman:'Remedy'})+'</th><th>🤖 '+L({ur:'مسودہ (پہلے 2 جملے)',en:'Draft (first 2 sentences)',roman:'Draft'})+'</th><th>'+L({ur:'جملے',en:'Sent.',roman:'Sent.'})+'</th><th>✍ '+L({ur:'نوٹ',en:'Note',roman:'Note'})+'</th></tr></thead><tbody>';
+        R.forEach(function(x){
+            var msx=re?repMMMatches(x,re):[]; var dr=re?repMMDraft(x,re).slice(0,2):[]; var n=repNoteGet(ctx,x);
+            h+='<tr class="'+(x===a?'on':'')+'" onclick="repMMTabSelect(\''+_repJs(x)+'\')"><td class="rem"><b dir="ltr">'+escapeHtml(x)+'</b><br><small>'+escapeHtml(repRemedyTitle(x).replace(/^.*= /,''))+'</small></td>'
+                +'<td class="dr" dir="ltr">'+(dr.length?dr.map(function(m){ return '• '+repMMHighlight(repMMFmt(m.text),re)+' <span class="rep-mm-ref">'+escapeHtml(repMMRef(m))+'</span>'; }).join('<br>'):'<span class="rep-mm-none">—</span>')+'</td>'
+                +'<td class="n">'+msx.length+'</td><td class="st">'+(n?'<span class="rep-mm-status '+n.status+'">'+(n.status==='approved'?'✔':'✎')+'</span> <small>'+escapeHtml(_repTruncPath((n.ur||n.text||''),60))+'</small>':'<span class="rep-mm-none">—</span>')+'</td></tr>';
+        });
+        h+='</tbody></table></div>';
+    }
+    var av=repMMAvail(a);
+    var ms=(av.length&&re)?repMMMatches(a,re):[]; var cnt={}; ms.forEach(function(m){ cnt[m.book]=(cnt[m.book]||0)+1; });
+    var avSorted=av.slice().sort(function(x,y){ return (cnt[y]||0)-(cnt[x]||0); }); var shown=avSorted.slice(0,7), more=avSorted.length-shown.length;
+    h+='<div class="rep-mm-e"><div class="rep-mm-e-left">';
+    h+='<div class="rep-mm-cardhead"><b dir="ltr">'+escapeHtml(a)+'</b> <small>'+escapeHtml(repRemedyTitle(a).replace(/^.*= /,''))+'</small>'
+        +(av.length?'<button class="rc-btn" onclick="repMMOpen(\''+_repJs(a)+'\')">📖 '+L({ur:'پورا متن',en:'Full text',roman:'Poora matn'})+'</button>':'')+'</div>'
+        +'<div class="rep-mm-av">'+(av.length?shown.map(function(id){ return repMMBadge(id)+(cnt[id]?'<sup>'+cnt[id]+'</sup>':''); }).join('')+(more>0?'<span class="rep-mm-more-b" title="'+_repAttr(avSorted.slice(7).map(repMMShort).join(', '))+'">+'+more+'</span>':''):'<i>'+L({ur:'ان کتابوں میں نہیں',en:'not in these books',roman:'in kitabon mein nahi'})+'</i>')
+        +' <small class="rep-mm-avn">'+av.length+' '+L({ur:'کتابیں',en:'books',roman:'books'})+' · '+ms.length+' '+L({ur:'جملے',en:'sentences',roman:'jumle'})+'</small></div>';
+    var pickBtn=function(m){ _repMMPickPool.push('• '+repMMPlain(m.text).replace(/\s+/g,' ').trim()+' '+repMMRef(m)); return '<button class="rep-mm-pick" onclick="repMMPick('+(_repMMPickPool.length-1)+')" title="'+L({ur:'یہ جملہ حوالے سمیت نوٹ میں ڈالیں',en:'Add this sentence with its reference to the note',roman:'Note mein daalein'})+'">＋ '+L({ur:'نوٹ میں',en:'to note',roman:'note mein'})+'</button>'; };
+    if(av.length&&re){
+        var draftList=repMMDraft(a,re); _repNoteDrafts[a]=repMMDraftText(a,re);
+        if(draftList.length){
+            h+='<div class="rep-mm-draft"><div class="rep-mm-drafthead">🤖 '+L({ur:'خودکار مسودہ (حوالہ جات کے ساتھ) — تصدیق باقی',en:'Auto draft (with references) — unverified',roman:'Khudkar musawwada — tasdeeq baqi'})+'</div>';
+            draftList.forEach(function(m){ h+='<div class="rep-mm-draftline" dir="ltr">• '+repMMHighlight(repMMFmt(m.text),re)+' <span class="rep-mm-ref" style="color:'+(REP_MM_COLOR[m.book]||'#555')+'">'+escapeHtml(repMMRef(m))+'</span> '+pickBtn(m)+'</div>'; });
+            h+='</div>';
+        } else h+='<div class="rep-tool-note">'+L({ur:'اس موضوع پر ان کتابوں میں اس ریمیڈی کا کوئی جملہ نہیں ملا — الفاظ بدل کر دیکھیں یا 📖 پورا متن',en:'No sentence for this remedy on this theme — try other words or 📖 full text',roman:'Koi jumla nahi mila'})+'</div>';
+        if(ms.length){
+            var byBook={}; ms.forEach(function(m){ (byBook[m.book]=byBook[m.book]||[]).push(m); });
+            h+='<details class="rep-mm-more" '+(ms.length<=12?'open':'')+'><summary>'+L({ur:'تمام متعلقہ جملے',en:'All matching sentences',roman:'Tamam jumle'})+' ('+ms.length+') — '+L({ur:'ہر جملے پر «＋ نوٹ میں»',en:'each with «＋ to note»',roman:'har jumle par «＋»'})+'</summary>';
+            repMMBookIds().forEach(function(id){ var arr=byBook[id]; if(!arr)return; h+='<div class="rep-mm-bookblk">'+repMMBadge(id)+' <small>'+escapeHtml(repMMBookLabel(id))+'</small>';
+                arr.forEach(function(m){ h+='<div class="rep-mm-sent" dir="ltr">'+repMMHighlight(repMMFmt(m.text),re)+(m.section?' <span class="rep-mm-sec">§ '+escapeHtml(m.section)+'</span>':'')+' '+pickBtn(m)+'</div>'; }); h+='</div>'; });
+            h+='</details>';
         }
-        h+=repNoteEditorHtml(ctx,a,!!_repNoteDrafts[a]);
+    }
+    // ریپرٹری کے حقائق (تفریق ونڈو کے نتیجے سے): اس ریمیڈی کے خصوصی ربرکس — «＋» سے [Rep: …] نوٹ میں
+    var res=last&&last.res; var ex=(res&&res.excl&&res.excl[a])?res.excl[a].slice(0,6):[];
+    if(ex.length){
+        h+='<div class="rep-mm-facts"><div class="rep-mm-drafthead">📗 '+L({ur:'ریپرٹری کے حقائق — صرف اس ریمیڈی کے ربرکس (باقی چنی ہوئی غائب)',en:'Repertory facts — rubrics where only this remedy is present',roman:'Repertory facts'})+'</div>';
+        ex.forEach(function(r){ var line='[Rep: '+r.x.t+' — g'+r.g+', '+r.N+' rem]'; _repMMPickPool.push(line); h+='<div class="rep-mm-fact" dir="ltr"><span class="rep-diff-dot d'+r.g+'">'+r.g+'</span> '+escapeHtml(r.x.t)+' <small>('+r.N+')</small> <button class="rep-mm-pick" onclick="repMMPick('+(_repMMPickPool.length-1)+')">＋ '+L({ur:'نوٹ میں',en:'to note',roman:'note mein'})+'</button></div>'; });
         h+='</div>';
-    });
-    h+='</div>';
+    } else if(res&&R.length>1) h+='<div class="rep-tool-note">'+L({ur:'ریپرٹری کے حقائق «🎯 خصوصی» ٹیب میں',en:'Repertory facts are in the «🎯 Exclusive» tab',roman:'Repertory facts «Exclusive» tab mein'})+'</div>';
+    h+='</div>';   // /left
+    // دائیں: مستقل ایڈیٹر + اسی ربرک کے باقی نوٹس
+    h+='<div class="rep-mm-e-right">'+repNoteEditorHtml(ctx,a,!!_repNoteDrafts[a]);
+    var others=ctx?repNotesForRubric(ctx.book,ctx.ch,ctx.rid).filter(function(x){ return x.abbr!==a; }):[];
+    if(others.length){
+        h+='<div class="rep-mm-others"><div class="rep-mm-drafthead">✍ '+L({ur:'اسی ربرک کے دوسرے نوٹس',en:'Other notes of this rubric',roman:'Isi rubric ke doosre notes'})+' ('+others.length+')</div>';
+        others.slice(0,8).forEach(function(x){ var n=x.note; h+='<div class="rep-mm-other'+(n.status==='approved'?' ok':'')+'" onclick="repMMTabSelectAny(\''+_repJs(x.abbr)+'\')"><b dir="ltr">'+escapeHtml(x.abbr)+'</b> <span class="rep-mm-status '+(n.status||'draft')+'">'+(n.status==='approved'?'✔':'✎')+'</span> <small>'+escapeHtml(_repTruncPath(n.ur||n.text||'',70))+'</small></div>'; });
+        h+='</div>';
+    }
+    h+='</div></div>';   // /right /e
     return h;
+}
+var repMMTabRem=null, repMMTabSummary=false, _repMMPickPool=[];
+function repMMTabSelect(a){ repMMTabRem=a; if(typeof repDiffRenderBody==='function') repDiffRenderBody(); }
+function repMMTabSelectAny(a){ if(typeof repDiffSel!=='undefined'&&repDiffSel.length&&repDiffSel.indexOf(a)===-1&&repDiffSel.length<REP_DIFF_MAX_REMS){ repDiffSel.push(a); } repMMTabSelect(a); }
+function repMMTabSummaryToggle(){ repMMTabSummary=!repMMTabSummary; if(typeof repDiffRenderBody==='function') repDiffRenderBody(); }
+// «＋ نوٹ میں»: جملہ/حقیقت حوالے سمیت ایڈیٹر میں جوڑیں (ایڈیٹر کو محفوظ نہیں کرتا — 💾/✔ آپ دبائیں)
+function repMMPick(i){
+    var line=_repMMPickPool[i]; if(!line) return; var a=repMMTabRem||''; var ta=document.getElementById('repNote_'+a.replace(/[^a-z0-9]/gi,'_')); if(!ta){ showToast('✍ ?'); return; }
+    ta.value=(ta.value.trim()?ta.value.trim()+'\n':'')+line; ta.scrollTop=ta.scrollHeight; ta.focus();
+    showToast('＋ '+repLangText({ur:'نوٹ میں جوڑ دیا — 💾 یا ✔ دبانا نہ بھولیں',en:'Added to the note — remember 💾 or ✔',roman:'Note mein jor diya — 💾/✔ dabayein'}));
 }
 var _repPrivPanelOpen=false; var _repMMEnsureKicked=false;
 function repPrivPanelToggle(){ _repPrivPanelOpen=!_repPrivPanelOpen; if(typeof repDiffRenderBody==='function') repDiffRenderBody(); }

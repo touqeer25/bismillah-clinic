@@ -98,3 +98,10 @@ Builder: `tools/mm_build/ocr_books.py clarke <djvu.txt>` / `… farrington <djvu
 - Layout: remedy cards flow in **masonry columns** (2 columns ≥ 900 px, 1 below) instead of a rigid 4-column grid with gaps; card header = remedy + «📖 full text», then a compact availability line (books with matches first, counts as superscripts, `+n` for the rest); private-books panel is a compact 2-column scrollable list.
 - Draft quality: **junk filter** (index/contents pages, sentences with many page numbers, ALL-CAPS lists, > 420 chars), **section relevance** (for a Mind rubric: Mind/Mental sections +3, generic sections +0.5, physical sections −2.5; for other chapters the matching section is boosted), de-duplication, private books ≤ 3 sentences and ≤ 1 in the draft, score threshold ≥ 2.
 - Theme words: stems of ≥ 5-letter words keep 3 letters (sadness → sad); synonym entry for BROODING.
+
+## v63 — 📖 tab redesigned: writing mode (Design E) + summary table + mobile stack
+
+- **Left pane**: remedy chips (✎/✔ marks) → one remedy at a time: header + book badges with counts, 🤖 draft, all matching sentences per book, **📗 repertory facts** (this remedy's exclusive rubrics from the 🎯 tab) — every sentence/fact has **«＋ نوٹ میں»** which appends it, with its reference, to the note.
+- **Right pane**: the note editor for (rubric × selected remedy), sticky while scrolling (save draft / ✔ approve / delete / adopt draft), plus the other notes of the same rubric (click = switch).
+- **📊 سب کا خلاصہ**: Design-B table (remedy · first 2 draft sentences · sentence count · note status), rows switch the pane.
+- ≤ 900 px: panes stack, the editor sticks to the bottom (Design C behaviour). Design board: `docs/mm_tab_layouts.html`.

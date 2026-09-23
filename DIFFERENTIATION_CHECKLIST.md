@@ -67,6 +67,7 @@ Order = the order proposed in the discussion. `[x]` done · `[ ]` pending · `[~
 - [x] P3.3 Store `localStorage.bc_rep_diff_notes`; 📤 export JSON (differentiation_notes.json) / 📥 import
 - [x] P3.4 Seed AI drafts with references (EN + UR): ABSENT-MINDED × nat-m, nux-m, apis, lach, sep — merged once, never overwrite
 - [x] P3.5 LLM batch pipeline: `make_llm_batch.py` (facts + excerpts + prompt), `llm_draft_prompt.md` (strict: only given facts, every claim referenced), optional API call, import via 📥
+- [x] P3.9 v63: 📖 tab writing mode (Design E): sticky editor, «＋ to note» on every sentence/fact, summary table, mobile stack; design board docs/mm_tab_layouts.html
 - [~] P3.6 Seed drafts v2: 15 notes (3 rubrics × 5) written from batch data with references; bulk drafting for more rubrics pending (API key or batch-by-batch)
 - [x] P3.7 v59: rubric page section «✍ تفریقی نوٹس» + ✎/✔ chip marks (drafts shown as unverified)
 - [x] P3.8 v59: shared notes file `mm/notes_shared.json` (export → commit) merged on every device at start; conflict rule: approved > draft, newer > older

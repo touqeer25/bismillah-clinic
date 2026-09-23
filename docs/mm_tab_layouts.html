@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>📖 میٹیریا میڈیکا ٹیب — لے آؤٹ کے 5 ڈیزائن</title>
+<style>
+ body{margin:0;background:#e9eef3;font-family:'Segoe UI',Tahoma,sans-serif;color:#2c3e50}
+ .board{max-width:1120px;margin:0 auto;padding:18px}
+ h1{font-size:20px;color:#1a5276;margin:0 0 6px}
+ .intro{font-size:13px;color:#5d6d7e;line-height:1.9;margin-bottom:14px}
+ .design{background:#fff;border:1px solid #d5e3ef;border-radius:14px;margin:0 0 26px;box-shadow:0 6px 20px rgba(26,82,118,.08);overflow:hidden}
+ .dhead{display:flex;align-items:center;gap:10px;padding:10px 16px;background:#f4f8fc;border-bottom:1px solid #e3ebf2}
+ .dhead b{color:#1a5276;font-size:15px}
+ .dhead .tag{font-size:11px;background:#2980b9;color:#fff;border-radius:10px;padding:1px 9px}
+ .dhead .tag.rec{background:#27ae60}
+ .frame{background:#f6f9fc;padding:12px 14px;direction:rtl}
+ .win{background:#fff;border:1px solid #e3ebf2;border-radius:12px;overflow:hidden}
+ .top{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid #e3ebf2;font-size:12px;flex-wrap:wrap}
+ .top b{color:#1a5276}
+ .chip{display:inline-block;background:#2980b9;color:#fff;border-radius:12px;padding:1px 9px;font-size:11px;font-weight:700}
+ .chip.o{background:#eef5fb;color:#1a5276;border:1px solid #bcd6ee}
+ .tabs{display:flex;gap:4px;padding:6px 12px 0;border-bottom:1px solid #e3ebf2;font-size:11.5px}
+ .tabs span{border:1px solid #d5e3ef;border-bottom:none;border-radius:8px 8px 0 0;padding:4px 10px;color:#2471a3;background:#fff}
+ .tabs span.on{background:#2980b9;color:#fff;border-color:#2980b9}
+ .badge{display:inline-block;color:#fff;border-radius:7px;padding:0 6px;font-size:9.5px;font-weight:700;margin:0 1px}
+ .k{background:#1a5276}.b{background:#117a65}.c{background:#922b21}.h{background:#4a235a}.a{background:#7d6608}.n{background:#6c3483}.f{background:#1b4f72}.p{background:#5b2c6f;border:1px solid #d7bde2}
+ .draft{background:#fbf7ea;border:1px solid #f1e3b0;border-radius:8px;padding:6px 9px;font-size:11.5px;line-height:1.7;text-align:left;direction:ltr}
+ .draft .ref{font-size:10px;font-weight:700;color:#1a5276}
+ mark{background:#fff176;padding:0 2px;border-radius:2px}
+ .note{background:#f4f9fd;border:1px dashed #a9cbe8;border-radius:8px;padding:6px 9px;font-size:11.5px}
+ .note.ok{border-style:solid;border-color:#27ae60;background:#f0faf3}
+ textarea{width:100%;box-sizing:border-box;border:1px solid #cfdbe6;border-radius:7px;padding:5px 7px;font-family:inherit;font-size:11.5px;height:54px;background:#fff;resize:none}
+ .btn{display:inline-block;border:1px solid #d5e3ef;background:#fff;color:#1a5276;border-radius:7px;padding:2px 8px;font-size:10.5px;margin:2px 0}
+ .btn.p{background:#2980b9;color:#fff;border-color:#2980b9}.btn.g{background:#27ae60;color:#fff;border-color:#27ae60}
+ .pros{display:flex;gap:14px;padding:10px 16px;font-size:12px;line-height:1.8;background:#fff;border-top:1px dashed #e3ebf2}
+ .pros div{flex:1}.pros b{color:#1a5276}
+ .small{font-size:10.5px;color:#7f8c8d}
+ .sent{font-size:11px;line-height:1.6;text-align:left;direction:ltr;color:#34495e;border-inline-start:3px solid #d5e3ef;padding:2px 8px;margin:3px 0;background:#fafcfe}
+ /* ---- A: two-pane ---- */
+ .A .body{display:flex;min-height:330px}
+ .A .side{width:150px;border-inline-end:1px solid #e3ebf2;background:#f8fbfd;padding:8px}
+ .A .side .r{display:flex;align-items:center;gap:6px;padding:6px 8px;border-radius:8px;font-size:12px;margin-bottom:4px;cursor:pointer}
+ .A .side .r.on{background:#2980b9;color:#fff}
+ .A .side .r small{margin-inline-start:auto;font-size:10px;opacity:.8}
+ .A .main{flex:1;padding:10px 14px}
+ /* ---- B: table ---- */
+ .B table{width:100%;border-collapse:collapse;font-size:11.5px}
+ .B th{background:#f4f8fc;color:#1a5276;text-align:right;padding:6px 8px;border-bottom:2px solid #d5e3ef;font-size:11px}
+ .B td{border-bottom:1px solid #eef2f5;padding:6px 8px;vertical-align:top}
+ .B td.rem{width:110px;font-weight:700;color:#1a5276}
+ /* ---- C: accordion ---- */
+ .C .acc{border:1px solid #e3ebf2;border-radius:10px;margin:8px 12px;overflow:hidden}
+ .C .sum{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#f8fbfd;font-size:12px;cursor:pointer}
+ .C .sum .t{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#5d6d7e;font-size:11px;text-align:left;direction:ltr}
+ .C .open{padding:8px 12px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+ /* ---- D: by book ---- */
+ .D .bk{display:flex;gap:4px;padding:8px 12px;flex-wrap:wrap}
+ .D .bk span{border-radius:10px;padding:2px 9px;font-size:11px;background:#eef2f5;color:#34495e}
+ .D .bk span.on{background:#1a5276;color:#fff}
+ .D .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:0 12px 12px}
+ .D .col{border:1px solid #e3ebf2;border-radius:8px;padding:6px 8px;background:#fff}
+ .D .col b{color:#1a5276;font-size:12px}
+ /* ---- E: writing mode ---- */
+ .E .body{display:flex;min-height:340px}
+ .E .left{flex:1;padding:10px 12px;border-inline-end:1px solid #e3ebf2}
+ .E .right{width:300px;padding:10px 12px;background:#f8fbfd}
+ .E .pick{display:inline-block;border:1px solid #cfdbe6;background:#fff;border-radius:6px;font-size:10px;padding:0 5px;color:#2471a3;cursor:pointer;margin-inline-start:4px}
+ .E .rt{display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap}
+ .E .rt span{border-radius:10px;padding:2px 9px;font-size:11px;background:#eef2f5;color:#34495e}
+ .E .rt span.on{background:#2980b9;color:#fff}
+</style>
+</head>
+<body>
+<div class="board">
+ <h1>📖 میٹیریا میڈیکا ٹیب — لے آؤٹ کے پانچ ڈیزائن (مثال: BROODING × ign, verat, gels, naja, ph-ac)</h1>
+ <div class="intro">ہر ڈیزائن میں وہی مواد ہے: ریمیڈی، کتابوں کے بیج، 🤖 خودکار مسودہ (حوالوں کے ساتھ)، متعلقہ جملے، ✍ ڈاکٹر کا نوٹ۔ فرق صرف ترتیب کا ہے۔ نیچے ہر ایک کے فائدے/نقصان اور آخر میں میری تجویز۔</div>
+
+ <!-- ============ A ============ -->
+ <div class="design A">
+  <div class="dhead"><b>ڈیزائن A — دو خانے (بائیں فہرست، ایک وقت میں ایک ریمیڈی)</b><span class="tag">فوکس</span></div>
+  <div class="frame"><div class="win">
+   <div class="top"><b>🔬 تفریق</b> <span class="chip o">Kent · MIND › BROODING (26)</span> <span class="small">منتخب:</span> <span class="chip">ign</span><span class="chip">verat</span><span class="chip">gels</span><span class="chip">naja</span><span class="chip">ph-ac</span> <span class="small" style="margin-inline-start:auto">🔎 brood, anxiety, sad · ✍ 15 نوٹس · 🔒 12</span></div>
+   <div class="tabs"><span>🎯 خصوصی</span><span>📶 گریڈ</span><span>◐ جزوی</span><span>🧮 ربرک کی ریمیڈیز</span><span>📚 گواہی</span><span class="on">📖 میٹیریا میڈیکا</span></div>
+   <div class="body">
+    <div class="side">
+     <div class="r on">ign <small>36 ✍</small></div>
+     <div class="r">verat <small>64</small></div>
+     <div class="r">gels <small>36</small></div>
+     <div class="r">naja <small>20</small></div>
+     <div class="r">ph-ac <small>15 ✔</small></div>
+     <div class="small" style="margin-top:10px;line-height:1.7">↑↓ سے اگلی/پچھلی ریمیڈی؛ ✍ = نوٹ موجود، ✔ = منظور</div>
+    </div>
+    <div class="main">
+     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><b style="color:#1a5276;font-size:14px;direction:ltr">ign</b><span class="small">Ignatia amara</span><span style="margin-inline-start:auto"><span class="badge k">Kent<sup>4</sup></span><span class="badge b">Boericke<sup>3</sup></span><span class="badge c">Clarke<sup>6</sup></span><span class="badge h">Hering<sup>5</sup></span><span class="badge a">Allen<sup>2</sup></span><span class="badge p">🔒 Sehgal<sup>2</sup></span> <span class="btn">+4</span> <span class="btn">📖 پورا متن</span></span></div>
+     <div class="draft"><b style="font-size:10px;color:#7d6608">🤖 خودکار مسودہ — تصدیق باقی</b><br>• Full of suppressed grief, seems weighed down by it, <mark>broods</mark> over imaginary troubles. <span class="ref">[Hutchison]</span><br>• <mark>Brooding</mark> grief. <span class="ref">[Boger § Synopsis]</span><br>• Sits and <mark>broods</mark>; <mark>sad</mark>, silent, sighing. <span class="ref">[Clarke § Mind]</span><br>• Changeable mood; <mark>anxiety</mark> after grief, sighing. <span class="ref">[Hering § Mind]</span></div>
+     <div class="small" style="margin:6px 0 2px">تمام متعلقہ جملے (36) — کتاب وار ▾</div>
+     <div class="sent"><span class="badge c">Clarke</span> Grief, silent, <mark>brooding</mark>; sighing and sobbing; cannot be consoled. § Mind</div>
+     <div class="sent"><span class="badge b">Boericke</span> Silent <mark>brooding</mark>, melancholic, <mark>sad</mark>, tearful. § Mind</div>
+     <div class="note" style="margin-top:8px"><b style="font-size:11px;color:#1a5276">✍ ڈاکٹر کا نوٹ — BROODING × ign</b><textarea>اگنیشیا کا برُوڈنگ تازہ، دبے غم کا ہے: خاموش بیٹھی، آہیں، تسلی سے بدتر [Clarke § Mind؛ Hutchison]…</textarea><span class="btn">🤖→✍ مسودہ اپنائیں</span> <span class="btn">💾 محفوظ</span> <span class="btn g">✔ منظور</span></div>
+    </div>
+   </div>
+  </div></div>
+  <div class="pros"><div><b>فائدے:</b> ایک وقت میں ایک ریمیڈی — پڑھنے اور لکھنے میں سکون؛ چوڑائی پوری ملتی ہے؛ موبائل پر فہرست اوپر افقی ہو جاتی ہے۔</div><div><b>نقصان:</b> پانچوں کے مسودے ایک نظر میں نہیں دکھتے؛ موازنے کے لیے کلک کرنا پڑتا ہے۔</div></div>
+ </div>
+
+ <!-- ============ B ============ -->
+ <div class="design B">
+  <div class="dhead"><b>ڈیزائن B — تقابلی جدول (قطاریں = ریمیڈیز)</b><span class="tag">ایک نظر میں</span></div>
+  <div class="frame"><div class="win">
+   <div class="top"><b>📖 میٹیریا میڈیکا</b> <span class="chip o">BROODING</span> <span class="small">🔎 brood, anxiety, sad</span> <span class="small" style="margin-inline-start:auto">کالم: مسودہ | جملے | نوٹ</span></div>
+   <table>
+    <tr><th style="width:110px">ریمیڈی</th><th>🤖 مسودہ (حوالوں کے ساتھ)</th><th style="width:110px">جملے</th><th style="width:240px">✍ نوٹ</th></tr>
+    <tr><td class="rem" style="direction:ltr;text-align:left">ign<br><span class="badge k">K</span><span class="badge b">B</span><span class="badge c">C</span><span class="badge h">H</span><span class="badge p">🔒</span></td><td><div class="draft">• Full of suppressed grief, <mark>broods</mark> over imaginary troubles <span class="ref">[Hutchison]</span><br>• Sits and <mark>broods</mark>; <mark>sad</mark>, silent, sighing <span class="ref">[Clarke § Mind]</span></div></td><td><span class="btn">36 ▾</span><br><span class="small">Clarke 6 · Hering 5 · Kent 4</span></td><td><div class="note ok"><b>✔ منظور</b><br><span class="small">تازہ، دبا غم؛ آہیں؛ تسلی سے بدتر…</span></div></td></tr>
+    <tr><td class="rem" style="direction:ltr;text-align:left">verat<br><span class="badge k">K</span><span class="badge b">B</span><span class="badge c">C</span><span class="badge h">H</span></td><td><div class="draft">• Sits in a corner <mark>brooding</mark>, silent, taciturn; religious despair <span class="ref">[Clarke § Mind]</span><br>• Melancholy, <mark>brooding</mark>, sits and says nothing <span class="ref">[Hering § Mind]</span></div></td><td><span class="btn">64 ▾</span></td><td><div class="note"><textarea style="height:40px"></textarea><span class="btn">🤖→✍</span> <span class="btn g">✔</span></div></td></tr>
+    <tr><td class="rem" style="direction:ltr;text-align:left">gels<br><span class="badge k">K</span><span class="badge b">B</span><span class="badge c">C</span></td><td><div class="draft">• Dullness, drowsiness; <mark>anxiety</mark> from anticipation <span class="ref">[Boericke § Mind]</span><br>• <mark>Brooding</mark>, wants to be let alone <span class="ref">[Kent]</span></div></td><td><span class="btn">36 ▾</span></td><td><div class="note"><textarea style="height:40px"></textarea><span class="btn">🤖→✍</span> <span class="btn g">✔</span></div></td></tr>
+    <tr><td class="rem" style="direction:ltr;text-align:left">naja</td><td><div class="draft">• <mark>Broods</mark> constantly over imaginary troubles <span class="ref">[Boericke § Mind]</span><br>• Makes himself wretched <mark>brooding</mark> over imaginary wrongs <span class="ref">[Clarke § Mind]</span></div></td><td><span class="btn">20 ▾</span></td><td><div class="note"><textarea style="height:40px"></textarea></div></td></tr>
+    <tr><td class="rem" style="direction:ltr;text-align:left">ph-ac</td><td><div class="draft">• Quiet, apathetic, <mark>broods</mark> over grief; indifferent <span class="ref">[Hering § Mind]</span></div></td><td><span class="btn">15 ▾</span></td><td><div class="note ok"><b>✔ منظور</b></div></td></tr>
+   </table>
+  </div></div>
+  <div class="pros"><div><b>فائدے:</b> پانچوں کے مسودے ایک ہی سکرین پر آمنے سامنے — تفریق کے لیے سب سے تیز؛ نوٹ کی حالت (✔/✎) فوراً نظر آتی ہے۔</div><div><b>نقصان:</b> ہر خانے میں جگہ کم؛ لمبے مسودے کٹتے ہیں؛ موبائل پر جدول افقی سکرول مانگتی ہے (وہاں خودبخود ڈیزائن C پر جانا ہو گا)۔</div></div>
+ </div>
+
+ <!-- ============ C ============ -->
+ <div class="design C">
+  <div class="dhead"><b>ڈیزائن C — ایکارڈین (بند = ایک سطر کا خلاصہ، کھلا = مکمل کارڈ)</b><span class="tag">موبائل دوست</span></div>
+  <div class="frame"><div class="win">
+   <div class="top"><b>📖 میٹیریا میڈیکا</b> <span class="chip o">BROODING</span> <span class="small" style="margin-inline-start:auto">ایک وقت میں ایک کھلا؛ ▸ سے کھولیں</span></div>
+   <div class="acc"><div class="sum">▾ <b style="direction:ltr">ign</b> <span class="badge k">K</span><span class="badge b">B</span><span class="badge c">C</span><span class="badge h">H</span><span class="badge p">🔒</span><span class="t">Full of suppressed grief, broods over imaginary troubles… [Hutchison]</span><span class="chip o">✍ مسودہ</span></div>
+    <div class="open"><div><div class="draft">• Full of suppressed grief, seems weighed down by it, <mark>broods</mark> over imaginary troubles. <span class="ref">[Hutchison]</span><br>• <mark>Brooding</mark> grief. <span class="ref">[Boger § Synopsis]</span><br>• Sits and <mark>broods</mark>; <mark>sad</mark>, silent, sighing. <span class="ref">[Clarke § Mind]</span></div><div class="small" style="margin-top:4px">تمام جملے (36) ▾ · 📖 پورا متن</div></div>
+     <div class="note"><b style="font-size:11px;color:#1a5276">✍ نوٹ</b><textarea>اگنیشیا کا برُوڈنگ تازہ، دبے غم کا…</textarea><span class="btn">🤖→✍</span> <span class="btn">💾</span> <span class="btn g">✔ منظور</span></div></div></div>
+   <div class="acc"><div class="sum">▸ <b style="direction:ltr">verat</b> <span class="badge k">K</span><span class="badge b">B</span><span class="badge c">C</span><span class="badge h">H</span><span class="t">Sits in a corner brooding, silent, taciturn; religious despair… [Clarke § Mind]</span><span class="small">64 جملے</span></div></div>
+   <div class="acc"><div class="sum">▸ <b style="direction:ltr">gels</b> <span class="badge k">K</span><span class="badge b">B</span><span class="badge c">C</span><span class="t">Brooding, wants to be let alone… [Kent]</span><span class="small">36 جملے</span></div></div>
+   <div class="acc"><div class="sum">▸ <b style="direction:ltr">naja</b> <span class="badge b">B</span><span class="badge c">C</span><span class="t">Broods constantly over imaginary troubles… [Boericke § Mind]</span><span class="small">20 جملے</span></div></div>
+   <div class="acc"><div class="sum">▸ <b style="direction:ltr">ph-ac</b> <span class="badge h">H</span><span class="badge c">C</span><span class="t">Quiet, apathetic, broods over grief… [Hering § Mind]</span><span class="chip o" style="background:#d4efdf;color:#1e8449;border-color:#a9dfbf">✔ منظور</span></div></div>
+  </div></div>
+  <div class="pros"><div><b>فائدے:</b> بند حالت میں پانچوں کا خلاصہ (پہلا جملہ + حوالہ + حالت) ایک نظر میں؛ کھول کر مکمل کام؛ ہر سکرین پر ٹھیک؛ لمبائی قابو میں۔</div><div><b>نقصان:</b> دو ریمیڈیز کے مسودے ساتھ ساتھ دیکھنے کے لیے دو بار کھولنا/بند کرنا پڑتا ہے۔</div></div>
+ </div>
+
+ <!-- ============ D ============ -->
+ <div class="design D">
+  <div class="dhead"><b>ڈیزائن D — کتاب کے حساب سے (ٹیب = کتاب، کالم = ریمیڈیز)</b><span class="tag">مطالعہ</span></div>
+  <div class="frame"><div class="win">
+   <div class="top"><b>📖 میٹیریا میڈیکا</b> <span class="chip o">BROODING</span></div>
+   <div class="bk"><span class="on">Clarke</span><span>Kent</span><span>Boericke</span><span>Hering</span><span>Allen</span><span>Nash</span><span>Farrington</span><span>Lippe</span><span>Boger</span><span>🔒 Sehgal</span><span>🔒 Vithoulkas</span><span>+4</span></div>
+   <div class="grid">
+    <div class="col"><b style="direction:ltr;display:block;text-align:left">ign</b><div class="sent">Grief, silent, <mark>brooding</mark>; sighing and sobbing; cannot be consoled. <span class="small">§ Mind</span></div><div class="sent">Changeable mood, <mark>anxiety</mark> and dread. <span class="small">§ Characteristics</span></div></div>
+    <div class="col"><b style="direction:ltr;display:block;text-align:left">verat</b><div class="sent">Sits in a corner <mark>brooding</mark>, silent, taciturn. <span class="small">§ Mind</span></div><div class="sent">Religious despair; <mark>anxiety</mark> as if he had committed a crime. <span class="small">§ Mind</span></div></div>
+    <div class="col"><b style="direction:ltr;display:block;text-align:left">gels</b><div class="sent">Dull, <mark>brooding</mark>, wants to be let alone. <span class="small">§ Mind</span></div></div>
+    <div class="col"><b style="direction:ltr;display:block;text-align:left">naja</b><div class="sent">Makes himself wretched <mark>brooding</mark> over imaginary wrongs. <span class="small">§ Mind</span></div></div>
+    <div class="col"><b style="direction:ltr;display:block;text-align:left">ph-ac</b><div class="sent">Apathetic; <mark>broods</mark> over grief, indifferent to everything. <span class="small">§ Mind</span></div></div>
+   </div>
+  </div></div>
+  <div class="pros"><div><b>فائدے:</b> ایک مصنف کی نظر سے پانچوں ریمیڈیز کا موازنہ — کلارک یا ہیرنگ کے انداز میں پڑھنے کے لیے بہترین؛ نجی کتابیں الگ ٹیب میں صاف رہتی ہیں۔</div><div><b>نقصان:</b> مسودہ اور نوٹ کہاں رکھیں؟ (نیچے الگ حصہ) — لکھنے کا بہاؤ ٹوٹتا ہے؛ 15 کتابوں کے ٹیب زیادہ ہیں۔</div></div>
+ </div>
+
+ <!-- ============ E ============ -->
+ <div class="design E">
+  <div class="dhead"><b>ڈیزائن E — لکھنے کا موڈ (بائیں مواد، دائیں مستقل ایڈیٹر)</b><span class="tag rec">میری تجویز</span></div>
+  <div class="frame"><div class="win">
+   <div class="top"><b>📖 میٹیریا میڈیکا</b> <span class="chip o">BROODING</span> <span class="small">🔎 brood, anxiety, sad</span> <span class="small" style="margin-inline-start:auto">✍ 15 نوٹس (3 ✔) · 📤 · 🔒 12</span></div>
+   <div class="body">
+    <div class="left">
+     <div class="rt"><span class="on">ign ✎</span><span>verat</span><span>gels</span><span>naja</span><span>ph-ac ✔</span><span class="small" style="background:none">← ریمیڈی بدلیں</span></div>
+     <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><b style="color:#1a5276;direction:ltr">ign</b><span class="small">Ignatia amara</span><span style="margin-inline-start:auto"><span class="badge c">Clarke<sup>6</sup></span><span class="badge h">Hering<sup>5</sup></span><span class="badge k">Kent<sup>4</sup></span><span class="badge b">Boericke<sup>3</sup></span><span class="badge p">🔒 Sehgal<sup>2</sup></span><span class="btn">+5</span> <span class="btn">📖 پورا متن</span></span></div>
+     <div class="draft"><b style="font-size:10px;color:#7d6608">🤖 خودکار مسودہ</b><br>• Full of suppressed grief, seems weighed down by it, <mark>broods</mark> over imaginary troubles. <span class="ref">[Hutchison]</span> <span class="pick">＋ نوٹ میں</span><br>• Sits and <mark>broods</mark>; <mark>sad</mark>, silent, sighing. <span class="ref">[Clarke § Mind]</span> <span class="pick">＋ نوٹ میں</span><br>• Changeable mood; <mark>anxiety</mark> after grief. <span class="ref">[Hering § Mind]</span> <span class="pick">＋ نوٹ میں</span></div>
+     <div class="small" style="margin:8px 0 2px">تمام متعلقہ جملے (36) — ہر جملے کے ساتھ «＋ نوٹ میں»</div>
+     <div class="sent"><span class="badge c">Clarke</span> Grief, silent, <mark>brooding</mark>; sighing and sobbing; cannot be consoled. § Mind <span class="pick">＋</span></div>
+     <div class="sent"><span class="badge b">Boericke</span> Silent <mark>brooding</mark>, melancholic, <mark>sad</mark>, tearful. § Mind <span class="pick">＋</span></div>
+     <div class="sent"><span class="badge p">🔒 Sehgal</span> Rubric BROODING: patient keeps turning the same grievance in mind… p. 238 <span class="pick">＋</span></div>
+     <div class="small" style="margin-top:6px">ریپرٹری کے حقائق (خصوصی ربرکس) بھی یہاں: GRIEF, undemonstrative · SECRETIVE <span class="pick">＋</span></div>
+    </div>
+    <div class="right">
+     <b style="font-size:12px;color:#1a5276">✍ نوٹ — BROODING × ign</b> <span class="chip o">✎ مسودہ</span>
+     <textarea style="height:150px;margin-top:6px">اگنیشیا کا برُوڈنگ تازہ، دبے غم کا ہے — خاموش بیٹھی، آہیں، سسکیاں، تسلی سے بدتر [Clarke § Mind؛ Hutchison]۔ نیٹرم میور کے برعکس غم چند ہفتوں کا اور مزاج متضاد؛ فاسفورک ایسڈ کے برعکس بے حسی نہیں [Rep: GRIEF, undemonstrative]۔</textarea>
+     <div class="small" style="margin:4px 0">EN / UR دونوں لکھ سکتے ہیں؛ «＋» دبانے سے جملہ حوالے سمیت یہاں آتا ہے</div>
+     <span class="btn">💾 محفوظ (مسودہ)</span> <span class="btn g">✔ منظور</span> <span class="btn">🗑</span>
+     <div style="margin-top:12px;border-top:1px dashed #d5e3ef;padding-top:8px"><b class="small">اسی ربرک کے دوسرے نوٹس</b><div class="note ok" style="margin-top:4px"><b>ph-ac ✔</b> <span class="small">بے حس، تھکا غم…</span></div></div>
+    </div>
+   </div>
+  </div></div>
+  <div class="pros"><div><b>فائدے:</b> یہی وہ کام ہے جو آپ کرنا چاہتے ہیں — پڑھنا اور لکھنا ایک ساتھ: مواد بائیں، ایڈیٹر دائیں مستقل (سکرول سے غائب نہیں ہوتا)؛ ہر جملے/ربرک پر «＋ نوٹ میں» → جملہ حوالے سمیت نوٹ میں؛ ریمیڈی بدلنے پر ایڈیٹر بھی بدل جاتا ہے؛ نیچے اسی ربرک کے باقی نوٹس۔ موبائل پر ایڈیٹر نیچے چپکا رہتا ہے۔</div><div><b>نقصان:</b> ایک وقت میں ایک ریمیڈی کا مواد (موازنے کے لیے اوپر کے چِپس سے بدلیں یا «📊 پانچوں کے مسودے» کا چھوٹا خلاصہ کھولیں)۔</div></div>
+ </div>
+
+ <div class="design">
+  <div class="dhead"><b>تجویز</b></div>
+  <div class="pros" style="border-top:none"><div>
+   <b>1.</b> ڈیسک ٹاپ: <b>ڈیزائن E (لکھنے کا موڈ)</b> بنیادی رکھیں — یہ مرحلہ سوم (آپ کے نوٹس) کا اصل اوزار ہے۔<br>
+   <b>2.</b> اس کے اندر ایک بٹن «📊 سب کا خلاصہ» جو <b>ڈیزائن B کی جدول</b> (صرف مسودے + حالت) کھول دے — پانچوں کو ایک نظر میں دیکھنے کے لیے۔<br>
+   <b>3.</b> موبائل/تنگ سکرین پر خودبخود <b>ڈیزائن C (ایکارڈین)</b> اور ایڈیٹر نیچے چپکا ہوا۔<br>
+   <b>4.</b> ڈیزائن D (کتاب وار) کو الگ ٹیب نہ بنائیں — ویوئر (📖 پورا متن) پہلے ہی یہی کام کرتا ہے۔<br>
+   <b>5.</b> «＋ نوٹ میں» ہر جملے پر — یہ سب سے کارآمد اضافہ ہے، ڈیزائن جو بھی چنیں۔
+  </div></div>
+ </div>
+</div>
+</body>
+</html>
