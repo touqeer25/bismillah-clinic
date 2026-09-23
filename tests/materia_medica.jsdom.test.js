@@ -81,14 +81,20 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   ok(w.repMMAvail('nat-m').indexOf('priv_test_mm')!==-1&&w.repMMAvail('ign').indexOf('priv_test_mm')!==-1&&w.repMMAvail('apis').indexOf('priv_test_mm')===-1,'private availability by remedy-name detection (nat-m, ign yes; apis no)');
   const pe=w.repMMEntry('priv_test_mm','nat-m'); ok(pe&&pe.sections.length===1&&pe.sections[0].h==='p. 1','private entry = pages mentioning the remedy (p. 1)');
   const pm=w.repMMMatches('nat-m',w.repDiffThemeRegex('grief, consol')); ok(pm.some(m=>m.book==='priv_test_mm'&&/grief|consol/i.test(m.text)),'theme sentences found in private book with reference '+w.repMMRef(pm.find(m=>m.book==='priv_test_mm')||{book:'?'}));
-  ok(/🔒/.test(w.repMMBadge('priv_test_mm'))&&/Tester/.test(w.repMMShort('priv_test_mm')),'private badge 🔒 + short name from author');
-  w.repDiffOpenForRubric(); await sleep(50); w.repDiffToggleRem('nat-m'); await sleep(30); for(let i=0;i<60&&!(w.repDiffLast&&w.repDiffLast.res);i++)await sleep(50); w.repDiffSetTab('mm'); await sleep(80);
-  ok(Array.from(d.querySelectorAll('.rep-mm-av .rep-mm-badge')).some(b=>/🔒/.test(b.textContent)),'📖 tab pane shows private badge for nat-m');
-  w.repPrivPanelToggle(); await sleep(30); ok(d.querySelector('.rep-mm-priv')&&d.querySelectorAll('.rep-mm-privrow').length===1,'private panel lists the imported book');
+  ok(/🔒/.test(w.repMMBadge('priv_test_mm'))&&/Test Private MM/.test(w.repMMShort('priv_test_mm')),'private badge 🔒 + label = the book title (v68.2, not the author surname)');
+  { const same=w.repPrivIds().length;   // two books by ONE author must not print the same name
+    const two=JSON.stringify({books:[{id:'p1',title:'Treasures — Charts & Rubrics',author:'Prafull Vijayakar',private:true,format:'pages',pages:[{p:1,t:'nothing here'}]},{id:'p2',title:'Predictive Homoeopathy Part II — Theory of Acutes',author:'Prafull Vijayakar',private:true,format:'pages',pages:[{p:1,t:'nothing here'}]}]});
+    await new Promise(r=>w.repPrivImportText(two,r)); await sleep(40);
+    const lbl=w.repPrivIds().map(id=>w.repMMShort(id));
+    ok(new Set(lbl).size===lbl.length,'same author, different books → distinct labels: '+JSON.stringify(lbl));
+    w.repMMOpen('nat-m','grief',['nat-m']); await sleep(60);
+    ok(d.querySelectorAll('#repMMHead .rep-mm-tabx.del').length===2,'books with nothing for this remedy get a removable ✕ in the tab row');
+    d.querySelector('#repMMHead .rep-mm-tabx.del').dispatchEvent(new w.MouseEvent('click',{bubbles:true})); await sleep(60);
+    ok(w.repPrivIds().length===same+1,'✕ removes that private book from this device only (back to '+(same+1)+')'); w.repMMClose(); }
   w.repDiffClose(); w.repMMOpen('nat-m','grief',['nat-m']); await sleep(80); w.repMMSetBook('priv_test_mm'); await sleep(30);
   ok(/نجی|private/.test(d.querySelector('.rep-mm-src').textContent)&&d.querySelector('.rep-mm-section .rep-mm-h').textContent==='p. 1','viewer shows private book pages');
   w.repMMView.q='potency'; w.repMMWholeToggle(true); await sleep(30); ok(d.querySelector('.rep-mm-section .rep-mm-h').textContent==='p. 3','whole-book search finds page 3 (not a remedy page)');
-  w.repMMClose(); w.repPrivDelete('priv_test_mm'); ok(w.repPrivIds().length===0&&w.repMMAvail('nat-m').indexOf('priv_test_mm')===-1,'private book removed');
+  w.repMMClose(); w.repPrivIds().slice().forEach(function(id){ w.repPrivDelete(id); }); ok(w.repPrivIds().length===0&&w.repMMAvail('nat-m').indexOf('priv_test_mm')===-1,'private books removed from this device');
   // ---- import routing: wrong button still works ----
   const privFile=JSON.stringify({books:[{id:'priv_route_test',title:'Route Test',author:'X',pages:[{p:1,t:'Ignatia amara sighing grief.'}]}]});
   w.toasts.length=0; const rn=w.repNotesImportText(privFile); await sleep(80);

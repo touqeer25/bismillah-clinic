@@ -167,3 +167,23 @@ Note the two Allen fever books in the app are *different works*: 🌡️ `allen_
 Allen's fever **repertory** (rubrics → graded remedy lists), while 📖 `allen_fevers` is the **text/therapeutics** book
 (prose under Allen's own stage heads) and lives in the Materia Medica layer only — it is deliberately not a repertory
 entry, since that would duplicate the rubrics already in `allen_fever`.
+
+## v68.2 — 🔒 private books: name the tab by the book, not by the author
+
+Dr. Naveed's screenshot: the 📖 viewer's tab row carried twelve `🔒` tabs — `Kulkarni ×  Banerjea ×  Khulla ×  Julian ×
+Vijayakar × Vijayakar × Vijayakar × Vijayakar × Sehgal × Vijayakar × Vithoulkas × Vijayakar ×`.
+Those are the **private (copyrighted) books** imported through `tools/qdrant_to_private_books.py`: they live only in that
+browser's IndexedDB and are never committed, so they wear a 🔒. The `✕` after a name was **not** a delete button —
+`repMMRender` printed `' ✕'` for any tab where the *selected* remedy has nothing in that book (hence they all looked
+disabled for `anac`). And the four/five identical `Vijayakar`s were real: `repMMShort()` labelled every private book with
+the **last word of the author**, so Prafull Vijayakar's five books (Treasures, Predictive Homoeopathy I & II, its Charts,
+Pediatric Acute Keynotes) and Preeti Vijayakar's one all printed the same surname.
+
+Fix: private tabs now show the book's own title (26 chars, ellipsis); for a private book the `✕` became a real one-click
+*remove from this device* (public books keep the plain `✕` marker, nothing new to press); `style.css` gained
+`.rep-mm-tabx`/`.del`, `index.html` → `?v=14`, `CACHE_NAME` → **v78**. `materia_medica` test now covers both points
+(distinct labels for one author; ✕ deletes that device-local book only).
+
+If the imported set itself has duplicates (the same book imported under two ids from two PDFs, e.g. a book also sitting
+inside `private_books_all.json`), they are separate IndexedDB records and cannot be told apart automatically — the new ✕
+is there exactly so a redundant one can be dropped in a click.

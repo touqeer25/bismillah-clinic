@@ -55,7 +55,12 @@ function repMMAvail(abbr){
 }
 function repMMEntry(id,abbr){ if(repPrivIs(id)) return repPrivEntry(id,abbr); var b=_repMMBooks[id]; return (b&&b.remedies&&b.remedies[abbr])||null; }
 function repMMBookLabel(id){ if(repPrivIs(id)){ var pb=_repPrivMem[id]; return pb?((pb.author?pb.author+' — ':'')+pb.title+(pb.year?' ('+pb.year+')':'')+' 🔒'):id; } var m=repMMIndex&&repMMIndex.books&&repMMIndex.books[id]; return m?(m.author.split(' ').pop()+' — '+m.title+' ('+m.year+')'):id; }
-function repMMShort(id){ if(REP_MM_SHORT[id]) return REP_MM_SHORT[id]; var pb=_repPrivMem[id]; if(pb){ var a=(pb.author||'').split(/[ &,]+/).filter(Boolean); return (a.length?a[a.length-1]:pb.title.split(' ')[0]).substring(0,12); } return id; }
+function repMMShort(id){ if(REP_MM_SHORT[id]) return REP_MM_SHORT[id]; var pb=_repPrivMem[id]; if(pb){
+        var a=(pb.author||'').split(/[ &,]+/).filter(Boolean);
+        // 🔑 v68.2: ایک مصنف کی کئی نجی کتابیں — صرف خاندانی نام لکھنے سے سب ایک جیسی دکھتی تھیں، اب کتاب کا اپنا نام
+        var t=String(pb.title||'').replace(/^(the|a|an)\s+/i,'').trim();
+        if(t){ if(t.length>26) t=t.substring(0,26).replace(/[\s,;:&-]+$/,'')+'…'; return t; }
+        return (a.length?a[a.length-1]:'').substring(0,12); } return id; }
 function repMMBadge(id){ var priv=repPrivIs(id); return '<span class="rep-mm-badge'+(priv?' priv':'')+'" style="background:'+(priv?'#5b2c6f':(REP_MM_COLOR[id]||'#555'))+'" title="'+_repAttr(repMMBookLabel(id))+'">'+(priv?'🔒 ':'')+escapeHtml(repMMShort(id))+'</span>'; }
 
 // ---------- 🔒 نجی کتابیں (IndexedDB — صرف اسی آلے پر؛ گٹ ہب پر کبھی نہیں) ----------
@@ -442,7 +447,12 @@ function repMMRender(){
     }
     h+='<div class="rep-diff-ctl"><div class="rep-diff-tabs" style="margin:0">';
     if(!repMMIndex) h+='<span class="rep-tool-loading">⏳</span>';
-    repMMBookIds().forEach(function(id){ var has=av.indexOf(id)!==-1; h+='<button class="'+(repMMView.book===id?'on':'')+(has?'':' none')+(repPrivIs(id)?' priv':'')+'" '+(has?'onclick="repMMSetBook(\''+id+'\')"':'disabled')+' title="'+_repAttr(repMMBookLabel(id))+'">'+(repPrivIs(id)?'🔒 ':'')+escapeHtml(repMMShort(id))+(has?'':' ✕')+'</button>'; });
+    repMMBookIds().forEach(function(id){ var priv=repPrivIs(id), has=av.indexOf(id)!==-1;
+        // 🔑 v68.2: نجی کتاب کے «✕» سے وہ کتاب اِسی آلے سے ہٹ جاتی ہے؛ عام کتاب کے «✕» صرف یہ بتاتے ہیں کہ اِس ریمیڈی کا اُس میں کچھ نہیں
+        h+='<button class="'+(repMMView.book===id?'on':'')+(has?'':' none')+(priv?' priv':'')+'" '+(has?'onclick="repMMSetBook(\''+id+'\')"':'disabled')+' title="'+_repAttr(repMMBookLabel(id))+'">'
+            +(priv?'🔒 ':'')+escapeHtml(repMMShort(id))
+            +(priv&&!has?'<span class="rep-mm-tabx del" onclick="repPrivDelete(\''+_repJs(id)+'\')" title="'+_repAttr(L({ur:'یہ نجی کتاب اِسی آلے سے ہٹا دیں',en:'Remove this private book from this device',roman:'Ye kitab is device se hata dein'}))+'">✕</span>':(has?'':' ✕'))
+            +'</button>'; });
     h+='</div><label>🔎 <input type="text" id="repMMQ" value="'+_repAttr(repMMView.q)+'" dir="ltr" placeholder="absent, forget" oninput="repMMSearch()" style="width:220px;border:1px solid #cfdbe6;border-radius:8px;padding:4px 8px;font-family:inherit;font-size:12px"></label>'
         +(repPrivIs(repMMView.book)?'<label title="'+L({ur:'نجی کتاب: ریمیڈی کے صفحات کی بجائے پوری کتاب میں الفاظ تلاش کریں',en:'Private book: search the words in the whole book instead of the remedy pages',roman:'Poori kitab mein talash'})+'"><input type="checkbox" '+(repMMView.whole?'checked':'')+' onchange="repMMWholeToggle(this.checked)"> '+L({ur:'پوری کتاب',en:'whole book',roman:'poori kitab'})+'</label>':'')
         +'<button class="rc-btn" onclick="repMMCopy()" title="'+L({ur:'اس کتاب کا متن کاپی',en:'Copy this book\'s text',roman:'Copy'})+'">📋</button></div>';

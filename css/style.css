@@ -1401,6 +1401,9 @@ body.rep-diff-open{overflow:hidden}
 
 /* ==== v58: 🔒 private books (IndexedDB) ==== */
 .rep-mm-badge.priv{border:1px solid #d7bde2}
+.rep-mm-tabx{display:inline-block;margin-inline-start:5px;color:#b39ddb;font-weight:700;cursor:default;padding:0 2px;border-radius:4px}
+.rep-mm-tabx.del{color:#c0392b;cursor:pointer}
+.rep-mm-tabx.del:hover{background:#fdedec;color:#922b21}
 .rep-diff-tabs button.priv{border-style:dashed}
 .rep-mm-priv{background:#f9f4fb;border:1px dashed #c39bd3;border-radius:10px;padding:8px 12px;margin-bottom:8px}
 .rep-mm-privhead{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:#5b2c6f;font-weight:700}
