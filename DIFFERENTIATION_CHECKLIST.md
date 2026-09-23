@@ -52,7 +52,10 @@ Order = the order proposed in the discussion. `[x]` done · `[ ]` pending · `[~
 - [x] P2.6 📖 viewer: full text per book, remedy list of the rubric, in-text search + highlight, copy, Esc
 - [x] P2.7 Lazy loading (~5 MB first use), SW runtime cache; `mm/_index.json` + seed in core assets
 - [x] P2.8 Tests `tests/materia_medica.jsdom.test.js` (33 checks)
-- [ ] P2.9 More books later: Hering (Guiding Symptoms), Clarke (Dictionary), Lippe, Boger, Farrington (archive.org sources)
+- [x] P2.9a v57: Lippe Keynotes, Hutchison 700 Red Line, Guernsey Key-notes, T.F. Allen Primer (homeoint.org) — 8 books, 642 remedies
+- [ ] P2.9b Next from homeoint.org: Boger Synoptic Key, Boenninghausen Characteristics, Dewey Essentials, Allen's Clinical Hints (anchor/section parsers needed)
+- [ ] P2.9c Hering Guiding Symptoms, Clarke Dictionary, Farrington (archive.org OCR — or from the clinic's Qdrant PDF texts if public domain)
+- [ ] P2.10 Qdrant Cloud PDF collection: inspect with tools/qdrant_export.py → public-domain books → mm/ ; copyrighted → private backup only; keep Qdrant for the AI assistant's semantic search
 
 ## Phase 3 — Drafts & doctor's notes (started in v56)
 - [x] P3.1 🤖 extractive auto draft per rubric × remedy (≤4 sentences, ≤2 per book, references) — marked unverified

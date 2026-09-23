@@ -10,9 +10,9 @@ var REP_MM_DRAFT_N=4;           // مسودے میں جملے
 var repMMIndex=null;            // {books:{id:{title,author,year,file,remedies}}, avail:{abbr:[bookIds]}}
 var _repMMBooks={};             // id -> book json
 var _repMMLoading={};
-var repMMBookOrder=['kent_lectures','boericke','allen_keynotes','nash_leaders'];
-var REP_MM_SHORT={kent_lectures:'Kent',boericke:'Boericke',allen_keynotes:'Allen',nash_leaders:'Nash'};
-var REP_MM_COLOR={kent_lectures:'#1a5276',boericke:'#117a65',allen_keynotes:'#7d6608',nash_leaders:'#6c3483'};
+var repMMBookOrder=['kent_lectures','boericke','allen_keynotes','nash_leaders','lippe_keynotes','hutchison_700','guernsey_keynotes','allen_primer'];
+var REP_MM_SHORT={kent_lectures:'Kent',boericke:'Boericke',allen_keynotes:'Allen',nash_leaders:'Nash',lippe_keynotes:'Lippe',hutchison_700:'Hutchison',guernsey_keynotes:'Guernsey',allen_primer:'T.F.Allen'};
+var REP_MM_COLOR={kent_lectures:'#1a5276',boericke:'#117a65',allen_keynotes:'#7d6608',nash_leaders:'#6c3483',lippe_keynotes:'#a04000',hutchison_700:'#7b241c',guernsey_keynotes:'#1f618d',allen_primer:'#4d5656'};
 
 // ---------- لوڈنگ ----------
 function repMMEnsureIndex(cb){
@@ -167,7 +167,7 @@ function repDiffMMTabHtml(last){
     if(!R.length) return h+'<div class="rep-tool-note">'+L({ur:'پہلے ریمیڈیز چنیں',en:'Pick remedies first',roman:'Pehle remedies chunein'})+'</div>';
     if(!repMMLoaded()){
         repMMEnsureAll(function(){ if(typeof repDiffTab!=='undefined'&&repDiffTab==='mm'&&typeof repDiffRenderBody==='function') repDiffRenderBody(); });
-        return h+'<div class="rep-tool-loading">⏳ '+L({ur:'میٹیریا میڈیکا لوڈ ہو رہی ہے (پہلی بار ~5 ایم بی)…',en:'Loading materia medica (first time ~5 MB)…',roman:'Materia medica load ho rahi hai…'})+'</div>';
+        return h+'<div class="rep-tool-loading">⏳ '+L({ur:'میٹیریا میڈیکا لوڈ ہو رہی ہے (پہلی بار ~7 ایم بی)…',en:'Loading materia medica (first time ~7 MB)…',roman:'Materia medica load ho rahi hai…'})+'</div>';
     }
     var re=repMMThemeRegex(theme);
     if(!re) h+='<div class="rep-tool-note">'+L({ur:'موضوع کے الفاظ لکھیں — ورنہ صرف پورا متن (📖) دستیاب ہے',en:'Enter theme words — otherwise only the full text (📖) is available',roman:'Theme words likhein'})+'</div>';

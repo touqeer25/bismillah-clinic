@@ -52,3 +52,15 @@ Four complete books, converted from homeoint.org (public domain) by `tools/mm_bu
 - **Seed drafts** `mm/drafts_seed.json` (ABSENT-MINDED × nat-m, nux-m, apis, lach, sep; EN + UR with references) are merged once on first load, never overwriting existing notes.
 - **LLM pipeline** (optional): `tools/mm_build/make_llm_batch.py kent mind r2 --remedies nat-m,ign` builds a batch (structural facts + excerpts) and the prompt `llm_draft_prompt.md`; with `OPENAI_API_KEY` it calls the API and writes `*.drafts.json` importable via 📥.
 - Data is lazy-loaded (first use ~5 MB) and cached by the service worker at runtime; `mm/_index.json` and `mm/drafts_seed.json` are core assets.
+
+## v57 — four more public-domain books + Qdrant tools
+
+| id | book | remedies | words |
+|---|---|---|---|
+| lippe_keynotes | A. von Lippe — Keynotes of the Homoeopathic Materia Medica (1866) | 122 | 15k |
+| hutchison_700 | J.W. Hutchison — Seven Hundred Red Line Symptoms (1900) | 140 | 11k |
+| guernsey_keynotes | H.N. Guernsey — Key-notes to the Materia Medica (1887), sectioned | 192 | 59k |
+| allen_primer | T.F. Allen — A Primer of Materia Medica (1892) | 266 | 117k |
+
+8 books total, 642 remedies with text (mm/ = 6.4 MB, lazy-loaded per book). Builder: `tools/mm_build/build_mm.py lippe hutchison guernsey primer` (generic anchor-per-remedy and page-per-remedy parsers).
+`tools/qdrant_export.py` — inspect / back up the clinic's Qdrant Cloud collection (`--list`, `--export backup.jsonl`, `--export-text dir/`); read-only, REST only. Keep exports private if the PDFs are copyrighted.
