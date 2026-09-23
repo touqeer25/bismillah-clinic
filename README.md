@@ -92,3 +92,9 @@ Builder: `tools/mm_build/ocr_books.py clarke <djvu.txt>` / `… farrington <djvu
 - **Hering — Condensed Materia Medica (1877)**: 145 remedies (of 184), 48 numbered sections (Mind, Sensorium, Head Inner … Stages of Life), from archive.org OCR (`tools/mm_build/ocr_books.py hering`). **15 books.**
 - `tests/app_smoke.jsdom.test.js`: loads the real `index.html` with every script from the local server, asserts no script errors, then walks the main flows (chapter → Compare Mode → rubric page → 🔬 window → 📖 tab). Run with `python3 -m http.server 8080` in the app folder.
 - Note: `index.html` ends with a Cloudflare "challenge-platform" snippet (saved from a proxied page); it only 404s on GitHub Pages and can be removed.
+
+## v62 — 📖 tab layout & draft quality
+
+- Layout: remedy cards flow in **masonry columns** (2 columns ≥ 900 px, 1 below) instead of a rigid 4-column grid with gaps; card header = remedy + «📖 full text», then a compact availability line (books with matches first, counts as superscripts, `+n` for the rest); private-books panel is a compact 2-column scrollable list.
+- Draft quality: **junk filter** (index/contents pages, sentences with many page numbers, ALL-CAPS lists, > 420 chars), **section relevance** (for a Mind rubric: Mind/Mental sections +3, generic sections +0.5, physical sections −2.5; for other chapters the matching section is boosted), de-duplication, private books ≤ 3 sentences and ≤ 1 in the draft, score threshold ≥ 2.
+- Theme words: stems of ≥ 5-letter words keep 3 letters (sadness → sad); synonym entry for BROODING.

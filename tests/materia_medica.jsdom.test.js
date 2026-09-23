@@ -91,6 +91,16 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   w.toasts.length=0; await new Promise(r=>w.repPrivImportText(notesFile,r));
   ok(w.repNoteGet({book:'kent',ch:'mind',rid:'r9999'},'ign')&&w.repNoteGet({book:'kent',ch:'mind',rid:'r9999'},'ign').text==='routed note'&&w.toasts.some(t=>/✍/.test(t)),'private importer given a notes file → routed to notes import');
   w.toasts.length=0; ok(w.repNotesImportText('{"foo":1}')===0&&w.toasts.some(t=>/⚠/.test(t)),'unknown JSON → clear warning, nothing imported');
+  // ---- v62: junk filter, section boost, theme stems ----
+  ok(w.repMMIsJunk('X Contents FEAR of impending disease 164 ANXIETY, health about 165 ESCAPE attempts to 166 Medicines coming under the rubric cautious 169 Aconitum Napellus 169')&&!w.repMMIsJunk('Brooding over imaginary troubles, seems weighed down by grief.'),'junk filter: TOC/index sentence rejected, prose kept');
+  ok(w.repMMSecBoost('Mind','mind')>w.repMMSecBoost('Urine','mind')&&w.repMMSecBoost('Characteristics','mind')>w.repMMSecBoost('Fever','mind')&&w.repMMSecBoost('Head','head')>0,'section boost: Mind > generic > physical for a Mind rubric; Head boosted for a Head rubric');
+  const th=w.repDiffThemeWordsFor({book:'kent',ch:'mind',rid:'r380',full:'BROODING (See Anxiety, Sadness)',rems:{}}); ok(/brood/.test(th)&&/anxiety/.test(th)&&/sad/.test(th),'theme words for BROODING include brood, anxiety, sad: "'+th+'"');
+  const junkPriv={books:[{id:'priv_junk',title:'Junk Book',author:'Idx',pages:[{p:1,t:'Contents ANXIETY 1 BROODING 2 FEAR 3 GRIEF 4 SADNESS 5 Ignatia amara 12 Natrum muriaticum 14 ROH Series XIV.'},{p:2,t:'Ignatia amara: broods over imaginary troubles after grief; sighing.'}]}]};
+  await new Promise(r=>w.repPrivImportText(JSON.stringify(junkPriv),r));
+  const jm=w.repMMMatches('ign',w.repDiffThemeRegex('brood, anxiety, sad'),6,'mind').filter(m=>m.book==='priv_junk');
+  ok(jm.length===1&&/broods over imaginary/.test(jm[0].text),'private book: index page excluded, prose page kept ('+jm.length+')');
+  const dr2=w.repMMDraft('ign',w.repDiffThemeRegex('brood, anxiety, sad')); ok(dr2.filter(m=>m.book==='priv_junk').length<=1&&dr2.every(m=>m.score>=2),'draft: ≤1 sentence per private book, score threshold');
+  w.repPrivDelete('priv_junk');
   // seed drafts merged on first load
   w.localStorage.removeItem('bc_rep_notes_seed_v'); await new Promise(r=>w.repNotesSeed(r)); ok(w.repNoteGet({book:'kent',ch:'mind',rid:'r2'},'nux-m')&&w.repNoteGet({book:'kent',ch:'mind',rid:'r2'},'nux-m').src==='llm-seed'&&w.repNoteGet(w.repDiffCtx||{book:'kent',ch:'mind',rid:'r2'},'nat-m').status==='approved','seed drafts merged without overwriting the approved nat-m note');
   // ---- v59: notes on the rubric page + shared notes file ----
