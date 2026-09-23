@@ -492,7 +492,8 @@ function bookInfo(book){
         allen_fever:{abbr:'A-Fev',name:'Allen Fever Repertory',chapDir:'allen_fever_chapters/'},
         hs_clinical:{abbr:'Clin',name:'Clinical Repertory',chapDir:'hs_clinical_chapters/'},
         keynotes_cc:{abbr:'Key',name:'Keynotes & Clinical Concordance',chapDir:'keynotes_cc_chapters/'},
-        nosodes:{abbr:'Nos',name:'Intercurrent Nosodes & Sarcodes',chapDir:'nosodes_chapters/'}
+        nosodes:{abbr:'Nos',name:'Intercurrent Nosodes & Sarcodes',chapDir:'nosodes_chapters/'},
+        hering_mind:{abbr:'H-Mind',name:'Hering — Analytical Repertory of the Mind',chapDir:'hering_mind_chapters/'}
     }[book] || {abbr:book,name:book,chapDir:''};
 }
 function openRubricSearch(idx){

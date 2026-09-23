@@ -16,7 +16,7 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   const loadErrs=errors.filter(e=>!/Could not load (img|script)|Not implemented: HTMLCanvasElement|navigation|localStorage|serviceWorker|Not implemented: window\.(scrollTo|alert)|indexedDB|fetch|net::|ENOENT.*(png|jpg|ico|woff)|cdn-cgi/i.test(e));
   ok(typeof w.initRepertoryBrowser==='function'&&typeof w.repDiffOpenForRubric==='function'&&typeof w.repMMOpen==='function'&&typeof w.repPrivImportText==='function'&&typeof w.repCmpModeToggle==='function','all repertory modules loaded (08, 08b, 08c)');
   ok(loadErrs.length===0,'no script errors at load'+(loadErrs.length?': '+loadErrs.slice(0,3).join(' | ').substring(0,300):''));
-  ok(d.getElementById('repCmpModeBtn')&&d.getElementById('repCmpPanel')&&d.getElementById('repBookSelect')&&d.getElementById('repBookSelect').options.length===8,'repertory toolbar present with 8 books');
+  ok(d.getElementById('repCmpModeBtn')&&d.getElementById('repCmpPanel')&&d.getElementById('repBookSelect')&&d.getElementById('repBookSelect').options.length===9,'repertory toolbar present with 9 books');
   // open repertory page: kent/mind auto-open
   errors.length=0; w.repCurrentBook='kent'; w.initRepertoryBrowser(); for(let i=0;i<100&&!d.getElementById('repCardsArea');i++)await sleep(100); await sleep(300);
   ok(d.querySelectorAll('#repChapterList .rep-chapter-item, #repChapterList [onclick*="repOpenChapter"]').length>=30||d.getElementById('repChapterList').textContent.length>200,'chapter list rendered');
@@ -29,6 +29,9 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   w.repDiffToggleRem('nat-m'); await sleep(50); for(let i=0;i<60&&!(w.repDiffLast&&w.repDiffLast.res);i++)await sleep(100);
   w.repDiffSetTab('mm'); for(let i=0;i<300&&!d.querySelector('.rep-mm-e-left .rep-mm-draft');i++)await sleep(100);
   ok(d.querySelector('.rep-mm-e-left')&&d.querySelector('.rep-mm-e-right textarea')&&d.querySelector('.rep-mm-draft'),'📖 tab (writing mode) renders with a draft + sticky editor (progressive load ok)');
+  // new repertory book: Hering Analytical (Mind) opens with its first chapter
+  w.repDiffClose&&w.repDiffClose(); w.repCurrentBook='hering_mind'; w.repCurrentChapter=''; w.initRepertoryBrowser(); for(let i=0;i<100&&!(w.repCurrentBook==='hering_mind'&&d.querySelectorAll('.rpc-card').length>20);i++)await sleep(100);
+  ok(w.repCurrentChapter==='ailments_from_emotions_and_exertions_of_the_mind'&&d.querySelectorAll('.rpc-card').length>20,'Hering Analytical Repertory (Mind) book opens: chapter '+w.repCurrentChapter+', '+d.querySelectorAll('.rpc-card').length+' cards');
   const late=errors.filter(e=>!/Could not load (img|script)|Not implemented|net::|ENOENT|data load fail|404/i.test(e)); ok(late.length===0,'no script errors during the flow'+(late.length?': '+late.slice(0,3).join(' | ').substring(0,300):''));
   console.log(fails?'FAILURES: '+fails:'ALL TESTS PASSED'); w.close(); process.exit(fails?1:0);
 })().catch(e=>{console.error('CRASH',e);process.exit(2);});
