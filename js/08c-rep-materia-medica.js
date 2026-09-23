@@ -10,9 +10,9 @@ var REP_MM_DRAFT_N=4;           // مسودے میں جملے
 var repMMIndex=null;            // {books:{id:{title,author,year,file,remedies}}, avail:{abbr:[bookIds]}}
 var _repMMBooks={};             // id -> book json
 var _repMMLoading={};
-var repMMBookOrder=['kent_lectures','boericke','clarke_dictionary','hering_guiding','hering_condensed','allen_keynotes','nash_leaders','farrington_clinical','lippe_keynotes','hutchison_700','guernsey_keynotes','allen_primer','boger_synoptic','boenninghausen_char','dewey_essentials','allen_clinical_hints','allen_nosodes'];
-var REP_MM_SHORT={kent_lectures:'Kent',boericke:'Boericke',allen_keynotes:'Allen',nash_leaders:'Nash',lippe_keynotes:'Lippe',hutchison_700:'Hutchison',guernsey_keynotes:'Guernsey',allen_primer:'T.F.Allen',boger_synoptic:'Boger',boenninghausen_char:'Boenn.',dewey_essentials:'Dewey',allen_clinical_hints:'Clin.Hints',clarke_dictionary:'Clarke',farrington_clinical:'Farrington',hering_condensed:'Hering C.',hering_guiding:'Hering GS',allen_nosodes:'Allen Nos.'};
-var REP_MM_COLOR={kent_lectures:'#1a5276',boericke:'#117a65',allen_keynotes:'#7d6608',nash_leaders:'#6c3483',lippe_keynotes:'#a04000',hutchison_700:'#7b241c',guernsey_keynotes:'#1f618d',allen_primer:'#4d5656',boger_synoptic:'#0e6655',boenninghausen_char:'#784212',dewey_essentials:'#154360',allen_clinical_hints:'#9a7d0a',clarke_dictionary:'#922b21',farrington_clinical:'#1b4f72',hering_condensed:'#4a235a',hering_guiding:'#6e2c00',allen_nosodes:'#145a32'};
+var repMMBookOrder=['kent_lectures','boericke','clarke_dictionary','hering_guiding','hering_condensed','allen_keynotes','nash_leaders','farrington_clinical','lippe_keynotes','hutchison_700','guernsey_keynotes','allen_primer','boger_synoptic','boenninghausen_char','dewey_essentials','allen_clinical_hints','allen_nosodes','lippe_textbook','kent_new_remedies'];
+var REP_MM_SHORT={kent_lectures:'Kent',boericke:'Boericke',allen_keynotes:'Allen',nash_leaders:'Nash',lippe_keynotes:'Lippe',hutchison_700:'Hutchison',guernsey_keynotes:'Guernsey',allen_primer:'T.F.Allen',boger_synoptic:'Boger',boenninghausen_char:'Boenn.',dewey_essentials:'Dewey',allen_clinical_hints:'Clin.Hints',clarke_dictionary:'Clarke',farrington_clinical:'Farrington',hering_condensed:'Hering C.',hering_guiding:'Hering GS',allen_nosodes:'Allen Nos.',lippe_textbook:'Lippe TB',kent_new_remedies:'Kent New'};
+var REP_MM_COLOR={kent_lectures:'#1a5276',boericke:'#117a65',allen_keynotes:'#7d6608',nash_leaders:'#6c3483',lippe_keynotes:'#a04000',hutchison_700:'#7b241c',guernsey_keynotes:'#1f618d',allen_primer:'#4d5656',boger_synoptic:'#0e6655',boenninghausen_char:'#784212',dewey_essentials:'#154360',allen_clinical_hints:'#9a7d0a',clarke_dictionary:'#922b21',farrington_clinical:'#1b4f72',hering_condensed:'#4a235a',hering_guiding:'#6e2c00',allen_nosodes:'#145a32',lippe_textbook:'#873600',kent_new_remedies:'#1a5276'};
 
 // ---------- لوڈنگ ----------
 function repMMEnsureIndex(cb){
@@ -352,11 +352,12 @@ function repDiffMMTabHtml(last){
     }
     var av=repMMAvail(a);
     var ms=(av.length&&re)?repMMMatches(a,re):[]; var cnt={}; ms.forEach(function(m){ cnt[m.book]=(cnt[m.book]||0)+1; });
-    var avSorted=av.slice().sort(function(x,y){ return (cnt[y]||0)-(cnt[x]||0); }); var shown=avSorted.slice(0,7), more=avSorted.length-shown.length;
+    var avSorted=av.slice().sort(function(x,y){ return (cnt[y]||0)-(cnt[x]||0); });
+    var shown=avSorted.filter(function(id){ return !repPrivIs(id); }).slice(0,7).concat(avSorted.filter(repPrivIs)), more=avSorted.length-shown.length;   // نجی کتابیں ہمیشہ دکھائیں
     h+='<div class="rep-mm-e"><div class="rep-mm-e-left">';
     h+='<div class="rep-mm-cardhead"><b dir="ltr">'+escapeHtml(a)+'</b> <small>'+escapeHtml(repRemedyTitle(a).replace(/^.*= /,''))+'</small>'
         +(av.length?'<button class="rc-btn" onclick="repMMOpen(\''+_repJs(a)+'\')">📖 '+L({ur:'پورا متن',en:'Full text',roman:'Poora matn'})+'</button>':'')+'</div>'
-        +'<div class="rep-mm-av">'+(av.length?shown.map(function(id){ return repMMBadge(id)+(cnt[id]?'<sup>'+cnt[id]+'</sup>':''); }).join('')+(more>0?'<span class="rep-mm-more-b" title="'+_repAttr(avSorted.slice(7).map(repMMShort).join(', '))+'">+'+more+'</span>':''):'<i>'+L({ur:'ان کتابوں میں نہیں',en:'not in these books',roman:'in kitabon mein nahi'})+'</i>')
+        +'<div class="rep-mm-av">'+(av.length?shown.map(function(id){ return repMMBadge(id)+(cnt[id]?'<sup>'+cnt[id]+'</sup>':''); }).join('')+(more>0?'<span class="rep-mm-more-b" title="'+_repAttr(avSorted.filter(function(id){ return shown.indexOf(id)===-1; }).map(repMMShort).join(', '))+'">+'+more+'</span>':''):'<i>'+L({ur:'ان کتابوں میں نہیں',en:'not in these books',roman:'in kitabon mein nahi'})+'</i>')
         +' <small class="rep-mm-avn">'+av.length+' '+L({ur:'کتابیں',en:'books',roman:'books'})+' · '+ms.length+' '+L({ur:'جملے',en:'sentences',roman:'jumle'})+'</small></div>';
     var pickBtn=function(m){ _repMMPickPool.push('• '+repMMPlain(m.text).replace(/\s+/g,' ').trim()+' '+repMMRef(m)); return '<button class="rep-mm-pick" onclick="repMMPick('+(_repMMPickPool.length-1)+')" title="'+L({ur:'یہ جملہ حوالے سمیت نوٹ میں ڈالیں',en:'Add this sentence with its reference to the note',roman:'Note mein daalein'})+'">＋ '+L({ur:'نوٹ میں',en:'to note',roman:'note mein'})+'</button>'; };
     if(av.length&&re){

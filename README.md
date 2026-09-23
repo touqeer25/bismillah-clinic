@@ -113,3 +113,9 @@ Builder: `tools/mm_build/ocr_books.py clarke <djvu.txt>` / `… farrington <djvu
 ## v65 — Allen's Materia Medica of the Nosodes (key-notes)
 
 `allen_nosodes`: Medorrhinum, Psorinum, Secale, Syphilinum, Tuberculinum, Lac defloratum — symptom lines with Allen's grades (II → **bold**, I → _italic_, θ clinical), from the PDF text layer of the public-domain 1910 book (Dr Nancy Malik's collection). Builder `tools/mm_build/allen_nosodes.py <pdf>` (needs `pip install pymupdf`). **17 books.**
+
+## v66 — Lippe Text-book + Kent New Remedies
+
+- `lippe_textbook`: A. von Lippe — Text-book of Materia Medica (1866), 139 remedies, sectioned (Mind and Disposition, Head … Relations), archive.org OCR (`ocr_books.py lippe_tb`).
+- `kent_new_remedies`: Kent — New Remedies (28 remedies: Alumina phos./sil., Aurum ars./iod./sulph., Calcarea iod./sil., Ferrum ars./iod., Kali ars./bi./mur./sil., Natrum sil./sulph., Vespa, Wyethia, Zincum phos. …), homeoint HTML (`ocr_books.py kent_new <dir>`). **19 books, 760 remedies.**
+- Hering's Analytical Repertory of the Mind (1881, OCR readable) is next — as a *repertory* book (rubric → remedies) rather than MM text.

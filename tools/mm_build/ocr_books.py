@@ -251,6 +251,59 @@ def build_hering_gs(path):
         if not e['sections']: del book['remedies'][a]
     return book
 
+# ------------------------------------------------------------------ Lippe, Text-book of Materia Medica (1866) — OCR
+LIPPE_SECS = ['Mind and Disposition','Head','Eyes','Ears','Nose','Face','Teeth','Mouth and Throat','Stomach','Abdomen','Stool and Anus','Urinary Organs','Sexual Organs','Respiratory Organs','Chest','Back','Extremities','Upper Extremities','Lower Extremities','Sleep','Fever','Skin','Generalities','Aggravation','Amelioration','Relations','Antidotes','Clinical Remarks','Larynx and Trachea','Neck and Back','Perspiration','Menstruation','Cough']
+def build_lippe_textbook(path):
+    book = {'id': 'lippe_textbook', 'title': 'Text-book of Materia Medica', 'author': 'Adolph von Lippe', 'year': 1866,
+            'source': 'https://archive.org/details/textbookofmateri00lipp — OCR', 'license': 'public domain', 'remedies': {}, 'unmatched': []}
+    t = load_text(path); t = re.sub(r'[ \t]{2,}', ' ', t)
+    paras = paragraphs(t, ['TEXT-BOOK', 'MATERIA MEDICA'])
+    cur = None; last = None
+    def sec_of(p):
+        q = p.strip().rstrip('.,;:').strip()
+        if len(q) > 32 or len(q) < 4 or ' ' in q and len(q.split()) > 4: return None
+        c = difflib.get_close_matches(q.title(), LIPPE_SECS, n=1, cutoff=0.62)
+        return c[0] if c else None
+    for p in paras:
+        if 3 <= len(p) <= 40 and re.fullmatch(r"[A-Z][A-Z .\-']+[.,l1]?", p):        # remedy heading (OCR may end with l/1 instead of M/.)
+            title = re.sub(r'[.,l1]$', '', p).strip().title()
+            abbr, how = fuzzy_match(title)
+            if not abbr or (last == abbr): last = abbr if abbr else last; continue
+            last = abbr
+            if abbr in book['remedies']: cur = book['remedies'][abbr]
+            else: cur = {'name': title, 'sections': [{'h': '', 'p': []}]}; book['remedies'][abbr] = cur
+            continue
+        if cur is None: continue
+        sc = sec_of(p)
+        if sc: cur['sections'].append({'h': sc, 'p': []}); continue
+        p = re.sub(r'^\d{1,3}\.\s+', '', p)                                            # "5. Fantastic illusions." → numbering off
+        if len(p) > 2: cur['sections'][-1]['p'].append(p)
+    for a, e in list(book['remedies'].items()):
+        e['sections'] = [x for x in e['sections'] if x['p']]
+        if not e['sections']: del book['remedies'][a]
+    return book
+
+# ------------------------------------------------------------------ Kent, New Remedies (homeoint HTML, <big>TITLE</big> + <li> items)
+def build_kent_new(raw_dir):
+    import html as _h
+    book = {'id': 'kent_new_remedies', 'title': 'New Remedies, Clinical Cases, Lesser Writings (New Remedies part)', 'author': 'James Tyler Kent', 'year': 1926,
+            'source': 'http://www.homeoint.org/books2/kentnewr/', 'license': 'public domain', 'remedies': {}, 'unmatched': []}
+    for f in sorted(os.listdir(raw_dir)):
+        if not f.endswith('.htm') or f in ('index.htm', 'intro.htm', 'charsymp.htm'): continue
+        s = open(os.path.join(raw_dir, f), 'rb').read().decode('cp1252', 'replace')
+        m = re.search(r'<big>([^<]{3,60})</big>', s)
+        title = _h.unescape(m.group(1)).strip().title() if m else f[:-4]
+        items = [re.sub(r'\s+', ' ', _h.unescape(re.sub(r'<[^>]+>', '', x))).strip() for x in re.findall(r'<li>(.*?)</li>', s, flags=re.S)]
+        items = [x for x in items if len(x) > 3]
+        if not items: continue
+        abbr, how = fuzzy_match(title)
+        if not abbr: abbr, how = match(f[:-4])                                       # page name fallback (alumsili → alum-sil)
+        entry = {'name': title, 'src': f, 'sections': [{'h': '', 'p': items}]}
+        if abbr and abbr not in book['remedies']: book['remedies'][abbr] = entry
+        elif abbr: book['remedies'][abbr]['sections'].append({'h': title, 'p': items})
+        else: book['unmatched'].append({'name': title, 'src': f})
+    return book
+
 def plain(t): return re.sub(r'\*\*|_', '', t)
 def save(book):
     p = os.path.join(OUT, book['id'] + '.json')
@@ -274,3 +327,5 @@ if __name__ == '__main__':
     elif which == 'farrington': save(build_farrington(paths[0]))
     elif which == 'hering': save(build_hering_condensed(paths[0]))
     elif which == 'hering_gs': save(build_hering_gs(paths[0]))
+    elif which == 'lippe_tb': save(build_lippe_textbook(paths[0]))
+    elif which == 'kent_new': save(build_kent_new(paths[0]))
