@@ -82,6 +82,24 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   w.repMMClose(); w.repPrivDelete('priv_test_mm'); ok(w.repPrivIds().length===0&&w.repMMAvail('nat-m').indexOf('priv_test_mm')===-1,'private book removed');
   // seed drafts merged on first load
   w.localStorage.removeItem('bc_rep_notes_seed_v'); await new Promise(r=>w.repNotesSeed(r)); ok(w.repNoteGet({book:'kent',ch:'mind',rid:'r2'},'nux-m')&&w.repNoteGet({book:'kent',ch:'mind',rid:'r2'},'nux-m').src==='llm-seed'&&w.repNoteGet(w.repDiffCtx||{book:'kent',ch:'mind',rid:'r2'},'nat-m').status==='approved','seed drafts merged without overwriting the approved nat-m note');
+  // ---- v59: notes on the rubric page + shared notes file ----
+  w.localStorage.removeItem('bc_rep_notes_seed_v'); await new Promise(r=>w.repNotesSeed(r));
+  ok(w.repNotesCount().total>=15,'seed v2 merged: '+w.repNotesCount().total+' notes (ABSENT-MINDED, GRIEF, CONSOLATION)');
+  w.repOpenRubricDetail(mind.r2449.t,'r2449'); for(let i=0;i<60&&!d.querySelector('.rep-notes-list');i++)await sleep(50); await sleep(50);
+  ok(d.querySelectorAll('.rep-note-card').length===5,'GRIEF page shows 5 seed notes ('+d.querySelectorAll('.rep-note-card').length+')');
+  ok(d.querySelectorAll('.rpd-chips .rep-remedy-tag.noted').length===5&&d.querySelector('.rep-note-sup'),'remedy chips carry ✎ marks for noted remedies');
+  ok(/\[Rep:|\[Allen|\[Kent|\[Guernsey/.test(d.querySelector('.rep-note-text').textContent),'note text shows references');
+  // approve one → card turns ✔ and chip mark becomes ✔
+  w.repNoteSet({book:'kent',ch:'mind',rid:'r2449',full:mind.r2449.t},'staph',w.repNoteGet({book:'kent',ch:'mind',rid:'r2449'},'staph').text,'approved');
+  w.repOpenRubricDetail(mind.r2449.t,'r2449'); await sleep(80);
+  ok(d.querySelector('.rep-note-card.ok')&&d.querySelector('.rep-note-card').querySelector('.rep-remedy-tag').textContent==='staph'&&Array.from(d.querySelectorAll('.rep-note-sup')).some(e=>e.textContent==='✔'),'approved note listed first with ✔');
+  // shared notes file merge (repo-committed notes)
+  const sharedPath=ROOT+'/mm/notes_shared.json'; const hadShared=fs.existsSync(sharedPath);
+  fs.writeFileSync(sharedPath,JSON.stringify({notes:{'kent|mind|r2449|aur':{abbr:'aur',text:'SHARED APPROVED NOTE',status:'approved',ts:Date.now()+1000,src:'doctor'},'kent|mind|r2449|staph':{abbr:'staph',text:'older shared',status:'draft',ts:1}}}));
+  w._repNotesSharedDone=false; await new Promise(r=>w.repNotesShared(r));
+  if(!hadShared) fs.unlinkSync(sharedPath);
+  ok(w.repNoteGet({book:'kent',ch:'mind',rid:'r2449'},'aur').text==='SHARED APPROVED NOTE','shared approved note overrides local draft');
+  ok(w.repNoteGet({book:'kent',ch:'mind',rid:'r2449'},'staph').status==='approved'&&w.repNoteGet({book:'kent',ch:'mind',rid:'r2449'},'staph').text!=='older shared','locally approved note is NOT overwritten by an older shared draft');
   // Ask AI
   d.getElementById('repAskMsgs').innerHTML='<div id="repAskTyping">⏳</div>'; w.repAskAnswer('بورک کی کتاب'); await sleep(20); ok(/📖/.test(d.getElementById('repAskMsgs').innerHTML),'Ask AI answers on materia medica');
   console.log(fails?'FAILURES: '+fails:'ALL TESTS PASSED'); process.exit(fails?1:0);

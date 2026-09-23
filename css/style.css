@@ -1403,3 +1403,14 @@ body.rep-diff-open{overflow:hidden}
 .rep-mm-privrow{display:flex;align-items:center;gap:6px;font-size:12px;color:#2c3e50;background:#fff;border:1px solid #eee3f3;border-radius:8px;padding:3px 8px}
 .rep-mm-privrow .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .rep-mm-privrow small{color:#7f8c8d;white-space:nowrap}
+
+/* ==== v59: ✍ notes on the rubric page + shared notes ==== */
+.rep-remedy-tag.noted{box-shadow:inset 0 0 0 1px #27ae60}
+.rep-note-sup{font-size:9px;margin-inline-start:2px;color:#1e8449;vertical-align:super}
+.rep-notes-list{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.rep-note-card{background:#fff;border:1px dashed #a9cbe8;border-radius:10px;padding:8px 12px}
+.rep-note-card.ok{border-style:solid;border-color:#27ae60;background:#f4fbf6}
+.rep-note-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.rep-note-src{color:#95a5a6;font-size:10.5px}
+.rep-note-text{font-size:13px;line-height:1.8;color:#2c3e50}
+.rep-note-en{font-size:12px;color:#5d6d7e;margin-top:4px;text-align:left;border-top:1px dotted #dfe6ee;padding-top:4px;font-family:'Segoe UI',sans-serif}

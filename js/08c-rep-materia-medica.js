@@ -37,7 +37,7 @@ function repMMLoadBook(id,cb){
 function repMMPublicIds(){ var ids=repMMIndex?Object.keys(repMMIndex.books||{}):[]; return repMMBookOrder.filter(function(b){ return ids.indexOf(b)!==-1; }).concat(ids.filter(function(b){ return repMMBookOrder.indexOf(b)===-1; })); }
 function repMMBookIds(){ return repMMPublicIds().concat(repPrivIds()); }
 function repMMEnsureAll(cb){
-    repNotesSeed();
+    repNotesSeed(); repNotesShared();
     repPrivLoadAll(function(){
         repMMEnsureIndex(function(){
             var ids=repMMPublicIds(); if(!ids.length){ cb({}); return; }
@@ -209,7 +209,7 @@ function repNotesImportText(txt){
 }
 // 🌱 بیج مسودے (mm/drafts_seed.json) — پہلی بار خودکار ضم؛ موجودہ نوٹس کبھی اوور رائٹ نہیں ہوتے
 function repNotesSeed(cb){
-    var flag='bc_rep_notes_seed_v'; var ver='1'; try{ if(localStorage.getItem(flag)===ver){ if(cb)cb(0); return; } }catch(e){}
+    var flag='bc_rep_notes_seed_v'; var ver='2'; try{ if(localStorage.getItem(flag)===ver){ if(cb)cb(0); return; } }catch(e){}
     fetch('mm/drafts_seed.json?v='+ver).then(function(r){ return r.json(); }).then(function(d){
         var st=repNotesLoad(), n=0; Object.keys((d&&d.notes)||{}).forEach(function(k){ if(!st[k]){ st[k]=d.notes[k]; n++; } });
         repNotesSave(); try{ localStorage.setItem(flag,ver); }catch(e){}
@@ -217,6 +217,41 @@ function repNotesSeed(cb){
         if(cb)cb(n);
     }).catch(function(){ if(cb)cb(0); });
 }
+// 🌐 مشترکہ نوٹس (mm/notes_shared.json — ڈاکٹر کے منظور شدہ نوٹس جو repo میں کمٹ کیے گئے) — ہر سیشن ایک بار ضم؛ مقامی نیا ہو تو مقامی جیتتا ہے
+var _repNotesSharedDone=false;
+function repNotesShared(cb){
+    if(_repNotesSharedDone){ if(cb)cb(0); return; } _repNotesSharedDone=true;
+    fetch('mm/notes_shared.json?v='+Date.now()).then(function(r){ return r.ok?r.json():null; }).then(function(d){
+        if(!d||!d.notes){ if(cb)cb(0); return; }
+        var st=repNotesLoad(), n=0;
+        Object.keys(d.notes).forEach(function(k){ var inc=d.notes[k]; if(!inc||!inc.text) return; var cur=st[k]; if(!cur||((inc.ts||0)>(cur.ts||0)&&cur.status!=='approved')||(inc.status==='approved'&&cur.status!=='approved'&&(inc.ts||0)>=(cur.ts||0))){ st[k]=inc; n++; } });
+        if(n){ repNotesSave(); showToast('🌐 '+repLangText({ur:n+' مشترکہ نوٹس ضم',en:n+' shared notes merged',roman:n+' shared notes merged'})); }
+        if(cb)cb(n);
+    }).catch(function(){ if(cb)cb(0); });
+}
+// ربرک صفحے کے لیے: اس ربرک کے تمام نوٹس (منظور شدہ پہلے)
+function repNotesForRubric(book,ch,rid){
+    var st=repNotesLoad(), pre=book+'|'+ch+'|'+rid+'|', out=[];
+    Object.keys(st).forEach(function(k){ if(k.indexOf(pre)===0){ var n=st[k]; out.push({abbr:n.abbr||k.substring(pre.length),note:n}); } });
+    out.sort(function(a,b){ return ((b.note.status==='approved')-(a.note.status==='approved'))||((b.note.ts||0)-(a.note.ts||0)); });
+    return out;
+}
+function repNoteMark(book,ch,rid,abbr){ var n=repNotesLoad()[book+'|'+ch+'|'+rid+'|'+abbr]; return n?(n.status==='approved'?'✔':'✎'):''; }
+// ربرک صفحے کا سیکشن «✍ تفریقی نوٹس»
+function repRubricNotesHtml(book,ch,rid,rems){
+    var L=repLangText, list=repNotesForRubric(book,ch,rid); if(!list.length) return '';
+    var h='<div class="rpd-sec-head">✍ '+L({ur:'تفریقی نوٹس',en:'DIFFERENTIATION NOTES',roman:'TAFREEQI NOTES'})+' <span class="cnt">('+list.length+')</span>'
+        +' <button class="rst-link" onclick="repDiffOpenForRubric();setTimeout(function(){repDiffSetTab(\'mm\');},60)" title="'+L({ur:'نوٹس کی ترمیم/منظوری تفریق ونڈو کے 📖 ٹیب میں',en:'Edit/approve notes in the 📖 tab of the differentiation window',roman:'📖 tab mein tarmeem'})+'">✎ '+L({ur:'ترمیم',en:'edit',roman:'tarmeem'})+'</button></div>';
+    h+='<div class="rep-notes-list">';
+    list.forEach(function(x){ var n=x.note, g=rems?repDiffGradeSafe(rems[x.abbr]):0;
+        h+='<div class="rep-note-card'+(n.status==='approved'?' ok':'')+'"><div class="rep-note-head"><span class="rep-remedy-tag g'+(g||1)+'" title="'+_repAttr(repRemedyTitle(x.abbr))+'" onclick="copyRemedyToPrescription(\''+_repJs(x.abbr)+'\')">'+escapeHtml(x.abbr)+'</span>'
+            +'<span class="rep-mm-status '+(n.status||'draft')+'">'+(n.status==='approved'?'✔ '+L({ur:'منظور',en:'approved',roman:'manzoor'}):'✎ '+L({ur:'مسودہ — تصدیق باقی',en:'draft — unverified',roman:'draft'}))+'</span>'
+            +(n.src?'<small class="rep-note-src">'+escapeHtml(n.src)+'</small>':'')+'</div>'
+            +'<div class="rep-note-text" dir="auto">'+escapeHtml(n.ur||n.text||'').replace(/\n/g,'<br>')+(n.ur&&n.en?'<div class="rep-note-en" dir="ltr">'+escapeHtml(n.en)+'</div>':'')+'</div></div>'; });
+    h+='</div>';
+    return h;
+}
+function repDiffGradeSafe(g){ g=g||0; return g>=3?3:(g===2?2:(g>0?1:0)); }
 function repNotesImportFile(inp){ var f=inp&&inp.files&&inp.files[0]; if(!f)return; var r=new FileReader(); r.onload=function(){ repNotesImportText(String(r.result||'')); if(typeof repDiffRenderBody==='function')repDiffRenderBody(); }; r.readAsText(f); }
 function repNoteEditorHtml(ctx,abbr,draft){
     var L=repLangText, n=repNoteGet(ctx,abbr), id='repNote_'+abbr.replace(/[^a-z0-9]/gi,'_');

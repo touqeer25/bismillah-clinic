@@ -70,3 +70,9 @@ Four complete books, converted from homeoint.org (public domain) by `tools/mm_bu
 New books (homeoint.org): Boger — Synoptic Key, Part 2 Synopsis (305 remedies; Region/Worse/Better/Synopsis sections) · Boenninghausen's Characteristics (138, sectioned) · Dewey — Essentials (274, Q&A) · Allen's Clinical Hints (327). **12 books, 658 remedies, mm/ = 8.4 MB.**
 
 **🔒 Private books**: copyrighted PDFs (e.g. the clinic's Qdrant collection) are never put in this public repo. `tools/qdrant_to_private_books.py backup.jsonl.gz out/ --merge` converts the Qdrant backup into page-based JSON (`{id,title,author,year,private:true,format:'pages',pages:[{p,t}]}`); import it in the app (🔬 → 📖 tab → «🔒 نجی کتابیں» → 📥). Books are stored in the browser's IndexedDB (`bc_private_books`) on that device only, appear with a 🔒 badge in the 📖 tab, drafts and viewer; per-remedy matching = pages that mention the remedy name/abbreviation; the viewer has a "whole book" search for private books. Delete with ✕ in the panel.
+
+## v59 — notes on the rubric page, shared notes, seed drafts v2
+
+- Rubric page: new section **✍ تفریقی نوٹس** listing this rubric's notes (approved first, then drafts, each with status, source and references) and ✎/✔ marks on the remedy chips; «✎ ترمیم» opens the 📖 tab.
+- **Shared notes**: commit the app's export as `mm/notes_shared.json` → every device merges it on start (an approved shared note overrides a local draft; a locally approved note is never overwritten by an older shared draft).
+- Seed drafts v2 (`mm/drafts_seed.json`, 15 notes): ABSENT-MINDED, GRIEF ailments from, CONSOLATION agg. × 5 remedies each, EN + UR, every claim referenced to the 12 books or to repertory facts (`[Rep: …]`). Seeds merge once (version flag), never overwrite.

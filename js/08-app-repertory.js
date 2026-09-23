@@ -96,6 +96,7 @@ function initRepertoryBrowser(noAutoChapter) {
     ensureRemedyNames();                                   // 🔑 background: ادویات کے پورے نام
     ensureRepNotes(repCurrentBook, function(){});          // 🔑 background: ربرک نوٹس (اگر کتاب کے پاس ہوں)
     repCmpSyncUI();                                        // 🔑 v54: ☑ کمپیئر موڈ بٹن/پینل کی حالت
+    if(typeof repNotesSeed==='function'){ repNotesSeed(); repNotesShared(); }   // 🔑 v59: بیج + مشترکہ نوٹس شروع میں ہی ضم
     var infoEl = document.getElementById('repCountInfo');
     if (infoEl) infoEl.textContent = 'Loading chapters...';
 
@@ -1398,10 +1399,13 @@ function renderRubricDetail(){
         h+='<div class="rpd-chips">';
         abbrs.forEach(function(a){
             var g=rems[a]||1; g=(g>=3)?3:((g===2)?2:1);
-            h+='<span class="rep-remedy-tag g'+g+'" title="'+_repAttr(repRemedyTitle(a))+'" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')">'+escapeHtml(a)+'</span>';
+            var nm=(typeof repNoteMark==='function'&&d.rid)?repNoteMark(repCurrentBook,repCurrentChapter,String(d.rid),a):'';
+            h+='<span class="rep-remedy-tag g'+g+(nm?' noted':'')+'" title="'+_repAttr(repRemedyTitle(a)+(nm?(nm==='✔'?' — ✔ منظور شدہ تفریقی نوٹ':' — ✎ نوٹ کا مسودہ'):''))+'" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')">'+escapeHtml(a)+(nm?'<sup class="rep-note-sup">'+nm+'</sup>':'')+'</span>';
         });
         h+='</div>';
     }
+    // ---- ✍ تفریقی نوٹس (v59: منظور شدہ/مسودہ نوٹس ربرک کے صفحے پر)
+    if(d.rid&&typeof repRubricNotesHtml==='function') h+=repRubricNotesHtml(repCurrentBook,repCurrentChapter,String(d.rid),rems);
     // ---- SUB-RUBRICS (بس جب ذیلی ربرکس موجود ہوں — خالی سیکشن بالکل نہیں دکھانا)
     if(kids.length){
         h+='<div class="rpd-sec-head">📁 '+repLangText({ur:'ذیلی ربرکس',en:'SUB-RUBRICS',roman:'ZELI RUBRICS'})+' <span class="cnt">('+kids.length+')</span></div>';

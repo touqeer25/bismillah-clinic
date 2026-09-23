@@ -54,7 +54,7 @@ Order = the order proposed in the discussion. `[x]` done · `[ ]` pending · `[~
 - [x] P2.8 Tests `tests/materia_medica.jsdom.test.js` (33 checks)
 - [x] P2.9a v57: Lippe Keynotes, Hutchison 700 Red Line, Guernsey Key-notes, T.F. Allen Primer (homeoint.org) — 8 books, 642 remedies
 - [x] P2.9b v58: Boger Synoptic Key (Synopsis), Boenninghausen Characteristics, Dewey Essentials, Allen's Clinical Hints — 12 books, 658 remedies
-- [ ] P2.9c Hering Guiding Symptoms, Clarke Dictionary, Farrington (archive.org OCR — or from the clinic's Qdrant PDF texts if public domain)
+- [ ] P2.9c archive.org OCR checked (2026-09-23): Clarke Dictionary 3 vols (adictionaryprac01/02/05clargoog, ~3 MB text each, readable), Farrington Clinical MM (clinicalmateriam00farr, 2 MB, readable), Hering Condensed MM (condensedmateri00heri, 2.2 MB, cover garbage but body usable), Hering Guiding Symptoms 10 vols (~1.3 MB each) — needs an OCR-aware remedy-heading parser; next step
 - [x] P2.10 Qdrant Cloud inspected (13 PDFs, 29,139 chunks): only Kent is public domain (already structured in the app); 12 copyrighted → private backup (jsonl.gz) + 🔒 device-only import (IndexedDB), never in the repo; Qdrant kept for the AI assistant's semantic search
 - [x] P2.11 🔒 Private books module: import/delete panel, remedy-page detection, 📖 tab + drafts + viewer (whole-book search), tests
 
@@ -64,6 +64,6 @@ Order = the order proposed in the discussion. `[x]` done · `[ ]` pending · `[~
 - [x] P3.3 Store `localStorage.bc_rep_diff_notes`; 📤 export JSON (differentiation_notes.json) / 📥 import
 - [x] P3.4 Seed AI drafts with references (EN + UR): ABSENT-MINDED × nat-m, nux-m, apis, lach, sep — merged once, never overwrite
 - [x] P3.5 LLM batch pipeline: `make_llm_batch.py` (facts + excerpts + prompt), `llm_draft_prompt.md` (strict: only given facts, every claim referenced), optional API call, import via 📥
-- [ ] P3.6 Bulk LLM drafting for the priority rubrics (needs API key or batch-by-batch generation) → doctor review
-- [ ] P3.7 Notes shown outside the window (rubric page remedy chips tooltip / detail section) once approved
-- [ ] P3.8 Sync notes to GitHub (export file → commit) — or a small backend later
+- [~] P3.6 Seed drafts v2: 15 notes (3 rubrics × 5) written from batch data with references; bulk drafting for more rubrics pending (API key or batch-by-batch)
+- [x] P3.7 v59: rubric page section «✍ تفریقی نوٹس» + ✎/✔ chip marks (drafts shown as unverified)
+- [x] P3.8 v59: shared notes file `mm/notes_shared.json` (export → commit) merged on every device at start; conflict rule: approved > draft, newer > older
