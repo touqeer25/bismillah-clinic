@@ -43,6 +43,23 @@ Order = the order proposed in the discussion. `[x]` done · `[ ]` pending · `[~
 - [x] C6 New jsdom tests (`tests/differentiation.jsdom.test.js`, 47 checks; regression `tests/repertory_ui.jsdom.test.js`, 21 checks): algorithm counts on real Kent data (nat-m/ign/plat in Mind: any 780, all-present 101, exclusive 230/135/170), sort/filter behaviour, single mode, rubric mode (ABSENT-MINDED: nux-m rare "periodical attacks"), witness (Allen Fever "Absent minded"), UI flows (open, pick, run, ☑, close)
 - [x] C7 Deliverable zip + patch against GitHub HEAD; Urdu summary with this checklist
 
-## Phase 2 / 3 (not in this build)
-- [ ] P2 Materia-medica excerpts per remedy (public-domain: Kent Lectures, Boericke, Allen Keynotes, Nash, Hering, Clarke, Lippe, Boger, Farrington) + theme lexicon → "quality" line per remedy
-- [ ] P3 Doctor-reviewed differentiation notes (rubric × remedy), Urdu + English, in-app editor, JSON export
+## Phase 2 — Materia medica (v56)
+- [x] P2.1 Download + parse 4 public-domain books from homeoint.org (Kent Lectures 180, Boericke 617, Allen Keynotes 183, Nash Leaders 216 remedies) — full books, not only Mind
+- [x] P2.2 Remedy-name → app abbreviation mapping (aliases + token matching + modern→classic); unmatched listed in JSON
+- [x] P2.3 Emphasis preserved (**keynote**, _characteristic_); Boericke sections; footers/noise stripped; no wrapped-line artefacts
+- [x] P2.4 Theme lexicon: rubric title + "(See …)" + synonym table (`REP_THEME_SYN`, shared with books witness) + stop-words
+- [x] P2.5 📖 tab: matching sentences per remedy with [Book § Section] references, ≤6 per book, highlighted
+- [x] P2.6 📖 viewer: full text per book, remedy list of the rubric, in-text search + highlight, copy, Esc
+- [x] P2.7 Lazy loading (~5 MB first use), SW runtime cache; `mm/_index.json` + seed in core assets
+- [x] P2.8 Tests `tests/materia_medica.jsdom.test.js` (33 checks)
+- [ ] P2.9 More books later: Hering (Guiding Symptoms), Clarke (Dictionary), Lippe, Boger, Farrington (archive.org sources)
+
+## Phase 3 — Drafts & doctor's notes (started in v56)
+- [x] P3.1 🤖 extractive auto draft per rubric × remedy (≤4 sentences, ≤2 per book, references) — marked unverified
+- [x] P3.2 ✍ note editor per rubric × remedy: adopt draft / save draft / ✔ approve / delete; status badge; counts
+- [x] P3.3 Store `localStorage.bc_rep_diff_notes`; 📤 export JSON (differentiation_notes.json) / 📥 import
+- [x] P3.4 Seed AI drafts with references (EN + UR): ABSENT-MINDED × nat-m, nux-m, apis, lach, sep — merged once, never overwrite
+- [x] P3.5 LLM batch pipeline: `make_llm_batch.py` (facts + excerpts + prompt), `llm_draft_prompt.md` (strict: only given facts, every claim referenced), optional API call, import via 📥
+- [ ] P3.6 Bulk LLM drafting for the priority rubrics (needs API key or batch-by-batch generation) → doctor review
+- [ ] P3.7 Notes shown outside the window (rubric page remedy chips tooltip / detail section) once approved
+- [ ] P3.8 Sync notes to GitHub (export file → commit) — or a small backend later

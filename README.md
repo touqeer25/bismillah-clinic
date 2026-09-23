@@ -33,3 +33,22 @@ RadarOpus-style "compare remedies": pick 1–5 remedies → rubrics where they d
 - **Single remedy** = keynote extraction. **Books witness** = same theme (auto words from title + cross-refs, editable) in the other books, only rows containing the chosen remedies.
 - Rows: ☑ add to active clipboard, click = open rubric, 📋 marker if already in a clipboard. Entry points: rubric page «🔬 تفریق», Workbench/Analysis grid «🔬 top 3/5», Ask AI.
 - Checklist: `DIFFERENTIATION_CHECKLIST.md`. Tests: `node tests/differentiation.jsdom.test.js`, `node tests/repertory_ui.jsdom.test.js` (jsdom).
+
+## v56 — 📖 Materia medica (public domain) + 🤖 drafts + ✍ notes (`js/08c-rep-materia-medica.js`, `mm/`)
+
+Four complete books, converted from homeoint.org (public domain) by `tools/mm_build/build_mm.py`:
+
+| id | book | remedies | words | file |
+|---|---|---|---|---|
+| kent_lectures | Kent — Lectures on Homoeopathic Materia Medica (1905) | 180 | 440k | mm/kent_lectures.json (2.65 MB) |
+| boericke | Boericke — Pocket Manual of Materia Medica (1927), sectioned (Mind, Head … Modalities, Relationship, Dose) | 617 | 164k | mm/boericke.json (1.36 MB) |
+| allen_keynotes | H.C. Allen — Keynotes and Characteristics (1898) | 183 | 55k | mm/allen_keynotes.json (0.39 MB) |
+| nash_leaders | Nash — Leaders in Homoeopathic Therapeutics (1913) | 216 | 119k | mm/nash_leaders.json (0.76 MB) |
+
+629 remedies have text in at least one book (457 of the app's 633 Kent remedies have Boericke). Remedy names are mapped to the app's abbreviations (`tools/mm_build/names.py`; 71 Boericke entries without an app abbreviation are listed in the JSON `unmatched`). Text markers: `**bold**` = source emphasis (keynote), `_italic_` = characteristic emphasis.
+
+- **📖 tab** in the differentiation window: per remedy the sentences matching the theme words (auto from rubric title + cross-refs + synonym table `REP_THEME_SYN`), each with a reference `[Book § Section]`; **🤖 auto draft** = extractive pick (≤4 sentences, ≤2 per book, unverified); **✍ note editor** per rubric × remedy (draft / ✔ approve / delete), stored in `localStorage.bc_rep_diff_notes`, 📤 export / 📥 import JSON.
+- **📖 viewer** (rubric page → "📖 materia medica", or from the tab): full text per book with in-text theme search and highlighting.
+- **Seed drafts** `mm/drafts_seed.json` (ABSENT-MINDED × nat-m, nux-m, apis, lach, sep; EN + UR with references) are merged once on first load, never overwriting existing notes.
+- **LLM pipeline** (optional): `tools/mm_build/make_llm_batch.py kent mind r2 --remedies nat-m,ign` builds a batch (structural facts + excerpts) and the prompt `llm_draft_prompt.md`; with `OPENAI_API_KEY` it calls the API and writes `*.drafts.json` importable via 📥.
+- Data is lazy-loaded (first use ~5 MB) and cached by the service worker at runtime; `mm/_index.json` and `mm/drafts_seed.json` are core assets.
