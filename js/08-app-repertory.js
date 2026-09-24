@@ -2388,7 +2388,12 @@ function repElimRuleDesc(){ return repAnaOpts.elim==='every'
     : repLangText({ur:'گرڈ میں صرف وہی ادویات رہیں گی جو اس کلپ بورڈ کے کسی ایک ربرک میں بھی موجود ہوں (پرانا اصول)',en:'Grid keeps only remedies present in at least ONE rubric of this clipboard (classic rule)',roman:'Jo kisi aik rubric mein bhi hon (classic)'}); }
 function repAnaRulesHtml(){
     var e=repAnaOpts.elim, c=repAnaOpts.cov;
-    return '<div class="rep-ana-rules">'
+    var anyElim=false; if(repWorkbenchOpen){ for(var q=0;q<REP_N_CLIPS;q++) if(repClipElims[q]&&(repClipboards[q]||[]).length) anyElim=true; }
+    else if(repAnalysisOpen>=0) anyElim=!!repClipElims[repAnalysisOpen];
+    var sw=(!repWorkbenchOpen&&repAnalysisOpen>=0)
+        ? '<label class="rar-sw"><input type="checkbox" '+(repClipElims[repAnalysisOpen]?'checked':'')+' onchange="repClipElimToggle('+repAnalysisOpen+',this.checked)"> 🚫 '+repLangText({ur:'اس کلپ بورڈ پر ایلی منیشن موڈ',en:'Elimination Mode on this clipboard',roman:'Elimination Mode'})+'</label>' : '';
+    var hint=anyElim?'':'<span class="rar-hint" style="font-size:11px;color:#b9770e;">ⓘ '+repLangText({ur:'کوئی کلپ بورڈ ایلی منیشن موڈ میں نہیں، اس لیے «ایلی منیشن» رول ابھی بے اثر ہے',en:'No clipboard is in Elimination Mode, so the Elimination rule has no effect yet',roman:'Elimination rule abhi be-asar hai'})+'</span>';
+    return '<div class="rep-ana-rules">'+sw
         +'<span class="rar-lab">⚙ '+repLangText({ur:'اصول:',en:'Rules:',roman:'Rules:'})+'</span>'
         +'<label title="'+repLangText({ur:'ایلی منیشن موڈ والے کلپ بورڈ کی شرط',en:'Condition applied by an Elimination-Mode clipboard',roman:'Elimination clipboard ki shart'})+'">🚫 '+repLangText({ur:'ایلی منیشن',en:'Elimination',roman:'Elimination'})+' <select onchange="repAnaSetOpt(\'elim\',this.value)">'
         +'<option value="every"'+(e==='every'?' selected':'')+'>'+repLangText({ur:'ہر ربرک میں موجود ہو (ہومیوسیتو)',en:'in EVERY rubric (HomeoSetu)',roman:'har rubric mein (HomeoSetu)'})+'</option>'
@@ -2400,9 +2405,22 @@ function repAnaRulesHtml(){
         +'<option value="hs"'+(repAnaOpts.method==='hs'?' selected':'')+'>'+repLangText({ur:'Sum of Symptoms (کوریج پہلے)',en:'Sum of Symptoms (coverage first)',roman:'Sum of Symptoms'})+'</option>'
         +'<option value="kent"'+(repAnaOpts.method==='kent'?' selected':'')+'>'+repLangText({ur:'Kent — Sum of Degrees (گریڈز کا مجموعہ پہلے)',en:'Kent — Sum of Degrees first',roman:'Kent — Sum of Degrees'})+'</option>'
         +'<option value="boen"'+(repAnaOpts.method==='boen'?' selected':'')+'>'+repLangText({ur:'Boenninghausen + Polarity',en:'Boenninghausen + Polarity',roman:'Boenninghausen + Polarity'})+'</option></select></label>'
-        +'</div>';
+        +hint+'</div>';
 }
-function _repAnaCompute(items,all){
+// 🔑 v71: ایلی منیشن فلٹر (مشترکہ) — items = ایلی منیشن کلپ بورڈ کے ربرکس؛ رول 'every' = انٹرسیکشن، 'any' = یونین
+function repElimKeepSet(items,all){
+    var keep={}, first=true;
+    items.forEach(function(it){
+        if(typeof it.w==='number'&&it.w<0) return;               // منفی (-1x) ربرک شرط نہیں بنتا
+        var rems=repClipItemRemedies(it,all)||{};
+        if(repAnaOpts.elim==='every'){
+            if(first){ Object.keys(rems).forEach(function(a){keep[a]=1;}); first=false; }
+            else Object.keys(keep).forEach(function(a){ if(!rems[a])delete keep[a]; });
+        } else Object.keys(rems).forEach(function(a){keep[a]=1;});
+    });
+    return keep;
+}
+function _repAnaCompute(items,all,ci){
     // 🔑 v38 weighted scoring: item.w = 0.5x | 1x | 2x | 4x | -1x (negative = subtract / eliminate)
     var rows=[],col={},denom=0;
     items.forEach(function(it){
@@ -2413,12 +2431,13 @@ function _repAnaCompute(items,all){
         _repAnaAccum(col,rems,w);
     });
     if(denom<=0)denom=1;
-    var abbrs=Object.keys(col).sort(function(a,b){
-        var d=col[b].cov-col[a].cov; if(d)return d;
-        d=col[b].total-col[a].total; if(d)return d;
-        return a.localeCompare(b);
-    });
-    return repAnaApplyMethod({rows:rows,col:col,abbrs:abbrs,denom:denom},all);
+    var elimNotes=[];
+    if(typeof ci==='number'&&repClipElims[ci]&&items.length){
+        var keep=repElimKeepSet(items,all), removed=0;
+        Object.keys(col).forEach(function(a){ if(!keep[a]){ removed++; delete col[a]; } });
+        elimNotes.push({clip:ci,removed:removed});
+    }
+    return repAnaApplyMethod({rows:rows,col:col,abbrs:Object.keys(col),denom:denom,elimNotes:elimNotes},all);
 }
 // 🔑 v70: تجزیے کا طریقہ — Kent / Boenninghausen (پولیریٹی) + ترتیب
 function repOppositePath(path){
@@ -2671,7 +2690,7 @@ function repClipElimToggle(ci,on){
     showToast(repLangText(
         on? {ur:'🚫 '+repClipLabel(ci)+' — ایلی منیشن موڈ آن (گرڈ میں اس کے بغیر ادویات ہٹ جائیں گی)',en:'🚫 '+repClipLabel(ci)+' — Elimination Mode ON (grid keeps only remedies covered by it)',roman:'🚫 Elimination Mode ON — '+repClipLabel(ci)}
           : {ur:'✅ '+repClipLabel(ci)+' — ایلی منیشن موڈ آف',en:'✅ '+repClipLabel(ci)+' — Elimination Mode OFF',roman:'✅ Elimination Mode OFF — '+repClipLabel(ci)}));
-    if(repWorkbenchOpen)renderWorkbench();
+    if(repWorkbenchOpen)renderWorkbench(); else if(repAnalysisOpen>=0)renderAnalysis();
 }
 function repClipRename(ci){
     var cur=repClipNames[ci]||('Clipboard '+(ci+1));
@@ -2821,16 +2840,7 @@ function _repWbGridCompute(all){
         if(!repClipElims[ci])continue;
         var items=(repClipboards[ci]||[]).filter(function(it){ return repWbSelCount()===0||it.sel; });
         if(!items.length)continue;
-        var keep={};
-        if(repAnaOpts.elim==='every'){
-            // HomeoSetu اصول: دوا اس کلپ بورڈ کے ہر ایک ربرک میں موجود ہو (intersection)
-            items.forEach(function(it,k){ var rems=repClipItemRemedies(it,all)||{};
-                if(k===0){ Object.keys(rems).forEach(function(a){keep[a]=1;}); }
-                else { Object.keys(keep).forEach(function(a){ if(!rems[a])delete keep[a]; }); } });
-        } else {
-            // پرانا اصول: کسی بھی ایک ربرک میں موجود ہو (union)
-            items.forEach(function(it){ var rems=repClipItemRemedies(it,all)||{}; Object.keys(rems).forEach(function(a){keep[a]=1;}); });
-        }
+        var keep=repElimKeepSet(items,all);   // 'every' = ہر ربرک میں (انٹرسیکشن) · 'any' = کسی ایک میں (یونین)
         var removed=0;
         Object.keys(col).forEach(function(a){ if(!keep[a]){ removed++; delete col[a]; } });
         if(removed||Object.keys(keep).length) elimNotes.push({clip:ci,removed:removed});
@@ -2911,14 +2921,14 @@ function renderAnalysis(){
     repRenderDock();
     repEnsureAllBooks(function(all){
         var body=document.getElementById('repAnaBody'); if(!body)return;
-        var res=_repAnaCompute(l,all);
+        var res=_repAnaCompute(l,all,c);
         if(!res.abbrs.length){ body.innerHTML='<div class="rep-tool-loading">'+repLangText({ur:'ان ربرکس پر کوئی ادویہ درج نہیں',en:'No remedies recorded on these rubrics',roman:'In rubrics par koi adwiyeh darj nahi'})+'</div>'; return; }
         var COLS=20, abbrs=res.abbrs.slice(0,COLS);
         var winner=abbrs[0], wcol=res.col[winner];
         var hh='<div class="rep-ana-sum">'
             +'<span class="rep-ana-winner">🏆 '+repLangText({ur:'سب سے زیادہ کور:',en:'Top coverage:',roman:'Sab se ziyada koor:'})+' <b dir="ltr">'+escapeHtml(winner)+'</b> — '+repFmtCov(wcol.cov,res.denom)+' ('+Math.max(0,Math.round(wcol.cov*100/res.denom))+'%)</span>'
             +(res.abbrs.length>COLS?'<span class="rep-ana-more">+'+(res.abbrs.length-COLS)+' '+repLangText({ur:'مزید ادویات',en:'more remedies',roman:'mazeed adwiyeh'})+'</span>':'')
-            +repAnaDiffBtnsHtml(res.abbrs)+repAnaExportBtnsHtml()
+            +(res.elimNotes||[]).map(function(n){ return '<span class="rep-ana-elim">🚫 '+escapeHtml(repClipLabel(n.clip))+': -'+n.removed+'</span>'; }).join('')+repAnaDiffBtnsHtml(res.abbrs)+repAnaExportBtnsHtml()
             +'<span class="rep-ana-more">🧮 '+escapeHtml(repAnaMethodLabel(res.method))+(res.method==='boen'?' · '+repLangText({ur:'پولیریٹی جوڑے: ',en:'polarity pairs: ',roman:'polarity pairs: '})+res.polPairs:'')+'</span>'
             +'</div>';
         hh+='<div class="rep-ana-wrap"><table class="rep-ana-table"><thead><tr><th class="ana-rub">'+repLangText({ur:'ربرک',en:'Rubric',roman:'Rubric'})+'</th>';

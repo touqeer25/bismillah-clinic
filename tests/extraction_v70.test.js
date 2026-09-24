@@ -2,9 +2,9 @@
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const src=fs.readFileSync(path.join(__dirname,'..','js','08-app-repertory.js'),'utf8');
 function grab(name){ const i=src.indexOf('function '+name+'('); let d=0,j=src.indexOf('{',i); for(let k=j;k<src.length;k++){ if(src[k]==='{')d++; else if(src[k]==='}'){ d--; if(!d) return src.slice(i,k+1);} } }
-const ctx={window:{},repAnaOpts:{method:'hs'},normalizeChapterKey:(b,c)=>c,_repPathIdx:{}};
+const ctx={window:{},repClipElims:[true],REP_N_CLIPS:12,repClipItemRemedies:(it)=>it.r,repAnaOpts:{method:'hs',elim:'every'},normalizeChapterKey:(b,c)=>c,_repPathIdx:{}};
 vm.createContext(ctx);
-['repParseBoolQuery','repBoolMatch','repOppositePath','repFindRubricByPath','repNormRubText','repRubTextOf','repAnaApplyMethod'].forEach(n=>vm.runInContext(grab(n),ctx));
+['repParseBoolQuery','repBoolMatch','repOppositePath','repFindRubricByPath','repNormRubText','repRubTextOf','repAnaApplyMethod','repElimKeepSet'].forEach(n=>vm.runInContext(grab(n),ctx));
 let fails=0; const ok=(c,m)=>{ console.log((c?'PASS ':'FAIL ')+m); if(!c)fails++; };
 const M=(q,t)=>ctx.repBoolMatch(ctx.repParseBoolQuery(q),t);
 ok(M('fear dark','Mind, fear, dark, in'),'AND');
@@ -28,4 +28,7 @@ ctx.repAnaOpts.method='kent'; const k=ctx.repAnaApplyMethod({rows:[],col:{a:{cov
 ok(k.abbrs[0]==='b','Kent: degrees first');
 ctx.repAnaOpts.method='hs'; const h=ctx.repAnaApplyMethod({rows:[],col:{a:{cov:3,total:3},b:{cov:2,total:6}},abbrs:[],denom:3},all);
 ok(h.abbrs[0]==='a','Sum of symptoms: coverage first');
+const its=[{r:{a:1,b:2}},{r:{a:3,c:1}},{r:{d:1},w:-1}];
+ctx.repAnaOpts.elim='every'; ok(JSON.stringify(Object.keys(ctx.repElimKeepSet(its)))==='["a"]','elim every = intersection (-1x ignored)');
+ctx.repAnaOpts.elim='any'; ok(Object.keys(ctx.repElimKeepSet(its)).sort().join()==='a,b,c','elim any = union');
 console.log(fails?fails+' FAILED':'ALL TESTS PASSED'); process.exit(fails?1:0);
