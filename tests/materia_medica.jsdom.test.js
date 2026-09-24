@@ -91,6 +91,22 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
     ok(d.querySelectorAll('#repMMHead .rep-mm-tabx.del').length===2,'books with nothing for this remedy get a removable ✕ in the tab row');
     d.querySelector('#repMMHead .rep-mm-tabx.del').dispatchEvent(new w.MouseEvent('click',{bubbles:true})); await sleep(60);
     ok(w.repPrivIds().length===same+1,'✕ removes that private book from this device only (back to '+(same+1)+')'); w.repMMClose(); }
+  { const two=JSON.stringify({books:[{id:'p1',title:'Treasures — Charts & Rubrics',author:'Prafull Vijayakar',private:true,format:'pages',pages:[{p:1,t:'nothing here'}]},{id:'p2',title:'Predictive Homoeopathy Part II — Theory of Acutes',author:'Prafull Vijayakar',private:true,format:'pages',pages:[{p:1,t:'nothing here'}]}]});
+    await new Promise(r=>w.repPrivImportText(two,r)); await sleep(40);   // both books again: 2 private tabs with nothing for nat-m
+    w.repMMOpen('nat-m','grief',['nat-m']); await sleep(50);
+    const beforeRows=d.querySelectorAll('#repMMHead .rep-diff-ctl > .rep-diff-tabs button').length;
+    const tog=[...d.querySelectorAll('#repMMHead .rep-diff-ctl button')].find(b=>/🔒\s*\d+/.test(b.textContent));
+    ok(!!tog&&/چھپا دیں/.test(tog.textContent),'the row carries a «🔒 N چھپا دیں» button: '+(tog?tog.textContent:'none'));
+    tog.dispatchEvent(new w.MouseEvent('click',{bubbles:true})); await sleep(60);
+    const afterRows=d.querySelectorAll('#repMMHead .rep-diff-ctl > .rep-diff-tabs button').length;
+    ok(afterRows<beforeRows,'one tap hides the empty private tabs: '+beforeRows+' → '+afterRows);
+    ok(w.repMMBookIds().length===w.repMMBookIds().length&&JSON.parse(w.localStorage.getItem('bc_rep_priv_prefs')).hideEmpty===true,'the preference is remembered on this device');
+    const tog2=[...d.querySelectorAll('#repMMHead .rep-diff-ctl button')].find(b=>/🔒\s*\d+/.test(b.textContent));
+    ok(/دکھائیں/.test(tog2.textContent),'button flips to «دکھائیں»: '+tog2.textContent.trim());
+    tog2.dispatchEvent(new w.MouseEvent('click',{bubbles:true})); await sleep(60);
+    ok(d.querySelectorAll('#repMMHead .rep-diff-ctl > .rep-diff-tabs button').length===beforeRows,'tapping again brings them back'); w.repMMClose();
+    w.repDiffClose();   // back to the 📖 tab pane: the row must respect the same preference
+    await sleep(30); }
   w.repDiffClose(); w.repMMOpen('nat-m','grief',['nat-m']); await sleep(80); w.repMMSetBook('priv_test_mm'); await sleep(30);
   ok(/نجی|private/.test(d.querySelector('.rep-mm-src').textContent)&&d.querySelector('.rep-mm-section .rep-mm-h').textContent==='p. 1','viewer shows private book pages');
   w.repMMView.q='potency'; w.repMMWholeToggle(true); await sleep(30); ok(d.querySelector('.rep-mm-section .rep-mm-h').textContent==='p. 3','whole-book search finds page 3 (not a remedy page)');

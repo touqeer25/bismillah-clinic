@@ -83,9 +83,9 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   w.repDiffSetTab('common'); await sleep(20); ok(d.querySelectorAll('#repDiffBody .rep-diff-row').length>0,'B6 common tab renders');
   // scope change to chapter + sort change persists
   w.repDiffSetOpt('scope','chapter'); for(let i=0;i<60&&!(w.repDiffLast&&w.repDiffLast.scope==='chapter');i++)await sleep(50);
-  ok(w.repDiffLast.scope==='chapter'&&w.repDiffLast.n===Object.keys(kent.mind).length&&JSON.parse(w.localStorage.getItem('bc_rep_diff_opts')).scope==='chapter','B5 scope=chapter → '+w.repDiffLast.n+' rubrics; persisted');
+  ok(w.repDiffLast.scope==='chapter'&&w.repDiffLast.scanned===Object.keys(kent.mind).length&&w.repDiffLast.n<=w.repDiffLast.scanned&&JSON.parse(w.localStorage.getItem('bc_rep_diff_opts')).scope==='chapter','B5 scope=chapter → scanned '+w.repDiffLast.scanned+', '+w.repDiffLast.n+' kept after the size cap (v68.7: filtering happens while collecting); persisted');
   w.repDiffSetOpt('scope','book'); for(let i=0;i<60&&!(w.repDiffLast&&w.repDiffLast.scope==='book');i++)await sleep(50);
-  ok(w.repDiffLast.n===listAll.length,'B5 scope=book → '+w.repDiffLast.n+' rubrics');
+  ok(w.repDiffLast.scanned===listAll.length&&w.repDiffLast.n<=listAll.length&&w.repDiffLast.n>0,'B5 scope=book → scanned '+w.repDiffLast.scanned+', kept '+w.repDiffLast.n+' (size cap '+w.repDiffOpts.maxN+')');
   // typed add + max 5 + toggle off
   const typed=async v=>{ const inp=d.getElementById('repDiffInput'); inp.value=v; w.repDiffAddTyped(); await sleep(30); };
   await typed('SEP'); ok(w.repDiffSel.indexOf('sep')!==-1,'B4 typed abbreviation (case-insensitive) added: '+w.repDiffSel.join());

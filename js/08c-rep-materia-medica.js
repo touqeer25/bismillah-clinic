@@ -38,7 +38,7 @@ function repMMLoadBook(id,cb){
 function repMMPublicIds(){ var ids=repMMIndex?Object.keys(repMMIndex.books||{}):[]; return repMMBookOrder.filter(function(b){ return ids.indexOf(b)!==-1; }).concat(ids.filter(function(b){ return repMMBookOrder.indexOf(b)===-1; })); }
 function repMMBookIds(){ return repMMPublicIds().concat(repPrivIds()); }
 function repMMEnsureAll(cb,onProgress){
-    repNotesSeed(); repNotesShared();
+    repPrivPrefLoad(); repNotesSeed(); repNotesShared();
     repPrivLoadAll(function(){
         repMMEnsureIndex(function(){
             var ids=repMMPublicIds(); if(!ids.length){ cb({}); return; }
@@ -68,6 +68,13 @@ function repMMBadge(id){ var priv=repPrivIs(id); return '<span class="rep-mm-bad
 // ریمیڈی وار ملاپ: وہ صفحات جن میں ریمیڈی کا نام/مخفف آتا ہے؛ موضوع کے جملے انہی صفحات سے۔
 var REP_PRIV_DB='bc_private_books', REP_PRIV_STORE='books';
 var _repPrivMem={}, _repPrivLoaded=false, _repPrivAvailCache={}, _repPrivEntryCache={};
+var REP_PRIV_PREF_KEY='bc_rep_priv_prefs', _repPrivPrefs={hideEmpty:false,inDraft:true};   // 🔑 v68.3: «جس نجی کتاب میں اِس ریمیڈی کا کچھ نہ ہو» چھپانے کا رجحان (اِسی آلے پر)
+function repPrivPrefLoad(){ try{ var d=JSON.parse(localStorage.getItem(REP_PRIV_PREF_KEY)||'{}'); _repPrivPrefs.hideEmpty=!!d.hideEmpty; if(typeof d.inDraft==='boolean')_repPrivPrefs.inDraft=d.inDraft; }catch(e){} }
+function repPrivPrefSave(){ try{ localStorage.setItem(REP_PRIV_PREF_KEY,JSON.stringify(_repPrivPrefs)); }catch(e){} }
+function repPrivDraftToggle(){ _repPrivPrefs.inDraft=!_repPrivPrefs.inDraft; repPrivPrefSave(); if(typeof repDiffRenderBody==='function') repDiffRenderBody(); }
+function repPrivHideEmptyToggle(){ _repPrivPrefs.hideEmpty=!_repPrivPrefs.hideEmpty; repPrivPrefSave();
+    if(typeof repMMView!=='undefined'&&repMMView.abbr) repMMRender();
+    if(typeof repDiffTab!=='undefined'&&repDiffTab==='mm'&&typeof repDiffRenderBody==='function') repDiffRenderBody(); }
 function repPrivIs(id){ return !!_repPrivMem[id]; }
 function repPrivIds(){ return Object.keys(_repPrivMem).sort(); }
 function repPrivDB(cb){
@@ -118,6 +125,7 @@ function repPrivRemedyRegex(abbr){
     var name=repRemedyTitle(abbr).replace(/^.*= /,''); var parts=name.split(/\s+/).filter(Boolean); var pats=[];
     function esc(x){ return x.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
     if(parts.length>=2) pats.push('\\b'+esc(parts[0])+'\\s+'+esc(parts[1].substring(0,Math.min(4,parts[1].length)))+'\\w*');
+    if(parts.length>=2&&parts[0].length>=4) pats.push('\\b'+esc(parts[0])+'\\b');   // v68.4: کتاب اکثر صرف «Hyoscyamus» لکھتی ہے، «Hyoscyamus niger» نہیں
     else if(parts.length===1&&parts[0].length>=4) pats.push('\\b'+esc(parts[0])+'\\b');
     var ab=String(abbr||'').split('-'); if(ab[0]&&ab[0].length>=3) pats.push('\\b'+ab.map(esc).join('[-.\\s]?\\s?')+'\\b');
     try{ return pats.length?new RegExp(pats.join('|'),'i'):null; }catch(e){ return null; }
@@ -139,8 +147,12 @@ function repPrivEntry(id,abbr){
 function repPrivSearchPages(id,re,cap){ var b=_repPrivMem[id]; var out=[]; if(!b||!re) return out; for(var i=0;i<b.pages.length&&out.length<(cap||80);i++){ if(re.test(b.pages[i].t)) out.push(b.pages[i]); } return out; }
 function repPrivPanelHtml(){
     var L=repLangText, ids=repPrivIds();
+    var _tgl='';   // v68.5: نجی کتابیں خودکار مسودے میں شامل رکھنے کا سوئچ
+    if(ids.length){ var _tl=L({ur:'خودکار مسودے میں نجی کتابوں کے جملے بھی لیں',en:'let private books feed the auto draft',roman:'Musawwade mein shamil'});
+        _tgl='<label class="rc-btn" style="cursor:pointer" title="'+_repAttr(_tl)+'"><input type="checkbox" '+(_repPrivPrefs.inDraft?'checked':'')+' onchange="repPrivDraftToggle()"> 🤖</label>'; }
+
     var h='<div class="rep-mm-priv"><div class="rep-mm-privhead">🔒 '+L({ur:'نجی کتابیں — صرف اس آلے پر (IndexedDB)، گٹ ہب پر کبھی نہیں',en:'Private books — this device only (IndexedDB), never on GitHub',roman:'Private books — sirf is device par'})+' <span class="cnt">('+ids.length+')</span>'
-        +'<label class="rc-btn primary" style="cursor:pointer;margin-inline-start:auto">📥 '+L({ur:'نجی کتابیں امپورٹ (JSON)',en:'Import private books (JSON)',roman:'Private books import (JSON)'})+'<input type="file" accept=".json,application/json" style="display:none" onchange="repPrivImportFile(this)"></label></div>';
+        +'<label class="rc-btn primary" style="cursor:pointer;margin-inline-start:auto">📥 '+L({ur:'نجی کتابیں امپورٹ (JSON)',en:'Import private books (JSON)',roman:'Private books import (JSON)'})+'<input type="file" accept=".json,application/json" style="display:none" onchange="repPrivImportFile(this)"></label>'+_tgl+'</div>';
     if(!ids.length) h+='<div class="rep-tool-note">'+L({ur:'کیوڈرینٹ بیک اپ سے بنی فائل (tools/qdrant_to_private_books.py → private_books_all.json یا ایک کتاب کی فائل) امپورٹ کریں۔',en:'Import the file made by tools/qdrant_to_private_books.py (private_books_all.json or a single book).',roman:'qdrant_to_private_books.py se bani file import karein.'})+'</div>';
     else { h+='<div class="rep-mm-privlist">'; ids.forEach(function(id){ var b=_repPrivMem[id]; h+='<div class="rep-mm-privrow" title="'+_repAttr(b.title+' — '+(b.author||''))+'">'+repMMBadge(id)+' <span class="t">'+escapeHtml(b.title)+'</span> <small>'+b.pages.length+'p</small><button class="rst-chip-x" onclick="repPrivDelete(\''+_repJs(id)+'\')" title="'+L({ur:'اس آلے سے ہٹائیں',en:'Remove from this device',roman:'Hataein'})+'">✕</button></div>'; }); h+='</div>'; }
     return h+'</div>';
@@ -195,14 +207,15 @@ function repMMMatches(abbr,re,perBook,chHint){
                     var hits=(plain.match(new RegExp(re.source,'gi'))||[]).length; if(!hits) return;
                     var key=plain.toLowerCase().replace(/\W+/g,' ').trim().substring(0,120); if(seen[key]) return; seen[key]=1;
                     var bold=(sn.match(/\*\*/g)||[]).length/2, ital=(sn.match(/_/g)||[]).length/2;
-                    var score=Math.min(hits,3)*2+bold*2+ital*1+boost+(plain.length<220?0.5:0)-(priv?0.5:0);
-                    if(priv&&plain.length>300) return;
+                    // v68.5: نجی کتاب کے صفحات بھی مقابلے میں شامل — صرف بہت لمبے پیراگراف (نوٹ کے لیے ناخوانا) کٹتے ہیں
+                    var score=Math.min(hits,3)*2+bold*2+ital*1+boost+(plain.length<220?0.5:0)+(priv?0.15:0);
+                    if(priv&&plain.length>900) return;
                     found.push({book:id,section:sec.h||'',text:sn,score:score,pi:pi});
                 });
             });
         });
         found.sort(function(a,b){ return (b.score-a.score)||(a.pi-b.pi); });
-        out=out.concat(found.slice(0,priv?Math.min(3,perBook||REP_MM_MAX_PER_BOOK):(perBook||REP_MM_MAX_PER_BOOK)));
+        out=out.concat(found.slice(0,perBook||REP_MM_MAX_PER_BOOK));   // v68.5: نجی کتابوں پر الگ سے تین کی حد نہیں
     });
     return out;
 }
@@ -212,7 +225,8 @@ function repMMRef(m){ return '['+repMMShort(m.book)+(m.section?' § '+m.section:
 function repMMDraft(abbr,re){
     var ms=repMMMatches(abbr,re,3).slice().sort(function(a,b){ return b.score-a.score; });
     var per={},pick=[];
-    ms.forEach(function(m){ if(m.score<2) return; var cap=repPrivIs(m.book)?1:2; per[m.book]=(per[m.book]||0); if(per[m.book]<cap&&pick.length<REP_MM_DRAFT_N){ per[m.book]++; pick.push(m); } });
+    ms.forEach(function(m){ if(m.score<2) return; if(!_repPrivPrefs.inDraft&&repPrivIs(m.book)) return;   // v68.5: پسند کے مطابق نجی کتابیں مسودے میں بھی
+    var cap=2; per[m.book]=(per[m.book]||0); if(per[m.book]<cap&&pick.length<REP_MM_DRAFT_N){ per[m.book]++; pick.push(m); } });
     return pick;
 }
 function repMMDraftText(abbr,re){
@@ -372,7 +386,9 @@ function repDiffMMTabHtml(last){
             h+='<div class="rep-mm-draft"><div class="rep-mm-drafthead">🤖 '+L({ur:'خودکار مسودہ (حوالہ جات کے ساتھ) — تصدیق باقی',en:'Auto draft (with references) — unverified',roman:'Khudkar musawwada — tasdeeq baqi'})+'</div>';
             draftList.forEach(function(m){ h+='<div class="rep-mm-draftline" dir="ltr">• '+repMMHighlight(repMMFmt(m.text),re)+' <span class="rep-mm-ref" style="color:'+(REP_MM_COLOR[m.book]||'#555')+'">'+escapeHtml(repMMRef(m))+'</span> '+pickBtn(m)+'</div>'; });
             h+='</div>';
-        } else h+='<div class="rep-tool-note">'+L({ur:'اس موضوع پر ان کتابوں میں اس ریمیڈی کا کوئی جملہ نہیں ملا — الفاظ بدل کر دیکھیں یا 📖 پورا متن',en:'No sentence for this remedy on this theme — try other words or 📖 full text',roman:'Koi jumla nahi mila'})+'</div>';
+        } else { var _hint=(typeof repMMAvail==='function')?repMMAvail(a):[];   // v68.4: «کوئی جملہ نہیں» پر بھی بتاؤ کہ کون سی کتاب اِس دوا کو جانتی ہے
+            h+='<div class="rep-tool-note">'+(_hint.length?L({ur:'اِس دوا کے بارے میں '+_hint.length+' کتابوں میں متن ہے — نیچے کسی خانے پر کلک کر کے 📖 پورا متن دیکھیں',en:_hint.length+' books do carry this remedy — open a tab and use the full text',roman:_hint.length+' kitabon mein text hai'}):'')+' · ';
+            h+=L({ur:'اس موضوع پر ان کتابوں میں اس ریمیڈی کا کوئی جملہ نہیں ملا — الفاظ بدل کر دیکھیں یا 📖 پورا متن',en:'No sentence for this remedy on this theme — try other words or 📖 full text',roman:'Koi jumla nahi mila'})+'</div>'; }
         if(ms.length){
             var byBook={}; ms.forEach(function(m){ (byBook[m.book]=byBook[m.book]||[]).push(m); });
             h+='<details class="rep-mm-more" '+(ms.length<=12?'open':'')+'><summary>'+L({ur:'تمام متعلقہ جملے',en:'All matching sentences',roman:'Tamam jumle'})+' ('+ms.length+') — '+L({ur:'ہر جملے پر «＋ نوٹ میں»',en:'each with «＋ to note»',roman:'har jumle par «＋»'})+'</summary>';
@@ -447,13 +463,21 @@ function repMMRender(){
     }
     h+='<div class="rep-diff-ctl"><div class="rep-diff-tabs" style="margin:0">';
     if(!repMMIndex) h+='<span class="rep-tool-loading">⏳</span>';
+    var _privEmptyN=0;
     repMMBookIds().forEach(function(id){ var priv=repPrivIs(id), has=av.indexOf(id)!==-1;
+        if(priv&&!has){ _privEmptyN++; if(_repPrivPrefs.hideEmpty) return; }
         // 🔑 v68.2: نجی کتاب کے «✕» سے وہ کتاب اِسی آلے سے ہٹ جاتی ہے؛ عام کتاب کے «✕» صرف یہ بتاتے ہیں کہ اِس ریمیڈی کا اُس میں کچھ نہیں
         h+='<button class="'+(repMMView.book===id?'on':'')+(has?'':' none')+(priv?' priv':'')+'" '+(has?'onclick="repMMSetBook(\''+id+'\')"':'disabled')+' title="'+_repAttr(repMMBookLabel(id))+'">'
             +(priv?'🔒 ':'')+escapeHtml(repMMShort(id))
             +(priv&&!has?'<span class="rep-mm-tabx del" onclick="repPrivDelete(\''+_repJs(id)+'\')" title="'+_repAttr(L({ur:'یہ نجی کتاب اِسی آلے سے ہٹا دیں',en:'Remove this private book from this device',roman:'Ye kitab is device se hata dein'}))+'">✕</span>':(has?'':' ✕'))
             +'</button>'; });
-    h+='</div><label>🔎 <input type="text" id="repMMQ" value="'+_repAttr(repMMView.q)+'" dir="ltr" placeholder="absent, forget" oninput="repMMSearch()" style="width:220px;border:1px solid #cfdbe6;border-radius:8px;padding:4px 8px;font-family:inherit;font-size:12px"></label>'
+    var _privToggle='';
+    if(_privEmptyN){
+        var _lbl=_repPrivPrefs.hideEmpty?L({ur:'دکھائیں',en:'show',roman:'dikhayein'}):L({ur:'چھپا دیں',en:'hide',roman:'chhpa dein'});
+        var _tip=L({ur:'صرف اِس قطار سے چھپتی ہیں — کتاب اِسی آلے میں محفوظ رہتی ہے',en:'hidden from this row only — the book stays on this device',roman:'sirf is qataar se chhupti hain'});
+        _privToggle='<button class="rst-link'+(_repPrivPrefs.hideEmpty?' on':'')+'" onclick="repPrivHideEmptyToggle()" title="'+_repAttr(_tip)+'">🔒 '+_privEmptyN+' '+_lbl+'</button>';
+    }
+    h+='</div>'+_privToggle+'<label>🔎 <input type="text" id="repMMQ" value="'+_repAttr(repMMView.q)+'" dir="ltr" placeholder="absent, forget" oninput="repMMSearch()" style="width:220px;border:1px solid #cfdbe6;border-radius:8px;padding:4px 8px;font-family:inherit;font-size:12px"></label>'
         +(repPrivIs(repMMView.book)?'<label title="'+L({ur:'نجی کتاب: ریمیڈی کے صفحات کی بجائے پوری کتاب میں الفاظ تلاش کریں',en:'Private book: search the words in the whole book instead of the remedy pages',roman:'Poori kitab mein talash'})+'"><input type="checkbox" '+(repMMView.whole?'checked':'')+' onchange="repMMWholeToggle(this.checked)"> '+L({ur:'پوری کتاب',en:'whole book',roman:'poori kitab'})+'</label>':'')
         +'<button class="rc-btn" onclick="repMMCopy()" title="'+L({ur:'اس کتاب کا متن کاپی',en:'Copy this book\'s text',roman:'Copy'})+'">📋</button></div>';
     head.innerHTML=h; repMMRenderBody();

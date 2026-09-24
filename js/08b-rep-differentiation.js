@@ -11,7 +11,9 @@
 var REP_DIFF_MAX_REMS=5;
 var REP_DIFF_ROW_CAP=400;      // ہر سیکشن میں زیادہ سے زیادہ قطاریں (کارکردگی)
 var REP_DIFF_FEAT_CAP=60;      // ربرک موڈ میں زیادہ سے زیادہ فیچر کالم
-var repDiffOpts={scope:'book',maxN:60,minG:1,sort:'score'};
+var repDiffOpts={scope:'book',maxN:60,minG:1,sort:'score',mode:'compare',onlySingle:0,topOnly:0};
+var REP_EXTR_CAP=600;                 // ✅ v68.7: ایک دوا کی مکمل فہرست میں زیادہ سے زیادہ قطاریں
+var REP_DIFF_SCAN_STOP=250000;        // ✅ v68.7: فہرست بھرتے وقت زیادہ سے زیادہ ربرکس چھانٹے جائیں (پوری کتاب آسانی سے، تمام کتابیں حد تک)
 var repDiffCtx=null;           // {book,ch,rid,full,rems:{abbr:grade}} — ربرک کا سیاق (ڈیٹیل پیج سے) یا null
 var repDiffSel=[];             // چنی ہوئی ریمیڈیز (abbr)
 var repDiffTab='excl';         // 'excl'|'grade'|'partial'|'common'|'rubric'|'books'
@@ -20,7 +22,7 @@ var repDiffTheme='';           // کتابوں کی گواہی کے لیے مو�
 var _repRemSizeCache={};       // book -> {abbr: rubric count}
 var _repDiffBusy=false;
 
-function repDiffOptsLoad(){ try{ var d=JSON.parse(localStorage.getItem('bc_rep_diff_opts')||'{}'); if(d.scope)repDiffOpts.scope=d.scope; if(d.maxN!=null)repDiffOpts.maxN=d.maxN; if(d.minG)repDiffOpts.minG=d.minG; if(d.sort)repDiffOpts.sort=d.sort; }catch(e){} }
+function repDiffOptsLoad(){ try{ var d=JSON.parse(localStorage.getItem('bc_rep_diff_opts')||'{}'); if(d.scope)repDiffOpts.scope=d.scope; if(d.maxN!=null)repDiffOpts.maxN=d.maxN; if(d.minG)repDiffOpts.minG=d.minG; if(d.sort)repDiffOpts.sort=d.sort; if(d.mode)repDiffOpts.mode=d.mode; if(d.onlySingle)repDiffOpts.onlySingle=d.onlySingle; if(d.topOnly)repDiffOpts.topOnly=d.topOnly; }catch(e){} }
 function repDiffOptsSave(){ try{ localStorage.setItem('bc_rep_diff_opts',JSON.stringify(repDiffOpts)); }catch(e){} }
 repDiffOptsLoad();
 
@@ -39,27 +41,44 @@ function repDiffRemedySizes(book,data){
     _repRemSizeCache[book]=c; return c;
 }
 // دائرے کے ربرکس کی فہرست: [{book,ch,rid,t,r}]
-function repDiffRubricList(scope,book,ch,cb){
+function repDiffRubricList(scope,book,ch,cb,opts){
+    // ✅ v68.7 fix 3: «ربرک کا سائز ≤» کی شرط اب یہیں لگتی ہے، فہرست بھرتے وقت —
+    //   بڑے ربرکس object ہی نہیں بنتے، اس لیے پوری کتاب/تمام کتابیں والی اسکین سستی ہو جاتی ہے۔
+    var maxN=(opts&&opts.maxN&&opts.maxN>0)?opts.maxN:Infinity;
+    var need=opts&&opts._rems;                      // صرف وہ ربرکس جن میں کم از کم ایک منتخب دوا ہو
+    var rems=need?opts._rems:null;
+    var stop=opts&&opts._stop?REP_DIFF_SCAN_STOP:Infinity, scanned=0, skipped=0;
     function flat(bk,d,onlyCh){
         var out=[]; if(!d)return out;
         var want=onlyCh?String(normalizeChapterKey(bk,onlyCh)).toLowerCase():null;
         Object.keys(d).forEach(function(c){
             if(want!==null){ var ck=String(normalizeChapterKey(bk,c)).toLowerCase(); if(ck!==want&&String(c).toLowerCase()!==String(onlyCh).toLowerCase())return; }
+            if(out.length>=stop) return;
             var cd=d[c]||{};
-            Object.keys(cd).forEach(function(rid){ var v=cd[rid]; if(v&&v.r) out.push({book:bk,ch:c,rid:rid,t:v.t||'',r:v.r}); });
+            Object.keys(cd).forEach(function(rid){
+                var v=cd[rid]; if(!v||!v.r)return;
+                if(scanned>=stop)return; scanned++;
+                var r=v.r, n=0, sel=0;
+                for(var a in r){ n++; if(rems&&rems[a]) sel++; }
+                if(rems&&!sel)return;                              // جن میں سے ایک منتخب دوا بھی نہ ہو (خالی «دیکھیں» ربرکس سمیت)، وہ فہرست میں نہیں آتی                              // جن میں سے ایک منتخب دوا بھی نہ ہو، وہ فہرست میں نہیں آتی (خالی «دیکھیں» ربرکس بھی)
+                if(n>maxN){ skipped++; return; }      // چھوٹا ربرک پہلے، ویکٹر بعد میں
+                out.push({book:bk,ch:c,rid:rid,t:v.t||'',r:v.r});
+            });
         });
+        out.skipped=skipped; out.scanned=scanned;
         return out;
     }
     if(scope==='all'){
         repEnsureAllBooks(function(all){
             var list=[]; Object.keys(all||{}).forEach(function(bk){ list=list.concat(flat(bk,all[bk],null)); });
+            list.skipped=skipped; list.scanned=scanned;
             cb(list,all||{});
         });
         return;
     }
     loadSingleBookData(book,function(d){
         var all={}; all[book]=d;
-        cb(flat(book,d,scope==='chapter'?ch:null),all);
+        var list=flat(book,d,scope==='chapter'?ch:null); cb(list,all);
     });
 }
 
@@ -240,11 +259,14 @@ function repDiffRenderHead(){
     // کنٹرولز
     var o=repDiffOpts;
     h+='<div class="rep-diff-ctl">'
+        +'<label title="'+L({ur:'موازنہ = دوائیں آپس میں مختلف جگہیں؛ نکالنا = ایک دوا کی اپنی مکمل فہرست',en:'compare = where the remedies differ; extract = the full page list of one remedy',roman:'muwazna / nikalna'})+'">🧭 '+L({ur:'طریقہ',en:'Mode',roman:'Tareeqa'})+' <select onchange="repDiffSetOpt(\'mode\',this.value)">'
+        +'<option value="compare"'+(o.mode!=='extract'?' selected':'')+'>'+L({ur:'دوائوں کا موازنہ',en:'Compare remedies',roman:'Muwazna'})+'</option>'
+        +'<option value="extract"'+(o.mode==='extract'?' selected':'')+'>'+L({ur:'ایک دوا کی فہرست نکالنا',en:'Extract one remedy',roman:'Ek dawa ki fehrist'})+'</option></select></label>'
         +'<label>📚 '+L({ur:'دائرہ',en:'Scope',roman:'Scope'})+' <select onchange="repDiffSetOpt(\'scope\',this.value)">'
         +'<option value="chapter"'+(o.scope==='chapter'?' selected':'')+'>'+L({ur:'کھلا باب',en:'Open chapter',roman:'Khula baab'})+' ('+escapeHtml(getChapterDisplayName(repDiffScopeBook(),repDiffScopeCh())||repDiffScopeCh()||'')+')</option>'
         +'<option value="book"'+(o.scope==='book'?' selected':'')+'>'+L({ur:'پوری کتاب',en:'Whole book',roman:'Poori kitab'})+' ('+escapeHtml(bi.abbr)+')</option>'
         +'<option value="all"'+(o.scope==='all'?' selected':'')+'>'+L({ur:'تمام کتابیں',en:'All books',roman:'Tamam kitabein'})+' ('+Object.keys(REP_BOOK_INFO).length+')</option></select></label>'
-        +'<label title="'+L({ur:'اس سے بڑے ربرکس فہرست سے باہر (گنتی پھر بھی پوری)',en:'Rubrics larger than this are hidden from lists (counts stay complete)',roman:'Is se barhe rubrics list se bahar'})+'">📏 '+L({ur:'ربرک کا سائز ≤',en:'Rubric size ≤',roman:'Rubric size ≤'})+' <select onchange="repDiffSetOpt(\'maxN\',parseInt(this.value,10))">'
+        +'<label title="'+L({ur:'اس سے بڑے ربرکس اسکین ہی نہیں ہوتے (یہی اصل رفتار کا فرق ہے)',en:'larger rubrics are never scanned — this is where the speed comes from',roman:'barhe rubrics scan hi nahi hote'})+'">📏 '+L({ur:'ربرک کا سائز ≤',en:'Rubric size ≤',roman:'Rubric size ≤'})+' <select onchange="repDiffSetOpt(\'maxN\',parseInt(this.value,10))">'
         +[10,30,60,100,200,0].map(function(n){ return '<option value="'+n+'"'+(o.maxN===n?' selected':'')+'>'+(n?n:L({ur:'سب',en:'all',roman:'sab'}))+'</option>'; }).join('')+'</select></label>'
         +'<label>⭐ '+L({ur:'کم از کم گریڈ',en:'Min grade',roman:'Min grade'})+' <select onchange="repDiffSetOpt(\'minG\',parseInt(this.value,10))">'
         +[1,2,3].map(function(g){ return '<option value="'+g+'"'+(o.minG===g?' selected':'')+'>'+g+'</option>'; }).join('')+'</select></label>'
@@ -253,12 +275,14 @@ function repDiffRenderHead(){
         +'<option value="grade"'+(o.sort==='grade'?' selected':'')+'>'+L({ur:'پہلے گریڈ، پھر چھوٹا ربرک',en:'grade first, then smallest rubric',roman:'grade pehle, phir chhota rubric'})+'</option></select></label>'
         +'<button class="rc-btn primary" onclick="repDiffRun()">▶ '+L({ur:'چلائیں',en:'Run',roman:'Chalayein'})+'</button>'
         +'<button class="rc-btn" onclick="repDiffCopy()" title="'+L({ur:'نتیجہ متن کی شکل میں کاپی',en:'Copy result as text',roman:'Nateeja copy'})+'">📋</button>'
+        +(repDiffLast&&repDiffLast.extract?'<button class="rc-btn primary" onclick="repDiffTakeAll()" title="'+L({ur:'تمام قطاریں فعال کلپ بورڈ میں ڈال دیں',en:'Put every row into the active clipboard',roman:'Sab qatarein clipboard mein'})+'">📥 '+L({ur:'سب کلپ بورڈ میں',en:'Take all',roman:'Sab clipboard mein'})+'</button>':'')
         +'</div>';
     // ٹیبز
-    var res=repDiffLast&&repDiffLast.res, k=repDiffSel.length;
+    var res=repDiffLast&&repDiffLast.res, k=repDiffSel.length, o=o||repDiffOpts;
     function tab(id,lab,n){ return '<button class="'+(repDiffTab===id?'on':'')+'" onclick="repDiffSetTab(\''+id+'\')">'+lab+(n!=null?' <span class="cnt">'+n+'</span>':'')+'</button>'; }
     h+='<div class="rep-diff-tabs">';
-    if(k===1) h+=tab('excl','🔑 '+L({ur:'کی نوٹس (اس ریمیڈی کے ربرکس)',en:'Keynotes (rubrics of this remedy)',roman:'Keynotes'}),res?res.any:null);
+    if(k===1&&o.mode==='extract') h+=tab('excl','🧲 '+L({ur:'نکالی ہوئی مکمل فہرست',en:'Extracted list',roman:'Extraction'}),repDiffLast&&repDiffLast.extract?repDiffLast.extract.rows.length:null);
+    else if(k===1) h+=tab('excl','🔑 '+L({ur:'کی نوٹس (اس ریمیڈی کے ربرکس)',en:'Keynotes (rubrics of this remedy)',roman:'Keynotes'}),res?res.any:(repDiffLast&&repDiffLast.extract?repDiffLast.extract.k1:null));
     else { h+=tab('excl','🎯 '+L({ur:'خصوصی',en:'Exclusive',roman:'Khususi'}),res?Object.keys(res.excl).reduce(function(s,a){return s+res.perRem[a].excl;},0):null);
            h+=tab('grade','📶 '+L({ur:'گریڈ کا فرق',en:'Grade difference',roman:'Grade ka farq'}),res?res.grade.length:null);
            h+=tab('partial','◐ '+L({ur:'جزوی',en:'Partial',roman:'Juzvi'}),res?res.partial.length:null);
@@ -289,7 +313,9 @@ function repDiffAddTyped(){
     var inp=document.getElementById('repDiffInput'); if(!inp)return; var v=String(inp.value||'').trim().toLowerCase(); if(!v)return;
     inp.value=''; repDiffToggleRem(v);
 }
-function repDiffSetOpt(k,v){ repDiffOpts[k]=v; repDiffOptsSave(); repDiffLast=null; repDiffRenderHead(); if(repDiffSel.length||repDiffTab==='rubric'||repDiffTab==='books') repDiffRun(); }
+function repDiffSetOpt(k,v){ var old=repDiffOpts[k]; repDiffOpts[k]=v; repDiffOptsSave(); repDiffLast=null; repDiffRenderHead();
+    if(k==='mode'){ if(repDiffSel.length||repDiffTab==='rubric'||repDiffTab==='books') repDiffRun(); return; }
+    if(repDiffSel.length||repDiffTab==='rubric'||repDiffTab==='books') repDiffRun(); }
 function repDiffSetTab(t){
     repDiffTab=t; repDiffRenderHead();
     var loaded=repDiffLast?Object.keys(repDiffLast.all||{}).length:0;
@@ -309,22 +335,27 @@ function repDiffRun(){
     var scope=repDiffOpts.scope, book=repDiffScopeBook(), ch=repDiffScopeCh();
     var needAll=(scope==='all')||repDiffTab==='books';
     var t0=Date.now();
+    var opt=Object.assign({},repDiffOpts);
+    if(repDiffSel.length){ var m={}; repDiffSel.forEach(function(a){ m[a]=1; }); opt._rems=m; }
+    opt._stop=true;                              // ✅ v68.7: لمبی اسکین پر جلدی رکنا
     var go=function(list,all){
         var scopeData=all[book]||null;
         var sizes=repDiffRemedySizes(book,scopeData);
-        var res=repDiffSel.length?repDiffCompute(repDiffSel,list,repDiffOpts):null;
-        repDiffLast={res:res,list:list,all:all,sizes:sizes,scopeBook:book,scope:scope,ms:Date.now()-t0,n:list.length};
+        var single=(repDiffOpts.mode==='extract'&&repDiffSel.length===1);
+        var extr=single?repDiffExtract(repDiffSel[0],list,repDiffOpts,sizes):null;
+        var res=(single||!repDiffSel.length)?null:repDiffCompute(repDiffSel,list,repDiffOpts);
+        repDiffLast={res:res,extract:extr,list:list,all:all,sizes:sizes,scopeBook:book,scope:scope,ms:Date.now()-t0,n:list.length,skipped:list.skipped||0,scanned:list.scanned||0};
         _repDiffBusy=false;
         repDiffRenderHead(); repDiffRenderBody();
     };
     if(needAll){
         repEnsureAllBooks(function(all){
             all=all||{};
-            if(scope==='all'){ repDiffRubricList('all',book,ch,function(list,a2){ go(list,all); }); }
-            else { repDiffRubricList(scope,book,ch,function(list,a2){ Object.keys(a2||{}).forEach(function(bk){ if(!all[bk])all[bk]=a2[bk]; }); go(list,all); }); }
+            if(scope==='all'){ repDiffRubricList('all',book,ch,function(list,a2){ go(list,all); },opt); }
+            else { repDiffRubricList(scope,book,ch,function(list,a2){ Object.keys(a2||{}).forEach(function(bk){ if(!all[bk])all[bk]=a2[bk]; }); go(list,all); },opt); }
         });
     } else {
-        repDiffRubricList(scope,book,ch,function(list,all){ go(list,all||{}); });
+        repDiffRubricList(scope,book,ch,function(list,all){ go(list,all||{}); },opt);
     }
 }
 
@@ -350,6 +381,7 @@ function repDiffRenderBody(){
     var body=document.getElementById('repDiffBody'); if(!body)return;
     var L=repLangText, last=repDiffLast, R=repDiffSel.slice();
     if(repDiffTab==='mm'&&typeof repDiffMMTabHtml==='function'){ body.innerHTML=repDiffMMTabHtml(last); body.scrollTop=0; return; }
+    if(last&&last.extract&&repDiffTab==='excl'){ repDiffRenderExtr(last); return; }
     if(!R.length&&repDiffTab!=='rubric'&&repDiffTab!=='books'){
         body.innerHTML='<div class="rep-tool-loading">'+L({ur:'اوپر 1 تا 5 ریمیڈیز چنیں — ایک ریمیڈی = اس کے کی نوٹس ربرکس؛ 2 تا 5 = آپس کا فرق',en:'Pick 1–5 remedies above — one remedy = its keynote rubrics; 2–5 = their differences',roman:'Ooper 1–5 remedies chunein'})+'</div>';
         return;
@@ -362,9 +394,10 @@ function repDiffRenderBody(){
         h+='<span>'+L({ur:'دائرہ:',en:'Scope:',roman:'Scope:'})+' <b>'+last.n.toLocaleString()+'</b> '+L({ur:'ربرکس',en:'rubrics',roman:'rubrics'})+'</span>';
         h+='<span>'+L({ur:'کسی ایک میں:',en:'Any present:',roman:'Any present:'})+' <b>'+res.any.toLocaleString()+'</b></span>';
         if(R.length>1) h+='<span>'+L({ur:'سب موجود:',en:'All present:',roman:'All present:'})+' <b>'+res.allPresent.toLocaleString()+'</b> ('+L({ur:'برابر گریڈ',en:'equal grades',roman:'barabar grade'})+' '+res.commonEqual.toLocaleString()+')</span>';
-        R.forEach(function(a){ var p=res.perRem[a]; h+='<span class="rep-diff-remsum"><b dir="ltr">'+escapeHtml(a)+'</b> '+L({ur:'موجود',en:'in',roman:'in'})+' '+p.inRubrics.toLocaleString()+(R.length>1?' · '+L({ur:'خصوصی',en:'exclusive',roman:'exclusive'})+' <b>'+p.excl.toLocaleString()+'</b>':'')+' · '+L({ur:'گریڈ 3',en:'grade 3',roman:'grade 3'})+' '+p.g3+' · '+L({ur:'سائز',en:'size',roman:'size'})+' '+((last.sizes&&last.sizes[a])||0).toLocaleString()+'</span>'; });
+        R.forEach(function(a){ var p=res.perRem[a]; h+='<span class="rep-diff-remsum"><b dir="ltr">'+escapeHtml(a)+'</b> '+L({ur:'موجود',en:'in',roman:'in'})+' '+(((last.sizes&&last.sizes[a])||0)||p.inRubrics).toLocaleString()+(R.length>1?' · '+L({ur:'خصوصی',en:'exclusive',roman:'exclusive'})+' <b>'+p.excl.toLocaleString()+'</b>':'')+' · '+L({ur:'گریڈ 3',en:'grade 3',roman:'grade 3'})+' '+p.g3+' · '+L({ur:'سائز',en:'size',roman:'size'})+' '+((last.sizes&&last.sizes[a])||0).toLocaleString()+'</span>'; });
         h+='<span class="rep-diff-ms">'+last.ms+' ms</span>';
         h+='</div>';
+        if(last.skipped) h+='<div class="rep-diff-note">'+L({ur:last.skipped.toLocaleString()+' بڑے ربرکس سائز کی حد سے باہر رکھے گئے (گنتیاں پوری کتاب سے ہیں)',en:last.skipped.toLocaleString()+' large rubrics skipped by the size cap (counts are book-wide)',roman:'barhe rubrics bahar'})+'</div>';
         if(R.length>1){
             h+='<div class="rep-diff-pairs">';
             Object.keys(res.pair).forEach(function(k){ var p=res.pair[k], ab=k.split('|'); h+='<span title="'+L({ur:'صرف پہلی / صرف دوسری / دونوں',en:'only first / only second / both',roman:'sirf pehli / sirf doosri / dono'})+'"><b dir="ltr">'+escapeHtml(ab[0])+'</b> ⇄ <b dir="ltr">'+escapeHtml(ab[1])+'</b>: '+p.onlyA+' / '+p.onlyB+' / '+p.both+'</span>'; });
@@ -467,10 +500,89 @@ function repDiffClipToggle(btn,book,ch,rid,path,rems){
     showToast((added?'☑ ':'☐ ')+repLangText({ur:added?repClipLabel(repActiveClip)+' میں شامل':repClipLabel(repActiveClip)+' سے ہٹا دیا',en:added?'Added to '+repClipLabel(repActiveClip):'Removed from '+repClipLabel(repActiveClip),roman:added?repClipLabel(repActiveClip)+' mein shamil':repClipLabel(repActiveClip)+' se hata diya'}));
     if(typeof repCmpPanelRender==='function') repCmpPanelRender();
 }
+// ==================== ✅ v68.7: «ایک دوا کی فہرست نکالنا» (remedy extraction) ====================
+// ریڈار اوپس جیسا: ایک دوا چنیں، اور اُس کی وہ ساری جگہیں نکالیں جن میں وہ دوا ہے —
+//   شرط کے ساتھ: ربرک کا سائز ≤، کم از کم گریڈ، صرف انوکھی جگہیں (جن میں اور کوئی نہ ہو)،
+//   اور صرف پہلے نمبر کی جگہیں (outranking)۔ یہ سب فہرست بھرتے ہوئے چھانتا ہے، بعد میں نہیں۔
+function repDiffExtract(abbr,list,opts,sizes){
+    var out={abbr:abbr,total:0,top:0,single:0,rows:[],cap:false,skipped:0};
+    if(!abbr||!list||!list.length) return out;
+    var minG=opts.minG||1, maxN=(opts.maxN&&opts.maxN>0)?opts.maxN:Infinity, onlyOnly=!!opts.onlySingle, topOnly=!!opts.topOnly;
+    for(var i=0;i<list.length;i++){
+        var x=list[i], r=x.r||{};
+        var g=repDiffGrade(r[abbr]); if(g<minG) continue;
+        var n=0,best=0,bestA=null;
+        for(var a in r){ var gg=repDiffGrade(r[a]); n++; if(gg>best){best=gg;bestA=a;} else if(gg===best&&bestA&&a<bestA)bestA=a; }
+        out.total++;
+        var isSingle=(n===1), isTop=(g>=best);
+        if(isSingle) out.single++;
+        if(isTop) out.top++;
+        if(onlyOnly&&!isSingle) continue;
+        if(topOnly&&!isTop) continue;
+        if(n>maxN){ out.skipped++; continue; }
+        out.rows.push({x:x,N:n,g:g,score:g*repDiffSpec(n),peer:isSingle?'':bestA,pg:best});
+    }
+    out.rows.sort(function(a,b){ return (b.g-a.g)||(a.N-b.N)||(b.score-a.score); });
+    if(out.rows.length>REP_EXTR_CAP){ out.rows.length=REP_EXTR_CAP; out.cap=true; }
+    out.k1=out.total;
+    return out;
+}
+function repDiffExtrRowHtml(row,abbr){
+    var x=row.x, inC=repDiffInCaseSet()[x.book+'|'+String(x.rid)];
+    var peer=row.peer&&row.pg>row.g?(' <span class="rep-diff-hint">'+abbr+' → '+row.g+' · '+escapeHtml(row.peer)+' → '+row.pg+'</span>'):'';
+    return '<div class="rep-diff-row">'
+        +'<button class="rpc-chk sr'+(repClipFind(repActiveClip,x.book,x.rid)!==-1?' on':'')+'" title="'+repLangText({ur:'فعال کلپ بورڈ میں شامل/خارج',en:'Add to / remove from active clipboard',roman:'Active clipboard mein shamil/kharij'})+'" onclick="repDiffClipToggle(this,\''+_repJs(x.book)+'\',\''+_repJs(x.ch)+'\',\''+_repJs(x.rid)+'\',\''+_repJs(x.t)+'\','+row.N+')">'+(repClipFind(repActiveClip,x.book,x.rid)!==-1?'✓':'')+'</button>'
+        +'<span class="rep-diff-ch">'+escapeHtml(getChapterDisplayName(x.book,x.ch)||x.ch)+' ›</span> '
+        +'<span class="rep-diff-t" dir="ltr" onclick="repDiffGo(\''+_repJs(x.book)+'\',\''+_repJs(x.ch)+'\',\''+_repJs(x.rid)+'\')">'+escapeHtml(x.t)+'</span>'+peer
+        +'<span class="rep-diff-n" title="'+repLangText({ur:'ربرک کی کل ریمیڈیز',en:'remedies in rubric',roman:'rubric ki kul remedies'})+'">'+row.N+'</span>'
+        +'<span class="rep-diff-vec"><span class="rep-diff-dot d'+row.g+'">'+row.g+'</span></span>'
+        +'<span class="rep-diff-score">'+repDiffFmt(row.score)+'</span>'
+        +(inC?'<span class="rep-diff-incase">📋'+inC+'</span>':'')
+        +'</div>';
+}
+function repDiffRenderExtr(last){
+    var L=repLangText, e=last.extract, body=document.getElementById('repDiffBody'); if(!body||!e)return;
+    var h='<div class="rep-diff-sum">'
+        +'<span class="rep-diff-chip on"><b dir="ltr">'+escapeHtml(e.abbr)+'</b> <button onclick="repDiffToggleRem(\''+_repJs(e.abbr)+'\')">✕</button></span> '
+        +'<span>'+L({ur:'اس کتاب میں کل جگہیں',en:'rubrics in scope',roman:'kul jagahain'})+': <b>'+e.total+'</b></span>'
+        +'<span>'+L({ur:'انوکھی',en:'single-remedy',roman:'anokhi'})+': <b>'+e.single+'</b></span>'
+        +'<span>'+L({ur:'پہلے نمبر پر',en:'not outranked',roman:'pehle number par'})+': <b>'+e.top+'</b></span>'
+        +'<span>'+L({ur:'دکھائی جا رہی',en:'shown',roman:'dikhai ja rahi'})+': <b>'+e.rows.length+'</b>'+L({ur:' (اوپر والی شرط کے بعد)',en:' (after filters)',roman:' (shart ke baad)'})+'</span>'
+        +'</div>';
+    if(e.cap) h+='<div class="rep-diff-note">ℹ '+L({ur:'فہرست لمبی تھی، '+REP_EXTR_CAP+' بہترین قطاریں دکھائی گئیں۔ چھانٹنی لگائیں تو سب نظر آئیں گی۔',en:'Long list — top '+REP_EXTR_CAP+' rows shown; add filters to see the rest.',roman:'Lambi fehrist'})+'</div>';
+    if(last.scanned>REP_DIFF_SCAN_STOP) h+='<div class="rep-diff-note">⚠ '+L({ur:'اسکین چھوٹی رکھی گئی: '+last.scanned+' ربرکس چھانٹے گئے، مقررہ حد تک۔ دائرہ چھوٹا (باب یا کتاب) رکھیں تو سب کچھ دیکھا جائے گا۔',en:'Scan capped at '+last.scanned+' rubrics. Narrow the scope (chapter or book) to be exhaustive.',roman:'Scan chhoti rakhi'})+'</div>';
+    if(e.skipped) h+='<div class="rep-diff-note">'+L({ur:e.skipped+' بڑی جگہیں سائز کی شرط سے باہر رہیں',en:e.skipped+' large rubrics filtered out by the size cap',roman:e.skipped+' barhi jagahain bahar'})+'</div>';
+    var o=repDiffOpts;
+    h+='<div class="rep-diff-ctl">'
+        +'<label><input type="checkbox" '+(o.onlySingle?'checked':'')+' onchange="repDiffSetOpt(\'onlySingle\',this.checked?1:0)"> '+L({ur:'صرف انوکھی جگہیں (اکیلے یہی دوا)',en:'single-remedy pages only',roman:'anokhi'})+'</label>'
+        +'<label><input type="checkbox" '+(o.topOnly?'checked':'')+' onchange="repDiffSetOpt(\'topOnly\',this.checked?1:0)"> '+L({ur:'صرف جہاں یہ دوا سب سے اوپر ہے',en:'where this remedy outranks the rest',roman:'sab se ooper'})+'</label>'
+        +'<button class="rc-btn primary" onclick="repDiffTakeAll()">📥 '+L({ur:'سب کلپ بورڈ میں',en:'Take all into clipboard',roman:'Sab clipboard mein'})+'</button>'
+        +'<button class="rc-btn" onclick="repDiffCopy()">📋</button>'
+        +'</div>';
+    if(!e.rows.length) h+='<div class="rep-tool-loading">'+L({ur:'اس دائرے اور ان شرائط کے تحت کوئی جگہ نہیں ملی۔',en:'Nothing in this scope with these filters.',roman:'Koi jagah nahi mili'})+'</div>';
+    else { h+='<div class="rep-diff-rows" dir="ltr">'; for(var i=0;i<e.rows.length;i++) h+=repDiffExtrRowHtml(e.rows[i],e.abbr); h+='</div>'; }
+    body.innerHTML=h; body.scrollTop=0;
+}
+// نکالی ہوئی پوری فہرست ایک ساتھ فعال کلپ بورڈ میں
+function repDiffTakeAll(){
+    var last=repDiffLast, e=last&&last.extract;
+    var rows=e?e.rows:(last&&last.res?[]:[]);
+    if(!rows.length){ showToast(repLangText({ur:'پہلے چلائیں',en:'Run first',roman:'Pehle chalayein'})); return; }
+    var added=0;
+    for(var i=rows.length-1;i>=0;i--){ var x=rows[i].x;
+        if(repClipFind(repActiveClip,x.book,x.rid)===-1){ repClipboards[repActiveClip].unshift({book:x.book,ch:x.ch,rid:String(x.rid),path:x.t,rems:rows[i].N,ts:Date.now()}); added++; }
+    }
+    if(added){ repClipsSave(); repRenderDock(); if(typeof repCmpPanelRender==='function')repCmpPanelRender(); repDiffRenderExtr(last); repDiffRenderHead(); }
+    showToast('📥 '+(added?repLangText({ur:added+' جگہیں '+repClipLabel(repActiveClip)+' میں ڈال دیں',en:added+' rubrics added to '+repClipLabel(repActiveClip),roman:added+' jagahain clipboard mein'}):repLangText({ur:'سب پہلے سے موجود تھیں',en:'already there',roman:'sab mojood thin'})));
+}
 function repDiffGo(book,ch,rid){ repDiffClose(); navigateToRubric(book,ch,rid,true); }
 function repDiffCopy(){
     var last=repDiffLast; if(!last||!last.res){ showToast(repLangText({ur:'پہلے چلائیں',en:'Run first',roman:'Pehle chalayein'})); return; }
     var R=repDiffSel, res=last.res, lines=[];
+    if(last.extract&&!res){ var e=last.extract; lines.push('EXTRACT — '+e.abbr+' — scope: '+last.scope+' ('+last.n+' rubrics scanned)');
+        lines.push('total='+e.total+' single-remedy='+e.single+' not-outranked='+e.top+' shown='+e.rows.length);
+        e.rows.forEach(function(r){ lines.push('  ['+r.g+'] ('+r.N+') '+(getChapterDisplayName(r.x.book,r.x.ch)||r.x.ch)+' › '+r.x.t); });
+        var tx=lines.join('\n'); if(navigator.clipboard) navigator.clipboard.writeText(tx).then(function(){ showToast('📋 '+repLangText({ur:'فہرست کاپی ہو گئی',en:'List copied',roman:'Fehrist copy ho gayi'})); }); return; }
     lines.push('DIFFERENTIATION — '+R.join(' vs ')+' — scope: '+last.scope+' ('+last.n+' rubrics)'+(repDiffCtx?(' — rubric: '+repDiffCtx.full):''));
     lines.push('any='+res.any+' allPresent='+res.allPresent+' commonEqual='+res.commonEqual);
     R.forEach(function(a){ lines.push(''); lines.push('== '+a+' ('+repRemedyTitle(a)+') exclusive '+res.perRem[a].excl+' =='); res.excl[a].slice(0,40).forEach(function(r){ lines.push('  ['+r.g+'] ('+r.N+') '+(getChapterDisplayName(r.x.book,r.x.ch)||r.x.ch)+' › '+r.x.t); }); });

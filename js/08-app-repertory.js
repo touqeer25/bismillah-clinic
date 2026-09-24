@@ -27,6 +27,9 @@ var REP_BOOK_INFO = {
 /* 🔑 کتاب کے مطابق رنگ / فولڈر — ہر جگہ یہی helper استعمال ہو (hard-coded ternaries نہیں) */
 function repBookColor(book){ var bi=REP_BOOK_INFO[book]; return (bi&&bi.color)||'#8e44ad'; }
 function repChapDir(book){ var bi=REP_BOOK_INFO[book||repCurrentBook]; return (bi&&bi.chapDir)||'repertory_chapters/'; }
+// 🔑 v68.6: پوری کتاب، ایک باب اور ہر فہرست اِسی ایک نمبر سے منگوائی جائے — پہلے 'v=14' تین جگہ لکھا تھا اور
+// _index.json بالکل بغیر نمبر کے، اس لیے نئی کتاب کا فہرست پرانے کیش سے پڑھا جاتا رہتا تھا۔
+var REP_DATA_V='v=16';
 var _allBooksData = null;       // {publicum:{...}, kent:{...}, ...} cache for all-books mode
 var _allBookChapters = {};      // {publicum:[{key,name,rubrics}], ...} per-book chapter index (for name lookup)
 var repLastSearchView = null;   // {results, info} saved for the "back to results" button
@@ -121,7 +124,7 @@ function initRepertoryBrowser(noAutoChapter) {
     function loadChaptersAndRender() {
         var basePath = repChapDir(repCurrentBook);
         var indexFile = basePath + '_index.json';
-        fetch(indexFile).then(function(r){return r.json();}).then(function(data){
+        fetch(indexFile+'?'+REP_DATA_V).then(function(r){return r.json();}).then(function(data){
             // data is array of {key, name, rubrics}
             repChapterNames = sortChaptersForBook(repCurrentBook, data);
             var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
@@ -163,7 +166,7 @@ function selectChapter(chKey, navRid){
     cd.innerHTML='<div style="text-align:center;padding:30px;">Loading <b>'+nm+'</b>...</div>';
     if(repTreeCache[chKey]){renderTree(chKey,nm,repTreeCache[chKey]);return;}
     var basePath=repChapDir(repCurrentBook);
-    fetch(basePath+chKey+'.json?v=14').then(function(r){return r.json();}).then(function(d){
+    fetch(basePath+chKey+'.json?'+REP_DATA_V).then(function(r){return r.json();}).then(function(d){
         var tree=buildRubricTree(d);repTreeCache[chKey]=tree;renderTree(chKey,nm,tree);
     }).catch(function(e){
         // 🔑 fallback: chapter FILE missing (e.g. kent_de) -> extract chapter from book's full data file
@@ -661,7 +664,7 @@ var repClipElims=[false,false,false,false,false,false,false,false,false,false,fa
 var repClipNames=['','','','','','','','','','','',''];    // 🔑 custom clipboard names (workbench ✏ rename)
 // 🔑 v54: ☑ کمپیئر موڈ (HomeoSetu) + تجزیے کے اصول (ایلی منیشن / کوریج) — محفوظ رہتے ہیں
 var repCompareMode=false;                       // ☑ کمپیئر موڈ: کارڈز پر چیک باکس، ٹک = فعال کلپ بورڈ میں شامل
-try{ repCompareMode=(sessionStorage.getItem('bc_rep_cmp_mode')==='1'); }catch(e){}
+try{ var x=localStorage.getItem('bc_rep_cmp_mode'); if(x===null)x=(sessionStorage.getItem('bc_rep_cmp_mode')==='1')?'1':'0'; repCompareMode=(x==='1'); }catch(e){}   // 🔑 v68.6: پہلے session میں تھا — نئی ٹیب میں کمپیئر موڈ خود بخود بند ہو جاتا تھا
 var repAnaOpts={elim:'every',cov:'count'};      // elim: 'every' (HomeoSetu: ہر ربرک میں) | 'any' (پرانا: کسی ایک میں) — cov: 'count' (ہر ربرک = 1) | 'weighted' (ویٹ کوریج میں بھی)
 function repAnaOptsLoad(){ try{ var d=JSON.parse(localStorage.getItem('bc_rep_ana_opts')||'{}'); if(d.elim==='any'||d.elim==='every')repAnaOpts.elim=d.elim; if(d.cov==='count'||d.cov==='weighted')repAnaOpts.cov=d.cov; }catch(e){} }
 function repAnaOptsSave(){ try{ localStorage.setItem('bc_rep_ana_opts',JSON.stringify(repAnaOpts)); }catch(e){} }
@@ -681,12 +684,14 @@ var repClipViewOpen=false;repWorkbenchOpen=false;repCompareOpen=false;repAnalysi
 var repDockTrashArm=0;             // 🗑 double-click arm (confirm)
 function repClipsLoad(){
     try{ var s=localStorage.getItem('bc_rep_clipboards'); if(s){ var d=JSON.parse(s); if(d&&d.length){ // 🔑 v39 migration: پرانا 4-کلپ بورڈ ڈیٹا محفوظ رہتے ہوئے 8 تک بڑھایا جاتا ہے
-        while(d.length<REP_N_CLIPS)d.push([]); if(d.length===REP_N_CLIPS)repClipboards=d; } } }catch(e){}
+        while(d.length<REP_N_CLIPS)d.push([]);
+        if(d.length>REP_N_CLIPS){ var dropped=d.slice(REP_N_CLIPS).reduce(function(a,x){ return a+((x&&x.length)||0); },0); d=d.slice(0,REP_N_CLIPS); if(dropped)console.warn('rep clips: '+dropped+' rubric(s) in boards beyond '+REP_N_CLIPS+' were dropped'); }
+        repClipboards=d; } } }catch(e){ console.warn('rep clips load failed',e); }   // 🔑 v68.6: پہلے 12 کے علاوہ ہر گنتی چپکے سے ضائع ہو جاتی تھی
     // 🔑 v38 migration: every item gets a multiplier weight (default 1x)
     for(var i=0;i<REP_N_CLIPS;i++)(repClipboards[i]||[]).forEach(function(it){ if(typeof it.w!=='number')it.w=1; });
     repClipOptsLoad(); repAnaOptsLoad();
 }
-function repClipsSave(){ try{ localStorage.setItem('bc_rep_clipboards', JSON.stringify(repClipboards)); }catch(e){} }
+function repClipsSave(){ try{ localStorage.setItem('bc_rep_clipboards', JSON.stringify(repClipboards)); }catch(e){ if(typeof showToast==='function')showToast(repLangText({ur:'⚠ کلپ بورڈ محفوظ نہ ہو سکے (جگہ ختم)',en:'⚠ clipboard not saved (storage full)',roman:'⚠ clip board save na hua'})); } }   // 🔑 v68.6: خاموش ناکامی کی جگہ خبر
 function repClipFind(ci,book,rid){
     var l=repClipboards[ci]||[];
     for(var i=0;i<l.length;i++){ if(l[i].book===book&&String(l[i].rid)===String(rid)) return i; }
@@ -731,7 +736,7 @@ function repCloseClipView(){ repGo(repFolderPath); }
 function repCmpModeToggle(){ repCmpModeSet(!repCompareMode); }
 function repCmpModeSet(on){
     repCompareMode=!!on;
-    try{ sessionStorage.setItem('bc_rep_cmp_mode',repCompareMode?'1':'0'); }catch(e){}
+    try{ localStorage.setItem('bc_rep_cmp_mode',repCompareMode?'1':'0'); }catch(e){}
     repCmpSyncUI();
     showToast(repCompareMode
         ? repLangText({ur:'☑ کمپیئر موڈ آن — کارڈز پر ٹک لگائیں، ربرک '+repClipLabel(repActiveClip)+' میں جمع ہوں گے',en:'☑ Compare Mode ON — tick rubric cards to collect them in '+repClipLabel(repActiveClip),roman:'☑ Compare Mode ON — cards par tick lagaein'})
@@ -1178,7 +1183,7 @@ function loadSingleBookData(bookKey, cb){
     if(_allBooksData && _allBooksData[bookKey]){ cb(_allBooksData[bookKey]); return; }
     var info = REP_BOOK_INFO[bookKey];
     if(!info){ cb(null); return; }
-    fetch(info.dataFile + '?v=14').then(function(r){return r.json();}).then(function(d){
+    fetch(info.dataFile + '?'+REP_DATA_V).then(function(r){return r.json();}).then(function(d){
         if(!_allBooksData) _allBooksData = {};
         _allBooksData[bookKey] = d;
         if(bookKey===repCurrentBook) _repFullData = d;
@@ -1193,7 +1198,7 @@ function ensureSingleBookIndex(bookKey, dataForFallback, cb){
     }
     var info = REP_BOOK_INFO[bookKey];
     if(!info){ cb(); return; }
-    fetch(info.chapDir+'_index.json').then(function(r){return r.json();}).then(function(d){
+    fetch(info.chapDir+'_index.json?'+REP_DATA_V).then(function(r){return r.json();}).then(function(d){
         _allBookChapters[bookKey]=d;
         cb();
     }).catch(function(){
@@ -2099,7 +2104,7 @@ function searchRepertoryBrowser(){
 function loadRepData(cb){
     if(_repFullData!==null){ cb(_repFullData); return; }
     var info = REP_BOOK_INFO[repCurrentBook];
-    fetch(info.dataFile + '?v=14').then(function(r){return r.json();}).then(function(d){
+    fetch(info.dataFile + '?'+REP_DATA_V).then(function(r){return r.json();}).then(function(d){
         _repFullData=d; cb(d);
     }).catch(function(e){ console.error(e); });
 }
@@ -2118,12 +2123,12 @@ function loadAllBooksData(cb){
     books.forEach(function(bk){
         var info = REP_BOOK_INFO[bk];
         if(needData){
-            fetch(info.dataFile + '?v=14').then(function(r){return r.json();}).then(function(d){
+            fetch(info.dataFile + '?'+REP_DATA_V).then(function(r){return r.json();}).then(function(d){
                 dataResult[bk]=d; pending--; done();
             }).catch(function(e){ console.error('data load fail',bk,e); pending--; done(); });
         }
         if(needIdx){
-            fetch(info.chapDir+'_index.json').then(function(r){return r.json();}).then(function(d){
+            fetch(info.chapDir+'_index.json?'+REP_DATA_V).then(function(r){return r.json();}).then(function(d){
                 _allBookChapters[bk]=d; pending--; done();
             }).catch(function(e){
                 // 🔑 fallback: build index from the data file's chapter keys (e.g. kent_de has no _index.json)

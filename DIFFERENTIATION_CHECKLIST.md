@@ -70,6 +70,9 @@ Order = the order proposed in the discussion. `[x]` done · `[ ]` pending · `[~
 - [x] P2.9j3e v68.4: private-book remedy detection accepts the short name («Hyoscyamus» without «niger») — tabs stop looking dead, hide-counter counts only true misses
 - [x] P2.9j3f v68.5: private books join the theme search and the 🤖 auto draft — no length cut-off at 300 chars, no score penalty, no 3-sentence cap; device switch `bc_rep_priv_prefs.inDraft` (default on)
 - [ ] P2.9j4 Next: Hahnemann MM Pura (Dudgeon) + Chronic Diseases (Tafel); Boericke–Dewey Part 4 repertory (archive.org scan); Allen Encyclopaedia volumes; Boenninghausen TPB; Knerr's Repertory of Hering; Cowperthwaite; Paterson Bowel Nosodes
+- [x] P2.9k v68.6: v54/v55 audit — clipboard migration data loss, single REP_DATA_V cache-buster, Compare Mode kept per device
+- [x] P2.9l v68.7: one-remedy extraction (single-remedy + not-outranked filters), take-all into clipboard, size filter applied while collecting
+- [ ] P2.9m source-grade repertory view — needs a hand-curated `repertory_sources.json` (see `homeopathy/book-data-plan.md`)
 - [ ] P2.12 Sharded loading for very large books (per-letter files) to cut first-use download on mobile
 - [ ] P4 Symptom-level index across books (remedy × section × symptom, grade) → per-rubric comparison table "remedy × book" so the difference shows at once
 - [x] QA v61: import routing fix (private-books file in notes importer → 0 notes) + `tests/app_smoke.jsdom.test.js` (real index.html, all scripts, main flows)

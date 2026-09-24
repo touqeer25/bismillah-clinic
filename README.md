@@ -224,3 +224,41 @@ public book's stray mention); and the per-book cap of `min(3,…)` for private b
 (`cap=1` → `2`), and a new device preference `bc_rep_priv_prefs.inDraft` (default **on**) lets the doctor decide whether
 private text may enter the auto-draft — the checkbox sits in the 🔒 panel. `tests/private_books_search.test.js` covers (with `tests/private_books_remedy_match.test.js` from v68.4)
 all of it (10 checks). `index.html` → `?v=17`, `CACHE_NAME` → **v81**.
+
+## v68.6 — v54/v55 audit fixes (clipboard migration, data cache-busting, Compare Mode persistence)
+
+Checked the v54 (☑ Compare Mode, rules, Combine/Merge) and v55 (🔬 differentiation) layers against the code. Fixed:
+- **`repClipsLoad()` lost saved clipboards**: the v39 migration padded stored boards up to 12 but assigned them only
+  when the count was *exactly* 12, so a device that once ran a larger build (13+) came back with empty boards.
+  It now truncates to 12 and warns about dropped items; `repClipsSave()` no longer swallows a failed write silently
+  (quota-full was invisible — a doctor could lose a case's whole repertorisation).
+- **data cache-busting was hard-coded and partial**: whole-book fetches carried `?v=14` in three places while
+  `repChapDir()*_index.json` and the chapter index had **no** version at all, and `repCurrentBook` kept an
+  hard-coded Kent index as an offline fallback. All book/chapter/index requests now share one constant
+  `REP_DATA_V` (`v=15`) — bump it in one place.
+- **Compare Mode was per-tab** (`sessionStorage`), so the checkbox toolbar turned itself off on every new tab/app
+  restart; it is stored in `localStorage` now, reading the old key as a fallback.
+Tests: `tests/rep_clipboards_versioning.test.js` (5 checks: 13→12 migration, round-trip, versioned fetches).
+`index.html` → `08-app-repertory.js?v=63`, `CACHE_NAME` → **v82**. Not fixed here (needs a design decision, see
+`homeopathy/v54-v55-audit.md`): the all-books scope materialises ~960k rubrics in one pass, and rows are capped
+*before* sorting — both belong to the open P2.12 sharded-loading item.
+
+## v68.7 — single-remedy extraction, and the size filter now runs *before* counting
+
+Closed two of the three gaps found by comparing our v54/v55 layer with Radar Opus' remedy extraction (their
+manual v3.1, pages 12/46/51, plus the company's own "How to do Remedy Extractions" tutorial):
+- **`🧭 mode: extract one remedy`** in the differentiation head: pick one remedy → every rubric in scope that
+  carries it, with grade and rubric size, plus two Radar-style extra filters — **single-remedy pages only** and
+  **only where this remedy outranks the rest**. Counts shown: total / single-remedy / not-outranked / displayed
+  (measured on Kent: `onos` = 255 rubrics whole-book, 16 single-remedy, 51 not outranked).
+- **`📥 Take all into clipboard`**: the extracted list drops into the active clipboard (no duplicates), so
+  Combine and the analysis work on an extracted page set exactly as on ticked rubrics.
+- **filtering happens while collecting** (`repDiffRubricList(...,opts)`): the `📏 rubric size ≤` cap and
+  "at least one selected remedy" are applied before objects are pushed, so large rubrics are never materialised,
+  and the 271 empty *see-also* lines of Kent's MIND chapter are dropped too. A scan stop (`REP_DIFF_SCAN_STOP
+  = 250000`) keeps the all-books scope from running away; when it bites, the result says so. Measured: whole
+  Kent book (66,148 rubrics) filtered in 27 ms.
+Not done, on purpose: the *source-grade* "repertory view" needs a small hand-made source table, not new book
+data — plan and measurements in `homeopathy/book-data-plan.md`.
+Tests: `tests/extraction_v687.test.js` (26 checks). `index.html` → `08b-rep-differentiation.js?v=4`,
+`REP_DATA_V` → `v=16`, `CACHE_NAME` → **v83**.
