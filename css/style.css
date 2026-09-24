@@ -1464,3 +1464,25 @@ body.rep-diff-open{overflow:hidden}
  .rep-mm-e-right .rep-mm-note textarea{min-height:90px}
  .rep-mm-sumtbl td.st{width:auto}
 }
+
+/* 🌳 v72: کتابی ٹری ویو (ریپرٹری کتاب / Radar طرز) */
+.rtv{font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.55;background:#fff;border:1px solid #e6ebf1;border-radius:8px;padding:6px 4px;text-align:left}
+.rtv-row{position:relative;padding:2px 34px 2px 6px;border-bottom:1px dotted #eef1f4;cursor:pointer}
+.rtv-row:hover{background:#f5faff}
+.rtv-row.top>.rtv-lab{font-weight:bold;text-transform:uppercase;color:#1a5276}
+.rtv-tg{display:inline-block;width:16px;color:#7f8c8d;text-align:center;user-select:none}
+.rtv-row[data-kids="1"]>.rtv-tg{color:#2471a3;font-weight:bold}
+.rtv-lab{color:#1b2631}
+.rtv-lab.has-kids{font-weight:600}
+.rtv-n{color:#95a5a6;font-size:11px;margin-left:4px;font-family:Arial,sans-serif}
+.rtv-rems{color:#34495e;font-size:13px}
+.rtv-rems:before{content:": ";color:#95a5a6}
+.rtv-r{font-style:normal;cursor:pointer}
+.rtv-r:hover{background:#fff3cd}
+.rtv-r.g1{color:#34495e}
+.rtv-r.g2{color:#1f4e9c;font-weight:bold;font-style:italic}
+.rtv-r.g3{color:#b03a2e;font-weight:bold}
+.rtv-row .rtv-kebab{position:absolute;right:4px;top:2px;width:24px;height:22px;padding:0;font-size:14px}
+.rtv-row .rpc-chk{vertical-align:middle;margin-right:4px}
+.rtv-more{text-align:center;margin:10px 0}
+@media (max-width:700px){ .rtv{font-size:13px} .rtv-row{padding-left:4px} }

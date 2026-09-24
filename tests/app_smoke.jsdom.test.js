@@ -21,7 +21,7 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   // open repertory page: kent/mind auto-open
   errors.length=0; w.repCurrentBook='kent'; w.initRepertoryBrowser(); for(let i=0;i<100&&!d.getElementById('repCardsArea');i++)await sleep(100); await sleep(300);
   ok(d.querySelectorAll('#repChapterList .rep-chapter-item, #repChapterList [onclick*="repOpenChapter"]').length>=30||d.getElementById('repChapterList').textContent.length>200,'chapter list rendered');
-  ok(d.querySelectorAll('.rpc-card').length>100,'Mind chapter auto-opened with cards ('+d.querySelectorAll('.rpc-card').length+')');
+  ok(d.querySelectorAll('.rtv-row').length>100,'Mind chapter auto-opened with cards ('+d.querySelectorAll('.rtv-row').length+')');
   w.repCmpModeSet(true); await sleep(50); ok(d.querySelectorAll('.rpc-chk').length>100,'Compare Mode works in the full app'); w.repCmpModeSet(false);
   const mind=JSON.parse(fs.readFileSync(ROOT+'/kent_chapters/mind.json','utf8')); w.repOpenRubricDetail(mind.r2.t,'r2'); for(let i=0;i<60&&!d.querySelector('.rpd-diff');i++)await sleep(100); await sleep(200);
   ok(d.querySelector('.rpd-diff')&&d.querySelector('#repDetailCmpBtn'),'rubric page: 🔬 + Compare buttons');
@@ -31,14 +31,14 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   w.repDiffSetTab('mm'); for(let i=0;i<300&&!d.querySelector('.rep-mm-e-left .rep-mm-draft');i++)await sleep(100);
   ok(d.querySelector('.rep-mm-e-left')&&d.querySelector('.rep-mm-e-right textarea')&&d.querySelector('.rep-mm-draft'),'📖 tab (writing mode) renders with a draft + sticky editor (progressive load ok)');
   // new repertory book: Hering Analytical (Mind) opens with its first chapter
-  w.repDiffClose&&w.repDiffClose(); w.repCurrentBook='hering_mind'; w.repCurrentChapter=''; w.initRepertoryBrowser(); for(let i=0;i<100&&!(w.repCurrentBook==='hering_mind'&&d.querySelectorAll('.rpc-card').length>20);i++)await sleep(100);
-  ok(w.repCurrentChapter==='ailments_from_emotions_and_exertions_of_the_mind'&&d.querySelectorAll('.rpc-card').length>20,'Hering Analytical Repertory (Mind) book opens: chapter '+w.repCurrentChapter+', '+d.querySelectorAll('.rpc-card').length+' cards');
+  w.repDiffClose&&w.repDiffClose(); w.repCurrentBook='hering_mind'; w.repCurrentChapter=''; w.initRepertoryBrowser(); for(let i=0;i<100&&!(w.repCurrentBook==='hering_mind'&&d.querySelectorAll('.rtv-row').length>20);i++)await sleep(100);
+  ok(w.repCurrentChapter==='ailments_from_emotions_and_exertions_of_the_mind'&&d.querySelectorAll('.rtv-row').length>20,'Hering Analytical Repertory (Mind) book opens: chapter '+w.repCurrentChapter+', '+d.querySelectorAll('.rtv-row').length+' cards');
   // v68: Boger Times book opens on its hour chapter
-  w.repCurrentBook='boger_times'; w.repCurrentChapter=''; w.initRepertoryBrowser(); for(let i=0;i<100&&!(w.repCurrentBook==='boger_times'&&d.querySelectorAll('.rpc-card').length>20);i++)await sleep(100);
-  ok(w.repCurrentChapter==='general_hour'&&d.querySelectorAll('.rpc-card').length>20,'Boger Times of Remedies book opens: chapter '+w.repCurrentChapter+', '+d.querySelectorAll('.rpc-card').length+' cards');
+  w.repCurrentBook='boger_times'; w.repCurrentChapter=''; w.initRepertoryBrowser(); for(let i=0;i<100&&!(w.repCurrentBook==='boger_times'&&d.querySelectorAll('.rtv-row').length>20);i++)await sleep(100);
+  ok(w.repCurrentChapter==='general_hour'&&d.querySelectorAll('.rtv-row').length>20,'Boger Times of Remedies book opens: chapter '+w.repCurrentChapter+', '+d.querySelectorAll('.rtv-row').length+' cards');
   // v68: Boericke & Dewey tissue-remedy therapeutics opens
-  w.repCurrentBook='tissues_bd'; w.repCurrentChapter=''; w.initRepertoryBrowser(); for(let i=0;i<100&&!(w.repCurrentBook==='tissues_bd'&&d.querySelectorAll('.rpc-card').length>10);i++)await sleep(100);
-  ok(w.repCurrentChapter==='tissue_therapeutics'&&d.querySelectorAll('.rpc-card').length>10,'Boericke-Dewey Tissue Remedies book opens: '+d.querySelectorAll('.rpc-card').length+' disease rubrics');
+  w.repCurrentBook='tissues_bd'; w.repCurrentChapter=''; w.initRepertoryBrowser(); for(let i=0;i<100&&!(w.repCurrentBook==='tissues_bd'&&d.querySelectorAll('.rtv-row').length>10);i++)await sleep(100);
+  ok(w.repCurrentChapter==='tissue_therapeutics'&&d.querySelectorAll('.rtv-row').length>10,'Boericke-Dewey Tissue Remedies book opens: '+d.querySelectorAll('.rtv-row').length+' disease rubrics');
     const late=errors.filter(e=>!/Could not load (img|script)|Not implemented|net::|ENOENT|data load fail|404|onLoadExternalScript/i.test(e));
   console.log(fails?'FAILURES: '+fails:'ALL TESTS PASSED'); w.close(); process.exit(fails?1:0);
 })().catch(e=>{console.error('CRASH',e);process.exit(2);});

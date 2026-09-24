@@ -21,7 +21,7 @@
     <script src="advanced-diagnosis-knowledge.js?v=33"></script>
     <script src="advanced-diagnosis-engine.js?v=36"></script>
     <!-- Style alag file me: css/style.css -->
-    <link rel="stylesheet" href="css/style.css?v=61">
+    <link rel="stylesheet" href="css/style.css?v=62">
 
 </head>
 <body dir="rtl" class="lang-ur">
@@ -936,8 +936,9 @@
                             <span class="rep-grad-item"><i class="rep-gr-dot d3"></i>3</span>
                         </div>
                         <div class="rep-viewtoggle">
-                            <button id="repViewGrid" class="rep-viewbtn active" onclick="repSetView('grid')" title="Grid view (Cards)">▦</button>
-                            <button id="repViewList" class="rep-viewbtn" onclick="repSetView('list')" title="List view (Details)">☰</button>
+                            <button id="repTreeRemsBtn" class="rep-viewbtn active" onclick="repTreeToggleRems()" title="ربرکس کے ساتھ ادویات دکھائیں / چھپائیں">💊</button>
+                            <button class="rep-viewbtn" onclick="repTreeExpandAll(true)" title="تمام ذیلی ربرکس کھولیں">⊞</button>
+                            <button class="rep-viewbtn" onclick="repTreeExpandAll(false)" title="صرف پہلی سطح — باقی بند">⊟</button>
                         </div>
                     </div>
                     <!-- rubric cards / search results / empty state -->
@@ -1547,7 +1548,7 @@
 <script src="js/05-app-diagnosis.js?v=33"></script>
 <script src="js/06-app-new-visit.js?v=33"></script>
 <script src="js/07-app-settings.js?v=33"></script>
-<script src="js/08-app-repertory.js?v=65"></script>
+<script src="js/08-app-repertory.js?v=66"></script>
 <!-- 🔑 v55: 🔬 remedy differentiation / extraction (loads after the repertory module) -->
 <script src="js/08b-rep-differentiation.js?v=4"></script>
 <!-- 🔑 v56: 📖 materia medica (public-domain books) + 🤖 drafts + ✍ notes -->

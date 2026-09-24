@@ -296,6 +296,16 @@ function _repBuildTreeByExistingRubrics(data){
 
     entries.forEach(function(e){
         var n = ensureNode(e.path);
+        // 🔑 v72: ایک ہی متن کا ربرک باب میں دوبارہ آئے (مثلاً Boger Times میں «3 A. M» مختلف جگہوں پر) تو
+        // پہلے دونوں کی ادویات ایک میں ضم ہو جاتی تھیں اور دوسرا ربرک غائب ہو جاتا تھا۔ اب ہر ایک الگ ربرک
+        // «[2]»، «[3]» کے ساتھ، اپنی ادویات اور فائل والی جگہ پر۔
+        if(n.hasRubric){
+            var pp=parentByPath[e.path]||'', pn=pp?nodeByPath[pp]:root, base=n.name, k=2;
+            while(pn.children[base+' ['+k+']']) k++;
+            var dl=base+' ['+k+']';
+            pn.children[dl]={name:dl,children:{},order:[],remedies:{},count:0,hasRubric:false,path:'',oorep_id:null,fullPath:e.path,dup:k};
+            pn.order.push(dl); n=pn.children[dl];
+        }
         n.count++;
         n.hasRubric = true;
         n.path = e.path;
@@ -329,9 +339,15 @@ function buildRubricTree(data){
                 n.children[pt]={name:pt,children:{},order:[],remedies:{},count:0,hasRubric:false,path:'',oorep_id:null};
                 n.order.push(pt);
             }
-            n=n.children[pt];
+            var _par=n; n=n.children[pt];
+            if(!n.__par) Object.defineProperty(n,'__par',{value:_par,enumerable:false});
             n.count++;
             if(i===parts.length-1){
+                if(n.hasRubric){   // 🔑 v72: دوہرا ربرک — پہلے والا اوور رائٹ ہو کر غائب ہو جاتا تھا؛ اب الگ «[2]»
+                    var par=n.__par||root, k2=2; while(par.children[pt+' ['+k2+']'])k2++;
+                    var dl2=pt+' ['+k2+']'; par.children[dl2]={name:dl2,children:{},order:[],remedies:{},count:1,hasRubric:false,path:'',oorep_id:null,dup:k2};
+                    par.order.push(dl2); n=par.children[dl2];
+                }
                 n.remedies=r.r||{};
                 n.hasRubric=true;
                 n.path=txt;
@@ -352,7 +368,7 @@ var repPendingNavRid=null;  // 🔑 rubric ID waiting to be scrolled-to after re
 // Chapter = root folder; each rubric with children = folder card;
 // leaf rubric = document card. back/forward/up + breadcrumb.
 // ============================================================
-var repViewMode='grid';        // 'grid' | 'list'
+var repViewMode='tree';        // v72: صرف کتابی ٹری
 var repFolderPath=[];          // labels from chapter root to current folder
 var repHistBack=[];            // [{ch,path,page}]
 var repHistFwd=[];
@@ -527,13 +543,114 @@ function repOnFolderFilter(v){
     repFolderFilter=v; repTreePage=0;
     renderFolderCards();
 }
-function repSetView(m){
-    repViewMode=m;
-    var g=document.getElementById('repViewGrid'),l=document.getElementById('repViewList');
-    if(g)g.classList.toggle('active',m==='grid');
-    if(l)l.classList.toggle('active',m==='list');
-    renderFolderCards();
+function repSetView(m){ repViewMode='tree'; renderFolderCards(); }   // v72: کارڈ/لسٹ ختم — صرف ٹری
+
+
+// ==================== 🌳 v72: کتابی ٹری ویو (کارڈ سسٹم کی جگہ) ====================
+// ریپرٹری کتاب/Radar کی طرح: ہر ربرک اپنی ٹری کی سطح پر اِنڈینٹ کے ساتھ، اسی ترتیب میں جو کتاب (چیپٹر فائل) میں ہے۔
+// ⚠ کوئی sort نہیں — node.order اور node.remedies کی اصل ترتیب جوں کی توں۔ ڈیٹا صرف پڑھا جاتا ہے، بدلا نہیں جاتا۔
+var repTreeOpts={rems:true};
+try{ var _to=JSON.parse(localStorage.getItem('bc_rep_tree_opts')||'{}'); if(_to&&_to.rems===false)repTreeOpts.rems=false; }catch(e){}
+function repTreeOptsSave(){ try{ localStorage.setItem('bc_rep_tree_opts',JSON.stringify(repTreeOpts)); }catch(e){} }
+var repTreeCollapsed={};              // full path → true (صرف اس سیشن کے لیے)
+var repTreeViews={};                  // elId → {rows,shown}
+var REP_TREE_CHUNK=300;
+function repTreeFlatten(node,labels,parentFull,depth,out,filt){
+    var any=false;
+    (node.order||[]).forEach(function(k){                       // کتاب کی اصل ترتیب
+        var c=node.children[k]; if(!c)return;
+        var lab=labels.concat([k]), full=_repJoinSeg(parentFull,k), kids=_repNodeKids(c);
+        var row={label:k,labels:lab,full:full,depth:depth,node:c,kids:kids};
+        var pos=out.length; out.push(row);
+        var selfHit=!filt||k.toLowerCase().indexOf(filt)!==-1;
+        var kidHit=false;
+        if(kids&&(filt||!repTreeCollapsed[full])) kidHit=repTreeFlatten(c,lab,full,depth+1,out,filt);
+        if(filt&&!selfHit&&!kidHit){ out.length=pos; return; }  // فلٹر: نہ خود ملے نہ اولاد میں → ہٹاؤ
+        any=true;
+    });
+    return any;
 }
+function repTreeRemsHtml(rems){
+    var ks=Object.keys(rems||{}); if(!ks.length) return '';
+    var h='<span class="rtv-rems">';
+    for(var i=0;i<ks.length;i++){
+        var a=ks[i], g=rems[a]||1; g=g>=3?3:(g===2?2:1);
+        h+='<i class="rtv-r g'+g+'" data-a="'+_repAttr(a)+'">'+escapeHtml(g===3?a.toUpperCase():a)+'</i>'+(i<ks.length-1?' ':'');
+    }
+    return h+'</span>';
+}
+function repTreeRowHtml(r){
+    var c=r.node, rems=Object.keys(c.remedies||{}).length, rid=c.hasRubric&&c.rid?String(c.rid):'';
+    var open=r.kids&&(repFolderFilter||!repTreeCollapsed[r.full]);
+    return '<div class="rtv-row'+(r.depth===0?' top':'')+'" style="padding-left:'+(6+r.depth*18)+'px" data-full="'+_repAttr(r.full)+'" data-labels="'+_repAttr(JSON.stringify(r.labels))+'" data-rems="'+rems+'" data-kids="'+(r.kids?1:0)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+'>'
+        +'<span class="rtv-tg">'+(r.kids?(open?'▾':'▸'):'·')+'</span>'
+        +repCmpChkHtml(repCurrentBook,repCurrentChapter,rid,r.full,rems,'row')
+        +'<span class="rtv-lab'+(r.kids?' has-kids':'')+'">'+escapeHtml(r.label)+'</span>'
+        +(rems?'<span class="rtv-n">('+rems+')</span>':'')
+        +'<button class="rpc-kebab rtv-kebab" onclick="event.stopPropagation();repKebabShow(event,this)" data-full="'+_repAttr(r.full)+'" data-rid="'+_repAttr(rid)+'">⋮</button>'
+        +(repTreeOpts.rems&&rems?repTreeRemsHtml(c.remedies):'')
+        +'</div>';
+}
+// ٹری کو کسی div میں لگاؤ۔ node = جس کی اولاد دکھانی ہے، labels = اس تک کا راستہ
+function repTreeMount(elId,node,labels,parentFull,ensureRid){
+    var el=document.getElementById(elId); if(!el||!node)return;
+    var rows=[]; repTreeFlatten(node,labels||[],parentFull||'',0,rows,(repFolderFilter||'').toLowerCase());
+    var v=repTreeViews[elId]={rows:rows,shown:0,node:node,labels:labels,parentFull:parentFull};
+    var need=REP_TREE_CHUNK;
+    if(ensureRid){ for(var i=0;i<rows.length;i++){ if(rows[i].node.rid&&String(rows[i].node.rid)===String(ensureRid)){ need=Math.max(need,i+50); break; } } }
+    el.innerHTML='<div class="rtv" dir="ltr"></div><div class="rtv-more"></div>';
+    if(!rows.length){ el.firstChild.innerHTML='<div class="rep-empty-folder">'+repLangText({ur:'کوئی ربرک نہیں',en:'No rubrics',roman:'Koi rubric nahi'})+'</div>'; return; }
+    el.firstChild.onclick=repTreeClick;
+    repTreeMore(elId,need);
+}
+function repTreeMore(elId,n){
+    var v=repTreeViews[elId], el=document.getElementById(elId); if(!v||!el)return;
+    var box=el.querySelector('.rtv'), more=el.querySelector('.rtv-more'); if(!box)return;
+    var end=Math.min(v.rows.length,v.shown+(n||REP_TREE_CHUNK)), h='';
+    for(var i=v.shown;i<end;i++) h+=repTreeRowHtml(v.rows[i]);
+    box.insertAdjacentHTML('beforeend',h); v.shown=end;
+    if(v.shown<v.rows.length){
+        more.innerHTML='<button class="rc-btn">⬇ '+repLangText({ur:'مزید ربرکس',en:'More rubrics',roman:'Mazeed rubrics'})+' ('+(v.rows.length-v.shown).toLocaleString()+')</button>';
+        more.firstChild.onclick=function(){ repTreeMore(elId); };
+        if(window.IntersectionObserver){                        // اسکرول پر خود بخود اگلا حصہ
+            if(v.io)v.io.disconnect();
+            v.io=new IntersectionObserver(function(en){ if(en[0].isIntersecting){ v.io.disconnect(); repTreeMore(elId); } },{root:document.getElementById('repRubricContent'),rootMargin:'600px'});
+            v.io.observe(more);
+        }
+    } else { more.innerHTML=''; if(v.io)v.io.disconnect(); }
+}
+function repTreeRemount(elId){
+    var v=repTreeViews[elId], sc=document.getElementById('repRubricContent'), top=sc?sc.scrollTop:0, shown=v?v.shown:0;
+    if(!v)return;
+    repTreeMount(elId,v.node,v.labels,v.parentFull);
+    if(shown>REP_TREE_CHUNK) repTreeMore(elId,shown-REP_TREE_CHUNK);
+    if(sc)sc.scrollTop=top;
+}
+function repTreeClick(ev){
+    var t=ev.target;
+    if(t.closest('.rpc-chk')||t.closest('.rpc-kebab')) return;   // اپنے ہینڈلر
+    var row=t.closest('.rtv-row'); if(!row)return;
+    repKebabHide();
+    if(t.classList.contains('rtv-r')){ copyRemedyToPrescription(t.getAttribute('data-a')); return; }
+    var elId=row.closest('[id]').id, full=row.getAttribute('data-full');
+    if(t.classList.contains('rtv-tg')&&row.getAttribute('data-kids')==='1'&&!repFolderFilter){
+        if(repTreeCollapsed[full])delete repTreeCollapsed[full]; else repTreeCollapsed[full]=true;
+        repTreeRemount(elId); return;
+    }
+    var labels=[]; try{ labels=JSON.parse(row.getAttribute('data-labels')||'[]'); }catch(e){}
+    if(row.getAttribute('data-rems')==='0'&&row.getAttribute('data-kids')==='1'){ repGo(labels); return; }
+    repOpenRubricDetail(full,row.getAttribute('data-rid')||'',labels);
+}
+function repTreeToggleRems(){ repTreeOpts.rems=!repTreeOpts.rems; repTreeOptsSave(); repTreeSyncBtns(); Object.keys(repTreeViews).forEach(function(id){ if(document.getElementById(id))repTreeRemount(id); }); }
+function repTreeExpandAll(open){
+    Object.keys(repTreeViews).forEach(function(id){
+        var v=repTreeViews[id]; if(!document.getElementById(id))return;
+        if(open) repTreeCollapsed={};
+        else { var rows=[]; repTreeCollapsed={}; repTreeFlatten(v.node,v.labels||[],v.parentFull||'',0,rows,''); rows.forEach(function(r){ if(r.kids)repTreeCollapsed[r.full]=true; }); }
+        repTreeRemount(id);
+    });
+}
+function repTreeSyncBtns(){ var b=document.getElementById('repTreeRemsBtn'); if(b)b.classList.toggle('active',!!repTreeOpts.rems); }
 
 // 🔑 card building helpers
 function _repNodeKids(c){ return (c.order&&c.order.length>0)||Object.keys(c.children||{}).length>0; }
@@ -616,38 +733,13 @@ function renderFolderCards(){
     var area=document.getElementById('repCardsArea'); if(!area)return;
     var node=repResolveNode(repFolderPath);
     if(!node){ area.innerHTML=''; repRenderDock(); return; }
-    // 🔑 v45: فولڈر کی اپنی ربرک کے پاس ریمیڈیز ہوں تو اوپر خصوصی «مین ربرک» کارڈ — فلٹر سے متاثر نہیں ہوتا
-    var selfHtml='';
-    if(repFolderPath.length && node.hasRubric && node.rid && Object.keys(node.remedies||{}).length){
-        selfHtml = (repViewMode==='grid') ? repSelfCardHtml(node) : repSelfRowHtml(node);
-    }
-    var items=node.order.map(function(k){ return {label:k,node:node.children[k]}; });
-    if(repFolderFilter){
-        var f=repFolderFilter.toLowerCase();
-        items=items.filter(function(it){ return it.label.toLowerCase().indexOf(f)!==-1; });
-    }
-    items.sort(function(a,b){ var c=a.label.localeCompare(b.label); return repSortAsc?c:-c; });
-    // 🔑 v42 صارف درخواست: پیجیشن ختم — پورے فولڈر/باب کی تمام ربرکس ایک ہی صفحے پر رینڈر ہوتی ہیں
-    var total=items.length;
-    var h=selfHtml;
-    if(!total){
-        if(!selfHtml) h='<div class="rep-empty-folder">'+repLangText({ur:'اس فولڈر میں کوئی ربرک نہیں',en:'No rubrics in this folder',roman:'Is folder mein koi rubric nahi'})+'</div>';
-    }
-    else if(repViewMode==='grid'){
-        h+='<div class="rep-cards-grid">';
-        for(var i=0;i<total;i++) h+=repCardHtml(items[i]);
-        h+='</div>';
-    } else {
-        h+='<div class="rep-cards-list">';
-        for(var j=0;j<total;j++) h+=repListRowHtml(items[j]);
-        h+='</div>';
-    }
-    area.innerHTML=h;
+    // 🌳 v72: کتابی ٹری — مین ربرک کی اپنی ادویات اوپر کی تفصیل میں پہلے سے ہیں؛ نیچے پوری اولاد ترتیب وار
+    area.innerHTML='<div id="repTreeMain"></div>';
+    var nav=repPendingNavRid; repPendingNavRid=null;
+    repTreeMount('repTreeMain',node,repFolderPath.slice(),repFullPathOf(repFolderPath),nav);
+    repTreeSyncBtns();
     repRenderDock();
-    if(repPendingNavRid){
-        var fr=repPendingNavRid; repPendingNavRid=null;
-        setTimeout(function(){ flashRubricRow(fr); },80);
-    }
+    if(nav) setTimeout(function(){ flashRubricRow(nav); },80);
 }
 
 // 🔑 v42: پیجیشن ہٹا دی گئی — repPageWindow/repGoPage/repTreePageSize سلائسنگ اب موجود نہیں؛
@@ -1447,18 +1539,14 @@ function renderRubricDetail(){
     // ---- SUB-RUBRICS (بس جب ذیلی ربرکس موجود ہوں — خالی سیکشن بالکل نہیں دکھانا)
     if(kids.length){
         h+='<div class="rpd-sec-head">📁 '+repLangText({ur:'ذیلی ربرکس',en:'SUB-RUBRICS',roman:'ZELI RUBRICS'})+' <span class="cnt">('+kids.length+')</span></div>';
-        var items=kids.map(function(k){ return {label:k,node:node.children[k]}; });
-        items.sort(function(a,b){ var c=a.label.localeCompare(b.label); return repSortAsc?c:-c; });
-        var LIMIT=60;
-        h+='<div class="rep-cards-grid">';
-        for(var i=0;i<items.length&&i<LIMIT;i++) h+=repDetailChildHtml(items[i]);
-        h+='</div>';
-        if(items.length>LIMIT){
+        h+='<div id="repTreeDetail"></div>';   // 🌳 v72: ذیلی ربرکس بھی کتابی ٹری میں، اصل ترتیب سے
+        if(false){
             h+='<button class="rc-btn" style="margin-top:8px;" onclick="repGo('+'repCurrentDetail.labels'+')">📂 '+repLangText({ur:'تمام ',en:'Open all ',roman:'Tamam '})+items.length+repLangText({ur:' ذیلی ربرکس فولڈر ویو میں کھولیں',en:' sub-rubrics in folder view',roman:' zeli rubrics folder view mein'})+'</button>';
         }
     }
     cd.innerHTML=h;
     cd.scrollTop=0;
+    if(kids.length){ var _svF=repFolderFilter; repFolderFilter=''; repTreeMount('repTreeDetail',node,(d.labels||[]).slice(),repDetailParentFull()); repFolderFilter=_svF; }
     repRenderDock();
     // async: app cross-reference (other books)
     repRenderXrefAppBody(full,d.rid);

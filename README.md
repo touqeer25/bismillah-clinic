@@ -272,3 +272,10 @@ Tests: `tests/extraction_v687.test.js` (26 checks). `index.html` → `08b-rep-di
   - `boen` Boenninghausen + **Polarity**: for every `agg./amel.`, `worse/better` rubric the opposite rubric is looked up in the same chapter (Kent-style "X amel." ↔ "X" too). Polarity = grade − opposite grade. ⚠ = contraindication (higher grade in the opposite rubric); these remedies are ranked last.
 - **🖨 Print / PDF** (landscape, up to 30 remedies) and **📥 CSV (Excel, UTF-8)** of the grid, including Coverage, Score and Polarity rows.
 - Test: `node tests/extraction_v70.test.js`
+
+## v72 — 🌳 book-style tree view (cards removed) + duplicate-rubric fix
+
+- The Repertory tab no longer uses cards/list rows. Rubrics are shown as an indented **tree in the book's own order** (`node.order`, no sorting), with remedies inline after each rubric (grade 3 = **BOLD CAPS red**, 2 = *bold italic blue*, 1 = plain). The same tree is used for SUB-RUBRICS on the rubric page.
+- Toolbar: 💊 show/hide remedies (saved in `bc_rep_tree_opts`) · ⊞ expand all · ⊟ collapse to first level. ▸/▾ toggles a branch. Click rubric = detail page, click remedy = copy, ⋮ and ☑ Compare work as before. Large chapters are rendered 300 rows at a time (auto-loads on scroll).
+- **Data fix**: when the same rubric text appeared twice in a chapter, the tree builder merged both into one node (remedies and grades mixed) and the second rubric disappeared (Boger Times 491, Kent German 621, Publicum 1). Each one is now a separate rubric labelled `[2]`, `[3]` … at its own position with its own remedies. Chapter JSON files are not changed.
+- Integrity test: `node tests/tree_view_integrity.jsdom.test.js [book]`. It checks every rubric of every chapter of all 11 books: shown exactly once, with remedies and grades identical to the file (1,457,519 checks).

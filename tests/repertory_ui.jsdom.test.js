@@ -13,7 +13,7 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   const d=w.document; for(let i=0;i<w.REP_N_CLIPS;i++)w.repClipboards[i]=[]; w.repEnsureAllBooks=cb=>cb({});
   w.repCurrentBook='kent'; w.selectChapter('mind'); for(let i=0;i<100&&!d.getElementById('repCardsArea');i++)await sleep(50); await sleep(150);
   const mind=JSON.parse(fs.readFileSync(ROOT+'/kent_chapters/mind.json','utf8'));
-  ok(d.querySelectorAll('.rpc-card').length>50&&d.querySelectorAll('.rpc-chk').length===0,'cards rendered, no ☐ while Compare Mode off');
+  ok(d.querySelectorAll('.rtv-row').length>50&&d.querySelectorAll('.rpc-chk').length===0,'cards rendered, no ☐ while Compare Mode off');
   w.repCmpModeSet(true); await sleep(30);
   const chks=d.querySelectorAll('.rpc-chk'); ok(chks.length>50&&d.getElementById('repCmpModeBtn').classList.contains('on'),'Compare Mode ON → ☐ on cards');
   chks[1].click(); chks[2].click(); ok(w.repClipboards[0].length===2&&d.querySelectorAll('#repCmpPanel .rst-chip').length===2,'tick 2 cards → 2 in active clipboard + 2 chips');
