@@ -665,12 +665,39 @@ var repClipNames=['','','','','','','','','','','',''];    // 🔑 custom clipbo
 // 🔑 v54: ☑ کمپیئر موڈ (HomeoSetu) + تجزیے کے اصول (ایلی منیشن / کوریج) — محفوظ رہتے ہیں
 var repCompareMode=false;                       // ☑ کمپیئر موڈ: کارڈز پر چیک باکس، ٹک = فعال کلپ بورڈ میں شامل
 try{ var x=localStorage.getItem('bc_rep_cmp_mode'); if(x===null)x=(sessionStorage.getItem('bc_rep_cmp_mode')==='1')?'1':'0'; repCompareMode=(x==='1'); }catch(e){}   // 🔑 v68.6: پہلے session میں تھا — نئی ٹیب میں کمپیئر موڈ خود بخود بند ہو جاتا تھا
-var repAnaOpts={elim:'every',cov:'count'};      // elim: 'every' (HomeoSetu: ہر ربرک میں) | 'any' (پرانا: کسی ایک میں) — cov: 'count' (ہر ربرک = 1) | 'weighted' (ویٹ کوریج میں بھی)
-function repAnaOptsLoad(){ try{ var d=JSON.parse(localStorage.getItem('bc_rep_ana_opts')||'{}'); if(d.elim==='any'||d.elim==='every')repAnaOpts.elim=d.elim; if(d.cov==='count'||d.cov==='weighted')repAnaOpts.cov=d.cov; }catch(e){} }
+// 🔑 v70: بولین سرچ پارسر — "fear dark" (AND) · "fear OR anxiety" · "fear NOT night" · "fear -night"
+function repParseBoolQuery(q){
+    var toks=String(q||'').toLowerCase().replace(/\|/g,' or ').split(/\s+/).filter(Boolean);
+    var groups=[[]], neg=[], pos=[], notNext=false;
+    toks.forEach(function(t){
+        if(t==='or'){ if(groups[groups.length-1].length)groups.push([]); return; }
+        if(t==='and') return;
+        if(t==='not'){ notNext=true; return; }
+        if(t.charAt(0)==='-'&&t.length>1){ neg.push(t.substring(1)); return; }
+        if(notNext){ neg.push(t); notNext=false; return; }
+        groups[groups.length-1].push(t); pos.push(t);
+    });
+    groups=groups.filter(function(g){return g.length;});
+    return {groups:groups,neg:neg,pos:pos};
+}
+function repBoolMatch(qb,text){
+    var lt=String(text||'').toLowerCase();
+    for(var n=0;n<qb.neg.length;n++){ if(lt.indexOf(qb.neg[n])!==-1) return false; }
+    if(!qb.groups.length) return qb.neg.length>0;
+    for(var i=0;i<qb.groups.length;i++){
+        var g=qb.groups[i], ok=true;
+        for(var j=0;j<g.length;j++){ if(lt.indexOf(g[j])===-1){ ok=false; break; } }
+        if(ok) return true;
+    }
+    return false;
+}
+var repAnaOpts={elim:'every',cov:'count',method:'hs'};   // method: 'hs' (کوریج پہلے) | 'kent' (گریڈز کا مجموعہ پہلے) | 'boen' (بوننگھاؤسن + پولیریٹی)      // elim: 'every' (HomeoSetu: ہر ربرک میں) | 'any' (پرانا: کسی ایک میں) — cov: 'count' (ہر ربرک = 1) | 'weighted' (ویٹ کوریج میں بھی)
+function repAnaOptsLoad(){ try{ var d=JSON.parse(localStorage.getItem('bc_rep_ana_opts')||'{}'); if(d.elim==='any'||d.elim==='every')repAnaOpts.elim=d.elim; if(d.cov==='count'||d.cov==='weighted')repAnaOpts.cov=d.cov; if(d.method==='hs'||d.method==='kent'||d.method==='boen')repAnaOpts.method=d.method; }catch(e){} }
 function repAnaOptsSave(){ try{ localStorage.setItem('bc_rep_ana_opts',JSON.stringify(repAnaOpts)); }catch(e){} }
 function repAnaSetOpt(k,v){
     if(k==='elim'&&(v==='every'||v==='any'))repAnaOpts.elim=v;
     if(k==='cov'&&(v==='count'||v==='weighted'))repAnaOpts.cov=v;
+    if(k==='method'&&(v==='hs'||v==='kent'||v==='boen'))repAnaOpts.method=v;
     repAnaOptsSave();
     if(repWorkbenchOpen)renderWorkbench(); else if(repAnalysisOpen>=0)renderAnalysis();
 }
@@ -1793,7 +1820,9 @@ function searchRepertoryBrowser(){
     }
     _repSearchCache=cacheKey; _repSearchMode=repSearchMode;
     q=q.toLowerCase();
-    var qw=q.split(/\s+/).filter(function(w){return w.length>0;});
+    // 🔑 v70: بولین سرچ — خالی جگہ = AND، «OR» یا «|» = متبادل، «NOT لفظ» یا «-لفظ» = خارج
+    var _qb=repParseBoolQuery(q);
+    var qw=_qb.pos;
 
     function searchStillActive(){
         var activeInp=document.getElementById('repBrowserSearch');
@@ -1801,10 +1830,7 @@ function searchRepertoryBrowser(){
     }
     function matchesText(text){
         if(!text) return false;
-        if(qw.length===0) return true;
-        var lt=text.toLowerCase();
-        for(var i=0;i<qw.length;i++){ if(lt.indexOf(qw[i])===-1) return false; }
-        return true;
+        return repBoolMatch(_qb,text);
     }
     // 🔑 Remedy-type matching: normalized bidirectional containment ("nux vom" → nux-v, "arsen" → arsenicum)
     function normRem(s){ return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,''); }
@@ -2166,7 +2192,7 @@ function displaySearchResults(results, info){
         });
         return res;
     }
-    var qw=(_repSearchCache.split('|')[0]||'').toLowerCase().split(/\s+/).filter(function(w){return w.length>0;});
+    var qw=repParseBoolQuery((_repSearchCache.split('|')[0]||'').toLowerCase()).pos;
     var curCh=repCurrentChapter;
     var curBook=repCurrentBook;
     // 🔑 save this search view so the "back to results" button can restore it
@@ -2370,6 +2396,10 @@ function repAnaRulesHtml(){
         +'<label title="'+repLangText({ur:'کوریج = دوا کتنے ربرکس میں ہے؛ ویٹ اسکور کو ہمیشہ گنا کرتا ہے',en:'Coverage = in how many rubrics the remedy appears; weight always multiplies the score',roman:'Coverage = kitne rubrics mein; weight score ko guna karta hai'})+'">📈 '+repLangText({ur:'کوریج',en:'Coverage',roman:'Coverage'})+' <select onchange="repAnaSetOpt(\'cov\',this.value)">'
         +'<option value="count"'+(c==='count'?' selected':'')+'>'+repLangText({ur:'ہر ربرک = 1 (ہومیوسیتو)',en:'each rubric = 1 (HomeoSetu)',roman:'har rubric = 1 (HomeoSetu)'})+'</option>'
         +'<option value="weighted"'+(c==='weighted'?' selected':'')+'>'+repLangText({ur:'ویٹ کے ساتھ (پرانا)',en:'weighted (classic)',roman:'weighted (classic)'})+'</option></select></label>'
+        +'<label title="'+repLangText({ur:'نتائج کی ترتیب کا طریقہ',en:'Ranking method',roman:'Tarteeb ka tareeqa'})+'">🧮 '+repLangText({ur:'طریقہ',en:'Method',roman:'Method'})+' <select onchange="repAnaSetOpt(\'method\',this.value)">'
+        +'<option value="hs"'+(repAnaOpts.method==='hs'?' selected':'')+'>'+repLangText({ur:'Sum of Symptoms (کوریج پہلے)',en:'Sum of Symptoms (coverage first)',roman:'Sum of Symptoms'})+'</option>'
+        +'<option value="kent"'+(repAnaOpts.method==='kent'?' selected':'')+'>'+repLangText({ur:'Kent — Sum of Degrees (گریڈز کا مجموعہ پہلے)',en:'Kent — Sum of Degrees first',roman:'Kent — Sum of Degrees'})+'</option>'
+        +'<option value="boen"'+(repAnaOpts.method==='boen'?' selected':'')+'>'+repLangText({ur:'Boenninghausen + Polarity',en:'Boenninghausen + Polarity',roman:'Boenninghausen + Polarity'})+'</option></select></label>'
         +'</div>';
 }
 function _repAnaCompute(items,all){
@@ -2388,7 +2418,100 @@ function _repAnaCompute(items,all){
         d=col[b].total-col[a].total; if(d)return d;
         return a.localeCompare(b);
     });
-    return {rows:rows,col:col,abbrs:abbrs,denom:denom};
+    return repAnaApplyMethod({rows:rows,col:col,abbrs:abbrs,denom:denom},all);
+}
+// 🔑 v70: تجزیے کا طریقہ — Kent / Boenninghausen (پولیریٹی) + ترتیب
+function repOppositePath(path){
+    var p=String(path||''), pairs=[['agg.','amel.'],['aggravation','amelioration'],['worse','better']], out=null;
+    pairs.forEach(function(pr){ if(out)return;
+        var lo=p.toLowerCase(), i=lo.indexOf(pr[0]), j=lo.indexOf(pr[1]);
+        if(i!==-1) out=p.substring(0,i)+pr[1]+p.substring(i+pr[0].length);
+        else if(j!==-1) out=p.substring(0,j)+pr[0]+p.substring(j+pr[1].length);
+    });
+    return out;
+}
+var _repPathIdx={};
+function repFindRubricByPath(all,book,ch,path){
+    var sd=all?all[book]:null; if(!sd||!path)return null;
+    var ck=sd[ch]?ch:normalizeChapterKey(book,ch), chd=sd[ck]; if(!chd)return null;
+    var key=book+'|'+ck, idx=_repPathIdx[key];
+    if(!idx){ idx={}; Object.keys(chd).forEach(function(rid){ var r=chd[rid]; if(!r)return; var t=r.t||r.path; if(t)idx[repNormRubText(t)]=r; }); _repPathIdx[key]=idx; }
+    return idx[repNormRubText(path)]||null;
+}
+function repNormRubText(t){ return String(t||'').toLowerCase().replace(/\s*[,>›]\s*/g,', ').replace(/\s+/g,' ').trim(); }
+// ربرک کا اصل متن (ڈیٹا کا t) — کلپ بورڈ کا path کبھی باب کے نام سمیت ہوتا ہے
+function repRubTextOf(all,it){
+    var sd=all?all[it.book]:null, chd=sd?(sd[it.ch]||sd[normalizeChapterKey(it.book,it.ch)]):null, r=chd?chd[String(it.rid)]:null;
+    return (r&&(r.t||r.path))||it.path||'';
+}
+function repAnaApplyMethod(res,all){
+    var m=repAnaOpts.method||'hs', col=res.col;
+    res.method=m; res.pol=null; res.polPairs=0;
+    if(m==='boen'){
+        var pol={}, contra={};
+        res.rows.forEach(function(r){
+            var it=r.it; if(!it||it.combined||!(r.w>0))return;
+            var txt=repRubTextOf(all,it), op=repOppositePath(txt); if(!op)return;
+            var orub=repFindRubricByPath(all,it.book,it.ch,op);
+            // کینٹ میں اکثر «agg.» لکھا ہی نہیں ہوتا: "X amel." کا مخالف سادہ "X" ہے
+            if(!orub&&/\bamel(\.|ioration)?\s*$/i.test(txt)) orub=repFindRubricByPath(all,it.book,it.ch,txt.replace(/[,\s]*\bamel(\.|ioration)?\s*$/i,''));
+            if(!orub||!orub.r)return;
+            r.opp={path:orub.t||orub.path,rems:orub.r}; res.polPairs++;
+            Object.keys(col).forEach(function(a){
+                var g=r.rems[a]||0, og=orub.r[a]||0; if(!g&&!og)return;
+                pol[a]=(pol[a]||0)+(g-og);
+                if(g&&og>g) contra[a]=1;         // مخالف ربرک میں زیادہ گریڈ = کانٹرا انڈیکیشن
+            });
+        });
+        res.pol=pol; res.contra=contra;
+    }
+    res.abbrs=Object.keys(col).sort(function(a,b){
+        var A=col[a],B=col[b],d;
+        if(m==='kent'){ d=B.total-A.total; if(d)return d; d=B.cov-A.cov; if(d)return d; }
+        else if(m==='boen'){
+            var ca=res.contra&&res.contra[a]?1:0, cb=res.contra&&res.contra[b]?1:0; d=ca-cb; if(d)return d;
+            d=B.cov-A.cov; if(d)return d;
+            d=(B.total+((res.pol&&res.pol[b])||0))-(A.total+((res.pol&&res.pol[a])||0)); if(d)return d;
+        } else { d=B.cov-A.cov; if(d)return d; d=B.total-A.total; if(d)return d; }
+        return a.localeCompare(b);
+    });
+    window._repAnaLast=res;
+    return res;
+}
+function repAnaMethodLabel(m){ return m==='kent'?'Kent — Sum of Degrees':(m==='boen'?'Boenninghausen + Polarity':'Sum of Symptoms'); }
+// 🔑 v70: پرنٹ / CSV ایکسپورٹ
+function repAnaExportBtnsHtml(){
+    return '<button class="rc-btn" onclick="repAnaPrint()">🖨 '+repLangText({ur:'پرنٹ / PDF',en:'Print / PDF',roman:'Print / PDF'})+'</button>'
+        +'<button class="rc-btn" onclick="repAnaCsv()">📥 CSV (Excel)</button>';
+}
+function _repAnaTable(res,maxCols){
+    var abbrs=res.abbrs.slice(0,maxCols||res.abbrs.length);
+    var head=['Rubric','Weight'].concat(abbrs), rows=[];
+    res.rows.forEach(function(r){ rows.push([String(r.it.book||'')+': '+String(r.it.path||''),(r.w||1)+'x'].concat(abbrs.map(function(a){ return r.rems[a]||''; }))); });
+    rows.push(['Coverage',''].concat(abbrs.map(function(a){ return repFmtCov(res.col[a].cov,res.denom); })));
+    rows.push(['Score (grade x weight)',''].concat(abbrs.map(function(a){ return repFmtScore(res.col[a].total); })));
+    if(res.pol) rows.push(['Polarity',''].concat(abbrs.map(function(a){ return (res.contra&&res.contra[a]?'CI ':'')+(res.pol[a]||0); })));
+    return {head:head,rows:rows};
+}
+function repAnaCsv(){
+    var res=window._repAnaLast; if(!res){ showToast('—'); return; }
+    var t=_repAnaTable(res), esc=function(v){ v=String(v==null?'':v); return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v; };
+    var csv='\ufeff'+['Method: '+repAnaMethodLabel(res.method)].concat([t.head].concat(t.rows).map(function(r){ return r.map(esc).join(','); })).join('\r\n');
+    var a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+    a.download='repertorisation_'+new Date().toISOString().slice(0,10)+'.csv'; document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },500);
+}
+function repAnaPrint(){
+    var res=window._repAnaLast; if(!res){ showToast('—'); return; }
+    var t=_repAnaTable(res,30), e=escapeHtml;
+    var html='<!doctype html><html><head><meta charset="utf-8"><title>Repertorisation</title><style>body{font-family:Arial,sans-serif;font-size:11px;margin:12px}h2{margin:0 0 4px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:2px 4px;text-align:center}td:first-child{text-align:left;max-width:320px}th{background:#eee}tr.t td{font-weight:bold;background:#f6f6f6}@page{size:landscape;margin:10mm}</style></head><body>'
+        +'<h2>Bismillah Clinic — Repertorisation</h2><div>'+e(new Date().toLocaleString())+' · Method: '+e(repAnaMethodLabel(res.method))+' · Rubrics: '+res.rows.length+'</div><br><table><thead><tr>'
+        +t.head.map(function(h){return '<th>'+e(String(h))+'</th>';}).join('')+'</tr></thead><tbody>'
+        +t.rows.map(function(r,i){ return '<tr'+(i>=res.rows.length?' class="t"':'')+'>'+r.map(function(c){return '<td>'+e(String(c))+'</td>';}).join('')+'</tr>'; }).join('')
+        +'</tbody></table><script>window.onload=function(){window.print();}<\/script></body></html>';
+    var w=window.open('','_blank');
+    if(!w){ showToast(repLangText({ur:'پاپ اپ بلاک ہے — براؤزر میں اجازت دیں',en:'Popup blocked — allow popups',roman:'Popup block hai'})); return; }
+    w.document.open(); w.document.write(html); w.document.close();
 }
 // 🔑 weighted coverage display: integer cov shows "cov/denom", fractional shows "%"
 function repFmtCov(cov,denom){
@@ -2717,7 +2840,7 @@ function _repWbGridCompute(all){
         d=col[b].total-col[a].total; if(d)return d;
         return a.localeCompare(b);
     });
-    return {rows:rows,col:col,abbrs:abbrs,denom:denom,elimNotes:elimNotes};
+    return repAnaApplyMethod({rows:rows,col:col,abbrs:abbrs,denom:denom,elimNotes:elimNotes},all);
 }
 function renderWbGrid(){
     var body=document.getElementById('repWbBody'); if(!body)return;
@@ -2736,7 +2859,8 @@ function renderWbGrid(){
             +'<span class="rep-ana-winner">🏆 '+repLangText({ur:'سب سے زیادہ کور:',en:'Top coverage:',roman:'Sab se ziyada koor:'})+' <b dir="ltr">'+escapeHtml(winner)+'</b> — '+pct+'% <small>('+repFmtCov(wcol.cov,res.denom)+')</small></span>'
             +res.elimNotes.map(function(n){ return '<span class="rep-ana-elim">🚫 '+escapeHtml(repClipLabel(n.clip))+': -'+n.removed+'</span>'; }).join('')
             +(res.abbrs.length>COLS?'<span class="rep-ana-more">+'+(res.abbrs.length-COLS)+' '+repLangText({ur:'مزید ادویات',en:'more remedies',roman:'mazeed adwiyeh'})+'</span>':'')
-            +repAnaDiffBtnsHtml(res.abbrs)
+            +repAnaDiffBtnsHtml(res.abbrs)+repAnaExportBtnsHtml()
+            +'<span class="rep-ana-more">🧮 '+escapeHtml(repAnaMethodLabel(res.method))+(res.method==='boen'?' · '+repLangText({ur:'پولیریٹی جوڑے: ',en:'polarity pairs: ',roman:'polarity pairs: '})+res.polPairs:'')+'</span>'
             +'</div>';
         hh+='<div class="rep-ana-wrap"><table class="rep-ana-table"><thead><tr><th class="ana-rub">'+repLangText({ur:'ربرک',en:'Rubric',roman:'Rubric'})+'</th>';
         abbrs.forEach(function(a){ hh+='<th class="ana-rem'+(a===winner?' win':'')+'" dir="ltr" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')" title="'+escapeHtml(a)+' — '+res.col[a].cov+' / w'+res.col[a].total+'">'+escapeHtml(a.length>10?a.substring(0,9)+'…':a)+'</th>'; });
@@ -2756,6 +2880,8 @@ function renderWbGrid(){
         abbrs.forEach(function(a){ var e=res.col[a]; hh+='<td class="ana-total'+(a===winner?' win':'')+'">'+repFmtCov(e.cov,res.denom)+'</td>'; });
         hh+='</tr><tr><td class="ana-rub">'+repLangText({ur:'اسکور (گریڈ × ویٹ)',en:'Score (grade × weight)',roman:'Score (grade × weight)'})+'</td>';
         abbrs.forEach(function(a){ var e=res.col[a]; hh+='<td class="ana-total score'+(a===winner?' win':'')+'" title="'+repLangText({ur:'مجموعی اسکور',en:'total score',roman:'total score'})+'">'+repFmtScore(e.total)+'</td>'; });
+        if(res.pol){ hh+='</tr><tr><td class="ana-rub" title="'+repLangText({ur:'پولیریٹی = ربرک کا گریڈ منفی مخالف ربرک (agg/amel) کا گریڈ۔ ⚠ = کانٹرا انڈیکیشن',en:'Polarity = grade in rubric minus grade in opposite (agg/amel) rubric. ⚠ = contraindication',roman:'Polarity'})+'">'+repLangText({ur:'پولیریٹی',en:'Polarity',roman:'Polarity'})+'</td>';
+            abbrs.forEach(function(a){ var pv=res.pol[a]||0, ci=res.contra&&res.contra[a]; hh+='<td class="ana-total" style="'+(ci?'color:#c0392b;font-weight:bold;':'')+'">'+(ci?'⚠':'')+(pv>0?'+':'')+pv+'</td>'; }); }
         hh+='</tr></tfoot></table></div>';
         hh+='<p class="rep-tool-note">'+repLangText({ur:'گرڈ = بارہ کلپ بورڈز کے منتخب ربرکس (بغیر سلیکشن سب شامل)۔ ویٹ (0.5x–4x) اسکور کو گنا دیتا ہے، ‎-1x منہا ہے۔ ایلی منیشن موڈ والے کلپ بورڈ کے بغیر ادویات نکل جاتی ہیں۔ ڈاٹ = گریڈ، ربرک پر کلک = کھولیں۔',en:'Grid = selected rubrics of ALL clipboards (everything if none selected). Weights (0.5x–4x) multiply the score, -1x subtracts. Remedies not covered by an Elimination-Mode clipboard are removed. Dot = grade, click a rubric to open it.',roman:'Grid = tamam clipboards ke muntakhib rubrics. Weight score ko guna deta hai, -1x manfi hai.'})+'</p>';
         body2.innerHTML=hh;
@@ -2792,7 +2918,8 @@ function renderAnalysis(){
         var hh='<div class="rep-ana-sum">'
             +'<span class="rep-ana-winner">🏆 '+repLangText({ur:'سب سے زیادہ کور:',en:'Top coverage:',roman:'Sab se ziyada koor:'})+' <b dir="ltr">'+escapeHtml(winner)+'</b> — '+repFmtCov(wcol.cov,res.denom)+' ('+Math.max(0,Math.round(wcol.cov*100/res.denom))+'%)</span>'
             +(res.abbrs.length>COLS?'<span class="rep-ana-more">+'+(res.abbrs.length-COLS)+' '+repLangText({ur:'مزید ادویات',en:'more remedies',roman:'mazeed adwiyeh'})+'</span>':'')
-            +repAnaDiffBtnsHtml(res.abbrs)
+            +repAnaDiffBtnsHtml(res.abbrs)+repAnaExportBtnsHtml()
+            +'<span class="rep-ana-more">🧮 '+escapeHtml(repAnaMethodLabel(res.method))+(res.method==='boen'?' · '+repLangText({ur:'پولیریٹی جوڑے: ',en:'polarity pairs: ',roman:'polarity pairs: '})+res.polPairs:'')+'</span>'
             +'</div>';
         hh+='<div class="rep-ana-wrap"><table class="rep-ana-table"><thead><tr><th class="ana-rub">'+repLangText({ur:'ربرک',en:'Rubric',roman:'Rubric'})+'</th>';
         abbrs.forEach(function(a){ hh+='<th class="ana-rem'+(a===winner?' win':'')+'" dir="ltr" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')" title="'+escapeHtml(a)+' — '+res.col[a].cov+'/'+res.rows.length+'">'+escapeHtml(a.length>10?a.substring(0,9)+'…':a)+'</th>'; });
@@ -2811,6 +2938,8 @@ function renderAnalysis(){
         abbrs.forEach(function(a){ var e=res.col[a]; hh+='<td class="ana-total'+(a===winner?' win':'')+'">'+repFmtCov(e.cov,res.denom)+'</td>'; });
         hh+='</tr><tr><td class="ana-rub">'+repLangText({ur:'اسکور (گریڈ × ویٹ)',en:'Score (grade × weight)',roman:'Score (grade × weight)'})+'</td>';
         abbrs.forEach(function(a){ var e=res.col[a]; hh+='<td class="ana-total score'+(a===winner?' win':'')+'" title="'+repLangText({ur:'مجموعی اسکور',en:'total score',roman:'total score'})+'">'+repFmtScore(e.total)+'</td>'; });
+        if(res.pol){ hh+='</tr><tr><td class="ana-rub" title="'+repLangText({ur:'پولیریٹی = ربرک کا گریڈ منفی مخالف ربرک (agg/amel) کا گریڈ۔ ⚠ = کانٹرا انڈیکیشن',en:'Polarity = grade in rubric minus grade in opposite (agg/amel) rubric. ⚠ = contraindication',roman:'Polarity'})+'">'+repLangText({ur:'پولیریٹی',en:'Polarity',roman:'Polarity'})+'</td>';
+            abbrs.forEach(function(a){ var pv=res.pol[a]||0, ci=res.contra&&res.contra[a]; hh+='<td class="ana-total" style="'+(ci?'color:#c0392b;font-weight:bold;':'')+'">'+(ci?'⚠':'')+(pv>0?'+':'')+pv+'</td>'; }); }
         hh+='</tr></tfoot></table></div>';
         hh+='<p class="rep-tool-note">'+repLangText({ur:'ڈاٹ کا رنگ گریڈ دکھاتا ہے (1 ہلکا → 3 گہرا)۔ ربرک پر کلک = کھولیں، ادویہ کے نام پر کلک = کاپی۔ ویٹ ⋮ مینو سے بدلیں (ورک بینچ)۔',en:'Dot shade = grade (1 light → 3 dark). Click a rubric to open it, a remedy name to copy. Change weights from the ⋮ menu (Workbench).',roman:'Dot ka rang grade dikhaata hai. Weight ⋮ menu se badlein (Workbench).'})+'</p>';
         body.innerHTML=hh;

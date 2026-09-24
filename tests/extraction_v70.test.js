@@ -1,0 +1,31 @@
+// v70: بولین سرچ + Kent/Boenninghausen طریقے — node tests/extraction_v70.test.js
+const fs=require('fs'),vm=require('vm'),path=require('path');
+const src=fs.readFileSync(path.join(__dirname,'..','js','08-app-repertory.js'),'utf8');
+function grab(name){ const i=src.indexOf('function '+name+'('); let d=0,j=src.indexOf('{',i); for(let k=j;k<src.length;k++){ if(src[k]==='{')d++; else if(src[k]==='}'){ d--; if(!d) return src.slice(i,k+1);} } }
+const ctx={window:{},repAnaOpts:{method:'hs'},normalizeChapterKey:(b,c)=>c,_repPathIdx:{}};
+vm.createContext(ctx);
+['repParseBoolQuery','repBoolMatch','repOppositePath','repFindRubricByPath','repNormRubText','repRubTextOf','repAnaApplyMethod'].forEach(n=>vm.runInContext(grab(n),ctx));
+let fails=0; const ok=(c,m)=>{ console.log((c?'PASS ':'FAIL ')+m); if(!c)fails++; };
+const M=(q,t)=>ctx.repBoolMatch(ctx.repParseBoolQuery(q),t);
+ok(M('fear dark','Mind, fear, dark, in'),'AND');
+ok(!M('fear dark','Mind, fear, night'),'AND miss');
+ok(M('fear OR anxiety','Mind, anxiety, night'),'OR');
+ok(M('fear | anxiety','Mind, fear'),'| as OR');
+ok(!M('fear NOT night','Mind, fear, night'),'NOT');
+ok(M('fear -night','Mind, fear, dark'),'-word');
+ok(M('fear dark OR anxiety night','Mind, anxiety, night'),'(AND) OR (AND)');
+ok(JSON.stringify(ctx.repParseBoolQuery('fear OR anx NOT night').pos)==='["fear","anx"]','pos words for highlight');
+ok(ctx.repOppositePath('Generals, warm room agg.')==='Generals, warm room amel.','agg→amel');
+ok(ctx.repOppositePath('Head, pain, motion amel.')==='Head, pain, motion agg.','amel→agg');
+const all={kent:{gen:{1:{t:'Generals, warm room agg.',r:{puls:3,sulph:2}},2:{t:'Generals, warm room amel.',r:{ars:3,sulph:1,puls:0}}}}};
+const mk=()=>({rows:[{it:{book:'kent',ch:'gen',rid:'1',path:'GENERALITIES > Generals, warm room agg.'},rems:{puls:3,sulph:2,ars:1},w:1}],col:{puls:{cov:1,total:3},sulph:{cov:1,total:2},ars:{cov:1,total:1}},abbrs:[],denom:1});
+ctx.repAnaOpts.method='boen'; const r=ctx.repAnaApplyMethod(mk(),all);
+ok(r.polPairs===1,'polarity pair found');
+ok(r.pol.puls===3&&r.pol.sulph===1&&r.pol.ars===-2,'polarity values');
+ok(r.contra.ars&&!r.contra.puls,'ars contraindicated');
+ok(r.abbrs[r.abbrs.length-1]==='ars','contraindicated ranked last');
+ctx.repAnaOpts.method='kent'; const k=ctx.repAnaApplyMethod({rows:[],col:{a:{cov:3,total:3},b:{cov:2,total:6}},abbrs:[],denom:3},all);
+ok(k.abbrs[0]==='b','Kent: degrees first');
+ctx.repAnaOpts.method='hs'; const h=ctx.repAnaApplyMethod({rows:[],col:{a:{cov:3,total:3},b:{cov:2,total:6}},abbrs:[],denom:3},all);
+ok(h.abbrs[0]==='a','Sum of symptoms: coverage first');
+console.log(fails?fails+' FAILED':'ALL TESTS PASSED'); process.exit(fails?1:0);

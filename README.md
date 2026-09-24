@@ -262,3 +262,13 @@ Not done, on purpose: the *source-grade* "repertory view" needs a small hand-mad
 data — plan and measurements in `homeopathy/book-data-plan.md`.
 Tests: `tests/extraction_v687.test.js` (26 checks). `index.html` → `08b-rep-differentiation.js?v=4`,
 `REP_DATA_V` → `v=16`, `CACHE_NAME` → **v83**.
+
+## v70 — extraction parity: boolean search, Kent / Boenninghausen, print / CSV
+
+- **Boolean rubric search**: space = AND · `OR` or `|` = alternative · `NOT word` or `-word` = exclude. Example: `fear dark OR anxiety night -company`.
+- **Analysis method** (🧮 in the Rules bar, saved in `bc_rep_ana_opts.method`), in the Analysis Grid and the Workbench Grid:
+  - `hs` Sum of Symptoms: coverage first, then score (default, same as before)
+  - `kent` Kent, Sum of Degrees: total grade × weight first, then coverage
+  - `boen` Boenninghausen + **Polarity**: for every `agg./amel.`, `worse/better` rubric the opposite rubric is looked up in the same chapter (Kent-style "X amel." ↔ "X" too). Polarity = grade − opposite grade. ⚠ = contraindication (higher grade in the opposite rubric); these remedies are ranked last.
+- **🖨 Print / PDF** (landscape, up to 30 remedies) and **📥 CSV (Excel, UTF-8)** of the grid, including Coverage, Score and Polarity rows.
+- Test: `node tests/extraction_v70.test.js`
