@@ -582,14 +582,70 @@ function repTreeRemsHtml(rems){
 function repTreeRowHtml(r){
     var c=r.node, rems=Object.keys(c.remedies||{}).length, rid=c.hasRubric&&c.rid?String(c.rid):'';
     var open=r.kids&&(repFolderFilter||!repTreeCollapsed[r.full]);
-    return '<div class="rtv-row'+(r.depth===0?' top':'')+'" style="padding-left:'+(6+r.depth*18)+'px" data-full="'+_repAttr(r.full)+'" data-labels="'+_repAttr(JSON.stringify(r.labels))+'" data-rems="'+rems+'" data-kids="'+(r.kids?1:0)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+'>'
+    return '<div class="rtv-row'+(r.depth===0?' top':'')+'" style="--d:'+r.depth+';padding-left:'+(6+r.depth*18)+'px" data-full="'+_repAttr(r.full)+'" data-labels="'+_repAttr(JSON.stringify(r.labels))+'" data-rems="'+rems+'" data-kids="'+(r.kids?1:0)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+'>'
         +'<span class="rtv-tg">'+(r.kids?(open?'▾':'▸'):'·')+'</span>'
+        +repTreeLevelIcon(r.depth,r.kids)
         +repCmpChkHtml(repCurrentBook,repCurrentChapter,rid,r.full,rems,'row')
         +'<span class="rtv-lab'+(r.kids?' has-kids':'')+'">'+escapeHtml(r.label)+'</span>'
         +(rems?'<span class="rtv-n">('+rems+')</span>':'')
+        +(r.kids?'<span class="rtv-k" title="'+repLangText({ur:'ذیلی ربرکس',en:'sub-rubrics',roman:'zeli rubrics'})+'">📁'+c.order.length+'</span>':'')
+        +(rid?'<span class="rtv-colon">:</span>'+repTreeActsHtml(rid,rems):'')
         +'<button class="rpc-kebab rtv-kebab" onclick="event.stopPropagation();repKebabShow(event,this)" data-full="'+_repAttr(r.full)+'" data-rid="'+_repAttr(rid)+'">⋮</button>'
         +(repTreeOpts.rems&&rems?repTreeRemsHtml(c.remedies):'')
         +'</div>';
+}
+// 🔑 v73: سطح کی پہچان — ہر گہرائی کا اپنا رنگ اور نشان (1 ◆ نیلا، 2 ● سبز، 3 ■ نارنجی، 4 ▲ جامنی، 5+ ◇ سرمئی)
+var REP_TREE_LV=[['◆','#1f618d'],['●','#1e8449'],['■','#ca6f1e'],['▲','#7d3c98'],['◇','#707b7c']];
+function repTreeLevelIcon(depth,kids){
+    var lv=REP_TREE_LV[Math.min(depth,REP_TREE_LV.length-1)];
+    return '<span class="rtv-lv" style="color:'+lv[1]+'" title="'+repLangText({ur:'سطح ',en:'Level ',roman:'Level '})+(depth+1)+(kids?'':' — '+repLangText({ur:'آخری ربرک',en:'leaf',roman:'leaf'}))+'">'+lv[0]+'<sub>'+(depth+1)+'</sub></span>';
+}
+// 🔑 v73: ہر ربرک کی لائن پر 5 بٹن (ڈیٹیل پیج والے): ▸ تفصیل · + موازنہ · 🔬 تفریق · 🔬 ادویات میں فرق · 📖 میٹیریا میڈیکا
+function repTreeActsHtml(rid,rems){
+    var on=repClipFind(repActiveClip,repCurrentBook,rid)!==-1, L=repLangText, h='<span class="rtv-acts">';
+    h+='<button class="rtv-a info" data-act="info" title="'+L({ur:'مطلب / مریض کا ورژن / استعمال / کراس ریفرنس',en:'Meaning / patient version / usage / cross-refs',roman:'Tafseel'})+'">▸</button>';
+    h+='<button class="rtv-a cmp'+(on?' on':'')+'" data-act="cmp" title="'+L({ur:'فعال کلپ بورڈ میں شامل/خارج',en:'Add to / remove from active clipboard',roman:'Compare'})+'">'+(on?'✓':'+')+' '+L({ur:'موازنہ',en:'Compare',roman:'Compare'})+'</button>';
+    if(typeof repDiffOpenForRubric==='function'){
+        h+='<button class="rtv-a diff" data-act="diff" title="'+L({ur:'اس ربرک کی تفریق (ذیلی/ہم رشتہ ربرکس)',en:'Differentiate this rubric',roman:'Tafreeq'})+'">🔬 '+L({ur:'تفریق',en:'Differentiate',roman:'Differentiate'})+'</button>';
+        if(rems>1) h+='<button class="rtv-a rdiff" data-act="rdiff" title="'+L({ur:'ان ادویات میں کیا فرق ہے؟',en:'What distinguishes these remedies?',roman:'farq?'})+'">⚖ '+L({ur:'ادویات میں فرق',en:'differentiate',roman:'farq'})+'</button>';
+    }
+    if(rems&&typeof repMMOpenForRubric==='function') h+='<button class="rtv-a mm" data-act="mm" title="'+L({ur:'ان ادویات کا میٹیریا میڈیکا',en:'Materia medica of these remedies',roman:'Materia medica'})+'">📖 '+L({ur:'میٹیریا میڈیکا',en:'materia medica',roman:'materia medica'})+'</button>';
+    return h+'</span>';
+}
+// ڈیٹیل پیج والے فنکشن repCurrentDetail پر چلتے ہیں — عارضی طور پر اس لائن کا سیاق دے کر چلاؤ
+function repTreeWithCtx(row,fn){
+    var sv=repCurrentDetail, labels=[]; try{ labels=JSON.parse(row.getAttribute('data-labels')||'[]'); }catch(e){}
+    repCurrentDetail={full:row.getAttribute('data-full')||'',rid:row.getAttribute('data-rid')||'',labels:labels};
+    try{ fn(); } finally { repCurrentDetail=sv; }
+}
+function repTreeAct(row,act,btn){
+    var rid=row.getAttribute('data-rid')||'', full=row.getAttribute('data-full')||'';
+    if(act==='cmp'){
+        var rems=parseInt(row.getAttribute('data-rems')||'0',10)||0;
+        var added=repClipToggle(repActiveClip,repCurrentBook,repCurrentChapter,rid,full,rems);
+        btn.classList.toggle('on',added); btn.innerHTML=(added?'✓ ':'+ ')+repLangText({ur:'موازنہ',en:'Compare',roman:'Compare'});
+        if(typeof repCmpSyncChecks==='function') repCmpSyncChecks(repCurrentBook,rid,added);
+        if(typeof repCmpPanelRender==='function') repCmpPanelRender();
+        showToast((added?'☑ ':'☐ ')+repClipLabel(repActiveClip)); return;
+    }
+    if(act==='diff'){ repTreeWithCtx(row,function(){ repDiffOpenForRubric(); }); return; }
+    if(act==='rdiff'){   // ⚖ سب سے اونچے گریڈ کی 5 تک ادویات کا آپس میں تقابل
+        var en=repRidPathMap[rid], rm=(en&&en.node.remedies)||{};
+        var top=Object.keys(rm).sort(function(x,y){ return (Math.min(3,rm[y]||1)-Math.min(3,rm[x]||1)); }).slice(0,5);   // مستحکم sort: برابر گریڈ میں فائل کی ترتیب
+        repDiffOpenWithRemedies(top,{book:repCurrentBook,ch:repCurrentChapter,rid:rid,full:full,rems:rm}); return;
+    }
+    if(act==='mm'){ repTreeWithCtx(row,function(){ repMMOpenForRubric(); }); return; }
+    if(act==='info'){
+        var nx=row.nextElementSibling;
+        if(nx&&nx.classList.contains('rtv-info')){ nx.remove(); btn.classList.remove('open'); btn.innerHTML='▸'; return; }
+        var e=repRidPathMap[rid], node=e?e.node:null; if(!node)return;
+        var ab=Object.keys(node.remedies||{}), labels=[]; try{ labels=JSON.parse(row.getAttribute('data-labels')||'[]'); }catch(x){}
+        var ih=repDetailInfoHtml({full:full,rid:rid,kidsCount:(node.order||[]).length,abbrs:ab,g3:ab.filter(function(a){return (node.remedies[a]||1)>=3;}),
+            pureXref:false,seeT:repExtractSeeTargets(full),parentLabels:labels.slice(0,-1),showRems:false,remsObj:node.remedies||{}});
+        ih=ih.replace('id="repDetailInfo"','').replace('class="rpd-info"','class="rpd-info open"');
+        row.insertAdjacentHTML('afterend','<div class="rtv-info" style="margin-left:'+(parseInt(row.style.paddingLeft,10)||0)+'px">'+ih+'</div>');
+        btn.classList.add('open'); btn.innerHTML='▾';
+    }
 }
 // ٹری کو کسی div میں لگاؤ۔ node = جس کی اولاد دکھانی ہے، labels = اس تک کا راستہ
 function repTreeMount(elId,node,labels,parentFull,ensureRid){
@@ -629,8 +685,10 @@ function repTreeRemount(elId){
 function repTreeClick(ev){
     var t=ev.target;
     if(t.closest('.rpc-chk')||t.closest('.rpc-kebab')) return;   // اپنے ہینڈلر
+    if(t.closest('.rtv-info')) return;
     var row=t.closest('.rtv-row'); if(!row)return;
     repKebabHide();
+    var ab=t.closest('.rtv-a'); if(ab){ repTreeAct(row,ab.getAttribute('data-act'),ab); return; }
     if(t.classList.contains('rtv-r')){ copyRemedyToPrescription(t.getAttribute('data-a')); return; }
     var elId=row.closest('[id]').id, full=row.getAttribute('data-full');
     if(t.classList.contains('rtv-tg')&&row.getAttribute('data-kids')==='1'&&!repFolderFilter){
