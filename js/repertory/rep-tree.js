@@ -204,6 +204,19 @@ function repTreeExpandAll(open){
     });
 }
 function repTreeSyncBtns(){ var b=document.getElementById('repTreeRemsBtn'); if(b)b.classList.toggle('active',!!repTreeOpts.rems); }
+// ==================== v79: گریڈ فلٹر (نچلی بار کے 1/2/3 آئیکن) ====================
+// 3 = صرف گریڈ 3 · 2 = گریڈ 3+2 · 1 = گریڈ 3+2+1 (یعنی سب) · دوبارہ کلک = فلٹر آف
+// اثر: body.rep-gf-N کلاس سے CSS ریپرٹری میں ہر `.rep-remedy-tag` / ٹری کے `.rtv-r` چھپا دیتا ہے
+var repGradeFilterVal=0;                                    // 0 = فلٹر آف
+function repGradeFilter(n){
+    n=parseInt(n,10)||0;
+    repGradeFilterVal=(repGradeFilterVal===n)?0:n;          // ایک ہی بار دوبارہ کلک = آف
+    var b=document.body;
+    if(b){ b.classList.remove('rep-gf-1','rep-gf-2','rep-gf-3'); if(repGradeFilterVal)b.classList.add('rep-gf-'+repGradeFilterVal); }
+    var items=document.querySelectorAll('.rep-grad-item');
+    for(var i=0;i<items.length;i++) items[i].classList.toggle('on',parseInt(items[i].getAttribute('data-g'),10)===repGradeFilterVal);
+    return repGradeFilterVal;
+}
 
 // 🔑 card building helpers
 function _repNodeKids(c){ return (c.order&&c.order.length>0)||Object.keys(c.children||{}).length>0; }

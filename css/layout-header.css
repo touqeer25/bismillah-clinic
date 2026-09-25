@@ -9,6 +9,9 @@
 .app-header.hx .header-center{text-align:left;padding:0;min-width:0}
 body[dir="rtl"] .app-header.hx .header-center{direction:rtl;text-align:right}
 .app-header.hx .header-center .clinic-title{font-size:18px;line-height:1.25;padding:0;letter-spacing:.6px;filter:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* v79: اردو (RTL) میں کلینک کا نام کٹ نہ جائے — فونٹ چھوٹا */
+body[dir="rtl"] .app-header.hx .header-center .clinic-title{font-size:15px;letter-spacing:.3px}
+body[dir="rtl"] .app-header.hx .header-center .doctor-title{font-size:10.5px}
 .app-header.hx .header-center .doctor-title{font-size:11px;margin-top:1px;color:rgba(255,255,255,.72);text-shadow:none;white-space:nowrap}
 .app-header.hx .header-right{position:static;display:flex;align-items:center;gap:10px}
 .app-header.hx .header-btns-grid{display:flex;gap:6px}

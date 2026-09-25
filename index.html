@@ -22,12 +22,12 @@
     <script src="advanced-diagnosis-engine.js?v=36"></script>
     <!-- v78: انداز الگ الگ فائلوں میں: css/*.css (ترتیب اہم ہے) -->
     <link rel="stylesheet" href="css/app.css?v=78">
-    <link rel="stylesheet" href="css/repertory.css?v=78">
+    <link rel="stylesheet" href="css/repertory.css?v=79">
     <link rel="stylesheet" href="css/differentiation.css?v=78">
     <link rel="stylesheet" href="css/repertory-tree.css?v=78">
     <link rel="stylesheet" href="css/library.css?v=78">
     <!-- v78 layout (سب سے آخر میں تاکہ پرانے قواعد پر لاگو ہو) -->
-    <link rel="stylesheet" href="css/layout-header.css?v=78">
+    <link rel="stylesheet" href="css/layout-header.css?v=79">
     <link rel="stylesheet" href="css/layout-repertory-toolbar.css?v=78">
     <link rel="stylesheet" href="css/layout-differentiation.css?v=78">
 
@@ -121,17 +121,15 @@
         <button class="nav-btn" data-page="searchPatient">
             🔍 <span data-ur="تلاش" data-en="Search" data-roman="Talash">تلاش</span>
         </button>
-        <button class="nav-btn" data-page="allPatients">
-            📋 <span data-ur="تمام مریض" data-en="All Patients" data-roman="Tamam Mareez">تمام مریض</span>
-        </button>
         <button class="nav-btn" data-page="diagnosis">
             🔬 <span data-ur="تشخیص" data-en="Diagnosis" data-roman="Tashkhees">تشخیص</span>
         </button>
-        <button class="nav-btn" data-page="settings">
-            ⚙️ <span data-ur="سیٹنگز" data-en="Settings" data-roman="Settings">سیٹنگز</span>
-        </button>
         <button class="nav-btn" data-page="repertoryBrowser">
             📖 <span data-ur="ریپرٹری" data-en="Repertory" data-roman="Repertory">ریپرٹری</span>
+        </button>
+        <!-- v79: سیٹنگز آخر میں (ریپرٹری کے بعد)؛ «تمام مریض» ٹیب ہٹائی — ڈیش بورڈ کے «آل ٹائم مریض» ٹیب سے کام چلتا ہے -->
+        <button class="nav-btn" data-page="settings">
+            ⚙️ <span data-ur="سیٹنگز" data-en="Settings" data-roman="Settings">سیٹنگز</span>
         </button>
     </nav>
     
@@ -869,6 +867,11 @@
         <div class="content">
             <!-- Toolbar: book select + search scope + search box -->
             <div class="rep-toolbar">
+                <!-- v79 نئی ترتیب: سرچ سب سے پہلے (روزانہ کا کام)، پھر کتاب/اسکوپ/قسم، پھر کمپیئر، آخر میں مطالعہ لائبریری (نیچلی بار سے یہاں منتقل) -->
+                <div class="rep-search-wrap">
+                    <span class="rep-search-ico">🔍</span>
+                    <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="ربرک / سب ربرک تلاش کریں... (مثلاً fear، headache)">
+                </div>
                 <select id="repBookSelect" onchange="switchRepertoryBook()" class="rep-toolbar-select rep-book-select">
                     <!-- 🔑 v45: کینٹ ٹاپ پر + ڈیفالٹ کتاب (صارف درخواست) -->
                     <option value="kent">📘 Kent Repertory (English)</option>
@@ -896,12 +899,9 @@
                     <option value="rubric_remedy">🔤💊 <span data-ur="ربرک + ادویہ" data-en="Rubric + Remedy" data-roman="Rubric + Remedy">ربرک + ادویہ</span></option>
                     <option value="clinical">🏥 <span data-ur="کلینیکل حالت" data-en="Clinical Condition" data-roman="Clinical Condition">کلینیکل حالت</span></option>
                 </select>
-                <div class="rep-search-wrap">
-                    <span class="rep-search-ico">🔍</span>
-                    <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="ربرک / سب ربرک تلاش کریں... (مثلاً fear، headache)">
-                </div>
                 <!-- 🔑 v54: HomeoSetu-style Compare MODE (☐ on every rubric card → active clipboard); classic side-by-side view moved into Workbench / compare panel -->
                 <button class="rep-cmp-btn" id="repCmpModeBtn" onclick="repCmpModeToggle()" title="Compare Mode: tick rubric cards to collect them into the active clipboard, then Analyze">☑ <span data-ur="کمپیئر" data-en="Compare" data-roman="Compare">Compare</span></button>
+                <button class="rep-viewbtn rep-toolbar-lib" onclick="repLibOpen()" title="Reading library — Hahnemann: Organon 6th, Chronic Diseases / مطالعہ لائبریری">📚</button>
             </div>
             <!-- Layout: chapters sidebar + main column -->
             <div class="rep-layout">
@@ -928,14 +928,13 @@
                         <button id="repBtnFwd" class="rep-navbtn" onclick="repFwd()" title="Forward">→</button>
                         <button id="repBtnUp" class="rep-navbtn" onclick="repUp()" title="Up to parent folder">↑</button>
                         <div class="rep-breadcrumb" id="repBreadcrumb"></div>
-                        <div class="rep-gradation" title="Remedy grades: 3 = strong, 2 = medium, 1 = light">
-                            <span class="rep-grad-label">GRADATION:</span>
-                            <span class="rep-grad-item"><i class="rep-gr-dot d1"></i>1</span>
-                            <span class="rep-grad-item"><i class="rep-gr-dot d2"></i>2</span>
-                            <span class="rep-grad-item"><i class="rep-gr-dot d3"></i>3</span>
+                        <!-- v79: GRADATION ہیڈنگ ہٹائی — گریڈ آئیکنز اب فلٹر ہیں: 3 = صرف گریڈ 3، 2 = گریڈ 3+2، 1 = سب (دوبارہ کلک = فلٹر آف) -->
+                        <div class="rep-gradation" title="Remedy grade filter — click 3: only grade-3 · click 2: grades 3+2 · click 1: grades 3+2+1 · click again = off">
+                            <button type="button" class="rep-grad-item" data-g="1" onclick="repGradeFilter(1)" title="Show grade 3 + 2 + 1 remedies / گریڈ 3، 2، 1 سب دکھائیں"><i class="rep-gr-dot d1"></i>1</button>
+                            <button type="button" class="rep-grad-item" data-g="2" onclick="repGradeFilter(2)" title="Show grade 3 + 2 remedies / صرف گریڈ 3 اور 2"><i class="rep-gr-dot d2"></i>2</button>
+                            <button type="button" class="rep-grad-item" data-g="3" onclick="repGradeFilter(3)" title="Show only grade-3 remedies / صرف گریڈ 3 والی ادویات"><i class="rep-gr-dot d3"></i>3</button>
                         </div>
                         <div class="rep-viewtoggle">
-                            <button class="rep-viewbtn" onclick="repLibOpen()" title="Reading library — Hahnemann: Organon 6th, Chronic Diseases / مطالعہ لائبریری">📚</button>
                             <button id="repTreeRemsBtn" class="rep-viewbtn active" onclick="repTreeToggleRems()" title="ربرکس کے ساتھ ادویات دکھائیں / چھپائیں">💊</button>
                             <button class="rep-viewbtn" onclick="repTreeExpandAll(true)" title="تمام ذیلی ربرکس کھولیں">⊞</button>
                             <button class="rep-viewbtn" onclick="repTreeExpandAll(false)" title="صرف پہلی سطح — باقی بند">⊟</button>
@@ -1569,7 +1568,7 @@
 <script src="js/repertory/rep-books.js?v=78"></script>
 <script src="js/repertory/rep-chapters.js?v=78"></script>
 <script src="js/repertory/rep-folders.js?v=78"></script>
-<script src="js/repertory/rep-tree.js?v=78"></script>
+<script src="js/repertory/rep-tree.js?v=79"></script>
 <script src="js/repertory/rep-clipboards.js?v=78"></script>
 <script src="js/repertory/rep-compare-mode.js?v=78"></script>
 <script src="js/repertory/rep-rubric-detail.js?v=78"></script>

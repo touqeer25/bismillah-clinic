@@ -1,0 +1,22 @@
+Bismillah Clinic — v79 UPDATE FILES (2026-09-26)
+=================================================
+Zip کھولنے کا طریقہ: ریپو کی روٹ میں unzip کر دیں (فائلیں اپنی جگہیں پر اووررائٹ ہو جائیں گی)۔
+پرانی فائلیں بیک اپ لے لیں۔ اڈیٹ کے بعد service-worker.js میں CACHE_NAME = 'bhc-clinic-v93' اور
+index.html میں ?v=79 — پہلے سے شامل ہیں۔
+
+CHANGED FILES (8) + NEW FILE (1):
+  1. index.html                      — مین نیویگیشن7 ٹیب (تمام مریض ہٹایا، سیٹنگز آخر میں ریپرٹری کے بعد)؛
+                                       ریپرٹری مین ٹول بار نئی ترتیب (🔍 سرچ سب سے پہلے) + 📚 لائبریری نیچلی بار سے منتقل؛
+                                       نیچلی بار سے «GRADATION:» ہیڈنگ ہٹائی، 1/2/3 اب کلک فلٹر بٹن (repGradeFilter)
+  2. css/layout-header.css            — اردو (RTL) میں کلینک کا نام 15px (کٹنا بند)
+  3. css/repertory.css                — گریڈ بٹن کا انداز (.rep-grad-item.on) + فلٹر CSS (body.rep-gf-3/2 → کم گریڈ کی ادویات چھپیں)
+  4. js/repertory/rep-tree.js         — repGradeFilter() فنکشن (3 = صرف گریڈ 3 · 2 = 3+2 · 1 = سب · دوبارہ کلک = آف)
+  5. service-worker.js                — CACHE_NAME bhc-clinic-v92 → v93
+  6. tests/layout_split_v78.test.js   — 7 ٹیب + نئی ترتیب + v79 چیکس (سب پاس)
+  7. HANDOFF.md                       — v79 ریکارڈ + Kent ← OOREP نئی حکمت عملی
+  8. tools/mm_build/kent_from_oorep.py — UA/تہویل/ٹھیک threads + نئے موڈ: harvest-text (صرف متن، gzip partials، exit 42)
+                                         + recs (EN متن + kent_de ادویات → _recs.json) + build کو _recs.json ترجیح
+  9. tools/mm_build/kent_harvest_resume.sh (NAYI) — بلاک ختم ہونے پر خودکار harvest-text ریزیوم (10 منٹ probe)
+
+تلاش (Search) اور نئی وزٹ (New Visit) دونوں ٹیب برقرار رکھیں — فنکشن الگ ہیں
+(تلاش = مریض تلاش + 👁️/✏️/🗑️ · نئی وزٹ = منتخب مریض پر نئی وزٹ فارم)۔
