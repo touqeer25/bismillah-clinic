@@ -250,9 +250,9 @@ function repDiffRenderHead(){
     h+='<datalist id="repDiffRemList">'+repDiffDatalistHtml()+'</datalist>';
     h+='</div>';
     if(repDiffCtx&&repDiffCtx.rems){
-        var rems=repDiffCtx.rems, abbrs=Object.keys(rems); abbrs.sort(function(a,b){ return (repDiffGrade(rems[b])-repDiffGrade(rems[a]))||a.localeCompare(b); });
-        h+='<div class="rep-diff-chips">';
-        abbrs.forEach(function(a){ var g=repDiffGrade(rems[a]); var on=repDiffSel.indexOf(a)!==-1; h+='<span class="rep-remedy-tag g'+g+(on?' sel':'')+'" title="'+_repAttr(repRemedyTitle(a))+'" onclick="repDiffToggleRem(\''+_repJs(a)+'\')">'+(on?'✓ ':'')+escapeHtml(a)+'</span>'; });
+        var rems=repDiffCtx.rems, abbrs=Object.keys(rems);   // 🔑 v75: ٹری جیسی ترتیب (فائل کی اصل ترتیب) اور ٹری جیسا انداز
+        h+='<div class="rep-diff-chips rtv-rems-box" dir="ltr">';
+        abbrs.forEach(function(a){ var g=repDiffGrade(rems[a]); var on=repDiffSel.indexOf(a)!==-1; h+='<i class="rtv-r g'+g+(on?' sel':'')+'" title="'+_repAttr(repRemedyTitle(a))+'" onclick="repDiffToggleRem(\''+_repJs(a)+'\')">'+escapeHtml(g===3?a.toUpperCase():a)+'</i> '; });
         h+='</div>';
     }
     h+='</div>';

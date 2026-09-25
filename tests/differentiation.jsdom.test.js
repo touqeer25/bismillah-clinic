@@ -61,13 +61,13 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   ok(d.querySelector('.rpd-diff')&&d.querySelector('.rpd-sec-head .rst-link'),'B1 detail page shows 🔬 تفریق button (title row + remedies header)');
   w.repDiffOpenForRubric(); await sleep(50);
   ok(w.repDiffIsOpen()&&d.getElementById('repDiffModal').style.display==='block','B1 modal opens');
-  ok(d.querySelectorAll('.rep-diff-chips .rep-remedy-tag').length===111,'B4 picker shows 111 remedy chips');
+  ok(d.querySelectorAll('.rep-diff-chips .rtv-r').length===111,'B4 picker shows 111 remedy chips');
   ok(w.repDiffTab==='rubric','B6 opens on rubric-remedies tab');
   for(let i=0;i<100&&!d.querySelector('.rep-diff-tbl');i++)await sleep(50);
   ok(d.querySelector('.rep-diff-tbl')&&d.querySelectorAll('.rep-diff-tbl tbody tr').length===111,'B9 rubric table rendered: 111 rows, '+d.querySelectorAll('.rep-diff-tbl th.ft').length+' feature columns');
   ok(d.querySelector('.rep-diff-tbl tbody tr td.rare .rep-diff-rare'),'B9 rare features shown ⭐');
   // pick 3 remedies via chips
-  const chip=a=>Array.from(d.querySelectorAll('.rep-diff-chips .rep-remedy-tag')).find(e=>e.textContent.trim()===a||e.textContent.trim()==='✓ '+a);
+  const chip=a=>Array.from(d.querySelectorAll('.rep-diff-chips .rtv-r')).find(e=>e.textContent.trim().toLowerCase()===a);
   chip('nat-m').click(); await sleep(30); chip('ign').click(); await sleep(30); chip('plat').click();
   for(let i=0;i<100&&!(w.repDiffLast&&w.repDiffLast.res);i++)await sleep(50); await sleep(50);
   ok(w.repDiffSel.join()==='nat-m,ign,plat'&&w.repDiffTab==='excl','B4 three chips picked → exclusive tab; sel='+w.repDiffSel.join());

@@ -570,6 +570,39 @@ function repTreeFlatten(node,labels,parentFull,depth,out,filt){
     });
     return any;
 }
+// 🔑 v75: ربرکس کا اردو ترجمہ — ur/rubric_labels_ur.json (لیبل → اردو)؛ صرف اردو زبان میں دکھتا ہے
+var _repUrLabels=null,_repUrLoading=false;
+function repUrLabelsOn(){ return (typeof currentLang!=='undefined'?currentLang:'ur')==='ur'; }
+function ensureRepUrLabels(cb){
+    if(_repUrLabels||_repUrLoading){ if(_repUrLabels&&cb)cb(); return; }
+    _repUrLoading=true;
+    fetch('ur/rubric_labels_ur.json?'+REP_DATA_V).then(function(r){ if(!r.ok)throw 0; return r.json(); })
+        .then(function(d){ _repUrLabels=(d&&d.labels)||{}; _repUrLoading=false; if(cb)cb(); })
+        .catch(function(){ _repUrLabels={}; _repUrLoading=false; });
+}
+// ترتیب: (1) پورے لیبل کا ترجمہ → (2) کوما والے ہر حصے کا ترجمہ → (3) الفاظ کی لغت (glossary_en_ur.json) سے لفظی ترجمہ۔
+// 2 اور 3 خودکار ہیں اس لیے {auto:true} — ہلکے رنگ میں دکھتے ہیں تاکہ معلوم رہے کہ یہ نظرثانی شدہ ترجمہ نہیں۔
+function repUrWord(w){
+    if(!_repGlossary) return '';
+    var W=_repGlossary.words||{}, A=_repGlossary.aliases||{}, e=W[w]||(A[w]?W[A[w]]:null);
+    return (e&&e.ur)||'';
+}
+function repUrLabelObj(label){
+    if(!_repUrLabels) return null;
+    var k=String(label||'').replace(/ \[\d+\]$/,'').toLowerCase().trim(); if(!k) return null;
+    if(_repUrLabels[k]) return {t:_repUrLabels[k],auto:false};
+    var segs=k.split(/,\s*/), out=[], any=false;
+    for(var i=0;i<segs.length;i++){
+        var sg=segs[i].trim(); if(!sg)continue;
+        if(_repUrLabels[sg]){ out.push(_repUrLabels[sg]); any=true; continue; }
+        if(/^[\d\s.:apm\-–]+$/.test(sg)){ out.push(sg); continue; }          // وقت/ہندسے جوں کے توں
+        var ws=sg.match(/[a-z]+|\d+/g)||[], tw=[];
+        ws.forEach(function(w){ var u=/^\d+$/.test(w)?w:repUrWord(w); if(u){ tw.push(u); any=true; } });
+        if(tw.length) out.push(tw.join(' '));
+    }
+    return any&&out.length?{t:out.join('، '),auto:true}:null;
+}
+function repUrLabel(label){ var o=repUrLabelObj(label); return o?o.t:''; }
 function repTreeRemsHtml(rems){
     var ks=Object.keys(rems||{}); if(!ks.length) return '';
     var h='<span class="rtv-rems">';
@@ -587,6 +620,8 @@ function repTreeRowHtml(r){
         +repTreeLevelIcon(r.depth,r.kids)
         +repCmpChkHtml(repCurrentBook,repCurrentChapter,rid,r.full,rems,'row')
         +'<span class="rtv-lab'+(r.kids?' has-kids':'')+'">'+escapeHtml(r.label)+'</span>'
+        +(function(){ if(!repUrLabelsOn())return ''; var u=repUrLabelObj(r.label); if(!u)return '';
+            return '<span class="rtv-ur'+(u.auto?' auto':'')+'" dir="rtl" lang="ur"'+(u.auto?' title="خودکار لفظی ترجمہ — نظرثانی باقی"':'')+'>'+escapeHtml(u.t)+'</span>'; })()
         +(rems?'<span class="rtv-n">('+rems+')</span>':'')
         +(r.kids?'<span class="rtv-k" title="'+repLangText({ur:'ذیلی ربرکس',en:'sub-rubrics',roman:'zeli rubrics'})+'">📁'+c.order.length+'</span>':'')
         +(rid?'<span class="rtv-colon">:</span>'+repTreeActsHtml(rid,rems):'')
@@ -652,6 +687,7 @@ function repTreeMount(elId,node,labels,parentFull,ensureRid){
     var el=document.getElementById(elId); if(!el||!node)return;
     var rows=[]; repTreeFlatten(node,labels||[],parentFull||'',0,rows,(repFolderFilter||'').toLowerCase());
     var v=repTreeViews[elId]={rows:rows,shown:0,node:node,labels:labels,parentFull:parentFull};
+    if(repUrLabelsOn()&&(!_repUrLabels||(!_repGlossary&&!_repGlossaryFailed))) ensureRepUrLabels(function(){ ensureRepGlossary(function(){ if(document.getElementById(elId)) repTreeRemount(elId); }); });
     var need=REP_TREE_CHUNK;
     if(ensureRid){ for(var i=0;i<rows.length;i++){ if(rows[i].node.rid&&String(rows[i].node.rid)===String(ensureRid)){ need=Math.max(need,i+50); break; } } }
     el.innerHTML='<div class="rtv" dir="ltr"></div><div class="rtv-more"></div>';

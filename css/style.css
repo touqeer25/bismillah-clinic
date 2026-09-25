@@ -1533,3 +1533,16 @@ body.rep-diff-open{overflow:hidden}
     .rep-layout{padding-left:60px}
     .rep-side-tools{margin-left:-67px}
 }
+
+/* 🔑 v75: تفریق ونڈو اور ربرک صفحے کی ادویات بھی ٹری کے انداز میں (پِل/چپس ختم) */
+.rtv-rems-box{font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.9;background:#fff;border:1px solid #e6ebf1;border-radius:8px;padding:6px 10px;text-align:left;display:block}
+.rtv-rems-box .rtv-r{padding:1px 2px;border-radius:3px}
+.rtv-r.sel{background:#d6eaf8;outline:1px solid #5dade2}
+.rep-remedy-tag{background:transparent!important;border:0!important;box-shadow:none!important;padding:0 2px!important;margin:0 3px 0 0!important;border-radius:3px!important;font-family:Georgia,'Times New Roman',serif;font-size:14px;cursor:pointer}
+.rep-remedy-tag.g1{color:#34495e!important;font-weight:normal!important;font-style:normal!important}
+.rep-remedy-tag.g2{color:#1f4e9c!important;font-weight:bold!important;font-style:italic!important}
+.rep-remedy-tag.g3{color:#b03a2e!important;font-weight:bold!important;text-transform:uppercase}
+.rep-remedy-tag:hover{background:#fff3cd!important}
+.rpd-chips{font-family:Georgia,'Times New Roman',serif;line-height:1.9;background:#fff;border:1px solid #e6ebf1;border-radius:8px;padding:6px 10px}
+.rtv-ur{font-family:'Jameel Noori Nastaleeq','Noto Nastaliq Urdu','Urdu Typesetting',serif;font-size:13px;color:#7d6608;margin:0 6px;background:#fdfaf0;border-radius:4px;padding:0 5px}
+.rtv-ur.auto{color:#a6acaf;background:transparent;border-bottom:1px dotted #d5d8dc;border-radius:0}
