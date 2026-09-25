@@ -1546,3 +1546,15 @@ body.rep-diff-open{overflow:hidden}
 .rpd-chips{font-family:Georgia,'Times New Roman',serif;line-height:1.9;background:#fff;border:1px solid #e6ebf1;border-radius:8px;padding:6px 10px}
 .rtv-ur{font-family:'Jameel Noori Nastaleeq','Noto Nastaliq Urdu','Urdu Typesetting',serif;font-size:13px;color:#7d6608;margin:0 6px;background:#fdfaf0;border-radius:4px;padding:0 5px}
 .rtv-ur.auto{color:#a6acaf;background:transparent;border-bottom:1px dotted #d5d8dc;border-radius:0}
+
+/* 📚 v77 reading library */
+.rep-lib-win{display:flex;flex-direction:column}
+.rep-lib-main{display:flex;gap:10px;min-height:0;flex:1;height:70vh}
+.rep-lib-toc{width:170px;overflow:auto;border-right:1px solid #e5e8e8;font-size:12px;direction:ltr;flex-shrink:0}
+.rep-lib-ti{padding:3px 8px;cursor:pointer;color:#1a5276;border-radius:4px}
+.rep-lib-ti:hover{background:#eef5fb}.rep-lib-ti.on{background:#1a5276;color:#fff}
+.rep-lib-body{flex:1;overflow:auto;font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.6;text-align:left}
+.rep-lib-body p{margin:0 0 10px}.rep-lib-h{color:#1a5276;margin:6px 0 10px}
+.rep-lib-meta{font-size:12px;color:#7f8c8d;margin-bottom:8px}
+.rep-lib-hit{padding:6px 0;border-bottom:1px dashed #e5e8e8}.rep-lib-hit a{font-weight:bold;color:#1a5276;cursor:pointer;margin-right:6px}
+.rep-lib-nav{display:flex;justify-content:space-between;margin-top:14px}

@@ -1,0 +1,24 @@
+{
+ "books": [
+  {
+   "id": "organon6",
+   "title": "Organon of Medicine — 6th edition",
+   "author": "Samuel Hahnemann",
+   "year": 1842,
+   "file": "library/organon6.json",
+   "sections": 293,
+   "words": 80930,
+   "source": "http://www.homeoint.org/books/hahorgan/"
+  },
+  {
+   "id": "chronic_diseases",
+   "title": "The Chronic Diseases — theoretical part",
+   "author": "Samuel Hahnemann",
+   "year": 1835,
+   "file": "library/chronic_diseases.json",
+   "sections": 158,
+   "words": 80701,
+   "source": "http://www.homeoint.org/books/hahchrdi/"
+  }
+ ]
+}

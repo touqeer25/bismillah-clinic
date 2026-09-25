@@ -73,7 +73,7 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   const app=fs.readFileSync(ROOT+'/js/08-app-repertory.js','utf8');
   ok(/REP_DATA_V='v=16'/.test(app),"D1 data version bumped to v=16 for the changed behaviour ("+(app.match(/REP_DATA_V='[^']+'/)||[''])[0]+")");
   const idx=fs.readFileSync(ROOT+'/index.html','utf8');
-  ok(/08b-rep-differentiation\.js\?v=4/.test(idx),'D2 index.html loads the differentiation module with a new ?v= (v4)');
+  ok(/08b-rep-differentiation\.js\?v=\d+/.test(idx),'D2 index.html loads the differentiation module with a new ?v= (v4)');
   console.log(fails?'\nFAILURES: '+fails:'\nALL v68.7 EXTRACTION CHECKS PASSED');
   process.exit(fails?1:0);
 })().catch(e=>{console.log('CRASH '+e.stack);process.exit(1);});

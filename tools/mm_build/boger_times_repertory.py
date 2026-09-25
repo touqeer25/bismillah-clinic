@@ -155,30 +155,103 @@ def parse_run(frag, start=0):
             tok_stats['unmatched'] += 1; unmatched[tok] += 1
     return out
 
-# ---------- paragraphs → rubrics ----------
+# ---------- paragraphs → rubrics (v77: hierarchy = <blockquote> depth + "heur" heuristic) ----------
+# Séror's HTML only partly encodes Boger's indentation through <blockquote> nesting.  Rules:
+#  * colon-less short paragraph inside a chapter (Mind, Head, Eyes …) = SECTION → a remedy-less rubric
+#  * blockquote depth d>0 → child of the nearest preceding rubric with smaller depth         (source = 'bq')
+#  * depth 0 and the title is a time / modality modifier ("3 A. M.", "Awaking, on", "Amel." …)
+#      → child of the last SYMPTOM rubric of the current section                              (source = 'heur')
+#  * bare "After"/"during" → same stem as a preceding "…, before" or child of the previous line;
+#    "And …" / lowercase start → child of the previous line                                   (source = 'heur-prev')
+# Every 'heur*' placement is written to docs/boger_times_placement_report.md for manual checking against the book.
 paras = []
-for m in re.finditer(r'<p\b[^>]*>(.*?)</p>', t, re.S | re.I):
+_depth = 0
+for m in re.finditer(r'<blockquote[^>]*>|</blockquote>|<p\b[^>]*>(.*?)</p>', t, re.S | re.I):
+    g = m.group(0)[:12].lower()
+    if g.startswith('<blockquote'): _depth += 1; continue
+    if g.startswith('</blockquote'): _depth = max(0, _depth - 1); continue
     frag = m.group(1)
     txt = re.sub(r'\s+', ' ', html.unescape(re.sub('<[^>]+>', ' ', frag))).strip()
-    if txt: paras.append((txt, frag))
+    if txt: paras.append((txt, frag, _depth))
+
+MOD_RE = re.compile(r"""^(\d|S\s?A\.|Noon|Mid-?night|Mid-?day|Morning|Forenoon|After-?\s?noon|Evening|Night|Day-?break|Day\b|Sun|
+    At\b|In\b|On\b|Every|After|Before|During|Until|Till|To\b|From|Beginning|Begins|Amel|Agg|Worse|Better|Aw[a]?k|Waking|Rising|Bed\b|
+    Break-?\s?fast|Dinner|Supper|Eating|Stool|Menses|Sleep|Lying|Walking|Sitting|Stooping|Motion|Increas|Decreas|Ceases|Returning|
+    Same\b|Periodic|Alternate|Alternating|Daily|Towards|Lasting|Continu|With\b|Generally|Frequently|Opening)""", re.X | re.I)
+PREV_RE = re.compile(r'^(And|Or)\s|^[a-z]')
+BARE_RE = re.compile(r'^(after|before|during|until|till|then|amel|agg)\.?$', re.I)
+
+def is_section(txt):
+    return ':' not in txt and len(txt) <= 40 and not re.search(r'\d', txt) and not txt.upper().startswith('FOR SYMPTOMS')
 
 rubrics = collections.OrderedDict((k, []) for k, _, _ in HEADS)
+placements = []
 cur = None; heads_hit = 0
-for txt, frag in paras:
+stack = []
+section = None; last_symptom = None; prev_path = None; prev_parent = None; prev_main = None
+def _join(parent, title): return (parent + ', ' + title) if parent else title
+for txt, frag, dep in paras:
     up = txt.upper().rstrip(' .')
     key = HEAD_TXT.get(up)
     if not key and ':' not in up and len(up) < 200:
         for n, k in HEAD_PREFIX:
             if up.startswith(n): key = k; break
     if key:
-        cur = key; heads_hit += 1; continue
-    if cur is None or cur == 'moon_phases' or ':' not in txt: continue
+        cur = key; heads_hit += 1; section = None; last_symptom = None; prev_path = None; prev_main = None; stack = []; continue
+    if cur is None or cur == 'moon_phases': continue
+    mfix = re.match(r'^(\d[\d\s\-]*[AP]\.\s?M\.)\s+(?=[A-Z][a-z]+[-.])', txt)
+    if ':' not in txt and mfix:            # "6 - 30 P. M. Aeth. Canth." — colon missing in the HTML
+        txt = mfix.group(1) + ' :' + txt[mfix.end(1):]
+    if ':' not in txt:
+        if is_section(txt) and dep == 0:
+            section = txt.strip(' .'); rubrics[cur].append((section, {})); last_symptom = None; prev_path = None; prev_main = None
+            stack = [(-1, section)]
+        continue
     title = re.sub(r'\s+', ' ', txt.split(':', 1)[0]).strip(' .,;-—–').strip()
-    if not (2 <= len(title) <= 90): continue
+    if not (1 <= len(title) <= 120): continue
     d = parse_run(frag, txt.find(':') + 1)
     if not d: continue
-    rubrics[cur].append((title, d))
+    base = section or ''
+    if prev_path and BARE_RE.match(title):
+        pp = prev_main or prev_path
+        mrel = re.search(r'\b(before|during|after|until|till)$', pp, re.I)
+        if mrel:
+            stem = pp[:mrel.start(1)].rstrip(', ').rstrip()
+            parent = stem.rsplit(', ', 1)[0] if ', ' in stem else stem
+            title = (stem.rsplit(', ', 1)[-1] + ', ' + title.lower()) if ', ' in stem else title.lower()
+            if parent == stem: parent = base
+        else:
+            parent = pp
+        src = 'heur-prev'
+    elif dep > 0:
+        while stack and stack[-1][0] >= dep: stack.pop()
+        parent = stack[-1][1] if stack else base; src = 'bq'
+    elif prev_path and PREV_RE.match(title):
+        parent = prev_path; src = 'heur-prev'
+    elif cur != 'general_hour' and last_symptom and MOD_RE.match(title) and title.lower() != 'in general':
+        parent = last_symptom; src = 'heur'
+    else:
+        parent = base; src = 'top'
+    path = _join(parent, title)
+    if dep == 0:
+        stack = [(-1, section)] if section else []
+        if src == 'top' and title.lower() != 'in general' and not MOD_RE.match(title): last_symptom = path
+        stack.append((0.5, path))
+    else:
+        stack.append((dep, path))
+    rubrics[cur].append((path, d)); prev_path = path; prev_parent = parent
+    if not re.match(r'^(And|Or)\s', title): prev_main = path
+    if src.startswith('heur'): placements.append((cur, src, dep, title, path))
 
+def _write_report():
+    rp = os.path.join(APP, 'docs', 'boger_times_placement_report.md'); os.makedirs(os.path.dirname(rp), exist_ok=True)
+    with open(rp, 'w', encoding='utf8') as f:
+        f.write('# Boger Times — inferred placements (verify against the book)\n\n')
+        f.write('`heur` = time/modality line nested under the last symptom rubric; `heur-prev` = "After"/"during"/"And…"/lowercase line nested under the previous line.\n')
+        f.write('Blockquote-derived (`bq`) and top-level lines are NOT listed.  Total: %d\n\n' % len(placements))
+        f.write('| # | chapter | rule | line in source | placed as |\n|---|---|---|---|---|\n')
+        for i, (c, sr, dp, ti, pa) in enumerate(placements, 1):
+            f.write('| %d | %s | %s | %s | %s |\n' % (i, c, sr, ti.replace('|', '/'), pa.replace('|', '/')))
 # ---------- moon-phases table (one <table>: remedy × "3 PQ" counts) ----------
 PHASE = {'NL': 'New moon', 'PQ': 'First quarter', 'PL': 'Full moon', 'DQ': 'Last quarter',
          'NOUVELLE LUNE': 'New moon', 'PREMIER QUARTIER': 'First quarter',
@@ -222,6 +295,7 @@ for key, L in rubrics.items():
     json.dump(data, open(os.path.join(APP, 'boger_times_chapters', key + '.json'), 'w', encoding='utf8'),
               ensure_ascii=False, separators=(',', ':'))
     index.append({'key': key, 'name': dict((k, n) for k, _, n in HEADS)[key], 'rubrics': len(data)})
+_write_report()
 json.dump(index, open(os.path.join(APP, 'boger_times_chapters', '_index.json'), 'w', encoding='utf8'), ensure_ascii=False)
 json.dump(combined, open(os.path.join(APP, 'boger_times_repertory.json'), 'w', encoding='utf8'),
           ensure_ascii=False, separators=(',', ':'))
