@@ -46,3 +46,10 @@
 - ڈیٹا (`*_chapters/`, `*.json`, `mm/`, `library/`) کو ہاتھ نہیں لگایا۔
 - مین بار: 8 ٹیبز؛ Preferences/Help/Tour/Tip → سیٹنگز (وہی IDs)۔ تفریق ونڈو: ٹیبز «تجزیہ / ثبوت» گروپس میں۔ SW v92۔ ٹیسٹ: `tests/_rep_src.js` مددگار، `tests/layout_split_v78.test.js`۔
 - کینٹ OOREP: سرور نے سینڈ باکس کو بلاک کیا — ابھی زیر التوا۔
+
+
+## v80 (2026-09-26) — Synthesis tree fix + toolbar widths
+- **Syn 9.1 tree fix (user bug):** chapter name (path's first ' - ' segment) was rendered as a main rubric with every real main rubric nested under it. `buildRubricTree` now drops that wrapper segment for `synthesis91` only (verified: all 83 chapters, path[0]==chapter name, 0 chapter-level entries). Genuine chapter-head rubrics (Thirst/Hiccough/Mind/etc.) keep their remedies+subtrees untouched per user instruction. Other books (Kent/prefix) unchanged.
+- **Toolbar (user):** book select 260→205px, scope 210→165px, type 175→140px, Book Library button padding tightened — search bar gains ~150px and sits closer to centre.
+- Cache bump: `?v=80` ×18 + `CACHE_NAME='bhc-clinic-v94'`.
+- New test `tests/synthesis_tree_v80.test.js` (15 checks, green); full battery 8/8 green (incl. app_smoke).

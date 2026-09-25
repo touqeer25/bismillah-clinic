@@ -288,6 +288,10 @@ function buildRubricTree(data){
         var txt=r.path||r.de_path||r.t||'';
         if(!txt)return;
         var parts = (repCurrentBook === 'synthesis91') ? _repSplitSynthesisPathForTree(txt) : _repSplitCommaOutsideParentheses(txt);
+        // 🔑 v80 (صارف فکس): Synthesis کا path ہمیشہ چیپٹر نام سے شروع ہوتا ہے (مثلاً «MIND - ABRUPT - ...»)۔
+        // چیپٹر نام ربرک نہیں — اُسے ٹری سے ہٹا دو تاکہ اصل مین ربرکس (ABRUPT، ABSENTMINDED ...) سیدھا چیپٹر کے نیچے آئیں۔
+        // (تمام 83 ابواب میں path کا پہلا سیگمنٹ == چیپٹر نام — تصدیق شدہ؛ دوسری کتابوں کی ٹری/ادویات متبدیل نہیں)
+        if(repCurrentBook === 'synthesis91' && parts.length) parts = parts.slice(1);
         var n=root;
         for(var i=0;i<parts.length;i++){
             var pt=parts[i].trim();

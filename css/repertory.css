@@ -7,9 +7,10 @@
 .rep-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:white;border-radius:12px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);margin-bottom:10px}
 .rep-toolbar-select{padding:9px 12px;border-radius:9px;border:1px solid #dfe6ee;background:white;font-family:inherit;font-size:13px;color:#2c3e50;cursor:pointer;box-sizing:border-box}
 .rep-toolbar-select:focus{outline:none;border-color:#2980b9}
-.rep-book-select{flex:0 0 260px;min-width:260px;width:260px}
-.rep-scope-select{flex:0 0 210px;min-width:210px;width:210px}
-.rep-type-select{min-width:150px;flex:0 1 175px}
+/* v80 (صارف): چاروں مینو چوڑائی میں تھوڑا تھوڑا کم — تاکہ سرچ بار کو زیادہ جگہ ملے اور وہ تھوڑا سینٹر کی طرف آ جائے */
+.rep-book-select{flex:0 0 205px;min-width:205px;width:205px}
+.rep-scope-select{flex:0 0 165px;min-width:165px;width:165px}
+.rep-type-select{min-width:130px;flex:0 1 140px}
 .rep-search-wrap{position:relative;flex:1;min-width:190px}
 .rep-search-ico{position:absolute;top:50%;transform:translateY(-50%);left:12px;font-size:13px;opacity:0.55;pointer-events:none}
 body[dir="rtl"] .rep-search-ico{left:auto;right:12px}
@@ -285,6 +286,8 @@ body[dir="rtl"] .rpd-sec{border-left:none;border-right:4px solid #dfe6ee}
 /* ---- toolbar Compare button ---- */
 .rep-cmp-btn{display:inline-flex;align-items:center;gap:6px;border:1.5px solid #2980b9;background:white;color:#1a5276;font-size:12.5px;font-weight:700;font-family:inherit;padding:8px 14px;border-radius:9px;cursor:pointer;transition:all 0.13s;white-space:nowrap}
 .rep-cmp-btn:hover{background:#e8f1fb;transform:translateY(-1px)}
+/* v80 (صارف): بک لائبریری بٹن بھی تھوڑا پتلا — سرچ بار کو مزید جگہ */
+.rep-lib-btn{padding:8px 10px;font-size:12px}
 /* ---- shared tool views (Workbench / Grid / Compare) ---- */
 .rep-tool-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;flex-wrap:wrap}
 .rep-tool-sub{font-size:11.5px;color:#7f8c8d;margin:0 0 12px;line-height:1.8}
