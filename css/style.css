@@ -1505,3 +1505,31 @@ body.rep-diff-open{overflow:hidden}
 .rtv-a.mm{background:#eafaf1;border-color:#a9dfbf;color:#1e8449}
 .rtv-info{border-left:3px solid #85c1e9;background:#f8fbfe;margin:2px 0 6px;padding:4px 8px;font-family:Arial,sans-serif;font-size:13px}
 @media (max-width:700px){ .rtv-a{font-size:10px;padding:0 6px} .rtv-rems{margin-left:20px} }
+
+/* 🔑 v74: بٹن صرف آئکن، شفاف، یکساں رنگ */
+.rtv-acts{gap:1px}
+.rtv-a,.rtv-a.cmp,.rtv-a.diff,.rtv-a.rdiff,.rtv-a.mm,.rtv-a.info{background:transparent;border:1px solid transparent;color:#7f8c8d;width:22px;height:20px;padding:0;border-radius:6px;font-size:12px;line-height:18px;text-align:center;box-shadow:none}
+.rtv-a:hover{background:transparent;border-color:#d5dde6;color:#1a5276;transform:none;box-shadow:none}
+.rtv-a.cmp{font-weight:bold;font-size:14px}
+.rtv-a.cmp.on{background:transparent;border-color:transparent;color:#27ae60}
+.rtv-a.info.open{background:transparent;color:#1a5276}
+.rtv-lab{cursor:pointer}
+.rtv-row .rtv-acts{opacity:.55;transition:opacity .12s}
+.rtv-row:hover .rtv-acts{opacity:1}
+@media (hover:none){ .rtv-row .rtv-acts{opacity:1} }
+
+/* 🔑 v74: چیپٹر لسٹ — ٹری کے انداز سے ہم آہنگ */
+.rep-sidebar{padding:6px 4px}
+.rep-chapter-item{font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#1a5276;padding:5px 8px;margin:0;border:0;border-bottom:1px dotted #eef1f4;border-radius:0;border-left:3px solid transparent;gap:6px;text-transform:uppercase;letter-spacing:.2px}
+.rep-chapter-item:hover{background:#f5faff}
+.rep-chapter-item.active{background:#eaf2f8;border-left-color:#1f618d;color:#154360;font-weight:bold}
+.rep-ch-ico{font-size:0;opacity:1;width:12px;text-align:center}
+.rep-ch-ico:before{content:'◆';font-size:11px;color:#1f618d}
+.rep-ch-n{background:transparent;color:#95a5a6;font-family:Arial,sans-serif;font-size:10px;padding:0}
+.rep-chapter-item.active .rep-ch-n{background:transparent;color:#1f618d}
+
+/* 🔑 v74: کلپ بورڈ بار اور چیپٹر لسٹ میں مناسب فاصلہ */
+@media(min-width:821px){
+    .rep-layout{padding-left:60px}
+    .rep-side-tools{margin-left:-67px}
+}

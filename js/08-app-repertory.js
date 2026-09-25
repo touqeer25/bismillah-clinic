@@ -604,12 +604,12 @@ function repTreeLevelIcon(depth,kids){
 function repTreeActsHtml(rid,rems){
     var on=repClipFind(repActiveClip,repCurrentBook,rid)!==-1, L=repLangText, h='<span class="rtv-acts">';
     h+='<button class="rtv-a info" data-act="info" title="'+L({ur:'مطلب / مریض کا ورژن / استعمال / کراس ریفرنس',en:'Meaning / patient version / usage / cross-refs',roman:'Tafseel'})+'">▸</button>';
-    h+='<button class="rtv-a cmp'+(on?' on':'')+'" data-act="cmp" title="'+L({ur:'فعال کلپ بورڈ میں شامل/خارج',en:'Add to / remove from active clipboard',roman:'Compare'})+'">'+(on?'✓':'+')+' '+L({ur:'موازنہ',en:'Compare',roman:'Compare'})+'</button>';
+    h+='<button class="rtv-a cmp'+(on?' on':'')+'" data-act="cmp" title="'+L({ur:'فعال کلپ بورڈ میں شامل/خارج',en:'Add to / remove from active clipboard',roman:'Compare'})+'">'+(on?'✓':'+')+'</button>';
     if(typeof repDiffOpenForRubric==='function'){
-        h+='<button class="rtv-a diff" data-act="diff" title="'+L({ur:'اس ربرک کی تفریق (ذیلی/ہم رشتہ ربرکس)',en:'Differentiate this rubric',roman:'Tafreeq'})+'">🔬 '+L({ur:'تفریق',en:'Differentiate',roman:'Differentiate'})+'</button>';
-        if(rems>1) h+='<button class="rtv-a rdiff" data-act="rdiff" title="'+L({ur:'ان ادویات میں کیا فرق ہے؟',en:'What distinguishes these remedies?',roman:'farq?'})+'">⚖ '+L({ur:'ادویات میں فرق',en:'differentiate',roman:'farq'})+'</button>';
+        h+='<button class="rtv-a diff" data-act="diff" title="'+L({ur:'اس ربرک کی تفریق (ذیلی/ہم رشتہ ربرکس)',en:'Differentiate this rubric',roman:'Tafreeq'})+'">🔬</button>';
+        if(rems>1) h+='<button class="rtv-a rdiff" data-act="rdiff" title="'+L({ur:'ان ادویات میں کیا فرق ہے؟',en:'What distinguishes these remedies?',roman:'farq?'})+'">⚖</button>';
     }
-    if(rems&&typeof repMMOpenForRubric==='function') h+='<button class="rtv-a mm" data-act="mm" title="'+L({ur:'ان ادویات کا میٹیریا میڈیکا',en:'Materia medica of these remedies',roman:'Materia medica'})+'">📖 '+L({ur:'میٹیریا میڈیکا',en:'materia medica',roman:'materia medica'})+'</button>';
+    if(rems&&typeof repMMOpenForRubric==='function') h+='<button class="rtv-a mm" data-act="mm" title="'+L({ur:'ان ادویات کا میٹیریا میڈیکا',en:'Materia medica of these remedies',roman:'Materia medica'})+'">📖</button>';
     return h+'</span>';
 }
 // ڈیٹیل پیج والے فنکشن repCurrentDetail پر چلتے ہیں — عارضی طور پر اس لائن کا سیاق دے کر چلاؤ
@@ -623,7 +623,7 @@ function repTreeAct(row,act,btn){
     if(act==='cmp'){
         var rems=parseInt(row.getAttribute('data-rems')||'0',10)||0;
         var added=repClipToggle(repActiveClip,repCurrentBook,repCurrentChapter,rid,full,rems);
-        btn.classList.toggle('on',added); btn.innerHTML=(added?'✓ ':'+ ')+repLangText({ur:'موازنہ',en:'Compare',roman:'Compare'});
+        btn.classList.toggle('on',added); btn.innerHTML=added?'✓':'+';
         if(typeof repCmpSyncChecks==='function') repCmpSyncChecks(repCurrentBook,rid,added);
         if(typeof repCmpPanelRender==='function') repCmpPanelRender();
         showToast((added?'☑ ':'☐ ')+repClipLabel(repActiveClip)); return;
@@ -695,9 +695,14 @@ function repTreeClick(ev){
         if(repTreeCollapsed[full])delete repTreeCollapsed[full]; else repTreeCollapsed[full]=true;
         repTreeRemount(elId); return;
     }
-    var labels=[]; try{ labels=JSON.parse(row.getAttribute('data-labels')||'[]'); }catch(e){}
-    if(row.getAttribute('data-rems')==='0'&&row.getAttribute('data-kids')==='1'){ repGo(labels); return; }
-    repOpenRubricDetail(full,row.getAttribute('data-rid')||'',labels);
+    // 🔑 v74 (صارف): ربرک پر کلک سے الگ صفحہ نہیں کھلتا — اسی جگہ تفصیل کھلتی/بند ہوتی ہے؛
+    // صرف فولڈر (بغیر ادویات) پر کلک = شاخ کھولیں/بند کریں۔ مکمل صفحہ ⋮ مینو سے اب بھی دستیاب۔
+    if(!t.closest('.rtv-lab')&&!t.closest('.rtv-tg')) return;           // ادویات کی خالی جگہ پر کلک = کچھ نہیں
+    if(row.getAttribute('data-rems')==='0'&&row.getAttribute('data-kids')==='1'){
+        if(!repFolderFilter){ if(repTreeCollapsed[full])delete repTreeCollapsed[full]; else repTreeCollapsed[full]=true; repTreeRemount(elId); }
+        return;
+    }
+    var ib=row.querySelector('.rtv-a.info'); if(ib) repTreeAct(row,'info',ib);
 }
 function repTreeToggleRems(){ repTreeOpts.rems=!repTreeOpts.rems; repTreeOptsSave(); repTreeSyncBtns(); Object.keys(repTreeViews).forEach(function(id){ if(document.getElementById(id))repTreeRemount(id); }); }
 function repTreeExpandAll(open){
