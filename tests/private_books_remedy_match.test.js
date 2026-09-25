@@ -4,7 +4,7 @@ const ROOT=path.resolve(__dirname,'..');
 const dom=new JSDOM('<!doctype html><html><body></body></html>',{runScripts:'dangerously',url:'http://localhost/'});const w=dom.window;
 w.currentLang='ur';w.escapeHtml=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));w.toasts=[];w.showToast=m=>w.toasts.push(String(m));
 w.fetch=u=>{const f=path.join(ROOT,String(u).split('?')[0]);return fs.existsSync(f)?Promise.resolve({ok:true,json:()=>Promise.resolve(JSON.parse(fs.readFileSync(f,'utf8')))}):Promise.reject(new Error('404'));};
-['js/08-app-repertory.js','js/08b-rep-differentiation.js','js/08c-rep-materia-medica.js'].forEach(f=>w.eval(fs.readFileSync(path.join(ROOT,f),'utf8')));
+w.eval(require('./_rep_src')());['js/08b-rep-differentiation.js','js/08c-rep-materia-medica.js'].forEach(f=>w.eval(fs.readFileSync(path.join(ROOT,f),'utf8')));
 let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
 const books=[
  {id:'kulkarni',title:'Absolute Homoeopathic Materia Medica',author:'P. I. Tarkas & Ajit Kulkarni',private:true,format:'pages',pages:[

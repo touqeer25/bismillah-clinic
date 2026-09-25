@@ -8,7 +8,7 @@ w.currentLang='ur';
 w.escapeHtml=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 w.toasts=[];w.showToast=m=>w.toasts.push(String(m));
 w.fetch=u=>{const f=path.join(ROOT,String(u).split('?')[0]);return fs.existsSync(f)?Promise.resolve({ok:true,json:()=>Promise.resolve(JSON.parse(fs.readFileSync(f,'utf8')))}):Promise.reject(new Error('404 '+u));};
-w.eval(fs.readFileSync(path.join(ROOT,'js/08-app-repertory.js'),'utf8'));
+w.eval(require('./_rep_src')());
 w.eval(fs.readFileSync(path.join(ROOT,'js/08b-rep-differentiation.js'),'utf8'));
 let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
 (async()=>{
@@ -70,7 +70,7 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   ok(JSON.parse(w.localStorage.getItem('bc_rep_diff_opts')).onlySingle===1&&JSON.parse(w.localStorage.getItem('bc_rep_diff_opts')).mode==='extract','C9 mode and the two new extract filters persist in bc_rep_diff_opts');
 
   // ---------- D. cache-busting ----------
-  const app=fs.readFileSync(ROOT+'/js/08-app-repertory.js','utf8');
+  const app=require('./_rep_src')();
   ok(/REP_DATA_V='v=16'/.test(app),"D1 data version bumped to v=16 for the changed behaviour ("+(app.match(/REP_DATA_V='[^']+'/)||[''])[0]+")");
   const idx=fs.readFileSync(ROOT+'/index.html','utf8');
   ok(/08b-rep-differentiation\.js\?v=\d+/.test(idx),'D2 index.html loads the differentiation module with a new ?v= (v4)');

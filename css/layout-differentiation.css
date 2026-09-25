@@ -1,0 +1,22 @@
+/* Bismillah Clinic — css/layout-differentiation.css — v78 تفریق / ایکسٹریکشن ونڈو کا پروفیشنل لے آؤٹ
+   ٹائٹل بار (گہرا) → سیاق → ریمیڈیز (محدود اونچائی) → کنٹرول پٹی → گروپ شدہ ٹیبز */
+.rep-diff-win{inset:14px;border-radius:14px;background:#f4f7fa}
+#repDiffHead{padding:0;border-bottom:1px solid #dfe7ef}
+#repDiffHead>.rep-diff-title{background:linear-gradient(100deg,#0f2c46,#16466e);color:#fff;padding:10px 16px;gap:12px}
+#repDiffHead>.rep-diff-title b{color:#fff;font-size:14px;letter-spacing:.6px}
+#repDiffHead>.rep-diff-title .rep-diff-sub{color:rgba(255,255,255,.7)}
+#repDiffHead>.rep-diff-title .rc-btn{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+#repDiffHead>.rep-diff-ctx{margin:0;padding:8px 16px;background:#fff;border-bottom:1px solid #eef2f6;font-size:12.5px}
+#repDiffHead>.rep-diff-pick{margin:0;padding:8px 16px;background:#fff}
+#repDiffHead>.rep-diff-pick .rep-diff-chips{max-height:74px;overflow:auto;border:1px solid #eef2f6;border-radius:8px;padding:6px 8px;background:#fbfcfe;margin-top:6px}
+#repDiffHead>.rep-diff-ctl{margin:0;padding:8px 16px;background:#f8fafc;border-top:1px solid #eef2f6;border-bottom:1px solid #eef2f6;gap:8px 16px}
+#repDiffHead>.rep-diff-ctl select{height:28px;font-size:12px;padding:0 6px}
+.rep-diff-tabs-v78{margin:0;padding:6px 12px 0;background:#fff;gap:2px;align-items:flex-end}
+.rep-diff-tabs-v78 button{border:0;border-bottom:3px solid transparent;border-radius:0;background:transparent;color:#50667c;padding:8px 12px;font-weight:600}
+.rep-diff-tabs-v78 button:hover{color:#16466e;background:#f4f8fc}
+.rep-diff-tabs-v78 button.on{background:transparent;color:#16466e;border-bottom-color:#e2b33c}
+.rep-diff-tabs-v78 .cnt{background:#eef3f8;color:#16466e;border-radius:9px;padding:0 6px;opacity:1}
+.rep-diff-tabgrp{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:#98a8b8;padding:0 6px 11px;font-weight:700}
+.rep-diff-tabsep{width:1px;align-self:stretch;background:#e4eaf1;margin:4px 8px 8px}
+.rep-diff-body{padding:14px 18px 22px}
+@media(max-width:820px){#repDiffHead>*{padding-left:10px!important;padding-right:10px!important}.rep-diff-tabgrp{display:none}}

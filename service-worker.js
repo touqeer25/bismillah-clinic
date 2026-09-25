@@ -1,12 +1,19 @@
 // Bismillah Clinic - Service Worker (robust offline cache)
-const CACHE_NAME = 'bhc-clinic-v91';
+const CACHE_NAME = 'bhc-clinic-v92';
 
 // Keep this list same-origin and reliable. Missing/external files are not allowed
 // to break the whole install anymore.
 const CORE_ASSETS = [
   './',
   './index.html',
-  './css/style.css',
+  './css/app.css',
+  './css/repertory.css',
+  './css/differentiation.css',
+  './css/repertory-tree.css',
+  './css/library.css',
+  './css/layout-header.css',
+  './css/layout-repertory-toolbar.css',
+  './css/layout-differentiation.css',
   './js/01-app-core.js',
   './js/02-app-auth.js',
   './js/03-app-patients.js',
@@ -14,7 +21,17 @@ const CORE_ASSETS = [
   './js/05-app-diagnosis.js',
   './js/06-app-new-visit.js',
   './js/07-app-settings.js',
-  './js/08-app-repertory.js',
+  './js/repertory/rep-books.js',
+  './js/repertory/rep-chapters.js',
+  './js/repertory/rep-folders.js',
+  './js/repertory/rep-tree.js',
+  './js/repertory/rep-clipboards.js',
+  './js/repertory/rep-compare-mode.js',
+  './js/repertory/rep-rubric-detail.js',
+  './js/repertory/rep-search.js',
+  './js/repertory/rep-workbench.js',
+  './js/repertory/rep-analysis.js',
+  './js/repertory/LOAD_ORDER.txt',
   './js/08b-rep-differentiation.js',
   './js/08c-rep-materia-medica.js',
   './js/08d-library.js',

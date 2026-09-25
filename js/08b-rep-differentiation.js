@@ -280,16 +280,19 @@ function repDiffRenderHead(){
     // ٹیبز
     var res=repDiffLast&&repDiffLast.res, k=repDiffSel.length, o=o||repDiffOpts;
     function tab(id,lab,n){ return '<button class="'+(repDiffTab===id?'on':'')+'" onclick="repDiffSetTab(\''+id+'\')">'+lab+(n!=null?' <span class="cnt">'+n+'</span>':'')+'</button>'; }
-    h+='<div class="rep-diff-tabs">';
+    // 🔑 v78: ٹیبز دو گروپس میں — «تجزیہ» (ربرک تقابل پہلے، پھر خصوصی/گریڈ/جزوی/مشترک) اور «ثبوت» (میٹیریا میڈیکا، کتابوں کی گواہی)
+    h+='<div class="rep-diff-tabs rep-diff-tabs-v78">';
+    h+='<span class="rep-diff-tabgrp">'+L({ur:'تجزیہ',en:'Analysis',roman:'Tajziya'})+'</span>';
+    if(repDiffCtx) h+=tab('rubric','🧮 '+L({ur:'ربرک کی ریمیڈیز کا تقابل',en:'Rubric remedies compared',roman:'Rubric ki remedies ka taqabul'}),null);
     if(k===1&&o.mode==='extract') h+=tab('excl','🧲 '+L({ur:'نکالی ہوئی مکمل فہرست',en:'Extracted list',roman:'Extraction'}),repDiffLast&&repDiffLast.extract?repDiffLast.extract.rows.length:null);
     else if(k===1) h+=tab('excl','🔑 '+L({ur:'کی نوٹس (اس ریمیڈی کے ربرکس)',en:'Keynotes (rubrics of this remedy)',roman:'Keynotes'}),res?res.any:(repDiffLast&&repDiffLast.extract?repDiffLast.extract.k1:null));
     else { h+=tab('excl','🎯 '+L({ur:'خصوصی',en:'Exclusive',roman:'Khususi'}),res?Object.keys(res.excl).reduce(function(s,a){return s+res.perRem[a].excl;},0):null);
            h+=tab('grade','📶 '+L({ur:'گریڈ کا فرق',en:'Grade difference',roman:'Grade ka farq'}),res?res.grade.length:null);
            h+=tab('partial','◐ '+L({ur:'جزوی',en:'Partial',roman:'Juzvi'}),res?res.partial.length:null);
            h+=tab('common','≡ '+L({ur:'مشترک',en:'Common',roman:'Mushtarak'}),res?res.commonEqual:null); }
-    if(repDiffCtx) h+=tab('rubric','🧮 '+L({ur:'ربرک کی ریمیڈیز کا تقابل',en:'Rubric remedies compared',roman:'Rubric ki remedies ka taqabul'}),null);
-    h+=tab('books','📚 '+L({ur:'کتابوں کی گواہی',en:'Books witness',roman:'Kitabon ki gawahi'}),null);
+    h+='<span class="rep-diff-tabsep"></span><span class="rep-diff-tabgrp">'+L({ur:'ثبوت',en:'Evidence',roman:'Saboot'})+'</span>';
     if(typeof repDiffMMTabHtml==='function') h+=tab('mm','📖 '+L({ur:'میٹیریا میڈیکا',en:'Materia medica',roman:'Materia medica'}),null);
+    h+=tab('books','📚 '+L({ur:'کتابوں کی گواہی',en:'Books witness',roman:'Kitabon ki gawahi'}),null);
     h+='</div>';
     el.innerHTML=h;
 }

@@ -7,7 +7,7 @@ w.currentLang='ur';w.escapeHtml=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;',
 w.toasts=[];w.showToast=m=>w.toasts.push(String(m));w.repLangText=o=>o.ur;
 const asks=[];
 w.fetch=u=>{asks.push(String(u));return Promise.resolve({ok:true,json:()=>Promise.resolve({})});};
-['js/08-app-repertory.js'].forEach(f=>w.eval(fs.readFileSync(path.join(ROOT,f),'utf8')));
+w.eval(require('./_rep_src')());
 let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
 // FIX A — 13 boards (a user who once ran a 16-board build) must keep the first 12, not lose everything
 w.localStorage.setItem('bc_rep_clipboards', JSON.stringify(Array.from({length:13},(_,i)=>i<12?[{book:'kent',ch:'mind',rid:'r'+i,rems:3,ts:1,w:1}]:[{book:'kent',ch:'mind',rid:'z',rems:1,w:1}])));

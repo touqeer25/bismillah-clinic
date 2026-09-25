@@ -29,3 +29,11 @@
 3. `index.html` سے Streamlit کے iframes اور Supabase کا CDN script ہٹانا؛ پھر گروپ B کی فائلیں ڈیلیٹ کرنا (app.py، homeo_core/، ai_engine/ …)
 4. Boger Times کی ٹری کی سطحیں: ڈیٹا فائل میں سطحیں محفوظ نہیں، `tools/mm_build/boger_times_repertory.py` سے دوبارہ نکالنی ہوں گی
 5. آن لائن سروسز بند کرنا (Supabase کی key revoke کرنا)؛ بعد میں Capacitor سے Android ایپ
+
+
+## v78 — فائلوں کی علیحدگی + نیا لے آؤٹ
+- `js/08-app-repertory.js` → `js/repertory/*.js` (10 حصے، ترتیب `LOAD_ORDER.txt`)؛ کوڈ حرف بہ حرف وہی (جوڑنے پر اصل فائل کے برابر)۔ کتابوں کی فہرست: `rep-books.js`، ربرک ٹری/رنگ/بٹن: `rep-tree.js`۔
+- `css/style.css` → `app / repertory / differentiation / repertory-tree / library .css` (اسی ترتیب میں، کوئی قاعدہ نہیں بدلا) + نئے انداز: `layout-header.css`, `layout-repertory-toolbar.css`, `layout-differentiation.css`۔
+- ڈیٹا (`*_chapters/`, `*.json`, `mm/`, `library/`) کو ہاتھ نہیں لگایا۔
+- مین بار: 8 ٹیبز؛ Preferences/Help/Tour/Tip → سیٹنگز (وہی IDs)۔ تفریق ونڈو: ٹیبز «تجزیہ / ثبوت» گروپس میں۔ SW v92۔ ٹیسٹ: `tests/_rep_src.js` مددگار، `tests/layout_split_v78.test.js`۔
+- کینٹ OOREP: سرور نے سینڈ باکس کو بلاک کیا — ابھی زیر التوا۔

@@ -1,6 +1,6 @@
 // v70: بولین سرچ + Kent/Boenninghausen طریقے — node tests/extraction_v70.test.js
 const fs=require('fs'),vm=require('vm'),path=require('path');
-const src=fs.readFileSync(path.join(__dirname,'..','js','08-app-repertory.js'),'utf8');
+const src=require('./_rep_src')();
 function grab(name){ const i=src.indexOf('function '+name+'('); let d=0,j=src.indexOf('{',i); for(let k=j;k<src.length;k++){ if(src[k]==='{')d++; else if(src[k]==='}'){ d--; if(!d) return src.slice(i,k+1);} } }
 const ctx={window:{},repClipElims:[true],REP_N_CLIPS:12,repClipItemRemedies:(it)=>it.r,repAnaOpts:{method:'hs',elim:'every'},normalizeChapterKey:(b,c)=>c,_repPathIdx:{}};
 vm.createContext(ctx);

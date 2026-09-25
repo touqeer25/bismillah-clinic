@@ -1,0 +1,84 @@
+/* Bismillah Clinic — css/repertory-tree.css — 🌳 ربرکس کی ٹری: سطحیں، گائیڈ لائنیں، گریڈ رنگ، ربرک بٹن
+   v78: style.css کو اسی ترتیب میں حصوں میں بانٹا گیا (کوئی قاعدہ نہیں بدلا)؛ index.html میں ترتیب یہی رکھیں */
+/* 🌳 v72: کتابی ٹری ویو (ریپرٹری کتاب / Radar طرز) */
+.rtv{font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.55;background:#fff;border:1px solid #e6ebf1;border-radius:8px;padding:6px 4px;text-align:left}
+.rtv-row{position:relative;padding:2px 34px 2px 6px;border-bottom:1px dotted #eef1f4;cursor:pointer}
+.rtv-row:hover{background:#f5faff}
+.rtv-row.top>.rtv-lab{font-weight:bold;text-transform:uppercase;color:#1a5276}
+.rtv-tg{display:inline-block;width:16px;color:#7f8c8d;text-align:center;user-select:none}
+.rtv-row[data-kids="1"]>.rtv-tg{color:#2471a3;font-weight:bold}
+.rtv-lab{color:#1b2631}
+.rtv-lab.has-kids{font-weight:600}
+.rtv-n{color:#95a5a6;font-size:11px;margin-left:4px;font-family:Arial,sans-serif}
+.rtv-rems{color:#34495e;font-size:13px}
+.rtv-rems{display:block;margin:1px 0 3px 38px;line-height:1.6}
+.rtv-r{font-style:normal;cursor:pointer}
+.rtv-r:hover{background:#fff3cd}
+.rtv-r.g1{color:#34495e}
+.rtv-r.g2{color:#1f4e9c;font-weight:bold;font-style:italic}
+.rtv-r.g3{color:#b03a2e;font-weight:bold}
+.rtv-row .rtv-kebab{position:absolute;right:4px;top:2px;width:24px;height:22px;padding:0;font-size:14px}
+.rtv-row .rpc-chk{vertical-align:middle;margin-right:4px}
+.rtv-more{text-align:center;margin:10px 0}
+@media (max-width:700px){ .rtv{font-size:13px} .rtv-row{padding-left:4px} }
+
+/* 🔑 v73: سطح کے نشان، عمودی گائیڈ لائنیں، لائن پر 5 بٹن */
+.rtv-row{background-image:repeating-linear-gradient(to right,#dfe6ee 0 1px,transparent 1px 18px);background-repeat:no-repeat;background-position:13px 0;background-size:calc(var(--d,0)*18px) 100%}
+.rtv-lv{display:inline-block;min-width:20px;font-size:11px;font-weight:bold;margin-right:3px;font-family:Arial,sans-serif}
+.rtv-lv sub{font-size:8px;opacity:.75}
+.rtv-k{font-size:10px;color:#7f8c8d;margin-left:5px;font-family:Arial,sans-serif}
+.rtv-colon{color:#95a5a6;margin:0 4px 0 2px;font-weight:bold}
+.rtv-acts{display:inline-flex;flex-wrap:wrap;gap:4px;vertical-align:middle;font-family:Arial,sans-serif}
+.rtv-a{border:1px solid #d5dde6;background:#fff;color:#2c3e50;border-radius:12px;padding:0 8px;height:20px;font-size:11px;line-height:18px;cursor:pointer;transition:all .12s;white-space:nowrap}
+.rtv-a:hover{transform:translateY(-1px);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.rtv-a.info{width:22px;padding:0;color:#2471a3;font-weight:bold}
+.rtv-a.info.open{background:#eaf2f8}
+.rtv-a.cmp{border-color:#aed6f1;color:#1f618d}
+.rtv-a.cmp.on{background:#27ae60;border-color:#27ae60;color:#fff}
+.rtv-a.diff{background:#fef5e7;border-color:#f5cba7;color:#935116}
+.rtv-a.rdiff{background:#f4ecf7;border-color:#d7bde2;color:#6c3483}
+.rtv-a.mm{background:#eafaf1;border-color:#a9dfbf;color:#1e8449}
+.rtv-info{border-left:3px solid #85c1e9;background:#f8fbfe;margin:2px 0 6px;padding:4px 8px;font-family:Arial,sans-serif;font-size:13px}
+@media (max-width:700px){ .rtv-a{font-size:10px;padding:0 6px} .rtv-rems{margin-left:20px} }
+
+/* 🔑 v74: بٹن صرف آئکن، شفاف، یکساں رنگ */
+.rtv-acts{gap:1px}
+.rtv-a,.rtv-a.cmp,.rtv-a.diff,.rtv-a.rdiff,.rtv-a.mm,.rtv-a.info{background:transparent;border:1px solid transparent;color:#7f8c8d;width:22px;height:20px;padding:0;border-radius:6px;font-size:12px;line-height:18px;text-align:center;box-shadow:none}
+.rtv-a:hover{background:transparent;border-color:#d5dde6;color:#1a5276;transform:none;box-shadow:none}
+.rtv-a.cmp{font-weight:bold;font-size:14px}
+.rtv-a.cmp.on{background:transparent;border-color:transparent;color:#27ae60}
+.rtv-a.info.open{background:transparent;color:#1a5276}
+.rtv-lab{cursor:pointer}
+.rtv-row .rtv-acts{opacity:.55;transition:opacity .12s}
+.rtv-row:hover .rtv-acts{opacity:1}
+@media (hover:none){ .rtv-row .rtv-acts{opacity:1} }
+
+/* 🔑 v74: چیپٹر لسٹ — ٹری کے انداز سے ہم آہنگ */
+.rep-sidebar{padding:6px 4px}
+.rep-chapter-item{font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#1a5276;padding:5px 8px;margin:0;border:0;border-bottom:1px dotted #eef1f4;border-radius:0;border-left:3px solid transparent;gap:6px;text-transform:uppercase;letter-spacing:.2px}
+.rep-chapter-item:hover{background:#f5faff}
+.rep-chapter-item.active{background:#eaf2f8;border-left-color:#1f618d;color:#154360;font-weight:bold}
+.rep-ch-ico{font-size:0;opacity:1;width:12px;text-align:center}
+.rep-ch-ico:before{content:'◆';font-size:11px;color:#1f618d}
+.rep-ch-n{background:transparent;color:#95a5a6;font-family:Arial,sans-serif;font-size:10px;padding:0}
+.rep-chapter-item.active .rep-ch-n{background:transparent;color:#1f618d}
+
+/* 🔑 v74: کلپ بورڈ بار اور چیپٹر لسٹ میں مناسب فاصلہ */
+@media(min-width:821px){
+    .rep-layout{padding-left:60px}
+    .rep-side-tools{margin-left:-67px}
+}
+
+/* 🔑 v75: تفریق ونڈو اور ربرک صفحے کی ادویات بھی ٹری کے انداز میں (پِل/چپس ختم) */
+.rtv-rems-box{font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.9;background:#fff;border:1px solid #e6ebf1;border-radius:8px;padding:6px 10px;text-align:left;display:block}
+.rtv-rems-box .rtv-r{padding:1px 2px;border-radius:3px}
+.rtv-r.sel{background:#d6eaf8;outline:1px solid #5dade2}
+.rep-remedy-tag{background:transparent!important;border:0!important;box-shadow:none!important;padding:0 2px!important;margin:0 3px 0 0!important;border-radius:3px!important;font-family:Georgia,'Times New Roman',serif;font-size:14px;cursor:pointer}
+.rep-remedy-tag.g1{color:#34495e!important;font-weight:normal!important;font-style:normal!important}
+.rep-remedy-tag.g2{color:#1f4e9c!important;font-weight:bold!important;font-style:italic!important}
+.rep-remedy-tag.g3{color:#b03a2e!important;font-weight:bold!important;text-transform:uppercase}
+.rep-remedy-tag:hover{background:#fff3cd!important}
+.rpd-chips{font-family:Georgia,'Times New Roman',serif;line-height:1.9;background:#fff;border:1px solid #e6ebf1;border-radius:8px;padding:6px 10px}
+.rtv-ur{font-family:'Jameel Noori Nastaleeq','Noto Nastaliq Urdu','Urdu Typesetting',serif;font-size:13px;color:#7d6608;margin:0 6px;background:#fdfaf0;border-radius:4px;padding:0 5px}
+.rtv-ur.auto{color:#a6acaf;background:transparent;border-bottom:1px dotted #d5d8dc;border-radius:0}
+

@@ -1,0 +1,14 @@
+/* Bismillah Clinic — css/layout-repertory-toolbar.css — v78 ریپرٹری ٹول بار / نیو بار / سائیڈ ٹولز کا یکساں، کمپیکٹ انداز
+   ربرکس کی ٹری، رنگ اور بٹن css/repertory-tree.css میں ہیں — یہ فائل انہیں نہیں چھوتی۔ */
+#page-repertoryBrowser .content{padding-top:10px}
+.rep-toolbar{gap:8px;padding:8px 10px;border:1px solid #e4eaf1;box-shadow:0 1px 3px rgba(15,44,70,.05);border-radius:10px;margin-bottom:8px}
+.rep-toolbar-select,.rep-search-wrap input{height:36px;padding-top:0;padding-bottom:0;border-radius:8px;border-color:#d9e2ec;font-size:13px}
+.rep-toolbar-select{background:#f8fafc}
+.rep-toolbar-select:hover{border-color:#b8c8d8}
+.rep-search-wrap input{background:#f8fafc}
+.rep-search-wrap input:focus,.rep-toolbar-select:focus{border-color:#16466e;box-shadow:0 0 0 3px rgba(22,70,110,.12);background:#fff}
+.rep-cmp-btn{height:36px;border-radius:8px;border-width:1px;padding-top:0;padding-bottom:0}
+.rep-navbar,.rep-side-tools{border:1px solid #e4eaf1;box-shadow:0 1px 3px rgba(15,44,70,.05);border-radius:10px}
+.rep-navbar{padding:6px 8px;gap:6px}
+.rep-grad-label{letter-spacing:.5px;font-size:10.5px;color:#6b7c8f}
+.rep-sidebar{border:1px solid #e4eaf1;box-shadow:none;border-radius:10px}

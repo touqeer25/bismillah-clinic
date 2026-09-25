@@ -5,7 +5,7 @@ const html=`<!doctype html><html><body><div id="page-repertoryBrowser"><select i
 const dom=new JSDOM(html,{runScripts:'dangerously',pretendToBeVisual:true,url:'http://localhost/'});const w=dom.window;
 w.currentLang='ur';w.escapeHtml=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));w.toasts=[];w.showToast=m=>w.toasts.push(String(m));
 w.fetch=u=>{const f=path.join(ROOT,String(u).split('?')[0]);return fs.existsSync(f)?Promise.resolve({ok:true,json:()=>Promise.resolve(JSON.parse(fs.readFileSync(f,'utf8')))}):Promise.reject(new Error('404 '+u));};
-w.eval(fs.readFileSync(path.join(ROOT,'js/08-app-repertory.js'),'utf8'));
+w.eval(require('./_rep_src')());
 w.eval(fs.readFileSync(path.join(ROOT,'js/08b-rep-differentiation.js'),'utf8'));
 let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 (async()=>{

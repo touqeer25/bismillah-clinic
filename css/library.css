@@ -1,0 +1,14 @@
+/* Bismillah Clinic — css/library.css — 📚 مطالعہ لائبریری
+   v78: style.css کو اسی ترتیب میں حصوں میں بانٹا گیا (کوئی قاعدہ نہیں بدلا)؛ index.html میں ترتیب یہی رکھیں */
+/* 📚 v77 reading library */
+.rep-lib-win{display:flex;flex-direction:column}
+.rep-lib-main{display:flex;gap:10px;min-height:0;flex:1;height:70vh}
+.rep-lib-toc{width:170px;overflow:auto;border-right:1px solid #e5e8e8;font-size:12px;direction:ltr;flex-shrink:0}
+.rep-lib-ti{padding:3px 8px;cursor:pointer;color:#1a5276;border-radius:4px}
+.rep-lib-ti:hover{background:#eef5fb}.rep-lib-ti.on{background:#1a5276;color:#fff}
+.rep-lib-body{flex:1;overflow:auto;font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.6;text-align:left}
+.rep-lib-body p{margin:0 0 10px}.rep-lib-h{color:#1a5276;margin:6px 0 10px}
+.rep-lib-meta{font-size:12px;color:#7f8c8d;margin-bottom:8px}
+.rep-lib-hit{padding:6px 0;border-bottom:1px dashed #e5e8e8}.rep-lib-hit a{font-weight:bold;color:#1a5276;cursor:pointer;margin-right:6px}
+.rep-lib-nav{display:flex;justify-content:space-between;margin-top:14px}
+
