@@ -9,9 +9,6 @@
 .app-header.hx .header-center{text-align:left;padding:0;min-width:0}
 body[dir="rtl"] .app-header.hx .header-center{direction:rtl;text-align:right}
 .app-header.hx .header-center .clinic-title{font-size:18px;line-height:1.25;padding:0;letter-spacing:.6px;filter:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-/* v79: اردو (RTL) میں کلینک کا نام کٹ نہ جائے — فونٹ چھوٹا */
-body[dir="rtl"] .app-header.hx .header-center .clinic-title{font-size:15px;letter-spacing:.3px}
-body[dir="rtl"] .app-header.hx .header-center .doctor-title{font-size:10.5px}
 .app-header.hx .header-center .doctor-title{font-size:11px;margin-top:1px;color:rgba(255,255,255,.72);text-shadow:none;white-space:nowrap}
 .app-header.hx .header-right{position:static;display:flex;align-items:center;gap:10px}
 .app-header.hx .header-btns-grid{display:flex;gap:6px}
@@ -28,7 +25,7 @@ body[dir="rtl"] .app-header.hx .header-center .doctor-title{font-size:10.5px}
 .nav-btn.active{background:transparent;color:var(--hx-navy2);border-bottom-color:var(--hx-accent)}
 @media(max-width:900px){.nav-bar{justify-content:flex-start;overflow-x:auto}.app-header.hx .doctor-title{display:none}}
 @media(max-width:600px){.app-header.hx{padding:6px 10px}.hx-logo{width:32px;height:32px;flex-basis:32px;font-size:18px}
-  .app-header.hx .header-center .clinic-title{font-size:14px}.app-header.hx .connection-status .status-text{display:none}
+  .app-header.hx .header-center .clinic-title{font-size:12px}.app-header.hx .connection-status .status-text{display:none}
   .app-header.hx .icon-btn{width:30px;height:30px;font-size:13px}.nav-btn{height:40px;padding:0 10px;font-size:12px}}
 
 /* سیٹنگز میں منتقل شدہ ٹولز */

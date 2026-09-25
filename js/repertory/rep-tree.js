@@ -6,6 +6,24 @@
 var repTreeOpts={rems:true};
 try{ var _to=JSON.parse(localStorage.getItem('bc_rep_tree_opts')||'{}'); if(_to&&_to.rems===false)repTreeOpts.rems=false; }catch(e){}
 function repTreeOptsSave(){ try{ localStorage.setItem('bc_rep_tree_opts',JSON.stringify(repTreeOpts)); }catch(e){} }
+// ==================== 🔑 v79 (صارف): گریڈ فلٹر — نیچلی بار کے گریڈ آئکنز ====================
+// 3 = صرف گریڈ 3 والی ریمیڈیز · 2 = گریڈ 2 اور 3 · 1 = گریڈ 1، 2 اور 3 (تینوں) · 0 = فلٹر بند
+// اسی گریڈ پر دوبارہ کلک = فلٹر بند۔ صرف دکھائی جانے والی ادویات متاثر ہوتی ہیں — گنتی/کلپ بورڈ/تجزیہ نہیں۔
+var repGradeMin=0;
+function repGradeClamp(g){ g=parseInt(g,10)||1; return g>=3?3:(g===2?2:1); }
+function repGradeShow(g){ return !repGradeMin || repGradeClamp(g)>=repGradeMin; }
+function repGradeSet(level){ level=parseInt(level,10)||0; if(level<1||level>3)return; repGradeMin=(repGradeMin===level)?0:level; repGradeSyncBtns(); repGradeApply(); }
+function repGradeSyncBtns(){
+    var it=document.querySelectorAll?document.querySelectorAll('.rep-grad-item'):[];
+    for(var i=0;i<it.length;i++){ var g=parseInt(it[i].getAttribute('data-g')||'0',10); if(it[i].classList)it[i].classList.toggle('on',repGradeMin===g); }
+}
+function repGradeApply(){
+    Object.keys(repTreeViews).forEach(function(id){ if(document.getElementById(id))repTreeRemount(id); });   // ٹری/فولڈر نظارے
+    var cd=document.getElementById('repRubricContent'); if(!cd)return;
+    if(cd.querySelector&&cd.querySelector('.rpd-titlerow')){ if(typeof renderRubricDetail==='function')renderRubricDetail(); return; }  // ربرک تفصیل صفحہ
+    var si=document.getElementById('repBrowserSearch');
+    if(si&&si.value&&si.value.trim()&&typeof searchRepertoryBrowser==='function') searchRepertoryBrowser();      // تلاش کے نتائج
+}
 var repTreeCollapsed={};              // full path → true (صرف اس سیشن کے لیے)
 var repTreeViews={};                  // elId → {rows,shown}
 var REP_TREE_CHUNK=300;
@@ -59,12 +77,13 @@ function repUrLabelObj(label){
 function repUrLabel(label){ var o=repUrLabelObj(label); return o?o.t:''; }
 function repTreeRemsHtml(rems){
     var ks=Object.keys(rems||{}); if(!ks.length) return '';
-    var h='<span class="rtv-rems">';
+    var h='<span class="rtv-rems">'; var shown=0;
     for(var i=0;i<ks.length;i++){
         var a=ks[i], g=rems[a]||1; g=g>=3?3:(g===2?2:1);
-        h+='<i class="rtv-r g'+g+'" data-a="'+_repAttr(a)+'">'+escapeHtml(g===3?a.toUpperCase():a)+'</i>'+(i<ks.length-1?' ':'');
+        if(!repGradeShow(g))continue;                                    // 🔑 v79: گریڈ فلٹر
+        h+=(shown?' ':'')+'<i class="rtv-r g'+g+'" data-a="'+_repAttr(a)+'">'+escapeHtml(g===3?a.toUpperCase():a)+'</i>'; shown++;
     }
-    return h+'</span>';
+    return shown?h+'</span>':'';
 }
 function repTreeRowHtml(r){
     var c=r.node, rems=Object.keys(c.remedies||{}).length, rid=c.hasRubric&&c.rid?String(c.rid):'';
@@ -204,19 +223,6 @@ function repTreeExpandAll(open){
     });
 }
 function repTreeSyncBtns(){ var b=document.getElementById('repTreeRemsBtn'); if(b)b.classList.toggle('active',!!repTreeOpts.rems); }
-// ==================== v79: گریڈ فلٹر (نچلی بار کے 1/2/3 آئیکن) ====================
-// 3 = صرف گریڈ 3 · 2 = گریڈ 3+2 · 1 = گریڈ 3+2+1 (یعنی سب) · دوبارہ کلک = فلٹر آف
-// اثر: body.rep-gf-N کلاس سے CSS ریپرٹری میں ہر `.rep-remedy-tag` / ٹری کے `.rtv-r` چھپا دیتا ہے
-var repGradeFilterVal=0;                                    // 0 = فلٹر آف
-function repGradeFilter(n){
-    n=parseInt(n,10)||0;
-    repGradeFilterVal=(repGradeFilterVal===n)?0:n;          // ایک ہی بار دوبارہ کلک = آف
-    var b=document.body;
-    if(b){ b.classList.remove('rep-gf-1','rep-gf-2','rep-gf-3'); if(repGradeFilterVal)b.classList.add('rep-gf-'+repGradeFilterVal); }
-    var items=document.querySelectorAll('.rep-grad-item');
-    for(var i=0;i<items.length;i++) items[i].classList.toggle('on',parseInt(items[i].getAttribute('data-g'),10)===repGradeFilterVal);
-    return repGradeFilterVal;
-}
 
 // 🔑 card building helpers
 function _repNodeKids(c){ return (c.order&&c.order.length>0)||Object.keys(c.children||{}).length>0; }

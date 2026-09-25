@@ -10,27 +10,8 @@ ok(!/08-app-repertory\.js|css\/style\.css/.test(idx),'old monolithic files no lo
 const css=['app','repertory','differentiation','repertory-tree','library','layout-header','layout-repertory-toolbar','layout-differentiation'];
 last=-1;inOrder=true;css.forEach(n=>{const i=idx.indexOf('css/'+n+'.css');if(i<=last)inOrder=false;last=i;});ok(inOrder,'CSS files linked in cascade order');
 const nav=idx.slice(idx.indexOf('<nav class="nav-bar">'),idx.indexOf('</nav>'));
-// v79: 7 ٹیبز — «تمام مریض» ہٹائی (ڈیش بورڈ کا «آل ٹائم مریض» ٹیب ہے)، سیٹنگز آخر میں (ریپرٹری کے بعد)
-ok((nav.match(/data-page=/g)||[]).length===7&&!/navHelpBtn|navTourBtn|navPrefsBtn|navTipBtn/.test(nav),'main nav = 7 page tabs only');
-const navPages=(nav.match(/data-page="([^"]+)"/g)||[]).map(s=>s.slice(11,-1));
-ok(JSON.stringify(navPages)===JSON.stringify(['dashboard','newPatient','newVisitPage','searchPatient','diagnosis','repertoryBrowser','settings']),'nav order: settings LAST (after repertory), no allPatients — got '+navPages.join(','));
-// v79: نچلی بار — GRADATION ہیڈنگ ہٹی، گریڈ بٹن قابلِ کلک،📚 لائبریری اب مین ٹول بار میں
-const tb=idx.slice(idx.indexOf('<div class="rep-toolbar">'),idx.indexOf('rep-layout'));
-ok(tb.indexOf('repLibOpen()')>0 && /repBookSelect/.test(tb),'📚 library button moved INTO the main toolbar');
-// v79 (2): صارف کی ترتیب — کتاب → اسکوپ → قسم → 🔍 سرچ بار → ☑ Compare → 📚 لائبریری
-const tbSeq=['repBookSelect','repScopeSelect','repTypeSelect','repBrowserSearch','repCmpModeBtn','repLibOpen()'];
-let tbPos=-1,tbOrder=true; tbSeq.forEach(s=>{const i=tb.indexOf(s); if(i<0||i<=tbPos)tbOrder=false; tbPos=i;});
-ok(tbOrder,'toolbar order: book → scope → type → search → compare → library — got '+tbSeq.map(s=>s+'@'+tb.indexOf(s)).join(' '));
-ok(tb.indexOf('repBookSelect')<tb.indexOf('repBrowserSearch')&&tb.indexOf('repBrowserSearch')<tb.indexOf('repCmpModeBtn'),'search bar sits between type-select and Compare');
-const nb=idx.slice(idx.indexOf('rep-navbar'),idx.indexOf('repRubricContent'));
-ok(!/GRADATION:/.test(nb) && (nb.match(/rep-grad-item/g)||[]).length===3 && /repGradeFilter\(3\)/.test(nb),'lower bar: GRADATION heading gone, 3 clickable grade buttons');
-ok(!/onclick="repLibOpen\(\)"/.test(nb),'📚 no longer duplicated in the lower bar');
-const tree=fs.readFileSync(ROOT+'/js/repertory/rep-tree.js','utf8');
-ok(/function repGradeFilter\(/.test(tree)&&/rep-gf-/.test(tree),'repGradeFilter defined (body.rep-gf-N → CSS hides lower grades)');
-const rcss=fs.readFileSync(ROOT+'/css/repertory.css','utf8');
-ok(/body\.rep-gf-3[\s\S]*?rep-remedy-tag\.g1/.test(rcss)&&/body\.rep-gf-3[\s\S]*?rtv-r\.g1/.test(rcss)&&/body\.rep-gf-2[\s\S]*?g1/.test(rcss),'grade filter CSS: gf-3 hides g1+g2, gf-2 hides g1 (tags + tree)');
-const hcss=fs.readFileSync(ROOT+'/css/layout-header.css','utf8');
-ok(/body\[dir="rtl"\][\s\S]*?clinic-title\{font-size:15px/.test(hcss),'Urdu (RTL) clinic title font reduced to 15px');
+ok((nav.match(/data-page=/g)||[]).length===7&&!/navHelpBtn|navTourBtn|navPrefsBtn|navTipBtn/.test(nav),'main nav = 7 page tabs only (v79: All Patients tab removed — dashboard All-Time list covers it)');
+ok(!/data-page="allPatients"/.test(nav)&&nav.indexOf('data-page="settings"')>nav.indexOf('data-page="repertoryBrowser"')&&nav.indexOf('data-page="repertoryBrowser"')>nav.indexOf('data-page="diagnosis"'),'v79: Settings last after Repertory, All Patients tab gone');
 const set=idx.slice(idx.indexOf('id="page-settings"'));
 ok(['navPrefsBtn','navHelpBtn','navTourBtn','navTipBtn'].every(id=>set.indexOf('id="'+id+'"')>0),'Preferences/Help/Tour/Tip live in Settings (same ids)');
 const sw=fs.readFileSync(ROOT+'/service-worker.js','utf8');

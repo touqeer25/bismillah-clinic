@@ -17,18 +17,26 @@ WORDS = ["Abdomen", "Back", "Bladder", "Chest", "Chill", "Cough", "Ear", "Expect
          "Prostate", "Rectum", "Respiration", "Skin", "Sleep", "Stomach", "Stool", "Teeth", "Throat", "Urethra", "Urine", "Vertigo", "Vision"]
 if MODE == 'harvest':
     os.makedirs(WORK, exist_ok=True)
-    # v79: oorep.com کی WAF ایک ہی IP سے ایک ساتھ زیادہ requests پر بلاک کر دیتی ہے (HANDOFF: «سرور نے سینڈ باکس کو بلاک کیا»)۔
-    # اس لیے: براؤزر User-Agent + تھوڑی تہویل (0.3s) + لمبی ریٹری تھاریوں۔ kent_harvest_resume.sh بلاک ختم ہونے پر خود دوبارہ شروع کرتا ہے۔
-    _UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    VIA = os.environ.get('OOREP_VIA', '')          # v79: 'jina' = r.jina.ai سے گزرنے والی گزرگاہ (براہِ راست IP سافٹ بند ہونے پر)
     def get(q, p):
         u = "https://www.oorep.com/api/lookup_rep?" + urllib.parse.urlencode(dict(symptom=q, repertory='kent', page=p, remedyString='', minWeight=0, getRemedies=1))
-        for t in range(8):
+        # v79 (sandbox retry): browser UA + gentle pacing + patient retries (the server throttles bursts)
+        hdr = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36', 'Accept': 'application/json'}
+        for t in range(8 if VIA == 'jina' else 20):
             try:
-                req = urllib.request.Request(u, headers={'User-Agent': _UA, 'Accept': 'application/json'})
-                r = json.load(urllib.request.urlopen(req, timeout=90))
-                time.sleep(0.3)
-                return r
-            except Exception: time.sleep(10 + t * 10)
+                if VIA == 'jina':
+                    time.sleep(3.5)                  # r.jina.ai مفت تقریباً 20 کالز/منٹ — احتیاط سے
+                    # ⚠ r.jina.ai مکمل کروم UA کو 403 دیتا ہے — سادہ UA لازمی
+                    req = urllib.request.Request('https://r.jina.ai/' + urllib.parse.quote(u, safe=''), headers={'User-Agent': 'Mozilla/5.0', 'Accept': 'text/plain'})
+                    raw = urllib.request.urlopen(req, timeout=240).read().decode('utf8', 'replace')
+                    i = raw.find('[')
+                    if i < 0: raise RuntimeError('jina wrapper: ' + raw[:120])
+                    obj, _ = json.JSONDecoder().raw_decode(raw[i:].lstrip())
+                    return obj
+                time.sleep(0.6)
+                return json.load(urllib.request.urlopen(urllib.request.Request(u, headers=hdr), timeout=120))
+            except Exception:
+                time.sleep(min(90, 12 + t * 5))
         raise RuntimeError('fail %s %d' % (q, p))
     def conv(d, out):
         for r in d['results']:
@@ -38,130 +46,22 @@ if MODE == 'harvest':
     def one(q):
         f = os.path.join(WORK, q + '.json')
         if os.path.exists(f): return q, 'skip'
-        out = {}; d = get(q, 0)[0]; conv(d, out)
-        with ThreadPoolExecutor(2) as ex:              # v79: 4 → 2 (WAF throttles concurrency)
-            for dd in ex.map(lambda p: get(q, p), range(1, d['totalNumberOfPages'])): conv(dd[0], out)
-        json.dump(list(out.values()), open(f, 'w')); return q, len(out)
-    with ThreadPoolExecutor(1) as ex:                  # v79: 3 → 1 (ایک وقت میں ایک ہی باب — WAF نہیں چڑھتا)
+        try:  # v79: ایک لفظ ناکام ہو تو باقی جاری رہیں — دوبارہ چلانے پر مکمل شدہ اسکپ
+            out = {}; d = get(q, 0)[0]; conv(d, out)
+            with ThreadPoolExecutor(1 if VIA == 'jina' else 3) as ex:
+                for dd in ex.map(lambda p: get(q, p), range(1, d['totalNumberOfPages'])): conv(dd[0], out)
+            json.dump(list(out.values()), open(f, 'w')); return q, len(out)
+        except Exception as e:
+            return q, 'FAIL ' + str(e)[:90]
+    with ThreadPoolExecutor(2) as ex:   # v79: jina میں بھی 2 الفاظ متعاقب — ہر لفظ کے صفحات تسلسل سے (تنازع نہیں)
         for r in ex.map(one, WORDS): print(*r, flush=True)
     sys.exit(0)
 
-# ---------------- v79: harvest-text — صرف انگریزی متن (getRemedies=0) ----------------
-# OOREP WAF تقریباً 5MB / بلاک-وائنڈو پر IP روک دیتا ہے (12-15 منٹ بعد واپس)۔ ادویات پہلے سے
-# ایپ کی kent_de فائلیں میں موجود ہیں (oorep_id + r کے ساتھ) — اس لیے API سے صرف ربرک-ٹیکسٹ چاہیے
-# (~20MB vs ~178MB)۔ ہر صفحہ `_pages/<word>_NNNN.json.gz` میں فوری محفوظ — بلاک/resume میں کوئی
-# کام دوبارہ نہیں ہوتا۔ 2 بار fail → exit 42 → kent_harvest_resume.sh probe کر کے دوبارہ چلاتا ہے۔
-if MODE == 'harvest-text':
-    import gzip
-    PAGES = os.path.join(WORK, '_pages'); os.makedirs(PAGES, exist_ok=True)
-    UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-    class Blocked(Exception): pass
-    fails = [0]
-    def get(q, p):
-        u = "https://www.oorep.com/api/lookup_rep?" + urllib.parse.urlencode(
-            dict(symptom=q, repertory='kent', page=p, remedyString='', minWeight=0, getRemedies=0))
-        for t in range(3):
-            try:
-                req = urllib.request.Request(u, headers={'User-Agent': UA, 'Accept': 'application/json'})
-                r = json.load(urllib.request.urlopen(req, timeout=60))
-                time.sleep(0.4); fails[0] = 0
-                return r
-            except Exception:
-                time.sleep(6 + t * 6)
-        fails[0] += 1
-        if fails[0] >= 2: raise Blocked('%s %d' % (q, p))
-        return None
-    def pf(q, p): return os.path.join(PAGES, '%s_%04d.json.gz' % (q, p))
-    def one(q):
-        out_f = os.path.join(WORK, q + '.text.json')
-        if os.path.exists(out_f): return q, 'skip'
-        d = None
-        if os.path.exists(pf(q, 0)):
-            d = json.load(gzip.open(pf(q, 0), 'rt'))[0]
-        else:
-            r = get(q, 0)
-            if r is None: raise Blocked(q + ' 0')
-            gzip.open(pf(q, 0), 'wt').write(json.dumps(r))
-            d = r[0]
-        total = d['totalNumberOfPages']
-        for p in range(total):
-            if os.path.exists(pf(q, p)): continue
-            r = get(q, p)
-            if r is None: continue
-            gzip.open(pf(q, p), 'wt').write(json.dumps(r))
-        if any(not os.path.exists(pf(q, p)) for p in range(total)):
-            done = sum(1 for p in range(total) if os.path.exists(pf(q, p)))
-            return q, 'partial %d/%d' % (done, total)          # محفوظ صفحات برقرار — اگلی بار جاری
-        ids = {}
-        for p in range(total):
-            for page in json.load(gzip.open(pf(q, p), 'rt')):
-                for res in page.get('results', []):
-                    for s in res.get('subRubrics', []):
-                        rb = s['rubric']; ids[rb['id']] = rb['fullPath']
-        json.dump(ids, open(out_f, 'w'), ensure_ascii=False)
-        return q, len(ids)
-    try:
-        with ThreadPoolExecutor(1) as ex:
-            for r in ex.map(one, WORDS): print(*r, flush=True)
-    except Blocked as e:
-        print('BLOCKED', e, flush=True); sys.exit(42)
-    missing = [q for q in WORDS if not os.path.exists(os.path.join(WORK, q + '.text.json'))]
-    print('text files', 36 - len(missing), '/36 | missing:', missing, flush=True)
-    sys.exit(42 if missing else 0)
-
-# ---------------- v79: recs — EN متن (harvest-text) + ادویات (kent_de فائلیں) → WORK/_recs.json ----------------
-# چونکہ kent-de اور انگریزی Kent کے rubric ids OOREP میں ایک ہیں (ڈامپ میں rubricremedy = 624,009 = kent_de فائلیں بالکل ویسی ہیں)،
-# ادویات کے لیے دوبارہ network نہیں — صرف انگریزی `fullPath` API سے۔ build اس کے بعد وہی ہے (assign_old / See-refs / notes)۔
-if MODE == 'recs':
-    APP = os.environ.get('BHC_APP', '.')
-    # 1) انگریزی متن: word files سے {oorep_id: en_fullpath}
-    text = {}
-    miss_w = []
-    for q in WORDS:
-        f = os.path.join(WORK, q + '.text.json')
-        if not os.path.exists(f): miss_w.append(q); continue
-        text.update(json.load(open(f)))
-    if miss_w:
-        print('MISSING text files:', miss_w); sys.exit(1)
-    # 2) ادویات: kent_de فائلیں سے {oorep_id: r} — خام OOREP اختصارات (build خود abbr() لگائے گا، جیسا کہ پرانے harvest میں تھا)
-    de = {}
-    idx = json.load(open(os.path.join(APP, 'kent_de_chapters', '_index.json')))
-    for x in idx:
-        for k, v in json.load(open(os.path.join(APP, 'kent_de_chapters', x['key'] + '.json'))).items():
-            oid = v.get('oorep_id')
-            if oid is not None: de[oid] = (x['key'], v)
-    # 3) انٹر سیکشن + رپورٹ
-    recs = {}
-    no_text = []
-    for oid, (ch, v) in de.items():
-        p = text.get(oid)
-        if p is None: no_text.append('%d(%s)' % (oid, ch)); continue
-        recs[str(oid)] = {'id': oid, 'ch': ch, 'p': p, 'r': dict(v.get('r', {}))}
-    no_de = sorted(set(text) - set(de))
-    json.dump(recs, open(os.path.join(WORK, '_recs.json'), 'w'), ensure_ascii=False, separators=(',', ':'))
-    print('recs written:', len(recs), '| DE without EN text:', len(no_text), no_text[:12],
-          '| EN text without DE (remedies missing!):', len(no_de), no_de[:12])
-    # 4) chapter dry-run: build کا ch_key پرانے _index keys پر آنا چاہیے (وہی ایک لائن جو build استعمال کرے گا)
-    def ck(fp): return fp.split(',')[0].strip().lower().replace(' ', '_')
-    old_idx = json.load(open(os.path.join(APP, 'kent_chapters', '_index.json')))
-    old_keys = {c['key'] for c in old_idx}
-    from collections import Counter
-    got = Counter(ck(v['p']) for v in recs.values())
-    unknown = {k: n for k, n in got.items() if k not in old_keys}
-    empty = [c['key'] for c in old_idx if got.get(c['key'], 0) == 0]
-    print('ch_key OK:', sum(n for k, n in got.items() if k in old_keys), '| unknown ch_key:', unknown,
-          '| old chapters with 0 recs:', empty)
-    sys.exit(0 if not unknown and not empty else 3)   # 3 = ch_key alias ضروری ہیں (build سے پہلے ٹھک کریں)
-
 # ---------------- build ----------------
 recs = {}
-_recs_f = os.path.join(WORK, '_recs.json')
-if os.path.exists(_recs_f):                            # v79: EN متن + kent_de ادویات — network-less build input
-    recs = json.load(open(_recs_f)); print('using _recs.json:', len(recs), flush=True)
-else:
-    for f in os.listdir(WORK):
-        if f.endswith('.json') and not f.startswith('_') and not f.endswith('.text.json'):
-            for x in json.load(open(os.path.join(WORK, f))): recs[x['id']] = x
+for f in os.listdir(WORK):
+    if f.endswith('.json') and not f.startswith('_'):
+        for x in json.load(open(os.path.join(WORK, f))): recs[x['id']] = x
 OLD = os.environ.get('KENT_OLD', os.path.join(APP, 'kent_chapters'))
 old_idx = json.load(open(os.path.join(OLD, '_index.json')))
 NAME = {c['key']: c['name'] for c in old_idx}

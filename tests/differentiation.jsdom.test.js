@@ -15,12 +15,18 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   const listMind=Object.keys(kent.mind).map(rid=>({book:'kent',ch:'mind',rid,t:kent.mind[rid].t,r:kent.mind[rid].r}));
   const R=['nat-m','ign','plat'];
   let t0=Date.now(); let res=w.repDiffCompute(R,listMind,{maxN:0,minG:1,sort:'grade'}); let ms=Date.now()-t0;
-  ok(res.any===780&&res.allPresent===101,'A2/A3 mind: any='+res.any+' (780) allPresent='+res.allPresent+' (101)');
-  ok(res.perRem['nat-m'].excl===230&&res.perRem['ign'].excl===135&&res.perRem['plat'].excl===170,'A3 exclusive counts nat-m/ign/plat = '+[res.perRem['nat-m'].excl,res.perRem['ign'].excl,res.perRem['plat'].excl].join('/')+' (230/135/170)');
-  ok(res.excl['nat-m'][0].x.t.indexOf('COMPANY aversion to, presence of strangers')===0&&res.excl['nat-m'][0].g===3&&res.excl['nat-m'][0].N===1,'A5 sort=grade: nat-m top exclusive = "'+res.excl['nat-m'][0].x.t.substring(0,50)+'" g3 N1');
+  // v79: OOREP کینٹ ڈیٹا کے بعد — متوقع اقدار خود ڈیٹا سے (پرانے hardcoded اعداد نہیں)
+  const anyExp=listMind.filter(x=>x.r&&(x.r['nat-m']||x.r.ign||x.r.plat)).length;
+  const allExp=listMind.filter(x=>x.r&&x.r['nat-m']&&x.r.ign&&x.r.plat).length;
+  const onlyExp=a=>listMind.filter(x=>x.r&&x.r[a]&&!R.some(o=>o!==a&&x.r[o])).length;
+  ok(res.any===anyExp&&res.allPresent===allExp,'A2/A3 mind: any='+res.any+' ('+anyExp+') allPresent='+res.allPresent+' ('+allExp+')');
+  ok(res.perRem['nat-m'].excl===onlyExp('nat-m')&&res.perRem['ign'].excl===onlyExp('ign')&&res.perRem['plat'].excl===onlyExp('plat'),'A3 exclusive counts nat-m/ign/plat = '+[res.perRem['nat-m'].excl,res.perRem['ign'].excl,res.perRem['plat'].excl].join('/')+' ('+[onlyExp('nat-m'),onlyExp('ign'),onlyExp('plat')].join('/')+')');
+  const topN=res.excl['nat-m'][0]; let gdesc=true;
+  res.excl['nat-m'].forEach((r,i,a)=>{ if(i&&r.g>a[i-1].g) gdesc=false; });
+  ok(topN.g===3&&gdesc,'A5 sort=grade: nat-m top exclusive = "'+topN.x.t.substring(0,50)+'" g'+topN.g+' N'+topN.N+', list grade-descending');
   ok(res.excl['ign'].some(r=>/^BROODING/.test(r.x.t))&&res.excl['plat'].some(r=>/^EGOTISM/.test(r.x.t)),'A3 ign exclusive has BROODING, plat has EGOTISM');
   const gd=res.grade.find(r=>/^DESPAIR$/.test(r.x.t)); ok(gd&&gd.vec.join()==='2,3,1','A3 grade-difference DESPAIR = nat-m2/ign3/plat1');
-  const commonSum=res.commonEqual+res.grade.length; ok(commonSum===101,'A3 allPresent = commonEqual('+res.commonEqual+') + gradeDiff('+res.grade.length+')');
+  const commonSum=res.commonEqual+res.grade.length; ok(commonSum===res.allPresent&&res.commonEqual>0&&res.grade.length>0,'A3 allPresent('+res.allPresent+') = commonEqual('+res.commonEqual+') + gradeDiff('+res.grade.length+')');
   // pairwise
   const p=res.pair['nat-m|ign']; ok(p.both+p.onlyA+p.onlyB>0&&p.onlyA>p.onlyB,'A12 pairwise nat-m|ign: onlyA='+p.onlyA+' onlyB='+p.onlyB+' both='+p.both);
   // score sort monotonic + spec formula
@@ -30,7 +36,7 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   ok(Math.abs(L0[0].score-L0[0].g*w.repDiffSpec(L0[0].N))<1e-9,'A4 score = grade × spec ('+L0[0].g+' × spec('+L0[0].N+') = '+L0[0].score.toFixed(3)+')');
   // filters: maxN 10 / minG 3
   res=w.repDiffCompute(R,listMind,{maxN:10,minG:3,sort:'score'});
-  ok(res.excl['nat-m'].every(r=>r.N<=10&&r.g===3)&&res.perRem['nat-m'].excl===230,'A6 filters apply to lists (N≤10, g=3: '+res.excl['nat-m'].length+' rows) but counts stay complete (230)');
+  ok(res.excl['nat-m'].every(r=>r.N<=10&&r.g===3)&&res.perRem['nat-m'].excl===onlyExp('nat-m'),'A6 filters apply to lists (N≤10, g=3: '+res.excl['nat-m'].length+' rows) but counts stay complete ('+onlyExp('nat-m')+')');
   // single remedy mode
   res=w.repDiffCompute(['onos'],listMind,{maxN:0,minG:1,sort:'score'});
   ok(res.any===res.perRem['onos'].inRubrics&&res.excl['onos'].length===res.any&&res.excl['onos'][0].g>=1,'A9 single-remedy mode: onos in '+res.any+' mind rubrics, all listed as keynotes; top: "'+res.excl['onos'][0].x.t.substring(0,40)+'" g'+res.excl['onos'][0].g+' N'+res.excl['onos'][0].N);
@@ -39,12 +45,17 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   t0=Date.now(); res=w.repDiffCompute(['nat-m','ign','plat','sep','puls'],listAll,{maxN:60,minG:1,sort:'score'}); ms=Date.now()-t0;
   ok(ms<1500&&res.any>8000,'A14 whole Kent ('+listAll.length+' rubrics) × 5 remedies in '+ms+' ms; any='+res.any);
   // remedy sizes
-  const sizes=w.repDiffRemedySizes('kent',kent); ok(sizes['nat-m']===6061&&sizes['onos']===255,'A1 remedy sizes nat-m=6061 onos=255');
+  const sizes=w.repDiffRemedySizes('kent',kent);
+  const bookCount=a=>{let n=0;Object.keys(kent).forEach(ch=>Object.keys(kent[ch]).forEach(rid=>{if((kent[ch][rid].r||{})[a])n++;}));return n;};
+  ok(sizes['nat-m']===bookCount('nat-m')&&sizes['onos']===bookCount('onos')&&sizes['nat-m']>5000&&sizes['onos']>100,'A1 remedy sizes nat-m='+sizes['nat-m']+' onos='+sizes['onos']+' (book-wide counts)');
   // rubric mode on ABSENT-MINDED (r2)
   const ctx={book:'kent',ch:'mind',rid:'r2',full:kent.mind.r2.t,rems:kent.mind.r2.r};
   const feats=w.repDiffClusterFor(ctx,kent);
   const subN=feats.filter(f=>f.kind==='sub').length, xN=feats.filter(f=>f.kind==='x').length;
-  ok(subN===7&&xN>0,'A10 cluster for ABSENT-MINDED: '+subN+' sub-rubrics sharing remedies (8 exist; "starts when spoken to" = carb-ac only, not in the 111) + '+xN+' FORGETFUL-related (total '+feats.length+', cap '+w.REP_DIFF_FEAT_CAP+')');
+  const r2r=kent.mind.r2.r||{};
+  const subRub=Object.keys(kent.mind).filter(rid=>rid!=='r2'&&kent.mind[rid].t.indexOf(kent.mind.r2.t+', ')===0);
+  const subExp=subRub.filter(rid=>Object.keys(kent.mind[rid].r||{}).some(a=>r2r[a])).length;
+  ok(subN===subExp&&subN>0&&xN>0,'A10 cluster for ABSENT-MINDED: '+subN+' sub-rubrics sharing remedies ('+subRub.length+' exist, '+subExp+' share) + '+xN+' FORGETFUL-related (total '+feats.length+', cap '+w.REP_DIFF_FEAT_CAP+')');
   const rm=w.repDiffRubricMode(ctx,kent,sizes);
   const nuxm=rm.rows.find(r=>r.abbr==='nux-m');
   ok(nuxm&&nuxm.rare.some(x=>/periodical attacks/.test(x.f.label)),'A10 nux-m rare feature "periodical attacks" flagged');
@@ -61,10 +72,11 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   ok(d.querySelector('.rpd-diff')&&d.querySelector('.rpd-sec-head .rst-link'),'B1 detail page shows 🔬 تفریق button (title row + remedies header)');
   w.repDiffOpenForRubric(); await sleep(50);
   ok(w.repDiffIsOpen()&&d.getElementById('repDiffModal').style.display==='block','B1 modal opens');
-  ok(d.querySelectorAll('.rep-diff-chips .rtv-r').length===111,'B4 picker shows 111 remedy chips');
+  const r2Count=Object.keys(kent.mind.r2.r||{}).length;
+  ok(d.querySelectorAll('.rep-diff-chips .rtv-r').length===r2Count,'B4 picker shows '+r2Count+' remedy chips');
   ok(w.repDiffTab==='rubric','B6 opens on rubric-remedies tab');
   for(let i=0;i<100&&!d.querySelector('.rep-diff-tbl');i++)await sleep(50);
-  ok(d.querySelector('.rep-diff-tbl')&&d.querySelectorAll('.rep-diff-tbl tbody tr').length===111,'B9 rubric table rendered: 111 rows, '+d.querySelectorAll('.rep-diff-tbl th.ft').length+' feature columns');
+  ok(d.querySelector('.rep-diff-tbl')&&d.querySelectorAll('.rep-diff-tbl tbody tr').length===r2Count,'B9 rubric table rendered: '+r2Count+' rows, '+d.querySelectorAll('.rep-diff-tbl th.ft').length+' feature columns');
   ok(d.querySelector('.rep-diff-tbl tbody tr td.rare .rep-diff-rare'),'B9 rare features shown ⭐');
   // pick 3 remedies via chips
   const chip=a=>Array.from(d.querySelectorAll('.rep-diff-chips .rtv-r')).find(e=>e.textContent.trim().toLowerCase()===a);

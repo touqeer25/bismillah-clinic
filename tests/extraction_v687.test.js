@@ -36,7 +36,8 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   // ---------- B. size filter bites while collecting the list (perf fix) ----------
   const cap5=await new Promise(r=>w.repDiffRubricList('chapter','kent','mind',function(list){r(list);},{maxN:5,_rems:{onos:1},ars:0,_stop:true}));
   ok(typeof w.repDiffRubricList==='function'&&w.repDiffRubricList.length===5,'B1 repDiffRubricList now takes an options argument (arity 5)');
-  ok(cap5.length===1&&cap5.every(x=>Object.keys(x.r).length<=5&&x.r.onos),'B2 collecting stage applies BOTH caps (size ≤5 AND remedy present): '+cap5.length+' of '+listMind.filter(x=>x.r.onos).length+' onos rubrics survived — the 271 empty see-also rubrics are out too');
+  const expSize5=listMind.filter(x=>x.r.onos&&Object.keys(x.r).length<=5).length;   // v79: OOREP ڈیٹا — اعداد ڈیٹا سے
+  ok(cap5.length===expSize5&&cap5.every(x=>Object.keys(x.r).length<=5&&x.r.onos),'B2 collecting stage applies BOTH caps (size ≤5 AND remedy present): '+cap5.length+' of '+listMind.filter(x=>x.r.onos).length+' onos rubrics survived ('+expSize5+' expected; empty see-also rubrics out)');
   ok(cap5.scanned>cap5.length&&cap5.skipped>0,'B3 counters reported while scanning: scanned='+cap5.scanned+' skipped-for-size='+cap5.skipped);
   const big=await new Promise(r=>w.repDiffRubricList('book','kent',null,function(list){r(list);},{maxN:0,_stop:true}));
   var onosBook=Object.keys(kent).reduce(function(a,ch){return a+Object.keys(kent[ch]).filter(function(rid){var r=kent[ch][rid].r||{};return r.onos&&Object.keys(r).length>0;}).length;},0);

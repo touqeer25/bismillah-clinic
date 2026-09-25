@@ -50,18 +50,7 @@ body[dir="rtl"] #page-repertoryBrowser .rpd-info{direction:rtl;text-align:right}
 .rep-bc-dim{color:#9fb0bf;font-style:italic}
 .rep-gradation{display:flex;align-items:center;gap:7px;font-size:10px;color:#8aa0b2;letter-spacing:0.4px;flex:0 0 auto;font-family:'Segoe UI',sans-serif}
 .rep-grad-label{font-weight:bold}
-/* v79: گریڈ آئیکن اب کلک کرنے والے فلٹر بٹن ہیں (ہیڈنگ GRADATION ہٹا دی گئی) */
-.rep-grad-item{display:flex;align-items:center;gap:3px;background:none;border:1px solid transparent;border-radius:7px;padding:3px 6px;font:inherit;color:inherit;letter-spacing:.4px;cursor:pointer;line-height:1;transition:background .14s,border-color .14s}
-.rep-grad-item:hover{background:#eef4fa;border-color:#c9d8e6}
-.rep-grad-item.on{background:#e8f1fb;border-color:#2980b9;color:#1a5276;font-weight:bold}
-.rep-grad-item.on .rep-gr-dot{box-shadow:0 0 0 2px rgba(41,128,185,.25)}
-/* v79 grade filter: body.rep-gf-N → ریپرٹری میں صرف گریڈ ≥ N والی ادویات (N=3 صرف 3، N=2 = 3+2، N=1 = سب) */
-body.rep-gf-3 #page-repertoryBrowser .rep-remedy-tag.g1:not(.cmp),
-body.rep-gf-3 #page-repertoryBrowser .rep-remedy-tag.g2:not(.cmp),
-body.rep-gf-3 #page-repertoryBrowser .rtv-r.g1,
-body.rep-gf-3 #page-repertoryBrowser .rtv-r.g2{display:none}
-body.rep-gf-2 #page-repertoryBrowser .rep-remedy-tag.g1:not(.cmp),
-body.rep-gf-2 #page-repertoryBrowser .rtv-r.g1{display:none}
+.rep-grad-item{display:flex;align-items:center;gap:3px}
 .rep-gr-dot{width:9px;height:9px;border-radius:50%;display:inline-block}
 .rep-gr-dot.d1{background:#e8e8e8;border:1px solid #b9c4ce}
 .rep-gr-dot.d2{background:#7f8c8d}

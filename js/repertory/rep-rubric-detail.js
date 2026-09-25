@@ -286,6 +286,7 @@ function repDetailInfoHtml(o){
         h+='<div class="rpd-chips">';
         sorted.forEach(function(a){
             var g=rmObj[a]||1; g=(g>=3)?3:((g===2)?2:1);
+            if(!repGradeShow(g))return;                                 // 🔑 v79: گریڈ فلٹر
             h+='<span class="rep-remedy-tag g'+g+'" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')">'+escapeHtml(a)+'</span>';
         });
         h+='</div>';
@@ -355,7 +356,7 @@ function renderRubricDetail(){
         pureXref:pureXref,seeT:seeT,
         parentLabels:(d.labels&&d.labels.length>1)?d.labels.slice(0,-1):[]});
     // ---- REMEDIES (FIRST — per user requirement)
-    h+='<div class="rpd-sec-head">💊 '+repLangText({ur:'ادویات',en:'REMEDIES',roman:'ADWIYAT'})+' <span class="cnt">('+abbrs.length+')</span>'+(abbrs.length>1&&d.rid&&typeof repDiffOpenForRubric==='function'?' <button class="rst-link" onclick="repDiffOpenForRubric()" title="'+repLangText({ur:'ان ادویات میں کیا فرق ہے؟',en:'What distinguishes these remedies?',roman:'In adwiyat mein kya farq hai?'})+'">🔬 '+repLangText({ur:'ان میں فرق؟',en:'differentiate',roman:'farq?'})+'</button>':'')
+    h+='<div class="rpd-sec-head">💊 '+repLangText({ur:'ادویات',en:'REMEDIES',roman:'ADWIYAT'})+' <span class="cnt">('+(repGradeMin?abbrs.filter(function(a){return repGradeShow(rems[a]);}).length+'/'+abbrs.length:abbrs.length)+')</span>'+(abbrs.length>1&&d.rid&&typeof repDiffOpenForRubric==='function'?' <button class="rst-link" onclick="repDiffOpenForRubric()" title="'+repLangText({ur:'ان ادویات میں کیا فرق ہے؟',en:'What distinguishes these remedies?',roman:'In adwiyat mein kya farq hai?'})+'">🔬 '+repLangText({ur:'ان میں فرق؟',en:'differentiate',roman:'farq?'})+'</button>':'')
         +(abbrs.length&&typeof repMMOpenForRubric==='function'?' <button class="rst-link" onclick="repMMOpenForRubric()" title="'+repLangText({ur:'ان ادویات کا میٹیریا میڈیکا متن (کینٹ، بورک، ایلن، نیش)',en:'Materia medica text of these remedies (Kent, Boericke, Allen, Nash)',roman:'Materia medica matn'})+'">📖 '+repLangText({ur:'میٹیریا میڈیکا',en:'materia medica',roman:'materia medica'})+'</button>':'')+'</div>';
     if(!abbrs.length){
         h+='<div class="rrp-norems">'+(pureXref?repLangText({ur:'یہ کراس ریفرنس ربرک ہے — اوپر اصل ربرک کھولیں',en:'This is a cross-reference rubric — open the real rubric above',roman:'Ye cross-reference rubric hai — asal rubric kholen'}):repLangText({ur:'اس ربرک میں کوئی ادویات محفوظ نہیں',en:'No remedies recorded under this rubric',roman:'Is rubric mein koi adwiyat mehfooz nahi'}))+'</div>';
@@ -364,6 +365,7 @@ function renderRubricDetail(){
         h+='<div class="rpd-chips">';
         abbrs.forEach(function(a){
             var g=rems[a]||1; g=(g>=3)?3:((g===2)?2:1);
+            if(!repGradeShow(g))return;                                 // 🔑 v79: گریڈ فلٹر
             var nm=(typeof repNoteMark==='function'&&d.rid)?repNoteMark(repCurrentBook,repCurrentChapter,String(d.rid),a):'';
             h+='<span class="rep-remedy-tag g'+g+(nm?' noted':'')+'" title="'+_repAttr(repRemedyTitle(a)+(nm?(nm==='✔'?' — ✔ منظور شدہ تفریقی نوٹ':' — ✎ نوٹ کا مسودہ'):''))+'" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')">'+escapeHtml(a)+(nm?'<sup class="rep-note-sup">'+nm+'</sup>':'')+'</span>';
         });

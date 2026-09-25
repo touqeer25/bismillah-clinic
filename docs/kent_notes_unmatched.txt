@@ -1,0 +1,123 @@
+mind: ANGER, irascibility (See Irritability and Quarrelsome), ailments after anger with anxiety
+mind: ANGER, irascibility (See Irritability and Quarrelsome), ailments after anger with anxiety, with fright
+mind: ANGER, irascibility (See Irritability and Quarrelsome), alternating with cheerfulness, quick repentance
+mind: ANGER, irascibility (See Irritability and Quarrelsome), cough, before, from the
+mind: ANGER, irascibility (See Irritability and Quarrelsome), 11 a.m.
+mind: ANGER, irascibility (See Irritability and Quarrelsome), waking, on
+mind: ANSWERS, abruptly, shortly, curtly, aversion to
+mind: ANSWERS, abruptly, shortly, curtly, aversion to, loquacious at other times
+mind: ANSWERS, abruptly, shortly, curtly, aversion to, morning
+mind: ANSWERS, abruptly, shortly, curtly, aversion to, sings, talks, but will not answer questions
+mind: ANSWERS, abruptly, shortly, curtly, confusedly as though thinking of something else
+mind: ANSWERS, abruptly, shortly, curtly, difficult
+mind: ANSWERS, abruptly, shortly, curtly, disconnected
+mind: ANSWERS, abruptly, shortly, curtly, foolish
+mind: ANSWERS, abruptly, shortly, curtly, hastily
+mind: ANSWERS, abruptly, shortly, curtly, imaginary questions
+mind: ANSWERS, abruptly, shortly, curtly, incoherently
+mind: ANSWERS, abruptly, shortly, curtly, incorrectly
+mind: ANSWERS, abruptly, shortly, curtly, irrelevantly
+mind: ANSWERS, abruptly, shortly, curtly, monosyllable
+mind: ANSWERS, abruptly, shortly, curtly, reflects long
+mind: ANSWERS, abruptly, shortly, curtly, refuses to
+mind: ANSWERS, abruptly, shortly, curtly, repeats the question first
+mind: ANSWERS, abruptly, shortly, curtly, slowly
+mind: ANSWERS, stupor returns quickly after
+mind: BED, aversion to (shuns), jumps out of, wants to destroy himself but lacks courage, and runs recklessly about
+mind: CONFUSION, air, in open
+mind: CONFUSION, bed, while in
+mind: CONFUSION, coffee, after
+mind: CONFUSION, mental exertion, from
+mind: CONFUSION, motion, from
+mind: CONFUSION, stooping, when
+mind: CONFUSION, walking, while
+mind: CONFUSION, walking, while, open air, in
+mind: CONFUSION, walking, while, open air, in, amel.
+genitalia_female: CONTRACTIONS, Uterus, during
+genitalia_female: LOCHIA, acrid, offensive, fetid, cadaveric
+genitalia_female: MENSES, daytime only, absent, amenorrh&#156;a, molimen only
+genitalia_female: MENSES, copious, walking agg., amel.
+genitalia_female: MENSES, daytime only, evening only, while lying
+genitalia_female: MENSES, daytime only, night, ceases during (See Daytime), more at
+genitalia_female: MENSES, daytime only, night, ceases during (See Daytime), sleep, only during
+genitalia_female: MENSES, return after having ceased, the periods, excitement, from
+genitalia_female: MENSES, return after having ceased, the periods, old woman, in an
+genitalia_female: MENSES, return after having ceased, the periods, overtaxation
+genitalia_female: OPEN, uterus feels, opens and shuts, as if
+genitalia_female: PAIN, bearing down, Uterus, and region of (See Labor-like Pains, also Pains in Abdomen), lying agg., amel.
+genitalia_female: PAIN, bearing down, Uterus, and region of (See Labor-like Pains, also Pains in Abdomen), lying agg., on left side amel.
+genitalia_female: PAIN, bearing down, uterus, walking agg., in open air amel.
+genitalia_female: PAIN, biting, boring, ovaries, left, menses, during
+genitalia_female: PAIN, burning, Uterus, extending to pit of stomach, to kidneys
+genitalia_female: PAIN, cramping, Uterus, extending up the back, down thighs
+genitalia_female: PAIN, cramping, Uterus, extending up the back, to stomach
+genitalia_female: PAIN, cutting, Uterus, extending to sacrum, upwards
+genitalia_female: PAIN, Ovaries, alternating sides, pain in eye, with
+genitalia_female: PAIN, Ovaries, bending backward amel., double amel.
+genitalia_female: PAIN, Ovaries, extending to abdomen, back
+genitalia_female: PAIN, Ovaries, extending to abdomen, back, up the
+genitalia_female: PAIN, Ovaries, extending to abdomen, backward
+genitalia_female: PAIN, Ovaries, extending to abdomen, chest
+genitalia_female: PAIN, Ovaries, extending to abdomen, crural region, down
+genitalia_female: PAIN, Ovaries, extending to abdomen, diagonally upward
+genitalia_female: PAIN, Ovaries, extending to abdomen, downwards
+genitalia_female: PAIN, Ovaries, extending to abdomen, downwards, and forwards
+genitalia_female: PAIN, Ovaries, extending to abdomen, genitals, to
+genitalia_female: PAIN, Ovaries, extending to abdomen, groin
+genitalia_female: PAIN, Ovaries, extending to abdomen, groin, hypogastrium and
+genitalia_female: PAIN, Ovaries, extending to abdomen, groin, through toward left leg
+genitalia_female: PAIN, Ovaries, extending to abdomen, hips
+genitalia_female: PAIN, Ovaries, extending to abdomen, knee
+genitalia_female: PAIN, Ovaries, extending to abdomen, limbs, down
+genitalia_female: PAIN, Ovaries, extending to abdomen, limbs, down, left
+genitalia_female: PAIN, Ovaries, extending to abdomen, limbs, down, right
+genitalia_female: PAIN, Ovaries, extending to abdomen, liver, to
+genitalia_female: PAIN, Ovaries, extending to abdomen, loins
+genitalia_female: PAIN, Ovaries, extending to abdomen, one to the other
+genitalia_female: PAIN, Ovaries, extending to abdomen, outward
+genitalia_female: PAIN, Ovaries, extending to abdomen, sacrum, to
+genitalia_female: PAIN, Ovaries, extending to abdomen, shoulder blade
+genitalia_female: PAIN, Ovaries, extending to abdomen, stomach
+genitalia_female: PAIN, Ovaries, extending to abdomen, thighs
+genitalia_female: PAIN, Ovaries, extending to abdomen, thighs, anterior surface
+genitalia_female: PAIN, Ovaries, extending to abdomen, thighs, hip, over, region of
+genitalia_female: PAIN, Ovaries, extending to abdomen, thighs, inner surface
+genitalia_female: PAIN, Ovaries, extending to abdomen, thighs, inner surface, and down knee
+genitalia_female: PAIN, Ovaries, extending to abdomen, thighs, outer surface
+genitalia_female: PAIN, Ovaries, extending to abdomen, upward
+genitalia_female: PAIN, Ovaries, extending to abdomen, small of back
+genitalia_female: PAIN, Ovaries, extending to abdomen, to heart
+genitalia_female: PAIN, Ovaries, left, lying on left side agg., back amel.
+genitalia_female: PAIN, Ovaries, lying amel., on left side amel.
+genitalia_female: PAIN, Ovaries, lying amel., on back amel.
+genitalia_female: PAIN, Ovaries, lying amel., on back on a hard board or floor amel.
+genitalia_female: PAIN, Ovaries, lying amel., on painful side amel.
+genitalia_female: PAIN, Ovaries, lying amel., on right side amel.
+genitalia_female: PAIN, Ovaries, motion agg., amel.
+genitalia_female: PAIN, Ovaries, raising arms, the leg
+genitalia_female: PAIN, sore, tenderness, Ovaries, menses, before, suppressed, from
+genitalia_female: PAIN, sore, tenderness, Vagina, coition, during, preventing
+genitalia_female: PAIN, stitching, extending to chest, to vagina
+genitalia_female: PAIN, stitching, Ovaries, extending up side, to knee
+genitalia_female: PAIN, stitching, Ovaries, extending up side, to liver
+genitalia_female: PAIN, stitching, Ovaries, extending up side, to thighs
+genitalia_female: PAIN, stitching, Uterus, extending to right side of chest, up back
+genitalia_female: PAIN, stitching, Vagina, extending to chest, upward
+genitalia_female: PAIN, uterus, extending to back, back to groin
+genitalia_female: PAIN, uterus, extending to back, breasts
+genitalia_female: PAIN, uterus, extending to back, breasts, and right side of abdomen
+genitalia_female: PAIN, uterus, extending to back, breasts, left
+genitalia_female: PAIN, uterus, extending to back, chest
+genitalia_female: PAIN, uterus, extending to back, coccyx and toes
+genitalia_female: PAIN, uterus, extending to back, diagonally upwards
+genitalia_female: PAIN, uterus, extending to back, down the thighs
+genitalia_female: PAIN, uterus, extending to back, down the thighs, reading or writing, from
+genitalia_female: PAIN, uterus, extending to back, downward
+genitalia_female: PAIN, uterus, extending to back, labia, into
+genitalia_female: PAIN, uterus, extending to back, stomach
+genitalia_female: PAIN, uterus, extending to back, umbilicus, to
+genitalia_female: PAIN, uterus, extending to back, upward, to right side of abdomen
+genitalia_female: PAIN, uterus, lying down, on, on back amel.
+genitalia_female: PAIN, uterus, lying down, on, on right side amel.
+genitalia_female: PAIN, Vagina, extending to chest, meatus
+genitalia_female: PAIN, Vagina, extending to chest, upward

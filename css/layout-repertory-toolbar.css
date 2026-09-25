@@ -8,7 +8,13 @@
 .rep-search-wrap input{background:#f8fafc}
 .rep-search-wrap input:focus,.rep-toolbar-select:focus{border-color:#16466e;box-shadow:0 0 0 3px rgba(22,70,110,.12);background:#fff}
 .rep-cmp-btn{height:36px;border-radius:8px;border-width:1px;padding-top:0;padding-bottom:0}
+/* v79: بک لائبریری مین ٹول بار میں — Compare جیسا ہی لیبل والا بٹن */
+.rep-lib-btn{flex:0 0 auto}
 .rep-navbar,.rep-side-tools{border:1px solid #e4eaf1;box-shadow:0 1px 3px rgba(15,44,70,.05);border-radius:10px}
 .rep-navbar{padding:6px 8px;gap:6px}
 .rep-grad-label{letter-spacing:.5px;font-size:10.5px;color:#6b7c8f}
+/* v79 (صارف): گریڈ آئکنز = فلٹر بٹن (GRADATION ہیڈنگ ختم) — 3 = صرف 3، 2 = 2+3، 1 = 1+2+3 */
+.rep-grad-item{cursor:pointer;user-select:none;border:1px solid transparent;border-radius:6px;padding:2px 6px;transition:background .15s,border-color .15s,box-shadow .15s}
+.rep-grad-item:hover{background:#eef4fa;border-color:#c9d8e6}
+.rep-grad-item.on{background:#fff3cd;border-color:#e2b33c;box-shadow:0 0 0 2px rgba(226,179,60,.25);font-weight:bold}
 .rep-sidebar{border:1px solid #e4eaf1;box-shadow:none;border-radius:10px}

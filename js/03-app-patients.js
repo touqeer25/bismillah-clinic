@@ -310,7 +310,7 @@ async function confirmDeletePatient(patientId) {
             localStorage.setItem('cached_visits', JSON.stringify(cachedVisits));
             updatePendingBadge();
             showToast('🗑️ Deleted');
-            showPage('allPatients', document.querySelector('.nav-btn[data-page="allPatients"]'));
+            showPage('dashboard', document.querySelector('.nav-btn[data-page="dashboard"]'));
         } catch(err) { showToast('❌ ' + err.message, 'error'); }
         finally { hideLoading(); }
     });
@@ -429,7 +429,7 @@ function showFamilyMembers(familyNo) {
     const div = $('familyMembersContent');
     let html = '<div class="card-title" style="display:flex;justify-content:space-between;align-items:center;">';
     html += '<span>👨‍👩‍👧‍👦 Family: ' + escapeHtml(familyNo) + ' (' + members.length + ')</span>';
-    html += '<button class="btn btn-light btn-sm" onclick="showPage(\'allPatients\',document.querySelector(\'.nav-btn[data-page=allPatients]\'))">🔙 Back</button></div>';
+    html += '<button class="btn btn-light btn-sm" onclick="showPage(\'dashboard\',document.querySelector(\'.nav-btn[data-page=dashboard]\'))">🔙 Back</button></div>';
     html += members.length ? renderPatientsTable(members) : '<div class="empty-state"><p>No members</p></div>';
     div.innerHTML = html;
     $$('.page').forEach(function(p) { p.classList.remove('active'); });
@@ -441,7 +441,7 @@ function showFamilyMembers(familyNo) {
 // ==================== PATIENT DETAIL ====================
 async function showPatientDetail(patientId) {
     const patient = cachedPatients.find(function(p) { return p.id === patientId; });
-    if (!patient) { showPage('allPatients', document.querySelector('.nav-btn[data-page="allPatients"]')); return; }
+    if (!patient) { showPage('dashboard', document.querySelector('.nav-btn[data-page="dashboard"]')); return; }
     
     let visits;
     if (navigator.onLine && !getPendingPatients().find(function(p) { return p.id === patientId; })) {
@@ -468,7 +468,7 @@ async function showPatientDetail(patientId) {
     html += '<button class="btn btn-warning btn-sm" onclick="goToNewVisitPage(\'' + patient.id + '\')">➕ Visit</button>';
     html += '<button class="btn btn-purple btn-sm" onclick="openDiagnosisForPatient(\'' + patient.id + '\')">🔬 Diagnose</button>';
     if (patient.familyNo) html += '<button class="btn btn-info btn-sm" onclick="showFamilyMembers(\'' + escapeHtml(patient.familyNo) + '\')">👨‍👩‍👧‍👦 (' + familyMembers.length + ')</button>';
-    html += '<button class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;" onclick="showPage(\'allPatients\',document.querySelector(\'.nav-btn[data-page=allPatients]\'))">🔙</button>';
+    html += '<button class="btn btn-sm" style="background:rgba(255,255,255,0.2);color:white;" onclick="showPage(\'dashboard\',document.querySelector(\'.nav-btn[data-page=dashboard]\'))">🔙</button>';
     html += '<button class="btn btn-danger btn-sm" onclick="confirmDeletePatient(\'' + patient.id + '\')">🗑️</button>';
     html += '</div></div>';
     

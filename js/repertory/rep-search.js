@@ -419,6 +419,7 @@ function searchRepertoryBrowser(){
             h+='<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:2px;">';
             var rems=Object.keys(r.remedies||{});
             rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1)||a.localeCompare(b);});
+            rems=rems.filter(function(a){return repGradeShow(r.remedies[a]);});   // 🔑 v79: گریڈ فلٹر
             rems.slice(0,40).forEach(function(abbr){var g=r.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+((r.matched&&r.matched[abbr])?' rem-hl':'')+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
             if(rems.length>40) h+='<span style="font-size:10px;color:#7f8c8d;align-self:center;">+'+(rems.length-40)+' more</span>';
             h+='</div><div style="margin-top:4px;font-size:10px;color:#2980b9;font-weight:bold;">'+repLangText({ur:'↩ یہاں کھولیں',en:'↩ open here',roman:'↩ yahan kholen'})+'</div></div>';
@@ -633,6 +634,7 @@ function displaySearchResults(results, info){
         h+='<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:2px;">';
         var rems=Object.keys(r.remedies);
         rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1)||a.localeCompare(b);});
+        rems=rems.filter(function(a){return repGradeShow(r.remedies[a]);});       // 🔑 v79: گریڈ فلٹر
         var remsShown=rems.slice(0,40);
         remsShown.forEach(function(abbr){var g=r.remedies[abbr]||1;h+='<span class="rep-remedy-tag g'+g+((r.matched&&r.matched[abbr])?' rem-hl':'')+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';});
         if(rems.length>40) h+='<span style="font-size:10px;color:#7f8c8d;align-self:center;">+'+(rems.length-40)+' more</span>';
