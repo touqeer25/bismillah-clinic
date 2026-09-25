@@ -17,6 +17,11 @@ ok(JSON.stringify(navPages)===JSON.stringify(['dashboard','newPatient','newVisit
 // v79: نچلی بار — GRADATION ہیڈنگ ہٹی، گریڈ بٹن قابلِ کلک،📚 لائبریری اب مین ٹول بار میں
 const tb=idx.slice(idx.indexOf('<div class="rep-toolbar">'),idx.indexOf('rep-layout'));
 ok(tb.indexOf('repLibOpen()')>0 && /repBookSelect/.test(tb),'📚 library button moved INTO the main toolbar');
+// v79 (2): صارف کی ترتیب — کتاب → اسکوپ → قسم → 🔍 سرچ بار → ☑ Compare → 📚 لائبریری
+const tbSeq=['repBookSelect','repScopeSelect','repTypeSelect','repBrowserSearch','repCmpModeBtn','repLibOpen()'];
+let tbPos=-1,tbOrder=true; tbSeq.forEach(s=>{const i=tb.indexOf(s); if(i<0||i<=tbPos)tbOrder=false; tbPos=i;});
+ok(tbOrder,'toolbar order: book → scope → type → search → compare → library — got '+tbSeq.map(s=>s+'@'+tb.indexOf(s)).join(' '));
+ok(tb.indexOf('repBookSelect')<tb.indexOf('repBrowserSearch')&&tb.indexOf('repBrowserSearch')<tb.indexOf('repCmpModeBtn'),'search bar sits between type-select and Compare');
 const nb=idx.slice(idx.indexOf('rep-navbar'),idx.indexOf('repRubricContent'));
 ok(!/GRADATION:/.test(nb) && (nb.match(/rep-grad-item/g)||[]).length===3 && /repGradeFilter\(3\)/.test(nb),'lower bar: GRADATION heading gone, 3 clickable grade buttons');
 ok(!/onclick="repLibOpen\(\)"/.test(nb),'📚 no longer duplicated in the lower bar');

@@ -867,11 +867,7 @@
         <div class="content">
             <!-- Toolbar: book select + search scope + search box -->
             <div class="rep-toolbar">
-                <!-- v79 نئی ترتیب: سرچ سب سے پہلے (روزانہ کا کام)، پھر کتاب/اسکوپ/قسم، پھر کمپیئر، آخر میں مطالعہ لائبریری (نیچلی بار سے یہاں منتقل) -->
-                <div class="rep-search-wrap">
-                    <span class="rep-search-ico">🔍</span>
-                    <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="ربرک / سب ربرک تلاش کریں... (مثلاً fear، headache)">
-                </div>
+                <!-- v79 نئی ترتیب (صارف): کتاب → اسکوپ → قسم → 🔍 سرچ بار → ☑ Compare → 📚 لائبریری (سب سے دائیں/آخر میں) -->
                 <select id="repBookSelect" onchange="switchRepertoryBook()" class="rep-toolbar-select rep-book-select">
                     <!-- 🔑 v45: کینٹ ٹاپ پر + ڈیفالٹ کتاب (صارف درخواست) -->
                     <option value="kent">📘 Kent Repertory (English)</option>
@@ -899,6 +895,11 @@
                     <option value="rubric_remedy">🔤💊 <span data-ur="ربرک + ادویہ" data-en="Rubric + Remedy" data-roman="Rubric + Remedy">ربرک + ادویہ</span></option>
                     <option value="clinical">🏥 <span data-ur="کلینیکل حالت" data-en="Clinical Condition" data-roman="Clinical Condition">کلینیکل حالت</span></option>
                 </select>
+                <!-- 🔑 v79: سرچ بار اب تینوں ڈراپ ڈاؤن کے بعد (کمپئیر سے پہلے) -->
+                <div class="rep-search-wrap">
+                    <span class="rep-search-ico">🔍</span>
+                    <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="ربرک / سب ربرک تلاش کریں... (مثلاً fear، headache)">
+                </div>
                 <!-- 🔑 v54: HomeoSetu-style Compare MODE (☐ on every rubric card → active clipboard); classic side-by-side view moved into Workbench / compare panel -->
                 <button class="rep-cmp-btn" id="repCmpModeBtn" onclick="repCmpModeToggle()" title="Compare Mode: tick rubric cards to collect them into the active clipboard, then Analyze">☑ <span data-ur="کمپیئر" data-en="Compare" data-roman="Compare">Compare</span></button>
                 <button class="rep-viewbtn rep-toolbar-lib" onclick="repLibOpen()" title="Reading library — Hahnemann: Organon 6th, Chronic Diseases / مطالعہ لائبریری">📚</button>
