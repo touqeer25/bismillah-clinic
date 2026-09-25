@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="css/layout-header.css?v=80">
     <link rel="stylesheet" href="css/layout-repertory-toolbar.css?v=80">
     <link rel="stylesheet" href="css/layout-differentiation.css?v=80">
+    <link rel="stylesheet" href="css/parser-studio.css?v=81">
 
 </head>
 <body dir="rtl" class="lang-ur">
@@ -989,6 +990,7 @@
             <div class="card set-tools-card">
                 <div class="card-title">🧰 <span data-ur="ٹولز اور مدد" data-en="Tools &amp; help" data-roman="Tools aur Madad">ٹولز اور مدد</span></div>
                 <div class="set-tools-row">
+        <button type="button" class="set-tool-btn" id="psOpenBtn">📚 پارسر اسٹوڈیو</button>
         <button type="button" class="set-tool-btn" id="navPrefsBtn" onclick="if(typeof openPreferencesModal==='function')openPreferencesModal()">
             🎛️ <span data-ur="ترجیحات" data-en="Preferences" data-roman="Tarjeehaat">ترجیحات</span>
         </button>
@@ -1565,20 +1567,22 @@
 <script src="js/06-app-new-visit.js?v=33"></script>
 <script src="js/07-app-settings.js?v=33"></script>
 <script src="js/repertory/rep-books.js?v=80"></script>
-<script src="js/repertory/rep-chapters.js?v=80"></script>
+<script src="js/repertory/rep-chapters.js?v=81"></script>
 <script src="js/repertory/rep-folders.js?v=80"></script>
 <script src="js/repertory/rep-tree.js?v=80"></script>
 <script src="js/repertory/rep-clipboards.js?v=80"></script>
 <script src="js/repertory/rep-compare-mode.js?v=80"></script>
 <script src="js/repertory/rep-rubric-detail.js?v=80"></script>
-<script src="js/repertory/rep-search.js?v=80"></script>
+<script src="js/repertory/rep-search.js?v=81"></script>
 <script src="js/repertory/rep-workbench.js?v=80"></script>
 <script src="js/repertory/rep-analysis.js?v=80"></script>
 <!-- 🔑 v55: 🔬 remedy differentiation / extraction (loads after the repertory module) -->
 <script src="js/08b-rep-differentiation.js?v=5"></script>
 <!-- 🔑 v56: 📖 materia medica (public-domain books) + 🤖 drafts + ✍ notes -->
-<script src="js/08c-rep-materia-medica.js?v=18"></script>
-<script src="js/08d-library.js?v=1"></script>
+<script src="js/08c-rep-materia-medica.js?v=19"></script>
+<script src="js/08d-library.js?v=2"></script>
+<script src="js/parser-engine.js?v=81"></script>
+<script src="js/14-parser-studio.js?v=81"></script>
 <script src="js/10-treatment-data.js?v=33"></script>
 <script src="js/12-treatment-more.js?v=33"></script>
 <script src="js/11-app-studio.js?v=41"></script>

@@ -3,11 +3,11 @@
 var repLibIndex=null, _repLibBooks={}, repLibView={book:null,sec:0,q:''};
 function _repLibL(o){ return (typeof repLangText==='function')?repLangText(o):(o.en||''); }
 function repLibEnsureIndex(cb){ if(repLibIndex){ cb&&cb(); return; }
-    fetch('library/_index.json?v=1').then(function(r){ return r.json(); }).then(function(d){ repLibIndex=d||{books:[]}; cb&&cb(); })
-        .catch(function(){ repLibIndex={books:[]}; cb&&cb(); }); }
+    fetch('library/_index.json?v=1').then(function(r){ return r.json(); }).then(function(d){ repLibIndex=d||{books:[]}; if(window.PS&&PS.hookLibIndex)PS.hookLibIndex(repLibIndex); cb&&cb(); })
+        .catch(function(){ repLibIndex={books:[]}; if(window.PS&&PS.hookLibIndex)PS.hookLibIndex(repLibIndex); cb&&cb(); }); }
 function repLibLoad(id,cb){ if(_repLibBooks[id]){ cb&&cb(_repLibBooks[id]); return; }
     var m=(repLibIndex.books||[]).filter(function(b){ return b.id===id; })[0]; if(!m) return;
-    fetch(m.file+'?v=1').then(function(r){ return r.json(); }).then(function(b){ _repLibBooks[id]=b; cb&&cb(b); }); }
+    fetch(m.file+'?v=1').then(function(r){ return r.json(); }).then(function(b){ if(window.PS&&PS.applyLibBook)b=PS.applyLibBook(id,b); _repLibBooks[id]=b; cb&&cb(b); }).catch(function(){ var pb=(window.PS&&PS.applyLibBook)?PS.applyLibBook(id,null):null; if(pb){ _repLibBooks[id]=pb; cb&&cb(pb); } }); }
 function repLibOpen(id){
     var m=document.getElementById('repLibModal');
     if(!m){ m=document.createElement('div'); m.id='repLibModal'; m.className='rep-diff-modal';

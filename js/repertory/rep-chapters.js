@@ -81,7 +81,14 @@ function initRepertoryBrowser(noAutoChapter) {
     function loadChaptersAndRender() {
         var basePath = repChapDir(repCurrentBook);
         var indexFile = basePath + '_index.json';
+        if (window.PS && PS.hasCustomRep && PS.hasCustomRep(repCurrentBook)) {
+            repChapterNames = sortChaptersForBook(repCurrentBook, PS.customRepIndex(repCurrentBook));
+            renderChapterList();
+            repAutoOpenDefaultChapter();
+            return;
+        }
         fetch(indexFile+'?'+REP_DATA_V).then(function(r){return r.json();}).then(function(data){
+            if (window.PS && PS.hookRepIndex) PS.hookRepIndex(repCurrentBook, data);
             // data is array of {key, name, rubrics}
             repChapterNames = sortChaptersForBook(repCurrentBook, data);
             var t=0; repChapterNames.forEach(function(c){t+=c.rubrics;});
@@ -123,7 +130,13 @@ function selectChapter(chKey, navRid){
     cd.innerHTML='<div style="text-align:center;padding:30px;">Loading <b>'+nm+'</b>...</div>';
     if(repTreeCache[chKey]){renderTree(chKey,nm,repTreeCache[chKey]);return;}
     var basePath=repChapDir(repCurrentBook);
+    if (window.PS && PS.hasCustomRep && PS.hasCustomRep(repCurrentBook)) {
+        var _psd = PS.customRepChapter(repCurrentBook, chKey);
+        var _pst = buildRubricTree(_psd); repTreeCache[chKey] = _pst; renderTree(chKey, nm, _pst);
+        return;
+    }
     fetch(basePath+chKey+'.json?'+REP_DATA_V).then(function(r){return r.json();}).then(function(d){
+        if (window.PS && PS.applyRepOverrides) PS.applyRepOverrides(repCurrentBook, chKey, d);
         var tree=buildRubricTree(d);repTreeCache[chKey]=tree;renderTree(chKey,nm,tree);
     }).catch(function(e){
         // 🔑 fallback: chapter FILE missing (e.g. kent_de) -> extract chapter from book's full data file

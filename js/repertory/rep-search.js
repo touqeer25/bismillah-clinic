@@ -533,9 +533,11 @@ function searchRepertoryBrowser(){
 }
 
 function loadRepData(cb){
+    if (window.PS && PS.hasCustomRep && PS.hasCustomRep(repCurrentBook)) { _repFullData = PS.customRepMaster(); cb(_repFullData); return; }
     if(_repFullData!==null){ cb(_repFullData); return; }
     var info = REP_BOOK_INFO[repCurrentBook];
     fetch(info.dataFile + '?'+REP_DATA_V).then(function(r){return r.json();}).then(function(d){
+        if (window.PS && PS.applyAllBooks) PS.applyAllBooks(repCurrentBook, d);
         _repFullData=d; cb(d);
     }).catch(function(e){ console.error(e); });
 }
@@ -555,8 +557,9 @@ function loadAllBooksData(cb){
         var info = REP_BOOK_INFO[bk];
         if(needData){
             fetch(info.dataFile + '?'+REP_DATA_V).then(function(r){return r.json();}).then(function(d){
+                if (window.PS && PS.applyAllBooks) PS.applyAllBooks(bk, d);
                 dataResult[bk]=d; pending--; done();
-            }).catch(function(e){ console.error('data load fail',bk,e); pending--; done(); });
+            }).catch(function(e){ if (window.PS && PS.hasCustomRep && PS.hasCustomRep(bk)) dataResult[bk]=PS.customRepMaster(); console.error('data load fail',bk,e); pending--; done(); });
         }
         if(needIdx){
             fetch(info.chapDir+'_index.json?'+REP_DATA_V).then(function(r){return r.json();}).then(function(d){

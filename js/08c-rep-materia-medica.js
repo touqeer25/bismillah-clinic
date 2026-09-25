@@ -20,7 +20,7 @@ function repMMEnsureIndex(cb){
     if(repMMIndex){ cb(repMMIndex); return; }
     if(_repMMLoading.__index){ _repMMLoading.__index.push(cb); return; }
     _repMMLoading.__index=[cb];
-    fetch(REP_MM_INDEX_FILE+'?v=2').then(function(r){ return r.json(); }).then(function(d){ repMMIndex=d||{books:{},avail:{}}; })
+    fetch(REP_MM_INDEX_FILE+'?v=2').then(function(r){ return r.json(); }).then(function(d){ repMMIndex=d||{books:{},avail:{}}; if(window.PS&&PS.hookMMIndex)PS.hookMMIndex(repMMIndex); })
         .catch(function(e){ console.warn('MM index load fail',e); repMMIndex={books:{},avail:{}}; })
         .then(function(){ var q=_repMMLoading.__index; delete _repMMLoading.__index; (q||[]).forEach(function(f){ f(repMMIndex); }); });
 }
@@ -30,8 +30,8 @@ function repMMLoadBook(id,cb){
     _repMMLoading[id]=[cb];
     repMMEnsureIndex(function(ix){
         var meta=ix.books&&ix.books[id]; var file=(meta&&meta.file)||('mm/'+id+'.json');
-        fetch(file+'?v=2').then(function(r){ return r.json(); }).then(function(d){ _repMMBooks[id]=d; })
-            .catch(function(e){ console.warn('MM book load fail',id,e); _repMMBooks[id]={id:id,remedies:{}}; })
+        fetch(file+'?v=2').then(function(r){ return r.json(); }).then(function(d){ if(window.PS&&PS.applyMMBook)d=PS.applyMMBook(id,d); _repMMBooks[id]=d; })
+            .catch(function(e){ console.warn('MM book load fail',id,e); _repMMBooks[id]=(window.PS&&PS.applyMMBook)?PS.applyMMBook(id,{id:id,remedies:{}}):{id:id,remedies:{}}; })
             .then(function(){ var q=_repMMLoading[id]; delete _repMMLoading[id]; (q||[]).forEach(function(f){ f(_repMMBooks[id]); }); });
     });
 }
