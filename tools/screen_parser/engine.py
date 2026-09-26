@@ -116,6 +116,7 @@ def _parse_prescriber(lines: list[dict], names: dict[str, str], context: dict) -
     used = set()
     errors = []
     continuation: list[str] = []
+    unlinked: list[str] = []
     for row in lines:
         s, n = row["text"], row["line"]
         if _skip(s, "prescriber"):
@@ -134,6 +135,11 @@ def _parse_prescriber(lines: list[dict], names: dict[str, str], context: dict) -
             continuation.append(s)
             used.add(n)
         else:
+            # Preserve readable pixels even when the preceding book entry is
+            # outside this captured range. NEVER assign its remedies to the
+            # first new symptom merely to make the warning disappear.
+            unlinked.append(s)
+            used.add(n)
             errors.append(issue("orphan_text", "Entry heading not found; this text cannot be assigned to a symptom.",
                                 "block", n, s))
     for entry in entries:
@@ -146,6 +152,7 @@ def _parse_prescriber(lines: list[dict], names: dict[str, str], context: dict) -
                                     + match.group(0), "warning", entry["line"], entry["heading"]))
     return {"profile": "prescriber", "entries": entries,
             "continuation": "\n".join(continuation),
+            "unlinked_continuation": "\n".join(unlinked),
             "context_out": {"last_heading": entries[-1]["heading"] if entries else context.get("last_heading", "")},
             "accounted": sorted(used)}, errors
 
@@ -362,7 +369,7 @@ def compare_readings(primary: str, second: str, threshold: float = .86) -> list[
     for tag, x0, x1, y0, y1 in comparison.get_opcodes():
         if tag != "replace" or x1-x0 > 3 or y1-y0 > 3:
             continue
-        for word_a, word_b in zip(ta[x0:x1], tb[y0:y1]):
+        for word_a, word_b in zip(ta[x0:x1], tb[y0:y1], strict=False):
             if min(len(word_a), len(word_b)) >= 4 and word_a != word_b:
                 if difflib.SequenceMatcher(None, word_a, word_b).ratio() >= .55:
                     local.append(word_a + " ↔ " + word_b)

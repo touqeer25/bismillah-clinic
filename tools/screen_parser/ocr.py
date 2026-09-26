@@ -185,7 +185,7 @@ def capture_rectangle(rect: tuple[int, int, int, int]) -> Image.Image:
     x, y, w, h = rect
     if w < 90 or h < 80:
         raise ValueError("Selection is too small")
-    with mss.mss() as screen:
+    with (mss.MSS() if hasattr(mss, "MSS") else mss.mss()) as screen:
         shot = screen.grab({"left": x, "top": y, "width": w, "height": h})
         return Image.frombytes("RGB", shot.size, shot.rgb)
 
@@ -196,17 +196,17 @@ def _frame_overlap(assembled: list[dict], new: list[dict]) -> int:
     a = [r["text"] for r in assembled]
     b = [r["text"] for r in new]
     # Whole unchanged frame = no new lines, regardless of OCR punctuation changes.
-    if len(b) == len(a) and all(_line_similarity(x, y) >= .84 for x, y in zip(a, b)):
+    if len(b) == len(a) and all(_line_similarity(x, y) >= .84 for x, y in zip(a, b, strict=True)):
         return len(new)
     # A user may scroll backwards to inspect an already-seen portion; don't
     # count it again or label it a missing interval.
     if len(b) <= len(a):
         for start in range(max(0, len(a)-len(b)-50), len(a)-len(b)+1):
-            if sum(_line_similarity(x, y) >= .80 for x, y in zip(a[start:start+len(b)], b)) >= max(1, int(len(b)*.85)):
+            if sum(_line_similarity(x, y) >= .80 for x, y in zip(a[start:start+len(b)], b, strict=True)) >= max(1, int(len(b)*.85)):
                 return len(b)
     best = 0
     for k in range(min(50, len(a), len(b)), 0, -1):
-        matched = sum(_line_similarity(x, y) >= .76 for x, y in zip(a[-k:], b[:k]))
+        matched = sum(_line_similarity(x, y) >= .76 for x, y in zip(a[-k:], b[:k], strict=True))
         if (k >= 2 and matched >= max(2, int(k * .75))) or (k == 1 and matched and len(a[-1]) > 25):
             best = k
             break
@@ -332,7 +332,7 @@ def scan_pdf_page(path: str, page_number: int, columns: int = 1) -> tuple[Image.
     return image, scan, total
 
 
-def read_viewer_counter(image: Image.Image, expected_total: int) -> tuple[int | None, int | None]:
+def read_viewer_counter(image: Image.Image, expected_total: int | None) -> tuple[int | None, int | None]:
     """Read user-selected viewer counter ROI; never use *printed* page numbers.
 
     Returns (physical_page, displayed_total). OCR errors return (None,None), which
@@ -353,7 +353,8 @@ def read_viewer_counter(image: Image.Image, expected_total: int) -> tuple[int | 
     single = re.fullmatch(r"(?:page\s*)?(\d{1,5})", text)
     if single:
         no = int(single.group(1))
-        return (no, expected_total) if 1 <= no <= expected_total else (None, None)
+        # A lone digit is not trustworthy without a confirmed viewer total.
+        return (no, expected_total) if expected_total and 1 <= no <= expected_total else (None, None)
     return None, None
 
 
