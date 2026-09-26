@@ -1,0 +1,5 @@
+# Windows first: Python 3.11–3.13 + system Tesseract OCR with English trained data.
+Pillow>=10.4,<14
+mss>=9,<11
+pytesseract>=0.3.10,<1
+PyMuPDF>=1.24,<2  # optional original PDF text-layer fallback; installed by default here
