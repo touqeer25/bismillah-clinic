@@ -21,7 +21,33 @@ function repDiffOpenWithRemedies(arr,ctx){
     repDiffTab=list.length===1?'excl':'excl';
     repDiffShow(); if(list.length) repDiffRun(); else repDiffRenderBody();
 }
+// 🔑 v85 (صارف): تفریق / نکاسی اب **پاپ اپ نہیں، ریپرٹری کے صفحے کا ٹیب** ہے۔
+//   اگر صفحے میں #repDiffView موجود ہو تو سب کچھ اُسی کے اندر بنتا ہے (ماڈل بالکل نہیں بنتا)۔
+//   اگر وہ خانہ نہ ملے (پرانا index.html) تو پرانا ماڈل والا راستہ جوں کا توں چلتا رہے گا۔
+function repDiffHost(){ return document.getElementById('repDiffView'); }
+function repDiffTabMode(){ return !!repDiffHost(); }
+// ریپرٹری ↔ تفریق — صفحے کے اوپر والی دو بٹن والی پٹی
+function repPageTab(which){
+    var host=repDiffHost(); if(!host) return;
+    var page=document.getElementById('page-repertoryBrowser'); if(!page) return;
+    var lay=page.querySelector('.rep-layout'), tb=document.getElementById('repPageTabRep'), td=document.getElementById('repPageTabDiff');
+    var diff=(which==='diff');
+    if(lay) lay.style.display=diff?'none':'';
+    host.style.display=diff?'':'none';
+    if(tb) tb.classList.toggle('on',!diff);
+    if(td) td.classList.toggle('on',diff);
+    if(diff){
+        if(!document.getElementById('repDiffHead')) host.innerHTML='<div id="repDiffHead"></div><div id="repDiffBody" class="rep-diff-body"></div>';
+        repDiffRenderHead(); if(!repDiffLast) repDiffRenderBody();
+        try{ window.scrollTo(0,0); }catch(e){}
+    }
+}
 function repDiffShow(){
+    var host=repDiffHost();
+    if(host){
+        if(!document.getElementById('repDiffHead')) host.innerHTML='<div id="repDiffHead"></div><div id="repDiffBody" class="rep-diff-body"></div>';
+        repPageTab('diff'); repDiffRenderHead(); return;
+    }
     var m=document.getElementById('repDiffModal');
     if(!m){
         m=document.createElement('div'); m.id='repDiffModal'; m.className='rep-diff-modal';
@@ -32,8 +58,14 @@ function repDiffShow(){
     m.style.display='block'; document.body.classList.add('rep-diff-open');
     repDiffRenderHead();
 }
-function repDiffClose(){ var m=document.getElementById('repDiffModal'); if(m)m.style.display='none'; document.body.classList.remove('rep-diff-open'); }
-function repDiffIsOpen(){ var m=document.getElementById('repDiffModal'); return !!(m&&m.style.display==='block'); }
+function repDiffClose(){
+    if(repDiffHost()){ repPageTab('rep'); return; }
+    var m=document.getElementById('repDiffModal'); if(m)m.style.display='none'; document.body.classList.remove('rep-diff-open');
+}
+function repDiffIsOpen(){
+    var host=repDiffHost(); if(host) return host.style.display!=='none';
+    var m=document.getElementById('repDiffModal'); return !!(m&&m.style.display==='block');
+}
 
 // ---------- ہیڈر: سیاق + ریمیڈی پکر + کنٹرولز + ٹیبز ----------
 function repDiffScopeBook(){ return (repDiffCtx&&repDiffCtx.book)||repCurrentBook; }
@@ -43,7 +75,7 @@ function repDiffRenderHead(){
     var L=repLangText, bi=REP_BOOK_INFO[repDiffScopeBook()]||{abbr:'',name:''};
     var h='<div class="rep-diff-title"><b>🔬 '+L({ur:'تفریق / ایکسٹریکشن',en:'DIFFERENTIATION / EXTRACTION',roman:'TAFREEQ / EXTRACTION'})+'</b>'
         +'<span class="rep-diff-sub">'+L({ur:'ریمیڈیز چنیں → وہ ربرکس جہاں یہ آپس میں مختلف ہیں',en:'pick remedies → rubrics where they differ',roman:'remedies chunein → rubrics jahan ye mukhtalif hain'})+'</span>'
-        +'<button class="rc-btn" onclick="repDiffClose()">✕ '+L({ur:'بند',en:'Close',roman:'Band'})+'</button></div>';
+        +'<button class="rc-btn" onclick="repDiffClose()">'+(repDiffTabMode()?'↩ '+L({ur:'واپس ریپرٹری',en:'Back to repertory',roman:'Wapas repertory'}):'✕ '+L({ur:'بند',en:'Close',roman:'Band'}))+'</button></div>';
     // سیاق
     if(repDiffCtx){
         h+='<div class="rep-diff-ctx">'+repBookBadgeHtml(repDiffCtx.book)+' <span>'+escapeHtml(getChapterDisplayName(repDiffCtx.book,repDiffCtx.ch)||repDiffCtx.ch)+'</span> › <b dir="ltr">'+escapeHtml(repDiffCtx.full||'')+'</b>'
