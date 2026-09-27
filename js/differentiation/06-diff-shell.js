@@ -31,20 +31,29 @@ function repPageTab(which){
     var host=repDiffHost(); if(!host) return;
     var page=document.getElementById('page-repertoryBrowser'); if(!page) return;
     var diff=(which==='diff');
-    // 🔑 v86: صرف مواد کا خانہ بدلتا ہے — ابواب کی سائیڈ بار اور بریڈکرمب اپنی جگہ رہتے ہیں
-    var cont=document.getElementById('repRubricContent'), dock=document.getElementById('repDockArea');
-    var tb=document.getElementById('repPageTabRep'), td=document.getElementById('repPageTabDiff'), tx=document.getElementById('repPageTabClose');
+    // 🔑 v86: صرف ربرکس کا خانہ بدلتا ہے — ابواب کی سائیڈ بار، بریڈکرمب اپنی جگہ
+    // 🔑 v87 (صارف): کلپ بورڈ کی پٹی (#repDockArea) اب دونوں ٹیبوں پر موجود رہتی ہے — چھپائی نہیں جاتی
+    var cont=document.getElementById('repRubricContent');
+    var tb=document.getElementById('repPageTabRep'), td=document.getElementById('repPageTabDiff');
     if(cont) cont.style.display=diff?'none':'';
-    if(dock) dock.style.display=diff?'none':'';
     host.style.display=diff?'':'none';
     if(tb) tb.classList.toggle('on',!diff);
     if(td) td.classList.toggle('on',diff);
-    if(tx) tx.style.display=diff?'':'none';
     if(diff){
         if(!document.getElementById('repDiffHead')) host.innerHTML='<div id="repDiffHead"></div><div id="repDiffBody" class="rep-diff-body"></div>';
         repDiffRenderHead(); if(!repDiffLast) repDiffRenderBody();
     }
 }
+// 🔑 v87 (صارف): تفریق کھلی ہو اور صارف بائیں سے کوئی باب، یا بریڈکرمب / ← → ↑ دبائے،
+//   تو ریپرٹری خود بخود سامنے آ جائے (ورنہ نیا باب پیچھے کھلتا رہتا تھا اور نظر نہ آتا تھا)۔
+function repDiffBackOnNav(){
+    var ids=['repChapterList','repBreadcrumb','repBtnBack','repBtnFwd','repBtnUp'];
+    ids.forEach(function(id){
+        var el=document.getElementById(id); if(!el||el._repDiffNav) return; el._repDiffNav=1;
+        el.addEventListener('click',function(){ if(repDiffIsOpen()) repPageTab('rep'); },true);
+    });
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',repDiffBackOnNav); else repDiffBackOnNav();
 function repDiffShow(){
     var host=repDiffHost();
     if(host){
