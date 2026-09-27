@@ -132,8 +132,8 @@ function repDiffSetTab(t){
     repDiffTab=t; repDiffRenderHead();
     var loaded=repDiffLast?Object.keys(repDiffLast.all||{}).length:0;
     if(t==='mm'){ repDiffRenderBody(); return; }                 // میٹیریا میڈیکا: اپنا ڈیٹا خود لوڈ کرتا ہے
-    if(t==='books'&&loaded<2){ repDiffRun(); return; }          // کتابوں کی گواہی: باقی کتابیں خودکار لوڈ
-    if(!repDiffLast&&(t==='rubric'||t==='books')){ repDiffRun(); return; }
+    if(t==='books'){ if(!repDiffLast) repDiffRun(); else repDiffRenderBody(); return; }   // 🔑 v84: خودکار ۵۶ MB نہیں — صارف «لوڈ کریں» دبائے گا
+    if(!repDiffLast&&t==='rubric'){ repDiffRun(); return; }
     repDiffRenderBody();
 }
 
@@ -145,7 +145,7 @@ function repDiffRun(){
     if(_repDiffBusy) return; _repDiffBusy=true;
     body.innerHTML='<div class="rep-tool-loading">⏳ '+L({ur:'ڈیٹا لوڈ اور حساب ہو رہا ہے…',en:'Loading data and computing…',roman:'Data load aur hisaab…'})+'</div>';
     var scope=repDiffOpts.scope, book=repDiffScopeBook(), ch=repDiffScopeCh();
-    var needAll=(scope==='all')||repDiffTab==='books';
+    var needAll=(scope==='all');   // 🔑 v84: «کتابوں کی گواہی» اب اپنی کتابیں خود (چن کر، ایک ایک کر کے) منگواتی ہے — یہاں ۵۶ MB والا راستہ بند
     var t0=Date.now();
     var opt=Object.assign({},repDiffOpts);
     if(repDiffSel.length){ var m={}; repDiffSel.forEach(function(a){ m[a]=1; }); opt._rems=m; }

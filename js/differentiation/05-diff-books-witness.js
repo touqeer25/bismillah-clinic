@@ -34,18 +34,74 @@ function repDiffBooksWitness(R,all,exceptBook,words){
     return out;
 }
 
+// 🔑 v84 (صارف): «کتابوں کی گواہی» کی اصلاح — پہلے یہ ٹیب گیارہ کتابوں کی پوری فائلیں (≈۵۶ MB)
+//   ایک ساتھ منگواتا تھا، اور اگر ایک بھی فیچ ناکام ہو جاتی تو خالی نتیجہ ہمیشہ کے لیے کیش ہو جاتا تھا
+//   (repEnsureAllBooks دوبارہ کوشش نہیں کرتا)۔ اب:
+//     • صارف خود چنتا ہے کہ کون سی کتابیں دیکھنی ہیں (حجم سامنے لکھا ہے)
+//     • کتابیں ایک ایک کر کے آتی ہیں اور پیش رفت نظر آتی ہے
+//     • ناکام کتاب کیش نہیں ہوتی — «دوبارہ کوشش» سے پھر منگوائی جا سکتی ہے
+//   ⚠ گواہی کا انجن (repDiffBooksWitness) بالکل نہیں چھیڑا گیا — صرف لوڈنگ اور دکھاوا بدلا ہے۔
+var REP_DIFF_BOOKSEL_KEY='bc_rep_diff_booksel';
+var REP_DIFF_BOOK_MB={publicum:11.1,kent:10.3,kent_de:18.4,synthesis91:14.2,allen_fever:0.5,hs_clinical:0.6,keynotes_cc:0.1,nosodes:0.1,hering_mind:0.9,boger_times:0.3,tissues_bd:0.1};
+var REP_DIFF_BOOKSEL_DEF=['synthesis91','hering_mind','hs_clinical','keynotes_cc','nosodes','allen_fever','boger_times','tissues_bd'];
+var _repDiffBooks={};          // id -> data (صرف کامیاب کتابیں)
+var _repDiffBookState={};      // id -> 'load' | 'err'
+var _repDiffBooksBusy=false;
+var repDiffBookSel=(function(){ try{ var v=JSON.parse(localStorage.getItem(REP_DIFF_BOOKSEL_KEY)||'null'); if(v&&v.length) return v; }catch(e){} return REP_DIFF_BOOKSEL_DEF.slice(); })();
+function repDiffBookSelSave(){ try{ localStorage.setItem(REP_DIFF_BOOKSEL_KEY,JSON.stringify(repDiffBookSel)); }catch(e){} }
+function repDiffBookToggle(id){
+    var k=repDiffBookSel.indexOf(id); if(k===-1) repDiffBookSel.push(id); else repDiffBookSel.splice(k,1);
+    repDiffBookSelSave(); repDiffRenderBody();
+}
+function repDiffBookWanted(){ var cur=repDiffCtx?repDiffCtx.book:repDiffScopeBook(); return repDiffBookSel.filter(function(id){ return id!==cur&&REP_BOOK_INFO[id]; }); }
+function repDiffBooksMB(ids){ var s=0; ids.forEach(function(id){ s+=(REP_DIFF_BOOK_MB[id]||1); }); return Math.round(s*10)/10; }
+// ایک ایک کر کے لوڈ — ہر کتاب کے بعد دوبارہ دکھاؤ (تاکہ نتیجہ بڑھتا ہوا نظر آئے)
+function repDiffBooksLoad(){
+    if(_repDiffBooksBusy) return;
+    var todo=repDiffBookWanted().filter(function(id){ return !_repDiffBooks[id]; });
+    if(!todo.length){ repDiffRenderBody(); return; }
+    _repDiffBooksBusy=true;
+    (function step(k){
+        if(k>=todo.length){ _repDiffBooksBusy=false; repDiffRenderBody(); return; }
+        var id=todo[k], info=REP_BOOK_INFO[id]||{};
+        _repDiffBookState[id]='load'; repDiffRenderBody();
+        fetch(info.dataFile+'?'+REP_DATA_V).then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+            .then(function(d){ _repDiffBooks[id]=d; delete _repDiffBookState[id]; })
+            .catch(function(e){ _repDiffBookState[id]='err'; console.warn('books-witness load fail',id,e); })
+            .then(function(){ repDiffRenderBody(); setTimeout(function(){ step(k+1); },0); });
+    })(0);
+}
+function repDiffBooksRetry(){ Object.keys(_repDiffBookState).forEach(function(id){ if(_repDiffBookState[id]==='err') delete _repDiffBookState[id]; }); repDiffBooksLoad(); }
 function repDiffBooksTabHtml(last,inCase){
     var L=repLangText, R=repDiffSel.slice();
     if(!R.length&&repDiffCtx&&repDiffCtx.rems){ var rems=repDiffCtx.rems; R=Object.keys(rems).sort(function(a,b){ return (repDiffGrade(rems[b])-repDiffGrade(rems[a]))||a.localeCompare(b); }).slice(0,5); }
     var h='<p class="rep-tool-sub">'+L({ur:'اسی موضوع پر باقی کتابوں کی اندراجات — دوسرے مصنفین کی گواہی۔ موضوع کے الفاظ ربرک کے عنوان اور «(See …)» سے خودکار بنے ہیں؛ ترمیم کر کے دوبارہ چلائیں۔ صرف وہ ربرکس جن میں کوئی چنی ہوئی ریمیڈی موجود ہو۔',en:'Entries of the other books on the same theme — the testimony of other authors. Theme words are auto-derived from the rubric title and "(See …)"; edit and re-run. Only rubrics containing a chosen remedy are shown.',roman:'Baqi kitabon ki gawahi.'})+'</p>';
     h+='<div class="rep-diff-theme"><label>🔎 '+L({ur:'موضوع کے الفاظ:',en:'Theme words:',roman:'Theme words:'})+' <input type="text" id="repDiffThemeInp" value="'+_repAttr(repDiffTheme)+'" dir="ltr" placeholder="absent, forget, memory" onkeydown="if(event.key===\'Enter\')repDiffThemeApply()"></label> <button class="rc-btn" onclick="repDiffThemeApply()">↻</button>'
         +' <span class="cnt">'+L({ur:'ریمیڈیز:',en:'remedies:',roman:'remedies:'})+' '+R.map(function(a){ return '<b dir="ltr">'+escapeHtml(a)+'</b>'; }).join(', ')+'</span></div>';
+    // ---- کتابوں کا انتخاب ----
+    var cur=repDiffCtx?repDiffCtx.book:repDiffScopeBook(), want=repDiffBookWanted();
+    var have=want.filter(function(id){ return !!_repDiffBooks[id]; }), errs=want.filter(function(id){ return _repDiffBookState[id]==='err'; });
+    var left=want.filter(function(id){ return !_repDiffBooks[id]&&_repDiffBookState[id]!=='err'; });
+    h+='<div class="rep-diff-bookpick"><div class="rep-diff-bookpick-head">📚 '+L({ur:'کن کتابوں سے گواہی لی جائے؟',en:'Which books to consult?',roman:'Kaun si kitabein?'})
+        +' <span class="cnt">'+have.length+'/'+want.length+' '+L({ur:'لوڈ شدہ',en:'loaded',roman:'loaded'})+'</span>';
+    if(left.length) h+=' <button class="rc-btn primary" onclick="repDiffBooksLoad()"'+(_repDiffBooksBusy?' disabled':'')+'>'+(_repDiffBooksBusy?'⏳ '+L({ur:'آ رہی ہیں…',en:'loading…',roman:'loading…'}):'⬇ '+L({ur:'لوڈ کریں',en:'Load',roman:'Load'})+' ('+repDiffBooksMB(left)+' MB)')+'</button>';
+    if(errs.length) h+=' <button class="rc-btn" onclick="repDiffBooksRetry()">↻ '+L({ur:'دوبارہ کوشش',en:'Retry',roman:'Retry'})+' ('+errs.length+')</button>';
+    h+='</div><div class="rep-diff-bookchips">';
+    Object.keys(REP_BOOK_INFO).forEach(function(id){
+        if(id===cur) return;
+        var on=repDiffBookSel.indexOf(id)!==-1, st=_repDiffBooks[id]?'ok':(_repDiffBookState[id]||'');
+        var mark=st==='ok'?'✅':(st==='load'?'⏳':(st==='err'?'⚠':''));
+        h+='<label class="rep-diff-bookchip'+(on?' on':'')+'" title="'+_repAttr((REP_BOOK_INFO[id].name||id)+' — '+(REP_DIFF_BOOK_MB[id]||'?')+' MB')+'">'
+            +'<input type="checkbox" '+(on?'checked':'')+' onchange="repDiffBookToggle(\''+_repJs(id)+'\')"> '
+            +escapeHtml(REP_BOOK_INFO[id].abbr||id)+' <small>'+(REP_DIFF_BOOK_MB[id]||'?')+'M</small> '+mark+'</label> ';
+    });
+    h+='</div></div>';
     if(!R.length) return h+'<div class="rep-tool-note">'+L({ur:'پہلے ریمیڈیز چنیں',en:'Pick remedies first',roman:'Pehle remedies chunein'})+'</div>';
     if(!repDiffTheme.trim()) return h+'<div class="rep-tool-note">'+L({ur:'موضوع کے الفاظ لکھیں (مثلاً grief, sigh, consol)',en:'Enter theme words (e.g. grief, sigh, consol)',roman:'Theme words likhein'})+'</div>';
-    var groups=repDiffBooksWitness(R,last.all,repDiffCtx?repDiffCtx.book:repDiffScopeBook(),repDiffTheme);
-    var loaded=Object.keys(last.all||{}).length;
-    if(loaded<2) h+='<div class="rep-tool-note">⏳ '+L({ur:'باقی کتابیں لوڈ نہیں — «چلائیں» دبائیں',en:'Other books not loaded — press Run',roman:'Baqi kitabein load nahi — Run dabaein'})+'</div>';
-    if(!groups.length) return h+'<div class="rep-tool-note">'+L({ur:'باقی کتابوں میں اس موضوع پر ان ریمیڈیز کی کوئی اندراج نہیں',en:'No entries for these remedies on this theme in the other books',roman:'Koi indraaj nahi'})+'</div>';
+    if(!want.length) return h+'<div class="rep-tool-note">'+L({ur:'اوپر سے کم از کم ایک کتاب چنیں',en:'Tick at least one book above',roman:'Kam az kam ek kitab chunein'})+'</div>';
+    var groups=repDiffBooksWitness(R,_repDiffBooks,cur,repDiffTheme);
+    if(!have.length) return h+'<div class="rep-tool-note">⬇ '+L({ur:'ابھی کوئی کتاب لوڈ نہیں — اوپر «لوڈ کریں» دبائیں',en:'No book loaded yet — press Load above',roman:'Pehle Load dabaein'})+'</div>';
+    if(!groups.length) return h+'<div class="rep-tool-note">'+L({ur:'لوڈ شدہ کتابوں میں اس موضوع پر ان ریمیڈیز کی کوئی اندراج نہیں',en:'No entries for these remedies on this theme in the loaded books',roman:'Koi indraaj nahi'})+'</div>';
     h+='<div class="rep-diff-legend">'+R.map(function(a,i){ return '<span>'+(i+1)+' = <b dir="ltr">'+escapeHtml(a)+'</b></span>'; }).join('')+'</div>';
     groups.forEach(function(g){
         var bi=REP_BOOK_INFO[g.book]||{name:g.book};
@@ -55,4 +111,4 @@ function repDiffBooksTabHtml(last,inCase){
     });
     return h;
 }
-function repDiffThemeApply(){ var i=document.getElementById('repDiffThemeInp'); if(i)repDiffTheme=i.value; if(repDiffLast&&Object.keys(repDiffLast.all||{}).length>1) repDiffRenderBody(); else repDiffRun(); }
+function repDiffThemeApply(){ var i=document.getElementById('repDiffThemeInp'); if(i)repDiffTheme=i.value; if(repDiffLast) repDiffRenderBody(); else repDiffRun(); }   // 🔑 v84
