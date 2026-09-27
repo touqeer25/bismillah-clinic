@@ -30,16 +30,19 @@ function repDiffTabMode(){ return !!repDiffHost(); }
 function repPageTab(which){
     var host=repDiffHost(); if(!host) return;
     var page=document.getElementById('page-repertoryBrowser'); if(!page) return;
-    var lay=page.querySelector('.rep-layout'), tb=document.getElementById('repPageTabRep'), td=document.getElementById('repPageTabDiff');
     var diff=(which==='diff');
-    if(lay) lay.style.display=diff?'none':'';
+    // 🔑 v86: صرف مواد کا خانہ بدلتا ہے — ابواب کی سائیڈ بار اور بریڈکرمب اپنی جگہ رہتے ہیں
+    var cont=document.getElementById('repRubricContent'), dock=document.getElementById('repDockArea');
+    var tb=document.getElementById('repPageTabRep'), td=document.getElementById('repPageTabDiff'), tx=document.getElementById('repPageTabClose');
+    if(cont) cont.style.display=diff?'none':'';
+    if(dock) dock.style.display=diff?'none':'';
     host.style.display=diff?'':'none';
     if(tb) tb.classList.toggle('on',!diff);
     if(td) td.classList.toggle('on',diff);
+    if(tx) tx.style.display=diff?'':'none';
     if(diff){
         if(!document.getElementById('repDiffHead')) host.innerHTML='<div id="repDiffHead"></div><div id="repDiffBody" class="rep-diff-body"></div>';
         repDiffRenderHead(); if(!repDiffLast) repDiffRenderBody();
-        try{ window.scrollTo(0,0); }catch(e){}
     }
 }
 function repDiffShow(){
