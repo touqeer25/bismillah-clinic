@@ -166,15 +166,25 @@ function repMMFmt(t){
     return h.replace(/\n/g,'<br>');
 }
 function repMMPlain(t){ return String(t||'').replace(/\*\*/g,'').replace(/(^|[^A-Za-z0-9])_([^_\n]{1,240}?)_(?=[^A-Za-z0-9]|$)/g,'$1$2'); }
+// 🔑 v83 (صارف): جملہ توڑنے کی اصلاح —
+//   (۱) سیمی کولن پر نہیں کاٹتے: ہیرنگ/ایلن/کلارک میں «؛» ایک ہی علامت کے حصے جوڑتا ہے، جملہ ختم نہیں کرتا۔
+//       پہلے «Colic : after indignation ;» اور «with urging to stool …» الگ ٹکڑے بن جاتے تھے اور دوسرا ٹکڑا
+//       (جس میں موضوع کا لفظ نہ تھا) فہرست میں آتا ہی نہیں تھا — یعنی علامت کا قیمتی حصہ ضائع۔
+//   (۲) مخففات (agg. amel. Dr. e.g. p.m. …) کے نقطے عارضی طور پر \u0001 بنا دیے جاتے ہیں تاکہ جھوٹی کٹائی نہ ہو،
+//       اور کاٹنے کے بعد واپس نقطہ کر دیے جاتے ہیں۔
+var REP_MM_ABBR=/\b(agg|amel|Dr|Mr|Mrs|St|vs|etc|No|Fig|cf|comp|cmp|e\.g|i\.e|a\.m|p\.m|pp?)\.(?=\s|$)/gi;
 function repMMSentences(text){
-    var out=[], re=/[^.;!?]+(?:[.;!?]+["”')\]]*|$)/g, m, s=String(text||'');
-    while((m=re.exec(s))){ var x=m[0].trim(); if(x.length>2) out.push(x); if(m.index===re.lastIndex) re.lastIndex++; }
+    var s=String(text||'').replace(REP_MM_ABBR,function(x){ return x.replace(/\./g,'\u0001'); });
+    var out=[], re=/[^.!?]+(?:[.!?]+["”')\]]*|$)/g, m;
+    while((m=re.exec(s))){ var x=m[0].replace(/\u0001/g,'.').trim(); if(x.length>2) out.push(x); if(m.index===re.lastIndex) re.lastIndex++; }
     return out;
 }
 function repMMThemeRegex(words){ return (typeof repDiffThemeRegex==='function')?repDiffThemeRegex(words):null; }
 // 🧹 کچرا جملے: فہرست/انڈیکس کے صفحات (بہت سے نمبر)، بڑے حروف کی قطاریں، بہت لمبی فہرستیں
 function repMMIsJunk(plain){
-    var t=String(plain||''); if(t.length<12||t.length>420) return true;
+    // 🔑 v83: بالائی حد ۴۲۰ → ۷۰۰ — سیمی کولن پر کٹائی بند ہونے کے بعد مکمل علامتیں لمبی ہوتی ہیں،
+    //   پرانی حد پر وہ پوری کی پوری «کچرا» سمجھ کر پھینک دی جاتی تھیں۔
+    var t=String(plain||''); if(t.length<12||t.length>700) return true;
     var nums=(t.match(/\d+/g)||[]).length; if(nums>=5) return true;
     if(/\b(contents|index of|table of|chapter\s+\d|see page|pp?\.\s*\d|\$\s*\$)\b/i.test(t)) return true;
     var words=t.split(/\s+/), caps=words.filter(function(w){ return w.length>3&&/^[A-Z][A-Z\-]+$/.test(w); }).length; if(words.length>=6&&caps/words.length>0.35) return true;
@@ -208,7 +218,7 @@ function repMMMatches(abbr,re,perBook,chHint){
                     var key=plain.toLowerCase().replace(/\W+/g,' ').trim().substring(0,120); if(seen[key]) return; seen[key]=1;
                     var bold=(sn.match(/\*\*/g)||[]).length/2, ital=(sn.match(/_/g)||[]).length/2;
                     // v68.5: نجی کتاب کے صفحات بھی مقابلے میں شامل — صرف بہت لمبے پیراگراف (نوٹ کے لیے ناخوانا) کٹتے ہیں
-                    var score=Math.min(hits,3)*2+bold*2+ital*1+boost+(plain.length<220?0.5:0)+(priv?0.15:0);
+                    var score=Math.min(hits,3)*2+bold*2+ital*1+boost+(plain.length<300?0.5:0)+(priv?0.15:0);   // 🔑 v83: ۲۲۰ → ۳۰۰، کیونکہ اب مکمل جملے لمبے ہیں
                     if(priv&&plain.length>900) return;
                     found.push({book:id,section:sec.h||'',text:sn,score:score,pi:pi});
                 });
