@@ -231,12 +231,43 @@ function repMMMatches(abbr,re,perBook,chHint){
 }
 function repMMHighlight(html,re){ if(!re) return html; try{ return html.replace(new RegExp('('+re.source+')(?![^<]*>)','gi'),'<mark>$1</mark>'); }catch(e){ return html; } }
 function repMMRef(m){ return '['+repMMShort(m.book)+(m.section?' § '+m.section:'')+']'; }
-// 🤖 خودکار مسودہ (extractive): بہترین جملے، فی کتاب زیادہ سے زیادہ 2، مع حوالہ
+// 🔑 v89 (صارف): مسودے میں مکرر مضمون — ایک ہی مصنف کی دو کتابوں (Hering GS / Hering C.) سے
+//   تقریباً ایک ہی جملہ دونوں آ جاتا تھا۔ فی کتاب دو کی حد تھی، مگر **بین الکتاب مماثلت** نہیں جانچی جاتی تھی۔
+//   اب ہر نئے جملے کا پہلے سے چنے ہوئے جملوں سے موازنہ ہوتا ہے (الفاظ کے مجموعے کی نسبت)۔
+var REP_MM_DUP_JAC=0.55;   // جیکارڈ: مشترکہ الفاظ ÷ کل الفاظ — اس سے اوپر = وہی بات
+var REP_MM_DUP_CON=0.80;   // شمولیت: چھوٹے جملے کا کتنا حصہ بڑے میں موجود — اس سے اوپر = وہی بات
+var REP_MM_STOP={'the':1,'and':1,'with':1,'of':1,'in':1,'to':1,'a':1,'an':1,'is':1,'as':1,'at':1,'on':1,'for':1,'from':1,'by':1,'or':1,'it':1,'its':1,'he':1,'she':1,'his':1,'her':1,'him':1,'was':1,'were':1,'be':1,'been':1,'are':1,'has':1,'had':1,'have':1,'after':1,'before':1,'when':1,'while':1,'that':1,'this':1,'these':1,'those':1,'there':1,'then':1,'than':1,'but':1,'not':1,'no':1,'all':1,'very':1,'much':1,'so':1,'which':1,'they':1,'them':1,'their':1,'one':1,'also':1,'may':1,'can':1,'if':1,'into':1,'out':1,'over':1,'upon':1,'about':1};
+function _repMMTokens(txt){
+    var s=String(txt||'').toLowerCase().replace(/[^a-z\s]+/g,' ').split(/\s+/), set={}, n=0;
+    s.forEach(function(w){
+        if(w.length<4||REP_MM_STOP[w]) return;
+        w=w.replace(/(ies)$/,'y').replace(/(ing|ness|ment|ions|ion|ed|es|s)$/,'');   // ہلکی سی جڑ تراش
+        if(w.length<3||set[w]) return; set[w]=1; n++;
+    });
+    return {set:set,n:n};
+}
+function repMMIsDup(tok,picked){
+    for(var i=0;i<picked.length;i++){
+        var o=picked[i]._tok||(picked[i]._tok=_repMMTokens(repMMPlain(picked[i].text)));
+        if(!tok.n||!o.n) continue;
+        var k=Object.keys(tok.set), inter=0;
+        for(var j=0;j<k.length;j++) if(o.set[k[j]]) inter++;
+        var jac=inter/(tok.n+o.n-inter), con=inter/Math.min(tok.n,o.n);
+        if(jac>=REP_MM_DUP_JAC||con>=REP_MM_DUP_CON) return true;
+    }
+    return false;
+}
+// 🤖 خودکار مسودہ (extractive): بہترین جملے، فی کتاب زیادہ سے زیادہ 2، مکرر مضمون خارج، مع حوالہ
 function repMMDraft(abbr,re){
     var ms=repMMMatches(abbr,re,3).slice().sort(function(a,b){ return b.score-a.score; });
     var per={},pick=[];
     ms.forEach(function(m){ if(m.score<2) return; if(!_repPrivPrefs.inDraft&&repPrivIs(m.book)) return;   // v68.5: پسند کے مطابق نجی کتابیں مسودے میں بھی
-    var cap=2; per[m.book]=(per[m.book]||0); if(per[m.book]<cap&&pick.length<REP_MM_DRAFT_N){ per[m.book]++; pick.push(m); } });
+    var cap=2; per[m.book]=(per[m.book]||0);
+    if(per[m.book]<cap&&pick.length<REP_MM_DRAFT_N){
+        var tok=_repMMTokens(repMMPlain(m.text));
+        if(repMMIsDup(tok,pick)) return;            // 🔑 v89: وہی بات پہلے آ چکی — چھوڑ دو، حد بھی خرچ نہ کرو
+        m._tok=tok; per[m.book]++; pick.push(m);
+    } });
     return pick;
 }
 function repMMDraftText(abbr,re){
