@@ -1,0 +1,30 @@
+/* 🔑 v88 — «Rubric remedies compared» کی میز: G (گریڈ) کالم کا کٹنا ختم
+   نئی فائل — پرانی سجاوٹ کا کوئی قاعدہ حذف نہیں کیا، صرف اوپر سے درست کیا گیا ہے۔
+   مسئلہ تھا: پہلے دو کالم چپکے ہوئے (sticky) تھے اور ان کی چوڑائیاں اندازاً لکھی تھیں
+   (26px / left:34px)، اس لیے دائیں اسکرول پر G کالم اُن کے نیچے چلا جاتا اور کٹا نظر آتا۔
+   حل: تینوں کی چوڑائی پکی، G بھی چپکا ہوا، اور کنارے پر ہلکا سایہ۔ */
+
+.rep-diff-tbl th.st:first-child,
+.rep-diff-tbl td.st:first-child{left:0;width:34px;min-width:34px;max-width:34px;box-sizing:border-box;padding-inline:6px}
+
+.rep-diff-tbl th.st:nth-child(2),
+.rep-diff-tbl td.st:nth-child(2){left:34px;width:104px;min-width:104px;max-width:104px;box-sizing:border-box;
+    overflow:hidden;text-overflow:ellipsis}
+
+/* ---- G (گریڈ) کالم — اب یہ بھی چپکا ہوا اور پوری چوڑائی کا ---- */
+.rep-diff-tbl th.gcol,
+.rep-diff-tbl td.gcol{position:sticky;left:138px;z-index:3;background:#fff;box-sizing:border-box;
+    width:34px;min-width:34px;max-width:34px;padding:3px 4px;text-align:center;overflow:visible}
+.rep-diff-tbl th.gcol{background:#f4f8fc;z-index:4}
+/* چپکے حصے کے کنارے پر ہلکا سایہ — تاکہ اسکرول کرتے وقت حد صاف نظر آئے */
+.rep-diff-tbl td.gcol{box-shadow:6px 0 6px -6px rgba(15,35,55,.18)}
+.rep-diff-tbl th.gcol{box-shadow:6px 0 6px -6px rgba(15,35,55,.12)}
+/* منتخب سطر کا رنگ چپکے خانوں پر بھی */
+.rep-diff-tbl tr.sel td.gcol,.rep-diff-tbl tr.sel td.st{background:#eef5fb}
+/* گریڈ کا گول نشان خانے میں بالکل درمیان، کٹے بغیر */
+.rep-diff-tbl td.gcol .rep-diff-dot{width:20px;height:20px;flex:0 0 20px;font-size:11px;vertical-align:middle}
+
+@media(max-width:820px){
+    .rep-diff-tbl th.st:nth-child(2),.rep-diff-tbl td.st:nth-child(2){width:84px;min-width:84px;max-width:84px}
+    .rep-diff-tbl th.gcol,.rep-diff-tbl td.gcol{left:118px}
+}
