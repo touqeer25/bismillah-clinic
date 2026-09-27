@@ -4,7 +4,7 @@
 //#SPLIT ⚠ کوڈ میں ایک حرف بھی تبدیل نہیں — صرف کاٹ کر منتقل کیا گیا ہے۔
 //#SPLIT ==================================================================
 // ---------- کتابوں کی گواہی ----------
-var REP_THEME_SYN={"brooding": "brood, dwell, grievance, rumin, sorrow, silent, taciturn, sits, weep", "absent": "forgetful, memory, dreamy, abstract, distract, inattentive, absorbed, confus", "abstraction": "absent, dreamy, absorbed, thought, forgetful", "anger": "irritab, rage, violent, quarrel, contradict, vexation, passion", "anxiety": "anxious, fear, apprehens, restless, dread, uneasi", "company": "alone, solitude, company, strangers, society", "confusion": "confus, dull, stupid, bewilder, muddled, dazed", "consolation": "consol, sympathy, comfort, weep, grief", "delusion": "delusion, imagin, illusion, fancies, hallucin, thinks he", "despair": "despair, hopeless, despond, suicid, weary of life", "dullness": "dull, sluggish, stupid, slow, comprehend, think", "fear": "fear, fright, terror, dread, afraid, panic", "forgetful": "forget, memory, absent, remember", "grief": "grief, sorrow, weep, cry, consol, disappoint, mourn, sad", "hurry": "hurr, haste, hasty, impatien, rapid", "indifference": "indifferen, apath, listless, careless, no interest", "irritability": "irritab, cross, peevish, ill-humor, snappish, anger", "jealousy": "jealous, suspic, envy", "loquacity": "loquac, talkative, talks, chatter, garrulous", "memory": "memory, forget, remember, recollect", "mistakes": "mistake, wrong word, misplac, error, writing, speaking", "restlessness": "restless, uneasy, tossing, cannot keep still, agitat", "sadness": "sad, melanchol, depress, gloomy, weep, despond", "sensitive": "sensitiv, oversensitiv, noise, light, odor, touch, offended", "starting": "start, startled, jump, fright, noise", "suspicious": "suspic, distrust, mistrust, jealous", "talking": "talk, speech, loquac, silent, taciturn", "weeping": "weep, cry, tear, sob, laugh", "ailments": "effects of, after, from, ailments", "timidity": "timid, bashful, shy, cowardly, courage", "religious": "religio, pray, salvation, sin, conscience", "insanity": "insan, mania, madness, raving, delirium", "delirium": "delirium, raving, mutter, unconscious, stupor", "unconsciousness": "unconscious, stupor, coma, faint, insensib", "excitement": "excit, exalt, agitat, elated, nervous", "concentration": "concentrat, attention, think, apply, study", "thoughts": "thought, ideas, rush, vanish, persistent", "dwells": "dwell, brood, past, disagreeable, grievance, rumin", "weary": "weary, tired of life, loath, disgust, suicid", "sighing": "sigh, breath, sob, deep breath", "mood": "mood, changeable, alternat, humor, variable", "haughty": "haught, proud, arrogan, contempt, superior", "contemptuous": "contempt, scorn, disdain, haught", "lamenting": "lament, moan, groan, complain, wail", "shrieking": "shriek, scream, cry out, brain cry, screech", "violent": "violen, rage, strike, bite, destroy, fury", "obstinate": "obstina, headstrong, stubborn, contrar, self-will", "cheerful": "cheerful, gay, merry, happy, laugh, mirth", "laughing": "laugh, mirth, giggl, silly, alternat weep", "sympathetic": "sympath, compassion, affection, kind", "malicious": "malic, spiteful, cruel, revenge, wicked", "cursing": "curs, swear, abusive, profan", "kleptomania": "steal, theft, kleptoman", "death": "death, dying, die, dread of death", "home": "home, homesick, nostalgia, leave", "business": "business, affairs, indifferen, neglect, aversion to work", "work": "work, labor, aversion, industrious, occupation", "answers": "answer, question, reply, repeat, slowly, abrupt", "speech": "speech, stammer, talk, word, mutter, hasty", "gestures": "gesture, motion, picking, grasping, hands", "awkward": "awkward, drops, clumsy, stumble", "biting": "bit, gnaw, nails, spoon", "carried": "carried, wants to be, quiet, rock"};   // ربرک کے پہلے لفظ سے موضوع کے مترادفات (کتابوں کی گواہی + میٹیریا میڈیکا)
+var REP_THEME_SYN={"brooding": "brood, dwell, grievance, rumin, sorrow, silent, taciturn, sits, weep", "absent": "forgetful, memory, dreamy, abstract, distract, inattentive, absorbed, confus", "abstraction": "absent, dreamy, absorbed, thought, forgetful", "anger": "irritab, rage, violent, quarrel, contradict, vexation, passion", "anxiety": "anxious, fear, apprehens, restless, dread, uneasi", "company": "alone, solitude, company, strangers, society", "confusion": "confus, dull, stupid, bewilder, muddled, dazed", "consolation": "consol, sympathy, comfort, weep, grief", "delusion": "delusion, imagin, illusion, fancies, hallucin, thinks he", "despair": "despair, hopeless, despond, suicid, weary of life", "dullness": "dull, sluggish, stupid, slow, comprehend, think", "fear": "fear, fright, terror, dread, afraid, panic", "forgetful": "forget, memory, absent, remember", "grief": "grief, sorrow, weep, cry, consol, disappoint, mourn, sad", "hurry": "hurr, haste, hasty, impatien, rapid", "indifference": "indifferen, apath, listless, careless, no interest", "irritability": "irritab, cross, peevish, ill-humor, snappish, anger", "jealousy": "jealous, suspic, envy", "loquacity": "loquac, talkative, talks, chatter, garrulous", "memory": "memory, forget, remember, recollect", "mistakes": "mistake, wrong word, misplac, error, writing, speaking", "restlessness": "restless, uneasy, tossing, cannot keep still, agitat", "sadness": "sad, melanchol, depress, gloomy, weep, despond", "sensitive": "sensitiv, oversensitiv, noise, light, odor, touch, offended", "starting": "start, startled, jump, fright, noise", "suspicious": "suspic, distrust, mistrust, jealous", "talking": "talk, speech, loquac, silent, taciturn", "weeping": "weep, cry, tear, sob, laugh", "ailments": "effects of, after, from, ailments", "timidity": "timid, bashful, shy, cowardly, courage", "religious": "religio, pray, salvation, sin, conscience", "insanity": "insan, mania, madness, raving, delirium", "delirium": "delirium, raving, mutter, unconscious, stupor", "unconsciousness": "unconscious, stupor, coma, faint, insensib", "excitement": "excit, exalt, agitat, elated, nervous", "concentration": "concentrat, attention, think, apply, study", "thoughts": "thought, ideas, rush, vanish, persistent", "dwells": "dwell, brood, past, disagreeable, grievance, rumin", "weary": "weary, tired of life, loath, disgust, suicid", "sighing": "sigh, breath, sob, deep breath", "mood": "mood, changeable, alternat, humor, variable", "haughty": "haught, proud, arrogan, contempt, superior", "contemptuous": "contempt, scorn, disdain, haught", "lamenting": "lament, moan, groan, complain, wail", "shrieking": "shriek, scream, cry out, brain cry, screech", "violent": "violen, rage, strike, bite, destroy, fury", "obstinate": "obstina, headstrong, stubborn, contrar, self-will", "cheerful": "cheerful, gay, merry, happy, laugh, mirth", "laughing": "laugh, mirth, giggl, silly, alternat weep", "sympathetic": "sympath, compassion, affection, kind", "malicious": "malic, spiteful, cruel, revenge, wicked", "cursing": "curs, swear, abusive, profan", "kleptomania": "steal, theft, kleptoman", "death": "death, dying, die, dread of death", "home": "home, homesick, nostalgia, leave", "business": "business, affairs, indifferen, neglect, aversion to work", "work": "work, labor, aversion, industrious, occupation", "answers": "answer, question, reply, repeat, slowly, abrupt", "speech": "speech, stammer, talk, word, mutter, hasty", "gestures": "gesture, motion, picking, grasping, hands", "awkward": "awkward, drops, clumsy, stumble", "biting": "bit, gnaw, nails, spoon", "carried": "carried, wants to be, quiet, rock", "indignation": "mortification, humiliat, insult, offen, scorn, contempt, injustice, wrong, reproach", "mortification": "indignation, humiliat, insult, offen, shame, disgrace, chagrin", "humiliation": "mortification, indignation, insult, disgrace, shame, contempt", "insult": "indignation, mortification, offen, affront, reproach, contempt", "reproach": "reproach, blame, insult, remorse, self-reproach, conscience", "disappointment": "disappoint, deceiv, betray, unrequited, friendship, love", "vexation": "vexation, anger, chagrin, annoy, indignation, quarrel", "suppressed": "suppress, reserved, silent, unexpressed, concealed, restrain"};   // ربرک کے پہلے لفظ سے موضوع کے مترادفات (کتابوں کی گواہی + میٹیریا میڈیکا)
 function repDiffThemeWordsFor(ctx){
     if(!ctx) return '';
     var t=ctx.full||''; var base=_repDiffBaseTitle(t).split(',')[0];
@@ -12,14 +12,44 @@ function repDiffThemeWordsFor(ctx){
     repExtractSeeTargets(t).forEach(function(x){ x.split(/[,;]|\band\b/i).forEach(function(w){ w=w.trim(); if(w.length>=4)words.push(w); }); });
     var STOP={mind:1,general:1,generals:1,symptom:1,symptoms:1,part:1,parts:1,side:1,with:1,from:1,during:1,after:1,before:1,while:1,when:1,which:1,than:1,that:1,this:1,other:1,things:1};
     var out=[]; words.forEach(function(w){ var orig=w.toLowerCase(); w=orig.replace(/(ness|ing|ed|es|s)$/,''); if(w.length<4&&orig.length>=5) w=orig.substring(0,Math.max(3,w.length)); if(w.length>=3&&out.indexOf(w)===-1&&!STOP[w])out.push(w); });
-    var head=(out[0]||'').toLowerCase();
-    Object.keys(REP_THEME_SYN).some(function(k){ if(head&&head.indexOf(k.substring(0,5))===0){ REP_THEME_SYN[k].split(',').forEach(function(w){ w=w.trim(); if(w&&out.indexOf(w)===-1)out.push(w); }); return true; } return false; });
+    // 🔑 v90 (صارف کے اصولی اعتراض کے بعد): مترادفات اب **خودکار شامل نہیں** ہوتے۔
+    //   indignation اور mortification الگ کیفیتیں ہیں اور ان کے ربرکس بھی الگ — ایپ انہیں ایک نہیں کہے گی۔
+    //   لغت اب صرف **تجویز** دیتی ہے (repDiffThemeSugg)، فیصلہ ڈاکٹر کا۔
     return out.join(', ');
 }
 function repDiffThemeRegex(words){
     var parts=String(words||'').split(/[,،]/).map(function(w){ return w.trim().toLowerCase(); }).filter(function(w){ return w.length>=3; });
     if(!parts.length) return null;
     return new RegExp(parts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }).join('|'),'i');
+}
+// 🔑 v90: لغت سے **تجاویز** — موجودہ الفاظ کے قریبی موضوعات، جو ابھی شامل نہیں
+function repDiffThemeSugg(){
+    var cur=String(repDiffTheme||'').toLowerCase().split(/[,\s]+/).filter(Boolean), out=[];
+    cur.forEach(function(w){
+        Object.keys(REP_THEME_SYN).forEach(function(k){
+            if(w.length<4||k.substring(0,5)!==w.substring(0,5)) return;
+            REP_THEME_SYN[k].split(',').forEach(function(x){
+                x=x.trim().toLowerCase(); if(!x||x.length<4) return;
+                if(cur.indexOf(x)!==-1||out.indexOf(x)!==-1) return;
+                for(var i=0;i<cur.length;i++) if(cur[i].indexOf(x)===0||x.indexOf(cur[i])===0) return;   // وہی لفظ دوسری شکل میں
+                out.push(x);
+            });
+        });
+    });
+    return out.slice(0,10);
+}
+function repDiffThemeAdd(w){
+    var cur=String(repDiffTheme||'').trim();
+    repDiffTheme=cur?(cur.replace(/[,\s]+$/,'')+', '+w):w;
+    var i=document.getElementById('repDiffThemeInp'); if(i)i.value=repDiffTheme;
+    repDiffRenderBody();
+}
+// کون سا لفظ اس ربرک پر لگا — شفافیت کے لیے
+function repDiffWhyWords(title){
+    var ws=String(repDiffTheme||'').toLowerCase().split(/[,\s]+/).filter(function(w){ return w.length>=3; });
+    var T=String(title||'').toLowerCase(), hit=[];
+    ws.forEach(function(w){ if(T.indexOf(w)!==-1&&hit.indexOf(w)===-1) hit.push(w); });
+    return hit;
 }
 function repDiffBooksWitness(R,all,exceptBook,words){
     var re=repDiffThemeRegex(words); var out=[]; if(!re) return out;
@@ -78,6 +108,12 @@ function repDiffBooksTabHtml(last,inCase){
     var h='<p class="rep-tool-sub">'+L({ur:'اسی موضوع پر باقی کتابوں کی اندراجات — دوسرے مصنفین کی گواہی۔ موضوع کے الفاظ ربرک کے عنوان اور «(See …)» سے خودکار بنے ہیں؛ ترمیم کر کے دوبارہ چلائیں۔ صرف وہ ربرکس جن میں کوئی چنی ہوئی ریمیڈی موجود ہو۔',en:'Entries of the other books on the same theme — the testimony of other authors. Theme words are auto-derived from the rubric title and "(See …)"; edit and re-run. Only rubrics containing a chosen remedy are shown.',roman:'Baqi kitabon ki gawahi.'})+'</p>';
     h+='<div class="rep-diff-theme"><label>🔎 '+L({ur:'موضوع کے الفاظ:',en:'Theme words:',roman:'Theme words:'})+' <input type="text" id="repDiffThemeInp" value="'+_repAttr(repDiffTheme)+'" dir="ltr" placeholder="absent, forget, memory" onkeydown="if(event.key===\'Enter\')repDiffThemeApply()"></label> <button class="rc-btn" onclick="repDiffThemeApply()">↻</button>'
         +' <span class="cnt">'+L({ur:'ریمیڈیز:',en:'remedies:',roman:'remedies:'})+' '+R.map(function(a){ return '<b dir="ltr">'+escapeHtml(a)+'</b>'; }).join(', ')+'</span></div>';
+    var sug=repDiffThemeSugg();
+    if(sug.length){
+        h+='<div class="rep-diff-sugg"><span class="rep-diff-sugg-lbl">'+L({ur:'قریبی موضوعات — دبا کر شامل کریں:',en:'Related themes — click to add:',roman:'Qareebi mauzooat:'})+'</span> ';
+        sug.forEach(function(w){ h+='<button type="button" class="rep-diff-sugbtn" onclick="repDiffThemeAdd(\''+_repJs(w)+'\')" dir="ltr">＋ '+escapeHtml(w)+'</button> '; });
+        h+='<span class="rep-diff-sugg-note">'+L({ur:'یہ الگ ربرکس ہیں، ایک ہی بات نہیں — صرف پڑھنے کے لیے',en:'These are separate rubrics, not the same thing — for reading only',roman:'Ye alag rubrics hain'})+'</span></div>';
+    }
     // ---- کتابوں کا انتخاب ----
     var cur=repDiffCtx?repDiffCtx.book:repDiffScopeBook(), want=repDiffBookWanted();
     var have=want.filter(function(id){ return !!_repDiffBooks[id]; }), errs=want.filter(function(id){ return _repDiffBookState[id]==='err'; });
@@ -106,7 +142,11 @@ function repDiffBooksTabHtml(last,inCase){
     groups.forEach(function(g){
         var bi=REP_BOOK_INFO[g.book]||{name:g.book};
         h+='<div class="rep-diff-sec"><div class="rep-diff-sechead">'+repBookBadgeHtml(g.book)+' '+escapeHtml(bi.name)+' <span class="cnt">'+g.total+'</span></div>';
-        g.rows.forEach(function(x){ h+=repDiffRowHtml({x:x,N:x.N,g:Math.max.apply(null,x.vec),vec:x.vec,score:x.present*repDiffSpec(x.N)},R,inCase,false); });
+        g.rows.forEach(function(x){
+            var why=repDiffWhyWords(x.t);
+            h+='<div class="rep-diff-witrow">'+repDiffRowHtml({x:x,N:x.N,g:Math.max.apply(null,x.vec),vec:x.vec,score:x.present*repDiffSpec(x.N)},R,inCase,false)
+                +(why.length?'<span class="rep-diff-why" dir="ltr" title="'+_repAttr(L({ur:'یہ سطر اس لفظ کی وجہ سے آئی',en:'matched because of this word',roman:'is lafz ki wajah se'}))+'">🔎 '+escapeHtml(why.join(' · '))+'</span>':'')+'</div>';
+        });
         h+='</div>';
     });
     return h;
