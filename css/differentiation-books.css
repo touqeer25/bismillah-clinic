@@ -1,0 +1,13 @@
+/* 🔑 v84 — «کتابوں کی گواہی» کا کتاب منتخب کرنے والا حصہ (نئی فائل، پرانی سجاوٹ کو ہاتھ نہیں لگایا) */
+.rep-diff-bookpick{background:#fff;border:1px solid #dde6ee;border-radius:10px;padding:8px 10px;margin:8px 0}
+.rep-diff-bookpick-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:600;font-size:13px;color:#1a5276;margin-bottom:6px}
+.rep-diff-bookpick-head .cnt{font-weight:400;color:#6b7c8c;background:#eef3f8;border-radius:10px;padding:1px 8px;font-size:12px}
+.rep-diff-bookchips{display:flex;flex-wrap:wrap;gap:6px}
+.rep-diff-bookchip{display:inline-flex;align-items:center;gap:4px;border:1px solid #d6e0ea;background:#f7fafc;color:#41576b;
+    border-radius:20px;padding:3px 10px;font-size:12px;cursor:pointer;user-select:none;white-space:nowrap}
+.rep-diff-bookchip:hover{border-color:#8fb4d0;background:#eef5fb}
+.rep-diff-bookchip.on{background:#e8f4ff;border-color:#2e86c1;color:#1a5276;font-weight:600}
+.rep-diff-bookchip input{margin:0;accent-color:#2e86c1;cursor:pointer}
+.rep-diff-bookchip small{color:#8798a8;font-size:11px}
+.rep-diff-bookchip.on small{color:#5d8fb3}
+@media(max-width:820px){.rep-diff-bookchip{font-size:11px;padding:2px 8px}}
