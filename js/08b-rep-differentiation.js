@@ -267,7 +267,7 @@ function repDiffRenderHead(){
         +'<option value="book"'+(o.scope==='book'?' selected':'')+'>'+L({ur:'پوری کتاب',en:'Whole book',roman:'Poori kitab'})+' ('+escapeHtml(bi.abbr)+')</option>'
         +'<option value="all"'+(o.scope==='all'?' selected':'')+'>'+L({ur:'تمام کتابیں',en:'All books',roman:'Tamam kitabein'})+' ('+Object.keys(REP_BOOK_INFO).length+')</option></select></label>'
         +'<label title="'+L({ur:'اس سے بڑے ربرکس اسکین ہی نہیں ہوتے (یہی اصل رفتار کا فرق ہے)',en:'larger rubrics are never scanned — this is where the speed comes from',roman:'barhe rubrics scan hi nahi hote'})+'">📏 '+L({ur:'ربرک کا سائز ≤',en:'Rubric size ≤',roman:'Rubric size ≤'})+' <select onchange="repDiffSetOpt(\'maxN\',parseInt(this.value,10))">'
-        +[10,30,60,100,200,0].map(function(n){ return '<option value="'+n+'"'+(o.maxN===n?' selected':'')+'>'+(n?n:L({ur:'سب',en:'all',roman:'sab'}))+'</option>'; }).join('')+'</select></label>'
+        +[10,20,30,60,100,200,0].map(function(n){ return '<option value="'+n+'"'+(o.maxN===n?' selected':'')+'>'+(n?n:L({ur:'سب',en:'all',roman:'sab'}))+'</option>'; }).join('')+'</select></label>'
         +'<label>⭐ '+L({ur:'کم از کم گریڈ',en:'Min grade',roman:'Min grade'})+' <select onchange="repDiffSetOpt(\'minG\',parseInt(this.value,10))">'
         +[1,2,3].map(function(g){ return '<option value="'+g+'"'+(o.minG===g?' selected':'')+'>'+g+'</option>'; }).join('')+'</select></label>'
         +'<label>↕ '+L({ur:'ترتیب',en:'Sort',roman:'Sort'})+' <select onchange="repDiffSetOpt(\'sort\',this.value)">'
