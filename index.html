@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="css/layout-repertory-toolbar.css?v=80">
     <link rel="stylesheet" href="css/layout-differentiation.css?v=80">
     <link rel="stylesheet" href="css/differentiation-books.css?v=84">
-    <link rel="stylesheet" href="css/repertory-pagetabs.css?v=85">
+    <link rel="stylesheet" href="css/repertory-pagetabs.css?v=86">
     <link rel="stylesheet" href="css/parser-studio.css?v=83">
 
 </head>
@@ -905,12 +905,6 @@
                 <!-- 🔑 v54: HomeoSetu-style Compare MODE (☐ on every rubric card → active clipboard); classic side-by-side view moved into Workbench / compare panel -->
                 <button class="rep-cmp-btn" id="repCmpModeBtn" onclick="repCmpModeToggle()" title="Compare Mode: tick rubric cards to collect them into the active clipboard, then Analyze">☑ <span data-ur="کمپیئر" data-en="Compare" data-roman="Compare">Compare</span></button>
             </div>
-            <!-- 🔑 v85 (صارف): 🔬 تفریق / نکاسی اب پاپ اپ نہیں — صفحے کا ٹیب -->
-            <div class="rep-pagetabs" id="repPageTabs">
-                <button type="button" class="rep-pagetab on" id="repPageTabRep" onclick="repPageTab('rep')">📖 <span data-ur="ریپرٹری" data-en="Repertory" data-roman="Repertory">ریپرٹری</span></button>
-                <button type="button" class="rep-pagetab" id="repPageTabDiff" onclick="repPageTab('diff')" title="Differentiation / Extraction — تفریق / نکاسی">🔬 <span data-ur="تفریق / نکاسی" data-en="Differentiation / Extraction" data-roman="Tafreeq / Extraction">تفریق / نکاسی</span></button>
-            </div>
-            <div id="repDiffView" class="rep-diff-view" style="display:none"></div>
             <!-- Layout: chapters sidebar + main column -->
             <div class="rep-layout">
                 <div class="rep-side-col">
@@ -948,6 +942,13 @@
                             <button class="rep-viewbtn" onclick="repTreeExpandAll(false)" title="صرف پہلی سطح — باقی بند">⊟</button>
                         </div>
                     </div>
+                    <!-- 🔑 v86 (صارف): 🔬 تفریق / نکاسی — ٹیب پٹی بریڈکرمب کے نیچے، مواد کے اوپر -->
+                    <div class="rep-pagetabs" id="repPageTabs">
+                        <button type="button" class="rep-pagetab on" id="repPageTabRep" onclick="repPageTab('rep')">📖 <span data-ur="ریپرٹری" data-en="Repertory" data-roman="Repertory">ریپرٹری</span></button>
+                        <button type="button" class="rep-pagetab" id="repPageTabDiff" onclick="repPageTab('diff')" title="Differentiation / Extraction — تفریق / نکاسی">🔬 <span data-ur="تفریق / نکاسی" data-en="Differentiation / Extraction" data-roman="Tafreeq / Extraction">تفریق / نکاسی</span></button>
+                        <button type="button" class="rep-pagetab-x" id="repPageTabClose" onclick="repDiffClose()" style="display:none" title="بند کریں — واپس ریپرٹری / Close">✕</button>
+                    </div>
+                    <div id="repDiffView" class="rep-diff-view" style="display:none"></div>
                     <!-- rubric cards / search results / empty state -->
                     <div class="rep-main-inner" id="repRubricContent">
                         <div class="rep-empty-state"><div class="res-icon">📁</div><p class="res-title">Select a chapter from the left menu</p><p class="res-sub">Browse rubrics and remedies</p></div>
@@ -1590,7 +1591,7 @@
 <script src="js/differentiation/03-diff-engine.js?v=85"></script>
 <script src="js/differentiation/04-diff-rubric-mode.js?v=85"></script>
 <script src="js/differentiation/05-diff-books-witness.js?v=85"></script>
-<script src="js/differentiation/06-diff-shell.js?v=85"></script>
+<script src="js/differentiation/06-diff-shell.js?v=86"></script>
 <script src="js/differentiation/07-diff-views.js?v=85"></script>
 <script src="js/differentiation/08-diff-extract.js?v=85"></script>
 <!-- 🔑 v56: 📖 materia medica (public-domain books) + 🤖 drafts + ✍ notes -->
