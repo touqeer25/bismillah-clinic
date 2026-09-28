@@ -1,0 +1,41 @@
+/* 🔑 v91 — تفریق / نکاسی کا سمٹا ہوا ہیڈر (صارف کی ہدایت)
+   ۱. صفحے کا اپنا گہرا عنوانی بار ختم — نام اوپر ٹیب پر موجود ہے
+   ۲. ربرک کی سطر پر ▸ — دواؤں کا ذخیرہ کھلتا/بند ہوتا ہے
+   ۳. منتخب دوائیں اسی سطر میں، ربرک کے بعد
+   ۴. خلاصہ اکارڈین — بند حالت میں صرف اہم اعداد
+   نئی فائل — کوئی پرانا قاعدہ حذف نہیں کیا گیا۔ */
+
+/* ---- ایک ہی سطر: ▸ + ربرک + منتخب دوائیں + اضافہ ---- */
+#repDiffView #repDiffHead>.rep-diff-ctxline{display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+    padding:7px 14px;background:#fff;border-bottom:1px solid #eef2f6;font-size:12.5px}
+.rep-diff-ctxline>b[dir="ltr"]{color:#0f2c46}
+.rep-diff-pooltog{border:1px solid #cfdbe6;background:#f7fafc;color:#41576b;border-radius:6px;
+    width:22px;height:22px;line-height:1;padding:0;cursor:pointer;font-size:11px;flex:0 0 22px}
+.rep-diff-pooltog:hover{background:#e8f1f9;border-color:#8fb4d0;color:#16466e}
+.rep-diff-pooltog.on{background:#16466e;border-color:#16466e;color:#fff}
+/* منتخب دوائیں — سطر کے آخری سرے پر */
+.rep-diff-selinline{display:inline-flex;align-items:center;gap:5px;flex-wrap:wrap;margin-inline-start:auto}
+.rep-diff-selinline .rep-diff-hint{color:#98a8b8;font-size:11px;font-style:italic}
+.rep-diff-selinline .rep-diff-add input{width:92px;height:24px;font-size:11.5px}
+/* ذخیرہ کھلے تو */
+#repDiffView #repDiffHead>.rep-diff-pick{padding:6px 14px 8px;background:#fff;border-bottom:1px solid #eef2f6}
+#repDiffView #repDiffHead>.rep-diff-pick .rep-diff-chips{max-height:120px}
+
+/* ---- خلاصہ: اکارڈین ---- */
+.rep-diff-sumtog{display:flex;align-items:center;gap:8px;width:100%;text-align:start;cursor:pointer;
+    background:#fff;border:1px solid #e3ebf2;border-radius:10px;padding:6px 11px;margin-bottom:9px;
+    font-family:inherit;font-size:12px;font-weight:600;color:#0f2c46}
+.rep-diff-sumtog:hover{border-color:#8fb4d0;background:#f7fbff}
+.rep-diff-sumtog.on{border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:0;border-bottom-color:#eef2f6}
+.rep-diff-sumtog .ar{color:#8798a8;font-size:10px}
+.rep-diff-sumtog .qk{font-weight:400;color:#5c6f82;font-size:11.5px}
+.rep-diff-sumtog .qk b{color:#0f2c46}
+.rep-diff-sumtog .hint{margin-inline-start:auto;font-weight:400;font-size:10.5px;color:#98a8b8}
+.rep-diff-sumtog.on+.rep-diff-sum{border-top:0;border-top-left-radius:0;border-top-right-radius:0;
+    background:#fff;border:1px solid #e3ebf2;border-top:0;border-radius:0 0 10px 10px;padding:8px 11px;margin-bottom:9px}
+
+@media(max-width:820px){
+    #repDiffView #repDiffHead>.rep-diff-ctxline{font-size:11.5px;padding:6px 9px}
+    .rep-diff-selinline{margin-inline-start:0;width:100%}
+    .rep-diff-sumtog .qk{display:none}
+}
