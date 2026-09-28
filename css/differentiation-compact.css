@@ -39,3 +39,16 @@
     .rep-diff-selinline{margin-inline-start:0;width:100%}
     .rep-diff-sumtog .qk{display:none}
 }
+
+/* 🔑 v92 — منتخب دوائیں ربرک کے فوراً بعد (بائیں)، نہ کہ سطر کے آخری سرے پر */
+#repDiffView #repDiffHead>.rep-diff-ctxline .rep-diff-selinline{margin-inline-start:4px}
+#repDiffView #repDiffHead>.rep-diff-ctxline .rep-diff-add input{width:150px}
+
+/* 🔑 v92 — دواؤں کے نام عین گریڈ کے گولوں کے اوپر (عمودی) */
+.rep-diff-vechead{display:flex;align-items:flex-end;gap:6px;padding:0 4px 3px;margin-bottom:2px;border-bottom:1px solid #e8eef4}
+.rep-diff-vechead .sp{flex:1 1 auto}
+.rep-diff-vechead .rep-diff-vec{display:inline-flex;gap:2px}
+.rep-diff-vechead .vh{width:18px;display:flex;justify-content:center;align-items:flex-end}
+.rep-diff-vechead .vh i{writing-mode:vertical-rl;transform:rotate(180deg);font-style:normal;
+    font-size:10.5px;font-weight:700;color:#16466e;white-space:nowrap;letter-spacing:.3px}
+.rep-diff-vechead .sc{min-width:34px}
