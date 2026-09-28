@@ -15,14 +15,14 @@
     <meta name="apple-mobile-web-app-title" content="BHC Clinic">
     
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="diagnosis-data.js?v=33"></script>
+    <!-- 🔑 v94: مواد اب data/*.json میں — یہ لوڈر سب سے پہلے -->
+    <script src="js/00-data-boot.js?v=94"></script>
     <script src="diagnosis-custom.js?v=33"></script>
     <script src="custom-data-help.js?v=33"></script>
-    <script src="advanced-diagnosis-knowledge.js?v=33"></script>
     <script src="advanced-diagnosis-engine.js?v=36"></script>
     <!-- v78: انداز الگ الگ فائلوں میں: css/*.css (ترتیب اہم ہے) -->
-    <link rel="stylesheet" href="css/app.css?v=80">
-    <link rel="stylesheet" href="css/repertory.css?v=80">
+    <link rel="stylesheet" href="css/app.css?v=94">
+    <link rel="stylesheet" href="css/repertory.css?v=94">
     <link rel="stylesheet" href="css/differentiation.css?v=80">
     <link rel="stylesheet" href="css/repertory-tree.css?v=80">
     <link rel="stylesheet" href="css/library.css?v=80">
@@ -1503,7 +1503,7 @@
 <script src="js/02-app-auth.js?v=40"></script>
 <script src="js/03-app-patients.js?v=34"></script>
 <script src="js/04-app-visit-modal.js?v=33"></script>
-<script src="js/05-app-diagnosis.js?v=33"></script>
+<script src="js/05-app-diagnosis.js?v=94"></script>
 <script src="js/06-app-new-visit.js?v=33"></script>
 <script src="js/07-app-settings.js?v=33"></script>
 <script src="js/repertory/rep-books.js?v=80"></script>
@@ -1530,8 +1530,6 @@
 <script src="js/08d-library.js?v=2"></script>
 <script src="js/parser-engine.js?v=83"></script>
 <script src="js/14-parser-studio.js?v=83"></script>
-<script src="js/10-treatment-data.js?v=33"></script>
-<script src="js/12-treatment-more.js?v=33"></script>
 <script src="js/11-app-studio.js?v=41"></script>
 <script src="js/09-app-init.js?v=33"></script>
 <script src="js/pwa.js?v=33"></script>

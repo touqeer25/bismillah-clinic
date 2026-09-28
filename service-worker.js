@@ -1,5 +1,5 @@
 // Bismillah Clinic - Service Worker (robust offline cache)
-const CACHE_NAME='bhc-clinic-v98';
+const CACHE_NAME='bhc-clinic-v99';
 
 // Keep this list same-origin and reliable. Missing/external files are not allowed
 // to break the whole install anymore.
@@ -18,6 +18,11 @@ const CORE_ASSETS = [
   './css/repertory-pagetabs.css',
   './css/differentiation-table.css',
   './css/differentiation-compact.css',
+  // v94: مواد الگ JSON فائلوں میں + اس کا لوڈر
+  './js/00-data-boot.js',
+  './data/diagnosis.json',
+  './data/treatment.json',
+  './data/dx-knowledge.json',
   './js/01-app-core.js',
   './js/02-app-auth.js',
   './js/03-app-patients.js',
@@ -51,17 +56,13 @@ const CORE_ASSETS = [
   './mm/_index.json',
   './mm/drafts_seed.json',
   './js/09-app-init.js',
-  './js/10-treatment-data.js',
-  './js/12-treatment-more.js',
   './js/11-app-studio.js',
   './js/pwa.js',
   './js/13-case-taking.js',
   './js/15-dx-views.js',
   './service-worker.js',
-  './diagnosis-data.js',
   './diagnosis-custom.js',
   './custom-data-help.js',
-  './advanced-diagnosis-knowledge.js',
   './advanced-diagnosis-engine.js',
   './manifest.json',
   './repertory-data.json',
