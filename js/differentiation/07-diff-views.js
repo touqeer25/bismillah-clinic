@@ -20,6 +20,7 @@ function repDiffRowHtml(row,R,inCase,showBook){
         +(showBook?repBookBadgeHtml(x.book)+' ':'')
         +'<span class="rep-diff-ch">'+escapeHtml(chName)+' ›</span> '
         +'<span class="rep-diff-t" dir="ltr" onclick="repDiffGo(\''+_repJs(x.book)+'\',\''+_repJs(x.ch)+'\',\''+_repJs(x.rid)+'\')">'+escapeHtml(x.t)+'</span>'
+        +(typeof repRubricUrHtml==='function'?repRubricUrHtml(x.t,'rep-diff-ur'):'')   // 🔑 v101: اردو جملہ (دائیں سے بائیں)
         +'<span class="rep-diff-n" title="'+repLangText({ur:'ربرک کی کل ریمیڈیز',en:'remedies in rubric',roman:'rubric ki kul remedies'})+'">'+row.N+'</span>'
         +'<span class="rep-diff-vec">'+repDiffDots(row.vec,R)+'</span>'
         +'<span class="rep-diff-score" title="'+repLangText({ur:'اسکور',en:'score',roman:'score'})+'">'+repDiffFmt(row.score)+'</span>'
