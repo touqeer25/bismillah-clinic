@@ -1,5 +1,5 @@
 # HANDOFF — کام کہاں تک پہنچا
-**آخری تجدید:** ۲۸ ستمبر ۲۰۲۶ · **v102** · **ریپو:** https://github.com/touqeer25/bismillah-clinic
+**آخری تجدید:** ۲۸ ستمبر ۲۰۲۶ · **v103** · **ریپو:** https://github.com/touqeer25/bismillah-clinic
 **لائیو:** https://bismillah-clinic.vercel.app · **ایپ:** `index.html` + `js/` (PWA، کوئی بنڈلر نہیں)
 
 > **نئی نشست یہاں سے شروع کرے۔** پہلے یہ پوری فائل پڑھیں، پھر «باقی کام» والا حصہ۔
@@ -198,7 +198,12 @@ v98 میں composer **تکراری** بنا دیا گیا: اب وہ لمبے ل
 v99 میں مزید: `as if in X` · `extending from X to Y` · `must X` · `using X` · `opening/closing X, on` ·
 `turning X up/down` · `X gradually` · `over whole X` · `X weather` · `waves of X`
 
-**⚠ صارف کی طے شدہ ترتیب:** `alternating with X` = «**باری باری** X کے ساتھ» (باری باری پہلے آئے گا)
+**⚠ صارف کے طے شدہ اصول:**
+1. `alternating with X` = «**باری باری** X کے ساتھ» (باری باری پہلے)
+2. **کراس ریفرنس `(See …)` کا ترجمہ نہیں ہوتا** — وہ ربرک کا متن نہیں، اشارہ ہے۔
+   `repXrefSplit()` اسے الگ کرتا ہے، `repTitleCase()` بڑے حروف کو **عنوانی حروف** بناتا ہے
+   (`(SEE FORSAKEN)` → `(See Forsaken)`)، اور `.rep-xref` اسے ہلکے ترچھے حروف میں دکھاتا ہے۔
+   لیبل فائل میں دونوں کلیدیں موجود ہیں — «(see …)» کے ساتھ اور بغیر۔
 
 **طریقہ وہی:** نکالیں → خودکار → «?» والے ہاتھ سے → جانچ → صارف کی نظرثانی → لیبل فائل میں ضم۔
 
