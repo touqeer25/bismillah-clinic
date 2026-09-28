@@ -43,14 +43,14 @@ function repTreeFlatten(node,labels,parentFull,depth,out,filt){
     return any;
 }
 // 🔑 v75: ربرکس کا اردو ترجمہ — ur/rubric_labels_ur.json (لیبل → اردو)؛ صرف اردو زبان میں دکھتا ہے
-var _repUrLabels=null,_repUrLoading=false;
+var _repUrLabels=null,_repUrCtx=null,_repUrLoading=false;
 function repUrLabelsOn(){ return (typeof currentLang!=='undefined'?currentLang:'ur')==='ur'; }
 function ensureRepUrLabels(cb){
     if(_repUrLabels||_repUrLoading){ if(_repUrLabels&&cb)cb(); return; }
     _repUrLoading=true;
     fetch('ur/rubric_labels_ur.json?'+REP_DATA_V).then(function(r){ if(!r.ok)throw 0; return r.json(); })
-        .then(function(d){ _repUrLabels=(d&&d.labels)||{}; _repUrLoading=false; if(cb)cb(); })
-        .catch(function(){ _repUrLabels={}; _repUrLoading=false; });
+        .then(function(d){ _repUrLabels=(d&&d.labels)||{}; _repUrCtx=(d&&d.ctx)||{}; _repUrLoading=false; if(cb)cb(); })
+        .catch(function(){ _repUrLabels={}; _repUrCtx={}; _repUrLoading=false; });
 }
 // ترتیب: (1) پورے لیبل کا ترجمہ → (2) کوما والے ہر حصے کا ترجمہ → (3) الفاظ کی لغت (glossary_en_ur.json) سے لفظی ترجمہ۔
 // 2 اور 3 خودکار ہیں اس لیے {auto:true} — ہلکے رنگ میں دکھتے ہیں تاکہ معلوم رہے کہ یہ نظرثانی شدہ ترجمہ نہیں۔
@@ -59,12 +59,26 @@ function repUrWord(w){
     var W=_repGlossary.words||{}, A=_repGlossary.aliases||{}, e=W[w]||(A[w]?W[A[w]]:null);
     return (e&&e.ur)||'';
 }
-function repUrLabelObj(label){
+// 🔑 v105 (صارف): ترجمہ اب **سیاق کے ساتھ** — یعنی اوپر والے ربرک کو دیکھ کر۔
+//   «absent persons, at» اکیلا مبہم ہے؛ ANGER کے نیچے اس کا مطلب «غیر حاضر لوگوں پر» ہے۔
+//   ctx کی کلید: «والد لیبل|خود کا لیبل» (چھوٹے حروف)۔ پہلے پورا راستہ، پھر قریبی والد، پھر عام ترجمہ۔
+function repUrCtxLookup(anc,k){
+    if(!_repUrCtx||!anc||!anc.length) return null;
+    var low=anc.map(function(x){ return String(x||'').toLowerCase().trim(); });
+    var full=low.join(' > ')+'|'+k;                       // پورا راستہ
+    if(_repUrCtx[full]) return _repUrCtx[full];
+    var par=low[low.length-1];                            // صرف قریبی والد
+    if(par&&_repUrCtx[par+'|'+k]) return _repUrCtx[par+'|'+k];
+    return null;
+}
+function repUrLabelObj(label,anc){
     if(!_repUrLabels) return null;
     // 🔑 v103: «(See …)» ترجمے سے باہر — وہ ربرک کا متن نہیں، اشارہ ہے
     var _s=String(label||'').replace(/ \[\d+\]$/,'');
     if(/\(\s*see\b/i.test(_s)) _s=_s.replace(/\s*\(\s*see\b[^)]*\)/ig,'').replace(/\s+,/g,',').replace(/,\s*$/,'').trim();
     var k=_s.toLowerCase().trim(); if(!k) return null;
+    var cx=repUrCtxLookup(anc&&anc.length?anc.slice(0,-1):null,k);     // 🔑 v105: پہلے سیاق
+    if(cx) return {t:cx,auto:false,ctx:true};
     if(_repUrLabels[k]) return {t:_repUrLabels[k],auto:false};
     var segs=k.split(/,\s*/), out=[], any=false;
     for(var i=0;i<segs.length;i++){
@@ -96,7 +110,7 @@ function repTreeRowHtml(r){
         +repTreeLevelIcon(r.depth,r.kids)
         +repCmpChkHtml(repCurrentBook,repCurrentChapter,rid,r.full,rems,'row')
         +'<span class="rtv-lab'+(r.kids?' has-kids':'')+'">'+(typeof repXrefHtml==='function'?repXrefHtml(r.label):escapeHtml(r.label))+'</span>'   // 🔑 v103
-        +(function(){ if(!repUrLabelsOn())return ''; var u=repUrLabelObj(r.label); if(!u)return '';
+        +(function(){ if(!repUrLabelsOn())return ''; var u=repUrLabelObj(r.label,r.labels); if(!u)return '';
             return '<span class="rtv-ur'+(u.auto?' auto':'')+'" dir="rtl" lang="ur"'+(u.auto?' title="خودکار لفظی ترجمہ — نظرثانی باقی"':'')+'>'+escapeHtml(u.t)+'</span>'; })()
         +(rems?'<span class="rtv-n">('+rems+')</span>':'')
         +(r.kids?'<span class="rtv-k" title="'+repLangText({ur:'ذیلی ربرکس',en:'sub-rubrics',roman:'zeli rubrics'})+'">📁'+c.order.length+'</span>':'')
