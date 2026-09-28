@@ -1,8 +1,7 @@
-//#SPLIT ==================================================================
-//#SPLIT 🔬 تفریق / نکاسی — ربرک کی ریمیڈیز کا تقابل (انجن + دکھاوا)
-//#SPLIT اصل: js/08b-rep-differentiation.js — سطریں 120 تا 165، 450 تا 474
-//#SPLIT ⚠ کوڈ میں ایک حرف بھی تبدیل نہیں — صرف کاٹ کر منتقل کیا گیا ہے۔
-//#SPLIT ==================================================================
+// Bismillah Clinic — js/differentiation/04-diff-rubric-mode.js
+// 🔬 تفریق / نکاسی — ربرک کی دواؤں کا تقابل (انجن + میز)
+// (v83 میں js/08b-rep-differentiation.js کو آٹھ حصوں میں بانٹا گیا؛ ترتیب LOAD_ORDER.txt میں)
+
 // ---------- ربرک موڈ: ربرک کی تمام ریمیڈیز کا ہم رشتہ ربرکس پر تقابل ----------
 function _repDiffBaseTitle(t){ return String(t||'').replace(/\s*\((?:see|cmp\.?|comp\.?|cf\.?)[^)]*\)/gi,'').trim(); }
 function _repDiffHead(t){ return _repDiffBaseTitle(String(t||'').split(',')[0]).toUpperCase(); }

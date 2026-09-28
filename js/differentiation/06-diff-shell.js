@@ -1,8 +1,7 @@
-//#SPLIT ==================================================================
-//#SPLIT 🔬 تفریق / نکاسی — ڈھانچہ: کھولنا/بند، ہیڈر، کنٹرولز، ٹیبز، چلانا
-//#SPLIT اصل: js/08b-rep-differentiation.js — سطریں 197 تا 364
-//#SPLIT ⚠ کوڈ میں ایک حرف بھی تبدیل نہیں — صرف کاٹ کر منتقل کیا گیا ہے۔
-//#SPLIT ==================================================================
+// Bismillah Clinic — js/differentiation/06-diff-shell.js
+// 🔬 تفریق / نکاسی — ڈھانچہ — کھولنا/بند، ہیڈر، کنٹرولز، ٹیبز، چلانا
+// (v83 میں js/08b-rep-differentiation.js کو آٹھ حصوں میں بانٹا گیا؛ ترتیب LOAD_ORDER.txt میں)
+
 // ---------- کھولنا / بند کرنا ----------
 function repDiffOpenForRubric(){
     var d=(typeof repCurrentDetail!=='undefined'&&repCurrentDetail)||{};
@@ -11,6 +10,7 @@ function repDiffOpenForRubric(){
     if(!d.rid){ showToast(repLangText({ur:'یہ ربرک تفریق کے لیے دستیاب نہیں',en:'This rubric is not available for differentiation',roman:'Ye rubric tafreeq ke liye dastiyab nahi'})); return; }
     repDiffCtx={book:repCurrentBook,ch:repCurrentChapter,rid:String(d.rid),full:d.full||'',rems:rems};
     repDiffSel=[]; repDiffTheme=repDiffThemeWordsFor(repDiffCtx); repDiffLast=null;
+    repDiffPoolOpen=true;   // 🔑 v93: نیا ربرک کھلے تو دوائیں سامنے ہوں (ابھی کچھ منتخب نہیں)؛ صارف چاہے تو ▸ سے بند کر دے
     repDiffTab='rubric';
     repDiffShow(); repDiffRun();
 }
@@ -18,6 +18,7 @@ function repDiffOpenWithRemedies(arr,ctx){
     var list=(arr||[]).map(function(a){ return String(a||'').trim().toLowerCase(); }).filter(Boolean).slice(0,REP_DIFF_MAX_REMS);
     if(ctx){ repDiffCtx=ctx; } else if(!repDiffCtx||repDiffCtx.book!==repCurrentBook){ repDiffCtx=null; }
     repDiffSel=list; repDiffLast=null; repDiffTheme=repDiffCtx?repDiffThemeWordsFor(repDiffCtx):'';
+    repDiffPoolOpen=!list.length;   // 🔑 v93: دوائیں پہلے سے دی ہوئی ہوں تو ذخیرہ بند ہی رہے
     repDiffTab=list.length===1?'excl':'excl';
     repDiffShow(); if(list.length) repDiffRun(); else repDiffRenderBody();
 }

@@ -1,8 +1,7 @@
-//#SPLIT ==================================================================
-//#SPLIT 🔬 تفریق / نکاسی — چار ٹوکریوں کا دکھاوا + قطار + کلپ بورڈ
-//#SPLIT اصل: js/08b-rep-differentiation.js — سطریں 365 تا 449، 498 تا 505
-//#SPLIT ⚠ کوڈ میں ایک حرف بھی تبدیل نہیں — صرف کاٹ کر منتقل کیا گیا ہے۔
-//#SPLIT ==================================================================
+// Bismillah Clinic — js/differentiation/07-diff-views.js
+// 🔬 تفریق / نکاسی — نتیجے کے نظارے — چاروں ٹوکریاں + کلپ بورڈ
+// (v83 میں js/08b-rep-differentiation.js کو آٹھ حصوں میں بانٹا گیا؛ ترتیب LOAD_ORDER.txt میں)
+
 // ---------- باڈی ----------
 function repDiffInCaseSet(){ var s={}; for(var ci=0;ci<REP_N_CLIPS;ci++)(repClipboards[ci]||[]).forEach(function(it){ s[it.book+'|'+String(it.rid)]=ci+1; }); return s; }
 function repDiffDots(vec,R){ var h=''; for(var i=0;i<vec.length;i++){ var g=vec[i]; h+='<span class="rep-diff-dot'+(g?' d'+g:' d0')+'" title="'+_repAttr(R[i]+' = '+(g||0))+'">'+(g||'·')+'</span>'; } return h; }
