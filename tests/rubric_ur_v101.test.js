@@ -9,7 +9,9 @@ w._repAttr=s=>String(s||'').replace(/"/g,'&quot;');
 w.currentLang='ur';
 w._repUrLabels=JSON.parse(rd('ur/rubric_labels_ur.json')).labels;
 w.repUrLabelsOn=()=>w.currentLang==='ur';
-w.repUrLabelObj=function(l){const k=String(l||'').replace(/ \[\d+\]$/,'').toLowerCase().trim();return w._repUrLabels[k]?{t:w._repUrLabels[k],auto:false}:null;};
+w.repUrLabelObj=function(l){let s=String(l||'').replace(/ \[\d+\]$/,'');
+  if(/\(\s*see\b/i.test(s)) s=s.replace(/\s*\(\s*see\b[^)]*\)/ig,'').replace(/\s+,/g,',').replace(/,\s*$/,'').trim();
+  const k=s.toLowerCase().trim();return w._repUrLabels[k]?{t:w._repUrLabels[k],auto:false}:null;};
 w.eval(rd('js/17-rubric-ur.js'));
 
 // ---------- A. ترتیب الٹی ہونی چاہیے ----------
@@ -50,5 +52,18 @@ for(const ch of ['mind','head','stomach']){
   }
 }
 if(tot) ok(made/tot>0.5,'D1 اصل کینٹ: '+made+'/'+tot+' ('+(100*made/tot).toFixed(0)+'%) مرکب ربرکس کا مکمل اردو جملہ بنا');
-console.log(fails?'\nFAILURES: '+fails:'\nALL v101 RUBRIC-UR CHECKS PASSED');
+// ---------- E. v103: کراس ریفرنس ----------
+const x1=w.repXrefSplit('ABANDONED (SEE FORSAKEN)');
+ok(x1.head==='ABANDONED'&&x1.xref==='(See Forsaken)','E1 اشارہ الگ + عنوانی حروف: '+x1.xref);
+const x2=w.repXrefSplit('AMOROUS (SEE LEWDNESS AND LASCIVIOUS, ALSO GENITALIA)');
+ok(x2.xref==='(See Lewdness and Lascivious, also Genitalia)','E2 چھوٹے الفاظ چھوٹے رہتے ہیں: '+x2.xref);
+ok(/<span class="rep-xref">/.test(w.repXrefHtml('ABANDONED (SEE FORSAKEN)')),'E3 اشارے کا اپنا خانہ (الگ انداز)');
+const u1=w.repRubricUrFull('ABSENT-MINDED (See Forgetful), reading, while');
+ok(u1&&!/دیکھیے/.test(u1),'E4 اردو میں اشارے کا ترجمہ نہیں: "'+u1+'"');
+ok(w.repRubricUrFull('periodical attacks of, short lasting')==='مختصر رہنے والے وقفے دار دورے','E5 صارف کی نشان زدہ غلطی درست: "'+w.repRubricUrFull('periodical attacks of, short lasting')+'"');
+ok(/rep-xref/.test(rd('js/repertory/rep-tree.js'))||/repXrefHtml/.test(rd('js/repertory/rep-tree.js')),'E6 ٹری کی سطر میں لاگو');
+ok(/repXrefHtml/.test(rd('js/repertory/rep-rubric-detail.js')),'E7 ربرک کے عنوان میں لاگو');
+ok(/repXrefHtml/.test(rd('js/differentiation/07-diff-views.js')),'E8 تفریق کی سطر میں لاگو');
+
+console.log(fails?'\nFAILURES: '+fails:'\nALL v103 RUBRIC-UR CHECKS PASSED');
 process.exit(fails?1:0);
