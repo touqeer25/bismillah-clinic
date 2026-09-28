@@ -90,8 +90,23 @@ function compose(label,depth){
   if((m=l.match(/^(.+)\s+of$/i))){ const h=TT(m[1]); if(h) return ['کا '+h,'قاعدہ']; }
   // «while X» → «X تے ہوئے»
   if((m=l.match(/^while\s+(.+)$/i))){ const h=TT(m[1]); if(h) return [cont(h),'قاعدہ']; }
+  // مزید عام قاعدے (v99)
+  if((m=l.match(/^(.+?),?\s*as if in(?: a| the)?\s+(.+)$/i))){ const a=TT(m[1]),b=TT(m[2]); if(a&&b) return [a+' — گویا '+b+' میں ہو','قاعدہ']; }
+  if((m=l.match(/^as if in(?: a| the)?\s+(.+)$/i))){ const h=TT(m[1]); if(h) return ['گویا '+h+' میں ہو','قاعدہ']; }
+  if((m=l.match(/^extending from\s+(.+?)\s+to\s+(.+)$/i))){ const a=TT(m[1]),b=TT(m[2]); if(a&&b) return [a+' سے '+obl(b)+' تک پھیلتا','قاعدہ']; }
+  if((m=l.match(/^extending\s+(.+?)\s+to\s+(.+)$/i))){ const a=TT(m[1]),b=TT(m[2]); if(a&&b) return [a+' سے '+obl(b)+' تک پھیلتا','قاعدہ']; }
+  if((m=l.match(/^(?:till|to)\s+(.+)$/i))){ const h=TT(m[1]); if(h) return [h+' تک','قاعدہ']; }
+  if((m=l.match(/^(.+?),?\s*must$/i))||(m=l.match(/^must\s+(.+)$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' پڑتا ہے','قاعدہ']; }
+  if((m=l.match(/^(.+?),\s*compelled to$/i))){ const h=TT(m[1]); if(h) return [h+' پر مجبور','قاعدہ']; }
+  if((m=l.match(/^using (?:the\s+)?(.+)$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' استعمال کرنا','قاعدہ']; }
+  if((m=l.match(/^(?:opening|closing) (?:the\s+)?(.+?),\s*on$/i))){ const h=TT(m[1]); if(h) return [obl(h)+(/^clos/i.test(l)?' بند':' کھولنے')+' کرنے پر','قاعدہ']; }
+  if((m=l.match(/^turning (?:the\s+)?(.+?)\s+(up|upward|down|downward)$/i))){ const h=TT(m[1]); if(h) return [obl(h)+(/up/i.test(m[2])?' اوپر':' نیچے')+' گھمانا','قاعدہ']; }
+  if((m=l.match(/^(.+?)\s+gradually$/i))){ const h=TT(m[1]); if(h) return ['رفتہ رفتہ '+h,'قاعدہ']; }
+  if((m=l.match(/^over (?:the\s+)?whole\s+(.+)$/i))){ const h=TT(m[1]); if(h) return ['پورے '+obl(h)+' پر','قاعدہ']; }
+  if((m=l.match(/^(.+?)\s+weather(?:,\s*in)?$/i))){ const h=TT(m[1]); if(h) return [h+' موسم','قاعدہ']; }
+  if((m=l.match(/^waves of\s+(.+)$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کی لہریں','قاعدہ']; }
   // «alternating with X» · «(See Y)» · «loss of X» · «extending down/into/over X» · «until N»
-  if((m=l.match(/^alternating with\s+(.+)$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کے ساتھ باری باری','قاعدہ']; }
+  if((m=l.match(/^alternating with\s+(.+)$/i))){ const h=TT(m[1]); if(h) return ['باری باری '+obl(h)+' کے ساتھ','قاعدہ']; }   // 🔑 صارف: «باری باری» پہلے
   if((m=l.match(/^(.+?)\s*\((?:see|See)\s+(.+?)\)$/))){ const a=TT(m[1]), b=TT(m[2]); if(a&&b) return [a+' (دیکھیے '+b+')','قاعدہ']; if(a) return [a+' (دیکھیے '+m[2]+')','قاعدہ']; }
   if((m=l.match(/^loss of\s+(.+)$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کا ضیاع','قاعدہ']; }
   if((m=l.match(/^(.+),\s*loss of$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کا ضیاع','قاعدہ']; }
