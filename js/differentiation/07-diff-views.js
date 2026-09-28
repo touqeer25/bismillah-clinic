@@ -21,6 +21,9 @@ function repDiffRowHtml(row,R,inCase,showBook){
         +'</div>';
     return h;
 }
+// 🔑 v91 (صارف): خلاصہ اب اکارڈین — بند حالت میں صرف اہم ترین اعداد ایک سطر میں
+var repDiffSumOpen=false;
+function repDiffSumToggle(){ repDiffSumOpen=!repDiffSumOpen; repDiffRenderBody(); }
 function repDiffRenderBody(){
     var body=document.getElementById('repDiffBody'); if(!body)return;
     var L=repLangText, last=repDiffLast, R=repDiffSel.slice();
@@ -32,8 +35,17 @@ function repDiffRenderBody(){
     }
     if(!last){ body.innerHTML='<div class="rep-tool-loading">⏳</div>'; return; }
     var res=last.res, inCase=repDiffInCaseSet(), showBook=(last.scope==='all'), h='';
-    // خلاصہ پٹی
+    // خلاصہ پٹی — 🔑 v91: اکارڈین
     if(res){
+        var _sn=(last.skipped?last.skipped.toLocaleString()+' '+L({ur:'بڑے چھوڑے',en:'large skipped',roman:'barhe chhore'}):'');
+        h+='<button class="rep-diff-sumtog'+(repDiffSumOpen?' on':'')+'" onclick="repDiffSumToggle()">'
+            +'<span class="ar">'+(repDiffSumOpen?'▾':'▸')+'</span> 📊 '+L({ur:'خلاصہ',en:'Summary',roman:'Khulasa'})
+            +' <span class="qk">'+L({ur:'دائرہ',en:'scope',roman:'scope'})+' <b>'+last.n.toLocaleString()+'</b>'
+            +(R.length>1?' · '+L({ur:'سب موجود',en:'all present',roman:'all present'})+' <b>'+res.allPresent.toLocaleString()+'</b>':'')
+            +(_sn?' · '+_sn:'')+' · '+last.ms+' ms</span>'
+            +'<span class="hint">'+(repDiffSumOpen?L({ur:'بند کریں',en:'hide',roman:'band'}):L({ur:'تفصیل',en:'details',roman:'tafseel'}))+'</span></button>';
+        if(repDiffSumOpen){
+    // خلاصہ پٹی
         h+='<div class="rep-diff-sum">';
         h+='<span>'+L({ur:'دائرہ:',en:'Scope:',roman:'Scope:'})+' <b>'+last.n.toLocaleString()+'</b> '+L({ur:'ربرکس',en:'rubrics',roman:'rubrics'})+'</span>';
         h+='<span>'+L({ur:'کسی ایک میں:',en:'Any present:',roman:'Any present:'})+' <b>'+res.any.toLocaleString()+'</b></span>';
@@ -46,6 +58,7 @@ function repDiffRenderBody(){
             h+='<div class="rep-diff-pairs">';
             Object.keys(res.pair).forEach(function(k){ var p=res.pair[k], ab=k.split('|'); h+='<span title="'+L({ur:'صرف پہلی / صرف دوسری / دونوں',en:'only first / only second / both',roman:'sirf pehli / sirf doosri / dono'})+'"><b dir="ltr">'+escapeHtml(ab[0])+'</b> ⇄ <b dir="ltr">'+escapeHtml(ab[1])+'</b>: '+p.onlyA+' / '+p.onlyB+' / '+p.both+'</span>'; });
             h+='</div>';
+        }
         }
         if(res.cap) h+='<div class="rep-tool-note">⚠ '+L({ur:'فہرستیں بہت لمبی تھیں — سائز/گریڈ فلٹر سخت کریں',en:'Lists were very long — tighten size/grade filters',roman:'Lists lambi thin — filter sakht karein'})+'</div>';
     }

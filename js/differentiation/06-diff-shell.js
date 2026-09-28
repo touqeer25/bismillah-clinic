@@ -82,33 +82,46 @@ function repDiffIsOpen(){
 // ---------- ہیڈر: سیاق + ریمیڈی پکر + کنٹرولز + ٹیبز ----------
 function repDiffScopeBook(){ return (repDiffCtx&&repDiffCtx.book)||repCurrentBook; }
 function repDiffScopeCh(){ return (repDiffCtx&&repDiffCtx.ch)||repCurrentChapter; }
+// 🔑 v91 (صارف): صفحے کا اپنا گہرا ہیڈر ختم (نام ٹیب میں موجود ہے)؛ ربرک کی سطر پر ▸ سے
+//   دواؤں کا ذخیرہ کھلتا/بند ہوتا ہے (بالکل ریپرٹری کی ربرک لائن کی طرح)، اور منتخب دوائیں
+//   اسی سطر میں ربرک کے بعد دکھائی دیتی ہیں۔
+var repDiffPoolOpen=false;
+function repDiffPoolToggle(){ repDiffPoolOpen=!repDiffPoolOpen; repDiffRenderHead(); }
 function repDiffRenderHead(){
     var el=document.getElementById('repDiffHead'); if(!el)return;
     var L=repLangText, bi=REP_BOOK_INFO[repDiffScopeBook()]||{abbr:'',name:''};
-    var h='<div class="rep-diff-title"><b>🔬 '+L({ur:'تفریق / ایکسٹریکشن',en:'DIFFERENTIATION / EXTRACTION',roman:'TAFREEQ / EXTRACTION'})+'</b>'
-        +'<span class="rep-diff-sub">'+L({ur:'ریمیڈیز چنیں → وہ ربرکس جہاں یہ آپس میں مختلف ہیں',en:'pick remedies → rubrics where they differ',roman:'remedies chunein → rubrics jahan ye mukhtalif hain'})+'</span>'
-        +'<button class="rc-btn" onclick="repDiffClose()">'+(repDiffTabMode()?'↩ '+L({ur:'واپس ریپرٹری',en:'Back to repertory',roman:'Wapas repertory'}):'✕ '+L({ur:'بند',en:'Close',roman:'Band'}))+'</button></div>';
-    // سیاق
+    var h='';
+    // 🔑 v91: گہرا عنوانی بار صرف پرانے ماڈل والے راستے میں — ٹیب موڈ میں نام اوپر ٹیب پر ہے
+    if(!repDiffTabMode()){
+        h+='<div class="rep-diff-title"><b>🔬 '+L({ur:'تفریق / ایکسٹریکشن',en:'DIFFERENTIATION / EXTRACTION',roman:'TAFREEQ / EXTRACTION'})+'</b>'
+            +'<span class="rep-diff-sub">'+L({ur:'ریمیڈیز چنیں → وہ ربرکس جہاں یہ آپس میں مختلف ہیں',en:'pick remedies → rubrics where they differ',roman:'remedies chunein → rubrics jahan ye mukhtalif hain'})+'</span>'
+            +'<button class="rc-btn" onclick="repDiffClose()">✕ '+L({ur:'بند',en:'Close',roman:'Band'})+'</button></div>';
+    }
+    // ---- ایک ہی سطر: ربرک ▸ + منتخب دوائیں + اضافہ ----
+    var poolN=(repDiffCtx&&repDiffCtx.rems)?Object.keys(repDiffCtx.rems).length:0;
+    h+='<div class="rep-diff-ctx rep-diff-ctxline">';
     if(repDiffCtx){
-        h+='<div class="rep-diff-ctx">'+repBookBadgeHtml(repDiffCtx.book)+' <span>'+escapeHtml(getChapterDisplayName(repDiffCtx.book,repDiffCtx.ch)||repDiffCtx.ch)+'</span> › <b dir="ltr">'+escapeHtml(repDiffCtx.full||'')+'</b>'
-            +' <span class="cnt">('+Object.keys(repDiffCtx.rems||{}).length+' '+L({ur:'ادویات',en:'remedies',roman:'remedies'})+')</span>'
-            +' <button class="rst-link" onclick="repDiffClearCtx()" title="'+L({ur:'ربرک کا سیاق ہٹائیں (صرف ریمیڈیز کا موازنہ)',en:'Drop rubric context (remedy-only comparison)',roman:'Rubric context hataein'})+'">✕</button></div>';
+        if(poolN) h+='<button class="rtv-a rep-diff-pooltog'+(repDiffPoolOpen?' on':'')+'" onclick="repDiffPoolToggle()" title="'+_repAttr(L({ur:'اس ربرک کی ادویات کھولیں / بند کریں',en:'Show / hide this rubric\u2019s remedies',roman:'Rubric ki remedies'}))+'">'+(repDiffPoolOpen?'▾':'▸')+'</button> ';
+        h+=repBookBadgeHtml(repDiffCtx.book)+' <span>'+escapeHtml(getChapterDisplayName(repDiffCtx.book,repDiffCtx.ch)||repDiffCtx.ch)+'</span> › <b dir="ltr">'+escapeHtml(repDiffCtx.full||'')+'</b>'
+            +' <span class="cnt">('+poolN+' '+L({ur:'ادویات',en:'remedies',roman:'remedies'})+')</span>'
+            +' <button class="rst-link" onclick="repDiffClearCtx()" title="'+_repAttr(L({ur:'ربرک کا سیاق ہٹائیں (صرف ریمیڈیز کا موازنہ)',en:'Drop rubric context (remedy-only comparison)',roman:'Rubric context hataein'}))+'">✕</button>';
+    } else {
+        h+='<b>🔬 '+L({ur:'ریمیڈیز کا موازنہ',en:'Compare remedies',roman:'Muwazna'})+'</b> <span class="cnt">'+L({ur:'کوئی ربرک منتخب نہیں',en:'no rubric context',roman:'koi rubric nahi'})+'</span>';
     }
-    // ریمیڈی پکر
-    h+='<div class="rep-diff-pick">';
-    h+='<div class="rep-diff-sel">'+L({ur:'منتخب:',en:'Selected:',roman:'Selected:'})+' ';
-    if(!repDiffSel.length) h+='<i class="rep-diff-hint">'+L({ur:'نیچے چپس پر کلک کریں یا مخفف لکھیں (زیادہ سے زیادہ 5)',en:'click chips below or type an abbreviation (max 5)',roman:'chips par click karein ya abbr likhein (max 5)'})+'</i>';
+    // منتخب دوائیں — اسی سطر میں
+    h+='<span class="rep-diff-selinline">';
+    if(!repDiffSel.length) h+='<i class="rep-diff-hint">'+(poolN?L({ur:'▸ دبا کر دوائیں چنیں (زیادہ سے زیادہ 5)',en:'press ▸ to pick remedies (max 5)',roman:'▸ dabaen'}):L({ur:'مخفف لکھیں (زیادہ سے زیادہ 5)',en:'type an abbreviation (max 5)',roman:'abbr likhein'}))+'</i>';
     repDiffSel.forEach(function(a){ h+='<span class="rep-diff-chip on" title="'+_repAttr(repRemedyTitle(a))+'"><b dir="ltr">'+escapeHtml(a)+'</b><button onclick="repDiffToggleRem(\''+_repJs(a)+'\')">✕</button></span>'; });
-    h+='<span class="rep-diff-add"><input type="text" id="repDiffInput" list="repDiffRemList" placeholder="'+L({ur:'مخفف مثلاً nat-m',en:'abbr e.g. nat-m',roman:'abbr e.g. nat-m'})+'" onkeydown="if(event.key===\'Enter\'){repDiffAddTyped();}" dir="ltr"><button class="rc-btn" onclick="repDiffAddTyped()">＋</button></span>';
+    h+='<span class="rep-diff-add"><input type="text" id="repDiffInput" list="repDiffRemList" placeholder="'+L({ur:'مخفف',en:'abbr',roman:'abbr'})+'" onkeydown="if(event.key===\'Enter\'){repDiffAddTyped();}" dir="ltr"><button class="rc-btn" onclick="repDiffAddTyped()">＋</button></span>';
     h+='<datalist id="repDiffRemList">'+repDiffDatalistHtml()+'</datalist>';
-    h+='</div>';
-    if(repDiffCtx&&repDiffCtx.rems){
+    h+='</span></div>';
+    // ---- ذخیرہ: صرف کھلا ہو تو ----
+    if(repDiffPoolOpen&&repDiffCtx&&repDiffCtx.rems){
         var rems=repDiffCtx.rems, abbrs=Object.keys(rems);   // 🔑 v75: ٹری جیسی ترتیب (فائل کی اصل ترتیب) اور ٹری جیسا انداز
-        h+='<div class="rep-diff-chips rtv-rems-box" dir="ltr">';
+        h+='<div class="rep-diff-pick"><div class="rep-diff-chips rtv-rems-box" dir="ltr">';
         abbrs.forEach(function(a){ var g=repDiffGrade(rems[a]); var on=repDiffSel.indexOf(a)!==-1; h+='<i class="rtv-r g'+g+(on?' sel':'')+'" title="'+_repAttr(repRemedyTitle(a))+'" onclick="repDiffToggleRem(\''+_repJs(a)+'\')">'+escapeHtml(g===3?a.toUpperCase():a)+'</i> '; });
-        h+='</div>';
+        h+='</div></div>';
     }
-    h+='</div>';
     // کنٹرولز
     var o=repDiffOpts;
     h+='<div class="rep-diff-ctl">'
