@@ -17,6 +17,37 @@
 //      یا پورا جملہ چھوڑ دیا جاتا ہے — تاکہ ادھورا ترجمہ گمراہ نہ کرے۔
 // ============================================================
 
+
+// ============================================================
+// 🔑 v103 (صارف): کراس ریفرنس «(See …)» کا ترجمہ **نہیں** ہوتا
+//   وجہ: وہ ربرک کا متن نہیں، ایک اشارہ ہے — «فلاں جگہ بھی دیکھیے»۔ اس کا ترجمہ کرنے سے
+//   جملہ بگڑتا ہے اور دہرا نظر آتا ہے (مثلاً «متروک (چھوڑ دیا گیا) دیکھنا متروک …»)۔
+//   اس لیے: (۱) ترجمہ صرف ربرک کے متن کا  (۲) کراس ریفرنس بڑے حروف سے **عنوانی حروف** میں،
+//   تاکہ ایک نظر میں ربرک اور اشارے کا فرق نظر آئے۔
+// ============================================================
+var REP_XREF_SMALL = {'and':1,'or':1,'of':1,'the':1,'to':1,'in':1,'on':1,'with':1,'also':1,'from':1,'for':1,'a':1,'an':1};
+function repTitleCase(s) {
+    return String(s || '').replace(/[A-Za-z][A-Za-z'-]*/g, function (w, i) {
+        var lw = w.toLowerCase();
+        if (i > 0 && REP_XREF_SMALL[lw]) return lw;                       // چھوٹے الفاظ چھوٹے ہی
+        return lw.charAt(0).toUpperCase() + lw.slice(1);
+    });
+}
+// «ABANDONED (SEE FORSAKEN)» → {head:'ABANDONED', xref:'(See Forsaken)'}
+function repXrefSplit(label) {
+    var s = String(label || '').replace(/ \[\d+\]$/, '');
+    var m = s.match(/^([\s\S]*?)\s*\(\s*see\b([^)]*)\)\s*([\s\S]*)$/i);
+    if (!m) return { head: s.trim(), xref: '', tail: '' };
+    return { head: (m[1] || '').trim(), xref: '(See' + repTitleCase(m[2]) + ')', tail: (m[3] || '').replace(/^,\s*/, '').trim() };
+}
+// دکھانے کے لیے: انگریزی متن + الگ انداز میں کراس ریفرنس
+function repXrefHtml(label) {
+    var x = repXrefSplit(label);
+    if (!x.xref) return escapeHtml(label);
+    return escapeHtml(x.head) + ' <span class="rep-xref">' + escapeHtml(x.xref) + '</span>'
+         + (x.tail ? ', ' + escapeHtml(x.tail) : '');
+}
+
 var REP_UR_TAIL = ['on','in','from','after','before','during','while','when','with','to','agg.','amel.'];
 var REP_UR_GLUE = { 'on':'پر','in':'میں','from':'سے','after':'کے بعد','before':'سے پہلے','during':'کے دوران',
                     'while':'کرتے ہوئے','when':'پر','with':'کے ساتھ','to':'تک','agg.':'سے بگاڑ','amel.':'سے آرام' };
@@ -30,14 +61,17 @@ function _repUrObl(u) {
 }
 function _repUrSeg(s) {                       // ایک ٹکڑے کا ترجمہ (صرف نظرثانی شدہ، خودکار لفظی نہیں)
     if (typeof repUrLabelObj !== 'function') return null;
-    var o = repUrLabelObj(s);
+    var x = repXrefSplit(s);                  // 🔑 v103: کراس ریفرنس ترجمے سے باہر
+    var key = x.xref ? (x.head + (x.tail ? ', ' + x.tail : '')) : s;
+    if (!key) return null;
+    var o = repUrLabelObj(key);
     return (o && !o.auto) ? o.t : null;
 }
 
 // پورے ربرک کا اردو جملہ۔ opts.keepEnglish = true → غیر ترجمہ شدہ ٹکڑا انگریزی میں رہنے دو
 function repRubricUrFull(title, opts) {
     opts = opts || {};
-    var raw = String(title || '').replace(/ \[\d+\]$/, '').trim();
+    var raw = String(title || '').replace(/ \[\d+\]$/, '').replace(/\s*\(\s*see\b[^)]*\)/ig, '').replace(/\s+,/g, ',').trim();   // 🔑 v103
     if (!raw) return '';
     if (typeof _repUrLabels === 'undefined' || !_repUrLabels) return '';
     var whole = _repUrSeg(raw);                                   // پورا ربرک پہلے سے لغت میں ہو تو وہی
