@@ -1,5 +1,5 @@
 // Bismillah Clinic - Service Worker (robust offline cache)
-const CACHE_NAME='bhc-clinic-v100';
+const CACHE_NAME='bhc-clinic-v101';
 
 // Keep this list same-origin and reliable. Missing/external files are not allowed
 // to break the whole install anymore.
@@ -15,6 +15,7 @@ const CORE_ASSETS = [
   './css/layout-repertory-toolbar.css',
   './css/layout-differentiation.css',
   './css/rep-case.css',
+  './css/rubric-ur.css',
   './css/differentiation-books.css',
   './css/repertory-pagetabs.css',
   './css/differentiation-table.css',
@@ -42,6 +43,7 @@ const CORE_ASSETS = [
   './js/repertory/rep-workbench.js',
   './js/repertory/rep-analysis.js',
   './js/repertory/LOAD_ORDER.txt',
+  './ur/rubric_labels_ur.json',
   // v98: تفریق / نکاسی اب آٹھ حصوں میں (js/differentiation/) — پرانی 08b حذف ہو چکی
   './js/differentiation/01-diff-core.js',
   './js/differentiation/02-diff-data.js',
@@ -62,6 +64,7 @@ const CORE_ASSETS = [
   './js/13-case-taking.js',
   './js/15-dx-views.js',
   './js/16-rep-case.js',
+  './js/17-rubric-ur.js',
   './service-worker.js',
   './diagnosis-custom.js',
   './custom-data-help.js',
