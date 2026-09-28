@@ -58,15 +58,18 @@ function tail(u,t){
 const HEADPREP={'while':'کرتے ہوئے','on':'پر','in':'میں','during':'کے دوران','from':'سے','after':'کے بعد','before':'سے پہلے','when':'جب','at':'وقت','with':'کے ساتھ'};
 const POST={'during':'کے دوران','while':'کے دوران','in':'میں','on':'پر','to':'کی طرف','from':'سے','with':'کے ساتھ','of':'کا','at':'پر','into':'کے اندر','by':'سے','about':'کے گرد','around':'کے گرد','under':'کے نیچے','over':'کے اوپر','behind':'کے پیچھے','before':'سے پہلے','after':'کے بعد'};
 
-function compose(label){
+function compose(label,depth){
+  depth=depth||0;
+  const R2=x=>{ if(depth>4) return null; const r=compose(x,depth+1); return (r&&!/^\?/.test(r[0]))?r[0]:null; };
   const l=label.trim(); let d=T(l); if(d) return [d,'لغت'];
+  const TT=x=>T(x)||R2(x);
   const c=clock(l); if(c) return [c,'وقت'];
   let m;
   // «X agg.» / «X amel.»
   if((m=l.match(/^(.+?)[,\s]+(agg\.|amel\.)$/i))){
     const head=m[1].trim(), kind=m[2].toLowerCase()==='agg.'?'بگاڑ':'آرام';
     if(HEADPREP[head.toLowerCase()]) return [HEADPREP[head.toLowerCase()]+' '+kind,'قاعدہ'];
-    const h=T(head); if(h) return [isTime(h)? h+' کو '+kind : obl(h)+' سے '+kind,'قاعدہ'];
+    const h=TT(head); if(h) return [isTime(h)? h+' کو '+kind : obl(h)+' سے '+kind,'قاعدہ'];
     // «A, B agg.» جیسے مرکبات
     const mm=head.match(/^(.+),\s*([a-z.]+)$/i);
     if(mm){ const hh=T(mm[1]); const tt=hh&&tail(hh,mm[2]); if(tt) return [tt+' — '+kind,'قاعدہ']; }
@@ -74,24 +77,55 @@ function compose(label){
   }
   if(/^extending\s+downward$/i.test(l)) return ['نیچے کی طرف پھیلتا','قاعدہ'];
   if(/^extending\s+upward$/i.test(l))   return ['اوپر کی طرف پھیلتا','قاعدہ'];
-  if((m=l.match(/^extending\s+to\s+(.+)$/i))){ const h=T(m[1]); return h?[obl(h)+' کی طرف پھیلتا','قاعدہ']:['? '+l,'نامکمل']; }
+  if((m=l.match(/^extending[,\s]+to\s+(.+)$/i))){ const h=TT(m[1]); return h?[obl(h)+' کی طرف پھیلتا','قاعدہ']:['? '+l,'نامکمل']; }
   // «X, دُم»
   if((m=l.match(/^(.+),\s*([a-z.]+)$/i))){
-    const h=T(m[1]); const t=h&&tail(h,m[2]); if(t) return [t,'قاعدہ'];
+    const h=TT(m[1]); const t=h&&tail(h,m[2]); if(t) return [t,'قاعدہ'];
   }
   // «حرفِ جار + اسم» → «اسم + حرفِ اضافت»
   if((m=l.match(/^([a-z]+)\s+(.+)$/i)) && POST[m[1].toLowerCase()]){
-    const h=T(m[2]); if(h) return [obl(h)+' '+POST[m[1].toLowerCase()],'قاعدہ'];
+    const h=TT(m[2]); if(h) return [obl(h)+' '+POST[m[1].toLowerCase()],'قاعدہ'];
   }
   // «X of» → «کا X»
-  if((m=l.match(/^(.+)\s+of$/i))){ const h=T(m[1]); if(h) return ['کا '+h,'قاعدہ']; }
+  if((m=l.match(/^(.+)\s+of$/i))){ const h=TT(m[1]); if(h) return ['کا '+h,'قاعدہ']; }
   // «while X» → «X تے ہوئے»
-  if((m=l.match(/^while\s+(.+)$/i))){ const h=T(m[1]); if(h) return [cont(h),'قاعدہ']; }
+  if((m=l.match(/^while\s+(.+)$/i))){ const h=TT(m[1]); if(h) return [cont(h),'قاعدہ']; }
+  // «alternating with X» · «(See Y)» · «loss of X» · «extending down/into/over X» · «until N»
+  if((m=l.match(/^alternating with\s+(.+)$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کے ساتھ باری باری','قاعدہ']; }
+  if((m=l.match(/^(.+?)\s*\((?:see|See)\s+(.+?)\)$/))){ const a=TT(m[1]), b=TT(m[2]); if(a&&b) return [a+' (دیکھیے '+b+')','قاعدہ']; if(a) return [a+' (دیکھیے '+m[2]+')','قاعدہ']; }
+  if((m=l.match(/^loss of\s+(.+)$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کا ضیاع','قاعدہ']; }
+  if((m=l.match(/^(.+),\s*loss of$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کا ضیاع','قاعدہ']; }
+  if((m=l.match(/^extending\s+(?:down|downward)\s+(?:the\s+)?(.+)$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' میں نیچے تک پھیلتا','قاعدہ']; }
+  if((m=l.match(/^extending\s+(?:into|over)\s+(?:the\s+)?(.+)$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کے اندر پھیلتا','قاعدہ']; }
+  if((m=l.match(/^until\s+(.+)$/i))){ const h=TT(m[1]); if(h) return [h+' تک','قاعدہ']; }
+  if((m=l.match(/^(\d{1,2})\s*(?:to|until)\s*(\d{1,2})\s*(a\.m\.|p\.m\.)$/i))) { const c2=clock(m[1]+' '+m[3]), c3=clock(m[2]+' '+m[3]); if(c2&&c3) return [c2.replace(' بجے','')+' سے '+c3+' تک','وقت']; }
+  if((m=l.match(/^of (?:the\s+)?(.+)$/i))){ const h=TT(m[1]); if(h) return ['کا '+h,'قاعدہ']; }
+  if((m=l.match(/^heat of\s+(.+?),\s*with$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کی گرمی کے ساتھ','قاعدہ']; }
+  if((m=l.match(/^(.+?)\s+of\s+(?:the\s+)?(.+)$/i))){ const a=TT(m[1]), b=TT(m[2]); if(a&&b) return [obl(b)+' کا '+a,'قاعدہ']; }
+  if((m=l.match(/^suppression of\s+(.+)$/i))||(m=l.match(/^after suppression of\s+(.+)$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' دب جانے سے','قاعدہ']; }
+  if((m=l.match(/^(.+?),\s*compelled to$/i))){ const h=TT(m[1]); if(h) return [h+' پر مجبور','قاعدہ']; }
+  if((m=l.match(/^(.+),\s*beginning to$/i))||(m=l.match(/^on beginning to\s*(.*)$/i))){ const h=m[1]?TT(m[1]):null; if(h) return [obl(h)+' شروع کرنے پر','قاعدہ']; }
+  // «near X» / «between X and Y» / «X tastes» / «as from a X» / «abuse of X» / «X region» / «X muscles»
+  if((m=l.match(/^near\s+(?:the\s+)?(.+)$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کے قریب','قاعدہ']; }
+  if((m=l.match(/^between\s+(.+?)\s+and\s+(.+)$/i))){ const a=TT(m[1]),b=TT(m[2]); if(a&&b) return [a+' اور '+obl(b)+' کے درمیان','قاعدہ']; }
+  if((m=l.match(/^(.+)\s+tastes$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کا ذائقہ','قاعدہ']; }
+  if((m=l.match(/^(.+?),?\s*as (?:from|with|of)(?: a| an| the)?\s+(.+)$/i))){ const b=TT(m[2]); const a=TT(m[1]); if(a&&b) return [a+' — '+b+' جیسا','قاعدہ']; }
+  if((m=l.match(/^as (?:from|with|of)(?: a| an| the)?\s+(.+)$/i))){ const h=TT(m[1]); if(h) return [h+' جیسا','قاعدہ']; }
+  if((m=l.match(/^(?:abuse of|after abuse of)\s+(.+)$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کا زیادہ استعمال','قاعدہ']; }
+  if((m=l.match(/^(.+),\s*abuse of$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کا زیادہ استعمال','قاعدہ']; }
+  if((m=l.match(/^(.+)\s+region$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کا حصہ','قاعدہ']; }
+  if((m=l.match(/^(.+)\s+muscles$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کے پٹھے','قاعدہ']; }
+  if((m=l.match(/^(.+)\s+joints$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کے جوڑ','قاعدہ']; }
+  if((m=l.match(/^(.+)\s+nails$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' کے ناخن','قاعدہ']; }
+  if((m=l.match(/^suppressed\s+(.+?),?\s*after$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' دب جانے کے بعد','قاعدہ']; }
+  if((m=l.match(/^every\s+(\w+)\s+days?$/i))){ const h=TT(m[1]); if(h) return ['ہر '+h+' دن بعد','قاعدہ']; }
+  if((m=l.match(/^(.+),\s*while$/i))){ const h=TT(m[1]); if(h) return [cont(h),'قاعدہ']; }
+  if((m=l.match(/^(.+),\s*on$/i))){ const h=TT(m[1]); if(h) return [obl(h)+' پر','قاعدہ']; }
   // «A, B» دونوں لغت میں
-  if((m=l.match(/^(.+),\s*(.+)$/))){ const a=T(m[1]), b=T(m[2]); if(a&&b) return [a+' '+b,'قاعدہ']; }
+  if((m=l.match(/^(.+),\s*(.+)$/))){ const a=TT(m[1]), b=TT(m[2]); if(a&&b) return [a+' '+b,'قاعدہ']; }
   // دو الفاظ: صفت + اسم
   const p=l.split(/\s+/);
-  if(p.length===2){ const a=T(p[0]), b=T(p[1]); if(a&&b) return [a+' '+b,'قاعدہ']; }
+  if(p.length===2){ const a=TT(p[0]), b=TT(p[1]); if(a&&b) return [a+' '+b,'قاعدہ']; }
   return ['? '+l,'نامکمل'];
 }
 fs.readFileSync(process.argv[2],'utf8').split('\n').filter(Boolean).forEach(line=>{
