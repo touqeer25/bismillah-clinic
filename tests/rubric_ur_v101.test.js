@@ -19,7 +19,7 @@ const a=w.repRubricUrFull('PAIN, morning, waking, on');
 ok(/^جاگنے پر/.test(a),'A1 سب سے خاص شرط پہلے آتی ہے: "'+a+'"');
 ok(/درد$/.test(a),'A2 بنیادی علامت آخر میں: "'+a+'"');
 const b=w.repRubricUrFull('ANGER, consoled, when');
-ok(b==='تسلی دیا جانے پر، غصہ','A3 ANGER, consoled, when → "'+b+'"');
+ok(b==='تسلی دیے جانے پر، غصہ','A3 ANGER, consoled, when → "'+b+'"');
 const c=w.repRubricUrFull('ABSENT-MINDED (See Forgetful), reading, while');
 ok(/^پڑھتے ہوئے،/.test(c),'A4 «while» فعل کو «…تے ہوئے» بناتا ہے: "'+c+'"');
 const d=w.repRubricUrFull('PAIN, eating, after');
