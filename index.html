@@ -17,7 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- 🔑 v94: مواد اب data/*.json میں — یہ لوڈر سب سے پہلے -->
     <script src="js/00-data-boot.js?v=94"></script>
-    <script src="diagnosis-custom.js?v=33"></script>
+    <script src="diagnosis-custom.js?v=95"></script>
     <script src="custom-data-help.js?v=33"></script>
     <script src="advanced-diagnosis-engine.js?v=36"></script>
     <!-- v78: انداز الگ الگ فائلوں میں: css/*.css (ترتیب اہم ہے) -->
@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="css/repertory-pagetabs.css?v=87">
     <link rel="stylesheet" href="css/differentiation-table.css?v=88">
     <link rel="stylesheet" href="css/differentiation-compact.css?v=92">
+    <link rel="stylesheet" href="css/rep-case.css?v=95">
     <link rel="stylesheet" href="css/parser-studio.css?v=83">
 
 </head>
@@ -847,6 +848,8 @@
                             <button class="rc-btn" onclick="repClipTrash()" title="Clear the ACTIVE clipboard (press twice)">Clear</button>
                             <!-- 🔑 v54: Analyze = HomeoSetu "Remedy Score Grid" → Workbench Grid (ALL clipboards, weights, elimination) -->
                             <button class="rc-btn primary" onclick="repSideAnalyze()" title="Analyze ALL clipboards (Workbench Grid: weights + elimination)">Analyze</button>
+                            <!-- 🔑 v95: کیس مریض کی وزٹ کے ساتھ محفوظ کریں -->
+                            <button class="rc-btn" onclick="repCaseSaveDialog()" title="اس کیس (کلپ بورڈ + تجزیہ) کو مریض کی وزٹ کے ساتھ محفوظ کریں / Save this case to a patient visit">📋💾</button>
                         </div>
                         <!-- 🔑 v54: Compare-Mode panel (selected rubric chips of the active clipboard) — filled by repCmpPanelRender() -->
                         <div id="repCmpPanel" class="rst-cmp" style="display:none"></div>
@@ -1023,7 +1026,7 @@
             </button>
         </div>
         <div class="btn-group-row" style="margin-top:6px;">
-            <button class="btn" style="background:#24292e;color:white;font-size:12px;padding:6px 12px;" onclick="exportForGitHub()" title="Ready-to-paste for diagnosis-data.js">
+            <button class="btn" style="background:#24292e;color:white;font-size:12px;padding:6px 12px;" onclick="exportForGitHub()" title="مکمل data/diagnosis.json بناتا ہے — سیدھا اسی فائل کی جگہ رکھ دیں">
                 📝 <span data-ur="گٹ ہب ایکسپورٹ" data-en="Export for GitHub" data-roman="GitHub Export">گٹ ہب ایکسپورٹ</span>
             </button>
             <button class="btn btn-purple btn-sm" onclick="migrationWizard()" title="Guided workflow">
@@ -1501,7 +1504,7 @@
 <!-- ============================================================ -->
 <script src="js/01-app-core.js?v=35"></script>
 <script src="js/02-app-auth.js?v=40"></script>
-<script src="js/03-app-patients.js?v=34"></script>
+<script src="js/03-app-patients.js?v=95"></script>
 <script src="js/04-app-visit-modal.js?v=33"></script>
 <script src="js/05-app-diagnosis.js?v=94"></script>
 <script src="js/06-app-new-visit.js?v=33"></script>
@@ -1536,6 +1539,8 @@
 <script src="js/13-case-taking.js?v=4"></script>
 <!-- 🔑 v93: پہلے index.html کے اندر کھلا کوڈ تھا — اب اپنی فائل میں -->
 <script src="js/15-dx-views.js?v=93"></script>
+<!-- 🔑 v95: ریپرٹری کیس ↔ مریض کی وزٹ -->
+<script src="js/16-rep-case.js?v=95"></script>
 <script src="js/ai-diagnosis-engine.js?v=2"></script>
 </body>
 </html>

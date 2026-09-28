@@ -1184,76 +1184,67 @@
         if (typeof showToast === 'function') showToast('✅ ' + total + ' items');
     };
 
-    window.exportForGitHub = function() {
-        var allCats = getCachedCategories();
-        var allSyms = getCachedSymptoms();
-        var allDis = getCachedDiseases();
-
-        var newCats = {};
-        var newSyms = {};
-        var newDis = [];
-
+    // 🔑 v95: پہلے یہ فنکشن جاوا اسکرپٹ کی سطریں بناتا تھا تاکہ diagnosis-data.js میں چپکائی جائیں۔
+    //   v94 کے بعد وہ فائل موجود ہی نہیں — مواد اب data/diagnosis.json میں ہے۔
+    //   اب یہ **مکمل، چپکانے کے قابل diagnosis.json** بناتا ہے: اصل فائل + آپ کے نئے اندراج۔
+    //   فائل سیدھی data/diagnosis.json کی جگہ رکھ دیں — کچھ کاٹنا جوڑنا نہیں پڑتا۔
+    function _cleanCat(c)  { var o = { ur: c.ur, en: c.en, roman: c.roman || c.en }; if (c.icon) o.icon = c.icon; return o; }
+    function _cleanSym(s)  { var o = { ur: s.ur, en: s.en, roman: s.roman || s.en, category: s.category }; if (s.severe) o.severe = true; return o; }
+    function _cleanDis(d)  {
+        var o = { id: d.id, name: { ur: d.name.ur, en: d.name.en, roman: d.name.roman || d.name.en } };
+        if (d.icon) o.icon = d.icon;
+        o.category   = d.category;
+        o.symptoms   = d.symptoms || [];
+        o.keySymptoms= d.keySymptoms || [];
+        o.tests      = d.tests || [];
+        o.redFlags   = d.redFlags || [];
+        o.remedies   = d.remedies || [];
+        o.advice     = { ur: (d.advice && d.advice.ur) || '', en: (d.advice && d.advice.en) || '' };
+        return o;
+    }
+    window.exportForGitHub = async function() {
+        var allCats = getCachedCategories(), allSyms = getCachedSymptoms(), allDis = getCachedDiseases();
+        var newCats = {}, newSyms = {}, newDis = [];
         Object.keys(allCats).forEach(function(k) { if (!allCats[k].promoted) newCats[k] = allCats[k]; });
         Object.keys(allSyms).forEach(function(k) { if (!allSyms[k].promoted) newSyms[k] = allSyms[k]; });
         allDis.forEach(function(d) { if (!d.promoted) newDis.push(d); });
-
         var total = Object.keys(newCats).length + Object.keys(newSyms).length + newDis.length;
+        if (total === 0) { if (typeof showToast === 'function') showToast('⚠️ کوئی نیا اندراج نہیں', 'error'); return; }
 
-        if (total === 0) {
-            if (typeof showToast === 'function') showToast('⚠️ No new items', 'error');
+        // اصل فائل منگواؤ — ہمیشہ تازہ، تاکہ کوئی پرانا اندراج ضائع نہ ہو
+        var base;
+        try {
+            var r = await fetch('data/diagnosis.json?' + (window.BC_DATA_V || 'v=94') + '&t=' + Date.now());
+            if (!r.ok) throw new Error(r.status);
+            base = await r.json();
+        } catch (e) {
+            if (typeof showToast === 'function') showToast('❌ data/diagnosis.json نہیں کھلی — ' + (e.message || e), 'error');
             return;
         }
+        var out = {
+            SYMPTOMS_DB:   Object.assign({}, base.SYMPTOMS_DB),
+            DISEASES_DB:   (base.DISEASES_DB || []).slice(),
+            CATEGORIES_DB: Object.assign({}, base.CATEGORIES_DB)
+        };
+        var added = { cat: 0, sym: 0, dis: 0 }, replaced = { cat: 0, sym: 0, dis: 0 };
+        Object.keys(newCats).forEach(function(k) { (out.CATEGORIES_DB[k] ? replaced : added).cat++; out.CATEGORIES_DB[k] = _cleanCat(newCats[k]); });
+        Object.keys(newSyms).forEach(function(k) { (out.SYMPTOMS_DB[k]   ? replaced : added).sym++; out.SYMPTOMS_DB[k]   = _cleanSym(newSyms[k]); });
+        newDis.forEach(function(d) {
+            var c = _cleanDis(d), at = -1;
+            for (var i = 0; i < out.DISEASES_DB.length; i++) if (out.DISEASES_DB[i].id === c.id) { at = i; break; }
+            if (at >= 0) { out.DISEASES_DB[at] = c; replaced.dis++; } else { out.DISEASES_DB.push(c); added.dis++; }
+        });
 
-        var code = '// GitHub Export - ' + new Date().toISOString().split('T')[0] + '\n';
-        code += '// ' + total + ' new items ready to paste\n\n';
-
-        if (Object.keys(newCats).length > 0) {
-            code += '// ===== NEW CATEGORIES =====\n';
-            Object.keys(newCats).forEach(function(k) {
-                var c = newCats[k];
-                code += '    ' + k + ': { ur: ' + JSON.stringify(c.ur) + ', en: ' + JSON.stringify(c.en) + ', roman: ' + JSON.stringify(c.roman) + ', icon: ' + JSON.stringify(c.icon) + ' },\n';
-            });
-            code += '\n\n';
-        }
-
-        if (Object.keys(newSyms).length > 0) {
-            code += '// ===== NEW SYMPTOMS =====\n';
-            Object.keys(newSyms).forEach(function(k) {
-                var s = newSyms[k];
-                code += '    ' + k + ': { ur: ' + JSON.stringify(s.ur) + ', en: ' + JSON.stringify(s.en) + ', roman: ' + JSON.stringify(s.roman) + ', category: ' + JSON.stringify(s.category);
-                if (s.severe) code += ', severe: true';
-                code += ' },\n';
-            });
-            code += '\n\n';
-        }
-
-        if (newDis.length > 0) {
-            code += '// ===== NEW DISEASES =====\n';
-            newDis.forEach(function(d) {
-                code += '    {\n';
-                code += '        id: ' + JSON.stringify(d.id) + ',\n';
-                code += '        name: { ur: ' + JSON.stringify(d.name.ur) + ', en: ' + JSON.stringify(d.name.en) + ', roman: ' + JSON.stringify(d.name.roman) + ' },\n';
-                if (d.icon) code += '        icon: ' + JSON.stringify(d.icon) + ',\n';
-                code += '        category: ' + JSON.stringify(d.category) + ',\n';
-                code += '        symptoms: ' + JSON.stringify(d.symptoms || []) + ',\n';
-                code += '        keySymptoms: ' + JSON.stringify(d.keySymptoms || []) + ',\n';
-                code += '        tests: ' + JSON.stringify(d.tests || []) + ',\n';
-                code += '        redFlags: ' + JSON.stringify(d.redFlags || []) + ',\n';
-                code += '        remedies: ' + JSON.stringify(d.remedies || []) + ',\n';
-                code += '        advice: { ur: ' + JSON.stringify((d.advice && d.advice.ur) || '') + ', en: ' + JSON.stringify((d.advice && d.advice.en) || '') + ' }\n';
-                code += '    },\n';
-            });
-        }
-
-        var blob = new Blob([code], { type: 'text/plain' });
+        var blob = new Blob([JSON.stringify(out)], { type: 'application/json' });
         var url = URL.createObjectURL(blob);
-        var a = document.createElement('a');
-        a.href = url;
-        a.download = 'github-export-' + new Date().toISOString().split('T')[0] + '.txt';
-        a.click();
+        var a = document.createElement('a'); a.href = url; a.download = 'diagnosis.json'; a.click();
         URL.revokeObjectURL(url);
 
-        if (typeof showToast === 'function') showToast('✅ GitHub export: ' + total + ' items');
+        var sum = 'نیا: ' + added.cat + ' زمرے · ' + added.sym + ' علامات · ' + added.dis + ' امراض'
+                + ((replaced.cat + replaced.sym + replaced.dis) ? '   |   بدلے: ' + (replaced.cat + replaced.sym + replaced.dis) : '');
+        console.log('📝 diagnosis.json export —', sum,
+                    '| کل:', Object.keys(out.SYMPTOMS_DB).length, 'علامات,', out.DISEASES_DB.length, 'امراض,', Object.keys(out.CATEGORIES_DB).length, 'زمرے');
+        if (typeof showToast === 'function') showToast('✅ diagnosis.json تیار — ' + sum + ' · اسے data/diagnosis.json کی جگہ رکھ دیں');
     };
 
     // ==========================================

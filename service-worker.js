@@ -1,5 +1,5 @@
 // Bismillah Clinic - Service Worker (robust offline cache)
-const CACHE_NAME='bhc-clinic-v99';
+const CACHE_NAME='bhc-clinic-v100';
 
 // Keep this list same-origin and reliable. Missing/external files are not allowed
 // to break the whole install anymore.
@@ -14,6 +14,7 @@ const CORE_ASSETS = [
   './css/layout-header.css',
   './css/layout-repertory-toolbar.css',
   './css/layout-differentiation.css',
+  './css/rep-case.css',
   './css/differentiation-books.css',
   './css/repertory-pagetabs.css',
   './css/differentiation-table.css',
@@ -60,6 +61,7 @@ const CORE_ASSETS = [
   './js/pwa.js',
   './js/13-case-taking.js',
   './js/15-dx-views.js',
+  './js/16-rep-case.js',
   './service-worker.js',
   './diagnosis-custom.js',
   './custom-data-help.js',
