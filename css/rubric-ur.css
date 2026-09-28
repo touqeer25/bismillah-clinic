@@ -8,3 +8,9 @@
     padding-top:4px;border-top:1px dashed #e3ebf2}
 .rep-diff-row:hover .rep-diff-ur{color:#41576b}
 @media(max-width:820px){.rep-diff-ur,.rep-wb-ur{padding-inline-start:8px}}
+
+/* 🔑 v103 — کراس ریفرنس «(See …)»: ترجمہ نہیں ہوتا، اور ربرک سے الگ نظر آتا ہے */
+.rep-xref{font-weight:400;font-style:italic;font-size:.88em;color:#8798a8;letter-spacing:0;text-transform:none}
+.rtv-lab .rep-xref{color:#9aa8b6}
+.rpd-title .rep-xref{color:#7b8b9a;font-size:.8em}
+.rep-diff-t .rep-xref{color:#9aa8b6}
