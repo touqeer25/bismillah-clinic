@@ -532,6 +532,8 @@ async function showPatientDetail(patientId) {
             });
             if (v.notes) html += '<div class="visit-detail-item"><div class="label">📝 Notes</div><div>' + escapeHtml(v.notes) + '</div></div>';
             html += '</div>';
+            // 🔑 v95: اس وزٹ کا ریپرٹری کیس (کلپ بورڈ + تجزیہ) — js/16-rep-case.js
+            if (typeof repCaseSummaryHtml === 'function') html += repCaseSummaryHtml(v.id, patient.id);
             html += '<div style="margin-top:6px;font-size:11px;color:#95a5a6;">By: ' + escapeHtml(v.createdBy || '-') + '</div></div>';
         });
     }
