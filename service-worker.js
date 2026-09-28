@@ -1,5 +1,5 @@
 // Bismillah Clinic - Service Worker (robust offline cache)
-const CACHE_NAME='bhc-clinic-v97';
+const CACHE_NAME='bhc-clinic-v98';
 
 // Keep this list same-origin and reliable. Missing/external files are not allowed
 // to break the whole install anymore.
@@ -14,6 +14,10 @@ const CORE_ASSETS = [
   './css/layout-header.css',
   './css/layout-repertory-toolbar.css',
   './css/layout-differentiation.css',
+  './css/differentiation-books.css',
+  './css/repertory-pagetabs.css',
+  './css/differentiation-table.css',
+  './css/differentiation-compact.css',
   './js/01-app-core.js',
   './js/02-app-auth.js',
   './js/03-app-patients.js',
@@ -32,7 +36,16 @@ const CORE_ASSETS = [
   './js/repertory/rep-workbench.js',
   './js/repertory/rep-analysis.js',
   './js/repertory/LOAD_ORDER.txt',
-  './js/08b-rep-differentiation.js',
+  // v98: تفریق / نکاسی اب آٹھ حصوں میں (js/differentiation/) — پرانی 08b حذف ہو چکی
+  './js/differentiation/01-diff-core.js',
+  './js/differentiation/02-diff-data.js',
+  './js/differentiation/03-diff-engine.js',
+  './js/differentiation/04-diff-rubric-mode.js',
+  './js/differentiation/05-diff-books-witness.js',
+  './js/differentiation/06-diff-shell.js',
+  './js/differentiation/07-diff-views.js',
+  './js/differentiation/08-diff-extract.js',
+  './js/differentiation/LOAD_ORDER.txt',
   './js/08c-rep-materia-medica.js',
   './js/08d-library.js',
   './mm/_index.json',
@@ -43,6 +56,7 @@ const CORE_ASSETS = [
   './js/11-app-studio.js',
   './js/pwa.js',
   './js/13-case-taking.js',
+  './js/15-dx-views.js',
   './service-worker.js',
   './diagnosis-data.js',
   './diagnosis-custom.js',
