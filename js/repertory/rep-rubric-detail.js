@@ -341,6 +341,7 @@ function renderRubricDetail(){
     // ---- title row: rubric text + < expander AFTER text + copy
     h+='<div class="rpd-titlerow">'
       +'<div class="rpd-title" dir="ltr">'+escapeHtml(full||'—')+'</div>'
+      +(typeof repPathUrHtml==='function'?repPathUrHtml(full||'','rpd-title-ur'):'')   // 🔑 v101: اردو جملہ (دائیں سے بائیں)
       +'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&#9656;</button>'
       +repDetailCmpBtnHtml()
       +repDetailDiffBtnHtml()

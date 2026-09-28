@@ -471,6 +471,7 @@ function renderWbClips(){
                     +'<input type="checkbox" class="rep-wb-check" data-wbchk="'+ci+'-'+i+'" '+(it.sel?'checked':'')+' onchange="repClipSelToggle('+ci+','+i+')" title="'+repLangText({ur:'گرڈ کے لیے منتخب کریں',en:'Select for the Grid',roman:'Grid ke liye select karein'})+'">'
                     +repBookBadgeHtml(it.book)
                     +'<span class="rc-path" dir="ltr" onclick="repClipOpenIdx('+ci+','+i+')" title="'+_repAttr(it.path||'')+'">'+escapeHtml(_repTruncPath(it.path||'—',48))+'</span>'
+                    +(typeof repPathUrHtml==='function'?repPathUrHtml(it.path||'','rep-wb-ur'):'')   // 🔑 v101
                     +repCombBadge(it)+repWChip(it.w)
                     +(it.rems?'<span class="rpc-badge rems">⚡ '+it.rems+'</span>':'')
                     +'<span class="rep-wb-ops">'
