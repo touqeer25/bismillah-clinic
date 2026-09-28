@@ -5,7 +5,7 @@ const html=`<!doctype html><html><body><div id="page-repertoryBrowser"><select i
 const dom=new JSDOM(html,{runScripts:'dangerously',pretendToBeVisual:true,url:'http://localhost/'});const w=dom.window;
 w.currentLang='ur';w.escapeHtml=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));w.toasts=[];w.showToast=m=>w.toasts.push(String(m));
 w.fetch=u=>{const f=path.join(ROOT,String(u).split('?')[0]);return fs.existsSync(f)?Promise.resolve({ok:true,json:()=>Promise.resolve(JSON.parse(fs.readFileSync(f,'utf8')))}):Promise.reject(new Error('404 '+u));};
-w.eval(require('./_rep_src')());['js/08b-rep-differentiation.js','js/08c-rep-materia-medica.js'].forEach(f=>w.eval(fs.readFileSync(path.join(ROOT,f),'utf8')));
+w.eval(require('./_rep_src')());w.eval(require('./_diff_src')());['js/08c-rep-materia-medica.js'].forEach(f=>w.eval(fs.readFileSync(path.join(ROOT,f),'utf8')));
 let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 (async()=>{
   const d=w.document; for(let i=0;i<w.REP_N_CLIPS;i++)w.repClipboards[i]=[]; w.localStorage.clear();
@@ -23,7 +23,9 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   // ---- text helpers ----
   ok(w.repMMFmt('a **bold** and _ital_ x')==='a <b>bold</b> and <i>ital</i> x','markers → html');
   ok(w.repMMFmt('<x>')==='&lt;x&gt;','html escaped');
-  const sents=w.repMMSentences('First one. Second; third? Fourth!'); ok(sents.length===4,'sentence split: '+JSON.stringify(sents));
+  // v83: سیمی کولن اب جملہ ختم نہیں کرتا (ہیرنگ/ایلن/کلارک میں وہ ایک ہی علامت کے حصے جوڑتا ہے)
+  const sents=w.repMMSentences('First one. Second; third? Fourth!'); ok(sents.length===3&&/Second; third\?/.test(sents[1]),'v83 sentence split keeps «;» inside one sentence: '+JSON.stringify(sents));
+  ok(w.repMMSentences('Worse agg. from motion. Better amel. at rest.').length===2,'v83 abbreviations (agg. amel.) do not split a sentence');
   const re=w.repDiffThemeRegex('grief, consol, weep');
   const ms=w.repMMMatches('nat-m',re); ok(ms.length>3&&ms.every(m=>re.test(w.repMMPlain(m.text))),'nat-m matches for grief/consol/weep: '+ms.length+' sentences; e.g. "'+w.repMMPlain(ms[0].text).substring(0,70)+'…" '+w.repMMRef(ms[0]));
   const perBook={}; ms.forEach(m=>perBook[m.book]=(perBook[m.book]||0)+1); ok(Object.values(perBook).every(n=>n<=w.REP_MM_MAX_PER_BOOK),'≤ '+w.REP_MM_MAX_PER_BOOK+' sentences per book: '+JSON.stringify(perBook));

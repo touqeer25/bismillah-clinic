@@ -6,7 +6,7 @@ const dom=new JSDOM(html,{runScripts:'dangerously',pretendToBeVisual:true,url:'h
 w.currentLang='ur';w.escapeHtml=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));w.toasts=[];w.showToast=m=>w.toasts.push(String(m));
 w.fetch=u=>{const f=path.join(ROOT,String(u).split('?')[0]);return fs.existsSync(f)?Promise.resolve({ok:true,json:()=>Promise.resolve(JSON.parse(fs.readFileSync(f,'utf8')))}):Promise.reject(new Error('404 '+u));};
 w.eval(require('./_rep_src')());
-w.eval(fs.readFileSync(path.join(ROOT,'js/08b-rep-differentiation.js'),'utf8'));
+w.eval(require('./_diff_src')());   // v93: 8 split files, LOAD_ORDER.txt
 let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 (async()=>{
   const d=w.document; for(let i=0;i<w.REP_N_CLIPS;i++)w.repClipboards[i]=[];
@@ -84,15 +84,19 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   for(let i=0;i<100&&!(w.repDiffLast&&w.repDiffLast.res);i++)await sleep(50); await sleep(50);
   ok(w.repDiffSel.join()==='nat-m,ign,plat'&&w.repDiffTab==='excl','B4 three chips picked → exclusive tab; sel='+w.repDiffSel.join());
   ok(d.querySelectorAll('.rep-diff-col').length===3,'B8 three exclusive columns rendered');
-  ok(d.querySelector('.rep-diff-sum')&&d.querySelector('.rep-diff-pairs')&&d.querySelectorAll('.rep-diff-pairs span').length===3,'B7 summary strip + 3 pairwise entries');
+  // v91: خلاصہ اب اکارڈین ہے — بند حالت میں صرف پٹی، کھولنے پر پوری تفصیل
+  ok(d.querySelector('.rep-diff-sumtog')&&!d.querySelector('.rep-diff-sum'),'B7 summary is collapsed by default (accordion)');
+  w.repDiffSumToggle(); await sleep(10);
+  ok(d.querySelector('.rep-diff-sum')&&d.querySelector('.rep-diff-pairs')&&d.querySelectorAll('.rep-diff-pairs span').length===3,'B7 summary strip + 3 pairwise entries (expanded)');
+  w.repDiffSumToggle(); await sleep(10);
   const rows=d.querySelectorAll('.rep-diff-col .rep-diff-row'); ok(rows.length>10,'B8 rows rendered: '+rows.length);
   // ☑ adds to active clipboard
   const n0=w.repClipboards[w.repActiveClip].length; rows[0].querySelector('.rpc-chk').click();
   ok(w.repClipboards[w.repActiveClip].length===n0+1&&rows[0].querySelector('.rpc-chk').classList.contains('on'),'B8 ☑ on a result row adds rubric to active clipboard');
   w.repDiffRenderBody(); ok(d.querySelector('.rep-diff-incase'),'A13/B8 in-case marker 📋 shown after adding');
   // grade tab / partial / common
-  w.repDiffSetTab('grade'); await sleep(20); ok(d.querySelectorAll('#repDiffBody .rep-diff-row').length>0&&d.querySelector('.rep-diff-legend'),'B6 grade-difference tab renders with legend');
-  w.repDiffSetTab('common'); await sleep(20); ok(d.querySelectorAll('#repDiffBody .rep-diff-row').length>0,'B6 common tab renders');
+  w.repDiffSetTab('grade'); await sleep(20); ok(d.querySelectorAll('#repDiffBody .rep-diff-row').length>0&&d.querySelectorAll('.rep-diff-vechead .vh').length===w.repDiffSel.length,'B6 grade-difference tab renders with a remedy header above the dots (v92)');
+  w.repDiffSetTab('common'); await sleep(20); ok(d.querySelectorAll('#repDiffBody .rep-diff-row').length>0&&d.querySelectorAll('.rep-diff-vechead .vh').length===w.repDiffSel.length,'B6 common tab renders + remedy header (v92)');
   // scope change to chapter + sort change persists
   w.repDiffSetOpt('scope','chapter'); for(let i=0;i<60&&!(w.repDiffLast&&w.repDiffLast.scope==='chapter');i++)await sleep(50);
   ok(w.repDiffLast.scope==='chapter'&&w.repDiffLast.scanned===Object.keys(kent.mind).length&&w.repDiffLast.n<=w.repDiffLast.scanned&&JSON.parse(w.localStorage.getItem('bc_rep_diff_opts')).scope==='chapter','B5 scope=chapter → scanned '+w.repDiffLast.scanned+', '+w.repDiffLast.n+' kept after the size cap (v68.7: filtering happens while collecting); persisted');
@@ -104,7 +108,10 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   await typed('puls'); w.toasts.length=0; await typed('lyc'); ok(w.repDiffSel.length===5&&w.toasts.length===1&&w.repDiffSel.indexOf('lyc')===-1,'B4 max 5 enforced with toast (sel='+w.repDiffSel.join()+')');
   w.repDiffToggleRem('sep'); w.repDiffToggleRem('puls'); await sleep(20); ok(w.repDiffSel.join()==='nat-m,ign,plat','B4 toggling removes remedies');
   // books witness tab
-  w.repDiffSetTab('books'); for(let i=0;i<200&&!d.querySelector('.rep-diff-sec .rep-book-badge');i++)await sleep(50);
+  w.repDiffSetTab('books'); await sleep(30);
+  // v84: ۵۶ MB خودکار نہیں آتے — کتاب چننے کی پٹی آتی ہے، پھر «لوڈ کریں»
+  ok(d.querySelector('.rep-diff-bookpick')&&!d.querySelector('.rep-diff-sec'),'B10 books witness starts with a book picker, nothing auto-downloaded (v84)');
+  w.repDiffBooksLoad(); for(let i=0;i<300&&!d.querySelector('.rep-diff-sec .rep-book-badge');i++)await sleep(50);
   ok(d.getElementById('repDiffThemeInp')&&d.getElementById('repDiffThemeInp').value.includes('absent'),'B10 theme input prefilled: "'+(d.getElementById('repDiffThemeInp')||{}).value+'"');
   ok(d.querySelector('.rep-diff-sec'),'B10 witness groups rendered ('+d.querySelectorAll('.rep-diff-sec').length+' books)');
   d.getElementById('repDiffThemeInp').value='grief, sigh, consol'; w.repDiffThemeApply(); await sleep(50);

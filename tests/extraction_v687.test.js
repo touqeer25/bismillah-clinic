@@ -9,7 +9,7 @@ w.escapeHtml=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&l
 w.toasts=[];w.showToast=m=>w.toasts.push(String(m));
 w.fetch=u=>{const f=path.join(ROOT,String(u).split('?')[0]);return fs.existsSync(f)?Promise.resolve({ok:true,json:()=>Promise.resolve(JSON.parse(fs.readFileSync(f,'utf8')))}):Promise.reject(new Error('404 '+u));};
 w.eval(require('./_rep_src')());
-w.eval(fs.readFileSync(path.join(ROOT,'js/08b-rep-differentiation.js'),'utf8'));
+w.eval(require('./_diff_src')());   // v93: 8 split files, LOAD_ORDER.txt
 let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
 (async()=>{
   const d=w.document; for(let i=0;i<w.REP_N_CLIPS;i++)w.repClipboards[i]=[];
@@ -74,7 +74,10 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   const app=require('./_rep_src')();
   ok(/REP_DATA_V='v=16'/.test(app),"D1 data version bumped to v=16 for the changed behaviour ("+(app.match(/REP_DATA_V='[^']+'/)||[''])[0]+")");
   const idx=fs.readFileSync(ROOT+'/index.html','utf8');
-  ok(/08b-rep-differentiation\.js\?v=\d+/.test(idx),'D2 index.html loads the differentiation module with a new ?v= (v4)');
+  // v93: module is now 8 files under js/differentiation/ — every one must be linked with a ?v=
+  const DIFF_PARTS=['01-diff-core','02-diff-data','03-diff-engine','04-diff-rubric-mode','05-diff-books-witness','06-diff-shell','07-diff-views','08-diff-extract'];
+  ok(DIFF_PARTS.every(n=>new RegExp('js/differentiation/'+n+'\\.js\\?v=\\d+').test(idx)),'D2 index.html loads all 8 differentiation parts with a ?v=');
+  ok(!/08b-rep-differentiation/.test(idx),'D2b the old monolithic 08b file is gone');
   console.log(fails?'\nFAILURES: '+fails:'\nALL v68.7 EXTRACTION CHECKS PASSED');
   process.exit(fails?1:0);
 })().catch(e=>{console.log('CRASH '+e.stack);process.exit(1);});
