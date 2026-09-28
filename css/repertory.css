@@ -29,13 +29,13 @@ body[dir="rtl"] #page-repertoryBrowser .rpd-info{direction:rtl;text-align:right}
 .rep-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px}
 .rep-main-inner{flex:1;background:white;border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.05);max-height:72vh;overflow-y:auto;box-sizing:border-box}
 /* sidebar chapter items */
-.rep-chapter-item{display:flex;align-items:center;gap:8px;padding:9px 11px;cursor:pointer;border-radius:9px;font-size:12.5px;font-family:'Segoe UI',sans-serif;color:#3d4f5d;transition:all 0.14s;border:1.5px solid transparent;margin:1px 0}
-.rep-chapter-item:hover{background:#f4f8fc}
+.rep-chapter-item{display:flex;align-items:center;gap:8px;padding:9px 11px;cursor:pointer;border-radius:9px;font-size:12.5px;font-family:'Segoe UI',sans-serif;color:#3d4f5d;transition:all 0.14s;border:1.5px solid transparent;margin:1px 0}/* v94: یہ قاعدہ مکمل طور پر بعد کی فائل میں دوبارہ لکھا جا چکا تھا — ہٹا دیا گیا: .rep-chapter-item:hover */
+
 .rep-chapter-item.active{background:#e8f1fb;border-color:#bcd9f5;color:#1a5276;font-weight:600}
 .rep-ch-ico{font-size:13px;opacity:0.75;flex:0 0 auto}
 .rep-ch-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.rep-ch-n{font-size:10px;color:#8aa0b2;background:#f0f4f8;border-radius:8px;padding:0 7px;line-height:1.7;flex:0 0 auto}
-.rep-chapter-item.active .rep-ch-n{background:#d5e7f9;color:#1a5276}
+.rep-ch-n{font-size:10px;color:#8aa0b2;background:#f0f4f8;border-radius:8px;padding:0 7px;line-height:1.7;flex:0 0 auto}/* v94: یہ قاعدہ مکمل طور پر بعد کی فائل میں دوبارہ لکھا جا چکا تھا — ہٹا دیا گیا: .rep-chapter-item.active .rep-ch-n */
+
 /* ---- navbar (back/fwd/up + breadcrumb + gradation + view) ---- */
 .rep-navbar{display:flex;align-items:center;gap:8px;background:white;border-radius:12px;padding:8px 10px;box-shadow:0 2px 8px rgba(0,0,0,0.05);flex-wrap:wrap}
 .rep-navbtn{width:34px;height:34px;border-radius:9px;border:1px solid #dfe6ee;background:white;color:#3d4f5d;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:all 0.14s;padding:0;line-height:1}

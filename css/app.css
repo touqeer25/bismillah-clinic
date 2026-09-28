@@ -706,10 +706,10 @@ body[dir="rtl"] .symptom-mode-btns{margin-left:0;margin-right:6px;}
 .rep-chart-table td:first-child{text-align:left;font-size:10px;background:#fafafa;}
 .rep-chart-table .grade-3{background:#2c3e50;color:white;}
 .rep-chart-table .grade-2{background:#7f8c8d;color:white;font-style:italic;}
-.rep-chart-table .grade-1{background:#f0f0f0;color:#555;}
-.rep-chapter-item{padding:6px 10px;cursor:pointer;border-radius:6px;font-size:12px;font-family:'Segoe UI',sans-serif;transition:all 0.15s;border:2px solid transparent;}
-.rep-chapter-item:hover{background:#e8f4f8;}
-.rep-chapter-item.active{background:#2980b9;color:white;font-weight:bold;}
+.rep-chart-table .grade-1{background:#f0f0f0;color:#555;}/* v94: یہ قاعدہ مکمل طور پر بعد کی فائل میں دوبارہ لکھا جا چکا تھا — ہٹا دیا گیا: .rep-chapter-item */
+/* v94: یہ قاعدہ مکمل طور پر بعد کی فائل میں دوبارہ لکھا جا چکا تھا — ہٹا دیا گیا: .rep-chapter-item:hover */
+/* v94: یہ قاعدہ مکمل طور پر بعد کی فائل میں دوبارہ لکھا جا چکا تھا — ہٹا دیا گیا: .rep-chapter-item.active */
+
 .rep-rubric-item{padding:8px 12px;border-bottom:1px solid #f0f0f0;font-size:12px;cursor:pointer;font-family:'Segoe UI',sans-serif;}
 .rep-rubric-header{font-weight:bold;color:#1a5276;font-size:13px;}
 .rep-remedy-tag{display:inline-block;padding:2px 8px;margin:2px;border-radius:12px;font-size:10px;font-weight:bold;cursor:pointer;}
