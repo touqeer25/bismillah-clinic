@@ -112,7 +112,8 @@ function repDiffRenderHead(){
     h+='<span class="rep-diff-selinline">';
     if(!repDiffSel.length) h+='<i class="rep-diff-hint">'+(poolN?L({ur:'▸ دبا کر دوائیں چنیں (زیادہ سے زیادہ 5)',en:'press ▸ to pick remedies (max 5)',roman:'▸ dabaen'}):L({ur:'مخفف لکھیں (زیادہ سے زیادہ 5)',en:'type an abbreviation (max 5)',roman:'abbr likhein'}))+'</i>';
     repDiffSel.forEach(function(a){ h+='<span class="rep-diff-chip on" title="'+_repAttr(repRemedyTitle(a))+'"><b dir="ltr">'+escapeHtml(a)+'</b><button onclick="repDiffToggleRem(\''+_repJs(a)+'\')">✕</button></span>'; });
-    h+='<span class="rep-diff-add"><input type="text" id="repDiffInput" list="repDiffRemList" placeholder="'+L({ur:'مخفف',en:'abbr',roman:'abbr'})+'" onkeydown="if(event.key===\'Enter\'){repDiffAddTyped();}" dir="ltr"><button class="rc-btn" onclick="repDiffAddTyped()">＋</button></span>';
+    // 🔑 v92 (صارف): ＋ بٹن ختم — فہرست میں سے کسی دوا پر کلک (change) یا ٹائپ کر کے Enter، دونوں سے شامل
+    h+='<span class="rep-diff-add"><input type="text" id="repDiffInput" list="repDiffRemList" placeholder="'+L({ur:'دوا تلاش کریں…',en:'search remedy…',roman:'dawa talash karein…'})+'" onkeydown="if(event.key===\'Enter\'){event.preventDefault();repDiffAddTyped();}" onchange="repDiffAddTyped()" dir="ltr"></span>';
     h+='<datalist id="repDiffRemList">'+repDiffDatalistHtml()+'</datalist>';
     h+='</span></div>';
     // ---- ذخیرہ: صرف کھلا ہو تو ----
@@ -162,10 +163,18 @@ function repDiffRenderHead(){
     h+='</div>';
     el.innerHTML=h;
 }
+// 🔑 v92 (صارف کا سوال): یہ فہرست **پوری ریپرٹری** کی ہے (remedy_names.json — 788 مخففات)،
+//   صرف اس ربرک کی نہیں۔ یہ جان بوجھ کر ہے: بغیر ربرک کے بھی دو دواؤں کا موازنہ ہو سکے۔
+//   مگر اب اسی ربرک کی دوائیں **سب سے اوپر**، ⭐ اور گریڈ کے ساتھ — تاکہ فرق صاف رہے۔
 function repDiffDatalistHtml(){
-    var names=(typeof _repRemedyNames!=='undefined'&&_repRemedyNames)||null; var out='';
-    if(names){ Object.keys(names).slice(0,900).forEach(function(a){ out+='<option value="'+_repAttr(a)+'">'+escapeHtml(names[a])+'</option>'; }); }
-    else if(repDiffCtx&&repDiffCtx.rems){ Object.keys(repDiffCtx.rems).forEach(function(a){ out+='<option value="'+_repAttr(a)+'"></option>'; }); }
+    var names=(typeof _repRemedyNames!=='undefined'&&_repRemedyNames)||null, out='', seen={};
+    if(repDiffCtx&&repDiffCtx.rems){
+        Object.keys(repDiffCtx.rems).forEach(function(a){
+            var g=repDiffGrade(repDiffCtx.rems[a]); seen[a]=1;
+            out+='<option value="'+_repAttr(a)+'">⭐ '+escapeHtml((names&&names[a])||a)+' — '+repLangText({ur:'اسی ربرک میں، گریڈ ',en:'in this rubric, grade ',roman:'is rubric mein, grade '})+g+'</option>';
+        });
+    }
+    if(names) Object.keys(names).forEach(function(a){ if(!seen[a]) out+='<option value="'+_repAttr(a)+'">'+escapeHtml(names[a])+'</option>'; });
     return out;
 }
 function repDiffClearCtx(){ repDiffCtx=null; repDiffTheme=''; if(repDiffTab==='rubric')repDiffTab='excl'; repDiffLast=null; repDiffRenderHead(); if(repDiffSel.length)repDiffRun(); else repDiffRenderBody(); }

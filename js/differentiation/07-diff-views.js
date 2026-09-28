@@ -6,6 +6,13 @@
 // ---------- باڈی ----------
 function repDiffInCaseSet(){ var s={}; for(var ci=0;ci<REP_N_CLIPS;ci++)(repClipboards[ci]||[]).forEach(function(it){ s[it.book+'|'+String(it.rid)]=ci+1; }); return s; }
 function repDiffDots(vec,R){ var h=''; for(var i=0;i<vec.length;i++){ var g=vec[i]; h+='<span class="rep-diff-dot'+(g?' d'+g:' d0')+'" title="'+_repAttr(R[i]+' = '+(g||0))+'">'+(g||'·')+'</span>'; } return h; }
+// 🔑 v92 (صارف): گریڈ کے گولوں کے **عین اوپر** دواؤں کے نام — چوڑائی گولوں کے برابر، اس لیے ٹھیک اوپر بیٹھتے ہیں
+function repDiffVecHead(R){
+    if(!R||R.length<2) return '';
+    var h='<div class="rep-diff-vechead"><span class="sp"></span><span class="rep-diff-vec">';
+    R.forEach(function(a){ h+='<span class="vh" title="'+_repAttr(repRemedyTitle(a))+'"><i dir="ltr">'+escapeHtml(a)+'</i></span>'; });
+    return h+'</span><span class="sc"></span></div>';
+}
 function repDiffRowHtml(row,R,inCase,showBook){
     var x=row.x, key=x.book+'|'+x.rid, inC=inCase[key];
     var chName=getChapterDisplayName(x.book,x.ch)||x.ch;
@@ -82,14 +89,15 @@ function repDiffRenderBody(){
         }
     } else if(t==='grade'&&res){
         h+='<p class="rep-tool-sub">'+L({ur:'سب چنی ہوئی ریمیڈیز موجود، مگر گریڈ الگ — شدت کا فرق۔ ترتیب: بڑا فرق + چھوٹا ربرک پہلے۔',en:'All chosen remedies present but with different grades — a difference of intensity. Larger gap + smaller rubric first.',roman:'Sab mojood, grade alag.'})+'</p>';
-        h+='<div class="rep-diff-legend">'+R.map(function(a,i){ return '<span>'+(i+1)+' = <b dir="ltr">'+escapeHtml(a)+'</b></span>'; }).join('')+'</div>';
+        h+=repDiffVecHead(R);
         h+=res.grade.length?res.grade.map(function(r){ return repDiffRowHtml(r,R,inCase,showBook); }).join(''):'<div class="rep-tool-note">—</div>';
     } else if(t==='partial'&&res){
         h+='<p class="rep-tool-sub">'+L({ur:'کچھ چنی ہوئی ریمیڈیز موجود، کچھ غائب (· = غائب)۔',en:'Some chosen remedies present, some absent (· = absent).',roman:'Kuch mojood, kuch ghaib.'})+'</p>';
-        h+='<div class="rep-diff-legend">'+R.map(function(a,i){ return '<span>'+(i+1)+' = <b dir="ltr">'+escapeHtml(a)+'</b></span>'; }).join('')+'</div>';
+        h+=repDiffVecHead(R);
         h+=res.partial.length?res.partial.map(function(r){ return repDiffRowHtml(r,R,inCase,showBook); }).join(''):'<div class="rep-tool-note">—</div>';
     } else if(t==='common'&&res){
         h+='<p class="rep-tool-sub">'+L({ur:'سب موجود، گریڈ برابر — فیصلے کے لیے بیکار، مگر یہ ان کا مشترکہ خاکہ ہے۔',en:'All present with equal grades — useless for deciding, but this is their shared picture.',roman:'Sab mojood, barabar grade.'})+'</p>';
+        h+=repDiffVecHead(R);   // 🔑 v92 (صارف): یہاں نام غائب تھے
         h+=res.common.length?res.common.map(function(r){ return repDiffRowHtml(r,R,inCase,showBook); }).join(''):'<div class="rep-tool-note">—</div>';
     } else if(t==='rubric'){
         h+=repDiffRubricTabHtml(last,inCase);
