@@ -7,7 +7,8 @@ const w=new JSDOM('<!doctype html><html><body></body></html>',{runScripts:'dange
 w.escapeHtml=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 w._repAttr=s=>String(s||'').replace(/"/g,'&quot;');
 w.currentLang='ur';
-w._repUrLabels=JSON.parse(rd('ur/rubric_labels_ur.json')).labels;
+const _J=JSON.parse(rd('ur/rubric_labels_ur.json'));
+w._repUrLabels=_J.labels; w._repUrCtx=_J.ctx||{}; w._locked=new Set(_J.locked||[]);
 w.repUrLabelsOn=()=>w.currentLang==='ur';
 w.repUrLabelObj=function(l){let s=String(l||'').replace(/ \[\d+\]$/,'');
   if(/\(\s*see\b/i.test(s)) s=s.replace(/\s*\(\s*see\b[^)]*\)/ig,'').replace(/\s+,/g,',').replace(/,\s*$/,'').trim();
@@ -65,5 +66,15 @@ ok(/rep-xref/.test(rd('js/repertory/rep-tree.js'))||/repXrefHtml/.test(rd('js/re
 ok(/repXrefHtml/.test(rd('js/repertory/rep-rubric-detail.js')),'E7 ربرک کے عنوان میں لاگو');
 ok(/repXrefHtml/.test(rd('js/differentiation/07-diff-views.js')),'E8 تفریق کی سطر میں لاگو');
 
-console.log(fails?'\nFAILURES: '+fails:'\nALL v103 RUBRIC-UR CHECKS PASSED');
+// ---------- F. v105: سیاق + قفل ----------
+ok(Object.keys(w._repUrCtx).length>500,'F1 سیاق کے اندراج: '+Object.keys(w._repUrCtx).length);
+ok(w._repUrCtx['menses|during']==='حیض کے دوران','F2 «menses › during» = '+w._repUrCtx['menses|during']);
+ok(w._repUrCtx['anger|absent persons, at']==='غیر حاضر لوگوں پر غصہ','F3 مبہم لیبل والد کے ساتھ صاف ہوا');
+ok(!/کے دوران سے/.test(JSON.stringify(w._repUrCtx)),'F4 ادھورے والد سے سیاق نہیں بنا');
+ok(w._locked.size>1000,'F5 قفل شدہ ترجمے: '+w._locked.size);
+['absent persons, at','leg','dinner','timidity','with silent grief'].forEach(k=>ok(w._locked.has(k),'F6 قفل: '+k));
+ok(/repUrCtxLookup/.test(rd('js/repertory/rep-tree.js')),'F7 ایپ سیاق پڑھتی ہے');
+ok(/locked/.test(rd('tools/merge_ur.js')),'F8 merge اوزار قفل کا احترام کرتا ہے');
+
+console.log(fails?'\nFAILURES: '+fails:'\nALL v105 RUBRIC-UR CHECKS PASSED');
 process.exit(fails?1:0);
