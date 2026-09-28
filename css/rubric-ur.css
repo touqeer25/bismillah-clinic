@@ -14,3 +14,6 @@
 .rtv-lab .rep-xref{color:#9aa8b6}
 .rpd-title .rep-xref{color:#7b8b9a;font-size:.8em}
 .rep-diff-t .rep-xref{color:#9aa8b6}
+
+/* 🔑 v105 — سیاق کے ساتھ بنا ترجمہ (والد ربرک ملا کر) — ہلکا نیلا نشان */
+.rtv-ur.ctx{border-bottom:1px dotted #bcd9f5}
