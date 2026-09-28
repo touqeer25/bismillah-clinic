@@ -61,7 +61,10 @@ function repUrWord(w){
 }
 function repUrLabelObj(label){
     if(!_repUrLabels) return null;
-    var k=String(label||'').replace(/ \[\d+\]$/,'').toLowerCase().trim(); if(!k) return null;
+    // 🔑 v103: «(See …)» ترجمے سے باہر — وہ ربرک کا متن نہیں، اشارہ ہے
+    var _s=String(label||'').replace(/ \[\d+\]$/,'');
+    if(/\(\s*see\b/i.test(_s)) _s=_s.replace(/\s*\(\s*see\b[^)]*\)/ig,'').replace(/\s+,/g,',').replace(/,\s*$/,'').trim();
+    var k=_s.toLowerCase().trim(); if(!k) return null;
     if(_repUrLabels[k]) return {t:_repUrLabels[k],auto:false};
     var segs=k.split(/,\s*/), out=[], any=false;
     for(var i=0;i<segs.length;i++){
@@ -92,7 +95,7 @@ function repTreeRowHtml(r){
         +'<span class="rtv-tg">'+(r.kids?(open?'▾':'▸'):'·')+'</span>'
         +repTreeLevelIcon(r.depth,r.kids)
         +repCmpChkHtml(repCurrentBook,repCurrentChapter,rid,r.full,rems,'row')
-        +'<span class="rtv-lab'+(r.kids?' has-kids':'')+'">'+escapeHtml(r.label)+'</span>'
+        +'<span class="rtv-lab'+(r.kids?' has-kids':'')+'">'+(typeof repXrefHtml==='function'?repXrefHtml(r.label):escapeHtml(r.label))+'</span>'   // 🔑 v103
         +(function(){ if(!repUrLabelsOn())return ''; var u=repUrLabelObj(r.label); if(!u)return '';
             return '<span class="rtv-ur'+(u.auto?' auto':'')+'" dir="rtl" lang="ur"'+(u.auto?' title="خودکار لفظی ترجمہ — نظرثانی باقی"':'')+'>'+escapeHtml(u.t)+'</span>'; })()
         +(rems?'<span class="rtv-n">('+rems+')</span>':'')
