@@ -7,6 +7,8 @@ const dir=R+'/'+w.REP_BOOK_INFO[book].chapDir, have=JSON.parse(fs.readFileSync(R
 let tot=0,done=0;
 for(const c of JSON.parse(fs.readFileSync(dir+'_index.json'))){
   const t=w.buildRubricTree(JSON.parse(fs.readFileSync(dir+c.key+'.json')));const rows=[];w.repTreeFlatten(t,[],'',0,rows,'');
-  rows.forEach(r=>{const l=r.label.replace(/ \[\d+\]$/,'').trim(); if(!l)return; tot++; if(have[l.toLowerCase()])done++;});
+  rows.forEach(r=>{let l=r.label.replace(/ \[\d+\]$/,'').trim(); if(!l)return; tot++;
+    if(/\(\s*see\b/i.test(l)) l=l.replace(/\s*\(\s*see\b[^)]*\)/ig,'').replace(/\s+,/g,',').replace(/,\s*$/,'').trim();   // v103 کی طرح
+    if(have[l.toLowerCase()])done++;});
 }
 console.log(book+': کل لیبل-ظہور '+tot+'   ترجمہ شدہ '+done+'  ('+(100*done/tot).toFixed(1)+'%)');

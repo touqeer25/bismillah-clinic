@@ -9,6 +9,8 @@ const T=k=>{k=String(k).trim().toLowerCase(); return G[k]||L[k]||null;};
 // مصدر (…نا) → حالتِ مجرور (…نے):  چلنا → چلنے سے
 const OBL_EX={'بایاں':'بائیں','دایاں':'دائیں','قے':'قے','ہوا':'ہوا','دوا':'دوا','ہوا (شور)':'ہوا'};
 const TIMEW=['صبح','شام','رات','دوپہر','سہ پہر','آدھی رات','دوپہر سے پہلے','دن میں'];
+function dedupePost(s){ const P=['میں','سے','پر','تک','کو','کا','کے','کی']; const w=s.split(/\s+/),o=[];
+  for(const x of w){ if(o.length&&x===o[o.length-1]&&P.indexOf(x)!==-1) continue; o.push(x);} return o.join(' '); }
 function obl(u){
   if(OBL_EX[u]) return OBL_EX[u];
   if(/(میں|پر|سے|کے ساتھ|کی طرف|کے بعد|کے دوران)$/.test(u)) return u;   // پہلے سے حرفِ اضافت لگا ہے
@@ -144,6 +146,7 @@ function compose(label,depth){
   return ['? '+l,'نامکمل'];
 }
 fs.readFileSync(process.argv[2],'utf8').split('\n').filter(Boolean).forEach(line=>{
-  const [lab,n]=line.split('\t'); const [ur,how]=compose(lab);
+  const [lab,n]=line.split('\t'); let [ur,how]=compose(lab);
+  if(ur&&!/^\?/.test(ur)) ur=dedupePost(ur);        // 🔑 v104: دہرا حرفِ اضافت نہ رہے
   console.log([lab,n,ur,how].join('\t'));
 });
