@@ -11,8 +11,12 @@ let currentCategory = 'all';
 let diagnosisPatientId = null;
 
 function initDiagnosis() {
+    // 🔑 v94: مواد اب data/diagnosis.json سے آتا ہے — اگر ابھی راستے میں ہے تو انتظار کا پیغام،
+    //   اور آتے ہی js/00-data-boot.js خود یہ فہرست دوبارہ بنا دیتا ہے۔
     if (typeof SYMPTOMS_DB === 'undefined') {
-        $('symptomsGrid').innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:30px;color:#e74c3c;">⚠️ diagnosis-data.js فائل نہیں ملی</div>';
+        var _pending = window.BC_DATA_STATE && window.BC_DATA_STATE.failed.indexOf('data/diagnosis.json') === -1;
+        $('symptomsGrid').innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:30px;color:' + (_pending ? '#7f8c8d' : '#e74c3c') + ';">'
+            + (_pending ? '⏳ علامات کا مواد آ رہا ہے…' : '⚠️ data/diagnosis.json فائل نہیں ملی') + '</div>';
         return;
     }
     renderCategoryTabs();
