@@ -19,7 +19,7 @@ function repDiffRowHtml(row,R,inCase,showBook){
         +'<button class="rpc-chk sr'+(repClipFind(repActiveClip,x.book,x.rid)!==-1?' on':'')+'" title="'+repLangText({ur:'فعال کلپ بورڈ میں شامل/خارج',en:'Add to / remove from active clipboard',roman:'Active clipboard mein shamil/kharij'})+'" onclick="repDiffClipToggle(this,\''+_repJs(x.book)+'\',\''+_repJs(x.ch)+'\',\''+_repJs(x.rid)+'\',\''+_repJs(x.t)+'\','+row.N+')">'+(repClipFind(repActiveClip,x.book,x.rid)!==-1?'✓':'')+'</button>'
         +(showBook?repBookBadgeHtml(x.book)+' ':'')
         +'<span class="rep-diff-ch">'+escapeHtml(chName)+' ›</span> '
-        +'<span class="rep-diff-t" dir="ltr" onclick="repDiffGo(\''+_repJs(x.book)+'\',\''+_repJs(x.ch)+'\',\''+_repJs(x.rid)+'\')">'+escapeHtml(x.t)+'</span>'
+        +'<span class="rep-diff-t" dir="ltr" onclick="repDiffGo(\''+_repJs(x.book)+'\',\''+_repJs(x.ch)+'\',\''+_repJs(x.rid)+'\')">'+(typeof repXrefHtml==='function'?repXrefHtml(x.t):escapeHtml(x.t))+'</span>'
         +(typeof repRubricUrHtml==='function'?repRubricUrHtml(x.t,'rep-diff-ur'):'')   // 🔑 v101: اردو جملہ (دائیں سے بائیں)
         +'<span class="rep-diff-n" title="'+repLangText({ur:'ربرک کی کل ریمیڈیز',en:'remedies in rubric',roman:'rubric ki kul remedies'})+'">'+row.N+'</span>'
         +'<span class="rep-diff-vec">'+repDiffDots(row.vec,R)+'</span>'
