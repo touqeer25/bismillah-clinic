@@ -177,8 +177,8 @@ ok(LJ.rubrics['crumb']==='حلقوم — چورا (روٹی کا ذرہ)'&&LJ.ru
   const style=ks.filter(k=>/سے بڑھے|بڑھیں/.test(J.rubrics[k])).length;
   ok(noRoot===0&&latin===0&&style===0,'H10 '+root+': ہر جملے میں جڑ «'+root+' — » · کوئی انگریزی حرف نہیں · اسلوب «سے بگاڑ» (کوئی «سے بڑھے» نہیں) — '+ks.length+' جملے');
 });
-ok(/js\/18-rubrics-ur\.js\?v=134/.test(idx)&&/var REP_RUBUR_V = '134';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v134'/.test(sw),'H11 v134 bump: index ?v=134 · REP_RUBUR_V=134 · CACHE_NAME v134');
-ok(sw.indexOf("'./ur/rubrics/kent/larynx_and_trachea.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/respiration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/expectoration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/cough.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/chest.json'")>=0,'H12 service-worker میں نئی json (larynx_and_trachea/respiration/expectoration/cough/chest)');
+ok(/js\/18-rubrics-ur\.js\?v=135/.test(idx)&&/var REP_RUBUR_V = '135';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v135'/.test(sw),'H11 v135 bump: index ?v=135 · REP_RUBUR_V=135 · CACHE_NAME v135');
+ok(sw.indexOf("'./ur/rubrics/kent/larynx_and_trachea.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/respiration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/expectoration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/cough.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/chest.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/back.json'")>=0,'H12 service-worker میں نئی json (larynx_and_trachea/respiration/expectoration/cough/chest/back)');
 
 // ---------- I. CHEST (v134) ----------
 const chR=L.chapterRows(w,'kent','chest'); const chi=f=>chR.findIndex(r=>r.full===f);
@@ -190,5 +190,17 @@ ok(chi('PAIN, stitching, sides, right')>chi('PAIN, stitching, sides')&&chi('PALP
 const CH=JSON.parse(rd('ur/rubrics/kent/chest.json')); const chKs=Object.keys(CH.rubrics);
 ok(chKs.length===3433&&CH.rubrics['abscess']==='سینہ — پھوڑا'&&CH.rubrics['palpitation heart']==='سینہ — دل کی دھڑکن'&&CH.rubrics['pulsation']==='سینہ — دھڑکن'&&CH.rubrics['purring']==='سینہ — بلی جیسی گھرگھراہٹ'&&CH.rubrics['rattling in']==='سینہ — کھڑکھڑاہٹ'&&CH.rubrics['paralysis']==='سینہ — فالج'&&CH.rubrics['phthisis pulmonalis']==='سینہ — پھیپھڑوں کی ٹی بی (دق)'&&CH.rubrics['oppression']==='سینہ — دباؤ','I5 CHEST کی اصطلاحات پچھلے ابواب سے موازنہ شدہ (پھوڑا · دل کی دھڑکن · دھڑکن · بلی جیسی گھرگھراہٹ · کھڑکڑاہٹ · فالج · دق · دباؤ)');
 ok(chKs.every(k=>CH.rubrics[k].indexOf('سینہ — ')===0)&&chKs.filter(k=>/[A-Za-z]/.test(CH.rubrics[k])).length===0&&chKs.filter(k=>/سے بڑھے|بڑھیں/.test(CH.rubrics[k])).length===0&&!/دیکھیں/.test(rd('ur/rubrics/kent/chest.json'))&&chKs.filter(k=>/[\u06F0-\u06F9\u0660-\u0669]/.test(CH.rubrics[k])).length===0,'I6 CHEST: ہر جملے میں جڑ «سینہ — » · کوئی انگریزی حرف نہیں · اسلوب «سے بگاڑ» · کوئی «(… دیکھیں)» نہیں · ہندسے 1 2 3 — 3,433 جملے');
+
+// ---------- J. BACK (v135) ----------
+const bkR=L.chapterRows(w,'kent','back'); const bki=f=>bkR.findIndex(r=>r.full===f);
+const bkMain=bkR.filter(r=>r.depth===0).map(r=>r.full);
+ok(bkR.length===3888&&bkMain.length===87&&bkMain[0]==='ABSCESS'&&bkMain[bkMain.length-1]==='WIND','J1 BACK مکمل: 3,888 ربرک، 87 مین ربرک (ABSCESS پہلا، WIND آخری)');
+ok(bki('BOILS (See Eruptions)')<bki('BROWN')&&bki('BROWN')<bki('BROWN spots on')&&bki('BROWN spots on')<bki('BRUISES on spine (See Injuries)')&&bki('BRUISES on spine (See Injuries)')<bki('BUBBLING sensation in'),'J2 BACK کے مین ربرک حروفِ تہجی میں (BOILS → BROWN → BROWN spots on → BRUISES → BUBBLING)');
+ok(bki('PAIN, aching')<bki('PAIN, boring')&&bki('PAIN, boring')<bki('PAIN, burning')&&bki('PAIN, burning')<bki('PAIN, clawing')&&bki('PAIN, clawing')<bki('PAIN, constricting')&&bki('PAIN, drawing')<bki('PAIN, pressing')&&bki('PAIN, pressing')<bki('PAIN, sore')&&bki('PAIN, sore')<bki('PAIN, stitching')&&bki('PAIN, stitching')<bki('PAIN, tearing'),'J3 PAIN کی ذیلی ربرکیں کتابی ترتیب میں (aching → boring → burning → clawing → constricting … drawing → pressing → sore → stitching → tearing)');
+ok(bki('STIFFNESS')<bki('STRAINING')&&bki('STRAINING')<bki('SWELLING')&&bki('SWELLING')<bki('TENSION')&&bki('TENSION')<bki('TINGLING (See Formication)')&&bki('TUMORS')<bki('TWITCHING')&&bki('TWITCHING')<bki('ULCERS')&&bki('ULCERS')<bki('WEAKNESS')&&bki('WEAKNESS')<bki('WIND'),'J4 BACK کی ترتیب (STIFFNESS → SWELLING → TENSION → TINGLING … TUMORS → TWITCHING → ULCERS → WEAKNESS → WIND)');
+const BK=JSON.parse(rd('ur/rubrics/kent/back.json')); const bkKs=Object.keys(BK.rubrics);
+ok(bkKs.length===3888&&BK.rubrics['abscess']==='پیٹھ — پھوڑا'&&BK.rubrics['numbness']==='پیٹھ — سن ہونا'&&BK.rubrics['stiffness']==='پیٹھ — سختی'&&BK.rubrics['tension']==='پیٹھ — تناؤ'&&BK.rubrics['twitching']==='پیٹھ — پھڑکن'&&BK.rubrics['warts']==='پیٹھ — مسے'&&BK.rubrics['wind']==='پیٹھ — ہوا'&&BK.rubrics['ulcers']==='پیٹھ — ناسور (زخم)'&&BK.rubrics['formication']==='پیٹھ — چیونٹیاں رینگنے کا احساس'&&BK.rubrics['erysipelas']==='پیٹھ — سرخ بادہ (ایریسیپلس)','J5 BACK کی اصطلاحات پچھلے ابواب سے موازنہ شدہ (پھوڑا · سن ہونا · سختی · تناؤ · پھڑکن · مسے · ہوا · ناسور · چیونٹیاں · سرخ بادہ)');
+ok(bkKs.every(k=>BK.rubrics[k].indexOf('پیٹھ — ')===0)&&bkKs.filter(k=>/[A-Za-z]/.test(BK.rubrics[k])).length===0&&bkKs.filter(k=>/سے بڑھے|بڑھیں/.test(BK.rubrics[k])).length===0&&!/دیکھیں/.test(rd('ur/rubrics/kent/back.json'))&&bkKs.filter(k=>/[\u06F0-\u06F9\u0660-\u0669]/.test(BK.rubrics[k])).length===0,'J6 BACK: ہر جملے میں جڑ «پیٹھ — » · کوئی انگریزی حرف نہیں · اسلوب «سے بگاڑ» · کوئی «(… دیکھیں)» نہیں · ہندسے 1 2 3 — 3,888 جملے');
+ok(bkKs.filter(k=>{const s=BK.rubrics[k].split('، '); return s.some((x,i)=>i&&x===s[i-1]);}).length===0,'J7 BACK: کوئی لفظ والد کے بعد دہرایا نہیں گیا (جوڑ کا ڈھانچہ صاف)');
 
 console.log(fails?`\n${fails} FAIL`:'\nALL PASS'); process.exit(fails?1:0);

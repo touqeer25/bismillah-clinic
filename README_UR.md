@@ -1,13 +1,28 @@
 # اردو ترجمہ — تازہ ترین زپ کی ہدایات (رولنگ فائل، ہر ورژن میں یہی بدلتی ہے)
 
-**تازہ ترین:** v134 · 30 ستمبر 2026 · کیش bhc-clinic-v134
+**تازہ ترین:** v135 · 30 ستمبر 2026 · کیش bhc-clinic-v135
 
 ## زپ کیسے لگائیں
 1. زپ کو ریپو کی **جڑ** میں کھولیں (فائلیں اپنی جگہ بیٹھ جائیں گی)۔
 2. کمٹ اور پش کریں۔ (`ur/review/` گٹ ہب پر ضروری نہیں — `.gitignore` میں ہے۔)
 3. براؤزر میں **دو بار کنٹرول + شفٹ + آر**۔
 
-## v134 میں کیا ہے — سینہ مکمل (3,433 ربرک)
+## v135 میں کیا ہے — پیٹھ مکمل (3,888 ربرک)
+
+| بات | تفصیل |
+|---|---|
+| باب | **پیٹھ** — 3,888 ربرک میں سے **3,888 مکمل** (جڑ «پیٹھ — »)؛ **87 مین ربرک** (`ABSCESS` پہلا، `WIND` آخری)؛ تیرہ بیچ سب ہاتھ سے (`back_b1..b13_ur.py` → `ur/rubrics/kent/back_batch1.tsv`)؛ ⚠ مشتبہ = 0 |
+| ترتیب | کتابی ترتیب برقرار — مین ربرک حروفِ تہجی میں (`ABSCESS → AIR → ASLEEP → BAR → BIFIDA → BLOOD → BLUISH → BOILS → BROWN → … → STIFFNESS → STRAINING → SWELLING → TENSION → TINGLING → TREMBLING → TUMORS → TWITCHING → ULCERS → WARM → WARTS → WAVE → WEAKNESS → WIND`)؛ `PAIN` کی ذیلی اقسام کتاب کے مطابق (`aching → boring → burning → clawing → constricting … drawing → pressing → sore → stitching → tearing`) اور **پھیلاؤ سب سے آخر میں** (کینٹ کے پیش لفظ کا قاعدہ) |
+| نئی اصطلاحات | sacrum «تعلق کی ہڈی» · coccyx «دم کی ہڈی» · vertebra «مہرہ/مہرے» · scapula «کندھے کی ہڈی» · nape «گردن کے پچھلے حصے» · nates «سُرین» · sciatics «عرق النسا» · flatus «ریاح» · erysipelas «سرخ بادہ (ایریسیپلس)» · formication «چیونٹیاں رینگنے کا احساس» · bifida «ریڑھ کے مہروں کا کھلا رہ جانا (بائفڈا)» · emposthotonos/opisthotonos «پیٹھ کی طرف اکڑ جانا (اوپس تھوٹونس)» · bar «سلاخ» · twitching «پھڑکن» · tingling «جھنجھناہٹ (سنسناہٹ)» · prickling «چبھن (سوئی جیسی)» · polypus «پولیپ» · sarcoma «سارکوما» · fistulae «نالیاں (فِسچولا)» · emaciation «دبلا ہونا» · hot sponge «گرم اسفنج» · riding in a carriage «بگھی میں سفر» |
+| خود جانچ | merge سے پہلے **والد-آخری-لفظ / بچے-پہلے-لفظ** کا مکمل اسکین → **509 جگہیں** درست کیں (مثلاً «رات، رات، کپڑے اتارتے وقت» → «رات، کپڑے اتارتے وقت»؛ «درد، پھیلتا ہوا، بازو، بازو، بائیں» → «…، بازو، بائیں»؛ «گلٹیاں…، پیٹھ کا اوپری حصہ، کندھے کی ہڈیاں، پیٹھ کا اوپری حصہ، کندھے کی ہڈیاں، درمیان» → ایک ہی بار) · دو قطاریں (947 · 950) ہاتھ سے سیدھی کیں · بیچ 10 کا ایک سرکا ہوا نمبر (2818/2820) پکڑا اور درست کیا · پھر **final JSON پر دہرے لفظ کا اسکین = 0** · «(… دیکھیں)» = 0 · انگریزی حرف = 0 · اردو ہندسے = 0 |
+| گنتی | کینٹ کل **48,640 / 71,027 (68.5%)** — **30 ابواب** مکمل |
+| فائلیں | `ur/rubrics/kent/back.json` · `js/18-rubrics-ur.js` (`REP_RUBUR_V='135'`) · `index.html` (`?v=135`) · `service-worker.js` (`bhc-clinic-v135` + `back.json`) · `tests/rubrics_ur_v107.test.js` (نئے ٹیسٹ **J1–J7**؛ H11/H12 اپ ڈیٹ) |
+| ٹیسٹ | `node tests/rubrics_ur_v107.test.js` → **129 PASS / ALL PASS** · `node tests/rubric_ur_v101.test.js` → **ALL v105 CHECKS PASSED** |
+
+### اگلا قدم
+EXTREMITIES (16,057) — پھر SLEEP (1,066) · CHILL (800) · FEVER (609) · PERSPIRATION (427) · SKIN (1,189) · GENERALITIES (2,239)۔
+
+## v134 (پچھلا) — سینہ مکمل (3,433 ربرک)
 
 | بات | تفصیل |
 |---|---|
