@@ -67,7 +67,8 @@ ok(H.meta.root==='سر — '&&hNonPain.every(r=>H.rubrics[r.key]&&H.rubrics[r.ke
 ok(!hrows.some(r=>H.rubrics[r.key]&&/[\u06F0-\u06F9]/.test(H.rubrics[r.key])),'H2 HEAD میں اردو ہندسے نہیں');
 ok(H.rubrics['pain']==='سر — درد'&&H.rubrics['pain, evening, bed, in agg.']==='سر — درد، شام بستر میں بگاڑ','H3 HEAD › PAIN کی عمومی شرطیں (799) موجود');
 ok(H.rubrics['pain, forehead, eyes, above, left, lying on left side amel.']==='سر — درد، بائیں آنکھ کے اوپر، بائیں پہلو لیٹنے سے آرام'&&H.rubrics['pain, vertex, touch, by laying hand on it, amel.']==='سر — درد، چوٹی میں، ہاتھ رکھنے سے آرام','H4 HEAD › PAIN کے مقام (ماتھا، گدی، پہلو، کنپٹیاں، چوٹی) موجود');
-ok(hrows.filter(r=>/^PAIN\b/.test(r.full)&&!H.rubrics[r.key]).length===2880,'H5 HEAD › PAIN کی قسموں کے 2,880 ربرک ابھی باقی (اگلی نشست)');
+ok(hrows.every(r=>H.rubrics[r.key]&&H.rubrics[r.key].indexOf('سر — ')===0),'H5 HEAD مکمل: ہر ربرک کا جملہ ('+hrows.length+')');
+ok(H.rubrics['pain, pressing, forehead, eyes, over, right, upward and inward']==='سر — درد، دبانے والا، دائیں آنکھ کے اوپر، اوپر اور اندر کی طرف'&&H.rubrics['pain, lying, amel.']==='سر — درد، لیٹنے سے آرام','H6 PAIN کی قسموں کی مثالیں');
 w.repCurrentChapter='mind';
 ok(w.repRubUrMode()==='full','C7 موڈ کی طے شدہ حالت «پورا مطلب»');
 w.repRubUrSetMode('delta'); ok(w.repRubUrMode()==='delta'&&w.localStorage.getItem('bc_ur_mode')==='delta','C8 موڈ بدلتا اور محفوظ ہوتا ہے');
@@ -88,7 +89,7 @@ ok(/js\/18-rubrics-ur\.js\?v=\d+/.test(idx)&&/css\/rubrics-ur\.css\?v=\d+/.test(
 ok(idx.indexOf('<script src="js/17-rubric-ur.js')<idx.indexOf('<script src="js/18-rubrics-ur.js'),'E2 18-rubrics-ur.js، 17-rubric-ur.js کے بعد لوڈ ہوتی ہے');
 ok(/id="repUrModeBtn"/.test(idx)&&!/repUrModeBtn"[^>]*onclick/.test(idx),'E3 ٹول بار میں بٹن #repUrModeBtn (onclick کے بغیر)');
 ok(/'\.\/js\/18-rubrics-ur\.js'/.test(sw)&&/'\.\/css\/rubrics-ur\.css'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/mind\.json'/.test(sw),'E4 service-worker میں تینوں نئی فائلیں');
-ok(/CACHE_NAME='bhc-clinic-v(11[4-9]|1[2-9]\d)'/.test(sw),'E5 CACHE_NAME v114 یا بعد کا');
+ok(/CACHE_NAME='bhc-clinic-v(11[5-9]|1[2-9]\d)'/.test(sw),'E5 CACHE_NAME v115 یا بعد کا');
 ok(/'\.\/ur\/rubrics\/kent\/vertigo\.json'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/head\.json'/.test(sw),'E4b service-worker میں vertigo.json اور head.json');
 ok(/repRubUrRowHtml\(r\)/.test(tree)&&/ensureRepRubricsUr\(repCurrentBook,repCurrentChapter/.test(tree),'E6 rep-tree.js: صف پر جملہ + باب کی فائل منگوانا');
 ok(!/ensureRepRubricsUr/.test(rd('js/repertory/LOAD_ORDER.txt')),'E7 LOAD_ORDER.txt نہیں چھیڑا');
