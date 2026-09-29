@@ -1,5 +1,5 @@
 # HANDOFF — کام کہاں تک پہنچا
-**آخری تجدید:** 29 ستمبر 2026 · **v113** · **ریپو:** https://github.com/touqeer25/bismillah-clinic
+**آخری تجدید:** 29 ستمبر 2026 · **v114** · **ریپو:** https://github.com/touqeer25/bismillah-clinic
 **لائیو:** https://bismillah-clinic.vercel.app · **ایپ:** `index.html` + `js/` (PWA، کوئی بنڈلر نہیں)
 
 > **نئی نشست یہاں سے شروع کرے۔** پہلے یہ پوری فائل پڑھیں، پھر «باقی کام» والا حصہ۔
@@ -27,7 +27,7 @@
 
 ```
 index.html                 صرف ڈھانچہ — ایک سطر بھی چلتا کوڈ نہیں
-service-worker.js          آف لائن کیش (اس وقت bhc-clinic-v113 — ہر تبدیلی پر بڑھائیں)
+service-worker.js          آف لائن کیش (اس وقت bhc-clinic-v114 — ہر تبدیلی پر بڑھائیں)
 data/*.json                تشخیص · علاج · نالج کا مواد (v94 میں کوڈ سے نکالا)
 js/00-data-boot.js         مواد کا لوڈر — سب سے پہلے چلتا ہے
 js/01 … js/16              ایپ کے حصے
@@ -89,6 +89,7 @@ node tests/tree_view_integrity.jsdom.test.js   # ٹری — 71,027 ربرک
 | **v111** | بیچ 11: **VERTIGO مکمل 567 / 567** (`ur/rubrics/kent/vertigo.json`)؛ **باب کی جڑ** (`meta.root` = «چکر — »): `merge --root`، ایپ اور QA میں جڑ سب سے باہر کی بنیاد؛ SW میں vertigo.json |
 | **v112** | بیچ 12: **HEAD — PAIN کے سوا سب 2,249 / 6,921** (`ur/rubrics/kent/head.json`، جڑ «سر — »)؛ باقی صرف `HEAD › PAIN` کے 4,672 ربرک (قطار 1457–6128) |
 | **v113** | بیچ 13: **HEAD › PAIN کی عمومی شرطیں 799** (وقت، موسم، کھانا، حرکت، نیند …) → HEAD 3,048 / 6,921؛ باقی PAIN کی قسمیں اور مقام 3,873 |
+| **v114** | بیچ 14: **HEAD › PAIN کے مقام 993** (ماتھا، گدی، پہلو، کنپٹیاں، چوٹی) → HEAD 4,041 / 6,921؛ باقی صرف درد کی قسمیں 2,880 |
 
 ### حذف شدہ (تصدیق شدہ 404)
 `js/08b-rep-differentiation.js` · `diagnosis-data.js` · `advanced-diagnosis-knowledge.js` ·
@@ -138,7 +139,7 @@ ur/rubric_labels_ur.json  →  { "labels": { "eating, after": "کھانے کے �
 | ~~`ur/BATCH_5_REVIEW.md`~~ | بیچ 5/6 (لیبل) کی الگ فائل **نہیں بنی تھی** — براہِ راست ضم ہوئے |
 | **`ur/rubrics/kent/mind.json`** | **ربرک کی سطح کے جملے** (MIND مکمل، 4,834)؛ صرف `tools/merge_rubrics_ur.js` سے لکھیں |
 | **`ur/rubrics/kent/vertigo.json`** | VERTIGO مکمل 567 — `meta.root` «چکر — » (ہر جملہ اسی سے شروع)؛ ماخذ `vertigo_batch1.tsv` |
-| **`ur/rubrics/kent/head.json`** | HEAD 3,048 / 6,921 — جڑ «سر — »؛ ماخذ `head_batch1.tsv` (PAIN کے سوا) + `head_batch2.tsv` (PAIN کی عمومی شرطیں) |
+| **`ur/rubrics/kent/head.json`** | HEAD 4,041 / 6,921 — جڑ «سر — »؛ ماخذ `head_batch1.tsv` (PAIN کے سوا) + `head_batch2.tsv` (PAIN عمومی شرطیں) + `head_batch3.tsv` (PAIN مقام) |
 | `ur/rubrics/kent/mind_batch1..4.tsv` | بیچ 7–10 کی ماخذ TSV (key · depth · en · ur) — دوبارہ ضم کے لیے (ترتیب سے ضم کریں: 1، 2، 3، 4) |
 | **`ur/BATCH_7_REVIEW.md`** | **بیچ 7 (ربرک-جملے) — ڈاکٹر کی نظرثانی کے لیے** 708 ربرک، اصلاح کا خانہ خالی |
 | **`ur/BATCH_8_REVIEW.md`** | **بیچ 8 — نظرثانی کے لیے** 714 ربرک (قطار 709–1422: CONSCIENTIOUS … DELUSIONS «insane») |
@@ -147,6 +148,7 @@ ur/rubric_labels_ur.json  →  { "labels": { "eating, after": "کھانے کے �
 | **`ur/BATCH_11_REVIEW.md`** | **بیچ 11 — نظرثانی کے لیے** VERTIGO 567 |
 | **`ur/BATCH_12_REVIEW.md`** | **بیچ 12 — نظرثانی کے لیے** HEAD (PAIN کے سوا) 2,249 |
 | **`ur/BATCH_13_REVIEW.md`** | **بیچ 13 — نظرثانی کے لیے** HEAD › PAIN عمومی شرطیں 799 |
+| **`ur/BATCH_14_REVIEW.md`** | **بیچ 14 — نظرثانی کے لیے** HEAD › PAIN مقام 993 |
 | `docs/ur_audit/AUDIT_REPORT.md` | لیبل نظام کا آڈٹ (v107): خودکار لیبلوں میں ≈35–40٪ غلطی، قفل شدہ ≈97٪ درست |
 | `docs/ur_audit/FAMILY_TREE_REVIEW.md` | **فیصلہ کن دستاویز:** لیبل نظام ٹکڑے ترجمہ کرتا ہے ربرک نہیں → ربرک-سطح کا ڈیزائن + 7 مرحلوں کا منصوبہ |
 | `docs/ur_audit/DISPLAY_OPTIONS_DEMO.html` | صف پر دکھانے کے تین انداز (الف/ب/ج) کا نمونہ — **ج منظور** |
@@ -385,7 +387,7 @@ node tools/coverage_rubrics_ur.js kent                               # باب ب
 **طے شدہ اصطلاحات (بیچ 7–8):** agg. «بگاڑ» · amel. «آرام» · Anxiety «بے چینی» · Anguish «سخت کرب (دلی اذیت)» · Confusion «ذہنی الجھن» · Concentration «ذہن جمانا» · Company aversion «لوگوں سے بیزاری» · Cheerful «خوش مزاجی» · Absent-minded «غائب دماغی» · Delirium «ہذیان» · Delusions «وہم» (بچے: «وہم — کہ …»؛ دیکھنے والے: «… دکھائی دیتے ہیں») · Death «موت» · «(See …)» ترجمہ نہیں · ہندسے 1 2 3۔
 **✅ ڈاکٹر کے فیصلے (29 ستمبر 2026):** Delusions = **«وہم»** · اوقات «رات 4 بجے»/«سہ پہر 5 بجے» **منظور** · جنس **بالکل کینٹ کی ترتیب سے** (he → مذکر، she → مؤنث، نہ ہو تو مذکر)۔ ⚠ خودکار جانچ ممکن نہیں (اردو فعل اسم کی جنس سے بدلتا ہے: «شادی ہو چکی ہے»، «موسیقی سنائی دیتی ہے») — ہاتھ سے دیکھیں۔
 
-**پیش رفت:** MIND ✅ 4,834 · VERTIGO ✅ 567 · HEAD 3,048 / 6,921 · قفل 0 · کینٹ کل 8,449 / 71,027 (11.9%)۔ **اگلا کام:** `HEAD › PAIN` کے باقی 3,873 ربرک (قطار 1457–6128 میں سے جن کا جملہ نہیں — `export` کی «ur» کالم خالی): بڑے گروپ pressing 671، stitching 455، tearing 430، forehead 393، drawing 229، occiput 224، boring 160، shooting 157، sides 155، sore 135، temples 125، burning 101، cutting 98، bursting 96، vertex 96 …؛ جڑ وہی «سر — »، PAIN کا جملہ «سر — درد، …» (ذیلی اقسام: aching «ہلکا مسلسل درد»، boring «برما سا درد»، bursting «پھٹنے جیسا»، pressing «دبانے والا»، stitching «چبھن»، tearing «چیرنے والا»…)؛ ضم `--root "سر — "` کے ساتھ اسی head.json میں۔ پھر eye, vision, ear … رفتار: ایک نشست میں ≈2,700 ربرک ہو سکتے ہیں (بیچ 10) — صارف چاہتا ہے **پورا باب ایک بار میں**۔
+**پیش رفت:** MIND ✅ 4,834 · VERTIGO ✅ 567 · HEAD 4,041 / 6,921 · قفل 0 · کینٹ کل 9,442 / 71,027 (13.3%)۔ **اگلا کام:** `HEAD › PAIN` کی **قسمیں** 2,880 (قطار 1457–6128 میں جن کا جملہ نہیں): pressing 671 «دبانے والا»، stitching 455 «چبھتا»، tearing 430 «چیرتا»، drawing 229 «کھینچتا»، boring 160 «برما سا»، shooting 157 «دوڑتا (تیر جیسا)»، sore 135 «دکھتا، کچلا ہوا»، burning 101 «جلتا»، cutting 98 «کاٹتا»، bursting 96 «پھٹنے جیسا»، jerking 46، lancinating 39، stunning 36، burrowing 35، extending 29، morning 26، nail 26، periodic 25، cramping 24، brain 21، lying 20؛ ہر قسم کا جملہ «سر — درد، دبانے والا، ماتھے میں، …»؛ جڑ وہی «سر — »، PAIN کا جملہ «سر — درد، …» (ذیلی اقسام: aching «ہلکا مسلسل درد»، boring «برما سا درد»، bursting «پھٹنے جیسا»، pressing «دبانے والا»، stitching «چبھن»، tearing «چیرنے والا»…)؛ ضم `--root "سر — "` کے ساتھ اسی head.json میں۔ پھر eye, vision, ear … رفتار: ایک نشست میں ≈2,700 ربرک ہو سکتے ہیں (بیچ 10) — صارف چاہتا ہے **پورا باب ایک بار میں**۔
 **منصوبہ (`FAMILY_TREE_REVIEW.md` §6):** ② MIND باقی 4,126 · ③ سب ابواب کے سرِ عنوان 4,150 · ④ GENERALITIES/SLEEP/VERTIGO/FEVER/CHILL/PERSPIRATION ≈6,700 · ⑤ modifier قواعد + ترکیب · ⑥ بدن کے ابواب ≈15,000 — کل ≈40 نشستیں۔
 **پرانا لیبل نظام** (`rubric_labels_ur.json`, `compose_ur.js`) اب صرف **فال بیک** ہے — جہاں جملہ نہیں وہاں پہلے جیسا دکھتا ہے؛ اس پر نئے بیچ نہ چلائیں۔
 
