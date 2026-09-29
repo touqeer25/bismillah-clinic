@@ -156,4 +156,28 @@ let rootCount=0; L.chapterRows(w,'kent','mind');
 ['mind','vertigo','head','eye','vision','ear','nose','face','mouth','teeth','throat','external_throat','stomach','abdomen','rectum','stool','bladder','kidneys','prostate_gland','urethra','urine','genitalia_male','genitalia_female','cough','expectoration','chest','back','extremities','sleep','chill','fever','perspiration','skin','generalities','larynx_and_trachea','respiration','hearing'].forEach(function(c){ try{ rootCount += L.chapterRows(w,'kent',c).filter(function(f){return f.depth===0;}).length; }catch(e){} });
 ok(rootCount===4709,'G7 37 ابواب کی مین ربرک: '+rootCount+' (کوئی کم/زیادہ نہیں — کوئی ربرک گم نہیں ہوا)');
 
+// ---------- H. LARYNX+RESPIRATION+EXPECTORATION+COUGH (v133) ----------
+const larR=L.chapterRows(w,'kent','larynx_and_trachea'); const li=f=>larR.findIndex(r=>r.full===f);
+ok(larR.length===738&&larR.filter(r=>r.depth===0).length===78,'H1 LARYNX AND TRACHEA مکمل: 738 ربرک، 78 مین ربرک');
+ok(li('CLOSED')<li('COATED, seems (See Velvety)')&&li('COATED, seems (See Velvety)')<li('COLD')&&li('COLD')<li('CONDYLOMATA')&&larR[0].full==='ANAESTHESIA','H2 LARYNX کی کتابی ترتیب (ANAESTHESIA پہلا؛ CLOSED → COATED → COLD → CONDYLOMATA)');
+const rsR=L.chapterRows(w,'kent','respiration'); const ri2=f=>rsR.findIndex(r=>r.full===f);
+ok(rsR.length===761&&rsR.filter(r=>r.depth===0).length===50&&rsR[0].full==='ABDOMINAL','H3 RESPIRATION مکمل: 761 ربرک، 50 مین ربرک، ABDOMINAL پہلا');
+ok(ri2('WHEEZING')<ri2('WHISTLING')&&ri2('SUPERFICIAL')<ri2('TREMULOUS')&&ri2('TREMULOUS')<ri2('VEHEMENT'),'H4 RESPIRATION کی ذیلی ترتیب (SUPERFICIAL → TREMULOUS → VEHEMENT → WHEEZING → WHISTLING)');
+const exR=L.chapterRows(w,'kent','expectoration'); const ei=f=>exR.findIndex(r=>r.full===f);
+ok(exR.length===379&&exR.filter(r=>r.depth===0).length===117&&exR[0].full==='MORNING','H5 EXPECTORATION مکمل: 379 ربرک، 117 مین ربرک، «وقت پہلے» (MORNING → … → NIGHT پھر حروفِ تہجی)');
+ok(ei('MORNING')<ei('FORENOON')&&ei('FORENOON')<ei('NIGHT')&&ei('NIGHT')<ei('ACRID')&&ei('ASH-COLORED spots')<ei('BALL'),'H6 EXPECTORATION کی کتابی ترتیب (وقت → ACRID → ASH-COLORED spots → BALL)');
+const coR=L.chapterRows(w,'kent','cough'); const coi=f=>coR.findIndex(r=>r.full===f);
+ok(coR.length===1690&&coR.filter(r=>r.depth===0).length===374&&coR[0].full==='DAYTIME','H7 COUGH مکمل: 1,690 ربرک، 374 مین ربرک، DAYTIME پہلا');
+ok(coi('DAYTIME')<coi('NIGHT')&&coi('NIGHT')<coi('ACIDS agg.')&&coi('ACIDS agg.')<coi('AIR'),'H8 COUGH کی کتابی ترتیب (DAYTIME → MORNING → … → NIGHT → ACIDS agg. → AIR — وقت پھر حروفِ تہجی)');
+const LJ=JSON.parse(rd('ur/rubrics/kent/larynx_and_trachea.json')), RJ=JSON.parse(rd('ur/rubrics/kent/respiration.json')), EJ=JSON.parse(rd('ur/rubrics/kent/expectoration.json')), CJ=JSON.parse(rd('ur/rubrics/kent/cough.json'));
+ok(LJ.rubrics['crumb']==='حلقوم — چورا (روٹی کا ذرہ)'&&LJ.rubrics['velvety sensation (downy)']==='حلقوم — مخملی پن کا احساس (روئیں دار)'&&RJ.rubrics['wheezing']==='سانس — گھرگھر کی آواز'&&EJ.rubrics['rusty']==='بلغم — زنگ آلود'&&EJ.rubrics['frothy']==='بلغم — جھاگ دار'&&CJ.rubrics['barking']==='کھانسی — بھونکنے والی'&&CJ.rubrics['whooping']==='کھانسی — کالی کھانسی','H9 چاروں ابواب کی اصطلاحات پچھلے ابواب سے موازنہ شدہ (چورا · مخملی پن · گھرگھر · زنگ آلود · جھاگ دار · بھونکنے والی · کالی کھانسی)');
+[['حلقوم',LJ],['سانس',RJ],['بلغم',EJ],['کھانسی',CJ]].forEach(function(pr){ const root=pr[0], J=pr[1]; const ks=Object.keys(J.rubrics);
+  const noRoot=ks.filter(k=>J.rubrics[k].indexOf(root+' — ')===0?false:true).length;
+  const latin=ks.filter(k=>/[A-Za-z]/.test(J.rubrics[k])).length;
+  const style=ks.filter(k=>/سے بڑھے|بڑھیں/.test(J.rubrics[k])).length;
+  ok(noRoot===0&&latin===0&&style===0,'H10 '+root+': ہر جملے میں جڑ «'+root+' — » · کوئی انگریزی حرف نہیں · اسلوب «سے بگاڑ» (کوئی «سے بڑھے» نہیں) — '+ks.length+' جملے');
+});
+ok(/js\/18-rubrics-ur\.js\?v=133/.test(idx)&&/var REP_RUBUR_V = '133';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v133'/.test(sw),'H11 v133 bump: index ?v=133 · REP_RUBUR_V=133 · CACHE_NAME v133');
+ok(sw.indexOf("'./ur/rubrics/kent/larynx_and_trachea.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/respiration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/expectoration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/cough.json'")>=0,'H12 service-worker میں چاروں نئی json (larynx_and_trachea/respiration/expectoration/cough)');
+
 console.log(fails?`\n${fails} FAIL`:'\nALL PASS'); process.exit(fails?1:0);

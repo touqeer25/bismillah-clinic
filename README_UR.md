@@ -1,13 +1,28 @@
 # اردو ترجمہ — تازہ ترین زپ کی ہدایات (رولنگ فائل، ہر ورژن میں یہی بدلتی ہے)
 
-**تازہ ترین:** v132 · 30 ستمبر 2026 · کیش bhc-clinic-v132
+**تازہ ترین:** v133 · 30 ستمبر 2026 · کیش bhc-clinic-v133
 
 ## زپ کیسے لگائیں
 1. زپ کو ریپو کی **جڑ** میں کھولیں (فائلیں اپنی جگہ بیٹھ جائیں گی)۔
 2. کمٹ اور پش کریں۔ (`ur/review/` گٹ ہب پر ضروری نہیں — `.gitignore` میں ہے۔)
 3. براؤزر میں **دو بار کنٹرول + شفٹ + آر**۔
 
-## v132 میں کیا ہے — GENITALIA FEMALE مکمل (1,471 ربرک)
+## v133 میں کیا ہے — حلقوم/سانس کا راستہ: چار ابواب مکمل (3,568 ربرک)
+
+| بات | تفصیل |
+|---|---|
+| ابواب | **حلقوم اور سانس کی نالی 738** (جڑ «حلقوم — ») · **سانس 761** (جڑ «سانس — ») · **بلغم 379** (جڑ «بلغم — ») · **کھانسی 1,690** (جڑ «کھانسی — ») — چاروں 100% ہاتھ سے (`larynx_and_trachea_batch1.tsv` · `respiration_batch1.tsv` · `expectoration_batch1.tsv` · `cough_batch1.tsv`)؛ ⚠ مشتبہ = 0 |
+| ترتیب | کتابی ترتیب برقرار — **کھانسی**: `DAYTIME → MORNING → FORENOON → NOON → AFTERNOON → EVENING → NIGHT` پھر حروفِ تہجی (`ACIDS agg. · ACRID … · AIR`) کتاب PDF1720–21 کے مطابق · **بلغم**: `MORNING` پہلے … `NIGHT` پھر `ACRID · AIR · ALBUMINOUS … · ASH-COLORED spots · BALL` |
+| نئی اصطلاحات | larynx «حلقوم» · trachea «سانس کی نالی» · vocal cords «آواز کی ڈوریاں (ووکل کورڈز)» · epiglottis «کنٹھ (ایپیگلوٹس)» · croup «خناق (کروپ)» · coryza «زکام» · hawking «کھنکارنا» · hemming «ہم ہم کرنا (گلا صاف کرنا)» · viscid «چپچپا» · tenacious «لزج» · gelatinous «جیلی جیسی» · glairy «انڈے کی سفیدی جیسی» · ropy «رسی جیسا» · stertorous «خرخراہٹ بھرا» · stridulous «سیٹی دار (سٹریڈولس)» · asthmatic «دمے والی» · whooping «کالی کھانسی» · minute guns «منٹ گن (توپ)» |
+| خود جانچ | والد اور بچے کے ملنے والے جملوں میں **دہرے لفظ کا خودکار اسکین** — 17 جگہیں درست کیں (مثلاً «صبح، صبح سویرے» → «صبح، سویرے»؛ «نیند، نیند کے دوران» → «نیند، کے دوران»)؛ نیز «سے بگاڑ» والا اسلوب اور کوئی انگریزی حرف نہ ہونے کی جانچ چاروں ابواب پر |
+| گنتی | کینٹ کل **41,319 / 71,027 (58.2%)** — **28 ابواب** مکمل |
+| فائلیں | `ur/rubrics/kent/larynx_and_trachea.json` · `respiration.json` · `expectoration.json` · `cough.json` · `js/18-rubrics-ur.js` (`REP_RUBUR_V='133'`) · `index.html` (`?v=133`) · `service-worker.js` (`bhc-clinic-v133` + چار نئی json) · `tests/rubrics_ur_v107.test.js` (نئے ٹیسٹ **H1–H12**) |
+| ٹیسٹ | `node tests/rubrics_ur_v107.test.js` → **ALL PASS** · `node tests/rubric_ur_v101.test.js` → **ALL PASS** |
+
+### اگلا قدم
+CHEST (3,433) — پھر BACK (3,888) اور پھر EXTREMITIES (16,057)۔
+
+## v132 (پچھلا) — GENITALIA FEMALE مکمل (1,471 ربرک)
 
 | بات | تفصیل |
 |---|---|
@@ -20,7 +35,7 @@
 | ٹیسٹ | `node tests/rubrics_ur_v107.test.js` → **ALL PASS** (F1–F11 + G1–G7) |
 
 ### اگلا قدم
-LARYNX AND TRACHEA (738) + RESPIRATION (761) + COUGH (1,690) — تینوں ایک ہی ورژن میں (چھوٹے ابواب اکٹھے)۔
+LARYNX AND TRACHEA (738) + RESPIRATION (761) + COUGH (1,690) — تینوں ایک ہی ورژن میں (چھوٹے ابواب اکٹھے) — **مکمل (v133)**۔
 
 ## v131 میں کیا ہے — مین ربرک اپنی حروفِ تہجی والی جگہ پر آ گئے
 
