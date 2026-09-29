@@ -1,5 +1,5 @@
 # HANDOFF — کام کہاں تک پہنچا
-**آخری تجدید:** 29 ستمبر 2026 · **v108** · **ریپو:** https://github.com/touqeer25/bismillah-clinic
+**آخری تجدید:** 29 ستمبر 2026 · **v109** · **ریپو:** https://github.com/touqeer25/bismillah-clinic
 **لائیو:** https://bismillah-clinic.vercel.app · **ایپ:** `index.html` + `js/` (PWA، کوئی بنڈلر نہیں)
 
 > **نئی نشست یہاں سے شروع کرے۔** پہلے یہ پوری فائل پڑھیں، پھر «باقی کام» والا حصہ۔
@@ -27,7 +27,7 @@
 
 ```
 index.html                 صرف ڈھانچہ — ایک سطر بھی چلتا کوڈ نہیں
-service-worker.js          آف لائن کیش (اس وقت bhc-clinic-v108 — ہر تبدیلی پر بڑھائیں)
+service-worker.js          آف لائن کیش (اس وقت bhc-clinic-v109 — ہر تبدیلی پر بڑھائیں)
 data/*.json                تشخیص · علاج · نالج کا مواد (v94 میں کوڈ سے نکالا)
 js/00-data-boot.js         مواد کا لوڈر — سب سے پہلے چلتا ہے
 js/01 … js/16              ایپ کے حصے
@@ -84,6 +84,7 @@ node tests/tree_view_integrity.jsdom.test.js   # ٹری — 71,027 ربرک
 | v102–v106 | لیبل بیچ 2–6، «(See …)» حوالوں کے لنک (`repXrefHtml`)، سیاق (`ctx`) ترجمے، `rep-tree.js` کی اردو صف — (اُس وقت اس میز میں درج نہیں ہوئے تھے؛ تفصیل §4) |
 | **v107** | **🌳 ربرک کی سطح کا اردو جملہ** — نئی پرت `ur/rubrics/<book>/<chapter>.json` + `js/18-rubrics-ur.js`، بٹن «پورا مطلب ⇄ صرف اضافہ»، MIND پائلٹ 708 ربرک (§4.11) |
 | **v108** | بیچ 8: MIND کے مزید 714 ربرک (CONSCIENTIOUS … DELUSIONS «insane») → **1,422 / 4,834**؛ **ہندسے 1 2 3** ہر ترجمے میں (لیبل فائل، لغت، ربرک فائل)؛ `REP_RUBUR_V` (ربرک فائلوں کا اپنا ورژن) |
+| **v109** | بیچ 9: MIND کے مزید 683 ربرک (DELUSIONS «insects» … ESTRANGED) → **2,105 / 4,834**؛ ڈاکٹر کے تین فیصلے طے (وہم · اوقات · جنس کینٹ کے مطابق) |
 
 ### حذف شدہ (تصدیق شدہ 404)
 `js/08b-rep-differentiation.js` · `diagnosis-data.js` · `advanced-diagnosis-knowledge.js` ·
@@ -131,10 +132,11 @@ ur/rubric_labels_ur.json  →  { "labels": { "eating, after": "کھانے کے �
 | `ur/BATCH_3_REVIEW.md` | بیچ 3 کے 1500 لیبل |
 | `ur/BATCH_4_REVIEW.md` | بیچ 4 کے حل شدہ 1706 لیبل |
 | ~~`ur/BATCH_5_REVIEW.md`~~ | بیچ 5/6 (لیبل) کی الگ فائل **نہیں بنی تھی** — براہِ راست ضم ہوئے |
-| **`ur/rubrics/kent/mind.json`** | **ربرک کی سطح کے جملے** (MIND، 1,422)؛ صرف `tools/merge_rubrics_ur.js` سے لکھیں |
-| `ur/rubrics/kent/mind_batch1.tsv` · `mind_batch2.tsv` | بیچ 7 اور 8 کی ماخذ TSV (key · depth · en · ur) — دوبارہ ضم کے لیے |
+| **`ur/rubrics/kent/mind.json`** | **ربرک کی سطح کے جملے** (MIND، 2,105)؛ صرف `tools/merge_rubrics_ur.js` سے لکھیں |
+| `ur/rubrics/kent/mind_batch1.tsv` · `mind_batch2.tsv` · `mind_batch3.tsv` | بیچ 7، 8 اور 9 کی ماخذ TSV (key · depth · en · ur) — دوبارہ ضم کے لیے (ترتیب سے ضم کریں: 1، 2، 3) |
 | **`ur/BATCH_7_REVIEW.md`** | **بیچ 7 (ربرک-جملے) — ڈاکٹر کی نظرثانی کے لیے** 708 ربرک، اصلاح کا خانہ خالی |
 | **`ur/BATCH_8_REVIEW.md`** | **بیچ 8 — نظرثانی کے لیے** 714 ربرک (قطار 709–1422: CONSCIENTIOUS … DELUSIONS «insane») |
+| **`ur/BATCH_9_REVIEW.md`** | **بیچ 9 — نظرثانی کے لیے** 683 ربرک (قطار 1423–2105: DELUSIONS «insects» … ESTRANGED) |
 | `docs/ur_audit/AUDIT_REPORT.md` | لیبل نظام کا آڈٹ (v107): خودکار لیبلوں میں ≈35–40٪ غلطی، قفل شدہ ≈97٪ درست |
 | `docs/ur_audit/FAMILY_TREE_REVIEW.md` | **فیصلہ کن دستاویز:** لیبل نظام ٹکڑے ترجمہ کرتا ہے ربرک نہیں → ربرک-سطح کا ڈیزائن + 7 مرحلوں کا منصوبہ |
 | `docs/ur_audit/DISPLAY_OPTIONS_DEMO.html` | صف پر دکھانے کے تین انداز (الف/ب/ج) کا نمونہ — **ج منظور** |
@@ -248,7 +250,7 @@ node tools/coverage_ur.js kent
 | **کینٹ کی کوریج** | **60,557 / 71,027 = 85.3٪** |
 | جانچ | **0 خرابی** · 369 تنبیہ (سب کینٹ کے اپنے املا کے فرق — aliases میں درج) |
 | MIND باب (لیبل نظام) | ⚠ پہلے یہاں «775 ربرکس مکمل» لکھا تھا — **غلط تھا**۔ پیمائش (v107 آڈٹ): MIND کی لیبل کوریج **65.5٪ — سب سے کم باب**؛ 557 سرِ عنوان میں سے صرف 265 لیبل فائل میں |
-| **MIND باب (ربرک نظام v108)** | **1,422 / 4,834 ربرک** کا پورا اردو جملہ (`ur/rubrics/kent/mind.json`) — بیچ 7 (1–708) اور بیچ 8 (709–1422)، نظرثانی باقی، قفل 0 |
+| **MIND باب (ربرک نظام v109)** | **2,105 / 4,834 ربرک** کا پورا اردو جملہ (`ur/rubrics/kent/mind.json`) — بیچ 7 (1–708)، بیچ 8 (709–1422)، بیچ 9 (1423–2105)؛ نظرثانی باقی، قفل 0 |
 
 ## 4.9 اگلے بیچ
 
@@ -370,9 +372,9 @@ node tools/coverage_rubrics_ur.js kent                               # باب ب
 **بیچ کا چکر:** export → ہاتھ سے جملے (کینٹ کا مطلب، لغوی نہیں) → merge → qa (⚠ = 0) → `ur/BATCH_n_REVIEW.md` → ڈاکٹر کی اصلاح → merge اصلاحات → `--lock`۔
 
 **طے شدہ اصطلاحات (بیچ 7–8):** agg. «بگاڑ» · amel. «آرام» · Anxiety «بے چینی» · Anguish «سخت کرب (دلی اذیت)» · Confusion «ذہنی الجھن» · Concentration «ذہن جمانا» · Company aversion «لوگوں سے بیزاری» · Cheerful «خوش مزاجی» · Absent-minded «غائب دماغی» · Delirium «ہذیان» · Delusions «وہم» (بچے: «وہم — کہ …»؛ دیکھنے والے: «… دکھائی دیتے ہیں») · Death «موت» · «(See …)» ترجمہ نہیں · ہندسے 1 2 3۔
-**ڈاکٹر سے فیصلہ باقی:** Delusions = «وہم» یا «مغالطہ»؛ اوقات «رات 4 بجے»/«سہ پہر 5 بجے»؛ مذکر عمومی، مؤنث صرف جہاں کینٹ نے she/her لکھا۔
+**✅ ڈاکٹر کے فیصلے (29 ستمبر 2026):** Delusions = **«وہم»** · اوقات «رات 4 بجے»/«سہ پہر 5 بجے» **منظور** · جنس **بالکل کینٹ کی ترتیب سے** (he → مذکر، she → مؤنث، نہ ہو تو مذکر)۔ ⚠ خودکار جانچ ممکن نہیں (اردو فعل اسم کی جنس سے بدلتا ہے: «شادی ہو چکی ہے»، «موسیقی سنائی دیتی ہے») — ہاتھ سے دیکھیں۔
 
-**پیش رفت:** MIND 1,422 / 4,834 (ABANDONED … DELUSIONS «insane») · قفل 0 · کینٹ کل 1,422 / 71,027۔ اگلی قطار **1423** (`DELUSIONS, insects`) — `node tools/export_rubrics_ur.js kent mind 1422 700`۔
+**پیش رفت:** MIND 2,105 / 4,834 (ABANDONED … ESTRANGED) · قفل 0 · کینٹ کل 2,105 / 71,027۔ اگلی قطار **2106** (`EXCITEMENT`) — `node tools/export_rubrics_ur.js kent mind 2105 700`۔
 **منصوبہ (`FAMILY_TREE_REVIEW.md` §6):** ② MIND باقی 4,126 · ③ سب ابواب کے سرِ عنوان 4,150 · ④ GENERALITIES/SLEEP/VERTIGO/FEVER/CHILL/PERSPIRATION ≈6,700 · ⑤ modifier قواعد + ترکیب · ⑥ بدن کے ابواب ≈15,000 — کل ≈40 نشستیں۔
 **پرانا لیبل نظام** (`rubric_labels_ur.json`, `compose_ur.js`) اب صرف **فال بیک** ہے — جہاں جملہ نہیں وہاں پہلے جیسا دکھتا ہے؛ اس پر نئے بیچ نہ چلائیں۔
 
@@ -393,7 +395,7 @@ node tools/coverage_rubrics_ur.js kent                               # باب ب
 
 ## 🟢 تیسری ترجیح
 
-**5. اردو ترجمہ — اب صرف ربرک-سطح (§4.11)** — اگلی نشست: (الف) ڈاکٹر کی `BATCH_7_REVIEW.md` اصلاحات ضم + `--lock`؛ (ب) MIND کے باقی 4,126 ربرک (CONSCIENTIOUS → YIELDING) ≈6 نشستیں؛ (ج) باقی ابواب کے سرِ عنوان 4,150؛ منصوبہ `docs/ur_audit/FAMILY_TREE_REVIEW.md` §6۔ **لیبل نظام (`compose_ur.js`) پر مزید بیچ نہ چلائیں** — وہ قفل کے بغیر درست ہاتھ کے ترجمے مٹا دیتا ہے۔
+**5. اردو ترجمہ — اب صرف ربرک-سطح (§4.11)** — اگلی نشست: (الف) ڈاکٹر کی `BATCH_7/8/9_REVIEW.md` اصلاحات ضم + `--lock`؛ (ب) MIND کے باقی 2,729 ربرک (EXCITEMENT → YIELDING) ≈4 نشستیں؛ (ج) باقی ابواب کے سرِ عنوان 4,150؛ منصوبہ `docs/ur_audit/FAMILY_TREE_REVIEW.md` §6۔ **لیبل نظام (`compose_ur.js`) پر مزید بیچ نہ چلائیں** — وہ قفل کے بغیر درست ہاتھ کے ترجمے مٹا دیتا ہے۔
 
 **6. Boger Times کی ٹری سطحیں** — `tools/mm_build/boger_times_repertory.py` سے دوبارہ نکالنی ہوں گی۔ **صارف کے فیصلے کا انتظار**
 

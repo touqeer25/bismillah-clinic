@@ -31,7 +31,8 @@ const urDig=/[\u06F0-\u06F9\u0660-\u0669]/;
 ok(!Object.keys(D.rubrics).some(k=>urDig.test(D.rubrics[k])),'B3b صارف کا اصول: جملوں میں ہندسے 1 2 3 (اردو ہندسے نہیں)');
 ok(!urDig.test(rd('ur/rubric_labels_ur.json'))&&!urDig.test(rd('ur/glossary_core_v1.json')),'B3c لیبل فائل اور لغت میں بھی اردو ہندسے نہیں');
 ok(/REP_RUBUR_V\s*=\s*'\d+'/.test(rd('js/18-rubrics-ur.js'))&&/\.json\?v=' \+ REP_RUBUR_V/.test(rd('js/18-rubrics-ur.js')),'B3d ربرک فائلوں کا اپنا ورژن (REP_RUBUR_V)');
-ok(Object.keys(D.rubrics).length>=1400,'B4 بیچ 7+8: کم از کم 1400 ربرک ('+Object.keys(D.rubrics).length+')');
+ok(Object.keys(D.rubrics).length>=2100,'B4 بیچ 7+8+9: کم از کم 2100 ربرک ('+Object.keys(D.rubrics).length+')');
+ok(D.rubrics['dullness']==='ذہنی سستی (کند ذہنی)'&&D.rubrics['escape, attempts to, window, from']==='فرار (بھاگ نکلنا) کی کوشش کرتا ہے، کھڑکی سے','B4c بیچ 9 کی مثالیں (DULLNESS، ESCAPE)');
 ok(D.rubrics['delirium']==='ہذیان'&&D.rubrics['delusions, enlarged, chin is']==='وہم — کہ ٹھوڑی بڑھ گئی ہے','B4b بیچ 8 کی مثالیں (DELIRIUM، DELUSIONS enlarged chin)');
 ok(D.rubrics['anger']==='غصہ'&&D.rubrics['anger, consoled, when']==='غصہ — تسلی دینے پر','B5 مثال: ANGER, consoled, when → «غصہ — تسلی دینے پر»');
 ok(/^غصہ — غصے کے بعد پیدا ہونے والی شکایات، /.test(D.rubrics['anger, ailments after anger, with anxiety']||''),'B6 گہری سطح والد کے جملے + «، » سے بنتی ہے');
@@ -67,7 +68,7 @@ ok(/js\/18-rubrics-ur\.js\?v=\d+/.test(idx)&&/css\/rubrics-ur\.css\?v=\d+/.test(
 ok(idx.indexOf('<script src="js/17-rubric-ur.js')<idx.indexOf('<script src="js/18-rubrics-ur.js'),'E2 18-rubrics-ur.js، 17-rubric-ur.js کے بعد لوڈ ہوتی ہے');
 ok(/id="repUrModeBtn"/.test(idx)&&!/repUrModeBtn"[^>]*onclick/.test(idx),'E3 ٹول بار میں بٹن #repUrModeBtn (onclick کے بغیر)');
 ok(/'\.\/js\/18-rubrics-ur\.js'/.test(sw)&&/'\.\/css\/rubrics-ur\.css'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/mind\.json'/.test(sw),'E4 service-worker میں تینوں نئی فائلیں');
-ok(/CACHE_NAME='bhc-clinic-v(10[8-9]|1[1-9]\d)'/.test(sw),'E5 CACHE_NAME v108 یا بعد کا');
+ok(/CACHE_NAME='bhc-clinic-v(109|1[1-9]\d)'/.test(sw),'E5 CACHE_NAME v109 یا بعد کا');
 ok(/repRubUrRowHtml\(r\)/.test(tree)&&/ensureRepRubricsUr\(repCurrentBook,repCurrentChapter/.test(tree),'E6 rep-tree.js: صف پر جملہ + باب کی فائل منگوانا');
 ok(!/ensureRepRubricsUr/.test(rd('js/repertory/LOAD_ORDER.txt')),'E7 LOAD_ORDER.txt نہیں چھیڑا');
 
