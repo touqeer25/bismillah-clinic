@@ -1,0 +1,159 @@
+key	depth	en	ur
+acute	0	ACUTE	تیز (حد سے زیادہ حساس)
+acute, bed, in	1	ACUTE, bed, in	بستر میں
+acute, chill, during	1	ACUTE, chill, during	سردی لگنے کے دوران
+acute, cracking in ears, preceded by	1	ACUTE, cracking in ears, preceded by	پہلے کانوں میں چٹخنے کی آواز
+acute, evening	1	ACUTE, evening	شام
+acute, evening, bed, in	2	ACUTE, evening, bed, in	=تیز، شام بستر میں
+acute, evening, on falling asleep	2	ACUTE, evening, on falling asleep	=تیز، شام نیند آتے وقت
+acute, heat, during	1	ACUTE, heat, during	بخار کی گرمی کے دوران
+acute, labor pains, during	1	ACUTE, labor pains, during	زچگی کے دردوں کے دوران
+acute, menses, during	1	ACUTE, menses, during	حیض کے دوران
+acute, morning	1	ACUTE, morning	صبح
+acute, music	1	ACUTE, music	موسیقی
+acute, music, amel.	2	ACUTE, music, amel.	=تیز، موسیقی سے آرام
+acute, music, during menses	2	ACUTE, music, during menses	=تیز، موسیقی سے، حیض کے دوران
+acute, music, organ	2	ACUTE, music, organ	=تیز، آرگن کی موسیقی سے
+acute, music, piano	2	ACUTE, music, piano	=تیز، پیانو کی موسیقی سے
+acute, music, to	2	ACUTE, music, to	=تیز، موسیقی کے لیے
+acute, music, violin	2	ACUTE, music, violin	=تیز، وائلن کی موسیقی سے
+acute, night	1	ACUTE, night	رات
+acute, noises	1	ACUTE, noises	شور
+acute, noises, cause nausea	2	ACUTE, noises, cause nausea	=تیز، شور سے متلی ہو
+acute, noises, perspiration, during	2	ACUTE, noises, perspiration, during	=تیز، شور سے، پسینے کے دوران
+acute, noises, rumpling of paper	2	ACUTE, noises, rumpling of paper	=تیز، کاغذ کی سرسراہٹ سے
+acute, noises, scratching on linen and silk	2	ACUTE, noises, scratching on linen and silk	=تیز، کپڑے اور ریشم پر کھرچنے کی آواز سے
+acute, noises, to	2	ACUTE, noises, to	=تیز، شور کے لیے
+acute, perspiration, during	1	ACUTE, perspiration, during	پسینے کے دوران
+acute, sleep, during	1	ACUTE, sleep, during	نیند کے دوران
+acute, sounds of a hammer	1	ACUTE, sounds of a hammer	ہتھوڑے کی آوازیں
+acute, sounds	1	ACUTE, sounds	آوازیں
+acute, sounds, affect the teeth	2	ACUTE, sounds, affect the teeth	=تیز، آوازیں دانتوں پر اثر کریں
+acute, sounds, long retained	2	ACUTE, sounds, long retained	=تیز، آوازیں دیر تک کانوں میں رہیں
+acute, sounds, vehicles, tho' deaf to voices	2	ACUTE, sounds, vehicles, tho' deaf to voices	=تیز، گاڑیوں کی آوازیں سنے مگر بولنے کی آواز نہیں
+acute, step, every	1	ACUTE, step, every	ہر قدم کی آواز
+acute, voices and talking	1	ACUTE, voices and talking	آوازیں اور باتیں
+acute, voices, her own	1	ACUTE, voices, her own	اپنی آواز
+acute, voices, her own, seems very loud	2	ACUTE, voices, her own, seems very loud	=تیز، اپنی آواز بہت اونچی لگے
+acute, waking, on	1	ACUTE, waking, on	جاگنے پر
+acute, water running	1	ACUTE, water running	بہتے پانی کی آواز
+distant	0	DISTANT	دور
+distant, sounds seem	1	DISTANT, sounds seem	=آوازیں دور سے آتی لگیں
+distant, voices seem	1	DISTANT, voices seem	=بولنے کی آوازیں دور سے آتی لگیں
+distant, voices, his own voice	1	DISTANT, voices, his own voice	=اپنی آواز دور سے آتی لگے
+illusions	0	ILLUSIONS	فریبِ سماعت
+illusions, as if tone came from another world	1	ILLUSIONS, as if tone came from another world	=جیسے آواز کسی اور دنیا سے آ رہی ہو
+illusions, sounds appear to come from left side when they really come from the right	1	ILLUSIONS, sounds appear to come from left side when they really come from the right	=آوازیں بائیں طرف سے آتی لگیں حالانکہ دائیں سے آتی ہیں
+impaired	0	IMPAIRED	کمزور (کم سنائی دینا)
+impaired, afternoon	1	IMPAIRED, afternoon	سہ پہر
+impaired, afternoon, with pain in the ear	2	IMPAIRED, afternoon, with pain in the ear	=کمزور، سہ پہر، کان کے درد کے ساتھ
+impaired, air, open	1	IMPAIRED, air, open	کھلی ہوا
+impaired, air, open, agg.	2	IMPAIRED, air, open, agg.	=کمزور، کھلی ہوا میں بگاڑ
+impaired, air, open, amel.	2	IMPAIRED, air, open, amel.	=کمزور، کھلی ہوا میں آرام
+impaired, alternating with eye symptoms	1	IMPAIRED, alternating with eye symptoms	باری باری آنکھ کی علامات کے ساتھ
+impaired, alternating	1	IMPAIRED, alternating	باری باری
+impaired, alternating, obscuration of sight	2	IMPAIRED, alternating, obscuration of sight	=کمزور، باری باری نظر کے دھندلانے کے ساتھ
+impaired, alternating, otorrhoea	2	IMPAIRED, alternating, otorrhoea	=کمزور، باری باری کان بہنے کے ساتھ
+impaired, bending head backward amel.	1	IMPAIRED, bending head backward amel.	سر پیچھے جھکانے سے آرام
+impaired, blowing nose amel.	1	IMPAIRED, blowing nose amel.	ناک سنکنے سے آرام
+impaired, burning and stinging, after	1	IMPAIRED, burning and stinging, after	جلن اور ڈنک جیسے درد کے بعد
+impaired, catarrh of eustachian tube	1	IMPAIRED, catarrh of eustachian tube	یوسٹیشین نالی کے نزلے سے
+impaired, change of clothing	1	IMPAIRED, change of clothing	کپڑے بدلنے سے
+impaired, changes of weather agg.	1	IMPAIRED, changes of weather agg.	موسم بدلنے سے بگاڑ
+impaired, cold wet weather	1	IMPAIRED, cold wet weather	سرد نم موسم میں
+impaired, cold, after a	1	IMPAIRED, cold, after a	زکام کے بعد
+impaired, concussions, from	1	IMPAIRED, concussions, from	چوٹ کے جھٹکے سے
+impaired, confusion of sounds	1	IMPAIRED, confusion of sounds	آوازیں گڈمڈ ہو جائیں
+impaired, cough	1	IMPAIRED, cough	کھانسی
+impaired, cough, amel.	2	IMPAIRED, cough, amel.	=کمزور، کھانسی سے آرام
+impaired, cough, during agg.	2	IMPAIRED, cough, during agg.	=کمزور، کھانسی کے دوران بگاڑ
+impaired, damp weather agg.	1	IMPAIRED, damp weather agg.	نم موسم میں بگاڑ
+impaired, dinner, after	1	IMPAIRED, dinner, after	دوپہر کے کھانے کے بعد
+impaired, direction of sound, cannot tell	1	IMPAIRED, direction of sound, cannot tell	آواز کی سمت نہ بتا سکے
+impaired, distance	1	IMPAIRED, distance	فاصلہ
+impaired, distance, all sounds seem far off	2	IMPAIRED, distance, all sounds seem far off	=کمزور، ساری آوازیں دور سے آتی لگیں
+impaired, distance, when at a agg.	2	IMPAIRED, distance, when at a agg.	=کمزور، دور ہونے پر بگاڑ
+impaired, distance, when at a, amel.	2	IMPAIRED, distance, when at a, amel.	=کمزور، دور ہونے پر آرام
+impaired, earwax, after removal of, amel.	1	IMPAIRED, earwax, after removal of, amel.	کان کا میل نکالنے کے بعد آرام
+impaired, eating agg.	1	IMPAIRED, eating agg.	کھانے سے بگاڑ
+impaired, enlarged tonsils	1	IMPAIRED, enlarged tonsils	بڑھے ہوئے ٹانسلوں سے
+impaired, evening	1	IMPAIRED, evening	شام
+impaired, evening, 9 p.m.	2	IMPAIRED, evening, 9 p.m.	=کمزور، رات 9 بجے
+impaired, forenoon	1	IMPAIRED, forenoon	دوپہر سے پہلے
+impaired, forenoon, 11 a.m.	2	IMPAIRED, forenoon, 11 a.m.	=کمزور، صبح 11 بجے
+impaired, forenoon, lasting till 8 p.m.	2	IMPAIRED, forenoon, lasting till 8 p.m.	=کمزور، دوپہر سے پہلے شروع ہو کر رات 8 بجے تک
+impaired, fright, after	1	IMPAIRED, fright, after	ڈر کے بعد
+impaired, heat, during	1	IMPAIRED, heat, during	بخار کی گرمی کے دوران
+impaired, intermittent	1	IMPAIRED, intermittent	وقفے وقفے سے
+impaired, leaf or membrane, like, before the ear	1	IMPAIRED, leaf or membrane, like, before the ear	جیسے کان کے آگے پتہ یا جھلی ہو
+impaired, leaf or membrane, like, before the ear, shaking head and boring in ear amel.	2	IMPAIRED, leaf or membrane, like, before the ear, shaking head and boring in ear amel.	=کمزور، جیسے کان کے آگے جھلی ہو، سر ہلانے اور انگلی گھسانے سے آرام
+impaired, left	1	IMPAIRED, left	بائیں
+impaired, left, then right	2	IMPAIRED, left, then right	=کمزور، بائیں پھر دائیں
+impaired, measles, after	1	IMPAIRED, measles, after	خسرے کے بعد
+impaired, menses	1	IMPAIRED, menses	حیض
+impaired, menses, before	2	IMPAIRED, menses, before	=کمزور، حیض سے پہلے
+impaired, menses, during	2	IMPAIRED, menses, during	=کمزور، حیض کے دوران
+impaired, mercury, abuse of	1	IMPAIRED, mercury, abuse of	پارے کے بے جا استعمال سے
+impaired, morning	1	IMPAIRED, morning	صبح
+impaired, mortification, after	1	IMPAIRED, mortification, after	ذلت (دل ٹوٹنے) کے بعد
+impaired, night	1	IMPAIRED, night	رات
+impaired, nitric acid, abuse of	1	IMPAIRED, nitric acid, abuse of	نائٹرک ایسڈ کے بے جا استعمال سے
+impaired, noise amel.	1	IMPAIRED, noise amel.	شور میں آرام
+impaired, old people	1	IMPAIRED, old people	بوڑھوں میں
+impaired, overheated, from becoming	1	IMPAIRED, overheated, from becoming	زیادہ گرم ہو جانے سے
+impaired, paralysis of the auditory nerve, from	1	IMPAIRED, paralysis of the auditory nerve, from	سماعت کے عصب کے فالج سے
+impaired, periodic	1	IMPAIRED, periodic	وقفے وقفے سے، باقاعدہ
+impaired, pregnancy, during	1	IMPAIRED, pregnancy, during	حمل کے دوران
+impaired, pressing on ear amel.	1	IMPAIRED, pressing on ear amel.	کان دبانے سے آرام
+impaired, quinine, after abuse of	1	IMPAIRED, quinine, after abuse of	کونین کے بے جا استعمال کے بعد
+impaired, reading aloud, while	1	IMPAIRED, reading aloud, while	بلند آواز سے پڑھتے ہوئے
+impaired, report	1	IMPAIRED, report	دھماکہ
+impaired, report, loud, followed by deafness	2	IMPAIRED, report, loud, followed by deafness	=کمزور، زوردار دھماکے کے بعد بہرا پن
+impaired, report, relieved after	2	IMPAIRED, report, relieved after	=کمزور، دھماکے کے بعد آرام
+impaired, riding in a carriage amel.	1	IMPAIRED, riding in a carriage amel.	گاڑی میں سواری سے آرام
+impaired, right	1	IMPAIRED, right	دائیں
+impaired, right, then left	2	IMPAIRED, right, then left	=کمزور، دائیں پھر بائیں
+impaired, room, in a	1	IMPAIRED, room, in a	کمرے میں
+impaired, rubbing amel.	1	IMPAIRED, rubbing amel.	ملنے سے آرام
+impaired, scarlet fever, after	1	IMPAIRED, scarlet fever, after	سرخ بخار (اسکارلٹ) کے بعد
+impaired, sexual excesses	1	IMPAIRED, sexual excesses	جنسی زیادتیوں سے
+impaired, singing, after	1	IMPAIRED, singing, after	گانے کے بعد
+impaired, stooping agg.	1	IMPAIRED, stooping agg.	جھکنے سے بگاڑ
+impaired, storm, before	1	IMPAIRED, storm, before	طوفان سے پہلے
+impaired, sudden	1	IMPAIRED, sudden	اچانک
+impaired, suppressed intermittents	1	IMPAIRED, suppressed intermittents	دبے ہوئے باری کے بخار سے
+impaired, suppressed, eruptions about the head	1	IMPAIRED, suppressed, eruptions about the head	سر کے دبے ہوئے دانوں سے
+impaired, swallowing	1	IMPAIRED, swallowing	نگلنا
+impaired, swallowing, amel.	2	IMPAIRED, swallowing, amel.	=کمزور، نگلنے سے آرام
+impaired, swallowing, on agg.	2	IMPAIRED, swallowing, on agg.	=کمزور، نگلنے پر بگاڑ
+impaired, typhoid, after	1	IMPAIRED, typhoid, after	ٹائیفائیڈ کے بعد
+impaired, voice, the human	1	IMPAIRED, voice, the human	انسانی آواز کے لیے
+impaired, voice, the human, except, for	2	IMPAIRED, voice, the human, except, for	=کمزور، سوائے انسانی آواز کے
+impaired, walking	1	IMPAIRED, walking	چلنا
+impaired, walking, in the wind	2	IMPAIRED, walking, in the wind	=کمزور، ہوا میں چلتے ہوئے
+impaired, walking, while	2	IMPAIRED, walking, while	=کمزور، چلتے ہوئے
+impaired, warm from walking	1	IMPAIRED, warm from walking	چلنے سے گرم ہونا
+impaired, warm from walking, on becoming agg.	2	IMPAIRED, warm from walking, on becoming agg.	=کمزور، چلنے سے گرم ہونے پر بگاڑ
+impaired, warm from walking, on becoming, amel.	2	IMPAIRED, warm from walking, on becoming, amel.	=کمزور، چلنے سے گرم ہونے پر آرام
+impaired, warm room agg.	1	IMPAIRED, warm room agg.	گرم کمرے میں بگاڑ
+impaired, warm room, amel.	1	IMPAIRED, warm room, amel.	گرم کمرے میں آرام
+impaired, washing agg.	1	IMPAIRED, washing agg.	دھونے سے بگاڑ
+impaired, working in water	1	IMPAIRED, working in water	پانی میں کام کرنے سے
+impaired, yawning amel.	1	IMPAIRED, yawning amel.	جمائی سے آرام
+impaired, mechanical injuries	1	IMPAIRED, mechanical injuries (See Concussion)	چوٹ سے
+lost	0	LOST	ختم (بہرا پن)
+lost, afternoon	1	LOST, afternoon	سہ پہر
+lost, blowing nose	1	LOST, blowing nose	ناک سنکنے پر
+lost, boring finger amel.	1	LOST, boring finger amel.	انگلی گھسانے سے آرام
+lost, convulsions, after	1	LOST, convulsions, after	تشنج کے بعد
+lost, dinner, during	1	LOST, dinner, during	دوپہر کے کھانے کے دوران
+lost, evening, 9 p.m., on lying down agg.	1	LOST, evening, 9 p.m., on lying down agg.	رات 9 بجے لیٹنے پر بگاڑ
+lost, leaflet before, sensation of	1	LOST, leaflet before, sensation of	جیسے کان کے آگے پتہ ہو
+lost, left	1	LOST, left	بائیں
+lost, loud sounds, followed by	1	LOST, loud sounds, followed by	اونچی آوازوں کے بعد
+lost, menses, during	1	LOST, menses, during	حیض کے دوران
+lost, morning, after rising	1	LOST, morning, after rising	صبح اٹھنے کے بعد
+lost, riding in a wagon amel.	1	LOST, riding in a wagon amel.	چھکڑے میں سواری سے آرام
+lost, scarlet fever, after	1	LOST, scarlet fever, after	سرخ بخار (اسکارلٹ) کے بعد
+lost, stopped sensation, with	1	LOST, stopped sensation, with	بند ہونے کے احساس کے ساتھ
+lost, waking, on	1	LOST, waking, on	جاگنے پر

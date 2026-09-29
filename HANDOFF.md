@@ -1,5 +1,5 @@
 # HANDOFF — کام کہاں تک پہنچا
-**آخری تجدید:** 29 ستمبر 2026 · **v118** · **ریپو:** https://github.com/touqeer25/bismillah-clinic
+**آخری تجدید:** 29 ستمبر 2026 · **v119** · **ریپو:** https://github.com/touqeer25/bismillah-clinic
 **لائیو:** https://bismillah-clinic.vercel.app · **ایپ:** `index.html` + `js/` (PWA، کوئی بنڈلر نہیں)
 
 > **نئی نشست یہاں سے شروع کرے۔** پہلے یہ پوری فائل پڑھیں، پھر «باقی کام» والا حصہ۔
@@ -27,7 +27,7 @@
 
 ```
 index.html                 صرف ڈھانچہ — ایک سطر بھی چلتا کوڈ نہیں
-service-worker.js          آف لائن کیش (اس وقت bhc-clinic-v118 — ہر تبدیلی پر بڑھائیں)
+service-worker.js          آف لائن کیش (اس وقت bhc-clinic-v119 — ہر تبدیلی پر بڑھائیں)
 data/*.json                تشخیص · علاج · نالج کا مواد (v94 میں کوڈ سے نکالا)
 js/00-data-boot.js         مواد کا لوڈر — سب سے پہلے چلتا ہے
 js/01 … js/16              ایپ کے حصے
@@ -94,6 +94,7 @@ node tests/tree_view_integrity.jsdom.test.js   # ٹری — 71,027 ربرک
 | **v116** | بیچ 16: **EYE مکمل 1,804 / 1,804** (`ur/rubrics/kent/eye.json`، جڑ «آنکھ — »)؛ درد کے 430 ⚙ خودکار، باقی ہاتھ سے؛ SW میں eye.json |
 | **v117** | بیچ 17: **VISION مکمل 885 / 885** (`ur/rubrics/kent/vision.json`، جڑ «نظر — »)، سب ہاتھ سے؛ SW میں vision.json |
 | **v118** | بیچ 18: **EAR مکمل 2,015 / 2,015** (جڑ «کان — »؛ 681 ⚙ خودکار)؛ **صفائی:** نظرثانی کی فائلیں اب `tools/review_rubrics_ur.js` سے بنتی ہیں (`ur/review/`، `.gitignore` میں — گٹ ہب پر ضروری نہیں)؛ فی ورژن README ختم → ایک `README_UR.md`؛ json کی `meta.auto` میں ⚙ کلیدیں |
+| **v119** | بیچ 19: **HEARING مکمل 158** (جڑ «سماعت — ») + **NOSE مکمل 1,514** (جڑ «ناک — »؛ درد کے 223 ⚙) |
 
 ### حذف شدہ (تصدیق شدہ 404)
 `js/08b-rep-differentiation.js` · `diagnosis-data.js` · `advanced-diagnosis-knowledge.js` ·
@@ -147,6 +148,7 @@ ur/rubric_labels_ur.json  →  { "labels": { "eating, after": "کھانے کے �
 | **`ur/rubrics/kent/eye.json`** | **EYE مکمل 1,804** — جڑ «آنکھ — »؛ ماخذ `eye_batch1.tsv` |
 | **`ur/rubrics/kent/vision.json`** | **VISION مکمل 885** — جڑ «نظر — »؛ ماخذ `vision_batch1.tsv` |
 | **`ur/rubrics/kent/ear.json`** | **EAR مکمل 2,015** — جڑ «کان — »؛ ماخذ `ear_batch1.tsv` (NOISES/PAIN کے سوا) + `ear_batch2.tsv` |
+| **`ur/rubrics/kent/hearing.json`** · **`nose.json`** | HEARING 158 (جڑ «سماعت — »)، NOSE 1,514 (جڑ «ناک — »)؛ ماخذ `hearing_batch1.tsv`، `nose_batch1.tsv` + `nose_batch2.tsv` |
 | `ur/review/kent_<chapter>_REVIEW.md` | نظرثانی کی فائلیں — `node tools/review_rubrics_ur.js kent <chapter>` (یا `--all`) سے بنیں؛ 🔒 قفل، ⚙ خودکار جوڑ؛ گٹ میں نظر انداز (`.gitignore`) |
 | `ur/rubrics/kent/mind_batch1..4.tsv` | بیچ 7–10 کی ماخذ TSV (key · depth · en · ur) — دوبارہ ضم کے لیے (ترتیب سے ضم کریں: 1، 2، 3، 4) |
 | **`ur/BATCH_7_REVIEW.md`** | **بیچ 7 (ربرک-جملے) — ڈاکٹر کی نظرثانی کے لیے** 708 ربرک، اصلاح کا خانہ خالی |
@@ -398,7 +400,7 @@ node tools/coverage_rubrics_ur.js kent                               # باب ب
 **طے شدہ اصطلاحات (بیچ 7–8):** agg. «بگاڑ» · amel. «آرام» · Anxiety «بے چینی» · Anguish «سخت کرب (دلی اذیت)» · Confusion «ذہنی الجھن» · Concentration «ذہن جمانا» · Company aversion «لوگوں سے بیزاری» · Cheerful «خوش مزاجی» · Absent-minded «غائب دماغی» · Delirium «ہذیان» · Delusions «وہم» (بچے: «وہم — کہ …»؛ دیکھنے والے: «… دکھائی دیتے ہیں») · Death «موت» · «(See …)» ترجمہ نہیں · ہندسے 1 2 3۔
 **✅ ڈاکٹر کے فیصلے (29 ستمبر 2026):** Delusions = **«وہم»** · اوقات «رات 4 بجے»/«سہ پہر 5 بجے» **منظور** · جنس **بالکل کینٹ کی ترتیب سے** (he → مذکر، she → مؤنث، نہ ہو تو مذکر)۔ ⚠ خودکار جانچ ممکن نہیں (اردو فعل اسم کی جنس سے بدلتا ہے: «شادی ہو چکی ہے»، «موسیقی سنائی دیتی ہے») — ہاتھ سے دیکھیں۔
 
-**پیش رفت:** MIND ✅ 4,834 · VERTIGO ✅ 567 · HEAD ✅ 6,921 · EYE ✅ 1,804 · VISION ✅ 885 · EAR ✅ 2,015 · قفل 0 · کینٹ کل 17,026 / 71,027 (24.0%)۔ **اگلا باب:** HEARING (158، جڑ «سماعت — »)، NOSE (1,514، جڑ «ناک — »)، FACE (2,098، جڑ «چہرہ — »)، MOUTH (1,643)۔ ⚠ ورک اسپیس 128 MB سے بڑھ جائے تو فائلیں نشستوں کے بیچ غائب ہو جاتی ہیں — بڑی عارضی فائلیں (all_rubrics.json، پرانی زپ) نہ رکھیں۔ **رفتار کا طریقہ (v115):** جسمانی ابواب میں ربرک «قسم + مقام + شرط» کے ٹکڑوں سے بنتے ہیں — پہلے عمومی شرطیں اور مقام ہاتھ سے کریں، پھر `/home/user/ur_audit/_work` جیسا «ترجمہ یادداشت» (اپنی ہی عبارتوں سے TM) بنا کر باقی خودکار جوڑیں، نامعلوم ٹکڑے ہاتھ سے؛ نظرثانی کی فائل میں ⚙ لگائیں۔ پرانا نوٹ: `HEAD › PAIN` کی **قسمیں** 2,880 (قطار 1457–6128 میں جن کا جملہ نہیں): pressing 671 «دبانے والا»، stitching 455 «چبھتا»، tearing 430 «چیرتا»، drawing 229 «کھینچتا»، boring 160 «برما سا»، shooting 157 «دوڑتا (تیر جیسا)»، sore 135 «دکھتا، کچلا ہوا»، burning 101 «جلتا»، cutting 98 «کاٹتا»، bursting 96 «پھٹنے جیسا»، jerking 46، lancinating 39، stunning 36، burrowing 35، extending 29، morning 26، nail 26، periodic 25، cramping 24، brain 21، lying 20؛ ہر قسم کا جملہ «سر — درد، دبانے والا، ماتھے میں، …»؛ جڑ وہی «سر — »، PAIN کا جملہ «سر — درد، …» (ذیلی اقسام: aching «ہلکا مسلسل درد»، boring «برما سا درد»، bursting «پھٹنے جیسا»، pressing «دبانے والا»، stitching «چبھن»، tearing «چیرنے والا»…)؛ ضم `--root "سر — "` کے ساتھ اسی head.json میں۔ پھر eye, vision, ear … رفتار: ایک نشست میں ≈2,700 ربرک ہو سکتے ہیں (بیچ 10) — صارف چاہتا ہے **پورا باب ایک بار میں**۔
+**پیش رفت:** MIND ✅ 4,834 · VERTIGO ✅ 567 · HEAD ✅ 6,921 · EYE ✅ 1,804 · VISION ✅ 885 · EAR ✅ 2,015 · HEARING ✅ 158 · NOSE ✅ 1,514 · قفل 0 · کینٹ کل 18,698 / 71,027 (26.3%)۔ **اگلا باب:** FACE (2,098، جڑ «چہرہ — »)، MOUTH (1,643، جڑ «منہ — »)، TEETH (861)، THROAT (1,049)۔ ⚠ ورک اسپیس 128 MB سے بڑھ جائے تو فائلیں نشستوں کے بیچ غائب ہو جاتی ہیں — بڑی عارضی فائلیں (all_rubrics.json، پرانی زپ) نہ رکھیں۔ **رفتار کا طریقہ (v115):** جسمانی ابواب میں ربرک «قسم + مقام + شرط» کے ٹکڑوں سے بنتے ہیں — پہلے عمومی شرطیں اور مقام ہاتھ سے کریں، پھر `/home/user/ur_audit/_work` جیسا «ترجمہ یادداشت» (اپنی ہی عبارتوں سے TM) بنا کر باقی خودکار جوڑیں، نامعلوم ٹکڑے ہاتھ سے؛ نظرثانی کی فائل میں ⚙ لگائیں۔ پرانا نوٹ: `HEAD › PAIN` کی **قسمیں** 2,880 (قطار 1457–6128 میں جن کا جملہ نہیں): pressing 671 «دبانے والا»، stitching 455 «چبھتا»، tearing 430 «چیرتا»، drawing 229 «کھینچتا»، boring 160 «برما سا»، shooting 157 «دوڑتا (تیر جیسا)»، sore 135 «دکھتا، کچلا ہوا»، burning 101 «جلتا»، cutting 98 «کاٹتا»، bursting 96 «پھٹنے جیسا»، jerking 46، lancinating 39، stunning 36، burrowing 35، extending 29، morning 26، nail 26، periodic 25، cramping 24، brain 21، lying 20؛ ہر قسم کا جملہ «سر — درد، دبانے والا، ماتھے میں، …»؛ جڑ وہی «سر — »، PAIN کا جملہ «سر — درد، …» (ذیلی اقسام: aching «ہلکا مسلسل درد»، boring «برما سا درد»، bursting «پھٹنے جیسا»، pressing «دبانے والا»، stitching «چبھن»، tearing «چیرنے والا»…)؛ ضم `--root "سر — "` کے ساتھ اسی head.json میں۔ پھر eye, vision, ear … رفتار: ایک نشست میں ≈2,700 ربرک ہو سکتے ہیں (بیچ 10) — صارف چاہتا ہے **پورا باب ایک بار میں**۔
 **منصوبہ (`FAMILY_TREE_REVIEW.md` §6):** ② MIND باقی 4,126 · ③ سب ابواب کے سرِ عنوان 4,150 · ④ GENERALITIES/SLEEP/VERTIGO/FEVER/CHILL/PERSPIRATION ≈6,700 · ⑤ modifier قواعد + ترکیب · ⑥ بدن کے ابواب ≈15,000 — کل ≈40 نشستیں۔
 **پرانا لیبل نظام** (`rubric_labels_ur.json`, `compose_ur.js`) اب صرف **فال بیک** ہے — جہاں جملہ نہیں وہاں پہلے جیسا دکھتا ہے؛ اس پر نئے بیچ نہ چلائیں۔
 
