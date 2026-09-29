@@ -31,7 +31,9 @@ const urDig=/[\u06F0-\u06F9\u0660-\u0669]/;
 ok(!Object.keys(D.rubrics).some(k=>urDig.test(D.rubrics[k])),'B3b صارف کا اصول: جملوں میں ہندسے 1 2 3 (اردو ہندسے نہیں)');
 ok(!urDig.test(rd('ur/rubric_labels_ur.json'))&&!urDig.test(rd('ur/glossary_core_v1.json')),'B3c لیبل فائل اور لغت میں بھی اردو ہندسے نہیں');
 ok(/REP_RUBUR_V\s*=\s*'\d+'/.test(rd('js/18-rubrics-ur.js'))&&/\.json\?v=' \+ REP_RUBUR_V/.test(rd('js/18-rubrics-ur.js')),'B3d ربرک فائلوں کا اپنا ورژن (REP_RUBUR_V)');
-ok(Object.keys(D.rubrics).length>=2100,'B4 بیچ 7+8+9: کم از کم 2100 ربرک ('+Object.keys(D.rubrics).length+')');
+ok(Object.keys(D.rubrics).length===rows.length,'B4 MIND مکمل: ہر ربرک کا جملہ ('+Object.keys(D.rubrics).length+' / '+rows.length+')');
+ok(D.rubrics['fear, death, of, menses, before']==='خوف — موت کا، حیض سے پہلے'&&D.rubrics['weeping']==='رونا','B4d بیچ 10 کی مثالیں (FEAR، WEEPING)');
+ok(w.repRubUrObl('لکھنا')==='لکھنے'&&w.repRubUrObl('حافظہ')==='حافظے'&&w.repRubUrObl('خوف')==='','B4e مائل شکل: «لکھنا»→«لکھنے»، «حافظہ»→«حافظے»');
 ok(D.rubrics['dullness']==='ذہنی سستی (کند ذہنی)'&&D.rubrics['escape, attempts to, window, from']==='فرار (بھاگ نکلنا) کی کوشش کرتا ہے، کھڑکی سے','B4c بیچ 9 کی مثالیں (DULLNESS، ESCAPE)');
 ok(D.rubrics['delirium']==='ہذیان'&&D.rubrics['delusions, enlarged, chin is']==='وہم — کہ ٹھوڑی بڑھ گئی ہے','B4b بیچ 8 کی مثالیں (DELIRIUM، DELUSIONS enlarged chin)');
 ok(D.rubrics['anger']==='غصہ'&&D.rubrics['anger, consoled, when']==='غصہ — تسلی دینے پر','B5 مثال: ANGER, consoled, when → «غصہ — تسلی دینے پر»');
@@ -49,6 +51,7 @@ const s=w.repRubUrSplit('بے چینی — شام 6 بجے','بے چینی — �
 const s2=w.repRubUrSplit('غصہ — تسلی دینے پر','خوشی'); ok(s2.base===''&&s2.delta==='غصہ — تسلی دینے پر','C5 والد میل نہ کھائے تو پورا جملہ اضافہ');
 const rD=rows.find(r=>r.full==='ANXIETY, lying, amel.'); const hD=w.repRubUrRowHtml(rD);
 ok(/rub-base">بے چینی — <\/span>/.test(hD),'C6 «=» والا جملہ: قریب ترین بزرگ (جڑ) بنیاد بنتی ہے');
+ok(w.repRubUrBase('kent','mind',['WRITING','aversion to'],'لکھنے سے بیزار')==='لکھنے','C6b مائل بنیاد: «لکھنا» → «لکھنے سے بیزار» میں بنیاد «لکھنے»');
 ok(w.repRubUrMode()==='full','C7 موڈ کی طے شدہ حالت «پورا مطلب»');
 w.repRubUrSetMode('delta'); ok(w.repRubUrMode()==='delta'&&w.localStorage.getItem('bc_ur_mode')==='delta','C8 موڈ بدلتا اور محفوظ ہوتا ہے');
 const h1d=w.repRubUrRowHtml(r1); ok(/delta-only/.test(h1d)&&!/rub-base/.test(h1d)&&/تسلی دینے پر/.test(h1d),'C9 «صرف اضافہ» موڈ میں بنیاد چھپ جاتی ہے');
@@ -68,7 +71,7 @@ ok(/js\/18-rubrics-ur\.js\?v=\d+/.test(idx)&&/css\/rubrics-ur\.css\?v=\d+/.test(
 ok(idx.indexOf('<script src="js/17-rubric-ur.js')<idx.indexOf('<script src="js/18-rubrics-ur.js'),'E2 18-rubrics-ur.js، 17-rubric-ur.js کے بعد لوڈ ہوتی ہے');
 ok(/id="repUrModeBtn"/.test(idx)&&!/repUrModeBtn"[^>]*onclick/.test(idx),'E3 ٹول بار میں بٹن #repUrModeBtn (onclick کے بغیر)');
 ok(/'\.\/js\/18-rubrics-ur\.js'/.test(sw)&&/'\.\/css\/rubrics-ur\.css'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/mind\.json'/.test(sw),'E4 service-worker میں تینوں نئی فائلیں');
-ok(/CACHE_NAME='bhc-clinic-v(109|1[1-9]\d)'/.test(sw),'E5 CACHE_NAME v109 یا بعد کا');
+ok(/CACHE_NAME='bhc-clinic-v(1[1-9]\d)'/.test(sw),'E5 CACHE_NAME v110 یا بعد کا');
 ok(/repRubUrRowHtml\(r\)/.test(tree)&&/ensureRepRubricsUr\(repCurrentBook,repCurrentChapter/.test(tree),'E6 rep-tree.js: صف پر جملہ + باب کی فائل منگوانا');
 ok(!/ensureRepRubricsUr/.test(rd('js/repertory/LOAD_ORDER.txt')),'E7 LOAD_ORDER.txt نہیں چھیڑا');
 

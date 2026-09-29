@@ -19,7 +19,7 @@
 var _repRubUr = {};            // book → chapter → { rubrics:{}, locked:{} }
 var _repRubUrLoading = {};     // 'book/chapter' → true جب تک منگوایا جا رہا ہو
 var REP_RUBUR_MODE_KEY = 'bc_ur_mode';          // 'full' | 'delta'
-var REP_RUBUR_V = '109';                                       // 🔑 ur/rubrics/**.json کے ہر بدلاؤ پر بڑھائیں (ساتھ CACHE_NAME بھی)
+var REP_RUBUR_V = '110';                                       // 🔑 ur/rubrics/**.json کے ہر بدلاؤ پر بڑھائیں (ساتھ CACHE_NAME بھی)
 var REP_RUBUR_SEP_RE = /^(\s*[—–-]\s*|\s*،\s*|\s*,\s*|\s+)/;   // والد کے بعد جوڑنے والا نشان
 
 // ---------- کلید: پورا راستہ → معیاری صورت ----------
@@ -102,10 +102,14 @@ function repRubUrSplit(t, parentT) {
 // r = {label, labels, full, depth}  — labels[] راستہ ہے، اس لیے کوما والے لیبل («stabbed, so that …») نہیں ٹوٹتے
 // «بنیاد» = قریب ترین بزرگ (والد، دادا … جڑ) جس کا جملہ اس جملے کے شروع میں موجود ہو
 // («=…» والے جملے والد سے نہیں جڑتے مگر جڑ «بے چینی — » سے شروع ہوتے ہیں — تو بنیاد جڑ بنے گی)
+// اردو کی «مائل» شکل: «لکھنا» → «لکھنے سے بیزار»، «حافظہ» → «حافظے کی کمزوری» — بزرگ کا آخری «ا/ہ» بچے میں «ے» بن جائے تو بھی بنیاد مانو
+function repRubUrObl(a) { return /[اہ]$/.test(a) ? a.slice(0, -1) + 'ے' : ''; }
 function repRubUrBase(book, ch, labels, t) {
     for (var i = labels.length - 1; i >= 1; i--) {
         var a = repRubUrGet(book, ch, labels.slice(0, i).join(', '));
-        if (a && t.length > a.length && t.indexOf(a) === 0) return a;
+        if (!a) continue;
+        if (t.length > a.length && t.indexOf(a) === 0) return a;
+        var o = repRubUrObl(a); if (o && t.length > o.length && t.indexOf(o) === 0) return o;
     }
     return null;
 }

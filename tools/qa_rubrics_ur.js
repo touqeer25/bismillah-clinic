@@ -9,7 +9,8 @@ rows.forEach(r=>{
   if(!t){ miss++; if(all) console.log('  '.repeat(r.depth)+'○ '+r.label+'   ⟵ (ترجمہ نہیں)'); return; }
   n++;
   // بنیاد = قریب ترین بزرگ جس کے جملے سے یہ جملہ شروع ہوتا ہے (ایپ کی repRubUrBase جیسی منطق)
-  let p=null; for(let i=r.labels.length-1;i>=1;i--){ const a=U[w.repRubKey(r.labels.slice(0,i).join(', '))]; if(a&&t.length>a.length&&t.indexOf(a)===0){ p=a; break; } }
+  let p=null; for(let i=r.labels.length-1;i>=1;i--){ const a=U[w.repRubKey(r.labels.slice(0,i).join(', '))]; if(!a) continue;
+    if(t.length>a.length&&t.indexOf(a)===0){ p=a; break; } const o=w.repRubUrObl(a); if(o&&t.length>o.length&&t.indexOf(o)===0){ p=o; break; } }   // مائل شکل («لکھنا»→«لکھنے») بھی بنیاد
   const ext=!!p||r.depth===0;
   const flags=[];
   if(/[A-Za-z]{2,}/.test(t)) flags.push('انگریزی حروف');
