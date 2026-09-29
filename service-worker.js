@@ -1,5 +1,5 @@
 // Bismillah Clinic - Service Worker (robust offline cache)
-const CACHE_NAME='bhc-clinic-v127';
+const CACHE_NAME='bhc-clinic-v128';
 
 // Keep this list same-origin and reliable. Missing/external files are not allowed
 // to break the whole install anymore.
@@ -86,6 +86,9 @@ const CORE_ASSETS = [
   './ur/rubrics/kent/bladder.json',
   './ur/rubrics/kent/kidneys.json',
   './ur/rubrics/kent/prostate_gland.json',
+  './ur/rubrics/kent/rectum.json',
+  './ur/rubrics/kent/urethra.json',
+  './ur/rubrics/kent/urine.json',
   './service-worker.js',
   './diagnosis-custom.js',
   './custom-data-help.js',
