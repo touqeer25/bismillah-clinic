@@ -117,4 +117,17 @@ ok(/'\.\/ur\/rubrics\/kent\/vertigo\.json'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/h
 ok(/repRubUrRowHtml\(r\)/.test(tree)&&/ensureRepRubricsUr\(repCurrentBook,repCurrentChapter/.test(tree),'E6 rep-tree.js: صف پر جملہ + باب کی فائل منگوانا');
 ok(!/ensureRepRubricsUr/.test(rd('js/repertory/LOAD_ORDER.txt')),'E7 LOAD_ORDER.txt نہیں چھیڑا');
 
+// ---------- F. کینٹ کتابی ترتیب (v130) ----------
+const gmR=L.chapterRows(w,'kent','genitalia_male'); const gi=f=>gmR.findIndex(r=>r.full===f);
+ok(gmR.length===1118&&gi('ERECTIONS, troublesome')<gi('ERECTIONS, daytime')&&gi('ERECTIONS, daytime')<gi('ERECTIONS, morning')&&gi('ERECTIONS, morning')<gi('ERECTIONS, forenoon')&&gi('ERECTIONS, forenoon')<gi('ERECTIONS, afternoon')&&gi('ERECTIONS, afternoon')<gi('ERECTIONS, evening')&&gi('ERECTIONS, evening')<gi('ERECTIONS, night'),'F1 ERECTIONS کتابی ترتیب میں (troublesome → daytime → morning → forenoon → afternoon → evening → night)');
+ok(gi('ERECTIONS, lying')<gi('ERECTIONS, painful')&&gi('ERECTIONS, painful')<gi('ERECTIONS, seldom')&&gi('ERECTIONS, seldom')<gi('ERECTIONS, violent')&&gi('ERECTIONS, violent')<gi('ERECTIONS, wanting (impotency)'),'F2 ERECTIONS کی ذیلی ربرکیں بھی کتابی ترتیب میں (lying → painful → seldom → violent → wanting)');
+const rcR=L.chapterRows(w,'kent','rectum'); const ri=f=>rcR.findIndex(r=>r.full===f);
+ok(ri('APHTHOUS condition of anus')<ri('BALL in rectum, sensation of (See Lump)')&&ri('BALL in rectum, sensation of (See Lump)')<ri('BLACK')&&ri('BLACK')<ri('BOILS in anus')&&ri('BOILS in anus')<ri('CANCER')&&ri('CANCER')<ri('CATARRH of the rectum (See Mucus, Moisture)')&&ri('CHILLINESS in rectum before stool')<ri('CHOLERA')&&ri('CHOLERA')<ri('COLDNESS in anus'),'F3 rectum کا آغازکتابی ترتیب میں (کتاب صفحہ 1308 سے ملایا گیا)');
+const ci=f=>gmR.findIndex(r=>r.full===f);
+ok(ci('COLDNESS, morning')<ci('COLDNESS, evening')&&ci('COLDNESS, evening')<ci('COLDNESS, urination, during')&&ci('COLDNESS, urination, during')<ci('COLDNESS, penis')&&ci('COLDNESS, penis')<ci('COLDNESS, scrotum')&&ci('COLDNESS, scrotum')<ci('COLDNESS, testes'),'F4 COLDNESS: وقت → شرط → محل (کتاب صفحہ 1495)');
+const rch=rd('js/repertory/rep-chapters.js');
+ok(/_repSortTreeKentOrder/.test(rch)&&/repCurrentBook === 'kent'/.test(rch),'F5 ترتیب کا فنکشن موجود اور صرف کینٹ پر لاگو');
+ok(/js\/repertory\/rep-chapters\.js\?v=13\d/.test(idx),'F6 index.html میں rep-chapters.js کا نیا ورژن (v130)');
+ok(/CACHE_NAME='bhc-clinic-v13\d'/.test(sw),'F7 CACHE_NAME v130');
+
 console.log(fails?`\n${fails} FAIL`:'\nALL PASS'); process.exit(fails?1:0);

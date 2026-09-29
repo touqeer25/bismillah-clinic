@@ -283,7 +283,69 @@ function _repBuildTreeByExistingRubrics(data){
         if(!n.oorep_id && e.rec.oorep_id) n.oorep_id = e.rec.oorep_id;
         _repMergeRemedies(n.remedies, e.rec.r || {});
     });
+    // 🔑 v130: کینٹ — ٹری بننے کے بعد کتابی ترتیب بحال کریں (کوئی ربرک شامل/خارج نہیں ہوتا)
+    if(repCurrentBook === 'kent') _repSortTreeKentOrder(root);
     return root;
+}
+
+// ============================================================
+// 🔑 v130: کینٹ کی کتابی ترتیب بحال کرنا (صرف دکھانے/برآمد پر اثر — ڈیٹا، کلیدیں اور ترجمے جوں کے توں)
+// مسئلہ: kent_chapters/*.json کی فائل ترتیب کتاب کی نہیں (پرانا merge سکرپٹ ہر سطح کو «سب سے چھوٹا
+// OOREP id» ملا کر چنتا تھا)۔ لیکن کتاب کی اصل ترتیب ہمارے پرانے r-id میں محفوظ ہے۔
+// کینٹ کا اپنا قانون (PREFACE، صفحہ I): «general rubric ... followed by the particulars, viz. the time of
+// occurrence, the circumstances, and lastly the extensions» — یعنی: عام ربرک، پھر وقت، پھر شرائط،
+// پھر محل/نوعیت، اور پھیلاؤ سب سے آخر میں۔
+// قاعدہ: (الف) پرانے ربرک (r…) اپنی کتابی ترتیب پر (r نمبر کے حساب سے)۔ (ب) نئے ربرک (o/m) اُوپر
+// والے پروٹوکول کے حساب سے درمیان میں ٹھیک جگہ پر۔ (ج) کسی سطح پر کوئی پرانا ربرک نہ ہو تو سب
+// پروٹوکول کی ترتیب پر۔
+function _repKentTimeRank(b){
+    var T={daytime:0,morning:1,forenoon:2,noon:3,afternoon:4,evening:5,night:6,midnight:7,
+           'before midnight':8,'after midnight':9};
+    return T.hasOwnProperty(b)?T[b]:null;
+}
+function _repKentLabelKey(label){
+    var b=String(label||'').replace(/\s*\[\d+\]\s*$/,'').trim().toLowerCase();
+    if(b==='right'||b==='right, then left') return [0,0,b];
+    if(b==='left'||b==='left, then right')  return [0,1,b];
+    var t=_repKentTimeRank(b); if(t!==null) return [2,t,b];
+    if(b==='before') return [3,0,b];
+    if(b==='during') return [3,1,b];
+    if(b==='after')  return [3,2,b];
+    if(b==='amel.')  return [3,3,b];
+    if(b==='agg.')   return [3,4,b];
+    return [4,0,b];
+}
+function _repKentKeyCmp(a,b){
+    if(a[0]!==b[0]) return a[0]<b[0]?-1:1;
+    if(a[1]!==b[1]) return a[1]<b[1]?-1:1;
+    return a[2] < b[2] ? -1 : (a[2] > b[2] ? 1 : 0);
+}
+function _repKentRNum(rid){ var m=/^r(\d+)$/.exec(String(rid||'')); return m?parseInt(m[1],10):null; }
+function _repSortTreeKentOrder(node){
+    if(!node||!node.order) return node;
+    node.order.forEach(function(l){ _repSortTreeKentOrder(node.children[l]); });
+    var kids=node.order.map(function(l){
+        var ch=node.children[l]||{};
+        return {l:l, rid:ch.rid||'', dup:ch.dup, key:_repKentLabelKey(l)};
+    });
+    var rkids=kids.filter(function(k){ return _repKentRNum(k.rid)!==null; })
+                  .sort(function(a,b){ return _repKentRNum(a.rid)-_repKentRNum(b.rid); });
+    var rest =kids.filter(function(k){ return _repKentRNum(k.rid)===null; })
+                  .sort(function(a,b){ return _repKentKeyCmp(a.key,b.key); });
+    if(!rkids.length){ node.order=rest.map(function(k){ return k.l; }); return node; }
+    rest.forEach(function(e){
+        // 🔑 نئے ربرک کو حروفِ تہجی کے حساب سے سب سے قریب پچھلے پرانے ربرک کے بعد رکھیں
+        // (پرانے ربرک کتابی ترتیب پر ہیں جو عموماً حروفِ تہجی ہی ہے — مگر ہر باب میں نہیں)
+        var best=-1;
+        for(var j=0;j<rkids.length;j++){
+            if(_repKentKeyCmp(rkids[j].key,e.key)<=0){
+                if(best<0 || _repKentKeyCmp(rkids[j].key,rkids[best].key)>0) best=j;
+            }
+        }
+        rkids.splice(best+1,0,e);
+    });
+    node.order=rkids.map(function(k){ return k.l; });
+    return node;
 }
 
 function buildRubricTree(data){
