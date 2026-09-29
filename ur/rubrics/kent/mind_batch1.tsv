@@ -2,7 +2,7 @@ key	depth	en	ur
 abandoned	0	ABANDONED (See Forsaken)	بے یار و مددگار، چھوڑ دیے جانے کا احساس
 abrupt	0	ABRUPT	روکھا، اکھڑ رویہ
 absent-minded	0	ABSENT-MINDED (See Forgetful)	غائب دماغی (دھیان کہیں اور، بھول پن)
-absent-minded, 11 a.m. to 4 p.m.	1	ABSENT-MINDED (See Forgetful), 11 a.m. to 4 p.m.	صبح ۱۱ سے سہ پہر ۴ بجے تک
+absent-minded, 11 a.m. to 4 p.m.	1	ABSENT-MINDED (See Forgetful), 11 a.m. to 4 p.m.	صبح 11 سے سہ پہر 4 بجے تک
 absent-minded, menses, during	1	ABSENT-MINDED (See Forgetful), menses, during	حیض کے دوران
 absent-minded, morning	1	ABSENT-MINDED (See Forgetful), morning	صبح
 absent-minded, noon	1	ABSENT-MINDED (See Forgetful), noon	دوپہر
@@ -62,7 +62,7 @@ anger, cough, before	2	ANGER, cough, before	=غصہ — کھانسی سے پہل
 anger, cough, from the	2	ANGER, cough, from the	=غصہ — کھانسی کی وجہ سے
 anger, evening	1	ANGER, evening	شام
 anger, forenoon	1	ANGER, forenoon	دوپہر سے پہلے
-anger, forenoon, 11 a.m.	2	ANGER, forenoon, 11 a.m.	=غصہ — صبح ۱۱ بجے
+anger, forenoon, 11 a.m.	2	ANGER, forenoon, 11 a.m.	=غصہ — صبح 11 بجے
 anger, former vexations, about	1	ANGER, former vexations, about	پرانی کوفتیں یاد کر کے
 anger, interruption, from	1	ANGER, interruption, from	بیچ میں ٹوکنے پر
 anger, irascibility	1	ANGER, irascibility	چڑچڑاپن، بات بات پر بھڑک اٹھنا
@@ -80,8 +80,8 @@ anger, trembling, with	1	ANGER, trembling, with	ساتھ کپکپی
 anger, violent	1	ANGER, violent	شدید، بے قابو
 anger, voices of people	1	ANGER, voices of people	لوگوں کی آوازیں سن کر
 anguish	0	ANGUISH	سخت کرب (دلی اذیت)
-anguish, 4 a.m.	1	ANGUISH, 4 a.m.	رات ۴ بجے
-anguish, 5 a.m. to 5 p.m.	1	ANGUISH, 5 a.m. to 5 p.m.	صبح ۵ سے سہ پہر ۵ بجے تک
+anguish, 4 a.m.	1	ANGUISH, 4 a.m.	رات 4 بجے
+anguish, 5 a.m. to 5 p.m.	1	ANGUISH, 5 a.m. to 5 p.m.	صبح 5 سے سہ پہر 5 بجے تک
 anguish, chill, during	1	ANGUISH, chill, during	سردی لگنے کے دوران
 anguish, daytime	1	ANGUISH, daytime	دن کے وقت
 anguish, driving from place to place	1	ANGUISH, driving from place to place	جگہ جگہ بھگاتا پھرے، کہیں چین نہ آئے
@@ -132,11 +132,11 @@ antics	0	ANTICS	مسخرہ پن، اوٹ پٹانگ حرکتیں
 antics, plays	1	ANTICS, plays	مسخرے جیسے کھیل کرتا ہے
 anxiety	0	ANXIETY	بے چینی
 anxiety, afternoon	1	ANXIETY, afternoon	سہ پہر
-anxiety, afternoon, 3 p.m. to 6 p.m.	2	ANXIETY, afternoon, 3 p.m. to 6 p.m.	+۳ سے ۶ بجے
-anxiety, afternoon, 4 p.m.	2	ANXIETY, afternoon, 4 p.m.	+۴ بجے
-anxiety, afternoon, 4 p.m. to 5 p.m.	2	ANXIETY, afternoon, 4 p.m. to 5 p.m.	+۴ سے ۵ بجے
-anxiety, afternoon, 4 p.m. to 6 p.m.	2	ANXIETY, afternoon, 4 p.m. to 6 p.m.	+۴ سے ۶ بجے
-anxiety, afternoon, 5 p.m. to 6 p.m.	2	ANXIETY, afternoon, 5 p.m. to 6 p.m.	+۵ سے ۶ بجے
+anxiety, afternoon, 3 p.m. to 6 p.m.	2	ANXIETY, afternoon, 3 p.m. to 6 p.m.	+3 سے 6 بجے
+anxiety, afternoon, 4 p.m.	2	ANXIETY, afternoon, 4 p.m.	+4 بجے
+anxiety, afternoon, 4 p.m. to 5 p.m.	2	ANXIETY, afternoon, 4 p.m. to 5 p.m.	+4 سے 5 بجے
+anxiety, afternoon, 4 p.m. to 6 p.m.	2	ANXIETY, afternoon, 4 p.m. to 6 p.m.	+4 سے 6 بجے
+anxiety, afternoon, 5 p.m. to 6 p.m.	2	ANXIETY, afternoon, 5 p.m. to 6 p.m.	+5 سے 6 بجے
 anxiety, afternoon, until evening	2	ANXIETY, afternoon, until evening	+سے شام تک
 anxiety, air	1	ANXIETY, air	کھلی ہوا کا اثر
 anxiety, air, in open agg.	2	ANXIETY, air, in open agg.	=بے چینی — کھلی ہوا میں بگاڑ
@@ -183,7 +183,7 @@ anxiety, crowd, in a	1	ANXIETY, crowd, in a	ہجوم میں
 anxiety, cruelties, after hearing of	1	ANXIETY, cruelties, after hearing of	ظلم کی خبر سن کر
 anxiety, dark, in	1	ANXIETY, dark, in	اندھیرے میں
 anxiety, daytime	1	ANXIETY, daytime	دن کے وقت
-anxiety, daytime, 5 a.m. to 5 p.m.	2	ANXIETY, daytime, 5 a.m. to 5 p.m.	+صبح ۵ سے سہ پہر ۵ بجے تک
+anxiety, daytime, 5 a.m. to 5 p.m.	2	ANXIETY, daytime, 5 a.m. to 5 p.m.	+صبح 5 سے سہ پہر 5 بجے تک
 anxiety, dinner	1	ANXIETY, dinner	دوپہر کے کھانے کے سلسلے میں
 anxiety, dinner, after agg.	2	ANXIETY, dinner, after agg.	=بے چینی — دوپہر کے کھانے کے بعد بگاڑ
 anxiety, dinner, after, amel.	2	ANXIETY, dinner, after, amel.	=بے چینی — دوپہر کے کھانے کے بعد آرام
@@ -200,9 +200,9 @@ anxiety, emissions, after	1	ANXIETY, emissions, after	احتلام کے بعد
 anxiety, eructations amel.	1	ANXIETY, eructations amel.	ڈکار آنے سے آرام
 anxiety, evening agg.	1	ANXIETY, evening agg.	شام کو بگاڑ
 anxiety, evening	1	ANXIETY, evening	شام
-anxiety, evening, 6 p.m.	2	ANXIETY, evening, 6 p.m.	+۶ بجے
-anxiety, evening, 7 p.m. to 8 p.m.	2	ANXIETY, evening, 7 p.m. to 8 p.m.	+۷ سے ۸ بجے
-anxiety, evening, 8 p.m.	2	ANXIETY, evening, 8 p.m.	+۸ بجے
+anxiety, evening, 6 p.m.	2	ANXIETY, evening, 6 p.m.	+6 بجے
+anxiety, evening, 7 p.m. to 8 p.m.	2	ANXIETY, evening, 7 p.m. to 8 p.m.	+7 سے 8 بجے
+anxiety, evening, 8 p.m.	2	ANXIETY, evening, 8 p.m.	+8 بجے
 anxiety, evening, amel.	2	ANXIETY, evening, amel.	+آرام
 anxiety, evening, bed	2	ANXIETY, evening, bed	+بستر میں
 anxiety, evening, bed, amel.	3	ANXIETY, evening, bed, amel.	=بے چینی — شام بستر میں آرام
@@ -211,7 +211,7 @@ anxiety, evening, bed, in agg.	3	ANXIETY, evening, bed, in agg.	=بے چینی �
 anxiety, evening, bed, uneasiness and anxiety, must uncover	3	ANXIETY, evening, bed, uneasiness and anxiety, must uncover	=بے چینی — شام بستر میں، بے کلی اتنی کہ کپڑا اتارنا پڑے
 anxiety, evening, bed, violent exercise, from	3	ANXIETY, evening, bed, violent exercise, from	=بے چینی — شام بستر میں، سخت ورزش کے بعد
 anxiety, evening, twilight, in the	2	ANXIETY, evening, twilight, in the	+جھٹپٹے (دن ڈھلنے) کے وقت
-anxiety, evening, until 11 p.m.	2	ANXIETY, evening, until 11 p.m.	+رات ۱۱ بجے تک
+anxiety, evening, until 11 p.m.	2	ANXIETY, evening, until 11 p.m.	+رات 11 بجے تک
 anxiety, excitement, from	1	ANXIETY, excitement, from	جوش یا ہیجان سے
 anxiety, exercise amel.	1	ANXIETY, exercise amel.	ورزش سے آرام
 anxiety, exertion of eyes	1	ANXIETY, exertion of eyes	آنکھوں پر زور دینے سے
@@ -227,7 +227,7 @@ anxiety, flatus, from agg.	2	ANXIETY, flatus, from agg.	=بے چینی — ری�
 anxiety, flushes of heat, during	1	ANXIETY, flushes of heat, during	گرمی کی لہروں (فلش) کے دوران
 anxiety, foot bath, after a	1	ANXIETY, foot bath, after a	پاؤں گرم پانی میں رکھنے کے بعد
 anxiety, forenoon	1	ANXIETY, forenoon	دوپہر سے پہلے
-anxiety, forenoon, 11 a.m.	2	ANXIETY, forenoon, 11 a.m.	+۱۱ بجے
+anxiety, forenoon, 11 a.m.	2	ANXIETY, forenoon, 11 a.m.	+11 بجے
 anxiety, friends at home, about	1	ANXIETY, friends at home, about	گھر والوں اور دوستوں کی فکر
 anxiety, fright, after	1	ANXIETY, fright, after	ڈر جانے کے بعد
 anxiety, future, about	1	ANXIETY, future, about	مستقبل کی فکر
@@ -271,15 +271,15 @@ anxiety, music, from	1	ANXIETY, music, from	موسیقی سن کر
 anxiety, night	1	ANXIETY, night	رات
 anxiety, night, midnight	2	ANXIETY, night, midnight	=بے چینی — آدھی رات
 anxiety, night, midnight, after	3	ANXIETY, night, midnight, after	=بے چینی — آدھی رات کے بعد
-anxiety, night, midnight, after, 1 a.m. to 3 a.m.	4	ANXIETY, night, midnight, after, 1 a.m. to 3 a.m.	=بے چینی — رات ۱ سے ۳ بجے
-anxiety, night, midnight, after, 2 a.m.	4	ANXIETY, night, midnight, after, 2 a.m.	=بے چینی — رات ۲ بجے
-anxiety, night, midnight, after, 3 a.m.	4	ANXIETY, night, midnight, after, 3 a.m.	=بے چینی — رات ۳ بجے
-anxiety, night, midnight, after, 3 a.m., after	5	ANXIETY, night, midnight, after, 3 a.m., after	=بے چینی — رات ۳ بجے کے بعد
-anxiety, night, midnight, after, 4 a.m.	4	ANXIETY, night, midnight, after, 4 a.m.	=بے چینی — رات ۴ بجے
+anxiety, night, midnight, after, 1 a.m. to 3 a.m.	4	ANXIETY, night, midnight, after, 1 a.m. to 3 a.m.	=بے چینی — رات 1 سے 3 بجے
+anxiety, night, midnight, after, 2 a.m.	4	ANXIETY, night, midnight, after, 2 a.m.	=بے چینی — رات 2 بجے
+anxiety, night, midnight, after, 3 a.m.	4	ANXIETY, night, midnight, after, 3 a.m.	=بے چینی — رات 3 بجے
+anxiety, night, midnight, after, 3 a.m., after	5	ANXIETY, night, midnight, after, 3 a.m., after	=بے چینی — رات 3 بجے کے بعد
+anxiety, night, midnight, after, 4 a.m.	4	ANXIETY, night, midnight, after, 4 a.m.	=بے چینی — رات 4 بجے
 anxiety, night, midnight, after, on waking	4	ANXIETY, night, midnight, after, on waking	=بے چینی — آدھی رات کے بعد جاگنے پر
-anxiety, night, midnight, after, until 2 a.m.	4	ANXIETY, night, midnight, after, until 2 a.m.	=بے چینی — آدھی رات کے بعد، رات ۲ بجے تک
+anxiety, night, midnight, after, until 2 a.m.	4	ANXIETY, night, midnight, after, until 2 a.m.	=بے چینی — آدھی رات کے بعد، رات 2 بجے تک
 anxiety, night, midnight, before	3	ANXIETY, night, midnight, before	=بے چینی — آدھی رات سے پہلے
-anxiety, night, midnight, before, midnight, 11 p.m.	4	ANXIETY, night, midnight, before, midnight, 11 p.m.	=بے چینی — رات ۱۱ بجے
+anxiety, night, midnight, before, midnight, 11 p.m.	4	ANXIETY, night, midnight, before, midnight, 11 p.m.	=بے چینی — رات 11 بجے
 anxiety, night, midnight, before, on waking, amel., on rising	4	ANXIETY, night, midnight, before, on waking, amel., on rising	=بے چینی — آدھی رات سے پہلے جاگنے پر، اٹھ بیٹھنے سے آرام
 anxiety, night, waking, on	2	ANXIETY, night, waking, on	+جاگنے پر
 anxiety, night watching, from	1	ANXIETY, night watching, from	رات جاگنے (تیمارداری) سے
@@ -287,7 +287,7 @@ anxiety, noise	1	ANXIETY, noise	شور کے سلسلے میں
 anxiety, noise, from	2	ANXIETY, noise, from	=بے چینی — شور سے
 anxiety, noise, of rushing water	2	ANXIETY, noise, of rushing water	=بے چینی — بہتے پانی کے شور سے
 anxiety, noon	1	ANXIETY, noon	دوپہر
-anxiety, noon, till 3 p.m.	2	ANXIETY, noon, till 3 p.m.	+سے ۳ بجے تک
+anxiety, noon, till 3 p.m.	2	ANXIETY, noon, till 3 p.m.	+سے 3 بجے تک
 anxiety, others, for	1	ANXIETY, others, for	دوسروں کی فکر
 anxiety, pains, from the	1	ANXIETY, pains, from the	درد کی وجہ سے
 anxiety, paroxysms	1	ANXIETY, paroxysms	دوروں کی صورت میں
@@ -510,7 +510,7 @@ cheerful, menses	1	CHEERFUL, menses	حیض کے سلسلے میں
 cheerful, menses, before	2	CHEERFUL, menses, before	=خوش مزاجی — حیض سے پہلے
 cheerful, menses, during	2	CHEERFUL, menses, during	=خوش مزاجی — حیض کے دوران
 cheerful, morning	1	CHEERFUL, morning	صبح
-cheerful, morning, 8 a.m.	2	CHEERFUL, morning, 8 a.m.	+۸ بجے
+cheerful, morning, 8 a.m.	2	CHEERFUL, morning, 8 a.m.	+8 بجے
 cheerful, morning, rising, on	2	CHEERFUL, morning, rising, on	+اٹھتے وقت
 cheerful, morning, waking, on	2	CHEERFUL, morning, waking, on	+جاگتے ہی
 cheerful, night	1	CHEERFUL, night	رات
@@ -540,7 +540,7 @@ clinging, child awakens terrified, knows no one, screams, clings to those near	1
 closing eyes amel.	0	CLOSING eyes amel.	آنکھیں بند کرنے سے آرام
 cloudiness, confusion	0	CLOUDINESS, confusion (See Confusion, Stupefaction)	ذہن پر بادل، دھند (الجھن، غنودگی)
 color	0	COLOR	رنگ
-color, aversion to red, yellow, green and black	1	COLOR, aversion to red, yellow, green and black	=سرخ، پیلے، سبز اور کالے رنگ سے نفرت
+color, aversion to red, yellow, green and black	1	COLOR, aversion to red, yellow, green and black	سرخ، پیلے، سبز اور کالے سے نفرت
 company aversion to	0	COMPANY aversion to	لوگوں سے بیزاری
 company aversion to, alternating with bursts of pleasantry and sarcasm	1	COMPANY aversion to, alternating with bursts of pleasantry and sarcasm	باری باری خوش طبعی اور طنز کے دورے
 company aversion to, amel., when alone	1	COMPANY aversion to, amel., when alone	اکیلے ہونے پر آرام

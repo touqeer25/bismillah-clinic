@@ -19,6 +19,7 @@
 var _repRubUr = {};            // book → chapter → { rubrics:{}, locked:{} }
 var _repRubUrLoading = {};     // 'book/chapter' → true جب تک منگوایا جا رہا ہو
 var REP_RUBUR_MODE_KEY = 'bc_ur_mode';          // 'full' | 'delta'
+var REP_RUBUR_V = '108';                                       // 🔑 ur/rubrics/**.json کے ہر بدلاؤ پر بڑھائیں (ساتھ CACHE_NAME بھی)
 var REP_RUBUR_SEP_RE = /^(\s*[—–-]\s*|\s*،\s*|\s*,\s*|\s+)/;   // والد کے بعد جوڑنے والا نشان
 
 // ---------- کلید: پورا راستہ → معیاری صورت ----------
@@ -61,8 +62,7 @@ function ensureRepRubricsUr(book, chapter, cbOnLoad) {
     if (repRubUrHas(book, chapter)) return;                       // پہلے سے موجود — cb نہیں (دوبارہ بنانے کا چکر نہ چلے)
     var id = book + '/' + chapter; if (_repRubUrLoading[id]) return;
     _repRubUrLoading[id] = true;
-    var v = (typeof REP_DATA_V !== 'undefined') ? REP_DATA_V : 'v=1';
-    fetch('ur/rubrics/' + book + '/' + chapter + '.json?' + v)
+    fetch('ur/rubrics/' + book + '/' + chapter + '.json?v=' + REP_RUBUR_V)   // اپنا ورژن — ur/rubrics/ بدلے تو صرف یہ بڑھائیں
         .then(function (r) { if (!r.ok) throw 0; return r.json(); })
         .then(function (d) { repRubUrStore(book, chapter, d); _repRubUrLoading[id] = false; if (cbOnLoad) cbOnLoad(true); })
         .catch(function () { repRubUrStore(book, chapter, null); _repRubUrLoading[id] = false; });   // فائل نہیں = اس باب کا کام ابھی نہیں ہوا

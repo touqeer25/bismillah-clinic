@@ -21,6 +21,7 @@ rows.forEach(r=>{                                   // ٹری کی ترتیب: �
   else { const par=U[r.parentKey]; if(!par){ console.error('⚠ والد کا جملہ نہیں: '+r.full+'  → پورا جملہ «=…» لکھیں'); unknown++; return; }
          full=raw[0]==='+' ? par+' '+raw.slice(1).trim()            // «+اضافہ» → صرف ایک جگہ چھوڑ کر جوڑو (بغیر «—»/«،»)
                           : par+(r.depth===1?' — ':'، ')+raw; }
+  full=full.replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));   // صارف کا اصول: ہندسے ہمیشہ 1 2 3 (اردو ہندسے نہیں)
   full=full.replace(/\s+/g,' ').replace(/\s+([،۔,])/g,'$1').trim();
   if(LK.has(r.key)&&U[r.key]!==full){ kept++; return; }
   if(U[r.key]===undefined) added++; else if(U[r.key]!==full) changed++; else same++;

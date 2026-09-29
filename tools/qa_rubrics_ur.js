@@ -17,7 +17,7 @@ rows.forEach(r=>{
   if(/ہوے|ئے ئے|  /.test(t)) flags.push('ٹوٹا لفظ/دہری جگہ');
   if(!ext) flags.push('کسی بزرگ (والد/جڑ) کے جملے سے شروع نہیں — بالکل الگ جملہ');
   if(t.length<2) flags.push('بہت چھوٹا');
-  if(/[0-9]/.test(t)) flags.push('انگریزی ہندسے');
+  if(/[۰-۹٠-٩]/.test(t)) flags.push('اردو ہندسے — صارف کا اصول: 1 2 3 لکھیں');
   if(flags.length) warn.push({r,t,flags});
   const shown=p?'…'+t.slice(p.length):t;
   console.log('  '.repeat(r.depth)+(LK.has(r.key)?'🔒':'•')+' '+r.label.padEnd(44).slice(0,44)+'  '+shown);

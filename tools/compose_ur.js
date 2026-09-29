@@ -27,7 +27,7 @@ const isTime=u=>TIMEW.indexOf(u)!==-1;
 function cont(u){ return /نا$/.test(u) ? u.replace(/نا$/,'تے ہوئے') : u+' کے دوران'; }
 const isVerb=u=>/نا$/.test(u);
 
-const NUM={'0':'۰','1':'۱','2':'۲','3':'۳','4':'۴','5':'۵','6':'۶','7':'۷','8':'۸','9':'۹'};
+const NUM={'0':'0','1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9'};   // v108 (صارف): ہندسے 1 2 3 ہی رہیں — اردو ہندسے نہیں
 const urNum=s=>String(s).replace(/[0-9]/g,d=>NUM[d]);
 function dayPart(h,ap){                       // گھنٹے کے مطابق دن کا حصہ
   h=+h; if(/a/i.test(ap)) return h>=5&&h<=11?'صبح':'رات';
