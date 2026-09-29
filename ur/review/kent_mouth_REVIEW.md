@@ -73,7 +73,7 @@
 | 66 |  | 1 | BLEEDING, tongue | **منہ — خون آنا، زبان سے** |  |
 | 67 |  | 2 | BLEEDING, tongue, tip | **منہ — خون آنا، زبان سے، نوک سے** |  |
 | 68 |  | 1 | BLEEDING, whooping cough, in | **منہ — خون آنا، کالی کھانسی میں** |  |
-| 69 |  | 0 | BLISTERS (See Vesicles) | **منہ — چھالے (آبلے)** |  |
+| 69 |  | 0 | BLISTERS (See Vesicles) | **منہ — آبلے** |  |
 | 70 |  | 0 | BLOTCHES | **منہ — چکتے** |  |
 | 71 |  | 1 | BLOTCHES, palate | **منہ — چکتے، تالو پر** |  |
 | 72 |  | 1 | BLOTCHES, under the tongue, like vegetable growths | **منہ — چکتے، زبان کے نیچے، جیسے سبزی کی بڑھوتری** |  |
@@ -89,7 +89,7 @@
 | 82 |  | 1 | CANCER, tongue | **منہ — سرطان، زبان کا** |  |
 | 83 |  | 0 | CANCRUM oris (See Stomacace) | **منہ — منہ کی سڑاند (کینکرم اوریس)** |  |
 | 84 |  | 0 | CANKER sores (See Aphthæ) | **منہ — منہ کے چھالے (کینکر)** |  |
-| 85 |  | 0 | CARIES | **منہ — ہڈی کا گلنا (کیریز)** |  |
+| 85 |  | 0 | CARIES | **منہ — ہڈی کا گلنا** |  |
 | 86 |  | 1 | CARIES, gums | **منہ — ہڈی کا گلنا، مسوڑھوں کی** |  |
 | 87 |  | 1 | CARIES, palate | **منہ — ہڈی کا گلنا، تالو کی** |  |
 | 88 |  | 0 | CHEWING motion (See Face) | **منہ — چبانے جیسی حرکت** |  |
@@ -100,13 +100,13 @@
 | 93 |  | 1 | COATED, white | **منہ — تہہ چڑھی، سفید** |  |
 | 94 |  | 0 | COLD breath | **منہ — ٹھنڈی سانس** |  |
 | 95 |  | 1 | COLD breath, during chill | **منہ — ٹھنڈی سانس، سردی لگنے کے دوران** |  |
-| 96 |  | 0 | COLD | **منہ — ٹھنڈا** |  |
-| 97 |  | 1 | COLD, tongue | **منہ — ٹھنڈا، زبان** |  |
-| 98 |  | 2 | COLD, tongue, icy | **منہ — ٹھنڈا، زبان، برف جیسی ٹھنڈی** |  |
-| 99 |  | 2 | COLD, tongue, morning | **منہ — ٹھنڈا، زبان، صبح** |  |
+| 96 |  | 0 | COLD | **منہ — ٹھنڈ** |  |
+| 97 |  | 1 | COLD, tongue | **منہ — ٹھنڈ، زبان** |  |
+| 98 |  | 2 | COLD, tongue, icy | **منہ — ٹھنڈ، زبان، برف جیسی** |  |
+| 99 |  | 2 | COLD, tongue, morning | **منہ — ٹھنڈ، زبان، صبح** |  |
 | 100 |  | 0 | COLDNESS | **منہ — ٹھنڈک** |  |
 | 101 |  | 1 | COLDNESS, sensation of | **منہ — ٹھنڈک کا احساس** |  |
-| 102 |  | 2 | COLDNESS, sensation of, convulsions, after | **منہ — ٹھنڈک کا احساس، دوروں کے بعد** |  |
+| 102 |  | 2 | COLDNESS, sensation of, convulsions, after | **منہ — ٹھنڈک کا احساس، تشنج کے بعد** |  |
 | 103 |  | 2 | COLDNESS, sensation of, extending to stomach | **منہ — ٹھنڈک کا احساس، معدے تک پھیلتی ہوئی** |  |
 | 104 |  | 2 | COLDNESS, sensation of, gums, upper | **منہ — ٹھنڈک کا احساس، اوپر کے مسوڑھوں میں** |  |
 | 105 |  | 2 | COLDNESS, sensation of, hot tea seems cold | **منہ — ٹھنڈک کا احساس، گرم چائے بھی ٹھنڈی لگے** |  |
@@ -118,16 +118,16 @@
 | 111 |  | 3 | COLDNESS, sensation of, tongue, right half | **منہ — ٹھنڈک کا احساس، زبان میں، دائیں آدھے حصے میں** |  |
 | 112 |  | 3 | COLDNESS, sensation of, tongue, sensation of cold air | **منہ — ٹھنڈک کا احساس، زبان میں، جیسے ٹھنڈی ہوا لگے** |  |
 | 113 |  | 3 | COLDNESS, sensation of, tongue, tip | **منہ — ٹھنڈک کا احساس، زبان میں، نوک پر** |  |
-| 114 |  | 0 | CONDYLOMATA on palate | **منہ — تالو پر گانٹھ نما ابھار (کونڈیلوما)** |  |
-| 115 |  | 0 | CONDYLOMATA | **منہ — گانٹھ نما ابھار (کونڈیلوما)** |  |
-| 116 |  | 1 | CONDYLOMATA, tongue | **منہ — گانٹھ نما ابھار، زبان پر** |  |
-| 117 |  | 0 | CONSTRICTION | **منہ — تنگی (جکڑن)** |  |
+| 114 |  | 0 | CONDYLOMATA on palate | **منہ — تالو پر مسے (کنڈائلوما)** |  |
+| 115 |  | 0 | CONDYLOMATA | **منہ — مسے (کنڈائلوما)** |  |
+| 116 |  | 1 | CONDYLOMATA, tongue | **منہ — مسے (کنڈائلوما)، زبان پر** |  |
+| 117 |  | 0 | CONSTRICTION | **منہ — جکڑن (کساؤ)** |  |
 | 118 |  | 0 | CONTRACTED tongue | **منہ — سکڑی ہوئی زبان** |  |
 | 119 |  | 0 | CONTRACTION | **منہ — سکڑاؤ** |  |
 | 120 |  | 1 | CONTRACTION, cylindrical, tongue | **منہ — سکڑاؤ، بیلن جیسا، زبان کا** |  |
 | 121 |  | 1 | CONTRACTION, sensation | **منہ — سکڑاؤ کا احساس** |  |
 | 122 |  | 1 | CONTRACTION, spasmodic | **منہ — سکڑاؤ، اینٹھن والا** |  |
-| 123 |  | 0 | CONVULSION, Tongue (See Spasm) | **منہ — دورہ، زبان کا** |  |
+| 123 |  | 0 | CONVULSION, Tongue (See Spasm) | **منہ — تشنج، زبان کا** |  |
 | 124 |  | 0 | CORRUGATED tongue | **منہ — سلوٹوں والی زبان** |  |
 | 125 |  | 0 | CRACKED | **منہ — پھٹا ہوا (شگاف)** |  |
 | 126 |  | 1 | CRACKED, gums | **منہ — پھٹا ہوا، مسوڑھے** |  |
@@ -162,145 +162,145 @@
 | 155 |  | 2 | DETACHED from teeth, gums, and bleed easily | **منہ — دانتوں سے الگ ہونا، مسوڑھوں کا، اور جلد خون آنے والے** |  |
 | 156 |  | 0 | DIRTY Tongue (See Discoloration) | **منہ — میلی زبان** |  |
 | 157 |  | 0 | DISCHARGE of stinking brown ichor on making incision near second molar | **منہ — دوسرے داڑھ کے قریب چیرا لگانے پر بدبودار بھورا پیپ نکلنا** |  |
-| 158 |  | 0 | DISCOLORATION | **منہ — رنگت کی خرابی** |  |
-| 159 |  | 1 | DISCOLORATION, blueness | **منہ — رنگت کی خرابی، نیلا پن** |  |
-| 160 |  | 1 | DISCOLORATION, gums | **منہ — رنگت کی خرابی، مسوڑھوں کی** |  |
-| 161 |  | 2 | DISCOLORATION, gums, blue line on margin | **منہ — رنگت کی خرابی، مسوڑھوں کی، کنارے پر نیلی لکیر** |  |
-| 162 |  | 2 | DISCOLORATION, gums, bluish | **منہ — رنگت کی خرابی، مسوڑھوں کی، نیلا مائل** |  |
-| 163 |  | 2 | DISCOLORATION, gums, bluish-red | **منہ — رنگت کی خرابی، مسوڑھوں کی، نیلا سرخ** |  |
-| 164 |  | 2 | DISCOLORATION, gums, bluish-white | **منہ — رنگت کی خرابی، مسوڑھوں کی، نیلا سفید** |  |
-| 165 |  | 2 | DISCOLORATION, gums, brown | **منہ — رنگت کی خرابی، مسوڑھوں کی، بھورا** |  |
-| 166 |  | 2 | DISCOLORATION, gums, dirty | **منہ — رنگت کی خرابی، مسوڑھوں کی، میلا** |  |
-| 167 |  | 2 | DISCOLORATION, gums, gray, dirty gray | **منہ — رنگت کی خرابی، مسوڑھوں کی، خاکی، میلا خاکی** |  |
-| 168 |  | 2 | DISCOLORATION, gums, greenish tint along free border | **منہ — رنگت کی خرابی، مسوڑھوں کی، آزاد کنارے پر سبزی مائل جھلک** |  |
-| 169 |  | 2 | DISCOLORATION, gums, gums, black | **منہ — رنگت کی خرابی، مسوڑھوں کی، سیاہ** |  |
-| 170 |  | 2 | DISCOLORATION, gums, pale | **منہ — رنگت کی خرابی، مسوڑھوں کی، پھیکا (زردی مائل)** |  |
-| 171 |  | 2 | DISCOLORATION, gums, purple | **منہ — رنگت کی خرابی، مسوڑھوں کی، جامنی** |  |
-| 172 |  | 3 | DISCOLORATION, gums, purple, thin border nearest teeth | **منہ — رنگت کی خرابی، مسوڑھوں کی، جامنی، دانتوں سے لگا پتلا کنارہ** |  |
-| 173 |  | 2 | DISCOLORATION, gums, redness | **منہ — رنگت کی خرابی، مسوڑھوں کی، سرخی** |  |
-| 174 |  | 3 | DISCOLORATION, gums, redness, dark | **منہ — رنگت کی خرابی، مسوڑھوں کی، سرخی، گہری** |  |
-| 175 |  | 3 | DISCOLORATION, gums, redness, dirty | **منہ — رنگت کی خرابی، مسوڑھوں کی، سرخی، میلی** |  |
-| 176 |  | 3 | DISCOLORATION, gums, redness, margins bright red | **منہ — رنگت کی خرابی، مسوڑھوں کی، سرخی، کنارے چمکدار سرخ** |  |
-| 177 |  | 3 | DISCOLORATION, gums, redness, margins, pale | **منہ — رنگت کی خرابی، مسوڑھوں کی، سرخی، کنارے، پھیکے** |  |
-| 178 |  | 2 | DISCOLORATION, gums, sooty | **منہ — رنگت کی خرابی، مسوڑھوں کی، سیاہی مائل** |  |
-| 179 |  | 2 | DISCOLORATION, gums, violet border | **منہ — رنگت کی خرابی، مسوڑھوں کی، بنفشی کنارہ** |  |
-| 180 |  | 2 | DISCOLORATION, gums, white | **منہ — رنگت کی خرابی، مسوڑھوں کی، سفید** |  |
-| 181 |  | 2 | DISCOLORATION, gums, yellow | **منہ — رنگت کی خرابی، مسوڑھوں کی، زرد** |  |
-| 182 |  | 1 | DISCOLORATION, palate | **منہ — رنگت کی خرابی، تالو کی** |  |
-| 183 |  | 2 | DISCOLORATION, palate, bluish | **منہ — رنگت کی خرابی، تالو کی، نیلا مائل** |  |
-| 184 |  | 3 | DISCOLORATION, palate, bluish, red | **منہ — رنگت کی خرابی، تالو کی، نیلا مائل، سرخ** |  |
-| 185 |  | 2 | DISCOLORATION, palate, coppery | **منہ — رنگت کی خرابی، تالو کی، تانبے جیسی** |  |
-| 186 |  | 2 | DISCOLORATION, palate, grayish | **منہ — رنگت کی خرابی، تالو کی، خاکی مائل** |  |
-| 187 |  | 2 | DISCOLORATION, palate, purple | **منہ — رنگت کی خرابی، تالو کی، جامنی** |  |
-| 188 |  | 2 | DISCOLORATION, palate, red | **منہ — رنگت کی خرابی، تالو کی، سرخ** |  |
-| 189 |  | 3 | DISCOLORATION, palate, red, velum | **منہ — رنگت کی خرابی، تالو کی، سرخ، نرم تالو** |  |
-| 190 |  | 2 | DISCOLORATION, palate, spots in forepart as if ulcers would form | **منہ — رنگت کی خرابی، تالو کی، اگلے حصے میں دھبے جیسے ناسور بننے والے ہوں** |  |
-| 191 |  | 2 | DISCOLORATION, palate, white | **منہ — رنگت کی خرابی، تالو کی، سفید** |  |
-| 192 |  | 2 | DISCOLORATION, palate, yellow, creamy | **منہ — رنگت کی خرابی، تالو کی، زرد، کریمی** |  |
-| 193 |  | 1 | DISCOLORATION, paleness | **منہ — رنگت کی خرابی، پھیکا پن** |  |
-| 194 |  | 1 | DISCOLORATION, purple blotches | **منہ — رنگت کی خرابی، جامنی چکتے** |  |
-| 195 |  | 1 | DISCOLORATION, reddish blue | **منہ — رنگت کی خرابی، سرخی مائل نیلا** |  |
-| 196 |  | 2 | DISCOLORATION, reddish blue, spots | **منہ — رنگت کی خرابی، سرخی مائل نیلا، دھبے** |  |
-| 197 |  | 1 | DISCOLORATION, redness | **منہ — رنگت کی خرابی، سرخی** |  |
-| 198 |  | 2 | DISCOLORATION, redness, spots | **منہ — رنگت کی خرابی، سرخی، دھبے** |  |
-| 199 |  | 1 | DISCOLORATION, tongue | **منہ — رنگت کی خرابی، زبان کی** |  |
-| 200 |  | 2 | DISCOLORATION, tongue, black | **منہ — رنگت کی خرابی، زبان کی، سیاہ** |  |
-| 201 |  | 3 | DISCOLORATION, tongue, black, centre | **منہ — رنگت کی خرابی، زبان کی، سیاہ، بیچ میں** |  |
-| 202 |  | 4 | DISCOLORATION, tongue, black, centre, streak like ink | **منہ — رنگت کی خرابی، زبان کی، سیاہ، بیچ میں، سیاہی جیسی لکیر** |  |
-| 203 |  | 3 | DISCOLORATION, tongue, black, crusts | **منہ — رنگت کی خرابی، زبان کی، سیاہ، پپڑیاں** |  |
-| 204 |  | 3 | DISCOLORATION, tongue, black, posterior part | **منہ — رنگت کی خرابی، زبان کی، سیاہ، پچھلے حصے میں** |  |
-| 205 |  | 3 | DISCOLORATION, tongue, black, purple-black | **منہ — رنگت کی خرابی، زبان کی، سیاہ، جامنی سیاہ** |  |
-| 206 |  | 3 | DISCOLORATION, tongue, black, red edges | **منہ — رنگت کی خرابی، زبان کی، سیاہ، کنارے سرخ** |  |
-| 207 |  | 2 | DISCOLORATION, tongue, blue | **منہ — رنگت کی خرابی، زبان کی، نیلی** |  |
-| 208 |  | 3 | DISCOLORATION, tongue, blue, in spots | **منہ — رنگت کی خرابی، زبان کی، نیلی، دھبوں میں** |  |
-| 209 |  | 2 | DISCOLORATION, tongue, bluish-black | **منہ — رنگت کی خرابی، زبان کی، نیلا سیاہ** |  |
-| 210 |  | 2 | DISCOLORATION, tongue, bluish-white | **منہ — رنگت کی خرابی، زبان کی، نیلا سفید** |  |
-| 211 |  | 2 | DISCOLORATION, tongue, brown | **منہ — رنگت کی خرابی، زبان کی، بھوری** |  |
-| 212 |  | 3 | DISCOLORATION, tongue, brown, centre | **منہ — رنگت کی خرابی، زبان کی، بھوری، بیچ میں** |  |
-| 213 |  | 4 | DISCOLORATION, tongue, brown, centre, morning, on rising | **منہ — رنگت کی خرابی، زبان کی، بھوری، بیچ میں، صبح اٹھنے پر** |  |
-| 214 |  | 4 | DISCOLORATION, tongue, brown, centre, sides moist | **منہ — رنگت کی خرابی، زبان کی، بھوری، بیچ میں، کنارے نم** |  |
-| 215 |  | 4 | DISCOLORATION, tongue, brown, centre, sides, white | **منہ — رنگت کی خرابی، زبان کی، بھوری، بیچ میں، کنارے، سفید** |  |
-| 216 |  | 3 | DISCOLORATION, tongue, brown, morning | **منہ — رنگت کی خرابی، زبان کی، بھوری، صبح** |  |
-| 217 |  | 3 | DISCOLORATION, tongue, brown, red tip and edges | **منہ — رنگت کی خرابی، زبان کی، بھوری، نوک اور کنارے سرخ** |  |
-| 218 |  | 3 | DISCOLORATION, tongue, brown, reddish-brown | **منہ — رنگت کی خرابی، زبان کی، بھوری، سرخی مائل بھوری** |  |
-| 219 |  | 3 | DISCOLORATION, tongue, brown, sides, brown | **منہ — رنگت کی خرابی، زبان کی، بھوری، کنارے، بھورے** |  |
-| 220 |  | 3 | DISCOLORATION, tongue, brown, yellowish-brown | **منہ — رنگت کی خرابی، زبان کی، بھوری، زردی مائل بھوری** |  |
-| 221 |  | 4 | DISCOLORATION, tongue, brown, yellowish-brown, with shining edges | **منہ — رنگت کی خرابی، زبان کی، زردی مائل بھوری، چمکدار کناروں کے ساتھ** |  |
-| 222 |  | 2 | DISCOLORATION, tongue, dirty | **منہ — رنگت کی خرابی، زبان کی، میلی** |  |
-| 223 |  | 2 | DISCOLORATION, tongue, gray | **منہ — رنگت کی خرابی، زبان کی، خاکی** |  |
-| 224 |  | 3 | DISCOLORATION, tongue, gray, centre | **منہ — رنگت کی خرابی، زبان کی، خاکی، بیچ میں** |  |
-| 225 |  | 2 | DISCOLORATION, tongue, grayish-yellow | **منہ — رنگت کی خرابی، زبان کی، خاکی زرد** |  |
-| 226 |  | 2 | DISCOLORATION, tongue, green | **منہ — رنگت کی خرابی، زبان کی، سبز** |  |
-| 227 |  | 2 | DISCOLORATION, tongue, greenish | **منہ — رنگت کی خرابی، زبان کی، سبزی مائل** |  |
-| 228 |  | 3 | DISCOLORATION, tongue, greenish, gray | **منہ — رنگت کی خرابی، زبان کی، سبزی مائل، خاکی** |  |
-| 229 |  | 3 | DISCOLORATION, tongue, greenish, yellow | **منہ — رنگت کی خرابی، زبان کی، سبزی مائل، زرد** |  |
-| 230 |  | 2 | DISCOLORATION, tongue, greenish-brown | **منہ — رنگت کی خرابی، زبان کی، سبزی مائل بھوری** |  |
-| 231 |  | 2 | DISCOLORATION, tongue, leather, looks like burnt | **منہ — رنگت کی خرابی، زبان کی، چمڑے جیسی، جلی ہوئی لگے** |  |
-| 232 |  | 2 | DISCOLORATION, tongue, pale | **منہ — رنگت کی خرابی، زبان کی، پھیکا (زردی مائل)** |  |
-| 233 |  | 3 | DISCOLORATION, tongue, pale, and flabby | **منہ — رنگت کی خرابی، زبان کی، پھیکا، اور ڈھیلا** |  |
-| 234 |  | 3 | DISCOLORATION, tongue, pale, edges | **منہ — رنگت کی خرابی، زبان کی، پھیکا، کنارے** |  |
-| 235 |  | 2 | DISCOLORATION, tongue, purple | **منہ — رنگت کی خرابی، زبان کی، جامنی** |  |
-| 236 |  | 3 | DISCOLORATION, tongue, purple, black | **منہ — رنگت کی خرابی، زبان کی، جامنی، سیاہ** |  |
-| 237 |  | 2 | DISCOLORATION, tongue, red | **منہ — رنگت کی خرابی، زبان کی، سرخ** |  |
-| 238 |  | 3 | DISCOLORATION, tongue, red, anterior half | **منہ — رنگت کی خرابی، زبان کی، سرخ، اگلا آدھا حصہ** |  |
-| 239 |  | 3 | DISCOLORATION, tongue, red, centre | **منہ — رنگت کی خرابی، زبان کی، سرخ، بیچ میں** |  |
-| 240 |  | 3 | DISCOLORATION, tongue, red, edges | **منہ — رنگت کی خرابی، زبان کی، سرخ، کنارے** |  |
-| 241 |  | 3 | DISCOLORATION, tongue, red, fiery-red | **منہ — رنگت کی خرابی، زبان کی، سرخ، آگ جیسا سرخ** |  |
-| 242 |  | 4 | DISCOLORATION, tongue, red, fiery-red, tip | **منہ — رنگت کی خرابی، زبان کی، آگ جیسا سرخ، نوک پر** |  |
-| 243 |  | 3 | DISCOLORATION, tongue, red, glistening | **منہ — رنگت کی خرابی، زبان کی، سرخ، چمکتی ہوئی** |  |
-| 244 |  | 3 | DISCOLORATION, tongue, red, spots | **منہ — رنگت کی خرابی، زبان کی، سرخ، دھبے** |  |
-| 245 |  | 3 | DISCOLORATION, tongue, red, streaks | **منہ — رنگت کی خرابی، زبان کی، سرخ، لکیریں** |  |
-| 246 |  | 3 | DISCOLORATION, tongue, red, stripe down centre | **منہ — رنگت کی خرابی، زبان کی، سرخ، بیچ سے لکیر** |  |
-| 247 |  | 4 | DISCOLORATION, tongue, red, stripe down centre, sore | **منہ — رنگت کی خرابی، زبان کی، سرخ، بیچ سے لکیر، دکھتی ہوئی** |  |
-| 248 |  | 3 | DISCOLORATION, tongue, red, tip | **منہ — رنگت کی خرابی، زبان کی، سرخ، نوک پر** |  |
-| 249 |  | 4 | DISCOLORATION, tongue, red, tip, painful | **منہ — رنگت کی خرابی، زبان کی، سرخ، نوک پر، دردناک** |  |
-| 250 |  | 4 | DISCOLORATION, tongue, red, tip, triangular | **منہ — رنگت کی خرابی، زبان کی، سرخ، نوک پر، تکونی** |  |
-| 251 |  | 2 | DISCOLORATION, tongue, reddish-blue | **منہ — رنگت کی خرابی، زبان کی، سرخی مائل نیلی** |  |
-| 252 |  | 2 | DISCOLORATION, tongue, white | **منہ — رنگت کی خرابی، زبان کی، سفید** |  |
-| 253 |  | 3 | DISCOLORATION, tongue, white, border moist and red | **منہ — رنگت کی خرابی، زبان کی، سفید، کنارہ نم اور سرخ** |  |
-| 254 |  | 3 | DISCOLORATION, tongue, white, centre | **منہ — رنگت کی خرابی، زبان کی، سفید، بیچ میں** |  |
-| 255 |  | 4 | DISCOLORATION, tongue, white, centre, dark brown | **منہ — رنگت کی خرابی، زبان کی، سفید، بیچ میں، گہرا بھورا** |  |
-| 256 |  | 4 | DISCOLORATION, tongue, white, centre, dark streaks along edges | **منہ — رنگت کی خرابی، زبان کی، سفید، بیچ میں، کناروں پر گہری لکیریں** |  |
-| 257 |  | 4 | DISCOLORATION, tongue, white, centre, red stripe down centre | **منہ — رنگت کی خرابی، زبان کی، سفید، بیچ میں، بیچ سے سرخ لکیر** |  |
-| 258 |  | 3 | DISCOLORATION, tongue, white, cheesy | **منہ — رنگت کی خرابی، زبان کی، سفید، پنیر جیسی** |  |
-| 259 |  | 3 | DISCOLORATION, tongue, white, dirty | **منہ — رنگت کی خرابی، زبان کی، سفید، میلی** |  |
-| 260 |  | 4 | DISCOLORATION, tongue, white, dirty, with elevated papillae | **منہ — رنگت کی خرابی، زبان کی، سفید، میلی، ابھرے ہوئے پاپیلوں کے ساتھ** |  |
-| 261 |  | 3 | DISCOLORATION, tongue, white, evening | **منہ — رنگت کی خرابی، زبان کی، سفید، شام** |  |
-| 262 |  | 3 | DISCOLORATION, tongue, white, milk white without coating | **منہ — رنگت کی خرابی، زبان کی، سفید، دودھ جیسی سفید، بغیر تہہ** |  |
-| 263 |  | 3 | DISCOLORATION, tongue, white, milky | **منہ — رنگت کی خرابی، زبان کی، سفید، دودھیا** |  |
-| 264 |  | 3 | DISCOLORATION, tongue, white, moist | **منہ — رنگت کی خرابی، زبان کی، سفید، نم** |  |
-| 265 |  | 3 | DISCOLORATION, tongue, white, morning | **منہ — رنگت کی خرابی، زبان کی، سفید، صبح** |  |
-| 266 |  | 3 | DISCOLORATION, tongue, white, painted, as if | **منہ — رنگت کی خرابی، زبان کی، سفید، جیسے پوتی ہوئی** |  |
-| 267 |  | 3 | DISCOLORATION, tongue, white, patches | **منہ — رنگت کی خرابی، زبان کی، سفید، چتیاں** |  |
-| 268 |  | 4 | DISCOLORATION, tongue, white, patches, red insular, with | **منہ — رنگت کی خرابی، زبان کی، سفید، چتیاں، سرخ الگ الگ حصوں کے ساتھ** |  |
-| 269 |  | 3 | DISCOLORATION, tongue, white, pole | **منہ — رنگت کی خرابی، زبان کی، سفید، ایک سرے پر** |  |
-| 270 |  | 3 | DISCOLORATION, tongue, white, root | **منہ — رنگت کی خرابی، زبان کی، سفید، جڑ پر** |  |
-| 271 |  | 3 | DISCOLORATION, tongue, white, sides | **منہ — رنگت کی خرابی، زبان کی، سفید، کنارے** |  |
-| 272 |  | 4 | DISCOLORATION, tongue, white, sides, one | **منہ — رنگت کی خرابی، زبان کی، سفید، کنارے، ایک کنارہ** |  |
-| 273 |  | 4 | DISCOLORATION, tongue, white, sides, patches | **منہ — رنگت کی خرابی، زبان کی، سفید، کنارے، چتیاں** |  |
-| 274 |  | 4 | DISCOLORATION, tongue, white, sides, right | **منہ — رنگت کی خرابی، زبان کی، سفید، کنارے، دائیں** |  |
-| 275 |  | 3 | DISCOLORATION, tongue, white, silvery, all over | **منہ — رنگت کی خرابی، زبان کی، سفید، چاندی جیسی، پوری زبان پر** |  |
-| 276 |  | 3 | DISCOLORATION, tongue, white, spots, clean | **منہ — رنگت کی خرابی، زبان کی، سفید، دھبے، صاف** |  |
-| 277 |  | 3 | DISCOLORATION, tongue, white, stripes | **منہ — رنگت کی خرابی، زبان کی، سفید، لکیریں** |  |
-| 278 |  | 3 | DISCOLORATION, tongue, white, tip | **منہ — رنگت کی خرابی، زبان کی، سفید، نوک پر** |  |
-| 279 |  | 2 | DISCOLORATION, tongue, yellow | **منہ — رنگت کی خرابی، زبان کی، زرد** |  |
-| 280 |  | 3 | DISCOLORATION, tongue, yellow, base | **منہ — رنگت کی خرابی، زبان کی، زرد، جڑ پر** |  |
-| 281 |  | 3 | DISCOLORATION, tongue, yellow, bright | **منہ — رنگت کی خرابی، زبان کی، زرد، چمکدار** |  |
-| 282 |  | 4 | DISCOLORATION, tongue, yellow, bright, shining | **منہ — رنگت کی خرابی، زبان کی، زرد، چمکدار، چمکتی ہوئی** |  |
-| 283 |  | 3 | DISCOLORATION, tongue, yellow, centre | **منہ — رنگت کی خرابی، زبان کی، زرد، بیچ میں** |  |
-| 284 |  | 4 | DISCOLORATION, tongue, yellow, centre, edges red | **منہ — رنگت کی خرابی، زبان کی، زرد، بیچ میں، کنارے سرخ** |  |
-| 285 |  | 3 | DISCOLORATION, tongue, yellow, centre greenish | **منہ — رنگت کی خرابی، زبان کی، زرد، بیچ میں سبزی مائل** |  |
-| 286 |  | 3 | DISCOLORATION, tongue, yellow, dirty | **منہ — رنگت کی خرابی، زبان کی، زرد، میلی** |  |
-| 287 |  | 3 | DISCOLORATION, tongue, yellow, edges, centre, gray | **منہ — رنگت کی خرابی، زبان کی، زرد، کنارے، بیچ میں، خاکی** |  |
-| 288 |  | 3 | DISCOLORATION, tongue, yellow, golden yellow | **منہ — رنگت کی خرابی، زبان کی، زرد، سنہری زرد** |  |
-| 289 |  | 4 | DISCOLORATION, tongue, yellow, golden yellow, looks like half dried clay | **منہ — رنگت کی خرابی، زبان کی، سنہری زرد، جیسے آدھی سوکھی مٹی** |  |
-| 290 |  | 3 | DISCOLORATION, tongue, yellow, gray | **منہ — رنگت کی خرابی، زبان کی، زرد، خاکی** |  |
-| 291 |  | 3 | DISCOLORATION, tongue, yellow, white | **منہ — رنگت کی خرابی، زبان کی، زرد، سفید** |  |
-| 292 |  | 4 | DISCOLORATION, tongue, yellow, white, base | **منہ — رنگت کی خرابی، زبان کی، زرد، سفید، جڑ پر** |  |
-| 293 |  | 4 | DISCOLORATION, tongue, yellow, white, thick | **منہ — رنگت کی خرابی، زبان کی، زرد، سفید، موٹی** |  |
-| 294 |  | 1 | DISCOLORATION, white patches | **منہ — رنگت کی خرابی، سفید چتیاں** |  |
-| 295 |  | 1 | DISCOLORATION, yellow patches | **منہ — رنگت کی خرابی، زرد چتیاں** |  |
-| 296 |  | 1 | DISCOLORATION, yellow, spots | **منہ — رنگت کی خرابی، زرد، دھبے** |  |
+| 158 |  | 0 | DISCOLORATION | **منہ — رنگت بدلنا** |  |
+| 159 |  | 1 | DISCOLORATION, blueness | **منہ — رنگت بدلنا، نیلا پن** |  |
+| 160 |  | 1 | DISCOLORATION, gums | **منہ — رنگت بدلنا، مسوڑھوں کی** |  |
+| 161 |  | 2 | DISCOLORATION, gums, blue line on margin | **منہ — رنگت بدلنا، مسوڑھوں کی، کنارے پر نیلی لکیر** |  |
+| 162 |  | 2 | DISCOLORATION, gums, bluish | **منہ — رنگت بدلنا، مسوڑھوں کی، نیلا مائل** |  |
+| 163 |  | 2 | DISCOLORATION, gums, bluish-red | **منہ — رنگت بدلنا، مسوڑھوں کی، نیلا سرخ** |  |
+| 164 |  | 2 | DISCOLORATION, gums, bluish-white | **منہ — رنگت بدلنا، مسوڑھوں کی، نیلا سفید** |  |
+| 165 |  | 2 | DISCOLORATION, gums, brown | **منہ — رنگت بدلنا، مسوڑھوں کی، بھورا** |  |
+| 166 |  | 2 | DISCOLORATION, gums, dirty | **منہ — رنگت بدلنا، مسوڑھوں کی، میلا** |  |
+| 167 |  | 2 | DISCOLORATION, gums, gray, dirty gray | **منہ — رنگت بدلنا، مسوڑھوں کی، سرمئی، میلا سرمئی** |  |
+| 168 |  | 2 | DISCOLORATION, gums, greenish tint along free border | **منہ — رنگت بدلنا، مسوڑھوں کی، آزاد کنارے پر سبزی مائل جھلک** |  |
+| 169 |  | 2 | DISCOLORATION, gums, gums, black | **منہ — رنگت بدلنا، مسوڑھوں کی، سیاہ** |  |
+| 170 |  | 2 | DISCOLORATION, gums, pale | **منہ — رنگت بدلنا، مسوڑھوں کی، پھیکا (زردی مائل)** |  |
+| 171 |  | 2 | DISCOLORATION, gums, purple | **منہ — رنگت بدلنا، مسوڑھوں کی، جامنی** |  |
+| 172 |  | 3 | DISCOLORATION, gums, purple, thin border nearest teeth | **منہ — رنگت بدلنا، مسوڑھوں کی، جامنی، دانتوں سے لگا پتلا کنارہ** |  |
+| 173 |  | 2 | DISCOLORATION, gums, redness | **منہ — رنگت بدلنا، مسوڑھوں کی، سرخی** |  |
+| 174 |  | 3 | DISCOLORATION, gums, redness, dark | **منہ — رنگت بدلنا، مسوڑھوں کی، سرخی، گہری** |  |
+| 175 |  | 3 | DISCOLORATION, gums, redness, dirty | **منہ — رنگت بدلنا، مسوڑھوں کی، سرخی، میلی** |  |
+| 176 |  | 3 | DISCOLORATION, gums, redness, margins bright red | **منہ — رنگت بدلنا، مسوڑھوں کی، سرخی، کنارے چمکدار سرخ** |  |
+| 177 |  | 3 | DISCOLORATION, gums, redness, margins, pale | **منہ — رنگت بدلنا، مسوڑھوں کی، سرخی، کنارے، پھیکے** |  |
+| 178 |  | 2 | DISCOLORATION, gums, sooty | **منہ — رنگت بدلنا، مسوڑھوں کی، سیاہی مائل** |  |
+| 179 |  | 2 | DISCOLORATION, gums, violet border | **منہ — رنگت بدلنا، مسوڑھوں کی، بنفشی کنارہ** |  |
+| 180 |  | 2 | DISCOLORATION, gums, white | **منہ — رنگت بدلنا، مسوڑھوں کی، سفید** |  |
+| 181 |  | 2 | DISCOLORATION, gums, yellow | **منہ — رنگت بدلنا، مسوڑھوں کی، زرد** |  |
+| 182 |  | 1 | DISCOLORATION, palate | **منہ — رنگت بدلنا، تالو کی** |  |
+| 183 |  | 2 | DISCOLORATION, palate, bluish | **منہ — رنگت بدلنا، تالو کی، نیلا مائل** |  |
+| 184 |  | 3 | DISCOLORATION, palate, bluish, red | **منہ — رنگت بدلنا، تالو کی، نیلا مائل، سرخ** |  |
+| 185 |  | 2 | DISCOLORATION, palate, coppery | **منہ — رنگت بدلنا، تالو کی، تانبے جیسی** |  |
+| 186 |  | 2 | DISCOLORATION, palate, grayish | **منہ — رنگت بدلنا، تالو کی، سرمئی** |  |
+| 187 |  | 2 | DISCOLORATION, palate, purple | **منہ — رنگت بدلنا، تالو کی، جامنی** |  |
+| 188 |  | 2 | DISCOLORATION, palate, red | **منہ — رنگت بدلنا، تالو کی، سرخ** |  |
+| 189 |  | 3 | DISCOLORATION, palate, red, velum | **منہ — رنگت بدلنا، تالو کی، سرخ، نرم تالو** |  |
+| 190 |  | 2 | DISCOLORATION, palate, spots in forepart as if ulcers would form | **منہ — رنگت بدلنا، تالو کی، اگلے حصے میں دھبے جیسے ناسور بننے والے ہوں** |  |
+| 191 |  | 2 | DISCOLORATION, palate, white | **منہ — رنگت بدلنا، تالو کی، سفید** |  |
+| 192 |  | 2 | DISCOLORATION, palate, yellow, creamy | **منہ — رنگت بدلنا، تالو کی، زرد، کریمی** |  |
+| 193 |  | 1 | DISCOLORATION, paleness | **منہ — رنگت بدلنا، پھیکا پن** |  |
+| 194 |  | 1 | DISCOLORATION, purple blotches | **منہ — رنگت بدلنا، جامنی چکتے** |  |
+| 195 |  | 1 | DISCOLORATION, reddish blue | **منہ — رنگت بدلنا، سرخی مائل نیلا** |  |
+| 196 |  | 2 | DISCOLORATION, reddish blue, spots | **منہ — رنگت بدلنا، سرخی مائل نیلا، دھبے** |  |
+| 197 |  | 1 | DISCOLORATION, redness | **منہ — رنگت بدلنا، سرخی** |  |
+| 198 |  | 2 | DISCOLORATION, redness, spots | **منہ — رنگت بدلنا، سرخی، دھبے** |  |
+| 199 |  | 1 | DISCOLORATION, tongue | **منہ — رنگت بدلنا، زبان کی** |  |
+| 200 |  | 2 | DISCOLORATION, tongue, black | **منہ — رنگت بدلنا، زبان کی، سیاہ** |  |
+| 201 |  | 3 | DISCOLORATION, tongue, black, centre | **منہ — رنگت بدلنا، زبان کی، سیاہ، بیچ میں** |  |
+| 202 |  | 4 | DISCOLORATION, tongue, black, centre, streak like ink | **منہ — رنگت بدلنا، زبان کی، سیاہ، بیچ میں، سیاہی جیسی لکیر** |  |
+| 203 |  | 3 | DISCOLORATION, tongue, black, crusts | **منہ — رنگت بدلنا، زبان کی، سیاہ، پپڑیاں** |  |
+| 204 |  | 3 | DISCOLORATION, tongue, black, posterior part | **منہ — رنگت بدلنا، زبان کی، سیاہ، پچھلے حصے میں** |  |
+| 205 |  | 3 | DISCOLORATION, tongue, black, purple-black | **منہ — رنگت بدلنا، زبان کی، سیاہ، جامنی سیاہ** |  |
+| 206 |  | 3 | DISCOLORATION, tongue, black, red edges | **منہ — رنگت بدلنا، زبان کی، سیاہ، کنارے سرخ** |  |
+| 207 |  | 2 | DISCOLORATION, tongue, blue | **منہ — رنگت بدلنا، زبان کی، نیلی** |  |
+| 208 |  | 3 | DISCOLORATION, tongue, blue, in spots | **منہ — رنگت بدلنا، زبان کی، نیلی، دھبوں میں** |  |
+| 209 |  | 2 | DISCOLORATION, tongue, bluish-black | **منہ — رنگت بدلنا، زبان کی، نیلا سیاہ** |  |
+| 210 |  | 2 | DISCOLORATION, tongue, bluish-white | **منہ — رنگت بدلنا، زبان کی، نیلا سفید** |  |
+| 211 |  | 2 | DISCOLORATION, tongue, brown | **منہ — رنگت بدلنا، زبان کی، بھوری** |  |
+| 212 |  | 3 | DISCOLORATION, tongue, brown, centre | **منہ — رنگت بدلنا، زبان کی، بھوری، بیچ میں** |  |
+| 213 |  | 4 | DISCOLORATION, tongue, brown, centre, morning, on rising | **منہ — رنگت بدلنا، زبان کی، بھوری، بیچ میں، صبح اٹھنے پر** |  |
+| 214 |  | 4 | DISCOLORATION, tongue, brown, centre, sides moist | **منہ — رنگت بدلنا، زبان کی، بھوری، بیچ میں، کنارے نم** |  |
+| 215 |  | 4 | DISCOLORATION, tongue, brown, centre, sides, white | **منہ — رنگت بدلنا، زبان کی، بھوری، بیچ میں، کنارے، سفید** |  |
+| 216 |  | 3 | DISCOLORATION, tongue, brown, morning | **منہ — رنگت بدلنا، زبان کی، بھوری، صبح** |  |
+| 217 |  | 3 | DISCOLORATION, tongue, brown, red tip and edges | **منہ — رنگت بدلنا، زبان کی، بھوری، نوک اور کنارے سرخ** |  |
+| 218 |  | 3 | DISCOLORATION, tongue, brown, reddish-brown | **منہ — رنگت بدلنا، زبان کی، بھوری، سرخی مائل بھوری** |  |
+| 219 |  | 3 | DISCOLORATION, tongue, brown, sides, brown | **منہ — رنگت بدلنا، زبان کی، بھوری، کنارے، بھورے** |  |
+| 220 |  | 3 | DISCOLORATION, tongue, brown, yellowish-brown | **منہ — رنگت بدلنا، زبان کی، بھوری، زردی مائل بھوری** |  |
+| 221 |  | 4 | DISCOLORATION, tongue, brown, yellowish-brown, with shining edges | **منہ — رنگت بدلنا، زبان کی، زردی مائل بھوری، چمکدار کناروں کے ساتھ** |  |
+| 222 |  | 2 | DISCOLORATION, tongue, dirty | **منہ — رنگت بدلنا، زبان کی، میلی** |  |
+| 223 |  | 2 | DISCOLORATION, tongue, gray | **منہ — رنگت بدلنا، زبان کی، سرمئی** |  |
+| 224 |  | 3 | DISCOLORATION, tongue, gray, centre | **منہ — رنگت بدلنا، زبان کی، سرمئی، بیچ میں** |  |
+| 225 |  | 2 | DISCOLORATION, tongue, grayish-yellow | **منہ — رنگت بدلنا، زبان کی، سرمئی زرد** |  |
+| 226 |  | 2 | DISCOLORATION, tongue, green | **منہ — رنگت بدلنا، زبان کی، سبز** |  |
+| 227 |  | 2 | DISCOLORATION, tongue, greenish | **منہ — رنگت بدلنا، زبان کی، سبزی مائل** |  |
+| 228 |  | 3 | DISCOLORATION, tongue, greenish, gray | **منہ — رنگت بدلنا، زبان کی، سبزی مائل، سرمئی** |  |
+| 229 |  | 3 | DISCOLORATION, tongue, greenish, yellow | **منہ — رنگت بدلنا، زبان کی، سبزی مائل، زرد** |  |
+| 230 |  | 2 | DISCOLORATION, tongue, greenish-brown | **منہ — رنگت بدلنا، زبان کی، سبزی مائل بھوری** |  |
+| 231 |  | 2 | DISCOLORATION, tongue, leather, looks like burnt | **منہ — رنگت بدلنا، زبان کی، چمڑے جیسی، جلی ہوئی لگے** |  |
+| 232 |  | 2 | DISCOLORATION, tongue, pale | **منہ — رنگت بدلنا، زبان کی، پھیکا (زردی مائل)** |  |
+| 233 |  | 3 | DISCOLORATION, tongue, pale, and flabby | **منہ — رنگت بدلنا، زبان کی، پھیکا، اور ڈھیلا** |  |
+| 234 |  | 3 | DISCOLORATION, tongue, pale, edges | **منہ — رنگت بدلنا، زبان کی، پھیکا، کنارے** |  |
+| 235 |  | 2 | DISCOLORATION, tongue, purple | **منہ — رنگت بدلنا، زبان کی، جامنی** |  |
+| 236 |  | 3 | DISCOLORATION, tongue, purple, black | **منہ — رنگت بدلنا، زبان کی، جامنی، سیاہ** |  |
+| 237 |  | 2 | DISCOLORATION, tongue, red | **منہ — رنگت بدلنا، زبان کی، سرخ** |  |
+| 238 |  | 3 | DISCOLORATION, tongue, red, anterior half | **منہ — رنگت بدلنا، زبان کی، سرخ، اگلا آدھا حصہ** |  |
+| 239 |  | 3 | DISCOLORATION, tongue, red, centre | **منہ — رنگت بدلنا، زبان کی، سرخ، بیچ میں** |  |
+| 240 |  | 3 | DISCOLORATION, tongue, red, edges | **منہ — رنگت بدلنا، زبان کی، سرخ، کنارے** |  |
+| 241 |  | 3 | DISCOLORATION, tongue, red, fiery-red | **منہ — رنگت بدلنا، زبان کی، سرخ، آگ جیسا سرخ** |  |
+| 242 |  | 4 | DISCOLORATION, tongue, red, fiery-red, tip | **منہ — رنگت بدلنا، زبان کی، آگ جیسا سرخ، نوک پر** |  |
+| 243 |  | 3 | DISCOLORATION, tongue, red, glistening | **منہ — رنگت بدلنا، زبان کی، سرخ، چمکتی ہوئی** |  |
+| 244 |  | 3 | DISCOLORATION, tongue, red, spots | **منہ — رنگت بدلنا، زبان کی، سرخ، دھبے** |  |
+| 245 |  | 3 | DISCOLORATION, tongue, red, streaks | **منہ — رنگت بدلنا، زبان کی، سرخ، لکیریں** |  |
+| 246 |  | 3 | DISCOLORATION, tongue, red, stripe down centre | **منہ — رنگت بدلنا، زبان کی، سرخ، بیچ سے لکیر** |  |
+| 247 |  | 4 | DISCOLORATION, tongue, red, stripe down centre, sore | **منہ — رنگت بدلنا، زبان کی، سرخ، بیچ سے لکیر، دکھتی ہوئی** |  |
+| 248 |  | 3 | DISCOLORATION, tongue, red, tip | **منہ — رنگت بدلنا، زبان کی، سرخ، نوک پر** |  |
+| 249 |  | 4 | DISCOLORATION, tongue, red, tip, painful | **منہ — رنگت بدلنا، زبان کی، سرخ، نوک پر، دردناک** |  |
+| 250 |  | 4 | DISCOLORATION, tongue, red, tip, triangular | **منہ — رنگت بدلنا، زبان کی، سرخ، نوک پر، تکونی** |  |
+| 251 |  | 2 | DISCOLORATION, tongue, reddish-blue | **منہ — رنگت بدلنا، زبان کی، سرخی مائل نیلی** |  |
+| 252 |  | 2 | DISCOLORATION, tongue, white | **منہ — رنگت بدلنا، زبان کی، سفید** |  |
+| 253 |  | 3 | DISCOLORATION, tongue, white, border moist and red | **منہ — رنگت بدلنا، زبان کی، سفید، کنارہ نم اور سرخ** |  |
+| 254 |  | 3 | DISCOLORATION, tongue, white, centre | **منہ — رنگت بدلنا، زبان کی، سفید، بیچ میں** |  |
+| 255 |  | 4 | DISCOLORATION, tongue, white, centre, dark brown | **منہ — رنگت بدلنا، زبان کی، سفید، بیچ میں، گہرا بھورا** |  |
+| 256 |  | 4 | DISCOLORATION, tongue, white, centre, dark streaks along edges | **منہ — رنگت بدلنا، زبان کی، سفید، بیچ میں، کناروں پر گہری لکیریں** |  |
+| 257 |  | 4 | DISCOLORATION, tongue, white, centre, red stripe down centre | **منہ — رنگت بدلنا، زبان کی، سفید، بیچ میں، بیچ سے سرخ لکیر** |  |
+| 258 |  | 3 | DISCOLORATION, tongue, white, cheesy | **منہ — رنگت بدلنا، زبان کی، سفید، پنیر جیسی** |  |
+| 259 |  | 3 | DISCOLORATION, tongue, white, dirty | **منہ — رنگت بدلنا، زبان کی، سفید، میلی** |  |
+| 260 |  | 4 | DISCOLORATION, tongue, white, dirty, with elevated papillae | **منہ — رنگت بدلنا، زبان کی، سفید، میلی، ابھرے ہوئے پاپیلوں کے ساتھ** |  |
+| 261 |  | 3 | DISCOLORATION, tongue, white, evening | **منہ — رنگت بدلنا، زبان کی، سفید، شام** |  |
+| 262 |  | 3 | DISCOLORATION, tongue, white, milk white without coating | **منہ — رنگت بدلنا، زبان کی، سفید، دودھ جیسی سفید، بغیر تہہ** |  |
+| 263 |  | 3 | DISCOLORATION, tongue, white, milky | **منہ — رنگت بدلنا، زبان کی، سفید، دودھیا** |  |
+| 264 |  | 3 | DISCOLORATION, tongue, white, moist | **منہ — رنگت بدلنا، زبان کی، سفید، نم** |  |
+| 265 |  | 3 | DISCOLORATION, tongue, white, morning | **منہ — رنگت بدلنا، زبان کی، سفید، صبح** |  |
+| 266 |  | 3 | DISCOLORATION, tongue, white, painted, as if | **منہ — رنگت بدلنا، زبان کی، سفید، جیسے پوتی ہوئی** |  |
+| 267 |  | 3 | DISCOLORATION, tongue, white, patches | **منہ — رنگت بدلنا، زبان کی، سفید، چتیاں** |  |
+| 268 |  | 4 | DISCOLORATION, tongue, white, patches, red insular, with | **منہ — رنگت بدلنا، زبان کی، سفید، چتیاں، سرخ الگ الگ حصوں کے ساتھ** |  |
+| 269 |  | 3 | DISCOLORATION, tongue, white, pole | **منہ — رنگت بدلنا، زبان کی، سفید، ایک سرے پر** |  |
+| 270 |  | 3 | DISCOLORATION, tongue, white, root | **منہ — رنگت بدلنا، زبان کی، سفید، جڑ پر** |  |
+| 271 |  | 3 | DISCOLORATION, tongue, white, sides | **منہ — رنگت بدلنا، زبان کی، سفید، کنارے** |  |
+| 272 |  | 4 | DISCOLORATION, tongue, white, sides, one | **منہ — رنگت بدلنا، زبان کی، سفید، کنارے، ایک کنارہ** |  |
+| 273 |  | 4 | DISCOLORATION, tongue, white, sides, patches | **منہ — رنگت بدلنا، زبان کی، سفید، کنارے، چتیاں** |  |
+| 274 |  | 4 | DISCOLORATION, tongue, white, sides, right | **منہ — رنگت بدلنا، زبان کی، سفید، کنارے، دائیں** |  |
+| 275 |  | 3 | DISCOLORATION, tongue, white, silvery, all over | **منہ — رنگت بدلنا، زبان کی، سفید، چاندی جیسی، پوری زبان پر** |  |
+| 276 |  | 3 | DISCOLORATION, tongue, white, spots, clean | **منہ — رنگت بدلنا، زبان کی، سفید، دھبے، صاف** |  |
+| 277 |  | 3 | DISCOLORATION, tongue, white, stripes | **منہ — رنگت بدلنا، زبان کی، سفید، لکیریں** |  |
+| 278 |  | 3 | DISCOLORATION, tongue, white, tip | **منہ — رنگت بدلنا، زبان کی، سفید، نوک پر** |  |
+| 279 |  | 2 | DISCOLORATION, tongue, yellow | **منہ — رنگت بدلنا، زبان کی، زرد** |  |
+| 280 |  | 3 | DISCOLORATION, tongue, yellow, base | **منہ — رنگت بدلنا، زبان کی، زرد، جڑ پر** |  |
+| 281 |  | 3 | DISCOLORATION, tongue, yellow, bright | **منہ — رنگت بدلنا، زبان کی، زرد، چمکدار** |  |
+| 282 |  | 4 | DISCOLORATION, tongue, yellow, bright, shining | **منہ — رنگت بدلنا، زبان کی، زرد، چمکدار، چمکتی ہوئی** |  |
+| 283 |  | 3 | DISCOLORATION, tongue, yellow, centre | **منہ — رنگت بدلنا، زبان کی، زرد، بیچ میں** |  |
+| 284 |  | 4 | DISCOLORATION, tongue, yellow, centre, edges red | **منہ — رنگت بدلنا، زبان کی، زرد، بیچ میں، کنارے سرخ** |  |
+| 285 |  | 3 | DISCOLORATION, tongue, yellow, centre greenish | **منہ — رنگت بدلنا، زبان کی، زرد، بیچ میں سبزی مائل** |  |
+| 286 |  | 3 | DISCOLORATION, tongue, yellow, dirty | **منہ — رنگت بدلنا، زبان کی، زرد، میلی** |  |
+| 287 |  | 3 | DISCOLORATION, tongue, yellow, edges, centre, gray | **منہ — رنگت بدلنا، زبان کی، زرد، کنارے، بیچ میں، سرمئی** |  |
+| 288 |  | 3 | DISCOLORATION, tongue, yellow, golden yellow | **منہ — رنگت بدلنا، زبان کی، زرد، سنہری زرد** |  |
+| 289 |  | 4 | DISCOLORATION, tongue, yellow, golden yellow, looks like half dried clay | **منہ — رنگت بدلنا، زبان کی، سنہری زرد، جیسے آدھی سوکھی مٹی** |  |
+| 290 |  | 3 | DISCOLORATION, tongue, yellow, gray | **منہ — رنگت بدلنا، زبان کی، زرد، سرمئی** |  |
+| 291 |  | 3 | DISCOLORATION, tongue, yellow, white | **منہ — رنگت بدلنا، زبان کی، زرد، سفید** |  |
+| 292 |  | 4 | DISCOLORATION, tongue, yellow, white, base | **منہ — رنگت بدلنا، زبان کی، زرد، سفید، جڑ پر** |  |
+| 293 |  | 4 | DISCOLORATION, tongue, yellow, white, thick | **منہ — رنگت بدلنا، زبان کی، زرد، سفید، موٹی** |  |
+| 294 |  | 1 | DISCOLORATION, white patches | **منہ — رنگت بدلنا، سفید چتیاں** |  |
+| 295 |  | 1 | DISCOLORATION, yellow patches | **منہ — رنگت بدلنا، زرد چتیاں** |  |
+| 296 |  | 1 | DISCOLORATION, yellow, spots | **منہ — رنگت بدلنا، زرد، دھبے** |  |
 | 297 |  | 0 | DRYNESS | **منہ — خشکی** |  |
 | 298 |  | 1 | DRYNESS, eating, after | **منہ — خشکی، کھانے کے بعد** |  |
 | 299 |  | 1 | DRYNESS, evening | **منہ — خشکی، شام** |  |
@@ -358,9 +358,9 @@
 | 351 |  | 0 | EPULIS | **منہ — مسوڑھے کی رسولی (ایپولس)** |  |
 | 352 |  | 1 | EPULIS, soft and painless | **منہ — مسوڑھے کی رسولی، نرم اور بے درد** |  |
 | 353 |  | 0 | EROSION, Tongue (See Mucous Membrane) | **منہ — زبان کا کٹاؤ** |  |
-| 354 |  | 0 | EXCORIATION (See Mucous Membrane and Scorbutic) | **منہ — چھلنا (کھردرا ہونا)** |  |
-| 355 |  | 0 | EXCRESCENCES | **منہ — گوشت کی بڑھوتری** |  |
-| 356 |  | 1 | EXCRESCENCES, painful | **منہ — گوشت کی بڑھوتری، دردناک** |  |
+| 354 |  | 0 | EXCORIATION (See Mucous Membrane and Scorbutic) | **منہ — چھل جانا** |  |
+| 355 |  | 0 | EXCRESCENCES | **منہ — ابھار (مسے)** |  |
+| 356 |  | 1 | EXCRESCENCES, painful | **منہ — ابھار (مسے)، دردناک** |  |
 | 357 |  | 0 | EXFOLIATION (See Mucous Membrane) | **منہ — جھلی کا اترنا** |  |
 | 358 |  | 0 | EXOSTOSES | **منہ — ہڈی کا ابھار** |  |
 | 359 |  | 1 | EXOSTOSES, roof of mouth | **منہ — ہڈی کا ابھار، تالو پر** |  |
@@ -369,8 +369,8 @@
 | 362 |  | 0 | FINGERS in the mouth | **منہ — منہ میں انگلیاں ڈالنا** |  |
 | 363 |  | 1 | FINGERS in the mouth, children put | **منہ — منہ میں انگلیاں ڈالنا، بچے ڈالیں** |  |
 | 364 |  | 0 | FISSURED (See Cracked) | **منہ — شگاف والا** |  |
-| 365 |  | 0 | FISTULA | **منہ — ناسور (فِسٹولا)** |  |
-| 366 |  | 1 | FISTULA, gums | **منہ — ناسور (فِسٹولا)، مسوڑھوں پر** |  |
+| 365 |  | 0 | FISTULA | **منہ — ناسور (فسچولا)** |  |
+| 366 |  | 1 | FISTULA, gums | **منہ — ناسور (فسچولا)، مسوڑھوں پر** |  |
 | 367 |  | 2 | FISTULA, gums, near upper right canine | **منہ — ناسور، مسوڑھوں پر، دائیں اوپر کے کچلی والے دانت کے قریب** |  |
 | 368 |  | 2 | FISTULA, gums, upper incisors | **منہ — ناسور، مسوڑھوں پر، اوپر کے سامنے والے دانتوں کے قریب** |  |
 | 369 |  | 0 | FLABBY tongue | **منہ — ڈھیلی زبان** |  |
@@ -383,7 +383,7 @@
 | 376 |  | 0 | FROTH | **منہ — جھاگ** |  |
 | 377 |  | 1 | FROTH, bloody | **منہ — جھاگ، خونی** |  |
 | 378 |  | 2 | FROTH, bloody, morning | **منہ — جھاگ، خونی، صبح** |  |
-| 379 |  | 1 | FROTH, convulsions, during | **منہ — جھاگ، دوروں کے دوران** |  |
+| 379 |  | 1 | FROTH, convulsions, during | **منہ — جھاگ، تشنج کے دوران** |  |
 | 380 |  | 1 | FROTH, foam, from | **منہ — جھاگ، جھاگ کی صورت میں** |  |
 | 381 |  | 1 | FROTH, odor of rotten eggs | **منہ — جھاگ، سڑے انڈوں کی بو** |  |
 | 382 |  | 1 | FROTH, reddish | **منہ — جھاگ، سرخی مائل** |  |
@@ -391,10 +391,10 @@
 | 384 |  | 1 | FROTH, sleep, during | **منہ — جھاگ، نیند کے دوران** |  |
 | 385 |  | 1 | FROTH, talking, while | **منہ — جھاگ، بات کرتے ہوئے** |  |
 | 386 |  | 1 | FROTH, yellow-green | **منہ — جھاگ، زرد سبز** |  |
-| 387 |  | 0 | GANGRENOUS | **منہ — سڑاند والا (گلنے والا)** |  |
-| 388 |  | 1 | GANGRENOUS, gums | **منہ — سڑاند والا، مسوڑھے** |  |
-| 389 |  | 1 | GANGRENOUS, in children | **منہ — سڑاند والا، بچوں میں** |  |
-| 390 |  | 1 | GANGRENOUS, tongue | **منہ — سڑاند والا، زبان** |  |
+| 387 |  | 0 | GANGRENOUS | **منہ — گلنے کے ساتھ** |  |
+| 388 |  | 1 | GANGRENOUS, gums | **منہ — گلنے کے ساتھ، مسوڑھے** |  |
+| 389 |  | 1 | GANGRENOUS, in children | **منہ — گلنے کے ساتھ، بچوں میں** |  |
+| 390 |  | 1 | GANGRENOUS, tongue | **منہ — گلنے کے ساتھ، زبان** |  |
 | 391 |  | 0 | GLANDULAR swelling | **منہ — غدودوں کی سوجن** |  |
 | 392 |  | 0 | GLAZED palate | **منہ — چمکدار تالو** |  |
 | 393 |  | 1 | GLAZED palate, velum | **منہ — چمکدار تالو، نرم تالو** |  |
@@ -496,7 +496,7 @@
 | 489 |  | 2 | MEMBRANE, palate covered with a false, evening | **منہ — جھلی، تالو پر جھوٹی جھلی، شام** |  |
 | 490 |  | 2 | MEMBRANE, palate covered with a false, velum | **منہ — جھلی، تالو پر جھوٹی جھلی، نرم تالو پر** |  |
 | 491 |  | 2 | MEMBRANE, palate covered with a false, white | **منہ — جھلی، تالو پر جھوٹی جھلی، سفید** |  |
-| 492 |  | 2 | MEMBRANE, palate covered with a false, yellowish gray | **منہ — جھلی، تالو پر جھوٹی جھلی، زردی مائل خاکی** |  |
+| 492 |  | 2 | MEMBRANE, palate covered with a false, yellowish gray | **منہ — جھلی، تالو پر جھوٹی جھلی، زردی مائل سرمئی** |  |
 | 493 |  | 0 | MERCURIAL affections of gums | **منہ — مسوڑھوں کی پارے والی تکالیف** |  |
 | 494 |  | 0 | MOTION | **منہ — حرکت** |  |
 | 495 |  | 1 | MOTION, tongue | **منہ — حرکت، زبان کی** |  |
@@ -528,7 +528,7 @@
 | 521 |  | 1 | MUCOUS membrane, thickened | **منہ — لعابی جھلی، موٹی ہوئی** |  |
 | 522 |  | 1 | MUCOUS membrane, tongue, excoriation | **منہ — لعابی جھلی، زبان، چھلی ہوئی** |  |
 | 523 |  | 2 | MUCOUS membrane, tongue, excoriation, centre | **منہ — لعابی جھلی، زبان، چھلی ہوئی، بیچ میں** |  |
-| 524 |  | 1 | MUCOUS membrane, yellowish gray | **منہ — لعابی جھلی، زردی مائل خاکی** |  |
+| 524 |  | 1 | MUCOUS membrane, yellowish gray | **منہ — لعابی جھلی، زردی مائل سرمئی** |  |
 | 525 |  | 0 | MUCOUS PATCHES (See Patches) | **منہ — لعابی چتیاں** |  |
 | 526 |  | 0 | MUCUS | **منہ — لعاب (بلغم)** |  |
 | 527 |  | 1 | MUCUS, acid | **منہ — لعاب، تیزابی** |  |
@@ -573,14 +573,14 @@
 | 566 |  | 2 | NUMBNESS, tongue, morning on waking | **منہ — سن ہونا، زبان میں، صبح جاگنے پر** |  |
 | 567 |  | 2 | NUMBNESS, tongue, one-sided | **منہ — سن ہونا، زبان میں، ایک طرف** |  |
 | 568 |  | 0 | ODOR (breath) | **منہ — سانس کی بو** |  |
-| 569 |  | 1 | ODOR (breath), acrid | **منہ — سانس کی بو، تیز** |  |
-| 570 |  | 2 | ODOR (breath), acrid, fetid (See Putrid) | **منہ — سانس کی بو، تیز، بدبودار** |  |
+| 569 |  | 1 | ODOR (breath), acrid | **منہ — سانس کی بو، چرپرا (چبھن والا)** |  |
+| 570 |  | 2 | ODOR (breath), acrid, fetid (See Putrid) | **منہ — سانس کی بو، چرپرا (چبھن والا)، بدبودار** |  |
 | 571 |  | 1 | ODOR (breath), alkaline | **منہ — سانس کی بو، کھاری** |  |
 | 572 |  | 1 | ODOR (breath), cadaverous | **منہ — سانس کی بو، مردہ جسم جیسی** |  |
 | 573 |  | 2 | ODOR (breath), cadaverous, worse morning and evening | **منہ — سانس کی بو، مردہ جسم جیسی، صبح اور شام کو بگاڑ** |  |
 | 574 |  | 1 | ODOR (breath), cheesy | **منہ — سانس کی بو، پنیر جیسی** |  |
 | 575 |  | 1 | ODOR (breath), creases, like | **منہ — سانس کی بو، جھریوں جیسی** |  |
-| 576 |  | 1 | ODOR (breath), earthy, morning | **منہ — سانس کی بو، مٹی جیسی، صبح** |  |
+| 576 |  | 1 | ODOR (breath), earthy, morning | **منہ — سانس کی بو، مٹیالی (خاکی)، صبح** |  |
 | 577 |  | 1 | ODOR (breath), eating, after | **منہ — سانس کی بو، کھانے کے بعد** |  |
 | 578 |  | 1 | ODOR (breath), garlicky | **منہ — سانس کی بو، لہسن جیسی** |  |
 | 579 |  | 1 | ODOR (breath), horseradish | **منہ — سانس کی بو، ہارسریڈش (سہنجنا) جیسی** |  |
@@ -615,23 +615,23 @@
 | 608 |  | 2 | OPEN, wide, after yawning remains | **منہ — کھلا رہنا، جمائی کے بعد بھی کھلا رہے** |  |
 | 609 |  | 2 | OPEN, wide, before an attack of epilepsy | **منہ — کھلا رہنا، مرگی کے دورے سے پہلے** |  |
 | 610 |  | 0 | PAIN | **منہ — درد** |  |
-| 611 |  | 1 | PAIN, aching | **منہ — درد، مسلسل ہلکا درد** |  |
-| 612 |  | 2 | PAIN, aching, gums | **منہ — درد، مسلسل ہلکا درد، مسوڑھوں میں** |  |
-| 613 |  | 3 | PAIN, aching, gums, morning | **منہ — درد، مسلسل ہلکا درد، مسوڑھوں میں، صبح** |  |
-| 614 |  | 3 | PAIN, aching, gums, teething children | **منہ — درد، مسلسل ہلکا درد، مسوڑھوں میں، دانت نکلنے کے زمانے کے بچوں میں** |  |
-| 615 |  | 2 | PAIN, aching, palate | **منہ — درد، مسلسل ہلکا درد، تالو میں** |  |
-| 616 |  | 3 | PAIN, aching, palate, chewing food | **منہ — درد، مسلسل ہلکا درد، تالو میں، کھانا چباتے وقت** |  |
-| 617 |  | 3 | PAIN, aching, palate, swallowing amel. | **منہ — درد، مسلسل ہلکا درد، تالو میں، نگلنے سے آرام** |  |
-| 618 |  | 3 | PAIN, aching, palate, yawning | **منہ — درد، مسلسل ہلکا درد، تالو میں، جمائی میں** |  |
-| 619 |  | 2 | PAIN, aching, tongue | **منہ — درد، مسلسل ہلکا درد، زبان میں** |  |
-| 620 |  | 3 | PAIN, aching, tongue, evening | **منہ — درد، مسلسل ہلکا درد، زبان میں، شام** |  |
-| 621 |  | 1 | PAIN, biting | **منہ — درد، کاٹتا ہوا** |  |
-| 622 |  | 2 | PAIN, biting, in gums | **منہ — درد، کاٹتا ہوا، مسوڑھوں میں** |  |
-| 623 |  | 2 | PAIN, biting, palate | **منہ — درد، کاٹتا ہوا، تالو میں** |  |
-| 624 |  | 2 | PAIN, biting, tongue | **منہ — درد، کاٹتا ہوا، زبان میں** |  |
-| 625 |  | 3 | PAIN, biting, tongue, anterior part | **منہ — درد، کاٹتا ہوا، زبان میں، اگلے حصے میں** |  |
-| 626 |  | 3 | PAIN, biting, tongue, peppery | **منہ — درد، کاٹتا ہوا، زبان میں، مرچ جیسا** |  |
-| 627 |  | 3 | PAIN, biting, tongue, tip | **منہ — درد، کاٹتا ہوا، زبان میں، نوک پر** |  |
+| 611 |  | 1 | PAIN, aching | **منہ — درد، مسلسل درد** |  |
+| 612 |  | 2 | PAIN, aching, gums | **منہ — درد، مسلسل درد، مسوڑھوں میں** |  |
+| 613 |  | 3 | PAIN, aching, gums, morning | **منہ — درد، مسلسل درد، مسوڑھوں میں، صبح** |  |
+| 614 |  | 3 | PAIN, aching, gums, teething children | **منہ — درد، مسلسل درد، مسوڑھوں میں، دانت نکلنے کے زمانے کے بچوں میں** |  |
+| 615 |  | 2 | PAIN, aching, palate | **منہ — درد، مسلسل درد، تالو میں** |  |
+| 616 |  | 3 | PAIN, aching, palate, chewing food | **منہ — درد، مسلسل درد، تالو میں، کھانا چباتے وقت** |  |
+| 617 |  | 3 | PAIN, aching, palate, swallowing amel. | **منہ — درد، مسلسل درد، تالو میں، نگلنے سے آرام** |  |
+| 618 |  | 3 | PAIN, aching, palate, yawning | **منہ — درد، مسلسل درد، تالو میں، جمائی میں** |  |
+| 619 |  | 2 | PAIN, aching, tongue | **منہ — درد، مسلسل درد، زبان میں** |  |
+| 620 |  | 3 | PAIN, aching, tongue, evening | **منہ — درد، مسلسل درد، زبان میں، شام** |  |
+| 621 |  | 1 | PAIN, biting | **منہ — درد، کاٹنے والا** |  |
+| 622 |  | 2 | PAIN, biting, in gums | **منہ — درد، کاٹنے والا، مسوڑھوں میں** |  |
+| 623 |  | 2 | PAIN, biting, palate | **منہ — درد، کاٹنے والا، تالو میں** |  |
+| 624 |  | 2 | PAIN, biting, tongue | **منہ — درد، کاٹنے والا، زبان میں** |  |
+| 625 |  | 3 | PAIN, biting, tongue, anterior part | **منہ — درد، کاٹنے والا، زبان میں، اگلے حصے میں** |  |
+| 626 |  | 3 | PAIN, biting, tongue, peppery | **منہ — درد، کاٹنے والا، زبان میں، مرچ جیسا** |  |
+| 627 |  | 3 | PAIN, biting, tongue, tip | **منہ — درد، کاٹنے والا، زبان میں، نوک پر** |  |
 | 628 |  | 1 | PAIN, boring in gums | **منہ — درد، برما سا، مسوڑھوں میں** |  |
 | 629 |  | 1 | PAIN, boring | **منہ — درد، برما سا** |  |
 | 630 |  | 2 | PAIN, boring, palate | **منہ — درد، برما سا، تالو میں** |  |
@@ -716,7 +716,7 @@
 | 709 |  | 1 | PAIN, cut off, tongue, as if | **منہ — درد، جیسے زبان کٹ گئی ہو** |  |
 | 710 |  | 1 | PAIN, cut, tongue as if, edges | **منہ — درد، جیسے زبان کے کنارے کٹے ہوں** |  |
 | 711 |  | 1 | PAIN, cutting in gums | **منہ — درد، کاٹتا ہوا، مسوڑھوں میں** |  |
-| 712 |  | 1 | PAIN, cutting | **منہ — درد، کاٹتا ہوا (چیرتا)** |  |
+| 712 |  | 1 | PAIN, cutting | **منہ — درد، کاٹتا ہوا** |  |
 | 713 |  | 2 | PAIN, cutting, palate when swallowing | **منہ — درد، کاٹتا ہوا، تالو میں، نگلتے وقت** |  |
 | 714 |  | 2 | PAIN, cutting, tongue | **منہ — درد، کاٹتا ہوا، زبان میں** |  |
 | 715 |  | 3 | PAIN, cutting, tongue, edges | **منہ — درد، کاٹتا ہوا، زبان میں، کناروں پر** |  |
@@ -948,7 +948,7 @@
 | 941 |  | 2 | ROUGHNESS, tongue, morning | **منہ — کھردرا پن، زبان میں، صبح** |  |
 | 942 |  | 2 | ROUGHNESS, tongue, streaks, in | **منہ — کھردرا پن، زبان میں، لکیروں میں** |  |
 | 943 |  | 0 | SALIVA | **منہ — لعاب** |  |
-| 944 |  | 1 | SALIVA, acrid | **منہ — لعاب، تیزاب جیسا (چرپرا)** |  |
+| 944 |  | 1 | SALIVA, acrid | **منہ — لعاب، چرپرا (چبھن والا)اب جیسا (چرپرا (چبھن والا))** |  |
 | 945 |  | 1 | SALIVA, albuminous | **منہ — لعاب، سفیدی والا** |  |
 | 946 |  | 1 | SALIVA, alkaline | **منہ — لعاب، کھاری** |  |
 | 947 |  | 1 | SALIVA, aromatic | **منہ — لعاب، خوشبودار** |  |
@@ -1015,7 +1015,7 @@
 | 1008 |  | 1 | SALIVATION, chill | **منہ — لعاب کا زیادہ بہنا، سردی لگنے کے ساتھ** |  |
 | 1009 |  | 2 | SALIVATION, chill, before | **منہ — لعاب کا زیادہ بہنا، سردی لگنے سے پہلے** |  |
 | 1010 |  | 2 | SALIVATION, chill, during | **منہ — لعاب کا زیادہ بہنا، سردی لگنے کے دوران** |  |
-| 1011 |  | 1 | SALIVATION, convulsions, with | **منہ — لعاب کا زیادہ بہنا، دوروں کے ساتھ** |  |
+| 1011 |  | 1 | SALIVATION, convulsions, with | **منہ — لعاب کا زیادہ بہنا، تشنج کے ساتھ** |  |
 | 1012 |  | 1 | SALIVATION, cough | **منہ — لعاب کا زیادہ بہنا، کھانسی کے ساتھ** |  |
 | 1013 |  | 1 | SALIVATION, dryness, with sense of | **منہ — لعاب کا زیادہ بہنا، خشکی کے احساس کے ساتھ** |  |
 | 1014 |  | 1 | SALIVATION, eating, after | **منہ — لعاب کا زیادہ بہنا، کھانے کے بعد** |  |
@@ -1053,8 +1053,8 @@
 | 1046 |  | 1 | SALIVATION, sudden attacks | **منہ — لعاب کا زیادہ بہنا، اچانک دوروں میں** |  |
 | 1047 |  | 1 | SALIVATION, talking, while | **منہ — لعاب کا زیادہ بہنا، بات کرتے ہوئے** |  |
 | 1048 |  | 1 | SALIVATION, walking, while | **منہ — لعاب کا زیادہ بہنا، چلتے ہوئے** |  |
-| 1049 |  | 0 | SCABS | **منہ — پپڑیاں** |  |
-| 1050 |  | 1 | SCABS, gangrenous, gums | **منہ — پپڑیاں، گلنے والی، مسوڑھوں پر** |  |
+| 1049 |  | 0 | SCABS | **منہ — کھرنڈ** |  |
+| 1050 |  | 1 | SCABS, gangrenous, gums | **منہ — کھرنڈ، گلنے کے ساتھ، مسوڑھوں پر** |  |
 | 1051 |  | 0 | SCORBUTIC Gums (See Detached) | **منہ — اسکروی والے مسوڑھے (منہ کی سڑاند)** |  |
 | 1052 |  | 1 | SCORBUTIC Gums (See Detached), in salt eaters | **منہ — اسکروی والے مسوڑھے، زیادہ نمک کھانے والوں میں** |  |
 | 1053 |  | 0 | SCRAPING palate | **منہ — تالو کھرچنا** |  |
@@ -1164,7 +1164,7 @@
 | 1157 |  | 2 | SWELLING, gums, bluish-red | **منہ — سوجن، مسوڑھوں کی، نیلا سرخ** |  |
 | 1158 |  | 3 | SWELLING, gums, bluish-red, ecchymosis | **منہ — سوجن، مسوڑھوں کی، نیلا سرخ، خون کے نیلے داغ کے ساتھ** |  |
 | 1159 |  | 3 | SWELLING, gums, bluish-red, spongy, between lower incisors, begins on left and extends to right, bleeds often | **منہ — سوجن، مسوڑھوں کی، نیلا سرخ، اسفنج جیسی، نچلے سامنے والے دانتوں کے بیچ، بائیں سے شروع ہو کر دائیں تک، بار بار خون آئے** |  |
-| 1160 |  | 2 | SWELLING, gums, convulsions, with | **منہ — سوجن، مسوڑھوں کی، دوروں کے ساتھ** |  |
+| 1160 |  | 2 | SWELLING, gums, convulsions, with | **منہ — سوجن، مسوڑھوں کی، تشنج کے ساتھ** |  |
 | 1161 |  | 2 | SWELLING, gums, decayed tooth, around | **منہ — سوجن، مسوڑھوں کی، گلے دانت کے گرد** |  |
 | 1162 |  | 2 | SWELLING, gums, extraction of teeth, after | **منہ — سوجن، مسوڑھوں کی، دانت نکالنے کے بعد** |  |
 | 1163 |  | 2 | SWELLING, gums, hard, painful, in socket of a tooth that has been out for years | **منہ — سوجن، مسوڑھوں کی، سخت، دردناک، برسوں سے نکالے دانت کے گڑھے میں** |  |
@@ -1188,7 +1188,7 @@
 | 1181 |  | 1 | SWELLING, palate | **منہ — سوجن، تالو کی** |  |
 | 1182 |  | 2 | SWELLING, palate, arch | **منہ — سوجن، تالو کی، قوس میں** |  |
 | 1183 |  | 2 | SWELLING, palate, sensation of | **منہ — سوجن، تالو کی، سوجن کا احساس** |  |
-| 1184 |  | 2 | SWELLING, palate, suppuration, with | **منہ — سوجن، تالو کی، پیپ کے ساتھ** |  |
+| 1184 |  | 2 | SWELLING, palate, suppuration, with | **منہ — سوجن، تالو کی، پیپ پڑنے کے ساتھ** |  |
 | 1185 |  | 2 | SWELLING, palate, tight, almost painless, size of pigeon's egg | **منہ — سوجن، تالو کی، کسا ہوا، تقریباً بے درد، کبوتر کے انڈے کے برابر** |  |
 | 1186 |  | 2 | SWELLING, palate, velum | **منہ — سوجن، تالو کی، نرم تالو** |  |
 | 1187 |  | 1 | SWELLING, sensation of | **منہ — سوجن کا احساس** |  |
@@ -1211,9 +1211,9 @@
 | 1204 |  | 2 | SWELLING, tongue, under | **منہ — سوجن، زبان کی، نیچے** |  |
 | 1205 |  | 3 | SWELLING, tongue, under, with stinging pain | **منہ — سوجن، زبان کی، نیچے، ڈنک جیسے درد کے ساتھ** |  |
 | 1206 |  | 0 | TASTE | **منہ — ذائقہ** |  |
-| 1207 |  | 1 | TASTE, acrid | **منہ — ذائقہ، چرپرا** |  |
-| 1208 |  | 2 | TASTE, acrid, from roots of teeth | **منہ — ذائقہ، چرپرا، دانتوں کی جڑوں سے** |  |
-| 1209 |  | 2 | TASTE, acrid, saliva tastes | **منہ — ذائقہ، چرپرا، لعاب چرپرا لگے** |  |
+| 1207 |  | 1 | TASTE, acrid | **منہ — ذائقہ، چرپرا (چبھن والا)** |  |
+| 1208 |  | 2 | TASTE, acrid, from roots of teeth | **منہ — ذائقہ، چرپرا (چبھن والا)، دانتوں کی جڑوں سے** |  |
+| 1209 |  | 2 | TASTE, acrid, saliva tastes | **منہ — ذائقہ، چرپرا (چبھن والا)، لعاب چرپرا (چبھن والا) لگے** |  |
 | 1210 |  | 1 | TASTE, acute | **منہ — ذائقہ، تیز** |  |
 | 1211 |  | 1 | TASTE, alkaline | **منہ — ذائقہ، کھاری** |  |
 | 1212 |  | 1 | TASTE, almonds | **منہ — ذائقہ، بادام جیسا** |  |
@@ -1307,7 +1307,7 @@
 | 1300 |  | 1 | TASTE, dry | **منہ — ذائقہ، خشک** |  |
 | 1301 |  | 2 | TASTE, dry, bread tastes | **منہ — ذائقہ، خشک، روٹی خشک لگے** |  |
 | 1302 |  | 2 | TASTE, dry, food tastes | **منہ — ذائقہ، خشک، کھانا خشک لگے** |  |
-| 1303 |  | 1 | TASTE, earthy | **منہ — ذائقہ، مٹی جیسا (زمینی)** |  |
+| 1303 |  | 1 | TASTE, earthy | **منہ — ذائقہ، مٹیالی (خاکی)** |  |
 | 1304 |  | 1 | TASTE, eggs, like rotten | **منہ — ذائقہ، سڑے انڈوں جیسا** |  |
 | 1305 |  | 2 | TASTE, eggs, like rotten, cough, with | **منہ — ذائقہ، سڑے انڈوں جیسا، کھانسی کے ساتھ** |  |
 | 1306 |  | 2 | TASTE, eggs, like rotten, morning | **منہ — ذائقہ، سڑے انڈوں جیسا، صبح** |  |
@@ -1488,13 +1488,13 @@
 | 1481 |  | 1 | TASTE, tasteless (See Wanting) | **منہ — ذائقہ، بے ذائقہ** |  |
 | 1482 |  | 1 | TASTE, unsalted, food tastes (See Salt) | **منہ — ذائقہ، کھانا بے نمک لگے** |  |
 | 1483 |  | 0 | TENSION in arches of palate | **منہ — تالو کے قوس میں تناؤ** |  |
-| 1484 |  | 0 | THICK | **منہ — موٹا** |  |
-| 1485 |  | 1 | THICK, tongue, sensation | **منہ — موٹا، زبان، موٹے ہونے کا احساس** |  |
+| 1484 |  | 0 | THICK | **منہ — موٹی** |  |
+| 1485 |  | 1 | THICK, tongue, sensation | **منہ — موٹی، زبان، موٹی ہونے کا احساس** |  |
 | 1486 |  | 0 | TINGLING (See Prickling) | **منہ — جھنجھناہٹ** |  |
 | 1487 |  | 0 | TREMBLING | **منہ — لرزنا** |  |
 | 1488 |  | 1 | TREMBLING, tongue | **منہ — لرزنا، زبان** |  |
 | 1489 |  | 2 | TREMBLING, tongue, when protruding it | **منہ — لرزنا، زبان، باہر نکالنے پر** |  |
-| 1490 |  | 0 | TUBERCLES | **منہ — گلٹیاں (ٹیوبرکل)** |  |
+| 1490 |  | 0 | TUBERCLES | **منہ — گلٹیاں** |  |
 | 1491 |  | 1 | TUBERCLES, gums, painful | **منہ — گلٹیاں، مسوڑھوں میں، دردناک** |  |
 | 1492 |  | 1 | TUBERCLES, tongue | **منہ — گلٹیاں، زبان میں** |  |
 | 1493 |  | 0 | TUMORS | **منہ — رسولیاں** |  |
@@ -1520,16 +1520,16 @@
 | 1513 |  | 2 | ULCERS, base, milky | **منہ — ناسور (زخم)، بنیاد، دودھیا** |  |
 | 1514 |  | 2 | ULCERS, base, spongy | **منہ — ناسور (زخم)، بنیاد، اسفنج جیسی** |  |
 | 1515 |  | 2 | ULCERS, base, swollen | **منہ — ناسور (زخم)، بنیاد، سوجی ہوئی** |  |
-| 1516 |  | 1 | ULCERS, biting | **منہ — ناسور (زخم)، کاٹتے ہوئے** |  |
+| 1516 |  | 1 | ULCERS, biting | **منہ — ناسور (زخم)، کاٹنے والے** |  |
 | 1517 |  | 1 | ULCERS, bleeding | **منہ — ناسور (زخم)، خون آنے والے** |  |
 | 1518 |  | 1 | ULCERS, bluish | **منہ — ناسور (زخم)، نیلا مائل** |  |
 | 1519 |  | 1 | ULCERS, burning | **منہ — ناسور (زخم)، جلتے ہوئے** |  |
 | 1520 |  | 1 | ULCERS, cold water amel. | **منہ — ناسور (زخم)، ٹھنڈے پانی سے آرام** |  |
 | 1521 |  | 1 | ULCERS, deep | **منہ — ناسور (زخم)، گہرے** |  |
-| 1522 |  | 1 | ULCERS, dirty looking | **منہ — ناسور (زخم)، میلے لگتے ہوئے** |  |
+| 1522 |  | 1 | ULCERS, dirty looking | **منہ — ناسور (زخم)، میلی سی شکل** |  |
 | 1523 |  | 1 | ULCERS, edges elevated | **منہ — ناسور (زخم)، ابھرے ہوئے کناروں والے** |  |
 | 1524 |  | 1 | ULCERS, edges | **منہ — ناسور (زخم)، کنارے** |  |
-| 1525 |  | 2 | ULCERS, edges, gray | **منہ — ناسور (زخم)، کنارے، خاکی** |  |
+| 1525 |  | 2 | ULCERS, edges, gray | **منہ — ناسور (زخم)، کنارے، سرمئی** |  |
 | 1526 |  | 2 | ULCERS, edges, hard | **منہ — ناسور (زخم)، کنارے، سخت** |  |
 | 1527 |  | 2 | ULCERS, edges, irregular | **منہ — ناسور (زخم)، کنارے، بے ترتیب** |  |
 | 1528 |  | 2 | ULCERS, edges, jagged | **منہ — ناسور (زخم)، کنارے، دانتے دار** |  |
@@ -1537,8 +1537,8 @@
 | 1530 |  | 1 | ULCERS, fetid | **منہ — ناسور (زخم)، بدبودار** |  |
 | 1531 |  | 1 | ULCERS, flat | **منہ — ناسور (زخم)، چپٹے** |  |
 | 1532 |  | 1 | ULCERS, forming rapidly | **منہ — ناسور (زخم)، تیزی سے بنتے ہوئے** |  |
-| 1533 |  | 1 | ULCERS, gangrenous | **منہ — ناسور (زخم)، گلنے والے** |  |
-| 1534 |  | 1 | ULCERS, grayish | **منہ — ناسور (زخم)، خاکی مائل** |  |
+| 1533 |  | 1 | ULCERS, gangrenous | **منہ — ناسور (زخم)، گلنے کے ساتھ** |  |
+| 1534 |  | 1 | ULCERS, grayish | **منہ — ناسور (زخم)، سرمئی** |  |
 | 1535 |  | 1 | ULCERS, gums | **منہ — ناسور (زخم)، مسوڑھوں پر** |  |
 | 1536 |  | 2 | ULCERS, gums, base lardaceous | **منہ — ناسور (زخم)، مسوڑھوں پر، بنیاد چربی جیسی** |  |
 | 1537 |  | 2 | ULCERS, gums, discharging blood which tastes salty | **منہ — ناسور (زخم)، مسوڑھوں پر، ایسا خون بہے جو نمکین لگے** |  |
@@ -1602,12 +1602,12 @@
 | 1595 |  | 0 | VELVET | **منہ — مخمل** |  |
 | 1596 |  | 1 | VELVET, sensation as if covered with | **منہ — مخمل، جیسے مخمل کی تہہ چڑھی ہو** |  |
 | 1597 |  | 0 | VESICLES | **منہ — آبلے** |  |
-| 1598 |  | 1 | VESICLES, biting | **منہ — آبلے، کاٹتے ہوئے** |  |
+| 1598 |  | 1 | VESICLES, biting | **منہ — آبلے، کاٹنے والے** |  |
 | 1599 |  | 1 | VESICLES, blood vesicles | **منہ — آبلے، خون کے آبلے** |  |
 | 1600 |  | 1 | VESICLES, burning | **منہ — آبلے، جلتے ہوئے** |  |
 | 1601 |  | 1 | VESICLES, cold things amel. | **منہ — آبلے، ٹھنڈی چیزوں سے آرام** |  |
 | 1602 |  | 1 | VESICLES, cutting | **منہ — آبلے، کاٹتے ہوئے (کٹاؤ)** |  |
-| 1603 |  | 1 | VESICLES, gangrenous | **منہ — آبلے، گلنے والے** |  |
+| 1603 |  | 1 | VESICLES, gangrenous | **منہ — آبلے، گلنے کے ساتھ** |  |
 | 1604 |  | 1 | VESICLES, gums | **منہ — آبلے، مسوڑھوں پر** |  |
 | 1605 |  | 2 | VESICLES, gums, burning | **منہ — آبلے، مسوڑھوں پر، جلتے ہوئے** |  |
 | 1606 |  | 1 | VESICLES, menses, before | **منہ — آبلے، حیض سے پہلے** |  |
