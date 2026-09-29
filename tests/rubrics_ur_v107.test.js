@@ -65,7 +65,8 @@ const H=JSON.parse(rd('ur/rubrics/kent/head.json')); w.repRubUrStore('kent','hea
 const hrows=L.chapterRows(w,'kent','head'); const hNonPain=hrows.filter(r=>!/^PAIN\b/.test(r.full));
 ok(H.meta.root==='سر — '&&hNonPain.every(r=>H.rubrics[r.key]&&H.rubrics[r.key].indexOf('سر — ')===0),'H1 HEAD: PAIN کے سوا ہر ربرک کا جملہ ('+hNonPain.length+') اور ہر جملہ «سر — » سے شروع');
 ok(!hrows.some(r=>H.rubrics[r.key]&&/[\u06F0-\u06F9]/.test(H.rubrics[r.key])),'H2 HEAD میں اردو ہندسے نہیں');
-ok(hrows.filter(r=>/^PAIN\b/.test(r.full)&&!H.rubrics[r.key]).length===4672,'H3 HEAD › PAIN کے 4,672 ربرک ابھی باقی (اگلی نشست)');
+ok(H.rubrics['pain']==='سر — درد'&&H.rubrics['pain, evening, bed, in agg.']==='سر — درد، شام بستر میں بگاڑ','H3 HEAD › PAIN کی عمومی شرطیں (799) موجود');
+ok(hrows.filter(r=>/^PAIN\b/.test(r.full)&&!H.rubrics[r.key]).length===3873,'H4 HEAD › PAIN کے مقام/قسم والے 3,873 ربرک ابھی باقی (اگلی نشست)');
 w.repCurrentChapter='mind';
 ok(w.repRubUrMode()==='full','C7 موڈ کی طے شدہ حالت «پورا مطلب»');
 w.repRubUrSetMode('delta'); ok(w.repRubUrMode()==='delta'&&w.localStorage.getItem('bc_ur_mode')==='delta','C8 موڈ بدلتا اور محفوظ ہوتا ہے');
@@ -86,7 +87,7 @@ ok(/js\/18-rubrics-ur\.js\?v=\d+/.test(idx)&&/css\/rubrics-ur\.css\?v=\d+/.test(
 ok(idx.indexOf('<script src="js/17-rubric-ur.js')<idx.indexOf('<script src="js/18-rubrics-ur.js'),'E2 18-rubrics-ur.js، 17-rubric-ur.js کے بعد لوڈ ہوتی ہے');
 ok(/id="repUrModeBtn"/.test(idx)&&!/repUrModeBtn"[^>]*onclick/.test(idx),'E3 ٹول بار میں بٹن #repUrModeBtn (onclick کے بغیر)');
 ok(/'\.\/js\/18-rubrics-ur\.js'/.test(sw)&&/'\.\/css\/rubrics-ur\.css'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/mind\.json'/.test(sw),'E4 service-worker میں تینوں نئی فائلیں');
-ok(/CACHE_NAME='bhc-clinic-v(11[2-9]|1[2-9]\d)'/.test(sw),'E5 CACHE_NAME v112 یا بعد کا');
+ok(/CACHE_NAME='bhc-clinic-v(11[3-9]|1[2-9]\d)'/.test(sw),'E5 CACHE_NAME v113 یا بعد کا');
 ok(/'\.\/ur\/rubrics\/kent\/vertigo\.json'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/head\.json'/.test(sw),'E4b service-worker میں vertigo.json اور head.json');
 ok(/repRubUrRowHtml\(r\)/.test(tree)&&/ensureRepRubricsUr\(repCurrentBook,repCurrentChapter/.test(tree),'E6 rep-tree.js: صف پر جملہ + باب کی فائل منگوانا');
 ok(!/ensureRepRubricsUr/.test(rd('js/repertory/LOAD_ORDER.txt')),'E7 LOAD_ORDER.txt نہیں چھیڑا');
