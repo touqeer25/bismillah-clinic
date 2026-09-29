@@ -60,6 +60,12 @@ ok(/rub-base">چکر — <\/span>/.test(vh)&&/rub-delta">سہ پہر<\/span>/.te
 const vh2=w.repRubUrRowHtml(vrows.find(r=>r.full==='FALL, tendency to, backward'));
 ok(/rub-base">چکر — گرنے کا رجحان، <\/span>/.test(vh2)&&/rub-delta">پیچھے کو<\/span>/.test(vh2),'V3 گہری سطح: والد کا جملہ بنیاد، اضافہ «پیچھے کو»');
 ok(!vrows.some(r=>/[\u06F0-\u06F9]/.test(V.rubrics[r.key])),'V4 VERTIGO میں اردو ہندسے نہیں');
+// ---------- C3. HEAD: PAIN کے سوا سب (2,249)، جڑ «سر — » ----------
+const H=JSON.parse(rd('ur/rubrics/kent/head.json')); w.repRubUrStore('kent','head',H);
+const hrows=L.chapterRows(w,'kent','head'); const hNonPain=hrows.filter(r=>!/^PAIN\b/.test(r.full));
+ok(H.meta.root==='سر — '&&hNonPain.every(r=>H.rubrics[r.key]&&H.rubrics[r.key].indexOf('سر — ')===0),'H1 HEAD: PAIN کے سوا ہر ربرک کا جملہ ('+hNonPain.length+') اور ہر جملہ «سر — » سے شروع');
+ok(!hrows.some(r=>H.rubrics[r.key]&&/[\u06F0-\u06F9]/.test(H.rubrics[r.key])),'H2 HEAD میں اردو ہندسے نہیں');
+ok(hrows.filter(r=>/^PAIN\b/.test(r.full)&&!H.rubrics[r.key]).length===4672,'H3 HEAD › PAIN کے 4,672 ربرک ابھی باقی (اگلی نشست)');
 w.repCurrentChapter='mind';
 ok(w.repRubUrMode()==='full','C7 موڈ کی طے شدہ حالت «پورا مطلب»');
 w.repRubUrSetMode('delta'); ok(w.repRubUrMode()==='delta'&&w.localStorage.getItem('bc_ur_mode')==='delta','C8 موڈ بدلتا اور محفوظ ہوتا ہے');
@@ -80,8 +86,8 @@ ok(/js\/18-rubrics-ur\.js\?v=\d+/.test(idx)&&/css\/rubrics-ur\.css\?v=\d+/.test(
 ok(idx.indexOf('<script src="js/17-rubric-ur.js')<idx.indexOf('<script src="js/18-rubrics-ur.js'),'E2 18-rubrics-ur.js، 17-rubric-ur.js کے بعد لوڈ ہوتی ہے');
 ok(/id="repUrModeBtn"/.test(idx)&&!/repUrModeBtn"[^>]*onclick/.test(idx),'E3 ٹول بار میں بٹن #repUrModeBtn (onclick کے بغیر)');
 ok(/'\.\/js\/18-rubrics-ur\.js'/.test(sw)&&/'\.\/css\/rubrics-ur\.css'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/mind\.json'/.test(sw),'E4 service-worker میں تینوں نئی فائلیں');
-ok(/CACHE_NAME='bhc-clinic-v(11[1-9]|1[2-9]\d)'/.test(sw),'E5 CACHE_NAME v111 یا بعد کا');
-ok(/'\.\/ur\/rubrics\/kent\/vertigo\.json'/.test(sw),'E4b service-worker میں vertigo.json');
+ok(/CACHE_NAME='bhc-clinic-v(11[2-9]|1[2-9]\d)'/.test(sw),'E5 CACHE_NAME v112 یا بعد کا');
+ok(/'\.\/ur\/rubrics\/kent\/vertigo\.json'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/head\.json'/.test(sw),'E4b service-worker میں vertigo.json اور head.json');
 ok(/repRubUrRowHtml\(r\)/.test(tree)&&/ensureRepRubricsUr\(repCurrentBook,repCurrentChapter/.test(tree),'E6 rep-tree.js: صف پر جملہ + باب کی فائل منگوانا');
 ok(!/ensureRepRubricsUr/.test(rd('js/repertory/LOAD_ORDER.txt')),'E7 LOAD_ORDER.txt نہیں چھیڑا');
 
