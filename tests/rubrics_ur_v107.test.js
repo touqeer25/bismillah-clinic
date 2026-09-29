@@ -84,8 +84,8 @@ const EA=JSON.parse(rd('ur/rubrics/kent/ear.json')); w.repRubUrStore('kent','ear
 const earows=L.chapterRows(w,'kent','ear');
 ok(EA.meta.root==='کان — '&&earows.every(r=>EA.rubrics[r.key]&&EA.rubrics[r.key].indexOf('کان — ')===0),'EA1 EAR مکمل: ہر ربرک کا جملہ ('+earows.length+')');
 ok(!earows.some(r=>/[\u06F0-\u06F9]/.test(EA.rubrics[r.key]))&&Array.isArray(EA.meta.auto),'EA2 EAR میں اردو ہندسے نہیں؛ meta.auto موجود');
-// ---------- C7. HEARING + NOSE مکمل ----------
-[['hearing','سماعت — '],['nose','ناک — ']].forEach(function(p){ const J=JSON.parse(rd('ur/rubrics/kent/'+p[0]+'.json')); w.repRubUrStore('kent',p[0],J); const rs=L.chapterRows(w,'kent',p[0]);
+// ---------- C7. HEARING + NOSE + FACE مکمل ----------
+[['hearing','سماعت — '],['nose','ناک — '],['face','چہرہ — ']].forEach(function(p){ const J=JSON.parse(rd('ur/rubrics/kent/'+p[0]+'.json')); w.repRubUrStore('kent',p[0],J); const rs=L.chapterRows(w,'kent',p[0]);
   ok(J.meta.root===p[1]&&rs.every(r=>J.rubrics[r.key]&&J.rubrics[r.key].indexOf(p[1])===0)&&!rs.some(r=>/[\u06F0-\u06F9]/.test(J.rubrics[r.key])),'CH '+p[0]+' مکمل ('+rs.length+')، جڑ «'+p[1]+'»، اردو ہندسے نہیں'); });
 w.repCurrentChapter='mind';
 ok(w.repRubUrMode()==='full','C7 موڈ کی طے شدہ حالت «پورا مطلب»');
@@ -108,7 +108,7 @@ ok(idx.indexOf('<script src="js/17-rubric-ur.js')<idx.indexOf('<script src="js/1
 ok(/id="repUrModeBtn"/.test(idx)&&!/repUrModeBtn"[^>]*onclick/.test(idx),'E3 ٹول بار میں بٹن #repUrModeBtn (onclick کے بغیر)');
 ok(/'\.\/js\/18-rubrics-ur\.js'/.test(sw)&&/'\.\/css\/rubrics-ur\.css'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/mind\.json'/.test(sw),'E4 service-worker میں تینوں نئی فائلیں');
 ok(/CACHE_NAME='bhc-clinic-v(119|1[2-9]\d)'/.test(sw),'E5 CACHE_NAME v119 یا بعد کا');
-ok(/'\.\/ur\/rubrics\/kent\/hearing\.json'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/nose\.json'/.test(sw),'E4f service-worker میں hearing.json اور nose.json');
+ok(/'\.\/ur\/rubrics\/kent\/hearing\.json'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/nose\.json'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/face\.json'/.test(sw),'E4f service-worker میں hearing.json، nose.json اور face.json');
 ok(/'\.\/ur\/rubrics\/kent\/ear\.json'/.test(sw),'E4e service-worker میں ear.json');
 ok(fs.existsSync(path.join(ROOT,'tools/review_rubrics_ur.js'))&&/ur\/review\//.test(rd('.gitignore')),'E8 نظرثانی کا اوزار موجود، ur/review/ گٹ میں نظر انداز');
 ok(/'\.\/ur\/rubrics\/kent\/vision\.json'/.test(sw),'E4d service-worker میں vision.json');
