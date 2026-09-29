@@ -1,0 +1,13 @@
+/* 🔑 v107 — ربرک کی سطح کا اردو جملہ (ur/rubrics/) — «بنیاد پہلے»: والد کا حصہ ہلکا، اِس صف کا اضافہ نمایاں */
+.rtv-ur.rub{background:#f6f9ee;color:#3d5a1e;border-radius:4px;padding:0 6px}
+.rtv-ur.rub .rub-base{color:#9db07f;font-weight:400}
+.rtv-ur.rub .rub-delta{color:#2f4a12;font-weight:600}
+.rtv-ur.rub.delta-only{background:#f6f9ee}
+.rtv-row.top>.rtv-ur.rub .rub-delta{font-weight:700}
+/* بٹن: پورا مطلب ⇄ صرف اضافہ */
+.rep-ur-mode-btn{white-space:nowrap}
+.rep-ur-mode-btn span{font-family:'Noto Nastaliq Urdu','Segoe UI',serif}
+.rep-ur-mode-btn.delta{background:#fdf6e3;border-color:#e0c97a}
+@media(max-width:700px){ .rtv-ur.rub{font-size:12px} }
+/* انگریزی/رومن زبان میں بٹن چھپا رہے (body.lang-* کو 01-app-core.js کا applyLanguage لگاتا ہے) */
+body:not(.lang-ur) .rep-ur-mode-btn{display:none !important}

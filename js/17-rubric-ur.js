@@ -73,6 +73,9 @@ function repRubricUrFull(title, opts) {
     opts = opts || {};
     var raw = String(title || '').replace(/ \[\d+\]$/, '').replace(/\s*\(\s*see\b[^)]*\)/ig, '').replace(/\s+,/g, ',').trim();   // 🔑 v103
     if (!raw) return '';
+    if (typeof repRubUrFind === 'function') {                     // 🔑 v107: ربرک کا ہاتھ سے لکھا جملہ سب سے پہلے (ur/rubrics/)
+        var hand = repRubUrFind(raw); if (hand) return (typeof escapeHtml === 'function') ? escapeHtml(hand) : hand;
+    }
     if (typeof _repUrLabels === 'undefined' || !_repUrLabels) return '';
     var whole = _repUrSeg(raw);                                   // پورا ربرک پہلے سے لغت میں ہو تو وہی
     if (whole) return whole;

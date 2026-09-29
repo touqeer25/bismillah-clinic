@@ -1,5 +1,5 @@
 # HANDOFF — کام کہاں تک پہنچا
-**آخری تجدید:** ۲۸ ستمبر ۲۰۲۶ · **v106** · **ریپو:** https://github.com/touqeer25/bismillah-clinic
+**آخری تجدید:** ۲۹ ستمبر ۲۰۲۶ · **v107** · **ریپو:** https://github.com/touqeer25/bismillah-clinic
 **لائیو:** https://bismillah-clinic.vercel.app · **ایپ:** `index.html` + `js/` (PWA، کوئی بنڈلر نہیں)
 
 > **نئی نشست یہاں سے شروع کرے۔** پہلے یہ پوری فائل پڑھیں، پھر «باقی کام» والا حصہ۔
@@ -26,7 +26,7 @@
 
 ```
 index.html                 صرف ڈھانچہ — ایک سطر بھی چلتا کوڈ نہیں
-service-worker.js          آف لائن کیش (اس وقت bhc-clinic-v100)
+service-worker.js          آف لائن کیش (اس وقت bhc-clinic-v107 — ہر تبدیلی پر بڑھائیں)
 data/*.json                تشخیص · علاج · نالج کا مواد (v94 میں کوڈ سے نکالا)
 js/00-data-boot.js         مواد کا لوڈر — سب سے پہلے چلتا ہے
 js/01 … js/16              ایپ کے حصے
@@ -53,7 +53,11 @@ node tests/data_separation_v94.test.js
 node tests/rep_case_v95.test.js
 node tests/differentiation.jsdom.test.js
 node tests/layout_split_v78.test.js
+node tests/rubric_ur_v101.test.js              # اردو جملہ (پرانا لیبل نظام)
+node tests/rubrics_ur_v107.test.js             # 🌳 ربرک-سطح کا اردو (v107)
+node tests/tree_view_integrity.jsdom.test.js   # ٹری — 71,027 ربرک
 # … باقی tests/ میں
+# پوری ایپ کا smoke: python3 -m http.server 8080 &  ;  node tests/app_smoke.jsdom.test.js
 ```
 
 > ⚠ کچھ ٹیسٹ بڑی JSON (kent_repertory.json, mm/) مانگتے ہیں۔ اگر مقامی نقل ادھوری ہو تو وہ ENOENT دیں گے — یہ کوڈ کی خرابی نہیں۔
@@ -76,6 +80,8 @@ node tests/layout_split_v78.test.js
 | v94 | **مواد کوڈ سے الگ** → `data/*.json`؛ ۵ مردہ CSS قاعدے ہٹے |
 | v95 | **📋 ریپرٹری کیس ↔ مریض کی وزٹ**؛ `exportForGitHub` اب `diagnosis.json` بناتا ہے |
 | **v101** | **اردو ترجمہ: لغت + بیچ ۱** (نیچے تفصیل) |
+| v102–v106 | لیبل بیچ ۲–۶، «(See …)» حوالوں کے لنک (`repXrefHtml`)، سیاق (`ctx`) ترجمے، `rep-tree.js` کی اردو صف — (اُس وقت اس میز میں درج نہیں ہوئے تھے؛ تفصیل §۴) |
+| **v107** | **🌳 ربرک کی سطح کا اردو جملہ** — نئی پرت `ur/rubrics/<book>/<chapter>.json` + `js/18-rubrics-ur.js`، بٹن «پورا مطلب ⇄ صرف اضافہ»، MIND پائلٹ ۷۰۸ ربرک (§۴.۱۱) |
 
 ### حذف شدہ (تصدیق شدہ ۴۰۴)
 `js/08b-rep-differentiation.js` · `diagnosis-data.js` · `advanced-diagnosis-knowledge.js` ·
@@ -122,7 +128,13 @@ ur/rubric_labels_ur.json  →  { "labels": { "eating, after": "کھانے کے �
 | `ur/BATCH_2_REVIEW.md` | بیچ ۲ کے ۸۰۰ لیبل |
 | `ur/BATCH_3_REVIEW.md` | بیچ ۳ کے ۱۵۰۰ لیبل |
 | `ur/BATCH_4_REVIEW.md` | بیچ ۴ کے حل شدہ ۱۷۰۶ لیبل |
-| `ur/BATCH_5_REVIEW.md` | بیچ ۵ کے حل شدہ ۵,۷۹۷ (پہلے ۳۰۰۰ درج) |
+| ~~`ur/BATCH_5_REVIEW.md`~~ | بیچ ۵/۶ (لیبل) کی الگ فائل **نہیں بنی تھی** — براہِ راست ضم ہوئے |
+| **`ur/rubrics/kent/mind.json`** | **v107 — ربرک کی سطح کے جملے** (MIND، ۷۰۸)؛ صرف `tools/merge_rubrics_ur.js` سے لکھیں |
+| `ur/rubrics/kent/mind_batch1.tsv` | بیچ ۷ کی ماخذ TSV (key · depth · en · ur) — دوبارہ ضم کے لیے |
+| **`ur/BATCH_7_REVIEW.md`** | **بیچ ۷ (ربرک-جملے) — ڈاکٹر کی نظرثانی کے لیے** ۷۰۸ ربرک، اصلاح کا خانہ خالی |
+| `docs/ur_audit/AUDIT_REPORT.md` | لیبل نظام کا آڈٹ (v107): خودکار لیبلوں میں ≈۳۵–۴۰٪ غلطی، قفل شدہ ≈۹۷٪ درست |
+| `docs/ur_audit/FAMILY_TREE_REVIEW.md` | **فیصلہ کن دستاویز:** لیبل نظام ٹکڑے ترجمہ کرتا ہے ربرک نہیں → ربرک-سطح کا ڈیزائن + ۷ مرحلوں کا منصوبہ |
+| `docs/ur_audit/DISPLAY_OPTIONS_DEMO.html` | صف پر دکھانے کے تین انداز (الف/ب/ج) کا نمونہ — **ج منظور** |
 
 ## ۴.۴ 🔎 ترجمے کی خودکار جانچ — **اب اسکرین شاٹ کی ضرورت نہیں**
 
@@ -232,7 +244,8 @@ node tools/coverage_ur.js kent
 | لیبل فائل | **۱۱,۳۷۱ لیبل** (۷۸۱ فالتو «(see …)» حذف) |
 | **کینٹ کی کوریج** | **۶۰,۵۵۷ / ۷۱,۰۲۷ = ۸۵.۳٪** |
 | جانچ | **۰ خرابی** · ۳۶۹ تنبیہ (سب کینٹ کے اپنے املا کے فرق — aliases میں درج) |
-| MIND باب | ۷۷۵ ربرکس **مکمل** ترجمہ شدہ |
+| MIND باب (لیبل نظام) | ⚠ پہلے یہاں «۷۷۵ ربرکس مکمل» لکھا تھا — **غلط تھا**۔ پیمائش (v107 آڈٹ): MIND کی لیبل کوریج **۶۵.۵٪ — سب سے کم باب**؛ ۵۵۷ سرِ عنوان میں سے صرف ۲۶۵ لیبل فائل میں |
+| **MIND باب (ربرک نظام v107)** | **۷۰۸ / ۴,۸۳۴ ربرک** کا پورا اردو جملہ (`ur/rubrics/kent/mind.json`) — نظرثانی باقی، قفل ۰ |
 
 ## ۴.۹ اگلے بیچ
 
@@ -311,6 +324,55 @@ ASLEEP, eating, after          →  کھانے کے بعد، سویا ہوا
 **سجاوٹ:** `css/rubric-ur.css` · **ٹیسٹ:** `tests/rubric_ur_v101.test.js` (۱۷ جانچیں)
 **اصل کینٹ پر:** ۱۱,۳۷۸ مرکب ربرکس میں سے **۷,۹۰۹ (۷۰٪)** کا مکمل اردو جملہ بنتا ہے۔
 
+
+## ۴.۱۱ 🌳 ربرک کی سطح کا اردو جملہ (v107) — **اب یہی اصل نظام ہے**
+
+**مسئلہ (ثابت شدہ، `docs/ur_audit/FAMILY_TREE_REVIEW.md`):** لیبل نظام ہر ٹکڑے کا الگ لغوی ترجمہ کرتا ہے، ربرک کا نہیں —
+`GENITALIA F › PAIN › grinding › ovaries` پر «دانت پیسنا»، `PROSTATE › EMISSION` پر «احتلام»، `VISION › CIRCLES › turning` پر «کروٹ لینا»۔
+ڈاکٹر کینٹ کے ربرک کا مطلب اس کے **پورے راستے** سے بنتا ہے، اس لیے ترجمہ بھی پورے راستے کا ہونا چاہیے۔
+
+**حل:** ہر ربرک (پورا راستہ) → ایک ہاتھ کا لکھا جملہ، **بنیاد پہلے** (والد کا حصہ، پھر اِس صف کا اضافہ):
+
+```
+ANGER                                   → غصہ
+ANGER, consoled, when                   → غصہ — تسلی دینے پر
+ANGER, ailments after anger, with anxiety → غصہ — غصے کے بعد پیدا ہونے والی شکایات، ساتھ بے چینی
+ANXIETY, lying, amel.                   → بے چینی — لیٹنے سے آرام
+```
+
+| فائل | کام |
+|---|---|
+| `ur/rubrics/<book>/<chapter>.json` | `{meta, rubrics:{key:"جملہ"}, locked:[keys]}` — ایک باب ایک فائل؛ ایپ باب کھلنے پر ایک بار منگواتی ہے (`?`+`REP_DATA_V`)؛ فائل نہ ہو (404) تو خاموشی سے پرانا نظام |
+| `js/18-rubrics-ur.js` | `repRubKey(full)` (کلید: `[n]` اور `(See …)` نکال کر، چھوٹے حروف)، `ensureRepRubricsUr`، `repRubUrGet/Find`، `repRubUrBase/Split` (بنیاد = قریب ترین بزرگ جس کے جملے سے یہ جملہ شروع ہو)، `repRubUrRowHtml(r)`، موڈ `repRubUrMode/SetMode/Toggle` (`localStorage: bc_ur_mode`، طے شدہ `full`) |
+| `js/repertory/rep-tree.js` | صف پر پہلے `repRubUrRowHtml`، نہ ملے تو پرانا `repUrLabelObj`؛ `repTreeMount` میں `ensureRepRubricsUr(...)` → لوڈ پر `repTreeRemount` |
+| `js/17-rubric-ur.js` | `repRubricUrFull` اب **پہلے** `repRubUrFind` (ہاتھ کا جملہ) — تفصیل کا عنوان، تفریق، کلپ بورڈ سب پر |
+| `css/rubrics-ur.css` | `.rtv-ur.rub` · `.rub-base` (ہلکا) · `.rub-delta` (نمایاں) · `.rep-ur-mode-btn` |
+| `index.html` | ٹول بار میں `#repUrModeBtn` («📖 پورا مطلب» ⇄ «✂ صرف اضافہ») — onclick نہیں، JS میں بندھتا ہے؛ انگریزی زبان میں چھپ جاتا ہے |
+| `tests/rubrics_ur_v107.test.js` | ۳۵ جانچیں — کلید، ڈیٹا، صف کی HTML، موڈ، تفصیل، وائرنگ |
+
+**اوزار (سب `tools/rubrics_ur_lib.js` پر — ایپ کا اصل کوڈ jsdom میں چلا کر ٹری کی صفیں اور کلیدیں بناتا ہے):**
+
+```bash
+export JSDOM_PATH=$PWD/node_modules/jsdom
+node tools/export_rubrics_ur.js kent mind 708 400 > /tmp/mind_b8.tsv   # ۷۰۸ سے ۴۰۰ ربرک (ٹری کی ترتیب) — آخری خانہ «ur» خالی
+#   ur میں لکھیں:  اضافہ           → والد + « — » (سطح ۱) یا «، » (گہری) + اضافہ
+#                  +اضافہ          → والد + ایک جگہ + اضافہ   (مثلاً «شام» + «+۶ بجے» = «شام ۶ بجے»)
+#                  =پورا جملہ      → جوں کا توں (جب والد صرف عنوان ہو: «=بے چینی — لیٹنے سے آرام»)
+node tools/merge_rubrics_ur.js kent mind /tmp/mind_b8.tsv            # ضم (قفل شدہ نہیں بدلتا؛ والد پہلے، بچے بعد)
+node tools/qa_rubrics_ur.js kent mind                                # باب جیسا دکھے گا + مشتبہ (انگریزی حروف، «ہوے»، بزرگ سے نہ جڑا)
+node tools/merge_rubrics_ur.js kent mind /tmp/mind_b8.tsv --lock     # ڈاکٹر کی نظرثانی کے بعد ہی
+node tools/coverage_rubrics_ur.js kent                               # باب بہ باب کوریج
+```
+
+**بیچ کا چکر:** export → ہاتھ سے جملے (کینٹ کا مطلب، لغوی نہیں) → merge → qa (⚠ = ۰) → `ur/BATCH_n_REVIEW.md` → ڈاکٹر کی اصلاح → merge اصلاحات → `--lock`۔
+
+**طے شدہ اصطلاحات (بیچ ۷):** agg. «بگاڑ» · amel. «آرام» · Anxiety «بے چینی» · Anguish «سخت کرب (دلی اذیت)» · Confusion «ذہنی الجھن» · Concentration «ذہن جمانا» · Company aversion «لوگوں سے بیزاری» · Cheerful «خوش مزاجی» · Absent-minded «غائب دماغی» · «(See …)» ترجمہ نہیں۔
+**ڈاکٹر سے فیصلہ باقی:** Delusions = «وہم» یا «مغالطہ»؛ اوقات «رات ۴ بجے»/«سہ پہر ۵ بجے»؛ مذکر عمومی، مؤنث صرف جہاں کینٹ نے she/her لکھا۔
+
+**پیش رفت:** MIND ۷۰۸ / ۴,۸۳۴ (ABANDONED … CONFUSION) · قفل ۰ · کینٹ کل ۷۰۸ / ۷۱,۰۲۷۔
+**منصوبہ (`FAMILY_TREE_REVIEW.md` §۶):** ② MIND باقی ۴,۱۲۶ · ③ سب ابواب کے سرِ عنوان ۴,۱۵۰ · ④ GENERALITIES/SLEEP/VERTIGO/FEVER/CHILL/PERSPIRATION ≈۶,۷۰۰ · ⑤ modifier قواعد + ترکیب · ⑥ بدن کے ابواب ≈۱۵,۰۰۰ — کل ≈۴۰ نشستیں۔
+**پرانا لیبل نظام** (`rubric_labels_ur.json`, `compose_ur.js`) اب صرف **فال بیک** ہے — جہاں جملہ نہیں وہاں پہلے جیسا دکھتا ہے؛ اس پر نئے بیچ نہ چلائیں۔
+
 # ۵. 📋 باقی کام (ترتیب سے)
 
 ## 🔴 پہلی ترجیح
@@ -328,7 +390,7 @@ ASLEEP, eating, after          →  کھانے کے بعد، سویا ہوا
 
 ## 🟢 تیسری ترجیح
 
-**۵. اردو ترجمہ کے اگلے بیچ** (اوپر ۴.۶)
+**۵. اردو ترجمہ — اب صرف ربرک-سطح (§۴.۱۱)** — اگلی نشست: (الف) ڈاکٹر کی `BATCH_7_REVIEW.md` اصلاحات ضم + `--lock`؛ (ب) MIND کے باقی ۴,۱۲۶ ربرک (CONSCIENTIOUS → YIELDING) ≈۶ نشستیں؛ (ج) باقی ابواب کے سرِ عنوان ۴,۱۵۰؛ منصوبہ `docs/ur_audit/FAMILY_TREE_REVIEW.md` §۶۔ **لیبل نظام (`compose_ur.js`) پر مزید بیچ نہ چلائیں** — وہ قفل کے بغیر درست ہاتھ کے ترجمے مٹا دیتا ہے۔
 
 **۶. Boger Times کی ٹری سطحیں** — `tools/mm_build/boger_times_repertory.py` سے دوبارہ نکالنی ہوں گی۔ **صارف کے فیصلے کا انتظار**
 
@@ -357,3 +419,7 @@ ASLEEP, eating, after          →  کھانے کے بعد، سویا ہوا
 | `dinner` | کینٹ میں دن کا بڑا کھانا؛ `supper` = رات کا |
 | `timidity` ≠ بزدلی | `COWARDICE` کینٹ میں الگ ربرک ہے |
 | کیش | صارف کو ہمیشہ **دو بار** `Ctrl+Shift+R` کا کہیں اگر SW بدلا ہو |
+| `ur/rubrics/*.json` | **ہاتھ سے نہ لکھیں** — صرف `tools/merge_rubrics_ur.js`؛ کلید ہمیشہ ایپ کے `repRubKey()` سے (اوزار وہی فنکشن jsdom میں چلاتے ہیں) |
+| `compose_ur.js` دوبارہ چلانا | غیر قفل شدہ درست ترجمے مٹ جاتے ہیں (شکایت: «ہر بار پچھلی اصلاح بدل جاتی ہے») — پہلے قفل، پھر چلائیں؛ بہتر ہے بالکل نہ چلائیں |
+| «MIND ۷۷۵ مکمل» | پرانا دعویٰ غلط تھا — لیبل کوریج ۶۵.۵٪؛ ربرک-جملے ۷۰۸/۴,۸۳۴ (v107) |
+| `node_modules` | نشست کے snapshot میں محفوظ نہیں رہتا — `npm install jsdom` دوبارہ، اور `JSDOM_PATH=$PWD/node_modules/jsdom` |

@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="css/differentiation-compact.css?v=92">
     <link rel="stylesheet" href="css/rep-case.css?v=95">
     <link rel="stylesheet" href="css/rubric-ur.css?v=103">
+    <link rel="stylesheet" href="css/rubrics-ur.css?v=107">
     <link rel="stylesheet" href="css/parser-studio.css?v=83">
 
 </head>
@@ -838,6 +839,8 @@
                 </div>
                 <!-- 🔑 v54: HomeoSetu-style Compare MODE (☐ on every rubric card → active clipboard); classic side-by-side view moved into Workbench / compare panel -->
                 <button class="rep-cmp-btn" id="repCmpModeBtn" onclick="repCmpModeToggle()" title="Compare Mode: tick rubric cards to collect them into the active clipboard, then Analyze">☑ <span data-ur="کمپیئر" data-en="Compare" data-roman="Compare">Compare</span></button>
+                <!-- 🔑 v107: اردو — پورا مطلب ⇄ صرف اضافہ (js/18-rubrics-ur.js میں بندھتا ہے، یہاں کوئی onclick نہیں) -->
+                <button type="button" class="rep-cmp-btn rep-ur-mode-btn" id="repUrModeBtn" title="اردو: پورا مطلب / صرف اضافہ">📖 <span dir="rtl">پورا مطلب</span></button>
             </div>
             <!-- Layout: chapters sidebar + main column -->
             <div class="rep-layout">
@@ -1513,7 +1516,7 @@
 <script src="js/repertory/rep-books.js?v=80"></script>
 <script src="js/repertory/rep-chapters.js?v=81"></script>
 <script src="js/repertory/rep-folders.js?v=80"></script>
-<script src="js/repertory/rep-tree.js?v=105"></script>
+<script src="js/repertory/rep-tree.js?v=107"></script>
 <script src="js/repertory/rep-clipboards.js?v=80"></script>
 <script src="js/repertory/rep-compare-mode.js?v=80"></script>
 <script src="js/repertory/rep-rubric-detail.js?v=103"></script>
@@ -1543,7 +1546,8 @@
 <!-- 🔑 v95: ریپرٹری کیس ↔ مریض کی وزٹ -->
 <script src="js/16-rep-case.js?v=95"></script>
 <!-- 🔑 v101: پورے ربرک کا اردو جملہ (دائیں سے بائیں) -->
-<script src="js/17-rubric-ur.js?v=103"></script>
+<script src="js/17-rubric-ur.js?v=107"></script>
+<script src="js/18-rubrics-ur.js?v=107"></script>
 <script src="js/ai-diagnosis-engine.js?v=2"></script>
 </body>
 </html>

@@ -110,7 +110,9 @@ function repTreeRowHtml(r){
         +repTreeLevelIcon(r.depth,r.kids)
         +repCmpChkHtml(repCurrentBook,repCurrentChapter,rid,r.full,rems,'row')
         +'<span class="rtv-lab'+(r.kids?' has-kids':'')+'">'+(typeof repXrefHtml==='function'?repXrefHtml(r.label):escapeHtml(r.label))+'</span>'   // 🔑 v103
-        +(function(){ if(!repUrLabelsOn())return ''; var u=repUrLabelObj(r.label,r.labels); if(!u)return '';
+        +(function(){ if(!repUrLabelsOn())return '';
+            if(typeof repRubUrRowHtml==='function'){ var rh=repRubUrRowHtml(r); if(rh) return rh; }      // 🔑 v107: پہلے ربرک کا اپنا جملہ (ur/rubrics/)
+            var u=repUrLabelObj(r.label,r.labels); if(!u)return '';
             return '<span class="rtv-ur'+(u.auto?' auto':'')+'" dir="rtl" lang="ur"'+(u.auto?' title="خودکار لفظی ترجمہ — نظرثانی باقی"':'')+'>'+escapeHtml(u.t)+'</span>'; })()
         +(rems?'<span class="rtv-n">('+rems+')</span>':'')
         +(r.kids?'<span class="rtv-k" title="'+repLangText({ur:'ذیلی ربرکس',en:'sub-rubrics',roman:'zeli rubrics'})+'">📁'+c.order.length+'</span>':'')
@@ -178,6 +180,8 @@ function repTreeMount(elId,node,labels,parentFull,ensureRid){
     var rows=[]; repTreeFlatten(node,labels||[],parentFull||'',0,rows,(repFolderFilter||'').toLowerCase());
     var v=repTreeViews[elId]={rows:rows,shown:0,node:node,labels:labels,parentFull:parentFull};
     if(repUrLabelsOn()&&(!_repUrLabels||(!_repGlossary&&!_repGlossaryFailed))) ensureRepUrLabels(function(){ ensureRepGlossary(function(){ if(document.getElementById(elId)) repTreeRemount(elId); }); });
+    if(repUrLabelsOn()&&typeof ensureRepRubricsUr==='function') ensureRepRubricsUr(repCurrentBook,repCurrentChapter,function(){ if(document.getElementById(elId)) repTreeRemount(elId); });   // 🔑 v107: باب کے ربرک-جملے (ایک بار منگوائے، پھر دوبارہ بنائے)
+    if(typeof repRubUrPaintBtn==='function') repRubUrPaintBtn();   // 🔑 v107: زبان بدلنے پر بٹن دکھاؤ/چھپاؤ
     var need=REP_TREE_CHUNK;
     if(ensureRid){ for(var i=0;i<rows.length;i++){ if(rows[i].node.rid&&String(rows[i].node.rid)===String(ensureRid)){ need=Math.max(need,i+50); break; } } }
     el.innerHTML='<div class="rtv" dir="ltr"></div><div class="rtv-more"></div>';
