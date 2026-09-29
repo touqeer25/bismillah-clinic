@@ -52,6 +52,15 @@ const s2=w.repRubUrSplit('غصہ — تسلی دینے پر','خوشی'); ok(s2.
 const rD=rows.find(r=>r.full==='ANXIETY, lying, amel.'); const hD=w.repRubUrRowHtml(rD);
 ok(/rub-base">بے چینی — <\/span>/.test(hD),'C6 «=» والا جملہ: قریب ترین بزرگ (جڑ) بنیاد بنتی ہے');
 ok(w.repRubUrBase('kent','mind',['WRITING','aversion to'],'لکھنے سے بیزار')==='لکھنے','C6b مائل بنیاد: «لکھنا» → «لکھنے سے بیزار» میں بنیاد «لکھنے»');
+// ---------- C2. VERTIGO: باب کی جڑ «چکر — » ہر صف کی بنیاد ----------
+const V=JSON.parse(rd('ur/rubrics/kent/vertigo.json')); w.repRubUrStore('kent','vertigo',V);
+const vrows=L.chapterRows(w,'kent','vertigo'); ok(V.meta.root==='چکر — '&&vrows.every(r=>V.rubrics[r.key]&&V.rubrics[r.key].indexOf('چکر — ')===0),'V1 VERTIGO مکمل ('+vrows.length+') اور ہر جملہ «چکر — » سے شروع');
+w.repCurrentChapter='vertigo'; const vh=w.repRubUrRowHtml(vrows.find(r=>r.full==='AFTERNOON'));
+ok(/rub-base">چکر — <\/span>/.test(vh)&&/rub-delta">سہ پہر<\/span>/.test(vh),'V2 جڑ والے باب میں سرِ عنوان صف: «چکر — » ہلکا، «سہ پہر» نمایاں');
+const vh2=w.repRubUrRowHtml(vrows.find(r=>r.full==='FALL, tendency to, backward'));
+ok(/rub-base">چکر — گرنے کا رجحان، <\/span>/.test(vh2)&&/rub-delta">پیچھے کو<\/span>/.test(vh2),'V3 گہری سطح: والد کا جملہ بنیاد، اضافہ «پیچھے کو»');
+ok(!vrows.some(r=>/[\u06F0-\u06F9]/.test(V.rubrics[r.key])),'V4 VERTIGO میں اردو ہندسے نہیں');
+w.repCurrentChapter='mind';
 ok(w.repRubUrMode()==='full','C7 موڈ کی طے شدہ حالت «پورا مطلب»');
 w.repRubUrSetMode('delta'); ok(w.repRubUrMode()==='delta'&&w.localStorage.getItem('bc_ur_mode')==='delta','C8 موڈ بدلتا اور محفوظ ہوتا ہے');
 const h1d=w.repRubUrRowHtml(r1); ok(/delta-only/.test(h1d)&&!/rub-base/.test(h1d)&&/تسلی دینے پر/.test(h1d),'C9 «صرف اضافہ» موڈ میں بنیاد چھپ جاتی ہے');
@@ -71,7 +80,8 @@ ok(/js\/18-rubrics-ur\.js\?v=\d+/.test(idx)&&/css\/rubrics-ur\.css\?v=\d+/.test(
 ok(idx.indexOf('<script src="js/17-rubric-ur.js')<idx.indexOf('<script src="js/18-rubrics-ur.js'),'E2 18-rubrics-ur.js، 17-rubric-ur.js کے بعد لوڈ ہوتی ہے');
 ok(/id="repUrModeBtn"/.test(idx)&&!/repUrModeBtn"[^>]*onclick/.test(idx),'E3 ٹول بار میں بٹن #repUrModeBtn (onclick کے بغیر)');
 ok(/'\.\/js\/18-rubrics-ur\.js'/.test(sw)&&/'\.\/css\/rubrics-ur\.css'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/mind\.json'/.test(sw),'E4 service-worker میں تینوں نئی فائلیں');
-ok(/CACHE_NAME='bhc-clinic-v(1[1-9]\d)'/.test(sw),'E5 CACHE_NAME v110 یا بعد کا');
+ok(/CACHE_NAME='bhc-clinic-v(11[1-9]|1[2-9]\d)'/.test(sw),'E5 CACHE_NAME v111 یا بعد کا');
+ok(/'\.\/ur\/rubrics\/kent\/vertigo\.json'/.test(sw),'E4b service-worker میں vertigo.json');
 ok(/repRubUrRowHtml\(r\)/.test(tree)&&/ensureRepRubricsUr\(repCurrentBook,repCurrentChapter/.test(tree),'E6 rep-tree.js: صف پر جملہ + باب کی فائل منگوانا');
 ok(!/ensureRepRubricsUr/.test(rd('js/repertory/LOAD_ORDER.txt')),'E7 LOAD_ORDER.txt نہیں چھیڑا');
 

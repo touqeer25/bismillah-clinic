@@ -11,7 +11,8 @@ rows.forEach(r=>{
   // بنیاد = قریب ترین بزرگ جس کے جملے سے یہ جملہ شروع ہوتا ہے (ایپ کی repRubUrBase جیسی منطق)
   let p=null; for(let i=r.labels.length-1;i>=1;i--){ const a=U[w.repRubKey(r.labels.slice(0,i).join(', '))]; if(!a) continue;
     if(t.length>a.length&&t.indexOf(a)===0){ p=a; break; } const o=w.repRubUrObl(a); if(o&&t.length>o.length&&t.indexOf(o)===0){ p=o; break; } }   // مائل شکل («لکھنا»→«لکھنے») بھی بنیاد
-  const ext=!!p||r.depth===0;
+  const ROOT=(D.meta&&D.meta.root)||''; if(!p&&ROOT&&t.length>ROOT.length&&t.indexOf(ROOT)===0) p=ROOT;
+  const ext=!!p||(r.depth===0&&!ROOT);
   const flags=[];
   if(/[A-Za-z]{2,}/.test(t)) flags.push('انگریزی حروف');
   if(/\(/.test(t)&&!/\)/.test(t)) flags.push('قوسین ادھوری');

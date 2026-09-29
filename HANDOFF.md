@@ -1,5 +1,5 @@
 # HANDOFF — کام کہاں تک پہنچا
-**آخری تجدید:** 29 ستمبر 2026 · **v110** · **ریپو:** https://github.com/touqeer25/bismillah-clinic
+**آخری تجدید:** 29 ستمبر 2026 · **v111** · **ریپو:** https://github.com/touqeer25/bismillah-clinic
 **لائیو:** https://bismillah-clinic.vercel.app · **ایپ:** `index.html` + `js/` (PWA، کوئی بنڈلر نہیں)
 
 > **نئی نشست یہاں سے شروع کرے۔** پہلے یہ پوری فائل پڑھیں، پھر «باقی کام» والا حصہ۔
@@ -27,7 +27,7 @@
 
 ```
 index.html                 صرف ڈھانچہ — ایک سطر بھی چلتا کوڈ نہیں
-service-worker.js          آف لائن کیش (اس وقت bhc-clinic-v110 — ہر تبدیلی پر بڑھائیں)
+service-worker.js          آف لائن کیش (اس وقت bhc-clinic-v111 — ہر تبدیلی پر بڑھائیں)
 data/*.json                تشخیص · علاج · نالج کا مواد (v94 میں کوڈ سے نکالا)
 js/00-data-boot.js         مواد کا لوڈر — سب سے پہلے چلتا ہے
 js/01 … js/16              ایپ کے حصے
@@ -86,6 +86,7 @@ node tests/tree_view_integrity.jsdom.test.js   # ٹری — 71,027 ربرک
 | **v108** | بیچ 8: MIND کے مزید 714 ربرک (CONSCIENTIOUS … DELUSIONS «insane») → **1,422 / 4,834**؛ **ہندسے 1 2 3** ہر ترجمے میں (لیبل فائل، لغت، ربرک فائل)؛ `REP_RUBUR_V` (ربرک فائلوں کا اپنا ورژن) |
 | **v109** | بیچ 9: MIND کے مزید 683 ربرک (DELUSIONS «insects» … ESTRANGED) → **2,105 / 4,834**؛ ڈاکٹر کے تین فیصلے طے (وہم · اوقات · جنس کینٹ کے مطابق) |
 | **v110** | بیچ 10: MIND کے آخری 2,729 ربرک (EXCITEMENT … WRONG) → **MIND مکمل 4,834 / 4,834**؛ بنیاد کی «مائل» شکل (`repRubUrObl`: «لکھنا»→«لکھنے»)؛ QA ⚠ = 0 |
+| **v111** | بیچ 11: **VERTIGO مکمل 567 / 567** (`ur/rubrics/kent/vertigo.json`)؛ **باب کی جڑ** (`meta.root` = «چکر — »): `merge --root`، ایپ اور QA میں جڑ سب سے باہر کی بنیاد؛ SW میں vertigo.json |
 
 ### حذف شدہ (تصدیق شدہ 404)
 `js/08b-rep-differentiation.js` · `diagnosis-data.js` · `advanced-diagnosis-knowledge.js` ·
@@ -134,11 +135,13 @@ ur/rubric_labels_ur.json  →  { "labels": { "eating, after": "کھانے کے �
 | `ur/BATCH_4_REVIEW.md` | بیچ 4 کے حل شدہ 1706 لیبل |
 | ~~`ur/BATCH_5_REVIEW.md`~~ | بیچ 5/6 (لیبل) کی الگ فائل **نہیں بنی تھی** — براہِ راست ضم ہوئے |
 | **`ur/rubrics/kent/mind.json`** | **ربرک کی سطح کے جملے** (MIND مکمل، 4,834)؛ صرف `tools/merge_rubrics_ur.js` سے لکھیں |
+| **`ur/rubrics/kent/vertigo.json`** | VERTIGO مکمل 567 — `meta.root` «چکر — » (ہر جملہ اسی سے شروع)؛ ماخذ `vertigo_batch1.tsv` |
 | `ur/rubrics/kent/mind_batch1..4.tsv` | بیچ 7–10 کی ماخذ TSV (key · depth · en · ur) — دوبارہ ضم کے لیے (ترتیب سے ضم کریں: 1، 2، 3، 4) |
 | **`ur/BATCH_7_REVIEW.md`** | **بیچ 7 (ربرک-جملے) — ڈاکٹر کی نظرثانی کے لیے** 708 ربرک، اصلاح کا خانہ خالی |
 | **`ur/BATCH_8_REVIEW.md`** | **بیچ 8 — نظرثانی کے لیے** 714 ربرک (قطار 709–1422: CONSCIENTIOUS … DELUSIONS «insane») |
 | **`ur/BATCH_9_REVIEW.md`** | **بیچ 9 — نظرثانی کے لیے** 683 ربرک (قطار 1423–2105: DELUSIONS «insects» … ESTRANGED) |
 | **`ur/BATCH_10_REVIEW.md`** | **بیچ 10 — نظرثانی کے لیے** 2,729 ربرک (قطار 2106–4834: EXCITEMENT … WRONG) |
+| **`ur/BATCH_11_REVIEW.md`** | **بیچ 11 — نظرثانی کے لیے** VERTIGO 567 |
 | `docs/ur_audit/AUDIT_REPORT.md` | لیبل نظام کا آڈٹ (v107): خودکار لیبلوں میں ≈35–40٪ غلطی، قفل شدہ ≈97٪ درست |
 | `docs/ur_audit/FAMILY_TREE_REVIEW.md` | **فیصلہ کن دستاویز:** لیبل نظام ٹکڑے ترجمہ کرتا ہے ربرک نہیں → ربرک-سطح کا ڈیزائن + 7 مرحلوں کا منصوبہ |
 | `docs/ur_audit/DISPLAY_OPTIONS_DEMO.html` | صف پر دکھانے کے تین انداز (الف/ب/ج) کا نمونہ — **ج منظور** |
@@ -366,6 +369,7 @@ node tools/export_rubrics_ur.js kent mind 708 400 > /tmp/mind_b8.tsv   # 708 س�
 #                  +اضافہ          → والد + ایک جگہ + اضافہ   (مثلاً «شام» + «+6 بجے» = «شام 6 بجے»)
 #                  =پورا جملہ      → جوں کا توں (جب والد صرف عنوان ہو: «=بے چینی — لیٹنے سے آرام»)
 node tools/merge_rubrics_ur.js kent mind /tmp/mind_b8.tsv            # ضم (قفل شدہ نہیں بدلتا؛ والد پہلے، بچے بعد)
+#   جسمانی/علامتی ابواب (VERTIGO, HEAD …): --root "چکر — "  → ہر جملہ جڑ سے شروع، سطح 1 بھی «، » سے جڑتی ہے؛ ایپ جڑ کو ہلکی بنیاد دکھاتی ہے
 node tools/qa_rubrics_ur.js kent mind                                # باب جیسا دکھے گا + مشتبہ (انگریزی حروف، «ہوے»، بزرگ سے نہ جڑا)
 node tools/merge_rubrics_ur.js kent mind /tmp/mind_b8.tsv --lock     # ڈاکٹر کی نظرثانی کے بعد ہی
 node tools/coverage_rubrics_ur.js kent                               # باب بہ باب کوریج
@@ -376,7 +380,7 @@ node tools/coverage_rubrics_ur.js kent                               # باب ب
 **طے شدہ اصطلاحات (بیچ 7–8):** agg. «بگاڑ» · amel. «آرام» · Anxiety «بے چینی» · Anguish «سخت کرب (دلی اذیت)» · Confusion «ذہنی الجھن» · Concentration «ذہن جمانا» · Company aversion «لوگوں سے بیزاری» · Cheerful «خوش مزاجی» · Absent-minded «غائب دماغی» · Delirium «ہذیان» · Delusions «وہم» (بچے: «وہم — کہ …»؛ دیکھنے والے: «… دکھائی دیتے ہیں») · Death «موت» · «(See …)» ترجمہ نہیں · ہندسے 1 2 3۔
 **✅ ڈاکٹر کے فیصلے (29 ستمبر 2026):** Delusions = **«وہم»** · اوقات «رات 4 بجے»/«سہ پہر 5 بجے» **منظور** · جنس **بالکل کینٹ کی ترتیب سے** (he → مذکر، she → مؤنث، نہ ہو تو مذکر)۔ ⚠ خودکار جانچ ممکن نہیں (اردو فعل اسم کی جنس سے بدلتا ہے: «شادی ہو چکی ہے»، «موسیقی سنائی دیتی ہے») — ہاتھ سے دیکھیں۔
 
-**پیش رفت:** **MIND مکمل 4,834 / 4,834** · قفل 0 · کینٹ کل 4,834 / 71,027 (6.8%)۔ **اگلا باب:** `node tools/export_rubrics_ur.js kent vertigo` (567) → پھر head, eye, vision … (`kent_chapters/_index.json` کی ترتیب)۔ رفتار: ایک نشست میں ≈2,700 ربرک ہو سکتے ہیں (بیچ 10) — صارف چاہتا ہے **پورا باب ایک بار میں**۔
+**پیش رفت:** MIND ✅ 4,834 · VERTIGO ✅ 567 · قفل 0 · کینٹ کل 5,401 / 71,027 (7.6%)۔ **اگلا باب:** HEAD (6,921 — دو نشستیں) `node tools/export_rubrics_ur.js kent head`، جڑ «سر — » یا PAIN وغیرہ کے لیے سرِ عنوان کے مطابق؛ پھر eye, vision, ear … (`kent_chapters/_index.json` کی ترتیب)۔ رفتار: ایک نشست میں ≈2,700 ربرک ہو سکتے ہیں (بیچ 10) — صارف چاہتا ہے **پورا باب ایک بار میں**۔
 **منصوبہ (`FAMILY_TREE_REVIEW.md` §6):** ② MIND باقی 4,126 · ③ سب ابواب کے سرِ عنوان 4,150 · ④ GENERALITIES/SLEEP/VERTIGO/FEVER/CHILL/PERSPIRATION ≈6,700 · ⑤ modifier قواعد + ترکیب · ⑥ بدن کے ابواب ≈15,000 — کل ≈40 نشستیں۔
 **پرانا لیبل نظام** (`rubric_labels_ur.json`, `compose_ur.js`) اب صرف **فال بیک** ہے — جہاں جملہ نہیں وہاں پہلے جیسا دکھتا ہے؛ اس پر نئے بیچ نہ چلائیں۔
 

@@ -1,0 +1,568 @@
+key	depth	en	ur
+afternoon	0	AFTERNOON	سہ پہر
+air	0	AIR	ہوا کا اثر
+air, open	1	AIR, open	=کھلی ہوا کا اثر
+air, open, in agg.	2	AIR, open, in agg.	=کھلی ہوا میں بگاڑ
+air, open, in, amel.	2	AIR, open, in, amel.	=کھلی ہوا میں آرام
+alcoholic liquors	0	ALCOHOLIC liquors	شراب (الکحل) سے
+anger	0	ANGER	غصہ
+anger, after	1	ANGER, after	=غصے کے بعد
+anxiety	0	ANXIETY	بے چینی
+anxiety, during	1	ANXIETY, during	=بے چینی کے دوران
+ascending	0	ASCENDING	اوپر چڑھنا
+ascending, an eminence	1	ASCENDING, an eminence	=اونچائی پر چڑھنے سے
+ascending, sensation of	1	ASCENDING, sensation of	=جیسے اوپر چڑھ رہا ہو
+ascending, stairs	1	ASCENDING, stairs	=سیڑھیاں چڑھنے سے
+back	0	BACK	کمر
+back, comes up the	1	BACK, comes up the	=کمر سے اوپر چڑھتا ہوا
+balancing sensation	0	BALANCING sensation	جھولنے (ڈولنے) کا احساس
+bathing	0	BATHING	نہانا
+bathing, after	1	BATHING, after	=نہانے کے بعد
+bed	0	BED	بستر
+bed, on going to	1	BED, on going to	=بستر پر جاتے وقت
+bed, seems as if bouncing up and down in	1	BED, seems as if bouncing up and down in	=جیسے بستر میں اوپر نیچے اچھل رہا ہو
+beer	0	BEER	بیئر
+beer, after	1	BEER, after	=بیئر کے بعد
+bending head backwards	0	BENDING head backwards	سر پیچھے کو جھکانا
+bending head backwards, on	1	BENDING head backwards, on	=سر پیچھے جھکانے پر
+bending head	0	BENDING head	سر جھکانا
+bending head, forwards	1	BENDING head, forwards	=سر آگے جھکانے پر
+blowing the nose	0	BLOWING the nose	ناک صاف کرنے (سنکنے) پر
+bread	0	BREAD	روٹی
+bread, after eating	1	BREAD, after eating	=روٹی کھانے کے بعد
+breakfast	0	BREAKFAST	ناشتہ
+breakfast, after	1	BREAKFAST, after	=ناشتے کے بعد
+breakfast, amel.	1	BREAKFAST, amel.	=ناشتے سے آرام
+breakfast, during	1	BREAKFAST, during	=ناشتے کے دوران
+breakfast, walking rapidly, after	1	BREAKFAST, walking rapidly, after	=ناشتے کے بعد تیز چلنے سے
+breath	0	BREATH	سانس
+breath, deep	1	BREATH, deep	=گہری سانس
+breath, deep, agg.	2	BREATH, deep, agg.	=گہری سانس سے بگاڑ
+breath, deep, amel.	2	BREATH, deep, amel.	=گہری سانس سے آرام
+child grasps the nurse when carried	0	CHILD grasps the nurse when carried	بچہ گود میں اٹھانے پر آیا (نرس) کو پکڑ لیتا ہے
+chill	0	CHILL	سردی لگنا (کپکپی)
+chill, after	1	CHILL, after	=سردی لگنے کے بعد
+chill, before	1	CHILL, before	=سردی لگنے سے پہلے
+chill, during	1	CHILL, during	=سردی لگنے کے دوران
+chilliness	0	CHILLINESS	سردی محسوس ہونا
+chilliness, during	1	CHILLINESS, during	=سردی محسوس ہونے کے دوران
+chronic	0	CHRONIC	پرانا، دیرینہ
+chronic, with one-sided headache	1	CHRONIC, with one-sided headache	=پرانا، ایک طرفہ سر درد کے ساتھ
+closing eyes	0	CLOSING eyes	آنکھیں بند کرنا
+closing eyes, on agg.	1	CLOSING eyes, on agg.	=آنکھیں بند کرنے پر بگاڑ
+closing eyes, on	1	CLOSING eyes, on	=آنکھیں بند کرنے پر
+closing eyes, on, amel.	2	CLOSING eyes, on, amel.	=آنکھیں بند کرنے پر آرام
+closing eyes, on, lying, while	2	CLOSING eyes, on, lying, while	=آنکھیں بند کرنے پر، لیٹے ہوئے
+closing eyes, on, nausea, with	2	CLOSING eyes, on, nausea, with	=آنکھیں بند کرنے پر، متلی کے ساتھ
+closing eyes, on, sitting, while	2	CLOSING eyes, on, sitting, while	=آنکھیں بند کرنے پر، بیٹھے ہوئے
+coffee	0	COFFEE	کافی
+coffee, after	1	COFFEE, after	=کافی کے بعد
+coffee, amel.	1	COFFEE, amel.	=کافی سے آرام
+coition	0	COITION	مباشرت
+coition, after	1	COITION, after	=مباشرت کے بعد
+cold applications amel.	0	COLD applications amel.	ٹھنڈی پٹیوں سے آرام
+cold	0	COLD	ٹھنڈ، سردی
+cold, water when overheated	1	COLD, water when overheated	=گرمی میں تپے ہوئے ٹھنڈا پانی پینے سے
+cold, weather, during	1	COLD, weather, during	=سرد موسم میں
+colic alternating with	0	COLIC alternating with	پیٹ کے مروڑ کے ساتھ باری باری
+colored glass	0	COLORED glass	رنگین شیشہ
+colored glass, light shining thro, from	1	COLORED glass, light shining thro, from	=رنگین شیشے سے چھن کر آتی روشنی سے
+concussion of brain	0	CONCUSSION of brain	دماغ کی چوٹ (جھٹکا)
+concussion of brain, from	1	CONCUSSION of brain, from	=دماغ کی چوٹ سے
+constipation	0	CONSTIPATION	قبض
+constipation, during	1	CONSTIPATION, during	=قبض کے دوران
+continuous	0	CONTINUOUS	مسلسل
+coryza	0	CORYZA	زکام
+coryza, after amel.	1	CORYZA, after amel.	=زکام کے بعد آرام
+coughing	0	COUGHING	کھانسنا
+coughing, on	1	COUGHING, on	=کھانستے وقت
+crossing a bridge	0	CROSSING a bridge	پل پار کرتے ہوئے
+crossing	0	CROSSING	پار کرنا
+crossing, running water	1	CROSSING, running water	=بہتا پانی پار کرتے ہوئے
+crowd	0	CROWD	ہجوم
+crowd, in	1	CROWD, in	=ہجوم میں
+damp weather	0	DAMP weather	نم موسم میں
+dark room	0	DARK room	اندھیرا کمرہ
+dark room, on entering	1	DARK room, on entering	=اندھیرے کمرے میں داخل ہوتے ہی
+descending	0	DESCENDING	نیچے اترنا
+descending, on	1	DESCENDING, on	=نیچے اترتے وقت
+descending, on, stairs	2	DESCENDING, on, stairs	=سیڑھیاں اترتے وقت
+dilated pupils	0	DILATED pupils	پتلیاں پھیلی ہوئی
+dinner	0	DINNER	دوپہر کا کھانا
+dinner, after	1	DINNER, after	=دوپہر کے کھانے کے بعد
+dinner, amel.	1	DINNER, amel.	=دوپہر کے کھانے سے آرام
+dinner, during agg.	1	DINNER, during agg.	=دوپہر کے کھانے کے دوران بگاڑ
+dinner, on rising from	1	DINNER, on rising from	=دوپہر کے کھانے سے اٹھتے وقت
+dinner, while walking after	1	DINNER, while walking after	=دوپہر کے کھانے کے بعد چلتے ہوئے
+diplopia	0	DIPLOPIA	دو دو نظر آنا
+diplopia, with	1	DIPLOPIA, with	=دو دو نظر آنے کے ساتھ
+diplopia, with, when looking down	2	DIPLOPIA, with, when looking down	=دو دو نظر آنے کے ساتھ، نیچے دیکھنے پر
+drinking	0	DRINKING	پینا
+drinking, water amel.	1	DRINKING, water amel.	=پانی پینے سے آرام
+drinking, while	1	DRINKING, while	=پیتے وقت
+eating	0	EATING	کھانا
+eating, after	1	EATING, after	=کھانے کے بعد
+eating, amel.	1	EATING, amel.	=کھانے سے آرام
+eating, while agg.	1	EATING, while agg.	=کھاتے وقت بگاڑ
+elevated	0	ELEVATED	اونچا اٹھا ہوا
+elevated, as if	1	ELEVATED, as if	=جیسے اونچا اٹھا ہوا ہو
+elevated, as if, eating, after	2	ELEVATED, as if, eating, after	=جیسے اونچا اٹھا ہوا ہو، کھانے کے بعد
+elevated, as if, evening	2	ELEVATED, as if, evening	=جیسے اونچا اٹھا ہوا ہو، شام
+emission	0	EMISSION	احتلام
+emission, after	1	EMISSION, after	=احتلام کے بعد
+epilepsy	0	EPILEPSY	مرگی
+epilepsy, before	1	EPILEPSY, before	=مرگی کے دورے سے پہلے
+epileptic	0	EPILEPTIC	مرگی جیسا
+erections	0	ERECTIONS	انتشار (عضو کا تناؤ)
+erections, during	1	ERECTIONS, during	=انتشار کے دوران
+eructations	0	ERUCTATIONS	ڈکار
+eructations, after	1	ERUCTATIONS, after	=ڈکار کے بعد
+eructations, during	1	ERUCTATIONS, during	=ڈکار کے دوران
+eruptions	0	ERUPTIONS	جلدی دانے
+eruptions, preceding	1	ERUPTIONS, preceding	=دانوں سے پہلے
+eruptions, suppressed	1	ERUPTIONS, suppressed	=دبے ہوئے (اندر بیٹھے) دانوں سے
+evening	0	EVENING	شام
+evening, bed, in	1	EVENING, bed, in	=شام بستر میں
+exercising	0	EXERCISING	ورزش
+exercising, amel.	1	EXERCISING, amel.	=ورزش سے آرام
+exercising, in open air	1	EXERCISING, in open air	=کھلی ہوا میں ورزش سے
+exercising, on agg.	1	EXERCISING, on agg.	=ورزش پر بگاڑ
+exercising, the arms	1	EXERCISING, the arms	=بازوؤں کی ورزش سے
+exertion	0	EXERTION	محنت
+exertion, on	1	EXERTION, on	=محنت پر
+exertion, vision	1	EXERTION, vision	=نظر پر زور دینے سے
+fall	0	FALL	گرنا
+fall, as if high objects leaned forward and would fall on him	1	FALL, as if high objects leaned forward and would fall on him	=جیسے اونچی چیزیں آگے کو جھک کر اس پر گر پڑیں گی
+fall, as if high walls would fall on him	1	FALL, as if high walls would fall on him	=جیسے اونچی دیواریں اس پر گر پڑیں گی
+fall, tendency to	1	FALL, tendency to	=گرنے کا رجحان
+fall, tendency to, backward	2	FALL, tendency to, backward	=گرنے کا رجحان، پیچھے کو
+fall, tendency to, backward, stooping, when	3	FALL, tendency to, backward, stooping, when	=گرنے کا رجحان، پیچھے کو، جھکنے پر
+fall, tendency to, backward, walking, while	3	FALL, tendency to, backward, walking, while	=گرنے کا رجحان، پیچھے کو، چلتے ہوئے
+fall, tendency to, dark, in the	2	FALL, tendency to, dark, in the	=گرنے کا رجحان، اندھیرے میں
+fall, tendency to, fever, during	2	FALL, tendency to, fever, during	=گرنے کا رجحان، بخار کے دوران
+fall, tendency to, forward	2	FALL, tendency to, forward	=گرنے کا رجحان، آگے کو
+fall, tendency to, looking down, on	2	FALL, tendency to, looking down, on	=گرنے کا رجحان، نیچے دیکھنے پر
+fall, tendency to, morning, on waking	2	FALL, tendency to, morning, on waking	=گرنے کا رجحان، صبح جاگنے پر
+fall, tendency to, motion, on	2	FALL, tendency to, motion, on	=گرنے کا رجحان، حرکت پر
+fall, tendency to, right	2	FALL, tendency to, right	=گرنے کا رجحان، دائیں طرف
+fall, tendency to, right, sitting, while	3	FALL, tendency to, right, sitting, while	=گرنے کا رجحان، دائیں طرف، بیٹھے ہوئے
+fall, tendency to, rising from bed	2	FALL, tendency to, rising from bed	=گرنے کا رجحان، بستر سے اٹھتے وقت
+fall, tendency to, sideways	2	FALL, tendency to, sideways	=گرنے کا رجحان، ایک طرف کو
+fall, tendency to, sideways, walking, while	3	FALL, tendency to, sideways, walking, while	=گرنے کا رجحان، ایک طرف کو، چلتے ہوئے
+fall, tendency to, sleep, after	2	FALL, tendency to, sleep, after	=گرنے کا رجحان، نیند کے بعد
+fall, tendency to, stooping, on	2	FALL, tendency to, stooping, on	=گرنے کا رجحان، جھکنے پر
+fall, tendency to, to left	2	FALL, tendency to, to left	=گرنے کا رجحان، بائیں طرف
+fall, tendency to, to left, looking upward	3	FALL, tendency to, to left, looking upward	=گرنے کا رجحان، بائیں طرف، اوپر دیکھنے پر
+fall, tendency to, to left, morning	3	FALL, tendency to, to left, morning	=گرنے کا رجحان، بائیں طرف، صبح
+fall, tendency to, to left, sitting, while	3	FALL, tendency to, to left, sitting, while	=گرنے کا رجحان، بائیں طرف، بیٹھے ہوئے
+fall, tendency to, to left, walking in open air	3	FALL, tendency to, to left, walking in open air	=گرنے کا رجحان، بائیں طرف، کھلی ہوا میں چلتے ہوئے
+falling	0	FALLING	گرنے کا احساس
+falling, sensation of, from a height	1	FALLING, sensation of, from a height	=جیسے اونچائی سے گر رہا ہو
+floating	0	FLOATING	تیرنا
+floating, as if	1	FLOATING, as if	=جیسے ہوا میں تیر رہا ہو
+forenoon	0	FORENOON	دوپہر سے پہلے
+fright	0	FRIGHT	ڈر
+fright, after	1	FRIGHT, after	=ڈر جانے کے بعد
+fullness and aching in vertex	0	FULLNESS and aching in vertex	چوٹی (سر کے اوپر) میں بھراؤ اور درد کے ساتھ
+gargling	0	GARGLING	غرارے
+gargling, while	1	GARGLING, while	=غرارے کرتے ہوئے
+gaslight	0	GASLIGHT	گیس کی روشنی
+gaslight, from	1	GASLIGHT, from	=گیس کی روشنی سے
+headache	0	HEADACHE	سر درد
+headache, during	1	HEADACHE, during	=سر درد کے دوران
+heat of room	0	HEAT of room	کمرے کی گرمی سے
+heat of sun	0	HEAT of sun	دھوپ کی گرمی سے
+heat	0	HEAT	گرمی
+heat, during the	1	HEAT, during the	=بخار کی گرمی کے دوران
+heat, from	1	HEAT, from	=گرمی سے
+heat, with sensation of heat in chest and about heart	1	HEAT, with sensation of heat in chest and about heart	=سینے میں اور دل کے پاس گرمی کے احساس کے ساتھ
+high places	0	HIGH places	اونچی جگہوں پر
+house	0	HOUSE	گھر
+house, in agg.	1	HOUSE, in agg.	=گھر کے اندر بگاڑ
+house, in, amel.	1	HOUSE, in, amel.	=گھر کے اندر آرام
+house, on entering	1	HOUSE, on entering	=گھر میں داخل ہوتے ہی
+house, on entering, after walking	2	HOUSE, on entering, after walking	=گھر میں داخل ہوتے ہی، چلنے کے بعد
+hungry	0	HUNGRY	بھوک
+hungry, when	1	HUNGRY, when	=بھوک لگنے پر
+injuries on head	0	INJURIES on head	سر کی چوٹیں
+injuries on head, after	1	INJURIES on head, after	=سر کی چوٹ کے بعد
+inspiration	0	INSPIRATION	سانس اندر کھینچنا
+inspiration, deep, on	1	INSPIRATION, deep, on	=گہری سانس اندر کھینچنے پر
+intoxicated	0	INTOXICATED	نشہ
+intoxicated, as if	1	INTOXICATED, as if	=جیسے نشے میں ہو
+kneading bread or making similar motions	0	KNEADING bread or making similar motions	آٹا گوندھتے یا ایسی ہی حرکتیں کرتے ہوئے
+kneeling	0	KNEELING	گھٹنے ٹیکنا
+kneeling, when	1	KNEELING, when	=گھٹنے ٹیکنے پر
+leaning against anything	0	LEANING against anything	کسی چیز سے ٹیک لگانے پر
+leaning	0	LEANING	ٹیک لگانا
+leaning, head	1	LEANING, head	=سر ٹیکنے پر
+leaning, left cheek against hand	1	LEANING, left cheek against hand	=بایاں گال ہاتھ پر ٹیکنے پر
+left	0	LEFT	بائیں طرف
+left, swaying toward	1	LEFT, swaying toward	=بائیں طرف کو لڑکھڑانا
+left, swaying toward, evening	2	LEFT, swaying toward, evening	=بائیں طرف کو لڑکھڑانا، شام
+left, swaying toward, lying, while	2	LEFT, swaying toward, lying, while	=بائیں طرف کو لڑکھڑانا، لیٹے ہوئے
+left, swaying toward, morning, on waking	2	LEFT, swaying toward, morning, on waking	=بائیں طرف کو لڑکھڑانا، صبح جاگنے پر
+left, swaying toward, sitting, while	2	LEFT, swaying toward, sitting, while	=بائیں طرف کو لڑکھڑانا، بیٹھے ہوئے
+left, swaying toward, standing	2	LEFT, swaying toward, standing	=بائیں طرف کو لڑکھڑانا، کھڑے ہوئے
+left, swaying toward, walking in open air	2	LEFT, swaying toward, walking in open air	=بائیں طرف کو لڑکھڑانا، کھلی ہوا میں چلتے ہوئے
+lifting a weight	0	LIFTING a weight	وزن اٹھانے سے
+lightning	0	LIGHTNING	بجلی کی چمک
+lightning, from	1	LIGHTNING, from	=بجلی کی چمک سے
+lights	0	LIGHTS	روشنیاں
+lights, from being in a room with many	1	LIGHTS, from being in a room with many	=بہت سی روشنیوں والے کمرے میں ہونے سے
+looking with eyes turned	0	LOOKING with eyes turned	آنکھیں گھما کر دیکھنے سے
+looking	0	LOOKING	دیکھنا
+looking, downward	1	LOOKING, downward	=نیچے دیکھنے پر
+looking, downward, as if	2	LOOKING, downward, as if	=جیسے نیچے دیکھ رہا ہو
+looking, either way, right or left	1	LOOKING, either way, right or left	=دائیں یا بائیں کسی بھی طرف دیکھنے پر
+looking, large pain, at a	1	LOOKING, large pain, at a	=بڑی سطح (وسیع پھیلاؤ) کو دیکھنے پر
+looking, mirror, into a	1	LOOKING, mirror, into a	=آئینے میں دیکھنے پر
+looking, moving object, at	1	LOOKING, moving object, at	=ہلتی چیز کو دیکھنے پر
+looking, revolving objects, at	1	LOOKING, revolving objects, at	=گھومتی چیزوں کو دیکھنے پر
+looking, right, to	1	LOOKING, right, to	=دائیں طرف دیکھنے پر
+looking, steadily agg.	1	LOOKING, steadily agg.	=ایک ٹک دیکھنے سے بگاڑ
+looking, steadily, amel.	1	LOOKING, steadily, amel.	=ایک ٹک دیکھنے سے آرام
+looking, straight ahead amel.	1	LOOKING, straight ahead amel.	=سیدھا سامنے دیکھنے سے آرام
+looking, upwards	1	LOOKING, upwards	=اوپر دیکھنے پر
+looking, upwards, at a light	2	LOOKING, upwards, at a light	=اوپر روشنی کی طرف دیکھنے پر
+looking, upwards, at high buildings	2	LOOKING, upwards, at high buildings	=اونچی عمارتوں کی طرف دیکھنے پر
+looking, upwards, walking in open air, while	2	LOOKING, upwards, walking in open air, while	=اوپر دیکھنے پر، کھلی ہوا میں چلتے ہوئے
+looking, window, out of a	1	LOOKING, window, out of a	=کھڑکی سے باہر دیکھنے پر
+loss of fluids	0	LOSS of fluids	جسمانی رطوبتوں کے ضیاع سے
+lying down	0	LYING down	لیٹ جانا
+lying down, necessary	1	LYING down, necessary	=لیٹنا ضروری ہو جاتا ہے
+lying down, on (in the act of)	1	LYING down, on (in the act of)	=لیٹتے وقت
+lying	0	LYING	لیٹنا
+lying, amel.	1	LYING, amel.	=لیٹنے سے آرام
+lying, as if feet were going up	1	LYING, as if feet were going up	=لیٹے ہوئے جیسے پاؤں اوپر جا رہے ہوں
+lying, as if he did not touch the bed	1	LYING, as if he did not touch the bed	=لیٹے ہوئے جیسے بستر کو چھو ہی نہ رہا ہو
+lying, as if sinking down thro' or with the bed	1	LYING, as if sinking down thro' or with the bed	=لیٹے ہوئے جیسے بستر میں سے یا بستر سمیت دھنس رہا ہو
+lying, back	1	LYING, back	=پیٹھ کے بل لیٹنا
+lying, back, on agg.	2	LYING, back, on agg.	=پیٹھ کے بل لیٹنے پر بگاڑ
+lying, back, on	2	LYING, back, on	=پیٹھ کے بل لیٹنے پر
+lying, back, on, amel.	3	LYING, back, on, amel.	=پیٹھ کے بل لیٹنے سے آرام
+lying, back, on, in a cool room amel.	3	LYING, back, on, in a cool room amel.	=پیٹھ کے بل ٹھنڈے کمرے میں لیٹنے سے آرام
+lying, face, on	1	LYING, face, on	=منہ کے بل لیٹنا
+lying, face, on, amel.	2	LYING, face, on, amel.	=منہ کے بل لیٹنے سے آرام
+lying, face, on, while agg.	2	LYING, face, on, while agg.	=منہ کے بل لیٹے ہوئے بگاڑ
+lying, side agg.	1	LYING, side agg.	=پہلو پر لیٹنے سے بگاڑ
+lying, side	1	LYING, side	=پہلو پر لیٹنا
+lying, side, amel.	2	LYING, side, amel.	=پہلو پر لیٹنے سے آرام
+lying, side, left, agg.	2	LYING, side, left, agg.	=بائیں پہلو لیٹنے سے بگاڑ
+lying, side, right, agg.	2	LYING, side, right, agg.	=دائیں پہلو لیٹنے سے بگاڑ
+lying, while agg.	1	LYING, while agg.	=لیٹے ہوئے بگاڑ
+lying, with head high amel.	1	LYING, with head high amel.	=سر اونچا رکھ کر لیٹنے سے آرام
+meditating	0	MEDITATING	غور و فکر
+meditating, amel.	1	MEDITATING, amel.	=غور و فکر سے آرام
+meditating, in agg.	1	MEDITATING, in agg.	=غور و فکر میں بگاڑ
+meditating, thinking of something else amel.	1	MEDITATING, thinking of something else amel.	=کچھ اور سوچنے سے آرام
+meditating, walking in open air, while	1	MEDITATING, walking in open air, while	=غور و فکر، کھلی ہوا میں چلتے ہوئے
+menses	0	MENSES	حیض
+menses, after	1	MENSES, after	=حیض کے بعد
+menses, before	1	MENSES, before	=حیض سے پہلے
+menses, during agg.	1	MENSES, during agg.	=حیض کے دوران بگاڑ
+menses, during	1	MENSES, during	=حیض کے دوران
+menses, during, amel.	2	MENSES, during, amel.	=حیض کے دوران آرام
+menses, during, stooping, on	2	MENSES, during, stooping, on	=حیض کے دوران، جھکنے پر
+menses, during, stooping, on, and rising again	3	MENSES, during, stooping, on, and rising again	=حیض کے دوران، جھک کر پھر سیدھا ہونے پر
+menses, during, walking, while	2	MENSES, during, walking, while	=حیض کے دوران، چلتے ہوئے
+menses, suppressed	1	MENSES, suppressed	=رکے ہوئے حیض سے
+mental exertion agg.	0	MENTAL exertion agg.	ذہنی محنت سے بگاڑ
+mental exertion	0	MENTAL exertion	ذہنی محنت
+mental exertion, amel.	1	MENTAL exertion, amel.	=ذہنی محنت سے آرام
+mirror	0	MIRROR	آئینہ
+mirror, after looking into	1	MIRROR, after looking into	=آئینے میں دیکھنے کے بعد
+morning	0	MORNING	صبح
+morning, bed, in	1	MORNING, bed, in	=صبح بستر میں
+morning, breakfast	1	MORNING, breakfast	=صبح ناشتہ
+morning, breakfast, after	2	MORNING, breakfast, after	=صبح ناشتے کے بعد
+morning, breakfast, amel.	2	MORNING, breakfast, amel.	=صبح ناشتے سے آرام
+morning, breakfast, before, worse	2	MORNING, breakfast, before, worse	=صبح ناشتے سے پہلے زیادہ
+morning, breakfast, during	2	MORNING, breakfast, during	=صبح ناشتے کے دوران
+morning, lie down, compelled to	1	MORNING, lie down, compelled to	=صبح، لیٹنے پر مجبور
+morning, rising	1	MORNING, rising	=صبح اٹھنا
+morning, rising, after	2	MORNING, rising, after	=صبح اٹھنے کے بعد
+morning, rising, amel.	2	MORNING, rising, amel.	=صبح اٹھنے سے آرام
+morning, rising, on agg.	2	MORNING, rising, on agg.	=صبح اٹھنے پر بگاڑ
+morning, waking, on	1	MORNING, waking, on	=صبح جاگنے پر
+motion	0	MOTION	حرکت
+motion, amel.	1	MOTION, amel.	=حرکت سے آرام
+motion, arms, of	1	MOTION, arms, of	=بازوؤں کی حرکت سے
+motion, eyelids	1	MOTION, eyelids	=پلکوں کی حرکت سے
+motion, eyes	1	MOTION, eyes	=آنکھوں کی حرکت سے
+motion, from agg.	1	MOTION, from agg.	=حرکت سے بگاڑ
+motion, sudden	1	MOTION, sudden	=اچانک حرکت سے
+motion, vomiting and nausea	1	MOTION, vomiting and nausea	=حرکت، قے اور متلی کے ساتھ
+moving the head	0	MOVING the head	سر ہلانا
+moving the head, quickly agg.	1	MOVING the head, quickly agg.	=سر جلدی سے ہلانے پر بگاڑ
+moving the head, quickly, amel.	1	MOVING the head, quickly, amel.	=سر جلدی سے ہلانے پر آرام
+nausea	0	NAUSEA	متلی
+nausea, with	1	NAUSEA, with	=متلی کے ساتھ
+nausea, with, after	2	NAUSEA, with, after	=متلی کے ساتھ، بعد میں
+nausea, with, closing eyes, on	2	NAUSEA, with, closing eyes, on	=متلی کے ساتھ، آنکھیں بند کرنے پر
+nausea, with, looking long at one object	2	NAUSEA, with, looking long at one object	=متلی کے ساتھ، دیر تک ایک چیز کو دیکھنے سے
+nausea, with, lying	2	NAUSEA, with, lying	=متلی کے ساتھ، لیٹنا
+nausea, with, lying, on right side or back	3	NAUSEA, with, lying, on right side or back	=متلی کے ساتھ، دائیں پہلو یا پیٹھ کے بل لیٹنے پر
+nausea, with, lying, while	3	NAUSEA, with, lying, while	=متلی کے ساتھ، لیٹے ہوئے
+nausea, with, lying, with the head low	3	NAUSEA, with, lying, with the head low	=متلی کے ساتھ، سر نیچا رکھ کر لیٹنے پر
+nausea, with, middle of chest	2	NAUSEA, with, middle of chest	=متلی کے ساتھ، سینے کے بیچ میں
+nausea, with, morning	2	NAUSEA, with, morning	=متلی کے ساتھ، صبح
+nausea, with, motion, on	2	NAUSEA, with, motion, on	=متلی کے ساتھ، حرکت پر
+nausea, with, periodic	2	NAUSEA, with, periodic	=متلی کے ساتھ، وقفے وقفے سے
+nausea, with, raising the head	2	NAUSEA, with, raising the head	=متلی کے ساتھ، سر اٹھانے پر
+nausea, with, rising in bed, on	2	NAUSEA, with, rising in bed, on	=متلی کے ساتھ، بستر میں اٹھ بیٹھنے پر
+nausea, with, stooping, amel.	2	NAUSEA, with, stooping, amel.	=متلی کے ساتھ، جھکنے سے آرام
+nausea, with, waking, on	2	NAUSEA, with, waking, on	=متلی کے ساتھ، جاگنے پر
+night	0	NIGHT	رات
+night, bed	1	NIGHT, bed	=رات بستر
+night, bed, in	2	NIGHT, bed, in	=رات بستر میں
+night, bed, on going to, amel.	2	NIGHT, bed, on going to, amel.	=رات بستر پر جانے سے آرام
+night, waking	1	NIGHT, waking	=رات جاگنا
+night, waking, him from sleep	2	NIGHT, waking, him from sleep	=رات، نیند سے جگا دیتا ہے
+night, waking, on	2	NIGHT, waking, on	=رات جاگنے پر
+noise	0	NOISE	شور
+noise, from	1	NOISE, from	=شور سے
+noon	0	NOON	دوپہر
+objects seem to approach and then recede	0	OBJECTS seem to approach and then recede	چیزیں قریب آتی پھر دور جاتی لگتی ہیں
+objects seem to be too far off	0	OBJECTS seem to be too far off	چیزیں بہت دور لگتی ہیں
+objects seem	0	OBJECTS seem	چیزیں لگتی ہیں
+objects seem, inverted	1	OBJECTS seem, inverted	=چیزیں الٹی لگتی ہیں
+objects seem, large	1	OBJECTS seem, large	=چیزیں بڑی لگتی ہیں
+objects seem, move	1	OBJECTS seem, move	=چیزیں ہلتی لگتی ہیں
+objects seem, move, reel	2	OBJECTS seem, move, reel	=چیزیں ڈگمگاتی لگتی ہیں
+objects seem, move, run into each other	2	OBJECTS seem, move, run into each other	=چیزیں ایک دوسرے سے ٹکراتی لگتی ہیں
+objects seem, move, the seat on which he sat	2	OBJECTS seem, move, the seat on which he sat	=جس نشست پر بیٹھا ہے وہ ہلتی لگتی ہے
+objects seem, move, to the left and downward	2	OBJECTS seem, move, to the left and downward	=چیزیں بائیں اور نیچے کو ہلتی لگتی ہیں
+objects seem, move, to the right	2	OBJECTS seem, move, to the right	=چیزیں دائیں طرف ہلتی لگتی ہیں
+objects seem, move, vibrate	2	OBJECTS seem, move, vibrate	=چیزیں تھرتھراتی لگتی ہیں
+objects seem, to turn in a circle	1	OBJECTS seem, to turn in a circle	=چیزیں دائرے میں گھومتی لگتی ہیں
+objects seem, to turn	1	OBJECTS seem, to turn	=چیزیں گھومتی لگتی ہیں
+objects seem, to turn, on looking at running water	2	OBJECTS seem, to turn, on looking at running water	=چیزیں گھومتی لگتی ہیں، بہتا پانی دیکھنے پر
+objects seem, to turn, room whirls	2	OBJECTS seem, to turn, room whirls	=کمرہ گھومتا لگتا ہے
+occipital	0	OCCIPITAL	گدی (سر کے پچھلے حصے) سے
+odor of flowers	0	ODOR of flowers	پھولوں کی خوشبو سے
+old people	0	OLD people	بوڑھے لوگ
+old people, in	1	OLD people, in	=بوڑھوں میں
+opening eyes	0	OPENING eyes (See Closing Eyes)	آنکھیں کھولنے پر
+painful	0	PAINFUL	درد کے ساتھ
+paroxysmal	0	PAROXYSMAL	دوروں کی شکل میں
+periodical	0	PERIODICAL	وقفے وقفے سے، باقاعدہ
+periodical, every two weeks	1	PERIODICAL, every two weeks	=ہر دو ہفتے بعد
+pregnancy	0	PREGNANCY	حمل
+pregnancy, during	1	PREGNANCY, during	=حمل کے دوران
+raising head	0	RAISING head	سر اٹھانے پر
+reaching up	0	REACHING up	اوپر ہاتھ بڑھانا
+reaching up, on	1	REACHING up, on	=اوپر ہاتھ بڑھانے پر
+reading	0	READING	پڑھنا
+reading, after	1	READING, after	=پڑھنے کے بعد
+reading, while	1	READING, while	=پڑھتے ہوئے
+reading, while, aloud	2	READING, while, aloud	=بلند آواز سے پڑھتے ہوئے
+reading, while, too long	2	READING, while, too long	=بہت دیر پڑھتے ہوئے
+reading, while, walking amel.	2	READING, while, walking amel.	=پڑھتے ہوئے، چلنے سے آرام
+reeling	0	REELING	لڑکھڑاہٹ
+relaxation	0	RELAXATION	ڈھیلا پڑ جانا (آرام کرنا)
+relaxation, after	1	RELAXATION, after	=ڈھیلا پڑنے کے بعد
+rest agg.	0	REST agg.	آرام سے بگاڑ
+rest	0	REST	آرام
+rest, amel.	1	REST, amel.	=آرام سے آرام ملے
+resting head on the table amel.	0	RESTING head on the table amel.	سر میز پر ٹکانے سے آرام
+riding	0	RIDING	سواری
+riding, as from, in a carriage	1	RIDING, as from, in a carriage	=جیسے گاڑی میں سواری سے ہو
+riding, horseback	1	RIDING, horseback	=گھڑ سواری
+riding, horseback, amel.	2	RIDING, horseback, amel.	=گھڑ سواری سے آرام
+riding, horseback, while agg.	2	RIDING, horseback, while agg.	=گھڑ سواری کرتے ہوئے بگاڑ
+riding, in a carriage agg.	1	RIDING, in a carriage agg.	=گاڑی میں سواری سے بگاڑ
+riding, in a carriage, amel.	1	RIDING, in a carriage, amel.	=گاڑی میں سواری سے آرام
+riding, while	1	RIDING, while	=سواری کرتے ہوئے
+right	0	RIGHT	دائیں طرف
+right, in a circle	1	RIGHT, in a circle	=دائیں طرف دائرے میں
+right, swaying toward	1	RIGHT, swaying toward	=دائیں طرف کو لڑکھڑانا
+rising	0	RISING	اٹھنا
+rising, after	1	RISING, after	=اٹھنے کے بعد
+rising, amel.	1	RISING, amel.	=اٹھنے سے آرام
+rising, from bed, on	1	RISING, from bed, on	=بستر سے اٹھتے وقت
+rising, from kneeling, of	1	RISING, from kneeling, of	=گھٹنوں کے بل سے اٹھتے وقت
+rising, from stooping	1	RISING, from stooping	=جھک کر سیدھا ہونا
+rising, from stooping, after agg.	2	RISING, from stooping, after agg.	=جھک کر سیدھا ہونے کے بعد بگاڑ
+rising, from stooping, after, amel.	2	RISING, from stooping, after, amel.	=جھک کر سیدھا ہونے کے بعد آرام
+rising, from stooping, quickly	2	RISING, from stooping, quickly	=جھک کر جلدی سے سیدھا ہونے پر
+rising, from stooping, supine position	2	RISING, from stooping, supine position	=چت لیٹے سے اٹھنے پر
+rising, from, a seat	1	RISING, from, a seat	=نشست سے اٹھنا
+rising, from, a seat, after	2	RISING, from, a seat, after	=نشست سے اٹھنے کے بعد
+rising, from, a seat, after, sitting bent	3	RISING, from, a seat, after, sitting bent	=نشست سے اٹھنے کے بعد، جھک کر بیٹھے رہنے سے
+rising, from, a seat, after, sitting bent, long	4	RISING, from, a seat, after, sitting bent, long	=نشست سے اٹھنے کے بعد، دیر تک جھک کر بیٹھے رہنے سے
+rising, from, a seat, on	2	RISING, from, a seat, on	=نشست سے اٹھتے وقت
+rising, on agg.	1	RISING, on agg.	=اٹھنے پر بگاڑ
+rocking	0	ROCKING	جھولنا
+rocking, amel.	1	ROCKING, amel.	=جھولنے سے آرام
+rocking, as if	1	ROCKING, as if	=جیسے جھول رہا ہو
+rocking, from agg.	1	ROCKING, from agg.	=جھولنے سے بگاڑ
+rubbing the eyes	0	RUBBING the eyes	آنکھیں ملنا
+rubbing the eyes, amel.	1	RUBBING the eyes, amel.	=آنکھیں ملنے سے آرام
+sewing	0	SEWING	سلائی
+sewing, while	1	SEWING, while	=سلائی کرتے ہوئے
+shaking the head	0	SHAKING the head	سر جھٹکنا
+shaking the head, quickly	1	SHAKING the head, quickly	=سر جلدی سے جھٹکنے پر
+shaving	0	SHAVING	حجامت (شیو)
+shaving, after	1	SHAVING, after	=شیو کے بعد
+sinking	0	SINKING	دھنسنا
+sinking, as if	1	SINKING, as if	=جیسے دھنس رہا ہو
+sitting	0	SITTING	بیٹھنا
+sitting, amel.	1	SITTING, amel.	=بیٹھنے سے آرام
+sitting, eating, before	1	SITTING, eating, before	=کھانے سے پہلے بیٹھے ہوئے
+sitting, erect	1	SITTING, erect	=سیدھا بیٹھنے پر
+sitting, erect, high, as if too	2	SITTING, erect, high, as if too	=سیدھا بیٹھنے پر، جیسے بہت اونچا ہو
+sitting, up in bed agg.	1	SITTING, up in bed agg.	=بستر میں اٹھ بیٹھنے پر بگاڑ
+sitting, up in bed, amel.	1	SITTING, up in bed, amel.	=بستر میں اٹھ بیٹھنے پر آرام
+sitting, walk, after a	1	SITTING, walk, after a	=سیر کے بعد بیٹھنے پر
+sitting, while agg.	1	SITTING, while agg.	=بیٹھے ہوئے بگاڑ
+sitting, writing, while	1	SITTING, writing, while	=بیٹھ کر لکھتے ہوئے
+sleep	0	SLEEP	نیند
+sleep, after, agg.	1	SLEEP, after, agg.	=نیند کے بعد بگاڑ
+sleep, amel.	1	SLEEP, amel.	=نیند سے آرام
+sleep, during agg.	1	SLEEP, during agg.	=نیند کے دوران بگاڑ
+sleep, half asleep, while	1	SLEEP, half asleep, while	=آدھی نیند میں
+sleep, on going to	1	SLEEP, on going to	=سوتے وقت
+sleepiness	0	SLEEPINESS	غنودگی
+sleepiness, alternating with	1	SLEEPINESS, alternating with	=غنودگی کے ساتھ باری باری
+sleepiness, with	1	SLEEPINESS, with	=غنودگی کے ساتھ
+smoking	0	SMOKING	تمباکو نوشی
+smoking, from	1	SMOKING, from	=تمباکو نوشی سے
+sneezing	0	SNEEZING	چھینک
+sneezing, from	1	SNEEZING, from	=چھینک سے
+spring	0	SPRING	بہار کا موسم
+spring, in, spells of	1	SPRING, in, spells of	=بہار میں دورے
+staggering	0	STAGGERING	ڈگمگانا
+staggering, with	1	STAGGERING, with	=ڈگمگانے کے ساتھ
+standing	0	STANDING	کھڑا ہونا
+standing, against something	1	STANDING, against something	=کسی چیز کے سہارے کھڑے ہونے پر
+standing, air, in open	1	STANDING, air, in open	=کھلی ہوا میں کھڑے ہونے پر
+standing, amel.	1	STANDING, amel.	=کھڑے ہونے سے آرام
+standing, on a height	1	STANDING, on a height	=اونچی جگہ کھڑے ہونے پر
+standing, room, in	1	STANDING, room, in	=کمرے میں کھڑے ہونے پر
+standing, walking, after	1	STANDING, walking, after	=چلنے کے بعد کھڑے ہونے پر
+standing, while agg.	1	STANDING, while agg.	=کھڑے ہوئے بگاڑ
+stars	0	STARS	ستارے
+stars, white, before eyes	1	STARS, white, before eyes	=آنکھوں کے آگے سفید ستارے
+stomach	0	STOMACH	معدہ
+stomach, proceeding from	1	STOMACH, proceeding from	=معدے سے اٹھتا ہوا
+stool	0	STOOL	پاخانہ
+stool, after agg.	1	STOOL, after agg.	=پاخانے کے بعد بگاڑ
+stool, after, amel.	1	STOOL, after, amel.	=پاخانے کے بعد آرام
+stool, before	1	STOOL, before	=پاخانے سے پہلے
+stool, during	1	STOOL, during	=پاخانے کے دوران
+stooping	0	STOOPING	جھکنا
+stooping, amel.	1	STOOPING, amel.	=جھکنے سے آرام
+stooping, long stooping, after	1	STOOPING, long stooping, after	=دیر تک جھکے رہنے کے بعد
+stooping, on agg.	1	STOOPING, on agg.	=جھکنے پر بگاڑ
+stooping, supper, after	1	STOOPING, supper, after	=رات کے کھانے کے بعد جھکنے پر
+stretching	0	STRETCHING	انگڑائی
+stretching, on	1	STRETCHING, on	=انگڑائی لینے پر
+stupefaction	0	STUPEFACTION	بے سدھی
+stupefaction, with, as if there was a barrier between his organs of sense and external objects	1	STUPEFACTION, with, as if there was a barrier between his organs of sense and external objects	=بے سدھی کے ساتھ، جیسے حواس اور باہر کی چیزوں کے بیچ کوئی پردہ ہو
+stupefaction, with	1	STUPEFACTION, with (See Stupefaction under Mind)	=بے سدھی کے ساتھ
+sudden	0	SUDDEN	اچانک
+summer	0	SUMMER	گرمیوں کا موسم
+summer, spells of, in	1	SUMMER, spells of, in	=گرمیوں میں دورے
+sunlight and heat	0	SUNLIGHT and heat	دھوپ اور گرمی سے
+supporting head amel.	0	SUPPORTING head amel.	سر کو سہارا دینے سے آرام
+suspension of the sense	0	SUSPENSION of the sense	حواس معطل
+suspension of the sense, as if there were a barrier between his organs of sense and external objects	1	SUSPENSION of the sense, as if there were a barrier between his organs of sense and external objects	=جیسے حواس اور باہر کی چیزوں کے بیچ کوئی پردہ ہو
+swimming	0	SWIMMING (See Floating)	تیرنے کا احساس
+swinging	0	SWINGING	جھولا
+swinging, like	1	SWINGING, like	=جیسے جھولے میں ہو
+syncope	0	SYNCOPE	غش
+syncope, with	1	SYNCOPE, with	=غش کے ساتھ
+syphilitic	0	SYPHILITIC	آتشکی
+talking	0	TALKING	باتیں کرنا
+talking, after animated	1	TALKING, after animated	=جوش سے باتیں کرنے کے بعد
+talking, long	1	TALKING, long	=دیر تک باتیں کرنے سے
+talking, while	1	TALKING, while	=باتیں کرتے ہوئے
+tea	0	TEA	چائے
+tea, after agg.	1	TEA, after agg.	=چائے کے بعد بگاڑ
+tea, after, amel.	1	TEA, after, amel.	=چائے کے بعد آرام
+thinking about it	0	THINKING about it	اس کے بارے میں سوچنا
+thinking about it, on	1	THINKING about it, on	=اس کے بارے میں سوچنے پر
+touch agg.	0	TOUCH agg.	چھونے سے بگاڑ
+trembling	0	TREMBLING	کپکپی کے ساتھ
+turned	0	TURNED	گھمایا جانا
+turned, and whirled as if, renewed by thinking about it	1	TURNED, and whirled as if, renewed by thinking about it	=جیسے گھمایا اور چکرایا جا رہا ہو، سوچنے سے پھر شروع
+turned, as if bed turned about	1	TURNED, as if bed turned about	=جیسے بستر گھوم گیا ہو
+turning	0	TURNING	گھومنا
+turning, as if in a circle	1	TURNING, as if in a circle	=جیسے دائرے میں گھوم رہا ہو
+turning, he turns in a circle	1	TURNING, he turns in a circle	=دائرے میں گھومتا ہے
+turning, he turns in a circle, to left	2	TURNING, he turns in a circle, to left	=دائرے میں گھومتا ہے، بائیں طرف
+turning, he turns in a circle, to right	2	TURNING, he turns in a circle, to right	=دائرے میں گھومتا ہے، دائیں طرف
+turning, in bed	1	TURNING, in bed	=بستر میں کروٹ
+turning, in bed, on	2	TURNING, in bed, on	=بستر میں کروٹ لینے پر
+turning, in bed, on right side, amel.	2	TURNING, in bed, on right side, amel.	=بستر میں دائیں کروٹ لینے سے آرام
+turning, in bed, to left, on	2	TURNING, in bed, to left, on	=بستر میں بائیں کروٹ لینے پر
+turning, on	1	TURNING, on	=مڑنے پر
+turning, on looking at revolving objects	1	TURNING, on looking at revolving objects	=گھومتی چیزوں کو دیکھنے پر
+turning, or moving the head	1	TURNING, or moving the head	=مڑنے یا سر ہلانے پر
+turning, or moving the head, quickly agg.	2	TURNING, or moving the head, quickly agg.	=مڑنے یا سر جلدی سے ہلانے پر بگاڑ
+turning, or moving the head, quickly, amel.	2	TURNING, or moving the head, quickly, amel.	=مڑنے یا سر جلدی سے ہلانے پر آرام
+urination	0	URINATION	پیشاب
+urination, copious, amel.	1	URINATION, copious, amel.	=کھل کر پیشاب آنے سے آرام
+urination, during	1	URINATION, during	=پیشاب کے دوران
+urination, urging, when	1	URINATION, urging, when	=پیشاب کی حاجت پر
+vertex	0	VERTEX	چوٹی (سر کا اوپری حصہ)
+vertex, from	1	VERTEX, from	=سر کی چوٹی سے
+vexation	0	VEXATION	کوفت
+vexation, after	1	VEXATION, after	=کوفت کے بعد
+vision	0	VISION	نظر
+vision, obscuration of, with	1	VISION, obscuration of, with	=نظر دھندلانے کے ساتھ
+vomiting	0	VOMITING	قے
+vomiting, after, amel.	1	VOMITING, after, amel.	=قے کے بعد آرام
+vomiting, before	1	VOMITING, before	=قے سے پہلے
+vomiting, with	1	VOMITING, with	=قے کے ساتھ
+walking	0	WALKING	چلنا
+walking, across on open place	1	WALKING, across on open place	=کھلے میدان سے گزرتے ہوئے
+walking, after	1	WALKING, after	=چلنے کے بعد
+walking, after, long	2	WALKING, after, long	=دیر تک چلنے کے بعد
+walking, amel.	1	WALKING, amel.	=چلنے سے آرام
+walking, eating, after	1	WALKING, eating, after	=کھانے کے بعد چلتے ہوئے
+walking, in the open air	1	WALKING, in the open air	=کھلی ہوا میں چلتے ہوئے
+walking, in the open air, amel.	2	WALKING, in the open air, amel.	=کھلی ہوا میں چلنے سے آرام
+walking, in the open air, on an elevation	2	WALKING, in the open air, on an elevation	=کھلی ہوا میں اونچی جگہ چلتے ہوئے
+walking, in the open air, while agg.	2	WALKING, in the open air, while agg.	=کھلی ہوا میں چلتے ہوئے بگاڑ
+walking, narrow path, along	1	WALKING, narrow path, along	=تنگ پگڈنڈی پر چلتے ہوئے
+walking, near a declivity	1	WALKING, near a declivity	=ڈھلوان کے کنارے چلتے ہوئے
+walking, over a high bridge	1	WALKING, over a high bridge	=اونچے پل پر چلتے ہوئے
+walking, over a narrow bridge	1	WALKING, over a narrow bridge	=تنگ پل پر چلتے ہوئے
+walking, rapidly	1	WALKING, rapidly	=تیز چلتے ہوئے
+walking, room, in a	1	WALKING, room, in a	=کمرے میں چلتے ہوئے
+walking, sensation of gliding in the air, as if feet did not touch the ground, while	1	WALKING, sensation of gliding in the air, as if feet did not touch the ground, while	=چلتے ہوئے جیسے ہوا میں پھسل رہا ہو، پاؤں زمین کو نہ چھوتے ہوں
+walking, sideways	1	WALKING, sideways	=ایک طرف کو چلتے ہوئے
+walking, slowly, but not when taking violent exercise	1	WALKING, slowly, but not when taking violent exercise	=آہستہ چلتے ہوئے، مگر سخت ورزش میں نہیں
+walking, water	1	WALKING, water	=پانی
+walking, water, near	2	WALKING, water, near	=پانی کے پاس چلتے ہوئے
+walking, water, over	2	WALKING, water, over	=پانی کے اوپر سے چلتے ہوئے
+walking, water, running	2	WALKING, water, running	=بہتے پانی کے پاس چلتے ہوئے
+walking, while agg.	1	WALKING, while agg.	=چلتے ہوئے بگاڑ
+walls of house seem to be falling in on her	0	WALLS of house seem to be falling in on her	گھر کی دیواریں اس پر گرتی لگتی ہیں
+warm bed amel.	0	WARM bed amel.	گرم بستر سے آرام
+warm	0	WARM	گرم
+warm, room	1	WARM, room	=گرم کمرے میں
+warm, room, entering, on	2	WARM, room, entering, on	=گرم کمرے میں داخل ہوتے ہی
+warm, soup amel.	1	WARM, soup amel.	=گرم شوربے (سوپ) سے آرام
+warmth rose from chest to throat	0	WARMTH rose from chest to throat	سینے سے حلق تک گرمی اٹھی
+warmth rose from chest to throat, sensation as if	1	WARMTH rose from chest to throat, sensation as if	=جیسے سینے سے حلق تک گرمی اٹھی ہو
+washing feet	0	WASHING feet	پاؤں دھونے سے
+washing	0	WASHING	دھونا
+washing, in warm water	1	WASHING, in warm water	=گرم پانی سے دھونے سے
+watching and loss of sleep	0	WATCHING and loss of sleep	رات جاگنے اور نیند کی کمی سے
+water	0	WATER	پانی
+water, crossing running	1	WATER, crossing running	=بہتا پانی پار کرتے ہوئے
+will	0	WILL	قوتِ ارادی
+will, exerting, the, amel.	1	WILL, exerting, the, amel.	=قوتِ ارادی کے استعمال سے آرام
+windy weather	0	WINDY weather	ہوا والے موسم میں
+wine	0	WINE	شراب (وائن)
+wine, after	1	WINE, after	=شراب کے بعد
+wine, amel.	1	WINE, amel.	=شراب سے آرام
+wiping eyes	0	WIPING eyes	آنکھیں پونچھنا
+wiping eyes, amel.	1	WIPING eyes, amel.	=آنکھیں پونچھنے سے آرام
+writing	0	WRITING	لکھنا
+writing, while	1	WRITING, while	=لکھتے ہوئے
+yawning	0	YAWNING	جمائی
+yawning, when	1	YAWNING, when	=جمائی آنے پر

@@ -19,7 +19,7 @@
 var _repRubUr = {};            // book → chapter → { rubrics:{}, locked:{} }
 var _repRubUrLoading = {};     // 'book/chapter' → true جب تک منگوایا جا رہا ہو
 var REP_RUBUR_MODE_KEY = 'bc_ur_mode';          // 'full' | 'delta'
-var REP_RUBUR_V = '110';                                       // 🔑 ur/rubrics/**.json کے ہر بدلاؤ پر بڑھائیں (ساتھ CACHE_NAME بھی)
+var REP_RUBUR_V = '111';                                       // 🔑 ur/rubrics/**.json کے ہر بدلاؤ پر بڑھائیں (ساتھ CACHE_NAME بھی)
 var REP_RUBUR_SEP_RE = /^(\s*[—–-]\s*|\s*،\s*|\s*,\s*|\s+)/;   // والد کے بعد جوڑنے والا نشان
 
 // ---------- کلید: پورا راستہ → معیاری صورت ----------
@@ -111,6 +111,8 @@ function repRubUrBase(book, ch, labels, t) {
         if (t.length > a.length && t.indexOf(a) === 0) return a;
         var o = repRubUrObl(a); if (o && t.length > o.length && t.indexOf(o) === 0) return o;
     }
+    var m = _repRubUr[book] && _repRubUr[book][ch] && _repRubUr[book][ch].meta, root = m && m.root;   // باب کی جڑ («چکر — ») سب سے باہر کی بنیاد
+    if (root && t.length > root.length && t.indexOf(root) === 0) return root;
     return null;
 }
 function repRubUrRowHtml(r) {
