@@ -1,0 +1,886 @@
+key	depth	en	ur
+accommodation defective	0	ACCOMMODATION defective	نظر جمانے (فوکس) کی خرابی
+accommodation defective, action too great	1	ACCOMMODATION defective, action too great	=فوکس کی خرابی، عمل حد سے زیادہ
+accommodation defective, diminished	1	ACCOMMODATION defective, diminished	=فوکس کی خرابی، عمل کم
+accommodation defective, headaches	1	ACCOMMODATION defective, headaches	=فوکس کی خرابی، سر درد کے ساتھ
+accommodation defective, over-exertion	1	ACCOMMODATION defective, over-exertion	=فوکس کی خرابی، زیادہ کام لینے سے
+accommodation defective, slow	1	ACCOMMODATION defective, slow	=فوکس کی خرابی، سست
+accommodation defective, tension	1	ACCOMMODATION defective, tension	=فوکس کی خرابی، تناؤ
+acute	0	ACUTE	تیز
+acute, at night, in hysterical persons	1	ACUTE, at night, in hysterical persons	=نظر تیز، رات کو، ہسٹیریائی لوگوں میں
+amaurosis	0	AMAUROSIS (See Paralysis)	اندھا پن (بینائی کا فالج)
+approach	0	APPROACH	قریب آنا
+approach, objects seem to approach and then recede	1	APPROACH, objects seem to approach and then recede	=چیزیں قریب آتی پھر دور جاتی لگیں
+balls	0	BALLS (See Colors)	گولے
+balls, fire, of	1	BALLS (See Colors), fire, of	=آگ کے گولے
+balls, floating	1	BALLS (See Colors), floating	=تیرتے گولے
+balls, luminous	1	BALLS (See Colors), luminous	=روشن گولے
+bleeding	0	BLEEDING (See Discharges)	خون آنا
+blind	0	BLIND (See Lost)	اندھا
+blurred	0	BLURRED	دھندلی
+blurred, closing eyes amel.	1	BLURRED, closing eyes amel.	آنکھیں بند کرنے سے آرام
+blurred, distant objects	1	BLURRED, distant objects	دور کی چیزیں
+blurred, emissions, after	1	BLURRED, emissions, after	احتلام کے بعد
+blurred, evening	1	BLURRED, evening	شام
+blurred, figures	1	BLURRED, figures	شکلیں
+blurred, gaslight	1	BLURRED, gaslight	گیس کی روشنی میں
+blurred, headache, before	1	BLURRED, headache, before	سر درد سے پہلے
+blurred, irritated, when	1	BLURRED, irritated, when	جھنجھلاہٹ میں
+blurred, letters	1	BLURRED, letters	حروف
+blurred, looking a short time	1	BLURRED, looking a short time	تھوڑی دیر دیکھنے سے
+blurred, morning	1	BLURRED, morning	صبح
+blurred, overheated	1	BLURRED, overheated	زیادہ گرم ہونے پر
+blurred, pressure amel.	1	BLURRED, pressure amel.	دبانے سے آرام
+blurred, turning eyes	1	BLURRED, turning eyes	آنکھیں گھمانے پر
+blurred, writing, while	1	BLURRED, writing, while	لکھتے ہوئے
+bright	0	BRIGHT (See Dazzling)	چمکدار
+changing	0	CHANGING (See Moving, Vanishing)	بدلتی ہوئی
+catarrh	0	CATARRH (See Discharges)	نزلہ
+chilblains	0	CHILBLAINS (See Itching, burning)	سردی کے دانے (بواسیر جیسی خارش)
+ciphers	0	CIPHERS	ہندسے دکھائی دیں
+circles	0	CIRCLES (See Colors)	حلقے
+circles, about light	1	CIRCLES (See Colors), about light	=حلقے، روشنی کے گرد
+circles, around an internal brighter field	1	CIRCLES (See Colors), around an internal brighter field	=حلقے، اندر روشن میدان کے گرد
+circles, colored around white objects	1	CIRCLES (See Colors), colored around white objects	=حلقے، رنگین، سفید چیزوں کے گرد
+circles, colored	1	CIRCLES (See Colors), colored	=حلقے، رنگین
+circles, colored, around a bright center	2	CIRCLES (See Colors), colored, around a bright center	=حلقے، رنگین، روشن مرکز کے گرد
+circles, colored, bands	2	CIRCLES (See Colors), colored, bands	=حلقے، رنگین پٹیاں
+circles, heat, during	1	CIRCLES (See Colors), heat, during	=حلقے، بخار کی گرمی کے دوران
+circles, objects move in a circle on closing eyes	1	CIRCLES (See Colors), objects move in a circle on closing eyes	=آنکھیں بند کرنے پر چیزیں دائرے میں گھومیں
+circles, reading, while	1	CIRCLES (See Colors), reading, while	=حلقے، پڑھتے ہوئے
+circles, turning	1	CIRCLES (See Colors), turning	=حلقے، گھومتے ہوئے
+circles, yellow and white rays, with	1	CIRCLES (See Colors), yellow and white rays, with	=حلقے، زرد اور سفید شعاعوں کے ساتھ
+circles, zigzags	1	CIRCLES (See Colors), zigzags	=ٹیڑھی میڑھی لکیریں (زگ زیگ)
+circles, zigzags, flickering	2	CIRCLES (See Colors), zigzags, flickering	=ٹیڑھی میڑھی لکیریں، جھلملاتی
+circles, zigzags, of color	2	CIRCLES (See Colors), zigzags, of color	=ٹیڑھی میڑھی لکیریں، رنگین
+circles, fiery	1	CIRCLES (See Colors), fiery (See Fiery)	=حلقے، آگ جیسے
+closed sensation	0	CLOSED sensation (See Stopped)	بند ہونے کا احساس
+cloudy	0	CLOUDY (See Foggy)	بادل جیسی (دھندلی)
+colors before the eyes	0	COLORS before the eyes (See Spots)	آنکھوں کے آگے رنگ
+colors before the eyes, black, circles	1	COLORS before the eyes (See Spots), black, circles (See Rings)	=کالے حلقے
+colors	0	COLORS	رنگ
+colors, black	1	COLORS, black	=کالا
+colors, black, animals	2	COLORS, black, animals	=کالے جانور
+colors, black, balls	2	COLORS, black, balls	=کالے گولے
+colors, black, disk	2	COLORS, black, disk	=کالی تشتری
+colors, black, figures	2	COLORS, black, figures	=کالی شکلیں
+colors, black, figures, floating before eyes	3	COLORS, black, figures, floating before eyes	=کالی شکلیں آنکھوں کے آگے تیرتی ہوئی
+colors, black, flickerings	2	COLORS, black, flickerings	=کالی جھلملاہٹ
+colors, black, flies, floating	2	COLORS, black, flies, floating	=کالی مکھیاں تیرتی ہوئی
+colors, black, floating	2	COLORS, black, floating	=کالی چیزیں تیرتی ہوئی
+colors, black, halo	2	COLORS, black, halo	=کالا ہالہ
+colors, black, horns	2	COLORS, black, horns	=کالے سینگ
+colors, black, letters change to points	2	COLORS, black, letters change to points	=کالے حروف نقطے بن جائیں
+colors, black, lightning	2	COLORS, black, lightning	=کالی بجلی
+colors, black, looking down, when	2	COLORS, black, looking down, when	=کالا، نیچے دیکھنے پر
+colors, black, motes	2	COLORS, black, motes	=کالے ذرے
+colors, black, moving	2	COLORS, black, moving	=کالا، ہلتا ہوا
+colors, black, objects	2	COLORS, black, objects	=کالی چیزیں
+colors, black, plate	2	COLORS, black, plate	=کالی پلیٹ
+colors, black, points	2	COLORS, black, points	=کالے نقطے
+colors, black, points, candlelight, by	3	COLORS, black, points, candlelight, by	=کالے نقطے، موم بتی کی روشنی میں
+colors, black, points, dinner, before	3	COLORS, black, points, dinner, before	=کالے نقطے، دوپہر کے کھانے سے پہلے
+colors, black, points, morning	3	COLORS, black, points, morning	=کالے نقطے، صبح
+colors, black, points, reading, while	3	COLORS, black, points, reading, while	=کالے نقطے، پڑھتے ہوئے
+colors, black, reading, while	2	COLORS, black, reading, while	=کالا، پڑھتے ہوئے
+colors, black, reading, while, accompanying letter	3	COLORS, black, reading, while, accompanying letter	=کالا، پڑھتے ہوئے، حروف کے ساتھ ساتھ
+colors, black, rings, circles	2	COLORS, black, rings, circles	=کالے حلقے، دائرے
+colors, black, rings, circles, floating	3	COLORS, black, rings, circles, floating	=کالے حلقے، تیرتے ہوئے
+colors, black, rings, circles, headache, before	3	COLORS, black, rings, circles, headache, before	=کالے حلقے، سر درد سے پہلے
+colors, black, rings, circles, heat, during	3	COLORS, black, rings, circles, heat, during	=کالے حلقے، بخار کی گرمی کے دوران
+colors, black, rings, circles, reading	3	COLORS, black, rings, circles, reading	=کالے حلقے، پڑھتے ہوئے
+colors, black, rings, circles, waving	3	COLORS, black, rings, circles, waving	=کالے حلقے، لہراتے ہوئے
+colors, black, rising, from stooping	2	COLORS, black, rising, from stooping	=کالا، جھک کر سیدھا ہونے پر
+colors, black, serpents	2	COLORS, black, serpents	=کالے سانپ
+colors, black, sparks	2	COLORS, black, sparks	=کالی چنگاریاں
+colors, black, spots	2	COLORS, black, spots	=کالے دھبے
+colors, black, spots, eating, after	3	COLORS, black, spots, eating, after	=کالے دھبے، کھانے کے بعد
+colors, black, spots, exertion, physical	3	COLORS, black, spots, exertion, physical	=کالے دھبے، جسمانی محنت سے
+colors, black, spots, eyes are closed, when	3	COLORS, black, spots, eyes are closed, when	=کالے دھبے، آنکھیں بند ہونے پر
+colors, black, spots, floating (muscae volitantes)	3	COLORS, black, spots, floating (muscae volitantes)	=کالے دھبے، تیرتے ہوئے (مکھیاں اڑتی ہوئی)
+colors, black, spots, floating (muscae volitantes), eating, after	4	COLORS, black, spots, floating (muscae volitantes), eating, after	=کالے دھبے، تیرتے ہوئے، کھانے کے بعد
+colors, black, spots, floating (muscae volitantes), reading, while	4	COLORS, black, spots, floating (muscae volitantes), reading, while	=کالے دھبے، تیرتے ہوئے، پڑھتے ہوئے
+colors, black, spots, floating (muscae volitantes), sewing, after	4	COLORS, black, spots, floating (muscae volitantes), sewing, after	=کالے دھبے، تیرتے ہوئے، سلائی کے بعد
+colors, black, spots, floating (muscae volitantes), walking in open air	4	COLORS, black, spots, floating (muscae volitantes), walking in open air	=کالے دھبے، تیرتے ہوئے، کھلی ہوا میں چلتے ہوئے
+colors, black, spots, floating (muscae volitantes), writing, while	4	COLORS, black, spots, floating (muscae volitantes), writing, while	=کالے دھبے، تیرتے ہوئے، لکھتے ہوئے
+colors, black, spots, headache	3	COLORS, black, spots, headache	=کالے دھبے، سر درد
+colors, black, spots, headache, before a	4	COLORS, black, spots, headache, before a	=کالے دھبے، سر درد سے پہلے
+colors, black, spots, headache, during	4	COLORS, black, spots, headache, during	=کالے دھبے، سر درد کے دوران
+colors, black, spots, morning, waking, on	3	COLORS, black, spots, morning, waking, on	=کالے دھبے، صبح جاگنے پر
+colors, black, spots, moving in all directions	3	COLORS, black, spots, moving in all directions	=کالے دھبے، ہر سمت ہلتے ہوئے
+colors, black, spots, reading, after	3	COLORS, black, spots, reading, after	=کالے دھبے، پڑھنے کے بعد
+colors, black, spots, rising from a seat, on	3	COLORS, black, spots, rising from a seat, on	=کالے دھبے، نشست سے اٹھنے پر
+colors, black, spots, sewing, while	3	COLORS, black, spots, sewing, while	=کالے دھبے، سلائی کرتے ہوئے
+colors, black, spots, turning quickly	3	COLORS, black, spots, turning quickly	=کالے دھبے، جلدی مڑنے پر
+colors, black, spots, vertigo, with	3	COLORS, black, spots, vertigo, with	=کالے دھبے، چکر کے ساتھ
+colors, black, spots, writing, while	3	COLORS, black, spots, writing, while	=کالے دھبے، لکھتے ہوئے
+colors, black, stripes	2	COLORS, black, stripes	=کالی دھاریاں
+colors, black, stripes, morning	3	COLORS, black, stripes, morning	=کالی دھاریاں، صبح
+colors, black, stripes, reading, while	3	COLORS, black, stripes, reading, while	=کالی دھاریاں، پڑھتے ہوئے
+colors, black, turning, on	2	COLORS, black, turning, on	=کالا، مڑنے پر
+colors, black, veil	2	COLORS, black, veil	=کالا پردہ
+colors, black, veil, before the right eye	3	COLORS, black, veil, before the right eye	=کالا پردہ، دائیں آنکھ کے آگے
+colors, blindness, color	1	COLORS, blindness, color	=رنگوں کا اندھا پن (رنگ نہ پہچاننا)
+colors, blue	1	COLORS, blue	=نیلا
+colors, blue, blindness for	2	COLORS, blue, blindness for	=نیلے کا اندھا پن
+colors, blue, circles	2	COLORS, blue, circles	=نیلے حلقے
+colors, blue, closed, when eyes are	2	COLORS, blue, closed, when eyes are	=نیلا، آنکھیں بند ہونے پر
+colors, blue, dark blue	2	COLORS, blue, dark blue	=گہرا نیلا
+colors, blue, distance, in the	2	COLORS, blue, distance, in the	=نیلا، دور میں
+colors, blue, evening	2	COLORS, blue, evening	=نیلا، شام
+colors, blue, halo around candle	2	COLORS, blue, halo around candle	=نیلا ہالہ موم بتی کے گرد
+colors, blue, haze	2	COLORS, blue, haze	=نیلی دھند
+colors, blue, light around	2	COLORS, blue, light around	=نیلی روشنی گرد
+colors, blue, light around, of the candle	3	COLORS, blue, light around, of the candle	=نیلی روشنی موم بتی کے گرد
+colors, blue, points	2	COLORS, blue, points	=نیلے نقطے
+colors, blue, reading	2	COLORS, blue, reading	=نیلا، پڑھتے ہوئے
+colors, blue, right eye	2	COLORS, blue, right eye	=نیلا، دائیں آنکھ میں
+colors, blue, rubbing, on	2	COLORS, blue, rubbing, on	=نیلا، ملنے پر
+colors, blue, sparks	2	COLORS, blue, sparks	=نیلی چنگاریاں
+colors, blue, spots	2	COLORS, blue, spots	=نیلے دھبے
+colors, blue, spots, in a dark room	3	COLORS, blue, spots, in a dark room	=نیلے دھبے، اندھیرے کمرے میں
+colors, blue, spots, morning on rising	3	COLORS, blue, spots, morning on rising	=نیلے دھبے، صبح اٹھنے پر
+colors, blue, spots, night, when lying on right side in a dark room	3	COLORS, blue, spots, night, when lying on right side in a dark room	=نیلے دھبے، رات اندھیرے کمرے میں دائیں پہلو لیٹے ہوئے
+colors, blue, stars	2	COLORS, blue, stars	=نیلے ستارے
+colors, blue, stars, during headache	3	COLORS, blue, stars, during headache	=نیلے ستارے، سر درد کے دوران
+colors, bright	1	COLORS, bright	=روشن
+colors, dark	1	COLORS, dark	=گہرے (تاریک)
+colors, dark, circles	2	COLORS, dark, circles	=تاریک حلقے
+colors, dark, circles, with points of light	3	COLORS, dark, circles, with points of light	=تاریک حلقے، روشنی کے نقطوں کے ساتھ
+colors, dark, clouds	2	COLORS, dark, clouds	=تاریک بادل
+colors, dark, objects	2	COLORS, dark, objects	=تاریک چیزیں
+colors, dark, objects, moving	3	COLORS, dark, objects, moving	=تاریک چیزیں، ہلتی ہوئی
+colors, dark, objects, seem dark	3	COLORS, dark, objects, seem dark	=چیزیں تاریک لگیں
+colors, dark, points	2	COLORS, dark, points	=تاریک نقطے
+colors, dark, points, floating	3	COLORS, dark, points, floating	=تاریک نقطے، تیرتے ہوئے
+colors, dark, serpent-like waves	2	COLORS, dark, serpent-like waves	=تاریک سانپ جیسی لہریں
+colors, dark, specks	2	COLORS, dark, specks	=تاریک ذرے
+colors, dark, spots	2	COLORS, dark, spots	=تاریک دھبے
+colors, dark, spots, floating	3	COLORS, dark, spots, floating	=تاریک دھبے، تیرتے ہوئے
+colors, dark, spots, reading agg.	3	COLORS, dark, spots, reading agg.	=تاریک دھبے، پڑھنے سے بگاڑ
+colors, dark, spots, white margins, with	3	COLORS, dark, spots, white margins, with	=تاریک دھبے، سفید کناروں کے ساتھ
+colors, dark, stripes	2	COLORS, dark, stripes	=تاریک دھاریاں
+colors, dark, worms	2	COLORS, dark, worms	=تاریک کیڑے
+colors, evening	1	COLORS, evening	=رنگ، شام
+colors, fast motions, when making	1	COLORS, fast motions, when making	=رنگ، تیز حرکت کرنے پر
+colors, golden	1	COLORS, golden	=سنہرا
+colors, golden, chain dangling before eyes	2	COLORS, golden, chain dangling before eyes	=سنہری زنجیر آنکھوں کے آگے جھولتی ہوئی
+colors, golden, everything looks	2	COLORS, golden, everything looks	=ہر چیز سنہری لگے
+colors, golden, letters seem	2	COLORS, golden, letters seem	=حروف سنہرے لگیں
+colors, gray	1	COLORS, gray	=سرمئی (خاکستری)
+colors, gray, black objects seem gray	2	COLORS, gray, black objects seem gray	=کالی چیزیں سرمئی لگیں
+colors, gray, bluish-gray circle around light	2	COLORS, gray, bluish-gray circle around light	=نیلگوں سرمئی حلقہ روشنی کے گرد
+colors, gray, circles	2	COLORS, gray, circles	=سرمئی حلقے
+colors, gray, covering before eyes	2	COLORS, gray, covering before eyes	=سرمئی پردہ آنکھوں کے آگے
+colors, gray, fog	2	COLORS, gray, fog	=سرمئی دھند
+colors, gray, halo	2	COLORS, gray, halo	=سرمئی ہالہ
+colors, gray, letters	2	COLORS, gray, letters	=سرمئی حروف
+colors, gray, letters, change to round gray spots	3	COLORS, gray, letters, change to round gray spots	=سرمئی حروف، گول سرمئی دھبے بن جائیں
+colors, gray, objects seem	2	COLORS, gray, objects seem	=چیزیں سرمئی لگیں
+colors, gray, point before right eye moving with eye	2	COLORS, gray, point before right eye moving with eye	=سرمئی نقطہ دائیں آنکھ کے آگے، آنکھ کے ساتھ ہلتا ہوا
+colors, gray, points	2	COLORS, gray, points	=سرمئی نقطے
+colors, gray, reddish gray border around white things	2	COLORS, gray, reddish gray border around white things	=سفید چیزوں کے گرد سرخی مائل سرمئی کنارہ
+colors, gray, serpent-like bodies	2	COLORS, gray, serpent-like bodies	=سرمئی سانپ جیسی چیزیں
+colors, gray, spots	2	COLORS, gray, spots	=سرمئی دھبے
+colors, gray, spots, at a distance	3	COLORS, gray, spots, at a distance	=سرمئی دھبے، دور
+colors, gray, veil	2	COLORS, gray, veil	=سرمئی پردہ
+colors, green	1	COLORS, green	=سبز
+colors, green, blindness for	2	COLORS, green, blindness for	=سبز کا اندھا پن
+colors, green, circles	2	COLORS, green, circles	=سبز حلقے
+colors, green, circles, around light	3	COLORS, green, circles, around light	=سبز حلقے، روشنی کے گرد
+colors, green, dinner	2	COLORS, green, dinner	=سبز، دوپہر کا کھانا
+colors, green, dinner, amel. by eructations	3	COLORS, green, dinner, amel. by eructations	=سبز، دوپہر کے کھانے پر، ڈکار سے آرام
+colors, green, dinner, during	3	COLORS, green, dinner, during	=سبز، دوپہر کے کھانے کے دوران
+colors, green, halo around light	2	COLORS, green, halo around light	=سبز ہالہ روشنی کے گرد
+colors, green, letters	2	COLORS, green, letters	=سبز حروف
+colors, green, pea green, saw herself on looking in the glass	2	COLORS, green, pea green, saw herself on looking in the glass	=مٹر جیسا سبز، آئینے میں اپنے آپ کو دیکھا
+colors, green, sparks	2	COLORS, green, sparks	=سبز چنگاریاں
+colors, green, spots	2	COLORS, green, spots	=سبز دھبے
+colors, green, spots, walking in the dark, while	3	COLORS, green, spots, walking in the dark, while	=سبز دھبے، اندھیرے میں چلتے ہوئے
+colors, green, stripes	2	COLORS, green, stripes	=سبز دھاریاں
+colors, green, vomiting	2	COLORS, green, vomiting	=سبز، قے کے ساتھ
+colors, green, yellow-green	2	COLORS, green, yellow-green	=زرد سبز
+colors, halo of colors around the light	1	COLORS, halo of colors around the light	=رنگوں کا ہالہ روشنی کے گرد
+colors, halo of colors, around the letters while reading	1	COLORS, halo of colors, around the letters while reading	=رنگوں کا ہالہ حروف کے گرد پڑھتے ہوئے
+colors, rainbow	1	COLORS, rainbow	=قوسِ قزح (دھنک)
+colors, rainbow, all the colors	2	COLORS, rainbow, all the colors	=دھنک، سب رنگ
+colors, rainbow, beaming light of	2	COLORS, rainbow, beaming light of	=دھنک کی چمکتی روشنی
+colors, rainbow, circles	2	COLORS, rainbow, circles	=دھنک کے حلقے
+colors, rainbow, strip on closing one eye	2	COLORS, rainbow, strip on closing one eye	=دھنک کی پٹی ایک آنکھ بند کرنے پر
+colors, red	1	COLORS, red	=سرخ
+colors, red, blindness for	2	COLORS, red, blindness for	=سرخ کا اندھا پن
+colors, red, circles	2	COLORS, red, circles	=سرخ حلقے
+colors, red, circles, light seems to be	3	COLORS, red, circles, light seems to be	=سرخ حلقے، روشنی سرخ لگے
+colors, red, circles, on rubbing	3	COLORS, red, circles, on rubbing	=سرخ حلقے، ملنے پر
+colors, red, closing eyes	2	COLORS, red, closing eyes	=سرخ، آنکھیں بند کرنے پر
+colors, red, fiery spots	2	COLORS, red, fiery spots	=سرخ آگ جیسے دھبے
+colors, red, halo	2	COLORS, red, halo	=سرخ ہالہ
+colors, red, halo, around the lamplight	3	COLORS, red, halo, around the lamplight	=سرخ ہالہ لیمپ کی روشنی کے گرد
+colors, red, luminous appearance	2	COLORS, red, luminous appearance	=سرخ روشن شکل
+colors, red, masses	2	COLORS, red, masses	=سرخ گچھے
+colors, red, night	2	COLORS, red, night	=سرخ، رات
+colors, red, night, and yellow during day	3	COLORS, red, night, and yellow during day	=سرخ رات کو اور زرد دن کو
+colors, red, objects seem	2	COLORS, red, objects seem	=چیزیں سرخ لگیں
+colors, red, obstructions on looking at the light	2	COLORS, red, obstructions on looking at the light	=سرخ رکاوٹیں روشنی کی طرف دیکھنے پر
+colors, red, paper looks red	2	COLORS, red, paper looks red	=کاغذ سرخ لگے
+colors, red, points	2	COLORS, red, points	=سرخ نقطے
+colors, red, sparks	2	COLORS, red, sparks	=سرخ چنگاریاں
+colors, red, spots	2	COLORS, red, spots	=سرخ دھبے
+colors, rubbing, after	1	COLORS, rubbing, after	=رنگ، ملنے کے بعد
+colors, striped	1	COLORS, striped	=دھاری دار
+colors, variegated	1	COLORS, variegated	=رنگ برنگے
+colors, violet	1	COLORS, violet	=بینگنی
+colors, white	1	COLORS, white	=سفید
+colors, white, blindness for	2	COLORS, white, blindness for	=سفید کا اندھا پن
+colors, white, candlelight seems	2	COLORS, white, candlelight seems	=موم بتی کی روشنی سفید لگے
+colors, white, falling drops on looking at snow	2	COLORS, white, falling drops on looking at snow	=برف کی طرف دیکھنے پر سفید گرتے قطرے
+colors, white, flames	2	COLORS, white, flames	=سفید شعلے
+colors, white, flickering	2	COLORS, white, flickering	=سفید جھلملاہٹ
+colors, white, globules	2	COLORS, white, globules	=سفید گولیاں
+colors, white, green, objects look	2	COLORS, white, green, objects look	=سفید اور سبز، چیزیں لگیں
+colors, white, margin around letters	2	COLORS, white, margin around letters	=سفید کنارہ حروف کے گرد
+colors, white, pale, faces appear white	2	COLORS, white, pale, faces appear white	=سفید، زرد، چہرے سفید لگیں
+colors, white, points	2	COLORS, white, points	=سفید نقطے
+colors, white, rays, flaming	2	COLORS, white, rays, flaming	=سفید شعاعیں، شعلے جیسی
+colors, white, sparks	2	COLORS, white, sparks	=سفید چنگاریاں
+colors, white, spots	2	COLORS, white, spots	=سفید دھبے
+colors, white, spots, then green	3	COLORS, white, spots, then green	=سفید دھبے، پھر سبز
+colors, white, spots, waving	3	COLORS, white, spots, waving	=سفید دھبے، لہراتے ہوئے
+colors, white, stars	2	COLORS, white, stars	=سفید ستارے
+colors, white, stars, blowing nose, on	3	COLORS, white, stars, blowing nose, on	=سفید ستارے، ناک سنکنے پر
+colors, white, stars, writing, while	3	COLORS, white, stars, writing, while	=سفید ستارے، لکھتے ہوئے
+colors, white, stripes	2	COLORS, white, stripes	=سفید دھاریاں
+colors, white, zigzags in a circle	2	COLORS, white, zigzags in a circle	=سفید ٹیڑھی میڑھی لکیریں دائرے میں
+colors, yellow	1	COLORS, yellow	=زرد
+colors, yellow, border around all objects	2	COLORS, yellow, border around all objects	=زرد کنارہ ہر چیز کے گرد
+colors, yellow, circle around light	2	COLORS, yellow, circle around light	=زرد حلقہ روشنی کے گرد
+colors, yellow, circle around light, moving	3	COLORS, yellow, circle around light, moving	=زرد حلقہ روشنی کے گرد، ہلتا ہوا
+colors, yellow, cloud	2	COLORS, yellow, cloud	=زرد بادل
+colors, yellow, crescent-shaped bodies floating obliquely upwards	2	COLORS, yellow, crescent-shaped bodies floating obliquely upwards	=زرد ہلالی شکلیں ترچھی اوپر کو تیرتی ہوئی
+colors, yellow, day	2	COLORS, yellow, day	=زرد، دن
+colors, yellow, day, and red at night	3	COLORS, yellow, day, and red at night	=زرد دن کو اور سرخ رات کو
+colors, yellow, flames	2	COLORS, yellow, flames	=زرد شعلے
+colors, yellow, halo around the light	2	COLORS, yellow, halo around the light	=زرد ہالہ روشنی کے گرد
+colors, yellow, letters	2	COLORS, yellow, letters	=زرد حروف
+colors, yellow, points	2	COLORS, yellow, points	=زرد نقطے
+colors, yellow, red things look yellow	2	COLORS, yellow, red things look yellow	=سرخ چیزیں زرد لگیں
+colors, yellow, shiny tremulous mist	2	COLORS, yellow, shiny tremulous mist	=زرد چمکتی لرزتی دھند
+colors, yellow, spots	2	COLORS, yellow, spots	=زرد دھبے
+colors, yellow, spots, before left eye	3	COLORS, yellow, spots, before left eye	=زرد دھبے، بائیں آنکھ کے آگے
+colors, yellow, spots, looking at white objects	3	COLORS, yellow, spots, looking at white objects	=زرد دھبے، سفید چیزیں دیکھنے پر
+colors, yellow, spots, reading, while	3	COLORS, yellow, spots, reading, while	=زرد دھبے، پڑھتے ہوئے
+colors, yellow, veil	2	COLORS, yellow, veil	=زرد پردہ
+colors, yellow, vomiting, while	2	COLORS, yellow, vomiting, while	=زرد، قے کے وقت
+confused (vision)	0	CONFUSED (vision)	الجھی ہوئی نظر
+crooked	0	CROOKED	ٹیڑھا
+crooked, lines, while reading	1	CROOKED, lines, while reading	=لکیریں ٹیڑھی، پڑھتے ہوئے
+crooked, objects appear	1	CROOKED, objects appear	=چیزیں ٹیڑھی لگیں
+dancing	0	DANCING	ناچتی ہوئی
+dancing, headache, before	1	DANCING, headache, before	=ناچتی ہوئی، سر درد سے پہلے
+dazzling	0	DAZZLING (See Trembling)	چکاچوند
+dazzling, candlelight	1	DAZZLING (See Trembling), candlelight	=چکاچوند، موم بتی کی روشنی سے
+dazzling, distant objects	1	DAZZLING (See Trembling), distant objects	=چکاچوند، دور کی چیزوں سے
+dazzling, looking long	1	DAZZLING (See Trembling), looking long	=چکاچوند، دیر تک دیکھنے سے
+dazzling, reading, while	1	DAZZLING (See Trembling), reading, while	=چکاچوند، پڑھتے ہوئے
+dazzling, snow	1	DAZZLING (See Trembling), snow	=چکاچوند، برف سے
+dazzling, spot before eyes	1	DAZZLING (See Trembling), spot before eyes	=چکاچوند دھبہ آنکھوں کے آگے
+dazzling, sunlight	1	DAZZLING (See Trembling), sunlight	=چکاچوند، دھوپ سے
+dazzling, urination, after	1	DAZZLING (See Trembling), urination, after	=چکاچوند، پیشاب کے بعد
+dim	0	DIM	کمزور (دھندلی)
+dim, afternoon, while reading	1	DIM, afternoon, while reading	سہ پہر پڑھتے ہوئے
+dim, air	1	DIM, air	ہوا
+dim, air, fresh, amel.	2	DIM, air, fresh, amel.	=کمزور (دھندلی)، تازہ ہوا میں آرام
+dim, air, open	2	DIM, air, open	=کمزور (دھندلی)، کھلی ہوا میں
+dim, alternating with deafness	1	DIM, alternating with deafness	باری باری بہرے پن کے ساتھ
+dim, anxiety, during	1	DIM, anxiety, during	بے چینی کے دوران
+dim, blowing nose	1	DIM, blowing nose	ناک سنکنے پر
+dim, bright light	1	DIM, bright light	تیز روشنی میں
+dim, candlelight	1	DIM, candlelight	موم بتی کی روشنی میں
+dim, chill, during	1	DIM, chill, during	سردی لگنے کے دوران
+dim, coition, after	1	DIM, coition, after	مباشرت کے بعد
+dim, cold bathing amel.	1	DIM, cold bathing amel.	ٹھنڈے پانی سے نہانے پر آرام
+dim, cold, head becoming, from	1	DIM, cold, head becoming, from	سر ٹھنڈا ہونے سے
+dim, cough, during	1	DIM, cough, during	کھانسی کے دوران
+dim, damp weather	1	DIM, damp weather	نم موسم میں
+dim, dark day amel.	1	DIM, dark day amel.	اندھیرے دن میں آرام
+dim, daytime	1	DIM, daytime	دن کے وقت
+dim, descending stairs	1	DIM, descending stairs	سیڑھیاں اترتے ہوئے
+dim, dinner, after	1	DIM, dinner, after	دوپہر کے کھانے کے بعد
+dim, diphtheria, after	1	DIM, diphtheria, after	خناق (ڈفتھیریا) کے بعد
+dim, distant objects	1	DIM, distant objects	دور کی چیزیں
+dim, drunkards, in	1	DIM, drunkards, in	شرابیوں میں
+dim, eating	1	DIM, eating	کھانا
+dim, eating, after	2	DIM, eating, after	=کمزور (دھندلی)، کھانے کے بعد
+dim, eating, while	2	DIM, eating, while	=کمزور (دھندلی)، کھاتے ہوئے
+dim, erect, on becoming	1	DIM, erect, on becoming	سیدھا ہونے پر
+dim, evening	1	DIM, evening	شام
+dim, evening, 9 a.m.	2	DIM, evening, 9 a.m.	=کمزور (دھندلی)، صبح 9 بجے
+dim, evening, firelight agg.	2	DIM, evening, firelight agg.	=کمزور (دھندلی)، شام آگ کی روشنی سے بگاڑ
+dim, evening, lying down amel.	2	DIM, evening, lying down amel.	=کمزور (دھندلی)، شام لیٹنے سے آرام
+dim, evening, menses, during	2	DIM, evening, menses, during	=کمزور (دھندلی)، شام حیض کے دوران
+dim, evening, reading	2	DIM, evening, reading	=کمزور (دھندلی)، شام پڑھتے ہوئے
+dim, evening, twilight	2	DIM, evening, twilight	=کمزور (دھندلی)، شام جھٹپٹے کے وقت
+dim, evening, walking	2	DIM, evening, walking	=کمزور (دھندلی)، شام چلنا
+dim, evening, walking, after, on entering a room	3	DIM, evening, walking, after, on entering a room	=کمزور (دھندلی)، شام چلنے کے بعد کمرے میں داخل ہونے پر
+dim, evening, walking, fast	3	DIM, evening, walking, fast	=کمزور (دھندلی)، شام تیز چلنے سے
+dim, evening, walking, while	3	DIM, evening, walking, while	=کمزور (دھندلی)، شام چلتے ہوئے
+dim, evening, warm from exertion, when	2	DIM, evening, warm from exertion, when	=کمزور (دھندلی)، شام محنت سے گرم ہونے پر
+dim, exertion of eyes	1	DIM, exertion of eyes	آنکھوں پر زور
+dim, exertion of eyes, after	2	DIM, exertion of eyes, after	=کمزور (دھندلی)، آنکھوں پر زور دینے کے بعد
+dim, exertion of eyes, on fine work	2	DIM, exertion of eyes, on fine work	=کمزور (دھندلی)، باریک کام میں آنکھوں پر زور دینے سے
+dim, exertion, body	1	DIM, exertion, body	جسمانی محنت سے
+dim, firelight agg.	1	DIM, firelight agg.	آگ کی روشنی سے بگاڑ
+dim, forenoon	1	DIM, forenoon	دوپہر سے پہلے
+dim, forenoon, 11 a.m.	2	DIM, forenoon, 11 a.m.	=کمزور (دھندلی)، صبح 11 بجے
+dim, forenoon, 7 a.m. until 10 a.m.	2	DIM, forenoon, 7 a.m. until 10 a.m.	=کمزور (دھندلی)، صبح 7 سے 10 بجے تک
+dim, forenoon, reading, while	2	DIM, forenoon, reading, while	=کمزور (دھندلی)، دوپہر سے پہلے پڑھتے ہوئے
+dim, headache	1	DIM, headache	سر درد
+dim, headache, after	2	DIM, headache, after	=کمزور (دھندلی)، سر درد کے بعد
+dim, headache, before	2	DIM, headache, before	=کمزور (دھندلی)، سر درد سے پہلے
+dim, headache, during	2	DIM, headache, during	=کمزور (دھندلی)، سر درد کے دوران
+dim, heat, in, agg.	1	DIM, heat, in, agg.	گرمی میں بگاڑ
+dim, left eye	1	DIM, left eye	بائیں آنکھ
+dim, left eye, with right-sided headache	2	DIM, left eye, with right-sided headache	=کمزور (دھندلی)، بائیں آنکھ، دائیں طرف کے سر درد کے ساتھ
+dim, looking long	1	DIM, looking long	دیر تک دیکھنے سے
+dim, looking, steadily amel.	1	DIM, looking, steadily amel.	ایک ٹک دیکھنے سے آرام
+dim, measles, after	1	DIM, measles, after	خسرے کے بعد
+dim, menses	1	DIM, menses	حیض
+dim, menses, before	2	DIM, menses, before	=کمزور (دھندلی)، حیض سے پہلے
+dim, menses, during	2	DIM, menses, during	=کمزور (دھندلی)، حیض کے دوران
+dim, mental exertion	1	DIM, mental exertion	ذہنی محنت سے
+dim, momentary spells	1	DIM, momentary spells	لمحہ بھر کے دورے
+dim, morning agg.	1	DIM, morning agg.	صبح بگاڑ
+dim, morning	1	DIM, morning	صبح
+dim, morning, amel.	2	DIM, morning, amel.	=کمزور (دھندلی)، صبح آرام
+dim, morning, waking, on	2	DIM, morning, waking, on	=کمزور (دھندلی)، صبح جاگنے پر
+dim, morning, washing amel.	2	DIM, morning, washing amel.	=کمزور (دھندلی)، صبح دھونے سے آرام
+dim, motion, from uneven	1	DIM, motion, from uneven	ناہموار حرکت (جھٹکوں) سے
+dim, moving objects	1	DIM, moving objects	ہلتی چیزیں
+dim, night	1	DIM, night	رات
+dim, night, better at night than by day	2	DIM, night, better at night than by day	=کمزور (دھندلی)، دن کی نسبت رات کو بہتر
+dim, night, menses, during	2	DIM, night, menses, during	=کمزور (دھندلی)، رات حیض کے دوران
+dim, noon	1	DIM, noon	دوپہر
+dim, noon, on rising from a seat	2	DIM, noon, on rising from a seat	=کمزور (دھندلی)، دوپہر نشست سے اٹھنے پر
+dim, occiput, with pain in, extending to eye	1	DIM, occiput, with pain in, extending to eye	گدی کے درد کے ساتھ جو آنکھ تک پھیلے
+dim, old people	1	DIM, old people	بوڑھوں میں
+dim, overheating	1	DIM, overheating	زیادہ گرم ہونے سے
+dim, reading	1	DIM, reading	پڑھنے سے
+dim, recurrent	1	DIM, recurrent	بار بار لوٹنے والی
+dim, rheumatism, during	1	DIM, rheumatism, during	گٹھیا کے دوران
+dim, right	1	DIM, right	دائیں
+dim, rising from bed	1	DIM, rising from bed	بستر سے اٹھنے پر
+dim, rising	1	DIM, rising	اٹھنا
+dim, rising, a seat	2	DIM, rising, a seat	=کمزور (دھندلی)، نشست سے اٹھنے پر
+dim, rising, from stooping	2	DIM, rising, from stooping	=کمزور (دھندلی)، جھک کر سیدھا ہونے پر
+dim, room, in, amel.	1	DIM, room, in, amel.	کمرے میں آرام
+dim, rubbing agg.	1	DIM, rubbing agg.	ملنے سے بگاڑ
+dim, rubbing, amel.	1	DIM, rubbing, amel.	ملنے سے آرام
+dim, seminal emission, after	1	DIM, seminal emission, after	احتلام کے بعد
+dim, sideways, can only see objects when looking at them	1	DIM, sideways, can only see objects when looking at them	چیزیں صرف ترچھی نظر سے دکھائی دیں
+dim, smoking	1	DIM, smoking	تمباکو نوشی سے
+dim, standing	1	DIM, standing	کھڑے ہونے پر
+dim, stimulants, from	1	DIM, stimulants, from	نشہ آور چیزوں سے
+dim, straining eyes	1	DIM, straining eyes	آنکھوں پر زور دینے سے
+dim, sunlight agg.	1	DIM, sunlight agg.	دھوپ سے بگاڑ
+dim, suppressed foot-sweat, after	1	DIM, suppressed foot-sweat, after	پاؤں کا پسینہ رک جانے کے بعد
+dim, thinking, from	1	DIM, thinking, from	سوچنے سے
+dim, twilight amel.	1	DIM, twilight amel.	جھٹپٹے میں آرام
+dim, uncovering head, from	1	DIM, uncovering head, from	سر کھولنے (ننگا کرنے) سے
+dim, urination amel.	1	DIM, urination amel.	پیشاب سے آرام
+dim, vertigo, during	1	DIM, vertigo, during	چکر کے دوران
+dim, waking, on	1	DIM, waking, on	جاگنے پر
+dim, walking	1	DIM, walking	چلنا
+dim, walking, in open air agg.	2	DIM, walking, in open air agg.	=کمزور (دھندلی)، کھلی ہوا میں چلنے سے بگاڑ
+dim, walking, in open air, amel.	2	DIM, walking, in open air, amel.	=کمزور (دھندلی)، کھلی ہوا میں چلنے سے آرام
+dim, walking, while	2	DIM, walking, while	=کمزور (دھندلی)، چلتے ہوئے
+dim, warmth	1	DIM, warmth	گرمائش سے
+dim, washing in water, after	1	DIM, washing in water, after	پانی سے دھونے کے بعد
+dim, white objects, when fixing eyes upon	1	DIM, white objects, when fixing eyes upon	سفید چیزوں پر نظر جمانے سے
+dim, winking amel.	1	DIM, winking amel.	پلک جھپکنے سے آرام
+dim, wiping eyes amel.	1	DIM, wiping eyes amel.	آنکھیں پونچھنے سے آرام
+dim, writing, while	1	DIM, writing, while	لکھتے ہوئے
+diplopia	0	DIPLOPIA	دو دو نظر آنا
+diplopia, convulsions, with	1	DIPLOPIA, convulsions, with	تشنج کے ساتھ
+diplopia, distant objects	1	DIPLOPIA, distant objects	دور کی چیزیں
+diplopia, evening	1	DIPLOPIA, evening	شام
+diplopia, headache, with	1	DIPLOPIA, headache, with	سر درد کے ساتھ
+diplopia, horizontal objects, of	1	DIPLOPIA, horizontal objects, of	افقی (لیٹی ہوئی) چیزیں
+diplopia, inclining head to either side	1	DIPLOPIA, inclining head to either side	سر کسی بھی طرف جھکانے پر
+diplopia, light, when looking at	1	DIPLOPIA, light, when looking at	روشنی کی طرف دیکھنے پر
+diplopia, looking downward	1	DIPLOPIA, looking downward	نیچے دیکھنے پر
+diplopia, looking	1	DIPLOPIA, looking	دیکھنا
+diplopia, looking, intensely	2	DIPLOPIA, looking, intensely	=دو دو نظر آنا، غور سے دیکھنے پر
+diplopia, looking, sideways	2	DIPLOPIA, looking, sideways	=دو دو نظر آنا، ترچھا دیکھنے پر
+diplopia, looking, sideways, right	3	DIPLOPIA, looking, sideways, right	=دو دو نظر آنا، دائیں طرف ترچھا دیکھنے پر
+diplopia, looking, upward	2	DIPLOPIA, looking, upward	=دو دو نظر آنا، اوپر دیکھنے پر
+diplopia, lying down amel.	1	DIPLOPIA, lying down amel.	لیٹنے سے آرام
+diplopia, morning	1	DIPLOPIA, morning	صبح
+diplopia, near objects	1	DIPLOPIA, near objects	قریب کی چیزیں
+diplopia, night	1	DIPLOPIA, night	رات
+diplopia, overwork at the desk	1	DIPLOPIA, overwork at the desk	میز پر زیادہ کام کرنے سے
+diplopia, pregnancy, during	1	DIPLOPIA, pregnancy, during	حمل کے دوران
+diplopia, reading	1	DIPLOPIA, reading	پڑھنے سے
+diplopia, riding in the cars, after	1	DIPLOPIA, riding in the cars, after	ریل کے سفر کے بعد
+diplopia, sleep, after	1	DIPLOPIA, sleep, after	نیند کے بعد
+diplopia, standing erect and looking down	1	DIPLOPIA, standing erect and looking down	سیدھا کھڑے ہو کر نیچے دیکھنے پر
+diplopia, turning eyes to right, on	1	DIPLOPIA, turning eyes to right, on	آنکھیں دائیں گھمانے پر
+diplopia, vertigo, after	1	DIPLOPIA, vertigo, after	چکر کے بعد
+diplopia, writing	1	DIPLOPIA, writing	لکھنے سے
+distant	0	DISTANT	دور
+distant, objects seem	1	DISTANT, objects seem	=چیزیں دور لگیں
+distant, objects seem, dark, in the	2	DISTANT, objects seem, dark, in the	=چیزیں دور لگیں، اندھیرے میں
+distant, objects seem, on waking	2	DISTANT, objects seem, on waking	=چیزیں دور لگیں، جاگنے پر
+exertion of vision agg.	0	EXERTION of vision agg. (See Looking)	نظر پر زور دینے سے بگاڑ
+exertion	0	EXERTION	محنت
+exertion, physical, amel.	1	EXERTION, physical, amel.	=جسمانی محنت سے آرام
+fade away	0	FADE away	غائب ہو جانا
+fade away, then reappear, objects	1	FADE away, then reappear, objects	=چیزیں غائب ہو کر پھر نمودار ہوں
+far-sighted	0	FAR-SIGHTED (See Hypermetropia)	دور کی نظر (قریب کمزور)
+feathery	0	FEATHERY	پروں جیسی (روئیں دار)
+fiery	0	FIERY	آگ جیسی چیزیں
+fiery, balls	1	FIERY, balls	=آگ کے گولے
+fiery, bodies	1	FIERY, bodies	=آگ جیسی چیزیں
+fiery, circles	1	FIERY, circles	=آگ کے حلقے
+fiery, disks	1	FIERY, disks	=آگ کی تشتریاں
+fiery, points	1	FIERY, points	=آگ کے نقطے
+fiery, points, moving with the eyes	2	FIERY, points, moving with the eyes	=آگ کے نقطے، آنکھوں کے ساتھ ہلتے ہوئے
+fiery, rays about the light	1	FIERY, rays about the light	=آگ کی شعاعیں روشنی کے گرد
+fiery, rising from seat, on	1	FIERY, rising from seat, on	=آگ جیسی چیزیں، نشست سے اٹھنے پر
+fiery, shimmerings	1	FIERY, shimmerings	=آگ کی جھلملاہٹ
+fiery, showers	1	FIERY, showers	=آگ کی بوچھاڑ
+fiery, spots	1	FIERY, spots	=آگ کے دھبے
+fiery, zigzags	1	FIERY, zigzags	=آگ کی ٹیڑھی میڑھی لکیریں
+fiery, zigzags, around objects	2	FIERY, zigzags, around objects	=آگ کی ٹیڑھی میڑھی لکیریں چیزوں کے گرد
+fire	0	FIRE	آگ
+fire, a sea of, on closing the eyes	1	FIRE, a sea of, on closing the eyes	=آنکھیں بند کرنے پر آگ کا سمندر
+flames	0	FLAMES	شعلے
+flames, night in bed	1	FLAMES, night in bed	=شعلے، رات بستر میں
+flames, night, waking, on	1	FLAMES, night, waking, on	=شعلے، رات جاگنے پر
+flames, various colored flames	1	FLAMES, various colored flames	=طرح طرح کے رنگین شعلے
+flashes	0	FLASHES	کوندے (چمک)
+flashes, closing the eyes, on	1	FLASHES, closing the eyes, on	=کوندے، آنکھیں بند کرنے پر
+flashes, coughing, on	1	FLASHES, coughing, on	=کوندے، کھانستے وقت
+flashes, dark, in the	1	FLASHES, dark, in the	=کوندے، اندھیرے میں
+flashes, electric shocks, like	1	FLASHES, electric shocks, like	=کوندے، بجلی کے جھٹکوں جیسے
+flashes, morning in the dark	1	FLASHES, morning in the dark	=کوندے، صبح اندھیرے میں
+flashes, morning, waking, on	1	FLASHES, morning, waking, on	=کوندے، صبح جاگنے پر
+flashes, sleep, on going to	1	FLASHES, sleep, on going to	=کوندے، سوتے وقت
+flashes, streaks	1	FLASHES, streaks	=کوندے، لکیروں کی صورت
+flashes, waking, after	1	FLASHES, waking, after	=کوندے، جاگنے کے بعد
+flickering	0	FLICKERING	جھلملاہٹ
+flickering, afternoon after nap	1	FLICKERING, afternoon after nap	سہ پہر جھپکی کے بعد
+flickering, around outside the range of vision	1	FLICKERING, around outside the range of vision	نظر کے دائرے کے باہر گرد
+flickering, ascending stairs	1	FLICKERING, ascending stairs	سیڑھیاں چڑھتے ہوئے
+flickering, breakfast, after	1	FLICKERING, breakfast, after	ناشتے کے بعد
+flickering, candlelight	1	FLICKERING, candlelight	موم بتی کی روشنی میں
+flickering, chill	1	FLICKERING, chill	سردی لگنے کے دوران
+flickering, circles	1	FLICKERING, circles	حلقوں کی صورت
+flickering, closing eyes, when	1	FLICKERING, closing eyes, when	آنکھیں بند کرنے پر
+flickering, colors, various	1	FLICKERING, colors, various	طرح طرح کے رنگوں کی
+flickering, daytime	1	FLICKERING, daytime	دن کے وقت
+flickering, dinner	1	FLICKERING, dinner	دوپہر کا کھانا
+flickering, dinner, after	2	FLICKERING, dinner, after	=جھلملاہٹ، دوپہر کے کھانے کے بعد
+flickering, dinner, during	2	FLICKERING, dinner, during	=جھلملاہٹ، دوپہر کے کھانے کے دوران
+flickering, eating amel.	1	FLICKERING, eating amel.	کھانے سے آرام
+flickering, entering a house, on	1	FLICKERING, entering a house, on	گھر میں داخل ہونے پر
+flickering, evening	1	FLICKERING, evening	شام
+flickering, evening, on attempting to read	2	FLICKERING, evening, on attempting to read	=جھلملاہٹ، شام پڑھنے کی کوشش پر
+flickering, exercise, after	1	FLICKERING, exercise, after	ورزش کے بعد
+flickering, headache	1	FLICKERING, headache	سر درد
+flickering, headache, at beginning of	2	FLICKERING, headache, at beginning of	=جھلملاہٹ، سر درد کے شروع میں
+flickering, headache, before	2	FLICKERING, headache, before	=جھلملاہٹ، سر درد سے پہلے
+flickering, headache, during	2	FLICKERING, headache, during	=جھلملاہٹ، سر درد کے دوران
+flickering, left	1	FLICKERING, left	بائیں
+flickering, light, when looking at	1	FLICKERING, light, when looking at	روشنی کی طرف دیکھنے پر
+flickering, looking long	1	FLICKERING, looking long	دیر تک دیکھنے سے
+flickering, looking, intently	1	FLICKERING, looking, intently	غور سے دیکھنے پر
+flickering, lying, while	1	FLICKERING, lying, while	لیٹے ہوئے
+flickering, morning	1	FLICKERING, morning	صبح
+flickering, morning, 5 a.m.	2	FLICKERING, morning, 5 a.m.	=جھلملاہٹ، صبح 5 بجے
+flickering, morning, headache, with	2	FLICKERING, morning, headache, with	=جھلملاہٹ، صبح سر درد کے ساتھ
+flickering, morning, rising, on	2	FLICKERING, morning, rising, on	=جھلملاہٹ، صبح اٹھتے وقت
+flickering, morning, waking	2	FLICKERING, morning, waking	=جھلملاہٹ، صبح جاگنے پر
+flickering, morning, writing	2	FLICKERING, morning, writing	=جھلملاہٹ، صبح لکھتے ہوئے
+flickering, moving to the right	1	FLICKERING, moving to the right	دائیں طرف ہلتی ہوئی
+flickering, night agg.	1	FLICKERING, night agg.	رات کو بگاڑ
+flickering, paroxysmal	1	FLICKERING, paroxysmal	دوروں کی شکل میں
+flickering, reading, while	1	FLICKERING, reading, while	پڑھتے ہوئے
+flickering, right	1	FLICKERING, right	دائیں
+flickering, rising, on	1	FLICKERING, rising, on	اٹھنے پر
+flickering, sewing, while	1	FLICKERING, sewing, while	سلائی کرتے ہوئے
+flickering, sleep, on going to	1	FLICKERING, sleep, on going to	سوتے وقت
+flickering, sudden	1	FLICKERING, sudden	اچانک
+flickering, vertigo, with	1	FLICKERING, vertigo, with	چکر کے ساتھ
+flickering, wiping eyes agg.	1	FLICKERING, wiping eyes agg.	آنکھیں پونچھنے سے بگاڑ
+flickering, writing, while	1	FLICKERING, writing, while	لکھتے ہوئے
+focal distance changes while reading	0	FOCAL distance changes while reading	پڑھتے ہوئے فوکس کا فاصلہ بدلتا رہے
+focal distance	0	FOCAL distance	فوکس کا فاصلہ
+focal distance, unequal	1	FOCAL distance, unequal	=فوکس کا فاصلہ، دونوں آنکھوں میں مختلف
+foggy	0	FOGGY	دھند
+foggy, afternoon	1	FOGGY, afternoon	سہ پہر
+foggy, afternoon, 3 p.m. to 4 p.m.	2	FOGGY, afternoon, 3 p.m. to 4 p.m.	=دھند، سہ پہر 3 سے 4 بجے
+foggy, afternoon, 4 p.m. after sleep	2	FOGGY, afternoon, 4 p.m. after sleep	=دھند، سہ پہر 4 بجے نیند کے بعد
+foggy, bright light agg.	1	FOGGY, bright light agg.	تیز روشنی سے بگاڑ
+foggy, candlelight, around	1	FOGGY, candlelight, around	موم بتی کی روشنی کے گرد
+foggy, circles	1	FOGGY, circles	حلقوں کی صورت
+foggy, colors, caused by	1	FOGGY, colors, caused by	رنگوں سے پیدا ہو
+foggy, daytime	1	FOGGY, daytime	دن کے وقت
+foggy, dinner, after	1	FOGGY, dinner, after	دوپہر کے کھانے کے بعد
+foggy, distant objects	1	FOGGY, distant objects	دور کی چیزیں
+foggy, eating, after	1	FOGGY, eating, after	کھانے کے بعد
+foggy, evening	1	FOGGY, evening	شام
+foggy, evening, candlelight	2	FOGGY, evening, candlelight	=دھند، شام موم بتی کی روشنی میں
+foggy, fever	1	FOGGY, fever	بخار میں
+foggy, headache, during	1	FOGGY, headache, during	سر درد کے دوران
+foggy, hemiopia, in	1	FOGGY, hemiopia, in	آدھی نظر کے مرض میں
+foggy, incipient cataract	1	FOGGY, incipient cataract	ابتدائی موتیا
+foggy, lying on left side	1	FOGGY, lying on left side	بائیں پہلو لیٹنے پر
+foggy, morning	1	FOGGY, morning	صبح
+foggy, morning, 10 a.m. to 3 p.m.	2	FOGGY, morning, 10 a.m. to 3 p.m.	=دھند، صبح 10 سے سہ پہر 3 بجے تک
+foggy, motion, during	1	FOGGY, motion, during	حرکت کے دوران
+foggy, open air agg.	1	FOGGY, open air agg.	کھلی ہوا میں بگاڑ
+foggy, reading, while	1	FOGGY, reading, while	پڑھتے ہوئے
+foggy, rising from a seat	1	FOGGY, rising from a seat	نشست سے اٹھنے پر
+foggy, room, in	1	FOGGY, room, in	کمرے میں
+foggy, rubbing amel.	1	FOGGY, rubbing amel.	ملنے سے آرام
+foggy, seminal emissions, after	1	FOGGY, seminal emissions, after	احتلام کے بعد
+foggy, sewing	1	FOGGY, sewing	سلائی سے
+foggy, sitting, after long	1	FOGGY, sitting, after long	دیر تک بیٹھنے کے بعد
+foggy, sleep, after	1	FOGGY, sleep, after	نیند کے بعد
+foggy, standing	1	FOGGY, standing	کھڑے ہونے پر
+foggy, sunlight agg.	1	FOGGY, sunlight agg.	دھوپ سے بگاڑ
+foggy, tremulous	1	FOGGY, tremulous	لرزتی ہوئی
+foggy, walking	1	FOGGY, walking	چلنے سے
+foggy, washing amel.	1	FOGGY, washing amel.	دھونے سے آرام
+foggy, writing	1	FOGGY, writing	لکھنے سے
+gauze	0	GAUZE (See Foggy)	جالی (باریک پردہ)
+glimmering	0	GLIMMERING (See Flickering)	ٹمٹماہٹ
+glittering objects	0	GLITTERING objects	چمکتی چیزیں
+glittering	0	GLITTERING	چمکتی
+glittering, bodies on blowing nose	1	GLITTERING, bodies on blowing nose	=چمکتی چیزیں، ناک سنکنے پر
+glittering, bodies	1	GLITTERING, bodies	=چمکتی چیزیں
+glittering, bodies, bright, luminous appearances	2	GLITTERING, bodies, bright, luminous appearances	=چمکتی چیزیں، روشن، نورانی شکلیں
+glittering, bodies, outside, the range of vision	2	GLITTERING, bodies, outside, the range of vision	=چمکتی چیزیں، نظر کے دائرے کے باہر
+glittering, candlelight, in	1	GLITTERING, candlelight, in	=چمکتی، موم بتی کی روشنی میں
+glittering, circle	1	GLITTERING, circle	=چمکتا حلقہ
+glittering, gaslight, in	1	GLITTERING, gaslight, in	=چمکتی، گیس کی روشنی میں
+glittering, needles	1	GLITTERING, needles	=چمکتی سوئیاں
+glittering, points	1	GLITTERING, points	=چمکتے نقطے
+glittering, reading, while	1	GLITTERING, reading, while	=چمکتی، پڑھتے ہوئے
+glittering, stars	1	GLITTERING, stars	=چمکتے ستارے
+glittering, vertigo, with	1	GLITTERING, vertigo, with	=چمکتی، چکر کے ساتھ
+glittering, zigzags	1	GLITTERING, zigzags	=چمکتی ٹیڑھی میڑھی لکیریں
+hair	0	HAIR	بال
+hair, as if, hung before the sight and must be wiped away	1	HAIR, as if, hung before the sight and must be wiped away	=جیسے بال نظر کے آگے لٹک رہا ہو جسے پونچھنا پڑے
+hemiopia	0	HEMIOPIA	آدھی نظر (نصف میدانِ نظر غائب)
+hemiopia, evening	1	HEMIOPIA, evening	=آدھی نظر، شام
+hemiopia, horizontal	1	HEMIOPIA, horizontal	=آدھی نظر، افقی
+hemiopia, left half lost	1	HEMIOPIA, left half lost	=آدھی نظر، بایاں آدھا غائب
+hemiopia, lower lost	1	HEMIOPIA, lower lost	=آدھی نظر، نچلا حصہ غائب
+hemiopia, menses, during	1	HEMIOPIA, menses, during	=آدھی نظر، حیض کے دوران
+hemiopia, right half lost	1	HEMIOPIA, right half lost	=آدھی نظر، دایاں آدھا غائب
+hemiopia, upper lost	1	HEMIOPIA, upper lost	=آدھی نظر، اوپری حصہ غائب
+hemiopia, vertical	1	HEMIOPIA, vertical	=آدھی نظر، عمودی
+hemiopia, walking, while	1	HEMIOPIA, walking, while	=آدھی نظر، چلتے ہوئے
+high, objects seem too	0	HIGH, objects seem too (See Large)	چیزیں بہت اونچی لگیں
+hypermetropia	0	HYPERMETROPIA	دور کی نظر (قریب کمزور)
+hypermetropia, evening	1	HYPERMETROPIA, evening	=دور کی نظر، شام
+hypermetropia, overuse of eyes in fine work	1	HYPERMETROPIA, overuse of eyes in fine work	=دور کی نظر، باریک کام میں آنکھوں کے زیادہ استعمال سے
+illusions	0	ILLUSIONS	فریبِ نظر
+illusions, falling asleep, when	1	ILLUSIONS, falling asleep, when	=فریبِ نظر، نیند آتے وقت
+illusions, insects	1	ILLUSIONS, insects	=فریبِ نظر، کیڑے
+illusions, objects passing	1	ILLUSIONS, objects passing	=فریبِ نظر، گزرتی چیزیں
+images too long retained	0	IMAGES too long retained	عکس دیر تک باقی رہے
+inverted	0	INVERTED	الٹا
+inverted, objects seem	1	INVERTED, objects seem	=چیزیں الٹی لگیں
+jump	0	JUMP	اچھلنا
+jump, words when reading	1	JUMP, words when reading	=پڑھتے ہوئے الفاظ اچھلیں
+large field of vision	0	LARGE field of vision	نظر کا میدان بڑا
+large	0	LARGE	بڑا
+large, flame of light	1	LARGE, flame of light	=روشنی کا شعلہ بڑا لگے
+large, objects seem	1	LARGE, objects seem	=چیزیں بڑی لگیں
+large, objects seem, elongated	2	LARGE, objects seem, elongated	=چیزیں لمبی لگیں
+large, objects seem, raises his foot unnecessarily high in stepping over small objects when walking	2	LARGE, objects seem, raises his foot unnecessarily high in stepping over small objects when walking	=چیزیں بڑی لگیں، چلتے ہوئے چھوٹی چیزوں پر سے گزرنے کے لیے پاؤں بلاوجہ بہت اونچا اٹھاتا ہے
+large, objects seem, rising from a seat, on	2	LARGE, objects seem, rising from a seat, on	=چیزیں بڑی لگیں، نشست سے اٹھنے پر
+large, objects seem, twilight, in	2	LARGE, objects seem, twilight, in	=چیزیں بڑی لگیں، جھٹپٹے میں
+light	0	LIGHT	روشنی
+light, insensibility to	1	LIGHT, insensibility to	=روشنی کا احساس نہ ہونا
+light, points	1	LIGHT, points	=روشنی کے نقطے
+light, points, in a dark circle	2	LIGHT, points, in a dark circle	=روشنی کے نقطے، تاریک حلقے میں
+light, spots	1	LIGHT, spots	=روشنی کے دھبے
+light, streaks of	1	LIGHT, streaks of	=روشنی کی لکیریں
+light, streaks of, pass downward; seen to one side of eye in dark	2	LIGHT, streaks of, pass downward; seen to one side of eye in dark	=روشنی کی لکیریں، نیچے کو گزریں؛ اندھیرے میں آنکھ کے ایک طرف دکھائی دیں
+light, waves of	1	LIGHT, waves of	=روشنی کی لہریں
+lightnings	0	LIGHTNINGS	بجلی کی چمک
+lightnings, dark, in	1	LIGHTNINGS, dark, in	=بجلی کی چمک، اندھیرے میں
+lightnings, night, distant, sheet lightning in dark, 11 p.m.	1	LIGHTNINGS, night, distant, sheet lightning in dark, 11 p.m.	=بجلی کی چمک، رات، اندھیرے میں دور کی چادر جیسی بجلی، رات 11 بجے
+lightnings, noon	1	LIGHTNINGS, noon	=بجلی کی چمک، دوپہر
+lightnings, on falling asleep	1	LIGHTNINGS, on falling asleep	=بجلی کی چمک، نیند آتے وقت
+lightnings, on waking	1	LIGHTNINGS, on waking	=بجلی کی چمک، جاگنے پر
+loss of vision (blindness)	0	LOSS of vision (blindness)	نظر کا جاتے رہنا (اندھا پن)
+loss of vision (blindness), abdominal pain, with	1	LOSS of vision (blindness), abdominal pain, with	پیٹ کے درد کے ساتھ
+loss of vision (blindness), afternoon	1	LOSS of vision (blindness), afternoon	سہ پہر
+loss of vision (blindness), afternoon, 4 p.m.	2	LOSS of vision (blindness), afternoon, 4 p.m.	=نظر کا جاتے رہنا، سہ پہر 4 بجے
+loss of vision (blindness), afternoon, after pain in head and eyes	2	LOSS of vision (blindness), afternoon, after pain in head and eyes	=نظر کا جاتے رہنا، سہ پہر سر اور آنکھوں کے درد کے بعد
+loss of vision (blindness), afternoon, rising after sleep, on	2	LOSS of vision (blindness), afternoon, rising after sleep, on	=نظر کا جاتے رہنا، سہ پہر نیند سے اٹھنے پر
+loss of vision (blindness), afternoon, stooping, on	2	LOSS of vision (blindness), afternoon, stooping, on	=نظر کا جاتے رہنا، سہ پہر جھکنے پر
+loss of vision (blindness), air	1	LOSS of vision (blindness), air	ہوا
+loss of vision (blindness), air, open agg.	2	LOSS of vision (blindness), air, open agg.	=نظر کا جاتے رہنا، کھلی ہوا میں بگاڑ
+loss of vision (blindness), air, open, amel.	2	LOSS of vision (blindness), air, open, amel.	=نظر کا جاتے رہنا، کھلی ہوا میں آرام
+loss of vision (blindness), alternates with headaches	1	LOSS of vision (blindness), alternates with headaches	باری باری سر درد کے ساتھ
+loss of vision (blindness), ascending stairs	1	LOSS of vision (blindness), ascending stairs	سیڑھیاں چڑھتے ہوئے
+loss of vision (blindness), bright objects, by	1	LOSS of vision (blindness), bright objects, by	چمکدار چیزوں سے
+loss of vision (blindness), chill, during	1	LOSS of vision (blindness), chill, during	سردی لگنے کے دوران
+loss of vision (blindness), cold, after catching	1	LOSS of vision (blindness), cold, after catching	ٹھنڈ لگنے کے بعد
+loss of vision (blindness), convulsions	1	LOSS of vision (blindness), convulsions	تشنج
+loss of vision (blindness), convulsions, after	2	LOSS of vision (blindness), convulsions, after	=نظر کا جاتے رہنا، تشنج کے بعد
+loss of vision (blindness), convulsions, before	2	LOSS of vision (blindness), convulsions, before	=نظر کا جاتے رہنا، تشنج سے پہلے
+loss of vision (blindness), damp weather	1	LOSS of vision (blindness), damp weather	نم موسم میں
+loss of vision (blindness), daytime	1	LOSS of vision (blindness), daytime	دن کے وقت
+loss of vision (blindness), daytime, light, caused by	2	LOSS of vision (blindness), daytime, light, caused by	=نظر کا جاتے رہنا، دن کے وقت، روشنی سے
+loss of vision (blindness), delirium, during	1	LOSS of vision (blindness), delirium, during	ہذیان کے دوران
+loss of vision (blindness), dinner, after	1	LOSS of vision (blindness), dinner, after	دوپہر کے کھانے کے بعد
+loss of vision (blindness), eating, after	1	LOSS of vision (blindness), eating, after	کھانے کے بعد
+loss of vision (blindness), emotion, sudden, from	1	LOSS of vision (blindness), emotion, sudden, from	اچانک جذباتی صدمے سے
+loss of vision (blindness), evening	1	LOSS of vision (blindness), evening	شام
+loss of vision (blindness), evening, light, caused by	2	LOSS of vision (blindness), evening, light, caused by	=نظر کا جاتے رہنا، شام روشنی سے
+loss of vision (blindness), evening, menses, during	2	LOSS of vision (blindness), evening, menses, during	=نظر کا جاتے رہنا، شام حیض کے دوران
+loss of vision (blindness), evening, reading, while	2	LOSS of vision (blindness), evening, reading, while	=نظر کا جاتے رہنا، شام پڑھتے ہوئے
+loss of vision (blindness), evening, sitting down during vertigo, on	2	LOSS of vision (blindness), evening, sitting down during vertigo, on	=نظر کا جاتے رہنا، شام چکر کے دوران بیٹھنے پر
+loss of vision (blindness), evening, sunset, at	2	LOSS of vision (blindness), evening, sunset, at	=نظر کا جاتے رہنا، شام غروبِ آفتاب کے وقت
+loss of vision (blindness), evening, twilight	2	LOSS of vision (blindness), evening, twilight	=نظر کا جاتے رہنا، شام جھٹپٹے کے وقت
+loss of vision (blindness), exerting them	1	LOSS of vision (blindness), exerting them	آنکھوں پر زور دینے سے
+loss of vision (blindness), exerting them, in sewing	2	LOSS of vision (blindness), exerting them, in sewing	=نظر کا جاتے رہنا، سلائی میں آنکھوں پر زور دینے سے
+loss of vision (blindness), fainting, as from	1	LOSS of vision (blindness), fainting, as from	جیسے غش سے
+loss of vision (blindness), fixing eyes	1	LOSS of vision (blindness), fixing eyes	نظر جمانے سے
+loss of vision (blindness), forenoon	1	LOSS of vision (blindness), forenoon	دوپہر سے پہلے
+loss of vision (blindness), head	1	LOSS of vision (blindness), head	سر
+loss of vision (blindness), head, on turning	2	LOSS of vision (blindness), head, on turning	=نظر کا جاتے رہنا، سر گھمانے پر
+loss of vision (blindness), head, on turning, suddenly	3	LOSS of vision (blindness), head, on turning, suddenly	=نظر کا جاتے رہنا، سر اچانک گھمانے پر
+loss of vision (blindness), head, rush of blood to, during	2	LOSS of vision (blindness), head, rush of blood to, during	=نظر کا جاتے رہنا، سر کو خون چڑھنے کے دوران
+loss of vision (blindness), headache	1	LOSS of vision (blindness), headache	سر درد
+loss of vision (blindness), headache, after	2	LOSS of vision (blindness), headache, after	=نظر کا جاتے رہنا، سر درد کے بعد
+loss of vision (blindness), headache, at beginning of	2	LOSS of vision (blindness), headache, at beginning of	=نظر کا جاتے رہنا، سر درد کے شروع میں
+loss of vision (blindness), injury to eye, after	1	LOSS of vision (blindness), injury to eye, after	آنکھ کی چوٹ کے بعد
+loss of vision (blindness), light	1	LOSS of vision (blindness), light	روشنی
+loss of vision (blindness), light, artificial light	2	LOSS of vision (blindness), light, artificial light	=نظر کا جاتے رہنا، مصنوعی روشنی سے
+loss of vision (blindness), light, by	2	LOSS of vision (blindness), light, by	=نظر کا جاتے رہنا، روشنی سے
+loss of vision (blindness), light, entering from dark	2	LOSS of vision (blindness), light, entering from dark	=نظر کا جاتے رہنا، اندھیرے سے روشنی میں آنے پر
+loss of vision (blindness), light, of sun	2	LOSS of vision (blindness), light, of sun	=نظر کا جاتے رہنا، دھوپ سے
+loss of vision (blindness), lightning stroke, after	1	LOSS of vision (blindness), lightning stroke, after	آسمانی بجلی گرنے کے بعد
+loss of vision (blindness), looking downward	1	LOSS of vision (blindness), looking downward	نیچے دیکھنے پر
+loss of vision (blindness), looking	1	LOSS of vision (blindness), looking	دیکھنا
+loss of vision (blindness), looking, at near objects	2	LOSS of vision (blindness), looking, at near objects	=نظر کا جاتے رہنا، قریب کی چیزیں دیکھنے پر
+loss of vision (blindness), looking, on looking long at an object	2	LOSS of vision (blindness), looking, on looking long at an object	=نظر کا جاتے رہنا، کسی چیز کو دیر تک دیکھنے پر
+loss of vision (blindness), looking, sideways	2	LOSS of vision (blindness), looking, sideways	=نظر کا جاتے رہنا، ترچھا دیکھنے پر
+loss of vision (blindness), looking, upwards	2	LOSS of vision (blindness), looking, upwards	=نظر کا جاتے رہنا، اوپر دیکھنے پر
+loss of vision (blindness), lying down amel.	1	LOSS of vision (blindness), lying down amel.	لیٹنے سے آرام
+loss of vision (blindness), menses	1	LOSS of vision (blindness), menses	حیض
+loss of vision (blindness), menses, amel.	2	LOSS of vision (blindness), menses, amel.	=نظر کا جاتے رہنا، حیض سے آرام
+loss of vision (blindness), menses, during agg.	2	LOSS of vision (blindness), menses, during agg.	=نظر کا جاتے رہنا، حیض کے دوران بگاڑ
+loss of vision (blindness), mental exertion	1	LOSS of vision (blindness), mental exertion	ذہنی محنت سے
+loss of vision (blindness), morning	1	LOSS of vision (blindness), morning	صبح
+loss of vision (blindness), morning, fasting	2	LOSS of vision (blindness), morning, fasting	=نظر کا جاتے رہنا، صبح نہار منہ
+loss of vision (blindness), morning, rising	2	LOSS of vision (blindness), morning, rising	=نظر کا جاتے رہنا، صبح اٹھتے وقت
+loss of vision (blindness), motion agg.	1	LOSS of vision (blindness), motion agg.	حرکت سے بگاڑ
+loss of vision (blindness), nausea, during	1	LOSS of vision (blindness), nausea, during	متلی کے دوران
+loss of vision (blindness), night	1	LOSS of vision (blindness), night	رات
+loss of vision (blindness), night, flickering by day, blind at night	2	LOSS of vision (blindness), night, flickering by day, blind at night	=نظر کا جاتے رہنا، دن میں جھلملاہٹ، رات کو اندھا
+loss of vision (blindness), noon	1	LOSS of vision (blindness), noon	دوپہر
+loss of vision (blindness), noon, before eating	2	LOSS of vision (blindness), noon, before eating	=نظر کا جاتے رہنا، دوپہر کھانے سے پہلے
+loss of vision (blindness), paroxysmal	1	LOSS of vision (blindness), paroxysmal	دوروں کی شکل میں
+loss of vision (blindness), parturition, during	1	LOSS of vision (blindness), parturition, during	زچگی کے دوران
+loss of vision (blindness), periodic	1	LOSS of vision (blindness), periodic	وقفے وقفے سے، باقاعدہ
+loss of vision (blindness), reading, while	1	LOSS of vision (blindness), reading, while	پڑھتے ہوئے
+loss of vision (blindness), reading, while, in a standing posture	2	LOSS of vision (blindness), reading, while, in a standing posture	=نظر کا جاتے رہنا، کھڑے ہو کر پڑھتے ہوئے
+loss of vision (blindness), rising	1	LOSS of vision (blindness), rising	اٹھنا
+loss of vision (blindness), rising, after eating	2	LOSS of vision (blindness), rising, after eating	=نظر کا جاتے رہنا، کھانے کے بعد اٹھنے پر
+loss of vision (blindness), rising, from bed	2	LOSS of vision (blindness), rising, from bed	=نظر کا جاتے رہنا، بستر سے اٹھنے پر
+loss of vision (blindness), sitting	1	LOSS of vision (blindness), sitting	بیٹھنا
+loss of vision (blindness), sitting, bent over, after	2	LOSS of vision (blindness), sitting, bent over, after	=نظر کا جاتے رہنا، جھک کر بیٹھنے کے بعد
+loss of vision (blindness), sitting, while	2	LOSS of vision (blindness), sitting, while	=نظر کا جاتے رہنا، بیٹھے ہوئے
+loss of vision (blindness), sleep amel.	1	LOSS of vision (blindness), sleep amel.	نیند سے آرام
+loss of vision (blindness), sleeping in the sun, after	1	LOSS of vision (blindness), sleeping in the sun, after	دھوپ میں سونے کے بعد
+loss of vision (blindness), snow, by	1	LOSS of vision (blindness), snow, by	برف سے
+loss of vision (blindness), soup, while eating	1	LOSS of vision (blindness), soup, while eating	شوربہ پیتے ہوئے
+loss of vision (blindness), standing	1	LOSS of vision (blindness), standing	کھڑا ہونا
+loss of vision (blindness), standing, amel.	2	LOSS of vision (blindness), standing, amel.	=نظر کا جاتے رہنا، کھڑے ہونے سے آرام
+loss of vision (blindness), standing, on agg.	2	LOSS of vision (blindness), standing, on agg.	=نظر کا جاتے رہنا، کھڑے ہونے پر بگاڑ
+loss of vision (blindness), stooping	1	LOSS of vision (blindness), stooping	جھکنے پر
+loss of vision (blindness), sudden	1	LOSS of vision (blindness), sudden	اچانک
+loss of vision (blindness), sunlight, sleeping in	1	LOSS of vision (blindness), sunlight, sleeping in	دھوپ میں سونے سے
+loss of vision (blindness), tobacco	1	LOSS of vision (blindness), tobacco	تمباکو سے
+loss of vision (blindness), vanishing of sight	1	LOSS of vision (blindness), vanishing of sight	نظر کا غائب ہو جانا
+loss of vision (blindness), vanishing of sight, menses, during	2	LOSS of vision (blindness), vanishing of sight, menses, during	=نظر کا غائب ہو جانا، حیض کے دوران
+loss of vision (blindness), vanishing of sight, rising from a seat	2	LOSS of vision (blindness), vanishing of sight, rising from a seat	=نظر کا غائب ہو جانا، نشست سے اٹھنے پر
+loss of vision (blindness), vanishing of sight, rising from stooping	2	LOSS of vision (blindness), vanishing of sight, rising from stooping	=نظر کا غائب ہو جانا، جھک کر سیدھا ہونے پر
+loss of vision (blindness), vanishing of sight, writing, while	2	LOSS of vision (blindness), vanishing of sight, writing, while	=نظر کا غائب ہو جانا، لکھتے ہوئے
+loss of vision (blindness), vertigo, during	1	LOSS of vision (blindness), vertigo, during	چکر کے دوران
+loss of vision (blindness), waking, on	1	LOSS of vision (blindness), waking, on	جاگنے پر
+loss of vision (blindness), walking	1	LOSS of vision (blindness), walking	چلنا
+loss of vision (blindness), walking, in open air	2	LOSS of vision (blindness), walking, in open air	=نظر کا جاتے رہنا، کھلی ہوا میں چلتے ہوئے
+loss of vision (blindness), walking, while	2	LOSS of vision (blindness), walking, while	=نظر کا جاتے رہنا، چلتے ہوئے
+loss of vision (blindness), warm room agg.	1	LOSS of vision (blindness), warm room agg.	گرم کمرے میں بگاڑ
+loss of vision (blindness), white objects, looking at	1	LOSS of vision (blindness), white objects, looking at	سفید چیزیں دیکھنے پر
+loss of vision (blindness), writing	1	LOSS of vision (blindness), writing	لکھنے سے
+mist	0	MIST (See Foggy)	دھند
+mistakes	0	MISTAKES	غلطیاں (دیکھنے میں)
+moonlight amel.	0	MOONLIGHT amel.	چاندنی میں آرام
+moving	0	MOVING	ہلنا
+moving, evening, reading, while	1	MOVING, evening, reading, while	=ہلنا، شام پڑھتے ہوئے
+moving, letters	1	MOVING, letters	=حروف ہلتے لگیں
+moving, letters, towards noon	2	MOVING, letters, towards noon	=حروف ہلتے لگیں، دوپہر کے قریب
+moving, objects seem to be	1	MOVING, objects seem to be	=چیزیں ہلتی لگیں
+moving, objects seem to be, backward	2	MOVING, objects seem to be, backward	=چیزیں پیچھے کو ہلتی لگیں
+moving, objects seem to be, backward, slowly	3	MOVING, objects seem to be, backward, slowly	=چیزیں آہستہ آہستہ پیچھے کو ہلتی لگیں
+moving, objects seem to be, backward and forward	2	MOVING, objects seem to be, backward and forward	=چیزیں آگے پیچھے ہلتی لگیں
+moving, objects seem to be, fine motion	2	MOVING, objects seem to be, fine motion	=چیزیں ہلکی سی حرکت میں لگیں
+moving, objects seem to be, floating	2	MOVING, objects seem to be, floating	=چیزیں تیرتی لگیں
+moving, objects seem to be, revolving	2	MOVING, objects seem to be, revolving	=چیزیں گھومتی لگیں
+moving, objects seem to be, side to side	2	MOVING, objects seem to be, side to side	=چیزیں ایک طرف سے دوسری طرف ہلتی لگیں
+moving, objects seem to be, to and fro	2	MOVING, objects seem to be, to and fro	=چیزیں ادھر ادھر ہلتی لگیں
+moving, objects seem to be, to and fro, to float	3	MOVING, objects seem to be, to and fro, to float	=چیزیں ادھر ادھر ہلتی، تیرتی لگیں
+moving, objects seem to be, to and fro, towards noon	3	MOVING, objects seem to be, to and fro, towards noon	=چیزیں ادھر ادھر ہلتی لگیں، دوپہر کے قریب
+moving, objects seem to be, up and down	2	MOVING, objects seem to be, up and down	=چیزیں اوپر نیچے ہلتی لگیں
+moving, something moving	1	MOVING, something moving	=کوئی چیز ہلتی ہوئی
+multiplied, objects seem	0	MULTIPLIED, objects seem (See Diplopia)	چیزیں کئی کئی نظر آئیں
+muscæ volitantes	0	MUSCÆ volitantes (See Colors, black)	آنکھوں کے آگے مکھیاں (کالے دھبے)
+myopia	0	MYOPIA	قریب کی نظر (دور کمزور)
+myopia, candlelight, sight worse by, than by daylight	1	MYOPIA, candlelight, sight worse by, than by daylight	=قریب کی نظر، موم بتی کی روشنی میں دن کی نسبت بدتر
+myopia, exerting the eyes, after	1	MYOPIA, exerting the eyes, after	=قریب کی نظر، آنکھوں پر زور دینے کے بعد
+myopia, looking away from work amel.	1	MYOPIA, looking away from work amel.	=قریب کی نظر، کام سے نظر ہٹانے پر آرام
+myopia, reading, while	1	MYOPIA, reading, while	=قریب کی نظر، پڑھتے ہوئے
+nearer	0	NEARER	قریب
+nearer, objects seem	1	NEARER, objects seem	=چیزیں قریب لگیں
+nearer, objects seem, to each other	2	NEARER, objects seem, to each other	=چیزیں ایک دوسرے کے قریب لگیں
+net before eyes	0	NET before eyes	آنکھوں کے آگے جال
+net before eyes, swimming	1	NET before eyes, swimming	=آنکھوں کے آگے جال، تیرتا ہوا
+obliquity	0	OBLIQUITY	ترچھا پن
+pale	0	PALE	پھیکا
+pale, objects become, after looking long	1	PALE, objects become, after looking long	=چیزیں دیر تک دیکھنے کے بعد پھیکی ہو جائیں
+quivering	0	QUIVERING (See Trembling)	لرزنا
+rain	0	RAIN	بارش
+rain, seems looking through rain	1	RAIN, seems looking through rain	=جیسے بارش میں سے دیکھ رہا ہو
+rainbow	0	RAINBOW (See Colors, halo)	دھنک
+range of vision changes while reading	0	RANGE of vision changes while reading (See Focal)	پڑھتے ہوئے نظر کی حد بدلتی رہے
+rays	0	RAYS	شعاعیں
+rays, curved, shooting from visual axis	1	RAYS, curved, shooting from visual axis	=شعاعیں، مڑی ہوئی، نظر کے محور سے نکلتی ہوئی
+rays, light seems broken up into	1	RAYS, light seems broken up into	=روشنی شعاعوں میں ٹوٹی لگے
+receding	0	RECEDING (See Moving)	پیچھے ہٹنا
+round objects pass before eyes while lying	0	ROUND objects pass before eyes while lying	لیٹے ہوئے گول چیزیں آنکھوں کے آگے سے گزریں
+run together	0	RUN together	آپس میں مل جانا
+run together, letters	1	RUN together, letters	=حروف آپس میں مل جائیں
+run together, letters, after a little while	2	RUN together, letters, after a little while	=حروف آپس میں مل جائیں، تھوڑی دیر بعد
+run together, letters, evening	2	RUN together, letters, evening	=حروف آپس میں مل جائیں، شام
+run together, letters, evening, reading in bed, while	3	RUN together, letters, evening, reading in bed, while	=حروف آپس میں مل جائیں، شام بستر میں پڑھتے ہوئے
+run together, letters, mental exertion, after	2	RUN together, letters, mental exertion, after	=حروف آپس میں مل جائیں، ذہنی محنت کے بعد
+run together, letters, morning	2	RUN together, letters, morning	=حروف آپس میں مل جائیں، صبح
+run together, letters, writing, while	2	RUN together, letters, writing, while	=حروف آپس میں مل جائیں، لکھتے ہوئے
+run together, objects	1	RUN together, objects	=چیزیں آپس میں مل جائیں
+run together, objects, sewing, while	2	RUN together, objects, sewing, while	=چیزیں آپس میں مل جائیں، سلائی کرتے ہوئے
+run together, objects, stitches, while sewing	2	RUN together, objects, stitches, while sewing	=ٹانکے آپس میں مل جائیں، سلائی کرتے ہوئے
+scintillations	0	SCINTILLATIONS (See Sparks, Flickerings)	چمکیں (چنگاریاں)
+scotoma	0	SCOTOMA	نظر کے میدان میں اندھا دھبہ (اسکوٹوما)
+scotoma, central	1	SCOTOMA, central	=اندھا دھبہ، مرکز میں
+shadows	0	SHADOWS	سائے
+shadows, look shaded	1	SHADOWS, look shaded	=چیزیں سائے دار لگیں
+shadows, on one side of objects	1	SHADOWS, on one side of objects	=سایہ چیزوں کے ایک طرف
+small	0	SMALL	چھوٹا
+small, objects seem	1	SMALL, objects seem	=چیزیں چھوٹی لگیں
+smoky	0	SMOKY (See Foggy)	دھواں دار
+snake before the vision	0	SNAKE before the vision	نظر کے آگے سانپ
+snow	0	SNOW	برف
+snow, falling	1	SNOW, falling	=برف گرتی لگے
+snow, flakes	1	SNOW, flakes	=برف کے گالے
+snow, morning, on waking, objects seem covered with	1	SNOW, morning, on waking, objects seem covered with	=صبح جاگنے پر چیزیں برف سے ڈھکی لگیں
+sparks	0	SPARKS	چنگاریاں
+sparks, air, open, on going into	1	SPARKS, air, open, on going into	کھلی ہوا میں جانے پر
+sparks, blowing the nose, on	1	SPARKS, blowing the nose, on	ناک سنکنے پر
+sparks, closing eyes, on	1	SPARKS, closing eyes, on	آنکھیں بند کرنے پر
+sparks, coughing, when	1	SPARKS, coughing, when	کھانستے وقت
+sparks, dark, in	1	SPARKS, dark, in	اندھیرے میں
+sparks, daytime	1	SPARKS, daytime	دن کے وقت
+sparks, dinner, during	1	SPARKS, dinner, during	دوپہر کے کھانے کے دوران
+sparks, epileptic fit, before	1	SPARKS, epileptic fit, before	مرگی کے دورے سے پہلے
+sparks, evening	1	SPARKS, evening	شام
+sparks, evening, like rays	2	SPARKS, evening, like rays	=چنگاریاں، شام، شعاعوں جیسی
+sparks, exertion of mind	1	SPARKS, exertion of mind	ذہنی محنت سے
+sparks, headache	1	SPARKS, headache	سر درد
+sparks, headache, before	2	SPARKS, headache, before	=چنگاریاں، سر درد سے پہلے
+sparks, headache, during	2	SPARKS, headache, during	=چنگاریاں، سر درد کے دوران
+sparks, morning	1	SPARKS, morning	صبح
+sparks, morning, breakfast, after	2	SPARKS, morning, breakfast, after	=چنگاریاں، صبح ناشتے کے بعد
+sparks, morning, on waking	2	SPARKS, morning, on waking	=چنگاریاں، صبح جاگنے پر
+sparks, night	1	SPARKS, night	رات
+sparks, night, on falling asleep	2	SPARKS, night, on falling asleep	=چنگاریاں، رات نیند آتے وقت
+sparks, night, on waking	2	SPARKS, night, on waking	=چنگاریاں، رات جاگنے پر
+sparks, noon	1	SPARKS, noon	دوپہر
+sparks, outside the field of vision, either side	1	SPARKS, outside the field of vision, either side	نظر کے میدان سے باہر، کسی بھی طرف
+sparks, rest, during, agg.	1	SPARKS, rest, during, agg.	آرام کے دوران بگاڑ
+sparks, sewing, while	1	SPARKS, sewing, while	سلائی کرتے ہوئے
+sparks, sitting, while	1	SPARKS, sitting, while	بیٹھے ہوئے
+sparks, streaks in, after writing	1	SPARKS, streaks in, after writing	لکیروں کی صورت، لکھنے کے بعد
+sparks, vertigo, during	1	SPARKS, vertigo, during	چکر کے دوران
+sparks, walking, while	1	SPARKS, walking, while	چلتے ہوئے
+sparks, winking, on	1	SPARKS, winking, on	پلک جھپکنے پر
+sparks, writing	1	SPARKS, writing	لکھنے سے
+spots	0	SPOTS	دھبے
+spots, closing eyes, on	1	SPOTS, closing eyes, on	آنکھیں بند کرنے پر
+spots, colored	1	SPOTS, colored	رنگین
+spots, floating	1	SPOTS, floating	تیرتے ہوئے
+spots, headache	1	SPOTS, headache	سر درد
+spots, headache, before	2	SPOTS, headache, before	=دھبے، سر درد سے پہلے
+spots, headache, with	2	SPOTS, headache, with	=دھبے، سر درد کے ساتھ
+spots, jumping up and down	1	SPOTS, jumping up and down	اوپر نیچے اچھلتے ہوئے
+spots, looking steadily	1	SPOTS, looking steadily	ایک ٹک دیکھنے پر
+spots, luminous	1	SPOTS, luminous	روشن
+spots, reading	1	SPOTS, reading	پڑھنے سے
+spots, round	1	SPOTS, round	گول
+spots, waking, on	1	SPOTS, waking, on	جاگنے پر
+spots, writing	1	SPOTS, writing	لکھنے سے
+stars	0	STARS (See Sparks, Flashes)	ستارے
+stars, artificial light, in	1	STARS (See Sparks, Flashes), artificial light, in	=ستارے، مصنوعی روشنی میں
+stars, dancing	1	STARS (See Sparks, Flashes), dancing	=ستارے، ناچتے ہوئے
+stars, right side of field of vision	1	STARS (See Sparks, Flashes), right side of field of vision	=ستارے، نظر کے میدان کی دائیں طرف
+stars, starry halo round light	1	STARS (See Sparks, Flashes), starry halo round light	=ستاروں جیسا ہالہ روشنی کے گرد
+stars, writing, when	1	STARS (See Sparks, Flashes), writing, when	=ستارے، لکھتے وقت
+stars, white	1	STARS (See Sparks, Flashes), white (See Colors)	=سفید ستارے
+stripes	0	STRIPES (See Colors)	دھاریاں
+swimming objects	0	SWIMMING objects	تیرتی چیزیں
+swimming objects, 5 p.m.	1	SWIMMING objects, 5 p.m.	=تیرتی چیزیں، سہ پہر 5 بجے
+swimming of letters	0	SWIMMING of letters	حروف کا تیرنا
+trembling objects	0	TREMBLING objects (See Dazzling)	لرزتی چیزیں
+trembling	0	TREMBLING	لرزنا
+trembling, evening by light	1	TREMBLING, evening by light	=لرزنا، شام روشنی سے
+trembling, in artificial light	1	TREMBLING, in artificial light	=لرزنا، مصنوعی روشنی میں
+trembling, morning, on waking	1	TREMBLING, morning, on waking	=لرزنا، صبح جاگنے پر
+trembling, yellow shining tremulous mist	1	TREMBLING, yellow shining tremulous mist	=زرد چمکتی لرزتی دھند
+triplopia	0	TRIPLOPIA	تین تین نظر آنا
+triplopia, turning eyes to right	1	TRIPLOPIA, turning eyes to right	=تین تین نظر آنا، آنکھیں دائیں گھمانے پر
+vanishing of sight	0	VANISHING of sight (See Loss of Vision)	نظر کا غائب ہو جانا
+variegated colors	0	VARIEGATED colors (See Colors)	رنگ برنگے رنگ
+veil, as through	0	VEIL, as through (See Foggy)	جیسے پردے میں سے
+vibration	0	VIBRATION	تھرتھراہٹ
+vibration, as of heated air	1	VIBRATION, as of heated air	=تھرتھراہٹ، جیسے گرم ہوا کی
+visions	0	VISIONS	منظر (نظارے)
+visions, sees, on closing eyes	1	VISIONS, sees, on closing eyes	=آنکھیں بند کرنے پر منظر دکھائی دیں
+wavering	0	WAVERING	ڈگمگاتی
+waving	0	WAVING	لہراتی
+waving, luminous openings, he sees	1	WAVING, luminous openings, he sees	=لہراتی روشن دراڑیں دکھائی دیں
+weak	0	WEAK (See Eyes, weak)	کمزور
+weak, bright light agg.	1	WEAK (See Eyes, weak), bright light agg.	=کمزور (دھندلی)، تیز روشنی سے بگاڑ
+weak, evening	1	WEAK (See Eyes, weak), evening	=کمزور (دھندلی)، شام
+weak, evening, candlelight, by	2	WEAK (See Eyes, weak), evening, candlelight, by	=کمزور (دھندلی)، شام موم بتی کی روشنی سے
+weak, evening, twilight	2	WEAK (See Eyes, weak), evening, twilight	=کمزور (دھندلی)، شام جھٹپٹے کے وقت
+weak, evening, using agg.	2	WEAK (See Eyes, weak), evening, using agg.	=کمزور (دھندلی)، شام استعمال سے بگاڑ
+weak, long distances, for	1	WEAK (See Eyes, weak), long distances, for	=کمزور (دھندلی)، دور کے لیے
+weak, morning, as if the eyes were strained	1	WEAK (See Eyes, weak), morning, as if the eyes were strained	=کمزور (دھندلی)، صبح، جیسے آنکھوں پر زور پڑا ہو
+weak, using eyes agg.	1	WEAK (See Eyes, weak), using eyes agg.	=کمزور (دھندلی)، آنکھوں کے استعمال سے بگاڑ
+whirling	0	WHIRLING	گھومتی ہوئی (چکراتی)
+zigzags	0	ZIGZAGS	ٹیڑھی میڑھی لکیریں
+zigzags, circles of colors	1	ZIGZAGS, circles of colors	=ٹیڑھی میڑھی لکیریں، رنگوں کے حلقے
+zigzags, flickering	1	ZIGZAGS, flickering	=ٹیڑھی میڑھی لکیریں، جھلملاتی
+zigzags, fluttering	1	ZIGZAGS, fluttering	=ٹیڑھی میڑھی لکیریں، پھڑپھڑاتی
+zigzags, outside the range of vision	1	ZIGZAGS, outside the range of vision	=ٹیڑھی میڑھی لکیریں، نظر کے دائرے کے باہر
+zigzags, wavy	1	ZIGZAGS, wavy	=ٹیڑھی میڑھی لکیریں، لہر دار
+zigzags, writing, while	1	ZIGZAGS, writing, while	=ٹیڑھی میڑھی لکیریں، لکھتے ہوئے

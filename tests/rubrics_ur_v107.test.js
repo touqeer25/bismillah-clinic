@@ -74,6 +74,11 @@ const EY=JSON.parse(rd('ur/rubrics/kent/eye.json')); w.repRubUrStore('kent','eye
 const erows=L.chapterRows(w,'kent','eye');
 ok(EY.meta.root==='آنکھ — '&&erows.every(r=>EY.rubrics[r.key]&&EY.rubrics[r.key].indexOf('آنکھ — ')===0),'EY1 EYE مکمل: ہر ربرک کا جملہ ('+erows.length+') اور ہر جملہ «آنکھ — » سے شروع');
 ok(!erows.some(r=>/[\u06F0-\u06F9]/.test(EY.rubrics[r.key])),'EY2 EYE میں اردو ہندسے نہیں');
+// ---------- C5. VISION مکمل، جڑ «نظر — » ----------
+const VI=JSON.parse(rd('ur/rubrics/kent/vision.json')); w.repRubUrStore('kent','vision',VI);
+const virows=L.chapterRows(w,'kent','vision');
+ok(VI.meta.root==='نظر — '&&virows.every(r=>VI.rubrics[r.key]&&VI.rubrics[r.key].indexOf('نظر — ')===0),'VI1 VISION مکمل: ہر ربرک کا جملہ ('+virows.length+')');
+ok(!virows.some(r=>/[\u06F0-\u06F9]/.test(VI.rubrics[r.key])),'VI2 VISION میں اردو ہندسے نہیں');
 w.repCurrentChapter='mind';
 ok(w.repRubUrMode()==='full','C7 موڈ کی طے شدہ حالت «پورا مطلب»');
 w.repRubUrSetMode('delta'); ok(w.repRubUrMode()==='delta'&&w.localStorage.getItem('bc_ur_mode')==='delta','C8 موڈ بدلتا اور محفوظ ہوتا ہے');
@@ -94,7 +99,8 @@ ok(/js\/18-rubrics-ur\.js\?v=\d+/.test(idx)&&/css\/rubrics-ur\.css\?v=\d+/.test(
 ok(idx.indexOf('<script src="js/17-rubric-ur.js')<idx.indexOf('<script src="js/18-rubrics-ur.js'),'E2 18-rubrics-ur.js، 17-rubric-ur.js کے بعد لوڈ ہوتی ہے');
 ok(/id="repUrModeBtn"/.test(idx)&&!/repUrModeBtn"[^>]*onclick/.test(idx),'E3 ٹول بار میں بٹن #repUrModeBtn (onclick کے بغیر)');
 ok(/'\.\/js\/18-rubrics-ur\.js'/.test(sw)&&/'\.\/css\/rubrics-ur\.css'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/mind\.json'/.test(sw),'E4 service-worker میں تینوں نئی فائلیں');
-ok(/CACHE_NAME='bhc-clinic-v(11[6-9]|1[2-9]\d)'/.test(sw),'E5 CACHE_NAME v116 یا بعد کا');
+ok(/CACHE_NAME='bhc-clinic-v(11[7-9]|1[2-9]\d)'/.test(sw),'E5 CACHE_NAME v117 یا بعد کا');
+ok(/'\.\/ur\/rubrics\/kent\/vision\.json'/.test(sw),'E4d service-worker میں vision.json');
 ok(/'\.\/ur\/rubrics\/kent\/eye\.json'/.test(sw),'E4c service-worker میں eye.json');
 ok(/'\.\/ur\/rubrics\/kent\/vertigo\.json'/.test(sw)&&/'\.\/ur\/rubrics\/kent\/head\.json'/.test(sw),'E4b service-worker میں vertigo.json اور head.json');
 ok(/repRubUrRowHtml\(r\)/.test(tree)&&/ensureRepRubricsUr\(repCurrentBook,repCurrentChapter/.test(tree),'E6 rep-tree.js: صف پر جملہ + باب کی فائل منگوانا');
