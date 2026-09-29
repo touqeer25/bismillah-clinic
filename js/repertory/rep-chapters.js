@@ -284,7 +284,7 @@ function _repBuildTreeByExistingRubrics(data){
         _repMergeRemedies(n.remedies, e.rec.r || {});
     });
     // 🔑 v130: کینٹ — ٹری بننے کے بعد کتابی ترتیب بحال کریں (کوئی ربرک شامل/خارج نہیں ہوتا)
-    if(repCurrentBook === 'kent') _repSortTreeKentOrder(root);
+    if(repCurrentBook === 'kent') _repSortTreeKentOrder(root, true);
     return root;
 }
 
@@ -321,13 +321,54 @@ function _repKentKeyCmp(a,b){
     return a[2] < b[2] ? -1 : (a[2] > b[2] ? 1 : 0);
 }
 function _repKentRNum(rid){ var m=/^r(\d+)$/.exec(String(rid||'')); return m?parseInt(m[1],10):null; }
-function _repSortTreeKentOrder(node){
+// 🔑 v131: مین ربرک (جڑ) کی سطح کینٹ میں حروفِ تہجی سے ہے — کتاب سے تصدیق شدہ
+// (تفصیل اور حوالے: KENT_ORDER_METHOD.md)۔ صرف دو استثنا: «… in general» والا عام ربرک سب سے اوپر
+// (CHILL میں «COLDNESS in general»، FEVER میں «HEAT in general»)، اور وقت کا بلاک (daytime → … → midnight)
+// جو اُن ابواب میں پہلے آتا ہے جہاں کتاب نے وقت کو مقدم رکھا (cough، expectoration، chill، fever،
+// generalities، perspiration، vertigo)۔
+function _repKentNormLabel(label){
+    var s=String(label||'').replace(/\s*\[\d+\]\s*$/,'').replace(/\(See [^)]*\)/g,' ');
+    s=s.replace(/&#140;/g,'OE').replace(/&#146;/g,"'").replace(/Æ/g,'AE').replace(/æ/g,'ae')
+       .replace(/Œ/g,'OE').replace(/œ/g,'oe').replace(/’/g,"'");
+    // 🔑 v131: hyphen پہلے ہٹا دیں (کتاب «RE-ECHO» کو «READING» سے بعد رکھتی ہے) — باقی علامات جگہ
+    return s.toLowerCase().replace(/-/g,'').replace(/[^a-z0-9]+/g,' ').replace(/^\s+|\s+$/g,'');
+}
+function _repKentRootKey(label){
+    var b=String(label||'').replace(/\s*\[\d+\]\s*$/,'').trim().toLowerCase();
+    var n=_repKentNormLabel(label);
+    if(/ in general$/.test(b)) return [0,0,n];
+    var t=_repKentTimeRank(b); if(t!==null) return [1,t,n];
+    return [2,0,n];
+}
+function _repSortTreeKentOrder(node, isRoot){
     if(!node||!node.order) return node;
-    node.order.forEach(function(l){ _repSortTreeKentOrder(node.children[l]); });
-    var kids=node.order.map(function(l){
+    node.order.forEach(function(l){ _repSortTreeKentOrder(node.children[l], false); });
+    var kids=node.order.map(function(l, i){
         var ch=node.children[l]||{};
-        return {l:l, rid:ch.rid||'', dup:ch.dup, key:_repKentLabelKey(l)};
+        return {l:l, i:i, rid:ch.rid||'', dup:ch.dup, key:_repKentLabelKey(l)};
     });
+    if(isRoot){
+        // 🔑 v131: مین ربرک (جڑ) کی سطح — کینٹ کی کتاب میں مین ربرک حروفِ تہجی سے ہیں، اِس لیے اُنہیں
+        // حروفِ تہجی کی ترتیب دی جائے۔ (p.1497 GENITALIA MALE کے آغاز اور دیگر ابواب سے تصدیق شدہ:
+        // ABSCESS → ADDISON'S → BUBBLING → … ) اِس سے وہ ربرک بھی اپنی اصل جگہ پر آ جاتے ہیں جو
+        // ڈیٹا میں باب کے آخری سرے پر پڑے تھے — مثال rectum کا «ASH-COLORED (See Gray)» (یہ اصل میں
+        // STOOL کا مین ربرک ہے، کتاب صفحہ 1372) اب APHTHOUS کے بعد اور BALL سے پہلے آتا ہے۔
+        // طریقہ کار، کتابی حوالے اور تصدیق: KENT_ORDER_METHOD.md
+        // کلید کے تین درجے: [0] «… in general» سب سے اوپر · [1] وقت کا بلاک (DAYTIME … MIDNIGHT) · [2] باقی حروفِ تہجی
+        kids.forEach(function(k){ k.rk=_repKentRootKey(k.l); });
+        // «… in general» (کتاب کا عام ربرک — PREFACE: generals to particulars) کو سب سے اوپر صرف اُس وقت
+        // رکھیں جب وہ اسی باب کا پہلا ربرک ہو: CHILL کا «COLDNESS in general» اور FEVER کا «HEAT in general»
+        // (دونوں کتاب میں باب کے آغاز پر ہیں)۔ ورنہ (مثلاً GENERALITIES کا «SWELLING in general») وہ اپنی
+        // حروفِ تہجی والی جگہ پر ہی رہے گا — کتاب میں وہ SWELLING کے نیچے درمیان میں آتا ہے۔
+        var minRn=null;
+        kids.forEach(function(k){ var r=_repKentRNum(k.rid); if(r!==null && (minRn===null || r<minRn)) minRn=r; });
+        kids.forEach(function(k){
+            if(k.rk[0]===0 && minRn!==null && _repKentRNum(k.rid)!==minRn) k.rk=[2,0,k.rk[2]];
+        });
+        kids.sort(function(a,b){ var c=_repKentKeyCmp(a.rk,b.rk); return c? c : (a.i-b.i); });
+        node.order=kids.map(function(k){ return k.l; });
+        return node;
+    }
     var rkids=kids.filter(function(k){ return _repKentRNum(k.rid)!==null; })
                   .sort(function(a,b){ return _repKentRNum(a.rid)-_repKentRNum(b.rid); });
     var rest =kids.filter(function(k){ return _repKentRNum(k.rid)===null; })

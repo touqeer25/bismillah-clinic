@@ -127,7 +127,25 @@ const ci=f=>gmR.findIndex(r=>r.full===f);
 ok(ci('COLDNESS, morning')<ci('COLDNESS, evening')&&ci('COLDNESS, evening')<ci('COLDNESS, urination, during')&&ci('COLDNESS, urination, during')<ci('COLDNESS, penis')&&ci('COLDNESS, penis')<ci('COLDNESS, scrotum')&&ci('COLDNESS, scrotum')<ci('COLDNESS, testes'),'F4 COLDNESS: وقت → شرط → محل (کتاب صفحہ 1495)');
 const rch=rd('js/repertory/rep-chapters.js');
 ok(/_repSortTreeKentOrder/.test(rch)&&/repCurrentBook === 'kent'/.test(rch),'F5 ترتیب کا فنکشن موجود اور صرف کینٹ پر لاگو');
-ok(/js\/repertory\/rep-chapters\.js\?v=13\d/.test(idx),'F6 index.html میں rep-chapters.js کا نیا ورژن (v130)');
-ok(/CACHE_NAME='bhc-clinic-v13\d'/.test(sw),'F7 CACHE_NAME v130');
+ok(/js\/repertory\/rep-chapters\.js\?v=13\d/.test(idx),'F6 index.html میں rep-chapters.js کا نیا ورژن (v130/131)');
+ok(/CACHE_NAME='bhc-clinic-v13\d'/.test(sw),'F7 CACHE_NAME v130/131');
+
+// ---------- G. مین ربرک حروفِ تہجی + «آخر میں پھنسے ہوئے» ربرک اپنی جگہ (v131) ----------
+const rc131=L.chapterRows(w,'kent','rectum'); const r131=i=>rc131.findIndex(f=>f.full===i);
+ok(rc131.filter(f=>f.depth===0).findIndex(f=>f.full==='ASH-COLORED (See Gray)')===2,'G1 rectum: «ASH-COLORED (See Gray)» مین ربرک اپنی حروفِ تہجی والی جگہ پر (APHTHOUS کے بعد، BALL سے پہلے) #2');
+const kd131=L.chapterRows(w,'kent','kidneys').filter(f=>f.depth===0).map(f=>f.full);
+ok(kd131[0]==='ABSCESS'&&kd131.indexOf('HEAT')>0&&kd131.indexOf('HEAT')<kd131.indexOf('HEAVINESS')&&kd131.indexOf('NUMBNESS')<kd131.indexOf('PAIN'),'G2 kidneys کتابی ترتیب پر (ABSCESS پہلا؛ HEAT → HEAVINESS؛ NUMBNESS → PAIN — کتاب PDF1460)');
+const gn131=L.chapterRows(w,'kent','generalities').filter(f=>f.depth===0).map(f=>f.full);
+ok(gn131[0]==='DAYTIME'&&gn131.indexOf('DAYTIME')<gn131.indexOf('MORNING')&&gn131.indexOf('SWELLING')+1===gn131.indexOf('SWELLING in general'),'G3 generalities: DAYTIME پہلا (کتاب کا آغاز) اور «SWELLING in general» اپنی جگہ پر — «… in general» صرف اُس وقت سب سے اوپر جب وہ باب کا پہلا ربرک ہو');
+const cl131=L.chapterRows(w,'kent','chill').filter(f=>f.depth===0).map(f=>f.full);
+ok(cl131[0]==='COLDNESS in general'&&cl131[1]==='DAYTIME','G4 chill: «COLDNESS in general» پہلا پھر DAYTIME (کتاب صفحہ 2770 / PDF2804)');
+const fv131=L.chapterRows(w,'kent','fever').filter(f=>f.depth===0).map(f=>f.full);
+ok(fv131[0]==='HEAT in general'&&fv131[1]==='MORNING','G5 fever: «HEAT in general» پہلا پھر MORNING (کتاب صفحہ 2803 / PDF2838)');
+const bk131=L.chapterRows(w,'kent','back').filter(f=>f.depth===0).map(f=>f.full);
+const bIdx=x=>bk131.indexOf(x);
+ok(bIdx('BOILS (See Eruptions)')<bIdx('BROWN')&&bIdx('BROWN')<bIdx('BROWN spots on')&&bIdx('BROWN spots on')<bIdx('BRUISES on spine (See Injuries)'),'G6 back: BOILS → BROWN → BROWN spots on → BRUISES (کتاب PDF1953)');
+let rootCount=0; L.chapterRows(w,'kent','mind');
+['mind','vertigo','head','eye','vision','ear','nose','face','mouth','teeth','throat','external_throat','stomach','abdomen','rectum','stool','bladder','kidneys','prostate_gland','urethra','urine','genitalia_male','genitalia_female','cough','expectoration','chest','back','extremities','sleep','chill','fever','perspiration','skin','generalities','larynx_and_trachea','respiration','hearing'].forEach(function(c){ try{ rootCount += L.chapterRows(w,'kent',c).filter(function(f){return f.depth===0;}).length; }catch(e){} });
+ok(rootCount===4709,'G7 37 ابواب کی مین ربرک: '+rootCount+' (کوئی کم/زیادہ نہیں — کوئی ربرک گم نہیں ہوا)');
 
 console.log(fails?`\n${fails} FAIL`:'\nALL PASS'); process.exit(fails?1:0);

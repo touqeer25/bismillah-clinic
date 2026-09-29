@@ -1,5 +1,5 @@
 // Bismillah Clinic - Service Worker (robust offline cache)
-const CACHE_NAME='bhc-clinic-v130';
+const CACHE_NAME='bhc-clinic-v131';
 
 // Keep this list same-origin and reliable. Missing/external files are not allowed
 // to break the whole install anymore.
@@ -35,6 +35,7 @@ const CORE_ASSETS = [
   './js/07-app-settings.js',
   './js/repertory/rep-books.js',
   './js/repertory/rep-chapters.js',
+  './js/repertory/KENT_ORDER_METHOD.md',   // v131: ترتیب کا طریقہ کار (کینٹ کے ساتھ منسلک دستاویز)
   './js/repertory/rep-folders.js',
   './js/repertory/rep-tree.js',
   './js/repertory/rep-clipboards.js',
