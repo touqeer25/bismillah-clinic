@@ -74,7 +74,7 @@
 | 67 |  | 1 | COLDNESS, burning, with sensation of | **چہرہ — ٹھنڈک، جلن کے احساس کے ساتھ** |  |
 | 68 |  | 1 | COLDNESS, chill, with | **چہرہ — ٹھنڈک، سردی لگنے کے ساتھ** |  |
 | 69 |  | 1 | COLDNESS, chin cold | **چہرہ — ٹھنڈک، ٹھوڑی ٹھنڈی** |  |
-| 70 |  | 2 | COLDNESS, chin cold, sense of | **چہرہ — ٹھوڑی میں ٹھنڈک کا احساس** |  |
+| 70 |  | 2 | COLDNESS, chin cold, sense of | **چہرہ — ٹھنڈک، ٹھوڑی میں ٹھنڈک کا احساس** |  |
 | 71 |  | 1 | COLDNESS, cholera | **چہرہ — ٹھنڈک، ہیضے میں** |  |
 | 72 |  | 1 | COLDNESS, cold wind, as from | **چہرہ — ٹھنڈک، جیسے ٹھنڈی ہوا سے** |  |
 | 73 |  | 1 | COLDNESS, dinner, after | **چہرہ — ٹھنڈک، دوپہر کے کھانے کے بعد** |  |
@@ -442,12 +442,12 @@
 | 435 |  | 1 | DRAWN, upper lip drawn up, exposing teeth | **چہرہ — اوپر کا ہونٹ اوپر کو کھنچا، دانت ننگے** |  |
 | 436 |  | 0 | DROPPING of jaw (See Mouth, open) | **چہرہ — جبڑا لٹک جانا** |  |
 | 437 |  | 0 | DRYNESS (See Skin) | **چہرہ — خشکی** |  |
-| 438 |  | 1 | DRYNESS (See Skin), lips | **چہرہ — خشک ہونٹ** |  |
-| 439 |  | 2 | DRYNESS (See Skin), lips, air, open | **چہرہ — خشک ہونٹ، کھلی ہوا میں** |  |
-| 440 |  | 2 | DRYNESS (See Skin), lips, evening | **چہرہ — خشک ہونٹ، شام** |  |
-| 441 |  | 2 | DRYNESS (See Skin), lips, night | **چہرہ — خشک ہونٹ، رات** |  |
-| 442 |  | 2 | DRYNESS (See Skin), lips, waking, on | **چہرہ — خشک ہونٹ، جاگنے پر** |  |
-| 443 |  | 1 | DRYNESS (See Skin), nose | **چہرہ — خشک ناک** |  |
+| 438 |  | 1 | DRYNESS (See Skin), lips | **چہرہ — خشکی، ہونٹوں پر** |  |
+| 439 |  | 2 | DRYNESS (See Skin), lips, air, open | **چہرہ — خشکی، ہونٹوں پر، کھلی ہوا میں** |  |
+| 440 |  | 2 | DRYNESS (See Skin), lips, evening | **چہرہ — خشکی، ہونٹوں پر، شام** |  |
+| 441 |  | 2 | DRYNESS (See Skin), lips, night | **چہرہ — خشکی، ہونٹوں پر، رات** |  |
+| 442 |  | 2 | DRYNESS (See Skin), lips, waking, on | **چہرہ — خشکی، ہونٹوں پر، جاگنے پر** |  |
+| 443 |  | 1 | DRYNESS (See Skin), nose | **چہرہ — خشکی، ناک پر** |  |
 | 444 |  | 0 | EMACIATION (See Generalities) | **چہرہ — لاغر پن (گھلنا)** |  |
 | 445 |  | 1 | EMACIATION (See Generalities), neuralgia, after | **چہرہ — لاغر پن، اعصابی درد کے بعد** |  |
 | 446 |  | 1 | EMACIATION (See Generalities), of face and hands | **چہرہ — لاغر پن، چہرے اور ہاتھوں کا** |  |
@@ -512,12 +512,12 @@
 | 505 |  | 2 | ERUPTIONS (See Skin), chin, painful | **چہرہ — دانے، ٹھوڑی پر، دردناک** |  |
 | 506 |  | 2 | ERUPTIONS (See Skin), chin, whiskers | **چہرہ — دانے، ٹھوڑی پر، داڑھی مونچھ میں** |  |
 | 507 |  | 1 | ERUPTIONS (See Skin), cold air agg. | **چہرہ — دانے، ٹھنڈی ہوا سے بگاڑ** |  |
-| 508 |  | 1 | ERUPTIONS (See Skin), comedones | **چہرہ — دانے، سیاہ دانے (کیمیڈون)** |  |
-| 509 |  | 2 | ERUPTIONS (See Skin), comedones, chin | **چہرہ — دانے، سیاہ دانے، ٹھوڑی پر** |  |
-| 510 |  | 3 | ERUPTIONS (See Skin), comedones, chin, and upper lip | **چہرہ — دانے، سیاہ دانے، ٹھوڑی پر اور اوپر کے ہونٹ پر** |  |
-| 511 |  | 2 | ERUPTIONS (See Skin), comedones, forehead | **چہرہ — دانے، سیاہ دانے، ماتھے پر** |  |
-| 512 |  | 2 | ERUPTIONS (See Skin), comedones, nose | **چہرہ — دانے، سیاہ دانے، ناک پر** |  |
-| 513 |  | 2 | ERUPTIONS (See Skin), comedones, ulcerating | **چہرہ — دانے، سیاہ دانے، زخم بنتے ہوئے** |  |
+| 508 |  | 1 | ERUPTIONS (See Skin), comedones | **چہرہ — دانے، کیل مہاسے** |  |
+| 509 |  | 2 | ERUPTIONS (See Skin), comedones, chin | **چہرہ — دانے، کیل مہاسے، ٹھوڑی پر** |  |
+| 510 |  | 3 | ERUPTIONS (See Skin), comedones, chin, and upper lip | **چہرہ — دانے، کیل مہاسے، ٹھوڑی پر اور اوپر کے ہونٹ پر** |  |
+| 511 |  | 2 | ERUPTIONS (See Skin), comedones, forehead | **چہرہ — دانے، کیل مہاسے، ماتھے پر** |  |
+| 512 |  | 2 | ERUPTIONS (See Skin), comedones, nose | **چہرہ — دانے، کیل مہاسے، ناک پر** |  |
+| 513 |  | 2 | ERUPTIONS (See Skin), comedones, ulcerating | **چہرہ — دانے، کیل مہاسے، زخم بنتے ہوئے** |  |
 | 514 |  | 1 | ERUPTIONS (See Skin), confluent | **چہرہ — دانے، آپس میں ملے ہوئے** |  |
 | 515 |  | 1 | ERUPTIONS (See Skin), coppery | **چہرہ — دانے، تانبے جیسے** |  |
 | 516 |  | 2 | ERUPTIONS (See Skin), coppery, chin, about | **چہرہ — دانے، تانبے جیسے، ٹھوڑی کے گرد** |  |
@@ -810,7 +810,7 @@
 | 803 |  | 2 | ERUPTIONS (See Skin), vesicles, lips | **چہرہ — دانے، آبلے، ہونٹوں پر** |  |
 | 804 |  | 3 | ERUPTIONS (See Skin), vesicles, lips, lower | **چہرہ — دانے، آبلے، نچلے ہونٹ پر** |  |
 | 805 |  | 3 | ERUPTIONS (See Skin), vesicles, lips, upper | **چہرہ — دانے، آبلے، اوپر کے ہونٹ پر** |  |
-| 806 |  | 4 | ERUPTIONS (See Skin), vesicles, lips, upper, blood blisters | **چہرہ — دانے، آبلے، اوپر کے ہونٹ پر، خون کے چھالے** |  |
+| 806 |  | 4 | ERUPTIONS (See Skin), vesicles, lips, upper, blood blisters | **چہرہ — دانے، آبلے، اوپر کے ہونٹ پر، خون کے آبلے** |  |
 | 807 |  | 2 | ERUPTIONS (See Skin), vesicles, mouth | **چہرہ — دانے، آبلے، منہ پر** |  |
 | 808 |  | 3 | ERUPTIONS (See Skin), vesicles, mouth, around | **چہرہ — دانے، آبلے، منہ کے گرد** |  |
 | 809 |  | 3 | ERUPTIONS (See Skin), vesicles, mouth, corners | **چہرہ — دانے، آبلے، منہ کے کونوں پر** |  |
@@ -1144,7 +1144,7 @@
 | 1137 |  | 0 | LONG | **چہرہ — لمبا** |  |
 | 1138 |  | 1 | LONG, sensation as if elongated | **چہرہ — لمبا، جیسے لمبا ہو گیا ہو** |  |
 | 1139 |  | 2 | LONG, sensation as if elongated, of chin | **چہرہ — لمبا، جیسے لمبا ہو گیا ہو، ٹھوڑی** |  |
-| 1140 |  | 0 | LUMPS (See Indurations) | **چہرہ — ڈلیاں** |  |
+| 1140 |  | 0 | LUMPS (See Indurations) | **چہرہ — گلٹیاں** |  |
 | 1141 |  | 0 | MARBLED skin (See Discoloration, Veins) | **چہرہ — سنگِ مرمر جیسی جلد** |  |
 | 1142 |  | 0 | MEMBRANE on lips | **چہرہ — ہونٹوں پر جھلی** |  |
 | 1143 |  | 0 | MEMBRANE | **چہرہ — جھلی** |  |
@@ -1173,7 +1173,7 @@
 | 1166 |  | 1 | NUMBNESS, right | **چہرہ — سن ہونا، دائیں** |  |
 | 1167 |  | 2 | NUMBNESS, right, chill, during | **چہرہ — سن ہونا، دائیں، سردی لگنے کے دوران** |  |
 | 1168 |  | 1 | NUMBNESS, zygoma | **چہرہ — سن ہونا، گال کی ہڈی میں** |  |
-| 1169 |  | 0 | OILY (See Greasy) | **چہرہ — تیل والا** |  |
+| 1169 |  | 0 | OILY (See Greasy) | **چہرہ — چکنا (تیل والا)** |  |
 | 1170 |  | 0 | OLD looking (See Expression) | **چہرہ — عمر سے زیادہ بوڑھا** |  |
 | 1171 |  | 0 | PAIN (aching | **چہرہ — درد (مسلسل درد، چہرے کا اعصابی درد وغیرہ)** |  |
 | 1172 |  | 0 | PAIN (aching, prosopalgia, etc.) | **چہرہ — درد (مسلسل درد، چہرے کا اعصابی درد وغیرہ)** |  |
@@ -1965,7 +1965,7 @@
 | 1958 |  | 1 | SWELLING, sensation of | **چہرہ — سوجن، سوجن کا احساس** |  |
 | 1959 |  | 2 | SWELLING, sensation of, cheeks | **چہرہ — سوجن، سوجن کا احساس، گالوں میں** |  |
 | 1960 |  | 2 | SWELLING, sensation of, on entering house | **چہرہ — سوجن، سوجن کا احساس، گھر میں داخل ہونے پر** |  |
-| 1961 |  | 1 | SWELLING, shining | **چہرہ — سوجن، چمکتی ہوئی** |  |
+| 1961 |  | 1 | SWELLING, shining | **چہرہ — سوجن، چمکدار** |  |
 | 1962 |  | 1 | SWELLING, sublingual gland | **چہرہ — سوجن، زبان کے نیچے کے غدود کی** |  |
 | 1963 |  | 1 | SWELLING, submaxillary glands | **چہرہ — سوجن، جبڑے کے نیچے کے غدود کی** |  |
 | 1964 |  | 2 | SWELLING, submaxillary glands, hard | **چہرہ — سوجن، جبڑے کے نیچے کے غدود کی، سخت** |  |
