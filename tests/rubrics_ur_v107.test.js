@@ -85,7 +85,7 @@ const earows=L.chapterRows(w,'kent','ear');
 ok(EA.meta.root==='کان — '&&earows.every(r=>EA.rubrics[r.key]&&EA.rubrics[r.key].indexOf('کان — ')===0),'EA1 EAR مکمل: ہر ربرک کا جملہ ('+earows.length+')');
 ok(!earows.some(r=>/[\u06F0-\u06F9]/.test(EA.rubrics[r.key]))&&Array.isArray(EA.meta.auto),'EA2 EAR میں اردو ہندسے نہیں؛ meta.auto موجود');
 // ---------- C7. HEARING + NOSE + FACE مکمل ----------
-[['hearing','سماعت — '],['nose','ناک — '],['face','چہرہ — ']].forEach(function(p){ const J=JSON.parse(rd('ur/rubrics/kent/'+p[0]+'.json')); w.repRubUrStore('kent',p[0],J); const rs=L.chapterRows(w,'kent',p[0]);
+[['hearing','سماعت — '],['nose','ناک — '],['face','چہرہ — '],['mouth','منہ — ']].forEach(function(p){ const J=JSON.parse(rd('ur/rubrics/kent/'+p[0]+'.json')); w.repRubUrStore('kent',p[0],J); const rs=L.chapterRows(w,'kent',p[0]);
   ok(J.meta.root===p[1]&&rs.every(r=>J.rubrics[r.key]&&J.rubrics[r.key].indexOf(p[1])===0)&&!rs.some(r=>/[\u06F0-\u06F9]/.test(J.rubrics[r.key])),'CH '+p[0]+' مکمل ('+rs.length+')، جڑ «'+p[1]+'»، اردو ہندسے نہیں'); });
 w.repCurrentChapter='mind';
 ok(w.repRubUrMode()==='full','C7 موڈ کی طے شدہ حالت «پورا مطلب»');
