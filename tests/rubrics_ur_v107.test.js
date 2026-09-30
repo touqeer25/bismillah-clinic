@@ -177,8 +177,12 @@ ok(LJ.rubrics['crumb']==='حلقوم — چورا (روٹی کا ذرہ)'&&LJ.ru
   const style=ks.filter(k=>/سے بڑھے|بڑھیں/.test(J.rubrics[k])).length;
   ok(noRoot===0&&latin===0&&style===0,'H10 '+root+': ہر جملے میں جڑ «'+root+' — » · کوئی انگریزی حرف نہیں · اسلوب «سے بگاڑ» (کوئی «سے بڑھے» نہیں) — '+ks.length+' جملے');
 });
-ok(/js\/18-rubrics-ur\.js\?v=135/.test(idx)&&/var REP_RUBUR_V = '135';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v135'/.test(sw),'H11 v135 bump: index ?v=135 · REP_RUBUR_V=135 · CACHE_NAME v135');
-ok(sw.indexOf("'./ur/rubrics/kent/larynx_and_trachea.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/respiration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/expectoration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/cough.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/chest.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/back.json'")>=0,'H12 service-worker میں نئی json (larynx_and_trachea/respiration/expectoration/cough/chest/back)');
+ok(/js\/18-rubrics-ur\.js\?v=137/.test(idx)&&/var REP_RUBUR_V = '137';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v137'/.test(sw),'H11 v137 bump: index ?v=137 · REP_RUBUR_V=137 · CACHE_NAME v137');
+ok(sw.indexOf("'./ur/rubrics/kent/larynx_and_trachea.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/respiration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/expectoration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/cough.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/chest.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/back.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/extremities.json'")>=0,'H12 service-worker میں نئی اردو ابواب کی فہرست (حلقوم/سانس/بلغم/کھانسی/سینہ/پیٹھ/اعضا)');
+const EX=JSON.parse(rd('ur/rubrics/kent/extremities.json')); const EXrows=L.chapterRows(w,'kent','extremities');
+const EXcovered=EXrows.filter(r=>EX.rubrics[r.key]);
+ok(EX.meta.root==='اعضا (ہاتھ پاؤں) — '&&Object.keys(EX.rubrics).length===399&&EXcovered.length===400&&EXrows.length===16057,'H13 EXTREMITIES پہلی قسط: 400 ربرک / 16,057، 399 منفرد کلیدیں، جڑ درست');
+ok(Object.values(EX.rubrics).every(t=>t.startsWith('اعضا (ہاتھ پاؤں) — ')&&!/[A-Za-z]{2,}/.test(t)&&!/[۰-۹٠-٩]/.test(t)),'H14 EXTREMITIES ترجمے: جڑ، انگریزی حروف اور ہندسوں کی جانچ');
 
 // ---------- I. CHEST (v134) ----------
 const chR=L.chapterRows(w,'kent','chest'); const chi=f=>chR.findIndex(r=>r.full===f);

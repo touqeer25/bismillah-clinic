@@ -17,7 +17,9 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   const loadErrs=errors.filter(e=>!/(Uncaught \[TypeError: Cannot read properties of undefined (reading 'slice')\][\s\S]*?HTMLScriptElement|Could not load (img|script)|Not implemented: HTMLCanvasElement|navigation|localStorage|serviceWorker|Not implemented: window\.(scrollTo|alert)|indexedDB|fetch|net::|ENOENT.*(png|jpg|ico|woff)|cdn-cgi|onLoadExternalScript)/i.test(e));
   ok(typeof w.initRepertoryBrowser==='function'&&typeof w.repDiffOpenForRubric==='function'&&typeof w.repMMOpen==='function'&&typeof w.repPrivImportText==='function'&&typeof w.repCmpModeToggle==='function','all repertory modules loaded (08, 08b, 08c)');
   ok(loadErrs.length===0,'no script errors at load'+(loadErrs.length?': '+loadErrs.slice(0,3).join(' | ').substring(0,300):''));
-  ok(d.getElementById('repCmpModeBtn')&&d.getElementById('repCmpPanel')&&d.getElementById('repBookSelect')&&d.getElementById('repBookSelect').options.length===11,'repertory toolbar present with 11 books');
+  const rb=d.getElementById('repBookSelect');
+  const builtInBooks=Object.keys(w.REP_BOOK_INFO||{}).filter(k=>k!=='custom_rep').length;
+  ok(d.getElementById('repCmpModeBtn')&&d.getElementById('repCmpPanel')&&rb&&builtInBooks===11&&rb.options.length>=11&&rb.value==='kent','repertory toolbar present with 11 books (plus optional custom)');
   // open repertory page: kent/mind auto-open
   errors.length=0; w.repCurrentBook='kent'; w.initRepertoryBrowser(); for(let i=0;i<100&&!d.getElementById('repCardsArea');i++)await sleep(100); await sleep(300);
   ok(d.querySelectorAll('#repChapterList .rep-chapter-item, #repChapterList [onclick*="repOpenChapter"]').length>=30||d.getElementById('repChapterList').textContent.length>200,'chapter list rendered');
