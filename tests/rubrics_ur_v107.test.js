@@ -128,7 +128,7 @@ ok(ci('COLDNESS, morning')<ci('COLDNESS, evening')&&ci('COLDNESS, evening')<ci('
 const rch=rd('js/repertory/rep-chapters.js');
 ok(/_repSortTreeKentOrder/.test(rch)&&/repCurrentBook === 'kent'/.test(rch),'F5 ترتیب کا فنکشن موجود اور صرف کینٹ پر لاگو');
 ok(/js\/repertory\/rep-chapters\.js\?v=13\d/.test(idx),'F6 index.html میں rep-chapters.js کا نیا ورژن (v130/131)');
-ok(/CACHE_NAME='bhc-clinic-v13\d'/.test(sw),'F7 CACHE_NAME v130/131');
+ok(/CACHE_NAME='bhc-clinic-v(13\d|14\d)'/.test(sw),'F7 CACHE_NAME v13x/v14x');
 
 // ---------- F8. GENITALIA FEMALE (v132) ----------
 const gfR=L.chapterRows(w,'kent','genitalia_female'); const fi=f=>gfR.findIndex(r=>r.full===f);
@@ -177,7 +177,7 @@ ok(LJ.rubrics['crumb']==='حلقوم — چورا (روٹی کا ذرہ)'&&LJ.ru
   const style=ks.filter(k=>/سے بڑھے|بڑھیں/.test(J.rubrics[k])).length;
   ok(noRoot===0&&latin===0&&style===0,'H10 '+root+': ہر جملے میں جڑ «'+root+' — » · کوئی انگریزی حرف نہیں · اسلوب «سے بگاڑ» (کوئی «سے بڑھے» نہیں) — '+ks.length+' جملے');
 });
-ok(/js\/18-rubrics-ur\.js\?v=139/.test(idx)&&/var REP_RUBUR_V = '139';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v139'/.test(sw),'L-H11 v139 bump: index ?v=139 · REP_RUBUR_V=139 · CACHE_NAME v139');
+ok(/js\/18-rubrics-ur\.js\?v=140/.test(idx)&&/var REP_RUBUR_V = '140';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v140'/.test(sw),'L-H11 v140 bump: index ?v=139 · REP_RUBUR_V=139 · CACHE_NAME v139');
 ok(sw.indexOf("'./ur/rubrics/kent/larynx_and_trachea.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/respiration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/expectoration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/cough.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/chest.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/back.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/extremities.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/sleep.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/chill.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/fever.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/perspiration.json'")>=0,'H12 service-worker میں نئی json (larynx/respiration/expectoration/cough/chest/back/extremities/sleep/chill/fever/perspiration)');
 
 // ---------- I. CHEST (v134) ----------
@@ -270,5 +270,32 @@ ok(PEJ.rubrics['colliquative']==='پسینہ — پگھلانے والا'&&PEJ.r
 ok(PEJ.rubrics['clammy, starting from sleep, with']==='پسینہ — چپچپا، نیند سے چونکتے وقت'&&PEJ.rubrics['sides, left']==='پسینہ — پہلو، بائیں'&&PEJ.rubrics['single parts, lain on']==='پسینہ — الگ الگ حصے، جن پر لیٹا ہو','O7 PERSPIRATION کی اصطلاحات پچھلے ابواب سے میل (چپچپا · پہلو · الگ الگ حصے · جن پر لیٹا ہو)');
 ok(peKs.every(k=>PEJ.rubrics[k].indexOf('پسینہ — ')===0)&&peKs.filter(k=>/[A-Za-z]/.test(PEJ.rubrics[k])).length===0&&!/دیکھیں/.test(rd('ur/rubrics/kent/perspiration.json'))&&peKs.filter(k=>/[\u06F0-\u06F9\u0660-\u0669]/.test(PEJ.rubrics[k])).length===0&&peKs.filter(k=>/agg\./.test(PEJ.rubrics[k])).length===0&&peKs.filter(k=>PEJ.rubrics[k].indexOf('پسینہ — پسینہ')===0).length===0,'O8 PERSPIRATION: ہر جملے میں جڑ «پسینہ — » ایک بار · کوئی انگریزی حرف نہیں · کوئی «(… دیکھیں)» نہیں · ہندسے 1 2 3 · «agg.» باقی نہیں — 427 جملے');
 ok(peKs.filter(k=>{const t=PEJ.rubrics[k].split('، '); return t.some((x,i)=>i&&x===t[i-1]);}).length===0&&PEJ.rubrics['odor, offensive, night, midnight']==='پسینہ — بو، ناگوار، رات، آدھی رات'&&PEJ.rubrics['suppressed, complaints from']==='پسینہ — دبایا ہوا، دبانے سے شکایات','O9 PERSPIRATION: کوئی ٹکڑا دہرایا نہیں گیا اور گہرے رستے درست جڑے (بو › ناگوار › رات › آدھی رات · دبایا ہوا › دبانے سے شکایات)');
+
+// ---------- P. v140: SKIN (جلد) مکمل ----------
+const cp=require('child_process');
+const PJ=JSON.parse(rd('ur/rubrics/kent/skin.json')); const pk=Object.keys(PJ.rubrics);
+ok(rd('js/18-rubrics-ur.js').indexOf("REP_RUBUR_V = '140'")>-1,'P1 ربرک فائلوں کا ورژن 140');
+ok(pk.length===1189&&PJ.locked.length===0&&pk.every(k=>PJ.rubrics[k].trim()!==''),'P2 SKIN مکمل: 1189 ربرک، کوئی خالی جملہ نہیں، کوئی قفل نہیں ('+pk.length+')');
+ok(PJ.meta.root==='جلد — '&&pk.filter(k=>!k.includes(',')).length===98,'P3 SKIN کی جڑ «جلد — » اور 98 مین ربرک');
+ok(rd('service-worker.js').indexOf('bhc-clinic-v140')>-1&&rd('service-worker.js').indexOf('ur/rubrics/kent/skin.json')>-1&&rd('index.html').indexOf('18-rubrics-ur.js?v=140')>-1,'P4 ورژن 140 تینوں جگہ (index.html · 18-rubrics-ur.js · service-worker.js) اور سروس ورکر میں جِلد کا JSON درج');
+[['eruptions','جلد — دانے'],['eruptions, blisters','جلد — دانے، چھالے'],['eruptions, carbuncle','جلد — دانے، کاربنکل (بڑا پھوڑا)'],['eruptions, eczema','جلد — دانے، خارش (ایگزما)'],['eruptions, pustules','جلد — دانے، پیپ والے دانے'],['eruptions, vesicular','جلد — دانے، چھالوں والے'],['eruptions, urticaria','جلد — دانے، کہیر'],['erysipelas','جلد — دانہ مخملی (اریسی پیلس)'],['ulcers','جلد — ناسور (زخم)'],['ulcers, discharges','جلد — ناسور (زخم)، رطوبت'],['warts','جلد — مسے'],['formication','جلد — چیونٹیاں رینگنے کا احساس'],['gangrene','جلد — گلنا (گینگرین)'],['lupus','جلد — لیوپس'],['itching','جلد — خارش'],['intertrigo','جلد — رگڑ سے چھلنے والی جلد (انٹرٹریگو)'],['wrinkled','جلد — جھریوں والا'],['goose flesh','جلد — رونگٹے'],['eruptions, scabies','جلد — دانے، کھجلی (اسکیبیز)'],['eruptions, itching, warmth','جلد — دانے، خارش، گرمی']].forEach(([k,v])=>ok(PJ.rubrics[k]===v,'P5 SKIN اصطلاح «'+k+'» → '+(PJ.rubrics[k]||'غائب')));
+ok(pk.every(k=>!/[\u06F0-\u06F9\u0660-\u0669]/.test(PJ.rubrics[k])&&PJ.rubrics[k].indexOf('جلد — جلد')!==0)&&pk.filter(k=>/[A-Za-z]/.test(PJ.rubrics[k])).length===0&&pk.filter(k=>/agg\./.test(PJ.rubrics[k])).length===0&&!/دیکھیں/.test(rd('ur/rubrics/kent/skin.json')),'P6 SKIN: ہر جملہ «جلد — » سے · کوئی انگریزی حرف نہیں · ہندسے 1 2 3 · «(… دیکھیں)» نہیں');
+{
+  const qa=cp.execSync('node '+path.join(ROOT,'tools/qa_rubrics_ur.js')+' kent skin',{encoding:'utf8'});
+  ok(/⚠ مشتبہ 0/.test(qa),'P7 SKIN کا معائنہ صاف (مشتبہ صفر)');
+  const bad=pk.filter(k=>{const t=PJ.rubrics[k].replace('جلد — ','').split('، ');return t.some((x,i)=>i&&(x===t[i-1]||(t[i-1].length>1&&(t[i].indexOf(t[i-1])===0||(/[اہ]$/.test(t[i-1])&&t[i].indexOf(t[i-1].slice(0,-1))===0&&/[ہاےیوں]/.test(t[i][t[i-1].length-1]))))));});
+  ok(bad.length===0,'P8 SKIN میں کوئی ٹکڑا دہرایا نہیں گیا ('+bad.length+(bad.length?' · مثال '+bad[0]:'')+')');
+}
+{
+  const w2=L.appWindow(); w2.currentLang='ur'; w2.repUrLabelsOn=()=>true;
+  w2.repCurrentBook='kent'; w2.repCurrentChapter='skin';
+  w2.repRubUrStore('kent','skin',PJ);
+  const sR=L.chapterRows(w2,'kent','skin');
+  ok(sR.length===1189,'P9 ایپ کو جِلد کی 1189 قطاریں ملیں ('+sR.length+')');
+  const h2=w2.repRubUrRowHtml(sR.find(r=>r.key==='eruptions, blisters'));
+  ok(/rub-base/.test(h2)&&/rub-delta/.test(h2)&&/چھالے/.test(h2),'P9 ایپ جِلد «چھالے» کی صف: بنیاد «جلد — دانے» + اضافہ «چھالے»');
+  const cov=cp.execSync('node '+path.join(ROOT,'tools/coverage_rubrics_ur.js')+' kent',{encoding:'utf8'});
+  ok(/skin\s+1189\s+1189\s+0\s+100\.0%/.test(cov)&&/generalities\s+2239\s+0\s+0\s+0\.0%/.test(cov),'P9 احاطہ: جِلد 100.0% · عمومیات 0.0% (اگلا باب)');
+}
 
 console.log(fails?`\n${fails} FAIL`:'\nALL PASS'); process.exit(fails?1:0);
