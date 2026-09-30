@@ -177,12 +177,33 @@ ok(LJ.rubrics['crumb']==='حلقوم — چورا (روٹی کا ذرہ)'&&LJ.ru
   const style=ks.filter(k=>/سے بڑھے|بڑھیں/.test(J.rubrics[k])).length;
   ok(noRoot===0&&latin===0&&style===0,'H10 '+root+': ہر جملے میں جڑ «'+root+' — » · کوئی انگریزی حرف نہیں · اسلوب «سے بگاڑ» (کوئی «سے بڑھے» نہیں) — '+ks.length+' جملے');
 });
-ok(/js\/18-rubrics-ur\.js\?v=137/.test(idx)&&/var REP_RUBUR_V = '137';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v137'/.test(sw),'H11 v137 bump: index ?v=137 · REP_RUBUR_V=137 · CACHE_NAME v137');
+ok(/js\/18-rubrics-ur\.js\?v=140/.test(idx)&&/var REP_RUBUR_V = '140';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v140'/.test(sw),'H11 v140 bump: index ?v=140 · REP_RUBUR_V=140 · CACHE_NAME v140');
 ok(sw.indexOf("'./ur/rubrics/kent/larynx_and_trachea.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/respiration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/expectoration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/cough.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/chest.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/back.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/extremities.json'")>=0,'H12 service-worker میں نئی اردو ابواب کی فہرست (حلقوم/سانس/بلغم/کھانسی/سینہ/پیٹھ/اعضا)');
 const EX=JSON.parse(rd('ur/rubrics/kent/extremities.json')); const EXrows=L.chapterRows(w,'kent','extremities');
 const EXcovered=EXrows.filter(r=>EX.rubrics[r.key]);
-ok(EX.meta.root==='اعضا (ہاتھ پاؤں) — '&&Object.keys(EX.rubrics).length===399&&EXcovered.length===400&&EXrows.length===16057,'H13 EXTREMITIES پہلی قسط: 400 ربرک / 16,057، 399 منفرد کلیدیں، جڑ درست');
-ok(Object.values(EX.rubrics).every(t=>t.startsWith('اعضا (ہاتھ پاؤں) — ')&&!/[A-Za-z]{2,}/.test(t)&&!/[۰-۹٠-٩]/.test(t)),'H14 EXTREMITIES ترجمے: جڑ، انگریزی حروف اور ہندسوں کی جانچ');
+ok(EX.meta.root==='اعضا (ہاتھ پاؤں) — '&&Object.keys(EX.rubrics).length===1998&&EXcovered.length===1999&&EXrows.length===16057,'H13 EXTREMITIES پہلی 2,000 قطاریں: 1,999 ترجمہ شدہ قطاریں، 1,998 منفرد کلیدیں، جڑ درست');
+ok(Object.values(EX.rubrics).every(t=>t.startsWith('اعضا (ہاتھ پاؤں) — ')&&!/[A-Za-z]{2,}/.test(t)&&!/[۰-۹٠-٩]/.test(t)&&!/[⟨⟩]/.test(t)&&!t.includes('دیکھیں')),'H14 EXTREMITIES ترجمے: جڑ، انگریزی حروف، ہندسے، لفظی نشان اور کراس حوالہ جانچ');
+const EXfiles=fs.readdirSync(path.join(ROOT,'ur/rubrics/kent')).filter(f=>f.endsWith('.json')&&f!=='extremities.json');
+const EXold=new Map(); EXfiles.forEach(f=>{const J=JSON.parse(rd('ur/rubrics/kent/'+f));const rt=(J.meta&&J.meta.root)||'';Object.keys(J.rubrics||{}).forEach(k=>{const v=J.rubrics[k];const body=rt&&v.startsWith(rt)?v.slice(rt.length):v;if(!EXold.has(k))EXold.set(k,new Set());EXold.get(k).add(body);});});
+const EXshared=Object.keys(EX.rubrics).filter(k=>EXold.has(k));const EXdiff=EXshared.filter(k=>!EXold.get(k).has(EX.rubrics[k].slice(EX.meta.root.length))).sort();
+const EXexpected=['balls','chilblains','coldness, air, open','coldness, left','coldness, night, bed, in','contraction, night'].sort();
+const EXnewDiff=EXdiff.filter(k=>!EXexpected.includes(k));
+if(EXfiles.length){ok(EXshared.length>=35&&EXexpected.every(k=>EXdiff.includes(k)),'H15 سابقہ ابواب سے تقابل: '+EXshared.length+' مشترک کلیدیں؛ v139 کے 6 معلوم سیاقی فرق برقرار؛ اضافی اختلافی کلیدیں: '+(EXnewDiff.length?EXnewDiff.join(' | '):'کوئی نہیں'));}
+else{ok(true,'H15 سابقہ ابواب کا تقابل ملتوی: اس نقل میں دوسرے ابواب کے ترجمہ شدہ JSON موجود نہیں');}
+ok(EX.rubrics['coldness']==='اعضا (ہاتھ پاؤں) — ٹھنڈک'&&EX.rubrics['compression']==='اعضا (ہاتھ پاؤں) — دباؤ، سکڑاؤ'&&EX.rubrics['constriction']==='اعضا (ہاتھ پاؤں) — جکڑن','H16 سابقہ ابواب کی اصطلاحات برقرار: ٹھنڈک · دباؤ/سکڑاؤ · جکڑن');
+const B3=fs.readFileSync(path.join(ROOT,'ur/rubrics/kent/extremities_batch3.tsv'),'utf8').trim().split(/\r?\n/); const B3rows=B3.slice(1).map(x=>x.split('\t')); const B3keys=B3rows.map(x=>x[0]);
+ok(B3rows.length===400&&new Set(B3keys).size===400&&B3keys.every(k=>EX.rubrics[k]&&B3rows.find(r=>r[0]===k)[5].startsWith('=اعضا (ہاتھ پاؤں) — ')),'H17 EXTREMITIES بیچ 3: 400 نئی منفرد کلیدیں، ہر قطار مکمل جڑ والے جملے سمیت ضم');
+ok(EX.rubrics['contraction, hand, tendons of, flexor']==='اعضا (ہاتھ پاؤں) — سکڑاؤ، ہاتھ کے موڑنے والے کنڈروں میں'&&EX.rubrics['convulsion, upper limbs, epileptic, starting from']==='اعضا (ہاتھ پاؤں) — تشنج، مرگی کا دورہ بازوؤں سے شروع ہوتا ہے'&&EX.rubrics['corns, boring']==='اعضا (ہاتھ پاؤں) — پاؤں کے سخت گٹے، برما جیسا درد','H18 بیچ 3 کے نظرثانی شدہ تراجم: flexor/کنڈرے · مرگی کا دورہ · «جیسا» درد کی تصویر');
+const B4raw=fs.readFileSync(path.join(ROOT,'ur/rubrics/kent/extremities_batch4.tsv'),'utf8').trim().split(/\r?\n/); const B4rows=B4raw.slice(1).map(x=>x.split('\t')); const B4keys=B4rows.map(x=>x[0]); const B4filled=B4rows.filter(x=>x[5]&&x[5].trim()); const B4blank=B4rows.filter(x=>!x[5]||!x[5].trim());
+ok(B4rows.length===800&&new Set(B4keys).size===800&&B4filled.length===799&&B4blank.length===1&&B4blank[0][0]==='discoloration, ankle, tetter'&&!EX.rubrics[B4blank[0][0]],'H19 بیچ 4: 800 منفرد قطاریں، 799 ترجمے، ایک غیر یقینی کلید دانستہ خالی');
+ok(B4filled.every(r=>r[5].startsWith('=اعضا (ہاتھ پاؤں) — ')&&EX.rubrics[r[0]]===r[5].slice(1)),'H20 بیچ 4 کے تمام 799 تراجم فعال JSON میں عین اسی جملے کے ساتھ');
+ok(EX.rubrics['cramps, calf, mortification, after']==='اعضا (ہاتھ پاؤں) — اینٹھن، پنڈلی میں، بے عزتی کے بعد'&&EX.rubrics['drawn, upwards, abdomen, on']==='اعضا (ہاتھ پاؤں) — اوپر کی طرف کھنچاؤ، پیٹ کے بل لیٹنے پر'&&EX.rubrics['drawn, upwards, abdomen, on, in necrosis of femur']==='اعضا (ہاتھ پاؤں) — اوپر کی طرف کھنچاؤ، پیٹ کے بل لیٹنے پر، ران کی ہڈی کے مردہ ہو جانے کی حالت میں'&&EX.rubrics['cramps, calf, drawing, up leg']==='اعضا (ہاتھ پاؤں) — اینٹھن، پنڈلی میں، ٹانگ میں اوپر کی طرف کھنچاؤ والا درد','H21 معنوی اصلاحات: mortification، پیٹ کے بل، necrosis اور ٹانگ میں کھنچتا درد');
+ok(EX.rubrics['cramps, hip, gluteal muscles']==='اعضا (ہاتھ پاؤں) — اینٹھن، کولہے کے پچھلے حصے (سرین) کے پٹھوں میں'&&EX.rubrics['discoloration, lower limbs, bluish']==='اعضا (ہاتھ پاؤں) — رنگ بگڑنا، ٹانگوں پر نیلاہٹ مائل رنگت'&&EX.rubrics['discoloration, leg, tibia, spots']==='اعضا (ہاتھ پاؤں) — رنگ بگڑنا، پنڈلی کی بڑی ہڈی پر دھبے','H22 gluteal muscles، نیلاہٹ اور مستقل tibia اصطلاح');
+const EXB1=fs.readFileSync(path.join(ROOT,'ur/rubrics/kent/extremities_batch1.tsv'),'utf8').trim().split(/\r?\n/).slice(1).map(x=>x.split('\t')); const EXB2=fs.readFileSync(path.join(ROOT,'ur/rubrics/kent/extremities_batch2.tsv'),'utf8').trim().split(/\r?\n/).slice(1).map(x=>x.split('\t'));
+const EXprev=[...EXB1,...EXB2];
+ok(EXprev.filter(r=>['chorea, coition agg.','coldness, leg, coition, after','coldness, leg, tibia'].includes(r[0])).every(r=>EX.rubrics[r[0]]===r[5].slice(1)),'H23 بیچ 1–2 کی coition/tibia TSV عبارتیں فعال JSON سے ہم آہنگ');
+const EXlabels=JSON.parse(rd('ur/rubric_labels_ur.json')).labels;
+ok(EXlabels.coition==='جنسی تعلق'&&EXlabels.tibia==='پنڈلی کی بڑی ہڈی'&&EXlabels.nates==='سرین','H24 مشترک اصطلاحی لغت: coition، tibia، nates');
 
 // ---------- I. CHEST (v134) ----------
 const chR=L.chapterRows(w,'kent','chest'); const chi=f=>chR.findIndex(r=>r.full===f);
