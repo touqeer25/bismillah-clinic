@@ -1,0 +1,610 @@
+key	depth	en	ur
+heat in general	0	HEAT in general	عمومی گرمی
+morning	0	MORNING	صبح
+morning, bed, in	1	MORNING, bed, in	بستر میں
+morning, bed, in, 5 a.m. followed by shaking chill	2	MORNING, bed, in, 5 a.m. followed by shaking chill	=بخار — صبح 5 بجے، بستر میں، اِس کے بعد کپکپی والی سردی
+morning, breakfast, after	1	MORNING, breakfast, after	ناشتے کے بعد
+morning, chill, without	1	MORNING, chill, without (See Chill Absent)	سردی لگے بغیر
+morning, chilliness, with	1	MORNING, chilliness, with	ٹھنڈک کے ساتھ
+morning, rising, after	1	MORNING, rising, after	اٹھنے کے بعد
+morning, rising, after, and walking about	2	MORNING, rising, after, and walking about	=بخار — صبح، اٹھنے کے بعد اور ٹہلتے پھرتے
+morning, waking, on	1	MORNING, waking, on	جاگتے وقت
+morning, walking in open air, after	1	MORNING, walking in open air, after	کھلی ہوا میں چلنے کے بعد
+forenoon	0	FORENOON	دوپہر سے پہلے
+forenoon, alternating with chill	1	FORENOON, alternating with chill	سردی سے باری باری
+forenoon, chilliness, with	1	FORENOON, chilliness, with	ٹھنڈک کے ساتھ
+forenoon, heat of the whole body except the head	1	FORENOON, heat of the whole body except the head	سارے جسم کی گرمی سوائے سر کے
+forenoon, menses, before	1	FORENOON, menses, before	حیض سے پہلے
+forenoon, 9 a.m.	1	FORENOON, 9 a.m.	صبح 9 بجے
+forenoon, 9 a.m. and 5 p.m.	1	FORENOON, 9 a.m. and 5 p.m.	صبح 9 بجے اور شام 5 بجے
+forenoon, 10 a.m., as if dashed with hot water, or hot water running through the blood vessels	1	FORENOON, 10 a.m., as if dashed with hot water, or hot water running through the blood vessels	=بخار — صبح 10 بجے، جیسے گرم پانی ڈال دیا گیا ہو یا رگوں میں گرم پانی بہہ رہا ہو
+forenoon, 11 a.m., with thirst and chilliness	1	FORENOON, 11 a.m., with thirst and chilliness	صبح 11 بجے، پیاس اور ٹھنڈک کے ساتھ
+forenoon, 11 a.m. to 1 p.m.	1	FORENOON, 11 a.m. to 1 p.m.	صبح 11 سے دوپہر 1 بجے تک
+noon	0	NOON	دوپہر
+afternoon	0	AFTERNOON	سہ پہر
+afternoon, alternating with chill	1	AFTERNOON, alternating with chill	سردی سے باری باری
+afternoon, chilliness	1	AFTERNOON, chilliness	ٹھنڈک
+afternoon, chilliness, with	2	AFTERNOON, chilliness, with	=بخار — سہ پہر، ٹھنڈک کے ساتھ
+afternoon, chilliness, followed by	2	AFTERNOON, chilliness, followed by	اِس کے بعد
+afternoon, chilliness, followed by, in the open air	3	AFTERNOON, chilliness, followed by, in the open air	کھلی ہوا میں
+afternoon, coldness, external, with	1	AFTERNOON, coldness, external, with	بیرونی ٹھنڈک کے ساتھ
+afternoon, dinner	1	AFTERNOON, dinner	دوپہر کا کھانا
+afternoon, dinner, during	2	AFTERNOON, dinner, during	دوپہر کے کھانے کے دوران
+afternoon, dinner, after	2	AFTERNOON, dinner, after	دوپہر کے کھانے کے بعد
+afternoon, lying down, after	1	AFTERNOON, lying down, after	لیٹنے کے بعد
+afternoon, sleep, after	1	AFTERNOON, sleep, after	نیند کے بعد
+afternoon, walking	1	AFTERNOON, walking	چلنا
+afternoon, walking, while	2	AFTERNOON, walking, while	چلتے ہوئے
+afternoon, walking, in the open air, after	2	AFTERNOON, walking, in the open air, after	کھلی ہوا میں چلنے کے بعد
+afternoon, 1 p.m.	1	AFTERNOON, 1 p.m.	=بخار — سہ پہر 1 بجے
+afternoon, 1 p.m. to 4 p.m. with severe headache	1	AFTERNOON, 1 p.m. to 4 p.m. with severe headache	=بخار — سہ پہر 1 سے 4 بجے، شدید سر درد کے ساتھ
+afternoon, 2 p.m.	1	AFTERNOON, 2 p.m.	=بخار — سہ پہر 2 بجے
+afternoon, 2 p.m., followed by chill at 4 p.m.	2	AFTERNOON, 2 p.m., followed by chill at 4 p.m.	=بخار — سہ پہر 2 بجے، اِس کے بعد شام 4 بجے سردی
+afternoon, 3 p.m.	1	AFTERNOON, 3 p.m.	=بخار — سہ پہر 3 بجے
+afternoon, 3 p.m. to 4 p.m.	1	AFTERNOON, 3 p.m. to 4 p.m.	=بخار — سہ پہر 3 سے 4 بجے
+afternoon, 4 p.m.	1	AFTERNOON, 4 p.m.	شام 4 بجے
+afternoon, 4 p.m., every day amel. by eating	2	AFTERNOON, 4 p.m., every day amel. by eating	ہر روز کھانے سے آرام
+afternoon, 4 p.m. to 5 p.m.	1	AFTERNOON, 4 p.m. to 5 p.m.	شام 4 سے 5 بجے
+afternoon, 4 p.m. to 8 p.m.	1	AFTERNOON, 4 p.m. to 8 p.m.	شام 4 سے 8 بجے
+afternoon, 4 p.m. until midnight	1	AFTERNOON, 4 p.m. until midnight	شام 4 بجے سے آدھی رات تک
+afternoon, 5 to 6 p.m.	1	AFTERNOON, 5 to 6 p.m. (See Evening)	شام 5 سے 6 بجے
+evening	0	EVENING	شام
+evening, chill, after	1	EVENING, chill, after	سردی کے بعد
+evening, chilliness, with	1	EVENING, chilliness, with	ٹھنڈک کے ساتھ
+evening, delirium, with	1	EVENING, delirium, with	ہذیان کے ساتھ
+evening, eating, after	1	EVENING, eating, after	کھانے کے بعد
+evening, lasting from 7 to 12 p.m., following 4 p.m. chill	1	EVENING, lasting from 7 to 12 p.m., following 4 p.m. chill	=بخار — شام 7 سے 12 بجے تک جاری، شام 4 بجے کی سردی کے بعد
+evening, lasting, all night	1	EVENING, lasting, all night	ساری رات جاری
+evening, lasting, all night, followed by shuddering	2	EVENING, lasting, all night, followed by shuddering	اِس کے بعد لرزہ
+evening, morning and	1	EVENING, morning and	صبح اور
+evening, room, on entering the	1	EVENING, room, on entering the	کمرے میں داخل ہوتے وقت
+evening, 5 p.m.	1	EVENING, 5 p.m.	=بخار — شام 5 بجے
+evening, 6 p.m.	1	EVENING, 6 p.m.	=بخار — شام 6 بجے
+evening, 6 p.m., to 8 p.m.	2	EVENING, 6 p.m., to 8 p.m.	=بخار — شام 6 سے 8 بجے
+evening, 7 p.m.	1	EVENING, 7 p.m.	=بخار — شام 7 بجے
+evening, 8 p.m.	1	EVENING, 8 p.m.	=بخار — شام 8 بجے
+evening, 8 p.m., to 9 p.m.	2	EVENING, 8 p.m., to 9 p.m.	=بخار — شام 8 سے 9 بجے
+evening, bed	1	EVENING, bed	بستر
+evening, bed, in	2	EVENING, bed, in	=بخار — شام، بستر میں
+evening, bed, with sweat	2	EVENING, bed, with sweat	=بخار — شام، بستر میں، پسینے کے ساتھ
+evening, bed, after lying down	2	EVENING, bed, after lying down	=بخار — شام، بستر میں لیٹنے کے بعد
+night	0	NIGHT	رات
+night, anxiety and sweat, with	1	NIGHT, anxiety and sweat, with	بے چینی اور پسینے کے ساتھ
+night, chilliness, with	1	NIGHT, chilliness, with	ٹھنڈک کے ساتھ
+night, chilliness, with, chilly during day, heat at night	2	NIGHT, chilliness, with, chilly during day, heat at night	دن میں ٹھنڈک، رات میں گرمی
+night, dry burning heat	1	NIGHT, dry burning heat	خشک جلتی ہوئی گرمی
+night, dry burning heat, without thirst	2	NIGHT, dry burning heat, without thirst	پیاس کے بغیر
+night, dry burning heat, with sleeplessness	2	NIGHT, dry burning heat, with sleeplessness	بے خوابی کے ساتھ
+night, dry burning heat, with, anxiety	2	NIGHT, dry burning heat, with, anxiety	بے چینی کے ساتھ
+night, perspiration, with	1	NIGHT, perspiration, with	پسینے کے ساتھ
+night, perspiration, with, clammy sweat and quick pulse	2	NIGHT, perspiration, with, clammy sweat and quick pulse	چپچپا پسینہ اور تیز نبض
+night, waking	1	NIGHT, waking	جاگنا
+night, waking, amel.	2	NIGHT, waking, amel.	=بخار — رات، جاگنے سے آرام
+night, waking, on agg.	2	NIGHT, waking, on agg.	=بخار — رات، جاگنے پر بگاڑ
+night, water, as if hot water were poured over one	1	NIGHT, water, as if hot water were poured over one	جیسے اوپر گرم پانی ڈال دیا گیا ہو
+night, 9 p.m.	1	NIGHT, 9 p.m.	=بخار — رات 9 بجے
+night, 10 p.m.	1	NIGHT, 10 p.m.	=بخار — رات 10 بجے
+night, 11 p.m.	1	NIGHT, 11 p.m.	=بخار — رات 11 بجے
+night, 2 a.m.	1	NIGHT, 2 a.m.	صبح 2 بجے
+night, 3 a.m.	1	NIGHT, 3 a.m.	صبح 3 بجے
+midnight	0	MIDNIGHT	آدھی رات
+midnight, menses, before the	1	MIDNIGHT, menses, before the	حیض سے پہلے
+midnight, perspiration, with, when lying on the back	1	MIDNIGHT, perspiration, with, when lying on the back	پیٹھ کے بل لیٹنے پر پسینے کے ساتھ
+midnight, sleep, during, passing away on waking	1	MIDNIGHT, sleep, during, passing away on waking	نیند کے دوران، جاگنے پر ختم
+midnight, midnight and noon	1	MIDNIGHT, midnight and noon	=بخار — آدھی رات اور دوپہر
+midnight, before	1	MIDNIGHT, before	=بخار — آدھی رات سے پہلے
+midnight, after	1	MIDNIGHT, after	=بخار — آدھی رات کے بعد
+affected parts	0	AFFECTED parts	متاثرہ حصے
+air	0	AIR	ہوا
+air, increased in the open	1	AIR, increased in the open	کھلی ہوا میں بڑھے
+air, intolerance of both cold and warm	1	AIR, intolerance of both cold and warm	ٹھنڈی اور گرم دونوں برداشت نہ ہو
+air, open, amel. in	1	AIR, open, amel. in	کھلی ہوا میں آرام
+alternating with	0	ALTERNATING with	باری باری، ساتھ
+alternating with, chills	1	ALTERNATING with, chills	سردیوں سے
+alternating with, chills, forenoon	2	ALTERNATING with, chills, forenoon	دوپہر سے پہلے
+alternating with, chills, afternoon	2	ALTERNATING with, chills, afternoon	سہ پہر
+alternating with, chills, afternoon, eating, after	3	ALTERNATING with, chills, afternoon, eating, after	کھانے کے بعد
+alternating with, chills, afternoon, in open air	3	ALTERNATING with, chills, afternoon, in open air	کھلی ہوا میں
+alternating with, chills, evening	2	ALTERNATING with, chills, evening	شام
+alternating with, chills, evening, bed, in	3	ALTERNATING with, chills, evening, bed, in	بستر میں
+alternating with, chills, evening, 8 p.m.	3	ALTERNATING with, chills, evening, 8 p.m.	=بخار — باری باری، ساتھ، سردیوں سے، شام 8 بجے
+alternating with, chills, night	2	ALTERNATING with, chills, night	رات
+alternating with, chills, night, with perspiration	3	ALTERNATING with, chills, night, with perspiration	پسینے کے ساتھ
+alternating with, chills, fright	2	ALTERNATING with, chills, fright	ڈر سے
+alternating with, chills, menses, during	2	ALTERNATING with, chills, menses, during	حیض کے دوران
+alternating with, chills, motion, on	2	ALTERNATING with, chills, motion, on	حرکت کرنے پر
+alternating with, chills, with hot twitches	2	ALTERNATING with, chills, with hot twitches	گرم جھٹکوں کے ساتھ
+alternating with, chilliness, dry, burning heat	1	ALTERNATING with, chilliness, dry, burning heat	=بخار — باری باری، ساتھ، خشک ٹھنڈک، جلتی ہوئی گرمی
+alternating with, perspiration	1	ALTERNATING with, perspiration	پسینے سے
+alternating with, shivering	1	ALTERNATING with, shivering	کانپنے سے
+alternating with, shuddering	1	ALTERNATING with, shuddering	لرزے سے
+alternating with chills	0	ALTERNATING with chills	سردیوں سے باری باری
+anger	0	ANGER	غصہ
+anger, paroxysms brought on by	1	ANGER, paroxysms brought on by	=بخار — غصے سے دورے شروع ہوں
+anticipating	0	ANTICIPATING	وقت سے پہلے آنا
+anxious heat	0	ANXIOUS heat (See Mind, Anxiety)	بے چین کرنے والی گرمی
+ascending	0	ASCENDING	اوپر چڑھتی ہوئی
+autumnal	0	AUTUMNAL	خزاں کا
+bed	0	BED	بستر
+bed, amel.	1	BED, amel.	=بخار — بستر سے آرام
+bed, driving him out of bed at night	1	BED, driving him out of bed at night	رات میں بستر سے نکال دے
+bed, feeling of heat in bed, yet aversion to uncovering	1	BED, feeling of heat in bed, yet aversion to uncovering	=بخار — بستر میں گرمی کا احساس، مگر ڈھانپ ہٹانا نہ بھائے
+bed, after getting out of	1	BED, after getting out of	=بخار — بستر سے نکلنے کے بعد
+bed, in, from putting hand out of	1	BED, in (See Night and Warmth), from putting hand out of (See Chilliness)	=بخار — بستر میں، ہاتھ باہر نکالنے سے
+bed, in agg.	1	BED, in agg.	=بخار — بستر میں بگاڑ
+bed, heat on rising from	1	BED, heat on rising from	=بخار — بستر سے اٹھتے وقت گرمی
+bed, heat on rising from, and walking about	2	BED, heat on rising from, and walking about	=بخار — بستر سے اٹھتے وقت گرمی، اور ٹہلتے پھرتے
+body	0	BODY	جسم
+body, anterior part	1	BODY, anterior part	=بخار — جسم کا اگلا حصہ
+body, posterior part	1	BODY, posterior part	=بخار — جسم کا پچھلا حصہ
+body, lower part	1	BODY, lower part	=بخار — جسم کا نچلا حصہ
+body, upper part	1	BODY, upper part	=بخار — جسم کا اوپری حصہ
+body, upper part, with icy-cold feet	2	BODY, upper part, with icy-cold feet	=بخار — جسم کا اوپری حصہ، برف جیسے ٹھنڈے پاؤں کے ساتھ
+body, upper part, but less of the head	2	BODY, upper part, but less of the head	=بخار — جسم کا اوپری حصہ، مگر سر کم
+burning heat	0	BURNING heat	جلتی ہوئی گرمی
+burning heat, morning	1	BURNING heat, morning	صبح
+burning heat, forenoon	1	BURNING heat, forenoon	دوپہر سے پہلے
+burning heat, forenoon, 9 a.m. to 12 a.m.	2	BURNING heat, forenoon, 9 a.m. to 12 a.m.	صبح 9 سے دوپہر 12 بجے
+burning heat, afternoon	1	BURNING heat, afternoon	سہ پہر
+burning heat, afternoon, 4 p.m.	2	BURNING heat, afternoon, 4 p.m.	شام 4 بجے
+burning heat, afternoon, 4 p.m., lasting all night	3	BURNING heat, afternoon, 4 p.m., lasting all night	ساری رات جاری
+burning heat, afternoon, 4 p.m., several hours	3	BURNING heat, afternoon, 4 p.m., several hours	کئی گھنٹے
+burning heat, afternoon, with transient chills	2	BURNING heat, afternoon, with transient chills	عارضی سردیوں کے ساتھ
+burning heat, evening	1	BURNING heat, evening	شام
+burning heat, night	1	BURNING heat, night	رات
+burning heat, night, in bed, intolerable burning heat	2	BURNING heat, night, in bed, intolerable burning heat	=بخار — جلتی ہوئی گرمی، رات، بستر میں ناقابلِ برداشت
+burning heat, night, midnight	2	BURNING heat, night, midnight	آدھی رات
+burning heat, night, midnight, before	3	BURNING heat, night, midnight, before	=بخار — جلتی ہوئی گرمی، رات، آدھی رات سے پہلے
+burning heat, night, midnight, after	3	BURNING heat, night, midnight, after	=بخار — جلتی ہوئی گرمی، رات، آدھی رات کے بعد
+burning heat, night, 3 a.m.	2	BURNING heat, night, 3 a.m.	صبح 3 بجے
+burning heat, night, 9 p.m. to 12 p.m.	2	BURNING heat, night, 9 p.m. to 12 p.m.	=بخار — جلتی ہوئی گرمی، رات 9 سے دوپہر 12 بجے
+burning heat, alternating with chill	1	BURNING heat, alternating with chill	سردی سے باری باری
+burning heat, alternating, with chilliness	1	BURNING heat, alternating, with chilliness	ٹھنڈک سے باری باری
+burning heat, distended blood vessels, with	1	BURNING heat, distended blood vessels, with	پھیلی ہوئی رگوں کے ساتھ
+burning heat, dry, burning heat, extending from head, and face, with thirst for cold drinks	1	BURNING heat, dry, burning heat, extending from head, and face, with thirst for cold drinks	=بخار — جلتی ہوئی گرمی، خشک، سر اور چہرے سے پھیلتی ہوئی، ٹھنڈے مشروبات کی پیاس کے ساتھ
+burning heat, except head and face, which are covered with sweat	1	BURNING heat, except head and face, which are covered with sweat	سوائے سر اور چہرے کے جو پسینے میں ڈھکے ہوں
+burning heat, feel, which he does not	1	BURNING heat, feel, which he does not	اُسے محسوس نہ ہو
+burning heat, furious, delirium, with	1	BURNING heat, furious, delirium, with	شدید، ہذیان کے ساتھ
+burning heat, heat, outside, cold inside	1	BURNING heat, heat, outside, cold inside	باہر گرمی، اندر ٹھنڈک
+burning heat, increased by walking in open air	1	BURNING heat, increased by walking in open air	کھلی ہوا میں چلنے سے بڑھے
+burning heat, internal mostly, blood seems to burn in the veins	1	BURNING heat, internal mostly, blood seems to burn in the veins	زیادہ تر اندرونی، رگوں میں خون جلتا معلوم ہو
+burning heat, internal, parts	1	BURNING heat, internal, parts	اندرونی حصے
+burning heat, interrupted with shaking chills, then internal burning heat with great thirst	1	BURNING heat, interrupted with shaking chills, then internal burning heat with great thirst	کپکپی والی سردیوں سے رکتی ہوئی، پھر اندرونی جلتی ہوئی گرمی شدید پیاس کے ساتھ
+burning heat, lasting all day	1	BURNING heat, lasting all day	سارا دن جاری
+burning heat, parts lain on	1	BURNING heat, parts lain on	جن حصوں پر لیٹا ہو
+burning heat, perspiration, with	1	BURNING heat, perspiration, with (See Hot Perspiration)	پسینے کے ساتھ
+burning heat, pricking over the whole body, with	1	BURNING heat, pricking over the whole body, with	سارے جسم میں سوئیاں چبھنے کے ساتھ
+burning heat, sleep, during	1	BURNING heat, sleep, during	نیند کے دوران
+burning heat, sparks	1	BURNING heat, sparks	چنگاریاں
+burning heat, spot, in one, which is cold to the touch	1	BURNING heat, spot, in one, which is cold to the touch	ایک جگہ، جو چھونے میں ٹھنڈی ہو
+burning heat, spots, in single	1	BURNING heat, spots, in single	الگ الگ جگہوں پر
+burning heat, spreading from the hands over the whole body	1	BURNING heat, spreading from the hands over the whole body	ہاتھوں سے سارے جسم پر پھیلتی ہوئی
+burning heat, stinging sensations, with	1	BURNING heat, stinging sensations, with	ڈسنے کے سے احساس کے ساتھ
+burning heat, sweat, even when bathed in, with red face	1	BURNING heat, sweat, even when bathed in, with red face	پسینے میں نہایا ہوا، سرخ چہرے کے ساتھ
+burning heat, thirst	1	BURNING heat, thirst	پیاس
+burning heat, thirst, and desire to be covered	2	BURNING heat, thirst, and desire to be covered	اور ڈھکے رہنے کی خواہش
+burning heat, thirst, with unquenchable	2	BURNING heat, thirst, with unquenchable	ناقابلِ بجھائی پیاس کے ساتھ
+burning heat, thirst for cold drinks, with	1	BURNING heat, thirst for cold drinks, with	ٹھنڈے مشروبات کی پیاس کے ساتھ
+burning heat, within and without, body turning hot	1	BURNING heat, within and without, body turning hot	اندر باہر، جسم گرم ہو جائے
+catarrhal fever	0	CATARRHAL fever	نزلے والا بخار
+catarrhal fever, menses, during	1	CATARRHAL fever, menses, during	حیض کے دوران
+cerebro-spinal fever	0	CEREBRO-SPINAL fever	دماغی نخاعی بخار
+changing	0	CHANGING	بدلتا ہوا
+changing, paroxysms	1	CHANGING, paroxysms	دورے
+changing, paroxysms, after	2	CHANGING, paroxysms, after	=بخار — بدلتا ہوا، دوروں کے بعد
+changing, paroxysms, after, abuse of quinine	3	CHANGING, paroxysms, after, abuse of quinine	=بخار — بدلتا ہوا، دوروں کے بعد، کوئنین کے زیادہ استعمال کے بعد
+changing, paroxysms, after, homoeopathic potencies	3	CHANGING, paroxysms, after, homoeopathic potencies	=بخار — بدلتا ہوا، دوروں کے بعد، ہومیوپیتھک طاقتوں کے بعد
+changing, paroxysms, frequently	2	CHANGING, paroxysms, frequently	بار بار
+changing, paroxysms, not two paroxysms alike	2	CHANGING, paroxysms, not two paroxysms alike	کوئی دو دورے ایک جیسے نہیں
+chill	0	CHILL	سردی
+chill, with	1	CHILL, with	=بخار — سردی کے ساتھ
+chill, with, heat and perspiration	2	CHILL, with, heat and perspiration	=بخار — سردی کے ساتھ، گرمی اور پسینے کے ساتھ
+chill, with, perspiration, without subsequent	2	CHILL, with, perspiration, without subsequent	=بخار — سردی کے ساتھ، اِس کے بعد پسینہ نہ ہو
+chill, with, shaking	2	CHILL, with, shaking	=بخار — سردی کے ساتھ، کانپنے کے ساتھ
+chill absent	0	CHILL absent	سردی نہ لگنا
+chill absent, fever without chill	1	CHILL absent, fever without chill	سردی کے بغیر بخار
+chill absent, morning	1	CHILL absent, morning	صبح
+chill absent, morning, 6 a.m. to 10 a.m.	2	CHILL absent, morning, 6 a.m. to 10 a.m.	=بخار — سردی نہ لگنا، صبح 6 سے 10 بجے
+chill absent, morning, 7 a.m.	2	CHILL absent, morning, 7 a.m.	=بخار — سردی نہ لگنا، صبح 7 بجے
+chill absent, morning, 9 a.m.	2	CHILL absent, morning, 9 a.m.	=بخار — سردی نہ لگنا، صبح 9 بجے
+chill absent, forenoon	1	CHILL absent, forenoon	دوپہر سے پہلے
+chill absent, forenoon, 10 a.m.	2	CHILL absent, forenoon, 10 a.m.	صبح 10 بجے
+chill absent, forenoon, 10 a.m., to 11 a.m.	3	CHILL absent, forenoon, 10 a.m., to 11 a.m.	=بخار — سردی نہ لگنا، دوپہر سے پہلے، صبح 10 سے 11 بجے
+chill absent, forenoon, 11 a.m.	2	CHILL absent, forenoon, 11 a.m.	صبح 11 بجے
+chill absent, forenoon, 9 a.m. to 12 a.m.	2	CHILL absent, forenoon, 9 a.m. to 12 a.m.	صبح 9 سے دوپہر 12 بجے
+chill absent, noon	1	CHILL absent, noon	دوپہر
+chill absent, afternoon	1	CHILL absent, afternoon	سہ پہر
+chill absent, afternoon, 1 p.m. to 2 p.m.	2	CHILL absent, afternoon, 1 p.m. to 2 p.m.	=بخار — سردی نہ لگنا، سہ پہر 1 سے 2 بجے
+chill absent, afternoon, 12 a.m. to 1 p.m.	2	CHILL absent, afternoon, 12 a.m. to 1 p.m.	دوپہر 12 سے سہ پہر 1 بجے
+chill absent, afternoon, 2 p.m.	2	CHILL absent, afternoon, 2 p.m.	=بخار — سردی نہ لگنا، سہ پہر 2 بجے
+chill absent, afternoon, 2 p.m., to 3 p.m.	3	CHILL absent, afternoon, 2 p.m., to 3 p.m.	=بخار — سردی نہ لگنا، سہ پہر 2 سے 3 بجے
+chill absent, afternoon, 3 p.m.	2	CHILL absent, afternoon, 3 p.m.	=بخار — سردی نہ لگنا، سہ پہر 3 بجے
+chill absent, afternoon, 3 p.m., to 4 p.m.	3	CHILL absent, afternoon, 3 p.m., to 4 p.m.	=بخار — سردی نہ لگنا، سہ پہر 3 سے شام 4 بجے
+chill absent, afternoon, 4 p.m.	2	CHILL absent, afternoon, 4 p.m.	شام 4 بجے
+chill absent, afternoon, 4 p.m., lasting all night	3	CHILL absent, afternoon, 4 p.m., lasting all night	ساری رات جاری
+chill absent, afternoon, 4 p.m., to 8 p.m.	3	CHILL absent, afternoon, 4 p.m., to 8 p.m.	=بخار — سردی نہ لگنا، سہ پہر، شام 4 سے 8 بجے
+chill absent, afternoon, 5 p.m.	2	CHILL absent, afternoon, 5 p.m.	شام 5 بجے
+chill absent, afternoon, 5 p.m. to 6 p.m.	2	CHILL absent, afternoon, 5 p.m. to 6 p.m.	شام 5 سے 6 بجے
+chill absent, afternoon, 5 p.m. to 6 p.m., very ill humored	3	CHILL absent, afternoon, 5 p.m. to 6 p.m., very ill humored	طبیعت بہت خراب
+chill absent, afternoon, 5-30 p.m., with pricking in tongue	2	CHILL absent, afternoon, 5-30 p.m., with pricking in tongue	شام 5:30، زبان میں سوئیاں چبھنے کے ساتھ
+chill absent, evening	1	CHILL absent, evening	شام
+chill absent, evening, at same hour, daily fever, with short breath	2	CHILL absent, evening, at same hour, daily fever, with short breath	روزانہ اُسی گھنٹے، سانس کی کمی کے ساتھ
+chill absent, evening, 6 p.m.	2	CHILL absent, evening, 6 p.m.	=بخار — سردی نہ لگنا، شام 6 بجے
+chill absent, evening, 6 p.m., to 12 p.m.	3	CHILL absent, evening, 6 p.m., to 12 p.m.	=بخار — سردی نہ لگنا، شام 6 سے دوپہر 12 بجے
+chill absent, evening, 6 p.m., lasting all night	3	CHILL absent, evening, 6 p.m., lasting all night	=بخار — سردی نہ لگنا، شام 6 بجے، ساری رات جاری
+chill absent, evening, 6 p.m., to 7 p.m.	3	CHILL absent, evening, 6 p.m., to 7 p.m.	=بخار — سردی نہ لگنا، شام 6 سے 7 بجے
+chill absent, evening, 6 p.m., to, 8 p.m.	3	CHILL absent, evening, 6 p.m., to, 8 p.m.	=بخار — سردی نہ لگنا، شام 6 سے 8 بجے
+chill absent, evening, 7 p.m.	2	CHILL absent, evening, 7 p.m.	=بخار — سردی نہ لگنا، شام 7 بجے
+chill absent, evening, 7 p.m., to 8 p.m.	3	CHILL absent, evening, 7 p.m., to 8 p.m.	=بخار — سردی نہ لگنا، شام 7 سے 8 بجے
+chill absent, evening, 7 p.m., to, 12 p.m.	3	CHILL absent, evening, 7 p.m., to, 12 p.m.	=بخار — سردی نہ لگنا، شام 7 سے دوپہر 12 بجے
+chill absent, evening, 8 p.m.	2	CHILL absent, evening, 8 p.m.	=بخار — سردی نہ لگنا، شام 8 بجے
+chill absent, night	1	CHILL absent, night	رات
+chill absent, night, midnight	2	CHILL absent, night, midnight	آدھی رات
+chill absent, night, midnight, before	3	CHILL absent, night, midnight, before	=بخار — سردی نہ لگنا، رات، آدھی رات سے پہلے
+chill absent, night, midnight, after	3	CHILL absent, night, midnight, after	=بخار — سردی نہ لگنا، رات، آدھی رات کے بعد
+chill absent, night, 1 a.m. to 2 a.m.	2	CHILL absent, night, 1 a.m. to 2 a.m.	صبح 1 سے 2 بجے
+chill absent, night, 10 p.m.	2	CHILL absent, night, 10 p.m.	=بخار — سردی نہ لگنا، رات 10 بجے
+chill absent, night, 11 p.m.	2	CHILL absent, night, 11 p.m.	=بخار — سردی نہ لگنا، رات 11 بجے
+chill absent, night, 12 p.m. to 2 a.m.	2	CHILL absent, night, 12 p.m. to 2 a.m.	دوپہر 12 سے صبح 2 بجے
+chill absent, night, 12 p.m., to 3 a.m.	2	CHILL absent, night, 12 p.m., to 3 a.m.	دوپہر 12 سے صبح 3 بجے
+chill absent, night, 2 a.m.	2	CHILL absent, night, 2 a.m.	صبح 2 بجے
+chill absent, night, 2 a.m. to 4 a.m.	2	CHILL absent, night, 2 a.m. to 4 a.m.	صبح 2 سے 4 بجے
+chill absent, night, 3 a.m.	2	CHILL absent, night, 3 a.m.	صبح 3 بجے
+chill absent, night, 4 a.m.	2	CHILL absent, night, 4 a.m.	صبح 4 بجے
+chilliness	0	CHILLINESS	ٹھنڈک
+chilliness, with	1	CHILLINESS, with	=بخار — ٹھنڈک کے ساتھ
+chilliness, with, alternating with heat not perceptible to the touch	2	CHILLINESS, with, alternating with heat not perceptible to the touch	=بخار — ٹھنڈک کے ساتھ، گرمی سے باری باری، جو چھونے میں معلوم نہ ہو
+chilliness, with, continues long into the heat	2	CHILLINESS, with, continues long into the heat	=بخار — ٹھنڈک کے ساتھ، گرمی میں دیر تک رہے
+chilliness, with, lifting the covering, when	2	CHILLINESS, with, lifting the covering, when (See Uncovering)	=بخار — ٹھنڈک کے ساتھ، ڈھانپ اٹھانے پر
+chilliness, with, motion, on the least	2	CHILLINESS, with, motion, on the least (See Motion)	=بخار — ٹھنڈک کے ساتھ، ذرا سی حرکت پر
+chilliness, with, putting the hands out of bed, from	2	CHILLINESS, with, putting the hands out of bed, from	=بخار — ٹھنڈک کے ساتھ، ہاتھ بستر سے باہر نکالنے سے
+coition	0	COITION	ہم بستری
+coition, after	1	COITION, after	=بخار — ہم بستری کے بعد
+coldness	0	COLDNESS	ٹھنڈک
+coldness, external with	1	COLDNESS, external with	بیرونی ٹھنڈک کے ساتھ
+continued fever	0	CONTINUED fever	مسلسل بخار
+continued fever, afternoon	1	CONTINUED fever, afternoon	سہ پہر
+continued fever, evening	1	CONTINUED fever, evening	شام
+continued fever, evening, 10 p.m.	2	CONTINUED fever, evening, 10 p.m.	رات 10 بجے
+continued fever, evening, 4 p.m. till midnight	2	CONTINUED fever, evening, 4 p.m. till midnight	=بخار — مسلسل بخار، شام 4 بجے سے آدھی رات تک
+continued fever, evening, 4 p.m. to 8 p.m.	2	CONTINUED fever, evening, 4 p.m. to 8 p.m.	=بخار — مسلسل بخار، شام 4 سے 8 بجے
+continued fever, evening, 5 p.m.	2	CONTINUED fever, evening, 5 p.m.	=بخار — مسلسل بخار، شام 5 بجے
+continued fever, evening, 7 p.m.	2	CONTINUED fever, evening, 7 p.m.	=بخار — مسلسل بخار، شام 7 بجے
+continued fever, evening, 8 p.m.	2	CONTINUED fever, evening, 8 p.m.	=بخار — مسلسل بخار، شام 8 بجے
+continued fever, evening, 9 p.m. to 12 p.m.	2	CONTINUED fever, evening, 9 p.m. to 12 p.m.	رات 9 سے دوپہر 12 بجے
+continued fever, night	1	CONTINUED fever, night	رات
+continued fever, night, midnight	2	CONTINUED fever, night, midnight	آدھی رات
+continued fever, night, midnight, before	3	CONTINUED fever, night, midnight, before	=بخار — مسلسل بخار، رات، آدھی رات سے پہلے
+continued fever, night, midnight, after	3	CONTINUED fever, night, midnight, after	=بخار — مسلسل بخار، رات، آدھی رات کے بعد
+continued fever, night, temperature running very high	2	CONTINUED fever, night, temperature running very high	درجہ حرارت بہت بڑھا ہوا
+continued fever, abdominal	1	CONTINUED fever, abdominal	پیٹ کا
+continued fever, abdominal, with icteric skin	2	CONTINUED fever, abdominal, with icteric skin	یرقانی جلد کے ساتھ
+continued fever, typhus, typhoid	1	CONTINUED fever, typhus, typhoid	محرقہ (ٹائفائیڈ)
+continued fever, cerebral	1	CONTINUED fever, cerebral	دماغی
+continued fever, congestive	1	CONTINUED fever, congestive	خون کے هجوم والا
+continued fever, congestive, with	2	CONTINUED fever, congestive, with	ساتھ
+continued fever, congestive, with, collapse	3	CONTINUED fever, congestive, with, collapse	نقاہت (کولیپس)
+continued fever, congestive, with, paralysis of lungs	3	CONTINUED fever, congestive, with, paralysis of lungs	پھیپھڑوں کا فالج
+continued fever, congestive, with threatened cerebral paralysis	2	CONTINUED fever, congestive, with threatened cerebral paralysis	دماغی فالج کا خطرہ
+continued fever, exanthemic	1	CONTINUED fever, exanthemic	دانوں والا
+continued fever, exanthemic, with cold, viscous sweat	2	CONTINUED fever, exanthemic, with cold, viscous sweat	ٹھنڈے گاڑھے پسینے کے ساتھ
+continued fever, haemorrhagic	1	CONTINUED fever, haemorrhagic	خون بہانے والا
+continued fever, haemorrhagic, oozing of dark thin blood from capillaries	2	CONTINUED fever, haemorrhagic, oozing of dark thin blood from capillaries	باریک رگوں سے سیاہ پتلا خون رسنا
+continued fever, pectoral	1	CONTINUED fever, pectoral	سینے کا
+continued fever, petechial	1	CONTINUED fever, petechial	سرخ دھبوں والا
+continued fever, petechial, fetid stool, intestinal haemorrhage, sopor, so weak that he settles down in bed into a heap	2	CONTINUED fever, petechial, fetid stool, intestinal haemorrhage, sopor, so weak that he settles down in bed into a heap	بدبودار پاخانہ، آنتوں سے خون، بے سدھی، اتنا کمزور کہ بستر میں ڈھیر ہو جائے
+continued fever, petechial, foul breath, says there is nothing the matter with him	2	CONTINUED fever, petechial, foul breath, says there is nothing the matter with him	بدبودار سانس، کہتا ہے مجھے کچھ نہیں
+continued fever, petechial, putrid, foul, cadaverous smell to stool, brown, dry, leathery-looking tongue, extreme prostration	2	CONTINUED fever, petechial, putrid, foul, cadaverous smell to stool, brown, dry, leathery-looking tongue, extreme prostration	سڑی ہوئی بدبودار، لاش جیسی بو والا پاخانہ، بھوری خشک چمڑے جیسی زبان، شدید نقاہت
+continued fever, stupid form	1	CONTINUED fever, stupid form	بے سدھی والی قسم
+continued fever, stupor, complete	1	CONTINUED fever, stupor, complete	مکمل بے سدھی
+continued fever, typhus with swelled parotid, and sensitive bones	1	CONTINUED fever, typhus with swelled parotid, and sensitive bones	محرقہ، پاروٹڈ غدود سوجا ہوا اور ہڈیاں حساس
+conversation	0	CONVERSATION	بات چیت
+conversation, from	1	CONVERSATION, from	=بخار — بات چیت سے
+coughing increases the heat	0	COUGHING increases the heat	کھانسی سے گرمی بڑھے
+covered parts	0	COVERED parts	ڈھکے ہوئے حصے
+day	0	DAY	دن
+day, febrile heat only during the	1	DAY, febrile heat only during the	بخار کی گرمی صرف دن میں
+day, periodically during the	1	DAY, periodically during the	=بخار — دن میں وقفے وقفے سے
+descending	0	DESCENDING	نیچے اترتی ہوئی
+drinking	0	DRINKING	پینا
+drinking, beer	1	DRINKING, beer	بیئر
+drinking, coffee agg.	1	DRINKING, coffee agg.	کافی سے بگاڑ
+drinking, coffee, amel.	1	DRINKING, coffee, amel.	کافی سے آرام
+drinking, cold water	1	DRINKING, cold water	ٹھنڈا پانی
+drinking, cold water, amel.	2	DRINKING, cold water, amel.	ٹھنڈے پانی سے آرام
+drinking, cold water, shivering from	2	DRINKING, cold water, shivering from	=بخار — پینا، ٹھنڈا پانی پینے سے کانپنا
+drinking, water	1	DRINKING, water	پانی
+drinking, wine	1	DRINKING, wine	شراب
+drinking agg.	0	DRINKING agg.	پینے سے بگاڑ
+drinks	0	DRINKS	مشروبات
+drinks, warm, agg.	1	DRINKS, warm, agg.	گرم مشروبات سے بگاڑ
+dry heat	0	DRY heat	خشک گرمی
+dry heat, daytime	1	DRY heat, daytime	دن کے وقت
+dry heat, morning	1	DRY heat, morning	صبح
+dry heat, morning, on waking	2	DRY heat, morning, on waking	=بخار — خشک گرمی، صبح جاگتے وقت
+dry heat, afternoon	1	DRY heat, afternoon	سہ پہر
+dry heat, afternoon, chilliness, with	2	DRY heat, afternoon, chilliness, with	ٹھنڈک کے ساتھ
+dry heat, afternoon, sleep, during	2	DRY heat, afternoon, sleep, during	نیند کے دوران
+dry heat, afternoon, 2 p.m., alternating with chill, as if dashed with cold water	2	DRY heat, afternoon, 2 p.m., alternating with chill, as if dashed with cold water	=بخار — خشک گرمی، سہ پہر 2 بجے، سردی سے باری باری، جیسے ٹھنڈا پانی ڈال دیا گیا ہو
+dry heat, evening	1	DRY heat, evening	شام
+dry heat, evening, 7 p.m. to 9 p.m., followed by chill until 10 p.m.	2	DRY heat, evening, 7 p.m. to 9 p.m., followed by chill until 10 p.m.	=بخار — خشک گرمی، شام 7 سے 9 بجے، اِس کے بعد رات 10 بجے تک سردی
+dry heat, evening, bed, in, with chilliness in back	2	DRY heat, evening, bed, in, with chilliness in back	بستر میں، پیٹھ میں ٹھنڈک کے ساتھ
+dry heat, evening, distended veins and burning hands that seek out cool places	2	DRY heat, evening, distended veins and burning hands that seek out cool places	پھیلی ہوئی رگیں اور جلتے ہاتھ جو ٹھنڈی جگہیں ڈھونڈیں
+dry heat, night	1	DRY heat, night	رات
+dry heat, night, delirium, with	2	DRY heat, night, delirium, with	ہذیان کے ساتھ
+dry heat, night, driving him out of bed	2	DRY heat, night, driving him out of bed	=بخار — خشک گرمی، رات میں بستر سے نکال دے
+dry heat, night, hot vapors rise up to the brain, as if	2	DRY heat, night, hot vapors rise up to the brain, as if	جیسے گرم بخارات دماغ تک چڑھتے ہوں
+dry heat, night, menses, before	2	DRY heat, night, menses, before	حیض سے پہلے
+dry heat, night, motion, on	2	DRY heat, night, motion, on	حرکت کرنے پر
+dry heat, night, noise, from	2	DRY heat, night, noise, from	شور سے
+dry heat, night, pricking as from needles, with	2	DRY heat, night, pricking as from needles, with	سوئیوں جیسی چبھن کے ساتھ
+dry heat, night, rising heat and glowing redness of cheeks, without thirst, after sleep	2	DRY heat, night, rising heat and glowing redness of cheeks, without thirst, after sleep	نیند کے بعد بڑھتی گرمی اور گالوں کی دہکتی سرخی، پیاس کے بغیر
+dry heat, night, sleep, during	2	DRY heat, night, sleep, during	نیند کے دوران
+dry heat, night, going to, on	2	DRY heat, night, going to, on	سونے جاتے وقت
+dry heat, night, spasmodic gagging, with	2	DRY heat, night, spasmodic gagging, with	تشنجی ہچکیوں کے ساتھ
+dry heat, night, sweaty hands when put out of bed, with	2	DRY heat, night, sweaty hands when put out of bed, with	ہاتھ بستر سے باہر نکالنے پر پسینے سے بھیگے
+dry heat, night, swollen veins of arms and hands without thirst	2	DRY heat, night, swollen veins of arms and hands without thirst	بازوؤں اور ہاتھوں کی رگیں سوجی، پیاس کے بغیر
+dry heat, coition, after	1	DRY heat, coition, after	ہم بستری کے بعد
+dry heat, covered parts, of	1	DRY heat, covered parts, of	ڈھکے ہوئے حصوں کی
+dry heat, walking in open air	1	DRY heat, walking in open air	کھلی ہوا میں چلنا
+eating	0	EATING	کھانا
+eating, amel.	1	EATING, amel.	=بخار — کھانے سے آرام
+eating, after agg.	1	EATING, after agg.	=بخار — کھانے کے بعد بگاڑ
+eating, dinner	1	EATING, dinner	دوپہر کا کھانا
+eating, dinner, after	2	EATING, dinner, after	دوپہر کے کھانے کے بعد
+eating, while agg.	1	EATING, while agg.	کھاتے ہوئے بگاڑ
+eating, after, amel.	1	EATING, after, amel.	=بخار — کھانے کے بعد آرام
+eating, breakfast, after	1	EATING, breakfast, after	ناشتے کے بعد
+exanthematic fevers	0	EXANTHEMATIC fevers	دانوں والے بخار
+exanthematic fevers, measles	1	EXANTHEMATIC fevers, measles	خسرہ
+exanthematic fevers, scarlatina	1	EXANTHEMATIC fevers, scarlatina	سرخ بخار (سکارلیٹینا)
+exertion	0	EXERTION	محنت
+exertion, after agg.	1	EXERTION, after agg.	=بخار — محنت کے بعد بگاڑ
+exertion, from	1	EXERTION, from	=بخار — محنت سے
+exertion, after, amel.	1	EXERTION, after, amel.	=بخار — محنت کے بعد آرام
+external heat	0	EXTERNAL heat	بیرونی گرمی
+external heat, morning	1	EXTERNAL heat, morning	صبح
+external heat, morning, 10 a.m. to 3 p.m.	2	EXTERNAL heat, morning, 10 a.m. to 3 p.m.	=بخار — بیرونی گرمی، صبح 10 سے سہ پہر 3 بجے
+external heat, afternoon	1	EXTERNAL heat, afternoon	سہ پہر
+external heat, afternoon, with chilliness	2	EXTERNAL heat, afternoon, with chilliness	ٹھنڈک کے ساتھ
+external heat, afternoon, and redness without internal heat	2	EXTERNAL heat, afternoon, and redness without internal heat	اور سرخی، اندرونی گرمی کے بغیر
+external heat, afternoon, 4 p.m.	2	EXTERNAL heat, afternoon, 4 p.m.	شام 4 بجے
+external heat, evening	1	EXTERNAL heat, evening	شام
+external heat, evening, lying down, after	2	EXTERNAL heat, evening, lying down, after	لیٹنے کے بعد
+external heat, evening, 8 p.m.	2	EXTERNAL heat, evening, 8 p.m.	=بخار — بیرونی گرمی، شام 8 بجے
+external heat, evening, 9 p.m.	2	EXTERNAL heat, evening, 9 p.m.	رات 9 بجے
+external heat, evening, 10 p.m.	2	EXTERNAL heat, evening, 10 p.m.	رات 10 بجے
+external heat, evening, 11 p.m.	2	EXTERNAL heat, evening, 11 p.m.	رات 11 بجے
+external heat, night	1	EXTERNAL heat, night	رات
+external heat, night, 2 a.m., on waking	2	EXTERNAL heat, night, 2 a.m., on waking	صبح 2 بجے، جاگتے وقت
+external heat, dinner, after	1	EXTERNAL heat, dinner, after	دوپہر کے کھانے کے بعد
+external heat, chilliness, with	1	EXTERNAL heat, chilliness, with	ٹھنڈک کے ساتھ
+external heat, desire to be fan in place of thirst during the heat	1	EXTERNAL heat, desire to be fan in place of thirst during the heat	گرمی کے دوران پیاس کی جگہ پنکھے کی خواہش
+external heat, sensation of coldness of the whole body	1	EXTERNAL heat, sensation of coldness of the whole body	سارے جسم میں ٹھنڈک کا احساس
+external heat, sensation, of external heat without heat	1	EXTERNAL heat, sensation, of external heat without heat	=بخار — بیرونی گرمی کا احساس مگر گرمی نہ ہو
+external heat, yellow skin, with	1	EXTERNAL heat, yellow skin, with	پیلی جلد کے ساتھ
+gastric fever	0	GASTRIC fever	معدے کا بخار
+heat absent	0	HEAT absent	گرمی نہ ہونا
+hectic fever	0	HECTIC fever	دقی (ہیکٹک) بخار
+hectic fever, daily, forenoon, 11 to 12 or 1 p.m.	1	HECTIC fever, daily, forenoon, 11 to 12 or 1 p.m.	روزانہ دوپہر سے پہلے 11 سے 12 یا سہ پہر 1 بجے
+hectic fever, with haemoptysis	1	HECTIC fever, with haemoptysis	خون تھوکنے کے ساتھ
+inflammatory fever	0	INFLAMMATORY fever	سوزش والا بخار
+insidious fever	0	INSIDIOUS fever	چھپا ہوا بخار
+intense heat	0	INTENSE heat	شدید گرمی
+intense heat, convulsions, with	1	INTENSE heat, convulsions, with	تشنج کے ساتھ
+intense heat, delirium, with	1	INTENSE heat, delirium, with	ہذیان کے ساتھ
+intense heat, of the head and face, body cold	1	INTENSE heat, of the head and face, body cold	سر اور چہرے کی، جسم ٹھنڈا
+intense heat, sleep	1	INTENSE heat, sleep	نیند
+intense heat, sleep, during	2	INTENSE heat, sleep, during	=بخار — شدید گرمی، نیند کے دوران
+intense heat, sleep, after	2	INTENSE heat, sleep, after	=بخار — شدید گرمی، نیند کے بعد
+intense heat, stupefaction and unconsciousness, with	1	INTENSE heat, stupefaction and unconsciousness, with	بے سدھی اور بے ہوشی کے ساتھ
+intermittent	0	INTERMITTENT	وقفوں والا
+intermittent, chronic	1	INTERMITTENT, chronic	پرانا
+intermittent, chronic, enlarged liver, with	2	INTERMITTENT, chronic, enlarged liver, with	جگر بڑھا ہوا
+intermittent, chronic, enlarged, spleen, with	2	INTERMITTENT, chronic, enlarged, spleen, with	تلی بڑھی ہوئی
+intermittent, chronic, gout, with	2	INTERMITTENT, chronic, gout, with	گٹھیا کے ساتھ
+intermittent, chronic, incomplete	2	INTERMITTENT, chronic, incomplete	نامکمل
+intermittent, chronic, long-lasting heat, with	2	INTERMITTENT, chronic, long-lasting heat, with	دیر تک رہنے والی گرمی کے ساتھ
+intermittent, chronic, masked	2	INTERMITTENT, chronic, masked	چھپا ہوا
+intermittent, chronic, old people, with coma	2	INTERMITTENT, chronic, old people, with coma	بوڑھوں میں، بے ہوشی کے ساتھ
+intermittent, chronic, pulmonary haemorrhage, with	2	INTERMITTENT, chronic, pulmonary haemorrhage, with	پھیپھڑوں سے خون کے ساتھ
+intermittent, chronic, rheumatism, with	2	INTERMITTENT, chronic, rheumatism, with	گٹھیا کے ساتھ
+intermittent, chronic, spoiled	2	INTERMITTENT, chronic, spoiled	بگڑا ہوا
+intermittent, chronic, that tends toward typhoid	2	INTERMITTENT, chronic, that tends toward typhoid	جو محرقہ (ٹائفائیڈ) کی طرف مائل ہو
+internal heat	0	INTERNAL heat	اندرونی گرمی
+internal heat, morning	1	INTERNAL heat, morning	صبح
+internal heat, morning, 8 a.m.	2	INTERNAL heat, morning, 8 a.m.	=بخار — اندرونی گرمی، صبح 8 بجے
+internal heat, evening	1	INTERNAL heat, evening	شام
+internal heat, night, must uncover, which causes chilliness	1	INTERNAL heat, night, must uncover, which causes chilliness	ڈھانپ ہٹانا پڑے، جس سے ٹھنڈک لگے
+internal heat, burning	1	INTERNAL heat, burning	جلتی ہوئی
+internal heat, burning, at 9 a.m.	2	INTERNAL heat, burning, at 9 a.m.	صبح 9 بجے
+internal heat, burning, in the blood vessels	2	INTERNAL heat, burning, in the blood vessels	رگوں میں
+internal heat, while the body feels cold to the touch	1	INTERNAL heat, while the body feels cold to the touch	حالانکہ جسم چھونے میں ٹھنڈا ہو
+internal heat, with external chill	1	INTERNAL heat, with external chill	بیرونی سردی کے ساتھ
+internal heat, with external chill, coldness of single parts	2	INTERNAL heat, with external chill, coldness of single parts	الگ الگ حصوں کی ٹھنڈک
+internal heat, with, cold perspiration	1	INTERNAL heat, with, cold perspiration	ٹھنڈا پسینہ
+irregular stages	0	IRREGULAR stages	بے قاعدہ مراحل
+irritative fever	0	IRRITATIVE fever	تحریکی بخار
+irritative fever, slow	1	IRRITATIVE fever, slow	دھیما
+long lasting heat	0	LONG lasting heat	دیر تک رہنے والی گرمی
+long lasting heat, followed by chill	1	LONG lasting heat, followed by chill	اِس کے بعد سردی
+long lasting heat, sleep, with	1	LONG lasting heat, sleep, with	نیند کے ساتھ
+menses	0	MENSES	حیض
+menses, before	1	MENSES, before	=بخار — حیض سے پہلے
+menses, during	1	MENSES, during	=بخار — حیض کے دوران
+mental exertion	0	MENTAL exertion	ذہنی مشقت
+mental exertion, after	1	MENTAL exertion, after	=بخار — ذہنی مشقت کے بعد
+mental exertion, amel.	1	MENTAL exertion, amel.	=بخار — ذہنی مشقت سے آرام
+motion	0	MOTION	حرکت
+motion, agg.	1	MOTION, agg.	=بخار — حرکت سے بگاڑ
+motion, amel.	1	MOTION, amel.	=بخار — حرکت سے آرام
+motion, brings on chilliness	1	MOTION, brings on chilliness	=بخار — حرکت سے ٹھنڈک آئے
+motion, wants to be quiet in any stage	1	MOTION, wants to be quiet in any stage	کسی بھی مرحلے میں چپ چاپ رہنا چاہے
+noise	0	NOISE	شور
+noise, from	1	NOISE, from	=بخار — شور سے
+pain	0	PAIN	درد
+pain, fever from	1	PAIN, fever from	=بخار — درد سے بخار
+pain, fever from, pain in stomach	2	PAIN, fever from, pain in stomach	=بخار — درد سے بخار، معدے کا درد
+paroxysmal fever	0	PAROXYSMAL fever	دوروں والا بخار
+paroxysmal fever, morning	1	PAROXYSMAL fever, morning	صبح
+paroxysmal fever, morning, 11 a.m.	2	PAROXYSMAL fever, morning, 11 a.m.	=بخار — دوروں والا بخار، صبح 11 بجے
+paroxysmal fever, afternoon	1	PAROXYSMAL fever, afternoon	سہ پہر
+paroxysmal fever, afternoon, 3 p.m.	2	PAROXYSMAL fever, afternoon, 3 p.m.	=بخار — دوروں والا بخار، سہ پہر 3 بجے
+paroxysmal fever, evening	1	PAROXYSMAL fever, evening	شام
+paroxysmal fever, evening, 7 p.m.	2	PAROXYSMAL fever, evening, 7 p.m.	=بخار — دوروں والا بخار، شام 7 بجے
+paroxysmal fever, night	1	PAROXYSMAL fever, night	رات
+paroxysms	0	PAROXYSMS	دورے
+paroxysms, irregular	1	PAROXYSMS, irregular	بے قاعدہ
+paroxysms, irregular, long chill, little heat, no thirst	2	PAROXYSMS, irregular, long chill, little heat, no thirst	لمبی سردی، تھوڑی گرمی، پیاس نہیں
+paroxysms, irregular, one stage wanting	2	PAROXYSMS, irregular, one stage wanting	ایک مرحلہ غائب
+paroxysms, irregular, short chill, long heat, no thirst	2	PAROXYSMS, irregular, short chill, long heat, no thirst	چھوٹی سردی، لمبی گرمی، پیاس نہیں
+paroxysms, regular	1	PAROXYSMS, regular	باقاعدہ
+paroxysms increasing in severity	0	PAROXYSMS increasing in severity	دوروں کی شدت بڑھنا
+perspiration absent	0	PERSPIRATION absent	پسینہ نہ آنا
+perspiration absent, heat, with	1	PERSPIRATION absent, heat, with	گرمی کے ساتھ
+puerperal fever	0	PUERPERAL fever	زچگی کا بخار
+puerperal fever, from suppressed lochia	1	PUERPERAL fever, from suppressed lochia	رکے ہوئے نفاس سے
+putrid	0	PUTRID (See Zymotic)	سڑا ہوا
+relapsing	0	RELAPSING	بار بار لوٹنے والا
+remittent	0	REMITTENT	اتر چڑھنے والا
+remittent, morning	1	REMITTENT, morning	صبح
+remittent, afternoon	1	REMITTENT, afternoon	سہ پہر
+remittent, evening	1	REMITTENT, evening	شام
+remittent, night	1	REMITTENT, night	رات
+remittent, infantile	1	REMITTENT, infantile	بچوں کا
+remittent, occurring every autumn	1	REMITTENT, occurring every autumn	ہر خزاں میں ہونے والا
+remittent, prone to become typhoid	1	REMITTENT, prone to become typhoid	جو محرقہ بننے کو مائل ہو
+remittent, prone to become typhoid, from the abuse of quinine	2	REMITTENT, prone to become typhoid, from the abuse of quinine	کوئنین کے زیادہ استعمال سے
+remittent, with redness of one cheek, paleness of the other	1	REMITTENT, with redness of one cheek, paleness of the other	ایک گال سرخ، دوسرا پیلا
+riding	0	RIDING	سواری
+riding, in the wind, after	1	RIDING, in the wind, after	ہوا میں سواری کے بعد
+riding in a carriage	0	RIDING in a carriage	گاڑی میں سواری
+riding in a carriage, amel.	1	RIDING in a carriage, amel.	=بخار — گاڑی میں سواری سے آرام
+riding in a carriage, while agg.	1	RIDING in a carriage, while agg.	=بخار — گاڑی میں سواری کے دوران بگاڑ
+septic fever	0	SEPTIC fever (See Zymotic, Continued, Puerperal, etc.)	سڑنے والا (سیپٹک) بخار
+shivering	0	SHIVERING	کانپنا
+shivering, with	1	SHIVERING, with	=بخار — کانپنے کے ساتھ
+shivering, alternating with heat	1	SHIVERING, alternating with heat	گرمی سے باری باری
+shivering, and perspiration with heat	1	SHIVERING, and perspiration with heat	اور پسینہ، گرمی کے ساتھ
+shivering, drinking, from	1	SHIVERING, drinking, from	پینے سے
+shivering, motion from	1	SHIVERING, motion from	حرکت سے
+shivering, uncovering, from	1	SHIVERING, uncovering, from	ڈھانپ ہٹانے سے
+shuddering	0	SHUDDERING	لرزہ
+shuddering, alternating with heat	1	SHUDDERING, alternating with heat	گرمی سے باری باری
+shuddering with the heat	0	SHUDDERING with the heat	گرمی کے ساتھ لرزہ
+shuddering with the heat, constant, with one cheek hot and red	1	SHUDDERING with the heat, constant, with one cheek hot and red	مسلسل، ایک گال گرم اور سرخ
+side	0	SIDE	پہلو
+side, one-sided	1	SIDE, one-sided	ایک طرفہ
+side, right	1	SIDE, right	دائیں
+side, left	1	SIDE, left	بائیں
+side, left, with coldness of right	2	SIDE, left, with coldness of right	دائیں کی ٹھنڈک کے ساتھ
+side, lain on	1	SIDE, lain on	جس کروٹ لیٹا ہو
+side, one cheek red and hot, the other pale and cold	1	SIDE, one cheek red and hot, the other pale and cold	ایک گال سرخ اور گرم، دوسرا پیلا اور ٹھنڈا
+side, one side of the body the hand and foot are red and cold, on the other they are hot in evening and at night	1	SIDE, one side of the body the hand and foot are red and cold, on the other they are hot in evening and at night	=بخار — پہلو، جسم کی ایک طرف ہاتھ اور پاؤں سرخ اور ٹھنڈے، دوسری طرف شام اور رات میں گرم
+single parts	0	SINGLE parts	الگ الگ حصے
+sitting	0	SITTING	بیٹھنا
+sitting, amel.	1	SITTING, amel.	=بخار — بیٹھنے سے آرام
+sitting, while, agg.	1	SITTING, while, agg.	بیٹھے رہنے سے بگاڑ
+sleep	0	SLEEP	نیند
+sleep, after agg.	1	SLEEP, after agg.	=بخار — نیند کے بعد بگاڑ
+sleep, heat comes on during	1	SLEEP, heat comes on during	=بخار — نیند کے دوران گرمی آئے
+sleep, heat comes on during, cold feet and sweat on waking	2	SLEEP, heat comes on during, cold feet and sweat on waking	=بخار — نیند کے دوران گرمی آئے، جاگنے پر ٹھنڈے پاؤں اور پسینہ
+sleep, heat comes on during, dry heat	2	SLEEP, heat comes on during, dry heat	=بخار — نیند کے دوران گرمی آئے، خشک گرمی
+sleep, after, amel.	1	SLEEP, after, amel.	=بخار — نیند کے بعد آرام
+stages, irregular	0	STAGES, irregular (See Irregular)	بے قاعدہ مراحل
+standing	0	STANDING	کھڑا ہونا
+standing, amel.	1	STANDING, amel.	کھڑے ہونے سے آرام
+standing agg.	0	STANDING agg.	کھڑے ہونے سے بگاڑ
+stool	0	STOOL	پاخانہ
+stool, before	1	STOOL, before	=بخار — پاخانے سے پہلے
+stool, during	1	STOOL, during	=بخار — پاخانے کے دوران
+stool, after	1	STOOL, after	=بخار — پاخانے کے بعد
+stooping	0	STOOPING	جھکنا
+stooping, coldness when rising	1	STOOPING, coldness when rising	اٹھتے وقت ٹھنڈک
+succession of stages	0	SUCCESSION of stages	مراحل کی ترتیب
+succession of stages, chill	1	SUCCESSION of stages, chill	سردی
+succession of stages, chill, alternating with thirst, then sweat	2	SUCCESSION of stages, chill, alternating with thirst, then sweat	پیاس سے باری باری، پھر پسینہ
+succession of stages, chill, then	2	SUCCESSION of stages, chill, then	اِس کے بعد
+succession of stages, chill, then, heat	3	SUCCESSION of stages, chill, then, heat	گرمی
+succession of stages, chill, then, sweat	3	SUCCESSION of stages, chill, then, sweat	پسینہ
+succession of stages, chill, then, sweat, then heat	4	SUCCESSION of stages, chill, then, sweat, then heat	پھر گرمی
+succession of stages, chill, then, sweat, without heat or thirst	4	SUCCESSION of stages, chill, then, sweat, without heat or thirst	گرمی یا پیاس کے بغیر
+succession of stages, chill, then cold sweat	2	SUCCESSION of stages, chill, then cold sweat	اِس کے بعد ٹھنڈا پسینہ
+succession of stages, chill followed by heat with sweat	1	SUCCESSION of stages, chill followed by heat with sweat	سردی کے بعد گرمی، پسینے کے ساتھ
+succession of stages, chill followed by heat with sweat, of the face	2	SUCCESSION of stages, chill followed by heat with sweat, of the face	چہرے کا
+succession of stages, chill followed by, thirst then sweat	1	SUCCESSION of stages, chill followed by, thirst then sweat	پیاس، پھر پسینہ
+succession of stages, chill followed, thirst, then heat without thirst	1	SUCCESSION of stages, chill followed, thirst, then heat without thirst	پیاس، پھر بغیر پیاس گرمی
+succession of stages, chill then sweat, without intervening heat	1	SUCCESSION of stages, chill then sweat, without intervening heat	سردی پھر پسینہ، درمیان میں گرمی نہ ہو
+succession of stages, chill then sweat, without intervening heat, with sweat, then chill	2	SUCCESSION of stages, chill then sweat, without intervening heat, with sweat, then chill (See Perspiration with Heat, then Chill)	=بخار — مراحل کی ترتیب، سردی پھر پسینہ، درمیان میں گرمی نہ ہو، پسینے کے بعد سردی
+succession of stages, heat	1	SUCCESSION of stages, heat	گرمی
+succession of stages, heat, alternating with chill	2	SUCCESSION of stages, heat, alternating with chill	سردی سے باری باری
+succession of stages, heat, alternating with chill, followed by sweat	3	SUCCESSION of stages, heat, alternating with chill, followed by sweat	اِس کے بعد پسینہ
+succession of stages, heat, alternating with chill, then heat	3	SUCCESSION of stages, heat, alternating with chill, then heat	پھر گرمی
+succession of stages, heat, alternating with chill, then heat, finally sweat	4	SUCCESSION of stages, heat, alternating with chill, then heat, finally sweat	آخر میں پسینہ
+succession of stages, heat, alternating with chill, then sweat	3	SUCCESSION of stages, heat, alternating with chill, then sweat	پھر پسینہ
+succession of stages, heat, alternating with chill, then, cold sweat	3	SUCCESSION of stages, heat, alternating with chill, then, cold sweat	پھر ٹھنڈا پسینہ
+succession of stages, heat, with external coldness	2	SUCCESSION of stages, heat, with external coldness	بیرونی ٹھنڈک کے ساتھ
+succession of stages, heat, with external coldness, then chill, then heat with external coldness	3	SUCCESSION of stages, heat, with external coldness, then chill, then heat with external coldness	پھر سردی، پھر بیرونی ٹھنڈک کے ساتھ گرمی
+succession of stages, heat, with external coldness, then heat	3	SUCCESSION of stages, heat, with external coldness, then heat	پھر گرمی
+succession of stages, heat followed by chill	1	SUCCESSION of stages, heat followed by chill	گرمی کے بعد سردی
+succession of stages, heat followed by chill, then heat	2	SUCCESSION of stages, heat followed by chill, then heat	پھر گرمی
+succession of stages, heat followed by chill, then sweat	2	SUCCESSION of stages, heat followed by chill, then sweat	پھر پسینہ
+succession of stages, perspiration alternating with chilliness	1	SUCCESSION of stages, perspiration alternating with chilliness	پسینہ، ٹھنڈک سے باری باری
+succession of stages, perspiration	1	SUCCESSION of stages, perspiration	پسینہ
+succession of stages, perspiration, appears long after the heat has subsided, with renewal of the earlier symptoms	2	SUCCESSION of stages, perspiration, appears long after the heat has subsided, with renewal of the earlier symptoms	گرمی اترنے کے کافی بعد آئے، پہلی علامتوں کی واپسی کے ساتھ
+succession of stages, perspiration, during heat, followed by dry heat	2	SUCCESSION of stages, perspiration, during heat, followed by dry heat	گرمی کے دوران، اِس کے بعد خشک گرمی
+succession of stages, perspiration, during, the coldness and heat, irregularly intermingle	2	SUCCESSION of stages, perspiration, during, the coldness and heat, irregularly intermingle	ٹھنڈک اور گرمی بے قاعدگی سے ملتی جلتی رہیں
+succession of stages, perspiration, followed by chill	2	SUCCESSION of stages, perspiration, followed by chill	اِس کے بعد سردی
+succession of stages, perspiration, followed by chill, chill, then perspiration	3	SUCCESSION of stages, perspiration, followed by chill, chill, then perspiration	سردی، پھر پسینہ
+succession of stages, perspiration, followed by chill, chill, then perspiration, with heat	4	SUCCESSION of stages, perspiration, followed by chill, chill, then perspiration, with heat	گرمی کے ساتھ
+succession of stages, perspiration, following chill, with heat	2	SUCCESSION of stages, perspiration, following chill, with heat	سردی کے بعد، گرمی کے ساتھ
+succession of stages, perspiration, following, chill	2	SUCCESSION of stages, perspiration, following, chill	سردی کے بعد
+succession of stages, perspiration, following, chill, alternated with heat	3	SUCCESSION of stages, perspiration, following, chill, alternated with heat	سردی، گرمی سے باری باری
+succession of stages, perspiration, following, chill, and heat alternating then heat	3	SUCCESSION of stages, perspiration, following, chill, and heat alternating then heat	سردی اور گرمی باری باری، پھر گرمی
+succession of stages, perspiration, with heat following chill	2	SUCCESSION of stages, perspiration, with heat following chill	سردی کے بعد گرمی کے ساتھ
+succession of stages, chill followed by heat	1	SUCCESSION of stages, chill followed by heat	سردی کے بعد گرمی
+succession of stages, chill followed by heat, then sweat	2	SUCCESSION of stages, chill followed by heat, then sweat	پھر پسینہ
+succession of stages, chill followed by heat, then sour sweat	2	SUCCESSION of stages, chill followed by heat, then sour sweat	پھر کھٹا پسینہ
+succession of stages, chill followed by heat, with thirst	2	SUCCESSION of stages, chill followed by heat, with thirst	پیاس کے ساتھ
+succession of stages, chill followed by heat, without sweat	2	SUCCESSION of stages, chill followed by heat, without sweat	پسینے کے بغیر
+succession of stages, chill followed by heat, without thirst	2	SUCCESSION of stages, chill followed by heat, without thirst	پیاس کے بغیر
+succession of stages, chill followed by heat, with internal chill, then heat and sweat	2	SUCCESSION of stages, chill followed by heat, with internal chill, then heat and sweat	اندرونی سردی کے ساتھ، پھر گرمی اور پسینہ
+summer	0	SUMMER	گرمیوں میں
+summer, hot season	1	SUMMER, hot season	گرم موسم
+sun	0	SUN	دھوپ
+sun, in heat of	1	SUN, in heat of	=بخار — دھوپ کی گرمی میں
+sun, in heat of, walking in	2	SUN, in heat of, walking in	=بخار — دھوپ کی گرمی میں چلنا
+tobacco smoking	0	TOBACCO smoking	تمباکو نوشی
+tropical	0	TROPICAL	گرم علاقوں کا
+uncovering	0	UNCOVERING	ڈھانپ ہٹانا
+uncovering, aversion to	1	UNCOVERING, aversion to	=بخار — ڈھانپ ہٹانا نہ بھائے
+uncovering, chilliness	1	UNCOVERING, chilliness	ٹھنڈک
+uncovering, chilliness, and pain	2	UNCOVERING, chilliness, and pain	اور درد
+uncovering, chilliness, from	2	UNCOVERING, chilliness, from	ڈھانپ ہٹانے سے
+uncovering, chilliness, in any stage of paroxysm	2	UNCOVERING, chilliness, in any stage of paroxysm	دورے کے کسی بھی مرحلے میں
+uncovering, desire for	1	UNCOVERING, desire for	=بخار — ڈھانپ ہٹانے کی خواہش
+uncovering amel.	0	UNCOVERING amel.	ڈھانپ ہٹانے سے آرام
+vexation	0	VEXATION	چڑ
+vexation, heat from	1	VEXATION, heat from	=بخار — چڑ سے گرمی
+vomiting	0	VOMITING	قے
+vomiting, amel.	1	VOMITING, amel.	=بخار — قے سے آرام
+vomiting, during agg.	1	VOMITING, during agg.	=بخار — قے کے دوران بگاڑ
+walking in open air	0	WALKING in open air	کھلی ہوا میں چلنا
+walking in open air, amel.	1	WALKING in open air, amel.	=بخار — کھلی ہوا میں چلنے سے آرام
+walking in open air, after	1	WALKING in open air, after	=بخار — کھلی ہوا میں چلنے کے بعد
+walking in open air agg.	0	WALKING in open air agg.	کھلی ہوا میں چلنے سے بگاڑ
+warm	0	WARM	گرم
+warm, intolerance of both cold and warm air	1	WARM, intolerance of both cold and warm air	ٹھنڈی اور گرم ہوا دونوں برداشت نہ ہو
+warm, room agg.	1	WARM, room agg.	=بخار — گرم کمرے میں بگاڑ
+warm, room, heat of the room is intolerable	1	WARM, room, heat of the room is intolerable	کمرے کی گرمی ناقابلِ برداشت
+warm covering agg.	0	WARM covering agg.	گرم ڈھانپ سے بگاڑ
+warmth agg.	0	WARMTH agg.	گرمی سے بگاڑ
+washing	0	WASHING	دھونا
+washing, amel.	1	WASHING, amel.	=بخار — دھونے سے آرام
+washing agg.	0	WASHING agg.	دھونے سے بگاڑ
+water, as if dashed with hot water	0	WATER, as if dashed with hot water (See Flushes of Heat)	جیسے گرم پانی ڈال دیا گیا ہو
+winter	0	WINTER	سردیوں میں
+yellow fever	0	YELLOW fever	زرد بخار
+yellow fever, third stage, haemorrhages, with great paleness of face, violent headache, great heaviness of limbs and trembling of the body	1	YELLOW fever, third stage, haemorrhages, with great paleness of face, violent headache, great heaviness of limbs and trembling of the body	=بخار — زرد بخار، تیسرا مرحلہ، خون بہنا، چہرہ بہت پیلا، شدید سر درد، اعضا بہت بھاری اور جسم لرزتا ہوا
+yellow fever, when sweat is checked from exposure to a draft of air	1	YELLOW fever, when sweat is checked from exposure to a draft of air	جب پسینہ جھونکے میں آنے سے رک جائے
+zymotic fevers	0	ZYMOTIC fevers	تعفنی (زائموتک) بخار

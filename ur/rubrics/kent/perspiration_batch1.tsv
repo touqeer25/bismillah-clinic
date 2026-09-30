@@ -1,0 +1,428 @@
+key	depth	en	ur
+daytime	0	DAYTIME	دن کے وقت
+daytime, day and night without relief	1	DAYTIME, day and night without relief	دن رات بغیر آرام
+daytime, awake, while	1	DAYTIME, awake, while	جاگتے ہوئے
+daytime, closing the eyes, when	1	DAYTIME, closing the eyes, when	آنکھیں بند کرتے وقت
+daytime, nausea and languor, with	1	DAYTIME, nausea and languor, with	متلی اور کاہلی کے ساتھ
+daytime, sleep, during	1	DAYTIME, sleep, during	نیند کے دوران
+morning	0	MORNING	صبح
+morning, 5 a.m. to 6 a.m.	1	MORNING, 5 a.m. to 6 a.m.	=پسینہ — صبح 5 سے 6 بجے
+morning, bed, in	1	MORNING, bed, in	بستر میں
+morning, breakfast, after	1	MORNING, breakfast, after	ناشتے کے بعد
+morning, coffee, after	1	MORNING, coffee, after	کافی کے بعد
+morning, every alternate	1	MORNING, every alternate	ہر دوسری صبح
+morning, heat, after	1	MORNING, heat, after	گرمی کے بعد
+morning, lasting until noon	1	MORNING, lasting until noon	دوپہر تک جاری
+morning, menses, before	1	MORNING, menses, before	حیض سے پہلے
+morning, restless night, after a	1	MORNING, restless night, after a	بے چین رات کے بعد
+morning, sleep, during	1	MORNING, sleep, during	نیند کے دوران
+morning, waking, after	1	MORNING, waking, after	جاگنے کے بعد
+morning, 6 a.m.	1	MORNING, 6 a.m.	=پسینہ — صبح 6 بجے
+morning, 6 a.m. to 7 a.m.	1	MORNING, 6 a.m. to 7 a.m.	=پسینہ — صبح 6 سے 7 بجے
+forenoon	0	FORENOON	دوپہر سے پہلے
+forenoon, exertion, on	1	FORENOON, exertion, on	محنت پر
+forenoon, menses, during	1	FORENOON, menses, during	حیض کے دوران
+forenoon, sleep, during	1	FORENOON, sleep, during	نیند کے دوران
+forenoon, 7 a.m. to 12 a.m.	1	FORENOON, 7 a.m. to 12 a.m.	صبح 7 سے دوپہر 12 بجے
+forenoon, 9 a.m., after stool	1	FORENOON, 9 a.m., after stool	صبح 9 بجے، پاخانے کے بعد
+noon	0	NOON	دوپہر
+afternoon	0	AFTERNOON	سہ پہر
+afternoon, 1 p.m. to 3 p.m.	1	AFTERNOON, 1 p.m. to 3 p.m.	=پسینہ — سہ پہر 1 سے 3 بجے
+afternoon, 1 p.m. to, 4 p.m.	1	AFTERNOON, 1 p.m. to, 4 p.m.	=پسینہ — سہ پہر 1 سے شام 4 بجے
+afternoon, coldness, during	1	AFTERNOON, coldness, during	ٹھنڈک کے دوران
+afternoon, heat, during	1	AFTERNOON, heat, during	گرمی کے دوران
+afternoon, sleep, during	1	AFTERNOON, sleep, during	نیند کے دوران
+afternoon, 3 p.m.	1	AFTERNOON, 3 p.m.	=پسینہ — سہ پہر 3 بجے
+afternoon, 3 p.m., to 5 p.m.	2	AFTERNOON, 3 p.m., to 5 p.m.	=پسینہ — سہ پہر 3 سے شام 5 بجے
+afternoon, 5 p.m.	1	AFTERNOON, 5 p.m.	شام 5 بجے
+evening	0	EVENING	شام
+evening, bed, in	1	EVENING, bed, in	بستر میں
+evening, every alternate	1	EVENING, every alternate	ہر دوسری شام
+evening, every, evening, lasting all night	1	EVENING, every, evening, lasting all night	ہر شام، ساری رات جاری
+evening, heat, with the	1	EVENING, heat, with the	گرمی کے ساتھ
+evening, lasting all night	1	EVENING, lasting all night	ساری رات جاری
+evening, rest, even when at	1	EVENING, rest, even when at	آرام میں بھی
+evening, 6 p.m.	1	EVENING, 6 p.m.	=پسینہ — شام 6 بجے
+evening, 7 p.m.	1	EVENING, 7 p.m.	=پسینہ — شام 7 بجے
+evening, 7 p.m., to 1 a.m.	2	EVENING, 7 p.m., to 1 a.m.	=پسینہ — شام 7 سے صبح 1 بجے
+evening, 8 p.m.	1	EVENING, 8 p.m.	=پسینہ — شام 8 بجے
+evening, 8 p.m., with nausea and heat	2	EVENING, 8 p.m., with nausea and heat	=پسینہ — شام 8 بجے، متلی اور گرمی کے ساتھ
+night	0	NIGHT	رات
+night, alternating with dryness of skin	1	NIGHT, alternating with dryness of skin	جلد کی خشکی سے باری باری
+night, apyrexia, during	1	NIGHT, apyrexia, during	بخار کے وقفے میں
+night, covering ever so little, when	1	NIGHT, covering ever so little, when	ذرا سا بھی ڈھانپنے پر
+night, every other night	1	NIGHT, every other night	ہر دوسری رات
+night, heat, during	1	NIGHT, heat, during	گرمی کے دوران
+night, lasting all night without relief	1	NIGHT, lasting all night without relief	ساری رات بغیر آرام جاری
+night, lasting all night, with loquacity	1	NIGHT, lasting all night, with loquacity	ساری رات جاری، باتونی پن کے ساتھ
+night, long lasting musty night sweats	1	NIGHT, long lasting musty night sweats	دیر تک رہنے والا بدبودار رات کا پسینہ
+night, lying down, after	1	NIGHT, lying down, after	لیٹنے کے بعد
+night, menses	1	NIGHT, menses	حیض
+night, menses, before	2	NIGHT, menses, before	=پسینہ — رات، حیض سے پہلے
+night, menses, during	2	NIGHT, menses, during	=پسینہ — رات، حیض کے دوران
+night, miliary itching eruption, with	1	NIGHT, miliary itching eruption, with	دانے دار خارش والے پھوڑے کے ساتھ
+night, sleep, during	1	NIGHT, sleep, during	نیند کے دوران
+night, stupid slumber, during	1	NIGHT, stupid slumber, during	بے سدھ نیند کے دوران
+night, stupor, with	1	NIGHT, stupor, with	بے سدھی کے ساتھ
+night, waking, on	1	NIGHT, waking, on	جاگتے وقت
+night, wakefulness, with	1	NIGHT, wakefulness, with	بیداری کے ساتھ
+night, 10 p.m.	1	NIGHT, 10 p.m.	=پسینہ — رات 10 بجے
+night, 10 p.m., during chilliness	2	NIGHT, 10 p.m., during chilliness	=پسینہ — رات 10 بجے، ٹھنڈک کے دوران
+night, 10 p.m., lasting until morning	2	NIGHT, 10 p.m., lasting until morning	=پسینہ — رات 10 بجے، صبح تک جاری
+night, 10 p.m., to 10 a.m.	2	NIGHT, 10 p.m., to 10 a.m.	=پسینہ — رات 10 سے صبح 10 بجے
+night, 11 p.m.	1	NIGHT, 11 p.m.	=پسینہ — رات 11 بجے
+midnight	0	MIDNIGHT	آدھی رات
+midnight, lasting until morning	1	MIDNIGHT, lasting until morning	صبح تک جاری
+midnight, lying on the back, while	1	MIDNIGHT, lying on the back, while	پیٹھ کے بل لیٹتے وقت
+midnight, waking, on	1	MIDNIGHT, waking, on	جاگتے وقت
+midnight, before	1	MIDNIGHT, before	=پسینہ — آدھی رات سے پہلے
+midnight, after	1	MIDNIGHT, after	=پسینہ — آدھی رات کے بعد
+midnight, after, 1 a.m.	2	MIDNIGHT, after, 1 a.m.	=پسینہ — آدھی رات کے بعد، صبح 1 بجے
+midnight, after, 2 a.m. to 3 a.m.	2	MIDNIGHT, after, 2 a.m. to 3 a.m.	=پسینہ — آدھی رات کے بعد، صبح 2 سے 3 بجے
+midnight, after, 2 a.m., to 5 a.m.	2	MIDNIGHT, after, 2 a.m., to 5 a.m.	=پسینہ — آدھی رات کے بعد، صبح 2 سے 5 بجے
+midnight, after, 3 a.m.	2	MIDNIGHT, after, 3 a.m.	=پسینہ — آدھی رات کے بعد، صبح 3 بجے
+midnight, after, 3 a.m., during sleep	3	MIDNIGHT, after, 3 a.m., during sleep	=پسینہ — آدھی رات کے بعد، صبح 3 بجے، نیند کے دوران
+midnight, after, 3 a.m., to 4 p.m.	3	MIDNIGHT, after, 3 a.m., to 4 p.m.	=پسینہ — آدھی رات کے بعد، صبح 3 سے شام 4 بجے
+midnight, after, 4 a.m.	2	MIDNIGHT, after, 4 a.m.	=پسینہ — آدھی رات کے بعد، صبح 4 بجے
+midnight, after, 4 a.m., during sleep	3	MIDNIGHT, after, 4 a.m., during sleep	=پسینہ — آدھی رات کے بعد، صبح 4 بجے، نیند کے دوران
+absent	0	ABSENT (See Fever, Perspiration)	نہ آنا
+acrid	0	ACRID	تیز
+affected parts	0	AFFECTED parts	متاثرہ حصے
+affected parts, on	1	AFFECTED parts, on	=پسینہ — متاثرہ حصوں پر
+affected parts, on, morning	2	AFFECTED parts, on, morning	=پسینہ — متاثرہ حصوں پر، صبح
+air	0	AIR	ہوا
+air, in the open	1	AIR, in the open	کھلی ہوا میں
+air, in the open, amel.	2	AIR, in the open, amel.	=پسینہ — ہوا، کھلی ہوا میں آرام
+air, in the open, cold	2	AIR, in the open, cold	کھلی ٹھنڈی ہوا
+air, in the open, exercise in	2	AIR, in the open, exercise in	=پسینہ — ہوا، کھلی ہوا میں ورزش
+air, in the open agg.	1	AIR, in the open agg.	کھلی ہوا میں بگاڑ
+alternating with heat	0	ALTERNATING with heat (See Fever)	گرمی سے باری باری
+anger	0	ANGER	غصہ
+anger, from	1	ANGER, from	=پسینہ — غصے سے
+anxiety	0	ANXIETY	بے چینی
+anxiety, during	1	ANXIETY, during	=پسینہ — بے چینی کے دوران
+anxiety, evening	1	ANXIETY, evening	شام
+anxiety, night	1	ANXIETY, night	رات
+anxiety, dinner, after	1	ANXIETY, dinner, after	دوپہر کے کھانے کے بعد
+ascends	0	ASCENDS	اوپر چڑھتا ہے
+awake only	0	AWAKE only	صرف جاگتے میں
+awake only, while	1	AWAKE only, while	جاگتے ہوئے
+bed	0	BED	بستر
+bed, in	1	BED, in	=پسینہ — بستر میں
+bed, getting out of amel.	1	BED, getting out of amel.	=پسینہ — بستر سے نکلنے پر آرام
+bed, sweat and chilliness as soon as he gets warm in	1	BED, sweat and chilliness as soon as he gets warm in	=پسینہ — بستر میں گرم ہوتے ہی پسینہ اور ٹھنڈک
+bloody	0	BLOODY	خونی
+bloody, night	1	BLOODY, night	رات
+burning	0	BURNING	جلتا ہوا
+clammy	0	CLAMMY	چپچپا
+clammy, morning	1	CLAMMY, morning	صبح
+clammy, evening	1	CLAMMY, evening	شام
+clammy, night	1	CLAMMY, night	رات
+clammy, starting from sleep, with	1	CLAMMY, starting from sleep, with	نیند سے چونکتے وقت
+closing the eyes	0	CLOSING the eyes	آنکھیں بند کرنا
+closing the eyes, on	1	CLOSING the eyes, on	=پسینہ — آنکھیں بند کرتے ہی
+coition	0	COITION	ہم بستری
+coition, after	1	COITION, after	=پسینہ — ہم بستری کے بعد
+cold	0	COLD	ٹھنڈا
+cold, morning	1	COLD, morning	صبح
+cold, afternoon	1	COLD, afternoon	سہ پہر
+cold, evening	1	COLD, evening	شام
+cold, evening, 6 p.m.	2	COLD, evening, 6 p.m.	=پسینہ — ٹھنڈا، شام 6 بجے
+cold, night	1	COLD, night	رات
+cold, clammy sweats with haemorrhage	1	COLD, clammy sweats with haemorrhage	چپچپا ٹھنڈا پسینہ، خون بہنے کے ساتھ
+cold, clammy sweats with, chill	1	COLD, clammy sweats with, chill	ٹھنڈک کے ساتھ
+cold, convulsions, during	1	COLD, convulsions, during	تشنج کے دوران
+cold, eating	1	COLD, eating	کھانا
+cold, eating, while	2	COLD, eating, while	کھاتے ہوئے
+cold, eating, after	2	COLD, eating, after	=پسینہ — ٹھنڈا، کھانے کے بعد
+cold, exertion of body, or mind, after the slightest	1	COLD, exertion of body, or mind, after the slightest	جسم یا ذہن کی ذرا سی محنت کے بعد
+cold, headache, with	1	COLD, headache, with	سر درد کے ساتھ
+cold, menses, during	1	COLD, menses, during	حیض کے دوران
+cold, motion, on	1	COLD, motion, on	حرکت کرنے پر
+cold, nausea and vertigo, with	1	COLD, nausea and vertigo, with	متلی اور چکر کے ساتھ
+cold, over the body, warm sweat on the palms	1	COLD, over the body, warm sweat on the palms	جسم پر ٹھنڈا، ہتھیلیوں پر گرم
+cold, perspiration increases the coldness of the body	1	COLD, perspiration increases the coldness of the body	پسینے سے جسم کی ٹھنڈک بڑھے
+cold, stool, during	1	COLD, stool, during	پاخانے کے دوران
+cold, sudden attacks of	1	COLD, sudden attacks of	اچانک دورے
+cold, urination, after	1	COLD, urination, after	پیشاب کے بعد
+coldness	0	COLDNESS	ٹھنڈک
+coldness, during	1	COLDNESS, during	=پسینہ — ٹھنڈک کے دوران
+coldness, after	1	COLDNESS, after	=پسینہ — ٹھنڈک کے بعد
+colic	0	COLIC	پیٹ کے مروڑ
+colic, during	1	COLIC, during	مروڑوں کے دوران
+colliquative	0	COLLIQUATIVE	پگھلانے والا
+conversation	0	CONVERSATION	بات چیت
+conversation, from	1	CONVERSATION, from	=پسینہ — بات چیت سے
+convulsions	0	CONVULSIONS	تشنج
+convulsions, during	1	CONVULSIONS, during	=پسینہ — تشنج کے دوران
+convulsions, after	1	CONVULSIONS, after	=پسینہ — تشنج کے بعد
+coughing	0	COUGHING	کھانسی
+coughing, from	1	COUGHING, from	=پسینہ — کھانسی سے
+coughing, from, night	2	COUGHING, from, night	=پسینہ — کھانسی سے، رات
+coughing, from, paroxysms of, end with	2	COUGHING, from, paroxysms of, end with	=پسینہ — کھانسی سے، کھانسی کے دورے اِس پر ختم ہوں
+covered parts	0	COVERED parts	ڈھکے ہوئے حصے
+critical	0	CRITICAL	بحران والا (کرٹیکل)
+descending	0	DESCENDING	نیچے اترتا ہوا
+diarrhoea	0	DIARRHOEA	دست
+diarrhoea, with	1	DIARRHOEA, with	=پسینہ — دست کے ساتھ
+drinking	0	DRINKING	پینا
+drinking, after	1	DRINKING, after	=پسینہ — پینے کے بعد
+drinking, amel.	1	DRINKING, amel.	=پسینہ — پینے سے آرام
+drinking, warm drinks	1	DRINKING, warm drinks	گرم مشروبات
+drinking, wine amel.	1	DRINKING, wine amel.	شراب سے آرام
+dyspnoea	0	DYSPNOEA	سانس کی تنگی
+dyspnoea, with	1	DYSPNOEA, with	=پسینہ — سانس کی تنگی کے ساتھ
+eating	0	EATING	کھانا
+eating, amel.	1	EATING, amel.	=پسینہ — کھانے سے آرام
+eating, after agg.	1	EATING, after agg.	=پسینہ — کھانے کے بعد بگاڑ
+eating, anxiety and cold sweat	1	EATING, anxiety and cold sweat	بے چینی اور ٹھنڈا پسینہ
+eating, while agg.	1	EATING, while agg.	کھاتے ہوئے بگاڑ
+eating, after	1	EATING, after	=پسینہ — کھانے کے بعد
+eating, after, amel.	2	EATING, after, amel.	=پسینہ — کھانے کے بعد آرام
+eating, after, breakfast	2	EATING, after, breakfast	=پسینہ — کھانے کے بعد، ناشتے کے بعد
+eating, after, dinner	2	EATING, after, dinner	=پسینہ — کھانے کے بعد، دوپہر کے کھانے کے بعد
+eating, after, warm food	2	EATING, after, warm food	=پسینہ — کھانے کے بعد، گرم کھانے کے بعد
+emissions	0	EMISSIONS	منی کا اخراج
+emissions, after	1	EMISSIONS, after	منی کے اخراج کے بعد
+excitement	0	EXCITEMENT	جوش
+excitement, after	1	EXCITEMENT, after	=پسینہ — جوش کے بعد
+exertion	0	EXERTION	محنت
+exertion, during slight	1	EXERTION, during slight	ذرا سی محنت کے دوران
+exertion, mental agg.	1	EXERTION, mental agg.	ذہنی محنت سے بگاڑ
+exertion, after, amel.	1	EXERTION, after, amel.	=پسینہ — محنت کے بعد آرام
+exertion, mental, amel.	1	EXERTION, mental, amel.	ذہنی محنت سے آرام
+exhausting	0	EXHAUSTING (See Weakness under Generalities)	نڈھال کرنے والا
+face	0	FACE	چہرہ
+face, of the whole body except the	1	FACE, of the whole body except the	سارے جسم کا سوائے چہرے کے
+fever	0	FEVER	بخار
+fever, after the	1	FEVER, after the	=پسینہ — بخار کے بعد
+flatus	0	FLATUS	گیس
+flatus, when passing	1	FLATUS, when passing	=پسینہ — گیس خارج کرتے وقت
+flies	0	FLIES	مکھیاں
+flies, attracting the	1	FLIES, attracting the	=پسینہ — مکھیاں کھینچے
+fright	0	FRIGHT	ڈر
+fright, from	1	FRIGHT, from	=پسینہ — ڈر سے
+head	0	HEAD	سر
+head, general sweat except the	1	HEAD, general sweat except the	عمومی پسینہ سوائے سر کے
+headache	0	HEADACHE	سر درد
+headache, during	1	HEADACHE, during	=پسینہ — سر درد کے دوران
+hot	0	HOT	گرم
+in general	0	IN general	عمومی
+intermittent	0	INTERMITTENT	وقفوں والا
+long-lasting	0	LONG-LASTING	دیر تک جاری
+long-lasting, continuing through apyrexia	1	LONG-LASTING, continuing through apyrexia	بخار کے وقفے میں بھی جاری
+lying	0	LYING	لیٹنا
+lying, while	1	LYING, while	لیٹے ہوئے
+menses	0	MENSES	حیض
+menses, before	1	MENSES, before	=پسینہ — حیض سے پہلے
+menses, during	1	MENSES, during	=پسینہ — حیض کے دوران
+motion	0	MOTION	حرکت
+motion, amel.	1	MOTION, amel.	=پسینہ — حرکت سے آرام
+motion, brings on chilliness	1	MOTION, brings on chilliness	=پسینہ — حرکت سے ٹھنڈک آئے
+motion, on agg.	1	MOTION, on agg.	=پسینہ — حرکت کرنے پر بگاڑ
+motion, on making any, sweat disappears and heat comes on	1	MOTION, on making any, sweat disappears and heat comes on	ذرا سی حرکت پر پسینہ ختم اور گرمی شروع
+news	0	NEWS	خبر
+news, from unpleasant	1	NEWS, from unpleasant	بری خبر سے
+occupation	0	OCCUPATION	کام کاج
+occupation, during	1	OCCUPATION, during	=پسینہ — کام کاج کے دوران
+odor	0	ODOR	بو
+odor, aromatic	1	ODOR, aromatic	خوشبودار
+odor, bitter in the morning	1	ODOR, bitter in the morning	صبح کڑوی
+odor, blood, like	1	ODOR, blood, like	خون جیسی
+odor, burnt	1	ODOR, burnt	جلی ہوئی
+odor, cadaverous	1	ODOR, cadaverous	لاش جیسی
+odor, cheesy	1	ODOR, cheesy	پنیر جیسی
+odor, drugs, like corresponding	1	ODOR, drugs, like corresponding	متعلقہ دوا جیسی
+odor, eggs, like spoiled	1	ODOR, eggs, like spoiled	سڑے انڈوں جیسی
+odor, elder-blossoms	1	ODOR, elder-blossoms	چیچم کے پھول جیسی
+odor, fetid	1	ODOR, fetid	بدبودار
+odor, fetid, coughing, after	2	ODOR, fetid, coughing, after	کھانسی کے بعد
+odor, eruptions, with	1	ODOR, eruptions, with	دانوں کے ساتھ
+odor, honey, like	1	ODOR, honey, like	شہد جیسی
+odor, musk, like	1	ODOR, musk, like	مشک جیسی
+odor, musty	1	ODOR, musty	باساندہ
+odor, offensive	1	ODOR, offensive	ناگوار
+odor, offensive, morning	2	ODOR, offensive, morning	صبح
+odor, offensive, afternoon	2	ODOR, offensive, afternoon	سہ پہر
+odor, offensive, night	2	ODOR, offensive, night	رات
+odor, offensive, night, during sleep	3	ODOR, offensive, night, during sleep	نیند کے دوران
+odor, offensive, night, midnight	3	ODOR, offensive, night, midnight	آدھی رات
+odor, offensive, cough, after	2	ODOR, offensive, cough, after	کھانسی کے بعد
+odor, offensive, exertion, on	2	ODOR, offensive, exertion, on	محنت پر
+odor, offensive, menses, during	2	ODOR, offensive, menses, during	حیض کے دوران
+odor, offensive, motion, on	2	ODOR, offensive, motion, on	حرکت کرنے پر
+odor, offensive, on one side	2	ODOR, offensive, on one side	ایک طرف
+odor, putrid	1	ODOR, putrid	سڑی ہوئی
+odor, rancid, smelling at night	1	ODOR, rancid, smelling at night	باسی، رات میں آتی ہوئی
+odor, rank	1	ODOR, rank	تیز بدبودار
+odor, rank, during menses	2	ODOR, rank, during menses	حیض کے دوران
+odor, sickly	1	ODOR, sickly	بیمار سی
+odor, smoky	1	ODOR, smoky	دھوئیں جیسی
+odor, sour	1	ODOR, sour	کھٹی
+odor, sour, morning	2	ODOR, sour, morning	صبح
+odor, sour, forenoon	2	ODOR, sour, forenoon	دوپہر سے پہلے
+odor, sour, afternoon	2	ODOR, sour, afternoon	سہ پہر
+odor, sour, night	2	ODOR, sour, night	رات
+odor, sour, night, sleep, during	3	ODOR, sour, night, sleep, during	نیند کے دوران
+odor, spicy	1	ODOR, spicy	مصالحوں جیسی
+odor, sulphur	1	ODOR, sulphur	گندھک جیسی
+odor, sweetish	1	ODOR, sweetish	میٹھی سی
+odor, urine, like	1	ODOR, urine, like	پیشاب جیسی
+odor, urine, like, horses	2	ODOR, urine, like, horses	گھوڑوں کے پیشاب جیسی
+oily	0	OILY	تیل جیسا
+oily, daytime	1	OILY, daytime	دن کے وقت
+oily, morning	1	OILY, morning	صبح
+oily, night	1	OILY, night	رات
+painful parts	0	PAINFUL parts	درد والے حصے
+pains	0	PAINS	درد
+pains, from	1	PAINS, from	=پسینہ — درد سے
+pains, after disappearance of	1	PAINS, after disappearance of	=پسینہ — درد ختم ہونے کے بعد
+palpitation	0	PALPITATION	دھڑکن
+partial	0	PARTIAL (See Single Parts)	جزوی
+periodical	0	PERIODICAL	وقفے وقفے سے
+perspiration agg.	0	PERSPIRATION agg. (See Symptoms)	پسینے سے بگاڑ
+profuse	0	PROFUSE	بہت زیادہ
+profuse, daytime, during sleep	1	PROFUSE, daytime, during sleep	دن کے وقت نیند میں
+profuse, morning	1	PROFUSE, morning	صبح
+profuse, morning, bed, in	2	PROFUSE, morning, bed, in	بستر میں
+profuse, morning, hot, dry	2	PROFUSE, morning, hot, dry	گرم خشک
+profuse, morning, lasting all day	2	PROFUSE, morning, lasting all day	سارا دن جاری
+profuse, morning, sleep, during	2	PROFUSE, morning, sleep, during	نیند کے دوران
+profuse, morning, waking, after	2	PROFUSE, morning, waking, after	جاگنے کے بعد
+profuse, afternoon	1	PROFUSE, afternoon	سہ پہر
+profuse, afternoon, with heat	2	PROFUSE, afternoon, with heat	گرمی کے ساتھ
+profuse, evening	1	PROFUSE, evening	شام
+profuse, evening, every alternate	2	PROFUSE, evening, every alternate	ہر دوسری شام
+profuse, evening, high fever, with	2	PROFUSE, evening, high fever, with	تیز بخار کے ساتھ
+profuse, evening, lasting all night	2	PROFUSE, evening, lasting all night	ساری رات جاری
+profuse, evening, 7 p.m., lasting till 1 a.m. dry heat returns on going to sleep	2	PROFUSE, evening, 7 p.m., lasting till 1 a.m. dry heat returns on going to sleep	=پسینہ — بہت زیادہ، شام 7 سے صبح 1 بجے تک، سوتے وقت خشک گرمی لوٹ آئے
+profuse, night	1	PROFUSE, night	رات
+profuse, night, midnight	2	PROFUSE, night, midnight	آدھی رات
+profuse, night, midnight, before	3	PROFUSE, night, midnight, before	=پسینہ — بہت زیادہ، رات، آدھی رات سے پہلے
+profuse, night, midnight, after	3	PROFUSE, night, midnight, after	=پسینہ — بہت زیادہ، رات، آدھی رات کے بعد
+profuse, night, midnight, lasting until morning	3	PROFUSE, night, midnight, lasting until morning	صبح تک جاری
+profuse, night, every alternate night	2	PROFUSE, night, every alternate night	ہر دوسری رات
+profuse, night, sleep, during	2	PROFUSE, night, sleep, during	نیند کے دوران
+profuse, night, sleeplessness, with	2	PROFUSE, night, sleeplessness, with	بے خوابی کے ساتھ
+profuse, night, on waking the sweat ceases, and returns again on falling asleep	2	PROFUSE, night, on waking the sweat ceases, and returns again on falling asleep	جاگنے پر پسینہ رکے، سوتے ہی دوبارہ آئے
+profuse, night, after 3 a.m.	2	PROFUSE, night, after 3 a.m.	صبح 3 بجے کے بعد
+profuse, night, after, 4 a.m.	2	PROFUSE, night, after, 4 a.m.	صبح 4 بجے کے بعد
+profuse, affected parts, on	1	PROFUSE, affected parts, on	متاثرہ حصوں پر
+profuse, awake, only while	1	PROFUSE, awake, only while	صرف جاگتے ہوئے
+profuse, chill, congestive, after	1	PROFUSE, chill, congestive, after	خون کے هجوم والی سردی کے بعد
+profuse, coition, after	1	PROFUSE, coition, after	ہم بستری کے بعد
+profuse, covered parts, on	1	PROFUSE, covered parts, on	ڈھکے ہوئے حصوں پر
+profuse, day and night without relief	1	PROFUSE, day and night without relief	دن رات بغیر آرام
+profuse, debilitating	1	PROFUSE, debilitating	نڈھال کرنے والا
+profuse, debilitating, and fetid	2	PROFUSE, debilitating, and fetid	اور بدبودار
+profuse, debilitating, not	2	PROFUSE, debilitating, not	نڈھال نہ کرنے والا
+profuse, debilitating, delirium, during	2	PROFUSE, debilitating, delirium, during	ہذیان کے دوران
+profuse, debilitating, diarrhoea, with and copious flow of urine	2	PROFUSE, debilitating, diarrhoea, with and copious flow of urine	دست اور وافر پیشاب کے ساتھ
+profuse, dyspnoea, with	1	PROFUSE, dyspnoea, with	سانس کی تنگی کے ساتھ
+profuse, heart symptoms, with relief of	1	PROFUSE, heart symptoms, with relief of	دل کی علامات میں آرام
+profuse, menses	1	PROFUSE, menses	حیض
+profuse, menses, before	2	PROFUSE, menses, before	=پسینہ — بہت زیادہ، حیض سے پہلے
+profuse, menses, during	2	PROFUSE, menses, during	=پسینہ — بہت زیادہ، حیض کے دوران
+profuse, music, from	1	PROFUSE, music, from	موسیقی سے
+profuse, siesta, during	1	PROFUSE, siesta, during	دوپہر کی نیند کے دوران
+profuse, sitting quietly, while	1	PROFUSE, sitting quietly, while	چپ چاپ بیٹھے رہنے سے
+profuse, sleep, during	1	PROFUSE, sleep, during	نیند کے دوران
+profuse, uncovered parts, on, except the head	1	PROFUSE, uncovered parts, on, except the head	بے ڈھکے حصوں پر سوائے سر کے
+profuse, urine, copious flow and diarrhoea	1	PROFUSE, urine, copious flow and diarrhoea	وافر پیشاب اور دست
+profuse, waking, on	1	PROFUSE, waking, on	جاگتے وقت
+profuse, walking	1	PROFUSE, walking	چلنا
+profuse, walking, while	2	PROFUSE, walking, while	چلتے ہوئے
+profuse, walking, in the open air	2	PROFUSE, walking, in the open air	کھلی ہوا میں چلتے ہوئے
+profuse, rage, during	1	PROFUSE, rage, during	غصے کے دوران
+room	0	ROOM	کمرہ
+room, in the	1	ROOM, in the	=پسینہ — کمرے میں
+sadness	0	SADNESS	اُداسی
+sadness, from	1	SADNESS, from	=پسینہ — اُداسی سے
+scanty sweat	0	SCANTY sweat	تھوڑا پسینہ
+scanty sweat, after a severe chill	1	SCANTY sweat, after a severe chill	سخت سردی کے بعد
+sensation as if about to perspire	0	SENSATION as if about to perspire	جیسے پسینہ آنے والا ہو
+sensation as if about to perspire, but no moisture appears	1	SENSATION as if about to perspire, but no moisture appears	مگر نمی ظاہر نہ ہو
+shivering	0	SHIVERING	کانپنا
+shivering, with	1	SHIVERING, with	=پسینہ — کانپنے کے ساتھ
+shuddering	0	SHUDDERING	لرزہ
+shuddering, after	1	SHUDDERING, after	=پسینہ — لرزے کے بعد
+sides	0	SIDES	پہلو
+sides, one-sided	1	SIDES, one-sided	ایک طرفہ
+sides, right	1	SIDES, right	دائیں
+sides, left	1	SIDES, left	بائیں
+single parts	0	SINGLE parts	الگ الگ حصے
+single parts, front of body	1	SINGLE parts, front of body	جسم کا اگلا حصہ
+single parts, lower part of body	1	SINGLE parts, lower part of body	جسم کا نچلا حصہ
+single parts, lain on	1	SINGLE parts, lain on	جن پر لیٹا ہو
+single parts, not lain on	1	SINGLE parts, not lain on	جن پر نہ لیٹا ہو
+single parts, upper part of body	1	SINGLE parts, upper part of body	جسم کا اوپری حصہ
+single parts, upper part of body, sleep, before	2	SINGLE parts, upper part of body, sleep, before	نیند سے پہلے
+sitting	0	SITTING	بیٹھنا
+sitting, while	1	SITTING, while	بیٹھے ہوئے
+sleep	0	SLEEP	نیند
+sleep, on beginning to	1	SLEEP, on beginning to	سونا شروع کرتے ہی
+sleep, during	1	SLEEP, during	=پسینہ — نیند کے دوران
+sleep, during, amel.	2	SLEEP, during, amel.	=پسینہ — نیند کے دوران آرام
+sleep, during, dry heat perspiration on waking	2	SLEEP, during, dry heat perspiration on waking	=پسینہ — نیند کے دوران، خشک گرمی، جاگنے پر پسینہ
+sleep, during agg.	1	SLEEP, during agg.	=پسینہ — نیند کے دوران بگاڑ
+sleep, even when closing the eyes	1	SLEEP, even when closing the eyes	آنکھیں بند کرتے ہی بھی
+sleep, on going to amel.	1	SLEEP, on going to amel.	سونے جاتے وقت آرام
+sleep, waking	1	SLEEP, waking	جاگنا
+sleep, waking, after agg.	2	SLEEP, waking, after agg.	=پسینہ — نیند، جاگنے کے بعد بگاڑ
+sleep, waking, after, amel.	2	SLEEP, waking, after, amel.	=پسینہ — نیند، جاگنے کے بعد آرام
+spots	0	SPOTS	دھبے
+spots, in	1	SPOTS, in	=پسینہ — دھبوں میں
+staining the linen	0	STAINING the linen	کپڑے داغدار کرنا
+staining the linen, bloody	1	STAINING the linen, bloody	خونی
+staining the linen, brownish-yellow	1	STAINING the linen, brownish-yellow	بھورے پیلے
+staining the linen, difficult to wash out	1	STAINING the linen, difficult to wash out	دھونا مشکل
+staining the linen, green	1	STAINING the linen, green	سبز
+staining the linen, red	1	STAINING the linen, red	سرخ
+staining the linen, yellow	1	STAINING the linen, yellow	پیلے
+sticky	0	STICKY	چپکنے والا
+sticky, evening	1	STICKY, evening	شام
+stiffening the linen	0	STIFFENING the linen	کپڑے سخت کرنا
+stool	0	STOOL	پاخانہ
+stool, before	1	STOOL, before	=پسینہ — پاخانے سے پہلے
+stool, during	1	STOOL, during	=پسینہ — پاخانے کے دوران
+stool, during, cold perspiration	2	STOOL, during, cold perspiration	=پسینہ — پاخانے کے دوران، ٹھنڈا پسینہ
+stool, after	1	STOOL, after	=پسینہ — پاخانے کے بعد
+stool, after, warm perspiration, becomes cold and sticky	2	STOOL, after, warm perspiration, becomes cold and sticky	=پسینہ — پاخانے کے بعد، گرم پسینہ ٹھنڈا اور چپکنے والا ہو جائے
+strangers	0	STRANGERS	اجنبی
+strangers, in the presence of	1	STRANGERS, in the presence of	=پسینہ — اجنبیوں کی موجودگی میں
+sudden	0	SUDDEN	اچانک
+sudden, afternoon	1	SUDDEN, afternoon	سہ پہر
+sudden, and disappearing suddenly	1	SUDDEN, and disappearing suddenly	اور اچانک غائب ہو جائے
+sudden, while walking in the open air, with chilliness	1	SUDDEN, while walking in the open air, with chilliness	کھلی ہوا میں چلتے ہوئے، ٹھنڈک کے ساتھ
+suppressed	0	SUPPRESSED	دبایا ہوا
+suppressed, complaints from	1	SUPPRESSED, complaints from	دبانے سے شکایات
+symptoms	0	SYMPTOMS	علامات
+symptoms, after sweating, agg.	1	SYMPTOMS, after sweating, agg.	پسینے کے بعد بگاڑ
+symptoms, while sweating, amel.	1	SYMPTOMS, while sweating, amel.	پسینے کے دوران آرام
+symptoms, while sweating, amel., except the headache	2	SYMPTOMS, while sweating, amel., except the headache	سوائے سر درد کے
+symptoms, while sweating, amel., except the headache, which is made worse	3	SYMPTOMS, while sweating, amel., except the headache, which is made worse	=پسینہ — علامات، پسینے کے دوران آرام، سوائے سر درد کے جو بڑھ جائے
+symptoms agg. while sweating	0	SYMPTOMS agg. while sweating	پسینے کے دوران علامات بگڑیں
+talking	0	TALKING	باتیں کرنا
+talking, while	1	TALKING, while	باتیں کرتے ہوئے
+uncovered	0	UNCOVERED	بے ڈھکا
+uncovered, desire to be	1	UNCOVERED, desire to be	=پسینہ — بے ڈھکے رہنے کی خواہش
+uncovered, parts, on	1	UNCOVERED, parts, on	=پسینہ — بے ڈھکے حصوں پر
+uncovering	0	UNCOVERING	ڈھانپ ہٹانا
+uncovering, aversion to	1	UNCOVERING, aversion to	=پسینہ — ڈھانپ ہٹانا نہ بھائے
+uncovering, amel.	1	UNCOVERING, amel.	=پسینہ — ڈھانپ ہٹانے سے آرام
+vexation	0	VEXATION	چڑ
+vexation, after	1	VEXATION, after	=پسینہ — چڑ کے بعد
+walking	0	WALKING	چلنا
+walking, amel.	1	WALKING, amel.	=پسینہ — چلنے سے آرام
+walking, in open air agg.	1	WALKING, in open air agg.	کھلی ہوا میں چلنے سے بگاڑ
+walking, in open air, amel.	1	WALKING, in open air, amel.	کھلی ہوا میں چلنے سے آرام
+walking, while agg.	1	WALKING, while agg.	چلتے ہوئے بگاڑ
+warm	0	WARM	گرم
+warm, causing uneasiness	1	WARM, causing uneasiness	بے چینی پیدا کرنے والی
+warmth of room unbearable	0	WARMTH of room unbearable	کمرے کی گرمی ناقابلِ برداشت
+wash off	0	WASH off	دھل جانا
+wash off, difficult to	1	WASH off, difficult to	دھونا مشکل
+wind	0	WIND	ہوا کا جھونکا
+wind, cold agg.	1	WIND, cold agg.	ٹھنڈی ہوا سے بگاڑ
+writing	0	WRITING	لکھنا
+writing, while	1	WRITING, while	لکھتے ہوئے
