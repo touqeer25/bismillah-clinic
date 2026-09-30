@@ -177,11 +177,11 @@ ok(LJ.rubrics['crumb']==='حلقوم — چورا (روٹی کا ذرہ)'&&LJ.ru
   const style=ks.filter(k=>/سے بڑھے|بڑھیں/.test(J.rubrics[k])).length;
   ok(noRoot===0&&latin===0&&style===0,'H10 '+root+': ہر جملے میں جڑ «'+root+' — » · کوئی انگریزی حرف نہیں · اسلوب «سے بگاڑ» (کوئی «سے بڑھے» نہیں) — '+ks.length+' جملے');
 });
-ok(/js\/18-rubrics-ur\.js\?v=140/.test(idx)&&/var REP_RUBUR_V = '140';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v140'/.test(sw),'H11 v140 bump: index ?v=140 · REP_RUBUR_V=140 · CACHE_NAME v140');
+ok(/js\/18-rubrics-ur\.js\?v=141/.test(idx)&&/var REP_RUBUR_V = '141';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v141'/.test(sw),'H11 v141 bump: index ?v=141 · REP_RUBUR_V=141 · CACHE_NAME v141');
 ok(sw.indexOf("'./ur/rubrics/kent/larynx_and_trachea.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/respiration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/expectoration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/cough.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/chest.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/back.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/extremities.json'")>=0,'H12 service-worker میں نئی اردو ابواب کی فہرست (حلقوم/سانس/بلغم/کھانسی/سینہ/پیٹھ/اعضا)');
 const EX=JSON.parse(rd('ur/rubrics/kent/extremities.json')); const EXrows=L.chapterRows(w,'kent','extremities');
 const EXcovered=EXrows.filter(r=>EX.rubrics[r.key]);
-ok(EX.meta.root==='اعضا (ہاتھ پاؤں) — '&&Object.keys(EX.rubrics).length===1998&&EXcovered.length===1999&&EXrows.length===16057,'H13 EXTREMITIES پہلی 2,000 قطاریں: 1,999 ترجمہ شدہ قطاریں، 1,998 منفرد کلیدیں، جڑ درست');
+ok(EX.meta.root==='اعضا (ہاتھ پاؤں) — '&&Object.keys(EX.rubrics).length===2796&&EXcovered.length===2797&&EXrows.length===16057,'H13 EXTREMITIES پہلی 2,800 قطاریں: 2,797 ترجمہ شدہ قطاریں، 2,796 منفرد کلیدیں، جڑ درست');
 ok(Object.values(EX.rubrics).every(t=>t.startsWith('اعضا (ہاتھ پاؤں) — ')&&!/[A-Za-z]{2,}/.test(t)&&!/[۰-۹٠-٩]/.test(t)&&!/[⟨⟩]/.test(t)&&!t.includes('دیکھیں')),'H14 EXTREMITIES ترجمے: جڑ، انگریزی حروف، ہندسے، لفظی نشان اور کراس حوالہ جانچ');
 const EXfiles=fs.readdirSync(path.join(ROOT,'ur/rubrics/kent')).filter(f=>f.endsWith('.json')&&f!=='extremities.json');
 const EXold=new Map(); EXfiles.forEach(f=>{const J=JSON.parse(rd('ur/rubrics/kent/'+f));const rt=(J.meta&&J.meta.root)||'';Object.keys(J.rubrics||{}).forEach(k=>{const v=J.rubrics[k];const body=rt&&v.startsWith(rt)?v.slice(rt.length):v;if(!EXold.has(k))EXold.set(k,new Set());EXold.get(k).add(body);});});
@@ -204,6 +204,12 @@ const EXprev=[...EXB1,...EXB2];
 ok(EXprev.filter(r=>['chorea, coition agg.','coldness, leg, coition, after','coldness, leg, tibia'].includes(r[0])).every(r=>EX.rubrics[r[0]]===r[5].slice(1)),'H23 بیچ 1–2 کی coition/tibia TSV عبارتیں فعال JSON سے ہم آہنگ');
 const EXlabels=JSON.parse(rd('ur/rubric_labels_ur.json')).labels;
 ok(EXlabels.coition==='جنسی تعلق'&&EXlabels.tibia==='پنڈلی کی بڑی ہڈی'&&EXlabels.nates==='سرین','H24 مشترک اصطلاحی لغت: coition، tibia، nates');
+const B5raw=fs.readFileSync(path.join(ROOT,'ur/rubrics/kent/extremities_batch5.tsv'),'utf8').trim().split(/\r?\n/); const B5rows=B5raw.slice(1).map(x=>x.split('\t')); const B5keys=B5rows.map(x=>x[0]); const B5filled=B5rows.filter(x=>x[5]&&x[5].trim()); const B5blank=B5rows.filter(x=>!x[5]||!x[5].trim());
+ok(B5rows.length===800&&new Set(B5keys).size===800&&B5filled.length===798&&B5blank.length===2&&B5blank.map(x=>x[0]).sort().join('|')==='eruption, hand, pustules, itch, resembling|eruption, lower limbs, eating','H25 بیچ 5: 800 منفرد ماخذی قطاریں؛ 798 ترجمے؛ 2 مبہم کلیدیں دانستہ خالی');
+ok(B5filled.every(r=>EX.rubrics[r[0]]===r[5].slice(1))&&B5blank.every(r=>!EX.rubrics[r[0]])&&Object.keys(EX.rubrics).length===2796,'H26 بیچ 5 کے 798 جملے فعال اردو فائل سے عین ملتے ہیں؛ خالی کلیدیں شامل نہیں');
+const B5source=new Map(EXrows.map(r=>[r.key,r])); ok(B5rows.every(r=>{const q=B5source.get(r[0]);return q&&Number(r[1])===q.depth&&r[2]===q.full;}),'H27 بیچ 5 کے 800 کلیدیں، سطح اور اصل متن ماخذ سے عین مطابق');
+ok(EX.rubrics['eruption, upper limbs, crusts'].includes('پپڑیاں')&&EX.rubrics['eruption, upper limbs, scabs'].includes('کھرنڈ')&&EX.rubrics['eruption, upper limbs, petechiae'].includes('باریک سرخ نقطے')&&EX.rubrics['eruption, fingers, pemphigus'].includes('پیمفیگس'),'H28 اصطلاحات: پپڑیاں، کھرنڈ، باریک سرخ نقطے، پیمفیگس');
+ok(EX.rubrics['eruption, hand, between, second and third fingers'].includes('دوسری اور تیسری انگلی')&&EX.rubrics['eruption, upper limbs, vesicles, shooting pain'].includes('تیر جیسا')&&EX.rubrics['eruption, hand, palm, vesicles, large'].includes('بڑے آبلے')&&EX.rubrics['eruption, upper limbs, vesicles, washing in cold water agg.'].includes('ٹھنڈے پانی سے دھونے سے بگڑنا')&&EX.rubrics['eruption, lower limbs, cold bathing amel.'].includes('ٹھنڈے پانی سے نہانے سے آرام'),'H29 انگلیوں کی جگہ، درد کی تشبیہ، بڑے آبلے اور ٹھنڈے پانی کی شرطیں');
 
 // ---------- I. CHEST (v134) ----------
 const chR=L.chapterRows(w,'kent','chest'); const chi=f=>chR.findIndex(r=>r.full===f);
