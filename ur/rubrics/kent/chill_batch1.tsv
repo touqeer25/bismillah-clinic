@@ -1,0 +1,801 @@
+key	depth	en	ur
+coldness in general	0	COLDNESS in general	عمومی ٹھنڈک
+daytime	0	DAYTIME	دن کے وقت
+daytime, with sweat at night	1	DAYTIME, with sweat at night	رات میں پسینے کے ساتھ
+daytime, with, fever at night	1	DAYTIME, with, fever at night	رات میں بخار کے ساتھ
+morning	0	MORNING	صبح
+morning, bed, in	1	MORNING, bed, in	بستر میں
+morning, breakfast	1	MORNING, breakfast	ناشتہ
+morning, breakfast, during	2	MORNING, breakfast, during	کے دوران
+morning, breakfast, after	2	MORNING, breakfast, after	کے بعد
+morning, continuing through the forenoon	1	MORNING, continuing through the forenoon	دوپہر سے پہلے تک جاری
+morning, continuing, until evening	1	MORNING, continuing, until evening	شام تک جاری
+morning, heavy chill morning of one day, light in afternoon of next	1	MORNING, heavy chill morning of one day, light in afternoon of next	ایک دن صبح سخت، اگلے دن سہ پہر ہلکی
+morning, menses, during, after faintness	1	MORNING, menses, during, after faintness	حیض کے دوران، غش کے بعد
+morning, nightly emissions, after	1	MORNING, nightly emissions, after	رات کے اخراج کے بعد
+morning, perspiration, after	1	MORNING, perspiration, after	پسینے کے بعد
+morning, rising, after	1	MORNING, rising, after	اٹھنے کے بعد
+morning, sleep, during	1	MORNING, sleep, during	نیند کے دوران
+morning, uncovered, if	1	MORNING, uncovered, if	اگر ڈھانپا نہ ہو
+morning, waking, on	1	MORNING, waking, on	جاگتے وقت
+morning, warm stove, by a	1	MORNING, warm stove, by a	گرم چولہے کے پاس
+morning, 3 a.m., on waking	1	MORNING, 3 a.m., on waking	=سردی لگنا — صبح 3 بجے جاگنے پر
+morning, 4 a.m., followed by sweat	1	MORNING, 4 a.m., followed by sweat	=سردی لگنا — صبح 4 بجے، اِس کے بعد پسینہ
+morning, 5 a.m., after 36 hours' fever	1	MORNING, 5 a.m., after 36 hours' fever	=سردی لگنا — صبح 5 بجے، 36 گھنٹے کے بخار کے بعد
+forenoon	0	FORENOON	دوپہر سے پہلے
+forenoon, hot room, in a	1	FORENOON, hot room, in a	گرم کمرے میں
+forenoon, sleep, during	1	FORENOON, sleep, during	نیند کے دوران
+forenoon, stool, after	1	FORENOON, stool, after	پاخانے کے بعد
+forenoon, sudden chill, with goose skin and hair standing on end	1	FORENOON, sudden chill, with goose skin and hair standing on end	اچانک سردی، رونگٹے کھڑے اور بال کھڑے ہو جانا
+forenoon, waking, on	1	FORENOON, waking, on	جاگتے وقت
+forenoon, warm stove, by a	1	FORENOON, warm stove, by a	گرم چولہے کے پاس
+forenoon, 10 a.m., lasting until 5 p.m.	1	FORENOON, 10 a.m., lasting until 5 p.m.	=سردی لگنا — دوپہر سے پہلے، صبح 10 بجے، شام 5 بجے تک جاری
+forenoon, 11 a.m., with disgust at even the smell of food	1	FORENOON, 11 a.m., with disgust at even the smell of food	=سردی لگنا — دوپہر سے پہلے، صبح 11 بجے، کھانے کی بو سے بھی کراہت
+forenoon, 5 p.m., continuing until	1	FORENOON, 5 p.m., continuing until	=سردی لگنا — دوپہر سے پہلے، شام 5 بجے، یہاں تک جاری
+noon	0	NOON	دوپہر
+noon, bathing, after	1	NOON, bathing, after	نہانے کے بعد
+noon, dinner, after	1	NOON, dinner, after	=سردی لگنا — دوپہر کے کھانے کے بعد
+noon, heat, followed by	1	NOON, heat, followed by	گرمی کے بعد
+noon, sleep, after	1	NOON, sleep, after	نیند کے بعد
+afternoon	0	AFTERNOON	سہ پہر
+afternoon, constantly increasing chilliness without subsequent heat or perspiration	1	AFTERNOON, constantly increasing chilliness without subsequent heat or perspiration	مسلسل بڑھتی ہوئی ٹھنڈک، بعد میں نہ گرمی نہ پسینہ
+afternoon, diarrhoea, after	1	AFTERNOON, diarrhoea, after	دست کے بعد
+afternoon, dinner, after	1	AFTERNOON, dinner, after	دوپہر کے کھانے کے بعد
+afternoon, heat	1	AFTERNOON, heat	گرمی
+afternoon, heat, following	2	AFTERNOON, heat, following	اِس کے بعد
+afternoon, heat, and sweat, with, at 5 p.m.	2	AFTERNOON, heat, and sweat, with, at 5 p.m.	=سردی لگنا — سہ پہر، گرمی، ساتھ پسینہ، شام 5 بجے
+afternoon, lasting until falling asleep in the evening	1	AFTERNOON, lasting until falling asleep in the evening	شام کو سوتے وقت تک جاری
+afternoon, lasting, until morning	1	AFTERNOON, lasting, until morning	صبح تک جاری
+afternoon, lasting 4 hours	1	AFTERNOON, lasting 4 hours	4 گھنٹے جاری
+afternoon, long lasting	1	AFTERNOON, long lasting (See Shaking Chill)	دیر تک جاری (کپکپی والی)
+afternoon, menses	1	AFTERNOON, menses	حیض
+afternoon, menses, during	2	AFTERNOON, menses, during	کے دوران
+afternoon, menses, first day of	2	AFTERNOON, menses, first day of	پہلے دن
+afternoon, perspiration, with	1	AFTERNOON, perspiration, with	پسینے کے ساتھ
+afternoon, perspiration, with, cold	2	AFTERNOON, perspiration, with, cold	ٹھنڈا
+afternoon, sleep, after	1	AFTERNOON, sleep, after	نیند کے بعد
+afternoon, violent chill with thirst and red face	1	AFTERNOON, violent chill with thirst and red face	سخت سردی، پیاس اور سرخ چہرے کے ساتھ
+afternoon, walking, after	1	AFTERNOON, walking, after	چلنے کے بعد
+afternoon, warm room, even in a	1	AFTERNOON, warm room, even in a	گرم کمرے میں بھی
+afternoon, 3 p.m., lasting until bed time	1	AFTERNOON, 3 p.m., lasting until bed time	=سردی لگنا — سہ پہر، شام 3 بجے، سونے کے وقت تک جاری
+afternoon, 4 p.m. to 8 p.m.	1	AFTERNOON, 4 p.m. to 8 p.m.	=سردی لگنا — سہ پہر، شام 4 سے 8 بجے
+afternoon, 4 p.m. to 8 p.m., with icy coldness and goose flesh	2	AFTERNOON, 4 p.m. to 8 p.m., with icy coldness and goose flesh	=سردی لگنا — سہ پہر، شام 4 سے 8 بجے، برف جیسی ٹھنڈک اور رونگٹے کھڑے
+afternoon, 4 p.m. to 8 p.m., with numb hands and feet icy cold at 7 p.m.	2	AFTERNOON, 4 p.m. to 8 p.m., with numb hands and feet icy cold at 7 p.m.	=سردی لگنا — سہ پہر، شام 4 سے 8 بجے، ہاتھ سن اور شام 7 بجے پاؤں برف جیسے ٹھنڈے
+evening	0	EVENING	شام
+evening, abdomen, with burning in the	1	EVENING, abdomen, with burning in the	پیٹ میں جلن کے ساتھ
+evening, asleep	1	EVENING, asleep	سویا ہوا
+evening, asleep, before falling	2	EVENING, asleep, before falling	سونے سے پہلے
+evening, asleep, on falling asleep	2	EVENING, asleep, on falling asleep	سوتے وقت
+evening, bed	1	EVENING, bed	بستر
+evening, bed, amel.	2	EVENING, bed, amel.	=سردی لگنا — شام، بستر، آرام
+evening, bed, in agg.	2	EVENING, bed, in agg.	=سردی لگنا — شام، بستر میں بگاڑ
+evening, cold, from external	1	EVENING, cold, from external	بیرونی سردی سے
+evening, colic, with	1	EVENING, colic, with	پیٹ کے مروڑ کے ساتھ
+evening, continuing until midnight	1	EVENING, continuing until midnight	آدھی رات تک جاری
+evening, continuing, all night	1	EVENING, continuing, all night	ساری رات جاری
+evening, drinking, after	1	EVENING, drinking, after	پینے کے بعد
+evening, eating	1	EVENING, eating	کھانا
+evening, eating, while	2	EVENING, eating, while	کھاتے ہوئے
+evening, eating, after	2	EVENING, eating, after	=سردی لگنا — شام، کھانے کے بعد
+evening, followed by convulsions and heat lasting all night	1	EVENING, followed by convulsions and heat lasting all night	اِس کے بعد تشنج اور ساری رات گرمی
+evening, followed, by sweat	1	EVENING, followed, by sweat	اِس کے بعد پسینہ
+evening, heat	1	EVENING, heat	گرمی
+evening, heat, with flushes of	2	EVENING, heat, with flushes of	لہریں اٹھتی ہوئی
+evening, heat, without subsequent	2	EVENING, heat, without subsequent	بعد میں نہ ہونے والی
+evening, lying down, after	1	EVENING, lying down, after	لیٹنے کے بعد
+evening, mingled with heat, then heat no sweat	1	EVENING, mingled with heat, then heat no sweat	گرمی سے ملی ہوئی، پھر گرمی مگر پسینہ نہیں
+evening, motion, during	1	EVENING, motion, during	حرکت کے دوران
+evening, pains with the	1	EVENING, pains with the	اِس کے ساتھ درد
+evening, rising, on	1	EVENING, rising, on	اٹھتے وقت
+evening, sleep, with stupefying	1	EVENING, sleep, with stupefying	بے سدھ کرنے والی نیند کے ساتھ
+evening, stool, during	1	EVENING, stool, during	پاخانے کے دوران
+evening, sunset	1	EVENING, sunset	غروبِ آفتاب
+evening, tea, after drinking	1	EVENING, tea, after drinking	چائے پینے کے بعد
+evening, undressing	1	EVENING, undressing	کپڑے اتارتے وقت
+evening, waking, on	1	EVENING, waking, on	جاگتے وقت
+evening, walking, while	1	EVENING, walking, while	چلتے ہوئے
+evening, warm room, in a	1	EVENING, warm room, in a	گرم کمرے میں
+evening, warmth	1	EVENING, warmth	گرمی
+evening, warmth, during external	2	EVENING, warmth, during external	بیرونی گرمی کے دوران
+evening, warmth, external, not relieved by	2	EVENING, warmth, external, not relieved by	بیرونی گرمی سے آرام نہ ہو
+evening, writing, while	1	EVENING, writing, while	لکھتے ہوئے
+evening, 7 p.m., as though dashed with ice-cold water, or as if the blood were running cold through the blood vessels, cold when he moves, increased by eating and drinking	1	EVENING, 7 p.m., as though dashed with ice-cold water, or as if the blood were running cold through the blood vessels, cold when he moves, increased by eating and drinking	=سردی لگنا — شام 7 بجے، جیسے برف جیسے ٹھنڈے پانی سے نہلا دیا گیا ہو، یا جیسے رگوں میں خون ٹھنڈا بہہ رہا ہو، حرکت کرنے پر ٹھنڈک، کھانے پینے سے بڑھے
+night	0	NIGHT	رات
+night, bed, in	1	NIGHT, bed, in	بستر میں
+night, hot head, with	1	NIGHT, hot head, with	سر گرم ہونے کے ساتھ
+night, nausea, after	1	NIGHT, nausea, after	جی متلانے کے بعد
+night, never at night	1	NIGHT, never at night	=سردی لگنا — رات کو کبھی نہیں
+night, putting hand out of bed, on	1	NIGHT, putting hand out of bed, on	بستر سے ہاتھ باہر نکالتے وقت
+night, rising, on	1	NIGHT, rising, on	اٹھتے وقت
+night, room, warm, in a	1	NIGHT, room, warm, in a	گرم کمرے میں
+night, sweat, during	1	NIGHT, sweat, during	پسینے کے دوران
+night, waking, on	1	NIGHT, waking, on	جاگتے وقت
+midnight	0	MIDNIGHT	آدھی رات
+midnight, before	1	MIDNIGHT, before	=سردی لگنا — آدھی رات سے پہلے
+midnight, after	1	MIDNIGHT, after	=سردی لگنا — آدھی رات کے بعد
+midnight, after, frequent chills from 1 to 7 a.m.	2	MIDNIGHT, after, frequent chills from 1 to 7 a.m.	=سردی لگنا — آدھی رات کے بعد، صبح 1 سے 7 بجے تک بار بار سردی
+affected parts	0	AFFECTED parts	متاثرہ حصے
+air	0	AIR	ہوا
+air, cold air	1	AIR, cold air	ٹھنڈی
+air, cold air, from a warm room	2	AIR, cold air, from a warm room	گرم کمرے سے
+air, cold air, on going into the	2	AIR, cold air, on going into the	اُس میں جانے پر
+air, in the open	1	AIR, in the open	کھلی ہوا میں
+air, in the open, amel.	2	AIR, in the open, amel.	=سردی لگنا — ہوا، کھلی ہوا میں آرام
+air, in the open, exercise in, amel.	2	AIR, in the open, exercise in, amel.	=سردی لگنا — ہوا، کھلی ہوا میں ورزش سے آرام
+air, in the open, warm air	2	AIR, in the open, warm air (See Warm Room)	=سردی لگنا — ہوا، کھلی ہوا، گرم ہوا
+air, in the open agg.	1	AIR, in the open agg.	=سردی لگنا — ہوا، کھلی ہوا میں بگاڑ
+air, the least draught of	1	AIR, the least draught of	ذرا سا جھونکا بھی
+air, walking in the open air	1	AIR, walking in the open air	کھلی ہوا میں چلنا
+air, walking in the open air, after	2	AIR, walking in the open air, after	=سردی لگنا — ہوا، کھلی ہوا میں چلنے کے بعد
+air, warm air, feels cold	1	AIR, warm air, feels cold	گرم ہوا ٹھنڈی لگتی ہے
+alcohol	0	ALCOHOL	شراب
+alcohol, abuse of	1	ALCOHOL, abuse of	زیادہ استعمال
+alternating	0	ALTERNATING	باری باری
+alternating, with sweat	1	ALTERNATING, with sweat	پسینے کے ساتھ باری باری
+alternating with heat	0	ALTERNATING with heat (See Fever, Alternating with Chill and Fever)	گرمی کے ساتھ باری باری
+anger	0	ANGER	غصہ
+anger, after	1	ANGER, after	=سردی لگنا — غصے کے بعد
+annual chill	0	ANNUAL chill	سالانہ سردی
+annual chill, semi-annual	1	ANNUAL chill, semi-annual	سال میں دو بار
+anticipating	0	ANTICIPATING	وقت سے پہلے آنا
+anticipating, every day 2 hours	1	ANTICIPATING, every day 2 hours	ہر دن 2 گھنٹے پہلے
+anticipating, every, other day	1	ANTICIPATING, every, other day	ہر دوسرے دن
+anticipating, every, other day, one hour	2	ANTICIPATING, every, other day, one hour	ایک گھنٹہ پہلے
+anticipating, every, other day, tertian, several hours	2	ANTICIPATING, every, other day, tertian, several hours	تیسرے دن والی، کئی گھنٹے پہلے
+anticipating, every, other day, two hours	2	ANTICIPATING, every, other day, two hours	دو گھنٹے پہلے
+anticipating, or postponing	1	ANTICIPATING, or postponing	یا وقت پیچھے کھسکنا
+anticipating, about 2 hours each attack	1	ANTICIPATING, about 2 hours each attack	ہر دورے میں تقریباً 2 گھنٹے پہلے
+anxiety	0	ANXIETY	بے چینی
+anxiety, caused by	1	ANXIETY, caused by	اِس سے پیدا ہوتی ہے
+arsenic	0	ARSENIC	آرسینک
+arsenic, abuse of	1	ARSENIC, abuse of	زیادہ استعمال
+ascending	0	ASCENDING (See Coldness, Back)	اوپر چڑھنا
+autumn and spring	0	AUTUMN and spring	خزاں اور بہار
+autumnal	0	AUTUMNAL	خزاں کا
+bathing	0	BATHING (See Water)	نہانا
+bathing, in cold water	1	BATHING (See Water), in cold water	ٹھنڈے پانی میں
+bed	0	BED	بستر
+bed, amel.	1	BED, amel.	=سردی لگنا — بستر، آرام
+bed, coldness out of, heat in bed	1	BED, coldness out of, heat in bed	=سردی لگنا — بستر سے باہر ٹھنڈک، بستر میں گرمی
+bed, putting hand out of bed	1	BED, putting hand out of bed	=سردی لگنا — بستر سے ہاتھ باہر نکالنا
+bed, rising from agg.	1	BED, rising from agg.	=سردی لگنا — بستر سے اٹھنے پر بگاڑ
+bed, rising from, amel.	1	BED, rising from, amel.	=سردی لگنا — بستر سے اٹھنے پر آرام
+bed, turning over in	1	BED, turning over in	=سردی لگنا — بستر میں کروٹ بدلنا
+bed in agg.	0	BED in agg.	بستر میں بگاڑ
+beginning in and extending from	0	BEGINNING in and extending from	شروع ہو کر پھیلتی ہوئی
+beginning in and extending from, abdomen to fingers and toes	1	BEGINNING in and extending from, abdomen to fingers and toes	پیٹ سے انگلیوں اور پاؤں کی انگلیوں تک
+beginning in and extending from, ankles	1	BEGINNING in and extending from, ankles	ٹخنوں سے
+beginning in and extending from, arm	1	BEGINNING in and extending from, arm	بازو
+beginning in and extending from, arm, and hand	2	BEGINNING in and extending from, arm, and hand	اور ہاتھ
+beginning in and extending from, arm, left, and lower limbs	2	BEGINNING in and extending from, arm, left, and lower limbs	بایاں، اور نچلے اعضاء
+beginning in and extending from, arm right, and right side	1	BEGINNING in and extending from, arm right, and right side	دایاں بازو اور دائیں جانب
+beginning in and extending from, arms	1	BEGINNING in and extending from, arms	بازوؤں
+beginning in and extending from, arms, and thighs	2	BEGINNING in and extending from, arms, and thighs	اور رانوں
+beginning in and extending from, arms, both, at once	2	BEGINNING in and extending from, arms, both, at once	دونوں ایک ساتھ
+beginning in and extending from, back	1	BEGINNING in and extending from, back	پیٹھ
+beginning in and extending from, back, between the scapula	2	BEGINNING in and extending from, back, between the scapula	کندھے کی ہڈیوں کے درمیان
+beginning in and extending from, back, dorsal region	2	BEGINNING in and extending from, back, dorsal region	=سردی لگنا — شروع ہو کر پھیلتی ہوئی، پیٹھ کا درمیانی حصہ
+beginning in and extending from, back, lumbar region	2	BEGINNING in and extending from, back, lumbar region	کمر کا حصہ
+beginning in and extending from, bladder, neck of, after urinating	1	BEGINNING in and extending from, bladder, neck of, after urinating	مثانے کے منہ سے، پیشاب کے بعد
+beginning in and extending from, body	1	BEGINNING in and extending from, body	جسم
+beginning in and extending from, body, left side of	2	BEGINNING in and extending from, body, left side of	=سردی لگنا — شروع ہو کر پھیلتی ہوئی، جسم کی بائیں جانب
+beginning in and extending from, body, right side of	2	BEGINNING in and extending from, body, right side of	=سردی لگنا — شروع ہو کر پھیلتی ہوئی، جسم کی دائیں جانب
+beginning in and extending from, buttocks	1	BEGINNING in and extending from, buttocks	سُرین
+beginning in and extending from, calves	1	BEGINNING in and extending from, calves	پنڈلیوں
+beginning in and extending from, chest	1	BEGINNING in and extending from, chest	سینے
+beginning in and extending from, chest, right side of	2	BEGINNING in and extending from, chest, right side of	دائیں جانب
+beginning in and extending from, face	1	BEGINNING in and extending from, face	چہرے
+beginning in and extending from, feet	1	BEGINNING in and extending from, feet	پاؤں
+beginning in and extending from, feet, right foot	2	BEGINNING in and extending from, feet, right foot	دایاں پاؤں
+beginning in and extending from, feet, soles	2	BEGINNING in and extending from, feet, soles	تلووں
+beginning in and extending from, feet, toes	2	BEGINNING in and extending from, feet, toes	=سردی لگنا — شروع ہو کر پھیلتی ہوئی، پاؤں کی انگلیوں
+beginning in and extending from, fingers	1	BEGINNING in and extending from, fingers	انگلیوں
+beginning in and extending from, fingers, tips of	2	BEGINNING in and extending from, fingers, tips of	=سردی لگنا — شروع ہو کر پھیلتی ہوئی، انگلیوں کے سروں
+beginning in and extending from, fingers, tips of, and toes	3	BEGINNING in and extending from, fingers, tips of, and toes	=سردی لگنا — شروع ہو کر پھیلتی ہوئی، انگلیوں کے سروں، اور پاؤں کی انگلیوں
+beginning in and extending from, hands	1	BEGINNING in and extending from, hands	ہاتھوں
+beginning in and extending from, hands, and feet	2	BEGINNING in and extending from, hands, and feet	اور پاؤں
+beginning in and extending from, hands, left hand	2	BEGINNING in and extending from, hands, left hand	بایاں ہاتھ
+beginning in and extending from, hands, palms and soles	2	BEGINNING in and extending from, hands, palms and soles	ہتھیلیوں اور تلووں
+beginning in and extending from, hands, right hand	2	BEGINNING in and extending from, hands, right hand	دایاں ہاتھ
+beginning in and extending from, head	1	BEGINNING in and extending from, head	سر
+beginning in and extending from, head, vertex	2	BEGINNING in and extending from, head, vertex	=سردی لگنا — شروع ہو کر پھیلتی ہوئی، سر کی چوٹی
+beginning in and extending from, knees	1	BEGINNING in and extending from, knees	گھٹنوں
+beginning in and extending from, legs	1	BEGINNING in and extending from, legs	ٹانگوں
+beginning in and extending from, lips	1	BEGINNING in and extending from, lips	ہونٹوں
+beginning in and extending from, neck	1	BEGINNING in and extending from, neck	گردن
+beginning in and extending from, nose	1	BEGINNING in and extending from, nose	ناک
+beginning in and extending from, palms and soles	1	BEGINNING in and extending from, palms and soles	ہتھیلیوں اور تلووں
+beginning in and extending from, sacrum	1	BEGINNING in and extending from, sacrum	تعلق کی ہڈی
+beginning in and extending from, scalp	1	BEGINNING in and extending from, scalp	سر کی کھوپڑی کی جلد
+beginning in and extending from, scrobiculis cordis	1	BEGINNING in and extending from, scrobiculis cordis	دل کا گڑھا (سینے کا نچلا گڑھا)
+beginning in and extending from, thighs	1	BEGINNING in and extending from, thighs	رانوں
+beginning in and extending from, throat	1	BEGINNING in and extending from, throat	گلے
+beginning in and extending from, toes	1	BEGINNING in and extending from, toes	پاؤں کی انگلیوں
+beginning in and extending from, umbilicus	1	BEGINNING in and extending from, umbilicus	ناف
+beginning in and extending from, wrist, left	1	BEGINNING in and extending from, wrist, left	بائیں کلائی
+beginning in and extending from abdomen	0	BEGINNING in and extending from abdomen	پیٹ سے شروع ہو کر پھیلتی ہوئی
+changing type	0	CHANGING type	قسم بدلنا
+chilliness	0	CHILLINESS (See Generalities, Cold)	ٹھنڈک
+chilliness, morning	1	CHILLINESS (See Generalities, Cold), morning	صبح
+chilliness, morning, lasting all day	2	CHILLINESS (See Generalities, Cold), morning, lasting all day	سارا دن جاری
+chilliness, morning, lasting, all forenoon	2	CHILLINESS (See Generalities, Cold), morning, lasting, all forenoon	دوپہر سے پہلے بھر جاری
+chilliness, morning, rising, after	2	CHILLINESS (See Generalities, Cold), morning, rising, after	اٹھنے کے بعد
+chilliness, morning, waking, on	2	CHILLINESS (See Generalities, Cold), morning, waking, on	جاگتے وقت
+chilliness, forenoon	1	CHILLINESS (See Generalities, Cold), forenoon	دوپہر سے پہلے
+chilliness, forenoon, before dinner, amel. by eating	2	CHILLINESS (See Generalities, Cold), forenoon, before dinner, amel. by eating	=سردی لگنا — ٹھنڈک، دوپہر سے پہلے، کھانا کھانے سے آرام
+chilliness, forenoon, hair standing on end	2	CHILLINESS (See Generalities, Cold), forenoon, hair standing on end	بال کھڑے ہو جانا
+chilliness, noon	1	CHILLINESS (See Generalities, Cold), noon	دوپہر
+chilliness, noon, after sleep	2	CHILLINESS (See Generalities, Cold), noon, after sleep	نیند کے بعد
+chilliness, afternoon	1	CHILLINESS (See Generalities, Cold), afternoon	سہ پہر
+chilliness, afternoon, dinner, after	2	CHILLINESS (See Generalities, Cold), afternoon, dinner, after	دوپہر کے کھانے کے بعد
+chilliness, afternoon, menses, during	2	CHILLINESS (See Generalities, Cold), afternoon, menses, during	حیض کے دوران
+chilliness, afternoon, no relieved by heat of stove, but relieved by covering up warmly in bed	2	CHILLINESS (See Generalities, Cold), afternoon, no relieved by heat of stove, but relieved by covering up warmly in bed	چولہے کی گرمی سے آرام نہ ہو، مگر بستر میں گرم ڈھانپنے سے ہو
+chilliness, afternoon, siesta, after	2	CHILLINESS (See Generalities, Cold), afternoon, siesta, after	دوپہر کی نیند کے بعد
+chilliness, afternoon, subsequent heat, without	2	CHILLINESS (See Generalities, Cold), afternoon, subsequent heat, without	بعد میں گرمی نہ ہو
+chilliness, afternoon, 4 p.m.	2	CHILLINESS (See Generalities, Cold), afternoon, 4 p.m.	=سردی لگنا — ٹھنڈک، سہ پہر، شام 4 بجے
+chilliness, evening	1	CHILLINESS (See Generalities, Cold), evening	شام
+chilliness, evening, eating, after	2	CHILLINESS (See Generalities, Cold), evening, eating, after	کھانے کے بعد
+chilliness, evening, falling asleep, on	2	CHILLINESS (See Generalities, Cold), evening, falling asleep, on	سوتے وقت
+chilliness, evening, flashes of heat in the face, with	2	CHILLINESS (See Generalities, Cold), evening, flashes of heat in the face, with	چہرے پر گرمی کی لہریں اٹھنا
+chilliness, evening, hair standing on end, sensation of	2	CHILLINESS (See Generalities, Cold), evening, hair standing on end, sensation of	بال کھڑے ہونے کا احساس
+chilliness, evening, headache, with	2	CHILLINESS (See Generalities, Cold), evening, headache, with	سر درد کے ساتھ
+chilliness, evening, lasting all night, with cold legs	2	CHILLINESS (See Generalities, Cold), evening, lasting all night, with cold legs	ساری رات جاری، ٹانگیں ٹھنڈی
+chilliness, evening, lying in bed	2	CHILLINESS (See Generalities, Cold), evening, lying in bed	بستر میں لیٹے ہوئے
+chilliness, evening, lying in bed, amel.	3	CHILLINESS (See Generalities, Cold), evening, lying in bed, amel.	آرام
+chilliness, evening, lying in bed, on agg.	3	CHILLINESS (See Generalities, Cold), evening, lying in bed, on agg.	اٹھنے پر بگاڑ
+chilliness, evening, nausea and cold limbs, with	2	CHILLINESS (See Generalities, Cold), evening, nausea and cold limbs, with	جی متلانا اور اعضا ٹھنڈے
+chilliness, evening, sleepiness, with	2	CHILLINESS (See Generalities, Cold), evening, sleepiness, with	غنودگی کے ساتھ
+chilliness, evening, wakes, as often as she	2	CHILLINESS (See Generalities, Cold), evening, wakes, as often as she	جتنی بار جاگے
+chilliness, evening, walking, while	2	CHILLINESS (See Generalities, Cold), evening, walking, while	چلتے ہوئے
+chilliness, evening, warm stove agg.	2	CHILLINESS (See Generalities, Cold), evening, warm stove agg.	گرم چولہے سے بگاڑ
+chilliness, night	1	CHILLINESS (See Generalities, Cold), night	رات
+chilliness, night, lying down, after, and as often as she wakes, without thirst	2	CHILLINESS (See Generalities, Cold), night, lying down, after, and as often as she wakes, without thirst	لیٹنے کے بعد اور جتنی بار جاگے، بغیر پیاس
+chilliness, night, menses	2	CHILLINESS (See Generalities, Cold), night, menses	حیض
+chilliness, night, menses, before	3	CHILLINESS (See Generalities, Cold), night, menses, before	=سردی لگنا — ٹھنڈک، رات، حیض سے پہلے
+chilliness, night, menses, during	3	CHILLINESS (See Generalities, Cold), night, menses, during	=سردی لگنا — ٹھنڈک، رات، حیض کے دوران
+chilliness, night, sleep, during	2	CHILLINESS (See Generalities, Cold), night, sleep, during	نیند کے دوران
+chilliness, night, undressing	2	CHILLINESS (See Generalities, Cold), night, undressing	کپڑے اتارتے وقت
+chilliness, night, 9-30 p.m. has to go to bed, followed by shaking chill	2	CHILLINESS (See Generalities, Cold), night, 9-30 p.m. has to go to bed, followed by shaking chill	=سردی لگنا — ٹھنڈک، رات 9:30 پر بستر پر جانا پڑے، اِس کے بعد کپکپی والی سردی
+chilliness, air	1	CHILLINESS (See Generalities, Cold), air	ہوا
+chilliness, air, while walking in the open	2	CHILLINESS (See Generalities, Cold), air, while walking in the open	کھلی ہوا میں چلتے وقت
+chilliness, air, the well-covered chest is chilly in the	2	CHILLINESS (See Generalities, Cold), air, the well-covered chest is chilly in the	اچھی طرح ڈھکا ہوا سینہ بھی ہوا میں ٹھنڈا ہو جاتا ہے
+chilliness, air, as if cold air were blowing on uncovered parts	2	CHILLINESS (See Generalities, Cold), air, as if cold air were blowing on uncovered parts	جیسے بے ڈھکے حصوں پر ٹھنڈی ہوا چل رہی ہو
+chilliness, air, in the open	2	CHILLINESS (See Generalities, Cold), air, in the open	کھلی ہوا میں
+chilliness, air, in the open, and heat in the room	3	CHILLINESS (See Generalities, Cold), air, in the open, and heat in the room	=سردی لگنا — ٹھنڈک، ہوا، کھلی ہوا میں اور کمرے میں گرمی
+chilliness, air, in the open, over the whole body, but not in cold air	3	CHILLINESS (See Generalities, Cold), air, in the open, over the whole body, but not in cold air	سارے جسم پر، مگر ٹھنڈی ہوا میں نہیں
+chilliness, apyrexia, during the	1	CHILLINESS (See Generalities, Cold), apyrexia, during the	بخار کے وقفے کے دوران
+chilliness, bad news, from	1	CHILLINESS (See Generalities, Cold), bad news, from	بُری خبر سے
+chilliness, bed, out of, heat in bed	1	CHILLINESS (See Generalities, Cold), bed, out of, heat in bed	بستر سے باہر ٹھنڈک، بستر میں گرمی
+chilliness, coffee, abuse of	1	CHILLINESS (See Generalities, Cold), coffee, abuse of	زیادہ قہوہ پینا
+chilliness, coition, after	1	CHILLINESS (See Generalities, Cold), coition, after	ہم بستری کے بعد
+chilliness, drinking, when	1	CHILLINESS (See Generalities, Cold), drinking, when	پیتے وقت
+chilliness, eating	1	CHILLINESS (See Generalities, Cold), eating	کھانا
+chilliness, eating, after	2	CHILLINESS (See Generalities, Cold), eating, after	=سردی لگنا — ٹھنڈک، کھانے کے بعد
+chilliness, eating, while	2	CHILLINESS (See Generalities, Cold), eating, while	کھاتے ہوئے
+chilliness, exciting news	1	CHILLINESS (See Generalities, Cold), exciting news	جوش دلانے والی خبر
+chilliness, fever, during	1	CHILLINESS (See Generalities, Cold), fever, during (See Chilliness, under Fever)	بخار کے دوران
+chilliness, frequent attacks of, with intermediate sleep	1	CHILLINESS (See Generalities, Cold), frequent attacks of, with intermediate sleep	بار بار دورے، درمیان میں نیند
+chilliness, frequent, short attacks of	1	CHILLINESS (See Generalities, Cold), frequent, short attacks of	بار بار، چھوٹے دورے
+chilliness, hair standing on end, sensation of	1	CHILLINESS (See Generalities, Cold), hair standing on end, sensation of	بال کھڑے ہونے کا احساس
+chilliness, headache, during	1	CHILLINESS (See Generalities, Cold), headache, during	سر درد کے دوران
+chilliness, labor pain, after	1	CHILLINESS (See Generalities, Cold), labor pain, after	زچگی کے درد کے بعد
+chilliness, lasting all night	1	CHILLINESS (See Generalities, Cold), lasting all night	ساری رات جاری
+chilliness, menses	1	CHILLINESS (See Generalities, Cold), menses	حیض
+chilliness, menses, before	2	CHILLINESS (See Generalities, Cold), menses, before	=سردی لگنا — ٹھنڈک، حیض سے پہلے
+chilliness, menses, during	2	CHILLINESS (See Generalities, Cold), menses, during	=سردی لگنا — ٹھنڈک، حیض کے دوران
+chilliness, pain, with	1	CHILLINESS (See Generalities, Cold), pain, with	درد کے ساتھ
+chilliness, part touched	1	CHILLINESS (See Generalities, Cold), part touched	چھوآ گیا حصہ
+chilliness, perspiration, with	1	CHILLINESS (See Generalities, Cold), perspiration, with	پسینے کے ساتھ
+chilliness, perspiration, with, as soon as he gets warm in bed	2	CHILLINESS (See Generalities, Cold), perspiration, with, as soon as he gets warm in bed	=سردی لگنا — ٹھنڈک، پسینے کے ساتھ، بستر میں گرم ہوتے ہی
+chilliness, slightest movement of the bed-clothes	1	CHILLINESS (See Generalities, Cold), slightest movement of the bed-clothes	بستر کے کپڑوں کی ذرا سی حرکت
+chilliness, stool	1	CHILLINESS (See Generalities, Cold), stool	پاخانہ
+chilliness, stool, before	2	CHILLINESS (See Generalities, Cold), stool, before	=سردی لگنا — ٹھنڈک، پاخانے سے پہلے
+chilliness, stool, during	2	CHILLINESS (See Generalities, Cold), stool, during	=سردی لگنا — ٹھنڈک، پاخانے کے دوران
+chilliness, stool, after	2	CHILLINESS (See Generalities, Cold), stool, after	=سردی لگنا — ٹھنڈک، پاخانے کے بعد
+chilliness, subsequent heat, without	1	CHILLINESS (See Generalities, Cold), subsequent heat, without	بعد میں گرمی نہ ہو
+chilliness, urging to urinate, on	1	CHILLINESS (See Generalities, Cold), urging to urinate, on	پیشاب کی خواہش پر
+chilliness, urging to urinate, on, followed by	2	CHILLINESS (See Generalities, Cold), urging to urinate, on, followed by	=سردی لگنا — ٹھنڈک، پیشاب کی خواہش پر، اِس کے بعد
+chilliness, urination	1	CHILLINESS (See Generalities, Cold), urination	پیشاب
+chilliness, urination, before	2	CHILLINESS (See Generalities, Cold), urination, before	=سردی لگنا — ٹھنڈک، پیشاب سے پہلے
+chilliness, urination, during	2	CHILLINESS (See Generalities, Cold), urination, during	=سردی لگنا — ٹھنڈک، پیشاب کے دوران
+chilliness, urination, after agg.	2	CHILLINESS (See Generalities, Cold), urination, after agg.	=سردی لگنا — ٹھنڈک، پیشاب کے بعد بگاڑ
+chilliness, urination, after, amel.	2	CHILLINESS (See Generalities, Cold), urination, after, amel.	=سردی لگنا — ٹھنڈک، پیشاب کے بعد آرام
+chilliness, vomiting, during	1	CHILLINESS (See Generalities, Cold), vomiting, during	قے کے دوران
+chilliness, waking, on	1	CHILLINESS (See Generalities, Cold), waking, on	جاگتے وقت
+chilliness, walking, after	1	CHILLINESS (See Generalities, Cold), walking, after	چلنے کے بعد
+chilliness, warm room	1	CHILLINESS (See Generalities, Cold), warm room	گرم کمرہ
+chilliness, warm room, when in a	2	CHILLINESS (See Generalities, Cold), warm room, when in a	=سردی لگنا — ٹھنڈک، گرم کمرے میں ہونے پر
+chilliness, warm room, going from the open air into, when	2	CHILLINESS (See Generalities, Cold), warm room, going from the open air into, when	کھلی ہوا سے گرم کمرے میں جانے پر
+chilliness, warm room, more in a warm room than in the open air	2	CHILLINESS (See Generalities, Cold), warm room, more in a warm room than in the open air	=سردی لگنا — ٹھنڈک، گرم کمرے میں کھلی ہوا سے زیادہ
+chilliness, washing	1	CHILLINESS (See Generalities, Cold), washing	دھونا
+cold damp weather	0	COLD damp weather	ٹھنڈا مرطوب موسم
+coldness of body	0	COLDNESS of body (See Skin, Coldness, also Icy Coldness)	جسم کی ٹھنڈک
+coldness of body, in blood vessels	1	COLDNESS of body (See Skin, Coldness, also Icy Coldness), in blood vessels (See Internal Chill)	رگوں میں
+coldness of body, in bones	1	COLDNESS of body (See Skin, Coldness, also Icy Coldness), in bones (See Internal Chill)	ہڈیوں میں
+congestive	0	CONGESTIVE (See Pernicious)	خون کے بھراؤ والا
+coughing	0	COUGHING	کھانسی
+coughing, from	1	COUGHING, from	=سردی لگنا — کھانسی سے
+covered	0	COVERED (See External Warmth and Uncovering)	ڈھکا ہوا
+creeping	0	CREEPING	رینگتی ہوئی
+creeping, morning	1	CREEPING, morning	صبح
+creeping, morning, on rising from bed, creeping coldness of abdomen	2	CREEPING, morning, on rising from bed, creeping coldness of abdomen	بستر سے اٹھتے وقت، پیٹ پر رینگتی ہوئی ٹھنڈک
+creeping, forenoon	1	CREEPING, forenoon	دوپہر سے پہلے
+creeping, forenoon, on going in a warm room	2	CREEPING, forenoon, on going in a warm room	گرم کمرے میں جانے پر
+creeping, afternoon	1	CREEPING, afternoon	سہ پہر
+creeping, afternoon, 4 p.m. to 6 p.m.	2	CREEPING, afternoon, 4 p.m. to 6 p.m.	=سردی لگنا — رینگتی ہوئی، سہ پہر، شام 4 سے 6 بجے
+creeping, afternoon, dinner, after	2	CREEPING, afternoon, dinner, after	دوپہر کے کھانے کے بعد
+creeping, afternoon, siesta, after	2	CREEPING, afternoon, siesta, after	دوپہر کی نیند کے بعد
+creeping, evening	1	CREEPING, evening	شام
+creeping, night	1	CREEPING, night	رات
+creeping, alternating with heat	1	CREEPING, alternating with heat	گرمی کے ساتھ باری باری
+creeping, cold air, in	1	CREEPING, cold air, in	ٹھنڈی ہوا میں
+creeping, motion, on	1	CREEPING, motion, on	حرکت پر
+creeping, rising from sitting, when	1	CREEPING, rising from sitting, when	بیٹھے سے اٹھتے وقت
+creeping, standing, while	1	CREEPING, standing, while	کھڑے ہوئے
+creeping, stool	1	CREEPING, stool	پاخانہ
+creeping, stool, before	2	CREEPING, stool, before	=سردی لگنا — رینگتی ہوئی، پاخانے سے پہلے
+creeping, stool, during	2	CREEPING, stool, during	=سردی لگنا — رینگتی ہوئی، پاخانے کے دوران
+creeping, stool, after	2	CREEPING, stool, after	=سردی لگنا — رینگتی ہوئی، پاخانے کے بعد
+creeping, urinating, after	1	CREEPING, urinating, after	پیشاب کے بعد
+creeping, warm room, in a	1	CREEPING, warm room, in a	گرم کمرے میں
+day	0	DAY	دن
+day, a cold, in summer	1	DAY, a cold, in summer	گرمیوں میں ایک ٹھنڈا دن
+day, fourteenth	1	DAY, fourteenth	چودھواں دن
+day, seventh	1	DAY, seventh	ساتواں دن
+day, twenty-eighth	1	DAY, twenty-eighth	اٹھائیسواں دن
+day, twenty-first	1	DAY, twenty-first	اکیسواں دن
+descending	0	DESCENDING (See Coldness of Back)	نیچے اترنا
+diarrhoea	0	DIARRHOEA	دست
+diarrhoea, during	1	DIARRHOEA, during	=سردی لگنا — دست کے دوران
+disordered stomach	0	DISORDERED stomach	معدے کی خرابی
+drinking	0	DRINKING	پینا
+drinking, amel.	1	DRINKING, amel.	=سردی لگنا — پینا، آرام
+drinking, as if ice-water were rising and falling through a cylindrical opening in left lung	1	DRINKING, as if ice-water were rising and falling through a cylindrical opening in left lung	=سردی لگنا — پینا، جیسے بائیں پھیپھڑے میں کسی بیلن نما سوراخ سے برف کا پانی اوپر نیچے ہو رہا ہو
+drinking, causes cough	1	DRINKING, causes cough	کھانسی پیدا کرتا ہے
+drinking, cold water is felt as if pouring over outside of thorax	1	DRINKING, cold water is felt as if pouring over outside of thorax	ٹھنڈا پانی جیسے سینے کے باہر ڈالا جا رہا ہو
+drinking, hastens and increases the chill and causes nausea	1	DRINKING, hastens and increases the chill and causes nausea	سردی جلدی اور زیادہ کرتا ہے اور جی متلاتا ہے
+drinking, increases the chill and causes vomiting	1	DRINKING, increases the chill and causes vomiting	سردی بڑھاتا ہے اور قے لاتا ہے
+drinking, makes headache, and all other symptoms unbearable	1	DRINKING, makes headache, and all other symptoms unbearable	سر درد اور باقی سب علامات ناقابلِ برداشت کر دیتا ہے
+drinking, warm drinks	1	DRINKING, warm drinks	گرم مشروبات
+drinking, warm drinks, amel.	2	DRINKING, warm drinks, amel.	=سردی لگنا — پینا، گرم مشروبات سے آرام
+drinking, warm drinks, agg.	2	DRINKING, warm drinks, agg.	=سردی لگنا — پینا، گرم مشروبات سے بگاڑ
+drinking, warm drinks are tolerated	1	DRINKING, warm drinks are tolerated	گرم مشروبات برداشت ہو جاتے ہیں
+drinking agg.	0	DRINKING agg.	پینے سے بگاڑ
+eating	0	EATING	کھانا
+eating, after agg.	1	EATING, after agg.	=سردی لگنا — کھانے کے بعد بگاڑ
+eating, while	1	EATING, while	کھاتے ہوئے
+eating, after, amel.	1	EATING, after, amel.	=سردی لگنا — کھانے کے بعد آرام
+eating, warm things agg.	1	EATING, warm things agg.	گرم چیزیں کھانے سے بگاڑ
+eating, indiscretions, in	1	EATING, indiscretions, in	بے احتیاطی سے کھانا
+epilepsy	0	EPILEPSY	مرگی
+epilepsy, after	1	EPILEPSY, after	=سردی لگنا — مرگی کے بعد
+excitement	0	EXCITEMENT	جوش
+excitement, after	1	EXCITEMENT, after	=سردی لگنا — جوش کے بعد
+exertion	0	EXERTION	زور لگانا
+exertion, after	1	EXERTION, after	=سردی لگنا — زور لگانے کے بعد
+exposure	0	EXPOSURE	اثر میں آنا
+exposure, after	1	EXPOSURE, after	اثر کے بعد
+exposure, after, warm weather	2	EXPOSURE, after, warm weather (See Summer)	گرم موسم
+exposure, cold bathing, too frequent	1	EXPOSURE, cold bathing, too frequent	بار بار ٹھنڈے پانی سے نہانا
+exposure, draft, to a	1	EXPOSURE, draft, to a	جھونکے میں
+exposure, draft, to a, when heated	2	EXPOSURE, draft, to a, when heated	گرم ہونے پر
+exposure, living on water courses, from	1	EXPOSURE, living on water courses, from	نالوں کے کنارے رہنے سے
+exposure, malarial influences	1	EXPOSURE, malarial influences	ملیریا کے اثرات
+exposure, rains, during	1	EXPOSURE, rains, during	بارش کے دوران
+exposure, seashore, residing at	1	EXPOSURE, seashore, residing at	سمندر کے کنارے رہنا
+exposure, sleeping in damp rooms	1	EXPOSURE, sleeping in damp rooms	نم کمروں میں سونا
+exposure, soil freshly turned up	1	EXPOSURE, soil freshly turned up	تازہ کھدی ہوئی مٹی
+exposure, standing in water	1	EXPOSURE, standing in water	پانی میں کھڑے رہنا
+exposure, sun, to the heat of	1	EXPOSURE, sun, to the heat of	دھوپ کی گرمی
+exposure, swamps	1	EXPOSURE, swamps	دلدل
+exposure, tropical countries	1	EXPOSURE, tropical countries	گرم ممالک
+exposure, wet	1	EXPOSURE, wet	بھیگنا
+exposure, wet, from becoming	2	EXPOSURE, wet, from becoming	بھیگ جانے سے
+exposure, wet, when over-heated	2	EXPOSURE, wet, when over-heated	زیادہ گرم ہو کر
+exposure, working in clay	1	EXPOSURE, working in clay	مٹی کے کام میں
+exposure, working, in water	1	EXPOSURE, working, in water	پانی میں کام کرنا
+external	0	EXTERNAL	بیرونی
+external, morning	1	EXTERNAL, morning	صبح
+external, afternoon	1	EXTERNAL, afternoon	سہ پہر
+external, afternoon, during sweat	2	EXTERNAL, afternoon, during sweat	پسینے کے دوران
+external, evening	1	EXTERNAL, evening	شام
+external, evening, bed, in	2	EXTERNAL, evening, bed, in	بستر میں
+external, evening, lasting until 4 a.m.	2	EXTERNAL, evening, lasting until 4 a.m.	=سردی لگنا — بیرونی، شام، صبح 4 بجے تک جاری
+external, night	1	EXTERNAL, night	رات
+external, night, sleep, during	2	EXTERNAL, night, sleep, during	نیند کے دوران
+external, night, waking, after	2	EXTERNAL, night, waking, after	جاگنے کے بعد
+external, cholera, as in	1	EXTERNAL, cholera, as in	جیسے ہیضے میں
+external, lasting 36 hours, with thirst, without desire for warmth or dread of open air, without subsequent heat	1	EXTERNAL, lasting 36 hours, with thirst, without desire for warmth or dread of open air, without subsequent heat	36 گھنٹے جاری، پیاس کے ساتھ، گرمی کی خواہش نہیں، کھلی ہوا کا خوف نہیں، بعد میں گرمی نہیں
+external, sensation as if the hair were standing on end, with	1	EXTERNAL, sensation as if the hair were standing on end, with	بال کھڑے ہونے جیسا احساس
+external, spots, in	1	EXTERNAL, spots, in	دھبوں کی صورت میں
+external, stool, during desire for	1	EXTERNAL, stool, during desire for	پاخانے کی خواہش کے دوران
+external, stupor, during	1	EXTERNAL, stupor, during	بے سدھی کے دوران
+external, uncovering, on	1	EXTERNAL, uncovering, on	ڈھانپ ہٹاتے وقت
+fright	0	FRIGHT	ڈر
+fright, from	1	FRIGHT, from	=سردی لگنا — ڈر سے
+grief	0	GRIEF	غم
+grief, from	1	GRIEF, from	=سردی لگنا — غم سے
+heat	0	HEAT	گرمی
+heat, with	1	HEAT, with (See Heat with Chill)	=سردی لگنا — گرمی کے ساتھ
+heat, without subsequent	1	HEAT, without subsequent	بعد میں گرمی نہ ہو
+heated	0	HEATED	گرم ہو جانا
+heated, overheated	1	HEATED, overheated	حد سے زیادہ گرم
+held down	0	HELD down	دبا کر رکھنا
+held down, desire to be	1	HELD down, desire to be	دبا کر رکھے جانے کی خواہش
+icy coldness of the body	0	ICY coldness of the body	جسم کی برف جیسی ٹھنڈک
+icy coldness of the body, as if lying on ice	1	ICY coldness of the body, as if lying on ice	جیسے برف پر لیٹا ہو
+icy coldness of the body, in single places	1	ICY coldness of the body, in single places	ایک ایک جگہ
+icy coldness of the body, in, spots	1	ICY coldness of the body, in, spots	دھبوں کی صورت میں
+icy coldness of the body, menses, during	1	ICY coldness of the body, menses, during	حیض کے دوران
+icy coldness of the body, of skin and covered with a cold sweat, hands and feet livid	1	ICY coldness of the body, of skin and covered with a cold sweat, hands and feet livid	جلد کی، ٹھنڈے پسینے سے ڈھکی، ہاتھ پاؤں نیلے
+icy coldness of the body, of, the whole body, with cold breath	1	ICY coldness of the body, of, the whole body, with cold breath	سارے جسم کی، ٹھنڈی سانس کے ساتھ
+icy coldness of the body, skin dry and blue, yet wants to be uncovered	1	ICY coldness of the body, skin dry and blue, yet wants to be uncovered	جلد خشک اور نیلی، مگر ڈھانپ ہٹوانا چاہے
+icy coldness of the body, uncover, with desire to	1	ICY coldness of the body, uncover, with desire to	بے ڈھکے رہنے کی خواہش
+icy coldness of the body, with clammy sweat and blueness, cannot bear to be covered	1	ICY coldness of the body, with clammy sweat and blueness, cannot bear to be covered	چپچپے پسینے اور نیلاہٹ کے ساتھ، ڈھانپ برداشت نہ ہو
+internal	0	INTERNAL	اندرونی
+internal, morning	1	INTERNAL, morning	صبح
+internal, morning, bed, in	2	INTERNAL, morning, bed, in	بستر میں
+internal, morning, breakfast, during	2	INTERNAL, morning, breakfast, during	ناشتے کے دوران
+internal, forenoon	1	INTERNAL, forenoon	دوپہر سے پہلے
+internal, noon	1	INTERNAL, noon	دوپہر
+internal, afternoon	1	INTERNAL, afternoon	سہ پہر
+internal, afternoon, following heat	2	INTERNAL, afternoon, following heat	اِس کے بعد گرمی
+internal, afternoon, without subsequent heat	2	INTERNAL, afternoon, without subsequent heat	بعد میں گرمی نہ ہو
+internal, evening	1	INTERNAL, evening	شام
+internal, evening, on falling asleep	2	INTERNAL, evening, on falling asleep	سوتے وقت
+internal, evening, worse lying down	2	INTERNAL, evening, worse lying down	لیٹنے پر بگاڑ
+internal, night	1	INTERNAL, night	رات
+internal, night, as if cold air were streaming through the bones	2	INTERNAL, night, as if cold air were streaming through the bones	جیسے ہڈیوں میں سے ٹھنڈی ہوا گزر رہی ہو
+internal, night, open air, in	2	INTERNAL, night, open air, in	کھلی ہوا میں
+internal, night, sleep, first, during	2	INTERNAL, night, sleep, first, during	پہلی نیند کے دوران
+internal, night, waking, on	2	INTERNAL, night, waking, on	جاگتے وقت
+internal, night, warm room, in a	2	INTERNAL, night, warm room, in a	گرم کمرے میں
+internal, night, midnight	2	INTERNAL, night, midnight	=سردی لگنا — اندرونی، آدھی رات
+internal, coldness	1	INTERNAL, coldness	ٹھنڈک
+internal, coldness, as if in the bones	2	INTERNAL, coldness, as if in the bones	جیسے ہڈیوں میں
+internal, coldness, in blood vessels	2	INTERNAL, coldness, in blood vessels	رگوں میں
+internal, external heat agg.	1	INTERNAL, external heat agg.	بیرونی گرمی سے بگاڑ
+irregular	0	IRREGULAR (See Periodically)	بے قاعدہ
+long lasting	0	LONG LASTING (See Shaking)	دیر تک جاری
+lying	0	LYING	لیٹنا
+lying, amel.	1	LYING, amel.	=سردی لگنا — لیٹنا، آرام
+lying, after, amel.	1	LYING, after, amel.	=سردی لگنا — لیٹنے کے بعد آرام
+lying, while agg.	1	LYING, while agg.	لیٹے ہوئے بگاڑ
+menses	0	MENSES	حیض
+menses, before	1	MENSES, before	=سردی لگنا — حیض سے پہلے
+menses, during	1	MENSES, during	=سردی لگنا — حیض کے دوران
+menses, during, constant	2	MENSES, during, constant	=سردی لگنا — حیض کے دوران، مسلسل
+menses, during, intermission, of	2	MENSES, during, intermission, of	=سردی لگنا — حیض کے دوران، وقفے کے ساتھ
+menses, during, uncovered, when	2	MENSES, during, uncovered, when	=سردی لگنا — حیض کے دوران، ڈھانپ ہٹانے پر
+menses, during, walking, while	2	MENSES, during, walking, while	=سردی لگنا — حیض کے دوران، چلتے ہوئے
+menses, after	1	MENSES, after	=سردی لگنا — حیض کے بعد
+mental exertion	0	MENTAL exertion	ذہنی مشقت
+mental exertion, after	1	MENTAL exertion, after	=سردی لگنا — ذہنی مشقت کے بعد
+monthly	0	MONTHLY (See Day)	ماہانہ
+motion	0	MOTION	حرکت
+motion, after	1	MOTION, after	=سردی لگنا — حرکت کے بعد
+motion, amel.	1	MOTION, amel.	=سردی لگنا — حرکت سے آرام
+motion, during agg.	1	MOTION, during agg.	=سردی لگنا — حرکت کے دوران بگاڑ
+pain	0	PAIN	درد
+pain, with	1	PAIN, with	=سردی لگنا — درد کے ساتھ
+partial	0	PARTIAL (See Sides)	جزوی
+periodicity	0	PERIODICITY	وقفے کا قاعدہ
+periodicity, clock-like	1	PERIODICITY, clock-like	گھڑی جیسا پابند
+periodicity, irregular	1	PERIODICITY, irregular	بے قاعدہ
+periodicity, not marked	1	PERIODICITY, not marked	واضح نہیں
+periodicity regular and distinct	0	PERIODICITY regular and distinct	باقاعدہ اور واضح وقفہ
+pernicious	0	PERNICIOUS	مہلک
+pernicious, with red face, delirium and bursting headache, pale face when lying down, red when sitting up	1	PERNICIOUS, with red face, delirium and bursting headache, pale face when lying down, red when sitting up	سرخ چہرہ، ہذیان اور پھٹنے جیسا سر درد، لیٹنے پر چہرہ پیلا، بیٹھنے پر سرخ
+pernicious, violent congestion, suffocation in warm room, chill beginning in chest	1	PERNICIOUS, violent congestion, suffocation in warm room, chill beginning in chest	شدید خون کا بھراؤ، گرم کمرے میں دم گھٹنا، سردی سینے سے شروع
+pernicious, violent congestion of head, cold body, with thirst, chill felt most severely in pit of stomach, body feels bruised	1	PERNICIOUS, violent congestion of head, cold body, with thirst, chill felt most severely in pit of stomach, body feels bruised	سر میں شدید خون کا بھراؤ، جسم ٹھنڈا، پیاس، سردی سب سے زیادہ معدے کے گڑھے میں، جسم کچلا ہوا لگے
+perspiration	0	PERSPIRATION	پسینہ
+perspiration, with	1	PERSPIRATION, with	=سردی لگنا — پسینے کے ساتھ
+perspiration, with, the more he sweats the colder he becomes	2	PERSPIRATION, with, the more he sweats the colder he becomes	=سردی لگنا — پسینے کے ساتھ، جتنا پسینہ ہو اُتنا ہی ٹھنڈک بڑھے
+perspiration, with, chill, after	2	PERSPIRATION, with, chill, after	=سردی لگنا — پسینے کے ساتھ، سردی، اِس کے بعد
+perspiration, with, followed by, without intervening heat	2	PERSPIRATION, with, followed by, without intervening heat (See, Succession, under Fever)	=سردی لگنا — پسینے کے ساتھ، اِس کے بعد، درمیان میں گرمی نہ ہو
+postponing	0	POSTPONING	وقت پیچھے کھسکنا
+predominating	0	PREDOMINATING	غالب
+predominating, morning	1	PREDOMINATING, morning	صبح
+predominating, noon	1	PREDOMINATING, noon	دوپہر
+predominating, afternoon	1	PREDOMINATING, afternoon	سہ پہر
+predominating, evening	1	PREDOMINATING, evening	شام
+predominating, night	1	PREDOMINATING, night	رات
+predominating, long lasting chill without heat, sweat or thirst	1	PREDOMINATING, long lasting chill without heat, sweat or thirst	دیر تک سردی، نہ گرمی نہ پسینہ نہ پیاس
+predominating, long lasting chill, little heat, no thirst	1	PREDOMINATING, long lasting chill, little heat, no thirst	دیر تک سردی، تھوڑی گرمی، پیاس نہیں
+predominating, the paroxysm consists only of chill	1	PREDOMINATING, the paroxysm consists only of chill	دورہ صرف سردی پر مشتمل
+predominating, without heat or thirst	1	PREDOMINATING, without heat or thirst	بغیر گرمی یا پیاس
+quartan	0	QUARTAN	چوتھے دن والا
+quartan, double	1	QUARTAN, double	دوہرا
+quartan, double, with constant diarrhoea, on the days free from fever	2	QUARTAN, double, with constant diarrhoea, on the days free from fever	=سردی لگنا — چوتھے دن والا، دوہرا، بخار سے پاک دنوں میں مسلسل دست
+quotidian	0	QUOTIDIAN	روزانہ
+quotidian, double	1	QUOTIDIAN, double	دوہرا
+quotidian, heavy chill, morning of one day, light chill afternoon of next	1	QUOTIDIAN, heavy chill, morning of one day, light chill afternoon of next	ایک دن صبح سخت سردی، اگلے دن سہ پہر ہلکی
+rising up	0	RISING up	اٹھنا
+rising up, amel. on	1	RISING up, amel. on	=سردی لگنا — اٹھنے پر آرام
+rising up, on agg.	1	RISING up, on agg.	=سردی لگنا — اٹھنے پر بگاڑ
+sad news	0	SAD news	اُداس خبر
+sad news, from	1	SAD news, from	=سردی لگنا — اُداس خبر سے
+sewer gas	0	SEWER gas	نالی کی گیس
+shaking	0	SHAKING	کپکپی
+shaking, morning	1	SHAKING, morning	صبح
+shaking, morning, bed, in	2	SHAKING, morning, bed, in	بستر میں
+shaking, morning, heat, without subsequent	2	SHAKING, morning, heat, without subsequent	بعد میں گرمی نہ ہو
+shaking, morning, rising	2	SHAKING, morning, rising	اٹھنا
+shaking, morning, walking, while	2	SHAKING, morning, walking, while	چلتے ہوئے
+shaking, forenoon	1	SHAKING, forenoon	دوپہر سے پہلے
+shaking, forenoon, flying heat, with	2	SHAKING, forenoon, flying heat, with	اُڑتی ہوئی گرمی کے ساتھ
+shaking, forenoon, heat, without subsequent	2	SHAKING, forenoon, heat, without subsequent	بعد میں گرمی نہ ہو
+shaking, forenoon, 11 a.m., lasting until 4 p.m.	2	SHAKING, forenoon, 11 a.m., lasting until 4 p.m.	=سردی لگنا — کپکپی، دوپہر سے پہلے، صبح 11 بجے، شام 4 بجے تک جاری
+shaking, noon	1	SHAKING, noon	دوپہر
+shaking, noon, dinner	2	SHAKING, noon, dinner	=سردی لگنا — کپکپی، دوپہر کا کھانا
+shaking, noon, dinner, during	3	SHAKING, noon, dinner, during	=سردی لگنا — کپکپی، دوپہر کا کھانا، کھانے کے دوران
+shaking, noon, dinner, after	3	SHAKING, noon, dinner, after	=سردی لگنا — کپکپی، دوپہر کا کھانا، کھانے کے بعد
+shaking, afternoon	1	SHAKING, afternoon	سہ پہر
+shaking, afternoon, as if dashed with cold water	2	SHAKING, afternoon, as if dashed with cold water	جیسے ٹھنڈے پانی سے نہلا دیا گیا ہو
+shaking, afternoon, lasting until next morning	2	SHAKING, afternoon, lasting until next morning	اگلی صبح تک جاری
+shaking, afternoon, open air, slightest contract with	2	SHAKING, afternoon, open air, slightest contract with	کھلی ہوا سے ذرا سا بھی واسطہ
+shaking, afternoon, with coldness and blue nails for 4 hours, followed by heat without subsequent sweat	2	SHAKING, afternoon, with coldness and blue nails for 4 hours, followed by heat without subsequent sweat	ٹھنڈک اور نیلے ناخن 4 گھنٹے، اِس کے بعد گرمی مگر پسینہ نہیں
+shaking, evening	1	SHAKING, evening	شام
+shaking, evening, air, in the open	2	SHAKING, evening, air, in the open	کھلی ہوا میں
+shaking, evening, bed	2	SHAKING, evening, bed	بستر
+shaking, evening, bed, amel.	3	SHAKING, evening, bed, amel.	آرام
+shaking, evening, bed, in agg.	3	SHAKING, evening, bed, in agg.	=سردی لگنا — کپکپی، شام، بستر میں بگاڑ
+shaking, evening, heat, without subsequent	2	SHAKING, evening, heat, without subsequent	بعد میں گرمی نہ ہو
+shaking, evening, house, in the	2	SHAKING, evening, house, in the	گھر میں
+shaking, evening, sleep, on going to	2	SHAKING, evening, sleep, on going to	سونے کے لیے جانے پر
+shaking, evening, undressing	2	SHAKING, evening, undressing	کپڑے اتارنا
+shaking, evening, undressing, while	3	SHAKING, evening, undressing, while	کپڑے اتارتے وقت
+shaking, evening, undressing, after	3	SHAKING, evening, undressing, after	=سردی لگنا — کپکپی، شام، کپڑے اتارنے کے بعد
+shaking, evening, walking in open air, while	2	SHAKING, evening, walking in open air, while	کھلی ہوا میں چلتے وقت
+shaking, evening, 7 p.m., lasting until 4 a.m.	2	SHAKING, evening, 7 p.m., lasting until 4 a.m.	=سردی لگنا — کپکپی، شام 7 بجے، صبح 4 بجے تک جاری
+shaking, evening, 8 p.m., commencing in the feet with hair standing on end	2	SHAKING, evening, 8 p.m., commencing in the feet with hair standing on end	=سردی لگنا — کپکپی، شام 8 بجے، پاؤں سے شروع، بال کھڑے
+shaking, evening, 9 p.m., lasting until 10 a.m.	2	SHAKING, evening, 9 p.m., lasting until 10 a.m.	=سردی لگنا — کپکپی، شام، رات 9 بجے، صبح 10 بجے تک جاری
+shaking, night	1	SHAKING, night	رات
+shaking, night, air, in the open	2	SHAKING, night, air, in the open	کھلی ہوا میں
+shaking, night, bed, before going to	2	SHAKING, night, bed, before going to	بستر پر جانے سے پہلے
+shaking, night, lying down, on	2	SHAKING, night, lying down, on	لیٹتے وقت
+shaking, air	1	SHAKING, air	ہوا
+shaking, air, from a draft of	2	SHAKING, air, from a draft of	جھونکے سے
+shaking, air, in the open air, not ameliorated by covering	2	SHAKING, air, in the open air, not ameliorated by covering	کھلی ہوا میں، ڈھانپنے سے آرام نہ ہو
+shaking, bed, on putting hand out of	1	SHAKING, bed, on putting hand out of	بستر سے ہاتھ باہر نکالتے وقت
+shaking, cold, taking hold of anything	1	SHAKING, cold, taking hold of anything	کوئی ٹھنڈی چیز پکڑتے وقت
+shaking, convulsions, during, rigors	1	SHAKING, convulsions, during, rigors	تشنج کے دوران، لرزہ
+shaking, drinking, on	1	SHAKING, drinking, on	پیتے وقت
+shaking, eating, while	1	SHAKING, eating, while	کھاتے ہوئے
+shaking, face livid	1	SHAKING, face livid	چہرہ نیلا
+shaking, fright, from	1	SHAKING, fright, from	ڈر سے
+shaking, hair standing on end, with	1	SHAKING, hair standing on end, with	بال کھڑے ہونے کے ساتھ
+shaking, heat	1	SHAKING, heat	گرمی
+shaking, heat, with	2	SHAKING, heat, with	=سردی لگنا — کپکپی، گرمی کے ساتھ
+shaking, heat, of face, with	2	SHAKING, heat, of face, with	چہرے کی گرمی کے ساتھ
+shaking, heat, of, head	2	SHAKING, heat, of, head	سر کی
+shaking, heat, without subsequent	2	SHAKING, heat, without subsequent	بعد میں نہ ہو
+shaking, heat, without subsequent, or sweat	3	SHAKING, heat, without subsequent, or sweat	یا پسینہ
+shaking, heat, without subsequent, or thirst	3	SHAKING, heat, without subsequent, or thirst	یا پیاس
+shaking, held, wants to be, so he would not shake so hard	1	SHAKING, held, wants to be, so he would not shake so hard	پکڑے رکھا جائے تاکہ اتنی سخت کپکپی نہ ہو، اِس کی خواہش
+shaking, house, on entering the, from open air	1	SHAKING, house, on entering the, from open air	کھلی ہوا سے گھر میں داخل ہوتے وقت
+shaking, inspiring, on	1	SHAKING, inspiring, on	سانس اندر لیتے وقت
+shaking, long-lasting	1	SHAKING, long-lasting	دیر تک جاری
+shaking, long-lasting, little heat, no thirst	2	SHAKING, long-lasting, little heat, no thirst	تھوڑی گرمی، پیاس نہیں
+shaking, long-lasting, not relieved by anything	2	SHAKING, long-lasting, not relieved by anything	کسی چیز سے آرام نہ ہو
+shaking, long-lasting, the whole day, with drawing pains in throat and back	2	SHAKING, long-lasting, the whole day, with drawing pains in throat and back	سارا دن، گلے اور پیٹھ میں کھنچاؤ والے درد
+shaking, long-lasting, without heat or sweat	2	SHAKING, long-lasting, without heat or sweat	بغیر گرمی یا پسینے
+shaking, long-lasting, without, subsequent heat	2	SHAKING, long-lasting, without, subsequent heat	بعد میں گرمی نہ ہو
+shaking, long-lasting, 12 hours	2	SHAKING, long-lasting, 12 hours	12 گھنٹے
+shaking, long-lasting, 24 hours, without heat, sweat or thirst	2	SHAKING, long-lasting, 24 hours, without heat, sweat or thirst	24 گھنٹے، بغیر گرمی، پسینے یا پیاس
+shaking, long-lasting, 36 hours, with subsequent heat	2	SHAKING, long-lasting, 36 hours, with subsequent heat	36 گھنٹے، اِس کے بعد گرمی
+shaking, maniacal delirium, with	1	SHAKING, maniacal delirium, with	جنونی ہذیان کے ساتھ
+shaking, motion, during	1	SHAKING, motion, during	حرکت کے دوران
+shaking, pain, during	1	SHAKING, pain, during	درد کے دوران
+shaking, partial	1	SHAKING, partial	جزوی
+shaking, perspiration, with	1	SHAKING, perspiration, with	پسینے کے ساتھ
+shaking, pulsating pain in occiput, with	1	SHAKING, pulsating pain in occiput, with	گدی میں دھڑکتا ہوا درد
+shaking, skin cold and blue, with	1	SHAKING, skin cold and blue, with	جلد ٹھنڈی اور نیلی
+shaking, sleep, with deep, and snoring	1	SHAKING, sleep, with deep, and snoring	گہری نیند اور خراٹوں کے ساتھ
+shaking, stool	1	SHAKING, stool	پاخانہ
+shaking, stool, before	2	SHAKING, stool, before	=سردی لگنا — کپکپی، پاخانے سے پہلے
+shaking, stool, during	2	SHAKING, stool, during	=سردی لگنا — کپکپی، پاخانے کے دوران
+shaking, stool, after	2	SHAKING, stool, after	=سردی لگنا — کپکپی، پاخانے کے بعد
+shaking, swallowing, during and after	1	SHAKING, swallowing, during and after	نگلتے وقت اور بعد میں
+shaking, vomiting, after	1	SHAKING, vomiting, after	قے کے بعد
+shaking, walking in open air	1	SHAKING, walking in open air	کھلی ہوا میں چلنا
+shaking, warm room, on going into	1	SHAKING, warm room, on going into	گرم کمرے میں جانے پر
+shaking, yawning, on	1	SHAKING, yawning, on	جمائی لیتے وقت
+shaking, shivering, rigors	1	SHAKING, shivering, rigors	کانپنا، لرزہ
+sides	0	SIDES	پہلو
+sides, one-sided	1	SIDES, one-sided	ایک طرف
+sides, right	1	SIDES, right	دائیں
+sides, left	1	SIDES, left	بائیں
+sides, left, before epilepsy	2	SIDES, left, before epilepsy	مرگی سے پہلے
+sides, coldness of right side and heat of left	1	SIDES, coldness of right side and heat of left	دائیں جانب ٹھنڈک اور بائیں جانب گرمی
+sides, numbness	1	SIDES, numbness	سن ہونا
+sides, side on which he lies	1	SIDES, side on which he lies	جس کروٹ لیٹا ہو وہ پہلو
+sides, side, not lain on	1	SIDES, side, not lain on	جس کروٹ نہ لیٹا ہو وہ پہلو
+single parts	0	SINGLE parts	الگ الگ حصے
+sitting	0	SITTING	بیٹھنا
+sitting, amel.	1	SITTING, amel.	=سردی لگنا — بیٹھنا، آرام
+sleep	0	SLEEP	نیند
+sleep, during	1	SLEEP, during	=سردی لگنا — نیند کے دوران
+sleep, after agg.	1	SLEEP, after agg.	=سردی لگنا — نیند کے بعد بگاڑ
+sleep, after, amel.	1	SLEEP, after, amel.	=سردی لگنا — نیند کے بعد آرام
+sleep, alternating with attacks of coldness	1	SLEEP, alternating with attacks of coldness	ٹھنڈک کے دوروں کے ساتھ باری باری
+spring	0	SPRING	بہار
+spring, in	1	SPRING, in	=سردی لگنا — بہار میں
+stool	0	STOOL	پاخانہ
+stool, before	1	STOOL, before	=سردی لگنا — پاخانے سے پہلے
+stool, during	1	STOOL, during	=سردی لگنا — پاخانے کے دوران
+stool, after	1	STOOL, after	=سردی لگنا — پاخانے کے بعد
+stormy weather	0	STORMY weather	طوفانی موسم
+summer	0	SUMMER	گرمی کا موسم
+summer, in	1	SUMMER, in	گرمیوں میں
+summer, hot weather of	1	SUMMER, hot weather of	گرمیوں کی گرمی
+sunshine amel.	0	SUNSHINE amel.	دھوپ سے آرام
+suppressed perspiration	0	SUPPRESSED perspiration (See Perspiration, Suppressed)	پسینہ دب جانا
+swallowing agg.	0	SWALLOWING agg.	نگلنے سے بگاڑ
+tertian	0	TERTIAN	تیسرے دن والا
+tertian, double	1	TERTIAN, double	دوہرا
+thinking of the chill	0	THINKING of the chill	سردی کا خیال کرنا
+thinking of the chill, agg.	1	THINKING of the chill, agg.	خیال کرنے سے بگاڑ
+time	0	TIME	وقت
+time, 1 a.m.	1	TIME, 1 a.m.	صبح 1 بجے
+time, 1 a.m. to 2 a.m.	1	TIME, 1 a.m. to 2 a.m.	=سردی لگنا — وقت، صبح 1 سے 2 بجے
+time, 2 a.m.	1	TIME, 2 a.m.	صبح 2 بجے
+time, 2 a.m. to 4 a.m.	1	TIME, 2 a.m. to 4 a.m.	=سردی لگنا — وقت، صبح 2 سے 4 بجے
+time, 3 a.m.	1	TIME, 3 a.m.	صبح 3 بجے
+time, 4 a.m.	1	TIME, 4 a.m.	صبح 4 بجے
+time, 4 a.m., to 5 a.m.	2	TIME, 4 a.m., to 5 a.m.	=سردی لگنا — وقت، صبح 4 سے 5 بجے
+time, 4 a.m., and 4 p.m.	2	TIME, 4 a.m., and 4 p.m.	=سردی لگنا — وقت، صبح 4 بجے اور شام 4 بجے
+time, 5 a.m.	1	TIME, 5 a.m.	صبح 5 بجے
+time, 5 a.m., after fever lasting 36 hours	2	TIME, 5 a.m., after fever lasting 36 hours	=سردی لگنا — وقت، صبح 5 بجے، 36 گھنٹے کے بخار کے بعد
+time, 6 a.m.	1	TIME, 6 a.m.	صبح 6 بجے
+time, 6 a.m. to 9 a.m.	1	TIME, 6 a.m. to 9 a.m.	=سردی لگنا — وقت، صبح 6 سے 9 بجے
+time, 6-30 a.m.	1	TIME, 6-30 a.m.	صبح 6:30 بجے
+time, 7 a.m.	1	TIME, 7 a.m.	صبح 7 بجے
+time, 7 a.m. to 9 a.m.	1	TIME, 7 a.m. to 9 a.m.	=سردی لگنا — وقت، صبح 7 سے 9 بجے
+time, 7 a.m. to 9 a.m., one day hard chill, 12 a.m., next, light one	2	TIME, 7 a.m. to 9 a.m., one day hard chill, 12 a.m., next, light one	=سردی لگنا — وقت، صبح 7 سے 9 بجے، ایک دن سخت سردی، اگلے دن دوپہر 12 بجے ہلکی
+time, 7-30 a.m.	1	TIME, 7-30 a.m.	صبح 7:30 بجے
+time, 8 a.m.	1	TIME, 8 a.m.	صبح 8 بجے
+time, 8 a.m. to 9 a.m.	1	TIME, 8 a.m. to 9 a.m.	=سردی لگنا — وقت، صبح 8 سے 9 بجے
+time, 8-30 a.m.	1	TIME, 8-30 a.m.	صبح 8:30 بجے
+time, 9 a.m.	1	TIME, 9 a.m.	صبح 9 بجے
+time, 9 a.m., to 10 a.m.	2	TIME, 9 a.m., to 10 a.m.	=سردی لگنا — وقت، صبح 9 سے 10 بجے
+time, 9 a.m., to, 11 a.m.	2	TIME, 9 a.m., to, 11 a.m.	=سردی لگنا — وقت، صبح 9 سے 11 بجے
+time, 10 a.m.	1	TIME, 10 a.m.	صبح 10 بجے
+time, 10 a.m., to 2 p.m.	2	TIME, 10 a.m., to 2 p.m.	=سردی لگنا — وقت، صبح 10 سے سہ پہر 2 بجے تک
+time, 10 a.m., to 5 p.m.	2	TIME, 10 a.m., to 5 p.m.	=سردی لگنا — وقت، صبح 10 سے شام 5 بجے تک
+time, 10 a.m., to, 3 p.m.	2	TIME, 10 a.m., to, 3 p.m.	=سردی لگنا — وقت، صبح 10 سے سہ پہر 3 بجے تک
+time, 10 a.m. to 11 a.m.	1	TIME, 10 a.m. to 11 a.m.	=سردی لگنا — وقت، صبح 10 سے 11 بجے
+time, 10-30 a.m.	1	TIME, 10-30 a.m.	صبح 10:30 بجے
+time, 11 a.m.	1	TIME, 11 a.m.	صبح 11 بجے
+time, 11 a.m., and 11 p.m.	2	TIME, 11 a.m., and 11 p.m.	=سردی لگنا — وقت، صبح 11 بجے اور رات 11 بجے
+time, 11 a.m., to 12 a.m.	2	TIME, 11 a.m., to 12 a.m.	=سردی لگنا — وقت، صبح 11 سے دوپہر 12 بجے تک
+time, 11 a.m., to 4 p.m.	2	TIME, 11 a.m., to 4 p.m.	=سردی لگنا — وقت، صبح 11 سے سہ پہر 4 بجے تک
+time, 11 a.m. one day, 4 p.m. next	1	TIME, 11 a.m. one day, 4 p.m. next	=سردی لگنا — وقت، ایک دن صبح 11 بجے، اگلے دن شام 4 بجے
+time, 12 a.m.	1	TIME, 12 a.m.	دوپہر 12 بجے
+time, 12 a.m., to 2 p.m.	2	TIME, 12 a.m., to 2 p.m.	=سردی لگنا — وقت، دوپہر 12 سے سہ پہر 2 بجے تک
+time, 1 p.m.	1	TIME, 1 p.m.	سہ پہر 1 بجے
+time, 1 p.m., to 2 p.m.	2	TIME, 1 p.m., to 2 p.m.	=سردی لگنا — وقت، سہ پہر 1 سے 2 بجے
+time, 2 p.m.	1	TIME, 2 p.m.	سہ پہر 2 بجے
+time, 2 p.m., to	2	TIME, 2 p.m., to	=سردی لگنا — وقت، سہ پہر 2 بجے سے
+time, 2 p.m., to, 4 p.m.	3	TIME, 2 p.m., to, 4 p.m.	=سردی لگنا — وقت، سہ پہر 2 سے 4 بجے
+time, 2 p.m., to, 6 p.m.	3	TIME, 2 p.m., to, 6 p.m.	=سردی لگنا — وقت، سہ پہر 2 سے شام 6 بجے تک
+time, 2 p.m., to 3 p.m.	2	TIME, 2 p.m., to 3 p.m.	=سردی لگنا — وقت، سہ پہر 2 سے 3 بجے
+time, 2-30 p.m.	1	TIME, 2-30 p.m.	سہ پہر 2:30 بجے
+time, 3 p.m.	1	TIME, 3 p.m.	سہ پہر 3 بجے
+time, 3 p.m., lasting 12 hours (tertian)	2	TIME, 3 p.m., lasting 12 hours (tertian)	=سردی لگنا — وقت، شام 3 بجے، 12 گھنٹے جاری (تیسرے دن والا)
+time, 3 p.m., to	2	TIME, 3 p.m., to	=سردی لگنا — وقت، سہ پہر 3 بجے سے
+time, 3 p.m., to, 5 p.m.	3	TIME, 3 p.m., to, 5 p.m.	=سردی لگنا — وقت، سہ پہر 3 سے شام 5 بجے تک
+time, 3 p.m., to, 6 p.m.	3	TIME, 3 p.m., to, 6 p.m.	=سردی لگنا — وقت، سہ پہر 3 سے شام 6 بجے تک
+time, 3 p.m., to, 9 p.m.	3	TIME, 3 p.m., to, 9 p.m.	=سردی لگنا — وقت، سہ پہر 3 سے رات 9 بجے تک
+time, 3 p.m., to 4 p.m.	2	TIME, 3 p.m., to 4 p.m.	=سردی لگنا — وقت، سہ پہر 3 سے 4 بجے
+time, 4 p.m.	1	TIME, 4 p.m.	سہ پہر 4 بجے
+time, 4 p.m., to	2	TIME, 4 p.m., to	=سردی لگنا — وقت، سہ پہر 4 بجے سے
+time, 4 p.m., to, 10 p.m.	3	TIME, 4 p.m., to, 10 p.m.	=سردی لگنا — وقت، سہ پہر 4 سے رات 10 بجے تک
+time, 4 p.m., to, 8 p.m.	3	TIME, 4 p.m., to, 8 p.m.	=سردی لگنا — وقت، سہ پہر 4 سے شام 8 بجے تک
+time, 4 p.m., to 5 p.m.	2	TIME, 4 p.m., to 5 p.m.	=سردی لگنا — وقت، سہ پہر 4 سے شام 5 بجے تک
+time, 4 p.m., to 7 p.m.	2	TIME, 4 p.m., to 7 p.m.	=سردی لگنا — وقت، سہ پہر 4 سے شام 7 بجے تک
+time, 4 p.m. to 6 p.m.	1	TIME, 4 p.m. to 6 p.m.	=سردی لگنا — وقت، سہ پہر 4 سے شام 6 بجے تک
+time, 5 p.m.	1	TIME, 5 p.m.	شام 5 بجے
+time, 5 p.m., to	2	TIME, 5 p.m., to	=سردی لگنا — وقت، شام 5 بجے سے
+time, 5 p.m., to, 7 p.m.	3	TIME, 5 p.m., to, 7 p.m.	=سردی لگنا — وقت، شام 5 سے 7 بجے
+time, 5 p.m., to, 8 p.m.	3	TIME, 5 p.m., to, 8 p.m.	=سردی لگنا — وقت، شام 5 سے 8 بجے
+time, 5 p.m., to 6 p.m.	2	TIME, 5 p.m., to 6 p.m.	=سردی لگنا — وقت، شام 5 سے 6 بجے
+time, 5-30 p.m.	1	TIME, 5-30 p.m.	شام 5:30 بجے
+time, 6 p.m.	1	TIME, 6 p.m.	شام 6 بجے
+time, 6 p.m., to	2	TIME, 6 p.m., to	=سردی لگنا — وقت، شام 6 بجے سے
+time, 6 p.m., to, midnight	3	TIME, 6 p.m., to, midnight	=سردی لگنا — وقت، شام 6 بجے سے آدھی رات تک
+time, 6 p.m., to, 10 p.m.	3	TIME, 6 p.m., to, 10 p.m.	=سردی لگنا — وقت، شام 6 سے رات 10 بجے تک
+time, 6 p.m., to, lasting until 4 a.m.	3	TIME, 6 p.m., to, lasting until 4 a.m.	=سردی لگنا — وقت، شام 6 بجے سے، صبح 4 بجے تک جاری
+time, 6 p.m., to, lasting, until 5 a.m.	3	TIME, 6 p.m., to, lasting, until 5 a.m.	=سردی لگنا — وقت، شام 6 بجے سے، صبح 5 بجے تک جاری
+time, 6 p.m., to 7 p.m.	2	TIME, 6 p.m., to 7 p.m.	=سردی لگنا — وقت، شام 6 سے 7 بجے
+time, 6 p.m., to 8 p.m.	2	TIME, 6 p.m., to 8 p.m.	=سردی لگنا — وقت، شام 6 سے 8 بجے
+time, 7 p.m.	1	TIME, 7 p.m.	شام 7 بجے
+time, 7 p.m., to 9 p.m.	2	TIME, 7 p.m., to 9 p.m.	=سردی لگنا — وقت، شام 7 سے رات 9 بجے تک
+time, 7 p.m., to 10 p.m.	2	TIME, 7 p.m., to 10 p.m.	=سردی لگنا — وقت، شام 7 سے رات 10 بجے تک
+time, 7-30 p.m.	1	TIME, 7-30 p.m.	شام 7:30 بجے
+time, 8 p.m.	1	TIME, 8 p.m.	شام 8 بجے
+time, 9 p.m.	1	TIME, 9 p.m.	رات 9 بجے
+time, 9 p.m. to 10 a.m.	1	TIME, 9 p.m. to 10 a.m.	=سردی لگنا — وقت، رات 9 سے صبح 10 بجے تک
+time, 9 p.m. to 10 p.m.	1	TIME, 9 p.m. to 10 p.m.	=سردی لگنا — وقت، رات 9 سے 10 بجے
+time, 9 p.m. to 12 p.m.	1	TIME, 9 p.m. to 12 p.m.	=سردی لگنا — وقت، رات 9 سے دوپہر 12 بجے تک
+time, 10 p.m.	1	TIME, 10 p.m.	رات 10 بجے
+time, 10-30 p.m.	1	TIME, 10-30 p.m.	رات 10:30 بجے
+time, 11 p.m.	1	TIME, 11 p.m.	رات 11 بجے
+time, 12 p.m.	1	TIME, 12 p.m.	دوپہر 12 بجے
+touch agg.	0	TOUCH agg.	چھونے سے بگاڑ
+trembling and shivering	0	TREMBLING and shivering	لرزنا اور کانپنا
+trembling and shivering, morning	1	TREMBLING and shivering, morning	صبح
+trembling and shivering, noon	1	TREMBLING and shivering, noon	دوپہر
+trembling and shivering, afternoon	1	TREMBLING and shivering, afternoon	سہ پہر
+trembling and shivering, evening	1	TREMBLING and shivering, evening	شام
+trembling and shivering, night	1	TREMBLING and shivering, night	رات
+trembling and shivering, internal	1	TREMBLING and shivering, internal	اندرونی
+trembling and shivering, internal, forenoon	2	TREMBLING and shivering, internal, forenoon	دوپہر سے پہلے
+trembling and shivering, internal, evening	2	TREMBLING and shivering, internal, evening	شام
+turning over in bed	0	TURNING over in bed (See Bed)	بستر میں کروٹ بدلنا
+uncovered	0	UNCOVERED	بے ڈھکا
+uncovered, wants to be, with cold, dry skin, but desires to be covered with heat and sweat	1	UNCOVERED, wants to be, with cold, dry skin, but desires to be covered with heat and sweat	ٹھنڈی خشک جلد کے ساتھ بے ڈھکے رہنا چاہے، مگر گرمی اور پسینے میں ڈھکنا چاہے
+uncovering	0	UNCOVERING	ڈھانپ ہٹانا
+uncovering, undressing agg.	1	UNCOVERING, undressing agg.	کپڑے اتارنے سے بگاڑ
+uncovering, undressing, amel.	1	UNCOVERING, undressing, amel.	کپڑے اتارنے سے آرام
+upper part of body	0	UPPER part of body	جسم کا اوپری حصہ
+urination	0	URINATION	پیشاب
+urination, before	1	URINATION, before	=سردی لگنا — پیشاب سے پہلے
+urination, during	1	URINATION, during	=سردی لگنا — پیشاب کے دوران
+urination, after	1	URINATION, after	=سردی لگنا — پیشاب کے بعد
+urination, after, begins in neck of bladder and spreads upwards	2	URINATION, after, begins in neck of bladder and spreads upwards	=سردی لگنا — پیشاب کے بعد، مثانے کے منہ سے شروع ہو کر اوپر پھیلتی ہے
+vexation	0	VEXATION	چڑ
+vexation, after	1	VEXATION, after	=سردی لگنا — چڑ کے بعد
+violent chill	0	VIOLENT chill	سخت سردی
+violent chill, without subsequent heat	1	VIOLENT chill, without subsequent heat	بعد میں گرمی نہ ہو
+violent chill, with red face and thirst	1	VIOLENT chill, with red face and thirst	سرخ چہرے اور پیاس کے ساتھ
+violent chill, with, bluish, cold face and hands, mottled skin	1	VIOLENT chill, with, bluish, cold face and hands, mottled skin	نیلا، ٹھنڈا چہرہ اور ہاتھ، دھبے دار جلد
+violent chill with	0	VIOLENT chill with	سخت سردی، ساتھ
+violent chill with, unconsciousness	1	VIOLENT chill with, unconsciousness	بے ہوشی
+violent chill with delirium	0	VIOLENT chill with delirium	سخت سردی، ہذیان کے ساتھ
+waking	0	WAKING	جاگنا
+waking, on	1	WAKING, on	جاگتے وقت
+waking, on, as often as he wakes	2	WAKING, on, as often as he wakes	جتنی بار جاگے
+walking	0	WALKING	چلنا
+walking, while	1	WALKING, while	چلتے ہوئے
+warm	0	WARM	گرم
+warm, stove, desire to be near	1	WARM, stove, desire to be near	چولہے کے پاس رہنے کی خواہش
+warm, stove, desire to be near, but it increases the chill	2	WARM, stove, desire to be near, but it increases the chill	مگر اِس سے سردی بڑھے
+warm, stove, desire to be near, cold, and gets sick near	2	WARM, stove, desire to be near, cold, and gets sick near	ٹھنڈک، اور پاس جا کر طبیعت خراب ہو
+warm, weather, in	1	WARM, weather, in	=سردی لگنا — گرم موسم میں
+warm room	0	WARM room	گرم کمرہ
+warm room, amel.	1	WARM room, amel.	=سردی لگنا — گرم کمرے سے آرام
+warm room, not amel. in, nor by a warm stove	1	WARM room, not amel. in, nor by a warm stove	=سردی لگنا — گرم کمرے سے بھی آرام نہ ہو، گرم چولہے سے بھی نہیں
+warm room, on coming in from open air	1	WARM room, on coming in from open air	کھلی ہوا سے گرم کمرے میں آنے پر
+warm room, smothering in	1	WARM room, smothering in	=سردی لگنا — گرم کمرے میں دم گھٹنا
+warm room agg.	0	WARM room agg.	گرم کمرے میں بگاڑ
+warmth	0	WARMTH	گرمی
+warmth, bed, amel.	1	WARMTH, bed, amel.	بستر سے آرام
+warmth, bed, amel., but not by external covering	2	WARMTH, bed, amel., but not by external covering	مگر بیرونی ڈھانپ سے نہیں
+warmth, bed, amel., but not by heat of stove	2	WARMTH, bed, amel., but not by heat of stove	مگر چولہے کی گرمی سے نہیں
+warmth, bed, amel., hot irons amel.	2	WARMTH, bed, amel., hot irons amel.	گرم استری سے بھی آرام
+warmth, desire for, which does not relieve	1	WARMTH, desire for, which does not relieve	=سردی لگنا — گرمی کی خواہش، مگر آرام نہ ہو
+warmth, external, amel.	1	WARMTH, external, amel.	بیرونی گرمی سے آرام
+warmth, sun, desire for	1	WARMTH, sun, desire for	دھوپ کی خواہش
+warmth, unbearable	1	WARMTH, unbearable	ناقابلِ برداشت
+warmth, wrapping up, amel., followed by severe fever and sweat	1	WARMTH, wrapping up, amel., followed by severe fever and sweat	لپیٹنے سے آرام، اِس کے بعد سخت بخار اور پسینہ
+water	0	WATER	پانی
+water, as if	1	WATER, as if	جیسے
+water, as if, poured over him	2	WATER, as if, poured over him	=سردی لگنا — پانی، جیسے اُس پر ڈالا جا رہا ہو
+water, as if, running down the back	2	WATER, as if, running down the back	=سردی لگنا — پانی، جیسے پیٹھ پر نیچے بہہ رہا ہو
+water, as if, running, from the clavicles across the chest down to the toes, along the narrow space	2	WATER, as if, running, from the clavicles across the chest down to the toes, along the narrow space	=سردی لگنا — پانی، جیسے ہنسلیوں سے سینے ہوتے ہوئے پاؤں کی انگلیوں تک، تنگ راستے میں بہتا ہو
+water, as if, spurted upon the back	2	WATER, as if, spurted upon the back	=سردی لگنا — پانی، جیسے پیٹھ پر چھینٹا جا رہا ہو
+water, as if, trickled down the back	2	WATER, as if, trickled down the back	=سردی لگنا — پانی، جیسے پیٹھ پر ٹپک ٹپک کر بہہ رہا ہو
+water, as if cold water were dashed over him	1	WATER, as if cold water were dashed over him	جیسے اُس پر ٹھنڈا پانی ڈال دیا گیا ہو
+water, from getting wet	1	WATER, from getting wet	بھیگ جانے سے
+water, from getting wet, when overheated	2	WATER, from getting wet, when overheated	زیادہ گرم ہو کر
+water, working in, from	1	WATER, working in, from	=سردی لگنا — پانی میں کام کرنے سے
+wind	0	WIND	ہوا کا جھونکا
+wind, as if it were blowing cold	1	WIND, as if it were blowing cold	جیسے ٹھنڈی چل رہی ہو
+wind, as if it were blowing cold, between the shoulder blades	2	WIND, as if it were blowing cold, between the shoulder blades	کندھوں کے درمیان
+wind, as if it were blowing cold, when walking	2	WIND, as if it were blowing cold, when walking	چلتے وقت
+wind, as if it were blowing cold upon the body	1	WIND, as if it were blowing cold upon the body	جیسے جسم پر ٹھنڈی ہوا چل رہی ہو
+wind, sensation as if cold air were spreading from the spine over the body like an aura-epileptica	1	WIND, sensation as if cold air were spreading from the spine over the body like an aura-epileptica	جیسے ریڑھ سے سارے جسم پر ٹھنڈی ہوا پھیل رہی ہو، مرگی کے دورے کی سی کیفیت
+wind, as if wind blowing upon soles while body sweating	1	WIND, as if wind blowing upon soles while body sweating	جیسے جسم پسینے میں ہو اور تلووں پر ہوا چل رہی ہو
+writing	0	WRITING	لکھنا
+writing, while	1	WRITING, while	لکھتے ہوئے

@@ -1,13 +1,31 @@
 # اردو ترجمہ — تازہ ترین زپ کی ہدایات (رولنگ فائل، ہر ورژن میں یہی بدلتی ہے)
 
-**تازہ ترین:** v137 · 1 اکتوبر 2026 · کیش bhc-clinic-v137
+**تازہ ترین:** v138 · 1 اکتوبر 2026 · کیش bhc-clinic-v138
 
 ## زپ کیسے لگائیں
 1. زپ کو ریپو کی **جڑ** میں کھولیں (فائلیں اپنی جگہ بیٹھ جائیں گی)۔
 2. کمٹ اور پش کریں۔ (`ur/review/` گٹ ہب پر ضروری نہیں — `.gitignore` میں ہے۔)
 3. براؤزر میں **دو بار کنٹرول + شفٹ + آر**۔
 
-## v137 میں کیا ہے — نیند (SLEEP) مکمل (1,066 ربرک)
+## v138 میں کیا ہے — سردی لگنا (CHILL) مکمل (800 ربرک)
+
+| بات | تفصیل |
+|---|---|
+| باب | **سردی لگنا** — 800 ربرک مکمل (جڑ «سردی لگنا — »؛ **800 اردو جملے**)؛ **109 مین ربرک** (`COLDNESS in general` پہلا، `WRITING` آخری)؛ ⚠ مشتبہ = 0 · «دیکھیں» 0 · انگریزی حرف 0 · اردو ہندسے 0 · دہرا ٹکڑا 0 · جڑ دو بار 0 |
+| ترتیب | کتابی ترتیب برقرار — وقت کے عنوانات سب سے پہلے (`COLDNESS in general → DAYTIME → MORNING → FORENOON → NOON → AFTERNOON → EVENING → NIGHT → MIDNIGHT`)، پھر مین ربرک حروفِ تہجی میں (`AFFECTED parts → AIR → ALCOHOL → ALTERNATING → ANGER → ANTICIPATING → … → SHAKING → … → WARMTH → WATER → WIND → WRITING`) |
+| طریقہ | آٹھ بیچ (`chill_b01..b08_ur.py` → `chill_batch1.tsv`)۔ **`TIME` کا ذیلی درخت (86 ربرک) خودکار**: نیا اوزار `/home/user/w/mkbatch_ur.py` ہر باب کے لیے قابلِ استعمال ہے — یہ بیچ فائلوں سے TSV بناتا ہے، merge سے پہلے گارڈ چلاتا ہے، اور «سرِ عنوان + شرط» کا دہراؤ خودکار ہٹاتا ہے۔ TM اوزار اِس باب پر نہیں آزمایا گیا |
+| اسلوب | قائم قاعدے برقرار: ہر جملہ جڑ «سردی لگنا — » سے **ایک بار** · «(See …)» کا ترجمہ نہیں · ہندسے 1 2 3 · `agg.` «بگاڑ» / `amel.` «آرام» · جہاں والد سے جوڑنا بھدا لگتا ہے وہاں `=` پورا جملہ |
+| اسلوبی فیصلہ (صارف کی منظوری) | «سرِ عنوان + شرط» کا دہراؤ **ہٹایا** گیا — v137 کے SLEEP والا اسلوب: «ٹھنڈک، حیض، حیض سے پہلے» → «ٹھنڈک، حیض سے پہلے» (CHILL میں **102 جگہیں**)۔ اِسی فیصلے کے تحت **پچھلے 31 ابواب کے 3,919 دہرائے ٹکڑے بھی صاف ہوں گے** (الگ ورژن v139) |
+| وقت کا قاعدہ | `a.m.` 1–11 → «صبح N بجے» · `12 a.m.` (کینٹ میں دوپہر) → «دوپہر 12 بجے» · `p.m.` 1–4 → «سہ پہر» · 5–8 → «شام» · 9–11 → «رات» · `midnight` → «آدھی رات» · `N-30` → «صبح 10:30» · `N to M` → «صبح N سے M بجے» (مختلف پہر ہو تو «… سے … بجے تک») |
+| نئی اصطلاحات | chill «سردی لگنا» · chilliness/coldness «ٹھنڈک» · SHAKING «کپکپی» · shivering «کانپنا» · trembling «لرزنا» · alternating «باری باری» · icy cold «برف جیسی ٹھنڈک» · pernicious «مہلک» · anticipating «وقت سے پہلے آنا» · postponing «وقت پیچھے کھسکنا» · tertian «تیسرے دن والا» · quartan «چوتھے دن والا» · quotidian «روزانہ» · apyrexia «بخار کا وقفہ» · siesta «دوپہر کی نیند» · draught «جھونکا» · warm stove «گرم چولہا» · UNCOVERED «بے ڈھکا» · WATER «جیسے پانی ڈالا جا رہا ہو» · WIND «جیسے ہوا چل رہی ہو» · scrobiculis cordis «دل کا گڑھا» · sacrum «تعلق کی ہڈی» · vertex «سر کی چوٹی» · scapula «کندھے کی ہڈی» · calves «پنڈلیاں» · buttocks «سُرین» · VEXATION «چڑ» |
+| گنتی | کینٹ کل **66,563 / 71,027 (93.7%)** — **33 ابواب** مکمل |
+| فائلیں | `ur/rubrics/kent/chill.json` · `ur/rubrics/kent/chill_b01..b08_ur.py` · `ur/rubrics/kent/chill_batch1.tsv` · `js/18-rubrics-ur.js` (`REP_RUBUR_V='138'`) · `index.html` (`?v=138`) · `service-worker.js` (`bhc-clinic-v138` + `chill.json`) · `tests/rubrics_ur_v107.test.js` (نئے ٹیسٹ **M1–M9**؛ L-H11/H12 اپ ڈیٹ) · **`.gitignore` دوبارہ بھیجا گیا** — v137 میں شامل کیا تھا مگر HEAD پر نہیں پہنچا (ریموٹ پر آج بھی دو لائنیں ہیں)، اِس لیے ٹیسٹ **E8** ابھی بھی ناکام ہے۔ **یہ پوشیدہ فائل ہے** — زپ کھولنے کے بعد تصدیق کر لیں |
+| ٹیسٹ | `node tests/rubrics_ur_v107.test.js` → **ALL PASS** (M1–M9 شامل) · `node tools/qa_rubrics_ur.js kent chill` → ⚠ 0 · `node tools/coverage_rubrics_ur.js kent` → chill **100.0%** |
+
+### اگلا قدم
+**(الف) v139:** پچھلے 31 ابواب کے 3,919 دہرائے ٹکڑے صاف کریں (صارف کی منظوری شدہ)۔ **(ب)** FEVER (609) · PERSPIRATION (427) · SKIN (1,189) · GENERALITIES (2,239)۔
+
+## v137 (پچھلا) — نیند (SLEEP) مکمل (1,066 ربرک)
 
 | بات | تفصیل |
 |---|---|
@@ -22,9 +40,9 @@
 | ٹیسٹ | `node tests/rubrics_ur_v107.test.js` → **ALL PASS** (L1–L8 شامل) · `node tests/rubric_ur_v101.test.js` → **ALL v105 CHECKS PASSED** · `node tests/qa_rubrics_ur.js kent sleep` → ⚠ 0 · باقی سوٹ (differentiation 49 · repertory_ui 21 · materia_medica 72 · synthesis_tree 14 · app_smoke) بھی **ALL TESTS PASSED** |
 
 ### اگلا قدم
-CHILL (800) — پھر FEVER (609) · PERSPIRATION (427) · SKIN (1,189) · GENERALITIES (2,239)۔
+FEVER (609) · PERSPIRATION (427) · SKIN (1,189) · GENERALITIES (2,239)۔
 
-## v136 (پچھلا) — اعضا (EXTREMITIES) مکمل (16,057 ربرک)
+## v136 — اعضا (EXTREMITIES) مکمل (16,057 ربرک)
 
 | بات | تفصیل |
 |---|---|
