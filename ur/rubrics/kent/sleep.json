@@ -8,7 +8,7 @@
   "count": 1066,
   "locked_count": 0,
   "note": "ربرک کا پورا راستہ (چھوٹے حروف، (See …) نکال کر) → کینٹ کے مطلب کا اردو جملہ، بنیاد پہلے۔ صرف tools/merge_rubrics_ur.js سے لکھیں۔",
-  "updated": "2026-09-30"
+  "updated": "2026-10-01"
  },
  "rubrics": {
   "anxious": "نیند — بے چینی",
@@ -298,7 +298,7 @@
   "dreams, horses, pursuing him": "نیند — خواب، گھوڑے، اُس کا پیچھا کرتے ہوئے",
   "dreams, horses, riding": "نیند — خواب، گھوڑے، سواری کرنا",
   "dreams, horses, running": "نیند — خواب، گھوڑے، دوڑتے ہوئے",
-  "dreams, horses, stealing a horse": "نیند — خواب، گھوڑے، گھوڑا چرانا",
+  "dreams, horses, stealing a horse": "نیند — خواب، گھوڑا چرانا",
   "dreams, horses, ugly": "نیند — خواب، گھوڑے، بدشکل",
   "dreams, household affairs": "نیند — خواب، گھریلو معاملات",
   "dreams, humiliation": "نیند — خواب، ذلت",
@@ -400,7 +400,7 @@
   "dreams, roaming over fields": "نیند — خواب، کھیتوں میں گھومتا پھرنا",
   "dreams, robbers": "نیند — خواب، ڈاکو",
   "dreams, robbers, and cannot sleep until the house is searched": "نیند — خواب، ڈاکو، اور جب تک گھر تلاشی نہ ہو تب تک سو نہ سکے",
-  "dreams, robbers, of dissecting robbers": "نیند — خواب، ڈاکو، ڈاکوؤں کو چیرتے پھاڑتے ہوئے دیکھنا",
+  "dreams, robbers, of dissecting robbers": "نیند — خواب، ڈاکوؤں کو چیرتے پھاڑتے ہوئے دیکھنا",
   "dreams, robbers, of fighting with": "نیند — خواب، ڈاکو، اُن سے لڑنا",
   "dreams, robbers, of being pursued by": "نیند — خواب، ڈاکو، اُن کا پیچھا کرنا",
   "dreams, robbers, menses, during": "نیند — خواب، ڈاکو، حیض کے دوران",
@@ -1039,7 +1039,7 @@
   "yawning, frequent, evening": "نیند — جمائی لینا، بار بار، شام",
   "yawning, frequent, evening, reading, after": "نیند — جمائی لینا، بار بار، شام، پڑھنے کے بعد",
   "yawning, frequent, evening, riding in a carriage": "نیند — جمائی لینا، بار بار، شام، بگھی میں سفر کرتے وقت",
-  "yawning, fruitless efforts to yawn": "نیند — جمائی لینا، جمائی لینے کی بے کار کوشش",
+  "yawning, fruitless efforts to yawn": "نیند — جمائی لینے کی بے کار کوشش",
   "yawning, heat, during": "نیند — جمائی لینا، گرمی کے دوران",
   "yawning, ineffectual": "نیند — جمائی لینا، بے اثر",
   "yawning, interrupted": "نیند — جمائی لینا، رکتی ہوئی",
