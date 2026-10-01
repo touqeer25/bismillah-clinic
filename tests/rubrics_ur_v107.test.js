@@ -177,7 +177,7 @@ ok(LJ.rubrics['crumb']==='حلقوم — چورا (روٹی کا ذرہ)'&&LJ.ru
   const style=ks.filter(k=>/سے بڑھے|بڑھیں/.test(J.rubrics[k])).length;
   ok(noRoot===0&&latin===0&&style===0,'H10 '+root+': ہر جملے میں جڑ «'+root+' — » · کوئی انگریزی حرف نہیں · اسلوب «سے بگاڑ» (کوئی «سے بڑھے» نہیں) — '+ks.length+' جملے');
 });
-ok(/js\/18-rubrics-ur\.js\?v=140/.test(idx)&&/var REP_RUBUR_V = '140';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v140'/.test(sw),'L-H11 v140 bump: index ?v=139 · REP_RUBUR_V=139 · CACHE_NAME v139');
+ok(/js\/18-rubrics-ur\.js\?v=141/.test(idx)&&/var REP_RUBUR_V = '141';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v141'/.test(sw),'L-H11 v141 bump: index ?v=139 · REP_RUBUR_V=139 · CACHE_NAME v139');
 ok(sw.indexOf("'./ur/rubrics/kent/larynx_and_trachea.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/respiration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/expectoration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/cough.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/chest.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/back.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/extremities.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/sleep.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/chill.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/fever.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/perspiration.json'")>=0,'H12 service-worker میں نئی json (larynx/respiration/expectoration/cough/chest/back/extremities/sleep/chill/fever/perspiration)');
 
 // ---------- I. CHEST (v134) ----------
@@ -274,10 +274,10 @@ ok(peKs.filter(k=>{const t=PEJ.rubrics[k].split('، '); return t.some((x,i)=>i&&
 // ---------- P. v140: SKIN (جلد) مکمل ----------
 const cp=require('child_process');
 const PJ=JSON.parse(rd('ur/rubrics/kent/skin.json')); const pk=Object.keys(PJ.rubrics);
-ok(rd('js/18-rubrics-ur.js').indexOf("REP_RUBUR_V = '140'")>-1,'P1 ربرک فائلوں کا ورژن 140');
+ok(rd('js/18-rubrics-ur.js').indexOf("REP_RUBUR_V = '141'")>-1,'P1 ربرک فائلوں کا ورژن 141');
 ok(pk.length===1189&&PJ.locked.length===0&&pk.every(k=>PJ.rubrics[k].trim()!==''),'P2 SKIN مکمل: 1189 ربرک، کوئی خالی جملہ نہیں، کوئی قفل نہیں ('+pk.length+')');
 ok(PJ.meta.root==='جلد — '&&pk.filter(k=>!k.includes(',')).length===98,'P3 SKIN کی جڑ «جلد — » اور 98 مین ربرک');
-ok(rd('service-worker.js').indexOf('bhc-clinic-v140')>-1&&rd('service-worker.js').indexOf('ur/rubrics/kent/skin.json')>-1&&rd('index.html').indexOf('18-rubrics-ur.js?v=140')>-1,'P4 ورژن 140 تینوں جگہ (index.html · 18-rubrics-ur.js · service-worker.js) اور سروس ورکر میں جِلد کا JSON درج');
+ok(rd('service-worker.js').indexOf('bhc-clinic-v141')>-1&&rd('service-worker.js').indexOf('ur/rubrics/kent/skin.json')>-1&&rd('index.html').indexOf('18-rubrics-ur.js?v=141')>-1,'P4 ورژن 141 تینوں جگہ اور سروس ورکر میں جِلد کا JSON درج');
 [['eruptions','جلد — دانے'],['eruptions, blisters','جلد — دانے، چھالے'],['eruptions, carbuncle','جلد — دانے، کاربنکل (بڑا پھوڑا)'],['eruptions, eczema','جلد — دانے، خارش (ایگزما)'],['eruptions, pustules','جلد — دانے، پیپ والے دانے'],['eruptions, vesicular','جلد — دانے، چھالوں والے'],['eruptions, urticaria','جلد — دانے، کہیر'],['erysipelas','جلد — دانہ مخملی (اریسی پیلس)'],['ulcers','جلد — ناسور (زخم)'],['ulcers, discharges','جلد — ناسور (زخم)، رطوبت'],['warts','جلد — مسے'],['formication','جلد — چیونٹیاں رینگنے کا احساس'],['gangrene','جلد — گلنا (گینگرین)'],['lupus','جلد — لیوپس'],['itching','جلد — خارش'],['intertrigo','جلد — رگڑ سے چھلنے والی جلد (انٹرٹریگو)'],['wrinkled','جلد — جھریوں والا'],['goose flesh','جلد — رونگٹے'],['eruptions, scabies','جلد — دانے، کھجلی (اسکیبیز)'],['eruptions, itching, warmth','جلد — دانے، خارش، گرمی']].forEach(([k,v])=>ok(PJ.rubrics[k]===v,'P5 SKIN اصطلاح «'+k+'» → '+(PJ.rubrics[k]||'غائب')));
 ok(pk.every(k=>!/[\u06F0-\u06F9\u0660-\u0669]/.test(PJ.rubrics[k])&&PJ.rubrics[k].indexOf('جلد — جلد')!==0)&&pk.filter(k=>/[A-Za-z]/.test(PJ.rubrics[k])).length===0&&pk.filter(k=>/agg\./.test(PJ.rubrics[k])).length===0&&!/دیکھیں/.test(rd('ur/rubrics/kent/skin.json')),'P6 SKIN: ہر جملہ «جلد — » سے · کوئی انگریزی حرف نہیں · ہندسے 1 2 3 · «(… دیکھیں)» نہیں');
 {
@@ -295,7 +295,33 @@ ok(pk.every(k=>!/[\u06F0-\u06F9\u0660-\u0669]/.test(PJ.rubrics[k])&&PJ.rubrics[k
   const h2=w2.repRubUrRowHtml(sR.find(r=>r.key==='eruptions, blisters'));
   ok(/rub-base/.test(h2)&&/rub-delta/.test(h2)&&/چھالے/.test(h2),'P9 ایپ جِلد «چھالے» کی صف: بنیاد «جلد — دانے» + اضافہ «چھالے»');
   const cov=cp.execSync('node '+path.join(ROOT,'tools/coverage_rubrics_ur.js')+' kent',{encoding:'utf8'});
-  ok(/skin\s+1189\s+1189\s+0\s+100\.0%/.test(cov)&&/generalities\s+2239\s+0\s+0\s+0\.0%/.test(cov),'P9 احاطہ: جِلد 100.0% · عمومیات 0.0% (اگلا باب)');
+  ok(/skin\s+1189\s+1189\s+0\s+100\.0%/.test(cov),'P9 احاطہ: جِلد 100.0%');
+}
+
+// ---------- Q. v141: GENERALITIES (عمومیات) مکمل — کینٹ 100% ----------
+const QJ=JSON.parse(rd('ur/rubrics/kent/generalities.json')); const qk=Object.keys(QJ.rubrics);
+ok(rd('js/18-rubrics-ur.js').indexOf("REP_RUBUR_V = '141'")>-1,'Q1 ربرک فائلوں کا ورژن 141');
+ok(qk.length===2239&&QJ.locked.length===0&&qk.every(k=>QJ.rubrics[k].trim()!==''),'Q2 GENERALITIES مکمل: 2239 ربرک، کوئی خالی جملہ نہیں، کوئی قفل نہیں ('+qk.length+')');
+ok(QJ.meta.root==='عمومیات — '&&qk.filter(k=>!k.includes(',')).length===288,'Q3 GENERALITIES کی جڑ «عمومیات — » اور 288 مین ربرک');
+ok(rd('service-worker.js').indexOf('bhc-clinic-v141')>-1&&rd('service-worker.js').indexOf('ur/rubrics/kent/generalities.json')>-1&&rd('index.html').indexOf('18-rubrics-ur.js?v=141')>-1,'Q4 ورژن 141 تینوں جگہ اور سروس ورکر میں عمومیات کا JSON درج');
+[['convulsions','عمومیات — مرگی کے دورے'],['convulsions, epileptic, aura','عمومیات — مرگی کے دورے، مرگی والا، پیشگی علامت'],['food','عمومیات — غذا'],['food, milk, amel.','عمومیات — غذا، دودھ سے آرام'],['faintness','عمومیات — غشی'],['pain','عمومیات — درد'],['pain, stitching','عمومیات — درد، سوئی جیسا'],['pulse, thready','عمومیات — نبض، دھاگے جیسی'],['weakness','عمومیات — کمزوری'],['paralysis','عمومیات — فالج'],['trembling','عمومیات — لرزنا'],['swelling','عمومیات — سوجن'],['wounds','عمومیات — زخم'],['ulcers','عمومیات — ناسور (زخم)'],['tumors','عمومیات — رسولیاں'],['chorea','عمومیات — رقصہ (چوریا)'],['perspiration','عمومیات — پسینہ'],['measles','عمومیات — خسرہ'],['gangrene','عمومیات — گلنا (گینگرین)'],['leukaemia','عمومیات — خون کا کینسر (لیوکیمیا)'],['sleep','عمومیات — نیند'],['morning, 7 a.m.','عمومیات — صبح 7 بجے'],['night, 1 a.m.','عمومیات — رات 1 بجے']].forEach(([k,v])=>ok(QJ.rubrics[k]===v,'Q5 GENERALITIES اصطلاح «'+k+'» → '+(QJ.rubrics[k]||'غائب')));
+ok(qk.every(k=>!/[\u06F0-\u06F9\u0660-\u0669]/.test(QJ.rubrics[k])&&QJ.rubrics[k].indexOf('عمومیات — عمومیات')!==0)&&qk.filter(k=>/[A-Za-z]/.test(QJ.rubrics[k])).length===0&&qk.filter(k=>/agg\./.test(QJ.rubrics[k])).length===0&&!/دیکھیں/.test(rd('ur/rubrics/kent/generalities.json')),'Q6 GENERALITIES: ہر جملہ «عمومیات — » سے · کوئی انگریزی حرف نہیں · ہندسے 1 2 3 · «(… دیکھیں)» نہیں');
+{
+  const qa=cp.execSync('node '+path.join(ROOT,'tools/qa_rubrics_ur.js')+' kent generalities',{encoding:'utf8'});
+  ok(/⚠ مشتبہ 0/.test(qa),'Q7 GENERALITIES کا معائنہ صاف (مشتبہ صفر)');
+  const bad=qk.filter(k=>{const t=QJ.rubrics[k].replace('عمومیات — ','').split('، ');return t.some((x,i)=>i&&(x===t[i-1]||(t[i-1].length>1&&(t[i].indexOf(t[i-1])===0||(/[اہ]$/.test(t[i-1])&&t[i].indexOf(t[i-1].slice(0,-1))===0&&/[ہاےیوں]/.test(t[i][t[i-1].length-1]))))));});
+  ok(bad.length===0,'Q8 GENERALITIES میں کوئی ٹکڑا دہرایا نہیں گیا ('+bad.length+(bad.length?' · مثال '+bad[0]:'')+')');
+}
+{
+  const w3=L.appWindow(); w3.currentLang='ur'; w3.repUrLabelsOn=()=>true;
+  w3.repCurrentBook='kent'; w3.repCurrentChapter='generalities';
+  w3.repRubUrStore('kent','generalities',QJ);
+  const gR=L.chapterRows(w3,'kent','generalities');
+  ok(gR.length===2239,'Q9 ایپ کو عمومیات کی 2239 قطاریں ملیں ('+gR.length+')');
+  const h3=w3.repRubUrRowHtml(gR.find(r=>r.key==='food, milk, amel.'));
+  ok(/rub-base/.test(h3)&&/rub-delta/.test(h3)&&/دودھ سے آرام/.test(h3),'Q9 ایپ عمومیات «دودھ سے آرام» کی صف: بنیاد «عمومیات — غذا» + اضافہ');
+  const cov=cp.execSync('node '+path.join(ROOT,'tools/coverage_rubrics_ur.js')+' kent',{encoding:'utf8'});
+  ok(/generalities\s+2239\s+2239\s+0\s+100\.0%/.test(cov)&&/کل\s+71027\s+71027\s+0\s+100\.0%/.test(cov),'Q9 کینٹ ریپرٹری مکمل: 71027 / 71027 = 100.0%');
 }
 
 console.log(fails?`\n${fails} FAIL`:'\nALL PASS'); process.exit(fails?1:0);

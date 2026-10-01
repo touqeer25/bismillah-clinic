@@ -1,0 +1,2240 @@
+key	depth	en	ur
+daytime	0	DAYTIME	دن کے وقت
+morning	0	MORNING	صبح
+morning, sunrise, after	1	MORNING, sunrise, after	طلوعِ آفتاب کے بعد
+morning, 7 a.m.	1	MORNING, 7 a.m.	=عمومیات — صبح 7 بجے
+morning, 9 a.m.	1	MORNING, 9 a.m.	=عمومیات — صبح 9 بجے
+morning, 10 a.m.	1	MORNING, 10 a.m.	=عمومیات — صبح 10 بجے
+morning, 11 a.m.	1	MORNING, 11 a.m.	=عمومیات — صبح 11 بجے
+forenoon	0	FORENOON	دوپہر سے پہلے
+forenoon, amel.	1	FORENOON, amel.	آرام
+noon	0	NOON	دوپہر
+noon, eating, after, amel.	1	NOON, eating, after, amel.	کھانے کے بعد، آرام
+afternoon	0	AFTERNOON	سہ پہر
+afternoon, amel.	1	AFTERNOON, amel.	آرام
+afternoon, 1 p.m.	1	AFTERNOON, 1 p.m.	=عمومیات — سہ پہر 1 بجے
+afternoon, 2 p.m.	1	AFTERNOON, 2 p.m.	=عمومیات — سہ پہر 2 بجے
+afternoon, 2-30 p.m.	1	AFTERNOON, 2-30 p.m.	=عمومیات — سہ پہر 2:30
+afternoon, 3 p.m.	1	AFTERNOON, 3 p.m.	=عمومیات — سہ پہر 3 بجے
+afternoon, 3 p.m. to 5 p.m.	1	AFTERNOON, 3 p.m. to 5 p.m.	=عمومیات — سہ پہر 3 سے 5 بجے
+afternoon, 4 p.m.	1	AFTERNOON, 4 p.m.	=عمومیات — سہ پہر 4 بجے
+afternoon, 4 p.m. to 10 p.m.	1	AFTERNOON, 4 p.m. to 10 p.m.	=عمومیات — سہ پہر 4 سے رات 10 بجے
+afternoon, 4 p.m. to 6 p.m.	1	AFTERNOON, 4 p.m. to 6 p.m.	=عمومیات — سہ پہر 4 سے 6 بجے
+afternoon, 4 p.m. to 8 p.m.	1	AFTERNOON, 4 p.m. to 8 p.m.	=عمومیات — سہ پہر 4 سے شام 8 بجے
+afternoon, 5 p.m.	1	AFTERNOON, 5 p.m.	شام 5 بجے
+afternoon, 5 p.m. to 8 a.m.	1	AFTERNOON, 5 p.m. to 8 a.m.	شام 5 سے صبح 8 بجے
+evening	0	EVENING	شام
+evening, amel.	1	EVENING, amel.	آرام
+evening, amel., 4 p.m. till going to bed amel.	2	EVENING, amel., 4 p.m. till going to bed amel.	سہ پہر 4 سے سونے تک آرام
+evening, every other evening	1	EVENING, every other evening	ہر دوسری شام
+evening, lying down after agg.	1	EVENING, lying down after agg.	لیٹنے کے بعد بگاڑ
+evening, lying, amel.	1	EVENING, lying, amel.	لیٹنے سے آرام
+evening, open air agg.	1	EVENING, open air agg.	کھلی ہوا میں بگاڑ
+evening, sleep, before going to	1	EVENING, sleep, before going to	سونے سے پہلے
+evening, sunset till sunrise	1	EVENING, sunset till sunrise	غروبِ آفتاب سے طلوعِ آفتاب تک
+evening, sunset, after	1	EVENING, sunset, after	غروبِ آفتاب کے بعد
+evening, twilight agg.	1	EVENING, twilight agg.	گودھولی میں بگاڑ
+evening, twilight, amel.	1	EVENING, twilight, amel.	گودھولی میں آرام
+evening, 6 p.m.	1	EVENING, 6 p.m.	=عمومیات — شام 6 بجے
+evening, 6 p.m., to 7 p.m.	2	EVENING, 6 p.m., to 7 p.m.	=عمومیات — شام 6 سے 7 بجے
+evening, 7 p.m.	1	EVENING, 7 p.m.	=عمومیات — شام 7 بجے
+evening, 8 p.m.	1	EVENING, 8 p.m.	=عمومیات — شام 8 بجے
+evening, 9 p.m.	1	EVENING, 9 p.m.	رات 9 بجے
+evening, eating	1	EVENING, eating	کھانا
+evening, eating, after	2	EVENING, eating, after	=عمومیات — شام، کھانے کے بعد
+evening, eating, amel.	2	EVENING, eating, amel.	=عمومیات — شام، کھانے سے آرام
+night	0	NIGHT	رات
+night, midnight	1	NIGHT, midnight	آدھی رات
+night, midnight, before	2	NIGHT, midnight, before	=عمومیات — رات، آدھی رات سے پہلے
+night, midnight, after agg.	2	NIGHT, midnight, after agg.	=عمومیات — رات، آدھی رات کے بعد بگاڑ
+night, midnight, after, amel.	2	NIGHT, midnight, after, amel.	=عمومیات — رات، آدھی رات کے بعد آرام
+night, every other night	1	NIGHT, every other night	ہر دوسری رات
+night, 6 p.m. to 6 a.m.	1	NIGHT, 6 p.m. to 6 a.m.	شام 6 سے صبح 6 بجے
+night, 10 p.m.	1	NIGHT, 10 p.m.	=عمومیات — رات 10 بجے
+night, 11 p.m.	1	NIGHT, 11 p.m.	=عمومیات — رات 11 بجے
+night, 1 a.m.	1	NIGHT, 1 a.m.	=عمومیات — رات 1 بجے
+night, 1 a.m., to 3 a.m.	2	NIGHT, 1 a.m., to 3 a.m.	=عمومیات — رات 1 سے 3 بجے
+night, 2 a.m.	1	NIGHT, 2 a.m.	=عمومیات — رات 2 بجے
+night, 2 a.m. to 4 a.m.	1	NIGHT, 2 a.m. to 4 a.m.	=عمومیات — رات 2 سے 4 بجے
+night, 3 a.m.	1	NIGHT, 3 a.m.	=عمومیات — رات 3 بجے
+night, 4 a.m.	1	NIGHT, 4 a.m.	صبح 4 بجے
+night, 4 a.m., to 4 p.m.	2	NIGHT, 4 a.m., to 4 p.m.	=عمومیات — رات، صبح 4 سے سہ پہر 4 بجے
+night, 5 a.m.	1	NIGHT, 5 a.m.	صبح 5 بجے
+night, 6 a.m.	1	NIGHT, 6 a.m.	صبح 6 بجے
+night, until noon	1	NIGHT, until noon	دوپہر تک
+abscesses	0	ABSCESSES	پھوڑے (نفسے)
+abscesses, burning	1	ABSCESSES, burning	جلن
+abscesses, recurrent	1	ABSCESSES, recurrent	بار بار لوٹتے
+abscesses, glands	1	ABSCESSES, glands	غدود
+afternoon agg.	0	AFTERNOON agg.	سہ پہر بگاڑ
+air	0	AIR	ہوا
+air, draft agg.	1	AIR, draft agg.	جھونکے سے بگاڑ
+air, draft, sensation of, as if fanned	1	AIR, draft, sensation of, as if fanned	جیسے پنکھا کیا جا رہا ہو
+air, open	1	AIR, open	کھلی
+air, open, amel.	2	AIR, open, amel.	=عمومیات — ہوا، کھلی ہوا سے آرام
+air, open, aversion to	2	AIR, open, aversion to	=عمومیات — ہوا، کھلی ہوا سے نفرت
+air, open, desire for	2	AIR, open, desire for	=عمومیات — ہوا، کھلی ہوا کی طلب
+air, open agg.	1	AIR, open agg.	کھلی ہوا میں بگاڑ
+air, passing through glands, sensation of	1	AIR, passing through glands, sensation of	جیسے غدودوں میں سے ہوا گزرے
+air, seashore agg.	1	AIR, seashore agg.	سمندر کنارے بگاڑ
+air, seashore, amel.	1	AIR, seashore, amel.	سمندر کنارے آرام
+alcoholic stimulants	0	ALCOHOLIC stimulants	شرابی مقویات
+alcoholic stimulants, brandy	1	ALCOHOLIC stimulants, brandy	برانڈی
+anaemia	0	ANAEMIA	خون کی کمی
+analgesia	0	ANALGESIA (See Irritability)	درد کا احساس نہ ہونا
+analgesia, inner parts	1	ANALGESIA (See Irritability), inner parts	اندرونی حصے
+analgesia, parts affected	1	ANALGESIA (See Irritability), parts affected	متاثرہ حصے
+anemia	0	ANEMIA	خون کی کمی
+anemia, haemorrhage, after	1	ANEMIA, haemorrhage, after	خون بہنے کے بعد
+anxiety general physical	0	ANXIETY general physical	بے چینی، عمومی جسمانی
+apoplexy	0	APOPLEXY	فالج
+arsenical poisoning	0	ARSENICAL poisoning	آرسنک کا زہر
+ascending	0	ASCENDING	چڑھنا
+ascending, high agg.	1	ASCENDING, high agg.	بلندی پر بگاڑ
+ascending agg.	0	ASCENDING agg.	بگاڑ
+atheroma	0	ATHEROMA (See Tumors)	ایتھیروما (چربی کی رسولی)
+atrophy	0	ATROPHY	دبلاپن
+atrophy, glands	1	ATROPHY, glands	غدود
+autumn	0	AUTUMN	خزاں
+autumn, agg. in	1	AUTUMN, agg. in	=عمومیات — خزاں میں بگاڑ
+ball internally	0	BALL internally	جیسے اندر گولا
+band, sensation of	0	BAND, sensation of (See Constriction)	بینڈ کا احساس
+bathing	0	BATHING	نہانا
+bathing, dread of	1	BATHING, dread of	خوف
+bathing, agg.	1	BATHING, agg.	بگاڑ
+bathing, cold	1	BATHING, cold	ٹھنڈا
+bathing, cold, amel.	2	BATHING, cold, amel.	=عمومیات — نہانا، ٹھنڈے سے آرام
+bathing, cold, desire for	2	BATHING, cold, desire for	=عمومیات — نہانا، ٹھنڈے کی طلب
+bathing, amel.	1	BATHING, amel.	آرام
+bathing, the affected part amel.	1	BATHING, the affected part amel.	متاثرہ حصہ دھونے سے آرام
+bathing, cold agg.	1	BATHING, cold agg.	ٹھنڈے سے بگاڑ
+bathing, face amel.	1	BATHING, face amel.	چہرہ دھونے سے آرام
+bathing, sea, agg.	1	BATHING, sea, agg.	سمندر سے بگاڑ
+blackness of external parts	0	BLACKNESS of external parts	بیرونی حصوں کا سیاہ ہونا
+breakfast	0	BREAKFAST	ناشتہ
+breakfast, after amel.	1	BREAKFAST, after amel.	کھانے کے بعد آرام
+breakfast, after, agg.	1	BREAKFAST, after, agg.	کھانے کے بعد بگاڑ
+brittle bones	0	BRITTLE bones	بھربھری ہڈیاں
+bruises	0	BRUISES (See Injuries)	گھائل
+bubbling	0	BUBBLING	بلبلے
+burns	0	BURNS	جلنا
+caged in wire	0	CAGED in wire	جیسے تار کے پنجرے میں بند
+caged in wire, twisted tighter and tighter	1	CAGED in wire, twisted tighter and tighter	اور زیادہ کستا جاتا ہو
+cancerous affections	0	CANCEROUS affections	کینسری امراض
+cancerous affections, encephaloma	1	CANCEROUS affections, encephaloma	دماغی کینسر (اینسیفالوما)
+cancerous affections, epithelioma	1	CANCEROUS affections, epithelioma	اپیتھیلیوما
+cancerous affections, fungus haematodes	1	CANCEROUS affections, fungus haematodes	خونی فنگس
+cancerous affections, glands	1	CANCEROUS affections, glands	غدود
+cancerous affections, lupus	1	CANCEROUS affections, lupus	لیوپس
+cancerous affections, lupus, in rings	2	CANCEROUS affections, lupus, in rings	حلقوں کی صورت میں
+cancerous affections, melanotic	1	CANCEROUS affections, melanotic	سیاہ (میلانوتک)
+cancerous affections, noma	1	CANCEROUS affections, noma	نومہ (گال کا گلنا)
+cancerous affections, scirrhus	1	CANCEROUS affections, scirrhus	سکرس (سخت کینسر)
+caries of bone	0	CARIES of bone	ہڈی کا کھوکھلا ہونا
+caries of bone, periosteum	1	CARIES of bone, periosteum	ہڈی کی جھلی
+carrying	0	CARRYING	اٹھانا
+carrying, on the head agg.	1	CARRYING, on the head agg.	سر پر اٹھانے سے بگاڑ
+carrying on the back agg.	0	CARRYING on the back agg.	پیٹھ پر اٹھانے سے بگاڑ
+catalepsy	0	CATALEPSY	جمود (کیٹالیپسی)
+catalepsy, evening, in bed	1	CATALEPSY, evening, in bed	شام، بستر میں
+catalepsy, fright, after	1	CATALEPSY, fright, after	ڈر کے بعد
+catalepsy, grief, after	1	CATALEPSY, grief, after	غم کے بعد
+catalepsy, jealousy, from	1	CATALEPSY, jealousy, from	حسد سے
+catalepsy, joy, from	1	CATALEPSY, joy, from	خوشی سے
+catalepsy, love, from unrequited	1	CATALEPSY, love, from unrequited	بے جواب محبت سے
+catalepsy, menses, during	1	CATALEPSY, menses, during	حیض کے دوران
+catalepsy, religious excitement, from	1	CATALEPSY, religious excitement, from	مذہبی جوش سے
+catalepsy, sexual excitement, from	1	CATALEPSY, sexual excitement, from	جنسی جوش سے
+catarrh suppressed	0	CATARRH suppressed (See Nose, Discharges)	دبایا ہوا نزلہ
+change of	0	CHANGE of	بدلنا
+change of, temperature agg.	1	CHANGE of, temperature agg.	درجۂ حرارت بدلنے سے بگاڑ
+change of, weather agg.	1	CHANGE of, weather agg.	موسم بدلنے سے بگاڑ
+change of, weather, cold to warm agg.	1	CHANGE of, weather, cold to warm agg.	ٹھنڈے سے گرم موسم پر بگاڑ
+change of position	0	CHANGE of position	پوزیشن بدلنا
+change of position, amel.	1	CHANGE of position, amel.	آرام
+change of position agg.	0	CHANGE of position agg.	بگاڑ
+chill	0	CHILL	سردی
+chill, feels better before	1	CHILL, feels better before	=عمومیات — سردی سے پہلے بہتر
+china (without quinine cachexia)	0	CHINA (without quinine cachexia) (See Quinine)	چائنا (بغیر کوئینین والا ضعف)
+chlorosis	0	CHLOROSIS	سبز یرقان (کلوروسس)
+chlorosis, alternating days, symptoms agg.	1	CHLOROSIS, alternating days, symptoms agg.	باری والے دنوں میں علامات بگڑیں
+chlorosis, winter, in	1	CHLOROSIS, winter, in	سردیوں میں
+chorea	0	CHOREA	رقصہ (چوریا)
+chorea, right side	1	CHOREA, right side	دائیں طرف
+chorea, left side	1	CHOREA, left side	بائیں طرف
+chorea, daytime	1	CHOREA, daytime	دن کے وقت
+chorea, morning	1	CHOREA, morning	صبح
+chorea, afternoon	1	CHOREA, afternoon	سہ پہر
+chorea, evening agg.	1	CHOREA, evening agg.	شام بگاڑ
+chorea, night	1	CHOREA, night	رات
+chorea, begins in face and spreads to body	1	CHOREA, begins in face and spreads to body	چہرے سے شروع ہو کر جسم پر پھیلے
+chorea, children who have grown too fast	1	CHOREA, children who have grown too fast	جو بچے بہت تیزی سے بڑھے ہوں
+chorea, coition, after (woman)	1	CHOREA, coition, after (woman)	ہم بستری کے بعد (عورت)
+chorea, cold bath, after	1	CHOREA, cold bath, after	ٹھنڈے غسل کے بعد
+chorea, dinner, after	1	CHOREA, dinner, after	کھانے کے بعد
+chorea, dry weather	1	CHOREA, dry weather	خشک موسم
+chorea, eating, after	1	CHOREA, eating, after	کھانے کے بعد
+chorea, emotional	1	CHOREA, emotional	جذباتی
+chorea, exercise amel.	1	CHOREA, exercise amel.	ورزش سے آرام
+chorea, fright, from	1	CHOREA, fright, from	ڈر سے
+chorea, grief, after	1	CHOREA, grief, after	غم کے بعد
+chorea, imitation, from	1	CHOREA, imitation, from	دیکھا دیکھی سے
+chorea, loss of animal fluids	1	CHOREA, loss of animal fluids	جسمانی رطوبتوں کے نقصان سے
+chorea, lying on back amel.	1	CHOREA, lying on back amel.	کمر کے بل لیٹنے سے آرام
+chorea, menses, during	1	CHOREA, menses, during	حیض کے دوران
+chorea, onanism, from	1	CHOREA, onanism, from	استمنا سے
+chorea, one sided	1	CHOREA, one sided	ایک طرفی
+chorea, one sided, side lain on	2	CHOREA, one sided, side lain on	جس کروٹ لیٹا ہو
+chorea, periodic	1	CHOREA, periodic	وقفوں والا
+chorea, pregnancy, during	1	CHOREA, pregnancy, during	حمل کے دوران
+chorea, rest, during	1	CHOREA, rest, during	آرام کے دوران
+chorea, rheumatic	1	CHOREA, rheumatic	گٹھیا والا
+chorea, run or jump, must, cannot walk	1	CHOREA, run or jump, must, cannot walk	دوڑنا یا چھلانگ لگانا پڑے، چل نہ سکے
+chorea, sleep amel.	1	CHOREA, sleep amel.	نیند سے آرام
+chorea, spinal	1	CHOREA, spinal	ریڑھ کا
+chorea, suppressed eruptions	1	CHOREA, suppressed eruptions	دبے ہوئے دانے
+chorea, thinking of it, when	1	CHOREA, thinking of it, when	اُس کا خیال آنے پر
+chorea, thunderstorm	1	CHOREA, thunderstorm	آندھی
+chorea, thunderstorm, before	2	CHOREA, thunderstorm, before	=عمومیات — رقصہ (چوریا)، آندھی سے پہلے
+chorea, thunderstorm, during	2	CHOREA, thunderstorm, during	=عمومیات — رقصہ (چوریا)، آندھی کے دوران
+chorea, wet, after getting	1	CHOREA, wet, after getting	بھیگنے کے بعد
+chorea, worms, from	1	CHOREA, worms, from	کیڑوں سے
+chorea, wine agg.	1	CHOREA, wine agg.	شراب سے بگاڑ
+clear weather agg.	0	CLEAR weather agg.	صاف موسم میں بگاڑ
+clothing	0	CLOTHING	کپڑے
+clothing, intolerance of	1	CLOTHING, intolerance of	برداشت نہ ہونا
+clothing, intolerance of, woolen	2	CLOTHING, intolerance of, woolen	اونی کپڑوں کی
+clothing, loosening, amel.	1	CLOTHING, loosening, amel.	ڈھیلے کرنے سے آرام
+cloudy weather agg.	0	CLOUDY weather agg.	ابر آلود موسم میں بگاڑ
+coal gas	0	COAL gas	کوئلے کی گیس
+coal gas, from	1	COAL gas, from	=عمومیات — کوئلے کی گیس سے
+coat of skin drawn over inner parts	0	COAT of skin drawn over inner parts	اندرونی حصوں پر جلد کا چڑھاؤ
+coat of skin drawn over inner parts, sensation of	1	COAT of skin drawn over inner parts, sensation of	کا احساس
+coition	0	COITION	ہم بستری
+coition, after	1	COITION, after	=عمومیات — ہم بستری کے بعد
+coition during	0	COITION during	ہم بستری کے دوران
+cold	0	COLD	ٹھنڈک
+cold, air agg.	1	COLD, air agg.	ٹھنڈی ہوا سے بگاڑ
+cold, becoming	1	COLD, becoming	ٹھنڈا ہونا
+cold, becoming, amel.	2	COLD, becoming, amel.	=عمومیات — ٹھنڈک، ٹھنڈا ہونے سے آرام
+cold, becoming, after, agg.	2	COLD, becoming, after, agg.	=عمومیات — ٹھنڈک، ٹھنڈا ہونے کے بعد بگاڑ
+cold, becoming, a part of body agg.	2	COLD, becoming, a part of body agg.	جسم کا کوئی حصہ ٹھنڈا ہونے سے بگاڑ
+cold, becoming, feet	2	COLD, becoming, feet	پاؤں
+cold, becoming, hand out of bed	2	COLD, becoming, hand out of bed	بستر سے ہاتھ نکالنا
+cold, becoming, head	2	COLD, becoming, head	سر
+cold, becoming agg.	1	COLD, becoming agg.	ٹھنڈا ہونے سے بگاڑ
+cold, dry weather agg.	1	COLD, dry weather agg.	خشک موسم میں بگاڑ
+cold, feeling in	1	COLD, feeling in	اندر ٹھنڈک کا احساس
+cold, feeling in, bones	2	COLD, feeling in, bones	ہڈیوں میں
+cold, feeling in, inner parts	2	COLD, feeling in, inner parts	اندرونی حصوں میں
+cold, heat and cold	1	COLD, heat and cold	گرمی اور ٹھنڈک
+cold, place, entering a, agg.	1	COLD, place, entering a, agg.	ٹھنڈی جگہ میں داخل ہونے سے بگاڑ
+cold, tendency to take	1	COLD, tendency to take	سردی لگنے کا رجحان
+cold, wet weather agg.	1	COLD, wet weather agg.	نم موسم میں بگاڑ
+cold, feeling in blood vessels	1	COLD, feeling in blood vessels	رگوں میں ٹھنڈک
+cold in general agg.	0	COLD in general agg.	عام طور پر ٹھنڈک سے بگاڑ
+collapse	0	COLLAPSE	ضعفِ شدید (کولیسپ)
+collapse, diarrhoea, after	1	COLLAPSE, diarrhoea, after	دستوں کے بعد
+collapse, general paralysis, as beginning of	1	COLLAPSE, general paralysis, as beginning of	عمومی فالج کی ابتدا
+collapse, sudden	1	COLLAPSE, sudden	اچانک
+collapse, vomiting	1	COLLAPSE, vomiting	قے
+collapse, vomiting, during	2	COLLAPSE, vomiting, during	=عمومیات — ضعفِ شدید (کولیسپ)، قے کے دوران
+collapse, vomiting, after	2	COLLAPSE, vomiting, after	=عمومیات — ضعفِ شدید (کولیسپ)، قے کے بعد
+congestion of	0	CONGESTION of	خون کا جمائو
+congestion of, blood, internally	1	CONGESTION of, blood, internally	اندر
+congestion of blood	0	CONGESTION of blood	خون کا جمائو
+constipation amel.	0	CONSTIPATION amel.	قبض سے آرام
+constriction	0	CONSTRICTION	کھنچاؤ (جکڑن)
+constriction, of orifices	1	CONSTRICTION, of orifices	سوراخوں کا
+constriction, bones	1	CONSTRICTION, bones	ہڈیوں کا
+constriction, internally	1	CONSTRICTION, internally	اندرونی
+constriction, band, sensation of a	1	CONSTRICTION, band, sensation of a	بینڈ کا احساس
+constriction externally	0	CONSTRICTION externally	بیرونی جکڑن
+constriction externally, as if caged with wires twisted tighter and tighter	1	CONSTRICTION externally, as if caged with wires twisted tighter and tighter	جیسے تاروں کے پنجرے میں کستا چلا جائے
+contractions	0	CONTRACTIONS	سکڑاؤ
+contractions, strictures, stenoses, after inflammation	1	CONTRACTIONS, strictures, stenoses, after inflammation	سوزش کے بعد تنگیاں
+contractions, strictures, stenoses, after inflammation, muscles	2	CONTRACTIONS, strictures, stenoses, after inflammation, muscles (See Extremities)	پٹھے
+contradictory and alternating states	0	CONTRADICTORY and alternating states	متضاد اور باری باری حالتیں
+convulsions	0	CONVULSIONS	مرگی کے دورے
+convulsions, right	1	CONVULSIONS, right	دائیں
+convulsions, right, left paralyzed	2	CONVULSIONS, right, left paralyzed	بائیں مفلوج
+convulsions, right, to left	2	CONVULSIONS, right, to left	=عمومیات — مرگی کے دورے، دائیں سے بائیں
+convulsions, right side of body	1	CONVULSIONS, right side of body	جسم کا دائیں طرف
+convulsions, left side of body	1	CONVULSIONS, left side of body	جسم کا بائیں طرف
+convulsions, morning	1	CONVULSIONS, morning	صبح
+convulsions, morning, 4 a.m. to 4 p.m.	2	CONVULSIONS, morning, 4 a.m. to 4 p.m.	=عمومیات — مرگی کے دورے، صبح 4 سے سہ پہر 4 بجے
+convulsions, afternoon	1	CONVULSIONS, afternoon	سہ پہر
+convulsions, evening	1	CONVULSIONS, evening	شام
+convulsions, evening, open air	2	CONVULSIONS, evening, open air	کھلی ہوا میں
+convulsions, evening, 8 p.m.	2	CONVULSIONS, evening, 8 p.m.	=عمومیات — مرگی کے دورے، شام 8 بجے
+convulsions, evening, 9 p.m.	2	CONVULSIONS, evening, 9 p.m.	رات 9 بجے
+convulsions, night	1	CONVULSIONS, night	رات
+convulsions, night, midnight	2	CONVULSIONS, night, midnight	آدھی رات
+convulsions, night, midnight, after	3	CONVULSIONS, night, midnight, after	=عمومیات — مرگی کے دورے، رات، آدھی رات کے بعد
+convulsions, addison's disease, in	1	CONVULSIONS, addison's disease, in	ایڈی سن کی بیماری میں
+convulsions, alternating	1	CONVULSIONS, alternating	باری باری
+convulsions, alternating, with rage	2	CONVULSIONS, alternating, with rage	غصے سے
+convulsions, alternating, with, unconsciousness	2	CONVULSIONS, alternating, with, unconsciousness	بے ہوشی سے
+convulsions, alternating with excitement of mind	1	CONVULSIONS, alternating with excitement of mind	ذہنی جوش سے
+convulsions, anger, after	1	CONVULSIONS, anger, after	غصے کے بعد
+convulsions, apoplectic	1	CONVULSIONS, apoplectic	فالجی
+convulsions, begin in	1	CONVULSIONS, begin in	شروع ہونا
+convulsions, begin in, arm	2	CONVULSIONS, begin in, arm	بازو سے
+convulsions, begin in, back	2	CONVULSIONS, begin in, back	پیٹھ سے
+convulsions, begin in, face	2	CONVULSIONS, begin in, face	چہرے سے
+convulsions, begin in, fingers and toes	2	CONVULSIONS, begin in, fingers and toes	انگلیوں سے
+convulsions, begin in, head	2	CONVULSIONS, begin in, head	سر سے
+convulsions, begin in the abdomen	1	CONVULSIONS, begin in the abdomen	پیٹ سے شروع ہونا
+convulsions, bending elbow amel.	1	CONVULSIONS, bending elbow amel.	کہنی موڑنے سے آرام
+convulsions, bending, head backwards, from	1	CONVULSIONS, bending, head backwards, from	سر پیچھے جھکانے سے
+convulsions, bone in the throat, from	1	CONVULSIONS, bone in the throat, from	گلے میں ہڈی پھنسنے سے
+convulsions, bright light, from	1	CONVULSIONS, bright light, from	تیز روشنی سے
+convulsions, cerebral softening	1	CONVULSIONS, cerebral softening	دماغ کا نرم ہونا
+convulsions, changing in character	1	CONVULSIONS, changing in character	نوعیت بدلتے ہوئے
+convulsions, children	1	CONVULSIONS, children	بچوں میں
+convulsions, children, approach of strangers, from	2	CONVULSIONS, children, approach of strangers, from	اجنبیوں کے پاس آنے سے
+convulsions, chill, during	1	CONVULSIONS, chill, during	سردی کے دوران
+convulsions, closing a door, on	1	CONVULSIONS, closing a door, on	دروازہ بند کرتے ہی
+convulsions, coition	1	CONVULSIONS, coition	ہم بستری
+convulsions, coition, during	2	CONVULSIONS, coition, during	=عمومیات — مرگی کے دورے، ہم بستری کے دوران
+convulsions, coition, after	2	CONVULSIONS, coition, after	=عمومیات — مرگی کے دورے، ہم بستری کے بعد
+convulsions, cold	1	CONVULSIONS, cold	ٹھنڈک
+convulsions, cold, becoming	2	CONVULSIONS, cold, becoming	ٹھنڈا ہونا
+convulsions, cold, water amel.	2	CONVULSIONS, cold, water amel.	ٹھنڈے پانی سے آرام
+convulsions, clonic	1	CONVULSIONS, clonic	لرزتے (کلونک)
+convulsions, clonic, alternating with tonic	2	CONVULSIONS, clonic, alternating with tonic	اکڑنے والے سے باری باری
+convulsions, cold air, from	1	CONVULSIONS, cold air, from	ٹھنڈی ہوا سے
+convulsions, cold drinks	1	CONVULSIONS, cold drinks	ٹھنڈے مشروبات
+convulsions, coldness of the body	1	CONVULSIONS, coldness of the body	جسم کی ٹھنڈک
+convulsions, coldness, of one side of body	1	CONVULSIONS, coldness, of one side of body	جسم کے ایک پہلو کی ٹھنڈک
+convulsions, colic, during	1	CONVULSIONS, colic, during	پیٹ کے درد کے دوران
+convulsions, compression on spinal column	1	CONVULSIONS, compression on spinal column	ریڑھ پر دباؤ
+convulsions, consciousness	1	CONVULSIONS, consciousness	شعور
+convulsions, consciousness, with	2	CONVULSIONS, consciousness, with	=عمومیات — مرگی کے دورے، شعور کے ساتھ
+convulsions, consciousness, without	2	CONVULSIONS, consciousness, without	بے شعور
+convulsions, contradiction, from	1	CONVULSIONS, contradiction, from	مخالفت سے
+convulsions, coughing, after	1	CONVULSIONS, coughing, after	کھانسنے کے بعد
+convulsions, dentition, during	1	CONVULSIONS, dentition, during	دانت نکلنے کے دوران
+convulsions, diarrhoea amel.	1	CONVULSIONS, diarrhoea amel.	دستوں سے آرام
+convulsions, downwards, spread	1	CONVULSIONS, downwards, spread	نیچے کی طرف پھیلیں
+convulsions, draft, agg.	1	CONVULSIONS, draft, agg.	جھونکے سے بگاڑ
+convulsions, drinking, after	1	CONVULSIONS, drinking, after	پینے کے بعد
+convulsions, drunkards, in	1	CONVULSIONS, drunkards, in	شرابیوں میں
+convulsions, eating	1	CONVULSIONS, eating	کھانا
+convulsions, eating, while	2	CONVULSIONS, eating, while	کھاتے وقت
+convulsions, eating, after	2	CONVULSIONS, eating, after	=عمومیات — مرگی کے دورے، کھانے کے بعد
+convulsions, emission of semen during	1	CONVULSIONS, emission of semen during	دورانِ اخراجِ منی
+convulsions, epileptic	1	CONVULSIONS, epileptic	مرگی والا
+convulsions, epileptic, aura	2	CONVULSIONS, epileptic, aura	پیشگی علامت
+convulsions, epileptic, aura, abdomen to head, with	3	CONVULSIONS, epileptic, aura, abdomen to head, with	پیٹ سے سر تک
+convulsions, epileptic, aura, arms, in	3	CONVULSIONS, epileptic, aura, arms, in	بازوؤں میں
+convulsions, epileptic, aura, cold air over spine and body	3	CONVULSIONS, epileptic, aura, cold air over spine and body	ریڑھ اور جسم پر ٹھنڈی ہوا
+convulsions, epileptic, aura, coldness running down spine	3	CONVULSIONS, epileptic, aura, coldness running down spine	ریڑھ پر ٹھنڈک اترتی ہوئی
+convulsions, epileptic, aura, coldness, on left side before epilepsy	3	CONVULSIONS, epileptic, aura, coldness, on left side before epilepsy	مرگی سے پہلے بائیں طرف ٹھنڈک
+convulsions, epileptic, aura, drawing in limbs	3	CONVULSIONS, epileptic, aura, drawing in limbs	اعضا میں کھنچاؤ
+convulsions, epileptic, aura, expansion of body, sensation of, before	3	CONVULSIONS, epileptic, aura, expansion of body, sensation of, before	دورے سے پہلے جسم پھیلتا محسوس ہو
+convulsions, epileptic, aura, general nervous feeling	3	CONVULSIONS, epileptic, aura, general nervous feeling	عمومی عصبی احساس
+convulsions, epileptic, aura, heart, from	3	CONVULSIONS, epileptic, aura, heart, from	دل سے
+convulsions, epileptic, aura, heel to occiput, right	3	CONVULSIONS, epileptic, aura, heel to occiput, right	دائیں، ایڑی سے پسِ سر تک
+convulsions, epileptic, aura, jerk in nape	3	CONVULSIONS, epileptic, aura, jerk in nape	گردن میں جھٹکا
+convulsions, epileptic, aura, knees	3	CONVULSIONS, epileptic, aura, knees	گھٹنے
+convulsions, epileptic, aura, mouse, running like a	3	CONVULSIONS, epileptic, aura, mouse, running like a	جیسے چوہا دوڑے
+convulsions, epileptic, aura, numbness of brain	3	CONVULSIONS, epileptic, aura, numbness of brain	دماغ سن ہونا
+convulsions, epileptic, aura, shocks	3	CONVULSIONS, epileptic, aura, shocks	جھٹکے
+convulsions, epileptic, aura, solar plexus, from	3	CONVULSIONS, epileptic, aura, solar plexus, from	معدے کے پیچھے مرکز سے
+convulsions, epileptic, aura, uterus	3	CONVULSIONS, epileptic, aura, uterus	بچہ دانی
+convulsions, epileptic, aura, uterus to throat	3	CONVULSIONS, epileptic, aura, uterus to throat	بچہ دانی سے گلے تک
+convulsions, epileptic, aura, warm air streaming up spine	3	CONVULSIONS, epileptic, aura, warm air streaming up spine	ریڑھ پر گرم ہوا چڑھتی ہوئی
+convulsions, epileptic, aura, waving sensation in brain	3	CONVULSIONS, epileptic, aura, waving sensation in brain	دماغ میں لہرنے کا احساس
+convulsions, epileptiform	1	CONVULSIONS, epileptiform	مرگی جیسے
+convulsions, errors in diet	1	CONVULSIONS, errors in diet	غذا کی غلطی
+convulsions, eructations amel.	1	CONVULSIONS, eructations amel.	ڈکار سے آرام
+convulsions, eruptions fail to break out, when	1	CONVULSIONS, eruptions fail to break out, when	دانے نہ نکل سکیں
+convulsions, exanthemata repelled or do not appear, when	1	CONVULSIONS, exanthemata repelled or do not appear, when	دانے دب جائیں یا نہ نکلیں
+convulsions, excitement, from	1	CONVULSIONS, excitement, from	جوش سے
+convulsions, exertion, after	1	CONVULSIONS, exertion, after	محنت کے بعد
+convulsions, extension of body, forcible, amel.	1	CONVULSIONS, extension of body, forcible, amel.	جسم زور سے پھیلانے سے آرام
+convulsions, extensor muscles	1	CONVULSIONS, extensor muscles	پھیلاؤ والے پٹھے
+convulsions, eyelids, while touching	1	CONVULSIONS, eyelids, while touching	پلکوں کو چھوتے وقت
+convulsions, falling, with	1	CONVULSIONS, falling, with	گرنے کے ساتھ
+convulsions, falling, with, backwards	2	CONVULSIONS, falling, with, backwards	پیچھے کو
+convulsions, falling, with, forward	2	CONVULSIONS, falling, with, forward	آگے کو
+convulsions, falling, with, left side	2	CONVULSIONS, falling, with, left side	بائیں کروٹ
+convulsions, falling, with, right side	2	CONVULSIONS, falling, with, right side	دائیں کروٹ
+convulsions, falling, with, right, runs in a circle to	2	CONVULSIONS, falling, with, right, runs in a circle to	دائیں، گول گھومتا ہو
+convulsions, fluids, from	1	CONVULSIONS, fluids, from	رطوبتوں سے
+convulsions, forcibly aroused from a trance, when	1	CONVULSIONS, forcibly aroused from a trance, when	جبراً بے ہوشی سے جگایا جائے
+convulsions, fright, from	1	CONVULSIONS, fright, from	ڈر سے
+convulsions, fright, from, of the mother (infant)	2	CONVULSIONS, fright, from, of the mother (infant)	ماں کے ڈر سے (بچہ)
+convulsions, grief, after	1	CONVULSIONS, grief, after	غم کے بعد
+convulsions, haemorrhage, with	1	CONVULSIONS, haemorrhage, with	خون بہنے کے ساتھ
+convulsions, heat, during the	1	CONVULSIONS, heat, during the	گرمی کے دوران
+convulsions, hysterical	1	CONVULSIONS, hysterical	ہیستریائی
+convulsions, indigestion, from	1	CONVULSIONS, indigestion, from	بدہضمی سے
+convulsions, indignation	1	CONVULSIONS, indignation	برہمی
+convulsions, injuries, from	1	CONVULSIONS, injuries, from	چوٹ سے
+convulsions, intermittent	1	CONVULSIONS, intermittent	وقفوں والا
+convulsions, internal	1	CONVULSIONS, internal	اندرونی
+convulsions, interrupted by painful shocks	1	CONVULSIONS, interrupted by painful shocks	دردناک جھٹکوں سے رک جائے
+convulsions, laughing	1	CONVULSIONS, laughing	ہنسی
+convulsions, light agg.	1	CONVULSIONS, light agg.	روشنی سے بگاڑ
+convulsions, love, disappointed	1	CONVULSIONS, love, disappointed	ناکام محبت
+convulsions, lying on side	1	CONVULSIONS, lying on side	کروٹ لیٹنے پر
+convulsions, lying on side, convulsively turned on the back	2	CONVULSIONS, lying on side, convulsively turned on the back	دورے میں کمر کے بل پلٹ جائے
+convulsions, menses	1	CONVULSIONS, menses	حیض
+convulsions, menses, before	2	CONVULSIONS, menses, before	=عمومیات — مرگی کے دورے، حیض سے پہلے
+convulsions, menses, during	2	CONVULSIONS, menses, during	=عمومیات — مرگی کے دورے، حیض کے دوران
+convulsions, menses, after	2	CONVULSIONS, menses, after	=عمومیات — مرگی کے دورے، حیض کے بعد
+convulsions, menses, instead of	2	CONVULSIONS, menses, instead of	=عمومیات — مرگی کے دورے، حیض کے بجائے
+convulsions, menses, suppressed, from	2	CONVULSIONS, menses, suppressed, from	=عمومیات — مرگی کے دورے، حیض دب جانے سے
+convulsions, mental exertion, after	1	CONVULSIONS, mental exertion, after	ذہنی محنت کے بعد
+convulsions, metastasis	1	CONVULSIONS, metastasis	جگہ بدلنا
+convulsions, mercurial vapours, from	1	CONVULSIONS, mercurial vapours, from	پارے کے بخارات سے
+convulsions, miscarriage, after	1	CONVULSIONS, miscarriage, after	اسقاط کے بعد
+convulsions, mortification	1	CONVULSIONS, mortification	گلنے سے
+convulsions, motion agg.	1	CONVULSIONS, motion agg.	حرکت سے بگاڑ
+convulsions, nervousness, from	1	CONVULSIONS, nervousness, from	عصبیت سے
+convulsions, noise, from	1	CONVULSIONS, noise, from	شور سے
+convulsions, noises, arrests the paroxysm	1	CONVULSIONS, noises, arrests the paroxysm	شور دورہ روک دے
+convulsions, odors, from strong	1	CONVULSIONS, odors, from strong	تیز بوؤں سے
+convulsions, onanism, after	1	CONVULSIONS, onanism, after	استمنا کے بعد
+convulsions, one-sided	1	CONVULSIONS, one-sided	ایک طرفی
+convulsions, one-sided, paralyzed side	2	CONVULSIONS, one-sided, paralyzed side	مفلوج طرف
+convulsions, one-sided, paralysis of the other	2	CONVULSIONS, one-sided, paralysis of the other	دوسری طرف فالج
+convulsions, opisthotonos	1	CONVULSIONS, opisthotonos (See Back)	پیچھے کو اکڑنا
+convulsions, palpitation, after	1	CONVULSIONS, palpitation, after	دھڑکن کے بعد
+convulsions, paralysis	1	CONVULSIONS, paralysis	فالج
+convulsions, paralysis, with	2	CONVULSIONS, paralysis, with	=عمومیات — مرگی کے دورے، فالج کے ساتھ
+convulsions, paralysis, followed by	2	CONVULSIONS, paralysis, followed by	=عمومیات — مرگی کے دورے، فالج پیچھے آئے
+convulsions, periodic	1	CONVULSIONS, periodic	وقفوں والا
+convulsions, periodic, every 7 days	2	CONVULSIONS, periodic, every 7 days	ہر 7 دن
+convulsions, periodic, every, 14 days	2	CONVULSIONS, periodic, every, 14 days	ہر 14 دن
+convulsions, pregnancy, during	1	CONVULSIONS, pregnancy, during	حمل کے دوران
+convulsions, pressure on stomach, from	1	CONVULSIONS, pressure on stomach, from	معدے پر دباؤ سے
+convulsions, pressure, on spine	1	CONVULSIONS, pressure, on spine	ریڑھ پر دباؤ
+convulsions, puberty, at	1	CONVULSIONS, puberty, at	بلوغت پر
+convulsions, puerperal	1	CONVULSIONS, puerperal	زچگی کا
+convulsions, puerperal, with blindness	2	CONVULSIONS, puerperal, with blindness	اندھے پن کے ساتھ
+convulsions, puerperal, with, haemorrhage	2	CONVULSIONS, puerperal, with, haemorrhage	خون بہنے کے ساتھ
+convulsions, punishment, after	1	CONVULSIONS, punishment, after	سزا کے بعد
+convulsions, riding in a carriage amel.	1	CONVULSIONS, riding in a carriage amel.	گاڑی میں بیٹھنے سے آرام
+convulsions, rubbing amel.	1	CONVULSIONS, rubbing amel.	ملنے سے آرام
+convulsions, running, after	1	CONVULSIONS, running, after	دوڑنے کے بعد
+convulsions, sexual excitement, from	1	CONVULSIONS, sexual excitement, from	جنسی جوش سے
+convulsions, shining objects, from	1	CONVULSIONS, shining objects, from	چمکتی چیزوں سے
+convulsions, shocks, after	1	CONVULSIONS, shocks, after	جھٹکوں کے بعد
+convulsions, sleep	1	CONVULSIONS, sleep	نیند
+convulsions, sleep, during	2	CONVULSIONS, sleep, during	=عمومیات — مرگی کے دورے، نیند کے دوران
+convulsions, sleep, after loss of	2	CONVULSIONS, sleep, after loss of	=عمومیات — مرگی کے دورے، نیند نہ آنے کے بعد
+convulsions, small-pox fails to break out, when	1	CONVULSIONS, small-pox fails to break out, when	چیچک نہ نکل سکے
+convulsions, speak, on attempting to	1	CONVULSIONS, speak, on attempting to	بولنے کی کوشش پر
+convulsions, strange person, sight of	1	CONVULSIONS, strange person, sight of	اجنبی کو دیکھنے سے
+convulsions, stretching out parts amel.	1	CONVULSIONS, stretching out parts amel.	حصے پھیلانے سے آرام
+convulsions, stretching, of limbs before convulsions	1	CONVULSIONS, stretching, of limbs before convulsions	دورے سے پہلے اعضا پھیلاؤ
+convulsions, sudden	1	CONVULSIONS, sudden	اچانک
+convulsions, suppressed	1	CONVULSIONS, suppressed	دبے ہوئے
+convulsions, suppressed, eruption	2	CONVULSIONS, suppressed, eruption	دبا ہوا دانہ
+convulsions, suppressed, footsweat, after	2	CONVULSIONS, suppressed, footsweat, after	پاؤں کا پسینہ دب جانے کے بعد
+convulsions, suppressed, milk	2	CONVULSIONS, suppressed, milk	دودھ دب جانا
+convulsions, suppressed, secretions and excretions	2	CONVULSIONS, suppressed, secretions and excretions	اخراجات اور رطوبتیں دب جانا
+convulsions, suppressed discharges	1	CONVULSIONS, suppressed discharges	دبی ہوئی رطوبتیں
+convulsions, suppuration, during	1	CONVULSIONS, suppuration, during	پیپ پڑنے کے دوران
+convulsions, swallow, during attempt to	1	CONVULSIONS, swallow, during attempt to	نگلنے کی کوشش کے دوران
+convulsions, swing, letting legs, excites convulsion	1	CONVULSIONS, swing, letting legs, excites convulsion	ٹانگیں لٹکا کر جھولنے سے دورہ
+convulsions, syphilitic	1	CONVULSIONS, syphilitic	سفلیسی
+convulsions, tetanic rigidity	1	CONVULSIONS, tetanic rigidity	ٹیٹنس کی اکڑن
+convulsions, tetanic rigidity, dashing cold water on face amel.	2	CONVULSIONS, tetanic rigidity, dashing cold water on face amel.	چہرے پر ٹھنڈا پانی مارنے سے آرام
+convulsions, tetanic rigitidy, injured parts become cold as ice and spasms begin in the wound	1	CONVULSIONS, tetanic rigitidy, injured parts become cold as ice and spasms begin in the wound	زخمی حصے برف جیسے ٹھنڈے ہو جائیں اور زخم سے کھنچاؤ شروع ہو
+convulsions, wiping perspiration from face agg.	1	CONVULSIONS, wiping perspiration from face agg.	چہرے کا پسینہ پونچھنے سے بگاڑ
+convulsions, wounds in the soles, finger on palm	1	CONVULSIONS, wounds in the soles, finger on palm	تلووں یا ہتھیلی پر انگلی کے زخم
+convulsions, thunderstorm	1	CONVULSIONS, thunderstorm	آندھی
+convulsions, tight grasp amel.	1	CONVULSIONS, tight grasp amel.	سخت پکڑ سے آرام
+convulsions, tightly binding the body amel.	1	CONVULSIONS, tightly binding the body amel.	جسم سخت باندھنے سے آرام
+convulsions, tonic	1	CONVULSIONS, tonic	اکڑنے والے
+convulsions, touched, when	1	CONVULSIONS, touched, when	چھونے پر
+convulsions, turning the head	1	CONVULSIONS, turning the head	سر موڑنے پر
+convulsions, unjustly accused, after being	1	CONVULSIONS, unjustly accused, after being	ناحق الزام کے بعد
+convulsions, uraemic	1	CONVULSIONS, uraemic	پیشاب کے زہر سے
+convulsions, vaccination, after	1	CONVULSIONS, vaccination, after	ٹیکے کے بعد
+convulsions, vexation, from	1	CONVULSIONS, vexation, from	چڑ سے
+convulsions, vomiting	1	CONVULSIONS, vomiting	قے
+convulsions, vomiting, amel.	2	CONVULSIONS, vomiting, amel.	=عمومیات — مرگی کے دورے، قے سے آرام
+convulsions, vomiting, during agg.	2	CONVULSIONS, vomiting, during agg.	=عمومیات — مرگی کے دورے، قے کے دوران بگاڑ
+convulsions, waking, on	1	CONVULSIONS, waking, on	جاگتے ہی
+convulsions, warm bath agg.	1	CONVULSIONS, warm bath agg.	گرم غسل سے بگاڑ
+convulsions, water, at sight of	1	CONVULSIONS, water, at sight of	پانی دیکھتے ہی
+convulsions, weakness, during nervous	1	CONVULSIONS, weakness, during nervous	عصبی کمزوری کے دوران
+convulsions, wet, from becoming	1	CONVULSIONS, wet, from becoming	بھیگنے سے
+convulsions, worms, from	1	CONVULSIONS, worms, from	کیڑوں سے
+convulsions, yawning	1	CONVULSIONS, yawning	جمائیاں
+convulsive movements	0	CONVULSIVE movements	دورے والی حرکتیں
+copper fumes agg.	0	COPPER fumes agg.	تانبے کے دھوئیں سے بگاڑ
+crawling	0	CRAWLING (See Formication)	رینگنے کا احساس
+crowded room	0	CROWDED room (See Room Full of People)	ہجوم والا کمرہ
+cyanosis	0	CYANOSIS	نیلاہٹ (سائنوسس)
+cyanosis, infants, in	1	CYANOSIS, infants, in	بچوں میں
+descending agg.	0	DESCENDING agg.	اترنے سے بگاڑ
+discharges	0	DISCHARGES (See Different Sections, Ulcers)	رطوبتیں
+distention blood vessels	0	DISTENTION blood vessels	رگوں کا پھیلنا
+distention blood vessels, evening	1	DISTENTION blood vessels, evening	شام
+distention blood vessels, fever, during	1	DISTENTION blood vessels, fever, during	بخار کے دوران
+dropsy	0	DROPSY	ورم
+dropsy, external	1	DROPSY, external	بیرونی
+dropsy, external, morning	2	DROPSY, external, morning	صبح
+dropsy, external, scarlet fever, after	2	DROPSY, external, scarlet fever, after (See Urine, Albumen)	سرخ بخار کے بعد
+dropsy, internal	1	DROPSY, internal	اندرونی
+dry weather agg.	0	DRY weather agg. (See Cold Dry Weather)	خشک موسم میں بگاڑ
+dwarfishness	0	DWARFISHNESS	پست قدی
+eating	0	EATING	کھانا
+eating, before	1	EATING, before	=عمومیات — کھانے سے پہلے
+eating, amel.	1	EATING, amel.	=عمومیات — کھانے سے آرام
+eating, after agg.	1	EATING, after agg.	=عمومیات — کھانے کے بعد بگاڑ
+eating, after, amel.	1	EATING, after, amel.	=عمومیات — کھانے کے بعد آرام
+eating, fast	1	EATING, fast	روزہ
+eating, satiety	1	EATING, satiety	پیٹ بھرنا
+eating, satiety, amel.	2	EATING, satiety, amel.	=عمومیات — کھانا، پیٹ بھرنے سے آرام
+eating, satiety, to agg.	2	EATING, satiety, to agg.	=عمومیات — کھانا، پیٹ بھرنے سے بگاڑ
+eating, while agg.	1	EATING, while agg.	کھاتے وقت بگاڑ
+ebullition of blood	0	EBULLITION of blood (See Orgasm)	خون کا جوش
+electrical storm	0	ELECTRICAL storm (See Storm)	آسمانی بجلی کا طوفان
+emaciation	0	EMACIATION	دبلاپن
+emaciation, affected parts, of	1	EMACIATION, affected parts, of	متاثرہ حصوں کا
+emaciation, certain parts, of	1	EMACIATION, certain parts, of	بعض حصوں کا
+emaciation, children (marasmus)	1	EMACIATION, children (marasmus)	بچوں میں (ماراسمس)
+emaciation, downwards, spreads	1	EMACIATION, downwards, spreads	نیچے کی طرف پھیلے
+emaciation, grief, after	1	EMACIATION, grief, after	غم کے بعد
+emaciation, insanity, with	1	EMACIATION, insanity, with	جنون کے ساتھ
+emaciation, loss of animal fluids	1	EMACIATION, loss of animal fluids	جسمانی رطوبتوں کے نقصان سے
+emaciation, old people	1	EMACIATION, old people	بوڑھے
+emaciation, pining boys	1	EMACIATION, pining boys	مرجھاتے ہوئے لڑکے
+emaciation, upwards	1	EMACIATION, upwards	اوپر کی طرف
+emissions agg.	0	EMISSIONS agg.	منی کے اخراج سے بگاڑ
+eructations amel.	0	ERUCTATIONS amel. (See Stomach, Eructations)	ڈکار سے آرام
+evening agg.	0	EVENING agg.	شام بگاڑ
+exertion	0	EXERTION	محنت
+exertion, physical	1	EXERTION, physical	جسمانی
+exertion, physical, agg.	2	EXERTION, physical, agg.	=عمومیات — محنت، جسمانی محنت سے بگاڑ
+exertion, physical, amel.	2	EXERTION, physical, amel.	=عمومیات — محنت، جسمانی محنت سے آرام
+exostoses	0	EXOSTOSES	ہڈی کے ابھار
+expansion	0	EXPANSION (See Swollen)	پھیلاؤ
+faintness	0	FAINTNESS	غشی
+faintness, morning	1	FAINTNESS, morning	صبح
+faintness, morning, air, in open	2	FAINTNESS, morning, air, in open	کھلی ہوا میں
+faintness, morning, eating	2	FAINTNESS, morning, eating	کھانا
+faintness, morning, eating, before	3	FAINTNESS, morning, eating, before	=عمومیات — غشی، صبح، کھانے سے پہلے
+faintness, morning, eating, amel.	3	FAINTNESS, morning, eating, amel.	=عمومیات — غشی، صبح، کھانے سے آرام
+faintness, morning, eating, during agg.	3	FAINTNESS, morning, eating, during agg.	کھاتے وقت بگاڑ
+faintness, morning, house, on entering	2	FAINTNESS, morning, house, on entering	گھر میں داخل ہوتے ہی
+faintness, morning, rising	2	FAINTNESS, morning, rising	اٹھنا
+faintness, morning, rising, on	3	FAINTNESS, morning, rising, on	اٹھتے ہی
+faintness, morning, rising, quickly from stooping or turning head quickly	3	FAINTNESS, morning, rising, quickly from stooping or turning head quickly	جھک کر یا سر تیزی سے موڑ کر اٹھنے پر
+faintness, morning, stool, during	2	FAINTNESS, morning, stool, during	پاخانے کے دوران
+faintness, morning, 7 a.m.	2	FAINTNESS, morning, 7 a.m.	=عمومیات — غشی، صبح 7 بجے
+faintness, morning, 8 a.m. to 9 a.m.	2	FAINTNESS, morning, 8 a.m. to 9 a.m.	=عمومیات — غشی، صبح 8 سے 9 بجے
+faintness, forenoon	1	FAINTNESS, forenoon	دوپہر سے پہلے
+faintness, forenoon, standing erect, on	2	FAINTNESS, forenoon, standing erect, on	سیدھے کھڑے ہونے پر
+faintness, forenoon, walking in open air	2	FAINTNESS, forenoon, walking in open air	کھلی ہوا میں چلنے پر
+faintness, forenoon, 11 a.m.	2	FAINTNESS, forenoon, 11 a.m.	صبح 11 بجے
+faintness, noon	1	FAINTNESS, noon	دوپہر
+faintness, afternoon	1	FAINTNESS, afternoon	سہ پہر
+faintness, afternoon, 1 p.m.	2	FAINTNESS, afternoon, 1 p.m.	=عمومیات — غشی، سہ پہر 1 بجے
+faintness, afternoon, 2 p.m. after chill	2	FAINTNESS, afternoon, 2 p.m. after chill	سردی کے بعد سہ پہر 2 بجے
+faintness, evening	1	FAINTNESS, evening	شام
+faintness, evening, cardiac depression, from	2	FAINTNESS, evening, cardiac depression, from	دل کی کمزوری سے
+faintness, evening, exertion, on	2	FAINTNESS, evening, exertion, on	محنت پر
+faintness, evening, undressing, on	2	FAINTNESS, evening, undressing, on	کپڑے اتارتے وقت
+faintness, evening, 5-30 p.m.	2	FAINTNESS, evening, 5-30 p.m.	=عمومیات — غشی، شام 5:30
+faintness, evening, 6 p.m.	2	FAINTNESS, evening, 6 p.m.	=عمومیات — غشی، شام 6 بجے
+faintness, evening, 7 p.m.	2	FAINTNESS, evening, 7 p.m.	=عمومیات — غشی، شام 7 بجے
+faintness, evening, 8 p.m. to 9 p.m.	2	FAINTNESS, evening, 8 p.m. to 9 p.m.	=عمومیات — غشی، شام 8 سے 9 بجے
+faintness, evening, 9 p.m.	2	FAINTNESS, evening, 9 p.m.	رات 9 بجے
+faintness, night	1	FAINTNESS, night	رات
+faintness, night, midnight	2	FAINTNESS, night, midnight	آدھی رات
+faintness, night, 3 a.m.	2	FAINTNESS, night, 3 a.m.	=عمومیات — غشی، رات 3 بجے
+faintness, after-pain, after every	1	FAINTNESS, after-pain, after every	ہر درد کے بعد
+faintness, anger, after	1	FAINTNESS, anger, after	غصے کے بعد
+faintness, ascending hill, on	1	FAINTNESS, ascending hill, on	پہاڑی چڑھتے وقت
+faintness, ascending, stairs	1	FAINTNESS, ascending, stairs	سیڑھیاں چڑھتے وقت
+faintness, bed, in	1	FAINTNESS, bed, in	بستر میں
+faintness, blood, at sight of	1	FAINTNESS, blood, at sight of	خون دیکھنے سے
+faintness, breakfast, after	1	FAINTNESS, breakfast, after	ناشتے کے بعد
+faintness, breath, deep, amel.	1	FAINTNESS, breath, deep, amel.	گہری سانس سے آرام
+faintness, chill, during	1	FAINTNESS, chill, during	سردی کے دوران
+faintness, church, in	1	FAINTNESS, church, in (See Crowded room)	گرجا میں
+faintness, close room, in	1	FAINTNESS, close room, in	بند کمرے میں
+faintness, coition, after	1	FAINTNESS, coition, after	ہم بستری کے بعد
+faintness, cold	1	FAINTNESS, cold	ٹھنڈک
+faintness, cold, from taking	2	FAINTNESS, cold, from taking	سردی لگنے سے
+faintness, cold, water amel.	2	FAINTNESS, cold, water amel.	ٹھنڈے پانی سے آرام
+faintness, cold, weather	2	FAINTNESS, cold, weather	ٹھنڈا موسم
+faintness, constriction of chest	1	FAINTNESS, constriction of chest	سینے کا کھنچاؤ
+faintness, cough, during	1	FAINTNESS, cough, during	کھانسی کے دوران
+faintness, crowded room, in	1	FAINTNESS, crowded room, in	ہجوم والے کمرے میں
+faintness, crowded, street	1	FAINTNESS, crowded, street	ہجوم والی سڑک
+faintness, dark places, in	1	FAINTNESS, dark places, in	اندھیری جگہوں میں
+faintness, diarrhoea	1	FAINTNESS, diarrhoea	دست
+faintness, diarrhoea, before	2	FAINTNESS, diarrhoea, before	=عمومیات — غشی، دست سے پہلے
+faintness, diarrhoea, after	2	FAINTNESS, diarrhoea, after	=عمومیات — غشی، دست کے بعد
+faintness, dinner	1	FAINTNESS, dinner	کھانا
+faintness, dinner, during	2	FAINTNESS, dinner, during	=عمومیات — غشی، کھانے کے دوران
+faintness, dinner, after, when taking exercise in open air	2	FAINTNESS, dinner, after, when taking exercise in open air	=عمومیات — غشی، کھانے کے بعد کھلی ہوا میں ورزش پر
+faintness, discouraged, when	1	FAINTNESS, discouraged, when	دل بیٹھنے پر
+faintness, drowsy	1	FAINTNESS, drowsy	اونگھ کے ساتھ
+faintness, drug, on thinking of	1	FAINTNESS, drug, on thinking of	دوا کا خیال آنے پر
+faintness, eating	1	FAINTNESS, eating	کھانا
+faintness, eating, before	2	FAINTNESS, eating, before	=عمومیات — غشی، کھانے سے پہلے
+faintness, eating, after	2	FAINTNESS, eating, after	=عمومیات — غشی، کھانے کے بعد
+faintness, egg, on smelling freshly beaten	1	FAINTNESS, egg, on smelling freshly beaten	تازہ پھینٹے انڈے کی بو سے
+faintness, emission, after	1	FAINTNESS, emission, after	منی کے اخراج کے بعد
+faintness, eructation	1	FAINTNESS, eructation	ڈکار
+faintness, eructation, after	2	FAINTNESS, eructation, after	=عمومیات — غشی، ڈکار کے بعد
+faintness, eructation, amel.	2	FAINTNESS, eructation, amel.	=عمومیات — غشی، ڈکار سے آرام
+faintness, excitement, on	1	FAINTNESS, excitement, on	جوش پر
+faintness, exertion, on	1	FAINTNESS, exertion, on	محنت پر
+faintness, fever, during	1	FAINTNESS, fever, during	بخار کے دوران
+faintness, frequent	1	FAINTNESS, frequent	بار بار
+faintness, fright, after	1	FAINTNESS, fright, after	ڈر کے بعد
+faintness, fruit, acid, amel.	1	FAINTNESS, fruit, acid, amel.	کھٹے پھل سے آرام
+faintness, headache, during	1	FAINTNESS, headache, during	سر درد کے دوران
+faintness, heart, pressure about, with	1	FAINTNESS, heart, pressure about, with	دل پر دباؤ کے ساتھ
+faintness, heat then coldness, with	1	FAINTNESS, heat then coldness, with	پہلے گرمی پھر ٹھنڈک
+faintness, hunger, from	1	FAINTNESS, hunger, from	بھوک سے
+faintness, hysterical	1	FAINTNESS, hysterical	ہیستریائی
+faintness, kneeling in church, while	1	FAINTNESS, kneeling in church, while	گرجا میں گھٹنے ٹیکتے وقت
+faintness, labor, during	1	FAINTNESS, labor, during	دردِ زچگی کے دوران
+faintness, lights, from being in a room with many	1	FAINTNESS, lights, from being in a room with many	زیادہ روشنی والے کمرے میں
+faintness, looking steadily at any object directly before eye	1	FAINTNESS, looking steadily at any object directly before eye	سامنے کسی چیز کو ٹکٹکی باندھ کر دیکھنے پر
+faintness, loss of fluids, from	1	FAINTNESS, loss of fluids, from	رطوبتوں کے نقصان سے
+faintness, lying	1	FAINTNESS, lying	لیٹنا
+faintness, lying, amel.	2	FAINTNESS, lying, amel.	=عمومیات — غشی، لیٹنے سے آرام
+faintness, lying, after	2	FAINTNESS, lying, after	=عمومیات — غشی، لیٹنے کے بعد
+faintness, lying, on the side, while	2	FAINTNESS, lying, on the side, while	کروٹ لیٹتے وقت
+faintness, lying, while agg.	2	FAINTNESS, lying, while agg.	لیٹتے وقت بگاڑ
+faintness, meditating, while	1	FAINTNESS, meditating, while	غور کرتے وقت
+faintness, menses	1	FAINTNESS, menses	حیض
+faintness, menses, before	2	FAINTNESS, menses, before	=عمومیات — غشی، حیض سے پہلے
+faintness, menses, from pain	2	FAINTNESS, menses, from pain	=عمومیات — غشی، حیض کے درد سے
+faintness, menses, during	2	FAINTNESS, menses, during	=عمومیات — غشی، حیض کے دوران
+faintness, menses, after	2	FAINTNESS, menses, after	=عمومیات — غشی، حیض کے بعد
+faintness, moving	1	FAINTNESS, moving	حرکت
+faintness, moving, amel.	2	FAINTNESS, moving, amel.	=عمومیات — غشی، حرکت سے آرام
+faintness, moving, on agg.	2	FAINTNESS, moving, on agg.	=عمومیات — غشی، حرکت کرنے پر بگاڑ
+faintness, moving, quickly	2	FAINTNESS, moving, quickly	تیز حرکت
+faintness, music, on hearing	1	FAINTNESS, music, on hearing	موسیقی سننے پر
+faintness, noise	1	FAINTNESS, noise	شور
+faintness, odors	1	FAINTNESS, odors	بوئیں
+faintness, odors, from	2	FAINTNESS, odors, from	بو سے
+faintness, odors, of cooking food, from	2	FAINTNESS, odors, of cooking food, from	کھانا پکنے کی بو سے
+faintness, odors, of fish	2	FAINTNESS, odors, of fish	مچھلی کی بو
+faintness, odors, of flowers	2	FAINTNESS, odors, of flowers	پھولوں کی بو
+faintness, pain, from	1	FAINTNESS, pain, from	درد سے
+faintness, pain, from, abdomen, in	2	FAINTNESS, pain, from, abdomen, in	پیٹ کے درد سے
+faintness, pain, from, heart, in	2	FAINTNESS, pain, from, heart, in	دل کے درد سے
+faintness, pain, from, stomach	2	FAINTNESS, pain, from, stomach	معدے کے درد سے
+faintness, pain, from, teeth, in	2	FAINTNESS, pain, from, teeth, in	دانت کے درد سے
+faintness, palpitation, during	1	FAINTNESS, palpitation, during	دھڑکن کے دوران
+faintness, periodical	1	FAINTNESS, periodical	وقفوں والا
+faintness, perspiration, during	1	FAINTNESS, perspiration, during	پسینے کے دوران
+faintness, pregnancy	1	FAINTNESS, pregnancy	حمل
+faintness, prolonged	1	FAINTNESS, prolonged	طویل
+faintness, raising arms above head	1	FAINTNESS, raising arms above head	بازو سر سے اوپر اٹھانے پر
+faintness, raising, the head	1	FAINTNESS, raising, the head	سر اٹھانے پر
+faintness, read, when attempting to, while standing	1	FAINTNESS, read, when attempting to, while standing	کھڑے ہو کر پڑھنے کی کوشش پر
+faintness, reading, after	1	FAINTNESS, reading, after	پڑھنے کے بعد
+faintness, riding, while	1	FAINTNESS, riding, while	سواری کے دوران
+faintness, rising	1	FAINTNESS, rising	اٹھنا
+faintness, rising, on	2	FAINTNESS, rising, on	اٹھتے ہی
+faintness, rising, from bed, on	2	FAINTNESS, rising, from bed, on	بستر سے اٹھتے ہی
+faintness, rising, from, seat	2	FAINTNESS, rising, from, seat	نشست سے اٹھتے ہی
+faintness, running up stairs	1	FAINTNESS, running up stairs	سیڑھیاں دوڑ کر چڑھنے پر
+faintness, sitting	1	FAINTNESS, sitting	بیٹھنا
+faintness, sitting, while	2	FAINTNESS, sitting, while	بیٹھتے وقت
+faintness, sitting, up, from	2	FAINTNESS, sitting, up, from	=عمومیات — غشی، بیٹھنے سے
+faintness, sitting, up, from, suddenly	3	FAINTNESS, sitting, up, from, suddenly	=عمومیات — غشی، بیٹھنے سے، اچانک بیٹھنے سے
+faintness, sleeping on left side	1	FAINTNESS, sleeping on left side	بائیں کروٹ سونے پر
+faintness, smoking, on	1	FAINTNESS, smoking, on	تمباکو نوشی پر
+faintness, speaking, from	1	FAINTNESS, speaking, from	بولنے سے
+faintness, standing	1	FAINTNESS, standing	کھڑا ہونا
+faintness, standing, while	2	FAINTNESS, standing, while	کھڑے رہتے وقت
+faintness, standing, in church during menses	2	FAINTNESS, standing, in church during menses	حیض میں گرجا میں کھڑے رہنے پر
+faintness, stomach, sensation of something rising from	1	FAINTNESS, stomach, sensation of something rising from	جیسے معدے سے کچھ اوپر چڑھے
+faintness, stool	1	FAINTNESS, stool	پاخانہ
+faintness, stool, before	2	FAINTNESS, stool, before	=عمومیات — غشی، پاخانے سے پہلے
+faintness, stool, during	2	FAINTNESS, stool, during	=عمومیات — غشی، پاخانے کے دوران
+faintness, stool, after	2	FAINTNESS, stool, after	=عمومیات — غشی، پاخانے کے بعد
+faintness, stool, from odor of	2	FAINTNESS, stool, from odor of	=عمومیات — غشی، پاخانے کی بو سے
+faintness, stool, urging, from	2	FAINTNESS, stool, urging, from	=عمومیات — غشی، پاخانے کے زور سے
+faintness, stooping, on	1	FAINTNESS, stooping, on	جھکنے پر
+faintness, sudden	1	FAINTNESS, sudden	اچانک
+faintness, summer heat, from	1	FAINTNESS, summer heat, from	گرمیوں کی گرمی سے
+faintness, temples, on rubbing with both hands	1	FAINTNESS, temples, on rubbing with both hands	دونوں ہاتھوں سے کنپٹیاں ملنے پر
+faintness, thunderstorm, before	1	FAINTNESS, thunderstorm, before	آندھی سے پہلے
+faintness, trifles, from	1	FAINTNESS, trifles, from	معمولی باتوں سے
+faintness, turning the head, on	1	FAINTNESS, turning the head, on	سر موڑنے پر
+faintness, urinating, after	1	FAINTNESS, urinating, after	پیشاب کے بعد
+faintness, vomiting, after	1	FAINTNESS, vomiting, after	قے کے بعد
+faintness, waking, on	1	FAINTNESS, waking, on	جاگتے ہی
+faintness, waking, on, if sleeping on left side	2	FAINTNESS, waking, on, if sleeping on left side	بائیں کروٹ سویا ہو تو جاگتے ہی
+faintness, walking	1	FAINTNESS, walking	چلنا
+faintness, walking, while	2	FAINTNESS, walking, while	چلتے وقت
+faintness, walking, after	2	FAINTNESS, walking, after	=عمومیات — غشی، چلنے کے بعد
+faintness, walking, continuing amel.	2	FAINTNESS, walking, continuing amel.	چلتے رہنے سے آرام
+faintness, walking, in	2	FAINTNESS, walking, in	=عمومیات — غشی، چلنے میں
+faintness, walking, in, open air, after	3	FAINTNESS, walking, in, open air, after	=عمومیات — غشی، چلنے میں، کھلی ہوا میں چلنے کے بعد
+faintness, walking, in, open, air, rapidly amel.	3	FAINTNESS, walking, in, open, air, rapidly amel.	=عمومیات — غشی، چلنے میں، کھلی ہوا میں تیز چلنے سے آرام
+faintness, walking, in open air	2	FAINTNESS, walking, in open air	کھلی ہوا میں چلنا
+faintness, warm bath	1	FAINTNESS, warm bath	گرم غسل
+faintness, warm room	1	FAINTNESS, warm room	گرم کمرہ
+faintness, wet, after getting	1	FAINTNESS, wet, after getting	بھیگنے کے بعد
+faintness, wounds, from slight	1	FAINTNESS, wounds, from slight	ہلکے زخموں سے
+faintness, writing, after	1	FAINTNESS, writing, after	لکھنے کے بعد
+faintness, fainting	1	FAINTNESS, fainting	بے ہوش ہونا
+fasting	0	FASTING	روزہ
+fasting, while	1	FASTING, while	=عمومیات — روزے کے دوران
+fat people	0	FAT people (See Obesity)	موٹے لوگ
+feather-bed agg.	0	FEATHER-BED agg.	روئی کے بستر سے بگاڑ
+feels as if she could feel every muscle and fibre of her right side	0	FEELS as if she could feel every muscle and fibre of her right side	جیسے دائیں طرف کا ہر پٹھا اور ریشہ محسوس ہو
+fistulae of glands	0	FISTULAE of glands	غدودوں کے ناصور
+flabby	0	FLABBY	ڈھیلا پن
+flabby, hard parts, in	1	FLABBY, hard parts, in	سخت حصوں میں
+flabby, internally	1	FLABBY, internally	اندرونی
+flabby feeling	0	FLABBY feeling	ڈھیلا پن کا احساس
+fluids	0	FLUIDS (See Loss of Fluids)	رطوبتیں
+foggy weather agg.	0	FOGGY weather agg.	دھند والے موسم میں بگاڑ
+food	0	FOOD	غذا
+food, bacon, amel.	1	FOOD, bacon, amel.	نمکین گوشت سے آرام
+food, beans and peas agg.	1	FOOD, beans and peas agg.	لوبیا اور مٹر سے بگاڑ
+food, beer agg.	1	FOOD, beer agg.	بیئر سے بگاڑ
+food, bread	1	FOOD, bread	روٹی
+food, bread, black, agg.	2	FOOD, bread, black, agg.	کالی روٹی سے بگاڑ
+food, bread, butter, and, agg.	2	FOOD, bread, butter, and, agg.	=عمومیات — غذا، روٹی اور مکھن سے بگاڑ
+food, bread agg.	1	FOOD, bread agg.	روٹی سے بگاڑ
+food, buckwheat agg.	1	FOOD, buckwheat agg.	بک وہیٹ سے بگاڑ
+food, butter agg.	1	FOOD, butter agg.	مکھن سے بگاڑ
+food, cabbage agg.	1	FOOD, cabbage agg.	بند گوبھی سے بگاڑ
+food, carrots agg.	1	FOOD, carrots agg.	گاجر سے بگاڑ
+food, cheese, old agg.	1	FOOD, cheese, old agg.	پرانے پنیر سے بگاڑ
+food, coffee	1	FOOD, coffee	کافی
+food, coffee, amel.	2	FOOD, coffee, amel.	=عمومیات — غذا، کافی سے آرام
+food, coffee, odor of, agg.	2	FOOD, coffee, odor of, agg.	=عمومیات — غذا، کافی کی بو سے بگاڑ
+food, coffee agg.	1	FOOD, coffee agg.	کافی سے بگاڑ
+food, cold drinks	1	FOOD, cold drinks	ٹھنڈے مشروبات
+food, cold drinks, amel.	2	FOOD, cold drinks, amel.	=عمومیات — غذا، ٹھنڈے مشروبات سے آرام
+food, cold drinks, heated, when	2	FOOD, cold drinks, heated, when	گرم ہونے پر
+food, cold drinks, hot weather, in	2	FOOD, cold drinks, hot weather, in	گرم موسم میں
+food, cold drinks agg.	1	FOOD, cold drinks agg.	ٹھنڈے مشروبات سے بگاڑ
+food, cold food agg.	1	FOOD, cold food agg.	ٹھنڈی غذا سے بگاڑ
+food, corn meal agg.	1	FOOD, corn meal agg.	مکئی کے آٹے سے بگاڑ
+food, dry food agg.	1	FOOD, dry food agg.	خشک غذا سے بگاڑ
+food, eggs agg.	1	FOOD, eggs agg.	انڈوں سے بگاڑ
+food, eggs, odor of, agg.	1	FOOD, eggs, odor of, agg.	انڈوں کی بو سے بگاڑ
+food, farinaceous food agg.	1	FOOD, farinaceous food agg.	نشاستے والی غذا سے بگاڑ
+food, fat agg.	1	FOOD, fat agg.	چکنائی سے بگاڑ
+food, fish	1	FOOD, fish	مچھلی
+food, fish, shell, agg.	2	FOOD, fish, shell, agg.	صدفی مچھلی سے بگاڑ
+food, fish, spoiled, agg.	2	FOOD, fish, spoiled, agg.	خراب مچھلی سے بگاڑ
+food, fish agg.	1	FOOD, fish agg.	مچھلی سے بگاڑ
+food, flatulent food agg.	1	FOOD, flatulent food agg.	گیس بنانے والی غذا سے بگاڑ
+food, frozen agg.	1	FOOD, frozen agg.	منجمد غذا سے بگاڑ
+food, fruit	1	FOOD, fruit	پھل
+food, fruit, amel.	2	FOOD, fruit, amel.	=عمومیات — غذا، پھل سے آرام
+food, fruit, sour	2	FOOD, fruit, sour	کھٹے پھل
+food, fruit agg.	1	FOOD, fruit agg.	پھل سے بگاڑ
+food, heavy agg.	1	FOOD, heavy agg.	بھاری غذا سے بگاڑ
+food, honey agg.	1	FOOD, honey agg.	شہد سے بگاڑ
+food, hot agg.	1	FOOD, hot agg.	گرم غذا سے بگاڑ
+food, hot agg., amel.	2	FOOD, hot agg., amel. (See Cold food)	ٹھنڈی سے آرام
+food, lemonade agg.	1	FOOD, lemonade agg.	لیموں پانی سے بگاڑ
+food, meat	1	FOOD, meat	گوشت
+food, meat, bad, agg.	2	FOOD, meat, bad, agg.	خراب گوشت سے بگاڑ
+food, meat, fresh, agg.	2	FOOD, meat, fresh, agg.	تازہ گوشت سے بگاڑ
+food, meat, odor of cooking, agg.	2	FOOD, meat, odor of cooking, agg.	=عمومیات — غذا، گوشت پکنے کی بو سے بگاڑ
+food, meat agg.	1	FOOD, meat agg.	گوشت سے بگاڑ
+food, milk	1	FOOD, milk	دودھ
+food, milk, amel.	2	FOOD, milk, amel.	=عمومیات — غذا، دودھ سے آرام
+food, milk, warm agg.	2	FOOD, milk, warm agg.	گرم دودھ سے بگاڑ
+food, milk, warm, amel.	2	FOOD, milk, warm, amel.	گرم دودھ سے آرام
+food, milk agg.	1	FOOD, milk agg.	دودھ سے بگاڑ
+food, mutton agg.	1	FOOD, mutton agg.	بھیڑ کے گوشت سے بگاڑ
+food, onions agg.	1	FOOD, onions agg.	پیاز سے بگاڑ
+food, oysters agg.	1	FOOD, oysters agg.	سیپ سے بگاڑ
+food, pancakes agg.	1	FOOD, pancakes agg.	پین کیک سے بگاڑ
+food, pastry agg.	1	FOOD, pastry agg.	پیسٹری سے بگاڑ
+food, peaches, after	1	FOOD, peaches, after	آڑو کے بعد
+food, pears agg.	1	FOOD, pears agg.	ناشپاتی سے بگاڑ
+food, pepper agg.	1	FOOD, pepper agg.	مرچ سے بگاڑ
+food, pork agg.	1	FOOD, pork agg.	سور کے گوشت سے بگاڑ
+food, raw, agg.	1	FOOD, raw, agg.	کچی غذا سے بگاڑ
+food, agg.	1	FOOD, agg.	بگاڑ
+food, rich, agg.	1	FOOD, rich, agg.	لذیذ غذا سے بگاڑ
+food, salad agg.	1	FOOD, salad agg.	سلاد سے بگاڑ
+food, salt agg.	1	FOOD, salt agg.	نمک سے بگاڑ
+food, sauerkraut agg.	1	FOOD, sauerkraut agg.	کھٹی بند گوبھی سے بگاڑ
+food, sausages, spoiled, agg.	1	FOOD, sausages, spoiled, agg.	خراب ساسیج سے بگاڑ
+food, sight of, agg.	1	FOOD, sight of, agg.	=عمومیات — غذا دیکھنے سے بگاڑ
+food, smell of, agg.	1	FOOD, smell of, agg.	=عمومیات — غذا کی بو سے بگاڑ
+food, smoked food agg.	1	FOOD, smoked food agg.	دھوئیں والی غذا سے بگاڑ
+food, sour agg.	1	FOOD, sour agg.	کھٹی غذا سے بگاڑ
+food, sour, odors agg.	1	FOOD, sour, odors agg.	کھٹی بو سے بگاڑ
+food, spices agg.	1	FOOD, spices agg.	مصالحوں سے بگاڑ
+food, strawberries agg.	1	FOOD, strawberries agg.	اسٹرابیری سے بگاڑ
+food, sweets agg.	1	FOOD, sweets agg.	مٹھائی سے بگاڑ
+food, tea agg.	1	FOOD, tea agg.	چائے سے بگاڑ
+food, tea, amel.	1	FOOD, tea, amel.	چائے سے آرام
+food, turnips agg.	1	FOOD, turnips agg.	شلجم سے بگاڑ
+food, veal agg.	1	FOOD, veal agg.	بچھڑے کے گوشت سے بگاڑ
+food, vegetables (green) agg.	1	FOOD, vegetables (green) agg.	سبز سبزیوں سے بگاڑ
+food, vinegar agg.	1	FOOD, vinegar agg.	سرکہ سے بگاڑ
+food, vinegar, amel.	1	FOOD, vinegar, amel.	سرکہ سے آرام
+food, warm drinks amel.	1	FOOD, warm drinks amel.	گرم مشروبات سے آرام
+food, warm food agg.	1	FOOD, warm food agg.	گرم غذا سے بگاڑ
+foreign bodies	0	FOREIGN bodies	اجنبی جسم
+foreign bodies, sensation as if small foreign bodies or grains of sand were under the skin	1	FOREIGN bodies, sensation as if small foreign bodies or grains of sand were under the skin	جیسے جلد کے نیچے ریت کے ذرے یا اجنبی چیزیں ہوں
+forenoon agg.	0	FORENOON agg.	دوپہر سے پہلے بگاڑ
+formication	0	FORMICATION	چیونٹیاں رینگنے کا احساس
+formication, external parts	1	FORMICATION, external parts	بیرونی حصوں میں
+formication, painful sensation of crawling through whole body if he knocks against any part	1	FORMICATION, painful sensation of crawling through whole body if he knocks against any part	کسی حصے سے ٹکرا جائے تو سارے جسم میں دردناک رینگنے کا احساس
+formication, internally	1	FORMICATION, internally	اندرونی
+formication, bones	1	FORMICATION, bones	ہڈیوں میں
+formication, glands	1	FORMICATION, glands	غدودوں میں
+frail	0	FRAIL	کمزور
+frail, as if body were	1	FRAIL, as if body were	جیسے جسم کمزور ہو
+full feeling	0	FULL feeling	بھرے ہونے کا احساس
+full feeling, internally	1	FULL feeling, internally	اندرونی
+full feeling externally	0	FULL feeling externally	بیرونی
+gangrene	0	GANGRENE (See Inflammation, Blackness)	گلنا (گینگرین)
+glanders	0	GLANDERS	گلینڈرز (گھوڑوں کا مرض)
+gonorrhoea	0	GONORRHOEA	سوزاک
+gonorrhoea, suppressed	1	GONORRHOEA, suppressed	دبایا ہوا
+haemorrhage	0	HAEMORRHAGE	خون بہنا
+haemorrhage, amel.	1	HAEMORRHAGE, amel.	=عمومیات — خون بہنے سے آرام
+haemorrhage, blood does not coagulate	1	HAEMORRHAGE, blood does not coagulate	خون نہ جمے
+haemorrhage, exertion, after	1	HAEMORRHAGE, exertion, after	محنت کے بعد
+haemorrhage, orifices of the body, from	1	HAEMORRHAGE, orifices of the body, from	جسم کے سوراخوں سے
+haemorrhage agg.	0	HAEMORRHAGE agg.	خون بہنے سے بگاڑ
+hair	0	HAIR	بال
+hair, sensation of a	1	HAIR, sensation of a	=عمومیات — بال کا احساس
+hand	0	HAND	ہاتھ
+hand, laying, on part amel.	1	HAND, laying, on part amel.	حصے پر ہاتھ رکھنے سے آرام
+hard bed	0	HARD bed	سخت بستر
+hard bed, sensation of	1	HARD bed, sensation of	=عمومیات — سخت بستر کا احساس
+hardness	0	HARDNESS (See Induration)	سختی
+heat	0	HEAT	گرمی
+heat, sensation of	1	HEAT, sensation of	=عمومیات — گرمی کا احساس
+heat, sensation of, evening in bed	2	HEAT, sensation of, evening in bed	=عمومیات — گرمی کا احساس، شام، بستر میں
+heat, sensation of, night	2	HEAT, sensation of, night	=عمومیات — گرمی کا احساس، رات
+heat, sensation of, eating warm food	2	HEAT, sensation of, eating warm food	=عمومیات — گرمی کا احساس، گرم غذا کھانے پر
+heat, sensation of, exertion, on	2	HEAT, sensation of, exertion, on	=عمومیات — گرمی کا احساس، محنت پر
+heat, sensation of, waking, on	2	HEAT, sensation of, waking, on	=عمومیات — گرمی کا احساس، جاگتے ہی
+heat, sensation of, blood vessels, in	2	HEAT, sensation of, blood vessels, in	=عمومیات — گرمی کا احساس، رگوں میں
+heat, vital, lack of	1	HEAT, vital, lack of	حرارتِ فطری کی کمی
+heat, vital, lack of, during exercise	2	HEAT, vital, lack of, during exercise	ورزش کے دوران
+heat, vital, lack of, walking, after	2	HEAT, vital, lack of, walking, after	چلنے کے بعد
+heat, vital, lack of, warm covering does not amel.	2	HEAT, vital, lack of, warm covering does not amel.	گرم لحاف سے آرام نہیں
+heat, flushes of	1	HEAT, flushes of	=عمومیات — گرمی کے جھونکے
+heat, flushes of, morning	2	HEAT, flushes of, morning	=عمومیات — گرمی کے جھونکے، صبح
+heat, flushes of, morning, eating, after	3	HEAT, flushes of, morning, eating, after	=عمومیات — گرمی کے جھونکے، صبح، کھانے کے بعد
+heat, flushes of, afternoon	2	HEAT, flushes of, afternoon	=عمومیات — گرمی کے جھونکے، سہ پہر
+heat, flushes of, afternoon, dinner, during	3	HEAT, flushes of, afternoon, dinner, during	=عمومیات — گرمی کے جھونکے، سہ پہر، کھانے کے دوران
+heat, flushes of, evening	2	HEAT, flushes of, evening	=عمومیات — گرمی کے جھونکے، شام
+heat, flushes of, evening, 8 p.m., with nausea	3	HEAT, flushes of, evening, 8 p.m., with nausea	=عمومیات — گرمی کے جھونکے، شام 8 بجے، متلی کے ساتھ
+heat, flushes of, evening, 8-30 p.m.	3	HEAT, flushes of, evening, 8-30 p.m.	=عمومیات — گرمی کے جھونکے، شام 8:30
+heat, flushes of, evening, eating, after	3	HEAT, flushes of, evening, eating, after	=عمومیات — گرمی کے جھونکے، شام، کھانے کے بعد
+heat, flushes of, evening, falling asleep, before	3	HEAT, flushes of, evening, falling asleep, before	=عمومیات — گرمی کے جھونکے، شام، سونے سے پہلے
+heat, flushes of, night	2	HEAT, flushes of, night	=عمومیات — گرمی کے جھونکے، رات
+heat, flushes of, night, 3 a.m. feeling as if sweat would break out	3	HEAT, flushes of, night, 3 a.m. feeling as if sweat would break out	=عمومیات — گرمی کے جھونکے، رات 3 بجے، جیسے پسینہ نکلنے والا ہو
+heat, flushes of, alternating with chills	2	HEAT, flushes of, alternating with chills	=عمومیات — گرمی کے جھونکے، سردی سے باری باری
+heat, flushes of, anger, after	2	HEAT, flushes of, anger, after	=عمومیات — گرمی کے جھونکے، غصے کے بعد
+heat, flushes of, chilliness, with	2	HEAT, flushes of, chilliness, with	=عمومیات — گرمی کے جھونکے، ٹھنڈک کے ساتھ
+heat, flushes of, downward	2	HEAT, flushes of, downward	=عمومیات — گرمی کے جھونکے، نیچے کی طرف
+heat, flushes of, downward, head to stomach	3	HEAT, flushes of, downward, head to stomach	=عمومیات — گرمی کے جھونکے، نیچے کی طرف، سر سے معدے تک
+heat, flushes of, eating	2	HEAT, flushes of, eating	=عمومیات — گرمی کے جھونکے، کھانا
+heat, flushes of, eating, after	3	HEAT, flushes of, eating, after	=عمومیات — گرمی کے جھونکے، کھانے کے بعد
+heat, flushes of, eating, while	3	HEAT, flushes of, eating, while	=عمومیات — گرمی کے جھونکے، کھانا، کھاتے وقت
+heat, flushes of, emotions, from	2	HEAT, flushes of, emotions, from	=عمومیات — گرمی کے جھونکے، جذبات سے
+heat, flushes of, exertion, from least	2	HEAT, flushes of, exertion, from least	=عمومیات — گرمی کے جھونکے، ذرا سی محنت سے
+heat, flushes of, followed by chill	2	HEAT, flushes of, followed by chill	=عمومیات — گرمی کے جھونکے، پیچھے سردی آئے
+heat, flushes of, menses	2	HEAT, flushes of, menses	=عمومیات — گرمی کے جھونکے، حیض
+heat, flushes of, menses, before	3	HEAT, flushes of, menses, before	=عمومیات — گرمی کے جھونکے، حیض سے پہلے
+heat, flushes of, menses, during	3	HEAT, flushes of, menses, during	=عمومیات — گرمی کے جھونکے، حیض کے دوران
+heat, flushes of, mental exertion, after	2	HEAT, flushes of, mental exertion, after	=عمومیات — گرمی کے جھونکے، ذہنی محنت کے بعد
+heat, flushes of, motion	2	HEAT, flushes of, motion	=عمومیات — گرمی کے جھونکے، حرکت
+heat, flushes of, palpitation, with	2	HEAT, flushes of, palpitation, with	=عمومیات — گرمی کے جھونکے، دھڑکن کے ساتھ
+heat, flushes of, perspiration, with	2	HEAT, flushes of, perspiration, with	=عمومیات — گرمی کے جھونکے، پسینے کے ساتھ
+heat, flushes of, perspiration, with, and anxiety	3	HEAT, flushes of, perspiration, with, and anxiety	=عمومیات — گرمی کے جھونکے، پسینے کے ساتھ، پسینہ اور بے چینی
+heat, flushes of, sleep, during	2	HEAT, flushes of, sleep, during	=عمومیات — گرمی کے جھونکے، نیند کے دوران
+heat, flushes of, upwards	2	HEAT, flushes of, upwards	=عمومیات — گرمی کے جھونکے، اوپر کی طرف
+heat, flushes of, upwards, from the hips	3	HEAT, flushes of, upwards, from the hips	=عمومیات — گرمی کے جھونکے، اوپر کی طرف، کولہوں سے اوپر
+heat, flushes of, walking in open air	2	HEAT, flushes of, walking in open air	=عمومیات — گرمی کے جھونکے، کھلی ہوا میں چلنے پر
+heat, flushes of, warm water were poured over one, as if	2	HEAT, flushes of, warm water were poured over one, as if	=عمومیات — گرمی کے جھونکے، جیسے گرم پانی ڈالا گیا ہو
+heat, flushes of, warm water were, dashed over one	2	HEAT, flushes of, warm water were, dashed over one	=عمومیات — گرمی کے جھونکے، جیسے گرم پانی چھڑکا گیا ہو
+heat, flushes of, warm water were, dashed over one, when an idea occurs vividly	3	HEAT, flushes of, warm water were, dashed over one, when an idea occurs vividly	=عمومیات — گرمی کے جھونکے، جیسے گرم پانی چھڑکا گیا ہو، جب کوئی بات دل پر گہرا اثر کرے
+heated	0	HEATED	گرم ہونا
+heated, becoming	1	HEATED, becoming	گرم ہو جانا
+heated, becoming, old drunkards	2	HEATED, becoming, old drunkards	پرانے شرابی
+heaviness	0	HEAVINESS	بھاری پن
+heaviness, externally	1	HEAVINESS, externally	بیرونی
+heaviness, internally	1	HEAVINESS, internally	اندرونی
+high places	0	HIGH PLACES (See Ascending Vertigo)	اونچی جگہیں
+hunger	0	HUNGER	بھوک
+hunger, from	1	HUNGER, from	=عمومیات — بھوک سے
+hysteria	0	HYSTERIA (See Mind)	ہیستریا
+indurations	0	INDURATIONS	سختیاں
+indurations, glands	1	INDURATIONS, glands	غدود
+indurations, glands, injuries, after	2	INDURATIONS, glands, injuries, after	چوٹ کے بعد
+indurations, glands, knotty like ropes	2	INDURATIONS, glands, knotty like ropes	رسیوں جیسی گرہیں
+indurations, glands, nodes under the skin, like	2	INDURATIONS, glands, nodes under the skin, like	جلد کے نیچے گرہیں
+indurations, glands, sensation of small foreign bodies	2	INDURATIONS, glands, sensation of small foreign bodies	چھوٹی اجنبی چیزوں کا احساس
+indurations, muscles	1	INDURATIONS, muscles	پٹھے
+inflammation	0	INFLAMMATION	سوزش
+inflammation, externally	1	INFLAMMATION, externally	بیرونی
+inflammation, externally, joints	2	INFLAMMATION, externally, Joints (See Extremities)	جوڑ
+inflammation, internally	1	INFLAMMATION, internally	اندرونی
+inflammation, internally, gangrenous	2	INFLAMMATION, internally, gangrenous	گلنے والی
+inflammation, blood vessels	1	INFLAMMATION, blood vessels	رگوں کی
+inflammation, bones	1	INFLAMMATION, bones	ہڈیوں کی
+inflammation, bones, periosteum	2	INFLAMMATION, bones, periosteum	ہڈی کی جھلی
+inflammation, cartilages	1	INFLAMMATION, cartilages	نرم ہڈیوں کی
+inflammation, glands	1	INFLAMMATION, glands	غدودوں کی
+inflammation, nerves	1	INFLAMMATION, nerves	اعصاب کی
+inflammation, serous membranes	1	INFLAMMATION, serous membranes	سیرس جھلیوں کی
+injuries (including blows	0	INJURIES (including blows	چوٹیں (ضرب)
+injuries (including blows, falls and bruises)	0	INJURIES (including blows, falls and bruises)	گرنا اور گھائل
+injuries (including blows, falls and bruises), extravasations, with	1	INJURIES (including blows, falls and bruises), extravasations, with	خون پھیلنے کے ساتھ
+injuries (including blows, falls and bruises), bone	1	INJURIES (including blows, falls and bruises), bone	ہڈی
+injuries (including blows, falls and bruises), glands, of	1	INJURIES (including blows, falls and bruises), glands, of	غدود
+injuries (including blows, falls and bruises), nerves with great pain	1	INJURIES (including blows, falls and bruises), nerves with great pain	شدید درد والے اعصاب
+injuries (including blows, falls and bruises), periosteum	1	INJURIES (including blows, falls and bruises), periosteum	ہڈی کی جھلی
+injuries (including blows, falls and bruises), soft parts, of	1	INJURIES (including blows, falls and bruises), soft parts, of	نرم حصے
+injuries (including blows, falls and bruises), tendons	1	INJURIES (including blows, falls and bruises), tendons	پٹھوں کے تار
+inoculation with animal poison	0	INOCULATION with animal poison (See Wounds)	جانور کے زہر کا ٹیکہ
+intoxication	0	INTOXICATION	نشہ
+intoxication, after	1	INTOXICATION, after	=عمومیات — نشے کے بعد
+iron	0	IRON	لوہا
+iron, after abuse of	1	IRON, after abuse of	=عمومیات — لوہے کے زیادہ استعمال کے بعد
+irritability	0	IRRITABILITY	چڑچڑاہٹ
+irritability, excessive physical	1	IRRITABILITY, excessive physical	شدید جسمانی
+irritability, when too much medicine has produced an over-sensitive state and remedies fail to act	1	IRRITABILITY, when too much medicine has produced an over-sensitive state and remedies fail to act	جب زیادہ دوا سے حساسیت بڑھ جائے اور دوائیں اثر نہ کریں
+irritability, lack of	1	IRRITABILITY, lack of	=عمومیات — چڑچڑاہٹ کا نہ ہونا
+itching	0	ITCHING	خارش
+itching, glands	1	ITCHING, glands	غدودوں میں
+jar	0	JAR	جھٹکا
+jar, stepping	1	JAR, stepping	قدم رکھنے پر
+jar, stepping, agg.	2	JAR, stepping, agg.	=عمومیات — جھٹکا، قدم رکھنے سے بگاڑ
+jar, stepping, amel.	2	JAR, stepping, amel.	=عمومیات — جھٹکا، قدم رکھنے سے آرام
+jaundice	0	JAUNDICE (See Skin, Yellow)	یرقان
+jerking	0	JERKING	جھٹکے
+jerking, convulsions, as in	1	JERKING, convulsions, as in	جیسے مرگی میں
+jerking, muscles	1	JERKING, muscles	پٹھوں میں
+jerking, muscles, side lain on, in	2	JERKING, muscles, side lain on, in	جس کروٹ لیٹا ہو
+jerking, muscles, sleep	2	JERKING, muscles, sleep	نیند
+jerking, muscles, sleep, during	3	JERKING, muscles, sleep, during	=عمومیات — جھٹکے، پٹھوں میں، نیند کے دوران
+jerking, muscles, sleep, on going to	3	JERKING, muscles, sleep, on going to	سوتے وقت
+jerking, muscles, paralyzed parts	2	JERKING, muscles, paralyzed parts	مفلوج حصوں میں
+jerking internally	0	JERKING internally	اندرونی جھٹکے
+kneeling	0	KNEELING	گھٹنے ٹیکنے پر
+knotted sensation internally	0	KNOTTED sensation internally (See Ball, sensation of)	اندر گرہ کا احساس
+lassitude	0	LASSITUDE	کاہلی
+lassitude, morning	1	LASSITUDE, morning	صبح
+lassitude, forenoon	1	LASSITUDE, forenoon	دوپہر سے پہلے
+lassitude, afternoon	1	LASSITUDE, afternoon	سہ پہر
+lassitude, evening	1	LASSITUDE, evening	شام
+lassitude, alternating with activity	1	LASSITUDE, alternating with activity	چستی سے باری باری
+lassitude, coition, after	1	LASSITUDE, coition, after	ہم بستری کے بعد
+lassitude, conversation, from	1	LASSITUDE, conversation, from	بات چیت سے
+lassitude, eating, after	1	LASSITUDE, eating, after	کھانے کے بعد
+lassitude, lead, chronic effects of	1	LASSITUDE, lead, chronic effects of	سیسے کے پرانے اثرات
+lassitude, lie down before dinner, must	1	LASSITUDE, lie down before dinner, must	کھانے سے پہلے لیٹنا پڑے
+lassitude, menses, before	1	LASSITUDE, menses, before	حیض سے پہلے
+lassitude, motion, on	1	LASSITUDE, motion, on	حرکت پر
+lassitude, sitting	1	LASSITUDE, sitting	بیٹھنے پر
+lassitude, sleep, after	1	LASSITUDE, sleep, after	نیند کے بعد
+lassitude, stool, after	1	LASSITUDE, stool, after	پاخانے کے بعد
+lassitude, stormy weather	1	LASSITUDE, stormy weather	طوفانی موسم
+lassitude, talking, after	1	LASSITUDE, talking, after	بات کرنے کے بعد
+lassitude, walking in open air amel.	1	LASSITUDE, walking in open air amel.	کھلی ہوا میں چلنے سے آرام
+lassitude, warm room	1	LASSITUDE, warm room	گرم کمرہ
+lassitude, warm, weather	1	LASSITUDE, warm, weather	گرم موسم
+lean people	0	LEAN people	دبلے لوگ
+leukaemia	0	LEUKAEMIA	خون کا کینسر (لیوکیمیا)
+lie down	0	LIE down	لیٹنا
+lie down, inclination to	1	LIE down, inclination to	=عمومیات — لیٹنے کا رجحان
+lie down, inclination to, will not lie down, sits up in bed	2	LIE down, inclination to, will not lie down, sits up in bed	=عمومیات — لیٹنے کا رجحان، لیٹتا نہیں، بستر میں بیٹھ جاتا ہے
+lie down, inclination to, eating, after	2	LIE down, inclination to, eating, after	=عمومیات — لیٹنے کا رجحان، کھانے کے بعد
+lifting	0	LIFTING	اٹھانا
+lifting, straining of muscles and tendons, from	1	LIFTING, straining of muscles and tendons, from	پٹھوں اور تاروں پر زور سے
+loss of fluids	0	LOSS of fluids	رطوبتوں کا نقصان
+lying	0	LYING	لیٹنا
+lying, after	1	LYING, after	=عمومیات — لیٹنے کے بعد
+lying, after, amel.	2	LYING, after, amel.	=عمومیات — لیٹنے کے بعد آرام
+lying, after, agg.	2	LYING, after, agg.	=عمومیات — لیٹنے کے بعد بگاڑ
+lying, amel.	1	LYING, amel.	=عمومیات — لیٹنے سے آرام
+lying, abdomen, on, amel.	1	LYING, abdomen, on, amel.	پیٹ کے بل لیٹنے سے آرام
+lying, back on	1	LYING, back on	کمر کے بل
+lying, back on, agg.	2	LYING, back on, agg.	=عمومیات — لیٹنا، کمر کے بل بگاڑ
+lying, back on, amel.	2	LYING, back on, amel.	=عمومیات — لیٹنا، کمر کے بل آرام
+lying, back on, unable to turn from the back	2	LYING, back on, unable to turn from the back	کمر سے کروٹ نہ بدل سکے
+lying, bed, in	1	LYING, bed, in	بستر میں
+lying, bed, in, agg.	2	LYING, bed, in, agg.	=عمومیات — لیٹنا، بستر میں بگاڑ
+lying, bed, in, amel.	2	LYING, bed, in, amel.	=عمومیات — لیٹنا، بستر میں آرام
+lying, side on	1	LYING, side on	کروٹ
+lying, side on, agg.	2	LYING, side on, agg.	=عمومیات — لیٹنا، کروٹ پر بگاڑ
+lying, side on, amel.	2	LYING, side on, amel.	=عمومیات — لیٹنا، کروٹ پر آرام
+lying, side on, right, agg.	2	LYING, side on, right, agg.	دائیں کروٹ بگاڑ
+lying, side on, left, agg.	2	LYING, side on, left, agg.	بائیں کروٹ بگاڑ
+lying, side on, painful	2	LYING, side on, painful	دردناک کروٹ
+lying, side on, painful, agg.	3	LYING, side on, painful, agg.	=عمومیات — لیٹنا، کروٹ، دردناک کروٹ سے بگاڑ
+lying, side on, painful, amel.	3	LYING, side on, painful, amel.	=عمومیات — لیٹنا، کروٹ، دردناک کروٹ سے آرام
+lying, side on, painless	2	LYING, side on, painless	بے درد کروٹ
+lying, side on, painless, agg.	3	LYING, side on, painless, agg.	=عمومیات — لیٹنا، کروٹ، بے درد کروٹ سے بگاڑ
+lying, side on, painless, amel.	3	LYING, side on, painless, amel.	=عمومیات — لیٹنا، کروٹ، بے درد کروٹ سے آرام
+lying agg.	0	LYING agg.	لیٹنے سے بگاڑ
+magnetism amel.	0	MAGNETISM amel.	مقناطیس سے آرام
+malaise	0	MALAISE (See Lassitude)	طبیعت کی خرابی
+measles	0	MEASLES	خسرہ
+measles, after	1	MEASLES, after	=عمومیات — خسرے کے بعد
+menses	0	MENSES	حیض
+menses, before	1	MENSES, before	=عمومیات — حیض سے پہلے
+menses, at beginning of	1	MENSES, at beginning of	=عمومیات — حیض کی ابتدا میں
+menses, during agg.	1	MENSES, during agg.	=عمومیات — حیض کے دوران بگاڑ
+menses, amel.	1	MENSES, amel.	=عمومیات — حیض سے آرام
+menses, after	1	MENSES, after	=عمومیات — حیض کے بعد
+mercury	0	MERCURY	پارہ
+mercury, abuse of	1	MERCURY, abuse of	=عمومیات — پارے کا زیادہ استعمال
+metastasis	0	METASTASIS	جگہ بدلنا
+moonlight agg.	0	MOONLIGHT agg.	چاندنی سے بگاڑ
+motion	0	MOTION	حرکت
+motion, amel.	1	MOTION, amel.	=عمومیات — حرکت سے آرام
+motion, after, agg.	1	MOTION, after, agg.	=عمومیات — حرکت کے بعد بگاڑ
+motion, at beginning of, agg.	1	MOTION, at beginning of, agg.	=عمومیات — حرکت شروع کرتے ہی بگاڑ
+motion, aversion to	1	MOTION, aversion to	=عمومیات — حرکت سے نفرت
+motion, continued, amel.	1	MOTION, continued, amel.	مسلسل حرکت سے آرام
+motion, of affected part agg.	1	MOTION, of affected part agg.	متاثرہ حصے کی حرکت سے بگاڑ
+motion, of affected part, amel.	1	MOTION, of affected part, amel.	متاثرہ حصے کی حرکت سے آرام
+motion agg.	0	MOTION agg.	حرکت سے بگاڑ
+mucous secretions increased	0	MUCOUS secretions increased	بلغم کی رطوبتیں بڑھنا
+narcotics agg.	0	NARCOTICS agg.	نشہ آور دواؤں سے بگاڑ
+necrosis bones	0	NECROSIS bones	ہڈیوں کا گلنا
+nodosities	0	NODOSITIES (See Indurations)	گرہیں
+noise agg.	0	NOISE agg. (See Mind, Sensitive)	شور سے بگاڑ
+non-union of bones	0	NON-UNION of bones (See Slow Repair)	ہڈیوں کا نہ جڑنا
+numbness	0	NUMBNESS	سن ہونا
+numbness, epilepsy, before	1	NUMBNESS, epilepsy, before	مرگی سے پہلے
+numbness, internally	1	NUMBNESS, internally	اندرونی
+numbness, left half of body	1	NUMBNESS, left half of body	جسم کا بائیں نصف
+numbness, parts lain on	1	NUMBNESS, parts lain on	جن حصوں پر لیٹا ہو
+numbness, single parts in	1	NUMBNESS, single parts in	الگ الگ حصوں میں
+numbness, spots, in	1	NUMBNESS, spots, in	دھبوں میں
+numbness, suffering parts, of	1	NUMBNESS, suffering parts, of	متاثرہ حصوں کا
+numbness, suffering parts, of, bruised parts	2	NUMBNESS, suffering parts, of, bruised parts	گھائل حصے
+numbness, upper half of body	1	NUMBNESS, upper half of body	جسم کا اوپری نصف
+numbness, whole body	1	NUMBNESS, whole body	سارا جسم
+numbness, sensation of, in glands	1	NUMBNESS, sensation of, in glands	غدودوں میں سن ہونے کا احساس
+numbness externally	0	NUMBNESS externally	بیرونی
+nursing children	0	NURSING children	دودھ پیتے بچے
+nursing children, mothers	1	NURSING children, mothers (See Loss of Fluids)	دودھ پلانے والی مائیں
+obesity	0	OBESITY	موٹاپا
+obesity, body fat, but legs thin	1	OBESITY, body fat, but legs thin	جسم موٹا مگر ٹانگیں دبلی
+obesity, old people	1	OBESITY, old people	بوڑھے
+old	0	OLD	بوڑھا
+old, people	1	OLD, people	=عمومیات — بوڑھے لوگ
+old age	0	OLD age	بڑھاپا
+old age, premature	1	OLD age, premature	قبل از وقت بڑھاپا
+onanism	0	ONANISM	استمنا
+onanism, from	1	ONANISM, from	=عمومیات — استمنا سے
+orgasm of blood	0	ORGASM of blood	خون کا جوش
+orgasm of blood, morning	1	ORGASM of blood, morning	صبح
+orgasm of blood, morning, after restless sleep	2	ORGASM of blood, morning, after restless sleep	بے چین نیند کے بعد
+orgasm of blood, morning, on waking	2	ORGASM of blood, morning, on waking	جاگتے ہی
+orgasm of blood, morning, on, rising, amel.	2	ORGASM of blood, morning, on, rising, amel.	اٹھنے سے آرام
+orgasm of blood, morning in sleep	1	ORGASM of blood, morning in sleep	نیند میں
+orgasm of blood, evening	1	ORGASM of blood, evening	شام
+orgasm of blood, evening, lying down, after	2	ORGASM of blood, evening, lying down, after	لیٹنے کے بعد
+orgasm of blood, evening, sexual excitement, during	2	ORGASM of blood, evening, sexual excitement, during	جنسی جوش کے دوران
+orgasm of blood, evening, sitting amel.	2	ORGASM of blood, evening, sitting amel.	بیٹھنے سے آرام
+orgasm of blood, night	1	ORGASM of blood, night	رات
+orgasm of blood, night, bed, drives him out of	2	ORGASM of blood, night, bed, drives him out of	بستر سے اٹھا دے
+orgasm of blood, night, beer, after	2	ORGASM of blood, night, beer, after	بیئر کے بعد
+orgasm of blood, coition, after	1	ORGASM of blood, coition, after	ہم بستری کے بعد
+orgasm of blood, disagreeable news, from	1	ORGASM of blood, disagreeable news, from	بری خبر سے
+orgasm of blood, eating amel.	1	ORGASM of blood, eating amel.	کھانے سے آرام
+orgasm of blood, eating, warm food, while	1	ORGASM of blood, eating, warm food, while	گرم غذا کھاتے وقت
+orgasm of blood, emotions, after	1	ORGASM of blood, emotions, after	جذبات کے بعد
+orgasm of blood, everything were moving in body, as if	1	ORGASM of blood, everything were moving in body, as if	جیسے جسم میں سب کچھ ہل رہا ہو
+orgasm of blood, falling asleep, on	1	ORGASM of blood, falling asleep, on	سوتے وقت
+orgasm of blood, lying on left side	1	ORGASM of blood, lying on left side	بائیں کروٹ لیٹنے پر
+orgasm of blood, menses	1	ORGASM of blood, menses	حیض
+orgasm of blood, menses, before	2	ORGASM of blood, menses, before	=عمومیات — خون کا جوش، حیض سے پہلے
+orgasm of blood, menses, during	2	ORGASM of blood, menses, during	=عمومیات — خون کا جوش، حیض کے دوران
+orgasm of blood, motion or speaking agg.	1	ORGASM of blood, motion or speaking agg.	حرکت یا بولنے سے بگاڑ
+orgasm of blood, nervousness, from	1	ORGASM of blood, nervousness, from	عصبیت سے
+orgasm of blood, sensual impressions, from	1	ORGASM of blood, sensual impressions, from	حسی اثرات سے
+orgasm of blood, sitting, while	1	ORGASM of blood, sitting, while	بیٹھتے وقت
+orgasm of blood, vertigo, during	1	ORGASM of blood, vertigo, during	چکر کے دوران
+orgasm of blood, vexation, after	1	ORGASM of blood, vexation, after	چڑ کے بعد
+orgasm of blood, walk, after a long	1	ORGASM of blood, walk, after a long	لمبی چہل قدمی کے بعد
+orgasm of blood, walking	1	ORGASM of blood, walking	چلنا
+orgasm of blood, walking, after	2	ORGASM of blood, walking, after	=عمومیات — خون کا جوش، چلنے کے بعد
+orgasm of blood, walking, amel.	2	ORGASM of blood, walking, amel.	=عمومیات — خون کا جوش، چلنے سے آرام
+pain	0	PAIN	درد
+pain, appear gradually	1	PAIN, appear gradually	آہستہ آہستہ شروع ہو
+pain, appear gradually, and disappear gradually	2	PAIN, appear gradually, and disappear gradually	اور آہستہ آہستہ ختم ہو
+pain, appear gradually, and disappear, suddenly	2	PAIN, appear gradually, and disappear, suddenly	اور اچانک ختم ہو
+pain, appear suddenly	1	PAIN, appear suddenly	اچانک شروع ہو
+pain, appear suddenly, and disappear gradually	2	PAIN, appear suddenly, and disappear gradually	آہستہ آہستہ ختم ہو
+pain, appear suddenly, and disappear suddenly	2	PAIN, appear suddenly, and disappear suddenly	اچانک ختم ہو
+pain, glands	1	PAIN, glands	غدودوں میں
+pain, parts recently lain on	1	PAIN, parts recently lain on	جن حصوں پر ابھی لیٹا ہو
+pain, paralyzed parts	1	PAIN, paralyzed parts	مفلوج حصوں میں
+pain, periosteum	1	PAIN, periosteum	ہڈی کی جھلی میں
+pain, small spots	1	PAIN, small spots	چھوٹے دھبوں میں
+pain, benumbing	1	PAIN, benumbing	سن کرنے والا
+pain, biting	1	PAIN, biting	کاٹتا ہوا
+pain, boring	1	PAIN, boring	ڈرل جیسا
+pain, boring, bones	2	PAIN, boring, bones	ہڈیوں میں
+pain, boring, inward	2	PAIN, boring, inward	اندر کی طرف
+pain, boring, outward	2	PAIN, boring, outward	باہر کی طرف
+pain, boring, glands	2	PAIN, boring, glands	غدودوں میں
+pain, bones	1	PAIN, bones	ہڈیوں میں
+pain, bones, night	2	PAIN, bones, night	رات
+pain, broken, as if bones	1	PAIN, broken, as if bones	جیسے ہڈیاں ٹوٹ گئی ہوں
+pain, bruised	1	PAIN, bruised (See Sore)	پٹا ہوا
+pain, burning externally	1	PAIN, burning externally	بیرونی جلن
+pain, burning	1	PAIN, burning	جلن
+pain, burning, left upper part of body	2	PAIN, burning, left upper part of body	جسم کے بائیں اوپری حصے میں
+pain, burning, internally	2	PAIN, burning, internally	اندرونی
+pain, burning, as from	2	PAIN, burning, as from	جیسے جل رہا ہو
+pain, burning, blood vessels	2	PAIN, burning, blood vessels	رگوں میں
+pain, burning, bones	2	PAIN, burning, bones	ہڈیوں میں
+pain, burning, bones, night	3	PAIN, burning, bones, night	رات
+pain, burning, bones, menses, during	3	PAIN, burning, bones, menses, during	حیض کے دوران
+pain, burning, glands	2	PAIN, burning, glands	غدودوں میں
+pain, burning, parts grasped with the hand	2	PAIN, burning, parts grasped with the hand	ہاتھ سے پکڑے ہوئے حصوں میں
+pain, constricting externally	1	PAIN, constricting externally	بیرونی کھنچاؤ
+pain, cutting	1	PAIN, cutting	کاٹتا ہوا
+pain, cutting, bones, in long	2	PAIN, cutting, bones, in long	لمبی ہڈیوں میں
+pain, cutting, glands	2	PAIN, cutting, glands	غدودوں میں
+pain, cutting, internally	2	PAIN, cutting, internally	اندرونی
+pain, constricting	1	PAIN, constricting	کھنچاؤ
+pain, constricting, bones	2	PAIN, constricting, bones	ہڈیوں میں
+pain, constricting, glands	2	PAIN, constricting, glands	غدودوں میں
+pain, constricting, internally	2	PAIN, constricting, internally	اندرونی
+pain, cutting externally	1	PAIN, cutting externally	بیرونی کاٹتا ہوا
+pain, digging up (burrowing, rooting sensation)	1	PAIN, digging up (burrowing, rooting sensation)	کھودتا ہوا
+pain, digging up (burrowing, rooting sensation), bones	2	PAIN, digging up (burrowing, rooting sensation), bones	ہڈیوں میں
+pain, digging up (burrowing, rooting sensation), glands	2	PAIN, digging up (burrowing, rooting sensation), glands	غدودوں میں
+pain, drawing	1	PAIN, drawing	کھنچتا ہوا
+pain, drawing, morning	2	PAIN, drawing, morning	صبح
+pain, drawing, morning, after rising	3	PAIN, drawing, morning, after rising	اٹھنے کے بعد
+pain, drawing, morning, after waking	3	PAIN, drawing, morning, after waking	جاگنے کے بعد
+pain, drawing, evening	2	PAIN, drawing, evening	شام
+pain, drawing, evening, 8 p.m.	3	PAIN, drawing, evening, 8 p.m.	=عمومیات — درد، کھنچتا ہوا، شام 8 بجے
+pain, drawing, evening, 10 p.m.	3	PAIN, drawing, evening, 10 p.m.	رات 10 بجے
+pain, drawing, night	2	PAIN, drawing, night	رات
+pain, drawing, alternating with heart symptoms	2	PAIN, drawing, alternating with heart symptoms	دل کی علامات سے باری باری
+pain, drawing, menses, during	2	PAIN, drawing, menses, during	حیض کے دوران
+pain, drawing, motion, on	2	PAIN, drawing, motion, on	حرکت پر
+pain, drawing, paralytic	2	PAIN, drawing, paralytic	فالجی
+pain, drawing, rheumatic	2	PAIN, drawing, rheumatic	گٹھیا والا
+pain, drawing, rising, after	2	PAIN, drawing, rising, after	اٹھنے کے بعد
+pain, drawing, sitting, while	2	PAIN, drawing, sitting, while	بیٹھتے وقت
+pain, drawing, upwards	2	PAIN, drawing, upwards	اوپر کی طرف
+pain, drawing, walking agg.	2	PAIN, drawing, walking agg.	چلنے سے بگاڑ
+pain, drawing, weather, bad, agg.	2	PAIN, drawing, weather, bad, agg.	خراب موسم میں بگاڑ
+pain, drawing, extending to fingers	2	PAIN, drawing, extending to fingers	انگلیوں تک پھیلتا
+pain, drawing, extending, toes	2	PAIN, drawing, extending, toes	انگشتوں تک
+pain, drawing, in bones, as from a thread through shafts	2	PAIN, drawing, in bones, as from a thread through shafts	جیسے ہڈی کے درمیان سے دھاگہ کھنچے
+pain, festering as from	1	PAIN, festering as from (See Ulcerative)	جیسے گل رہا ہو
+pain, gnawing	1	PAIN, gnawing	کترتا ہوا
+pain, gnawing, externally	2	PAIN, gnawing, externally	بیرونی
+pain, gnawing, internally	2	PAIN, gnawing, internally	اندرونی
+pain, gnawing, bones	2	PAIN, gnawing, bones	ہڈیوں میں
+pain, gnawing, glands	2	PAIN, gnawing, glands	غدودوں میں
+pain, jerking	1	PAIN, jerking	جھٹکے والا
+pain, jerking, affected parts	2	PAIN, jerking, affected parts	متاثرہ حصوں میں
+pain, jerking, bones	2	PAIN, jerking, bones	ہڈیوں میں
+pain, jerking, glands	2	PAIN, jerking, glands	غدودوں میں
+pain, jerking, internally	2	PAIN, jerking, internally	اندرونی
+pain, jerking externally	1	PAIN, jerking externally	بیرونی جھٹکے
+pain, paralytic	1	PAIN, paralytic	فالجی
+pain, paralytic, bones	2	PAIN, paralytic, bones	ہڈیوں میں
+pain, pinching	1	PAIN, pinching	چوٹکی جیسا
+pain, pinching, externally	2	PAIN, pinching, externally	بیرونی
+pain, pinching, internally	2	PAIN, pinching, internally	اندرونی
+pain, pinching, bones	2	PAIN, pinching, bones	ہڈیوں میں
+pain, pinching, glands	2	PAIN, pinching, glands	غدودوں میں
+pain, pressing externally	1	PAIN, pressing externally	بیرونی دباؤ
+pain, pressing	1	PAIN, pressing	دباؤ
+pain, pressing, inward	2	PAIN, pressing, inward	اندر کی طرف
+pain, pressing, inward, deep inward with instruments	3	PAIN, pressing, inward, deep inward with instruments	جیسے اوزاروں سے گہرا دبایا جائے
+pain, pressing, load, as from	2	PAIN, pressing, load, as from	جیسے بوجھ ہو
+pain, pressing, together	2	PAIN, pressing, together	آپس میں ملتا
+pain, pressing, within outward, from	2	PAIN, pressing, within outward, from	اندر سے باہر کی طرف
+pain, pressing, bones	2	PAIN, pressing, bones	ہڈیوں میں
+pain, pressing, bones, sticking	3	PAIN, pressing, bones, sticking	چھیدتا
+pain, pressing, bones, tearing	3	PAIN, pressing, bones, tearing	چیرتا
+pain, pressing, glands	2	PAIN, pressing, glands	غدودوں میں
+pain, pressing, glands, inward	3	PAIN, pressing, glands, inward	اندر کی طرف
+pain, pressing, glands, outward	3	PAIN, pressing, glands, outward	باہر کی طرف
+pain, pressing, internally	2	PAIN, pressing, internally	اندرونی
+pain, pressing, muscles	2	PAIN, pressing, muscles	پٹھوں میں
+pain, pressing, muscles, sticking, in muscles	3	PAIN, pressing, muscles, sticking, in muscles	=عمومیات — درد، دباؤ، پٹھوں میں چھیدتا
+pain, pressing, muscles, tearing in joints	3	PAIN, pressing, muscles, tearing in joints	جوڑوں میں چیرتا
+pain, pressing, muscles, tearing, in muscles	3	PAIN, pressing, muscles, tearing, in muscles	=عمومیات — درد، دباؤ، پٹھوں میں چیرتا
+pain, radiating	1	PAIN, radiating	پھیلتا ہوا
+pain, scraped	1	PAIN, scraped	چھلا ہوا
+pain, scraped, as if	2	PAIN, scraped, as if	جیسے چھل گیا ہو
+pain, scraped, periosteum	2	PAIN, scraped, periosteum	ہڈی کی جھلی
+pain, scraped, periosteum, long bones	3	PAIN, scraped, periosteum, long bones	لمبی ہڈیاں
+pain, sore, bruised	1	PAIN, sore, bruised	پٹا ہوا سا
+pain, sore, bruised, externally	2	PAIN, sore, bruised, externally	بیرونی
+pain, sore, bruised, glands	2	PAIN, sore, bruised, glands	غدودوں میں
+pain, sore, bruised, headache, during	2	PAIN, sore, bruised, headache, during	سر درد کے دوران
+pain, sore, bruised, heated walk and rapid cooling, after	2	PAIN, sore, bruised, heated walk and rapid cooling, after	گرم ہو کر چلنے اور جلد ٹھنڈا ہونے کے بعد
+pain, sore, bruised, internally	2	PAIN, sore, bruised, internally	اندرونی
+pain, sore, bruised, march, as after a long	2	PAIN, sore, bruised, march, as after a long	جیسے لمبا مارچ کیا ہو
+pain, sore, bruised, menses, during	2	PAIN, sore, bruised, menses, during	حیض کے دوران
+pain, sore, bruised, motion	2	PAIN, sore, bruised, motion	حرکت
+pain, sore, bruised, motion, amel.	3	PAIN, sore, bruised, motion, amel.	=عمومیات — درد، پٹا ہوا سا، حرکت سے آرام
+pain, sore, bruised, motion, bed	3	PAIN, sore, bruised, motion, bed	بستر
+pain, sore, bruised, motion, on agg.	3	PAIN, sore, bruised, motion, on agg.	=عمومیات — درد، پٹا ہوا سا، حرکت پر بگاڑ
+pain, sore, bruised, open air amel.	2	PAIN, sore, bruised, open air amel.	کھلی ہوا سے آرام
+pain, sore, bruised, parts affected with cramp-like pain	2	PAIN, sore, bruised, parts affected with cramp-like pain	اکڑن والے درد والے حصے
+pain, sore, bruised, parts lain on	2	PAIN, sore, bruised, parts lain on	جن حصوں پر لیٹا ہو
+pain, sore, bruised, pressure, on	2	PAIN, sore, bruised, pressure, on	دباؤ پر
+pain, sore, bruised, red hard nodules	2	PAIN, sore, bruised, red hard nodules	سرخ سخت گرہیں
+pain, sore, bruised, rising, amel.	2	PAIN, sore, bruised, rising, amel.	اٹھنے سے آرام
+pain, sore, bruised, siesta, after	2	PAIN, sore, bruised, siesta, after	دوپہر کی نیند کے بعد
+pain, sore, bruised, spots, in	2	PAIN, sore, bruised, spots, in	دھبوں میں
+pain, sore, bruised, stooping, after	2	PAIN, sore, bruised, stooping, after	جھکنے کے بعد
+pain, sore, bruised, stormy weather, in	2	PAIN, sore, bruised, stormy weather, in	طوفانی موسم میں
+pain, sore, bruised, waking	2	PAIN, sore, bruised, waking	جاگنا
+pain, sore, bruised, waking, on	3	PAIN, sore, bruised, waking, on	جاگتے ہی
+pain, sore, bruised, waking, after	3	PAIN, sore, bruised, waking, after	=عمومیات — درد، پٹا ہوا سا، جاگنے کے بعد
+pain, sore, bruised, walking	2	PAIN, sore, bruised, walking	چلنا
+pain, sore, bruised, walking, amel.	3	PAIN, sore, bruised, walking, amel.	=عمومیات — درد، پٹا ہوا سا، چلنے سے آرام
+pain, sore, bruised, walking, while agg.	3	PAIN, sore, bruised, walking, while agg.	چلتے وقت بگاڑ
+pain, sore, bruised, working amel.	2	PAIN, sore, bruised, working amel.	کام کرنے سے آرام
+pain, sore, bruised, morning	2	PAIN, sore, bruised, morning	صبح
+pain, sore, bruised, morning, bed, in	3	PAIN, sore, bruised, morning, bed, in	بستر میں
+pain, sore, bruised, morning, insufficient sleep, after	3	PAIN, sore, bruised, morning, insufficient sleep, after	نیند پوری نہ ہونے کے بعد
+pain, sore, bruised, morning, rising	3	PAIN, sore, bruised, morning, rising	اٹھنا
+pain, sore, bruised, morning, rising, after	4	PAIN, sore, bruised, morning, rising, after	=عمومیات — درد، پٹا ہوا سا، صبح، اٹھنے کے بعد
+pain, sore, bruised, morning, rising, on	4	PAIN, sore, bruised, morning, rising, on	اٹھتے ہی
+pain, sore, bruised, morning, waking	3	PAIN, sore, bruised, morning, waking	جاگنا
+pain, sore, bruised, morning, waking, after	4	PAIN, sore, bruised, morning, waking, after	=عمومیات — درد، پٹا ہوا سا، صبح، جاگنے کے بعد
+pain, sore, bruised, morning, waking, on	4	PAIN, sore, bruised, morning, waking, on	جاگتے ہی
+pain, sore, bruised, evening	2	PAIN, sore, bruised, evening	شام
+pain, sore, bruised, evening, 11 p.m.	3	PAIN, sore, bruised, evening, 11 p.m.	رات 11 بجے
+pain, sore, bruised, evening, lying down, after	3	PAIN, sore, bruised, evening, lying down, after	لیٹنے کے بعد
+pain, sore, bruised, evening, sitting	3	PAIN, sore, bruised, evening, sitting	بیٹھنے پر
+pain, sore, bruised, night	2	PAIN, sore, bruised, night	رات
+pain, sore, bruised, night, midnight, after	3	PAIN, sore, bruised, night, midnight, after	آدھی رات کے بعد
+pain, sore, bruised, bones, as if	2	PAIN, sore, bruised, bones, as if	جیسے ہڈیاں پٹی ہوں
+pain, sore, bruised, cartilages	2	PAIN, sore, bruised, cartilages	نرم ہڈیاں
+pain, sore, bruised, chill, during	2	PAIN, sore, bruised, chill, during	سردی کے دوران
+pain, sore, bruised, coition, after	2	PAIN, sore, bruised, coition, after	ہم بستری کے بعد
+pain, sore, bruised, exertion, as after great	2	PAIN, sore, bruised, exertion, as after great	جیسے بہت محنت کی ہو
+pain, splinters, sensation of	1	PAIN, splinters, sensation of	کرچی کا احساس
+pain, stitching	1	PAIN, stitching	سوئی جیسا
+pain, stitching, externally	2	PAIN, stitching, externally	بیرونی
+pain, stitching, externally, vexation, after	3	PAIN, stitching, externally, vexation, after	چڑ کے بعد
+pain, stitching, internally	2	PAIN, stitching, internally	اندرونی
+pain, stitching, internally, burning	3	PAIN, stitching, internally, burning	جلن
+pain, stitching, internally, burning, cold needles, like	4	PAIN, stitching, internally, burning, cold needles, like	جیسے ٹھنڈی سوئیاں
+pain, stitching, downward	2	PAIN, stitching, downward	نیچے کی طرف
+pain, stitching, inward	2	PAIN, stitching, inward	اندر کی طرف
+pain, stitching, outward	2	PAIN, stitching, outward	باہر کی طرف
+pain, stitching, outward, to tips of fingers	3	PAIN, stitching, outward, to tips of fingers	انگلیوں کے سروں تک
+pain, stitching, transversely	2	PAIN, stitching, transversely	ترچھا
+pain, stitching, upward	2	PAIN, stitching, upward	اوپر کی طرف
+pain, stitching, bones	2	PAIN, stitching, bones	ہڈیوں میں
+pain, stitching, glands	2	PAIN, stitching, glands	غدودوں میں
+pain, stitching, muscles	2	PAIN, stitching, muscles	پٹھوں میں
+pain, stitching, muscles, warm in bed, while	3	PAIN, stitching, muscles, warm in bed, while	گرم بستر میں
+pain, stitching, muscles, burning in muscles	3	PAIN, stitching, muscles, burning in muscles	=عمومیات — درد، سوئی جیسا، پٹھوں میں جلن
+pain, stitching, muscles, burning, like hot needles	3	PAIN, stitching, muscles, burning, like hot needles	جیسے گرم سوئیاں
+pain, stitching, muscles, jerking	3	PAIN, stitching, muscles, jerking	جھٹکے کے ساتھ
+pain, stitching, muscles, tearing in muscles	3	PAIN, stitching, muscles, tearing in muscles	=عمومیات — درد، سوئی جیسا، پٹھوں میں چیرتا
+pain, tearing	1	PAIN, tearing	چیرتا ہوا
+pain, tearing, asunder	2	PAIN, tearing, asunder	پھٹتا ہوا
+pain, tearing, away	2	PAIN, tearing, away	کھنچتا جاتا
+pain, tearing, bones	2	PAIN, tearing, bones	ہڈیوں میں
+pain, tearing, bones, burning	3	PAIN, tearing, bones, burning	جلن
+pain, tearing, bones, cramp-like	3	PAIN, tearing, bones, cramp-like	اکڑن جیسا
+pain, tearing, bones, jerking	3	PAIN, tearing, bones, jerking	جھٹکے کے ساتھ
+pain, tearing, bones, paralytic	3	PAIN, tearing, bones, paralytic	فالجی
+pain, tearing, bones, periosteum	3	PAIN, tearing, bones, periosteum	ہڈی کی جھلی
+pain, tearing, bones, pressive	3	PAIN, tearing, bones, pressive	دباؤ
+pain, tearing, bones, sticking	3	PAIN, tearing, bones, sticking	چھیدتا
+pain, tearing, downward	2	PAIN, tearing, downward	نیچے کی طرف
+pain, tearing, externally	2	PAIN, tearing, externally	بیرونی
+pain, tearing, glands	2	PAIN, tearing, glands	غدودوں میں
+pain, tearing, internally	2	PAIN, tearing, internally	اندرونی
+pain, tearing, muscles	2	PAIN, tearing, muscles	پٹھوں میں
+pain, tearing, muscles, burning in muscles	3	PAIN, tearing, muscles, burning in muscles	=عمومیات — درد، چیرتا ہوا، پٹھوں میں جلن
+pain, tearing, muscles, cramp-like in muscles	3	PAIN, tearing, muscles, cramp-like in muscles	=عمومیات — درد، چیرتا ہوا، پٹھوں میں اکڑن
+pain, tearing, muscles, jerking in muscles	3	PAIN, tearing, muscles, jerking in muscles	=عمومیات — درد، چیرتا ہوا، پٹھوں میں جھٹکے
+pain, tearing, muscles, paralytic in muscles	3	PAIN, tearing, muscles, paralytic in muscles	=عمومیات — درد، چیرتا ہوا، پٹھوں میں فالجی
+pain, tearing, muscles, pressing in muscles	3	PAIN, tearing, muscles, pressing in muscles	=عمومیات — درد، چیرتا ہوا، پٹھوں میں دباؤ
+pain, tearing, muscles, sticking in muscles	3	PAIN, tearing, muscles, sticking in muscles	=عمومیات — درد، چیرتا ہوا، پٹھوں میں چھیدتا
+pain, tearing, outward	2	PAIN, tearing, outward	باہر کی طرف
+pain, tearing, upward	2	PAIN, tearing, upward	اوپر کی طرف
+pain, twinging	1	PAIN, twinging	جھنجھلاہٹ والا
+pain, twisting	1	PAIN, twisting	بل کھاتا
+pain, ulcerative	1	PAIN, ulcerative	زخمی
+pain, ulcerative, externally	2	PAIN, ulcerative, externally	بیرونی
+pain, ulcerative, internally	2	PAIN, ulcerative, internally	اندرونی
+pain, ulcerative, bones	2	PAIN, ulcerative, bones	ہڈیوں میں
+pain, ulcerative, glands	2	PAIN, ulcerative, glands	غدودوں میں
+pain, undulating	1	PAIN, undulating	لہراتا
+pain, wandering	1	PAIN, wandering	بدلتا رہتا
+pain, wringing	1	PAIN, wringing (See Twisting)	نچوڑتا
+pain appear gradually	0	PAIN appear gradually	درد آہستہ آہستہ شروع ہو
+painlessness of complaints usually painful	0	PAINLESSNESS of complaints usually painful	عام طور پر دردناک شکایات کا بے درد ہونا
+paralysis	0	PARALYSIS	فالج
+paralysis, extends from above downwards	1	PARALYSIS, extends from above downwards	اوپر سے نیچے پھیلے
+paralysis, extends, upwards	1	PARALYSIS, extends, upwards	اوپر کی طرف پھیلے
+paralysis, gradually appearing	1	PARALYSIS, gradually appearing	آہستہ آہستہ
+paralysis, intermittent fever, after	1	PARALYSIS, intermittent fever, after	وقفوں والے بخار کے بعد
+paralysis, internally	1	PARALYSIS, internally	اندرونی
+paralysis, one-sided	1	PARALYSIS, one-sided	ایک طرفی
+paralysis, one-sided, right	2	PARALYSIS, one-sided, right	دائیں
+paralysis, one-sided, left	2	PARALYSIS, one-sided, left	بائیں
+paralysis, one-sided, apoplexy, after	2	PARALYSIS, one-sided, apoplexy, after	فالج کے بعد
+paralysis, one-sided, coldness of the paralyzed part, with	2	PARALYSIS, one-sided, coldness of the paralyzed part, with	مفلوج حصے کی ٹھنڈک کے ساتھ
+paralysis, one-sided, convulsions, after	2	PARALYSIS, one-sided, convulsions, after	دوروں کے بعد
+paralysis, one-sided, heat in the paralyzed part	2	PARALYSIS, one-sided, heat in the paralyzed part	مفلوج حصے میں گرمی
+paralysis, one-sided, hyperaesthesia of the well side	2	PARALYSIS, one-sided, hyperaesthesia of the well side	صحت والی طرف بے حد حساسیت
+paralysis, one-sided, suppression of eruption	2	PARALYSIS, one-sided, suppression of eruption	دانے دب جانے سے
+paralysis, organs, of	1	PARALYSIS, organs, of	اعضا کا
+paralysis, painless	1	PARALYSIS, painless	بے درد
+paralysis, post-diphtheritic	1	PARALYSIS, post-diphtheritic	ڈفتھیریا کے بعد
+paralysis, single parts	1	PARALYSIS, single parts	الگ الگ حصے
+paralysis agitans	0	PARALYSIS agitans	لرزتا فالج
+periodicity	0	PERIODICITY	وقفوں کا قاعدہ
+periodicity, annually	1	PERIODICITY, annually	سالانہ
+periodicity, complaints return at same hour	1	PERIODICITY, complaints return at same hour	شکایات اُسی وقت لوٹیں
+periodicity, neuralgia every day at same hour	1	PERIODICITY, neuralgia every day at same hour	عصبی درد روزانہ اُسی وقت
+periodicity, seventh day	1	PERIODICITY, seventh day	ساتواں دن
+periodicity, fourteenth day	1	PERIODICITY, fourteenth day	چودھواں دن
+periodicity, twenty-first day	1	PERIODICITY, twenty-first day	اکیسواں دن
+periodicity, twenty-eighth day	1	PERIODICITY, twenty-eighth day	اٹھائیسواں دن
+perspiration	0	PERSPIRATION	پسینہ
+perspiration, after	1	PERSPIRATION, after	=عمومیات — پسینے کے بعد
+perspiration, after, amel.	2	PERSPIRATION, after, amel.	=عمومیات — پسینے کے بعد آرام
+perspiration, after, agg.	2	PERSPIRATION, after, agg.	=عمومیات — پسینے کے بعد بگاڑ
+perspiration, amel.	1	PERSPIRATION, amel.	=عمومیات — پسینے سے آرام
+perspiration, cold, amel.	1	PERSPIRATION, cold, amel.	ٹھنڈے پسینے سے آرام
+perspiration, suppression of	1	PERSPIRATION, suppression of	=عمومیات — پسینہ دب جانا
+perspiration gives no relief	0	PERSPIRATION gives no relief	پسینے سے آرام نہیں
+playing piano	0	PLAYING piano	پیانو بجانا
+plethora	0	PLETHORA	خون کی زیادتی
+plug	0	PLUG	ڈاٹ
+plug, sensation of	1	PLUG, sensation of	=عمومیات — ڈاٹ کا احساس
+plug, sensation of, externally	2	PLUG, sensation of, externally	=عمومیات — ڈاٹ کا احساس، بیرونی
+plug, sensation of, internally	2	PLUG, sensation of, internally	=عمومیات — ڈاٹ کا احساس، اندرونی
+polypus	0	POLYPUS	پولیپس
+pressure	0	PRESSURE	دباؤ
+pressure, amel.	1	PRESSURE, amel.	=عمومیات — دباؤ سے آرام
+pressure, on painless side agg.	1	PRESSURE, on painless side agg.	بے درد طرف دبانے سے بگاڑ
+pressure agg.	0	PRESSURE agg.	دباؤ سے بگاڑ
+prickling	0	PRICKLING	چبھن (سوئیاں چبھنے جیسی)
+prickling, internally	1	PRICKLING, internally	اندرونی
+prickling externally	0	PRICKLING externally	بیرونی
+pulsation	0	PULSATION	دھڑکن
+pulsation, internally	1	PULSATION, internally	اندرونی
+pulsation, internally, bones	2	PULSATION, internally, bones	ہڈیوں میں
+pulsation, internally, glands	2	PULSATION, internally, glands	غدودوں میں
+pulsation externally	0	PULSATION externally	بیرونی
+pulsation externally, evening	1	PULSATION externally, evening	شام
+pulsation externally, evening, in	2	PULSATION externally, evening, in	=عمومیات — بیرونی، شام میں
+pulsation externally, evening, rest, during	2	PULSATION externally, evening, rest, during	آرام کے دوران
+pulsation externally, morning, on waking	1	PULSATION externally, morning, on waking	صبح جاگتے ہی
+pulsation externally, afternoon, 2-30 p.m.	1	PULSATION externally, afternoon, 2-30 p.m.	سہ پہر 2:30
+pulsation externally, night	1	PULSATION externally, night	رات
+pulsation externally, night, coughing, from	2	PULSATION externally, night, coughing, from	کھانسنے سے
+pulsation externally, night, half awake, while	2	PULSATION externally, night, half awake, while	نیم خوابی میں
+pulsation externally, night, midnight	2	PULSATION externally, night, midnight	آدھی رات
+pulsation externally, night, midnight, after 4 a.m.	3	PULSATION externally, night, midnight, after 4 a.m.	=عمومیات — بیرونی، رات، آدھی رات کے بعد، صبح 4 بجے
+pulsation externally, air, open, amel.	1	PULSATION externally, air, open, amel.	کھلی ہوا سے آرام
+pulsation externally, bed, in	1	PULSATION externally, bed, in	بستر میں
+pulsation externally, cough, during	1	PULSATION externally, cough, during	کھانسی کے دوران
+pulsation externally, eating, after	1	PULSATION externally, eating, after	کھانے کے بعد
+pulsation externally, excitement agg.	1	PULSATION externally, excitement agg.	جوش سے بگاڑ
+pulsation externally, exertion	1	PULSATION externally, exertion	محنت
+pulsation externally, headache	1	PULSATION externally, headache	سر درد
+pulsation externally, lying, while	1	PULSATION externally, lying, while	لیٹتے وقت
+pulsation externally, menses, before	1	PULSATION externally, menses, before	حیض سے پہلے
+pulsation externally, motion agg.	1	PULSATION externally, motion agg.	حرکت سے بگاڑ
+pulsation externally, motion, amel.	1	PULSATION externally, motion, amel.	حرکت سے آرام
+pulsation externally, music agg.	1	PULSATION externally, music agg.	موسیقی سے بگاڑ
+pulsation externally, plaintive music	1	PULSATION externally, plaintive music	اداس موسیقی
+pulsation externally, pregnancy, during	1	PULSATION externally, pregnancy, during	حمل کے دوران
+pulsation externally, sitting, while	1	PULSATION externally, sitting, while	بیٹھتے وقت
+pulsation externally, sleep, during	1	PULSATION externally, sleep, during	نیند کے دوران
+pulsation externally, speaking in company, while	1	PULSATION externally, speaking in company, while	مجلس میں بولتے وقت
+pulsation externally, standing	1	PULSATION externally, standing	کھڑے ہونے پر
+pulsation externally, touches anything when body	1	PULSATION externally, touches anything when body	جب جسم کسی چیز کو چھوئے
+pulsation externally, tremulous	1	PULSATION externally, tremulous	لرزتے ہوئے
+pulsation externally, waking, on	1	PULSATION externally, waking, on	جاگتے ہی
+pulsation externally, walking	1	PULSATION externally, walking	چلنا
+pulsation externally, walking, in open air, after	2	PULSATION externally, walking, in open air, after	کھلی ہوا میں چلنے کے بعد
+pulse	0	PULSE	نبض
+pulse, audible	1	PULSE, audible	سنائی دیتی
+pulse, bounding	1	PULSE, bounding	اچھلتی
+pulse, contracted	1	PULSE, contracted	سکڑی ہوئی
+pulse, double	1	PULSE, double	دوہری
+pulse, empty	1	PULSE, empty	خالی
+pulse, excited	1	PULSE, excited	بے چین
+pulse, febrile	1	PULSE, febrile	بخار والی
+pulse, fluttering	1	PULSE, fluttering	پھڑپھڑاتی
+pulse, frequent	1	PULSE, frequent	تیز
+pulse, frequent, daytime	2	PULSE, frequent, daytime	دن کے وقت
+pulse, frequent, morning	2	PULSE, frequent, morning	صبح
+pulse, frequent, forenoon	2	PULSE, frequent, forenoon	دوپہر سے پہلے
+pulse, frequent, afternoon	2	PULSE, frequent, afternoon	سہ پہر
+pulse, frequent, evening	2	PULSE, frequent, evening	شام
+pulse, frequent, accelerated, elevated, exalted, fast, innumerable, rapid	2	PULSE, frequent, accelerated, elevated, exalted, fast, innumerable, rapid	بڑھی ہوئی، بلند، بہت تیز، بے شمار، دوڑتی
+pulse, frequent, midnight, after	2	PULSE, frequent, midnight, after	آدھی رات کے بعد
+pulse, frequent, eating, after	2	PULSE, frequent, eating, after	کھانے کے بعد
+pulse, frequent, faster than the heart-beat	2	PULSE, frequent, faster than the heart-beat	دل کی دھڑکن سے بھی تیز
+pulse, frequent, motion agg.	2	PULSE, frequent, motion agg.	حرکت سے بگاڑ
+pulse, frequent, noticing, it, when	2	PULSE, frequent, noticing, it, when	توجہ دینے پر
+pulse, frequent, rest, during	2	PULSE, frequent, rest, during	آرام کے دوران
+pulse, frequent, rising up on	2	PULSE, frequent, rising up on	اٹھنے پر
+pulse, frequent, sitting, when	2	PULSE, frequent, sitting, when	بیٹھنے پر
+pulse, frequent, stool, after	2	PULSE, frequent, stool, after	پاخانے کے بعد
+pulse, frequent, thinking of past troubles	2	PULSE, frequent, thinking of past troubles	پرانی پریشانیاں سوچنے پر
+pulse, frequent, vexation, after	2	PULSE, frequent, vexation, after	چڑ کے بعد
+pulse, frequent, warm applications, from	2	PULSE, frequent, warm applications, from	گرم ٹکور سے
+pulse, frequent, and intermittent	2	PULSE, frequent, and intermittent	اور وقفوں والی
+pulse, frequent, and small	2	PULSE, frequent, and small	اور کمزور
+pulse, frequent, strong and small	2	PULSE, frequent, strong and small	مضبوط مگر کمزور
+pulse, full	1	PULSE, full	بھری
+pulse, full, morning	2	PULSE, full, morning	صبح
+pulse, full, afternoon	2	PULSE, full, afternoon	سہ پہر
+pulse, full, evening	2	PULSE, full, evening	شام
+pulse, full, night	2	PULSE, full, night	رات
+pulse, hard	1	PULSE, hard	سخت
+pulse, hard, morning	2	PULSE, hard, morning	صبح
+pulse, hard, noon	2	PULSE, hard, noon	دوپہر
+pulse, hard, evening	2	PULSE, hard, evening	شام
+pulse, heavy	1	PULSE, heavy	بھاری
+pulse, imperceptible	1	PULSE, imperceptible	محسوس نہ ہو
+pulse, imperceptible, almost	2	PULSE, imperceptible, almost	تقریباً
+pulse, imperceptible, almost, during convulsions	3	PULSE, imperceptible, almost, during convulsions	دوروں کے دوران
+pulse, imperceptible, almost, stupor	3	PULSE, imperceptible, almost, stupor	مدہوشی
+pulse, intermittent	1	PULSE, intermittent	وقفوں والی
+pulse, irregular	1	PULSE, irregular	بے قاعدہ
+pulse, irregular, exertion, on slight	2	PULSE, irregular, exertion, on slight	ذرا سی محنت پر
+pulse, irregular, lying on back, while	2	PULSE, irregular, lying on back, while	کمر کے بل لیٹتے وقت
+pulse, irregular, stool, after	2	PULSE, irregular, stool, after	پاخانے کے بعد
+pulse, irregular, and slow	2	PULSE, irregular, and slow	اور سست
+pulse, irritable	1	PULSE, irritable	چڑچڑی
+pulse, jerking	1	PULSE, jerking	جھٹکے والی
+pulse, labored	1	PULSE, labored	مشکل سے
+pulse, slow	1	PULSE, slow	سست
+pulse, slow, daytime	2	PULSE, slow, daytime	دن کے وقت
+pulse, slow, morning	2	PULSE, slow, morning	صبح
+pulse, slow, forenoon	2	PULSE, slow, forenoon	دوپہر سے پہلے
+pulse, slow, afternoon	2	PULSE, slow, afternoon	سہ پہر
+pulse, slow, evening	2	PULSE, slow, evening	شام
+pulse, slow, slower than the beat of heart	2	PULSE, slow, slower than the beat of heart	دل کی دھڑکن سے بھی سست
+pulse, small	1	PULSE, small	کمزور
+pulse, soft	1	PULSE, soft	نرم
+pulse, spasmodic	1	PULSE, spasmodic	اکڑن والی
+pulse, strong	1	PULSE, strong	مضبوط
+pulse, tense	1	PULSE, tense	کسی ہوئی
+pulse, thready	1	PULSE, thready	دھاگے جیسی
+pulse, tremulous	1	PULSE, tremulous	لرزتے ہوئے
+pulse, tremulous, night	2	PULSE, tremulous, night	رات
+pulse, tremulous, eating, after	2	PULSE, tremulous, eating, after	کھانے کے بعد
+pulse, undulating	1	PULSE, undulating	لہراتی
+pulse, weak	1	PULSE, weak	کمزور
+pulse, wiry	1	PULSE, wiry	تار جیسی
+pulse abnormal	0	PULSE abnormal	غیر معمولی نبض
+pulse abnormal, compressible	1	PULSE abnormal, compressible (See Soft)	دبنے والی
+quinine	0	QUININE	کوئینین
+quinine, abuse of	1	QUININE, abuse of	=عمومیات — کوئینین کا زیادہ استعمال
+quivering	0	QUIVERING	تھرتھراہٹ
+quivering, all over followed by vertigo	1	QUIVERING, all over followed by vertigo	سارے جسم میں، پیچھے چکر
+quivering, lying, while	1	QUIVERING, lying, while	لیٹتے وقت
+quivering, glands	1	QUIVERING, glands	غدودوں میں
+reaction	0	REACTION	ردِ عمل
+reaction, lack of	1	REACTION, lack of	=عمومیات — ردِ عمل کا نہ ہونا
+relaxation of muscles	0	RELAXATION of muscles	پٹھوں کا ڈھیلا ہونا
+rest	0	REST (See Motion)	آرام
+reveling	0	REVELING	عیش و نشاط
+reveling, night, from	1	REVELING, night, from	رات بھر عیش کے بعد
+riding	0	RIDING	سواری
+riding, after	1	RIDING, after	=عمومیات — سواری کے بعد
+riding, amel.	1	RIDING, amel.	=عمومیات — سواری سے آرام
+riding, down hill	1	RIDING, down hill	ڈھلان اترتے وقت
+riding, in a wagon, or on the cars agg.	1	RIDING, in a wagon, or on the cars agg.	بیل گاڑی یا ریل میں بگاڑ
+riding horseback	0	RIDING horseback	گھوڑے کی سواری
+riding horseback, amel.	1	RIDING horseback, amel.	=عمومیات — گھوڑے کی سواری سے آرام
+riding horseback agg.	0	RIDING horseback agg.	گھوڑے کی سواری سے بگاڑ
+rising	0	RISING	اٹھنا
+rising, amel.	1	RISING, amel.	=عمومیات — اٹھنے سے آرام
+rising agg.	0	RISING agg.	اٹھنے سے بگاڑ
+room full of people agg.	0	ROOM full of people agg. (See Fear of a Crowd)	ہجوم والے کمرے میں بگاڑ
+rubbing	0	RUBBING	ملنا
+rubbing, amel.	1	RUBBING, amel.	=عمومیات — ملنے سے آرام
+rubbing, gently, stroking, agg.	1	RUBBING, gently, stroking, agg.	نرمی سے سہلانے سے بگاڑ
+rubbing agg.	0	RUBBING agg.	ملنے سے بگاڑ
+running	0	RUNNING	دوڑنا
+running, amel.	1	RUNNING, amel.	=عمومیات — دوڑنے سے آرام
+running agg.	0	RUNNING agg.	دوڑنے سے بگاڑ
+scarlet fever	0	SCARLET fever	سرخ بخار
+scarlet fever, after	1	SCARLET fever, after	=عمومیات — سرخ بخار کے بعد
+scrawny	0	SCRAWNY (See Lean People)	دبلا پتلا
+scurvy	0	SCURVY	اسکروی
+scurvy, scorbutus	1	SCURVY, scorbutus	مسوڑھوں کا اسکروی
+seashore	0	SEASHORE (See Air)	سمندر کنارہ
+sensitiveness	0	SENSITIVENESS	حساسیت
+sensitiveness, to pain	1	SENSITIVENESS, to pain	درد کی
+sensitiveness, bones	1	SENSITIVENESS, bones	ہڈیوں کی
+sensitiveness, periosteum	1	SENSITIVENESS, periosteum	ہڈی کی جھلی کی
+sensitiveness, cartilages	1	SENSITIVENESS, cartilages	نرم ہڈیوں کی
+sensitiveness, glands	1	SENSITIVENESS, glands	غدودوں کی
+sensitiveness, internally	1	SENSITIVENESS, internally	اندرونی
+sensitiveness externally	0	SENSITIVENESS externally	بیرونی
+septicaemia	0	SEPTICAEMIA	خون کا زہر (سیپٹی سیمیا)
+sexual	0	SEXUAL	جنسی
+sexual, desire	1	SEXUAL, desire	خواہش
+sexual, desire, suppression of agg.	2	SEXUAL, desire, suppression of agg.	=عمومیات — جنسی، خواہش دبانے سے بگاڑ
+sexual, desire, suppression of, amel.	2	SEXUAL, desire, suppression of, amel.	=عمومیات — جنسی، خواہش دبانے سے آرام
+sexual, excitement agg.	1	SEXUAL, excitement agg.	=عمومیات — جنسی جوش سے بگاڑ
+sexual excesses	0	SEXUAL excesses	جنسی زیادتی
+sexual excesses, after	1	SEXUAL excesses, after	=عمومیات — جنسی زیادتی کے بعد
+shocks	0	SHOCKS	جھٹکے
+shocks, electric-like	1	SHOCKS, electric-like	بجلی جیسے
+shocks, electric-like, concussion of brain, from	2	SHOCKS, electric-like, concussion of brain, from	دماغ کے صدمے سے
+shocks, electric-like, convulsions	2	SHOCKS, electric-like, convulsions	دورے
+shocks, electric-like, convulsions, before	3	SHOCKS, electric-like, convulsions, before	=عمومیات — جھٹکے، بجلی جیسے، دوروں سے پہلے
+shocks, electric-like, convulsions, interrupted by painful shocks	3	SHOCKS, electric-like, convulsions, interrupted by painful shocks	=عمومیات — جھٹکے، بجلی جیسے، دورے دردناک جھٹکوں سے رکیں
+shocks, electric-like, epilepsy, before	2	SHOCKS, electric-like, epilepsy, before	مرگی سے پہلے
+shocks, electric-like, lying, while	2	SHOCKS, electric-like, lying, while	لیٹتے وقت
+shocks, electric-like, motion or rest, during	2	SHOCKS, electric-like, motion or rest, during	حرکت یا آرام کے دوران
+shocks, electric-like, move, on beginning to	2	SHOCKS, electric-like, move, on beginning to	حرکت شروع کرتے ہی
+shocks, electric-like, return of the senses, on	2	SHOCKS, electric-like, return of the senses, on	ہوش آنے پر
+shocks, electric-like, right side of body	2	SHOCKS, electric-like, right side of body	جسم کے دائیں طرف
+shocks, electric-like, sleep	2	SHOCKS, electric-like, sleep	نیند
+shocks, electric-like, sleep, during	3	SHOCKS, electric-like, sleep, during	=عمومیات — جھٹکے، بجلی جیسے، نیند کے دوران
+shocks, electric-like, sleep, on going to	3	SHOCKS, electric-like, sleep, on going to	سوتے وقت
+shocks, electric-like, slow pulse, with	2	SHOCKS, electric-like, slow pulse, with	سست نبض کے ساتھ
+shocks, electric-like, touching anything	2	SHOCKS, electric-like, touching anything	کسی چیز کو چھونے پر
+shocks, electric-like, walking, while	2	SHOCKS, electric-like, walking, while	چلتے وقت
+shocks, electric-like, wide awake, while	2	SHOCKS, electric-like, wide awake, while	پوری طرح جاگتے وقت
+shocks from injury	0	SHOCKS from injury	چوٹ کے جھٹکے
+shortened muscles and tendons	0	SHORTENED muscles and tendons (See Extremities)	سکڑے ہوئے پٹھے اور تار
+shot	0	SHOT	گولی
+shot, rolling through the arteries, sensation	1	SHOT, rolling through the arteries, sensation	جیسے شریانوں میں گولی لوٹے
+shrivelling	0	SHRIVELLING	سکڑنا
+shuddering	0	SHUDDERING	لرزہ
+shuddering, nervous	1	SHUDDERING, nervous	عصبی
+shuddering, nervous, menses, before	2	SHUDDERING, nervous, menses, before	حیض سے پہلے
+shuddering, nervous, part touched	2	SHUDDERING, nervous, part touched	چھوئے گئے حصے میں
+shuddering, nervous, stool, during	2	SHUDDERING, nervous, stool, during	پاخانے کے دوران
+shuddering, nervous, thinking of disagreeable things	2	SHUDDERING, nervous, thinking of disagreeable things	ناگوار باتیں سوچنے پر
+shuddering, nervous, yawning, when	2	SHUDDERING, nervous, yawning, when	جمائی کے وقت
+side	0	SIDE	پہلو
+side, symptoms on one side	1	SIDE, symptoms on one side	علامات ایک طرف
+side, alternating sides	1	SIDE, alternating sides	=عمومیات — پہلو بدلتے رہیں
+side, crosswise	1	SIDE, crosswise	ترچھا
+side, crosswise, left lower and right upper	2	SIDE, crosswise, left lower and right upper	بائیں نیچے اور دائیں اوپر
+side, crosswise, left upper and right lower	2	SIDE, crosswise, left upper and right lower	بائیں اوپر اور دائیں نیچے
+side, right	1	SIDE, right	دائیں
+side, right, then left	2	SIDE, right, then left	پہلے دائیں پھر بائیں
+side, left	1	SIDE, left	بائیں
+side, left, then right	2	SIDE, left, then right	پہلے بائیں پھر دائیں
+silica	0	SILICA	سیلیکا
+silica, from over use of	1	SILICA, from over use of	=عمومیات — سیلیکا کے زیادہ استعمال سے
+sitting	0	SITTING	بیٹھنا
+sitting, amel.	1	SITTING, amel.	=عمومیات — بیٹھنے سے آرام
+sitting, down, on first	1	SITTING, down, on first	پہلی بار بیٹھنے پر
+sitting, down, on first, amel.	2	SITTING, down, on first, amel.	=عمومیات — بیٹھنا، پہلی بار بیٹھنے سے آرام
+sitting, down, on first, agg.	2	SITTING, down, on first, agg.	=عمومیات — بیٹھنا، پہلی بار بیٹھنے سے بگاڑ
+sitting, must sit up in bed with knees drawn up, rests her head and arms upon knees	1	SITTING, must sit up in bed with knees drawn up, rests her head and arms upon knees	بستر میں گھٹنے موڑ کر بیٹھنا پڑے، سر اور بازو گھٹنوں پر رکھے
+sitting, while, agg.	1	SITTING, while, agg.	بیٹھتے وقت بگاڑ
+sleep	0	SLEEP	نیند
+sleep, during	1	SLEEP, during	=عمومیات — نیند کے دوران
+sleep, during, agg.	2	SLEEP, during, agg.	=عمومیات — نیند کے دوران بگاڑ
+sleep, during, amel.	2	SLEEP, during, amel.	=عمومیات — نیند کے دوران آرام
+sleep, after	1	SLEEP, after	=عمومیات — نیند کے بعد
+sleep, after, agg.	2	SLEEP, after, agg.	=عمومیات — نیند کے بعد بگاڑ
+sleep, after, amel.	2	SLEEP, after, amel.	=عمومیات — نیند کے بعد آرام
+sleep, after, afternoon, agg.	2	SLEEP, after, afternoon, agg.	=عمومیات — نیند کے بعد، دوپہر کی نیند کے بعد بگاڑ
+sleep, at beginning of, agg.	1	SLEEP, at beginning of, agg.	=عمومیات — نیند شروع ہوتے ہی بگاڑ
+sleep, falling asleep, on, amel.	1	SLEEP, falling asleep, on, amel.	سوتے وقت آرام
+sleep, half asleep, when, amel.	1	SLEEP, half asleep, when, amel.	نیم خوابی میں آرام
+sleep, long agg.	1	SLEEP, long agg.	لمبی نیند سے بگاڑ
+sleep, loss of, from	1	SLEEP, loss of, from	=عمومیات — نیند نہ آنے سے
+sleep, before, agg.	1	SLEEP, before, agg.	سونے سے پہلے بگاڑ
+slow repair of broken bones	0	SLOW repair of broken bones	ٹوٹی ہڈیاں دیر سے جڑیں
+sluggishness of the body	0	SLUGGISHNESS of the body	جسم کی سستی
+sluggishness of the body, morning	1	SLUGGISHNESS of the body, morning	صبح
+sluggishness of the body, morning, sitting, while	2	SLUGGISHNESS of the body, morning, sitting, while	بیٹھتے وقت
+smaller	0	SMALLER	چھوٹا
+smaller, sensation	1	SMALLER, sensation	=عمومیات — چھوٹا ہونے کا احساس
+smoke agg.	0	SMOKE agg.	دھوئیں سے بگاڑ
+snow-air agg.	0	SNOW-AIR agg.	برف کی ہوا سے بگاڑ
+softening bones	0	SOFTENING bones	ہڈیوں کا نرم ہونا
+spring	0	SPRING	بہار
+spring, in	1	SPRING, in	=عمومیات — بہار میں
+stagnated	0	STAGNATED	جم جانا
+stagnated, sensation as if blood	1	STAGNATED, sensation as if blood	جیسے خون جم گیا ہو
+standing	0	STANDING	کھڑا ہونا
+standing, amel.	1	STANDING, amel.	کھڑے ہونے سے آرام
+standing agg.	0	STANDING agg.	کھڑے ہونے سے بگاڑ
+starving	0	STARVING	بھوکا رہنا
+stiffness, rigidity	0	STIFFNESS, rigidity (See Part Affected)	اکڑن
+stone-cutters	0	STONE-CUTTERS	پتھر تراشنے والے
+stone-cutters, for	1	STONE-CUTTERS, for	=عمومیات — پتھر تراشنے والوں کے لیے
+stoop shouldered	0	STOOP shouldered	جھکے ہوئے کندھے
+storm	0	STORM	طوفان
+storm, approach of a	1	STORM, approach of a	=عمومیات — طوفان کی آمد
+storm, during storm	1	STORM, during storm	=عمومیات — طوفان کے دوران
+straining	0	STRAINING (See Lifting)	زور لگانا
+streaming of blood	0	STREAMING of blood	خون کا دوڑنا
+streaming of blood, sensation	1	STREAMING of blood, sensation	خون دوڑنے کا احساس
+strength	0	STRENGTH	طاقت
+strength, sensation of	1	STRENGTH, sensation of	=عمومیات — طاقت کا احساس
+stretching	0	STRETCHING	انگڑائیاں
+stretching, daytime	1	STRETCHING, daytime	دن کے وقت
+stretching, morning	1	STRETCHING, morning	صبح
+stretching, morning, bed, in	2	STRETCHING, morning, bed, in	بستر میں
+stretching, morning, stupefied, as if	2	STRETCHING, morning, stupefied, as if	جیسے مدہوش ہو
+stretching, morning, waking, on	2	STRETCHING, morning, waking, on	جاگتے ہی
+stretching, morning, 6 a.m.	2	STRETCHING, morning, 6 a.m.	=عمومیات — انگڑائیاں، صبح 6 بجے
+stretching, morning, 7 a.m.	2	STRETCHING, morning, 7 a.m.	=عمومیات — انگڑائیاں، صبح 7 بجے
+stretching, forenoon	1	STRETCHING, forenoon	دوپہر سے پہلے
+stretching, forenoon, 11 a.m.	2	STRETCHING, forenoon, 11 a.m.	صبح 11 بجے
+stretching, noon	1	STRETCHING, noon	دوپہر
+stretching, afternoon	1	STRETCHING, afternoon	سہ پہر
+stretching, afternoon, sleeping, after	2	STRETCHING, afternoon, sleeping, after	سونے کے بعد
+stretching, afternoon, 1 p.m.	2	STRETCHING, afternoon, 1 p.m.	=عمومیات — انگڑائیاں، سہ پہر 1 بجے
+stretching, afternoon, 4 p.m.	2	STRETCHING, afternoon, 4 p.m.	=عمومیات — انگڑائیاں، سہ پہر 4 بجے
+stretching, evening	1	STRETCHING, evening	شام
+stretching, evening, chill, during	2	STRETCHING, evening, chill, during	سردی کے دوران
+stretching, night	1	STRETCHING, night	رات
+stretching, night, bed, in	2	STRETCHING, night, bed, in	بستر میں
+stretching, night, waking, when	2	STRETCHING, night, waking, when	جاگتے وقت
+stretching, air, open, amel.	1	STRETCHING, air, open, amel.	کھلی ہوا سے آرام
+stretching, anguish, with impending menses	1	STRETCHING, anguish, with impending menses	حیض آنے والی ہو تو اضطراب
+stretching, anxiety, from	1	STRETCHING, anxiety, from	بے چینی سے
+stretching, backward	1	STRETCHING, backward	پیچھے کو
+stretching, breakfast, after	1	STRETCHING, breakfast, after	ناشتے کے بعد
+stretching, chill	1	STRETCHING, chill	سردی
+stretching, chill, during	2	STRETCHING, chill, during	=عمومیات — انگڑائیاں، سردی کے دوران
+stretching, chill, before	2	STRETCHING, chill, before	=عمومیات — انگڑائیاں، سردی سے پہلے
+stretching, coldness, during, internal	1	STRETCHING, coldness, during, internal	اندرونی ٹھنڈک کے دوران
+stretching, colic, during	1	STRETCHING, colic, during	پیٹ کے درد کے دوران
+stretching, convulsive, paroxysmal	1	STRETCHING, convulsive, paroxysmal	دورے والی انگڑائیاں
+stretching, cough, after	1	STRETCHING, cough, after	کھانسی کے بعد
+stretching, dinner, after	1	STRETCHING, dinner, after	کھانے کے بعد
+stretching, eating, after	1	STRETCHING, eating, after	کھانے کے بعد
+stretching, fever, during	1	STRETCHING, fever, during	بخار کے دوران
+stretching, house, in the	1	STRETCHING, house, in the	گھر میں
+stretching, impossible	1	STRETCHING, impossible	انگڑائی نہ لے سکے
+stretching, menses	1	STRETCHING, menses	حیض
+stretching, menses, before	2	STRETCHING, menses, before	=عمومیات — انگڑائیاں، حیض سے پہلے
+stretching, menses, during	2	STRETCHING, menses, during	=عمومیات — انگڑائیاں، حیض کے دوران
+stretching, nigh, sleep, in	1	STRETCHING, nigh, sleep, in	نیند کے قریب
+stretching, painful	1	STRETCHING, painful	دردناک
+stretching, shuddering, during	1	STRETCHING, shuddering, during	لرزے کے دوران
+stretching, sitting reading, while	1	STRETCHING, sitting reading, while	بیٹھ کر پڑھتے وقت
+stretching, slept enough, as if he had not	1	STRETCHING, slept enough, as if he had not	جیسے نیند پوری نہ ہوئی ہو
+stretching, supper, after	1	STRETCHING, supper, after	رات کے کھانے کے بعد
+stretching, unsatisfactory	1	STRETCHING, unsatisfactory	تسلی بخش نہ ہو
+stretching, urination, before	1	STRETCHING, urination, before	پیشاب سے پہلے
+stretching, walking in open air amel.	1	STRETCHING, walking in open air amel.	کھلی ہوا میں چلنے سے آرام
+sulphur	0	SULPHUR	گندھک
+sulphur, abuse of	1	SULPHUR, abuse of	=عمومیات — گندھک کا زیادہ استعمال
+summer	0	SUMMER	گرمیاں
+summer, in	1	SUMMER, in	گرمیوں میں
+sun	0	SUN	دھوپ
+sun, from exposure to	1	SUN, from exposure to	=عمومیات — دھوپ میں رہنے سے
+sun, exertion, in	1	SUN, exertion, in	=عمومیات — دھوپ میں محنت
+suppuration	0	SUPPURATION (See Abscess)	پیپ پڑنا
+swelling	0	SWELLING	سوجن
+swelling, affected parts of	1	SWELLING, affected parts of	متاثرہ حصوں کی
+swelling, inflammatory	1	SWELLING, inflammatory	سوزشی
+swelling, puffy	1	SWELLING, puffy	پھولی ہوئی
+swelling, bones	1	SWELLING, bones	ہڈیوں کی
+swelling, periosteum	1	SWELLING, periosteum	ہڈی کی جھلی کی
+swelling, cartilages	1	SWELLING, cartilages	نرم ہڈیوں کی
+swelling, glands	1	SWELLING, glands	غدودوں کی
+swelling, glands, after scarlet fever	2	SWELLING, glands, after scarlet fever	سرخ بخار کے بعد
+swelling, glands, bluish	2	SWELLING, glands, bluish	نیلی
+swelling, glands, cold	2	SWELLING, glands, cold	ٹھنڈی
+swelling, glands, hard	2	SWELLING, glands, hard	سخت
+swelling, glands, hot	2	SWELLING, glands, hot	گرم
+swelling, glands, inflammatory	2	SWELLING, glands, inflammatory	سوزشی
+swelling, glands, knotted cords, like	2	SWELLING, glands, knotted cords, like	جیسے گرہ دار رسیاں
+swelling, glands, menses, during	2	SWELLING, glands, menses, during	حیض کے دوران
+swelling, glands, nodes, like	2	SWELLING, glands, nodes, like	گرہوں جیسی
+swelling, glands, painful	2	SWELLING, glands, painful	دردناک
+swelling, glands, painless	2	SWELLING, glands, painless	بے درد
+swelling in general	0	SWELLING in general	عام سوجن
+swollen sensation	0	SWOLLEN sensation	سوجن کا احساس
+swollen sensation, bones	1	SWOLLEN sensation, bones	ہڈیوں میں
+swollen sensation, glands	1	SWOLLEN sensation, glands	غدودوں میں
+sycosis	0	SYCOSIS	سائیکوسس
+syphilis	0	SYPHILIS	سفلیس
+tension	0	TENSION	کھنچاؤ
+tension, bones	1	TENSION, bones	ہڈیوں میں
+tension, glands	1	TENSION, glands	غدودوں میں
+tension, internally	1	TENSION, internally	اندرونی
+tension, muscles	1	TENSION, muscles	پٹھوں میں
+tension externally	0	TENSION externally	بیرونی
+threads	0	THREADS	دھاگے
+threads, sensation of	1	THREADS, sensation of	=عمومیات — دھاگے کا احساس
+thrombosis	0	THROMBOSIS	خون کا لوتھڑا
+thunder storm	0	THUNDER storm (See Storm)	آسمانی بجلی کا طوفان
+tobacco	0	TOBACCO	تمباکو
+tobacco, amel.	1	TOBACCO, amel.	=عمومیات — تمباکو سے آرام
+tobacco, chewing agg.	1	TOBACCO, chewing agg.	=عمومیات — تمباکو چبانے سے بگاڑ
+tobacco, smoking, when breaking off	1	TOBACCO, smoking, when breaking off	=عمومیات — تمباکو نوشی چھوڑنے پر
+tobacco agg.	0	TOBACCO agg.	تمباکو سے بگاڑ
+touch	0	TOUCH	چھوؤ
+touch, amel.	1	TOUCH, amel.	چھونے سے آرام
+touch, illusions of	1	TOUCH, illusions of	چھونے کے وہم
+touch, pain vanishes on touch and appears elsewhere	1	TOUCH, pain vanishes on touch and appears elsewhere	چھونے پر درد غائب ہو کر کہیں اور آ جائے
+touch, slight, agg.	1	TOUCH, slight, agg.	ہلکے چھونے سے بگاڑ
+touch agg.	0	TOUCH agg.	چھونے سے بگاڑ
+touching	0	TOUCHING	چھونا
+touching, cold things agg.	1	TOUCHING, cold things agg.	ٹھنڈی چیزیں چھونے سے بگاڑ
+touching, warm things agg.	1	TOUCHING, warm things agg.	گرم چیزیں چھونے سے بگاڑ
+touching anything agg.	0	TOUCHING anything agg.	کوئی چیز چھونے سے بگاڑ
+trembling	0	TREMBLING	لرزنا
+trembling, morning	1	TREMBLING, morning	صبح
+trembling, morning, breakfast, before	2	TREMBLING, morning, breakfast, before	ناشتے سے پہلے
+trembling, morning, waking, on	2	TREMBLING, morning, waking, on	جاگتے ہی
+trembling, forenoon	1	TREMBLING, forenoon	دوپہر سے پہلے
+trembling, forenoon, exertion, on	2	TREMBLING, forenoon, exertion, on	محنت پر
+trembling, forenoon, 10 a.m.	2	TREMBLING, forenoon, 10 a.m.	صبح 10 بجے
+trembling, noon, after sleep	1	TREMBLING, noon, after sleep	دوپہر کی نیند کے بعد
+trembling, afternoon	1	TREMBLING, afternoon	سہ پہر
+trembling, evening	1	TREMBLING, evening	شام
+trembling, evening, bed, in	2	TREMBLING, evening, bed, in	بستر میں
+trembling, evening, sleep, after	2	TREMBLING, evening, sleep, after	نیند کے بعد
+trembling, evening, walking, after	2	TREMBLING, evening, walking, after	چلنے کے بعد
+trembling, night	1	TREMBLING, night	رات
+trembling, night, dreaming, after	2	TREMBLING, night, dreaming, after	خواب کے بعد
+trembling, night, sleep, after	2	TREMBLING, night, sleep, after	نیند کے بعد
+trembling, night, 3 a.m.	2	TREMBLING, night, 3 a.m.	=عمومیات — لرزنا، رات 3 بجے
+trembling, air	1	TREMBLING, air	ہوا
+trembling, air, open agg.	2	TREMBLING, air, open agg.	کھلی ہوا میں بگاڑ
+trembling, air, open, amel.	2	TREMBLING, air, open, amel.	کھلی ہوا سے آرام
+trembling, anger, from	1	TREMBLING, anger, from	غصے سے
+trembling, anxiety, from	1	TREMBLING, anxiety, from	بے چینی سے
+trembling, ascending, on	1	TREMBLING, ascending, on	چڑھتے وقت
+trembling, breakfast	1	TREMBLING, breakfast	ناشتہ
+trembling, breakfast, after	2	TREMBLING, breakfast, after	=عمومیات — لرزنا، ناشتے کے بعد
+trembling, breakfast, amel.	2	TREMBLING, breakfast, amel.	=عمومیات — لرزنا، ناشتے سے آرام
+trembling, caressing, while	1	TREMBLING, caressing, while	پیار کرتے وقت
+trembling, chill, during	1	TREMBLING, chill, during (See Chill)	سردی کے دوران
+trembling, cold drinks amel.	1	TREMBLING, cold drinks amel.	ٹھنڈے مشروبات سے آرام
+trembling, coldness, during	1	TREMBLING, coldness, during	ٹھنڈک کے دوران
+trembling, company agg.	1	TREMBLING, company agg.	مجلس میں بگاڑ
+trembling, conversation, from	1	TREMBLING, conversation, from	بات چیت سے
+trembling, coughing, from	1	TREMBLING, coughing, from	کھانسنے سے
+trembling, dinner, during	1	TREMBLING, dinner, during	کھانے کے دوران
+trembling, drinking, excessive, after	1	TREMBLING, drinking, excessive, after	زیادہ پینے کے بعد
+trembling, eating, after	1	TREMBLING, eating, after	کھانے کے بعد
+trembling, emotions, after	1	TREMBLING, emotions, after	جذبات کے بعد
+trembling, exertion, on slight	1	TREMBLING, exertion, on slight	ذرا سی محنت پر
+trembling, fatigue, after	1	TREMBLING, fatigue, after	تھکن کے بعد
+trembling, fever, during	1	TREMBLING, fever, during	بخار کے دوران
+trembling, fright, from	1	TREMBLING, fright, from	ڈر سے
+trembling, hungry, when	1	TREMBLING, hungry, when	بھوک لگنے پر
+trembling, internally	1	TREMBLING, internally	اندرونی
+trembling, joy, from	1	TREMBLING, joy, from	خوشی سے
+trembling, looking down, on	1	TREMBLING, looking down, on	نیچے دیکھنے پر
+trembling, lying, while	1	TREMBLING, lying, while	لیٹتے وقت
+trembling, meeting friends	1	TREMBLING, meeting friends	دوستوں سے ملنے پر
+trembling, menses	1	TREMBLING, menses	حیض
+trembling, menses, before	2	TREMBLING, menses, before	=عمومیات — لرزنا، حیض سے پہلے
+trembling, menses, during	2	TREMBLING, menses, during	=عمومیات — لرزنا، حیض کے دوران
+trembling, menses, after	2	TREMBLING, menses, after	=عمومیات — لرزنا، حیض کے بعد
+trembling, mental exertion, from	1	TREMBLING, mental exertion, from	ذہنی محنت سے
+trembling, motion	1	TREMBLING, motion	حرکت
+trembling, motion, amel.	2	TREMBLING, motion, amel.	=عمومیات — لرزنا، حرکت سے آرام
+trembling, motion, on agg.	2	TREMBLING, motion, on agg.	=عمومیات — لرزنا، حرکت پر بگاڑ
+trembling, music	1	TREMBLING, music	موسیقی
+trembling, noise, from	1	TREMBLING, noise, from	شور سے
+trembling, nursing infant, after	1	TREMBLING, nursing infant, after	دودھ پلانے کے بعد
+trembling, pains, with the	1	TREMBLING, pains, with the	درد کے ساتھ
+trembling, paroxysmal	1	TREMBLING, paroxysmal	دورے والا
+trembling, periodical	1	TREMBLING, periodical	وقفوں والا
+trembling, playing the piano, while	1	TREMBLING, playing the piano, while	پیانو بجاتے وقت
+trembling, rising from sitting, affected parts	1	TREMBLING, rising from sitting, affected parts	بیٹھے سے اٹھنے پر متاثرہ حصوں میں
+trembling, side lain on	1	TREMBLING, side lain on	جس کروٹ لیٹا ہو
+trembling, sleep	1	TREMBLING, sleep	نیند
+trembling, sleep, before	2	TREMBLING, sleep, before	سونے سے پہلے
+trembling, sleep, during	2	TREMBLING, sleep, during	=عمومیات — لرزنا، نیند کے دوران
+trembling, smoking, from	1	TREMBLING, smoking, from	تمباکو نوشی سے
+trembling, something is to be done, when	1	TREMBLING, something is to be done, when	جب کچھ کرنا ہو
+trembling, standing, while	1	TREMBLING, standing, while	کھڑے رہتے وقت
+trembling, stool	1	TREMBLING, stool	پاخانہ
+trembling, stool, before	2	TREMBLING, stool, before	=عمومیات — لرزنا، پاخانے سے پہلے
+trembling, stool, during	2	TREMBLING, stool, during	=عمومیات — لرزنا، پاخانے کے دوران
+trembling, stool, after	2	TREMBLING, stool, after	=عمومیات — لرزنا، پاخانے کے بعد
+trembling, supper, after	1	TREMBLING, supper, after	رات کے کھانے کے بعد
+trembling, thunderstorm	1	TREMBLING, thunderstorm	آندھی
+trembling, touch, unexpected	1	TREMBLING, touch, unexpected	اچانک چھوؤ
+trembling, vexation, from	1	TREMBLING, vexation, from	چڑ سے
+trembling, voluptuous	1	TREMBLING, voluptuous	لذت بخش
+trembling, waking, on	1	TREMBLING, waking, on	جاگتے ہی
+trembling, walking	1	TREMBLING, walking	چلنا
+trembling, walking, after	2	TREMBLING, walking, after	=عمومیات — لرزنا، چلنے کے بعد
+trembling, walking, while	2	TREMBLING, walking, while	چلتے وقت
+trembling, wine	1	TREMBLING, wine	شراب
+trembling, writing, while	1	TREMBLING, writing, while	لکھتے وقت
+trembling externally	0	TREMBLING externally	بیرونی لرزنا
+trickling sensation	0	TRICKLING sensation	ٹپکنے کا احساس
+trickling sensation, like drops	1	TRICKLING sensation, like drops	جیسے قطرے ٹپکیں
+tumors	0	TUMORS	رسولیاں
+tumors, cystic	1	TUMORS, cystic	پانی والی
+tumors, atheroma	1	TUMORS, atheroma	ایتھیروما
+tumors, cheloid	1	TUMORS, cheloid	کیلوئیڈ
+tumors, erectile	1	TUMORS, erectile	اکڑنے والی
+tumors, fibroid	1	TUMORS, fibroid	ریشے دار
+tumors, neuroma	1	TUMORS, neuroma	عصبی رسولی
+tumors, sarcoma	1	TUMORS, sarcoma	سرکوما
+tumors, steatoma	1	TUMORS, steatoma	چربی کی رسولی
+tumors, steatoma, reappearing every 4 weeks	2	TUMORS, steatoma, reappearing every 4 weeks	ہر 4 ہفتے میں دوبارہ
+tumors, steatoma, suppurating	2	TUMORS, steatoma, suppurating	پیپ پڑنا
+twitching	0	TWITCHING	پھڑکنا
+twitching, right	1	TWITCHING, right	دائیں
+twitching, fright, after	1	TWITCHING, fright, after	ڈر کے بعد
+twitching, here and there	1	TWITCHING, here and there	ادھر ادھر
+twitching, internally	1	TWITCHING, internally	اندرونی
+twitching, sleep	1	TWITCHING, sleep	نیند
+twitching, sleep, during	2	TWITCHING, sleep, during	=عمومیات — پھڑکنا، نیند کے دوران
+twitching, sleep, on going to	2	TWITCHING, sleep, on going to	سوتے وقت
+twitching, subsultus tendinum	1	TWITCHING, subsultus tendinum	پٹھوں کے تاروں کا پھڑکنا
+twitching, touch agg.	1	TWITCHING, touch agg.	چھونے سے بگاڑ
+ulcers	0	ULCERS	ناسور (زخم)
+ulcers, glands	1	ULCERS, glands	غدودوں کے
+ulcers, cancerous	1	ULCERS, cancerous	کینسری
+uncleanliness agg.	0	UNCLEANLINESS agg.	گندگی سے بگاڑ
+uncovering	0	UNCOVERING	ڈھانپ ہٹانا
+uncovering, single part agg.	1	UNCOVERING, single part agg.	ایک حصہ کھولنے سے بگاڑ
+uncovering agg.	0	UNCOVERING agg.	ڈھانپ ہٹانے سے بگاڑ
+undressing	0	UNDRESSING	کپڑے اتارنا
+undressing, after	1	UNDRESSING, after	=عمومیات — کپڑے اتارنے کے بعد
+undressing, after, agg.	2	UNDRESSING, after, agg.	=عمومیات — کپڑے اتارنے کے بعد بگاڑ
+undressing, after, in the open air	2	UNDRESSING, after, in the open air	=عمومیات — کپڑے اتارنے کے بعد، کھلی ہوا میں اتارنے کے بعد
+vaccination	0	VACCINATION	ٹیکہ
+vaccination, after	1	VACCINATION, after	=عمومیات — ٹیکے کے بعد
+varicose veins	0	VARICOSE veins	پھیلی ہوئی رگیں
+varicose veins, blue	1	VARICOSE veins, blue	نیلی
+varicose veins, burning	1	VARICOSE veins, burning	جلن
+varicose veins, burning, night	2	VARICOSE veins, burning, night	رات
+varicose veins, inflamed	1	VARICOSE veins, inflamed	سوجی ہوئی
+varicose veins, itching	1	VARICOSE veins, itching	خارش
+varicose veins, network in skin	1	VARICOSE veins, network in skin	جلد میں جال
+varicose veins, painful	1	VARICOSE veins, painful	دردناک
+varicose veins, pimples, covered with	1	VARICOSE veins, pimples, covered with	پھنسیوں سے ڈھکے
+varicose veins, pregnancy, during	1	VARICOSE veins, pregnancy, during	حمل کے دوران
+varicose veins, soreness	1	VARICOSE veins, soreness	دکھن
+varicose veins, stinging	1	VARICOSE veins, stinging	ڈنک جیسی چبھن
+varicose veins, stitching	1	VARICOSE veins, stitching	سوئی جیسا درد
+varicose veins, ulceration	1	VARICOSE veins, ulceration	زخم بننا
+varicose veins, swollen	1	VARICOSE veins, swollen	سوجی ہوئی
+vaults	0	VAULTS	تہہ خانے
+vaults, cellars, etc., agg.	1	VAULTS, cellars, etc., agg.	=عمومیات — تہہ خانوں میں بگاڑ
+vital fluids	0	VITAL fluids (See Loss of Fluids)	حیاتی رطوبتیں
+vomiting	0	VOMITING	قے
+vomiting, amel.	1	VOMITING, amel.	=عمومیات — قے سے آرام
+vomiting agg.	0	VOMITING agg.	قے سے بگاڑ
+waking	0	WAKING	جاگنا
+waking, amel.	1	WAKING, amel.	=عمومیات — جاگنے سے آرام
+waking, on agg.	1	WAKING, on agg.	جاگتے ہی بگاڑ
+walking	0	WALKING	چلنا
+walking, in open air agg.	1	WALKING, in open air agg.	کھلی ہوا میں چلنے سے بگاڑ
+walking, in open air, amel.	1	WALKING, in open air, amel.	کھلی ہوا میں چلنے سے آرام
+walking, amel.	1	WALKING, amel.	=عمومیات — چلنے سے آرام
+walking, beginning of agg.	1	WALKING, beginning of agg.	=عمومیات — چلنا شروع کرتے ہی بگاڑ
+walking, fast agg.	1	WALKING, fast agg.	تیز چلنے سے بگاڑ
+walking, fast, amel.	1	WALKING, fast, amel.	تیز چلنے سے آرام
+walking, slowly amel.	1	WALKING, slowly amel.	آہستہ چلنے سے آرام
+walking, wind, in the, agg.	1	WALKING, wind, in the, agg.	ہوا میں چلنے سے بگاڑ
+walking agg.	0	WALKING agg.	چلنے سے بگاڑ
+warm	0	WARM	گرمی
+warm, air agg.	1	WARM, air agg.	گرم ہوا سے بگاڑ
+warm, becoming, in open air, agg.	1	WARM, becoming, in open air, agg.	کھلی ہوا میں گرم ہونے سے بگاڑ
+warm, bed agg.	1	WARM, bed agg.	گرم بستر سے بگاڑ
+warm, bed, amel.	1	WARM, bed, amel.	گرم بستر سے آرام
+warm, room agg.	1	WARM, room agg.	گرم کمرے سے بگاڑ
+warm, stove agg.	1	WARM, stove agg.	چولہے سے بگاڑ
+warm, stove agg., he is cold and stiff on approaching	2	WARM, stove agg., he is cold and stiff on approaching	پاس آنے پر ٹھنڈک اور اکڑن
+warm, stove, amel.	1	WARM, stove, amel.	چولہے سے آرام
+warm, wet weather agg.	1	WARM, wet weather agg.	نم موسم میں بگاڑ
+warm, wraps agg.	1	WARM, wraps agg.	گرم لپیٹ سے بگاڑ
+warm, wraps agg., amel.	2	WARM, wraps agg., amel. (See Uncovering)	کھولنے سے آرام
+warm agg.	0	WARM agg.	گرمی سے بگاڑ
+washing	0	WASHING (See Bathing)	دھونا
+water	0	WATER	پانی
+water, dashing against inner parts, sensation of	1	WATER, dashing against inner parts, sensation of	جیسے اندرونی حصوں پر پانی مارا جائے
+wavelike sensations	0	WAVELIKE sensations	لہروں جیسے احساسات
+weakness	0	WEAKNESS	کمزوری
+weakness, daytime	1	WEAKNESS, daytime	دن کے وقت
+weakness, daytime, heat of day, during	2	WEAKNESS, daytime, heat of day, during	دن کی گرمی کے دوران
+weakness, daytime, walking, amel.	2	WEAKNESS, daytime, walking, amel.	چلنے سے آرام
+weakness, morning	1	WEAKNESS, morning	صبح
+weakness, morning, fasting	2	WEAKNESS, morning, fasting	روزے میں
+weakness, morning, ideas, after copious flow of, at night	2	WEAKNESS, morning, ideas, after copious flow of, at night	رات بھر خیالوں کے تانے بانے کے بعد
+weakness, morning, lying	2	WEAKNESS, morning, lying	لیٹنا
+weakness, morning, rising	2	WEAKNESS, morning, rising	اٹھنا
+weakness, morning, rising, amel.	3	WEAKNESS, morning, rising, amel.	=عمومیات — کمزوری، صبح، اٹھنے سے آرام
+weakness, morning, rising, on agg.	3	WEAKNESS, morning, rising, on agg.	اٹھتے ہی بگاڑ
+weakness, morning, rising, after	3	WEAKNESS, morning, rising, after	=عمومیات — کمزوری، صبح، اٹھنے کے بعد
+weakness, morning, waking, on	2	WEAKNESS, morning, waking, on	جاگتے ہی
+weakness, morning, 6 a.m.	2	WEAKNESS, morning, 6 a.m.	=عمومیات — کمزوری، صبح 6 بجے
+weakness, morning, 6-30 a.m.	2	WEAKNESS, morning, 6-30 a.m.	=عمومیات — کمزوری، صبح 6:30
+weakness, morning, 7 a.m.	2	WEAKNESS, morning, 7 a.m.	=عمومیات — کمزوری، صبح 7 بجے
+weakness, morning, 8 a.m.	2	WEAKNESS, morning, 8 a.m.	=عمومیات — کمزوری، صبح 8 بجے
+weakness, morning, 8-30 a.m.	2	WEAKNESS, morning, 8-30 a.m.	=عمومیات — کمزوری، صبح 8:30
+weakness, morning, 9 a.m. agg.	2	WEAKNESS, morning, 9 a.m. agg.	=عمومیات — کمزوری، صبح 9 بجے بگاڑ
+weakness, morning, 9 a.m., amel.	2	WEAKNESS, morning, 9 a.m., amel.	=عمومیات — کمزوری، صبح 9 بجے آرام
+weakness, morning, bed	2	WEAKNESS, morning, bed	بستر
+weakness, morning, bed, in	3	WEAKNESS, morning, bed, in	=عمومیات — کمزوری، صبح، بستر میں
+weakness, morning, bed, while sitting up in	3	WEAKNESS, morning, bed, while sitting up in	=عمومیات — کمزوری، صبح، بستر میں بیٹھنے پر
+weakness, morning, 10 a.m., until	2	WEAKNESS, morning, 10 a.m., until	=عمومیات — کمزوری، صبح 10 بجے تک
+weakness, lying	1	WEAKNESS, lying	لیٹنا
+weakness, lying, amel.	2	WEAKNESS, lying, amel.	=عمومیات — کمزوری، لیٹنے سے آرام
+weakness, lying, meeting, in interesting, amel.	2	WEAKNESS, lying, meeting, in interesting, amel.	دلچسپ مجلس میں آرام
+weakness, lying, on back amel.	2	WEAKNESS, lying, on back amel.	کمر کے بل لیٹنے سے آرام
+weakness, lying, shower, before	2	WEAKNESS, lying, shower, before	پھوارے سے پہلے
+weakness, forenoon	1	WEAKNESS, forenoon	دوپہر سے پہلے
+weakness, forenoon, 10 a.m.	2	WEAKNESS, forenoon, 10 a.m.	صبح 10 بجے
+weakness, forenoon, 10 a.m., amel.	3	WEAKNESS, forenoon, 10 a.m., amel.	=عمومیات — کمزوری، دوپہر سے پہلے، صبح 10 بجے آرام
+weakness, forenoon, 10 a.m., to 12 a.m.	3	WEAKNESS, forenoon, 10 a.m., to 12 a.m.	=عمومیات — کمزوری، دوپہر سے پہلے، صبح 10 سے دوپہر 12 بجے
+weakness, forenoon, 10 a.m. agg.	2	WEAKNESS, forenoon, 10 a.m. agg.	صبح 10 بجے بگاڑ
+weakness, forenoon, 11 a.m.	2	WEAKNESS, forenoon, 11 a.m.	صبح 11 بجے
+weakness, forenoon, 9 a.m. to 11 a.m.	2	WEAKNESS, forenoon, 9 a.m. to 11 a.m.	صبح 9 سے 11 بجے
+weakness, noon	1	WEAKNESS, noon	دوپہر
+weakness, noon, amel.	2	WEAKNESS, noon, amel.	=عمومیات — کمزوری، دوپہر آرام
+weakness, noon, 12-30 p.m.	2	WEAKNESS, noon, 12-30 p.m.	=عمومیات — کمزوری، دوپہر 12:30
+weakness, noon, 3 p.m., until	2	WEAKNESS, noon, 3 p.m., until	=عمومیات — کمزوری، دوپہر سے سہ پہر 3 بجے تک
+weakness, noon, 6 p.m., until	2	WEAKNESS, noon, 6 p.m., until	=عمومیات — کمزوری، دوپہر سے شام 6 بجے تک
+weakness, afternoon	1	WEAKNESS, afternoon	سہ پہر
+weakness, afternoon, sleep, after	2	WEAKNESS, afternoon, sleep, after	سونے کے بعد
+weakness, afternoon, walking	2	WEAKNESS, afternoon, walking	چلنا
+weakness, afternoon, walking, while	3	WEAKNESS, afternoon, walking, while	چلتے وقت
+weakness, afternoon, walking, after	3	WEAKNESS, afternoon, walking, after	=عمومیات — کمزوری، سہ پہر، چلنے کے بعد
+weakness, afternoon, 1 p.m.	2	WEAKNESS, afternoon, 1 p.m.	=عمومیات — کمزوری، سہ پہر 1 بجے
+weakness, afternoon, 1-30 p.m.	2	WEAKNESS, afternoon, 1-30 p.m.	=عمومیات — کمزوری، سہ پہر 1:30
+weakness, afternoon, 2 p.m.	2	WEAKNESS, afternoon, 2 p.m.	=عمومیات — کمزوری، سہ پہر 2 بجے
+weakness, afternoon, 2 p.m., to 3 p.m.	3	WEAKNESS, afternoon, 2 p.m., to 3 p.m.	=عمومیات — کمزوری، سہ پہر 2 سے 3 بجے
+weakness, afternoon, 2 p.m., to, 4 p.m.	3	WEAKNESS, afternoon, 2 p.m., to, 4 p.m.	=عمومیات — کمزوری، سہ پہر 2 سے 4 بجے
+weakness, afternoon, 3 p.m.	2	WEAKNESS, afternoon, 3 p.m.	=عمومیات — کمزوری، سہ پہر 3 بجے
+weakness, afternoon, 4 p.m.	2	WEAKNESS, afternoon, 4 p.m.	=عمومیات — کمزوری، سہ پہر 4 بجے
+weakness, afternoon, 5 p.m.	2	WEAKNESS, afternoon, 5 p.m.	شام 5 بجے
+weakness, afternoon, 5 p.m., to 5 a.m.	3	WEAKNESS, afternoon, 5 p.m., to 5 a.m.	=عمومیات — کمزوری، سہ پہر، شام 5 سے صبح 5 بجے
+weakness, afternoon, 5 p.m., or 6 p.m.	3	WEAKNESS, afternoon, 5 p.m., or 6 p.m.	شام 5 یا 6 بجے
+weakness, evening	1	WEAKNESS, evening	شام
+weakness, evening, amel.	2	WEAKNESS, evening, amel.	=عمومیات — کمزوری، شام آرام
+weakness, evening, bed, in	2	WEAKNESS, evening, bed, in	بستر میں
+weakness, evening, eating, after	2	WEAKNESS, evening, eating, after	کھانے کے بعد
+weakness, evening, 5-30 p.m.	2	WEAKNESS, evening, 5-30 p.m.	=عمومیات — کمزوری، شام 5:30
+weakness, evening, 6 p.m.	2	WEAKNESS, evening, 6 p.m.	=عمومیات — کمزوری، شام 6 بجے
+weakness, evening, 7 p.m.	2	WEAKNESS, evening, 7 p.m.	=عمومیات — کمزوری، شام 7 بجے
+weakness, evening, 8 p.m.	2	WEAKNESS, evening, 8 p.m.	=عمومیات — کمزوری، شام 8 بجے
+weakness, evening, 8-30 p.m.	2	WEAKNESS, evening, 8-30 p.m.	=عمومیات — کمزوری، شام 8:30
+weakness, evening, 9 p.m. agg.	2	WEAKNESS, evening, 9 p.m. agg.	رات 9 بجے بگاڑ
+weakness, evening, 9 p.m., amel.	2	WEAKNESS, evening, 9 p.m., amel.	رات 9 بجے آرام
+weakness, night	1	WEAKNESS, night	رات
+weakness, night, 9 p.m.	2	WEAKNESS, night, 9 p.m.	=عمومیات — کمزوری، رات 9 بجے
+weakness, night, 9-30 p.m.	2	WEAKNESS, night, 9-30 p.m.	=عمومیات — کمزوری، رات 9:30
+weakness, night, 10 p.m.	2	WEAKNESS, night, 10 p.m.	=عمومیات — کمزوری، رات 10 بجے
+weakness, night, 11 p.m.	2	WEAKNESS, night, 11 p.m.	=عمومیات — کمزوری، رات 11 بجے
+weakness, night, midnight	2	WEAKNESS, night, midnight	آدھی رات
+weakness, night, midnight, after	3	WEAKNESS, night, midnight, after	=عمومیات — کمزوری، رات، آدھی رات کے بعد
+weakness, night, 3 a.m.	2	WEAKNESS, night, 3 a.m.	=عمومیات — کمزوری، رات 3 بجے
+weakness, night, 4 a.m.	2	WEAKNESS, night, 4 a.m.	صبح 4 بجے
+weakness, air	1	WEAKNESS, air	ہوا
+weakness, air, in open	2	WEAKNESS, air, in open	کھلی ہوا
+weakness, air, in open, agg.	3	WEAKNESS, air, in open, agg.	=عمومیات — کمزوری، ہوا، کھلی ہوا میں بگاڑ
+weakness, air, in open, amel.	3	WEAKNESS, air, in open, amel.	=عمومیات — کمزوری، ہوا، کھلی ہوا سے آرام
+weakness, air, for want of	2	WEAKNESS, air, for want of	=عمومیات — کمزوری، ہوا نہ ملنے سے
+weakness, air, fresh air amel.	2	WEAKNESS, air, fresh air amel.	تازہ ہوا سے آرام
+weakness, alcoholic drinks amel.	1	WEAKNESS, alcoholic drinks amel.	شرابی مشروبات سے آرام
+weakness, alternating with trembling	1	WEAKNESS, alternating with trembling	لرزے سے باری باری
+weakness, anger, after	1	WEAKNESS, anger, after	غصے کے بعد
+weakness, ascending stairs, from	1	WEAKNESS, ascending stairs, from	سیڑھیاں چڑھنے سے
+weakness, bed, on going to	1	WEAKNESS, bed, on going to	بستر پر جاتے وقت
+weakness, beer	1	WEAKNESS, beer	بیئر
+weakness, beer, after	2	WEAKNESS, beer, after	=عمومیات — کمزوری، بیئر کے بعد
+weakness, beer, amel.	2	WEAKNESS, beer, amel.	=عمومیات — کمزوری، بیئر سے آرام
+weakness, breakfast	1	WEAKNESS, breakfast	ناشتہ
+weakness, breakfast, after agg.	2	WEAKNESS, breakfast, after agg.	=عمومیات — کمزوری، ناشتے کے بعد بگاڑ
+weakness, breakfast, after, amel.	2	WEAKNESS, breakfast, after, amel.	=عمومیات — کمزوری، ناشتے کے بعد آرام
+weakness, breakfast time, about	1	WEAKNESS, breakfast time, about	ناشتے کے وقت
+weakness, children, in	1	WEAKNESS, children, in	بچوں میں
+weakness, chill	1	WEAKNESS, chill	سردی
+weakness, chill, before	2	WEAKNESS, chill, before	=عمومیات — کمزوری، سردی سے پہلے
+weakness, chill, during	2	WEAKNESS, chill, during	=عمومیات — کمزوری، سردی کے دوران
+weakness, cloudy, damp weather, in	1	WEAKNESS, cloudy, damp weather, in	ابر آلود نم موسم میں
+weakness, coffee, from odor, of	1	WEAKNESS, coffee, from odor, of	کافی کی بو سے
+weakness, coition, after	1	WEAKNESS, coition, after	ہم بستری کے بعد
+weakness, cold weather, in	1	WEAKNESS, cold weather, in	ٹھنڈے موسم میں
+weakness, coldness, during	1	WEAKNESS, coldness, during	ٹھنڈک کے دوران
+weakness, convulsions, after	1	WEAKNESS, convulsions, after	دوروں کے بعد
+weakness, convulsions, after, epileptic	2	WEAKNESS, convulsions, after, epileptic	مرگی کے
+weakness, convulsions, after, hysterical	2	WEAKNESS, convulsions, after, hysterical	ہیستریائی
+weakness, dampness, from exposure to	1	WEAKNESS, dampness, from exposure to	نمی میں رہنے سے
+weakness, death, as of approaching	1	WEAKNESS, death, as of approaching	جیسے موت قریب ہو
+weakness, descending steps	1	WEAKNESS, descending steps	سیڑھیاں اترنا
+weakness, diarrhoea, from	1	WEAKNESS, diarrhoea, from	دستوں سے
+weakness, dinner	1	WEAKNESS, dinner	کھانا
+weakness, dinner, before	2	WEAKNESS, dinner, before	=عمومیات — کمزوری، کھانے سے پہلے
+weakness, dinner, after	2	WEAKNESS, dinner, after	=عمومیات — کمزوری، کھانے کے بعد
+weakness, dinner, amel.	2	WEAKNESS, dinner, amel.	=عمومیات — کمزوری، کھانے سے آرام
+weakness, dinner, during agg.	2	WEAKNESS, dinner, during agg.	کھاتے وقت بگاڑ
+weakness, drawing and jerking in limbs, after	1	WEAKNESS, drawing and jerking in limbs, after	اعضا میں کھنچاؤ اور جھٹکوں کے بعد
+weakness, dream, after a	1	WEAKNESS, dream, after a	خواب کے بعد
+weakness, eating	1	WEAKNESS, eating	کھانا
+weakness, eating, after	2	WEAKNESS, eating, after	=عمومیات — کمزوری، کھانے کے بعد
+weakness, eating, before	2	WEAKNESS, eating, before	=عمومیات — کمزوری، کھانے سے پہلے
+weakness, eating, amel.	2	WEAKNESS, eating, amel.	=عمومیات — کمزوری، کھانے سے آرام
+weakness, eating, while agg.	2	WEAKNESS, eating, while agg.	کھاتے وقت بگاڑ
+weakness, emissions, after	1	WEAKNESS, emissions, after	منی کے اخراج کے بعد
+weakness, erections, from	1	WEAKNESS, erections, from	انتصاب سے
+weakness, evening agg.	1	WEAKNESS, evening agg.	شام بگاڑ
+weakness, excess, after any	1	WEAKNESS, excess, after any	کسی زیادتی کے بعد
+weakness, excitement, after	1	WEAKNESS, excitement, after	جوش کے بعد
+weakness, exertion	1	WEAKNESS, exertion	محنت
+weakness, exertion, from slight	2	WEAKNESS, exertion, from slight	ذرا سی محنت سے
+weakness, exertion, amel.	2	WEAKNESS, exertion, amel.	=عمومیات — کمزوری، محنت سے آرام
+weakness, exhilaration, as after	1	WEAKNESS, exhilaration, as after	جیسے خوشی کے بعد
+weakness, feet, while washing the	1	WEAKNESS, feet, while washing the	پاؤں دھوتے وقت
+weakness, fever	1	WEAKNESS, fever	بخار
+weakness, fever, during	2	WEAKNESS, fever, during	=عمومیات — کمزوری، بخار کے دوران
+weakness, fever, after	2	WEAKNESS, fever, after	=عمومیات — کمزوری، بخار کے بعد
+weakness, fever, following prolonged fever	2	WEAKNESS, fever, following prolonged fever	طویل بخار کے بعد
+weakness, food, sour, from	1	WEAKNESS, food, sour, from	کھٹی غذا سے
+weakness, fright, from	1	WEAKNESS, fright, from	ڈر سے
+weakness, grief, from	1	WEAKNESS, grief, from	غم سے
+weakness, headache, from	1	WEAKNESS, headache, from	سر درد سے
+weakness, heat	1	WEAKNESS, heat	گرمی
+weakness, heat, from	2	WEAKNESS, heat, from	=عمومیات — کمزوری، گرمی سے
+weakness, heat, hot room	2	WEAKNESS, heat, hot room	گرم کمرہ
+weakness, heat, hot room, entering, from bed	3	WEAKNESS, heat, hot room, entering, from bed	بستر سے گرم کمرے میں آنے پر
+weakness, heat, hot room, in	3	WEAKNESS, heat, hot room, in	=عمومیات — کمزوری، گرمی، گرم کمرے میں
+weakness, heat, of the sun	2	WEAKNESS, heat, of the sun	دھوپ کی گرمی
+weakness, heat, bed, of	2	WEAKNESS, heat, bed, of	بستر کی گرمی
+weakness, heat, summer, of	2	WEAKNESS, heat, summer, of	=عمومیات — کمزوری، گرمیوں کی گرمی
+weakness, heat, thrills of heat, from	2	WEAKNESS, heat, thrills of heat, from	=عمومیات — کمزوری، گرمی کی لہروں سے
+weakness, heat, walk, heated, and rapid cooling, after	2	WEAKNESS, heat, walk, heated, and rapid cooling, after	گرم ہو کر چلنے اور جلد ٹھنڈا ہونے کے بعد
+weakness, hunger, from	1	WEAKNESS, hunger, from	بھوک سے
+weakness, intermittent	1	WEAKNESS, intermittent	وقفوں والی
+weakness, leaning towards left during menses amel.	1	WEAKNESS, leaning towards left during menses amel.	حیض میں بائیں طرف جھکنے سے آرام
+weakness, lifting, from	1	WEAKNESS, lifting, from	اٹھانے سے
+weakness, looking down, on	1	WEAKNESS, looking down, on	نیچے دیکھنے پر
+weakness, loss of sleep	1	WEAKNESS, loss of sleep	نیند کی کمی
+weakness, love, from unfortunate	1	WEAKNESS, love, from unfortunate	ناکام محبت سے
+weakness, lying agg.	1	WEAKNESS, lying agg.	لیٹنے سے بگاڑ
+weakness, menses	1	WEAKNESS, menses	حیض
+weakness, menses, before	2	WEAKNESS, menses, before	=عمومیات — کمزوری، حیض سے پہلے
+weakness, menses, at beginning	2	WEAKNESS, menses, at beginning	=عمومیات — کمزوری، حیض کی ابتدا میں
+weakness, menses, appearance of, amel.	2	WEAKNESS, menses, appearance of, amel.	=عمومیات — کمزوری، حیض آنے سے آرام
+weakness, menses, amel.	2	WEAKNESS, menses, amel.	=عمومیات — کمزوری، حیض سے آرام
+weakness, menses, breathe, can scarcely, must lie down	2	WEAKNESS, menses, breathe, can scarcely, must lie down	سانس بمشکل آئے، لیٹنا پڑے
+weakness, menses, desire to lie down, with	2	WEAKNESS, menses, desire to lie down, with	لیٹنے کا رجحان
+weakness, menses, during agg.	2	WEAKNESS, menses, during agg.	=عمومیات — کمزوری، حیض کے دوران بگاڑ
+weakness, menses, end of	2	WEAKNESS, menses, end of	=عمومیات — کمزوری، حیض کے آخر میں
+weakness, menses, going upstairs, when	2	WEAKNESS, menses, going upstairs, when	سیڑھیاں چڑھتے وقت
+weakness, menses, painful	2	WEAKNESS, menses, painful	دردناک حیض
+weakness, menses, stool, after	2	WEAKNESS, menses, stool, after	پاخانے کے بعد
+weakness, menses, talk, can scarcely	2	WEAKNESS, menses, talk, can scarcely	بمشکل بات کر سکے
+weakness, menses, after	2	WEAKNESS, menses, after	=عمومیات — کمزوری، حیض کے بعد
+weakness, menses, after, disproportionate to loss of blood	3	WEAKNESS, menses, after, disproportionate to loss of blood	=عمومیات — کمزوری، حیض کے بعد، خون کے بہنے سے زیادہ
+weakness, mental exertion	1	WEAKNESS, mental exertion	ذہنی محنت
+weakness, mental, occupation amel.	1	WEAKNESS, mental, occupation amel.	ذہنی مشغلے سے آرام
+weakness, mortification, after	1	WEAKNESS, mortification, after	گلنے کے بعد
+weakness, motion	1	WEAKNESS, motion	حرکت
+weakness, motion, amel.	2	WEAKNESS, motion, amel.	=عمومیات — کمزوری، حرکت سے آرام
+weakness, motion, from agg.	2	WEAKNESS, motion, from agg.	=عمومیات — کمزوری، حرکت سے بگاڑ
+weakness, motion, gentle, amel.	2	WEAKNESS, motion, gentle, amel.	ہلکی حرکت سے آرام
+weakness, motion, when moved from horizontal position	2	WEAKNESS, motion, when moved from horizontal position	لیٹے سے اٹھانے پر
+weakness, moving arms, on	1	WEAKNESS, moving arms, on	بازو ہلانے پر
+weakness, nervous	1	WEAKNESS, nervous	عصبی
+weakness, nervous, afternoon	2	WEAKNESS, nervous, afternoon	سہ پہر
+weakness, nervous, walk, after a	2	WEAKNESS, nervous, walk, after a	چہل قدمی کے بعد
+weakness, noon agg.	1	WEAKNESS, noon agg.	دوپہر بگاڑ
+weakness, nursing the sick, from	1	WEAKNESS, nursing the sick, from	بیمار کی تیمارداری سے
+weakness, nursing women, in	1	WEAKNESS, nursing women, in	دودھ پلانے والی عورتوں میں
+weakness, old people	1	WEAKNESS, old people	بوڑھے
+weakness, pain, from	1	WEAKNESS, pain, from	درد سے
+weakness, pain, from, in sacrum	2	WEAKNESS, pain, from, in sacrum	تعلق کی ہڈی میں
+weakness, paralytic	1	WEAKNESS, paralytic	فالجی
+weakness, paralytic, motion, on	2	WEAKNESS, paralytic, motion, on	حرکت پر
+weakness, paralytic, pain, with	2	WEAKNESS, paralytic, pain, with	درد کے ساتھ
+weakness, paralytic, painful parts, in	2	WEAKNESS, paralytic, painful parts, in	دردناک حصوں میں
+weakness, paralytic, sliding down in bed	2	WEAKNESS, paralytic, sliding down in bed	بستر میں سرکتا جائے
+weakness, periodical	1	WEAKNESS, periodical	وقفوں والی
+weakness, periodical, every other morning	2	WEAKNESS, periodical, every other morning	ہر دوسری صبح
+weakness, perspiration	1	WEAKNESS, perspiration	پسینہ
+weakness, perspiration, from	2	WEAKNESS, perspiration, from	=عمومیات — کمزوری، پسینے سے
+weakness, perspiration, night	2	WEAKNESS, perspiration, night	رات کے پسینے سے
+weakness, perspiration, while awake, dry, burning heat while sleeping	2	WEAKNESS, perspiration, while awake, dry, burning heat while sleeping	جاگتے وقت پسینہ خشک، سوتے وقت جلن والی گرمی
+weakness, pleasure, from	1	WEAKNESS, pleasure, from	خوشی سے
+weakness, rapid	1	WEAKNESS, rapid	تیز
+weakness, reading	1	WEAKNESS, reading	پڑھنا
+weakness, reading, from	2	WEAKNESS, reading, from	=عمومیات — کمزوری، پڑھنے سے
+weakness, reading, aloud	2	WEAKNESS, reading, aloud	بلند آواز سے پڑھنا
+weakness, resting head on something and closing eyes amel.	1	WEAKNESS, resting head on something and closing eyes amel.	سر کسی چیز پر رکھ کر آنکھیں بند کرنے سے آرام
+weakness, riding	1	WEAKNESS, riding	سواری
+weakness, riding, from	2	WEAKNESS, riding, from	=عمومیات — کمزوری، سواری سے
+weakness, riding, in open air amel.	2	WEAKNESS, riding, in open air amel.	کھلی ہوا میں سواری سے آرام
+weakness, rising	1	WEAKNESS, rising	اٹھنا
+weakness, rising, on	2	WEAKNESS, rising, on	اٹھتے ہی
+weakness, rising, after	2	WEAKNESS, rising, after	=عمومیات — کمزوری، اٹھنے کے بعد
+weakness, rising, seat, from a	2	WEAKNESS, rising, seat, from a	نشست سے اٹھنے پر
+weakness, sea-bath, after	1	WEAKNESS, sea-bath, after	سمندر میں غسل کے بعد
+weakness, sitting	1	WEAKNESS, sitting	بیٹھنا
+weakness, sitting, amel.	2	WEAKNESS, sitting, amel.	=عمومیات — کمزوری، بیٹھنے سے آرام
+weakness, sitting, walk, after a	2	WEAKNESS, sitting, walk, after a	چہل قدمی کے بعد بیٹھنے پر
+weakness, sitting agg.	1	WEAKNESS, sitting agg.	بیٹھنے سے بگاڑ
+weakness, sleep	1	WEAKNESS, sleep	نیند
+weakness, sleep, after	2	WEAKNESS, sleep, after	=عمومیات — کمزوری، نیند کے بعد
+weakness, sleep, amel.	2	WEAKNESS, sleep, amel.	=عمومیات — کمزوری، نیند سے آرام
+weakness, sleep, during agg.	2	WEAKNESS, sleep, during agg.	=عمومیات — کمزوری، نیند کے دوران بگاڑ
+weakness, sleep, loss of, from	2	WEAKNESS, sleep, loss of, from	=عمومیات — کمزوری، نیند نہ آنے سے
+weakness, sleepiness	1	WEAKNESS, sleepiness	اونگھ
+weakness, sleepiness, from	2	WEAKNESS, sleepiness, from	=عمومیات — کمزوری، اونگھ سے
+weakness, sleepiness, as from	2	WEAKNESS, sleepiness, as from	جیسے اونگھ آ رہی ہو
+weakness, sleepiness, as from, morning	3	WEAKNESS, sleepiness, as from, morning	صبح
+weakness, sleepiness, as from, afternoon, walking amel.	3	WEAKNESS, sleepiness, as from, afternoon, walking amel.	سہ پہر، چلنے سے آرام
+weakness, smoking, from	1	WEAKNESS, smoking, from	تمباکو نوشی سے
+weakness, somnambulism, after	1	WEAKNESS, somnambulism, after	نیند میں چلنے کے بعد
+weakness, spring	1	WEAKNESS, spring	بہار
+weakness, standing	1	WEAKNESS, standing	کھڑا ہونا
+weakness, stimulants amel.	1	WEAKNESS, stimulants amel.	مقویات سے آرام
+weakness, stomach, pain in, from	1	WEAKNESS, stomach, pain in, from	معدے کے درد سے
+weakness, stomach, pain in, from, and back	2	WEAKNESS, stomach, pain in, from, and back	معدے اور پیٹھ کے درد سے
+weakness, stool	1	WEAKNESS, stool	پاخانہ
+weakness, stool, before	2	WEAKNESS, stool, before	=عمومیات — کمزوری، پاخانے سے پہلے
+weakness, stool, during	2	WEAKNESS, stool, during	=عمومیات — کمزوری، پاخانے کے دوران
+weakness, stool, after	2	WEAKNESS, stool, after	=عمومیات — کمزوری، پاخانے کے بعد
+weakness, stooping, on	1	WEAKNESS, stooping, on	جھکنے پر
+weakness, storm	1	WEAKNESS, storm	طوفان
+weakness, storm, before and during a	2	WEAKNESS, storm, before and during a	=عمومیات — کمزوری، طوفان سے پہلے اور دوران
+weakness, storm, thunderstorm, during	2	WEAKNESS, storm, thunderstorm, during	آندھی کے دوران
+weakness, sudden	1	WEAKNESS, sudden	اچانک
+weakness, sudden, daily	2	WEAKNESS, sudden, daily	روزانہ
+weakness, sudden, afternoon	2	WEAKNESS, sudden, afternoon	سہ پہر
+weakness, sudden, afternoon, walking, after	3	WEAKNESS, sudden, afternoon, walking, after	چلنے کے بعد
+weakness, sudden, afternoon, 1-30 p.m.	3	WEAKNESS, sudden, afternoon, 1-30 p.m.	=عمومیات — کمزوری، اچانک، سہ پہر 1:30
+weakness, sudden, evening	2	WEAKNESS, sudden, evening	شام
+weakness, sudden, chilliness, during	2	WEAKNESS, sudden, chilliness, during	ٹھنڈک کے دوران
+weakness, sudden, dressing, while, after rising	2	WEAKNESS, sudden, dressing, while, after rising	اٹھ کر کپڑے پہنتے وقت
+weakness, sudden, eruption, comes out, after the	2	WEAKNESS, sudden, eruption, comes out, after the	دانے نکلنے کے بعد
+weakness, sudden, sitting, while	2	WEAKNESS, sudden, sitting, while	بیٹھتے وقت
+weakness, sudden, vanish, as if senses would	2	WEAKNESS, sudden, vanish, as if senses would	جیسے ہوش اُڑ جائیں
+weakness, sudden, walking, from	2	WEAKNESS, sudden, walking, from	چلنے سے
+weakness, supper, after	1	WEAKNESS, supper, after	رات کے کھانے کے بعد
+weakness, talking	1	WEAKNESS, talking	بات کرنا
+weakness, talking, from	2	WEAKNESS, talking, from	=عمومیات — کمزوری، بات کرنے سے
+weakness, talking, of people, from the	2	WEAKNESS, talking, of people, from the	لوگوں کی باتوں سے
+weakness, tremulous	1	WEAKNESS, tremulous	لرزتے ہوئے
+weakness, tremulous, night, on waking	2	WEAKNESS, tremulous, night, on waking	رات جاگتے ہی
+weakness, tremulous, dinner, after	2	WEAKNESS, tremulous, dinner, after	کھانے کے بعد
+weakness, tremulous, stool, after	2	WEAKNESS, tremulous, stool, after	پاخانے کے بعد
+weakness, urination	1	WEAKNESS, urination	پیشاب
+weakness, urination, after	2	WEAKNESS, urination, after	=عمومیات — کمزوری، پیشاب کے بعد
+weakness, urination, after copious	2	WEAKNESS, urination, after copious	زیادہ پیشاب کے بعد
+weakness, vexation, after	1	WEAKNESS, vexation, after	چڑ کے بعد
+weakness, waking	1	WEAKNESS, waking	جاگنا
+weakness, waking, on	2	WEAKNESS, waking, on	جاگتے ہی
+weakness, waking, from a dream	2	WEAKNESS, waking, from a dream	خواب سے جاگنے پر
+weakness, waking, after	2	WEAKNESS, waking, after	=عمومیات — کمزوری، جاگنے کے بعد
+weakness, walking	1	WEAKNESS, walking	چلنا
+weakness, walking, amel.	2	WEAKNESS, walking, amel.	=عمومیات — کمزوری، چلنے سے آرام
+weakness, walking, air, open	2	WEAKNESS, walking, air, open	کھلی ہوا
+weakness, walking, air, open, amel.	3	WEAKNESS, walking, air, open, amel.	=عمومیات — کمزوری، چلنا، کھلی ہوا سے آرام
+weakness, walking, air, open, in agg.	3	WEAKNESS, walking, air, open, in agg.	=عمومیات — کمزوری، چلنا، کھلی ہوا میں بگاڑ
+weakness, walking, breakfast, after, amel.	2	WEAKNESS, walking, breakfast, after, amel.	ناشتے کے بعد چلنے سے آرام
+weakness, walking, commencing to walk, on	2	WEAKNESS, walking, commencing to walk, on	=عمومیات — کمزوری، چلنا شروع کرتے ہی
+weakness, walking, cough and expectoration, from	2	WEAKNESS, walking, cough and expectoration, from	کھانسی اور بلغم سے
+weakness, walking, from agg.	2	WEAKNESS, walking, from agg.	=عمومیات — کمزوری، چلنے سے بگاڑ
+weakness, walking, heat of the sun, in	2	WEAKNESS, walking, heat of the sun, in	دھوپ کی گرمی میں
+weakness, walking, house, in the	2	WEAKNESS, walking, house, in the	گھر میں
+weakness, walking, menses, during	2	WEAKNESS, walking, menses, during	حیض کے دوران
+weakness, walking, rapidly agg.	2	WEAKNESS, walking, rapidly agg.	تیز چلنے سے بگاڑ
+weakness, walking, rapidly, amel.	2	WEAKNESS, walking, rapidly, amel.	تیز چلنے سے آرام
+weakness, walking, riding, after	2	WEAKNESS, walking, riding, after	سواری کے بعد
+weakness, walking, slowly amel.	2	WEAKNESS, walking, slowly amel.	آہستہ چلنے سے آرام
+weakness, walking, smoking, after	2	WEAKNESS, walking, smoking, after	تمباکو نوشی کے بعد
+weakness, walking, storm, before and during a	2	WEAKNESS, walking, storm, before and during a	طوفان سے پہلے اور دوران
+weakness, warm room	1	WEAKNESS, warm room	گرم کمرہ
+weakness, weather agg.	1	WEAKNESS, weather agg.	موسم سے بگاڑ
+weakness, wine amel.	1	WEAKNESS, wine amel.	شراب سے آرام
+weakness, writing, from	1	WEAKNESS, writing, from	لکھنے سے
+weakness, yawning, after	1	WEAKNESS, yawning, after	جمائی کے بعد
+weakness, enervation	1	WEAKNESS, enervation	اعصابی کمزوری
+weariness	0	WEARINESS (See Weakness)	تھکن
+weariness, morning	1	WEARINESS (See Weakness), morning	صبح
+weariness, evening	1	WEARINESS (See Weakness), evening	شام
+weariness, evening, in open air	2	WEARINESS (See Weakness), evening, in open air	کھلی ہوا میں
+weariness, conversation, from	1	WEARINESS (See Weakness), conversation, from	بات چیت سے
+weariness, eating	1	WEARINESS (See Weakness), eating	کھانا
+weariness, eating, while	2	WEARINESS (See Weakness), eating, while	کھاتے وقت
+weariness, eating, after	2	WEARINESS (See Weakness), eating, after	=عمومیات — تھکن، کھانے کے بعد
+weariness, menses	1	WEARINESS (See Weakness), menses	حیض
+weariness, menses, before	2	WEARINESS (See Weakness), menses, before	=عمومیات — تھکن، حیض سے پہلے
+weariness, menses, during	2	WEARINESS (See Weakness), menses, during	=عمومیات — تھکن، حیض کے دوران
+weariness, menses, after	2	WEARINESS (See Weakness), menses, after	=عمومیات — تھکن، حیض کے بعد
+weariness, mental exertion	1	WEARINESS (See Weakness), mental exertion	ذہنی محنت
+weariness, playing piano	1	WEARINESS (See Weakness), playing piano	پیانو بجانا
+weariness, reading, from	1	WEARINESS (See Weakness), reading, from	پڑھنے سے
+weariness, sitting, while	1	WEARINESS (See Weakness), sitting, while	بیٹھتے وقت
+weariness, sleep	1	WEARINESS (See Weakness), sleep (See Sleep, Unrefreshing)	نیند (غیر فرحت بخش)
+weariness, standing, when	1	WEARINESS (See Weakness), standing, when	کھڑے ہونے پر
+weariness, talking, after	1	WEARINESS (See Weakness), talking, after	بات کرنے کے بعد
+weariness, walking, after	1	WEARINESS (See Weakness), walking, after	چلنے کے بعد
+wet	0	WET	بھیگنا
+wet, getting	1	WET, getting	بھیگ جانا
+wet, getting, feet	2	WET, getting, feet	پاؤں بھیگنا
+wet, getting, head	2	WET, getting, head	سر بھیگنا
+wet, getting, perspiration, during	2	WET, getting, perspiration, during	پسینے کے دوران
+wet, weather	1	WET, weather	نم موسم
+wet applications	0	WET applications	گیلی ٹکور
+wind	0	WIND	ہوا
+wind, cold	1	WIND, cold	ٹھنڈی ہوا
+wind, cold, riding in, amel.	2	WIND, cold, riding in, amel.	=عمومیات — ہوا، ٹھنڈی ہوا میں سواری سے آرام
+wind, warm, south	1	WIND, warm, south	گرم جنوبی ہوا
+wind, sensation, of	1	WIND, sensation, of	=عمومیات — ہوا کا احساس
+wind, sensation, of, cold	2	WIND, sensation, of, cold	=عمومیات — ہوا کا احساس، ٹھنڈی ہوا کا احساس
+wind, sensation, of, blowing on covered parts	2	WIND, sensation, of, blowing on covered parts	=عمومیات — ہوا کا احساس، ڈھکے ہوئے حصوں پر چلتی ہوئی
+windy and stormy weather	0	WINDY and stormy weather	تیز ہوا اور طوفانی موسم
+wine	0	WINE	شراب
+wine, amel.	1	WINE, amel.	=عمومیات — شراب سے آرام
+wine, sour, agg.	1	WINE, sour, agg.	کھٹی شراب سے بگاڑ
+wine agg.	0	WINE agg.	شراب سے بگاڑ
+winter	0	WINTER	سردیاں
+winter, in	1	WINTER, in	سردیوں میں
+worms under the skin sensation	0	WORMS under the skin sensation	جلد کے نیچے کیڑوں کا احساس
+wounds	0	WOUNDS	زخم
+wounds, bites of poisonous animals	1	WOUNDS, bites of poisonous animals	زہریلے جانوروں کے کاٹنے
+wounds, bleeding freely	1	WOUNDS, bleeding freely	آزادانہ خون آنا
+wounds, cold, become	1	WOUNDS, cold, become	ٹھنڈے ہو جائیں
+wounds, constitutional effects of	1	WOUNDS, constitutional effects of	=عمومیات — زخموں کے عمومی اثرات
+wounds, crushed and lacerated finger ends	1	WOUNDS, crushed and lacerated finger ends	کچلی اور پھٹی انگلیوں کے سرے
+wounds, cuts	1	WOUNDS, cuts	کٹ
+wounds, dissecting	1	WOUNDS, dissecting	چیروں کے زخم
+wounds, heal, slow to	1	WOUNDS, heal, slow to	دیر سے بھریں
+wounds, painful	1	WOUNDS, painful	دردناک
+wounds, penetrating	1	WOUNDS, penetrating	گہرے
+wounds, penetrating, of palms and soles	2	WOUNDS, penetrating, of palms and soles	ہتھیلیوں اور تلووں پر
+wounds, splinters, from	1	WOUNDS, splinters, from	کرچیوں سے
+wounds, stab wounds	1	WOUNDS, stab wounds	چھری کے زخم
+wounds, stings of insects	1	WOUNDS, stings of insects (See Stings Under Skin)	کیڑوں کے ڈنک
+wounds, stinging, in	1	WOUNDS, stinging, in	اندر ڈنک جیسی چبھن
+wounds, suppurating	1	WOUNDS, suppurating (See Skin, Unhealthy)	پیپ پڑنا
+wounds, ulcerating	1	WOUNDS, ulcerating (See Ulcers)	=عمومیات — زخم بننا
