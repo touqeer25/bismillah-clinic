@@ -289,10 +289,19 @@ function searchRepertoryBrowser(){
     }
     function scanData(sd, bookKey, chFilter){
         var out=[];
+        // 🔑 v143: کینٹ — چھپائے گئے twin/synthetic لنگر تلاش سے بھی ہٹا دو
+        var _hs=null;
+        if(bookKey==='kent' && window.KENT_TREE_FIX && window.KENT_TREE_FIX.ch){
+            _hs={};
+            Object.keys(window.KENT_TREE_FIX.ch).forEach(function(ck){
+                (window.KENT_TREE_FIX.ch[ck].h||[]).forEach(function(id){_hs[ck+'\u0000'+id]=1;});
+            });
+        }
         var chs = chFilter ? [chFilter] : Object.keys(sd);
         chs.forEach(function(ck){
             var rubs=sd[ck]; if(!rubs)return;
             Object.keys(rubs).forEach(function(rid){
+                if(_hs && _hs[ck+'\u0000'+rid]) return;   // 🔑 v143
                 var rub=rubs[rid]; if(!rub)return;
                 var t=rub.path||rub.de_path||rub.t||'';
                 if(matchRubric(rub,t)){

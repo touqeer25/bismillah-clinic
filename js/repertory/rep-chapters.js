@@ -283,9 +283,71 @@ function _repBuildTreeByExistingRubrics(data){
         if(!n.oorep_id && e.rec.oorep_id) n.oorep_id = e.rec.oorep_id;
         _repMergeRemedies(n.remedies, e.rec.r || {});
     });
-    // 🔑 v130: کینٹ — ٹری بننے کے بعد کتابی ترتیب بحال کریں (کوئی ربرک شامل/خارج نہیں ہوتا)
-    if(repCurrentBook === 'kent') _repSortTreeKentOrder(root, true);
+    // 🔑 v143: کینٹ کی کتابی ترتیب اب buildRubricTree میں _repApplyKentTreeFix کے بعد چلتی ہے
+    // (ترتیب سے پہلے درستی ضروری ہے — ورنہ نئے جڑ/rehome والے ربرک آخر میں رہ جاتے)
     return root;
+}
+
+// ============================================================
+// 🔑 v143: کینٹ کا درخت کتاب کی اصل ساخت پر — homeoint.org + True-Original PDF سے موازنہ
+// مسئلہ: OOREP مرج کے بعد کئی کتابی مین ربرکس (مثلاً «ANGER, irascibility»)
+// OOREP کے چھوٹے مین («ANGER») کے نیچے بطور ذیلی ربرک چلے جاتے تھے، اور کچھ
+// synthetic (ادویات کے بغیر) لنگر بھی بن گئے تھے۔
+// حل: kent-tree-fix.js (آف لائن سکرپٹ سے تیار، دونوں مآخذ سے تصدیق شدہ):
+//   (الف) h والے twin/synthetic لنگر ڈیٹا سطح پر فلٹر (اُن کی ادویات گروپ میں موجود رہتی ہیں)
+//   (ب) g گروپس: کتابی مین کے بچے دوبارہ اُسی کے نیچے (کتابی لیبل کے ساتھ)
+//   (ج) p کتابی مین جڑ پر (مکمل کتابی عنوان کے ساتھ) — مثلاً «ANGER, irascibility»
+// تفصیل اور گنتی: KENT_ORDER_METHOD.md · HANDOFF.md v143
+// ============================================================
+function _repApplyKentTreeFix(tree){
+    var fix=(window.KENT_TREE_FIX&&window.KENT_TREE_FIX.ch)?window.KENT_TREE_FIX.ch[repCurrentChapter]:null;
+    if(!fix)return tree;
+    var byRid={},parByRid={};
+    (function walk(n,par){
+        (n.order||[]).forEach(function(k){
+            var c=n.children[k];if(!c)return;
+            if(c.rid){byRid[String(c.rid)]=c;parByRid[String(c.rid)]=n;}
+            walk(c,n);
+        });
+    })(tree,null);
+    // (ب) گروپس — بچوں کو کتابی مین کے نیچے (لیبل = کتاب کا ذیلی ربرک)
+    (fix.g||[]).forEach(function(g){
+        var root=byRid[String(g[0])];if(!root)return;
+        (g[1]||[]).forEach(function(pair){
+            var c=byRid[String(pair[0])];if(!c)return;
+            var par=parByRid[String(pair[0])];
+            if(par&&par.children[c.name]===c){
+                delete par.children[c.name];
+                par.order=par.order.filter(function(x){return x!==c.name;});
+            }
+            var nm=String(pair[1]||c.name),base=nm,k2=2;
+            while(root.children[nm]&&root.children[nm]!==c){nm=base+' ['+(k2++)+']';}
+            if(root.children[nm]!==c){
+                c.name=nm;
+                if(!c.pathTitle)c.pathTitle=c.path||'';
+                root.children[nm]=c;root.order.push(nm);
+                byRid[String(pair[0])]=c;parByRid[String(pair[0])]=root;
+            }
+        });
+    });
+    // (ج) کتابی مین جڑ پر — مکمل کتابی عنوان کے ساتھ
+    (fix.p||[]).forEach(function(id){
+        var c=byRid[String(id)];if(!c)return;
+        var par=parByRid[String(id)];if(!par)return;
+        if(par.children[c.name]===c){
+            delete par.children[c.name];
+            par.order=par.order.filter(function(x){return x!==c.name;});
+        }
+        var nm=(c.path||c.name).replace(/\s+,/g,',').trim(),base=nm,k2=2;
+        while(tree.children[nm]&&tree.children[nm]!==c){nm=base+' ['+(k2++)+']';}
+        if(tree.children[nm]!==c){
+            c.name=nm;
+            if(!c.pathTitle)c.pathTitle=c.path||'';
+            tree.children[nm]=c;tree.order.push(nm);
+            parByRid[String(id)]=null;
+        }
+    });
+    return tree;
 }
 
 // ============================================================
@@ -394,7 +456,23 @@ function buildRubricTree(data){
     // a single rubric label. Therefore they must be nested by the longest
     // already-existing rubric prefix, not by every comma.
     // This fixes BUBO/BALL in Kent and oorep Publicum rubric ordering.
-    if(repCurrentBook === 'kent' || repCurrentBook === 'publicum' || (REP_BOOK_INFO[repCurrentBook] && REP_BOOK_INFO[repCurrentBook].tree === 'prefix')) return _repBuildTreeByExistingRubrics(data);
+    if(repCurrentBook === 'kent' || repCurrentBook === 'publicum' || (REP_BOOK_INFO[repCurrentBook] && REP_BOOK_INFO[repCurrentBook].tree === 'prefix')){
+        // 🔑 v143: کینٹ — چھپائے گئے twin/synthetic لنگر فلٹر (kent-tree-fix.js)
+        if(repCurrentBook === 'kent' && window.KENT_TREE_FIX && window.KENT_TREE_FIX.ch){
+            var _kf=window.KENT_TREE_FIX.ch[repCurrentChapter];
+            if(_kf && _kf.h && _kf.h.length){
+                var _hs={};_kf.h.forEach(function(id){_hs[id]=1;});
+                var _d2={};Object.keys(data).forEach(function(k){if(!_hs[k])_d2[k]=data[k];});
+                data=_d2;
+            }
+        }
+        var _kt=_repBuildTreeByExistingRubrics(data);
+        if(repCurrentBook === 'kent'){
+            _kt=_repApplyKentTreeFix(_kt);
+            _repSortTreeKentOrder(_kt, true);   // 🔑 v143: درستی کے بعد کتابی ترتیب (v130/v131 قانون)
+        }
+        return _kt;
+    }
 
     var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
     

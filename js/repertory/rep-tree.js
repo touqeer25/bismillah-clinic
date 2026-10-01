@@ -31,7 +31,7 @@ function repTreeFlatten(node,labels,parentFull,depth,out,filt){
     var any=false;
     (node.order||[]).forEach(function(k){                       // کتاب کی اصل ترتیب
         var c=node.children[k]; if(!c)return;
-        var lab=labels.concat([k]), full=_repJoinSeg(parentFull,k), kids=_repNodeKids(c);
+        var lab=labels.concat([k]), full=c.pathTitle?c.pathTitle:_repJoinSeg(parentFull,k), kids=_repNodeKids(c);   // 🔑 v143: rehome/promote والے ربرک کی ترجمہ-کلید = اصل عنوان
         var row={label:k,labels:lab,full:full,depth:depth,node:c,kids:kids};
         var pos=out.length; out.push(row);
         var selfHit=!filt||k.toLowerCase().indexOf(filt)!==-1;

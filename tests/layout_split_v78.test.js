@@ -3,7 +3,7 @@ const fs=require('fs'),path=require('path');const ROOT=path.resolve(__dirname,'.
 let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
 const idx=fs.readFileSync(ROOT+'/index.html','utf8');
 const order=fs.readFileSync(ROOT+'/js/repertory/LOAD_ORDER.txt','utf8').split(/\s+/).filter(Boolean);
-ok(order.length===10&&order.every(f=>fs.existsSync(ROOT+'/js/repertory/'+f)),'10 repertory JS parts exist');
+ok(order.length===11&&order.every(f=>fs.existsSync(ROOT+'/js/repertory/'+f)),'11 repertory JS parts exist (v143: +kent-tree-fix.js)');
 let last=-1,inOrder=true;order.forEach(f=>{const i=idx.indexOf('js/repertory/'+f);if(i<=last)inOrder=false;last=i;});
 ok(inOrder&&idx.indexOf('js/repertory/rep-analysis.js')<idx.indexOf('js/differentiation/01-diff-core.js'),'index.html loads parts in LOAD_ORDER, before the differentiation module');
 ok(!/08-app-repertory\.js|css\/style\.css/.test(idx),'old monolithic files no longer referenced');

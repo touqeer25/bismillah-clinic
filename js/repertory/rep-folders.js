@@ -29,7 +29,7 @@ function buildRidPathMap(tree){
         (node.order||Object.keys(node.children)).forEach(function(k){
             var c=node.children[k]; if(!c)return;
             var labels=pathLabels.concat([k]);
-            var fp=_repJoinSeg(fullPath,k);
+            var fp=c.pathTitle?c.pathTitle:_repJoinSeg(fullPath,k);   // 🔑 v143: rehome/promote والے کی کلید = اصل عنوان
             if(c.hasRubric&&c.rid){ repRidPathMap[c.rid]={path:labels,fullPath:fp,node:c}; }
             var hc=(c.order&&c.order.length>0)||Object.keys(c.children||{}).length>0;
             if(hc) walk(c,labels,fp);

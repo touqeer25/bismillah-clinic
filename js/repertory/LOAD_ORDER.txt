@@ -1,4 +1,5 @@
 rep-books.js
+kent-tree-fix.js
 rep-chapters.js
 rep-folders.js
 rep-tree.js

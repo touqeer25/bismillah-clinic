@@ -16,6 +16,7 @@ function appWindow(){
 // باب کی صفیں (ٹری کی ترتیب میں): {key, parentKey, depth, full, label, labels, rems}
 function chapterRows(w,book,chapter){
   w.repCurrentBook=book;
+  w.repCurrentChapter=chapter;   // v143: sahi bab ka fix (kent-tree-fix)
   const dir=R+'/'+w.REP_BOOK_INFO[book].chapDir;
   const t=w.buildRubricTree(JSON.parse(fs.readFileSync(dir+chapter+'.json','utf8')));
   const rows=[]; w.repTreeFlatten(t,[],'',0,rows,'');
