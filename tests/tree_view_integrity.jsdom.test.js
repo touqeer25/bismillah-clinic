@@ -31,7 +31,7 @@ const ok=(c,m)=>{chk++; if(!c){fails++;console.log('FAIL '+m);} };
         if(pos[rid]<last) moved++; last=pos[rid]; });
       // فائل کا ہر ربرک ٹری میں موجود ہو (کوئی ضم یا غائب نہ ہو)
       // v143: کینٹ کے چھپائے گئے twin/synthetic لنگر (KENT_TREE_FIX.h) جائز طور پر ٹری میں نہیں —
-      // ان کی ہر ادویہ (گریڈ سمیت) باب میں کہیں نہ کہیں موجود ہے (kent_tree_fix_v143.test.js کی D1 جانچ)
+      // ان کی ہر ادویہ (گریڈ سمیت) باب میں کہیں نہ کہیں موجود ہے (kent_tree_fix_v145.test.js کی D1 جانچ)
       const _hide=(book==='kent'&&w.KENT_TREE_FIX&&w.KENT_TREE_FIX.ch[ch.key])?w.KENT_TREE_FIX.ch[ch.key].h:null;
       fileOrder.forEach(rid=>{ if(_hide&&_hide.indexOf(rid)>=0)return; if(raw[rid]&&(raw[rid].t||raw[rid].path||raw[rid].de_path)) ok(seen[rid],book+'/'+ch.key+' rubric from file not shown '+rid+' '+(raw[rid].t||'')); });
       // ہر وہ ربرک جو ٹری نے بنایا (repRidPathMap) ٹری ویو میں بھی ہو

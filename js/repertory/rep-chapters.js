@@ -288,6 +288,47 @@ function _repBuildTreeByExistingRubrics(data){
     return root;
 }
 
+// 🔑 v145: Kent MIND carries the source parent ID and page order on every row.
+// Use those explicit relationships instead of trying to infer hierarchy from commas
+// inside rubric labels (the Homeoint source has meaningful commas within labels).
+function _repHasKentMindSourceData(data){
+    var ids=Object.keys(data||{});
+    if(!ids.length)return false;
+    for(var i=0;i<ids.length;i++){
+        var r=data[ids[i]];
+        if(!r || typeof r.source_order!=='number' || typeof r.source_label!=='string' ||
+           !Object.prototype.hasOwnProperty.call(r,'source_parent_id')) return false;
+    }
+    return true;
+}
+function _repBuildKentMindSourceTree(data){
+    var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    var entries=Object.keys(data).map(function(rid){return {rid:String(rid),rec:data[rid]};});
+    entries.sort(function(a,b){return a.rec.source_order-b.rec.source_order;});
+    var byRid=Object.create(null), lastOrder=-1;
+    entries.forEach(function(e){
+        var rec=e.rec, order=Number(rec.source_order);
+        if(!isFinite(order)||order<=lastOrder) throw new Error('Invalid Kent MIND source order at '+e.rid);
+        lastOrder=order;
+        var parentId=rec.source_parent_id;
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent MIND source parent '+parentId+' for '+e.rid);
+        var sourceLabel=String(rec.source_label||'');
+        if(!sourceLabel) throw new Error('Empty Kent MIND source label at '+e.rid);
+        var label=sourceLabel, duplicate=2;
+        while(parent.children[label]) label=sourceLabel+' ['+(duplicate++)+']';
+        var node={
+            name:label,sourceLabel:sourceLabel,sourceOrder:order,source_parent_id:parentId,
+            children:{},order:[],remedies:rec.r||{},count:1,hasRubric:true,
+            path:String(rec.t||''),pathTitle:String(rec.t||''),oorep_id:null,rid:e.rid
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        byRid[e.rid]=node;
+    });
+    return root;
+}
+
 // ============================================================
 // 🔑 v143: کینٹ کا درخت کتاب کی اصل ساخت پر — homeoint.org + True-Original PDF سے موازنہ
 // مسئلہ: OOREP مرج کے بعد کئی کتابی مین ربرکس (مثلاً «ANGER, irascibility»)
@@ -452,6 +493,10 @@ function _repSortTreeKentOrder(node, isRoot){
 }
 
 function buildRubricTree(data){
+    // 🔑 v145: MIND hierarchy and source order come from explicit Homeoint parent IDs.
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'mind' && _repHasKentMindSourceData(data)){
+        return _repBuildKentMindSourceTree(data);
+    }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest
     // already-existing rubric prefix, not by every comma.

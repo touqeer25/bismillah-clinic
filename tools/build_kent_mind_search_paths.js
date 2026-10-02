@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 'use strict';
 
-// Build a search-only breadcrumb index for Kent MIND from the same parser and
-// book-order fixes used by the repertory browser. The chapter JSON remains the
-// source of remedies/grades; this sidecar stores only rubric paths and order.
+// Build a search-only breadcrumb index from the explicit Homeoint Kent MIND
+// parent IDs and printed-page order. The chapter JSON remains the sole source
+// of rubric text and remedies/grades; this sidecar stores paths/order only.
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
@@ -41,8 +41,8 @@ function buildKentMindSearchPaths() {
         throw new Error('Could not load the Kent MIND tree builder/fix.');
     }
 
-    // buildRubricTree filters synthetic/twin anchors, restores book hierarchy,
-    // and applies Kent's saved book order. Do not touch the source JSON.
+    // For Kent MIND, buildRubricTree reads explicit source_parent_id/source_order
+    // fields. No legacy MIND hide/rehome/promote list participates in this tree.
     const tree = context.buildRubricTree(source);
     const entries = {};
     let order = 0;
@@ -50,11 +50,16 @@ function buildKentMindSearchPaths() {
         (node.order || []).forEach(function (label) {
             const child = node.children && node.children[label];
             if (!child) return;
-            const labels = ancestors.concat([label]);
+            const sourceLabel = String(child.sourceLabel || label);
+            const labels = ancestors.concat([sourceLabel]);
             if (child.hasRubric && child.rid) {
                 const rid = String(child.rid);
-                if (entries[rid]) throw new Error('Duplicate visible rubric id: ' + rid);
-                entries[rid] = { path: labels, order: ++order };
+                if (entries[rid]) throw new Error('Duplicate source rubric id: ' + rid);
+                order += 1;
+                if (Number(child.sourceOrder) !== order - 1) {
+                    throw new Error('Tree order does not match Homeoint source_order at ' + rid);
+                }
+                entries[rid] = { path: labels, order: Number(child.sourceOrder) + 1 };
             }
             walk(child, labels);
         });
@@ -81,7 +86,7 @@ function buildKentMindSearchPaths() {
         book: 'kent',
         chapter: 'mind',
         chapter_label: 'MIND',
-        order_definition: 'depth-first preorder of the v143 Kent book-style tree',
+        order_definition: 'depth-first preorder of Homeoint source_parent_id in printed page order 1-95',
         source: SOURCE_REL,
         tree_builder: 'js/repertory/rep-chapters.js',
         tree_fix_version: String(treeFix.v || ''),

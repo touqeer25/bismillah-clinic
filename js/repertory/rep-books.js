@@ -31,7 +31,7 @@ function repBookColor(book){ var bi=REP_BOOK_INFO[book]; return (bi&&bi.color)||
 function repChapDir(book){ var bi=REP_BOOK_INFO[book||repCurrentBook]; return (bi&&bi.chapDir)||'repertory_chapters/'; }
 // 🔑 v68.6: پوری کتاب، ایک باب اور ہر فہرست اِسی ایک نمبر سے منگوائی جائے — پہلے 'v=14' تین جگہ لکھا تھا اور
 // _index.json بالکل بغیر نمبر کے، اس لیے نئی کتاب کا فہرست پرانے کیش سے پڑھا جاتا رہتا تھا۔
-var REP_DATA_V='v=17';
+var REP_DATA_V='v=18';
 var _allBooksData = null;       // {publicum:{...}, kent:{...}, ...} cache for all-books mode
 var _allBookChapters = {};      // {publicum:[{key,name,rubrics}], ...} per-book chapter index (for name lookup)
 var repLastSearchView = null;   // {results, info} saved for the "back to results" button
