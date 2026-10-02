@@ -2,6 +2,71 @@
 // (v78: 08-app-repertory.js کو بغیر کسی کوڈ تبدیلی کے حصوں میں بانٹا گیا؛ لوڈ ترتیب index.html میں وہی رکھیں)
 var _repSearchBeforeContext = null; // where to return when the search box is cleared
 var _repSearchSeq = 0;              // cancels old async searches when user clears/changes text
+var _repSearchKentMindPaths = null; // separate search-only hierarchy; book view keeps its existing renderer
+var _repSearchKentMindPathsPromise = null;
+
+function ensureRepSearchPathIndex(bookKey, chapterKey, cb){
+    var needsKentMind = bookKey==='kent' && (!chapterKey || String(chapterKey).toLowerCase()==='mind');
+    if(!needsKentMind){ if(cb)cb(); return; }
+    if(_repSearchKentMindPaths){ if(cb)cb(); return; }
+    if(!_repSearchKentMindPathsPromise){
+        _repSearchKentMindPathsPromise=fetch('kent_search_paths/mind.json?'+REP_DATA_V)
+            .then(function(r){ if(!r||!r.ok)throw new Error('Kent MIND search paths unavailable'); return r.json(); })
+            .then(function(d){
+                if(!d||d.schema!=='kent-search-paths-v1'||!d.entries)throw new Error('Invalid Kent MIND search-path index');
+                _repSearchKentMindPaths=d;
+            })
+            .catch(function(e){
+                // Search remains usable when an older/offline deployment lacks the sidecar.
+                console.warn('Kent MIND breadcrumb index unavailable; showing source titles.',e);
+                _repSearchKentMindPaths={chapter_label:'MIND',entries:{}};
+            });
+    }
+    _repSearchKentMindPathsPromise.then(function(){ if(cb)cb(); });
+}
+function repSearchPathForRecord(bookKey, chapterKey, rid){
+    if(bookKey!=='kent'||String(chapterKey).toLowerCase()!=='mind'||!_repSearchKentMindPaths)return null;
+    var entry=_repSearchKentMindPaths.entries&&_repSearchKentMindPaths.entries[String(rid)];
+    if(!entry||!Array.isArray(entry.path)||!entry.path.length)return null;
+    var order=Number(entry.order);
+    return {path:[_repSearchKentMindPaths.chapter_label||'MIND'].concat(entry.path),
+            order:isFinite(order)?order:null};
+}
+function repSearchResultDisplayText(r){
+    return r&&Array.isArray(r.searchPath)&&r.searchPath.length
+        ? r.searchPath.join('; ')
+        : String((r&&r.text)||'');
+}
+function repSearchHighlightHtml(escapedHtml, queryWords){
+    var result=escapedHtml;
+    (queryWords||[]).forEach(function(w){
+        w=String(w||'');
+        if(w.length<2)return;
+        var re=new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+        result=result.replace(re,'<mark style="background:#ffeb3b;color:#000;padding:0 2px;border-radius:2px;">$1</mark>');
+    });
+    return result;
+}
+function repSearchResultTitleHtml(r, queryWords){
+    var full=repSearchResultDisplayText(r);
+    var hasTreePath=!!(r&&Array.isArray(r.searchPath)&&r.searchPath.length);
+    var display=(!hasTreePath&&full.length>180)?full.substring(0,177)+'...':full;
+    var cls=hasTreePath?'rep-search-tree-path':'rep-search-rubric-title';
+    var style=hasTreePath?'overflow-wrap:anywhere;white-space:normal;':'white-space:normal;';
+    return '<span dir="ltr" class="'+cls+'" style="'+style+'" title="'+escapeHtml(full)+'">'+
+        repSearchHighlightHtml(escapeHtml(display),queryWords||[])+'</span>';
+}
+function repCompareSearchResults(a,b){
+    var ba=getBookAbbr(a.book),bb=getBookAbbr(b.book);
+    if(ba!==bb)return ba.localeCompare(bb);
+    var ca=getChapterDisplayName(a.book,a.chapter).toLowerCase();
+    var cb=getChapterDisplayName(b.book,b.chapter).toLowerCase();
+    if(ca!==cb)return ca.localeCompare(cb);
+    if(typeof a.searchOrder==='number'&&typeof b.searchOrder==='number'&&a.searchOrder!==b.searchOrder){
+        return a.searchOrder-b.searchOrder;
+    }
+    return String(a.text||'').localeCompare(String(b.text||''));
+}
 
 function repLangText(map){ return (map && (map[currentLang] || map.en || map.ur || map.roman)) || ''; }
 
@@ -306,6 +371,8 @@ function searchRepertoryBrowser(){
                 var t=rub.path||rub.de_path||rub.t||'';
                 if(matchRubric(rub,t)){
                     var o={text:t, remedies:rub.r||{}, chapter:ck, rid:rid, book:bookKey};
+                    var pathInfo=repSearchPathForRecord(bookKey,ck,rid);
+                    if(pathInfo){ o.searchPath=pathInfo.path; o.searchOrder=pathInfo.order; }
                     if(repSearchMode==='remedy'||repSearchMode==='rubric_remedy'){ var m=matchedRemedyMap(rub); if(m)o.matched=m; }
                     out.push(o);
                 }
@@ -315,15 +382,9 @@ function searchRepertoryBrowser(){
     }
     function finalize(r){
         if(!searchStillActive()) return;
-        // sort: book abbr -> chapter name -> text
-        r.sort(function(a,b){
-            var ba=getBookAbbr(a.book), bb=getBookAbbr(b.book);
-            if(ba!==bb) return ba.localeCompare(bb);
-            var ca=getChapterDisplayName(a.book,a.chapter).toLowerCase();
-            var cb=getChapterDisplayName(b.book,b.chapter).toLowerCase();
-            if(ca!==cb) return ca.localeCompare(cb);
-            return a.text.localeCompare(b.text);
-        });
+        // Book/chapter grouping stays stable; Kent MIND matches use their saved
+        // preorder from the book hierarchy, while all other results keep title order.
+        r.sort(repCompareSearchResults);
         var total=r.length;
         var perBookCount={};
         for(var i=0;i<r.length;i++){
@@ -333,6 +394,12 @@ function searchRepertoryBrowser(){
         var info = buildSearchInfo(total, perBookCount);
         _repSearchResults={results:r, info:info, total:total};
         displaySearchResults(r, info);
+    }
+    function searchCurrentData(sd){
+        ensureRepSearchPathIndex(repCurrentBook,scopeChFilter,function(){
+            if(!searchStillActive())return;
+            finalize(scanData(sd,repCurrentBook,scopeChFilter));
+        });
     }
     function buildSearchInfo(total, perBookCount){
         var typeLabel = repLangText(REP_TYPE_LABELS[repSearchMode] || REP_TYPE_LABELS.rubric);
@@ -392,16 +459,6 @@ function searchRepertoryBrowser(){
             '<div id="repAllSearchStatus" style="margin-bottom:10px;padding:6px 10px;background:#fff7e6;border:1px solid #f5c16c;border-radius:5px;font-size:11px;color:#7d6608;">'+statusText+'</div>'+
             '<div style="margin-bottom:10px;font-size:11px;color:#7f8c8d;">'+repLangText({ur:'پہلے موجودہ ریپرٹری کے نتائج آ رہے ہیں، پھر باقی ریپرٹریز ایک ایک کر کے شامل ہوں گی۔',en:'Current repertory results appear first; the remaining repertories are added one by one.',roman:'Pehle current repertory ke results, phir baqi repertories aik aik kar ke add hongi.'})+'</div>'+
             '<div id="repAllSearchResults"></div>';
-        function truncateTitle(t){return String(t||'').length>180?String(t).substring(0,177)+'...':String(t||'');}
-        function highlightMatches(escapedHtml, queryWords){
-            var res=escapedHtml;
-            queryWords.forEach(function(w){
-                if(w.length<2) return;
-                var re=new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
-                res=res.replace(re,'<mark style="background:#ffeb3b;color:#000;padding:0 2px;border-radius:2px;">$1</mark>');
-            });
-            return res;
-        }
         function itemHtml(r, state){
             var h='';
             var bookInfo = REP_BOOK_INFO[r.book] || {abbr:'?', name:r.book};
@@ -418,13 +475,13 @@ function searchRepertoryBrowser(){
                 h+='</div>';
                 state.lastGroup = groupKey;
             }
-            var highlighted = highlightMatches(escapeHtml(truncateTitle(r.text)), qw);
+            var highlighted = repSearchResultTitleHtml(r,qw);
             var safeBook = escapeHtml(r.book);
             var safeChapter = escapeHtml(normalizeChapterKey(r.book, r.chapter));
             var safeRid = escapeHtml(String(r.rid||''));
             var badge = repBookColor(r.book);
             h+='<div class="rep-rubric-item" style="cursor:pointer;border-radius:6px;margin:2px 0;padding:8px 10px;background:#fff;border:1px solid #eef2f5;" onclick="navigateToRubric(\''+safeBook+'\',\''+safeChapter+'\',\''+safeRid+'\')" onmouseover="this.style.background=\'#f0f8ff\'" onmouseout="this.style.background=\'#fff\'">';
-            h+='<div class="rep-rubric-header" style="font-size:13px;line-height:1.5;">'+repCmpChkHtml(r.book,normalizeChapterKey(r.book,r.chapter),String(r.rid||''),String(r.text||''),Object.keys(r.remedies||{}).length,'sr')+'<span style="display:inline-block;background:'+badge+';color:white;padding:1px 6px;border-radius:5px;font-size:9px;font-weight:bold;margin-left:4px;vertical-align:middle;">'+bookInfo.abbr+'</span> '+highlighted+'</div>';
+            h+='<div class="rep-rubric-header" style="font-size:13px;line-height:1.5;">'+repCmpChkHtml(r.book,normalizeChapterKey(r.book,r.chapter),String(r.rid||''),repSearchResultDisplayText(r),Object.keys(r.remedies||{}).length,'sr')+'<span style="display:inline-block;background:'+badge+';color:white;padding:1px 6px;border-radius:5px;font-size:9px;font-weight:bold;margin-left:4px;vertical-align:middle;">'+bookInfo.abbr+'</span> '+highlighted+'</div>';
             h+='<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:2px;">';
             var rems=Object.keys(r.remedies||{});
             rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1)||a.localeCompare(b);});
@@ -478,12 +535,7 @@ function searchRepertoryBrowser(){
                 ensureSingleBookIndex(bk, sd, function(){
                     if(!searchStillActive()) return;
                     var results = sd ? scanData(sd, bk, null) : [];
-                    results.sort(function(a,b){
-                        var ca=getChapterDisplayName(a.book,a.chapter).toLowerCase();
-                        var cb=getChapterDisplayName(b.book,b.chapter).toLowerCase();
-                        if(ca!==cb) return ca.localeCompare(cb);
-                        return a.text.localeCompare(b.text);
-                    });
+                    results.sort(repCompareSearchResults);
                     perBookCount[bk]=results.length;
                     total += results.length;
                     completed++;
@@ -496,7 +548,11 @@ function searchRepertoryBrowser(){
                 });
             });
         }
-        processBook(0);
+        // The all-repertories engine always includes Kent; preload its MIND path
+        // sidecar once so those matches can show the same full breadcrumbs.
+        ensureRepSearchPathIndex('kent',null,function(){
+            if(searchStillActive())processBook(0);
+        });
     }
 
     // ---------- mode routing ----------
@@ -519,7 +575,7 @@ function searchRepertoryBrowser(){
             if(scopeAll){ setTimeout(runIncrementalAllSearch,10); return; }
             setTimeout(function(){
                 if(!searchStillActive()) return;
-                function ds(sd){ finalize(scanData(sd, repCurrentBook, scopeChFilter)); }
+                function ds(sd){ searchCurrentData(sd); }
                 if(_repFullData!==null){ ds(_repFullData); } else { loadRepData(function(d){ ds(d); }); }
             },10);
         });
@@ -536,7 +592,7 @@ function searchRepertoryBrowser(){
     // 📖 chapter scope (single chapter) / 📚 current-book search (all chapters, optional @chapter filter) — HomeoSetu style
     setTimeout(function(){
         if(!searchStillActive()) return;
-        function ds(sd){ finalize(scanData(sd, repCurrentBook, scopeChFilter)); }
+        function ds(sd){ searchCurrentData(sd); }
         if(_repFullData!==null){ ds(_repFullData); } else { loadRepData(function(d){ ds(d); }); }
     },10);
 }
@@ -599,16 +655,6 @@ function displaySearchResults(results, info){
         repRenderDock();
         return;
     }
-    function truncateTitle(t){return t.length>180?t.substring(0,177)+'...':t;}
-    function highlightMatches(escapedHtml, queryWords){
-        var res=escapedHtml;
-        queryWords.forEach(function(w){
-            if(w.length<2) return;
-            var re=new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
-            res=res.replace(re,'<mark style="background:#ffeb3b;color:#000;padding:0 2px;border-radius:2px;">$1</mark>');
-        });
-        return res;
-    }
     var qw=repParseBoolQuery((_repSearchCache.split('|')[0]||'').toLowerCase()).pos;
     var curCh=repCurrentChapter;
     var curBook=repCurrentBook;
@@ -635,14 +681,13 @@ function displaySearchResults(results, info){
             h+='</div>';
             lastGroup = groupKey;
         }
-        var displayText = truncateTitle(r.text);
-        var highlighted = highlightMatches(escapeHtml(displayText), qw);
+        var highlighted = repSearchResultTitleHtml(r,qw);
         var safeBook = escapeHtml(r.book);
         var safeChapter = escapeHtml(normalizeChapterKey(r.book, r.chapter));
         var safeRid = escapeHtml(String(r.rid||''));
         h+='<div class="rep-rubric-item" style="cursor:pointer;border-radius:6px;margin:2px 0;padding:8px 10px;background:#fff;border:1px solid #eef2f5;" onclick="navigateToRubric(\''+safeBook+'\',\''+safeChapter+'\',\''+safeRid+'\')" onmouseover="this.style.background=\'#f0f8ff\'" onmouseout="this.style.background=\'#fff\'">';
         // 🔑 [BookAbbr] instead of #rid (reference number hidden, repertory abbreviation shown)
-        h+='<div class="rep-rubric-header" style="font-size:13px;line-height:1.5;">'+repCmpChkHtml(r.book,normalizeChapterKey(r.book,r.chapter),String(r.rid||''),String(r.text||''),Object.keys(r.remedies||{}).length,'sr')+'<span style="display:inline-block;background:'+repBookColor(r.book)+';color:white;padding:1px 6px;border-radius:5px;font-size:9px;font-weight:bold;margin-left:4px;vertical-align:middle;">'+bookInfo.abbr+'</span> '+highlighted+'</div>';
+        h+='<div class="rep-rubric-header" style="font-size:13px;line-height:1.5;">'+repCmpChkHtml(r.book,normalizeChapterKey(r.book,r.chapter),String(r.rid||''),repSearchResultDisplayText(r),Object.keys(r.remedies||{}).length,'sr')+'<span style="display:inline-block;background:'+repBookColor(r.book)+';color:white;padding:1px 6px;border-radius:5px;font-size:9px;font-weight:bold;margin-left:4px;vertical-align:middle;">'+bookInfo.abbr+'</span> '+highlighted+'</div>';
         h+='<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:2px;">';
         var rems=Object.keys(r.remedies);
         rems.sort(function(a,b){return(r.remedies[b]||1)-(r.remedies[a]||1)||a.localeCompare(b);});
