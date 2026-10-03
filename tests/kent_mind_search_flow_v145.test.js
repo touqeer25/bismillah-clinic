@@ -9,7 +9,19 @@ const vm = require('vm');
 const ROOT = path.resolve(__dirname, '..');
 const mind = JSON.parse(fs.readFileSync(path.join(ROOT, 'kent_chapters/mind.json'), 'utf8'));
 const searchPaths = JSON.parse(fs.readFileSync(path.join(ROOT, 'kent_search_paths/mind.json'), 'utf8'));
-const content = { innerHTML: '', scrollTop: 0 };
+const listClasses = new Set();
+const resultList = { classList: {
+    toggle: function (name, force) {
+        if (force) listClasses.add(name); else listClasses.delete(name);
+    },
+    contains: function (name) { return listClasses.has(name); }
+} };
+const content = {
+    innerHTML: '', scrollTop: 0,
+    querySelector: function (selector) {
+        return selector === '.rep-search-results-list' ? resultList : null;
+    }
+};
 const input = { value: 'anger' };
 const document = {
     readyState: 'loading',
@@ -65,6 +77,8 @@ vm.runInContext(fs.readFileSync(path.join(ROOT, 'js/repertory/kent-tree-fix.js')
     { filename: 'js/repertory/kent-tree-fix.js' });
 vm.runInContext(fs.readFileSync(path.join(ROOT, 'js/repertory/rep-search.js'), 'utf8'), context,
     { filename: 'js/repertory/rep-search.js' });
+vm.runInContext(fs.readFileSync(path.join(ROOT, 'js/repertory/rep-tree.js'), 'utf8'), context,
+    { filename: 'js/repertory/rep-tree.js' });
 
 function countExpectedAngerMatches() {
     const hidden = new Set(context.window.KENT_TREE_FIX.ch.mind.h.map(String));
@@ -78,16 +92,28 @@ function countExpectedAngerMatches() {
 context.searchRepertoryBrowser();
 setTimeout(function () {
     try {
-        const actualCount = (content.innerHTML.match(/class="rep-rubric-item"/g) || []).length;
+        const actualCount = (content.innerHTML.match(/class="[^"]*\brep-rubric-item\b[^"]*"/g) || []).length;
         assert.strictEqual(actualCount, countExpectedAngerMatches(), 'breadcrumb rendering must not change query matches');
         assert(actualCount > 0);
+        assert(content.innerHTML.includes('rep-search-results-list show-remedies'), 'results use a plain list with remedies visible by default');
+        assert(content.innerHTML.includes('rep-search-row'), 'each rubric is rendered as a list row');
+        assert(content.innerHTML.includes('rep-search-remedies'), 'remedies remain attached to their rubric rows');
+        assert(!content.innerHTML.includes('rpc-card') && !content.innerHTML.includes('rep-cards-grid'), 'search results no longer use cards');
+        listClasses.add('show-remedies');
+        context.repTreeToggleRems();
+        assert.strictEqual(context.repTreeOpts.rems, false, '💊 toggle turns remedy display off');
+        assert.strictEqual(listClasses.has('show-remedies'), false, 'first toggle hides search-result remedies');
+        context.repTreeToggleRems();
+        assert.strictEqual(context.repTreeOpts.rems, true, 'second 💊 toggle turns remedy display back on');
+        assert.strictEqual(listClasses.has('show-remedies'), true, 'second toggle restores search-result remedies');
         const visibleAngerLabel = 'ANGER, irascibility';
-        assert(content.innerHTML.includes('MIND; ' + visibleAngerLabel), 'root cross-reference is omitted from the displayed breadcrumb');
-        assert(content.innerHTML.includes('MIND; ' + visibleAngerLabel + '; morning'), 'child result retains the breadcrumb without the root cross-reference');
+        assert(content.innerHTML.includes('class="rep-search-chapter-name">MIND</span>'), 'chapter appears once as the section heading');
+        assert(content.innerHTML.includes('title="' + visibleAngerLabel + '"'), 'root rubric is shown without a repeated chapter breadcrumb');
+        assert(content.innerHTML.includes('title="' + visibleAngerLabel + '; morning"'), 'child row keeps its path below the chapter heading');
         assert(!content.innerHTML.includes('Irritability and Quarrelsome'), 'root cross-reference is not shown in search results');
         assert(!content.innerHTML.includes('MIND; ANGER;'), 'no synthetic OOREP anchor is inserted');
-        assert(content.innerHTML.indexOf('MIND; ' + visibleAngerLabel + '"') <
-            content.innerHTML.indexOf('MIND; ' + visibleAngerLabel + '; morning'), 'parent precedes child in printed source order');
+        assert(content.innerHTML.indexOf('title="' + visibleAngerLabel + '"') <
+            content.innerHTML.indexOf('title="' + visibleAngerLabel + '; morning"'), 'parent precedes child in printed source order');
         console.log('PASS end-to-end Kent MIND search: ' + actualCount +
             ' anger matches, complete semicolon breadcrumbs, stable Kent order.');
     } catch (error) {

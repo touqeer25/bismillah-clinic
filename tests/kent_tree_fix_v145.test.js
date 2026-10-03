@@ -65,6 +65,7 @@ const sleepFolder=mrows.find(r=>r.node.syntheticMindPath);
 const beforeSleep=mrows.find(r=>r.node.rid==='r284');
 const eveningSleep=mrows.find(r=>r.node.rid==='r285');
 const sleepSiblingIds=['r286','r287','r288','r289','r290','r291'];
+w.buildRidPathMap(mind);
 ok(!!sleepFolder&&sleepFolder.labels.join(' > ')==='ANXIETY > sleep'&&sleepFolder.node.order.length===7,
   'B13 صفحہ 8 میں «sleep» ایک بے ربرک درختی سطح ہے؛ سات اصل بچے محفوظ ہیں');
 ok(!!beforeSleep&&beforeSleep.labels.join(' > ')==='ANXIETY > sleep > before'&&beforeSleep.node.order.join(',')==='evening',
@@ -74,8 +75,9 @@ ok(!!eveningSleep&&eveningSleep.labels.join(' > ')==='ANXIETY > sleep > before >
 ok(sleepSiblingIds.every(id=>{
   const row=mrows.find(r=>r.node.rid===id);
   return !!row&&row.labels[0]==='ANXIETY'&&row.labels[1]==='sleep'&&row.labels.length===3&&
-    mindData[id].source_parent_id==='r284'&&row.full===row.labels.join(', ')&&row.translationFull===mindData[id].t;
-}), 'B16 بعد کی چھ ربرکس «sleep» کے ہم سطح ہیں؛ اصل والد/عنوان محفوظ، راستہ درخت سے بنتا ہے');
+    mindData[id].source_parent_id==='r284'&&row.full===row.labels.join(', ')&&row.translationFull===mindData[id].t&&
+    w.repRidPathMap[id]&&w.repRidPathMap[id].fullPath===row.full&&w.repRidPathMap[id].translationFull===mindData[id].t;
+}), 'B16 بعد کی چھ ربرکس «sleep» کے ہم سطح ہیں؛ دکھایا راستہ اور اصل ترجمہ-کلید دونوں محفوظ ہیں');
 const soupAfter=mrows.find(r=>r.node.rid==='r292');
 ok(!!soupAfter&&soupAfter.labels.join(' > ')==='ANXIETY > soup, after',
   'B17 «soup, after» اصل ANXIETY سطح پر ہی رہتا ہے');

@@ -243,7 +243,12 @@ function repTreeClick(ev){
     }
     var ib=row.querySelector('.rtv-a.info'); if(ib) repTreeAct(row,'info',ib);
 }
-function repTreeToggleRems(){ repTreeOpts.rems=!repTreeOpts.rems; repTreeOptsSave(); repTreeSyncBtns(); Object.keys(repTreeViews).forEach(function(id){ if(document.getElementById(id))repTreeRemount(id); }); }
+function repTreeToggleRems(){
+    repTreeOpts.rems=!repTreeOpts.rems; repTreeOptsSave(); repTreeSyncBtns();
+    // Search results share this control; keep the list page in place and only toggle its remedy lines.
+    if(typeof repSearchSyncRemedyVisibility==='function'&&repSearchSyncRemedyVisibility()) return;
+    Object.keys(repTreeViews).forEach(function(id){ if(document.getElementById(id))repTreeRemount(id); });
+}
 function repTreeExpandAll(open){
     Object.keys(repTreeViews).forEach(function(id){
         var v=repTreeViews[id]; if(!document.getElementById(id))return;

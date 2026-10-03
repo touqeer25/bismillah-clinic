@@ -1,0 +1,25 @@
+/* Bismillah Clinic — css/rep-search-results.css — تلاش کے ربرکس کی سادہ فہرست */
+/* 🔎 Search results: plain repertory list, not cards. Remedies use the same
+   single-toggle visibility state as the tree's 💊 button. */
+.rep-search-info{margin:0 0 6px;color:#62717e;font:12px/1.6 'Segoe UI',sans-serif}
+.rep-search-help{margin:0 0 8px;color:#8b969f;font:11px/1.6 'Segoe UI',sans-serif}
+.rep-search-results-list{direction:ltr;text-align:left;background:#fff;color:#1b2631;border-top:1px solid #dfe5e9;font:13px/1.55 Georgia,'Times New Roman',serif;padding:0 4px}
+.rep-search-results-list .rep-search-group-heading{display:flex;align-items:center;gap:7px;min-height:28px;padding:4px 6px;background:#f7f9fa;border-bottom:1px solid #e1e7eb;color:#173b53}
+.rep-search-book-mark{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-width:30px;height:18px;padding:0 6px;border-radius:9px;background:var(--rep-search-book-color,#1a5276);color:#fff;font:700 9px/1 Arial,sans-serif}
+.rep-search-chapter-name{font-size:13px;font-weight:700;letter-spacing:.2px}
+.rep-search-open-state{margin-left:auto;color:#7f8c8d;font:10px/1.4 'Segoe UI',sans-serif}
+.rep-search-results-list .rep-search-row{display:flex;align-items:baseline;gap:5px;flex-wrap:wrap;margin:0;padding:3px 6px;border:0;border-bottom:1px dotted #e3e7ea;border-radius:0;background:transparent;color:#172b3a;font:13px/1.55 Georgia,'Times New Roman',serif;cursor:pointer}
+.rep-search-results-list .rep-search-row:hover{background:#f7fafc}
+.rep-search-results-list .rep-search-row .rpc-chk.sr{align-self:flex-start;margin-top:2px}
+.rep-search-list-title{flex:1 1 240px;min-width:140px;color:#182a36;font:inherit;overflow-wrap:anywhere}
+.rep-search-result-count{flex:0 0 auto;color:#7c8991;font:11px/1.5 Arial,sans-serif;white-space:nowrap}
+.rep-search-remedies{display:none;flex:1 0 100%;margin:0 0 0 24px;padding:0 0 1px;color:#34495e;line-height:1.55;overflow-wrap:anywhere}
+.rep-search-results-list.show-remedies .rep-search-remedies{display:block}
+.rep-search-remedies-more{color:#7f8c8d;font:11px/1.5 Arial,sans-serif;white-space:nowrap}
+.rep-search-empty{padding:12px 8px;color:#87939b;font:12px/1.6 'Segoe UI',sans-serif}
+@media(max-width:700px){
+    .rep-search-results-list{padding:0 2px;font-size:12.5px}
+    .rep-search-results-list .rep-search-row{padding:4px 3px;font-size:12.5px}
+    .rep-search-list-title{flex-basis:180px;min-width:120px}
+    .rep-search-remedies{margin-left:20px}
+}

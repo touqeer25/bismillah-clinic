@@ -29,8 +29,9 @@ function buildRidPathMap(tree){
         (node.order||Object.keys(node.children)).forEach(function(k){
             var c=node.children[k]; if(!c)return;
             var labels=pathLabels.concat([k]);
-            var fp=c.pathTitle?c.pathTitle:_repJoinSeg(fullPath,k);   // 🔑 v143: rehome/promote والے کی کلید = اصل عنوان
-            if(c.hasRubric&&c.rid){ repRidPathMap[c.rid]={path:labels,fullPath:fp,node:c}; }
+            var fp=c.displayPathTitle?c.displayPathTitle:(c.pathTitle?c.pathTitle:_repJoinSeg(fullPath,k));
+            var translationFull=c.translationTitle||c.pathTitle||fp;
+            if(c.hasRubric&&c.rid){ repRidPathMap[c.rid]={path:labels,fullPath:fp,translationFull:translationFull!==fp?translationFull:'',node:c}; }
             var hc=(c.order&&c.order.length>0)||Object.keys(c.children||{}).length>0;
             if(hc) walk(c,labels,fp);
         });
@@ -43,7 +44,7 @@ function repResolveNode(path){
 }
 var repCurrentDetail=null;     // 🔑 rubric detail page state: {full,rid,labels} | null
 var repPendingDetail=null;     // 🔑 {rid} waiting for chapter tree to load
-function repCurrentState(){ return {ch:repCurrentChapter,path:repFolderPath.slice(),page:repTreePage,clip:(repClipViewOpen?repActiveClip:-1),detail:repCurrentDetail?{full:repCurrentDetail.full,rid:repCurrentDetail.rid,labels:(repCurrentDetail.labels||[]).slice()}:null}; }
+function repCurrentState(){ return {ch:repCurrentChapter,path:repFolderPath.slice(),page:repTreePage,clip:(repClipViewOpen?repActiveClip:-1),detail:repCurrentDetail?{full:repCurrentDetail.full,translationFull:repCurrentDetail.translationFull||'',rid:repCurrentDetail.rid,labels:(repCurrentDetail.labels||[]).slice()}:null}; }
 function repApplyState(st){
     if(!st)return;
     repClipViewOpen=false;repWorkbenchOpen=false;repCompareOpen=false;repAnalysisOpen=-1; repCurrentDetail=null; repPendingDetail=null;

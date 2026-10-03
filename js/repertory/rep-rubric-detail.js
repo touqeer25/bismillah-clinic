@@ -61,6 +61,7 @@ function repOpenRubricDetail(full,rid,labels){
     var e=(rid&&repRidPathMap[rid])?repRidPathMap[rid]:null;
     repCurrentDetail={
         full:full||(e?e.fullPath:''),
+        translationFull:e?e.translationFull:'',
         rid:rid||'',
         labels:labels||(e?e.path.slice():repFolderPath.slice())
     };
@@ -341,7 +342,7 @@ function renderRubricDetail(){
     // ---- title row: rubric text + < expander AFTER text + copy
     h+='<div class="rpd-titlerow">'
       +'<div class="rpd-title" dir="ltr">'+(typeof repXrefHtml==='function'?repXrefHtml(full||'—'):escapeHtml(full||'—'))+'</div>'   // 🔑 v103
-      +(typeof repPathUrHtml==='function'?repPathUrHtml(full||'','rpd-title-ur'):'')   // 🔑 v101: اردو جملہ (دائیں سے بائیں)
+      +(typeof repPathUrHtml==='function'?repPathUrHtml(d.translationFull||full||'','rpd-title-ur'):'')   // 🔑 اصل انگریزی ترجمہ-کلید سے اردو جملہ
       +'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&#9656;</button>'
       +repDetailCmpBtnHtml()
       +repDetailDiffBtnHtml()
@@ -477,7 +478,7 @@ function renderTree(chKey,chName,tree){
     if(repPendingDetail&&repRidPathMap.hasOwnProperty(repPendingDetail.rid)){
         var pe=repRidPathMap[repPendingDetail.rid];
         repFolderPath=pe.path.slice(0,-1);
-        repCurrentDetail={full:pe.fullPath,rid:repPendingDetail.rid,labels:pe.path.slice()};
+        repCurrentDetail={full:pe.fullPath,translationFull:pe.translationFull||'',rid:repPendingDetail.rid,labels:pe.path.slice()};
         repPendingDetail=null; repPendingNavRid=null;
         repCurrentFlatTree=[]; repRidToFlatIndex={}; repFolderFilter='';
         renderChapterList();

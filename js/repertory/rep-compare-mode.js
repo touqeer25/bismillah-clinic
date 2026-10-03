@@ -19,11 +19,16 @@ function repCmpSyncUI(){
     var tools=document.getElementById('repSideTools'); if(tools)tools.classList.toggle('cmp',repCompareMode);
     repCmpPanelRender();
 }
-function repIsSearchView(){ var rc=document.getElementById('repRubricContent'); return !!(rc&&repLastSearchView&&rc.querySelector('.rep-rubric-item')); }
+function repIsSearchView(){ var rc=document.getElementById('repRubricContent'); return !!(rc&&repLastSearchView&&rc.querySelector('.rep-search-results-list')); }
 function repCmpRerender(){
     if(repClipViewOpen||repWorkbenchOpen||repCompareOpen||repAnalysisOpen>=0) return;
     if(repCurrentDetail){ renderRubricDetail(); return; }
-    if(repIsSearchView()){ displaySearchResults(repLastSearchView.results, repLastSearchView.info); return; }
+    if(repIsSearchView()){
+        if(repLastSearchView.incremental&&typeof repSearchRefreshCompareButtons==='function'){
+            repSearchRefreshCompareButtons(); return;
+        }
+        displaySearchResults(repLastSearchView.results, repLastSearchView.info); return;
+    }
     if(repCurrentChapter) renderFolderCards();
 }
 function repCmpChkHtml(book,ch,rid,full,rems,extra){
