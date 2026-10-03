@@ -288,9 +288,9 @@ function _repBuildTreeByExistingRubrics(data){
     return root;
 }
 
-// 🔑 v145: Kent MIND carries the source parent ID and page order on every row.
-// Use those explicit relationships instead of trying to infer hierarchy from commas
-// inside rubric labels (the Homeoint source has meaningful commas within labels).
+// 🔑 v146: Kent MIND carries the source parent ID and page order on every row.
+// Use those explicit relationships instead of inferring hierarchy from commas;
+// then apply the one audited page-8 display-path correction from kent-tree-fix.js.
 function _repHasKentMindSourceData(data){
     var ids=Object.keys(data||{});
     if(!ids.length)return false;
@@ -300,6 +300,61 @@ function _repHasKentMindSourceData(data){
            !Object.prototype.hasOwnProperty.call(r,'source_parent_id')) return false;
     }
     return true;
+}
+function _repApplyKentMindDisplayTreeFix(byRid, fixes){
+    (fixes||[]).forEach(function(fix){
+        var parent=byRid[String(fix.parentRid)], rubric=byRid[String(fix.rubricRid)];
+        if(!parent||!rubric) throw new Error('Missing Kent MIND display-tree anchor '+fix.parentRid+'/'+fix.rubricRid);
+        if(String(parent.sourceLabel||'').toUpperCase()!=='ANXIETY' ||
+           String(rubric.sourceLabel||'')!==String(fix.sourceLabel||'') ||
+           String(rubric.source_parent_id)!==String(fix.parentRid)){
+            throw new Error('Kent MIND display-tree anchor no longer matches the audited source at '+fix.rubricRid);
+        }
+        var oldLabel=String(rubric.name||rubric.sourceLabel||''), parentIndex=(parent.order||[]).indexOf(oldLabel);
+        if(parentIndex<0 || parent.children[oldLabel]!==rubric){
+            throw new Error('Kent MIND display-tree parent link is inconsistent at '+fix.rubricRid);
+        }
+        var folderLabel=String(fix.folderLabel||''), rubricLabel=String(fix.rubricLabel||'');
+        if(!folderLabel||!rubricLabel||parent.children[folderLabel]){
+            throw new Error('Kent MIND display-tree folder label is empty or already exists: '+folderLabel);
+        }
+        var keep=(fix.keepChildRids||[]).map(String), move=(fix.moveChildRids||[]).map(String);
+        var expected=keep.concat(move), actual=(rubric.order||[]).map(function(k){
+            var child=rubric.children[k]; return child&&child.rid?String(child.rid):'';
+        });
+        if(actual.length!==expected.length || actual.some(function(id,i){return id!==expected[i];})){
+            throw new Error('Kent MIND display-tree children no longer match the audited source at '+fix.rubricRid);
+        }
+        var parentTitle=String(parent.displayPathTitle||parent.pathTitle||parent.path||parent.sourceLabel||'');
+        var folderTitle=parentTitle?parentTitle+', '+folderLabel:folderLabel;
+        var folder={
+            name:folderLabel,sourceLabel:folderLabel,children:{},order:[],remedies:{},count:0,
+            hasRubric:false,path:folderTitle,pathTitle:folderTitle,displayPathTitle:folderTitle,
+            syntheticMindPath:true,displayParentRid:String(parent.rid||fix.parentRid),rid:null,oorep_id:null
+        };
+        delete parent.children[oldLabel];
+        parent.children[folderLabel]=folder;
+        parent.order[parentIndex]=folderLabel;
+
+        rubric.name=rubricLabel;
+        rubric.sourceLabel=rubricLabel;
+        folder.children[rubricLabel]=rubric;
+        folder.order.push(rubricLabel);
+        rubric.displayPathTitle=folderTitle+', '+rubricLabel;
+
+        move.forEach(function(rid){
+            var child=byRid[rid], childLabel=child&&String(child.name||child.sourceLabel||'');
+            if(!child || rubric.children[childLabel]!==child){
+                throw new Error('Kent MIND display-tree child link is inconsistent at '+rid);
+            }
+            delete rubric.children[childLabel];
+            rubric.order=rubric.order.filter(function(k){return k!==childLabel;});
+            child.displayPathTitle=folderTitle+', '+String(child.sourceLabel||childLabel);
+            if(folder.children[childLabel]) throw new Error('Duplicate Kent MIND display-tree child label '+childLabel);
+            folder.children[childLabel]=child;
+            folder.order.push(childLabel);
+        });
+    });
 }
 function _repBuildKentMindSourceTree(data){
     var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
@@ -326,6 +381,8 @@ function _repBuildKentMindSourceTree(data){
         parent.order.push(label);
         byRid[e.rid]=node;
     });
+    var mindFix=window.KENT_TREE_FIX&&window.KENT_TREE_FIX.ch&&window.KENT_TREE_FIX.ch.mind;
+    if(mindFix&&mindFix.displayTree) _repApplyKentMindDisplayTreeFix(byRid,mindFix.displayTree);
     return root;
 }
 
@@ -493,7 +550,7 @@ function _repSortTreeKentOrder(node, isRoot){
 }
 
 function buildRubricTree(data){
-    // 🔑 v145: MIND hierarchy and source order come from explicit Homeoint parent IDs.
+    // 🔑 v146: MIND hierarchy/order use explicit Homeoint parents plus the audited page-8 display correction.
     if(repCurrentBook === 'kent' && repCurrentChapter === 'mind' && _repHasKentMindSourceData(data)){
         return _repBuildKentMindSourceTree(data);
     }

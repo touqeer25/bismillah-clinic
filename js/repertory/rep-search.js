@@ -32,20 +32,18 @@ function repSearchPathForRecord(bookKey, chapterKey, rid){
     return {path:[_repSearchKentMindPaths.chapter_label||'MIND'].concat(entry.path),
             order:isFinite(order)?order:null};
 }
-function repSearchVisibleRootLabel(label){
-    return String(label||'').replace(/\s*\(\s*see\b[^)]*\)/ig,'').replace(/\s+,/g,',').replace(/,\s*$/,'').trim();
+function repSearchDisplayPath(r){
+    var path=r&&Array.isArray(r.searchPath)?r.searchPath.slice():[];
+    var chapter=r?String(r.chapter||'').toLowerCase():'';
+    if(r&&r.book==='kent'&&chapter==='mind'&&path.length>1){
+        path[1]=String(path[1]||'').replace(/\s*\(\s*see\b[^)]*\)/ig,'').replace(/\s+,/g,',').trim();
+    }
+    return path;
 }
 function repSearchResultDisplayText(r){
-    if(r&&Array.isArray(r.searchPath)&&r.searchPath.length){
-        var path=r.searchPath.slice();
-        // In Kent MIND, suppress only the cross-reference attached to the top-level rubric.
-        // Keep the saved breadcrumb and source record intact for navigation and search matching.
-        if(r.book==='kent'&&String(r.chapter||'').toLowerCase()==='mind'&&path.length>1){
-            path[1]=repSearchVisibleRootLabel(path[1]);
-        }
-        return path.join('; ');
-    }
-    return String((r&&r.text)||'');
+    return r&&Array.isArray(r.searchPath)&&r.searchPath.length
+        ? repSearchDisplayPath(r).join('; ')
+        : String((r&&r.text)||'');
 }
 function repSearchHighlightHtml(escapedHtml, queryWords){
     var result=escapedHtml;
@@ -747,7 +745,7 @@ function navigateToRubric(bookKey, chKey, rid, openDetail){
             if(openDetail){
                 repHistBack.push(repCurrentState()); repHistFwd=[];
                 repFolderPath = entry.path.slice(0,-1);
-                repCurrentDetail = {full:entry.fullPath, rid:rid, labels:entry.path.slice()};
+                repCurrentDetail = {full:entry.fullPath, translationFull:entry.translationFull||'', rid:rid, labels:entry.path.slice()};
                 renderChapterList();
                 renderRubricDetail();
                 return;

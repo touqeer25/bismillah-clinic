@@ -15,7 +15,8 @@ const freshlyBuilt = buildKentMindSearchPaths();
 assert.strictEqual(JSON.stringify(sidecar), JSON.stringify(freshlyBuilt),
     'saved sidecar must match the current Kent MIND tree parser');
 assert.strictEqual(sidecar.schema, 'kent-search-paths-v1');
-assert.strictEqual(sidecar.tree_fix_version, '145');
+assert.strictEqual(sidecar.tree_fix_version, '146');
+assert.strictEqual(sidecar.display_tree_override_count, 1);
 assert.strictEqual(sidecar.source_record_count, 4356);
 assert.strictEqual(sidecar.hidden_anchor_count, 0);
 assert.strictEqual(sidecar.visible_rubric_count, 4356);
@@ -29,6 +30,21 @@ assert.deepStrictEqual(sidecar.entries.r40.path, [angerLabel, 'morning']);
 assert.deepStrictEqual(sidecar.entries.r45.path, [angerLabel, 'absent persons, at']);
 assert(sidecar.entries.r39.order < sidecar.entries.r40.order);
 assert(sidecar.entries.r40.order < sidecar.entries.r45.order);
+const anxietySleepPaths = {
+    r284: ['ANXIETY', 'sleep', 'before'],
+    r285: ['ANXIETY', 'sleep', 'before', 'evening'],
+    r286: ['ANXIETY', 'sleep', 'on going to'],
+    r287: ['ANXIETY', 'sleep', 'during (See Dreams)'],
+    r288: ['ANXIETY', 'sleep', 'loss of sleep'],
+    r289: ['ANXIETY', 'sleep', 'menses, after'],
+    r290: ['ANXIETY', 'sleep', 'on starting from'],
+    r291: ['ANXIETY', 'sleep', 'partial slumbering in the morning, during']
+};
+Object.keys(anxietySleepPaths).forEach(rid => {
+    assert.deepStrictEqual(sidecar.entries[rid].path, anxietySleepPaths[rid], 'audited sleep breadcrumb ' + rid);
+});
+assert.deepStrictEqual(Object.keys(anxietySleepPaths).map(rid => sidecar.entries[rid].order),
+    [283, 284, 285, 286, 287, 288, 289, 290], 'printed source order remains continuous through the corrected branch');
 assert.strictEqual(sidecar.hidden_anchor_count, 0, 'no source rubric is hidden');
 
 assert.strictEqual(fs.readFileSync(path.join(ROOT, 'kent_chapters/mind.json'), 'utf8'), sourceBytesBefore,
@@ -59,6 +75,17 @@ const pathInfo = searchContext.repSearchPathForRecord('kent', 'mind', 'r45');
 assert.deepStrictEqual(JSON.parse(JSON.stringify(pathInfo.path)),
     ['MIND', angerLabel, 'absent persons, at']);
 assert.strictEqual(pathInfo.order, sidecar.entries.r45.order);
+const sleepPathInfo = searchContext.repSearchPathForRecord('kent', 'mind', 'r286');
+assert.deepStrictEqual(JSON.parse(JSON.stringify(sleepPathInfo.path)),
+    ['MIND', 'ANXIETY', 'sleep', 'on going to']);
+assert.strictEqual(searchContext.repSearchResultDisplayText({
+    book: 'kent', chapter: 'mind', text: 'ANXIETY, on going to', searchPath: sleepPathInfo.path
+}), 'MIND; ANXIETY; sleep; on going to');
+assert.strictEqual(sleepPathInfo.order, sidecar.entries.r286.order);
+const duringPathInfo = searchContext.repSearchPathForRecord('kent', 'mind', 'r287');
+assert(searchContext.repSearchResultDisplayText({
+    book: 'kent', chapter: 'mind', text: 'during', searchPath: duringPathInfo.path
+}).includes('during (See Dreams)'), 'sub-rubric cross-references remain visible');
 assert.strictEqual(searchContext.repSearchResultDisplayText({
     book: 'kent', chapter: 'mind', text: 'ANGER, absent persons, at', searchPath: pathInfo.path
 }), 'MIND; ANGER, irascibility; absent persons, at');
@@ -113,5 +140,12 @@ assert(!resultContainer.innerHTML.includes('Irritability and Quarrelsome'),
     'the root-rubric cross-reference is hidden in rendered search results');
 assert(resultContainer.innerHTML.includes("navigateToRubric(\'kent\',\'mind\',\'r45\')"));
 assert.strictEqual(resultContainer.scrollTop, 0);
+searchContext.displaySearchResults([{
+    book: 'kent', chapter: 'mind', rid: 'r286', text: 'on going to',
+    searchPath: sleepPathInfo.path, searchOrder: sleepPathInfo.order,
+    remedies: { calc: 2 }
+}], 'Sleep hierarchy test');
+assert(resultContainer.innerHTML.includes('MIND; ANXIETY; sleep; on going to'));
+assert(resultContainer.innerHTML.includes("navigateToRubric(\'kent\',\'mind\',\'r286\')"));
 
-console.log('PASS Kent MIND: ' + sidecar.visible_rubric_count + ' saved search paths; search shows full breadcrumbs; book-view tree is untouched.');
+console.log('PASS Kent MIND: ' + sidecar.visible_rubric_count + ' saved search paths; audited sleep breadcrumbs; unchanged source coverage.');

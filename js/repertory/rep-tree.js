@@ -31,8 +31,9 @@ function repTreeFlatten(node,labels,parentFull,depth,out,filt){
     var any=false;
     (node.order||[]).forEach(function(k){                       // کتاب کی اصل ترتیب
         var c=node.children[k]; if(!c)return;
-        var lab=labels.concat([k]), full=c.pathTitle?c.pathTitle:_repJoinSeg(parentFull,k), kids=_repNodeKids(c);   // 🔑 v143: rehome/promote والے ربرک کی ترجمہ-کلید = اصل عنوان
-        var row={label:k,labels:lab,full:full,depth:depth,node:c,kids:kids};
+        var lab=labels.concat([k]), full=c.displayPathTitle?c.displayPathTitle:(c.pathTitle?c.pathTitle:_repJoinSeg(parentFull,k)), kids=_repNodeKids(c);   // دکھایا گیا راستہ، اصل ترجمہ کلید سے الگ
+        var translationFull=c.translationTitle||c.pathTitle||full;
+        var row={label:k,labels:lab,full:full,translationFull:translationFull!==full?translationFull:'',depth:depth,node:c,kids:kids};
         var pos=out.length; out.push(row);
         var selfHit=!filt||k.toLowerCase().indexOf(filt)!==-1;
         var kidHit=false;
@@ -102,23 +103,21 @@ function repTreeRemsHtml(rems){
     }
     return shown?h+'</span>':'';
 }
-function repTreeDisplayLabel(r){
+function repTreeVisibleLabel(r){
     var label=String(r&&r.label||'');
-    if(repCurrentBook==='kent'&&String(repCurrentChapter||'').toLowerCase()==='mind'&&r&&r.labels&&r.labels.length===1){
-        // The cross-reference remains in source data and translation keys, but is not part of the displayed main rubric.
-        label=label.replace(/\s*\(\s*see\b[^)]*\)/ig,'').replace(/\s+,/g,',').replace(/,\s*$/,'').trim();
+    if(repCurrentBook==='kent'&&repCurrentChapter==='mind'&&r&&r.labels&&r.labels.length===1){
+        label=label.replace(/\s*\(\s*see\b[^)]*\)/ig,'').replace(/\s+,/g,',').trim();
     }
     return label;
 }
 function repTreeRowHtml(r){
     var c=r.node, rems=Object.keys(c.remedies||{}).length, rid=c.hasRubric&&c.rid?String(c.rid):'';
-    var displayLabel=repTreeDisplayLabel(r);
     var open=r.kids&&(repFolderFilter||!repTreeCollapsed[r.full]);
     return '<div class="rtv-row'+(r.depth===0?' top':'')+'" style="--d:'+r.depth+';padding-left:'+(6+r.depth*18)+'px" data-full="'+_repAttr(r.full)+'" data-labels="'+_repAttr(JSON.stringify(r.labels))+'" data-rems="'+rems+'" data-kids="'+(r.kids?1:0)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+'>'
         +'<span class="rtv-tg">'+(r.kids?(open?'▾':'▸'):'·')+'</span>'
         +repTreeLevelIcon(r.depth,r.kids)
         +repCmpChkHtml(repCurrentBook,repCurrentChapter,rid,r.full,rems,'row')
-        +'<span class="rtv-lab'+(r.kids?' has-kids':'')+'">'+(typeof repXrefHtml==='function'?repXrefHtml(displayLabel):escapeHtml(displayLabel))+'</span>'   // root-rubric cross-reference is not displayed
+        +'<span class="rtv-lab'+(r.kids?' has-kids':'')+'">'+(typeof repXrefHtml==='function'?repXrefHtml(repTreeVisibleLabel(r)):escapeHtml(repTreeVisibleLabel(r)))+'</span>'   // جڑ کراس حوالہ نمائش سے الگ، ماخذی لیبل برقرار
         +(function(){ if(!repUrLabelsOn())return '';
             if(typeof repRubUrRowHtml==='function'){ var rh=repRubUrRowHtml(r); if(rh) return rh; }      // 🔑 v107: پہلے ربرک کا اپنا جملہ (ur/rubrics/)
             var u=repUrLabelObj(r.label,r.labels); if(!u)return '';
@@ -151,7 +150,8 @@ function repTreeActsHtml(rid,rems){
 // ڈیٹیل پیج والے فنکشن repCurrentDetail پر چلتے ہیں — عارضی طور پر اس لائن کا سیاق دے کر چلاؤ
 function repTreeWithCtx(row,fn){
     var sv=repCurrentDetail, labels=[]; try{ labels=JSON.parse(row.getAttribute('data-labels')||'[]'); }catch(e){}
-    repCurrentDetail={full:row.getAttribute('data-full')||'',rid:row.getAttribute('data-rid')||'',labels:labels};
+    var rid=row.getAttribute('data-rid')||'', entry=(typeof repRidPathMap!=='undefined'&&repRidPathMap)?repRidPathMap[rid]:null;
+    repCurrentDetail={full:row.getAttribute('data-full')||'',translationFull:entry?entry.translationFull:'',rid:rid,labels:labels};
     try{ fn(); } finally { repCurrentDetail=sv; }
 }
 function repTreeAct(row,act,btn){

@@ -3,15 +3,16 @@
   "book": "kent",
   "chapter": "mind",
   "chapter_label": "MIND",
-  "order_definition": "depth-first preorder of Homeoint source_parent_id in printed page order 1-95",
+  "order_definition": "Homeoint printed-page order 1-95 with the page-8 ANXIETY sleep display hierarchy; source records and source_order remain unchanged",
   "source": "kent_chapters/mind.json",
   "tree_builder": "js/repertory/rep-chapters.js",
-  "tree_fix_version": "145",
+  "tree_fix_version": "146",
+  "display_tree_override_count": 1,
   "source_record_count": 4356,
   "hidden_anchor_count": 0,
   "visible_rubric_count": 4356,
   "source_sha256": "3d54cc76dd5e3c02276b8e139d2b27c4110a920def7ffd4e6bb99d7097050844",
-  "build_sha256": "6f694fc8fa08af19b62e7f0710ff4ee68fc82cf9a86a211ee236d1dc52d8cc50",
+  "build_sha256": "65e4c2108155bc129ad7920608ceced7ff7fc859249ce9ab339b473f96d5d161",
   "entries": {
     "r0": {
       "path": [
@@ -2080,14 +2081,16 @@
     "r284": {
       "path": [
         "ANXIETY",
-        "sleep, before"
+        "sleep",
+        "before"
       ],
       "order": 283
     },
     "r285": {
       "path": [
         "ANXIETY",
-        "sleep, before",
+        "sleep",
+        "before",
         "evening"
       ],
       "order": 284
@@ -2095,7 +2098,7 @@
     "r286": {
       "path": [
         "ANXIETY",
-        "sleep, before",
+        "sleep",
         "on going to"
       ],
       "order": 285
@@ -2103,7 +2106,7 @@
     "r287": {
       "path": [
         "ANXIETY",
-        "sleep, before",
+        "sleep",
         "during (See Dreams)"
       ],
       "order": 286
@@ -2111,7 +2114,7 @@
     "r288": {
       "path": [
         "ANXIETY",
-        "sleep, before",
+        "sleep",
         "loss of sleep"
       ],
       "order": 287
@@ -2119,7 +2122,7 @@
     "r289": {
       "path": [
         "ANXIETY",
-        "sleep, before",
+        "sleep",
         "menses, after"
       ],
       "order": 288
@@ -2127,7 +2130,7 @@
     "r290": {
       "path": [
         "ANXIETY",
-        "sleep, before",
+        "sleep",
         "on starting from"
       ],
       "order": 289
@@ -2135,7 +2138,7 @@
     "r291": {
       "path": [
         "ANXIETY",
-        "sleep, before",
+        "sleep",
         "partial slumbering in the morning, during"
       ],
       "order": 290

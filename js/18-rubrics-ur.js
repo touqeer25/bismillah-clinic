@@ -118,7 +118,7 @@ function repRubUrBase(book, ch, labels, t) {
 function repRubUrRowHtml(r) {
     if (!r || typeof repCurrentBook === 'undefined') return '';
     var book = repCurrentBook, ch = (typeof repCurrentChapter !== 'undefined') ? repCurrentChapter : '';
-    var t = repRubUrGet(book, ch, r.full || (r.labels || []).join(', ')); if (!t) return '';
+    var t = repRubUrGet(book, ch, r.translationFull || r.full || (r.labels || []).join(', ')); if (!t) return '';
     var labels = r.labels || [], parentT = repRubUrBase(book, ch, labels, t);
     var p = repRubUrSplit(t, parentT), full = repRubUrMode() === 'full';
     var esc = (typeof escapeHtml === 'function') ? escapeHtml : function (s) { return String(s); };

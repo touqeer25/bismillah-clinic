@@ -31,6 +31,17 @@ assert(angerHtml.includes('lang="ur"'));
 assert(!angerHtml.includes('(See Irritability and Quarrelsome)'),
     'the authored Urdu string is independent of the hidden English cross-reference');
 
+const onGoingTo = chapter.r286;
+const onGoingToHtml = context.repRubUrRowHtml({
+    label: 'on going to',
+    labels: ['ANXIETY', 'sleep', 'on going to'],
+    full: 'ANXIETY, sleep, on going to',
+    translationFull: onGoingTo.t,
+    depth: 2
+});
+assert(onGoingToHtml.includes(translations.rubrics['anxiety, sleep, before, on going to']),
+    'the corrected display breadcrumb still uses the existing translation keyed by its unchanged source title');
+
 const gap = chapter.h0036;
 assert.strictEqual(context.repRubUrGet('kent', 'mind', gap.t), null,
     'the source does not contain an old translation for this new rubric');

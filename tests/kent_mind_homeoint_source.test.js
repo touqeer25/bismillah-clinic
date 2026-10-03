@@ -77,13 +77,26 @@ rids.forEach((rid, arrayIndex) => {
 
     const entry = paths.entries[rid];
     assert(entry, 'search breadcrumb exists for ' + rid);
-    const expectedPath = [];
-    let current = row;
-    while (current) {
-        expectedPath.unshift(current.source_label);
-        current = current.source_parent_id === null ? null : mind[current.source_parent_id];
+    const auditedDisplayPaths = {
+        r284: ['ANXIETY', 'sleep', 'before'],
+        r285: ['ANXIETY', 'sleep', 'before', 'evening'],
+        r286: ['ANXIETY', 'sleep', 'on going to'],
+        r287: ['ANXIETY', 'sleep', 'during (See Dreams)'],
+        r288: ['ANXIETY', 'sleep', 'loss of sleep'],
+        r289: ['ANXIETY', 'sleep', 'menses, after'],
+        r290: ['ANXIETY', 'sleep', 'on starting from'],
+        r291: ['ANXIETY', 'sleep', 'partial slumbering in the morning, during']
+    };
+    let expectedPath = auditedDisplayPaths[rid];
+    if (!expectedPath) {
+        expectedPath = [];
+        let current = row;
+        while (current) {
+            expectedPath.unshift(current.source_label);
+            current = current.source_parent_id === null ? null : mind[current.source_parent_id];
+        }
     }
-    assert.deepStrictEqual(entry.path, expectedPath, 'search path follows explicit Homeoint parents for ' + rid);
+    assert.deepStrictEqual(entry.path, expectedPath, 'search path follows audited Homeoint display hierarchy for ' + rid);
     assert.strictEqual(entry.order, row.source_order + 1, 'search order follows printed order for ' + rid);
 });
 
@@ -127,7 +140,7 @@ if (JSDOM) {
         w.eval(fs.readFileSync(path.join(ROOT, 'js/repertory', file), 'utf8'));
     }
     w.eval(fs.readFileSync(path.join(ROOT, 'js/repertory/kent-tree-fix.js'), 'utf8'));
-    assert.strictEqual(w.KENT_TREE_FIX.v, '145');
+    assert.strictEqual(w.KENT_TREE_FIX.v, '146');
     assert.deepStrictEqual(Array.from(w.KENT_TREE_FIX.ch.mind.h), []);
     const tree = w.buildRubricTree(mind);
     const flat = [];
@@ -135,10 +148,40 @@ if (JSDOM) {
     const shown = flat.filter(row => row.node.hasRubric && row.node.rid);
     assert.deepStrictEqual(shown.map(row => row.node.rid), rids, 'browser tree is a source-order preorder');
     const shownById = new Map(shown.map(row => [row.node.rid, row]));
+    w.buildRidPathMap(tree);
+    assert.deepStrictEqual(Array.from(w.repRidPathMap.r286.path), ['ANXIETY', 'sleep', 'on going to']);
+    assert.strictEqual(w.repRidPathMap.r286.fullPath, 'ANXIETY, sleep, on going to');
+    assert.strictEqual(w.repRidPathMap.r286.translationFull, mind.r286.t);
+    const sleepFolder = flat.find(row => row.node.syntheticMindPath);
+    assert(sleepFolder, 'the audited sleep path has one non-record folder');
+    assert.deepStrictEqual(sleepFolder.labels, ['ANXIETY', 'sleep']);
+    assert.strictEqual(sleepFolder.node.hasRubric, false);
+    const correctedDisplayPaths = {
+        r284: ['ANXIETY', 'sleep', 'before'],
+        r285: ['ANXIETY', 'sleep', 'before', 'evening'],
+        r286: ['ANXIETY', 'sleep', 'on going to'],
+        r287: ['ANXIETY', 'sleep', 'during (See Dreams)'],
+        r288: ['ANXIETY', 'sleep', 'loss of sleep'],
+        r289: ['ANXIETY', 'sleep', 'menses, after'],
+        r290: ['ANXIETY', 'sleep', 'on starting from'],
+        r291: ['ANXIETY', 'sleep', 'partial slumbering in the morning, during']
+    };
     shown.forEach(row => {
-        const source = mind[row.node.rid];
-        assert.strictEqual(row.full, source.t);
-        if (source.source_parent_id === null) {
+        const rid = row.node.rid, source = mind[rid];
+        assert.strictEqual(row.translationFull || row.full, source.t,
+            'the saved translation key remains the original source title at ' + rid);
+        if (correctedDisplayPaths[rid]) {
+            assert.deepStrictEqual(row.labels, correctedDisplayPaths[rid], 'audited display path at ' + rid);
+            if (rid === 'r284') {
+                assert.deepStrictEqual(shownById.get('r121').labels, ['ANXIETY']);
+                assert.strictEqual(source.source_parent_id, 'r121');
+            } else if (rid === 'r285') {
+                assert.deepStrictEqual(shownById.get('r284').labels, row.labels.slice(0, -1));
+            } else {
+                assert.deepStrictEqual(row.labels.slice(0, -1), sleepFolder.labels);
+                assert.strictEqual(source.source_parent_id, 'r284', 'raw extracted parent remains preserved');
+            }
+        } else if (source.source_parent_id === null) {
             assert.strictEqual(row.labels.length, 1);
         } else {
             const parentRow = shownById.get(source.source_parent_id);
@@ -146,7 +189,7 @@ if (JSDOM) {
             assert.deepStrictEqual(parentRow.labels, row.labels.slice(0, -1));
         }
     });
-    console.log('PASS browser tree uses all explicit parents and printed order.');
+    console.log('PASS browser tree preserves source rows/order and applies the audited page-8 sleep hierarchy.');
 } else {
     console.log('SKIP browser tree build; jsdom is not installed.');
 }

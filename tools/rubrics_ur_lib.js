@@ -20,8 +20,13 @@ function chapterRows(w,book,chapter){
   const dir=R+'/'+w.REP_BOOK_INFO[book].chapDir;
   const t=w.buildRubricTree(JSON.parse(fs.readFileSync(dir+chapter+'.json','utf8')));
   const rows=[]; w.repTreeFlatten(t,[],'',0,rows,'');
-  return rows.map(r=>({key:w.repRubKey(r.full),parentKey:r.labels.length>1?w.repRubKey(r.labels.slice(0,-1).join(', ')):'',
-    depth:r.depth,full:r.full,label:r.label,labels:r.labels,rems:Object.keys(r.node.remedies||{}).length}));
+  // Only source-backed rubric records belong in translation counts; virtual display folders (e.g. MIND's "sleep") are not rubrics.
+  return rows.filter(r=>r.node&&r.node.hasRubric===true).map(r=>{
+    const translationFull=r.translationFull||r.full, displayKey=w.repRubKey(r.full);
+    return {key:w.repRubKey(translationFull),displayKey,translationFull,
+      parentKey:r.labels.length>1?w.repRubKey(r.labels.slice(0,-1).join(', ')):'',
+      depth:r.depth,full:r.full,label:r.label,labels:r.labels,rems:Object.keys(r.node.remedies||{}).length};
+  });
 }
 function chapters(w,book){ w.repCurrentBook=book; const dir=R+'/'+w.REP_BOOK_INFO[book].chapDir; return JSON.parse(fs.readFileSync(dir+'_index.json','utf8')).map(c=>c.key); }
 function urFile(book,chapter){ return path.join(R,'ur','rubrics',book,chapter+'.json'); }

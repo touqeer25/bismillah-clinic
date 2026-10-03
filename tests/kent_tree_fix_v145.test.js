@@ -22,7 +22,7 @@ for(const f of ['rep-chapters.js','rep-tree.js','rep-folders.js']){
 // فکس ڈیٹا
 w.eval(fs.readFileSync(path.join(ROOT,'js/repertory/kent-tree-fix.js'),'utf8'));
 ok(!!w.KENT_TREE_FIX&&!!w.KENT_TREE_FIX.ch,'A1 kent-tree-fix.js لوڈ ہوا');
-ok(w.KENT_TREE_FIX.v==='145','A2 ورژن 145');
+ok(w.KENT_TREE_FIX.v==='146','A2 ورژن 146');
 
 function buildFor(ch){
   w.repCurrentBook='kent'; w.repCurrentChapter=ch;
@@ -61,6 +61,24 @@ ok(!!frightNight&&mindData[frightNight.node.rid].source_parent_id==='r2372',
 const loqDay=mindRubricRows.find(r=>r.node.sourceLabel==='daytime'&&r.labels[0]==='LOQUACITY (See Speech)');
 ok(!!loqDay&&mindData[loqDay.node.rid].source_parent_id==='r2983',
   'B12 صفحہ 63 کا «daytime» ماخذ کے مطابق «LOQUACITY» کے نیچے ہے');
+const sleepFolder=mrows.find(r=>r.node.syntheticMindPath);
+const beforeSleep=mrows.find(r=>r.node.rid==='r284');
+const eveningSleep=mrows.find(r=>r.node.rid==='r285');
+const sleepSiblingIds=['r286','r287','r288','r289','r290','r291'];
+ok(!!sleepFolder&&sleepFolder.labels.join(' > ')==='ANXIETY > sleep'&&sleepFolder.node.order.length===7,
+  'B13 صفحہ 8 میں «sleep» ایک بے ربرک درختی سطح ہے؛ سات اصل بچے محفوظ ہیں');
+ok(!!beforeSleep&&beforeSleep.labels.join(' > ')==='ANXIETY > sleep > before'&&beforeSleep.node.order.join(',')==='evening',
+  'B14 «before» اپنی اصل شناخت/ادویات کے ساتھ «sleep» کے نیچے، صرف «evening» اس کا بچہ ہے');
+ok(!!eveningSleep&&eveningSleep.labels.join(' > ')==='ANXIETY > sleep > before > evening',
+  'B15 گہری مطبوعہ سطح والا «evening» «before» کے نیچے ہے');
+ok(sleepSiblingIds.every(id=>{
+  const row=mrows.find(r=>r.node.rid===id);
+  return !!row&&row.labels[0]==='ANXIETY'&&row.labels[1]==='sleep'&&row.labels.length===3&&
+    mindData[id].source_parent_id==='r284'&&row.full===row.labels.join(', ')&&row.translationFull===mindData[id].t;
+}), 'B16 بعد کی چھ ربرکس «sleep» کے ہم سطح ہیں؛ اصل والد/عنوان محفوظ، راستہ درخت سے بنتا ہے');
+const soupAfter=mrows.find(r=>r.node.rid==='r292');
+ok(!!soupAfter&&soupAfter.labels.join(' > ')==='ANXIETY > soup, after',
+  'B17 «soup, after» اصل ANXIETY سطح پر ہی رہتا ہے');
 
 // ---- C. گنتی: کچھ بھی گم نہیں ----
 const FIX=w.KENT_TREE_FIX.ch;
@@ -139,9 +157,10 @@ Object.keys(FIX).forEach(ch=>{
   rows.forEach(r=>{
     const rid=r.node.rid;
     if(rid&&data[rid]){
-      // [2] دوہرے لیبل والا نوڈ جائز استثنا (v72) — full میں [n] کا سابقہ ہوتا ہے
-      if(r.full!==data[rid].t && !r.node.dup){ fOk=false; }
-      if(r.full!==data[rid].t && r.node.dup){ fDup++; }
+      // [2] درخت کا دکھایا گیا راستہ اور محفوظ ترجمہ کلید الگ ہو سکتے ہیں؛ ماخذی کلید لازماً برقرار رہے
+      const translationKey=r.translationFull||r.full;
+      if(translationKey!==data[rid].t && !r.node.dup){ fOk=false; }
+      if(translationKey!==data[rid].t && r.node.dup){ fDup++; }
     }
   });
 });
