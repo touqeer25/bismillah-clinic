@@ -32,10 +32,20 @@ function repSearchPathForRecord(bookKey, chapterKey, rid){
     return {path:[_repSearchKentMindPaths.chapter_label||'MIND'].concat(entry.path),
             order:isFinite(order)?order:null};
 }
+function repSearchVisibleRootLabel(label){
+    return String(label||'').replace(/\s*\(\s*see\b[^)]*\)/ig,'').replace(/\s+,/g,',').replace(/,\s*$/,'').trim();
+}
 function repSearchResultDisplayText(r){
-    return r&&Array.isArray(r.searchPath)&&r.searchPath.length
-        ? r.searchPath.join('; ')
-        : String((r&&r.text)||'');
+    if(r&&Array.isArray(r.searchPath)&&r.searchPath.length){
+        var path=r.searchPath.slice();
+        // In Kent MIND, suppress only the cross-reference attached to the top-level rubric.
+        // Keep the saved breadcrumb and source record intact for navigation and search matching.
+        if(r.book==='kent'&&String(r.chapter||'').toLowerCase()==='mind'&&path.length>1){
+            path[1]=repSearchVisibleRootLabel(path[1]);
+        }
+        return path.join('; ');
+    }
+    return String((r&&r.text)||'');
 }
 function repSearchHighlightHtml(escapedHtml, queryWords){
     var result=escapedHtml;

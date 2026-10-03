@@ -102,14 +102,23 @@ function repTreeRemsHtml(rems){
     }
     return shown?h+'</span>':'';
 }
+function repTreeDisplayLabel(r){
+    var label=String(r&&r.label||'');
+    if(repCurrentBook==='kent'&&String(repCurrentChapter||'').toLowerCase()==='mind'&&r&&r.labels&&r.labels.length===1){
+        // The cross-reference remains in source data and translation keys, but is not part of the displayed main rubric.
+        label=label.replace(/\s*\(\s*see\b[^)]*\)/ig,'').replace(/\s+,/g,',').replace(/,\s*$/,'').trim();
+    }
+    return label;
+}
 function repTreeRowHtml(r){
     var c=r.node, rems=Object.keys(c.remedies||{}).length, rid=c.hasRubric&&c.rid?String(c.rid):'';
+    var displayLabel=repTreeDisplayLabel(r);
     var open=r.kids&&(repFolderFilter||!repTreeCollapsed[r.full]);
     return '<div class="rtv-row'+(r.depth===0?' top':'')+'" style="--d:'+r.depth+';padding-left:'+(6+r.depth*18)+'px" data-full="'+_repAttr(r.full)+'" data-labels="'+_repAttr(JSON.stringify(r.labels))+'" data-rems="'+rems+'" data-kids="'+(r.kids?1:0)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+'>'
         +'<span class="rtv-tg">'+(r.kids?(open?'▾':'▸'):'·')+'</span>'
         +repTreeLevelIcon(r.depth,r.kids)
         +repCmpChkHtml(repCurrentBook,repCurrentChapter,rid,r.full,rems,'row')
-        +'<span class="rtv-lab'+(r.kids?' has-kids':'')+'">'+(typeof repXrefHtml==='function'?repXrefHtml(r.label):escapeHtml(r.label))+'</span>'   // 🔑 v103
+        +'<span class="rtv-lab'+(r.kids?' has-kids':'')+'">'+(typeof repXrefHtml==='function'?repXrefHtml(displayLabel):escapeHtml(displayLabel))+'</span>'   // root-rubric cross-reference is not displayed
         +(function(){ if(!repUrLabelsOn())return '';
             if(typeof repRubUrRowHtml==='function'){ var rh=repRubUrRowHtml(r); if(rh) return rh; }      // 🔑 v107: پہلے ربرک کا اپنا جملہ (ur/rubrics/)
             var u=repUrLabelObj(r.label,r.labels); if(!u)return '';

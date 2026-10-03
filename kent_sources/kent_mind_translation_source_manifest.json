@@ -1,0 +1,21 @@
+{
+  "repository": "https://github.com/touqeer25/bismillah-clinic",
+  "translation_download_url": "https://raw.githubusercontent.com/touqeer25/bismillah-clinic/main/ur/rubrics/kent/mind.json",
+  "translation_git_blob_sha1": "f9c35bb1509ea9fa3ea4afc974d5047e5ddc4717",
+  "translation_sha256": "bc2b909a0e933b88560e4d2606d031933223308318758bc24b296c07be7587a0",
+  "translation_bytes": 446751,
+  "translation_source_rubrics": 4834,
+  "old_chapter_download_url": "https://raw.githubusercontent.com/touqeer25/bismillah-clinic/08bb1a5011d9ecc557e25303185dc46a9e49b495/kent_chapters/mind.json",
+  "old_chapter_git_blob_sha1": "234b8628d23d15eca8628c0c51c233b99b55c184",
+  "old_chapter_rubrics": 4834,
+  "rekey_method": "Reuse the translation associated with a stable old rubric ID, then assign it to that ID’s current Homeoint title key; this preserves existing authored Urdu rather than generating new translations.",
+  "current_homeoint_rubrics": 4356,
+  "old_id_matches_with_translation": 4239,
+  "current_rubrics_without_existing_translation": 117,
+  "download_date": "2026-10-03",
+  "rekeyed_output_path": "ur/rubrics/kent/mind.json",
+  "rekeyed_output_sha256": "12bdc9f966ccbc53fd134c6ebff6af5ca284769faab8f385e5275a656685a65d",
+  "rekeyed_output_rubrics": 4239,
+  "rekeyed_output_untranslated_rubrics": 117,
+  "rekey_tool": "tools/rekey_kent_mind_translation.py"
+}

@@ -60,8 +60,10 @@ assert.deepStrictEqual(JSON.parse(JSON.stringify(pathInfo.path)),
     ['MIND', angerLabel, 'absent persons, at']);
 assert.strictEqual(pathInfo.order, sidecar.entries.r45.order);
 assert.strictEqual(searchContext.repSearchResultDisplayText({
-    text: 'ANGER, absent persons, at', searchPath: pathInfo.path
-}), 'MIND; ' + angerLabel + '; absent persons, at');
+    book: 'kent', chapter: 'mind', text: 'ANGER, absent persons, at', searchPath: pathInfo.path
+}), 'MIND; ANGER, irascibility; absent persons, at');
+assert.deepStrictEqual(JSON.parse(JSON.stringify(pathInfo.path)),
+    ['MIND', angerLabel, 'absent persons, at'], 'the source breadcrumb is retained unchanged');
 
 const rendered = searchContext.repSearchResultTitleHtml({
     text: 'leaf', searchPath: ['MIND', 'ANGER, irascibility', 'morning']
@@ -106,7 +108,9 @@ searchContext.displaySearchResults([{
     remedies: { aur: 2 }
 }], 'Search test');
 assert(resultContainer.innerHTML.includes('MIND; '));
-assert(resultContainer.innerHTML.includes(angerLabel + '; absent persons, at'));
+assert(resultContainer.innerHTML.includes('ANGER, irascibility; absent persons, at'));
+assert(!resultContainer.innerHTML.includes('Irritability and Quarrelsome'),
+    'the root-rubric cross-reference is hidden in rendered search results');
 assert(resultContainer.innerHTML.includes("navigateToRubric(\'kent\',\'mind\',\'r45\')"));
 assert.strictEqual(resultContainer.scrollTop, 0);
 

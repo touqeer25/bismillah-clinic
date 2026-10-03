@@ -81,12 +81,13 @@ setTimeout(function () {
         const actualCount = (content.innerHTML.match(/class="rep-rubric-item"/g) || []).length;
         assert.strictEqual(actualCount, countExpectedAngerMatches(), 'breadcrumb rendering must not change query matches');
         assert(actualCount > 0);
-        const angerLabel = 'ANGER, irascibility (See Irritability and Quarrelsome)';
-        assert(content.innerHTML.includes('MIND; ' + angerLabel), 'source root includes chapter + exact label');
-        assert(content.innerHTML.includes('MIND; ' + angerLabel + '; morning'), 'child result includes its complete source parent chain');
+        const visibleAngerLabel = 'ANGER, irascibility';
+        assert(content.innerHTML.includes('MIND; ' + visibleAngerLabel), 'root cross-reference is omitted from the displayed breadcrumb');
+        assert(content.innerHTML.includes('MIND; ' + visibleAngerLabel + '; morning'), 'child result retains the breadcrumb without the root cross-reference');
+        assert(!content.innerHTML.includes('Irritability and Quarrelsome'), 'root cross-reference is not shown in search results');
         assert(!content.innerHTML.includes('MIND; ANGER;'), 'no synthetic OOREP anchor is inserted');
-        assert(content.innerHTML.indexOf('MIND; ' + angerLabel + '"') <
-            content.innerHTML.indexOf('MIND; ' + angerLabel + '; morning'), 'parent precedes child in printed source order');
+        assert(content.innerHTML.indexOf('MIND; ' + visibleAngerLabel + '"') <
+            content.innerHTML.indexOf('MIND; ' + visibleAngerLabel + '; morning'), 'parent precedes child in printed source order');
         console.log('PASS end-to-end Kent MIND search: ' + actualCount +
             ' anger matches, complete semicolon breadcrumbs, stable Kent order.');
     } catch (error) {
