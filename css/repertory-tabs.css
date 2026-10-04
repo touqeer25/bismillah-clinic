@@ -1,9 +1,11 @@
-/* بیرونی ریپرٹری خول — اصل مواد کے انداز میں مداخلت کیے بغیر */
+/* نسخہ 154 — بیرونی ریپرٹری خول — اصل مواد کے انداز میں مداخلت کیے بغیر */
 #page-repertoryBrowser .rep-toolbar{
     display:flex;
     align-items:center;
     gap:5px;
     flex-wrap:nowrap;
+    direction:ltr!important;
+    justify-content:flex-start;
     overflow-x:auto;
     position:relative;
     z-index:80;
@@ -16,7 +18,47 @@
 }
 #page-repertoryBrowser .rep-toolbar::-webkit-scrollbar{height:4px}
 #page-repertoryBrowser .rep-toolbar::-webkit-scrollbar-thumb{background:#536487;border-radius:4px}
-#page-repertoryBrowser .rep-toolbar .rep-book-select,
+#page-repertoryBrowser .rep-toolbar .rep-shell-nav-group{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    flex:0 0 auto;
+    direction:ltr;
+}
+#page-repertoryBrowser .rep-toolbar #repBreadcrumb{
+    flex:0 1 210px;
+    min-width:125px;
+    max-width:250px;
+    min-height:35px;
+    padding:6px 8px;
+    direction:inherit;
+}
+#page-repertoryBrowser .rep-toolbar .rep-gradation{
+    display:flex!important;
+    align-items:center;
+    gap:3px;
+    flex:0 0 auto;
+    color:#d5deeb;
+}
+#page-repertoryBrowser .rep-toolbar .rep-grad-item{color:#d5deeb;padding:3px 4px}
+#page-repertoryBrowser .rep-toolbar .rep-viewtoggle{display:inline-flex;align-items:center;gap:3px;flex:0 0 auto}
+#page-repertoryBrowser .rep-toolbar .rep-navbtn,
+#page-repertoryBrowser .rep-toolbar .rep-viewbtn{
+    width:35px;
+    height:35px;
+    min-width:35px;
+    padding:0;
+    border:1px solid #4b5b7d;
+    border-radius:8px;
+    background:#2b3a5c;
+    color:#e6edf8;
+    font-size:15px;
+}
+#page-repertoryBrowser .rep-toolbar .rep-navbtn:hover:not(:disabled),
+#page-repertoryBrowser .rep-toolbar .rep-viewbtn:hover{border-color:#8297ff;background:#3a4d75;color:#fff}
+#page-repertoryBrowser .rep-toolbar .rep-navbtn:disabled{opacity:.4}
+#page-repertoryBrowser .rep-toolbar .rep-viewbtn.active{border-color:#7692ff;background:#5b7cfa;color:#fff}
+#page-repertoryBrowser .rep-toolbar .rep-book-select, 
 #page-repertoryBrowser .rep-toolbar .rep-scope-select,
 #page-repertoryBrowser .rep-toolbar .rep-type-select,
 #page-repertoryBrowser .rep-toolbar .rep-lib-btn{display:none!important}
@@ -174,21 +216,26 @@
 #repShellHostRoot>#repDiffView{min-width:0;min-height:0;flex:1 1 auto}
 #repShellHostRoot>#repRubricContent>.rep-content-head{display:none!important}
 
-/* مرکزی جسم، دائیں طرف بابوں کی فہرست، بائیں طرف مستقل کلپ بورڈ */
+/* مرکزی جسم، بائیں طرف بابوں کی فہرست، اس سے بھی بائیں مستقل کلپ بورڈ */
 @media(min-width:821px){
-    #page-repertoryBrowser .rep-layout{flex-direction:row-reverse;padding-left:60px}
+    #page-repertoryBrowser .rep-layout{flex-direction:row;padding-left:60px}
     #page-repertoryBrowser .rep-side-tools{margin-left:0!important}
 }
+#repShellCompareTools{width:100%;min-width:0}
+#repShellCompareTools .rep-side-tools{width:100%;margin:0!important}
 #page-repertoryBrowser .rep-side-col{transition:flex-basis .18s ease,width .18s ease,min-width .18s ease}
 #page-repertoryBrowser .rep-side-col.rep-shell-collapsed{
-    flex:0 0 0!important;
-    width:0!important;
-    min-width:0!important;
+    flex:0 0 34px!important;
+    width:34px!important;
+    min-width:34px!important;
     margin:0!important;
     gap:0!important;
     overflow:hidden!important;
 }
-#page-repertoryBrowser .rep-side-col.rep-shell-collapsed>*{display:none!important}
+#page-repertoryBrowser .rep-side-col.rep-shell-collapsed>:not(.rep-shell-side-tools-row){display:none!important}
+#page-repertoryBrowser .rep-side-col.rep-shell-collapsed .rep-shell-side-tools-row{width:32px;flex-direction:column;justify-content:flex-start;margin:0;padding:0}
+#page-repertoryBrowser .rep-side-col.rep-shell-collapsed .rep-shell-side-title{display:none}
+#page-repertoryBrowser .rep-side-col.rep-shell-collapsed .rep-shell-side-btn{flex:0 0 27px;width:27px;height:27px}
 .rep-shell-side-tools-row{display:flex;align-items:center;gap:5px;margin-bottom:2px}
 .rep-shell-side-title{flex:1;min-width:0;color:#50627b;font-size:10.5px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .rep-shell-side-btn{
@@ -231,12 +278,12 @@
 .rep-shell-book-item .rep-shell-book-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #repDockArea{direction:ltr}
 @media(min-width:821px){
-    #repDockArea{left:8px;right:auto}
+    #repDockArea{left:8px;right:auto;top:210px}
 }
 @media(max-width:820px){
     #page-repertoryBrowser .rep-layout{flex-direction:column;padding-left:45px}
     #page-repertoryBrowser .rep-side-col{width:100%;flex:0 0 auto}
-    #page-repertoryBrowser .rep-side-col.rep-shell-collapsed{flex:0 0 0!important}
+    #page-repertoryBrowser .rep-side-col.rep-shell-collapsed{width:34px!important;min-width:34px!important;height:34px;flex:0 0 34px!important;overflow:hidden!important}
     #repDockArea{left:5px;right:auto;top:190px;bottom:8px;transform:none;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;pointer-events:none}
     #repDockArea .rep-dock{position:static;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:center;justify-content:flex-start;gap:5px;max-height:100%;overflow-y:auto;overflow-x:hidden;padding:7px 5px;border-radius:15px;pointer-events:auto}
     #repDockArea .rep-dock-clip{flex:0 0 auto}

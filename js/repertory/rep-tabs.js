@@ -1,12 +1,13 @@
-/* نسخہ 153 — ریپرٹری کا بیرونی ٹیب اور نیویگیشن خول */
+/* نسخہ 154 — ریپرٹری کا بیرونی ٹیب اور نیویگیشن خول */
 (function(){
     'use strict';
 
-    var VERSION='153';
+    var VERSION='154';
     var started=false;
     var raw={};
     var shell={
-        root:null, strip:null, hostRoot:null, hosts:null, templates:null,
+        root:null, strip:null, hostRoot:null, hosts:null, templates:null, layout:null,
+        sideCol:null, sideHeader:null, compareTools:null, dockArea:null, toolbarExtras:[],
         tabs:[], byId:Object.create(null), activeId:null, lastRepId:null,
         sidebarMode:'chapters', sidebarHidden:false, suppress:false,
         locks:[], pendingAction:null, searchLock:null, diffLock:null,
@@ -214,6 +215,7 @@
     }
     function syncVisibleState(tab){
         if(shell.sideList&&tab) shell.sideList.scrollTop=tab.sideScroll||0;
+        if(shell.compareTools) shell.compareTools.style.display=tab&&tab.type==='compare'?'':'none';
         updateSearchControls();
         updateSideHeader();
         if(typeof window.repCmpSyncUI==='function') callIf('repCmpSyncUI');
@@ -404,6 +406,7 @@
     function installToolbar(){
         var toolbar=shell.toolbar, searchWrap=toolbar.querySelector('.rep-search-wrap');
         if(!toolbar||!searchWrap) return;
+        toolbar.classList.add('rep-shell-toolbar');
         shell.controls.books=makeButton('repShellBooksBtn','📚',{ur:'ریپرٹریوں کی فہرست',en:'Repertory list',roman:'Repertories ki fehrist'},openBooks);
         shell.controls.library=makeButton('repShellLibraryBtn','📖',{ur:'مطالعہ لائبریری',en:'Reading library',roman:'Mutala library'},openLibrary);
         shell.controls.clip=makeButton('repShellClipboardBtn','📋',{ur:'فعال کلپ بورڈ کھولیں',en:'Open active clipboard',roman:'Active clipboard kholen'},function(){openClipboard(window.repActiveClip||0);});
@@ -419,6 +422,7 @@
         var compare=makeButton('repShellCompareBtn','⇄',{ur:'کلپ بورڈز کا موازنہ',en:'Compare clipboards',roman:'Clipboards ka muwazna'},openCompare,'rep-shell-compare');
         if(cmpMode&&cmpMode.parentNode){cmpMode.parentNode.insertBefore(diff,cmpMode);cmpMode.parentNode.insertBefore(compare,cmpMode);}
         else {toolbar.appendChild(diff);toolbar.appendChild(compare);}
+        (shell.toolbarExtras||[]).forEach(function(extra){toolbar.appendChild(extra);});
         shell.controls.diff=diff; shell.controls.compare=compare;
         shell.controls.menus=[scopeWrap,kindWrap];
         document.addEventListener('click',function(ev){
@@ -427,18 +431,75 @@
         updateSearchControls(); updateToolbarButtons();
     }
     function installSideHeader(){
-        var tools=shell.sideTools;
-        if(!tools) return;
+        var parent=shell.sideCol;
+        if(!parent) return;
         var row=document.createElement('div'); row.className='rep-shell-side-tools-row'; row.id='repShellSideToolsRow';
         var title=document.createElement('span'); title.className='rep-shell-side-title'; title.id='repShellSideTitle';
         var hide=document.createElement('button'); hide.type='button'; hide.className='rep-shell-side-btn'; hide.id='repShellHideSideBtn';
         hide.dataset.repShellAction='hide'; hide.textContent='◀'; hide.setAttribute('aria-label',text({ur:'سائیڈ بار چھپائیں',en:'Hide sidebar',roman:'Sidebar chhupaein'}));
-        row.appendChild(title); row.appendChild(hide); tools.insertBefore(row,tools.firstChild);
-        tools.addEventListener('click',function(ev){
+        row.appendChild(title); row.appendChild(hide);
+        parent.insertBefore(row,shell.sideList||parent.firstChild);
+        shell.sideHeader=row;
+        row.addEventListener('click',function(ev){
             var b=ev.target.closest('[data-rep-shell-action="hide"]');
             if(b){ev.preventDefault();ev.stopPropagation();toggleSidebar();}
         });
         updateSideHeader();
+    }
+    function moveNavbarControls(){
+        var navbar=shell.root&&shell.root.querySelector('.rep-navbar');
+        if(!navbar||!shell.toolbar) return;
+        var group=document.createElement('div'); group.className='rep-shell-nav-group'; group.setAttribute('aria-label',text({ur:'صفحہ نیویگیشن',en:'Page navigation',roman:'Safha navigation'}));
+        ['repBtnBack','repBtnFwd','repBtnUp'].forEach(function(id){
+            var button=document.getElementById(id);if(button)group.appendChild(button);
+        });
+        shell.toolbar.insertBefore(group,shell.toolbar.firstChild);
+        var crumb=document.getElementById('repBreadcrumb');
+        if(crumb){
+            crumb.classList.add('rep-shell-breadcrumb');
+            shell.toolbar.insertBefore(crumb,group.nextSibling);
+        }
+        var gradation=navbar.querySelector('.rep-gradation');
+        var views=navbar.querySelector('.rep-viewtoggle');
+        shell.toolbarExtras=[];
+        if(gradation){gradation.classList.add('rep-shell-toolbar-extra');shell.toolbarExtras.push(gradation);}
+        if(views){views.classList.add('rep-shell-toolbar-extra');shell.toolbarExtras.push(views);}
+        navbar.remove();
+        if(shell.searchInput) shell.searchInput.setAttribute('dir','auto');
+    }
+    function updateDockPosition(){
+        var dock=shell.dockArea||document.getElementById('repDockArea');
+        if(!dock||!shell.root||!shell.sideCol) return;
+        var pageRect=shell.root.getBoundingClientRect();
+        if(pageRect.width<=0||pageRect.height<=0) return;
+        var top=Math.round(shell.sideCol.getBoundingClientRect().top);
+        if(top>0) dock.style.top=Math.max(8,top)+'px';
+        else if(top<=0) dock.style.top='8px';
+    }
+    function installDockPositioning(){
+        if(typeof raw.syncDockTop==='function'){
+            window.repSyncDockTop=function(){
+                if(!started||shell.suppress) return raw.syncDockTop.apply(this,arguments);
+                updateDockPosition();
+            };
+        }
+        window.addEventListener('resize',updateDockPosition);
+        window.addEventListener('scroll',updateDockPosition,{passive:true});
+        window.addEventListener('load',updateDockPosition);
+        if(document.fonts&&document.fonts.addEventListener){
+            try{document.fonts.addEventListener('loadingdone',updateDockPosition);}catch(e){}
+        }
+        setTimeout(updateDockPosition,700);setTimeout(updateDockPosition,1600);setTimeout(updateDockPosition,2600);
+    }
+    function installCompareTools(main){
+        if(!main||!shell.sideTools) return;
+        shell.compareTools=document.createElement('div');
+        shell.compareTools.id='repShellCompareTools';
+        shell.compareTools.className='rep-shell-compare-tools';
+        shell.compareTools.setAttribute('aria-label',text({ur:'موازنہ اور کلپ بورڈ کے اوزار',en:'Compare and clipboard tools',roman:'Muwazna aur clipboard tools'}));
+        shell.compareTools.style.display='none';
+        main.insertBefore(shell.compareTools,shell.hostRoot);
+        shell.compareTools.appendChild(shell.sideTools);
     }
     function installSidebarEvents(){
         if(shell.sideList){
@@ -787,11 +848,14 @@
         var page=shell.root;
         if(!page) return false;
         shell.toolbar=page.querySelector('.rep-toolbar');
+        shell.sideCol=page.querySelector('.rep-side-col');
         shell.sideList=document.getElementById('repChapterList');
         shell.sideTools=document.getElementById('repSideTools');
         shell.searchInput=document.getElementById('repBrowserSearch');
+        shell.dockArea=document.getElementById('repDockArea');
         var main=page.querySelector('.rep-main');
         var layout=page.querySelector('.rep-layout');
+        shell.layout=layout;
         var tabbar=document.getElementById('repPageTabs');
         var diff=document.getElementById('repDiffView');
         var search=document.getElementById('repSearchView');
@@ -809,7 +873,9 @@
         shell.strip.setAttribute('aria-label',text({ur:'کھلے صفحات',en:'Open pages',roman:'Khule safhe'}));
         if(layout&&layout.parentNode) layout.parentNode.insertBefore(shell.strip,layout);
         else tabbar.parentNode.insertBefore(shell.strip,shell.hostRoot);
+        moveNavbarControls();
         installSideHeader();
+        installCompareTools(main);
         shell.baseToolsHtml=shell.sideTools?shell.sideTools.innerHTML:'';
         var first=makeTab('repertory',window.repCurrentBook||'kent');
         first.hosts=shell.hosts;first.vars=readState();first.searchValue=currentInputValue();
@@ -883,6 +949,7 @@
         raw.renderRubricDetail=window.renderRubricDetail;
         raw.renderXref=window.repRenderXrefAppBody;
         raw.applyLanguage=window.applyLanguage;
+        raw.syncDockTop=window.repSyncDockTop;
 
         if(raw.pageTab){
             window.repPageTab=function(which){
@@ -1083,7 +1150,10 @@
         }
         if(raw.closeTool){
             window.repCloseToolView=function(){
-                if(started&&liveTab()&&liveTab().type==='compare') return closeTab(liveTab().id);
+                if(started&&liveTab()&&liveTab().type==='compare'){
+                    if((window.repWorkbenchOpen||Number(window.repAnalysisOpen)>=0)&&typeof window.repOpenCompare==='function') return window.repOpenCompare();
+                    return closeTab(liveTab().id);
+                }
                 return raw.closeTool.apply(this,arguments);
             };
         }
@@ -1229,6 +1299,7 @@
         installToolbar();installSidebarEvents();installTabEvents();
         installWrappers();
         started=true;
+        installDockPositioning();
         setPageForTab(liveTab());
         syncVisibleState(liveTab());
         renderTabStrip();
