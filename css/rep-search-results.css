@@ -23,3 +23,17 @@
     .rep-search-list-title{flex-basis:180px;min-width:120px}
     .rep-search-remedies{margin-left:20px}
 }
+
+/* 🔑 v150 (قاعدہ ج): سرچ کی سطر میں ادویات ربرک کے ساتھ اُسی سطر میں چلتی ہیں
+   (پہلے 100% چوڑائی لے کر اگلی سطر پر اتر جاتی تھیں)۔ لمبے ربرک بھی ادویات کو
+   نیچے نہیں دھکیلتے: «ادویات والی حالت» میں ربرک کی چوڑائی ادویات کے لیے جگہ
+   چھوڑ کر محدود کر دی جاتی ہے، پھر ادویات باقی سطر بھر کر اُسی سطر میں لپٹتی
+   ہیں۔ ریپرٹری (درخت) کی نمائش نہیں بدلی — وہ اپنی .rtv-rems کے ساتھ اگلی
+   سطر ہی رکھتی ہے (css/repertory-tree.css)۔ */
+.rep-search-results-list .rep-search-remedies{display:none;flex:1 1 0%;min-width:0;margin:0 0 0 6px;padding:0 0 1px;color:#34495e;line-height:1.55;overflow-wrap:anywhere}
+.rep-search-results-list.show-remedies .rep-search-list-title{flex:0 1 auto;max-width:calc(100% - 220px)}
+.rep-search-results-list.show-remedies .rep-search-remedies{display:block}
+@media(max-width:700px){
+    .rep-search-results-list .rep-search-remedies{margin-left:4px}
+    .rep-search-results-list.show-remedies .rep-search-list-title{max-width:calc(100% - 150px)}
+}

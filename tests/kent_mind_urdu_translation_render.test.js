@@ -1,6 +1,7 @@
 'use strict';
 
-// Verify the app loader renders re-keyed Kent MIND Urdu entries and leaves the 117 gaps blank.
+// Verify the app loader renders re-keyed Kent MIND Urdu entries — v150: سب 4,356 ربرکس
+// کے اردو جملے موجود ہیں (117 نئے ربرکس بھی مکمل)۔
 // Run: node tests/kent_mind_urdu_translation_render.test.js
 const assert = require('assert');
 const fs = require('fs');
@@ -42,10 +43,12 @@ const onGoingToHtml = context.repRubUrRowHtml({
 assert(onGoingToHtml.includes(translations.rubrics['anxiety, sleep, before, on going to']),
     'the corrected display breadcrumb still uses the existing translation keyed by its unchanged source title');
 
-const gap = chapter.h0036;
-assert.strictEqual(context.repRubUrGet('kent', 'mind', gap.t), null,
-    'the source does not contain an old translation for this new rubric');
-assert.strictEqual(context.repRubUrRowHtml({ label: gap.t, labels: [gap.t], full: gap.t, depth: 0 }), '');
-assert.strictEqual(Object.keys(translations.rubrics).length, 4239);
-assert.strictEqual(translations.meta.untranslated_count, 117);
-console.log('PASS Urdu loader renders matched Kent MIND translations and leaves new source rubrics untranslated.');
+const filled = chapter.h0036;
+assert.strictEqual(context.repRubUrGet('kent', 'mind', filled.t), 'حوصلے کا فقدان، کسی بڑے کام کی خواہش نہ رہے',
+    'v150: نئے ماخذی ربرک کا اردو جملہ لوڈر سے ملتا ہے (جڑ کا «(See …)» حصہ کلید سے ہٹتا ہے)');
+assert(context.repRubUrRowHtml({ label: filled.t, labels: [filled.t], full: filled.t, depth: 0 })
+    .includes('حوصلے کا فقدان'), 'the row renders the Urdu sentence for the newly translated rubric');
+assert.strictEqual(Object.keys(translations.rubrics).length, 4356);
+assert.strictEqual(translations.meta.untranslated_count, 0);
+assert.strictEqual(translations.meta.source_rubric_count, 4356);
+console.log('PASS Urdu loader renders all 4,356 Kent MIND translations (117 نئے ربرکس بھی شامل)۔');

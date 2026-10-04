@@ -521,5 +521,5 @@ var REP_TYPE_LABELS = {
 var repSearchMode = 'rubric';   // 🔑 default type: rubric / subrubric text search
 // 🔑 v40 RESTORED: search SCOPE dropdown — 'chapter' = open chapter only | 'book' = current repertory | 'all' = ALL repertories
 var REP_SCOPE_ORDER = ['chapter', 'book', 'all'];
-var repSearchScope = 'book';    // default: whole current repertory (old v47 behaviour)
+var repSearchScope = 'chapter'; // 🔑 v150 (قاعدہ د): ڈیفالٹ «سرچ ان اوپن چیپٹر» — کھلا باب ہی سرچ کا دائرہ (صارف کا حکم؛ پرانا v47 رویہ «پوری ریپرٹری» اب ڈیفالٹ نہیں)
 var repSearchAllBooks = false;  // 🔒 v41: sidebar all-books search REMOVED — flag kept (always false) for engine routing; use scope dropdown 'all' instead

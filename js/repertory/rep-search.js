@@ -104,7 +104,8 @@ function repSearchGroupHeadingHtml(r, curBook, curChapter){
 }
 function repSearchResultRemediesHtml(r){
     var all=Object.keys((r&&r.remedies)||{}), visible=[];
-    all.sort(function(a,b){return ((r.remedies[b]||1)-(r.remedies[a]||1))||a.localeCompare(b);});
+    // 🔑 v150 (قاعدہ ب): سرچ کے نتائج میں ادویات حروفِ تہجی سے، گریڈ 1 پہلے (1 → 2 → 3)؛ درخت کی ترتیب اپنی جگہ
+    all.sort(function(a,b){return ((r.remedies[a]||1)-(r.remedies[b]||1))||a.localeCompare(b);});
     all.forEach(function(abbr){if(typeof repGradeShow!=='function'||repGradeShow(r.remedies[abbr]))visible.push(abbr);});
     if(!visible.length)return '';
     var h='<div class="rep-search-remedies" aria-label="'+(currentLang==='ur'?'ادویات':'Remedies')+'">';
@@ -158,6 +159,9 @@ function repCompareSearchResults(a,b){
     var ca=getChapterDisplayName(a.book,a.chapter).toLowerCase();
     var cb=getChapterDisplayName(b.book,b.chapter).toLowerCase();
     if(ca!==cb)return ca.localeCompare(cb);
+    // 🔑 v150 (قاعدہ الف): پہلے وہ ربرکس جن میں تلاش کے الفاظ ایک ہی سطر میں جُڑے ہوئے ملے
+    var ra=Number(a.adjRank)||0, rb=Number(b.adjRank)||0;
+    if(ra!==rb) return ra-rb;
     if(typeof a.searchOrder==='number'&&typeof b.searchOrder==='number'&&a.searchOrder!==b.searchOrder){
         return a.searchOrder-b.searchOrder;
     }
@@ -389,6 +393,20 @@ function searchRepertoryBrowser(){
     var _qb=repParseBoolQuery(q);
     var qw=_qb.pos;
 
+    // 🔑 v150 (قاعدہ الف): «ایک ہی سطر میں جُڑے ہوئے الفاظ» والے ربرکس پہلے، اور وہ
+    // جن میں یہی الفاظ درمیان میں دوسرے الفاظ کے ساتھ آئیں بعد میں۔ صرف سادہ (AND)
+    // تلاش پر لاگو؛ OR/NOT والی تلاش کی ترتیب جوں کی توں رہتی ہے۔
+    function repAdjLineNorm(s){
+        return String(s||'').toLowerCase().replace(/[^a-z0-9\u0080-\ufaff\s]/g,' ').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
+    }
+    var _adjPhrase='';
+    var _adjPlainQuery = !(_qb&&_qb.groups&&_qb.groups.length>1);   // OR (|) والی تلاش کی ترتیب نہیں بدلتی
+    if(_adjPlainQuery&&qw.length>=2) _adjPhrase=repAdjLineNorm(qw.join(' '));
+    function repAdjRankOf(text){
+        if(!_adjPhrase) return 0;
+        return repAdjLineNorm(text).indexOf(_adjPhrase)!==-1 ? 0 : 1;
+    }
+
     function searchStillActive(){
         var activeInp=document.getElementById('repBrowserSearch');
         return searchSeq===_repSearchSeq && activeInp && activeInp.value.trim().length>=2;
@@ -466,7 +484,7 @@ function searchRepertoryBrowser(){
                 var rub=rubs[rid]; if(!rub)return;
                 var t=rub.path||rub.de_path||rub.t||'';
                 if(matchRubric(rub,t)){
-                    var o={text:t, remedies:rub.r||{}, chapter:ck, rid:rid, book:bookKey};
+                    var o={text:t, remedies:rub.r||{}, chapter:ck, rid:rid, book:bookKey, adjRank:repAdjRankOf(t)};   // 🔑 v150 قاعدہ الف
                     var pathInfo=repSearchPathForRecord(bookKey,ck,rid);
                     if(pathInfo){ o.searchPath=pathInfo.path; o.searchOrder=pathInfo.order; }
                     if(repSearchMode==='remedy'||repSearchMode==='rubric_remedy'){ var m=matchedRemedyMap(rub); if(m)o.matched=m; }

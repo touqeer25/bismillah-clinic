@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 4 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 149 · **اصل مخزن:**
+**آخری تجدید:** 4 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 150 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -7,6 +7,32 @@ https://bismillah-clinic.vercel.app
 ```
 
 > نئی نشست میں پہلے یہ خلاصہ پڑھیں۔ ذیل کے پرانے عمومی منصوبے میں موجود تاریخی شمار اس تازہ ذہنی باب کے فیصلے پر غالب نہیں ہوں گے۔
+
+## تازہ اضافہ — ذہنی باب 100%، سرچ کے چار قاعدے، واحد نوٹ فائل (نسخہ 150)
+
+- **کینٹ ذہنی باب کے 117 نئے ربرکس کے ترجمے مکمل:** `ur/rubrics/kent/mind.json` اب **4,356 / 4,356** (قفل 0 · `untranslated_count` 0 · `source_rubric_count` 4,356)۔ اسلوب وہی: والد + « — » + نئے حصے کا اردو؛ جڑ (سطح 0) سادہ عنوان (قوسین شدہ `(See …)` قائم قاعدے کے مطابق ترجمے میں نہیں)۔ سب جملے صرف `tools/merge_rubrics_ur.js` سے، `repRubKey()` کلیدوں کے ساتھ (نئے 117 · بدلے 0 · قفل 0 · نامعلوم 0)۔ **پورے کینٹ کا احاطہ: 69,283 (99.8%) → 69,400 / 69,400 = 100.0%।**
+- **سرچ کے چار قاعدے (صارف کے حکم پر):** **(الف)** ایک ہی سطر میں جُڑے ہوئے الفاظ والے نتائج پہلے، درمیان میں دوسرے الفاظ والے بعد میں — `js/repertory/rep-search.js` میں `repAdjRankOf()`؛ صرف سادہ تلاش پر (`OR`/`NOT` کی ترتیب نہیں بدلی؛ کتاب/باب کا گروپ وہی)۔ **(ب)** سرچ کی سطر میں ادویات **گریڈ 1 پہلے**، پھر 2، 3 — اور ہر گریڈ میں حروفِ تہجی (v148 کا گریڈ-3-پہلے اُلٹ ہوا)؛ درخت کی دوا ترتیب نہیں چھیڑی۔ **(ج)** ادویات **ربرک کی اُسی سطر میں** چلتی ہیں (لمبے ربرک کے لیے ربرک کی چوڑائی محدود، ادویات باقی سطر بھرتی ہیں)؛ **ریپرٹری/درخت کی نمائش نہیں بدلی** (وہاں ادویات اپنی اگلی سطر میں)۔ **(د)** سرچ کا ڈیفالٹ دائرہ **«سرچ ان اوپن چیپٹر»** (`js/repertory/rep-rubric-detail.js` میں `repSearchScope='chapter'`)۔
+- **ایک ہی نوٹ فائل (صارف کا حکم):** نئی واحد رولنگ فائل **`UPDATE_NOTES_UR.md`**؛ `UPDATE_NOTES_v143.md` · `UPDATE_NOTES_v146_UR.md` · `UPDATE_NOTES_v147_UR.md` · `UPDATE_NOTES_v148_UR.md` · `UPDATE_NOTES_v149_UR.md` حذف (اُن کی سطریں نئی فائل میں سمو دی گئیں)۔
+- **`.gitignore` — نسخہ 149 کا چھوٹا ہوا کام مکمل:** 4 اکتوبر کو تصدیق ہوئی کہ main پر فائل میں صرف `__pycache__/` اور `*.pyc` تھے (نسخہ 149 کی سطریں گٹ ہب پر کبھی نہ پہنچیں) — اب `ur/review/` اور `ur/rubrics/kent/cleanup/` واقعی شامل ہیں اور ٹیسٹ **E8** پاس ہے۔ ⚠ ایک بار `git rm -r --cached ur/rubrics/kent/cleanup` درکار (23 فائلیں ابھی گٹ پر ہیں؛ `ur/review/` پہلے ہی نکل چکا)۔
+- **نسخے:** `index.html` → `rep-search.js?v=150` · `rep-rubric-detail.js?v=105` · `css/rep-search-results.css?v=2` · `js/18-rubrics-ur.js?v=150` · `service-worker.js` → `CACHE_NAME='bhc-clinic-v150'` · `REP_RUBUR_V='150'`۔
+- **جانچ:** نیا `tests/search_rules_v150.test.js` (چاروں قاعدے؛ «anxiety night» کے 22 نتائج میں 8 جُڑے سرفہرست) **PASS** · `tests/rubrics_ur_v107.test.js` **ALL PASS** (B4 4,356/4,356 · F7 v15x · Q9 100.0% · E8 `.gitignore` · پانچ نسخہ پن) · `kent_mind_urdu_translation_render` (117 خالی → سب ترجمہ شدہ) · `search_results_list_v148` · `kent_mind_search_flow_v145` · `kent_mind_crossref_display` · مزید 19 فائلیں **ALL PASS**۔
+
+```text
+ur/rubrics/kent/mind.json
+js/repertory/rep-search.js
+js/repertory/rep-rubric-detail.js
+css/rep-search-results.css
+js/18-rubrics-ur.js
+index.html
+service-worker.js
+.gitignore
+tests/search_rules_v150.test.js   (نیا)
+tests/rubrics_ur_v107.test.js
+tests/kent_mind_urdu_translation_render.test.js
+HANDOFF.md
+UPDATE_NOTES_UR.md               (نیا — واحد رولنگ نوٹ فائل)
+REMOVE_OLD_NOTES.txt             (پرانی نوٹ فائلیں حذف کرنے کی فہرست)
+```
 
 ## تازہ اضافہ — پرانی ٹیسٹ فائلیں، پرانی توقعات، گٹ سے صفائی اور ورژن (نسخہ 149)
 
@@ -27,10 +53,10 @@ js/18-rubrics-ur.js
 index.html
 service-worker.js
 HANDOFF.md
-UPDATE_NOTES_v149_UR.md   (نیا)
+UPDATE_NOTES_UR.md   (v150 سے واحد رولنگ نوٹ فائل — v149 کی سطریں بھی اُسی میں)
 ```
 
-> تاریخی نوٹ: `HANDOFF.md` کے نسخہ 143 والے جدول کی سطر اور `UPDATE_NOTES_v143.md` میں پرانے ٹیسٹ نام تاریخ کے طور پر موجود ہیں — جان بوجھ کر نہیں بدلے (ماضی کا ریکارڈ ہے)۔ `UPDATE_README_UR.md` نسخہ 145 کے پیکج کی پرانی ہدایت ہے؛ اُس کی اپنی عمر ہے۔
+> تاریخی نوٹ: `HANDOFF.md` کے نسخہ 143 والے جدول کی سطر میں پرانے ٹیسٹ نام تاریخ کے طور پر موجود ہیں — جان بوجھ کر نہیں بدلے (ماضی کا ریکارڈ ہے)۔ نسخہ 143/146/147/148/149 کی الگ نوٹ فائلیں نسخہ 150 میں `UPDATE_NOTES_UR.md` میں یکجا کر دی گئی ہیں۔ `UPDATE_README_UR.md` نسخہ 145 کے پیکج کی پرانی ہدایت ہے؛ اُس کی اپنی عمر ہے۔
 
 ## تازہ اضافہ — سرچ نتائج کی سادہ فہرست اور صفحہ 8 درختی تصحیح (نسخہ 148)
 
@@ -130,10 +156,10 @@ kent_sources/github_mind_ur_translation_main.json
 kent_sources/kent_mind_translation_old_id_keys.json
 kent_sources/kent_mind_translation_source_manifest.json
 MIND_SEARCH_PATHS_UPDATE_UR.md
-UPDATE_NOTES_v146_UR.md
-UPDATE_NOTES_v147_UR.md
+UPDATE_NOTES_v146_UR.md   (اب UPDATE_NOTES_UR.md میں یکجا)
+UPDATE_NOTES_v147_UR.md   (اب UPDATE_NOTES_UR.md میں یکجا)
 HANDOFF.md
-UPDATE_NOTES_v148_UR.md
+UPDATE_NOTES_v148_UR.md   (اب UPDATE_NOTES_UR.md میں یکجا)
 index.html
 service-worker.js
 css/rep-search-results.css
