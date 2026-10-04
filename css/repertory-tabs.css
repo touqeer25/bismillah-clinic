@@ -1,4 +1,4 @@
-/* نسخہ 154 — بیرونی ریپرٹری خول — اصل مواد کے انداز میں مداخلت کیے بغیر */
+/* نسخہ 155 — بیرونی ریپرٹری خول — اصل مواد کے انداز میں مداخلت کیے بغیر */
 #page-repertoryBrowser .rep-toolbar{
     display:flex;
     align-items:center;
@@ -18,21 +18,38 @@
 }
 #page-repertoryBrowser .rep-toolbar::-webkit-scrollbar{height:4px}
 #page-repertoryBrowser .rep-toolbar::-webkit-scrollbar-thumb{background:#536487;border-radius:4px}
-#page-repertoryBrowser .rep-toolbar .rep-shell-nav-group{
+#page-repertoryBrowser .rep-shell-strip-nav{
     display:inline-flex;
     align-items:center;
-    gap:4px;
+    gap:2px;
     flex:0 0 auto;
+    height:35px;
+    margin-inline-end:4px;
+    padding-inline-end:5px;
+    border-inline-end:1px solid #455777;
     direction:ltr;
 }
-#page-repertoryBrowser .rep-toolbar #repBreadcrumb{
-    flex:0 1 210px;
-    min-width:125px;
-    max-width:250px;
-    min-height:35px;
-    padding:6px 8px;
-    direction:inherit;
+#page-repertoryBrowser .rep-shell-strip-nav .rep-navbtn,
+#page-repertoryBrowser .rep-shell-strip-nav .rep-shell-side-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 24px;
+    width:24px;
+    height:24px;
+    min-width:24px;
+    padding:0;
+    border:1px solid #586b8d;
+    border-radius:6px;
+    background:#233352;
+    color:#e8eef8;
+    font:12px Arial,sans-serif;
+    cursor:pointer;
 }
+#page-repertoryBrowser .rep-shell-strip-nav .rep-navbtn:hover:not(:disabled),
+#page-repertoryBrowser .rep-shell-strip-nav .rep-shell-side-btn:hover{background:#3b5077;border-color:#93a5ff;color:#fff}
+#page-repertoryBrowser .rep-shell-strip-nav .rep-navbtn:disabled{opacity:.4}
+#page-repertoryBrowser .rep-shell-strip-nav .rep-shell-side-btn{font-size:14px}
 #page-repertoryBrowser .rep-toolbar .rep-gradation{
     display:flex!important;
     align-items:center;
@@ -169,7 +186,8 @@
     overflow-y:hidden;
     white-space:nowrap;
     background:#2b3a5c;
-    direction:rtl;
+    direction:ltr;
+    justify-content:flex-start;
     scrollbar-width:thin;
     scrollbar-color:#7181a0 transparent;
 }
@@ -189,6 +207,7 @@
     background:#233352;
     color:#c9d5e6;
     font:600 12px Tahoma,"Segoe UI",sans-serif;
+    direction:ltr;
     cursor:pointer;
 }
 .rep-workspace-tab:hover{background:#34476d;color:#f2f5fa}
@@ -225,17 +244,15 @@
 #repShellCompareTools .rep-side-tools{width:100%;margin:0!important}
 #page-repertoryBrowser .rep-side-col{transition:flex-basis .18s ease,width .18s ease,min-width .18s ease}
 #page-repertoryBrowser .rep-side-col.rep-shell-collapsed{
-    flex:0 0 34px!important;
-    width:34px!important;
-    min-width:34px!important;
+    flex:0 0 0!important;
+    width:0!important;
+    min-width:0!important;
     margin:0!important;
     gap:0!important;
     overflow:hidden!important;
 }
-#page-repertoryBrowser .rep-side-col.rep-shell-collapsed>:not(.rep-shell-side-tools-row){display:none!important}
-#page-repertoryBrowser .rep-side-col.rep-shell-collapsed .rep-shell-side-tools-row{width:32px;flex-direction:column;justify-content:flex-start;margin:0;padding:0}
-#page-repertoryBrowser .rep-side-col.rep-shell-collapsed .rep-shell-side-title{display:none}
-#page-repertoryBrowser .rep-side-col.rep-shell-collapsed .rep-shell-side-btn{flex:0 0 27px;width:27px;height:27px}
+#page-repertoryBrowser .rep-side-col.rep-shell-collapsed>*{display:none!important}
+#page-repertoryBrowser .rep-layout.rep-shell-sidebar-hidden{gap:0!important}
 .rep-shell-side-tools-row{display:flex;align-items:center;gap:5px;margin-bottom:2px}
 .rep-shell-side-title{flex:1;min-width:0;color:#50627b;font-size:10.5px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .rep-shell-side-btn{
@@ -283,7 +300,7 @@
 @media(max-width:820px){
     #page-repertoryBrowser .rep-layout{flex-direction:column;padding-left:45px}
     #page-repertoryBrowser .rep-side-col{width:100%;flex:0 0 auto}
-    #page-repertoryBrowser .rep-side-col.rep-shell-collapsed{width:34px!important;min-width:34px!important;height:34px;flex:0 0 34px!important;overflow:hidden!important}
+    #page-repertoryBrowser .rep-side-col.rep-shell-collapsed{width:0!important;min-width:0!important;height:0;flex:0 0 0!important;overflow:hidden!important}
     #repDockArea{left:5px;right:auto;top:190px;bottom:8px;transform:none;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;pointer-events:none}
     #repDockArea .rep-dock{position:static;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:center;justify-content:flex-start;gap:5px;max-height:100%;overflow-y:auto;overflow-x:hidden;padding:7px 5px;border-radius:15px;pointer-events:auto}
     #repDockArea .rep-dock-clip{flex:0 0 auto}

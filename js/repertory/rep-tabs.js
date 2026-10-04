@@ -1,12 +1,12 @@
-/* نسخہ 154 — ریپرٹری کا بیرونی ٹیب اور نیویگیشن خول */
+/* نسخہ 155 — ریپرٹری کا بیرونی ٹیب اور نیویگیشن خول */
 (function(){
     'use strict';
 
-    var VERSION='154';
+    var VERSION='155';
     var started=false;
     var raw={};
     var shell={
-        root:null, strip:null, hostRoot:null, hosts:null, templates:null, layout:null,
+        root:null, strip:null, stripNav:null, hostRoot:null, hosts:null, templates:null, layout:null,
         sideCol:null, sideHeader:null, compareTools:null, dockArea:null, toolbarExtras:[],
         tabs:[], byId:Object.create(null), activeId:null, lastRepId:null,
         sidebarMode:'chapters', sidebarHidden:false, suppress:false,
@@ -435,29 +435,31 @@
         if(!parent) return;
         var row=document.createElement('div'); row.className='rep-shell-side-tools-row'; row.id='repShellSideToolsRow';
         var title=document.createElement('span'); title.className='rep-shell-side-title'; title.id='repShellSideTitle';
-        var hide=document.createElement('button'); hide.type='button'; hide.className='rep-shell-side-btn'; hide.id='repShellHideSideBtn';
-        hide.dataset.repShellAction='hide'; hide.textContent='◀'; hide.setAttribute('aria-label',text({ur:'سائیڈ بار چھپائیں',en:'Hide sidebar',roman:'Sidebar chhupaein'}));
-        row.appendChild(title); row.appendChild(hide);
+        row.appendChild(title);
         parent.insertBefore(row,shell.sideList||parent.firstChild);
         shell.sideHeader=row;
-        row.addEventListener('click',function(ev){
-            var b=ev.target.closest('[data-rep-shell-action="hide"]');
-            if(b){ev.preventDefault();ev.stopPropagation();toggleSidebar();}
-        });
         updateSideHeader();
     }
     function moveNavbarControls(){
         var navbar=shell.root&&shell.root.querySelector('.rep-navbar');
         if(!navbar||!shell.toolbar) return;
-        var group=document.createElement('div'); group.className='rep-shell-nav-group'; group.setAttribute('aria-label',text({ur:'صفحہ نیویگیشن',en:'Page navigation',roman:'Safha navigation'}));
+        var group=document.createElement('div'); group.className='rep-shell-strip-nav';
+        group.setAttribute('role','presentation');
+        group.setAttribute('aria-label',text({ur:'صفحہ نیویگیشن اور سائیڈ بار',en:'Page navigation and sidebar',roman:'Safha navigation aur sidebar'}));
         ['repBtnBack','repBtnFwd','repBtnUp'].forEach(function(id){
             var button=document.getElementById(id);if(button)group.appendChild(button);
         });
-        shell.toolbar.insertBefore(group,shell.toolbar.firstChild);
+        var sideToggle=document.createElement('button'); sideToggle.type='button';
+        sideToggle.id='repShellHideSideBtn'; sideToggle.className='rep-shell-side-btn rep-shell-strip-toggle';
+        sideToggle.textContent='◀'; sideToggle.setAttribute('aria-label',text({ur:'سائیڈ بار چھپائیں',en:'Hide sidebar',roman:'Sidebar chhupaein'}));
+        sideToggle.title=sideToggle.getAttribute('aria-label');
+        sideToggle.addEventListener('click',function(ev){ev.preventDefault();ev.stopPropagation();toggleSidebar();});
+        group.appendChild(sideToggle); shell.controls.sidebarToggle=sideToggle; shell.stripNav=group;
+        if(shell.strip) shell.strip.appendChild(group);
         var crumb=document.getElementById('repBreadcrumb');
         if(crumb){
-            crumb.classList.add('rep-shell-breadcrumb');
-            shell.toolbar.insertBefore(crumb,group.nextSibling);
+            var holder=document.createElement('div'); holder.id='repShellHiddenBreadcrumb'; holder.style.display='none';
+            shell.root.appendChild(holder); holder.appendChild(crumb);
         }
         var gradation=navbar.querySelector('.rep-gradation');
         var views=navbar.querySelector('.rep-viewtoggle');
@@ -523,8 +525,9 @@
     }
     function toggleSidebar(){
         shell.sidebarHidden=!shell.sidebarHidden;
-        var col=document.querySelector('#page-repertoryBrowser .rep-side-col');
+        var col=shell.sideCol||document.querySelector('#page-repertoryBrowser .rep-side-col');
         if(col) col.classList.toggle('rep-shell-collapsed',shell.sidebarHidden);
+        if(shell.layout) shell.layout.classList.toggle('rep-shell-sidebar-hidden',shell.sidebarHidden);
         updateSideHeader();
         if(shell.controls.books) shell.controls.books.classList.toggle('on',shell.sidebarMode==='books');
     }
@@ -604,6 +607,7 @@
     function renderTabStrip(){
         var strip=shell.strip; if(!strip) return;
         strip.innerHTML='';
+        if(shell.stripNav) strip.appendChild(shell.stripNav);
         shell.tabs.forEach(function(tab){
             var button=document.createElement('div');
             button.className='rep-workspace-tab'+(tab.id===shell.activeId?' active':'');
