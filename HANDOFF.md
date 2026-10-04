@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 5 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 151 · **اصل مخزن:**
+**آخری تجدید:** 5 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 152 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -7,6 +7,24 @@ https://bismillah-clinic.vercel.app
 ```
 
 > نئی نشست میں پہلے یہ خلاصہ پڑھیں۔ ذیل کے پرانے عمومی منصوبے میں موجود تاریخی شمار اس تازہ ذہنی باب کے فیصلے پر غالب نہیں ہوں گے۔
+
+## تازہ اضافہ — سرچ کی ترتیب کی درستی (نسخہ 152)
+
+- **مسئلہ:** «anxiety sleep» کے نتائج میں «ANXIETY; which prevents sleep» FEAR کے ربرکوں کے بیچ آ رہا تھا۔ **وجہ:** نسخہ 150 کا «ایک ہی سطر» والا قاعدہ ربرک کے **خام عنوان** پر لگتا تھا، جس میں والد کا کراس حوالہ جُڑا ہوتا ہے — `FEAR (See Anxiety), sleep, before` — اِس لیے FEAR کے 5 ربرک «anxiety sleep» کے جُڑے جوڑے گن لیے گئے۔
+- **حل (صرف کوڈ، ڈیٹا نہیں):** درجہ بندی اب صارف کو نظر آنے والے متن سے — `searchPath` راستہ اگر ہو، ورنہ «(See …)» ہٹا کر (`repAdjPlainText()`). نتیجہ: پہلے آٹھ «ANXIETY; sleep; …»، پھر «ANXIETY; which prevents sleep»، پھر FEAR کے تمام ربرک کتابی ترتیب سے۔
+- **جانچ:** نیا `tests/search_order_v152.test.js` **PASS**؛ `search_rules_v150` · `search_tab_v151` · `search_results_list_v148` · `kent_mind_search_flow_v145` · `rubrics_ur_v107` **ALL PASS**۔
+- **bump:** `rep-search.js?v=152` · `REP_RUBUR_V='152'` · `CACHE_NAME='bhc-clinic-v152'`۔
+- **ڈیزائن کے تین نمونے (انتخاب کے لیے، ورک اسپیس میں):** `repertory-design-options.html` — ٹول بار، بریڈکرمب بار، ابواب کی فہرست، ٹیب پٹی اور کلپ بورڈ کے مکمل نئے انداز؛ تینوں نمونے اصل کینٹ ڈیٹا پر۔ صارف کے انتخاب کے بعد لاگو ہوں گے۔
+
+```text
+js/repertory/rep-search.js
+index.html
+service-worker.js
+js/18-rubrics-ur.js
+tests/search_order_v152.test.js   (نیا)
+tests/rubrics_ur_v107.test.js
+UPDATE_NOTES_UR.md
+```
 
 ## تازہ اضافہ — سرچ نتائج کا اپنا ٹیب، ادویات حروفِ تہجی سے، غیر ضروری فائلوں کی فہرست (نسخہ 151)
 

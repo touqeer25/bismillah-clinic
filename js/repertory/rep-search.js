@@ -417,12 +417,15 @@ function searchRepertoryBrowser(){
     function repAdjLineNorm(s){
         return String(s||'').toLowerCase().replace(/[^a-z0-9\u0080-\ufaff\s]/g,' ').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
     }
+    // 🔑 v152: درجہ بندی کے لیے قوسین والا «(See …)» حوالہ حذف — نمائش میں دکھنے والا صاف راستہ
+    // ہی بنیاد بنے (ورنہ «FEAR (See Anxiety), sleep, before» «anxiety sleep» کا جُڑا جوڑا گن لیا جاتا تھا)
+    function repAdjPlainText(s){ return repAdjLineNorm(String(s||'').replace(/\s*\([^)]*\bsee\b[^)]*\)/gi,' ')); }
     var _adjPhrase='';
     var _adjPlainQuery = !(_qb&&_qb.groups&&_qb.groups.length>1);   // OR (|) والی تلاش کی ترتیب نہیں بدلتی
     if(_adjPlainQuery&&qw.length>=2) _adjPhrase=repAdjLineNorm(qw.join(' '));
     function repAdjRankOf(text){
         if(!_adjPhrase) return 0;
-        return repAdjLineNorm(text).indexOf(_adjPhrase)!==-1 ? 0 : 1;
+        return repAdjPlainText(text).indexOf(_adjPhrase)!==-1 ? 0 : 1;
     }
 
     function searchStillActive(){
@@ -502,8 +505,11 @@ function searchRepertoryBrowser(){
                 var rub=rubs[rid]; if(!rub)return;
                 var t=rub.path||rub.de_path||rub.t||'';
                 if(matchRubric(rub,t)){
-                    var o={text:t, remedies:rub.r||{}, chapter:ck, rid:rid, book:bookKey, adjRank:repAdjRankOf(t)};   // 🔑 v150 قاعدہ الف
                     var pathInfo=repSearchPathForRecord(bookKey,ck,rid);
+                    // 🔑 v152: ایک ہی سطر والی درجہ بندی اُس متن سے جو صارف کو نظر آتا ہے
+                    // (محفوظ راستہ اگر ہو، ورنہ «(See …)» ہٹا کر) — بنیاد: FEAR (See Anxiety), sleep, before
+                    var rankText=(pathInfo&&Array.isArray(pathInfo.path)&&pathInfo.path.length)?pathInfo.path.join('; '):t;
+                    var o={text:t, remedies:rub.r||{}, chapter:ck, rid:rid, book:bookKey, adjRank:repAdjRankOf(rankText)};   // 🔑 v150 قاعدہ الف
                     if(pathInfo){ o.searchPath=pathInfo.path; o.searchOrder=pathInfo.order; }
                     if(repSearchMode==='remedy'||repSearchMode==='rubric_remedy'){ var m=matchedRemedyMap(rub); if(m)o.matched=m; }
                     out.push(o);
