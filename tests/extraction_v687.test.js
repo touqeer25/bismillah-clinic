@@ -72,7 +72,7 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
 
   // ---------- D. cache-busting ----------
   const app=require('./_rep_src')();
-  ok(/REP_DATA_V='v=16'/.test(app),"D1 data version bumped to v=16 for the changed behaviour ("+(app.match(/REP_DATA_V='[^']+'/)||[''])[0]+")");
+  ok(/REP_DATA_V='v=18'/.test(app),"D1 data version bumped to v=18 for the changed behaviour ("+(app.match(/REP_DATA_V='[^']+'/)||[''])[0]+")");
   const idx=fs.readFileSync(ROOT+'/index.html','utf8');
   // v93: module is now 8 files under js/differentiation/ — every one must be linked with a ?v=
   const DIFF_PARTS=['01-diff-core','02-diff-data','03-diff-engine','04-diff-rubric-mode','05-diff-books-witness','06-diff-shell','07-diff-views','08-diff-extract'];

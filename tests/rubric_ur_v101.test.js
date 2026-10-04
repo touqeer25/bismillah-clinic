@@ -40,7 +40,7 @@ const idx=rd('index.html');
 ok(/js\/17-rubric-ur\.js\?v=\d+/.test(idx)&&/css\/rubric-ur\.css\?v=\d+/.test(idx),'C1 index.html میں فائل + سجاوٹ');
 ok(/repRubricUrHtml\(x\.t,'rep-diff-ur'\)/.test(rd('js/differentiation/07-diff-views.js')),'C2 تفریق کی ہر سطر پر');
 ok(/repPathUrHtml\(it\.path\|\|'','rep-wb-ur'\)/.test(rd('js/repertory/rep-workbench.js')),'C3 کلپ بورڈ کی ہر سطر پر');
-ok(/repPathUrHtml\(full\|\|'','rpd-title-ur'\)/.test(rd('js/repertory/rep-rubric-detail.js')),'C4 ربرک کے صفحے کے عنوان پر');
+ok(/repPathUrHtml\(d\.translationFull\|\|full\|\|'','rpd-title-ur'\)/.test(rd('js/repertory/rep-rubric-detail.js')),'C4 ربرک کے صفحے کے عنوان پر (v143: اصل ترجمہ-کلید translationFull سے)');
 const sw=rd('service-worker.js');
 ok(sw.includes('./js/17-rubric-ur.js')&&sw.includes('./css/rubric-ur.css')&&sw.includes('./ur/rubric_labels_ur.json'),'C5 سروس ورکر میں (آف لائن ترجمہ)');
 
