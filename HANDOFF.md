@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 4 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 150 · **اصل مخزن:**
+**آخری تجدید:** 5 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 151 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -7,6 +7,28 @@ https://bismillah-clinic.vercel.app
 ```
 
 > نئی نشست میں پہلے یہ خلاصہ پڑھیں۔ ذیل کے پرانے عمومی منصوبے میں موجود تاریخی شمار اس تازہ ذہنی باب کے فیصلے پر غالب نہیں ہوں گے۔
+
+## تازہ اضافہ — سرچ نتائج کا اپنا ٹیب، ادویات حروفِ تہجی سے، غیر ضروری فائلوں کی فہرست (نسخہ 151)
+
+- **🔍 نتائج کا تیسرا ٹیب (صارف کا حکم):** ٹیب پٹی اب **📖 ریپرٹری · 🔬 تفریق / نکاسی · 🔍 نتائج** — نتیجے اپنے خانے `#repSearchView` میں آتے ہیں (پہلے ریپرٹری کا خانہ ہٹا دیتے تھے)۔ `js/repertory/rep-search.js` کے `repSearchHost()` / `repSearchTabShow()` / `repSearchTabCount()` اور `js/differentiation/06-diff-shell.js` کے `repPageTab('search')` + `repActivePageTab` سے چلتا ہے۔ تلاش چلتے ہی ٹیب خود کھلتا اور گنتی لگتی ہے؛ سطر پر کلک/سرچ خالی کرنے/باب کھولنے پر واپس 📖 ریپرٹری۔
+- **ادویات محض حروفِ تہجی سے:** نسخہ 150 کا «گریڈ 1 پہلے» اُلٹ دیا گیا (اُس سے حروفِ تہجی ٹوٹ رہی تھی) — اب `all.sort(function(a,b){return a.localeCompare(b);})`؛ درجہ صرف رنگ/انداز سے (سادہ = 1 · مائل بولڈ نیلا = 2 · بڑے حروف = 3)۔ درخت کی ترتیب نہیں چھیڑی۔
+- **ریپو کا مکمل جائزہ:** ورک اسپیس میں `bismillah-clinic-ghair-zaroori-failen.md` — گٹ ہب main کی 899 فائلوں کا گروہ بہ گروہ جائزہ: **فوراً حذف 78 فائلیں (7.56 MB)** · رکھیں 74 (4.15 MB) · اختیاری 225 (125.09 MB: Syn 9.1 28.35 · Kent جرمن 36.73 · Publicum 22.24 · مَٹیریا میڈیکا 36.21 · Streamlit اسٹیک 0.63 · لائبریری 0.94) — ہر گروہ کے ساتھ تیار `git rm` ہدایات۔
+- **نسخے:** `rep-search.js?v=151` · `06-diff-shell.js?v=94` · `js/18-rubrics-ur.js?v=151` · `REP_RUBUR_V='151'` · `CACHE_NAME='bhc-clinic-v151'`۔
+- **جانچ:** نیا `tests/search_tab_v151.test.js` **PASS** · `search_rules_v150` (قاعدہ ب اپ ڈیٹ) · `search_results_list_v148` · `kent_mind_search_flow_v145` · `rubrics_ur_v107` · `rubric_ur_v101` · `differentiation` · `repertory_ui` · `rep_case_v95` · `layout_split_v78` · `tree_view_integrity` — **ALL PASS**۔ ⚠ `jsdom` گٹ میں نہیں جاتا؛ `npm install jsdom` کر کے `JSDOM_PATH=… node tests/<فائل>` چلائیں۔
+
+```text
+js/repertory/rep-search.js
+js/differentiation/06-diff-shell.js
+index.html
+service-worker.js
+js/18-rubrics-ur.js
+tests/search_tab_v151.test.js   (نیا)
+tests/search_rules_v150.test.js
+tests/search_results_list_v148.test.js
+tests/kent_mind_search_flow_v145.test.js
+tests/rubrics_ur_v107.test.js
+UPDATE_NOTES_UR.md
+```
 
 ## تازہ اضافہ — ذہنی باب 100%، سرچ کے چار قاعدے، واحد نوٹ فائل (نسخہ 150)
 

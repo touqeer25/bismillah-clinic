@@ -886,8 +886,13 @@
                     <div class="rep-pagetabs" id="repPageTabs">
                         <button type="button" class="rep-pagetab on" id="repPageTabRep" onclick="repPageTab('rep')">📖 <span data-ur="ریپرٹری" data-en="Repertory" data-roman="Repertory">ریپرٹری</span></button>
                         <button type="button" class="rep-pagetab" id="repPageTabDiff" onclick="repPageTab('diff')" title="Differentiation / Extraction — تفریق / نکاسی">🔬 <span data-ur="تفریق / نکاسی" data-en="Differentiation / Extraction" data-roman="Tafreeq / Extraction">تفریق / نکاسی</span></button>
+                        <!-- 🔑 v151 (صارف): 🔍 نتائج — سرچ کے نتائج کا اپنا ٹیب؛ 📖 ریپرٹری ⇄ 🔍 نتائج کلک سے -->
+                        <button type="button" class="rep-pagetab" id="repPageTabSearch" onclick="repPageTab('search')" title="Search results — سرچ نتائج">🔍 <span data-ur="نتائج" data-en="Results" data-roman="Nataij">نتائج</span> <span class="rep-search-result-count" id="repSearchTabCount"></span></button>
                     </div>
                     <div id="repDiffView" class="rep-diff-view" style="display:none"></div>
+                    <!-- 🔑 v151 (صارف): سرچ نتائج کا اپنا خانہ — تلاش کے نتائج ریپرٹری کو نہیں ہٹاتے
+                         (ریپرٹری اور نتائج دو ٹیب بن گئے؛ دونوں کے درمیان کلک سے آ جا سکتے ہیں) -->
+                    <div id="repSearchView" class="rep-main-inner" style="display:none"></div>
                     <!-- rubric cards / search results / empty state -->
                     <div class="rep-main-inner" id="repRubricContent">
                         <div class="rep-empty-state"><div class="res-icon">📁</div><p class="res-title">Select a chapter from the left menu</p><p class="res-sub">Browse rubrics and remedies</p></div>
@@ -1522,7 +1527,7 @@
 <script src="js/repertory/rep-clipboards.js?v=80"></script>
 <script src="js/repertory/rep-compare-mode.js?v=81"></script>
 <script src="js/repertory/rep-rubric-detail.js?v=105"></script>
-<script src="js/repertory/rep-search.js?v=150"></script>
+<script src="js/repertory/rep-search.js?v=151"></script>
 <script src="js/repertory/rep-workbench.js?v=101"></script>
 <script src="js/repertory/rep-analysis.js?v=80"></script>
 <!-- 🔑 v55: 🔬 remedy differentiation / extraction (loads after the repertory module) -->
@@ -1531,7 +1536,7 @@
 <script src="js/differentiation/03-diff-engine.js?v=93"></script>
 <script src="js/differentiation/04-diff-rubric-mode.js?v=93"></script>
 <script src="js/differentiation/05-diff-books-witness.js?v=93"></script>
-<script src="js/differentiation/06-diff-shell.js?v=93"></script>
+<script src="js/differentiation/06-diff-shell.js?v=94"></script>
 <script src="js/differentiation/07-diff-views.js?v=93"></script>
 <script src="js/differentiation/08-diff-extract.js?v=93"></script>
 <!-- 🔑 v56: 📖 materia medica (public-domain books) + 🤖 drafts + ✍ notes -->
@@ -1549,7 +1554,7 @@
 <script src="js/16-rep-case.js?v=95"></script>
 <!-- 🔑 v101: پورے ربرک کا اردو جملہ (دائیں سے بائیں) -->
 <script src="js/17-rubric-ur.js?v=107"></script>
-<script src="js/18-rubrics-ur.js?v=150"></script>
+<script src="js/18-rubrics-ur.js?v=151"></script>
 <script src="js/ai-diagnosis-engine.js?v=2"></script>
 </body>
 </html>

@@ -29,6 +29,7 @@ const document = {
     getElementById: function (id) {
         if (id === 'repBrowserSearch') return input;
         if (id === 'repRubricContent') return content;
+        if (id === 'repSearchView') return content;   // 🔑 v151: نتائج اپنے خانے میں
         return null;
     }
 };

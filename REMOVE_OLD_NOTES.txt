@@ -1,8 +1,18 @@
-# نسخہ 150 — اِن پُرانی نوٹ فائلوں کو اپنے مخزن سے حذف کر دیں
-# (اِن کی سطریں اب UPDATE_NOTES_UR.md میں یکجا ہیں)
+# نسخہ 151 — اِن پرانی نوٹ/ہدایت فائلوں کو اپنے مخزن سے حذف کر دیں
+# (سب کی باتیں اب UPDATE_NOTES_UR.md اور HANDOFF.md میں موجود ہیں)
 
 UPDATE_NOTES_v143.md
 UPDATE_NOTES_v146_UR.md
 UPDATE_NOTES_v147_UR.md
 UPDATE_NOTES_v148_UR.md
 UPDATE_NOTES_v149_UR.md
+UPDATE_NOTES_v79_final.txt
+UPDATE_NOTES_v82.txt
+UPDATE_NOTES_v83.txt
+UPDATE_README_UR.md
+MIND_SEARCH_PATHS_UPDATE_UR.md
+REMOVE_OLD_TESTS.txt
+REMOVE_OLD_NOTES.txt
+
+# نظرثانی اور صفائی کے پرزے صرف گٹ سے نکالیں (ڈسک پر رہنے دیں):
+#   git rm -r --cached ur/review ur/rubrics/kent/cleanup

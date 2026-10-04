@@ -104,8 +104,9 @@ function repSearchGroupHeadingHtml(r, curBook, curChapter){
 }
 function repSearchResultRemediesHtml(r){
     var all=Object.keys((r&&r.remedies)||{}), visible=[];
-    // 🔑 v150 (قاعدہ ب): سرچ کے نتائج میں ادویات حروفِ تہجی سے، گریڈ 1 پہلے (1 → 2 → 3)؛ درخت کی ترتیب اپنی جگہ
-    all.sort(function(a,b){return ((r.remedies[a]||1)-(r.remedies[b]||1))||a.localeCompare(b);});
+    // 🔑 v151 (صارف): سرچ کے نتائج میں ادویات **محض حروفِ تہجی** سے (گریڈ کی گروہ بندی نہیں —
+    // درجہ رنگ/انداز ہی سے ظاہر ہے: سادہ = 1، مائل = 2، بولڈ = 3)۔ درخت کی ترتیب اپنی جگہ۔
+    all.sort(function(a,b){return a.localeCompare(b);});
     all.forEach(function(abbr){if(typeof repGradeShow!=='function'||repGradeShow(r.remedies[abbr]))visible.push(abbr);});
     if(!visible.length)return '';
     var h='<div class="rep-search-remedies" aria-label="'+(currentLang==='ur'?'ادویات':'Remedies')+'">';
@@ -132,8 +133,21 @@ function repSearchResultRowHtml(r, queryWords){
 function repSearchResultsListClass(){
     return 'rep-search-results-list'+((typeof repTreeOpts==='undefined'||repTreeOpts.rems)?' show-remedies':'');
 }
+// 🔑 v151 (صارف): سرچ نتائج کا اپنا ٹیب اور اپنا خانہ (#repSearchView) — اب ریپرٹری
+// اور نتائج دو ٹیب ہیں اور کلک سے ایک دوسرے پر آ جا سکتے ہیں۔ پرانے ڈھانچے
+// (جہاں #repSearchView نہیں) پر نتائج پرانے خانے ہی میں لکھے جاتے ہیں۔
+function repSearchHost(){
+    return document.getElementById('repSearchView')||document.getElementById('repRubricContent');
+}
+function repSearchTabShow(){
+    if(typeof repPageTab==='function') repPageTab('search');
+}
+function repSearchTabCount(total){
+    var el=document.getElementById('repSearchTabCount');
+    if(el) el.textContent=(typeof total==='number'&&total>0)?('('+total.toLocaleString()+')'):'';
+}
 function repSearchSyncRemedyVisibility(){
-    var rc=document.getElementById('repRubricContent');
+    var rc=repSearchHost();
     var list=rc&&rc.querySelector?rc.querySelector('.rep-search-results-list'):null;
     if(!list)return false;
     var show=(typeof repTreeOpts==='undefined'||!!repTreeOpts.rems);
@@ -141,7 +155,7 @@ function repSearchSyncRemedyVisibility(){
     return true;
 }
 function repSearchRefreshCompareButtons(){
-    var rc=document.getElementById('repRubricContent');
+    var rc=repSearchHost();
     var list=rc&&rc.querySelector?rc.querySelector('.rep-search-results-list'):null;
     if(!list||!rc.querySelectorAll)return false;
     var rows=rc.querySelectorAll('.rep-search-row');
@@ -181,6 +195,8 @@ function rememberRepSearchContext(){
 }
 
 function restoreRepSearchContext(){
+    // 🔑 v151: سرچ ختم/خالی ہونے پر واپس 📖 ریپرٹری ٹیب سامنے آ جاتا ہے
+    if(typeof repPageTab==='function') repPageTab('rep');
     _repSearchSeq++;
     _repSearchCache=''; _repSearchResults=null; _repSearchMode='';
     repSearchAllBooks=false;
@@ -287,8 +303,9 @@ function setRepSearchScope(v){
     else { restoreRepSearchContext(); }
 }
 function showRepSearchPlaceholder(){
-    var cd=document.getElementById('repRubricContent');
+    var cd=repSearchHost();
     if(!cd)return;
+    repSearchTabShow();
     // 🔑 chapter scope needs an open chapter
     if(repSearchScope==='chapter' && !repSearchAllBooks && !repCurrentChapter){
         cd.innerHTML='<div class="empty-state"><div class="icon">📖</div><p>'+repLangText({ur:'پہلے کوئی چیکٹر کھولیں، پھر سرچ کریں',en:'Open a chapter first, then search',roman:'Pehle koi chapter kholen, phir search karein'})+'</p></div>';
@@ -370,7 +387,8 @@ function searchRepertoryBrowser(){
     rememberRepSearchContext();
     repCurrentDetail=null; repClipViewOpen=false;repWorkbenchOpen=false;repCompareOpen=false;repAnalysisOpen=-1;   // new search leaves detail/clipboard view
     var searchSeq = ++_repSearchSeq;
-    var cd=document.getElementById('repRubricContent');
+    var cd=repSearchHost();
+    repSearchTabShow();
     cd.innerHTML='<div style="text-align:center;padding:20px;">🔍 '+repLangText({ur:'تلاش جاری ہے...',en:'Searching...',roman:'Search ho raha hai...'})+((repSearchAllBooks||repSearchScope==='all')?' <br><small style="font-size:10px;">('+repLangText({ur:'تمام ریپرٹریز لوڈ ہو رہی ہیں — تھوڑا وقفہ',en:'loading all repertories — one moment',roman:'tamam repertories load ho rahi hain — ek lamha'})+')</small>':'')+'</div>';
 
     // legacy @chapter filter
@@ -549,8 +567,9 @@ function searchRepertoryBrowser(){
         var perBookCount={};
         var total=0;
         var completed=0;
-        var rc=document.getElementById('repRubricContent');
+        var rc=repSearchHost();
         if(!rc) return;
+        repSearchTabShow(); repSearchTabCount(0);
         var statusText = repLangText({ur:'شروع ہو رہا ہے...',en:'Starting...',roman:'Start ho raha hai...'});
         function countsText(){
             var parts=[];
@@ -629,6 +648,7 @@ function searchRepertoryBrowser(){
                     var info=currentInfoHtml();
                     _repSearchResults={results:allResults.slice(), info:info, total:total, incremental:true};
                     repLastSearchView={results:allResults.slice(), info:info, incremental:true};
+                    repSearchTabCount(total);
                     updateHeader(repLangText({ur:'مل گئے:',en:'Found:',roman:'Mil gaye:'})+' <b>'+results.length.toLocaleString()+'</b> '+bi.abbr+' — '+completed+'/'+books.length);
                     appendBookResults(bk, results, function(){ processBook(pos+1); });
                 });
@@ -735,7 +755,8 @@ function loadAllBooksData(cb){
 
 
 function displaySearchResults(results, info){
-    var rc=document.getElementById('repRubricContent'); if(!rc)return;
+    var rc=repSearchHost(); if(!rc)return;
+    repSearchTabShow(); repSearchTabCount(results?results.length:0);
     var qw=repParseBoolQuery((_repSearchCache.split('|')[0]||'').toLowerCase()).pos;
     var curCh=repCurrentChapter, curBook=repCurrentBook;
     // Save even an empty search so the remedies toggle does not replace it with the tree.
@@ -767,6 +788,8 @@ function displaySearchResults(results, info){
 // 🔑 PRECISE navigation: open the chapter (in the right book) and scroll/flash the exact rubric (by ID)
 function navigateToRubric(bookKey, chKey, rid, openDetail){
     if(!chKey){ return; }
+    // 🔑 v151 (صارف): نتائج کی سطر پر کلک سے ربرک 📖 ریپرٹری ٹیب میں کھلتی ہے
+    if(typeof repPageTab==='function') repPageTab('rep');
     rid = String(rid||'');
     bookKey = bookKey || repCurrentBook;
     chKey = normalizeChapterKey(bookKey, chKey);

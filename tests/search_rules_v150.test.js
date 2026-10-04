@@ -2,7 +2,7 @@
 
 // v150 — سرچ کے چار قاعدے:
 //   (الف) ایک ہی سطر میں جُڑے ہوئے الفاظ والے ربرکس پہلے، درمیان میں الفاظ والے بعد میں
-//   (ب) سرچ کے نتائج میں ادویات گریڈ 1 پہلے، پھر حروفِ تہجی
+//   (ب) سرچ کے نتائج میں ادویات محض حروفِ تہجی سے (v151 میں صارف کی تصحیح: گریڈ کی گروہ بندی نہیں)
 //   (ج) سرچ کی سطر میں ادویات ربرک کے ساتھ اُسی سطر میں چلتی ہیں (درخت میں اگلی سطر جیسی تھی)
 //   (د) ڈیفالٹ دائرہ «سرچ ان اوپن چیپٹر»
 // Run: node tests/search_rules_v150.test.js
@@ -24,6 +24,7 @@ const document = {
     getElementById: function (id) {
         if (id === 'repBrowserSearch') return input;
         if (id === 'repRubricContent') return content;
+        if (id === 'repSearchView') return content;   // 🔑 v151: نتائج اپنے خانے میں
         return null;
     }
 };
@@ -78,14 +79,9 @@ vm.runInContext(fs.readFileSync(path.join(ROOT, 'js/repertory/rep-tree.js'), 'ut
 function normLine(s) {
     return String(s || '').toLowerCase().replace(/[^a-z0-9\u0080-\ufaff\s]/g, ' ').replace(/\s+/g, ' ').replace(/^\s+|\s+$/g, '');
 }
-function gradeOf(g) { g = g >= 3 ? 3 : (g === 2 ? 2 : 1); return g; }
 function expectedRemedyOrder(rid) {
     const rems = (mind[rid] || {}).r || {};
-    return Object.keys(rems).map(function (a) {
-        return { abbr: a, grade: gradeOf(rems[a] || 1) };
-    }).sort(function (a, b) {
-        return (a.grade - b.grade) || a.abbr.localeCompare(b.abbr);
-    }).map(function (x) { return x.abbr; });
+    return Object.keys(rems).sort(function (a, b) { return a.localeCompare(b); });
 }
 
 context.searchRepertoryBrowser();
@@ -97,8 +93,8 @@ setTimeout(function () {
         assert(/var repSearchScope = 'chapter';/.test(detailSource),
             '(د) ڈیفالٹ دائرہ «سرچ ان اوپن چیپٹر» ہے');
         const searchSource = fs.readFileSync(path.join(ROOT, 'js/repertory/rep-search.js'), 'utf8');
-        assert(searchSource.indexOf('((r.remedies[a]||1)-(r.remedies[b]||1))||a.localeCompare(b)') > -1,
-            '(ب) ادویات گریڈ 1 پہلے، پھر حروفِ تہجی');
+        assert(searchSource.indexOf('all.sort(function(a,b){return a.localeCompare(b);});') > -1,
+            '(ب) ادویات محض حروفِ تہجی سے');
         const css = fs.readFileSync(path.join(ROOT, 'css/rep-search-results.css'), 'utf8');
         assert(css.indexOf('.rep-search-results-list .rep-search-remedies{display:none;flex:1 1 0%') > -1 &&
             css.indexOf('.rep-search-results-list.show-remedies .rep-search-list-title{flex:0 1 auto;max-width:calc(100% - 220px)}') > -1,
@@ -141,12 +137,12 @@ setTimeout(function () {
             // سرچ کی قطار دوا کا نام جوں کا توں دکھاتی ہے (درخت گریڈ 3 کو بڑے حروف میں دکھاتا ہے)
             const expected = expectedRemedyOrder(rid).slice(0, 40);
             if (expected.length < 2) return;
-            assert.deepStrictEqual(tags, expected, '(ب) ' + rid + ' کی ادویات گریڈ 1 پہلے، پھر حروفِ تہجی میں');
+            assert.deepStrictEqual(tags, expected, '(ب) ' + rid + ' کی ادویات حروفِ تہجی میں (a → z)');
             checked++;
         });
         assert(checked >= 3, '(ب) کئی قطاروں کی دوا ترتیب جانچی گئی');
         console.log('PASS v150 search rules: ' + rids.length + ' rows for «anxiety night», ' + tight +
-            ' line-joined matches first, remedies grade-1-first, open-chapter default, same-line remedies.');
+            ' line-joined matches first, remedies alphabetical, open-chapter default, same-line remedies.');
     } catch (error) {
         console.error(error.stack || error);
         process.exit(1);
