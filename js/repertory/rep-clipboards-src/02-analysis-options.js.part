@@ -1,0 +1,10 @@
+var repAnaOpts={elim:'every',cov:'count',method:'hs'};   // method: 'hs' (کوریج پہلے) | 'kent' (گریڈز کا مجموعہ پہلے) | 'boen' (بوننگھاؤسن + پولیریٹی)      // elim: 'every' (HomeoSetu: ہر ربرک میں) | 'any' (پرانا: کسی ایک میں) — cov: 'count' (ہر ربرک = 1) | 'weighted' (ویٹ کوریج میں بھی)
+function repAnaOptsLoad(){ try{ var d=JSON.parse(localStorage.getItem('bc_rep_ana_opts')||'{}'); if(d.elim==='any'||d.elim==='every')repAnaOpts.elim=d.elim; if(d.cov==='count'||d.cov==='weighted')repAnaOpts.cov=d.cov; if(d.method==='hs'||d.method==='kent'||d.method==='boen')repAnaOpts.method=d.method; }catch(e){} }
+function repAnaOptsSave(){ try{ localStorage.setItem('bc_rep_ana_opts',JSON.stringify(repAnaOpts)); }catch(e){} }
+function repAnaSetOpt(k,v){
+    if(k==='elim'&&(v==='every'||v==='any'))repAnaOpts.elim=v;
+    if(k==='cov'&&(v==='count'||v==='weighted'))repAnaOpts.cov=v;
+    if(k==='method'&&(v==='hs'||v==='kent'||v==='boen'))repAnaOpts.method=v;
+    repAnaOptsSave();
+    if(repWorkbenchOpen)renderWorkbench(); else if(repAnalysisOpen>=0)renderAnalysis();
+}

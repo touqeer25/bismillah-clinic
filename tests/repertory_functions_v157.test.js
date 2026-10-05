@@ -15,7 +15,9 @@ function ok(value, message) {
 const targets = [
     { label: 'بیرونی خول', source: 'js/repertory/rep-tabs-src', output: 'js/repertory/rep-tabs.js', count: 11 },
     { label: 'ورک بینچ', source: 'js/repertory/rep-workbench-src', output: 'js/repertory/rep-workbench.js', count: 8 },
-    { label: 'تجزیہ و موازنہ', source: 'js/repertory/rep-analysis-src', output: 'js/repertory/rep-analysis.js', count: 4 }
+    { label: 'تجزیہ و موازنہ', source: 'js/repertory/rep-analysis-src', output: 'js/repertory/rep-analysis.js', count: 4 },
+    { label: 'تلاش', source: 'js/repertory/rep-search-src', output: 'js/repertory/rep-search.js', count: 5 },
+    { label: 'کلپ بورڈ', source: 'js/repertory/rep-clipboards-src', output: 'js/repertory/rep-clipboards.js', count: 7 }
 ];
 for (const target of targets) {
     const sourceDir = path.join(root, target.source);
@@ -42,10 +44,20 @@ const workbenchEngine = read('js/repertory/rep-workbench-src/06-workbench-grid-e
 const workbenchView = read('js/repertory/rep-workbench-src/07-workbench-grid-view.js.part');
 ok(workbenchEngine.includes('function _repWbGridCompute(') && !workbenchEngine.includes('function renderWbGrid('), 'ورک بینچ گرڈ کا حسابی فعل صفحاتی نمائش سے الگ ہے');
 ok(workbenchView.includes('function renderWbGrid(') && !workbenchView.includes('function _repWbGridCompute('), 'ورک بینچ گرڈ کی نمائش حسابی فعل سے الگ ہے');
+const searchEngine = read('js/repertory/rep-search-src/02-search-engine.js.part');
+const searchView = read('js/repertory/rep-search-src/03-search-loading-and-results.js.part');
+ok(searchEngine.includes('function searchRepertoryBrowser(') && !searchEngine.includes('function displaySearchResults('), 'تلاش کا حسابی عمل نتائج کی نمائش سے الگ ماخذ میں ہے');
+ok(searchView.includes('function displaySearchResults(') && !searchView.includes('function searchRepertoryBrowser('), 'تلاش کے نتائج کی نمائش حسابی عمل سے الگ ماخذ میں ہے');
+const clipStorage = read('js/repertory/rep-clipboards-src/04-clipboard-storage.js.part');
+const clipItems = read('js/repertory/rep-clipboards-src/05-clipboard-items.js.part');
+const clipView = read('js/repertory/rep-clipboards-src/06-clipboard-view.js.part');
+ok(clipStorage.includes('function repClipsLoad(') && clipStorage.includes('function repClipsSave('), 'کلپ بورڈ محفوظ کرنے اور واپس پڑھنے کے افعال الگ ہیں');
+ok(clipItems.includes('function repClipToggle(') && !clipItems.includes('function repToggleClipView('), 'کلپ بورڈ اندراجات کے اعمال صفحہ کھولنے سے الگ ہیں');
+ok(clipView.includes('function repToggleClipView(') && !clipView.includes('function repClipToggle('), 'کلپ بورڈ کا منظر اندراجات کے اعمال سے الگ ہے');
 
 const result = cp.spawnSync(process.execPath, ['tools/build_repertory_functions.js', '--check'], {
     cwd: root, encoding: 'utf8'
 });
-ok(result.status === 0, 'تینوں تیار فعلی فائلیں اپنے الگ ماخذ حصوں سے یکساں ہیں');
+ok(result.status === 0, 'پانچوں تیار فعلی فائلیں اپنے الگ ماخذ حصوں سے یکساں ہیں');
 
 console.log('فعلی فائل بندی کی جانچ مکمل، درست دعوے: ' + passes);

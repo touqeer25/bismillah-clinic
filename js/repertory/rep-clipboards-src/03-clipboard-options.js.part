@@ -1,0 +1,6 @@
+function repClipOptsLoad(){
+    try{ var d=JSON.parse(localStorage.getItem('bc_rep_clip_opts')||'{}');
+        if(d){ if(d.elims)for(var i=0;i<REP_N_CLIPS;i++)repClipElims[i]=!!d.elims[i]; if(d.names)for(var j=0;j<REP_N_CLIPS;j++)repClipNames[j]=String(d.names[j]||''); }
+    }catch(e){}
+}
+function repClipOptsSave(){ try{ localStorage.setItem('bc_rep_clip_opts',JSON.stringify({elims:repClipElims,names:repClipNames})); }catch(e){} }

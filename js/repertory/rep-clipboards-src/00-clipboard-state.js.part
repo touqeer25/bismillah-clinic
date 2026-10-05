@@ -1,0 +1,15 @@
+// Bismillah Clinic — js/repertory/rep-clipboards.js — 12 کلپ بورڈز
+// (v78: 08-app-repertory.js کو بغیر کسی کوڈ تبدیلی کے حصوں میں بانٹا گیا؛ لوڈ ترتیب index.html میں وہی رکھیں)
+// ==================== 12 CLIPBOARDS (floating, persisted) — v45: 8 سے 12 (صارف درخواست) ====================
+// HomeoSetu فنکشن کلون: فلوٹنگ ڈاک میں 12 کلپ بورڈز — ہر کلپ بورڈ ایک
+// محفوظ ورکنگ لسٹ ہے (ربرکس جو آپ ریپرٹورائزیشن کے لیے اکٹھا کر رہے ہیں)۔
+// ربرک کارڈ کے ⋮ مینو سے شامل/ہٹائیں؛ ڈاک کے نمبر پر کلک سے لسٹ کھلتی ہے۔
+var REP_N_CLIPS=12;
+var repClipboards=[[],[],[],[],[],[],[],[],[],[],[],[]];   // each item: {book,ch,rid,path,rems,ts,w,sel}
+var repActiveClip=0;               // 0..11 (displayed 1..12)
+var repClipElims=[false,false,false,false,false,false,false,false,false,false,false,false];  // 🔑 Elimination Mode per clipboard (workbench)
+var repClipNames=['','','','','','','','','','','',''];    // 🔑 custom clipboard names (workbench ✏ rename)
+// 🔑 v54: ☑ کمپیئر موڈ (HomeoSetu) + تجزیے کے اصول (ایلی منیشن / کوریج) — محفوظ رہتے ہیں
+var repCompareMode=false;                       // ☑ کمپیئر موڈ: کارڈز پر چیک باکس، ٹک = فعال کلپ بورڈ میں شامل
+try{ var x=localStorage.getItem('bc_rep_cmp_mode'); if(x===null)x=(sessionStorage.getItem('bc_rep_cmp_mode')==='1')?'1':'0'; repCompareMode=(x==='1'); }catch(e){}   // 🔑 v68.6: پہلے session میں تھا — نئی ٹیب میں کمپیئر موڈ خود بخود بند ہو جاتا تھا
+// 🔑 v70: بولین سرچ پارسر — "fear dark" (AND) · "fear OR anxiety" · "fear NOT night" · "fear -night"

@@ -1,0 +1,184 @@
+// Bismillah Clinic — js/repertory/rep-search.js — تلاش (scope / type / AND OR NOT)
+// (v78: 08-app-repertory.js کو بغیر کسی کوڈ تبدیلی کے حصوں میں بانٹا گیا؛ لوڈ ترتیب index.html میں وہی رکھیں)
+var _repSearchBeforeContext = null; // where to return when the search box is cleared
+var _repSearchSeq = 0;              // cancels old async searches when user clears/changes text
+var _repSearchKentMindPaths = null; // separate search-only hierarchy; book view keeps its existing renderer
+var _repSearchKentMindPathsPromise = null;
+
+function ensureRepSearchPathIndex(bookKey, chapterKey, cb){
+    var needsKentMind = bookKey==='kent' && (!chapterKey || String(chapterKey).toLowerCase()==='mind');
+    if(!needsKentMind){ if(cb)cb(); return; }
+    if(_repSearchKentMindPaths){ if(cb)cb(); return; }
+    if(!_repSearchKentMindPathsPromise){
+        _repSearchKentMindPathsPromise=fetch('kent_search_paths/mind.json?'+REP_DATA_V)
+            .then(function(r){ if(!r||!r.ok)throw new Error('Kent MIND search paths unavailable'); return r.json(); })
+            .then(function(d){
+                if(!d||d.schema!=='kent-search-paths-v1'||!d.entries)throw new Error('Invalid Kent MIND search-path index');
+                _repSearchKentMindPaths=d;
+            })
+            .catch(function(e){
+                // Search remains usable when an older/offline deployment lacks the sidecar.
+                console.warn('Kent MIND breadcrumb index unavailable; showing source titles.',e);
+                _repSearchKentMindPaths={chapter_label:'MIND',entries:{}};
+            });
+    }
+    _repSearchKentMindPathsPromise.then(function(){ if(cb)cb(); });
+}
+function repSearchPathForRecord(bookKey, chapterKey, rid){
+    if(bookKey!=='kent'||String(chapterKey).toLowerCase()!=='mind'||!_repSearchKentMindPaths)return null;
+    var entry=_repSearchKentMindPaths.entries&&_repSearchKentMindPaths.entries[String(rid)];
+    if(!entry||!Array.isArray(entry.path)||!entry.path.length)return null;
+    var order=Number(entry.order);
+    return {path:[_repSearchKentMindPaths.chapter_label||'MIND'].concat(entry.path),
+            order:isFinite(order)?order:null};
+}
+function repSearchResultRawDisplayText(r){
+    return r&&Array.isArray(r.searchPath)&&r.searchPath.length
+        ? r.searchPath.join('; ')
+        : String((r&&r.text)||'');
+}
+function repSearchVisiblePathParts(r){
+    var parts=r&&Array.isArray(r.searchPath)?r.searchPath.slice():[];
+    if(r&&r.book==='kent'&&String(r.chapter).toLowerCase()==='mind'&&parts.length>1){
+        var chapter=String(r.chapter||'').trim().toLowerCase();
+        if(String(parts[0]||'').trim().toLowerCase()===chapter){
+            // Omit only the main/root rubric's See reference; references on child rubrics remain visible.
+            parts[1]=String(parts[1]||'').replace(/\s*\(\s*see\b[^)]*\)\s*$/i,'').trim();
+        }
+    }
+    return parts;
+}
+function repSearchResultDisplayText(r){
+    var parts=repSearchVisiblePathParts(r);
+    if(parts.length)return parts.join('; ');
+    var text=String((r&&r.text)||'');
+    if(r&&r.book==='kent'&&String(r.chapter).toLowerCase()==='mind'&&String(r.rid)==='r39'){
+        text=text.replace(/\s*\(\s*see\b[^)]*\)\s*$/i,'').trim();
+    }
+    return text;
+}
+function repSearchHighlightHtml(escapedHtml, queryWords){
+    var result=escapedHtml;
+    (queryWords||[]).forEach(function(w){
+        w=String(w||'');
+        if(w.length<2)return;
+        var re=new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+        result=result.replace(re,'<mark style="background:#ffeb3b;color:#000;padding:0 2px;border-radius:2px;">$1</mark>');
+    });
+    return result;
+}
+function repSearchResultTitleHtml(r, queryWords){
+    var full=repSearchResultDisplayText(r);
+    var hasTreePath=!!(r&&Array.isArray(r.searchPath)&&r.searchPath.length);
+    var display=(!hasTreePath&&full.length>180)?full.substring(0,177)+'...':full;
+    var cls=hasTreePath?'rep-search-tree-path':'rep-search-rubric-title';
+    var style=hasTreePath?'overflow-wrap:anywhere;white-space:normal;':'white-space:normal;';
+    return '<span dir="ltr" class="'+cls+'" style="'+style+'" title="'+escapeHtml(full)+'">'+
+        repSearchHighlightHtml(escapeHtml(display),queryWords||[])+'</span>';
+}
+
+// Compact, print-like search rows: the book/chapter is a section heading, so
+// Kent MIND's breadcrumb omits its repeated leading chapter name in each row.
+function repSearchResultListTitleHtml(r, queryWords){
+    var full='';
+    if(r&&Array.isArray(r.searchPath)&&r.searchPath.length){
+        var parts=repSearchVisiblePathParts(r);
+        var chapter=String(getChapterDisplayName(r.book,r.chapter)||r.chapter||'').trim().toLowerCase();
+        if(parts.length&&String(parts[0]||'').trim().toLowerCase()===chapter) parts.shift();
+        full=parts.join('; ');
+    }
+    if(!full) full=String((r&&r.text)||'');
+    return '<span dir="ltr" class="rep-search-list-title" title="'+escapeHtml(full)+'">'+
+        repSearchHighlightHtml(escapeHtml(full),queryWords||[])+'</span>';
+}
+function repSearchGroupHeadingHtml(r, curBook, curChapter){
+    var bookInfo=REP_BOOK_INFO[r.book]||{abbr:'?',name:r.book};
+    var chapterName=getChapterDisplayName(r.book,r.chapter);
+    var isCurrent=r.book===curBook&&String(r.chapter).toLowerCase()===String(curChapter).toLowerCase();
+    var color=repBookColor(r.book);
+    return '<div class="rep-search-group-heading'+(isCurrent?' current':'')+'">'+
+        '<span class="rep-search-book-mark" style="--rep-search-book-color:'+escapeHtml(color)+'">'+escapeHtml(bookInfo.abbr)+'</span>'+
+        '<span class="rep-search-chapter-name">'+escapeHtml(chapterName)+'</span>'+
+        (isCurrent?'<span class="rep-search-open-state">'+(currentLang==='ur'?'کھلا ہوا':'open')+'</span>':'')+
+        '</div>';
+}
+function repSearchResultRemediesHtml(r){
+    var all=Object.keys((r&&r.remedies)||{}), visible=[];
+    // 🔑 v151 (صارف): سرچ کے نتائج میں ادویات **محض حروفِ تہجی** سے (گریڈ کی گروہ بندی نہیں —
+    // درجہ رنگ/انداز ہی سے ظاہر ہے: سادہ = 1، مائل = 2، بولڈ = 3)۔ درخت کی ترتیب اپنی جگہ۔
+    all.sort(function(a,b){return a.localeCompare(b);});
+    all.forEach(function(abbr){if(typeof repGradeShow!=='function'||repGradeShow(r.remedies[abbr]))visible.push(abbr);});
+    if(!visible.length)return '';
+    var h='<div class="rep-search-remedies" aria-label="'+(currentLang==='ur'?'ادویات':'Remedies')+'">';
+    visible.slice(0,40).forEach(function(abbr){
+        var g=r.remedies[abbr]||1;
+        h+='<span class="rep-remedy-tag g'+g+((r.matched&&r.matched[abbr])?' rem-hl':'')+'" onclick="event.stopPropagation();copyRemedyToPrescription(\''+escapeHtml(abbr)+'\')">'+escapeHtml(abbr)+'</span>';
+    });
+    if(visible.length>40)h+='<span class="rep-search-remedies-more">+'+(visible.length-40)+' more</span>';
+    h+='</div>';
+    return h;
+}
+function repSearchResultRowHtml(r, queryWords){
+    var safeBook=escapeHtml(r.book||repCurrentBook||'');
+    var safeChapter=escapeHtml(normalizeChapterKey(r.book||repCurrentBook,r.chapter||repCurrentChapter));
+    var safeRid=escapeHtml(String(r.rid||''));
+    var full=repSearchResultDisplayText(r);
+    var count=Object.keys((r&&r.remedies)||{}).length;
+    var rems=repSearchResultRemediesHtml(r);
+    return '<div class="rep-rubric-item rep-search-row" data-book="'+safeBook+'" data-ch="'+safeChapter+'" data-rid="'+safeRid+'" data-full="'+escapeHtml(full)+'" data-remedies="'+count+'" onclick="navigateToRubric(\''+safeBook+'\',\''+safeChapter+'\',\''+safeRid+'\')">'+
+        repCmpChkHtml(r.book,normalizeChapterKey(r.book,r.chapter),String(r.rid||''),full,count,'sr')+
+        repSearchResultListTitleHtml(r,queryWords)+'<span class="rep-search-result-count">('+count+')</span>'+rems+
+        '</div>';
+}
+function repSearchResultsListClass(){
+    return 'rep-search-results-list'+((typeof repTreeOpts==='undefined'||repTreeOpts.rems)?' show-remedies':'');
+}
+// 🔑 v151 (صارف): سرچ نتائج کا اپنا ٹیب اور اپنا خانہ (#repSearchView) — اب ریپرٹری
+// اور نتائج دو ٹیب ہیں اور کلک سے ایک دوسرے پر آ جا سکتے ہیں۔ پرانے ڈھانچے
+// (جہاں #repSearchView نہیں) پر نتائج پرانے خانے ہی میں لکھے جاتے ہیں۔
+function repSearchHost(){
+    return document.getElementById('repSearchView')||document.getElementById('repRubricContent');
+}
+function repSearchTabShow(){
+    if(typeof repPageTab==='function') repPageTab('search');
+}
+function repSearchTabCount(total){
+    var el=document.getElementById('repSearchTabCount');
+    if(el) el.textContent=(typeof total==='number'&&total>0)?('('+total.toLocaleString()+')'):'';
+}
+function repSearchSyncRemedyVisibility(){
+    var rc=repSearchHost();
+    var list=rc&&rc.querySelector?rc.querySelector('.rep-search-results-list'):null;
+    if(!list)return false;
+    var show=(typeof repTreeOpts==='undefined'||!!repTreeOpts.rems);
+    if(list.classList)list.classList.toggle('show-remedies',show);
+    return true;
+}
+function repSearchRefreshCompareButtons(){
+    var rc=repSearchHost();
+    var list=rc&&rc.querySelector?rc.querySelector('.rep-search-results-list'):null;
+    if(!list||!rc.querySelectorAll)return false;
+    var rows=rc.querySelectorAll('.rep-search-row');
+    for(var i=0;i<rows.length;i++){
+        var row=rows[i], old=row.querySelector&&row.querySelector('.rpc-chk.sr');
+        if(old&&old.parentNode)old.parentNode.removeChild(old);
+        var html=repCmpChkHtml(row.getAttribute('data-book')||'',row.getAttribute('data-ch')||'',row.getAttribute('data-rid')||'',row.getAttribute('data-full')||'',row.getAttribute('data-remedies')||0,'sr');
+        if(html&&row.insertAdjacentHTML)row.insertAdjacentHTML('afterbegin',html);
+    }
+    return true;
+}
+function repCompareSearchResults(a,b){
+    var ba=getBookAbbr(a.book),bb=getBookAbbr(b.book);
+    if(ba!==bb)return ba.localeCompare(bb);
+    var ca=getChapterDisplayName(a.book,a.chapter).toLowerCase();
+    var cb=getChapterDisplayName(b.book,b.chapter).toLowerCase();
+    if(ca!==cb)return ca.localeCompare(cb);
+    // 🔑 v150 (قاعدہ الف): پہلے وہ ربرکس جن میں تلاش کے الفاظ ایک ہی سطر میں جُڑے ہوئے ملے
+    var ra=Number(a.adjRank)||0, rb=Number(b.adjRank)||0;
+    if(ra!==rb) return ra-rb;
+    if(typeof a.searchOrder==='number'&&typeof b.searchOrder==='number'&&a.searchOrder!==b.searchOrder){
+        return a.searchOrder-b.searchOrder;
+    }
+    return String(a.text||'').localeCompare(String(b.text||''));
+}
+

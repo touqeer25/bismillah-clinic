@@ -1,0 +1,29 @@
+function repClipFind(ci,book,rid){
+    var l=repClipboards[ci]||[];
+    for(var i=0;i<l.length;i++){ if(l[i].book===book&&String(l[i].rid)===String(rid)) return i; }
+    return -1;
+}
+function repClipToggle(ci,book,ch,rid,path,rems){
+    if(!rid) return false;
+    var idx=repClipFind(ci,book,rid);
+    var added=false;
+    if(idx!==-1){ repClipboards[ci].splice(idx,1); }
+    else { repClipboards[ci].unshift({book:book,ch:ch,rid:String(rid),path:path,rems:rems||0,ts:Date.now()}); added=true; }
+    repClipsSave(); repRenderDock();
+    return added;
+}
+function repClipTrash(){
+    var l=repClipboards[repActiveClip]||[];
+    if(!l.length) return;
+    if(!repDockTrashArm){ repDockTrashArm=1; if(repClipViewOpen)renderClipView(); else repRenderDock(); setTimeout(function(){ repDockTrashArm=0; if(repClipViewOpen)renderClipView(); else repRenderDock(); },2600); return; }
+    repDockTrashArm=0;
+    repClipboards[repActiveClip]=[]; repClipsSave();
+    showToast(repLangText({ur:'🗑 کلپ بورڈ '+(repActiveClip+1)+' خالی کر دیا',en:'🗑 Clipboard '+(repActiveClip+1)+' cleared',roman:'🗑 Clipboard '+(repActiveClip+1)+' khali kar diya'}));
+    if(repClipViewOpen) renderClipView(); else repRenderDock();
+}
+function repClipCopyAll(){
+    var l=repClipboards[repActiveClip]||[];
+    if(!l.length){ showToast(repLangText({ur:'کلپ بورڈ خالی ہے',en:'Clipboard is empty',roman:'Clipboard khali hai'})); return; }
+    var txt=l.map(function(it){ return (REP_BOOK_INFO[it.book]?REP_BOOK_INFO[it.book].abbr+': ':'')+it.path; }).join('\n');
+    if(navigator.clipboard){ navigator.clipboard.writeText(txt).then(function(){ showToast('📋 '+repLangText({ur:l.length+' ربرکس کاپی ہو گئے',en:l.length+' rubrics copied',roman:l.length+' rubrics copy ho gaye'})); }); }
+}

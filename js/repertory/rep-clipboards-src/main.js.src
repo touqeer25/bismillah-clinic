@@ -1,0 +1,7 @@
+/* @include: 00-clipboard-state.js.part */
+/* @include: 01-boolean-search.js.part */
+/* @include: 02-analysis-options.js.part */
+/* @include: 03-clipboard-options.js.part */
+/* @include: 04-clipboard-storage.js.part */
+/* @include: 05-clipboard-items.js.part */
+/* @include: 06-clipboard-view.js.part */

@@ -1,0 +1,9 @@
+function repToggleClipView(i){
+    if(repClipViewOpen&&repActiveClip===i){ repCloseClipView(); return; }
+    repHistBack.push(repCurrentState()); repHistFwd=[];
+    repActiveClip=i; repClipViewOpen=true; repCurrentDetail=null; repDockTrashArm=0;
+    repWorkbenchOpen=false; repCompareOpen=false; repAnalysisOpen=-1;
+    renderClipView();
+}
+function repCloseClipView(){ repGo(repFolderPath); }
+

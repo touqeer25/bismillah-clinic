@@ -1,0 +1,97 @@
+function navigateToRubric(bookKey, chKey, rid, openDetail){
+    if(!chKey){ return; }
+    // 🔑 v151 (صارف): نتائج کی سطر پر کلک سے ربرک 📖 ریپرٹری ٹیب میں کھلتی ہے
+    if(typeof repPageTab==='function') repPageTab('rep');
+    rid = String(rid||'');
+    bookKey = bookKey || repCurrentBook;
+    chKey = normalizeChapterKey(bookKey, chKey);
+    repWorkbenchOpen=false; repCompareOpen=false; repAnalysisOpen=-1;   // tool views close on navigation
+
+    // 🔑 different book -> switch book first, then load chapter with nav
+    if(bookKey !== repCurrentBook){
+        var sel = document.getElementById('repBookSelect');
+        if(sel) sel.value = bookKey;
+        repCurrentBook = bookKey;
+        repCurrentChapter = '';
+        repTreeCache = {};
+        _repFullData = null;
+        repRidToFlatIndex = {};
+        repCurrentFlatTree = [];
+        repCurrentDetail = null; repClipViewOpen = false;
+        if(typeof initRepertoryBrowser === 'function') initRepertoryBrowser(true);   // 🔑 v45: آٹو-مائنڈ نہیں — منزل نیچے setTimeout میں ہے
+        showToast((currentLang==='ur'?'🔄 ریپرٹری بدلی: ':'🔄 Switched to ')+ (REP_BOOK_INFO[bookKey]?REP_BOOK_INFO[bookKey].name:bookKey));
+        if(openDetail) repPendingDetail={rid:rid};
+        setTimeout(function(){ selectChapter(chKey, rid); }, 700);
+        return;
+    }
+
+    // 🔑 same book, same chapter already rendered -> jump+flash (folder view)
+    if(repCurrentChapter===chKey && repCurrentTree){
+        var entry = repRidPathMap ? repRidPathMap[rid] : null;
+        if(entry){
+            if(openDetail){
+                repHistBack.push(repCurrentState()); repHistFwd=[];
+                repFolderPath = entry.path.slice(0,-1);
+                repCurrentDetail = {full:entry.fullPath, translationFull:entry.translationFull||'', rid:rid, labels:entry.path.slice()};
+                renderChapterList();
+                renderRubricDetail();
+                return;
+            }
+            repFolderPath = entry.path.slice(0,-1);   // parent folder of the target rubric
+            repFolderFilter = '';
+            repTreePage = 0;
+            repPendingNavRid = rid;                   // renderFolderCards will flash it
+            renderFolderView();
+            return;
+        }
+    }
+    // load chapter; renderTree will pick up the pending rid
+    if(openDetail) repPendingDetail={rid:rid};
+    selectChapter(chKey, rid);
+}
+
+// 🔑 "back to search results" — restores the last search view
+function backToSearchResults(){
+    if(repLastSearchView){
+        displaySearchResults(repLastSearchView.results, repLastSearchView.info);
+        showToast(currentLang==='ur'?'↩ سرچ رزلٹس پر واپس':'↩ Back to search results');
+    }
+}
+// 🔑 flash + scroll the row carrying data-rid="rid"
+function flashRubricRow(rid){
+    var cd=document.getElementById('repRubricContent');
+    if(!cd) return;
+    var row=null;
+    if(window.CSS && window.CSS.escape){ row=cd.querySelector('[data-rid="'+window.CSS.escape(rid)+'"]'); }
+    if(!row){
+        var all=cd.querySelectorAll('[data-rid]');
+        for(var i=0;i<all.length;i++){ if(all[i].getAttribute('data-rid')===rid){ row=all[i]; break; } }
+    }
+    if(!row) return;
+    row.scrollIntoView({behavior:'smooth', block:'center'});
+    row.style.transition='background 0.4s';
+    row.style.background='#fff3cd';
+    row.style.boxShadow='0 0 0 3px #f39c12';
+    var ring=row.querySelector('.rep-rubric-main, .rep-rubric-name, .rpc-title, .rpl-name');
+    if(ring){ ring.style.color='#d68910'; }
+    setTimeout(function(){
+        row.style.background='';
+        row.style.boxShadow='';
+        if(ring) ring.style.color='';
+    }, 3500);
+}
+
+function copyRemedyToPrescription(abbr){if(navigator.clipboard){navigator.clipboard.writeText(abbr).then(function(){if(typeof showToast==='function')showToast('✅ Copied: '+abbr);});}}
+
+// 🔑 load persisted clipboards + first dock render
+repClipsLoad();
+if(typeof document!=='undefined'){
+    (function(){
+        var f=function(){ repRenderDock(); repCmpSyncUI(); };
+        if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',f);
+        else f();
+    })();
+}
+
+function closeRepertoryChart(){document.getElementById('repChartOverlay').classList.remove('active');}
+

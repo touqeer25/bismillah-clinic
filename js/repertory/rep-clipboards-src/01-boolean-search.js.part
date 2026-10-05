@@ -1,0 +1,25 @@
+function repParseBoolQuery(q){
+    var toks=String(q||'').toLowerCase().replace(/\|/g,' or ').split(/\s+/).filter(Boolean);
+    var groups=[[]], neg=[], pos=[], notNext=false;
+    toks.forEach(function(t){
+        if(t==='or'){ if(groups[groups.length-1].length)groups.push([]); return; }
+        if(t==='and') return;
+        if(t==='not'){ notNext=true; return; }
+        if(t.charAt(0)==='-'&&t.length>1){ neg.push(t.substring(1)); return; }
+        if(notNext){ neg.push(t); notNext=false; return; }
+        groups[groups.length-1].push(t); pos.push(t);
+    });
+    groups=groups.filter(function(g){return g.length;});
+    return {groups:groups,neg:neg,pos:pos};
+}
+function repBoolMatch(qb,text){
+    var lt=String(text||'').toLowerCase();
+    for(var n=0;n<qb.neg.length;n++){ if(lt.indexOf(qb.neg[n])!==-1) return false; }
+    if(!qb.groups.length) return qb.neg.length>0;
+    for(var i=0;i<qb.groups.length;i++){
+        var g=qb.groups[i], ok=true;
+        for(var j=0;j<g.length;j++){ if(lt.indexOf(g[j])===-1){ ok=false; break; } }
+        if(ok) return true;
+    }
+    return false;
+}

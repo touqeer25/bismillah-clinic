@@ -1,0 +1,83 @@
+function loadRepData(cb){
+    if (window.PS && PS.hasCustomRep && PS.hasCustomRep(repCurrentBook)) { _repFullData = PS.customRepMaster(); cb(_repFullData); return; }
+    if(_repFullData!==null){ cb(_repFullData); return; }
+    var info = REP_BOOK_INFO[repCurrentBook];
+    fetch(info.dataFile + '?'+REP_DATA_V).then(function(r){return r.json();}).then(function(d){
+        if (window.PS && PS.applyAllBooks) PS.applyAllBooks(repCurrentBook, d);
+        _repFullData=d; cb(d);
+    }).catch(function(e){ console.error(e); });
+}
+
+// 🔑 load ALL books' data + their _index.json (for chapter names) — used by 'all' search mode
+function loadAllBooksData(cb){
+    var books = Object.keys(REP_BOOK_INFO);
+    var needData = (_allBooksData===null);
+    var needIdx = Object.keys(_allBookChapters).length < books.length;
+    if(!needData && !needIdx){ cb(_allBooksData); return; }
+    var dataResult = needData ? {} : _allBooksData;
+    var pending = 0;
+    if(needData) pending += books.length;
+    if(needIdx) pending += books.length;
+    function done(){ if(pending<=0){ _allBooksData=dataResult; cb(dataResult); } }
+    books.forEach(function(bk){
+        var info = REP_BOOK_INFO[bk];
+        if(needData){
+            fetch(info.dataFile + '?'+REP_DATA_V).then(function(r){return r.json();}).then(function(d){
+                if (window.PS && PS.applyAllBooks) PS.applyAllBooks(bk, d);
+                dataResult[bk]=d; pending--; done();
+            }).catch(function(e){ if (window.PS && PS.hasCustomRep && PS.hasCustomRep(bk)) dataResult[bk]=PS.customRepMaster(); console.error('data load fail',bk,e); pending--; done(); });
+        }
+        if(needIdx){
+            fetch(info.chapDir+'_index.json?'+REP_DATA_V).then(function(r){return r.json();}).then(function(d){
+                _allBookChapters[bk]=d; pending--; done();
+            }).catch(function(e){
+                // 🔑 fallback: build index from the data file's chapter keys (e.g. kent_de has no _index.json)
+                console.warn('index missing for',bk,'— building from data');
+                var src = dataResult[bk] || (needData ? null : (_allBooksData[bk]||null));
+                if(src){
+                    _allBookChapters[bk] = Object.keys(src).map(function(k){
+                        return {key:k, name:k.replace(/_/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}), rubrics:Object.keys(src[k]||{}).length};
+                    });
+                } else {
+                    _allBookChapters[bk]=[];
+                }
+                pending--; done();
+            });
+        }
+    });
+}
+
+
+
+function displaySearchResults(results, info){
+    var rc=repSearchHost(); if(!rc)return;
+    repSearchTabShow(); repSearchTabCount(results?results.length:0);
+    var qw=repParseBoolQuery((_repSearchCache.split('|')[0]||'').toLowerCase()).pos;
+    var curCh=repCurrentChapter, curBook=repCurrentBook;
+    // Save even an empty search so the remedies toggle does not replace it with the tree.
+    repLastSearchView={results:(results||[]).slice(),info:info};
+    var h='<div class="rep-search-info">'+(info||'')+'</div>'+
+        '<div class="rep-search-help">'+(currentLang==='ur'
+            ?'کسی ربرک کی سطر پر کلک کریں — متعلقہ باب کھلے گا اور ربرک نمایاں ہو گی۔'
+            :'Click a rubric line to open its chapter and highlight it.')+'</div>';
+    h+='<div class="'+repSearchResultsListClass()+'">';
+    if(!results||results.length===0){
+        h+='<div class="rep-search-empty">'+(currentLang==='ur'?'کوئی ربرک نہیں ملی':'No rubrics found')+'</div>';
+    } else {
+        var lastGroup=null;
+        results.forEach(function(r){
+            var groupKey=r.book+'|'+r.chapter;
+            if(groupKey!==lastGroup){
+                h+=repSearchGroupHeadingHtml(r,curBook,curCh);
+                lastGroup=groupKey;
+            }
+            h+=repSearchResultRowHtml(r,qw);
+        });
+    }
+    h+='</div>';
+    rc.innerHTML=h;
+    rc.scrollTop=0;
+    repRenderDock();
+}
+
+// 🔑 PRECISE navigation: open the chapter (in the right book) and scroll/flash the exact rubric (by ID)

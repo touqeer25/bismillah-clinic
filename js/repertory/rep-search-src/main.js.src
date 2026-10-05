@@ -1,0 +1,5 @@
+/* @include: 00-search-paths-and-results.js.part */
+/* @include: 01-search-context-and-controls.js.part */
+/* @include: 02-search-engine.js.part */
+/* @include: 03-search-loading-and-results.js.part */
+/* @include: 04-search-navigation-and-init.js.part */

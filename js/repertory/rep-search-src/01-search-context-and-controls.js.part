@@ -1,0 +1,190 @@
+function repLangText(map){ return (map && (map[currentLang] || map.en || map.ur || map.roman)) || ''; }
+
+function rememberRepSearchContext(){
+    if(_repSearchBeforeContext) return;
+    _repSearchBeforeContext = {
+        book: repCurrentBook,
+        chapter: repCurrentChapter,
+        page: repTreePage || 0,
+        pageSize: repTreePageSize || 50
+    };
+}
+
+function restoreRepSearchContext(){
+    // 🔑 v151: سرچ ختم/خالی ہونے پر واپس 📖 ریپرٹری ٹیب سامنے آ جاتا ہے
+    if(typeof repPageTab==='function') repPageTab('rep');
+    _repSearchSeq++;
+    _repSearchCache=''; _repSearchResults=null; _repSearchMode='';
+    repSearchAllBooks=false;
+    repLastSearchView=null;
+    repCurrentDetail=null; repClipViewOpen=false;repWorkbenchOpen=false;repCompareOpen=false;repAnalysisOpen=-1;
+    var ctx = _repSearchBeforeContext;
+    _repSearchBeforeContext = null;
+
+    function showCurrentOrEmpty(){
+        if(repCurrentChapter){
+            if(repCurrentTree && repCurrentChKey===repCurrentChapter){
+                renderFolderView();
+            } else {
+                var nm=repCurrentChapter; repChapterNames.forEach(function(c){ if(c.key===repCurrentChapter) nm=c.name; });
+                if(repTreeCache[repCurrentChapter]) renderTree(repCurrentChapter, nm, repTreeCache[repCurrentChapter]);
+                else selectChapter(repCurrentChapter);
+            }
+        } else {
+            repRenderEmptyState();
+        }
+    }
+
+    if(ctx && ctx.book && ctx.book !== repCurrentBook){
+        var sel=document.getElementById('repBookSelect');
+        if(sel) sel.value = ctx.book;
+        repCurrentBook = ctx.book;
+        repCurrentChapter = '';
+        repTreeCache = {};
+        _repFullData = null;
+        repRidToFlatIndex = {};
+        repCurrentFlatTree = [];
+        if(typeof initRepertoryBrowser === 'function') initRepertoryBrowser(true);   // 🔑 v45: آٹو-مائنڈ نہیں — سرچ کے بعد پرانی منزل بحال ہوتی ہے
+        if(ctx.chapter){
+            setTimeout(function(){ selectChapter(ctx.chapter); }, 700);
+        }
+        return;
+    }
+
+    if(ctx && ctx.chapter){
+        repTreePageSize = ctx.pageSize || repTreePageSize;
+        if(repCurrentChapter===ctx.chapter && repCurrentTree && repCurrentChKey===ctx.chapter){
+            // 🔑 folder state was never touched by the search — just re-render it
+            renderFolderView();
+        } else {
+            selectChapter(ctx.chapter);
+        }
+    } else {
+        showCurrentOrEmpty();
+    }
+}
+
+function toggleRepSearchMode(){
+    // 🔑 legacy helper: cycles through the 4 HomeoSetu search types
+    var idx = REP_SEARCH_TYPES.indexOf(repSearchMode);
+    repSearchMode = REP_SEARCH_TYPES[(idx+1) % REP_SEARCH_TYPES.length];
+    updateRepSearchModeUI();
+    _repSearchSeq++;
+    _repSearchCache=''; _repSearchResults=null;
+    var inp=document.getElementById('repBrowserSearch');
+    if(inp && inp.value.trim().length>=2){ searchRepertoryBrowser(); }
+    else { restoreRepSearchContext(); }
+    showToast(repLangText(REP_TYPE_LABELS[repSearchMode] || REP_TYPE_LABELS.rubric));
+}
+function updateRepSearchModeUI(){
+    // 🔑 v40: TWO toolbar dropdowns — TYPE (Rubric/Subrubric | Remedy | Rubric+Remedy | Clinical) + restored SCOPE (chapter/book/all)
+    var tsel=document.getElementById('repTypeSelect');
+    if(tsel&&tsel.value!==repSearchMode) tsel.value=repSearchMode;
+    var ssel=document.getElementById('repScopeSelect');
+    if(ssel&&ssel.value!==repSearchScope) ssel.value=repSearchScope;
+    // 🔑 v42: placeholder میں 🔍 ہٹا دیا — ڈپلیکیٹ آئکن ختم؛ ایک ہی styled .rep-search-ico span رہتا ہے
+    var placeholders = {
+        rubric:       {ur:'ربرک / سب ربرک تلاش کریں... (مثلاً fear، headache)', en:'Search rubric / subrubric... (e.g. fear, headache)', roman:'Rubric / subrubric talash karein... (e.g. fear, headache)'},
+        remedy:       {ur:'ادویہ تلاش کریں... (مثلاً nux vom، arsen)', en:'Search a remedy... (e.g. nux vom, arsen)', roman:'Adwiyeh talash karein... (e.g. nux vom, arsen)'},
+        rubric_remedy:{ur:'ربرک اور ادویہ دونوں میں تلاش...', en:'Search rubrics and remedies both...', roman:'Rubric aur adwiyeh dono mein talash...'},
+        clinical:     {ur:'کلینیکل حالت / اردو علامت... (مثلاً بخار، headache)', en:'Clinical condition / Urdu symptom... (e.g. بخار, headache)', roman:'Clinical condition / Urdu alaamat... (e.g. bukhar, headache)'}
+    };
+    var inp=document.getElementById('repBrowserSearch');
+    if(inp){
+        inp.placeholder = repLangText(placeholders[repSearchMode] || placeholders.rubric);
+    }
+}
+// 🔑 search TYPE changed from the toolbar dropdown (HomeoSetu "Rubric / Subrubric" style)
+function setRepSearchType(v){
+    if(REP_SEARCH_TYPES.indexOf(v)===-1) return;
+    if(v===repSearchMode && !repSearchAllBooks) return;
+    repSearchMode=v; repSearchAllBooks=false;
+    _repSearchSeq++;
+    _repSearchCache=''; _repSearchResults=null;
+    updateRepSearchModeUI();
+    var inp=document.getElementById('repBrowserSearch');
+    if(inp&&inp.value.trim().length>=2){ searchRepertoryBrowser(); }
+    else { restoreRepSearchContext(); }
+}
+// 🔑 v40 RESTORED: search SCOPE changed from the toolbar dropdown — Search in Open Chapter / Open Repertory / All Repertories
+function setRepSearchScope(v){
+    if(REP_SCOPE_ORDER.indexOf(v)===-1) return;
+    if(v===repSearchScope && !repSearchAllBooks) return;
+    repSearchScope=v;
+    _repSearchSeq++;
+    _repSearchCache=''; _repSearchResults=null;
+    updateRepSearchModeUI();
+    var inp=document.getElementById('repBrowserSearch');
+    if(inp&&inp.value.trim().length>=2){ searchRepertoryBrowser(); }
+    else { restoreRepSearchContext(); }
+}
+function showRepSearchPlaceholder(){
+    var cd=repSearchHost();
+    if(!cd)return;
+    repSearchTabShow();
+    // 🔑 chapter scope needs an open chapter
+    if(repSearchScope==='chapter' && !repSearchAllBooks && !repCurrentChapter){
+        cd.innerHTML='<div class="empty-state"><div class="icon">📖</div><p>'+repLangText({ur:'پہلے کوئی چیکٹر کھولیں، پھر سرچ کریں',en:'Open a chapter first, then search',roman:'Pehle koi chapter kholen, phir search karein'})+'</p></div>';
+        return;
+    }
+    cd.innerHTML='<div class="empty-state"><div class="icon">📖</div><p>'+repLangText({ur:'سرچ کے لیے کم از کم 2 حرف لکھیں',en:'Type 2+ characters to search',roman:'Search ke liye kam az kam 2 harf likhein'})+'</p></div>';
+}
+
+// 🔑 book/chapter name helpers (chapter keys can be uppercase for kent, lowercase for others)
+function getBookAbbr(bookKey){
+    var info = REP_BOOK_INFO[bookKey];
+    return info ? info.abbr : (bookKey||'?').substring(0,4);
+}
+function getChapterDisplayName(bookKey, chKey){
+    // current book -> use repChapterNames
+    if(bookKey===repCurrentBook){
+        for(var i=0;i<repChapterNames.length;i++){
+            if(String(repChapterNames[i].key).toLowerCase()===String(chKey).toLowerCase()) return repChapterNames[i].name;
+        }
+    }
+    // any book -> use _allBookChapters cache
+    var chs = _allBookChapters[bookKey];
+    if(chs){
+        for(var j=0;j<chs.length;j++){
+            if(String(chs[j].key).toLowerCase()===String(chKey).toLowerCase()) return chs[j].name;
+        }
+    }
+    // fallback: capitalize
+    var s=String(chKey||'');
+    return s.charAt(0).toUpperCase()+s.slice(1);
+}
+function normalizeChapterKey(bookKey, chKey){
+    // return canonical lowercase-ish key matching the chapter FILE name
+    if(bookKey===repCurrentBook){
+        for(var i=0;i<repChapterNames.length;i++){
+            if(String(repChapterNames[i].key).toLowerCase()===String(chKey).toLowerCase()) return repChapterNames[i].key;
+        }
+    }
+    var chs = _allBookChapters[bookKey];
+    if(chs){
+        for(var j=0;j<chs.length;j++){
+            if(String(chs[j].key).toLowerCase()===String(chKey).toLowerCase()) return chs[j].key;
+        }
+    }
+    return String(chKey||'').toLowerCase();
+}
+
+// 🔑 Clinical Condition synonyms (English keyword groups — HomeoSetu "Clinical Condition" search mode)
+var REP_CLINICAL_SYN={
+    headache:['head','pain','cephalalgia'], migraine:['head','pain','hemicrania'],
+    fever:['fever','heat','pyrexia','febrile'], cough:['cough','expectoration'],
+    cold:['coryza','sneezing','nose','catarrh'], anxiety:['anxious','fear','apprehension','restless'],
+    depression:['sadness','sad','despair','gloom','melancholy'], insomnia:['sleeplessness','sleep','sleepless','wakeful'],
+    constipation:['constipation','stool','hard','inactive'], diarrhea:['diarrhoea','diarrhea','stool','loose','watery'],
+    vomiting:['vomit','nausea','sickness'], nausea:['nausea','sickness','stomach'],
+    vertigo:['vertigo','dizziness','giddiness'], weakness:['weak','exhaustion','prostration','fatigue'],
+    pain:['pain','aching','sore','pains'], swelling:['swollen','swelling','edema','oedema','inflammation'],
+    rash:['eruption','rash','skin','itching'], itching:['itch','itching','skin'],
+    bleeding:['bleeding','hemorrhage','haemorrhage','blood'], acidity:['acidity','heartburn','eructation','stomach'],
+    gas:['flatulence','distension','abdomen','eructation'], cramping:['cramp','colic','griping','pain'],
+    burning:['burning','smarting','scalding'], thirst:['thirst','thirstless','drinks'],
+    appetite:['appetite','hunger','craving','aversion'], backache:['back','pain','lumbago'],
+    jointpain:['joints','pain','arthritic','stiffness'], earache:['ear','pain','otitis'],
+    sorethroat:['throat','pain','swallowing','tonsils'], breathless:['respiration','breathing','dyspnoea','dyspnea','asthma']
+};
+
