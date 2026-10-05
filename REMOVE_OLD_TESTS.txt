@@ -1,5 +1,0 @@
-ان پرانی آزمائشی فائلوں کو نئے نسخہ 145 ناموں سے بدل دیا گیا ہے۔ پیکج لگانے کے بعد، اگر یہ پرانی فائلیں موجود ہوں تو انہیں حذف کریں:
-
-tests/kent_tree_fix_v143.test.js
-tests/kent_mind_search_paths_v144.test.js
-tests/kent_mind_search_flow_v144.test.js
