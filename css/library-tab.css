@@ -1,0 +1,58 @@
+/* مطالعہ لائبریری کو بیرونی ریپرٹری ٹیب کے اندر دکھانے کے قواعد */
+#repShellHostRoot>#repRubricContent.rep-library-tab-host{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+    max-height:none;
+    overflow:hidden;
+    padding:0;
+    background:#f6f9fc;
+}
+#repShellHostRoot>#repRubricContent.rep-library-tab-host>#repLibModal.rep-library-tab{
+    position:relative;
+    inset:auto;
+    z-index:auto;
+    display:flex!important;
+    flex:1 1 auto;
+    width:100%;
+    height:100%;
+    min-width:0;
+    min-height:0;
+    overflow:hidden;
+    background:#f6f9fc;
+}
+#repShellHostRoot>#repRubricContent.rep-library-tab-host>#repLibModal.rep-library-tab>.rep-diff-back{
+    display:none!important;
+}
+#repShellHostRoot>#repRubricContent.rep-library-tab-host>#repLibModal.rep-library-tab>.rep-lib-win{
+    position:relative;
+    inset:auto;
+    display:flex;
+    flex:1 1 auto;
+    width:100%;
+    height:100%;
+    min-width:0;
+    min-height:0;
+    border-radius:0;
+    box-shadow:none;
+}
+#repShellHostRoot>#repRubricContent.rep-library-tab-host #repLibHead{
+    flex:0 0 auto;
+    padding:10px 12px;
+    border-bottom:1px solid #e3ebf2;
+    background:#fff;
+}
+#repShellHostRoot>#repRubricContent.rep-library-tab .rep-lib-main{
+    flex:1 1 auto;
+    height:auto;
+    min-height:0;
+    overflow:hidden;
+}
+#repShellHostRoot>#repRubricContent.rep-library-tab .rep-lib-body{
+    min-width:0;
+}
+@media(max-width:640px){
+    #repShellHostRoot>#repRubricContent.rep-library-tab .rep-lib-main{gap:6px}
+    #repShellHostRoot>#repRubricContent.rep-library-tab .rep-lib-toc{width:125px}
+    #repShellHostRoot>#repRubricContent.rep-library-tab #repLibHead{padding:8px}
+}

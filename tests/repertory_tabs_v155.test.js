@@ -60,6 +60,16 @@ w.repOpenCompare=function(){w.repCompareOpen=true;d.getElementById('repRubricCon
 w.repCloseToolView=function(){};
 w.repDiffShow=function(){w.repPageTab('diff');};w.repDiffRun=function(){w._repDiffBusy=false;};w.repDiffRenderBody=()=>{};
 w.repDiffOpenForRubric=function(){w.repDiffShow();};w.repDiffOpenWithRemedies=function(){};
+w.repLibOpen=function(book){
+  let modal=d.getElementById('repLibModal');
+  if(!modal){
+    modal=d.createElement('div');modal.id='repLibModal';modal.className='rep-diff-modal';
+    modal.innerHTML='<div class="rep-diff-back"></div><div class="rep-diff-win rep-lib-win"><div id="repLibHead">مطالعہ لائبریری</div><div class="rep-lib-main">کتاب کا متن</div></div>';
+    d.body.appendChild(modal);
+  }
+  modal.dataset.book=book||'organon6';modal.style.display='block';return modal;
+};
+w.repLibClose=function(){const modal=d.getElementById('repLibModal');if(modal)modal.style.display='none';};
 w.repEnsureAllBooks=function(cb){cb({kent:{},kent_de:{}});};
 w.repOpenWorkbench=function(){};w.repOpenAnalysis=function(){};w.repCompareToggle=function(){};
 w.searchRepertoryBrowser=function(){
@@ -95,6 +105,10 @@ assert(d.querySelector('.rep-side-col').classList.contains('rep-shell-collapsed'
 w.RepWorkspaceTabs.toggleSidebar();
 assert(!d.querySelector('.rep-side-col').classList.contains('rep-shell-collapsed'),'سائیڈ بار دوبارہ کھلتی ہے');
 const shellCSS=fs.readFileSync(path.join(root,'css/repertory-tabs.css'),'utf8');
+const libraryTabCSS=fs.readFileSync(path.join(root,'css/library-tab.css'),'utf8');
+assert(/#repShellHostRoot>#repRubricContent\.rep-library-tab-host\{[^}]*display:flex/s.test(libraryTabCSS),'لائبریری میزبان عام ٹیب کے مواد کی طرح جگہ بھرتا ہے');
+assert(/#repLibModal\.rep-library-tab\{[^}]*position:relative/s.test(libraryTabCSS),'لائبریری منظر پوری اسکرین کے اوورلے کے بجائے ٹیب کے اندر رہتا ہے');
+assert(/rep-library-tab[^}]*\.rep-diff-back|\.rep-diff-back\{[^}]*display:none/s.test(libraryTabCSS),'لائبریری ٹیب میں پس منظر اوورلے نہیں دکھایا جاتا');
 assert(/\.rep-toolbar\s*\{[^}]*direction:ltr!important/s.test(shellCSS),'ٹول بار زبان سے قطع نظر بائیں سے دائیں ترتیب میں ہے');
 assert(/#repWorkspaceTabs\{[^}]*direction:ltr/s.test(shellCSS),'کھلے ٹیب ہر زبان میں بائیں سے دائیں ترتیب میں ہیں');
 assert(/\.rep-shell-strip-nav \.rep-navbtn,[\s\S]*?flex:0 0 24px/.test(shellCSS),'نچلی پٹی کے نیویگیشن اور سائیڈ بار بٹن مختصر ہیں');
@@ -138,6 +152,22 @@ assert.strictEqual(w.repCurrentBook,'kent','موازنہ بند ہونے پر ک
 w.RepWorkspaceTabs.openDiff();assert(tab('diff'),'تفریق الگ ٹیب میں کھلی');
 w.RepWorkspaceTabs.activate('rep:kent');
 assert.strictEqual(d.getElementById('repRubricContent').textContent,'ربرک 1','تفریق سے واپسی پر موجودہ ریپرٹری میزبان بحال ہوا');
+
+d.getElementById('repShellLibraryBtn').click();
+assert(tab('library'),'مطالعہ لائبریری کا الگ ٹیب بنا');
+let libraryModal=d.getElementById('repLibModal');
+let libraryHost=d.getElementById('repRubricContent');
+assert(libraryModal&&libraryModal.parentNode===libraryHost,'لائبریری کا مواد فعال ریپرٹری میزبان میں منتقل ہوا');
+assert(libraryModal.classList.contains('rep-library-tab')&&libraryHost.classList.contains('rep-library-tab-host'),'لائبریری مواد کو ٹیب والا انداز ملا');
+assert(!libraryModal.querySelector('.rep-diff-back'),'پوری اسکرین کا گہرا اوورلے ہٹا دیا گیا');
+assert.strictEqual(libraryModal.dataset.book,'organon6','کتاب کا انتخاب لائبریری میں قائم رہا');
+tab('rep:kent').dispatchEvent(new w.MouseEvent('click',{bubbles:true}));
+assert.strictEqual(d.getElementById('repLibModal'),null,'ریپرٹری ٹیب کھلنے پر لائبریری الگ میزبان میں محفوظ رہی');
+tab('library').dispatchEvent(new w.MouseEvent('click',{bubbles:true}));
+libraryModal=d.getElementById('repLibModal');
+assert(libraryModal&&libraryModal.parentNode===d.getElementById('repRubricContent'),'لائبریری ٹیب واپس کھولنے پر اس کا مواد بحال ہوا');
+w.repLibClose();
+assert(!tab('library')&&tab('rep:kent'),'لائبریری کا بند بٹن اپنا ٹیب بند کرکے ریپرٹری پر لوٹتا ہے');
 
 assert.strictEqual(d.querySelectorAll('#repShellHostRoot #repRubricContent').length,1,'میزبان شناخت منفرد رہی');
 console.log('تمام بیرونی ٹیب آزمائشیں کامیاب');

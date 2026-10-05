@@ -2,7 +2,7 @@
 (function(){
     'use strict';
 
-    var VERSION='157';
+    var VERSION='158';
     var started=false;
     var raw={};
     var shell={
@@ -861,7 +861,12 @@
     function moveLibraryIntoActiveHost(){
         var modal=document.getElementById('repLibModal');
         var host=document.getElementById('repRubricContent');
-        if(modal&&host&&modal.parentNode!==host) host.appendChild(modal);
+        if(!modal||!host) return;
+        if(modal.parentNode!==host) host.appendChild(modal);
+        modal.classList.add('rep-library-tab');
+        host.classList.add('rep-library-tab-host');
+        var backdrop=modal.querySelector('.rep-diff-back');
+        if(backdrop&&backdrop.parentNode) backdrop.parentNode.removeChild(backdrop);
     }
 
     function installTabState(){
