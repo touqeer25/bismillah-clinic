@@ -79,8 +79,10 @@ assert(d.getElementById('repWorkspaceTabs'),'بیرونی ٹیب پٹی لگ گ�
 assert(d.querySelector('#repShellHostRoot #repRubricContent').textContent==='اصل ریپرٹری مواد','اصل میزبان مواد جوں کا توں منتقل ہوا');
 const toolbar=d.querySelector('.rep-toolbar');
 assert(!d.querySelector('.rep-navbar'),'اضافی بریڈکرمب قطار ختم ہوئی');
-assert(toolbar.contains(d.getElementById('repBreadcrumb'))&&toolbar.contains(d.getElementById('repBtnBack')),'بریڈکرمب اور نیویگیشن بٹن اوپر کی ٹول بار میں منتقل ہوئے');
-assert(toolbar.contains(d.querySelector('.rep-gradation'))&&toolbar.contains(d.querySelector('.rep-viewtoggle')),'گریڈ اور منظر کے بٹن بھی اوپر کی ٹول بار میں منتقل ہوئے');
+const stripNav=d.querySelector('.rep-shell-strip-nav');
+assert(stripNav&&stripNav.contains(d.getElementById('repBtnBack'))&&stripNav.contains(d.getElementById('repBtnFwd'))&&stripNav.contains(d.getElementById('repBtnUp')),'نیویگیشن کے تیر نچلی پٹی میں ہیں');
+assert(!toolbar.contains(d.getElementById('repBreadcrumb'))&&d.getElementById('repShellHiddenBreadcrumb').contains(d.getElementById('repBreadcrumb')),'کتاب اور باب کا breadcrumb اوپری ٹول بار میں نہیں');
+assert(toolbar.contains(d.querySelector('.rep-gradation'))&&toolbar.contains(d.querySelector('.rep-viewtoggle')),'گریڈ اور منظر کے بٹن اوپر کی ٹول بار میں برقرار ہیں');
 assert(toolbar.contains(d.getElementById('repShellDiffBtn'))&&toolbar.contains(d.getElementById('repShellCompareBtn')),'تفریق اور موازنہ کے بٹن ٹول بار میں ہیں');
 const before=(a,b)=>!!(a.compareDocumentPosition(b)&w.Node.DOCUMENT_POSITION_FOLLOWING);
 assert(before(d.getElementById('repBrowserSearch'),d.getElementById('repShellDiffBtn'))&&before(d.getElementById('repShellDiffBtn'),d.getElementById('repShellCompareBtn')),'تلاش کے بعد تفریق، پھر موازنہ آتا ہے');
@@ -88,7 +90,7 @@ assert(d.getElementById('repShellCompareTools').contains(d.getElementById('repSi
 assert(!d.querySelector('.rep-side-col #repSideTools'),'موازنہ سیکشن بابوں کی فہرست کے اوپر نہیں رہا');
 assert(d.querySelector('.rep-side-col').firstElementChild.id==='repShellSideToolsRow','بابوں کی فہرست بائیں سائیڈ بار کے اپنے عنوان سے شروع ہوتی ہے');
 w.RepWorkspaceTabs.toggleSidebar();
-assert(d.querySelector('.rep-side-col').classList.contains('rep-shell-collapsed')&&d.getElementById('repShellHideSideBtn'),'سائیڈ بار چھپنے کے بعد دکھانے والا بٹن باقی رہتا ہے');
+assert(d.querySelector('.rep-side-col').classList.contains('rep-shell-collapsed')&&stripNav.contains(d.getElementById('repShellHideSideBtn')),'سائیڈ بار چھپنے پر چھوٹا بٹن نچلی پٹی میں رہتا ہے');
 w.RepWorkspaceTabs.toggleSidebar();
 assert(!d.querySelector('.rep-side-col').classList.contains('rep-shell-collapsed'),'سائیڈ بار دوبارہ کھلتی ہے');
 const shellCSS=fs.readFileSync(path.join(root,'css/repertory-tabs.css'),'utf8');

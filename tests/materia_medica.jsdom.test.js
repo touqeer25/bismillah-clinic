@@ -1,6 +1,10 @@
 // jsdom tests: 📖 materia medica module (v56) — data, sentence matching, drafts, notes, UI
 const fs=require('fs'),path=require('path');const {JSDOM}=require(process.env.JSDOM_PATH||'/tmp/jsd/node_modules/jsdom');
 const ROOT=path.resolve(__dirname,'..');
+if(!fs.existsSync(path.join(ROOT,'mm/_index.json'))){
+  console.log('SKIP: materia medica فہرست دستیاب نہیں، عوامی کتابوں کی آزمائشیں نہیں چلیں');
+  process.exit(0);
+}
 const html=`<!doctype html><html><body><div id="page-repertoryBrowser"><select id="repBookSelect"><option value="kent" selected>K</option></select><select id="repScopeSelect"><option value="book" selected>b</option><option value="all">a</option></select><input id="repBrowserSearch"><button id="repCmpModeBtn"></button><div id="repSideTools"><span id="repSelCount"></span><div id="repCmpPanel"></div></div><aside id="repChapterList"></aside><span id="repCountInfo"></span><button id="repBtnBack"></button><button id="repBtnFwd"></button><button id="repBtnUp"></button><div id="repBreadcrumb"></div><button id="repViewGrid"></button><button id="repViewList"></button><div id="repRubricContent"></div><div id="repDockArea"></div><div id="repKebabMenu"></div><div id="repAskMsgs"></div></div></body></html>`;
 const dom=new JSDOM(html,{runScripts:'dangerously',pretendToBeVisual:true,url:'http://localhost/'});const w=dom.window;
 w.currentLang='ur';w.escapeHtml=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));w.toasts=[];w.showToast=m=>w.toasts.push(String(m));

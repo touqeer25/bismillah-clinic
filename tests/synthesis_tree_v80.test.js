@@ -3,6 +3,10 @@
 // Run: node tests/synthesis_tree_v80.test.js
 const fs=require('fs'),path=require('path');const {JSDOM}=require(process.env.JSDOM_PATH||'/tmp/jsd/node_modules/jsdom');
 const ROOT=path.resolve(__dirname,'..');
+if(!fs.existsSync(ROOT+'/synthesis91_raw_chapters/_index.json')){
+  console.log('SKIP: دوسرے مجموعے کی باب فہرست دستیاب نہیں، اس کے درختی دعوے نہیں چلائے گئے');
+  process.exit(0);
+}
 let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
 const dom=new JSDOM('<!doctype html><html><body></body></html>',{runScripts:'outside-only',url:'http://localhost/'});
 const w=dom.window;

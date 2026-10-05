@@ -1,0 +1,36 @@
+function repDiffExtrRowHtml(row,abbr){
+    var x=row.x, inC=repDiffInCaseSet()[x.book+'|'+String(x.rid)];
+    var peer=row.peer&&row.pg>row.g?(' <span class="rep-diff-hint">'+abbr+' → '+row.g+' · '+escapeHtml(row.peer)+' → '+row.pg+'</span>'):'';
+    return '<div class="rep-diff-row">'
+        +'<button class="rpc-chk sr'+(repClipFind(repActiveClip,x.book,x.rid)!==-1?' on':'')+'" title="'+repLangText({ur:'فعال کلپ بورڈ میں شامل/خارج',en:'Add to / remove from active clipboard',roman:'Active clipboard mein shamil/kharij'})+'" onclick="repDiffClipToggle(this,\''+_repJs(x.book)+'\',\''+_repJs(x.ch)+'\',\''+_repJs(x.rid)+'\',\''+_repJs(x.t)+'\','+row.N+')">'+(repClipFind(repActiveClip,x.book,x.rid)!==-1?'✓':'')+'</button>'
+        +'<span class="rep-diff-ch">'+escapeHtml(getChapterDisplayName(x.book,x.ch)||x.ch)+' ›</span> '
+        +'<span class="rep-diff-t" dir="ltr" onclick="repDiffGo(\''+_repJs(x.book)+'\',\''+_repJs(x.ch)+'\',\''+_repJs(x.rid)+'\')">'+escapeHtml(x.t)+'</span>'+peer
+        +'<span class="rep-diff-n" title="'+repLangText({ur:'ربرک کی کل ریمیڈیز',en:'remedies in rubric',roman:'rubric ki kul remedies'})+'">'+row.N+'</span>'
+        +'<span class="rep-diff-vec"><span class="rep-diff-dot d'+row.g+'">'+row.g+'</span></span>'
+        +'<span class="rep-diff-score">'+repDiffFmt(row.score)+'</span>'
+        +(inC?'<span class="rep-diff-incase">📋'+inC+'</span>':'')
+        +'</div>';
+}
+function repDiffRenderExtr(last){
+    var L=repLangText, e=last.extract, body=document.getElementById('repDiffBody'); if(!body||!e)return;
+    var h='<div class="rep-diff-sum">'
+        +'<span class="rep-diff-chip on"><b dir="ltr">'+escapeHtml(e.abbr)+'</b> <button onclick="repDiffToggleRem(\''+_repJs(e.abbr)+'\')">✕</button></span> '
+        +'<span>'+L({ur:'اس کتاب میں کل جگہیں',en:'rubrics in scope',roman:'kul jagahain'})+': <b>'+e.total+'</b></span>'
+        +'<span>'+L({ur:'انوکھی',en:'single-remedy',roman:'anokhi'})+': <b>'+e.single+'</b></span>'
+        +'<span>'+L({ur:'پہلے نمبر پر',en:'not outranked',roman:'pehle number par'})+': <b>'+e.top+'</b></span>'
+        +'<span>'+L({ur:'دکھائی جا رہی',en:'shown',roman:'dikhai ja rahi'})+': <b>'+e.rows.length+'</b>'+L({ur:' (اوپر والی شرط کے بعد)',en:' (after filters)',roman:' (shart ke baad)'})+'</span>'
+        +'</div>';
+    if(e.cap) h+='<div class="rep-diff-note">ℹ '+L({ur:'فہرست لمبی تھی، '+REP_EXTR_CAP+' بہترین قطاریں دکھائی گئیں۔ چھانٹنی لگائیں تو سب نظر آئیں گی۔',en:'Long list — top '+REP_EXTR_CAP+' rows shown; add filters to see the rest.',roman:'Lambi fehrist'})+'</div>';
+    if(last.scanned>REP_DIFF_SCAN_STOP) h+='<div class="rep-diff-note">⚠ '+L({ur:'اسکین چھوٹی رکھی گئی: '+last.scanned+' ربرکس چھانٹے گئے، مقررہ حد تک۔ دائرہ چھوٹا (باب یا کتاب) رکھیں تو سب کچھ دیکھا جائے گا۔',en:'Scan capped at '+last.scanned+' rubrics. Narrow the scope (chapter or book) to be exhaustive.',roman:'Scan chhoti rakhi'})+'</div>';
+    if(e.skipped) h+='<div class="rep-diff-note">'+L({ur:e.skipped+' بڑی جگہیں سائز کی شرط سے باہر رہیں',en:e.skipped+' large rubrics filtered out by the size cap',roman:e.skipped+' barhi jagahain bahar'})+'</div>';
+    var o=repDiffOpts;
+    h+='<div class="rep-diff-ctl">'
+        +'<label><input type="checkbox" '+(o.onlySingle?'checked':'')+' onchange="repDiffSetOpt(\'onlySingle\',this.checked?1:0)"> '+L({ur:'صرف انوکھی جگہیں (اکیلے یہی دوا)',en:'single-remedy pages only',roman:'anokhi'})+'</label>'
+        +'<label><input type="checkbox" '+(o.topOnly?'checked':'')+' onchange="repDiffSetOpt(\'topOnly\',this.checked?1:0)"> '+L({ur:'صرف جہاں یہ دوا سب سے اوپر ہے',en:'where this remedy outranks the rest',roman:'sab se ooper'})+'</label>'
+        +'<button class="rc-btn primary" onclick="repDiffTakeAll()">📥 '+L({ur:'سب کلپ بورڈ میں',en:'Take all into clipboard',roman:'Sab clipboard mein'})+'</button>'
+        +'<button class="rc-btn" onclick="repDiffCopy()">📋</button>'
+        +'</div>';
+    if(!e.rows.length) h+='<div class="rep-tool-loading">'+L({ur:'اس دائرے اور ان شرائط کے تحت کوئی جگہ نہیں ملی۔',en:'Nothing in this scope with these filters.',roman:'Koi jagah nahi mili'})+'</div>';
+    else { h+='<div class="rep-diff-rows" dir="ltr">'; for(var i=0;i<e.rows.length;i++) h+=repDiffExtrRowHtml(e.rows[i],e.abbr); h+='</div>'; }
+    body.innerHTML=h; body.scrollTop=0;
+}

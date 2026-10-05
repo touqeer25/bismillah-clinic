@@ -1,0 +1,27 @@
+// نکالی ہوئی پوری فہرست ایک ساتھ فعال کلپ بورڈ میں
+function repDiffTakeAll(){
+    var last=repDiffLast, e=last&&last.extract;
+    var rows=e?e.rows:(last&&last.res?[]:[]);
+    if(!rows.length){ showToast(repLangText({ur:'پہلے چلائیں',en:'Run first',roman:'Pehle chalayein'})); return; }
+    var added=0;
+    for(var i=rows.length-1;i>=0;i--){ var x=rows[i].x;
+        if(repClipFind(repActiveClip,x.book,x.rid)===-1){ repClipboards[repActiveClip].unshift({book:x.book,ch:x.ch,rid:String(x.rid),path:x.t,rems:rows[i].N,ts:Date.now()}); added++; }
+    }
+    if(added){ repClipsSave(); repRenderDock(); if(typeof repCmpPanelRender==='function')repCmpPanelRender(); repDiffRenderExtr(last); repDiffRenderHead(); }
+    showToast('📥 '+(added?repLangText({ur:added+' جگہیں '+repClipLabel(repActiveClip)+' میں ڈال دیں',en:added+' rubrics added to '+repClipLabel(repActiveClip),roman:added+' jagahain clipboard mein'}):repLangText({ur:'سب پہلے سے موجود تھیں',en:'already there',roman:'sab mojood thin'})));
+}
+function repDiffGo(book,ch,rid){ repDiffClose(); navigateToRubric(book,ch,rid,true); }
+function repDiffCopy(){
+    var last=repDiffLast; if(!last||!last.res){ showToast(repLangText({ur:'پہلے چلائیں',en:'Run first',roman:'Pehle chalayein'})); return; }
+    var R=repDiffSel, res=last.res, lines=[];
+    if(last.extract&&!res){ var e=last.extract; lines.push('EXTRACT — '+e.abbr+' — scope: '+last.scope+' ('+last.n+' rubrics scanned)');
+        lines.push('total='+e.total+' single-remedy='+e.single+' not-outranked='+e.top+' shown='+e.rows.length);
+        e.rows.forEach(function(r){ lines.push('  ['+r.g+'] ('+r.N+') '+(getChapterDisplayName(r.x.book,r.x.ch)||r.x.ch)+' › '+r.x.t); });
+        var tx=lines.join('\n'); if(navigator.clipboard) navigator.clipboard.writeText(tx).then(function(){ showToast('📋 '+repLangText({ur:'فہرست کاپی ہو گئی',en:'List copied',roman:'Fehrist copy ho gayi'})); }); return; }
+    lines.push('DIFFERENTIATION — '+R.join(' vs ')+' — scope: '+last.scope+' ('+last.n+' rubrics)'+(repDiffCtx?(' — rubric: '+repDiffCtx.full):''));
+    lines.push('any='+res.any+' allPresent='+res.allPresent+' commonEqual='+res.commonEqual);
+    R.forEach(function(a){ lines.push(''); lines.push('== '+a+' ('+repRemedyTitle(a)+') exclusive '+res.perRem[a].excl+' =='); res.excl[a].slice(0,40).forEach(function(r){ lines.push('  ['+r.g+'] ('+r.N+') '+(getChapterDisplayName(r.x.book,r.x.ch)||r.x.ch)+' › '+r.x.t); }); });
+    if(res.grade.length){ lines.push(''); lines.push('== grade differences =='); res.grade.slice(0,40).forEach(function(r){ lines.push('  '+r.vec.join('/')+' ('+r.N+') '+r.x.t); }); }
+    var txt=lines.join('\n');
+    if(navigator.clipboard){ navigator.clipboard.writeText(txt).then(function(){ showToast('📋 '+repLangText({ur:'نتیجہ کاپی ہو گیا',en:'Result copied',roman:'Nateeja copy ho gaya'})); }); }
+}

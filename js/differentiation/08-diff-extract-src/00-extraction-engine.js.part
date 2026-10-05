@@ -1,0 +1,31 @@
+// Bismillah Clinic — js/differentiation/08-diff-extract.js
+// 🔬 تفریق / نکاسی — ایک دوا کی مکمل فہرست نکالنا + کاپی + نیویگیشن
+// (v83 میں js/08b-rep-differentiation.js کو آٹھ حصوں میں بانٹا گیا؛ ترتیب LOAD_ORDER.txt میں)
+
+// ==================== ✅ v68.7: «ایک دوا کی فہرست نکالنا» (remedy extraction) ====================
+// ریڈار اوپس جیسا: ایک دوا چنیں، اور اُس کی وہ ساری جگہیں نکالیں جن میں وہ دوا ہے —
+//   شرط کے ساتھ: ربرک کا سائز ≤، کم از کم گریڈ، صرف انوکھی جگہیں (جن میں اور کوئی نہ ہو)،
+//   اور صرف پہلے نمبر کی جگہیں (outranking)۔ یہ سب فہرست بھرتے ہوئے چھانتا ہے، بعد میں نہیں۔
+function repDiffExtract(abbr,list,opts,sizes){
+    var out={abbr:abbr,total:0,top:0,single:0,rows:[],cap:false,skipped:0};
+    if(!abbr||!list||!list.length) return out;
+    var minG=opts.minG||1, maxN=(opts.maxN&&opts.maxN>0)?opts.maxN:Infinity, onlyOnly=!!opts.onlySingle, topOnly=!!opts.topOnly;
+    for(var i=0;i<list.length;i++){
+        var x=list[i], r=x.r||{};
+        var g=repDiffGrade(r[abbr]); if(g<minG) continue;
+        var n=0,best=0,bestA=null;
+        for(var a in r){ var gg=repDiffGrade(r[a]); n++; if(gg>best){best=gg;bestA=a;} else if(gg===best&&bestA&&a<bestA)bestA=a; }
+        out.total++;
+        var isSingle=(n===1), isTop=(g>=best);
+        if(isSingle) out.single++;
+        if(isTop) out.top++;
+        if(onlyOnly&&!isSingle) continue;
+        if(topOnly&&!isTop) continue;
+        if(n>maxN){ out.skipped++; continue; }
+        out.rows.push({x:x,N:n,g:g,score:g*repDiffSpec(n),peer:isSingle?'':bestA,pg:best});
+    }
+    out.rows.sort(function(a,b){ return (b.g-a.g)||(a.N-b.N)||(b.score-a.score); });
+    if(out.rows.length>REP_EXTR_CAP){ out.rows.length=REP_EXTR_CAP; out.cap=true; }
+    out.k1=out.total;
+    return out;
+}

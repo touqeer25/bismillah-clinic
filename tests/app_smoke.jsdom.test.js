@@ -30,8 +30,12 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   w.repDiffOpenForRubric(); await sleep(100); for(let i=0;i<100&&!d.querySelector('.rep-diff-tbl');i++)await sleep(100);
   ok(w.repDiffIsOpen()&&d.querySelector('.rep-diff-tbl'),'differentiation window opens with rubric table');
   w.repDiffToggleRem('nat-m'); await sleep(50); for(let i=0;i<60&&!(w.repDiffLast&&w.repDiffLast.res);i++)await sleep(100);
-  w.repDiffSetTab('mm'); for(let i=0;i<300&&!d.querySelector('.rep-mm-e-left .rep-mm-draft');i++)await sleep(100);
-  ok(d.querySelector('.rep-mm-e-left')&&d.querySelector('.rep-mm-e-right textarea')&&d.querySelector('.rep-mm-draft'),'📖 tab (writing mode) renders with a draft + sticky editor (progressive load ok)');
+  if(fs.existsSync(ROOT+'/mm/_index.json')){
+    w.repDiffSetTab('mm'); for(let i=0;i<300&&!d.querySelector('.rep-mm-e-left .rep-mm-draft');i++)await sleep(100);
+    ok(d.querySelector('.rep-mm-e-left')&&d.querySelector('.rep-mm-e-right textarea')&&d.querySelector('.rep-mm-draft'),'📖 tab (writing mode) renders with a draft + sticky editor (progressive load ok)');
+  } else {
+    console.log('SKIP: کتابی فہرست موجود نہیں، لکھنے والے مدیر کی آزمائش نہیں چلائی گئی');
+  }
   // new repertory book: Hering Analytical (Mind) opens with its first chapter
   w.repDiffClose&&w.repDiffClose(); w.repCurrentBook='hering_mind'; w.repCurrentChapter=''; w.initRepertoryBrowser(); for(let i=0;i<100&&!(w.repCurrentBook==='hering_mind'&&d.querySelectorAll('.rtv-row').length>20);i++)await sleep(100);
   ok(w.repCurrentChapter==='ailments_from_emotions_and_exertions_of_the_mind'&&d.querySelectorAll('.rtv-row').length>20,'Hering Analytical Repertory (Mind) book opens: chapter '+w.repCurrentChapter+', '+d.querySelectorAll('.rtv-row').length+' cards');
