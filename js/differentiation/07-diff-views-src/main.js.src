@@ -1,0 +1,3 @@
+/* @include: 00-diff-view-helpers.js.part */
+/* @include: 01-diff-results-view.js.part */
+/* @include: 02-diff-row-actions.js.part */

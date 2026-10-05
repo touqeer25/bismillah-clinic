@@ -1,0 +1,4 @@
+/* @include: 00-diff-page-shell.js.part */
+/* @include: 01-diff-page-header.js.part */
+/* @include: 02-diff-page-controls.js.part */
+/* @include: 03-diff-page-runner.js.part */

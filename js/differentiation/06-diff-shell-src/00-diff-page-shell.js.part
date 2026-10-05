@@ -1,0 +1,90 @@
+// Bismillah Clinic — js/differentiation/06-diff-shell.js
+// 🔬 تفریق / نکاسی — ڈھانچہ — کھولنا/بند، ہیڈر، کنٹرولز، ٹیبز، چلانا
+// (v83 میں js/08b-rep-differentiation.js کو آٹھ حصوں میں بانٹا گیا؛ ترتیب LOAD_ORDER.txt میں)
+
+// ---------- کھولنا / بند کرنا ----------
+function repDiffOpenForRubric(){
+    var d=(typeof repCurrentDetail!=='undefined'&&repCurrentDetail)||{};
+    var node=(typeof repDetailNode==='function')?repDetailNode():null;
+    var rems=(node&&node.remedies)||{};
+    if(!d.rid){ showToast(repLangText({ur:'یہ ربرک تفریق کے لیے دستیاب نہیں',en:'This rubric is not available for differentiation',roman:'Ye rubric tafreeq ke liye dastiyab nahi'})); return; }
+    repDiffCtx={book:repCurrentBook,ch:repCurrentChapter,rid:String(d.rid),full:d.full||'',rems:rems};
+    repDiffSel=[]; repDiffTheme=repDiffThemeWordsFor(repDiffCtx); repDiffLast=null;
+    repDiffPoolOpen=true;   // 🔑 v93: نیا ربرک کھلے تو دوائیں سامنے ہوں (ابھی کچھ منتخب نہیں)؛ صارف چاہے تو ▸ سے بند کر دے
+    repDiffTab='rubric';
+    repDiffShow(); repDiffRun();
+}
+function repDiffOpenWithRemedies(arr,ctx){
+    var list=(arr||[]).map(function(a){ return String(a||'').trim().toLowerCase(); }).filter(Boolean).slice(0,REP_DIFF_MAX_REMS);
+    if(ctx){ repDiffCtx=ctx; } else if(!repDiffCtx||repDiffCtx.book!==repCurrentBook){ repDiffCtx=null; }
+    repDiffSel=list; repDiffLast=null; repDiffTheme=repDiffCtx?repDiffThemeWordsFor(repDiffCtx):'';
+    repDiffPoolOpen=!list.length;   // 🔑 v93: دوائیں پہلے سے دی ہوئی ہوں تو ذخیرہ بند ہی رہے
+    repDiffTab=list.length===1?'excl':'excl';
+    repDiffShow(); if(list.length) repDiffRun(); else repDiffRenderBody();
+}
+// 🔑 v85 (صارف): تفریق / نکاسی اب **پاپ اپ نہیں، ریپرٹری کے صفحے کا ٹیب** ہے۔
+//   اگر صفحے میں #repDiffView موجود ہو تو سب کچھ اُسی کے اندر بنتا ہے (ماڈل بالکل نہیں بنتا)۔
+//   اگر وہ خانہ نہ ملے (پرانا index.html) تو پرانا ماڈل والا راستہ جوں کا توں چلتا رہے گا۔
+function repDiffHost(){ return document.getElementById('repDiffView'); }
+function repDiffTabMode(){ return !!repDiffHost(); }
+// 🔑 v151 (صارف): اب صفحے کے اوپر **تین ٹیب** ہیں — 📖 ریپرٹری · 🔬 تفریق / نکاسی · 🔍 نتائج
+var repActivePageTab='rep';     // کون سا ٹیب سامنے ہے: rep | diff | search
+function repPageTab(which){
+    var page=document.getElementById('page-repertoryBrowser'); if(!page) return;
+    var host=repDiffHost();
+    var diff=(which==='diff')&&!!host;
+    var search=(which==='search'&&!diff);
+    repActivePageTab=diff?'diff':(search?'search':'rep');
+    // 🔑 v86: صرف ربرکس کا خانہ بدلتا ہے — ابواب کی سائیڈ بار، بریڈکرمب اپنی جگہ
+    // 🔑 v87 (صارف): کلپ بورڈ کی پٹی (#repDockArea) اب ہر ٹیب پر موجود رہتی ہے — چھپائی نہیں جاتی
+    // 🔑 v151 (صارف): سرچ نتائج اپنے الگ خانے (#repSearchView) میں — ریپرٹری ⇄ نتائج کلک سے
+    var cont=document.getElementById('repRubricContent');
+    var sv=document.getElementById('repSearchView');
+    var tb=document.getElementById('repPageTabRep'), td=document.getElementById('repPageTabDiff'), ts=document.getElementById('repPageTabSearch');
+    if(cont) cont.style.display=(repActivePageTab==='rep')?'':'none';
+    if(sv) sv.style.display=search?'':'none';
+    if(host) host.style.display=diff?'':'none';
+    if(tb) tb.classList.toggle('on',repActivePageTab==='rep');
+    if(td) td.classList.toggle('on',diff);
+    if(ts) ts.classList.toggle('on',search);
+    if(diff){
+        if(!document.getElementById('repDiffHead')) host.innerHTML='<div id="repDiffHead"></div><div id="repDiffBody" class="rep-diff-body"></div>';
+        repDiffRenderHead(); if(!repDiffLast) repDiffRenderBody();
+    }
+}
+// 🔑 v87 (صارف): تفریق یا نتائج کا ٹیب سامنے ہو اور صارف بائیں سے کوئی باب، یا بریڈکرمب /
+//   ← → ↑ دبائے، تو ریپرٹری خود بخود سامنے آ جائے (ورنہ نیا باب پیچھے کھلتا رہتا تھا اور نظر نہ آتا تھا)۔
+function repDiffBackOnNav(){
+    var ids=['repChapterList','repBreadcrumb','repBtnBack','repBtnFwd','repBtnUp'];
+    ids.forEach(function(id){
+        var el=document.getElementById(id); if(!el||el._repDiffNav) return; el._repDiffNav=1;
+        el.addEventListener('click',function(){ if(repActivePageTab!=='rep') repPageTab('rep'); },true);   // 🔑 v151: تفریق یا نتائج سے بھی واپس ریپرٹری
+    });
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',repDiffBackOnNav); else repDiffBackOnNav();
+function repDiffShow(){
+    var host=repDiffHost();
+    if(host){
+        if(!document.getElementById('repDiffHead')) host.innerHTML='<div id="repDiffHead"></div><div id="repDiffBody" class="rep-diff-body"></div>';
+        repPageTab('diff'); repDiffRenderHead(); return;
+    }
+    var m=document.getElementById('repDiffModal');
+    if(!m){
+        m=document.createElement('div'); m.id='repDiffModal'; m.className='rep-diff-modal';
+        m.innerHTML='<div class="rep-diff-back" onclick="repDiffClose()"></div><div class="rep-diff-win" role="dialog" aria-modal="true"><div id="repDiffHead"></div><div id="repDiffBody" class="rep-diff-body"></div></div>';
+        document.body.appendChild(m);
+        document.addEventListener('keydown',function(ev){ if(ev.key==='Escape'){ var mm=document.getElementById('repDiffModal'); if(mm&&mm.style.display!=='none'&&mm.style.display!=='') repDiffClose(); } });
+    }
+    m.style.display='block'; document.body.classList.add('rep-diff-open');
+    repDiffRenderHead();
+}
+function repDiffClose(){
+    if(repDiffHost()){ repPageTab('rep'); return; }
+    var m=document.getElementById('repDiffModal'); if(m)m.style.display='none'; document.body.classList.remove('rep-diff-open');
+}
+function repDiffIsOpen(){
+    var host=repDiffHost(); if(host) return host.style.display!=='none';
+    var m=document.getElementById('repDiffModal'); return !!(m&&m.style.display==='block');
+}
+
+// ---------- ہیڈر: سیاق + ریمیڈی پکر + کنٹرولز + ٹیبز ----------

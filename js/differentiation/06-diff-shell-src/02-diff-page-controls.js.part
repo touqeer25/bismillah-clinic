@@ -1,0 +1,38 @@
+function repDiffDatalistHtml(){
+    var names=(typeof _repRemedyNames!=='undefined'&&_repRemedyNames)||null, out='', seen={};
+    if(repDiffCtx&&repDiffCtx.rems){
+        Object.keys(repDiffCtx.rems).forEach(function(a){
+            var g=repDiffGrade(repDiffCtx.rems[a]); seen[a]=1;
+            out+='<option value="'+_repAttr(a)+'">⭐ '+escapeHtml((names&&names[a])||a)+' — '+repLangText({ur:'اسی ربرک میں، گریڈ ',en:'in this rubric, grade ',roman:'is rubric mein, grade '})+g+'</option>';
+        });
+    }
+    if(names) Object.keys(names).forEach(function(a){ if(!seen[a]) out+='<option value="'+_repAttr(a)+'">'+escapeHtml(names[a])+'</option>'; });
+    return out;
+}
+function repDiffClearCtx(){ repDiffCtx=null; repDiffTheme=''; if(repDiffTab==='rubric')repDiffTab='excl'; repDiffLast=null; repDiffRenderHead(); if(repDiffSel.length)repDiffRun(); else repDiffRenderBody(); }
+function repDiffToggleRem(a){
+    a=String(a||'').toLowerCase(); if(!a)return;
+    var i=repDiffSel.indexOf(a);
+    if(i!==-1) repDiffSel.splice(i,1);
+    else { if(repDiffSel.length>=REP_DIFF_MAX_REMS){ showToast(repLangText({ur:'زیادہ سے زیادہ '+REP_DIFF_MAX_REMS+' ریمیڈیز',en:'Maximum '+REP_DIFF_MAX_REMS+' remedies',roman:'Max '+REP_DIFF_MAX_REMS+' remedies'})); return; } repDiffSel.push(a); }
+    if(repDiffTab==='rubric'&&repDiffSel.length) repDiffTab='excl';
+    repDiffLast=null; repDiffRenderHead();
+    if(repDiffSel.length) repDiffRun(); else repDiffRenderBody();
+}
+function repDiffAddTyped(){
+    var inp=document.getElementById('repDiffInput'); if(!inp)return; var v=String(inp.value||'').trim().toLowerCase(); if(!v)return;
+    inp.value=''; repDiffToggleRem(v);
+}
+function repDiffSetOpt(k,v){ var old=repDiffOpts[k]; repDiffOpts[k]=v; repDiffOptsSave(); repDiffLast=null; repDiffRenderHead();
+    if(k==='mode'){ if(repDiffSel.length||repDiffTab==='rubric'||repDiffTab==='books') repDiffRun(); return; }
+    if(repDiffSel.length||repDiffTab==='rubric'||repDiffTab==='books') repDiffRun(); }
+function repDiffSetTab(t){
+    repDiffTab=t; repDiffRenderHead();
+    var loaded=repDiffLast?Object.keys(repDiffLast.all||{}).length:0;
+    if(t==='mm'){ repDiffRenderBody(); return; }                 // میٹیریا میڈیکا: اپنا ڈیٹا خود لوڈ کرتا ہے
+    if(t==='books'){ if(!repDiffLast) repDiffRun(); else repDiffRenderBody(); return; }   // 🔑 v84: خودکار ۵۶ MB نہیں — صارف «لوڈ کریں» دبائے گا
+    if(!repDiffLast&&t==='rubric'){ repDiffRun(); return; }
+    repDiffRenderBody();
+}
+
+// ---------- چلانا ----------

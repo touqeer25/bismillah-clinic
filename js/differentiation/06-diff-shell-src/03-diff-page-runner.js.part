@@ -1,0 +1,32 @@
+function repDiffRun(){
+    var body=document.getElementById('repDiffBody'); if(!body)return;
+    var L=repLangText;
+    if(!repDiffSel.length&&repDiffTab!=='rubric'&&repDiffTab!=='books'&&repDiffTab!=='mm'){ repDiffRenderBody(); return; }
+    if(_repDiffBusy) return; _repDiffBusy=true;
+    body.innerHTML='<div class="rep-tool-loading">⏳ '+L({ur:'ڈیٹا لوڈ اور حساب ہو رہا ہے…',en:'Loading data and computing…',roman:'Data load aur hisaab…'})+'</div>';
+    var scope=repDiffOpts.scope, book=repDiffScopeBook(), ch=repDiffScopeCh();
+    var needAll=(scope==='all');   // 🔑 v84: «کتابوں کی گواہی» اب اپنی کتابیں خود (چن کر، ایک ایک کر کے) منگواتی ہے — یہاں ۵۶ MB والا راستہ بند
+    var t0=Date.now();
+    var opt=Object.assign({},repDiffOpts);
+    if(repDiffSel.length){ var m={}; repDiffSel.forEach(function(a){ m[a]=1; }); opt._rems=m; }
+    opt._stop=true;                              // ✅ v68.7: لمبی اسکین پر جلدی رکنا
+    var go=function(list,all){
+        var scopeData=all[book]||null;
+        var sizes=repDiffRemedySizes(book,scopeData);
+        var single=(repDiffOpts.mode==='extract'&&repDiffSel.length===1);
+        var extr=single?repDiffExtract(repDiffSel[0],list,repDiffOpts,sizes):null;
+        var res=(single||!repDiffSel.length)?null:repDiffCompute(repDiffSel,list,repDiffOpts);
+        repDiffLast={res:res,extract:extr,list:list,all:all,sizes:sizes,scopeBook:book,scope:scope,ms:Date.now()-t0,n:list.length,skipped:list.skipped||0,scanned:list.scanned||0};
+        _repDiffBusy=false;
+        repDiffRenderHead(); repDiffRenderBody();
+    };
+    if(needAll){
+        repEnsureAllBooks(function(all){
+            all=all||{};
+            if(scope==='all'){ repDiffRubricList('all',book,ch,function(list,a2){ go(list,all); },opt); }
+            else { repDiffRubricList(scope,book,ch,function(list,a2){ Object.keys(a2||{}).forEach(function(bk){ if(!all[bk])all[bk]=a2[bk]; }); go(list,all); },opt); }
+        });
+    } else {
+        repDiffRubricList(scope,book,ch,function(list,all){ go(list,all||{}); },opt);
+    }
+}

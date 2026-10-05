@@ -1,0 +1,30 @@
+// Bismillah Clinic — js/differentiation/07-diff-views.js
+// 🔬 تفریق / نکاسی — نتیجے کے نظارے — چاروں ٹوکریاں + کلپ بورڈ
+// (v83 میں js/08b-rep-differentiation.js کو آٹھ حصوں میں بانٹا گیا؛ ترتیب LOAD_ORDER.txt میں)
+
+// ---------- باڈی ----------
+function repDiffInCaseSet(){ var s={}; for(var ci=0;ci<REP_N_CLIPS;ci++)(repClipboards[ci]||[]).forEach(function(it){ s[it.book+'|'+String(it.rid)]=ci+1; }); return s; }
+function repDiffDots(vec,R){ var h=''; for(var i=0;i<vec.length;i++){ var g=vec[i]; h+='<span class="rep-diff-dot'+(g?' d'+g:' d0')+'" title="'+_repAttr(R[i]+' = '+(g||0))+'">'+(g||'·')+'</span>'; } return h; }
+// 🔑 v92 (صارف): گریڈ کے گولوں کے **عین اوپر** دواؤں کے نام — چوڑائی گولوں کے برابر، اس لیے ٹھیک اوپر بیٹھتے ہیں
+function repDiffVecHead(R){
+    if(!R||R.length<2) return '';
+    var h='<div class="rep-diff-vechead"><span class="sp"></span><span class="rep-diff-vec">';
+    R.forEach(function(a){ h+='<span class="vh" title="'+_repAttr(repRemedyTitle(a))+'"><i dir="ltr">'+escapeHtml(a)+'</i></span>'; });
+    return h+'</span><span class="sc"></span></div>';
+}
+function repDiffRowHtml(row,R,inCase,showBook){
+    var x=row.x, key=x.book+'|'+x.rid, inC=inCase[key];
+    var chName=getChapterDisplayName(x.book,x.ch)||x.ch;
+    var h='<div class="rep-diff-row">'
+        +'<button class="rpc-chk sr'+(repClipFind(repActiveClip,x.book,x.rid)!==-1?' on':'')+'" title="'+repLangText({ur:'فعال کلپ بورڈ میں شامل/خارج',en:'Add to / remove from active clipboard',roman:'Active clipboard mein shamil/kharij'})+'" onclick="repDiffClipToggle(this,\''+_repJs(x.book)+'\',\''+_repJs(x.ch)+'\',\''+_repJs(x.rid)+'\',\''+_repJs(x.t)+'\','+row.N+')">'+(repClipFind(repActiveClip,x.book,x.rid)!==-1?'✓':'')+'</button>'
+        +(showBook?repBookBadgeHtml(x.book)+' ':'')
+        +'<span class="rep-diff-ch">'+escapeHtml(chName)+' ›</span> '
+        +'<span class="rep-diff-t" dir="ltr" onclick="repDiffGo(\''+_repJs(x.book)+'\',\''+_repJs(x.ch)+'\',\''+_repJs(x.rid)+'\')">'+(typeof repXrefHtml==='function'?repXrefHtml(x.t):escapeHtml(x.t))+'</span>'
+        +(typeof repRubricUrHtml==='function'?repRubricUrHtml(x.t,'rep-diff-ur'):'')   // 🔑 v101: اردو جملہ (دائیں سے بائیں)
+        +'<span class="rep-diff-n" title="'+repLangText({ur:'ربرک کی کل ریمیڈیز',en:'remedies in rubric',roman:'rubric ki kul remedies'})+'">'+row.N+'</span>'
+        +'<span class="rep-diff-vec">'+repDiffDots(row.vec,R)+'</span>'
+        +'<span class="rep-diff-score" title="'+repLangText({ur:'اسکور',en:'score',roman:'score'})+'">'+repDiffFmt(row.score)+'</span>'
+        +(inC?'<span class="rep-diff-incase" title="'+repLangText({ur:'کیس میں موجود — کلپ بورڈ '+inC,en:'Already in case — clipboard '+inC,roman:'Case mein mojood — clipboard '+inC})+'">📋'+inC+'</span>':'')
+        +'</div>';
+    return h;
+}

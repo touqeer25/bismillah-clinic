@@ -1,0 +1,9 @@
+// ربرک موڈ ٹیب
+// ---------- اعمال ----------
+function repDiffClipToggle(btn,book,ch,rid,path,rems){
+    var added=repClipToggle(repActiveClip,book,ch,rid,path,rems||0);
+    if(btn){ btn.classList.toggle('on',added); btn.textContent=added?'✓':''; }
+    if(typeof repCmpSyncChecks==='function') repCmpSyncChecks(book,rid,added);
+    showToast((added?'☑ ':'☐ ')+repLangText({ur:added?repClipLabel(repActiveClip)+' میں شامل':repClipLabel(repActiveClip)+' سے ہٹا دیا',en:added?'Added to '+repClipLabel(repActiveClip):'Removed from '+repClipLabel(repActiveClip),roman:added?repClipLabel(repActiveClip)+' mein shamil':repClipLabel(repActiveClip)+' se hata diya'}));
+    if(typeof repCmpPanelRender==='function') repCmpPanelRender();
+}
