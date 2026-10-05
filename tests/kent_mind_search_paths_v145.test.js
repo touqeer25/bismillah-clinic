@@ -15,8 +15,8 @@ const freshlyBuilt = buildKentMindSearchPaths();
 assert.strictEqual(JSON.stringify(sidecar), JSON.stringify(freshlyBuilt),
     'saved sidecar must match the current Kent MIND tree parser');
 assert.strictEqual(sidecar.schema, 'kent-search-paths-v1');
-assert.strictEqual(sidecar.tree_fix_version, '146');
-assert.strictEqual(sidecar.display_tree_override_count, 1);
+assert.strictEqual(sidecar.tree_fix_version, '147');
+assert.strictEqual(sidecar.display_tree_override_count, 2);
 assert.strictEqual(sidecar.source_record_count, 4356);
 assert.strictEqual(sidecar.hidden_anchor_count, 0);
 assert.strictEqual(sidecar.visible_rubric_count, 4356);
@@ -45,6 +45,17 @@ Object.keys(anxietySleepPaths).forEach(rid => {
 });
 assert.deepStrictEqual(Object.keys(anxietySleepPaths).map(rid => sidecar.entries[rid].order),
     [283, 284, 285, 286, 287, 288, 289, 290], 'printed source order remains continuous through the corrected branch');
+const ideasDeficiencyPaths = {
+    h2528: ['IDEAS', 'deficiency of'],
+    o48406: ['IDEAS', 'deficiency of', 'extra exertion, on'],
+    o48407: ['IDEAS', 'deficiency of', 'interruption, from any'],
+    o48408: ['IDEAS', 'deficiency of', 'vomiting amel.']
+};
+Object.keys(ideasDeficiencyPaths).forEach(rid => {
+    assert.deepStrictEqual(sidecar.entries[rid].path, ideasDeficiencyPaths[rid], 'reviewed IDEAS deficiency path ' + rid);
+});
+assert.deepStrictEqual(Object.keys(ideasDeficiencyPaths).map(rid => sidecar.entries[rid].order),
+    [2529, 2530, 2531, 2532], 'page order remains intact despite the reviewed tree branch');
 assert.strictEqual(sidecar.hidden_anchor_count, 0, 'no source rubric is hidden');
 
 assert.strictEqual(fs.readFileSync(path.join(ROOT, 'kent_chapters/mind.json'), 'utf8'), sourceBytesBefore,

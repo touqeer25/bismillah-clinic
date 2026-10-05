@@ -3,16 +3,16 @@
   "book": "kent",
   "chapter": "mind",
   "chapter_label": "MIND",
-  "order_definition": "Homeoint printed-page order 1-95 with the page-8 ANXIETY sleep display hierarchy; source records and source_order remain unchanged",
+  "order_definition": "Homeoint printed-page order 1-95; includes the audited page-8 ANXIETY display path and the user-reviewed IDEAS deficiency branch; source_order values remain unchanged",
   "source": "kent_chapters/mind.json",
   "tree_builder": "js/repertory/rep-chapters.js",
-  "tree_fix_version": "146",
-  "display_tree_override_count": 1,
+  "tree_fix_version": "147",
+  "display_tree_override_count": 2,
   "source_record_count": 4356,
   "hidden_anchor_count": 0,
   "visible_rubric_count": 4356,
-  "source_sha256": "3d54cc76dd5e3c02276b8e139d2b27c4110a920def7ffd4e6bb99d7097050844",
-  "build_sha256": "65e4c2108155bc129ad7920608ceced7ff7fc859249ce9ab339b473f96d5d161",
+  "source_sha256": "c9c0d674e160a97cb2521f4aefcd35464f12e9bca614ad744886429fd63451f4",
+  "build_sha256": "a1d1be76988080c1a18d650d943a522ff9a8e19aeb14210b364a1e4a58d7f02a",
   "entries": {
     "r0": {
       "path": [
@@ -18523,37 +18523,6 @@
       ],
       "order": 2528
     },
-    "h2528": {
-      "path": [
-        "IDEAS abundant, clearness of mind",
-        "deficiency of"
-      ],
-      "order": 2529
-    },
-    "o48406": {
-      "path": [
-        "IDEAS abundant, clearness of mind",
-        "deficiency of",
-        "extra exertion, on"
-      ],
-      "order": 2530
-    },
-    "o48407": {
-      "path": [
-        "IDEAS abundant, clearness of mind",
-        "deficiency of",
-        "interruption, from any"
-      ],
-      "order": 2531
-    },
-    "o48408": {
-      "path": [
-        "IDEAS abundant, clearness of mind",
-        "deficiency of",
-        "vomiting amel."
-      ],
-      "order": 2532
-    },
     "o48409": {
       "path": [
         "IDEAS abundant, clearness of mind",
@@ -18567,6 +18536,37 @@
         "ridiculous"
       ],
       "order": 2534
+    },
+    "h2528": {
+      "path": [
+        "IDEAS",
+        "deficiency of"
+      ],
+      "order": 2529
+    },
+    "o48406": {
+      "path": [
+        "IDEAS",
+        "deficiency of",
+        "extra exertion, on"
+      ],
+      "order": 2530
+    },
+    "o48407": {
+      "path": [
+        "IDEAS",
+        "deficiency of",
+        "interruption, from any"
+      ],
+      "order": 2531
+    },
+    "o48408": {
+      "path": [
+        "IDEAS",
+        "deficiency of",
+        "vomiting amel."
+      ],
+      "order": 2532
     },
     "r2551": {
       "path": [

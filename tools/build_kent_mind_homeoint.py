@@ -3,8 +3,8 @@
 
 By default the builder uses the parsed snapshots under kent_sources, so --check
 works offline and across workspace sessions. Use --source-dir to rebuild against
-fresh temporary audit output. Existing local IDs are reused only through unique
-matches; titles, parents, order, medicines, and grades come from the extraction.
+fresh temporary audit output. Existing local IDs are reused through unique matches. One explicit user-reviewed
+MIND hierarchy override is applied after validating the untouched extraction.
 """
 from __future__ import annotations
 
@@ -26,6 +26,7 @@ MIND_PATH = ROOT / "kent_chapters/mind.json"
 MASTER_PATH = ROOT / "kent_repertory.json"
 INDEX_PATH = ROOT / "kent_chapters/_index.json"
 NAMES_PATH = ROOT / "remedy_names.json"
+TREE_OVERRIDE_PATH = SOURCE_SNAPSHOT_DIR / "kent_mind_ideas_deficiency_tree_override.json"
 
 
 def normalize_title(value: str) -> str:
@@ -73,8 +74,10 @@ def validate_source_rows(rows: list[dict]) -> None:
         stack.append(row)
 
 
-def map_existing_ids(rows: list[dict], local: dict) -> tuple[dict[int, str], Counter]:
+def map_existing_ids(rows: list[dict], local: dict,
+                     overrides_by_order: dict[int, dict] | None = None) -> tuple[dict[int, str], Counter]:
     """One-to-one ID crosswalk; deliberately avoids leaf-only/signature-only guesses."""
+    overrides_by_order = overrides_by_order or {}
     # An already-built source chapter is reused exactly, making rebuilds idempotent.
     by_order = defaultdict(list)
     for rid, rubric in local.items():
@@ -84,12 +87,14 @@ def map_existing_ids(rows: list[dict], local: dict) -> tuple[dict[int, str], Cou
         exact = {}
         for row in rows:
             rid, old = by_order[row["source_order"]][0]
-            full_title = ", ".join(row["source_path_labels"])
+            override = overrides_by_order.get(int(row["source_order"]), {})
+            full_title = override.get("new_title", ", ".join(row["source_path_labels"]))
+            expected_label = override.get("new_source_label", row["label"])
             expected_remedies = {
                 normalize_remedy_code(remedy["name"]): int(remedy["grade"])
                 for remedy in row["remedies"]
             }
-            if (old.get("t") != full_title or old.get("source_label") != row["label"] or
+            if (old.get("t") != full_title or old.get("source_label") != expected_label or
                     old.get("source_page") != row["page"] or old.get("r", {}) != expected_remedies):
                 break
             exact[row["source_order"]] = rid
@@ -108,10 +113,14 @@ def map_existing_ids(rows: list[dict], local: dict) -> tuple[dict[int, str], Cou
     prepared = []
     for index, row in enumerate(rows):
         path_labels = row["source_path_labels"]
+        override = overrides_by_order.get(index, {})
+        effective_title = override.get("new_title", ", ".join(path_labels))
+        effective_display_path = override.get("new_display_path", path_labels)
+        effective_label = override.get("new_source_label", row["label"])
         prepared.append({
-            "full": normalize_title(", ".join(path_labels)),
-            "leaf": normalize_title(row["label"]),
-            "root": normalize_title(path_labels[0].split(",", 1)[0]),
+            "full": normalize_title(effective_title),
+            "leaf": normalize_title(effective_label),
+            "root": normalize_title(effective_display_path[0].split(",", 1)[0]),
             "signature": source_signature(row),
         })
 
@@ -187,11 +196,49 @@ def add_required_remedy_names(rows: list[dict], names: dict, source_abbreviation
     return dict(sorted(updated.items())), additions
 
 
+def validate_tree_overrides(rows: list[dict], override_doc: dict) -> dict[int, dict]:
+    by_order = {int(row["source_order"]): row for row in rows}
+    overrides = {}
+    for spec in override_doc.get("rows", []):
+        order = int(spec["source_order"])
+        row = by_order.get(order)
+        if row is None or order in overrides:
+            raise ValueError(f"Missing or duplicate MIND tree override source order {order}")
+        if (", ".join(row["source_path_labels"]) != spec["old_title"] or
+                row["label"] != spec["old_source_label"]):
+            raise ValueError(f"MIND tree override no longer matches source row {order}")
+        display_path = spec.get("new_display_path") or []
+        if not display_path or ", ".join(display_path) != spec.get("new_title"):
+            raise ValueError(f"MIND tree override has an invalid display path at order {order}")
+        parent_order = spec.get("new_parent_source_order")
+        if parent_order is not None:
+            parent_order = int(parent_order)
+            parent_override = next((item for item in override_doc["rows"]
+                                    if int(item["source_order"]) == parent_order), None)
+            if parent_override is None or display_path[:-1] != parent_override["new_display_path"]:
+                raise ValueError(f"MIND tree override parent/path mismatch at order {order}")
+        elif len(display_path) != 2 or display_path[0] != override_doc["virtual_parent"]["label"]:
+            raise ValueError(f"MIND virtual root path mismatch at order {order}")
+        overrides[order] = spec
+    if len(overrides) != 4:
+        raise ValueError("Expected exactly four reviewed MIND tree rows in the override file")
+    return overrides
+
+
 def build_chapter(rows: list[dict], local: dict, remedy_names: dict,
-                  source_abbreviations: dict) -> tuple[dict, dict]:
+                  source_abbreviations: dict, tree_override: dict) -> tuple[dict, dict]:
     validate_source_rows(rows)
+    overrides_by_order = validate_tree_overrides(rows, tree_override)
     name_map, additions = add_required_remedy_names(rows, remedy_names, source_abbreviations)
-    id_map, stages = map_existing_ids(rows, local)
+    id_map, stages = map_existing_ids(rows, local, overrides_by_order)
+    by_order = {int(row["source_order"]): row for row in rows}
+    for order, override in overrides_by_order.items():
+        if id_map[order] != override.get("local_id"):
+            raise ValueError(f"MIND tree override local identity changed at order {order}")
+        raw_parent_order = by_order[order]["parent_source_order"]
+        raw_parent_id = id_map[int(raw_parent_order)] if raw_parent_order is not None else None
+        if raw_parent_id != override.get("old_source_parent_id"):
+            raise ValueError(f"MIND tree override source parent no longer matches at order {order}")
     used = set(id_map.values())
     for row in rows:
         order = int(row["source_order"])
@@ -208,9 +255,12 @@ def build_chapter(rows: list[dict], local: dict, remedy_names: dict,
     output = {}
     for row in rows:
         order = int(row["source_order"])
-        parent_order = row["parent_source_order"]
-        parent_id = id_map[parent_order] if parent_order is not None else None
-        title = ", ".join(row["source_path_labels"])
+        override = overrides_by_order.get(order)
+        parent_order = (override["new_parent_source_order"] if override is not None
+                        else row["parent_source_order"])
+        parent_id = id_map[int(parent_order)] if parent_order is not None else None
+        title = override["new_title"] if override is not None else ", ".join(row["source_path_labels"])
+        source_label = override["new_source_label"] if override is not None else row["label"]
         remedies = {}
         for remedy in row["remedies"]:
             code = normalize_remedy_code(remedy["name"])
@@ -221,11 +271,13 @@ def build_chapter(rows: list[dict], local: dict, remedy_names: dict,
         rubric = {
             "t": title,
             "r": remedies,
-            "source_label": row["label"],
+            "source_label": source_label,
             "source_parent_id": parent_id,
             "source_order": order,
             "source_page": int(row["page"]),
         }
+        if override is not None:
+            rubric["tree_override_id"] = tree_override["review_id"]
         output[id_map[order]] = rubric
 
     mapping_summary = {
@@ -336,9 +388,12 @@ def main() -> None:
             raise SystemExit("The raw audit directory must contain parsed candidates and kentreme.htm.")
         source_rows = json.loads(source_json.read_text(encoding="utf-8"))
         source_abbreviations = parse_remedy_abbreviations(remedy_html.read_bytes())
+    if not TREE_OVERRIDE_PATH.exists():
+        raise SystemExit("The reviewed Kent MIND tree override file is missing.")
+    tree_override = json.loads(TREE_OVERRIDE_PATH.read_text(encoding="utf-8"))
     local = json.loads(MIND_PATH.read_text(encoding="utf-8"))
     names = json.loads(NAMES_PATH.read_text(encoding="utf-8"))
-    new_mind, build_info = build_chapter(source_rows, local, names, source_abbreviations)
+    new_mind, build_info = build_chapter(source_rows, local, names, source_abbreviations, tree_override)
     new_names = build_info["remedy_names"]
     mapping = build_info["mapping"]
 

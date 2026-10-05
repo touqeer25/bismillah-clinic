@@ -1,12 +1,13 @@
 // v107: ہاتھ کے ترجمے ur/rubrics/<book>/<chapter>.json میں ضم کریں — قفل کا احترام، والد+اضافہ خود جوڑے
-// Usage: node tools/merge_rubrics_ur.js kent mind /tmp/mind_1.tsv [--lock]
+// Usage: node tools/merge_rubrics_ur.js kent mind /tmp/mind_1.tsv [--lock] [--preserve-unlisted]
 //   TSV: پہلا کالم key، آخری کالم اردو (export کی فائل جوں کی توں چلتی ہے)۔
 //   اردو = «اضافہ» → جملہ = والد کا جملہ + « — » (سطح ۱) یا «، » (گہری سطح) + اضافہ
 //   اردو = «+اضافہ» → والد کا جملہ + ایک جگہ + اضافہ (جب «—»/«،» کے بغیر بہتر پڑھا جائے، مثلاً «شام» + «+۶ بجے»)
 //   اردو = «=پورا جملہ» → جوں کا توں (والد سے نہیں جڑتا)
 //   خالی اردو → چھوڑ دیا جاتا ہے (پرانا رہتا ہے)۔  --lock → اس فائل کی ساری کلیدیں قفل (نظرثانی کے بعد)
+//   --preserve-unlisted → موجودہ درخت سے باہر کی پرانی ترجمہ کلیدیں بھی محفوظ رہیں
 const fs=require('fs'); const L=require('./rubrics_ur_lib.js');
-const book=process.argv[2], ch=process.argv[3], file=process.argv[4], lock=process.argv.includes('--lock');
+const book=process.argv[2], ch=process.argv[3], file=process.argv[4], lock=process.argv.includes('--lock'), preserveUnlisted=process.argv.includes('--preserve-unlisted');
 const ri=process.argv.indexOf('--root'); const rootArg=ri>0?process.argv[ri+1]:null;   // باب کی جڑ، مثلاً «چکر — » (VERTIGO): ہر جملہ اسی سے شروع
 if(!book||!ch||!file){ console.error('Usage: node tools/merge_rubrics_ur.js kent mind file.tsv [--lock]'); process.exit(2); }
 const w=L.appWindow(); const rows=L.chapterRows(w,book,ch); const byKey={}; rows.forEach(r=>byKey[r.key]=r);
@@ -30,12 +31,15 @@ rows.forEach(r=>{                                   // ٹری کی ترتیب: �
   U[r.key]=full; order.push(r.key);
 });
 Object.keys(inp).forEach(k=>{ if(!byKey[k]){ unknown++; console.error('⚠ کلید ٹری میں نہیں: '+k); } });
-// ترتیب: ٹری کے مطابق دوبارہ لکھو
+// ترتیب: پہلے موجودہ ٹری؛ --preserve-unlisted پر باقی پرانی کلیدیں بھی جوں کی توں محفوظ
 const sorted={}; rows.forEach(r=>{ if(U[r.key]!==undefined) sorted[r.key]=U[r.key]; });
+if(preserveUnlisted){ const active=new Set(rows.map(r=>r.key)); Object.keys(U).forEach(k=>{ if(!active.has(k)&&sorted[k]===undefined) sorted[k]=U[k]; }); }
 if(lock) order.forEach(k=>LK.add(k));
 D.meta=Object.assign({},D.meta,{book,chapter:ch,version:1,order:'base-first',root:ROOT||undefined,count:Object.keys(sorted).length,locked_count:LK.size,
   note:'ربرک کا پورا راستہ (چھوٹے حروف، (See …) نکال کر) → کینٹ کے مطلب کا اردو جملہ، بنیاد پہلے۔ صرف tools/merge_rubrics_ur.js سے لکھیں۔',
   updated:new Date().toISOString().slice(0,10)});
-D.rubrics=sorted; D.locked=rows.filter(r=>LK.has(r.key)&&sorted[r.key]!==undefined).map(r=>r.key);
+D.rubrics=sorted; D.locked=preserveUnlisted?Array.from(LK).filter(k=>sorted[k]!==undefined):rows.filter(r=>LK.has(r.key)&&sorted[r.key]!==undefined).map(r=>r.key);
 const f=L.writeUr(book,ch,D);
-console.log(`${book}/${ch} → ${f}\n  نئے: ${added}   بدلے: ${changed}   ویسے ہی: ${same}   🔒 محفوظ (نہیں بدلے): ${kept}   ⚠ نامعلوم: ${unknown}\n  کل جملے: ${Object.keys(sorted).length} / ${rows.length} ربرک   قفل: ${D.locked.length}`);
+const activeTranslated=rows.filter(r=>sorted[r.key]!==undefined).length;
+const preservedCount=preserveUnlisted?Object.keys(sorted).length-activeTranslated:0;
+console.log(`${book}/${ch} → ${f}\n  نئے: ${added}   بدلے: ${changed}   ویسے ہی: ${same}   🔒 محفوظ (نہیں بدلے): ${kept}   ⚠ نامعلوم: ${unknown}\n  فعال درخت: ${activeTranslated} / ${rows.length} ربرک   فائل میں کل کلیدیں: ${Object.keys(sorted).length}   غیر مربوط پرانی کلیدیں محفوظ: ${preservedCount}   قفل: ${D.locked.length}`);

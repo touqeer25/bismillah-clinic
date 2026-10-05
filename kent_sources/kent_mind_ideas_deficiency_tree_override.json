@@ -1,0 +1,58 @@
+{
+  "schema": "kent-mind-user-reviewed-tree-override-v1",
+  "review_id": "mind-ideas-deficiency-2026-10-05",
+  "source_url": "http://www.homeoint.org/books/kentrep/kent0050.htm#P53",
+  "source_pages": [52, 53],
+  "reason_ur": "صارف کی واضح نظرثانی کے مطابق خیالات کی کثرت اور ذہن کی صفائی والی شاخ کو خیالات کی کمی کے ساتھ نہ ملایا جائے؛ صفحہ 53 کے کمی والے والد اور اس کے 3 بچے الگ خیالی شاخ میں رکھے جائیں۔ اصل ماخذی عکس امیدوار فائل میں جوں کا توں محفوظ ہے",
+  "virtual_parent": {
+    "label": "IDEAS",
+    "record_count": 0,
+    "anchor_source_order": 2528
+  },
+  "rows": [
+    {
+      "source_order": 2528,
+      "local_id": "h2528",
+      "old_title": "IDEAS abundant, clearness of mind, deficiency of",
+      "old_source_parent_id": "r4409",
+      "old_source_label": "deficiency of",
+      "new_title": "IDEAS, deficiency of",
+      "new_source_label": "deficiency of",
+      "new_parent_source_order": null,
+      "new_display_path": ["IDEAS", "deficiency of"]
+    },
+    {
+      "source_order": 2529,
+      "local_id": "o48406",
+      "old_title": "IDEAS abundant, clearness of mind, deficiency of, extra exertion, on",
+      "old_source_parent_id": "h2528",
+      "old_source_label": "extra exertion, on",
+      "new_title": "IDEAS, deficiency of, extra exertion, on",
+      "new_source_label": "extra exertion, on",
+      "new_parent_source_order": 2528,
+      "new_display_path": ["IDEAS", "deficiency of", "extra exertion, on"]
+    },
+    {
+      "source_order": 2530,
+      "local_id": "o48407",
+      "old_title": "IDEAS abundant, clearness of mind, deficiency of, interruption, from any",
+      "old_source_parent_id": "h2528",
+      "old_source_label": "interruption, from any",
+      "new_title": "IDEAS, deficiency of, interruption, from any",
+      "new_source_label": "interruption, from any",
+      "new_parent_source_order": 2528,
+      "new_display_path": ["IDEAS", "deficiency of", "interruption, from any"]
+    },
+    {
+      "source_order": 2531,
+      "local_id": "o48408",
+      "old_title": "IDEAS abundant, clearness of mind, deficiency of, vomiting amel.",
+      "old_source_parent_id": "h2528",
+      "old_source_label": "vomiting amel.",
+      "new_title": "IDEAS, deficiency of, vomiting amel.",
+      "new_source_label": "vomiting amel.",
+      "new_parent_source_order": 2528,
+      "new_display_path": ["IDEAS", "deficiency of", "vomiting amel."]
+    }
+  ]
+}

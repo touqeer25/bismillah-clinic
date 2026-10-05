@@ -14,6 +14,8 @@ const index = readJson('kent_chapters/_index.json');
 const remedies = readJson('remedy_names.json');
 const paths = readJson('kent_search_paths/mind.json');
 const manifest = readJson('kent_sources/homeoint_mind_source_manifest.json');
+const treeOverride = readJson('kent_sources/kent_mind_ideas_deficiency_tree_override.json');
+const treeOverridesByOrder = new Map(treeOverride.rows.map(row => [row.source_order, row]));
 const candidateSnapshotPath = path.join(ROOT, 'kent_sources/homeoint_mind_candidates.json');
 const abbreviationSnapshotPath = path.join(ROOT, 'kent_sources/homeoint_remedy_abbreviations.json');
 const candidateSnapshotBytes = fs.readFileSync(candidateSnapshotPath);
@@ -57,7 +59,14 @@ rids.forEach((rid, arrayIndex) => {
     pageCounts[row.source_page] = (pageCounts[row.source_page] || 0) + 1;
 
     if (row.source_parent_id === null) {
-        assert.strictEqual(row.t, row.source_label, 'a root title is its source label');
+        if (row.tree_override_id === treeOverride.review_id) {
+            const override = treeOverridesByOrder.get(row.source_order);
+            assert(override && override.new_parent_source_order === null,
+                'the user-reviewed IDEAS root is explicitly recorded');
+            assert.strictEqual(row.t, override.new_title);
+        } else {
+            assert.strictEqual(row.t, row.source_label, 'a root title is its source label');
+        }
     } else {
         const parent = mind[row.source_parent_id];
         assert(parent, 'source parent exists for ' + rid);
@@ -96,7 +105,9 @@ rids.forEach((rid, arrayIndex) => {
             current = current.source_parent_id === null ? null : mind[current.source_parent_id];
         }
     }
-    assert.deepStrictEqual(entry.path, expectedPath, 'search path follows audited Homeoint display hierarchy for ' + rid);
+    const treeOverrideForRow = treeOverridesByOrder.get(row.source_order);
+    if (treeOverrideForRow) expectedPath = treeOverrideForRow.new_display_path;
+    assert.deepStrictEqual(entry.path, expectedPath, 'search path follows the audited or user-reviewed tree for ' + rid);
     assert.strictEqual(entry.order, row.source_order + 1, 'search order follows printed order for ' + rid);
 });
 
@@ -140,23 +151,32 @@ if (JSDOM) {
         w.eval(fs.readFileSync(path.join(ROOT, 'js/repertory', file), 'utf8'));
     }
     w.eval(fs.readFileSync(path.join(ROOT, 'js/repertory/kent-tree-fix.js'), 'utf8'));
-    assert.strictEqual(w.KENT_TREE_FIX.v, '146');
+    assert.strictEqual(w.KENT_TREE_FIX.v, '147');
     assert.deepStrictEqual(Array.from(w.KENT_TREE_FIX.ch.mind.h), []);
     const tree = w.buildRubricTree(mind);
     const flat = [];
     w.repTreeFlatten(tree, [], '', 0, flat, '');
     const shown = flat.filter(row => row.node.hasRubric && row.node.rid);
-    assert.deepStrictEqual(shown.map(row => row.node.rid), rids, 'browser tree is a source-order preorder');
+    const rehomed = ['h2528', 'o48406', 'o48407', 'o48408'];
+    const expectedTreeOrder = rids.filter(rid => !rehomed.includes(rid));
+    const insertAt = expectedTreeOrder.indexOf('o48410') + 1;
+    expectedTreeOrder.splice(insertAt, 0, ...rehomed);
+    assert.deepStrictEqual(shown.map(row => row.node.rid), expectedTreeOrder,
+        'the reviewed deficiency branch is grouped under its own IDEAS folder without changing source_order');
     const shownById = new Map(shown.map(row => [row.node.rid, row]));
     w.buildRidPathMap(tree);
     assert.deepStrictEqual(Array.from(w.repRidPathMap.r286.path), ['ANXIETY', 'sleep', 'on going to']);
     assert.strictEqual(w.repRidPathMap.r286.fullPath, 'ANXIETY, sleep, on going to');
     assert.strictEqual(w.repRidPathMap.r286.translationFull, mind.r286.t);
-    const sleepFolder = flat.find(row => row.node.syntheticMindPath);
+    const sleepFolder = flat.find(row => row.node.syntheticMindPath && row.node.sourceLabel === 'sleep');
     assert(sleepFolder, 'the audited sleep path has one non-record folder');
     assert.deepStrictEqual(sleepFolder.labels, ['ANXIETY', 'sleep']);
     assert.strictEqual(sleepFolder.node.hasRubric, false);
     const correctedDisplayPaths = {
+        h2528: ['IDEAS', 'deficiency of'],
+        o48406: ['IDEAS', 'deficiency of', 'extra exertion, on'],
+        o48407: ['IDEAS', 'deficiency of', 'interruption, from any'],
+        o48408: ['IDEAS', 'deficiency of', 'vomiting amel.'],
         r284: ['ANXIETY', 'sleep', 'before'],
         r285: ['ANXIETY', 'sleep', 'before', 'evening'],
         r286: ['ANXIETY', 'sleep', 'on going to'],
@@ -172,7 +192,11 @@ if (JSDOM) {
             'the saved translation key remains the original source title at ' + rid);
         if (correctedDisplayPaths[rid]) {
             assert.deepStrictEqual(row.labels, correctedDisplayPaths[rid], 'audited display path at ' + rid);
-            if (rid === 'r284') {
+            if (['h2528','o48406','o48407','o48408'].includes(rid)) {
+                assert.strictEqual(source.tree_override_id, treeOverride.review_id);
+                if (rid === 'h2528') assert.strictEqual(source.source_parent_id, null);
+                else assert.strictEqual(source.source_parent_id, 'h2528');
+            } else if (rid === 'r284') {
                 assert.deepStrictEqual(shownById.get('r121').labels, ['ANXIETY']);
                 assert.strictEqual(source.source_parent_id, 'r121');
             } else if (rid === 'r285') {
@@ -199,10 +223,19 @@ sourceRows.forEach(source => {
     const rid = byOrder.get(source.source_order);
     const row = mind[rid];
     assert.strictEqual(row.source_page, source.page);
-    assert.strictEqual(row.source_label, source.label);
-    assert.strictEqual(row.t, source.source_path_labels.join(', '));
-    const expectedParent = source.parent_source_order === null ? null : byOrder.get(source.parent_source_order);
+    const override = treeOverridesByOrder.get(source.source_order);
+    const expectedLabel = override ? override.new_source_label : source.label;
+    const expectedTitle = override ? override.new_title : source.source_path_labels.join(', ');
+    const expectedParentOrder = override ? override.new_parent_source_order : source.parent_source_order;
+    assert.strictEqual(row.source_label, expectedLabel);
+    assert.strictEqual(row.t, expectedTitle);
+    const expectedParent = expectedParentOrder === null ? null : byOrder.get(expectedParentOrder);
     assert.strictEqual(row.source_parent_id, expectedParent);
+    if (override) {
+        assert.strictEqual(override.local_id, rid);
+        assert.strictEqual(row.tree_override_id, treeOverride.review_id);
+        assert.strictEqual(override.old_title, source.source_path_labels.join(', '));
+    }
     const expectedRemedies = {};
     source.remedies.forEach(remedy => {
         const code = String(remedy.name).toLowerCase().replace(/æ/g, 'ae').replace(/œ/g, 'oe').replace(/[^a-z0-9-]/g, '');

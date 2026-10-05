@@ -356,7 +356,38 @@ function _repApplyKentMindDisplayTreeFix(byRid, fixes){
         });
     });
 }
+// 🔑 v148: ذہنی باب کے منظور شدہ عمومی والد والے راستے کو اصلی ربرک شمار کیے بغیر دکھائیں
+function _repApplyKentMindRootFolderFix(root,byRid,fixes){
+    (fixes||[]).forEach(function(fix){
+        var rubric=byRid[String(fix.rubricRid)];
+        if(!rubric || rubric.source_parent_id!==null || Number(rubric.sourceOrder)!==Number(fix.sourceOrder)){
+            throw new Error('Missing or changed Kent MIND root-folder rubric '+fix.rubricRid);
+        }
+        var oldLabel=String(rubric.name||rubric.sourceLabel||''), rootIndex=(root.order||[]).indexOf(oldLabel);
+        var folderLabel=String(fix.folderLabel||''), rubricLabel=String(fix.rubricLabel||'');
+        var fullPath=String(fix.fullPath||'');
+        if(root.children[oldLabel]!==rubric || rootIndex<0 || !folderLabel || !rubricLabel ||
+           root.children[folderLabel] || rubricLabel!==String(rubric.sourceLabel||oldLabel) ||
+           fullPath!==folderLabel+', '+rubricLabel || String(rubric.pathTitle||'')!==fullPath){
+            throw new Error('Kent MIND root-folder path no longer matches '+fix.rubricRid);
+        }
+        var folder={
+            name:folderLabel,sourceLabel:folderLabel,children:{},order:[],remedies:{},count:0,
+            hasRubric:false,path:folderLabel,pathTitle:folderLabel,displayPathTitle:folderLabel,
+            syntheticMindPath:true,rid:null,oorep_id:null
+        };
+        delete root.children[oldLabel];
+        root.children[folderLabel]=folder;
+        root.order[rootIndex]=folderLabel;
+        rubric.name=rubricLabel;
+        rubric.sourceLabel=rubricLabel;
+        rubric.displayPathTitle=fullPath;
+        folder.children[rubricLabel]=rubric;
+        folder.order.push(rubricLabel);
+    });
+}
 function _repBuildKentMindSourceTree(data){
+
     var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
     var entries=Object.keys(data).map(function(rid){return {rid:String(rid),rec:data[rid]};});
     entries.sort(function(a,b){return a.rec.source_order-b.rec.source_order;});
@@ -383,6 +414,63 @@ function _repBuildKentMindSourceTree(data){
     });
     var mindFix=window.KENT_TREE_FIX&&window.KENT_TREE_FIX.ch&&window.KENT_TREE_FIX.ch.mind;
     if(mindFix&&mindFix.displayTree) _repApplyKentMindDisplayTreeFix(byRid,mindFix.displayTree);
+    if(mindFix&&mindFix.rootFolders) _repApplyKentMindRootFolderFix(root,byRid,mindFix.rootFolders);
+    return root;
+}
+
+// 🔑 v147: چکر باب کے صفحات 96–106 کا ماخذی راستہ؛ مقامی غیر ماخذی قطاریں محفوظ رہیں۔
+var _REP_KENT_VERTIGO_SOURCE_MARKER='homeoint-vertigo-v1';
+function _repKentVertigoSourceEntries(data){
+    return Object.keys(data||{}).map(function(rid){return {rid:String(rid),rec:data[rid]};})
+        .filter(function(e){return e.rec&&e.rec.source_canonical===_REP_KENT_VERTIGO_SOURCE_MARKER;});
+}
+function _repHasKentVertigoSourceData(data){
+    return _repKentVertigoSourceEntries(data).length>0;
+}
+function _repBuildKentVertigoSourceTree(data){
+    var entries=_repKentVertigoSourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    if(entries.length!==429) throw new Error('Expected 429 Kent Vertigo source rows; found '+entries.length);
+    entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
+    var byRid=Object.create(null);
+    entries.forEach(function(e,index){
+        var rec=e.rec, order=Number(rec.source_order), parentId=rec.source_parent_id;
+        if(order!==index) throw new Error('Invalid Kent Vertigo source order at '+e.rid+': '+order);
+        var page=Number(rec.source_page), depth=Number(rec.source_depth), label=String(rec.source_label||'');
+        if(page<96||page>106) throw new Error('Kent Vertigo source row outside pages 96–106: '+e.rid);
+        if(!label) throw new Error('Empty Kent Vertigo source label at '+e.rid);
+        var labels=Array.isArray(rec.source_path_labels)?rec.source_path_labels.map(String):[];
+        if(!labels.length||labels[labels.length-1]!==label||depth!==labels.length-1)
+            throw new Error('Kent Vertigo source path/depth mismatch at '+e.rid);
+        var sourcePath=String(rec.source_path||'');
+        if(sourcePath!==labels.join(', ')) throw new Error('Kent Vertigo source full path mismatch at '+e.rid);
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent Vertigo source parent '+parentId+' for '+e.rid);
+        if(parentId!==null && Number(parent.sourceOrder)>=index)
+            throw new Error('Kent Vertigo source parent must precede child at '+e.rid);
+        var parentPath=parent===root?'':String(parent.pathTitle||'');
+        var expectedPath=parentPath?parentPath+', '+label:label;
+        if(expectedPath!==sourcePath) throw new Error('Kent Vertigo source parent link/path mismatch at '+e.rid);
+        if(parent.children[label]) throw new Error('Duplicate Kent Vertigo sibling label '+label+' at '+e.rid);
+        var remedies=rec.source_remedies;
+        if(!remedies||typeof remedies!=='object'||Array.isArray(remedies))
+            throw new Error('Missing Kent Vertigo source remedies at '+e.rid);
+        Object.keys(remedies).forEach(function(code){
+            var grade=Number(remedies[code]);
+            if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
+                throw new Error('Invalid Kent Vertigo source medicine grade at '+e.rid+': '+code);
+        });
+        var node={
+            name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
+            children:{},order:[],remedies:remedies,count:1,hasRubric:true,
+            path:sourcePath,pathTitle:sourcePath,displayPathTitle:sourcePath,
+            translationTitle:String(rec.translation_title||sourcePath),
+            oorep_id:rec.oorep_id||null,rid:e.rid,sourceCanonical:true
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        parent.count=(parent.count||0)+1;
+        byRid[e.rid]=node;
+    });
     return root;
 }
 
@@ -553,6 +641,10 @@ function buildRubricTree(data){
     // 🔑 v146: MIND hierarchy/order use explicit Homeoint parents plus the audited page-8 display correction.
     if(repCurrentBook === 'kent' && repCurrentChapter === 'mind' && _repHasKentMindSourceData(data)){
         return _repBuildKentMindSourceTree(data);
+    }
+    // چکر باب کی ماخذی قطاریں الگ درخت بناتی ہیں؛ پرانی مقامی قطاریں فائل میں محفوظ رہتی ہیں۔
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'vertigo' && _repHasKentVertigoSourceData(data)){
+        return _repBuildKentVertigoSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest

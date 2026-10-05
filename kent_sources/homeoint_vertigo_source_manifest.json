@@ -1,0 +1,63 @@
+{
+  "source_url": "http://www.homeoint.org/books/kentrep/kentvert.htm",
+  "page_urls": [
+    "http://www.homeoint.org/books/kentrep/kent0095.htm#P96",
+    "http://www.homeoint.org/books/kentrep/kent0100.htm#P100",
+    "http://www.homeoint.org/books/kentrep/kent0105.htm#P105",
+    "http://www.homeoint.org/books/kentrep/kent0105.htm#P106"
+  ],
+  "printed_pages_included": [
+    96,
+    106
+  ],
+  "printed_pages_excluded_from_extraction": [
+    95,
+    107
+  ],
+  "final_segment_truncated_before_anchor": "P107",
+  "source_rubric_rows": 430,
+  "chapter_heading_rows": 1,
+  "rubric_rows_excluding_chapter_heading": 429,
+  "page_counts": {
+    "96": 13,
+    "97": 36,
+    "98": 52,
+    "99": 42,
+    "100": 46,
+    "101": 41,
+    "102": 46,
+    "103": 36,
+    "104": 39,
+    "105": 41,
+    "106": 38
+  },
+  "note": "اس ماخذی عکس میں صرف صفحات 96 تا 106 کے چکر کے اندراج ہیں؛ صفحہ 107 سے آگے کچھ نہیں لیا گیا۔ اصل 567 مقامی قطاریں محفوظ ہیں؛ 429 ماخذی قطاریں الگ درختی نشان سے دکھائی جاتی ہیں، اور ماخذ سے غیر متعلق 138 مقامی قطاریں حذف یا تبدیل نہیں کی گئیں۔",
+  "source_crosswalk": {
+    "source_rubric_rows": 429,
+    "chapter_heading_rows_excluded": 1,
+    "source_pages": [
+      96,
+      106
+    ],
+    "initial_crosswalk_rows": 395,
+    "initial_crosswalk_stages": {
+      "full_path": 217,
+      "root_leaf_and_remedies": 121,
+      "leaf_and_remedies": 46,
+      "root_and_leaf": 11
+    },
+    "unique_exact_remedy_grade_rows": 28,
+    "manually_reviewed_title_context_rows": 6,
+    "new_source_rubrics_added": 0,
+    "existing_local_rows_before": 567,
+    "existing_local_rows_preserved_outside_source_tree": 138,
+    "source_rows_without_unique_existing_id": [],
+    "source_path_based_depth_corrections": 4,
+    "source_path_based_depth_correction_orders": [
+      146,
+      270,
+      271,
+      272
+    ]
+  }
+}

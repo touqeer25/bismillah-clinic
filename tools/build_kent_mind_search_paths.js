@@ -45,7 +45,6 @@ function buildKentMindSearchPaths() {
     // fields. No legacy MIND hide/rehome/promote list participates in this tree.
     const tree = context.buildRubricTree(source);
     const entries = {};
-    let order = 0;
     (function walk(node, ancestors) {
         (node.order || []).forEach(function (label) {
             const child = node.children && node.children[label];
@@ -54,12 +53,12 @@ function buildKentMindSearchPaths() {
             const labels = ancestors.concat([sourceLabel]);
             if (child.hasRubric && child.rid) {
                 const rid = String(child.rid);
+                const sourceOrder = Number(child.sourceOrder);
                 if (entries[rid]) throw new Error('Duplicate source rubric id: ' + rid);
-                order += 1;
-                if (Number(child.sourceOrder) !== order - 1) {
-                    throw new Error('Tree order does not match Homeoint source_order at ' + rid);
+                if (!Number.isInteger(sourceOrder) || sourceOrder < 0) {
+                    throw new Error('Invalid printed-page order at ' + rid);
                 }
-                entries[rid] = { path: labels, order: Number(child.sourceOrder) + 1 };
+                entries[rid] = { path: labels, order: sourceOrder + 1 };
             }
             walk(child, labels);
         });
@@ -86,11 +85,11 @@ function buildKentMindSearchPaths() {
         book: 'kent',
         chapter: 'mind',
         chapter_label: 'MIND',
-        order_definition: 'Homeoint printed-page order 1-95 with the page-8 ANXIETY sleep display hierarchy; source records and source_order remain unchanged',
+        order_definition: 'Homeoint printed-page order 1-95; includes the audited page-8 ANXIETY display path and the user-reviewed IDEAS deficiency branch; source_order values remain unchanged',
         source: SOURCE_REL,
         tree_builder: 'js/repertory/rep-chapters.js',
         tree_fix_version: String(treeFix.v || ''),
-        display_tree_override_count: (mindFix.displayTree || []).length,
+        display_tree_override_count: (mindFix.displayTree || []).length + (mindFix.rootFolders || []).length,
         source_record_count: Object.keys(source).length,
         hidden_anchor_count: hidden.size,
         visible_rubric_count: actual.length,

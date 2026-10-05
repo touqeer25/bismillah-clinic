@@ -292,5 +292,18 @@
   "candidate_snapshot": "kent_sources/homeoint_mind_candidates.json",
   "candidate_snapshot_sha256": "a96bdafa9e6158cb1a8792be39e6df91e8e9bcf1683d449a52248dee94e47154",
   "remedy_abbreviations_snapshot": "kent_sources/homeoint_remedy_abbreviations.json",
-  "remedy_abbreviations_snapshot_sha256": "4e6cf1244b9815e72e353cf2cd9c8f99cf48fe10c807d29b9335fce30fc38a8d"
+  "remedy_abbreviations_snapshot_sha256": "4e6cf1244b9815e72e353cf2cd9c8f99cf48fe10c807d29b9335fce30fc38a8d",
+  "user_reviewed_tree_overrides": {
+    "file": "kent_sources/kent_mind_ideas_deficiency_tree_override.json",
+    "review_id": "mind-ideas-deficiency-2026-10-05",
+    "affected_source_orders": [
+      2528,
+      2529,
+      2530,
+      2531
+    ],
+    "affected_rubric_count": 4,
+    "source_candidate_snapshot_unchanged": true,
+    "note_ur": "صارف کی منظور شدہ مفہومی درستی؛ خیالات کی کمی کی شاخ کو کثرتِ خیالات سے جدا رکھا گیا، شناخت، دوا، درجہ اور مطبوعہ ترتیب نہیں بدلی"
+  }
 }
