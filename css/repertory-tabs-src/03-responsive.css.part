@@ -1,0 +1,19 @@
+@media(max-width:820px){
+    #page-repertoryBrowser .rep-layout{flex-direction:column;padding-left:45px}
+    #page-repertoryBrowser .rep-side-col{width:100%;flex:0 0 auto}
+    #page-repertoryBrowser .rep-side-col.rep-shell-collapsed{width:0!important;min-width:0!important;height:0;flex:0 0 0!important;overflow:hidden!important}
+    #repDockArea{left:5px;right:auto;top:190px;bottom:8px;transform:none;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;pointer-events:none}
+    #repDockArea .rep-dock{position:static;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:center;justify-content:flex-start;gap:5px;max-height:100%;overflow-y:auto;overflow-x:hidden;padding:7px 5px;border-radius:15px;pointer-events:auto}
+    #repDockArea .rep-dock-clip{flex:0 0 auto}
+    #page-repertoryBrowser .rep-toolbar{gap:3px;padding:6px;scrollbar-width:thin}
+    #page-repertoryBrowser .rep-shell-icon,
+    #page-repertoryBrowser .rep-toolbar #repCmpModeBtn,
+    #page-repertoryBrowser .rep-toolbar #repUrModeBtn{flex-basis:31px;width:31px;height:31px;min-width:31px}
+    #repWorkspaceTabs{min-height:38px}
+    .rep-workspace-tab{height:32px;padding:0 7px;font-size:11px}
+}
+@media(max-width:480px){
+    #page-repertoryBrowser .rep-toolbar .rep-search-wrap{min-width:145px;flex-basis:170px}
+    .rep-workspace-tab{max-width:65vw;gap:5px}
+    .rep-workspace-tab .rep-tab-sub{display:none}
+}

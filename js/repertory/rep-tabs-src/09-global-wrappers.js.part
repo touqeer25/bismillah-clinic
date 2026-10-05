@@ -1,0 +1,376 @@
+    function installWrappers(){
+        raw.pageTab=window.repPageTab;
+        raw.switchBook=window.switchRepertoryBook;
+        raw.initBook=window.initRepertoryBrowser;
+        raw.renderChapterList=window.renderChapterList;
+        raw.selectChapter=window.selectChapter;
+        raw.renderTree=window.renderTree;
+        raw.search=window.searchRepertoryBrowser;
+        raw.displaySearchResults=window.displaySearchResults;
+        raw.searchTabCount=window.repSearchTabCount;
+        raw.openChapter=window.repOpenChapter;
+        raw.navigate=window.navigateToRubric;
+        raw.toggleClip=window.repToggleClipView;
+        raw.closeClip=window.repCloseClipView;
+        raw.closeTool=window.repCloseToolView;
+        raw.go=window.repGo;raw.back=window.repBack;raw.fwd=window.repFwd;raw.up=window.repUp;
+        raw.openRubricDetail=window.repOpenRubricDetail;
+        raw.ensureAllBooks=window.repEnsureAllBooks;
+        raw.openWorkbench=window.repOpenWorkbench;
+        raw.openAnalysis=window.repOpenAnalysis;
+        raw.compareToggle=window.repCompareToggle;
+        raw.openCompare=window.repOpenCompare;
+        raw.diffShow=window.repDiffShow;
+        raw.diffRun=window.repDiffRun;
+        raw.diffRenderBody=window.repDiffRenderBody;
+        raw.diffOpenRubric=window.repDiffOpenForRubric;
+        raw.diffOpenRemedies=window.repDiffOpenWithRemedies;
+        raw.libOpen=window.repLibOpen;
+        raw.libClose=window.repLibClose;
+        raw.libEnsure=window.repLibEnsureIndex;
+        raw.libLoad=window.repLibLoad;
+        raw.renderRubricDetail=window.renderRubricDetail;
+        raw.renderXref=window.repRenderXrefAppBody;
+        raw.applyLanguage=window.applyLanguage;
+        raw.syncDockTop=window.repSyncDockTop;
+
+        if(raw.pageTab){
+            window.repPageTab=function(which){
+                if(!started||shell.suppress) return raw.pageTab.apply(this,arguments);
+                var current=liveTab();
+                if(which==='rep'&&current&&current.type==='search'){
+                    var query=currentInputValue();
+                    var ctx=window._repSearchBeforeContext?clonePlain(window._repSearchBeforeContext):null;
+                    if(query.trim().length<2){shell.pendingAction=null;cancelSearch(false);}
+                    if(isBusy()){
+                        queueAction(function(){restoreFromSearch(ctx);});return;
+                    }
+                    restoreFromSearch(ctx);return;
+                }
+                if(which==='rep'&&current&&current.type==='diff'&&current.returnId){
+                    var target=findTab(current.returnId);
+                    if(target){activateTab(target.id);return;}
+                }
+                if(which==='diff'&&current&&current.type!=='diff'){
+                    openDiff();return;
+                }
+                return raw.pageTab.apply(this,arguments);
+            };
+        }
+        if(raw.switchBook){
+            window.switchRepertoryBook=function(){
+                if(!started||shell.suppress) return raw.switchBook.apply(this,arguments);
+                var select=document.getElementById('repBookSelect');
+                if(select&&select.value) return openRepertory(select.value);
+                return raw.switchBook.apply(this,arguments);
+            };
+        }
+        if(raw.initBook){
+            window.initRepertoryBrowser=function(){
+                if(!started||shell.suppress) return raw.initBook.apply(this,arguments);
+                var lock=addLock('book-index',0);
+                lock.book=window.repCurrentBook;
+                shell.indexLocks.push(lock);
+                try{return raw.initBook.apply(this,arguments);}catch(e){
+                    var i=shell.indexLocks.indexOf(lock);if(i!==-1)shell.indexLocks.splice(i,1);finishLock(lock,true);throw e;
+                }
+            };
+        }
+        if(raw.renderChapterList){
+            window.renderChapterList=function(){
+                var result=raw.renderChapterList.apply(this,arguments);
+                if(started){
+                    var tab=liveTab();
+                    if(tab&&shell.sidebarMode==='books'){
+                        tab.chapterHtml=shell.sideList?shell.sideList.innerHTML:null;
+                        renderBookList();
+                    }
+                    finishIndex(window.repCurrentBook);
+                    renderTabStrip();
+                }
+                return result;
+            };
+        }
+        if(raw.selectChapter){
+            window.selectChapter=function(chKey){
+                if(!started||shell.suppress) return raw.selectChapter.apply(this,arguments);
+                var book=window.repCurrentBook,chapter=chKey;
+                var lock=addLock('chapter',0);lock.book=book;lock.chapter=chapter;shell.chapterLocks.push(lock);
+                try{
+                    var result=raw.selectChapter.apply(this,arguments);
+                    if(shell.chapterLocks.indexOf(lock)!==-1&&!document.getElementById('repRubricContent')){
+                        shell.chapterLocks.splice(shell.chapterLocks.indexOf(lock),1);finishLock(lock,true);
+                    }
+                    renderTabStrip();return result;
+                }catch(e){
+                    var i=shell.chapterLocks.indexOf(lock);if(i!==-1)shell.chapterLocks.splice(i,1);finishLock(lock,true);throw e;
+                }
+            };
+        }
+        if(raw.renderTree){
+            window.renderTree=function(chKey){
+                var result=raw.renderTree.apply(this,arguments);
+                if(started) finishChapter(window.repCurrentBook,chKey||window.repCurrentChapter);
+                return result;
+            };
+        }
+        if(raw.search){
+            window.searchRepertoryBrowser=function(){
+                if(!started||shell.suppress) return raw.search.apply(this,arguments);
+                var q=currentInputValue().trim();
+                var active=liveTab();
+                if(active&&active.type==='search'&&shell.searchLock) cancelSearch(false);
+                if(q.length>=1&&(!active||active.type!=='search')){
+                    if(isBusy()){
+                        queueAction(function(){window.searchRepertoryBrowser();});return;
+                    }
+                    var opened=openSearchFromCurrent(q);
+                    if(!opened){queueAction(function(){window.searchRepertoryBrowser();});return;}
+                    active=liveTab();
+                }
+                if(active&&active.type==='search') active.searchValue=q;
+                if(q.length>=2){
+                    var lock=startSearchLock();
+                    try{
+                        var result=raw.search.apply(this,arguments);
+                        var host=document.getElementById('repSearchView');
+                        if(host&&host.querySelector('.empty-state')){finishLock(lock,true);if(shell.searchLock===lock)shell.searchLock=null;}
+                        renderTabStrip();return result;
+                    }catch(e){finishLock(lock,true);if(shell.searchLock===lock)shell.searchLock=null;throw e;}
+                }
+                return raw.search.apply(this,arguments);
+            };
+        }
+        if(raw.displaySearchResults){
+            window.displaySearchResults=function(){
+                var result=raw.displaySearchResults.apply(this,arguments);
+                if(started){finishType('search',true);shell.searchLock=null;renderTabStrip();}
+                return result;
+            };
+        }
+        if(raw.searchTabCount){
+            window.repSearchTabCount=function(){
+                var result=raw.searchTabCount.apply(this,arguments);
+                if(started)renderTabStrip();
+                return result;
+            };
+        }
+        ['go','back','fwd','up'].forEach(function(name){
+            var fn=raw[name];if(!fn)return;
+            var publicName={go:'repGo',back:'repBack',fwd:'repFwd',up:'repUp'}[name];
+            window[publicName]=function(){
+                if(!started||shell.suppress) return fn.apply(this,arguments);
+                if(isBusy()){
+                    var args=Array.prototype.slice.call(arguments);
+                    queueAction(function(){window[publicName].apply(window,args);});return;
+                }
+                return fn.apply(this,arguments);
+            };
+        });
+        if(raw.openRubricDetail){
+            window.repOpenRubricDetail=function(){
+                if(!started||shell.suppress) return raw.openRubricDetail.apply(this,arguments);
+                if(isBusy()){
+                    var args=Array.prototype.slice.call(arguments);
+                    queueAction(function(){window.repOpenRubricDetail.apply(window,args);});return;
+                }
+                return raw.openRubricDetail.apply(this,arguments);
+            };
+        }
+        if(raw.ensureAllBooks){
+            window.repEnsureAllBooks=function(cb){
+                if(!started||shell.suppress) return raw.ensureAllBooks.apply(this,arguments);
+                var lock=addLock('all-books',0);
+                try{return raw.ensureAllBooks.call(this,function(all){try{if(cb)cb(all);}finally{finishLock(lock,true);}});}
+                catch(e){finishLock(lock,true);throw e;}
+            };
+        }
+        if(raw.openChapter){
+            window.repOpenChapter=function(chKey){
+                if(!started||shell.suppress) return raw.openChapter.apply(this,arguments);
+                if(isBusy()){
+                    queueAction(function(){window.repOpenChapter(chKey);});return;
+                }
+                var current=liveTab();
+                if(current&&current.type!=='repertory'){
+                    var root=getNearestRep(current);
+                    if(isBusy()){
+                        queueAction(function(){if(root)activateTab(root.id,{skipBusy:true});window.repOpenChapter(chKey);});return;
+                    }
+                    if(root) activateTab(root.id);
+                }
+                return raw.openChapter.apply(this,arguments);
+            };
+        }
+        if(raw.navigate){
+            window.navigateToRubric=function(book,ch,rid,openDetail){
+                if(!started||shell.suppress) return raw.navigate.apply(this,arguments);
+                if(isBusy()){
+                    var args=Array.prototype.slice.call(arguments);
+                    queueAction(function(){window.navigateToRubric.apply(window,args);});return;
+                }
+                var targetBook=book||window.repCurrentBook||'kent';
+                var target=getRepTab(targetBook);
+                if(!target){openRepertory(targetBook);target=getRepTab(targetBook);}
+                else activateTab(target.id);
+                return raw.navigate.call(this,book,ch,rid,openDetail);
+            };
+        }
+        if(raw.toggleClip){
+            window.repToggleClipView=function(index){
+                if(!started||shell.suppress) return raw.toggleClip.apply(this,arguments);
+                index=parseInt(index,10);if(!isFinite(index))index=window.repActiveClip||0;
+                var active=liveTab();
+                if(active&&active.type==='clipboard'&&active.clip===index) return;
+                return openClipboard(index);
+            };
+        }
+        if(raw.closeClip){
+            window.repCloseClipView=function(){
+                if(started&&liveTab()&&liveTab().type==='clipboard') return closeTab(liveTab().id);
+                return raw.closeClip.apply(this,arguments);
+            };
+        }
+        if(raw.closeTool){
+            window.repCloseToolView=function(){
+                if(started&&liveTab()&&liveTab().type==='compare'){
+                    if((window.repWorkbenchOpen||Number(window.repAnalysisOpen)>=0)&&typeof window.repOpenCompare==='function') return window.repOpenCompare();
+                    return closeTab(liveTab().id);
+                }
+                return raw.closeTool.apply(this,arguments);
+            };
+        }
+        if(raw.openWorkbench){
+            window.repOpenWorkbench=function(){
+                if(!started||shell.suppress) return raw.openWorkbench.apply(this,arguments);
+                if(isBusy()){
+                    var args=Array.prototype.slice.call(arguments);
+                    queueAction(function(){window.repOpenWorkbench.apply(window,args);});return;
+                }
+                return raw.openWorkbench.apply(this,arguments);
+            };
+        }
+        if(raw.openAnalysis){
+            window.repOpenAnalysis=function(){
+                if(!started||shell.suppress) return raw.openAnalysis.apply(this,arguments);
+                if(isBusy()){
+                    var args=Array.prototype.slice.call(arguments);
+                    queueAction(function(){window.repOpenAnalysis.apply(window,args);});return;
+                }
+                return raw.openAnalysis.apply(this,arguments);
+            };
+        }
+        if(raw.compareToggle){
+            window.repCompareToggle=function(){
+                if(!started||shell.suppress) return raw.compareToggle.apply(this,arguments);
+                if(isBusy()){
+                    var args=Array.prototype.slice.call(arguments);
+                    queueAction(function(){window.repCompareToggle.apply(window,args);});return;
+                }
+                return raw.compareToggle.apply(this,arguments);
+            };
+        }
+        if(raw.openCompare){
+            window.repOpenCompare=function(){
+                if(!started||shell.suppress) return raw.openCompare.apply(this,arguments);
+                if(isBusy()){queueAction(function(){window.repOpenCompare();});return;}
+                if(!liveTab()||liveTab().type!=='compare') makeContextTab('compare',null,'context');
+                var result=raw.openCompare.apply(this,arguments);
+                renderTabStrip();return result;
+            };
+        }
+        if(raw.diffOpenRubric){
+            window.repDiffOpenForRubric=function(){
+                if(!started||shell.suppress||liveTab()&&liveTab().type==='diff') return raw.diffOpenRubric.apply(this,arguments);
+                if(isBusy()){queueAction(function(){window.repDiffOpenForRubric();});return;}
+                makeContextTab('diff',null,'fresh');
+                return raw.diffOpenRubric.apply(this,arguments);
+            };
+        }
+        if(raw.diffOpenRemedies){
+            window.repDiffOpenWithRemedies=function(){
+                if(!started||shell.suppress||liveTab()&&liveTab().type==='diff') return raw.diffOpenRemedies.apply(this,arguments);
+                if(isBusy()){
+                    var args=Array.prototype.slice.call(arguments);
+                    queueAction(function(){window.repDiffOpenWithRemedies.apply(window,args);});return;
+                }
+                makeContextTab('diff',null,'fresh');
+                return raw.diffOpenRemedies.apply(this,arguments);
+            };
+        }
+        if(raw.diffRun){
+            window.repDiffRun=function(){
+                if(!started||shell.suppress) return raw.diffRun.apply(this,arguments);
+                if(window._repDiffBusy&&shell.diffLock) return raw.diffRun.apply(this,arguments);
+                var lock=addLock('diff',0);
+                shell.diffLock=lock;
+                var result;
+                try{result=raw.diffRun.apply(this,arguments);}catch(e){finishLock(lock,true);shell.diffLock=null;throw e;}
+                if(!window._repDiffBusy){finishLock(lock,true);shell.diffLock=null;}
+                return result;
+            };
+        }
+        if(raw.diffRenderBody){
+            window.repDiffRenderBody=function(){
+                var result=raw.diffRenderBody.apply(this,arguments);
+                if(started&&shell.diffLock&&!window._repDiffBusy){finishLock(shell.diffLock,true);shell.diffLock=null;renderTabStrip();}
+                return result;
+            };
+        }
+        if(raw.libOpen){
+            window.repLibOpen=function(id){
+                if(!started||shell.suppress) return raw.libOpen.apply(this,arguments);
+                if(isBusy()){queueAction(function(){window.repLibOpen(id);});return;}
+                var tab=findTab('library');
+                if(!tab) makeContextTab('library',null,'context');
+                else activateTab(tab.id);
+                var result=raw.libOpen.apply(this,arguments);
+                moveLibraryIntoActiveHost();renderTabStrip();return result;
+            };
+        }
+        if(raw.libClose){
+            window.repLibClose=function(){
+                if(started&&liveTab()&&liveTab().type==='library') return closeTab(liveTab().id);
+                return raw.libClose.apply(this,arguments);
+            };
+        }
+        if(raw.libEnsure){
+            window.repLibEnsureIndex=function(cb){
+                if(!started||shell.suppress) return raw.libEnsure.apply(this,arguments);
+                var lock=addLock('library-index',0);
+                return raw.libEnsure.call(this,function(){try{if(cb)cb();}finally{finishLock(lock,true);}});
+            };
+        }
+        if(raw.libLoad){
+            window.repLibLoad=function(id,cb){
+                if(!started||shell.suppress) return raw.libLoad.apply(this,arguments);
+                var lock=addLock('library-book',0);
+                return raw.libLoad.call(this,id,function(){try{if(cb)cb.apply(this,arguments);}finally{finishLock(lock,true);}});
+            };
+        }
+        if(raw.renderRubricDetail){
+            window.renderRubricDetail=function(){
+                if(!started||shell.suppress) return raw.renderRubricDetail.apply(this,arguments);
+                if(needsDetailWait()&&!shell.detailLock) shell.detailLock=addLock('detail-render',0);
+                var result=raw.renderRubricDetail.apply(this,arguments);
+                if(shell.detailLock&&!needsDetailWait()){
+                    finishLock(shell.detailLock,true);shell.detailLock=null;renderTabStrip();
+                }
+                return result;
+            };
+        }
+        if(raw.renderXref){
+            window.repRenderXrefAppBody=function(){return raw.renderXref.apply(this,arguments);};
+        }
+        if(raw.applyLanguage){
+            window.applyLanguage=function(){
+                var result=raw.applyLanguage.apply(this,arguments);
+                if(started){
+                    renderTabStrip();updateSearchControls();updateToolbarButtons();updateSideHeader();
+                    if(shell.sidebarMode==='books')renderBookList();
+                }
+                return result;
+            };
+        }
+    }
+

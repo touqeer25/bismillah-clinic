@@ -1,0 +1,45 @@
+function repAnaMethodLabel(m){ return m==='kent'?'Kent — Sum of Degrees':(m==='boen'?'Boenninghausen + Polarity':'Sum of Symptoms'); }
+// 🔑 v70: پرنٹ / CSV ایکسپورٹ
+function repAnaExportBtnsHtml(){
+    return '<button class="rc-btn" onclick="repAnaPrint()">🖨 '+repLangText({ur:'پرنٹ / PDF',en:'Print / PDF',roman:'Print / PDF'})+'</button>'
+        +'<button class="rc-btn" onclick="repAnaCsv()">📥 CSV (Excel)</button>';
+}
+function _repAnaTable(res,maxCols){
+    var abbrs=res.abbrs.slice(0,maxCols||res.abbrs.length);
+    var head=['Rubric','Weight'].concat(abbrs), rows=[];
+    res.rows.forEach(function(r){ rows.push([String(r.it.book||'')+': '+String(r.it.path||''),(r.w||1)+'x'].concat(abbrs.map(function(a){ return r.rems[a]||''; }))); });
+    rows.push(['Coverage',''].concat(abbrs.map(function(a){ return repFmtCov(res.col[a].cov,res.denom); })));
+    rows.push(['Score (grade x weight)',''].concat(abbrs.map(function(a){ return repFmtScore(res.col[a].total); })));
+    if(res.pol) rows.push(['Polarity',''].concat(abbrs.map(function(a){ return (res.contra&&res.contra[a]?'CI ':'')+(res.pol[a]||0); })));
+    return {head:head,rows:rows};
+}
+function repAnaCsv(){
+    var res=window._repAnaLast; if(!res){ showToast('—'); return; }
+    var t=_repAnaTable(res), esc=function(v){ v=String(v==null?'':v); return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v; };
+    var csv='\ufeff'+['Method: '+repAnaMethodLabel(res.method)].concat([t.head].concat(t.rows).map(function(r){ return r.map(esc).join(','); })).join('\r\n');
+    var a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+    a.download='repertorisation_'+new Date().toISOString().slice(0,10)+'.csv'; document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },500);
+}
+function repAnaPrint(){
+    var res=window._repAnaLast; if(!res){ showToast('—'); return; }
+    var t=_repAnaTable(res,30), e=escapeHtml;
+    var html='<!doctype html><html><head><meta charset="utf-8"><title>Repertorisation</title><style>body{font-family:Arial,sans-serif;font-size:11px;margin:12px}h2{margin:0 0 4px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:2px 4px;text-align:center}td:first-child{text-align:left;max-width:320px}th{background:#eee}tr.t td{font-weight:bold;background:#f6f6f6}@page{size:landscape;margin:10mm}</style></head><body>'
+        +'<h2>Bismillah Clinic — Repertorisation</h2><div>'+e(new Date().toLocaleString())+' · Method: '+e(repAnaMethodLabel(res.method))+' · Rubrics: '+res.rows.length+'</div><br><table><thead><tr>'
+        +t.head.map(function(h){return '<th>'+e(String(h))+'</th>';}).join('')+'</tr></thead><tbody>'
+        +t.rows.map(function(r,i){ return '<tr'+(i>=res.rows.length?' class="t"':'')+'>'+r.map(function(c){return '<td>'+e(String(c))+'</td>';}).join('')+'</tr>'; }).join('')
+        +'</tbody></table><script>window.onload=function(){window.print();}<\/script></body></html>';
+    var w=window.open('','_blank');
+    if(!w){ showToast(repLangText({ur:'پاپ اپ بلاک ہے — براؤزر میں اجازت دیں',en:'Popup blocked — allow popups',roman:'Popup block hai'})); return; }
+    w.document.open(); w.document.write(html); w.document.close();
+}
+// 🔑 weighted coverage display: integer cov shows "cov/denom", fractional shows "%"
+function repFmtCov(cov,denom){
+    cov=Math.max(0,cov); denom=denom||1;
+    if(Math.abs(cov-Math.round(cov))<0.001 && cov<=denom+0.001){ return Math.round(cov)+'/'+Math.round(denom); }
+    return Math.round(cov*100/denom)+'%';
+}
+
+// ==================== ⚙ CLIPBOARD WORKBENCH (HomeoSetu "Case Repertorisation" style) ====================
+// image 2026-09-19_01-17-32: tabs Clipboards|Grid، ہر کلپ بورڈ پر Elimination Mode + ✏ rename،
+// ہر ربرک پر ☑ + ⋮ مینو (Order / Multiplier Weight / Move to Clipboard / Delete Rubric)، نیچے اسٹیٹس بار

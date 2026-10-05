@@ -1,0 +1,40 @@
+            <!-- Toolbar: book select + search scope + search box -->
+            <div class="rep-toolbar">
+                <select id="repBookSelect" onchange="switchRepertoryBook()" class="rep-toolbar-select rep-book-select">
+                    <!-- 🔑 v45: کینٹ ٹاپ پر + ڈیفالٹ کتاب (صارف درخواست) -->
+                    <option value="kent">📘 Kent Repertory (English)</option>
+                    <option value="publicum">📗 Repertorium Publicum (Polony)</option>
+                    <option value="kent_de">📕 Kent Repertory (German)</option>
+                    <option value="synthesis91">📙 Syn 9.1 (Supplement)</option>
+                    <option value="allen_fever">🌡️ Allen Fever Repertory</option>
+                    <option value="hs_clinical">🩺 Clinical Repertory (Clarke · Boericke · Allen · Hering · Hempel · Pulte)</option>
+                    <option value="keynotes_cc">🔑 Keynotes &amp; Clinical Concordance</option>
+                    <option value="nosodes">🧫 Intercurrent Nosodes &amp; Sarcodes</option>
+                    <option value="hering_mind">🧠 Hering — Analytical Repertory of the Mind (1881)</option>
+                    <option value="boger_times">🕰️ Boger — Times of Remedies &amp; Moon Phases</option>
+                    <option value="tissues_bd">🧂 Boericke &amp; Dewey — Tissue Remedies (Schüssler)</option>
+                    </select>
+                <!-- 🔑 v79 (صارف): بک لائبریری نیچلی بار سے مین ٹول بار میں — کتاب کے انتخاب کے ساتھ -->
+                <button type="button" class="rep-cmp-btn rep-lib-btn" onclick="repLibOpen()" title="Reading library — Hahnemann: Organon 6th, Chronic Diseases / مطالعہ لائبریری">📚 <span data-ur="بک لائبریری" data-en="Book Library" data-roman="Book Library">بک لائبریری</span></button>
+                <!-- 🔑 v40 RESTORED: search SCOPE dropdown (Search in Open Chapter / Open Repertory / All Repertories) -->
+                <select id="repScopeSelect" onchange="setRepSearchScope(this.value)" class="rep-toolbar-select rep-scope-select" title="Search scope">
+                    <option value="chapter">📖 <span data-ur="سرچ ان اوپن چیپٹر" data-en="Search in Open Chapter" data-roman="Search in Open Chapter">سرچ ان اوپن چیپٹر</span></option>
+                    <option value="book">📚 <span data-ur="سرچ ان اوپن ریپرٹری" data-en="Search in Open Repertory" data-roman="Search in Open Repertory">سرچ ان اوپن ریپرٹری</span></option>
+                    <option value="all">🌐 <span data-ur="سرچ ان آل ریپرٹریز" data-en="Search in All Repertories" data-roman="Search in All Repertories">سرچ ان آل ریپرٹریز</span></option>
+                </select>
+                <!-- 🔑 search TYPE dropdown (HomeoSetu style): rubric / remedy / both / clinical -->
+                <select id="repTypeSelect" onchange="setRepSearchType(this.value)" class="rep-toolbar-select rep-type-select" title="Search type (HomeoSetu style)">
+                    <option value="rubric">🔤 <span data-ur="ربرک / سب ربرک" data-en="Rubric / Subrubric" data-roman="Rubric / Subrubric">ربرک / سب ربرک</span></option>
+                    <option value="remedy">💊 <span data-ur="ادویہ" data-en="Remedy" data-roman="Remedy">ادویہ</span></option>
+                    <option value="rubric_remedy">🔤💊 <span data-ur="ربرک + ادویہ" data-en="Rubric + Remedy" data-roman="Rubric + Remedy">ربرک + ادویہ</span></option>
+                    <option value="clinical">🏥 <span data-ur="کلینیکل حالت" data-en="Clinical Condition" data-roman="Clinical Condition">کلینیکل حالت</span></option>
+                </select>
+                <div class="rep-search-wrap">
+                    <span class="rep-search-ico">🔍</span>
+                    <input type="text" id="repBrowserSearch" oninput="searchRepertoryBrowser()" placeholder="ربرک / سب ربرک تلاش کریں... (مثلاً fear، headache)">
+                </div>
+                <!-- 🔑 v54: HomeoSetu-style Compare MODE (☐ on every rubric card → active clipboard); classic side-by-side view moved into Workbench / compare panel -->
+                <button class="rep-cmp-btn" id="repCmpModeBtn" onclick="repCmpModeToggle()" title="Compare Mode: tick rubric cards to collect them into the active clipboard, then Analyze">☑ <span data-ur="کمپیئر" data-en="Compare" data-roman="Compare">Compare</span></button>
+                <!-- 🔑 v107: اردو — پورا مطلب ⇄ صرف اضافہ (js/18-rubrics-ur.js میں بندھتا ہے، یہاں کوئی onclick نہیں) -->
+                <button type="button" class="rep-cmp-btn rep-ur-mode-btn" id="repUrModeBtn" title="اردو: پورا مطلب / صرف اضافہ">📖 <span dir="rtl">پورا مطلب</span></button>
+            </div>

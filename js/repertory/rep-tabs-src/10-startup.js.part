@@ -1,0 +1,19 @@
+    function init(){
+        if(started) return;
+        shell.root=document.getElementById('page-repertoryBrowser');
+        if(!shell.root) return;
+        if(!installTabState()) return;
+        installToolbar();installSidebarEvents();installTabEvents();
+        installWrappers();
+        started=true;
+        installDockPositioning();
+        setPageForTab(liveTab());
+        syncVisibleState(liveTab());
+        renderTabStrip();
+        document.querySelector('#page-repertoryBrowser .rep-side-col')?.classList.toggle('rep-shell-collapsed',shell.sidebarHidden);
+        console.log('Repertory outer tabs ready — v'+VERSION);
+    }
+
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true});
+    else init();
+})();

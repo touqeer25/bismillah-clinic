@@ -1,0 +1,74 @@
+    function tabIcon(tab){
+        if(tab.type==='repertory') return '📘';
+        if(tab.type==='search') return '🔍';
+        if(tab.type==='diff') return '🔬';
+        if(tab.type==='compare') return '⇄';
+        if(tab.type==='clipboard') return '📋';
+        if(tab.type==='library') return '📖';
+        return '📄';
+    }
+    function tabLabel(tab){
+        if(tab.type==='repertory') return bookInfo(tab.book).name||tab.book;
+        if(tab.type==='search') return text({ur:'تلاش کے نتائج',en:'Search results',roman:'Talash ke nataij'});
+        if(tab.type==='diff') return text({ur:'تفریق / نکاسی',en:'Differentiation / extraction',roman:'Tafreeq / nikaasi'});
+        if(tab.type==='compare') return text({ur:'موازنہ',en:'Compare',roman:'Muwazna'});
+        if(tab.type==='clipboard'){
+            var custom=(window.repClipNames&&window.repClipNames[tab.clip])||'';
+            return custom||text({ur:'کلپ بورڈ '+(tab.clip+1),en:'Clipboard '+(tab.clip+1),roman:'Clipboard '+(tab.clip+1)});
+        }
+        if(tab.type==='library') return text({ur:'مطالعہ لائبریری',en:'Reading library',roman:'Mutala library'});
+        return tab.id;
+    }
+    function tabSub(tab){
+        if(tab.type==='repertory'){
+            var vars=tab.id===shell.activeId?readState():tab.vars;
+            var ch=vars&&vars.repCurrentChapter;
+            if(!ch) return '';
+            var names=vars.repChapterNames||[];
+            var found=names.filter(function(x){return x.key===ch;})[0];
+            return found?found.name:ch;
+        }
+        if(tab.type==='clipboard') return '';
+        if(tab.type==='search'){
+            var value=tab.id===shell.activeId?(window.repLastSearchView&&window.repLastSearchView.results||[]):
+                (tab.vars&&tab.vars.repLastSearchView&&tab.vars.repLastSearchView.results||[]);
+            return value.length?String(value.length):'';
+        }
+        return '';
+    }
+    function renderTabStrip(){
+        var strip=shell.strip; if(!strip) return;
+        strip.innerHTML='';
+        if(shell.stripNav) strip.appendChild(shell.stripNav);
+        shell.tabs.forEach(function(tab){
+            var button=document.createElement('div');
+            button.className='rep-workspace-tab'+(tab.id===shell.activeId?' active':'');
+            button.dataset.tabId=tab.id;button.setAttribute('role','tab');button.tabIndex=0;
+            button.setAttribute('aria-selected',tab.id===shell.activeId?'true':'false');
+            button.title=tabLabel(tab)+(tabSub(tab)?' — '+tabSub(tab):'');
+            var icon=document.createElement('span');icon.className='rep-tab-icon';icon.textContent=tabIcon(tab);
+            var label=document.createElement('span');label.className='rep-tab-label';label.textContent=tabLabel(tab);
+            button.appendChild(icon);button.appendChild(label);
+            var sub=tabSub(tab);
+            if(sub){var small=document.createElement('span');small.className='rep-tab-sub';small.textContent=sub;button.appendChild(small);}
+            var close=document.createElement('button');close.type='button';close.className='rep-tab-close';
+            close.dataset.closeTab=tab.id;close.textContent='×';
+            close.setAttribute('aria-label',text({ur:'یہ ٹیب بند کریں: ',en:'Close tab: ',roman:'Yeh tab band karein: '})+tabLabel(tab));
+            close.title=text({ur:'ٹیب بند کریں',en:'Close tab',roman:'Tab band karein'});
+            button.appendChild(close);strip.appendChild(button);
+        });
+        updateToolbarButtons();
+    }
+    function installTabEvents(){
+        shell.strip.addEventListener('click',function(ev){
+            var close=ev.target.closest('[data-close-tab]');
+            if(close){ev.preventDefault();ev.stopPropagation();closeTab(close.dataset.closeTab);return;}
+            var tab=ev.target.closest('[data-tab-id]');
+            if(tab){ev.preventDefault();activateTab(tab.dataset.tabId);}
+        });
+        shell.strip.addEventListener('keydown',function(ev){
+            if(ev.key!=='Enter'&&ev.key!==' ') return;
+            var tab=ev.target.closest('[data-tab-id]');
+            if(tab&&!ev.target.closest('[data-close-tab]')){ev.preventDefault();activateTab(tab.dataset.tabId);}
+        });
+    }

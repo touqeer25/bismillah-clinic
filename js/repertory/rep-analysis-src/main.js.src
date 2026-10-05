@@ -1,0 +1,4 @@
+/* @include: 00-analysis-view.js.part */
+/* @include: 01-compare-engine.js.part */
+/* @include: 02-compare-view.js.part */
+/* @include: 03-ask-assistant.js.part */

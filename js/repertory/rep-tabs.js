@@ -1,8 +1,8 @@
-/* نسخہ 155 — ریپرٹری کا بیرونی ٹیب اور نیویگیشن خول */
+/* نسخہ 157 — بیرونی خول کے افعال الگ موضوعاتی حصوں میں */
 (function(){
     'use strict';
 
-    var VERSION='155';
+    var VERSION='157';
     var started=false;
     var raw={};
     var shell={
@@ -433,29 +433,42 @@
     function installSideHeader(){
         var parent=shell.sideCol;
         if(!parent) return;
-        var row=document.createElement('div'); row.className='rep-shell-side-tools-row'; row.id='repShellSideToolsRow';
-        var title=document.createElement('span'); title.className='rep-shell-side-title'; title.id='repShellSideTitle';
-        row.appendChild(title);
-        parent.insertBefore(row,shell.sideList||parent.firstChild);
+        var row=document.getElementById('repShellSideToolsRow');
+        if(!row){
+            row=document.createElement('div'); row.className='rep-shell-side-tools-row'; row.id='repShellSideToolsRow';
+            var title=document.createElement('span'); title.className='rep-shell-side-title'; title.id='repShellSideTitle';
+            row.appendChild(title);
+        }
+        if(row.parentNode!==parent) parent.insertBefore(row,shell.sideList||parent.firstChild);
         shell.sideHeader=row;
         updateSideHeader();
     }
     function moveNavbarControls(){
         var navbar=shell.root&&shell.root.querySelector('.rep-navbar');
         if(!navbar||!shell.toolbar) return;
-        var group=document.createElement('div'); group.className='rep-shell-strip-nav';
+        var group=(shell.strip&&shell.strip.querySelector('.rep-shell-strip-nav'))||document.getElementById('repShellStripNav');
+        if(!group){group=document.createElement('div');group.id='repShellStripNav';group.className='rep-shell-strip-nav';}
+        group.classList.add('rep-shell-strip-nav');
         group.setAttribute('role','presentation');
         group.setAttribute('aria-label',text({ur:'صفحہ نیویگیشن اور سائیڈ بار',en:'Page navigation and sidebar',roman:'Safha navigation aur sidebar'}));
         ['repBtnBack','repBtnFwd','repBtnUp'].forEach(function(id){
             var button=document.getElementById(id);if(button)group.appendChild(button);
         });
-        var sideToggle=document.createElement('button'); sideToggle.type='button';
-        sideToggle.id='repShellHideSideBtn'; sideToggle.className='rep-shell-side-btn rep-shell-strip-toggle';
-        sideToggle.textContent='◀'; sideToggle.setAttribute('aria-label',text({ur:'سائیڈ بار چھپائیں',en:'Hide sidebar',roman:'Sidebar chhupaein'}));
+        var sideToggle=document.getElementById('repShellHideSideBtn');
+        if(!sideToggle){
+            sideToggle=document.createElement('button'); sideToggle.type='button';
+            sideToggle.id='repShellHideSideBtn'; sideToggle.className='rep-shell-side-btn rep-shell-strip-toggle';
+            sideToggle.textContent='◀';
+        }
+        if(!sideToggle.dataset.repShellBound){
+            sideToggle.addEventListener('click',function(ev){ev.preventDefault();ev.stopPropagation();toggleSidebar();});
+            sideToggle.dataset.repShellBound='1';
+        }
+        sideToggle.setAttribute('aria-label',text({ur:'سائیڈ بار چھپائیں',en:'Hide sidebar',roman:'Sidebar chhupaein'}));
         sideToggle.title=sideToggle.getAttribute('aria-label');
-        sideToggle.addEventListener('click',function(ev){ev.preventDefault();ev.stopPropagation();toggleSidebar();});
-        group.appendChild(sideToggle); shell.controls.sidebarToggle=sideToggle; shell.stripNav=group;
-        if(shell.strip) shell.strip.appendChild(group);
+        group.appendChild(sideToggle);
+        shell.controls.sidebarToggle=sideToggle; shell.stripNav=group;
+        if(shell.strip&&group.parentNode!==shell.strip) shell.strip.appendChild(group);
         var crumb=document.getElementById('repBreadcrumb');
         if(crumb){
             var holder=document.createElement('div'); holder.id='repShellHiddenBreadcrumb'; holder.style.display='none';
@@ -495,12 +508,15 @@
     }
     function installCompareTools(main){
         if(!main||!shell.sideTools) return;
-        shell.compareTools=document.createElement('div');
-        shell.compareTools.id='repShellCompareTools';
-        shell.compareTools.className='rep-shell-compare-tools';
+        shell.compareTools=document.getElementById('repShellCompareTools');
+        if(!shell.compareTools){
+            shell.compareTools=document.createElement('div');
+            shell.compareTools.id='repShellCompareTools';
+            shell.compareTools.className='rep-shell-compare-tools';
+            shell.compareTools.style.display='none';
+        }
         shell.compareTools.setAttribute('aria-label',text({ur:'موازنہ اور کلپ بورڈ کے اوزار',en:'Compare and clipboard tools',roman:'Muwazna aur clipboard tools'}));
-        shell.compareTools.style.display='none';
-        main.insertBefore(shell.compareTools,shell.hostRoot);
+        if(shell.compareTools.parentNode!==main) main.insertBefore(shell.compareTools,shell.hostRoot);
         shell.compareTools.appendChild(shell.sideTools);
     }
     function installSidebarEvents(){
@@ -866,17 +882,25 @@
         var rep=document.getElementById('repRubricContent');
         if(!main||!tabbar||!diff||!search||!rep||!shell.toolbar) return false;
         shell.templates={diff:diff.cloneNode(false),search:search.cloneNode(false),rep:rep.cloneNode(false)};
-        shell.hostRoot=document.createElement('div');
-        shell.hostRoot.id='repShellHostRoot';
+        shell.hostRoot=document.getElementById('repShellHostRoot');
+        if(!shell.hostRoot){
+            shell.hostRoot=document.createElement('div');
+            shell.hostRoot.id='repShellHostRoot';
+            shell.hostRoot.setAttribute('role','tabpanel');
+            main.insertBefore(shell.hostRoot,diff);
+        }
         shell.hostRoot.setAttribute('role','tabpanel');
-        main.insertBefore(shell.hostRoot,diff);
         shell.hosts={diff:diff,search:search,rep:rep};
         ['diff','search','rep'].forEach(function(k){shell.hostRoot.appendChild(shell.hosts[k]);});
-        shell.strip=document.createElement('div');
-        shell.strip.id='repWorkspaceTabs';shell.strip.setAttribute('role','tablist');
+        shell.strip=document.getElementById('repWorkspaceTabs');
+        if(!shell.strip){
+            shell.strip=document.createElement('div');
+            shell.strip.id='repWorkspaceTabs';
+            if(layout&&layout.parentNode) layout.parentNode.insertBefore(shell.strip,layout);
+            else tabbar.parentNode.insertBefore(shell.strip,shell.hostRoot);
+        }
+        shell.strip.setAttribute('role','tablist');
         shell.strip.setAttribute('aria-label',text({ur:'کھلے صفحات',en:'Open pages',roman:'Khule safhe'}));
-        if(layout&&layout.parentNode) layout.parentNode.insertBefore(shell.strip,layout);
-        else tabbar.parentNode.insertBefore(shell.strip,shell.hostRoot);
         moveNavbarControls();
         installSideHeader();
         installCompareTools(main);

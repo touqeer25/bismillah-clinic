@@ -1,0 +1,62 @@
+/* مرکزی جسم، بائیں طرف بابوں کی فہرست، اس سے بھی بائیں مستقل کلپ بورڈ */
+@media(min-width:821px){
+    #page-repertoryBrowser .rep-layout{flex-direction:row;padding-left:60px}
+    #page-repertoryBrowser .rep-side-tools{margin-left:0!important}
+}
+#repShellCompareTools{width:100%;min-width:0}
+#repShellCompareTools .rep-side-tools{width:100%;margin:0!important}
+#page-repertoryBrowser .rep-side-col{transition:flex-basis .18s ease,width .18s ease,min-width .18s ease}
+#page-repertoryBrowser .rep-side-col.rep-shell-collapsed{
+    flex:0 0 0!important;
+    width:0!important;
+    min-width:0!important;
+    margin:0!important;
+    gap:0!important;
+    overflow:hidden!important;
+}
+#page-repertoryBrowser .rep-side-col.rep-shell-collapsed>*{display:none!important}
+#page-repertoryBrowser .rep-layout.rep-shell-sidebar-hidden{gap:0!important}
+.rep-shell-side-tools-row{display:flex;align-items:center;gap:5px;margin-bottom:2px}
+.rep-shell-side-title{flex:1;min-width:0;color:#50627b;font-size:10.5px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rep-shell-side-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 27px;
+    width:27px;
+    height:25px;
+    padding:0;
+    border:1px solid #d1dbe8;
+    border-radius:6px;
+    background:#fff;
+    color:#405373;
+    font:13px Arial,sans-serif;
+    cursor:pointer;
+}
+.rep-shell-side-btn:hover{border-color:#8da4df;background:#edf1ff}
+.rep-shell-list-head{display:flex;align-items:center;gap:6px;position:sticky;top:-6px;z-index:2;margin:-6px -4px 6px;padding:7px 7px;border-bottom:1px solid #e1e7f0;background:#f4f7fc;color:#2b3e5e;font-size:11px;font-weight:700}
+.rep-shell-list-head span:nth-child(2){flex:1;min-width:0}
+.rep-shell-book-list{display:flex;flex-direction:column;gap:2px;padding:0 2px 6px}
+.rep-shell-book-item{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    width:100%;
+    min-height:34px;
+    padding:6px 7px;
+    border:0;
+    border-radius:7px;
+    background:transparent;
+    color:#394c6c;
+    font:11.5px Tahoma,"Segoe UI",sans-serif;
+    text-align:start;
+    cursor:pointer;
+}
+.rep-shell-book-item:hover{background:#edf1f8}
+.rep-shell-book-item.active{background:#e8ecfb;color:#283a62;font-weight:700}
+.rep-shell-book-item .rep-shell-book-icon{flex:0 0 18px;text-align:center}
+.rep-shell-book-item .rep-shell-book-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#repDockArea{direction:ltr}
+@media(min-width:821px){
+    #repDockArea{left:8px;right:auto;top:210px}
+}

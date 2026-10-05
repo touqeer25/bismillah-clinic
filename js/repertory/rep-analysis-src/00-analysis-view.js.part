@@ -1,0 +1,61 @@
+// Bismillah Clinic — js/repertory/rep-analysis.js — Analysis grid، clipboards compare، Ask AI، sidebar
+// (v78: 08-app-repertory.js کو بغیر کسی کوڈ تبدیلی کے حصوں میں بانٹا گیا؛ لوڈ ترتیب index.html میں وہی رکھیں)
+// ==================== 📊 CASE ANALYSIS GRID ====================
+function repOpenAnalysis(ci){
+    var c=(typeof ci==='number')?ci:repActiveClip;
+    var l=repClipboards[c]||[];
+    if(!l.length){ showToast(repLangText({ur:'کلپ بورڈ '+(c+1)+' خالی ہے — پہلے ⋮ مینو سے ربرکس شامل کریں',en:'Clipboard '+(c+1)+' is empty — add rubrics via the ⋮ menu first',roman:'Clipboard '+(c+1)+' khali hai — pehle ⋮ menu se rubrics shamil karein'})); return; }
+    repKebabHide();
+    repHistBack.push(repCurrentState()); repHistFwd=[];
+    repAnalysisOpen=c; repWorkbenchOpen=false; repCompareOpen=false; repCurrentDetail=null; repClipViewOpen=false;
+    repActiveClip=c;
+    renderAnalysis();
+}
+function renderAnalysis(){
+    var cd=document.getElementById('repRubricContent'); if(!cd)return;
+    repUpdateNavButtons(); repRenderBreadcrumb();
+    var c=repAnalysisOpen, l=repClipboards[c]||[];
+    var h='<div class="rep-tool-head"><div class="rep-content-title"><span>📊</span><b>'+repLangText({ur:'کیس اینالیسس گرڈ',en:'CASE ANALYSIS GRID',roman:'CASE ANALYSIS GRID'})+'</b><span class="cnt">'+repLangText({ur:'کلپ بورڈ',en:'Clipboard',roman:'Clipboard'})+' '+(c+1)+' ('+l.length+')</span></div>'
+        +'<button class="rc-btn" onclick="repCloseToolView()">✕ '+repLangText({ur:'بند کریں',en:'Close',roman:'Band karein'})+'</button></div>';
+    h+=repAnaRulesHtml();
+    h+='<div id="repAnaBody"><div class="rep-tool-loading">⏳ '+repLangText({ur:'ریپرٹری ڈیٹا لوڈ ہو رہا ہے...',en:'Loading repertory data...',roman:'Repertory data load ho raha hai...'})+'</div></div>';
+    cd.innerHTML=h; cd.scrollTop=0;
+    repRenderDock();
+    repEnsureAllBooks(function(all){
+        var body=document.getElementById('repAnaBody'); if(!body)return;
+        var res=_repAnaCompute(l,all,c);
+        if(!res.abbrs.length){ body.innerHTML='<div class="rep-tool-loading">'+repLangText({ur:'ان ربرکس پر کوئی ادویہ درج نہیں',en:'No remedies recorded on these rubrics',roman:'In rubrics par koi adwiyeh darj nahi'})+'</div>'; return; }
+        var COLS=20, abbrs=res.abbrs.slice(0,COLS);
+        var winner=abbrs[0], wcol=res.col[winner];
+        var hh='<div class="rep-ana-sum">'
+            +'<span class="rep-ana-winner">🏆 '+repLangText({ur:'سب سے زیادہ کور:',en:'Top coverage:',roman:'Sab se ziyada koor:'})+' <b dir="ltr">'+escapeHtml(winner)+'</b> — '+repFmtCov(wcol.cov,res.denom)+' ('+Math.max(0,Math.round(wcol.cov*100/res.denom))+'%)</span>'
+            +(res.abbrs.length>COLS?'<span class="rep-ana-more">+'+(res.abbrs.length-COLS)+' '+repLangText({ur:'مزید ادویات',en:'more remedies',roman:'mazeed adwiyeh'})+'</span>':'')
+            +(res.elimNotes||[]).map(function(n){ return '<span class="rep-ana-elim">🚫 '+escapeHtml(repClipLabel(n.clip))+': -'+n.removed+'</span>'; }).join('')+repAnaDiffBtnsHtml(res.abbrs)+repAnaExportBtnsHtml()
+            +'<span class="rep-ana-more">🧮 '+escapeHtml(repAnaMethodLabel(res.method))+(res.method==='boen'?' · '+repLangText({ur:'پولیریٹی جوڑے: ',en:'polarity pairs: ',roman:'polarity pairs: '})+res.polPairs:'')+'</span>'
+            +'</div>';
+        hh+='<div class="rep-ana-wrap"><table class="rep-ana-table"><thead><tr><th class="ana-rub">'+repLangText({ur:'ربرک',en:'Rubric',roman:'Rubric'})+'</th>';
+        abbrs.forEach(function(a){ hh+='<th class="ana-rem'+(a===winner?' win':'')+'" dir="ltr" onclick="copyRemedyToPrescription(\''+escapeHtml(a)+'\')" title="'+escapeHtml(a)+' — '+res.col[a].cov+'/'+res.rows.length+'">'+escapeHtml(a.length>10?a.substring(0,9)+'…':a)+'</th>'; });
+        hh+='</tr></thead><tbody>';
+        res.rows.forEach(function(r){
+            var it=r.it;
+            hh+='<tr><td class="ana-rub" onclick="repClipGoto(\''+_repJs(it.book)+'\',\''+_repJs(it.ch)+'\',\''+_repJs(String(it.rid))+'\')">'
+                +repBookBadgeHtml(it.book)+' <span dir="ltr">'+escapeHtml(_repTruncPath(it.path||'—',52))+'</span></td>';
+            abbrs.forEach(function(a){
+                var g=r.rems[a]||0;
+                hh+='<td class="ana-cell">'+(g?'<i class="rep-gr-dot d'+(g>=3?3:(g===2?2:1))+'" title="'+escapeHtml(a)+' = '+g+'"></i>':'')+'</td>';
+            });
+            hh+='</tr>';
+        });
+        hh+='</tbody><tfoot><tr><td class="ana-rub">'+repLangText({ur:'کوریج',en:'Coverage',roman:'Korage'})+'</td>';
+        abbrs.forEach(function(a){ var e=res.col[a]; hh+='<td class="ana-total'+(a===winner?' win':'')+'">'+repFmtCov(e.cov,res.denom)+'</td>'; });
+        hh+='</tr><tr><td class="ana-rub">'+repLangText({ur:'اسکور (گریڈ × ویٹ)',en:'Score (grade × weight)',roman:'Score (grade × weight)'})+'</td>';
+        abbrs.forEach(function(a){ var e=res.col[a]; hh+='<td class="ana-total score'+(a===winner?' win':'')+'" title="'+repLangText({ur:'مجموعی اسکور',en:'total score',roman:'total score'})+'">'+repFmtScore(e.total)+'</td>'; });
+        if(res.pol){ hh+='</tr><tr><td class="ana-rub" title="'+repLangText({ur:'پولیریٹی = ربرک کا گریڈ منفی مخالف ربرک (agg/amel) کا گریڈ۔ ⚠ = کانٹرا انڈیکیشن',en:'Polarity = grade in rubric minus grade in opposite (agg/amel) rubric. ⚠ = contraindication',roman:'Polarity'})+'">'+repLangText({ur:'پولیریٹی',en:'Polarity',roman:'Polarity'})+'</td>';
+            abbrs.forEach(function(a){ var pv=res.pol[a]||0, ci=res.contra&&res.contra[a]; hh+='<td class="ana-total" style="'+(ci?'color:#c0392b;font-weight:bold;':'')+'">'+(ci?'⚠':'')+(pv>0?'+':'')+pv+'</td>'; }); }
+        hh+='</tr></tfoot></table></div>';
+        hh+='<p class="rep-tool-note">'+repLangText({ur:'ڈاٹ کا رنگ گریڈ دکھاتا ہے (1 ہلکا → 3 گہرا)۔ ربرک پر کلک = کھولیں، ادویہ کے نام پر کلک = کاپی۔ ویٹ ⋮ مینو سے بدلیں (ورک بینچ)۔',en:'Dot shade = grade (1 light → 3 dark). Click a rubric to open it, a remedy name to copy. Change weights from the ⋮ menu (Workbench).',roman:'Dot ka rang grade dikhaata hai. Weight ⋮ menu se badlein (Workbench).'})+'</p>';
+        body.innerHTML=hh;
+    });
+}
+
+// ==================== ⇄ COMPARE (clipboards side by side) ====================

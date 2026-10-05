@@ -1,0 +1,152 @@
+    function installSideHeader(){
+        var parent=shell.sideCol;
+        if(!parent) return;
+        var row=document.getElementById('repShellSideToolsRow');
+        if(!row){
+            row=document.createElement('div'); row.className='rep-shell-side-tools-row'; row.id='repShellSideToolsRow';
+            var title=document.createElement('span'); title.className='rep-shell-side-title'; title.id='repShellSideTitle';
+            row.appendChild(title);
+        }
+        if(row.parentNode!==parent) parent.insertBefore(row,shell.sideList||parent.firstChild);
+        shell.sideHeader=row;
+        updateSideHeader();
+    }
+    function moveNavbarControls(){
+        var navbar=shell.root&&shell.root.querySelector('.rep-navbar');
+        if(!navbar||!shell.toolbar) return;
+        var group=(shell.strip&&shell.strip.querySelector('.rep-shell-strip-nav'))||document.getElementById('repShellStripNav');
+        if(!group){group=document.createElement('div');group.id='repShellStripNav';group.className='rep-shell-strip-nav';}
+        group.classList.add('rep-shell-strip-nav');
+        group.setAttribute('role','presentation');
+        group.setAttribute('aria-label',text({ur:'صفحہ نیویگیشن اور سائیڈ بار',en:'Page navigation and sidebar',roman:'Safha navigation aur sidebar'}));
+        ['repBtnBack','repBtnFwd','repBtnUp'].forEach(function(id){
+            var button=document.getElementById(id);if(button)group.appendChild(button);
+        });
+        var sideToggle=document.getElementById('repShellHideSideBtn');
+        if(!sideToggle){
+            sideToggle=document.createElement('button'); sideToggle.type='button';
+            sideToggle.id='repShellHideSideBtn'; sideToggle.className='rep-shell-side-btn rep-shell-strip-toggle';
+            sideToggle.textContent='◀';
+        }
+        if(!sideToggle.dataset.repShellBound){
+            sideToggle.addEventListener('click',function(ev){ev.preventDefault();ev.stopPropagation();toggleSidebar();});
+            sideToggle.dataset.repShellBound='1';
+        }
+        sideToggle.setAttribute('aria-label',text({ur:'سائیڈ بار چھپائیں',en:'Hide sidebar',roman:'Sidebar chhupaein'}));
+        sideToggle.title=sideToggle.getAttribute('aria-label');
+        group.appendChild(sideToggle);
+        shell.controls.sidebarToggle=sideToggle; shell.stripNav=group;
+        if(shell.strip&&group.parentNode!==shell.strip) shell.strip.appendChild(group);
+        var crumb=document.getElementById('repBreadcrumb');
+        if(crumb){
+            var holder=document.createElement('div'); holder.id='repShellHiddenBreadcrumb'; holder.style.display='none';
+            shell.root.appendChild(holder); holder.appendChild(crumb);
+        }
+        var gradation=navbar.querySelector('.rep-gradation');
+        var views=navbar.querySelector('.rep-viewtoggle');
+        shell.toolbarExtras=[];
+        if(gradation){gradation.classList.add('rep-shell-toolbar-extra');shell.toolbarExtras.push(gradation);}
+        if(views){views.classList.add('rep-shell-toolbar-extra');shell.toolbarExtras.push(views);}
+        navbar.remove();
+        if(shell.searchInput) shell.searchInput.setAttribute('dir','auto');
+    }
+    function updateDockPosition(){
+        var dock=shell.dockArea||document.getElementById('repDockArea');
+        if(!dock||!shell.root||!shell.sideCol) return;
+        var pageRect=shell.root.getBoundingClientRect();
+        if(pageRect.width<=0||pageRect.height<=0) return;
+        var top=Math.round(shell.sideCol.getBoundingClientRect().top);
+        if(top>0) dock.style.top=Math.max(8,top)+'px';
+        else if(top<=0) dock.style.top='8px';
+    }
+    function installDockPositioning(){
+        if(typeof raw.syncDockTop==='function'){
+            window.repSyncDockTop=function(){
+                if(!started||shell.suppress) return raw.syncDockTop.apply(this,arguments);
+                updateDockPosition();
+            };
+        }
+        window.addEventListener('resize',updateDockPosition);
+        window.addEventListener('scroll',updateDockPosition,{passive:true});
+        window.addEventListener('load',updateDockPosition);
+        if(document.fonts&&document.fonts.addEventListener){
+            try{document.fonts.addEventListener('loadingdone',updateDockPosition);}catch(e){}
+        }
+        setTimeout(updateDockPosition,700);setTimeout(updateDockPosition,1600);setTimeout(updateDockPosition,2600);
+    }
+    function installCompareTools(main){
+        if(!main||!shell.sideTools) return;
+        shell.compareTools=document.getElementById('repShellCompareTools');
+        if(!shell.compareTools){
+            shell.compareTools=document.createElement('div');
+            shell.compareTools.id='repShellCompareTools';
+            shell.compareTools.className='rep-shell-compare-tools';
+            shell.compareTools.style.display='none';
+        }
+        shell.compareTools.setAttribute('aria-label',text({ur:'موازنہ اور کلپ بورڈ کے اوزار',en:'Compare and clipboard tools',roman:'Muwazna aur clipboard tools'}));
+        if(shell.compareTools.parentNode!==main) main.insertBefore(shell.compareTools,shell.hostRoot);
+        shell.compareTools.appendChild(shell.sideTools);
+    }
+    function installSidebarEvents(){
+        if(shell.sideList){
+            shell.sideList.addEventListener('click',function(ev){
+                var b=ev.target.closest('.rep-shell-book-item');
+                if(b&&b.dataset.bookKey){ev.preventDefault();openRepertory(b.dataset.bookKey);}
+            });
+        }
+    }
+    function updateSideHeader(){
+        var title=document.getElementById('repShellSideTitle');
+        var hide=document.getElementById('repShellHideSideBtn');
+        if(title) title.textContent=shell.sidebarMode==='books'
+            ?text({ur:'ریپرٹریوں کی فہرست',en:'Repertories',roman:'Repertories ki fehrist'})
+            :text({ur:'ابواب',en:'Chapters',roman:'Abwaab'});
+        if(hide){
+            hide.textContent=shell.sidebarHidden?'▶':'◀';
+            hide.setAttribute('aria-label',shell.sidebarHidden?text({ur:'سائیڈ بار دکھائیں',en:'Show sidebar',roman:'Sidebar dikhayein'}):text({ur:'سائیڈ بار چھپائیں',en:'Hide sidebar',roman:'Sidebar chhupaein'}));
+            hide.title=hide.getAttribute('aria-label');
+        }
+    }
+    function toggleSidebar(){
+        shell.sidebarHidden=!shell.sidebarHidden;
+        var col=shell.sideCol||document.querySelector('#page-repertoryBrowser .rep-side-col');
+        if(col) col.classList.toggle('rep-shell-collapsed',shell.sidebarHidden);
+        if(shell.layout) shell.layout.classList.toggle('rep-shell-sidebar-hidden',shell.sidebarHidden);
+        updateSideHeader();
+        if(shell.controls.books) shell.controls.books.classList.toggle('on',shell.sidebarMode==='books');
+    }
+    function setSidebarMode(mode){
+        shell.sidebarMode=(mode==='books')?'books':'chapters';
+        var tab=liveTab(); if(tab)tab.sidebarMode=shell.sidebarMode;
+        updateSideHeader();
+        if(shell.sidebarMode==='books') renderBookList();
+        else if(raw.renderChapterList) raw.renderChapterList();
+        updateToolbarButtons();
+    }
+    function openBooks(){
+        var tab=liveTab();
+        if(shell.sidebarHidden) toggleSidebar();
+        setSidebarMode(shell.sidebarMode==='books'?'chapters':'books');
+        if(tab) tab.sidebarMode=shell.sidebarMode;
+    }
+    function renderBookList(){
+        var box=shell.sideList;
+        if(!box) return;
+        box.innerHTML='';
+        var head=document.createElement('div'); head.className='rep-shell-list-head';
+        var icon=document.createElement('span'); icon.textContent='📚';
+        var label=document.createElement('span'); label.textContent=text({ur:'ریپرٹریاں',en:'Repertories',roman:'Repertories'});
+        head.appendChild(icon);head.appendChild(label);box.appendChild(head);
+        var list=document.createElement('div');list.className='rep-shell-book-list';
+        var books=Object.keys(window.REP_BOOK_INFO||{});
+        books.forEach(function(key){
+            var info=bookInfo(key),b=document.createElement('button');
+            b.type='button';b.className='rep-shell-book-item'+(window.repCurrentBook===key?' active':'');
+            b.dataset.bookKey=key;b.title=info.name||key;
+            var ico=document.createElement('span');ico.className='rep-shell-book-icon';ico.textContent='📘';
+            var name=document.createElement('span');name.className='rep-shell-book-name';name.textContent=info.name||key;
+            b.appendChild(ico);b.appendChild(name);list.appendChild(b);
+        });
+        box.appendChild(list);
+    }
+

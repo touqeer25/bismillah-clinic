@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="css/rubric-ur.css?v=103">
     <link rel="stylesheet" href="css/rubrics-ur.css?v=108">
     <link rel="stylesheet" href="css/parser-studio.css?v=83">
-    <link rel="stylesheet" href="css/repertory-tabs.css?v=155">
+    <link rel="stylesheet" href="css/repertory-tabs.css?v=157">
 
 </head>
 <body dir="rtl" class="lang-ur">
@@ -799,10 +799,11 @@
         </div>
     </div>
     
+<!-- BEGIN GENERATED REPERTORY STRUCTURE -->
     <!-- ============================================ -->
     <!-- REPERTORY BROWSER (HomeoSetu-style layout, clinic colors) -->
     <!-- ============================================ -->
-    <div id="page-repertoryBrowser" class="page">
+<div id="page-repertoryBrowser" class="page">
         <div class="content">
             <!-- Toolbar: book select + search scope + search box -->
             <div class="rep-toolbar">
@@ -844,11 +845,18 @@
                 <!-- 🔑 v107: اردو — پورا مطلب ⇄ صرف اضافہ (js/18-rubrics-ur.js میں بندھتا ہے، یہاں کوئی onclick نہیں) -->
                 <button type="button" class="rep-cmp-btn rep-ur-mode-btn" id="repUrModeBtn" title="اردو: پورا مطلب / صرف اضافہ">📖 <span dir="rtl">پورا مطلب</span></button>
             </div>
+
+            <div id="repWorkspaceTabs" role="tablist" aria-label="کھلے صفحات">
+                <div id="repShellStripNav" class="rep-shell-strip-nav" role="presentation" aria-label="صفحہ نیویگیشن اور سائیڈ بار">
+                    <button type="button" id="repShellHideSideBtn" class="rep-shell-side-btn rep-shell-strip-toggle" aria-label="سائیڈ بار چھپائیں" title="سائیڈ بار چھپائیں">◀</button>
+                </div>
+            </div>
+
             <!-- Layout: chapters sidebar + main column -->
             <div class="rep-layout">
-                <div class="rep-side-col">
+<div class="rep-side-col">
                     <!-- sidebar top tools (HomeoSetu-style: N selected / Clear / Analyze) -->
-                    <div class="rep-side-tools" id="repSideTools">
+<div class="rep-side-tools" id="repSideTools">
                         <div class="rst-row">
                             <span class="rst-count" id="repSelCount">0 selected</span>
                             <button class="rc-btn" onclick="repClipTrash()" title="Clear the ACTIVE clipboard (press twice)">Clear</button>
@@ -860,11 +868,18 @@
                         <!-- 🔑 v54: Compare-Mode panel (selected rubric chips of the active clipboard) — filled by repCmpPanelRender() -->
                         <div id="repCmpPanel" class="rst-cmp" style="display:none"></div>
                     </div>
-                    <aside class="rep-sidebar" id="repChapterList">
+
+                    <div class="rep-shell-side-tools-row" id="repShellSideToolsRow">
+                        <span class="rep-shell-side-title" id="repShellSideTitle"></span>
+                    </div>
+<aside class="rep-sidebar" id="repChapterList">
                         <div class="empty-state"><p>Loading...</p></div>
                     </aside>
+
+
                 </div>
-                <div class="rep-main">
+
+<div class="rep-main">
                     <!-- navbar: back / fwd / up + breadcrumb + gradation + view toggle -->
                     <div class="rep-navbar">
                         <button id="repBtnBack" class="rep-navbtn" onclick="repBack()" title="Back">←</button>
@@ -883,6 +898,7 @@
                             <button class="rep-viewbtn" onclick="repTreeExpandAll(false)" title="صرف پہلی سطح — باقی بند">⊟</button>
                         </div>
                     </div>
+
                     <!-- 🔑 v86 (صارف): 🔬 تفریق / نکاسی — ٹیب پٹی بریڈکرمب کے نیچے، مواد کے اوپر -->
                     <div class="rep-pagetabs" id="repPageTabs">
                         <button type="button" class="rep-pagetab on" id="repPageTabRep" onclick="repPageTab('rep')">📖 <span data-ur="ریپرٹری" data-en="Repertory" data-roman="Repertory">ریپرٹری</span></button>
@@ -890,18 +906,30 @@
                         <!-- 🔑 v151 (صارف): 🔍 نتائج — سرچ کے نتائج کا اپنا ٹیب؛ 📖 ریپرٹری ⇄ 🔍 نتائج کلک سے -->
                         <button type="button" class="rep-pagetab" id="repPageTabSearch" onclick="repPageTab('search')" title="Search results — سرچ نتائج">🔍 <span data-ur="نتائج" data-en="Results" data-roman="Nataij">نتائج</span> <span class="rep-search-result-count" id="repSearchTabCount"></span></button>
                     </div>
+
+                    <div id="repShellCompareTools" class="rep-shell-compare-tools" aria-label="موازنہ اور کلپ بورڈ کے اوزار" style="display:none"></div>
+
+                    <div id="repShellHostRoot" role="tabpanel">
                     <div id="repDiffView" class="rep-diff-view" style="display:none"></div>
+
                     <!-- 🔑 v151 (صارف): سرچ نتائج کا اپنا خانہ — تلاش کے نتائج ریپرٹری کو نہیں ہٹاتے
                          (ریپرٹری اور نتائج دو ٹیب بن گئے؛ دونوں کے درمیان کلک سے آ جا سکتے ہیں) -->
                     <div id="repSearchView" class="rep-main-inner" style="display:none"></div>
+
                     <!-- rubric cards / search results / empty state -->
                     <div class="rep-main-inner" id="repRubricContent">
                         <div class="rep-empty-state"><div class="res-icon">📁</div><p class="res-title">Select a chapter from the left menu</p><p class="res-sub">Browse rubrics and remedies</p></div>
                     </div>
+
+                    </div>
                     <!-- 🔑 floating clipboard dock — ALWAYS floats at the bottom of the VISIBLE area (HomeoSetu style) -->
                     <div id="repDockArea"></div>
+
+
                 </div>
+
             </div>
+
             <!-- 🔑 floating AI assistant ("Ask Sandhika" style) — FAB + chat panel -->
             <button id="repAskFab" class="rep-ask-fab" onclick="repAskToggle()" title="Ask AI — Clinic Assistant">
                 <span class="rep-ask-dot"></span>
@@ -921,19 +949,24 @@
                     <button class="rc-btn primary" onclick="repAskSend()">➤</button>
                 </div>
             </div>
+
         </div>
     </div>
+
     <!-- Remedy Details slide-in panel -->
     <div id="repPanelOverlay" onclick="repCloseRemedyPanel()"></div>
     <div id="repRemedyPanel">
         <div class="rrp-head"><span id="repPanelTitle">💊 Remedy Details</span><button class="rrp-close" onclick="repCloseRemedyPanel()">✕</button></div>
         <div id="repRemedyPanelBody"></div>
     </div>
+
     <!-- kebab (⋮) popup menu for cards -->
     <div id="repKebabMenu" class="rep-kebab-menu"></div>
+
     <div id="repChartOverlay" class="rep-chart-overlay" onclick="if(event.target===this)closeRepertoryChart()">
         <div class="rep-chart-modal"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;"><span style="font-weight:bold;font-size:16px;color:#1a5276;">📊 Repertorisation Chart</span><button onclick="closeRepertoryChart()" style="background:none;border:none;font-size:20px;cursor:pointer;">✕</button></div><div id="repChartContent" style="overflow-x:auto;"></div></div>
     </div>
+<!-- END GENERATED REPERTORY STRUCTURE -->
 
     <!-- ============================================ -->
     <!-- SETTINGS (Clean - No Duplicates!) -->
@@ -1557,6 +1590,6 @@
 <script src="js/17-rubric-ur.js?v=107"></script>
 <script src="js/18-rubrics-ur.js?v=152"></script>
 <script src="js/ai-diagnosis-engine.js?v=2"></script>
-<script src="js/repertory/rep-tabs.js?v=155"></script>
+<script src="js/repertory/rep-tabs.js?v=157"></script>
 </body>
 </html>

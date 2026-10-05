@@ -1,0 +1,61 @@
+/* براؤزر جیسی بیرونی ٹیب پٹی */
+#page-repertoryBrowser #repPageTabs{display:none!important}
+#repWorkspaceTabs{
+    display:flex;
+    align-items:flex-end;
+    gap:4px;
+    min-height:42px;
+    padding:5px 8px 0;
+    overflow-x:auto;
+    overflow-y:hidden;
+    white-space:nowrap;
+    background:#2b3a5c;
+    direction:ltr;
+    justify-content:flex-start;
+    scrollbar-width:thin;
+    scrollbar-color:#7181a0 transparent;
+}
+#repWorkspaceTabs::-webkit-scrollbar{height:5px}
+#repWorkspaceTabs::-webkit-scrollbar-thumb{background:#7181a0;border-radius:5px}
+.rep-workspace-tab{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    flex:0 0 auto;
+    max-width:min(280px,72vw);
+    height:35px;
+    padding:0 9px;
+    border:1px solid #4a5c80;
+    border-bottom:0;
+    border-radius:9px 9px 0 0;
+    background:#233352;
+    color:#c9d5e6;
+    font:600 12px Tahoma,"Segoe UI",sans-serif;
+    direction:ltr;
+    cursor:pointer;
+}
+.rep-workspace-tab:hover{background:#34476d;color:#f2f5fa}
+.rep-workspace-tab.active{background:#f7f9fc;border-color:#d9e1ec;color:#23344f}
+.rep-workspace-tab .rep-tab-icon{flex:0 0 auto;font-size:14px}
+.rep-workspace-tab .rep-tab-label{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.rep-workspace-tab .rep-tab-sub{max-width:110px;overflow:hidden;color:#8090a7;font-size:10px;font-weight:500;text-overflow:ellipsis}
+.rep-workspace-tab .rep-tab-count{flex:0 0 auto;color:#8090a7;font:10px Arial,sans-serif}
+.rep-workspace-tab .rep-tab-close{
+    flex:0 0 auto;
+    width:21px;
+    height:21px;
+    padding:0;
+    border:0;
+    border-radius:5px;
+    background:transparent;
+    color:#aebbd0;
+    font:14px Arial,sans-serif;
+    cursor:pointer;
+}
+.rep-workspace-tab .rep-tab-close:hover{background:#e6ebf4;color:#ad3c35}
+#repShellHostRoot{display:flex;flex:1 1 auto;flex-direction:column;gap:10px;min-width:0;min-height:0}
+#repShellHostRoot>#repRubricContent,
+#repShellHostRoot>#repSearchView,
+#repShellHostRoot>#repDiffView{min-width:0;min-height:0;flex:1 1 auto}
+#repShellHostRoot>#repRubricContent>.rep-content-head{display:none!important}
+

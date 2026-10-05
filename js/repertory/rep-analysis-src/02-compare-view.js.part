@@ -1,0 +1,54 @@
+function renderCompare(){
+    var cd=document.getElementById('repRubricContent'); if(!cd)return;
+    repUpdateNavButtons(); repRenderBreadcrumb();
+    var sel=[]; for(var i=0;i<REP_N_CLIPS;i++) if(repCompareSel[i]&&(repClipboards[i]||[]).length) sel.push(i);
+    var h='<div class="rep-tool-head"><div class="rep-content-title"><span>⇄</span><b>'+repLangText({ur:'موازنہ (COMPARE)',en:'COMPARE',roman:'COMPARE'})+'</b></div>'
+        +'<button class="rc-btn" onclick="repCloseToolView()">✕ '+repLangText({ur:'بند کریں',en:'Close',roman:'Band karein'})+'</button></div>';
+    h+='<div class="rep-cmp-chips">';
+    for(var ci=0;ci<REP_N_CLIPS;ci++){
+        var n=(repClipboards[ci]||[]).length;
+        h+='<button class="rep-cmp-chip'+(repCompareSel[ci]?' on':'')+(n?'':' dis')+'"'+(n?' onclick="repCompareToggle('+ci+')"':' disabled')+'>📋'+(ci+1)+' — '+n+' '+repLangText({ur:'ربرکس',en:'rubrics',roman:'rubrics'})+'</button>';
+    }
+    h+='</div>';
+    if(sel.length<2){
+        h+='<div class="rep-tool-loading">'+repLangText({ur:'موازنے کے لیے کم از کم 2 غیر خالی کلپ بورڈز منتخب کریں — اوپر چپس سے منتخب کریں۔',en:'Select at least 2 non-empty clipboards above to compare.',roman:'Moazne ke liye kam az kam 2 ghair khali clipboards muntakhib karein.'})+'</div>';
+        cd.innerHTML=h; cd.scrollTop=0; repRenderDock(); return;
+    }
+    h+='<div id="repCmpBody"><div class="rep-tool-loading">⏳ '+repLangText({ur:'ریپرٹری ڈیٹا لوڈ ہو رہا ہے...',en:'Loading repertory data...',roman:'Repertory data load ho raha hai...'})+'</div></div>';
+    cd.innerHTML=h; cd.scrollTop=0; repRenderDock();
+    repEnsureAllBooks(function(all){
+        var body=document.getElementById('repCmpBody'); if(!body)return;
+        var res=_repCmpCompute(sel,all);
+        var hh='';
+        hh+='<div class="rpd-sec-head">📁 '+repLangText({ur:'ربرکس کا موازنہ',en:'RUBRICS SIDE BY SIDE',roman:'RUBRICS ka moazna'})+' <span class="cnt">('+res.union.length+')</span></div>';
+        if(!res.union.length){
+            hh+='<div class="rep-tool-loading">'+repLangText({ur:'منتخب کلپ بورڈز خالی ہیں',en:'Selected clipboards are empty',roman:'Muntakhib clipboards khali hain'})+'</div>';
+        } else {
+            hh+='<div class="rep-ana-wrap"><table class="rep-ana-table cmp"><thead><tr><th class="ana-rub">'+repLangText({ur:'ربرک',en:'Rubric',roman:'Rubric'})+'</th>';
+            sel.forEach(function(ci){ hh+='<th>📋'+(ci+1)+'</th>'; });
+            hh+='</tr></thead><tbody>';
+            res.union.forEach(function(u){
+                hh+='<tr><td class="ana-rub">'+repBookBadgeHtml(u.it.book)+' <span dir="ltr" style="cursor:pointer;" onclick="repClipGoto(\''+_repJs(u.it.book)+'\',\''+_repJs(u.it.ch)+'\',\''+_repJs(String(u.it.rid))+'\')">'+escapeHtml(_repTruncPath(u.it.path||'—',52))+'</span></td>';
+                sel.forEach(function(ci){ hh+='<td class="ana-cell">'+(u.inClips.indexOf(ci)!==-1?'<span class="cmp-yes">✓</span>':'')+'</td>'; });
+                hh+='</tr>';
+            });
+            hh+='</tbody></table></div>';
+        }
+        hh+='<div class="rpd-sec-head">💊 '+repLangText({ur:'مشترکہ ادویات — ہر منتخب کلپ بورڈ میں موجود',en:'COMMON REMEDIES — present in EVERY selected clipboard',roman:'Mushtarka adwiyeh — har muntakhib clipboard mein mojood'})+' <span class="cnt">('+res.common.length+')</span></div>';
+        if(!res.common.length){
+            hh+='<div class="rep-tool-note">'+repLangText({ur:'کوئی ادویہ ایسی نہیں جو ہر منتخب کلپ بورڈ کی کم از کم ایک ربرک میں موجود ہو۔',en:'No remedy appears in at least one rubric of every selected clipboard.',roman:'Koi adwiyeh nahi jo har muntakhib clipboard ki kam az kam aik rubric mein ho.'})+'</div>';
+        } else {
+            hh+='<div class="rep-cmp-common">';
+            res.common.forEach(function(cr){
+                var dots='';
+                sel.forEach(function(ci){ var g=cr.per[ci]||0; dots+=g?'<i class="rep-gr-dot d'+(g>=3?3:(g===2?2:1))+'"></i>':'<i class="rep-gr-dot off"></i>'; });
+                hh+='<span class="rep-remedy-tag g'+(cr.max>=3?3:(cr.max===2?2:1))+' cmp" onclick="copyRemedyToPrescription(\''+escapeHtml(cr.abbr)+'\')" title="'+escapeHtml(cr.abbr)+' — Σ '+cr.total+'"><b dir="ltr">'+escapeHtml(cr.abbr)+'</b><span class="cmp-dots">'+dots+'</span><span class="cmp-sum">Σ '+cr.total+'</span></span>';
+            });
+            hh+='</div>';
+            hh+='<p class="rep-tool-note">'+repLangText({ur:'یہ ادویہ ہر منتخب کلپ بورڈ کی کم از کم ایک ربرک میں موجود ہیں — ڈاٹس بتاتے ہیں کس کلپ بورڈ میں کتنے گریڈ پر، اور Σ مجموعہ بڑا = زیادہ کور۔',en:'These remedies appear in at least one rubric of every selected clipboard — dots show which clipboard and at what grade; higher Σ = more coverage.',roman:'Ye adwiyeh har muntakhib clipboard ki kam az kam aik rubric mein hain — Σ barha = ziyada koor.'})+'</p>';
+        }
+        body.innerHTML=hh;
+    });
+}
+
+// ==================== 🤖 ASK AI (floating assistant) ====================

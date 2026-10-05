@@ -1,0 +1,211 @@
+    function text(map){
+        if(typeof window.repLangText==='function') return window.repLangText(map);
+        return (map&&(map.ur||map.en||map.roman))||'';
+    }
+    function escapeHtml(s){
+        return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+    }
+    function bookInfo(key){ return (window.REP_BOOK_INFO&&window.REP_BOOK_INFO[key])||{name:key||'Kent',abbr:key||'Kent'}; }
+    function clonePlain(value){
+        if(value===null||typeof value!=='object') return value;
+        if(Array.isArray(value)) return value.map(clonePlain);
+        var proto=Object.getPrototypeOf(value);
+        if(proto!==Object.prototype&&proto!==null) return value;
+        var out={}; Object.keys(value).forEach(function(k){ out[k]=clonePlain(value[k]); }); return out;
+    }
+    function copyStateValue(key,value){
+        if(REFERENCE_KEYS[key]) return value;
+        if(key==='repTreeViews') return Object.assign({},value||{});
+        if(key==='repChapterNames') return Array.isArray(value)?value.map(function(x){return Object.assign({},x);}):value;
+        if(key==='repHistBack'||key==='repHistFwd'||key==='repFolderPath'||key==='repPendingPath'||key==='repCurrentDetail'||key==='repPendingDetail'||key==='_repSearchBeforeContext'||key==='repTreeCollapsed'||key==='repCompareSel'||key==='repDiffSel'||key==='repDiffOpts') return clonePlain(value);
+        return value;
+    }
+    function readState(){
+        var out={};
+        STATE_KEYS.forEach(function(key){ if(key in window) out[key]=copyStateValue(key,window[key]); });
+        return out;
+    }
+    function restoreState(state){
+        if(!state) return;
+        STATE_KEYS.forEach(function(key){
+            if(Object.prototype.hasOwnProperty.call(state,key)) window[key]=copyStateValue(key,state[key]);
+        });
+        var select=document.getElementById('repBookSelect');
+        if(select&&window.repCurrentBook) select.value=window.repCurrentBook;
+    }
+    function liveTab(){ return shell.byId[shell.activeId]||null; }
+    function findTab(id){ return shell.byId[id]||null; }
+    function repId(book){ return 'rep:'+String(book||'kent'); }
+    function getRepTab(book){ return findTab(repId(book)); }
+    function currentInputValue(){ return shell.searchInput?shell.searchInput.value:''; }
+    function setInputValue(value){ if(shell.searchInput) shell.searchInput.value=value==null?'':String(value); }
+
+    function makeTab(type,key){
+        var tab={id:'',type:type,book:null,clip:null,hosts:null,vars:null,returnId:null,
+            searchValue:'',sidebarMode:'chapters',sideHtml:null,toolsHtml:null,sideScroll:0,
+            page:'rep',created:Date.now()};
+        if(type==='repertory'){
+            tab.book=key||'kent'; tab.id=repId(tab.book);
+        } else if(type==='clipboard'){
+            tab.clip=Number(key)||0; tab.id='clip:'+tab.clip;
+        } else {
+            tab.id=type;
+        }
+        return tab;
+    }
+    function registerTab(tab){
+        shell.tabs.push(tab); shell.byId[tab.id]=tab;
+        return tab;
+    }
+    function newHostSet(){
+        var set={};
+        ['diff','search','rep'].forEach(function(key){
+            var n=shell.templates[key].cloneNode(false);
+            n.innerHTML='';
+            if(key==='diff'||key==='search') n.style.display='none';
+            else n.style.display='';
+            set[key]=n;
+        });
+        return set;
+    }
+    function detachHostSet(){
+        var set=shell.hosts;
+        if(!set) return null;
+        ['diff','search','rep'].forEach(function(key){ if(set[key]&&set[key].parentNode) set[key].parentNode.removeChild(set[key]); });
+        shell.hosts=null;
+        return set;
+    }
+    function attachHostSet(tab){
+        if(!tab.hosts) tab.hosts=newHostSet();
+        shell.hosts=tab.hosts;
+        ['diff','search','rep'].forEach(function(key){ shell.hostRoot.appendChild(tab.hosts[key]); });
+    }
+    function readSide(tab,keepSearchValue){
+        if(!tab) return;
+        if(!keepSearchValue) tab.searchValue=currentInputValue();
+        if(shell.sideList){ tab.sideHtml=shell.sideList.innerHTML; tab.sideScroll=shell.sideList.scrollTop; }
+        if(shell.sideTools) tab.toolsHtml=shell.sideTools.innerHTML;
+        tab.sidebarMode=shell.sidebarMode;
+        tab.page=window.repActivePageTab||tab.page||'rep';
+    }
+    function saveActiveTab(keepSearchValue){
+        var tab=liveTab();
+        if(!tab) return null;
+        tab.vars=readState();
+        readSide(tab,!!keepSearchValue);
+        tab.hosts=detachHostSet();
+        return tab;
+    }
+    function pageForTab(tab){
+        if(tab&&tab.type==='search') return 'search';
+        if(tab&&tab.type==='diff') return 'diff';
+        return 'rep';
+    }
+    function setPageForTab(tab){
+        var page=pageForTab(tab);
+        tab.page=page;
+        if(raw.pageTab){
+            shell.suppress=true;
+            try{ raw.pageTab(page); }finally{ shell.suppress=false; }
+        }
+    }
+    function callIf(name){
+        var f=window[name]; if(typeof f==='function') try{f();}catch(e){console.warn('rep shell sync:',name,e);}
+    }
+    function restoreSide(tab){
+        if(!tab) return;
+        shell.sidebarMode=tab.sidebarMode||'chapters';
+        if(shell.sideTools&&tab.toolsHtml!==null&&tab.toolsHtml!==undefined) shell.sideTools.innerHTML=tab.toolsHtml;
+        if(shell.sideList){
+            if(tab.sideHtml!==null&&tab.sideHtml!==undefined) shell.sideList.innerHTML=tab.sideHtml;
+            shell.sideList.scrollTop=tab.sideScroll||0;
+        }
+        updateSideHeader();
+        if(shell.sidebarMode==='books') renderBookList();
+        else if(raw.renderChapterList) raw.renderChapterList();
+        if(shell.sideList) shell.sideList.scrollTop=tab.sideScroll||0;
+    }
+    function activateTab(id,options){
+        options=options||{};
+        var tab=findTab(id); if(!tab) return false;
+        if(shell.activeId===id){
+            if(options.ensurePage) setPageForTab(tab);
+            renderTabStrip();
+            return true;
+        }
+        if(isBusy()&&!options.skipBusy){
+            queueAction(function(){activateTab(id,{skipBusy:true});});
+            return false;
+        }
+        saveActiveTab(!!options.keepSearchValue);
+        shell.activeId=id;
+        if(window._repXrefSeq!==undefined&&typeof window._repXrefSeq==='number') window._repXrefSeq++;
+        if(options.resetBook) resetRepStateForBook(options.resetBook);
+        else if(options.restore!==false&&tab.vars) restoreState(tab.vars);
+        attachHostSet(tab);
+        if(options.restore!==false&&tab.searchValue!==undefined) setInputValue(tab.searchValue);
+        if(options.restore!==false) restoreSide(tab);
+        else {
+            shell.sidebarMode=tab.sidebarMode||'chapters';
+            if(shell.sideTools&&tab.toolsHtml!==null&&tab.toolsHtml!==undefined) shell.sideTools.innerHTML=tab.toolsHtml;
+            if(shell.sideList&&tab.sideHtml!==null&&tab.sideHtml!==undefined) shell.sideList.innerHTML=tab.sideHtml;
+            updateSideHeader();
+            if(shell.sidebarMode==='books') renderBookList();
+            else if(raw.renderChapterList) raw.renderChapterList();
+        }
+        var select=document.getElementById('repBookSelect');
+        if(select&&window.repCurrentBook) select.value=window.repCurrentBook;
+        setPageForTab(tab);
+        syncVisibleState(tab);
+        if(tab.type==='repertory') shell.lastRepId=tab.id;
+        renderTabStrip();
+        return true;
+    }
+    function syncVisibleState(tab){
+        if(shell.sideList&&tab) shell.sideList.scrollTop=tab.sideScroll||0;
+        if(shell.compareTools) shell.compareTools.style.display=tab&&tab.type==='compare'?'':'none';
+        updateSearchControls();
+        updateSideHeader();
+        if(typeof window.repCmpSyncUI==='function') callIf('repCmpSyncUI');
+        if(typeof window.repTreeSyncBtns==='function') callIf('repTreeSyncBtns');
+        if(typeof window.repGradeSyncBtns==='function') callIf('repGradeSyncBtns');
+        if(typeof window.repUpdateNavButtons==='function') callIf('repUpdateNavButtons');
+        if(typeof window.repRenderBreadcrumb==='function') callIf('repRenderBreadcrumb');
+        if(typeof window.repRenderDock==='function') callIf('repRenderDock');
+        if(shell.sidebarMode==='books') renderBookList();
+        if(tab&&tab.type==='repertory'&&window.repCurrentDetail&&typeof window.repRenderXrefAppBody==='function'){
+            var x=document.getElementById('repXrefAppBody');
+            if(x&&x.querySelector('.rpd-xload')){
+                try{window.repRenderXrefAppBody(window.repCurrentDetail.full||'',window.repCurrentDetail.rid||'');}catch(e){}
+            }
+        }
+        updateToolbarButtons();
+    }
+
+    function getNearestRep(tab){
+        tab=tab||liveTab();
+        if(tab&&tab.type==='repertory') return tab;
+        var cur=tab, seen={};
+        while(cur&&cur.returnId&&!seen[cur.returnId]){
+            seen[cur.returnId]=1;
+            cur=findTab(cur.returnId);
+            if(cur&&cur.type==='repertory') return cur;
+        }
+        if(shell.lastRepId&&findTab(shell.lastRepId)) return findTab(shell.lastRepId);
+        for(var i=shell.tabs.length-1;i>=0;i--) if(shell.tabs[i].type==='repertory') return shell.tabs[i];
+        return null;
+    }
+    function getSearchReturnTab(ctx){
+        var current=liveTab();
+        var wanted=ctx&&ctx.book?getRepTab(ctx.book):null;
+        if(wanted) return wanted;
+        var byReturn=current&&findTab(current.returnId);
+        if(byReturn&&byReturn.type==='repertory') return byReturn;
+        return getNearestRep(current);
+    }
+
+    function toastWaiting(){
+        if(typeof window.showToast==='function'){
+            try{window.showToast(text({ur:'موجودہ کام مکمل ہونے دیں، پھر ٹیب کھلے گا',en:'Please wait for the current task to finish',roman:'Maujooda kaam mukammal hone dein, phir tab khulega'}));}catch(e){}
+        }
+    }

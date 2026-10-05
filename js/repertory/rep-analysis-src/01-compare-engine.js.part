@@ -1,0 +1,41 @@
+function repOpenCompare(){
+    repKebabHide();
+    repHistBack.push(repCurrentState()); repHistFwd=[];
+    repCompareOpen=true; repWorkbenchOpen=false; repAnalysisOpen=-1; repCurrentDetail=null; repClipViewOpen=false;
+    for(var i=0;i<REP_N_CLIPS;i++) repCompareSel[i]=(repClipboards[i]||[]).length>0;
+    var any=false; repCompareSel.forEach(function(x){ if(x)any=true; });
+    if(!any) repCompareSel[repActiveClip]=true;
+    renderCompare();
+}
+function repCompareToggle(i){ repCompareSel[i]=!repCompareSel[i]; renderCompare(); }
+function _repCmpCompute(sel,all){
+    var map={},order=[],unions={};
+    sel.forEach(function(ci){
+        unions[ci]={};
+        (repClipboards[ci]||[]).forEach(function(it){
+            var key=it.book+'|'+String(it.rid);
+            if(!map[key]){ map[key]={it:it,inClips:[]}; order.push(key); }
+            if(map[key].inClips.indexOf(ci)===-1) map[key].inClips.push(ci);
+            var rems=repClipItemRemedies(it,all)||{};
+            Object.keys(rems).forEach(function(a){
+                var g=rems[a]||1; g=g>=3?3:(g===2?2:1);
+                if(!unions[ci][a]||unions[ci][a]<g) unions[ci][a]=g;
+            });
+        });
+    });
+    var common=[];
+    if(sel.length){
+        Object.keys(unions[sel[0]]).forEach(function(a){
+            var ok=true;
+            for(var s=1;s<sel.length;s++){ if(!unions[sel[s]][a]){ ok=false; break; } }
+            if(ok){
+                var per={},total=0,max=0;
+                sel.forEach(function(ci){ var g=unions[ci][a]||0; per[ci]=g; total+=g; if(g>max)max=g; });
+                common.push({abbr:a,per:per,total:total,max:max});
+            }
+        });
+        common.sort(function(x,y){ return y.total-x.total||x.abbr.localeCompare(y.abbr); });
+    }
+    var union=order.map(function(k){ return map[k]; });
+    return {union:union,common:common};
+}

@@ -1,0 +1,40 @@
+// Bismillah Clinic — js/repertory/rep-workbench.js — ڈاک، ورک بینچ، Combine/Merge
+// (v78: 08-app-repertory.js کو بغیر کسی کوڈ تبدیلی کے حصوں میں بانٹا گیا؛ لوڈ ترتیب index.html میں وہی رکھیں)
+// ============================================================
+// 🔑 HOMEOSETU LAYOUT CLONE — v37 TOOL VIEWS + ASK AI
+// 1) فلوٹنگ ڈاک (index.html میں repDockArea ہمیشہ نظر آنے والے حصے کے نیچے)
+// 2) ⚙ Clipboard Workbench — بارہ کلپ بورڈز ایک جگہ
+// 3) 📊 Case Analysis Grid — ریپرٹورائزیشن چارٹ (ربرک × ادویہ، گریڈ ڈاٹس)
+// 4) ⇄ Compare — کلپ بورڈز کا موازنہ + مشترکہ ادویات
+// 5) 🤖 Ask AI — فلوٹنگ اسسٹنٹ (علامت → میچنگ ربرکس + استعمال کی مدد)
+// 6) سائیڈبار ٹولز — N selected / Clear / Analyze
+// ============================================================
+var repWorkbenchOpen=false, repCompareOpen=false, repAnalysisOpen=-1;
+var repCompareSel=[false,false,false,false,false,false,false,false];
+
+function _repTruncPath(s,n){ s=String(s==null?'':s); return s.length>n?s.substring(0,n-1)+'…':s; }
+function repCloseToolView(){ repGo(repFolderPath); }
+
+// ---------- shared data loading for tool views ----------
+function repEnsureAllBooks(cb){
+    if(_allBooksData&&Object.keys(_allBooksData).length>=Object.keys(REP_BOOK_INFO).length){ cb(_allBooksData); return; }
+    loadAllBooksData(function(all){ cb(all||{}); });
+}
+function repClipItemRemedies(it,all){
+    if(it&&it.combined&&it.remsObj) return it.remsObj;            // ⊕ مشترکہ ربرک: ادویہ ساتھ محفوظ ہیں
+    if(it.book===repCurrentBook&&repRidPathMap&&repRidPathMap[String(it.rid)]) return repRidPathMap[String(it.rid)].node.remedies||{};
+    var sd=all?all[it.book]:null; if(!sd)return {};
+    var ch=sd[it.ch]||sd[normalizeChapterKey(it.book,it.ch)]||null; if(!ch)return {};
+    var r=ch[String(it.rid)]||null;
+    return (r&&r.r)?r.r:{};
+}
+// 🔑 v54 اصول: کوریج یونٹ — 'count' (HomeoSetu: ہر ربرک = 1، ویٹ صرف اسکور پر) | 'weighted' (پرانا: ویٹ کوریج میں بھی)
+function _repCovUnit(w){ return (repAnaOpts.cov==='weighted')?w:1; }
+function _repAnaAccum(col,rems,w){
+    Object.keys(rems).forEach(function(a){
+        var g=rems[a]||1; g=g>=3?3:(g===2?2:1);
+        var e=col[a]; if(!e)e=col[a]={cov:0,total:0,n:0};
+        if(w>0){ e.cov+=_repCovUnit(w); e.total+=g*w; e.n++; }
+        else   { e.cov-=1; e.total-=g*Math.abs(w); }      // -1x: منفی ربرک — کوریج بھی گھٹتی ہے، اسکور بھی
+    });
+}

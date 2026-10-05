@@ -1,0 +1,29 @@
+function _repWbGridCompute(all){
+    var included=repWbIncludedItems();
+    var rows=[],col={},denom=0;
+    included.forEach(function(r){
+        var it=r.it, w=(typeof it.w==='number')?it.w:1;
+        var rems=repClipItemRemedies(it,all)||{};
+        rows.push({it:it,elim:repClipElims[r.ci],rems:rems,w:w});
+        if(w>0)denom+=_repCovUnit(w);
+        _repAnaAccum(col,rems,w);
+    });
+    if(denom<=0)denom=1;
+    // Elimination Mode: a clipboard marked as elimination keeps ONLY remedies covered by its rubrics
+    var elimNotes=[];
+    for(var ci=0;ci<REP_N_CLIPS;ci++){
+        if(!repClipElims[ci])continue;
+        var items=(repClipboards[ci]||[]).filter(function(it){ return repWbSelCount()===0||it.sel; });
+        if(!items.length)continue;
+        var keep=repElimKeepSet(items,all);   // 'every' = ہر ربرک میں (انٹرسیکشن) · 'any' = کسی ایک میں (یونین)
+        var removed=0;
+        Object.keys(col).forEach(function(a){ if(!keep[a]){ removed++; delete col[a]; } });
+        if(removed||Object.keys(keep).length) elimNotes.push({clip:ci,removed:removed});
+    }
+    var abbrs=Object.keys(col).sort(function(a,b){
+        var d=col[b].cov-col[a].cov; if(d)return d;
+        d=col[b].total-col[a].total; if(d)return d;
+        return a.localeCompare(b);
+    });
+    return repAnaApplyMethod({rows:rows,col:col,abbrs:abbrs,denom:denom,elimNotes:elimNotes},all);
+}

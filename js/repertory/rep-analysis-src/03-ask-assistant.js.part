@@ -1,0 +1,152 @@
+var repAskOpen=false;
+function repAskToggle(){
+    repAskOpen=!repAskOpen;
+    var p=document.getElementById('repAskPanel'); if(!p)return;
+    if(repAskOpen) p.classList.add('open'); else p.classList.remove('open');
+    if(repAskOpen){
+        var m=document.getElementById('repAskMsgs');
+        if(m&&!m.childElementCount){
+            m.innerHTML='<div class="rep-ask-msg bot">'+repLangText({
+                ur:'السلام علیکم! میں کلینک اسسٹنٹ ہوں۔ علامت لکھیں تو میں میچنگ ربرکس ڈھونڈ دوں گا، یا پوچھیں: کلپ بورڈ، ورک بینچ، تجزیہ گرڈ، Compare، گریڈ یا سرچ کیسے؟',
+                en:'Hello! I am the clinic assistant. Type a symptom and I will find matching rubrics, or ask me about clipboards, workbench, the analysis grid, Compare, grades or search.',
+                roman:'Assalam-o-alaikum! Main clinic assistant hoon. Alaamat likhein ya poochein: clipboards, workbench, grid, Compare, grade ya search?'})+'</div>';
+        }
+        repAskRenderChips();
+        var inp=document.getElementById('repAskInput'); if(inp)inp.focus();
+    }
+}
+function repAskRenderChips(){
+    var c=document.getElementById('repAskChips'); if(!c)return;
+    var chips=[
+        repLangText({ur:'کلپ بورڈ کیسے استعمال کروں؟',en:'How do clipboards work?',roman:'Clipboard kaise istemal karoon?'}),
+        repLangText({ur:'تجزیہ گرڈ سمجھائیں',en:'Explain the analysis grid',roman:'Tajzia grid samjhaein'}),
+        repLangText({ur:'Compare کیا ہے؟',en:'What is Compare?',roman:'Compare kya hai?'}),
+        repLangText({ur:'گریڈ کا مطلب؟',en:'What do grades mean?',roman:'Grade ka matlab?'})
+    ];
+    var h='';
+    chips.forEach(function(t){ h+='<button class="rep-ask-chip" onclick="repAskChipGo(this)">'+escapeHtml(t)+'</button>'; });
+    c.innerHTML=h;
+}
+function repAskChipGo(btn){ var inp=document.getElementById('repAskInput'); if(inp){ inp.value=btn.textContent; repAskSend(); } }
+function repAskPushUser(t){
+    var m=document.getElementById('repAskMsgs'); if(!m)return;
+    m.insertAdjacentHTML('beforeend','<div class="rep-ask-msg user">'+escapeHtml(t)+'</div>');
+    m.scrollTop=m.scrollHeight;
+}
+function repAskSend(){
+    var inp=document.getElementById('repAskInput'); if(!inp)return;
+    var v=inp.value.trim(); if(!v)return;
+    inp.value='';
+    repAskPushUser(v);
+    var m=document.getElementById('repAskMsgs');
+    if(m){ m.insertAdjacentHTML('beforeend','<div class="rep-ask-msg bot" id="repAskTyping">⏳</div>'); m.scrollTop=m.scrollHeight; }
+    setTimeout(function(){ repAskAnswer(v); },300);
+}
+function repAskFinish(html){
+    var t=document.getElementById('repAskTyping');
+    if(t){ var d=document.createElement('div'); d.className='rep-ask-msg bot'; d.innerHTML=html; t.parentNode.replaceChild(d,t); }
+    var m=document.getElementById('repAskMsgs'); if(m)m.scrollTop=m.scrollHeight;
+}
+function repAskActs(entries){
+    var h='<div class="rep-ask-acts">';
+    entries.forEach(function(e){ h+='<button class="rc-btn primary" onclick="'+e.fn+'">'+e.lab+'</button>'; });
+    return h+'</div>';
+}
+function repAskSearch(q,cb){
+    var words=String(q).toLowerCase().split(/\s+/).filter(Boolean);
+    function scan(sd,bookKey){
+        var out=[];
+        if(!sd)return out;
+        Object.keys(sd).forEach(function(ck){
+            var rubs=sd[ck]; if(!rubs)return;
+            Object.keys(rubs).forEach(function(rid){
+                var r=rubs[rid]; if(!r)return;
+                var t=r.path||r.de_path||r.t||''; if(!t)return;
+                var lt=t.toLowerCase();
+                for(var i=0;i<words.length;i++){ if(lt.indexOf(words[i])===-1)return; }
+                out.push({book:bookKey,ch:ck,rid:rid,text:t,rems:r.r||{}});
+            });
+        });
+        return out;
+    }
+    var meaning=repUrduMeaning(q);
+    function done(cur){
+        if(cur.length){ cb(cur.slice(0,6),meaning); return; }
+        repEnsureAllBooks(function(all){
+            var more=[];
+            Object.keys(REP_BOOK_INFO).forEach(function(bk){ if(bk===repCurrentBook)return; more=more.concat(scan(all[bk],bk)); });
+            cb(more.slice(0,6),meaning);
+        });
+    }
+    function runCur(d){ done(scan(d,repCurrentBook)); }
+    if(_repFullData) runCur(_repFullData); else loadRepData(runCur);
+}
+function repAskAnswer(q){
+    var lq=String(q).toLowerCase();
+    function B(inner){ repAskFinish(inner); }
+    if(/(ورک ?بینچ|workbench)/.test(lq)){
+        return B(repLangText({ur:'<b>⚙ ورک بینچ (کیس ریپرٹورائزیشن)</b> — بارہ کلپ بورڈز ایک ساتھ: ہر ربرک پر <b>⋮</b> مینو (ترتیب، ملٹی پلائر ویٹ، منتقلی، ڈیلیٹ)، ✏ سے نام، 🚫 ایلی منیشن موڈ، اور <b>📊 گرڈ</b> ٹیب پر مشترکہ تجزیہ۔',en:'<b>⚙ Workbench (Case Repertorisation)</b> — all 12 clipboards together: every rubric has a <b>⋮</b> menu (order, multiplier weight, move, delete), ✏ renames, 🚫 Elimination Mode, and the <b>📊 Grid</b> tab analyzes them combined.',roman:'Workbench — har rubric ka ⋮ menu, ✏ rename, 🚫 elimination, 📊 Grid tab.'})+repAskActs([{fn:'repOpenWorkbench()',lab:'⚙ '+repLangText({ur:'ورک بینچ کھولیں',en:'Open Workbench',roman:'Workbench kholen'})}]));
+    }
+    if(/(ویٹ|weight|0\.5|ملٹی ?پلائر|multiplier)/.test(lq)){
+        return B(repLangText({ur:'<b>⚖ ملٹی پلائر ویٹ</b> — ورک بینچ میں ہر ربرک کے ⋮ مینو سے: <b>0.5x</b> نصف اثر، <b>1x</b> عام، <b>2x/4x</b> زیادہ اثر (اہم ربرک)، <b>-1x 🚫</b> منہا (اس ربرک کی ادویات اسکور سے کٹ جاتی ہیں)۔ گرڈ کی کوریج اسی سے بڑھتی/گھٹتی ہے۔',en:'<b>⚖ Multiplier Weight</b> — in the Workbench, open a rubric\'s ⋮ menu: <b>0.5x</b> half effect, <b>1x</b> normal, <b>2x/4x</b> stronger (key rubrics), <b>-1x 🚫</b> negative (its remedies are subtracted from the score). The Grid coverage follows these weights.',roman:'Multiplier Weight — ⋮ menu se: 0.5x/1x/2x/4x/-1x; grid coverage mutabiq.'})+repAskActs([{fn:'repOpenWorkbench()',lab:'⚙ '+repLangText({ur:'ورک بینچ کھولیں',en:'Open Workbench',roman:'Workbench kholen'})}]));
+    }
+    if(/(ایلی ?منیشن|elimination|eliminate|خارج)/.test(lq)){
+        return B(repLangText({ur:'<b>🚫 ایلی منیشن موڈ</b> — ورک بینچ میں کسی کلپ بورڈ پر یہ باکس چیک کریں: <b>📊 گرڈ</b> ٹیب میں پھر صرف وہی ادویات رہیں گی جو اسی کلپ بورڈ کے ربرکس میں موجود ہوں — باقی سب خارج (eliminate) ہو جائیں گی۔ یہ کلاسک ہومیوپیتھک elimination ہے۔',en:'<b>🚫 Elimination Mode</b> — check it on a clipboard in the Workbench: the <b>📊 Grid</b> tab then keeps ONLY the remedies covered by that clipboard\'s rubrics — everything else is eliminated. Classic homeopathic elimination.',roman:'Elimination Mode — check karne par Grid mein sirf usi clipboard ki adwiyat rehti hain.'})+repAskActs([{fn:'repOpenWorkbench()',lab:'⚙ '+repLangText({ur:'ورک بینچ کھولیں',en:'Open Workbench',roman:'Workbench kholen'})}]));
+    }
+    if(/(گرڈ|grid|اینالیسس|analysis|تجزیہ|repertoriz|ریپرٹورائز)/.test(lq)){
+        return B(repLangText({ur:'<b>📊 کیس اینالیسس گرڈ</b> — فعال کلپ بورڈ کی ربرکس قطاروں میں، ادویات کالموں میں؛ ہر ڈاٹ کا رنگ گریڈ (1 ہلکا → 3 گہرا)، نیچے کوریج۔ سب سے اوپر 🏆 سب سے زیادہ کور والی ادویہ۔',en:'<b>📊 Case Analysis Grid</b> — rubrics of the active clipboard as rows, remedies as columns; each dot is a grade (1 light → 3 dark), totals at the bottom. 🏆 marks the top-coverage remedy.',roman:'Case Analysis Grid — rubrics rows, remedies columns; dot = grade, neeche korage; 🏆 top remedy.'})+repAskActs([{fn:'repOpenAnalysis()',lab:'📊 '+repLangText({ur:'گرڈ کھولیں',en:'Open Grid',roman:'Grid kholen'})}]));
+    }
+    if(/(میٹیریا|materia|کتاب کا متن|boericke|بورک|kent lecture|نیش|nash|allen key|ایلن)/.test(lq)){
+        return B(repLangText({ur:'<b>📖 میٹیریا میڈیکا</b> — چار پبلک ڈومین کتابیں ایپ میں ہیں: کینٹ لیکچرز، بورک، ایلن کی نوٹس، نیش لیڈرز۔ ربرک کے صفحے پر «📖 میٹیریا میڈیکا» = ربرک کی ادویات کا پورا متن، موضوع کے الفاظ نمایاں؛ تفریق ونڈو کا «📖» ٹیب = ہر ریمیڈی کے متعلقہ جملے مع حوالہ + 🤖 خودکار مسودہ + ✍ آپ کا نوٹ (منظور/ایکسپورٹ)۔',en:'<b>📖 Materia medica</b> — four public-domain books are in the app: Kent Lectures, Boericke, Allen Keynotes, Nash Leaders. On a rubric page «📖» shows the full text of its remedies with theme words highlighted; the «📖» tab of the differentiation window gives each remedy\'s matching sentences with references + 🤖 auto draft + ✍ your own note (approve/export).',roman:'Materia medica — Kent, Boericke, Allen, Nash; rubric page par 📖; tafreeq window ka 📖 tab.'})+repAskActs([{fn:'repMMOpenForRubric()',lab:'📖 '+repLangText({ur:'کھولیں',en:'Open',roman:'Kholen'})}]));
+    }
+    if(/(تفریق|extract|differen|فرق|ایکسٹریکشن)/.test(lq)){
+        return B(repLangText({ur:'<b>🔬 تفریق / ایکسٹریکشن</b> — ربرک کے صفحے پر «🔬 تفریق» دبائیں: (1) ربرک کی تمام ریمیڈیز کا ذیلی/ہم رشتہ ربرکس پر پروفائل، (2) 2 تا 5 ریمیڈیز چن کر <b>خصوصی</b> ربرکس (صرف ایک موجود)، گریڈ کا فرق، جزوی، مشترک — چھوٹا ربرک + اونچا گریڈ اوپر، (3) ایک ریمیڈی = کی نوٹس، (4) کتابوں کی گواہی۔ گرڈ کے اوپر «🔬 ٹاپ 3» بھی ہے۔',en:'<b>🔬 Differentiation / Extraction</b> — press «🔬» on a rubric page: (1) profile of all its remedies over sub/related rubrics, (2) pick 2–5 remedies → <b>exclusive</b> rubrics (only one present), grade differences, partial, common — small rubric + high grade first, (3) one remedy = keynotes, (4) books witness. The grid also has «🔬 top 3».',roman:'Tafreeq / Extraction — rubric page par 🔬; 2–5 remedies → exclusive rubrics.'})+repAskActs([{fn:'repDiffOpenWithRemedies([])',lab:'🔬 '+repLangText({ur:'کھولیں',en:'Open',roman:'Kholen'})}]));
+    }
+    if(/(compare|کمپئیر|موازنہ)/.test(lq)){
+        return B(repLangText({ur:'<b>☑ کمپیئر موڈ (Compare)</b> — ٹول بار کا Compare بٹن دبائیں: ہر ربرک کارڈ پر ☐ آ جاتا ہے، ٹک = فعال کلپ بورڈ میں شامل؛ سائیڈ بار میں N منتخب / کلیئر / اینالائز۔ اینالائز = ورک بینچ گرڈ (تمام کلپ بورڈز، ویٹ، ایلی منیشن)۔ کلپ بورڈز آمنے سامنے دیکھنے کے لیے <b>⇄ کلپ بورڈز کا موازنہ</b> (ورک بینچ)۔',en:'<b>☑ Compare Mode</b> — press the toolbar Compare button: every rubric card gets a ☐, tick = added to the active clipboard; sidebar shows N selected / Clear / Analyze. Analyze = Workbench Grid (all clipboards, weights, elimination). For clipboards side by side use <b>⇄ Compare clipboards</b> (Workbench).',roman:'Compare Mode — toolbar button; cards par ☐, tick = active clipboard; Analyze = Workbench Grid.'})+repAskActs([{fn:'repCmpModeToggle()',lab:'☑ Compare'},{fn:'repOpenCompare()',lab:'⇄ '+repLangText({ur:'کلپ بورڈز کا موازنہ',en:'Compare clipboards',roman:'Compare clipboards'})}]));
+    }
+    if(/(کلپ|clip)/.test(lq)){
+        return B(repLangText({ur:'<b>📋 کلپ بورڈز (1–12)</b> — یہ آپ کی ریپرٹورائزیشن ورکنگ لسٹیں ہیں: کسی ربرک کارڈ کے <b>⋮</b> مینو سے شامل/ہٹائیں، نیچے ڈاک کے نمبر پر کلک سے لسٹ کھولیں۔ یہ localStorage میں محفوظ رہتے ہیں۔',en:'<b>📋 Clipboards (1–12)</b> — your repertorisation working lists: add/remove via the <b>⋮</b> menu on any rubric card, click a dock number to view the list. They persist in localStorage.',roman:'Clipboards 1-12 — ⋮ menu se add/remove, dock number par click se list; localStorage mein mehfooz.'})+repAskActs([{fn:'repOpenWorkbench()',lab:'⚙ '+repLangText({ur:'ورک بینچ کھولیں',en:'Open Workbench',roman:'Workbench kholen'})}]));
+    }
+    if(/(گریڈ|grade|gradation|درجہ)/.test(lq)){
+        return B(repLangText({ur:'<b>گریڈ (GRADATION)</b> — ریپرٹری میں ادویہ کی طاقت: <span class="rep-gr-dot d3"></span> 3 = مضبوط (سب سے پہلے غور), <span class="rep-gr-dot d2"></span> 2 = درمیانہ, <span class="rep-gr-dot d1"></span> 1 = معمولی۔ تجزیہ گرڈ میں ڈاٹ کا رنگ اسی سے بنتا ہے۔',en:'<b>GRADATION</b> — remedy strength in the repertory: <span class="rep-gr-dot d3"></span> 3 = strong (consider first), <span class="rep-gr-dot d2"></span> 2 = medium, <span class="rep-gr-dot d1"></span> 1 = light. The analysis grid dot colours follow this.',roman:'Grade — adwiyeh ki taaqat: 3 mazboot, 2 darmiyana, 1 mamooli.'}));
+    }
+    if(/(سرچ|search|تلاش|dhundh|find)/.test(lq)){
+        return B(repLangText({ur:'<b>🔍 سرچ ٹپس</b> — پہلا ڈراپ ڈاؤن <b>سکوپ</b> چنیں: <b>سرچ ان اوپن چیپٹر</b> (صرف کھلا باب)، <b>سرچ ان اوپن ریپرٹری</b> (پوری کتاب)، <b>سرچ ان آل ریپرٹریز</b> (چاروں کتابیں)۔ دوسرا ڈراپ ڈاؤن <b>ٹائپ</b> چنیں: <b>ربرک / سب ربرک</b> (عام)، <b>ادویہ</b> (مثلاً nux vom)، <b>ربرک + ادویہ</b> (دونوں)، <b>کلینیکل حالت</b> (مثلاً headache یا اردو میں «بخار» — لغت خود ہم معنی ڈھونڈتی ہے)۔ <code>@mind</code> لگائیں تو صرف اسی باب میں۔',en:'<b>🔍 Search tips</b> — first dropdown picks the SCOPE: <b>Search in Open Chapter</b> (open chapter only), <b>Search in Open Repertory</b> (whole book), <b>Search in All Repertories</b> (all four books). Second dropdown picks the TYPE: <b>Rubric / Subrubric</b> (normal), <b>Remedy</b> (e.g. nux vom), <b>Rubric + Remedy</b> (both), <b>Clinical Condition</b> (e.g. headache or Urdu «بخار» — the glossary finds synonyms for you). Add <code>@mind</code> to restrict to one chapter.',roman:'Search tips — scope dropdown: Open Chapter / Open Repertory / All Repertories; type dropdown: Rubric/Subrubric, Remedy, Rubric+Remedy, Clinical Condition; @chapter filter.'}));
+    }
+    if(/(معنی|matlab|مطلب|meaning|مریض کا ورژن)/.test(lq)){
+        return B(repLangText({ur:'<b>📖 ربرک کا مطلب</b> — ربرک کھولیں (کارڈ یا ڈیٹیل پیج) اور عنوان کے بعد <b>&lt;</b> آئکن دبائیں: مطلب (لغت سے)، مریض کا ورژن، صحیح استعمال اور کراس ریفرنس ایکسپینڈ ہو کر آئیں گے۔',en:'<b>📖 Rubric meaning</b> — open a rubric (card or detail page) and press the <b>&lt;</b> icon after the title: meaning (from the glossary), patient version, when to use and cross-references expand.',roman:'Rubric kholen aur < icon dabaein — matlab, mareez ka version, istemal, xref.'}));
+    }
+    if(/^(سلام|اسلام|hi|hello|hey|assalam)/.test(lq)){
+        return B(repLangText({ur:'وعلیکم السلام! 👋 علامت لکھیں (مثلاً <i>headache morning</i>) یا مجھ سے کوئی فیچر پوچھیں۔',en:'Hello! 👋 Type a symptom (e.g. <i>headache morning</i>) or ask me about any feature.',roman:'Walaikum assalam! Alaamat likhein ya feature poochein.'}));
+    }
+    if(String(q).trim().length>=2){
+        repAskSearch(q,function(found,meaning){
+            if(!found.length){
+                B(repLangText({ur:'«'+escapeHtml(q)+'» کے لیے کوئی ربرک نہیں ملی — کوئی اور لفظ آزمائیں یا بتائیں کہ مریض اپنی شکایت کیسے بیان کرتا ہے۔',en:'No rubric found for «'+escapeHtml(q)+'» — try another word, or tell me how the patient describes the complaint.',roman:'«'+escapeHtml(q)+'» ke liye rubric nahi mili — dosra lafz azmaein.'}));
+                return;
+            }
+            var h2=repLangText({ur:'میں نے <b>'+found.length+'</b> میچنگ ربرکس پائیں — کلک کریں تو کھل جائیں گی:',en:'I found <b>'+found.length+'</b> matching rubrics — click to open:',roman:'Mujhe '+found.length+' matching rubrics milin — click kar ke kholen:'});
+            if(meaning) h2+='<div class="rep-ask-mean">📖 '+escapeHtml(meaning)+'</div>';
+            h2+='<div class="rep-ask-found">';
+            found.forEach(function(f){
+                h2+='<div class="rep-ask-found-row" onclick="navigateToRubric(\''+_repJs(f.book)+'\',\''+_repJs(f.ch)+'\',\''+_repJs(String(f.rid))+'\',true)">'+repBookBadgeHtml(f.book)+'<span dir="ltr">'+escapeHtml(_repTruncPath(f.text,64))+'</span><i>⚡ '+Object.keys(f.rems||{}).length+'</i></div>';
+            });
+            h2+='</div>'+repLangText({ur:'پسند آئے تو کارڈ کے ⋮ مینو سے کلپ بورڈ میں شامل کریں۔',en:'Like one? Add it to a clipboard via the card\'s ⋮ menu.',roman:'Pasand aaye to ⋮ menu se clipboard mein shamil karein.'});
+            B(h2);
+        });
+        return;
+    }
+    B(repLangText({ur:'میں ربرکس تلاش کرنے اور کلپ بورڈز، ورک بینچ، تجزیہ گرڈ، Compare، گریڈ و سرچ سمجھانے میں مدد کر سکتا ہوں — علامت لکھ کر دیکھیں!',en:'I can find rubrics and explain clipboards, workbench, the analysis grid, Compare, grades and search — try typing a symptom!',roman:'Main rubrics talash aur features samjha sakta hoon — alaamat likhein!'}));
+}
+
+// ==================== SIDEBAR TOOLS (N selected / Clear / Analyze) ====================
+function repUpdateSelCount(){
+    var el=document.getElementById('repSelCount'); if(!el)return;
+    var n=0; for(var i=0;i<REP_N_CLIPS;i++) n+=(repClipboards[i]||[]).length;
+    var na=(repClipboards[repActiveClip]||[]).length;
+    el.textContent=repLangText({ur:na+' منتخب'+(n!==na?' · کل '+n:''),en:na+' selected'+(n!==na?' · total '+n:''),roman:na+' selected'+(n!==na?' · total '+n:'')});
+    el.title=repLangText({ur:'فعال: '+repClipLabel(repActiveClip)+' ('+na+') — تمام کلپ بورڈز: '+n,en:'Active: '+repClipLabel(repActiveClip)+' ('+na+') — all clipboards: '+n,roman:'Active: '+repClipLabel(repActiveClip)+' ('+na+') — total: '+n});
+    repCmpPanelRender();
+}
+

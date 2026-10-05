@@ -1,0 +1,53 @@
+    function isBusy(){ return shell.locks.length>0; }
+    function queueAction(fn){
+        shell.pendingAction=fn;
+        toastWaiting();
+    }
+    function addLock(type,timeout,cancel){
+        var lock={type:type,cancel:cancel||null,timer:null,observer:null,done:false};
+        shell.locks.push(lock);
+        if(timeout&&timeout>0){
+            lock.timer=setTimeout(function(){
+                if(lock.done) return;
+                if(typeof lock.cancel==='function'){
+                    try{lock.cancel();}catch(e){}
+                }
+                finishLock(lock,true);
+            },timeout);
+        }
+        return lock;
+    }
+    function finishLock(lock,runPending){
+        if(!lock||lock.done) return;
+        lock.done=true;
+        if(lock.timer) clearTimeout(lock.timer);
+        if(lock.observer) try{lock.observer.disconnect();}catch(e){}
+        var i=shell.locks.indexOf(lock); if(i!==-1) shell.locks.splice(i,1);
+        if(runPending!==false&&!isBusy()&&shell.pendingAction){
+            var next=shell.pendingAction; shell.pendingAction=null;
+            setTimeout(function(){try{next();}catch(e){console.error('rep shell queued action failed',e);}},0);
+        }
+    }
+    function finishType(type,runPending){
+        shell.locks.slice().forEach(function(lock){if(lock.type===type)finishLock(lock,runPending);});
+    }
+    function cancelSearch(runPending){
+        if(typeof window._repSearchSeq==='number') window._repSearchSeq++;
+        finishType('search',runPending!==false);
+        shell.searchLock=null;
+    }
+    function finishChapter(book,ch){
+        for(var i=shell.chapterLocks.length-1;i>=0;i--){
+            var l=shell.chapterLocks[i];
+            if(l.book===book&&(!ch||l.chapter===ch)){
+                shell.chapterLocks.splice(i,1); finishLock(l,true); return;
+            }
+        }
+    }
+    function finishIndex(book){
+        for(var i=shell.indexLocks.length-1;i>=0;i--){
+            var l=shell.indexLocks[i];
+            if(l.book===book){shell.indexLocks.splice(i,1);finishLock(l,true);return;}
+        }
+    }
+

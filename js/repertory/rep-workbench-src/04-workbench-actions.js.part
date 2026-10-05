@@ -1,0 +1,212 @@
+var repWbTab='clips';   // 'clips' | 'grid'
+function repOpenWorkbench(tab){
+    repKebabHide(); repWbMenuHide();
+    repHistBack.push(repCurrentState()); repHistFwd=[];
+    repWorkbenchOpen=true; repCompareOpen=false; repAnalysisOpen=-1; repCurrentDetail=null; repClipViewOpen=false;
+    repWbTab=(tab==='grid')?'grid':'clips';
+    renderWorkbench();
+}
+function repClipLabel(ci){
+    var custom=repClipNames[ci];
+    if(custom) return custom;
+    return repLangText({ur:'کلپ بورڈ',en:'Clipboard',roman:'Clipboard'})+' '+(ci+1);
+}
+function repWChip(w){
+    if(w==null||w===1) return '';
+    var cls=w<0?'w-neg':(w<1?'w-half':(w>=4?'w-max':'w-plus'));
+    var label=(w<0?'-':'')+w+'x';
+    return '<span class="w-chip '+cls+'" title="'+repLangText({ur:'ملٹی پلائر ویٹ',en:'Multiplier weight',roman:'Multiplier weight'})+': '+label+'">'+label+'</span>';
+}
+function repClipMove(ci,idx,dir){
+    var l=repClipboards[ci]||[];
+    var j=idx+dir;
+    if(idx<0||idx>=l.length||j<0||j>=l.length)return;
+    var t=l[idx]; l[idx]=l[j]; l[j]=t;
+    repClipsSave();
+    if(repWorkbenchOpen)renderWorkbench(); else if(repClipViewOpen&&ci===repActiveClip)renderClipView(); else repRenderDock();
+}
+function repClipRemoveAt(ci,idx){
+    var l=repClipboards[ci]||[];
+    if(idx<0||idx>=l.length)return;
+    l.splice(idx,1); repClipsSave();
+    if(repWorkbenchOpen)renderWorkbench();
+    else if(repClipViewOpen&&ci===repActiveClip)renderClipView();
+    else repRenderDock();
+    repUpdateSelCount();
+}
+function repClipOpenIdx(ci,i){
+    var it=(repClipboards[ci]||[])[i]; if(!it)return;
+    repWorkbenchOpen=false; repCompareOpen=false; repAnalysisOpen=-1;
+    repActiveClip=ci;
+    repClipGoto(it.book,it.ch,it.rid);
+}
+function repSetClipActive(ci){
+    repActiveClip=ci; repRenderDock();
+    if(repWorkbenchOpen)renderWorkbench();
+    showToast(repLangText({ur:'🎯 '+repClipLabel(ci)+' فعال',en:'🎯 '+repClipLabel(ci)+' is now active',roman:'🎯 '+repClipLabel(ci)+' faal'}));
+}
+var _repWbArm=-1;
+function repWorkbenchClear(ci){
+    if(_repWbArm!==ci){ _repWbArm=ci; showToast(repLangText({ur:'دوبارہ دبائیں — '+repClipLabel(ci)+' خالی ہوگا',en:'Press again — '+repClipLabel(ci)+' will be cleared',roman:'Dobara dabaein — '+repClipLabel(ci)+' khali hoga'})); return; }
+    _repWbArm=-1;
+    repClipboards[ci]=[]; repClipsSave();
+    if(repWorkbenchOpen)renderWorkbench(); else repRenderDock();
+    repUpdateSelCount();
+}
+// 🔑 workbench 3-dots menu actions
+function repClipSetWeight(ci,i,w){
+    var it=(repClipboards[ci]||[])[i]; if(!it)return;
+    it.w=w; repClipsSave();
+    showToast(repLangText({ur:'⚖ ویٹ '+w+'x — '+repClipLabel(ci),en:'⚖ Weight '+w+'x — '+repClipLabel(ci),roman:'⚖ Weight '+w+'x — '+repClipLabel(ci)}));
+    if(repWorkbenchOpen)renderWorkbench(); else repRenderDock();
+}
+function repClipMoveTo(ci,i,target){
+    if(target===ci)return;
+    var l=repClipboards[ci]||[]; var it=l[i]; if(!it)return;
+    l.splice(i,1); it.sel=false;
+    (repClipboards[target]=repClipboards[target]||[]).push(it);
+    repClipsSave();
+    showToast('📋 '+repClipLabel(ci)+' → '+repClipLabel(target));
+    if(repWorkbenchOpen)renderWorkbench(); else repRenderDock();
+}
+function repClipDelete(ci,i){ repClipRemoveAt(ci,i); }
+// ==================== ⊕ COMBINE / ⧉ MERGE (HomeoSetu کلون) ====================
+// ☑ منتخب ربرکس → ایک مشترکہ ربرک: ادویہ کا یونین، ایک دوا کئی ربرکس میں ہو تو سب سے زیادہ گریڈ رکھا جاتا ہے۔
+// مشترکہ آئٹم اپنی ادویہ (remsObj) اور اصل ربرکس (sources) ساتھ رکھتا ہے — ⊖ سے دوبارہ الگ ہو سکتا ہے۔
+function repClipSelIdx(ci){ var out=[]; (repClipboards[ci]||[]).forEach(function(it,i){ if(it.sel)out.push(i); }); return out; }
+function _repRemsUnion(items,all){
+    var u={};
+    items.forEach(function(it){ var rems=repClipItemRemedies(it,all)||{}; Object.keys(rems).forEach(function(a){ var g=rems[a]||1; g=g>=3?3:(g===2?2:1); if(!u[a]||u[a]<g)u[a]=g; }); });
+    return u;
+}
+function repCombDesc(it){ var s=(it.sources||[]).map(function(x){ return (REP_BOOK_INFO[x.book]?REP_BOOK_INFO[x.book].abbr+': ':'')+(x.path||''); }); return repLangText({ur:'مشترکہ ربرک — ',en:'Combined rubric — ',roman:'Combined rubric — '})+s.join(' | '); }
+function repCombBadge(it){ return it&&it.combined?'<span class="wb-comb-badge" title="'+_repAttr(repCombDesc(it))+'">⊕ '+((it.sources||[]).length)+'</span>':''; }
+function repClipCombine(ci,autoName){
+    var idx=repClipSelIdx(ci);
+    if(idx.length<2){ showToast(repLangText({ur:'☑ پہلے اس کلپ بورڈ میں کم از کم 2 ربرکس منتخب کریں',en:'☑ Select at least 2 rubrics in this clipboard first',roman:'Pehle is clipboard mein kam az kam 2 rubrics select karein'})); return; }
+    var name=autoName;
+    if(!name){
+        var def=repLangText({ur:'مشترکہ ربرک',en:'Combined Rubric',roman:'Combined Rubric'});
+        name=prompt(repLangText({ur:'مشترکہ ربرک کا نام:',en:'Name for the combined rubric:',roman:'Combined rubric ka naam:'}),def);
+        if(name===null) return;
+        name=String(name).trim()||def;
+    }
+    repEnsureAllBooks(function(all){
+        var l=repClipboards[ci]||[]; var items=idx.map(function(i){ return l[i]; }).filter(Boolean);
+        if(items.length<2) return;
+        var u=_repRemsUnion(items,all);
+        var comb={book:items[0].book,ch:items[0].ch,rid:'combined_'+Date.now()+'_'+Math.floor(Math.random()*1e6),path:name,rems:Object.keys(u).length,ts:Date.now(),w:1,sel:false,combined:true,remsObj:u,
+            sources:items.map(function(it){ var c=JSON.parse(JSON.stringify(it)); c.sel=false; return c; })};
+        var rest=[]; l.forEach(function(it,i){ if(idx.indexOf(i)===-1)rest.push(it); });
+        rest.splice(Math.min(idx[0],rest.length),0,comb);
+        repClipboards[ci]=rest; repClipsSave();
+        showToast('⊕ '+items.length+' '+repLangText({ur:'ربرکس → «'+name+'» ('+comb.rems+' ادویات)',en:'rubrics → "'+name+'" ('+comb.rems+' remedies)',roman:'rubrics → "'+name+'" ('+comb.rems+' remedies)'}));
+        if(repWorkbenchOpen)renderWorkbench(); else if(repClipViewOpen)renderClipView(); else repRenderDock();
+        repUpdateSelCount(); repCmpPanelRender();
+    });
+}
+function repClipMerge(ci){
+    var idx=repClipSelIdx(ci);
+    if(idx.length!==2){ showToast(repLangText({ur:'⧉ مرج کے لیے بالکل 2 ربرکس منتخب کریں',en:'⧉ Select exactly 2 rubrics to merge',roman:'Merge ke liye bilkul 2 rubrics select karein'})); return; }
+    var l=repClipboards[ci]||[];
+    repClipCombine(ci,_repTruncPath(l[idx[0]].path||'',60)+' + '+_repTruncPath(l[idx[1]].path||'',60));
+}
+function repClipUncombine(ci,i){
+    var l=repClipboards[ci]||[]; var it=l[i]; if(!it||!it.combined||!it.sources||!it.sources.length)return;
+    var src=it.sources.map(function(x){ var c=JSON.parse(JSON.stringify(x)); c.sel=false; if(typeof c.w!=='number')c.w=1; return c; });
+    Array.prototype.splice.apply(l,[i,1].concat(src));
+    repClipsSave();
+    showToast('⊖ '+repLangText({ur:src.length+' اصل ربرکس واپس آ گئے',en:src.length+' original rubrics restored',roman:src.length+' asal rubrics wapas aa gaye'}));
+    if(repWorkbenchOpen)renderWorkbench(); else if(repClipViewOpen)renderClipView(); else repRenderDock();
+    repUpdateSelCount(); repCmpPanelRender();
+}
+function repClipFindByRid(rid){ for(var ci=0;ci<REP_N_CLIPS;ci++){ var l=repClipboards[ci]||[]; for(var i=0;i<l.length;i++){ if(String(l[i].rid)===String(rid))return l[i]; } } return null; }
+// کلپ بورڈ آئٹم کھولنا — مشترکہ ربرک ہو تو اس کا پہلا اصل ربرک کھلتا ہے
+function repClipGoto(book,ch,rid){
+    if(String(rid).indexOf('combined_')===0){
+        var it=repClipFindByRid(rid);
+        if(it&&it.sources&&it.sources.length){ var s0=it.sources[0]; showToast('⊕ '+repLangText({ur:'مشترکہ ربرک — پہلا اصل ربرک کھول رہا ہوں',en:'Combined rubric — opening its first source',roman:'Combined rubric — pehla asal rubric khol raha hoon'})); repClipGoto(s0.book,s0.ch,s0.rid); }
+        return;
+    }
+    navigateToRubric(book,ch,rid,true);
+}
+function repClipSelToggle(ci,i){
+    var it=(repClipboards[ci]||[])[i]; if(!it)return;
+    it.sel=!it.sel; repClipsSave();
+    if(repWorkbenchOpen){
+        var box=document.querySelector('[data-wbsel="'+ci+'-'+i+'"]');
+        if(box)box.classList.toggle('sel',!!it.sel);
+        var cb=document.querySelector('[data-wbchk="'+ci+'-'+i+'"]'); if(cb)cb.checked=!!it.sel;
+        repWbUpdateCounts();
+    }
+    repUpdateSelCount();
+}
+function repClipElimToggle(ci,on){
+    repClipElims[ci]=!!on; repClipOptsSave();
+    showToast(repLangText(
+        on? {ur:'🚫 '+repClipLabel(ci)+' — ایلی منیشن موڈ آن (گرڈ میں اس کے بغیر ادویات ہٹ جائیں گی)',en:'🚫 '+repClipLabel(ci)+' — Elimination Mode ON (grid keeps only remedies covered by it)',roman:'🚫 Elimination Mode ON — '+repClipLabel(ci)}
+          : {ur:'✅ '+repClipLabel(ci)+' — ایلی منیشن موڈ آف',en:'✅ '+repClipLabel(ci)+' — Elimination Mode OFF',roman:'✅ Elimination Mode OFF — '+repClipLabel(ci)}));
+    if(repWorkbenchOpen)renderWorkbench(); else if(repAnalysisOpen>=0)renderAnalysis();
+}
+function repClipRename(ci){
+    var cur=repClipNames[ci]||('Clipboard '+(ci+1));
+    var n=prompt(repLangText({ur:'کلپ بورڈ کا نام:',en:'Clipboard name:',roman:'Clipboard ka naam:'}),cur);
+    if(n===null)return;
+    repClipNames[ci]=String(n).trim().substring(0,30); repClipOptsSave();
+    if(repWorkbenchOpen)renderWorkbench(); else repRenderDock();
+}
+function repWbSetTab(t){ repWbTab=(t==='grid')?'grid':'clips'; renderWorkbench(); }
+// 🔑 selection helpers + status bar counts
+function repWbSelCount(){ var n=0; for(var i=0;i<REP_N_CLIPS;i++)(repClipboards[i]||[]).forEach(function(it){ if(it.sel)n++; }); return n; }
+function repWbIncludedItems(){
+    var any=repWbSelCount()>0,out=[];
+    for(var ci=0;ci<REP_N_CLIPS;ci++)(repClipboards[ci]||[]).forEach(function(it){ if(!any||it.sel)out.push({it:it,ci:ci}); });
+    return out;
+}
+function repWbUpdateCounts(){
+    var sel=document.getElementById('repWbSelN'), rem=document.getElementById('repWbRemN'), gc=document.getElementById('repWbGridN');
+    if(sel)sel.textContent=String(repWbSelCount());
+    if(!rem&&!gc)return;
+    repEnsureAllBooks(function(all){
+        var set={};
+        repWbIncludedItems().forEach(function(r){ var rems=repClipItemRemedies(r.it,all)||{}; Object.keys(rems).forEach(function(a){set[a]=1;}); });
+        var n=Object.keys(set).length;
+        if(rem)rem.textContent=n.toLocaleString();
+        if(gc)gc.textContent='('+n.toLocaleString()+')';
+    });
+}
+// 🔑 3-dots options menu (image 2: OPTIONS / Order / Multiplier Weight / Move to Clipboard / Delete Rubric)
+function repWbMenuHide(){ var m=document.getElementById('repWbMenu'); if(m)m.style.display='none'; }
+function repWbMenuShow(ev,btn,ci,i){
+    ev.stopPropagation(); repWbMenuHide(); repKebabHide();
+    var m=document.getElementById('repWbMenu');
+    if(!m){ m=document.createElement('div'); m.id='repWbMenu'; m.className='rep-wb-menu'; document.body.appendChild(m); }
+    m.innerHTML=repWbMenuHtml(ci,i);
+    m.style.display='block';
+    var r=btn.getBoundingClientRect();
+    var mw=m.offsetWidth||230, mh=m.offsetHeight||300;
+    var vw=(document.documentElement&&document.documentElement.clientWidth)||window.innerWidth||1024;
+    var top=r.bottom+window.scrollY+4;
+    // 🔑 flip above when the menu would be cut off by the viewport bottom
+    if(r.bottom+mh+10>window.innerHeight && r.top-mh-4>0){ top=r.top+window.scrollY-mh-4; }
+    var left=Math.max(8,r.right+window.scrollX-mw);
+    if(left+mw>window.scrollX+vw-8){ left=window.scrollX+vw-mw-8; }
+    m.style.top=top+'px'; m.style.left=left+'px';
+}
+function repWbMenuHtml(ci,i){
+    var it=(repClipboards[ci]||[])[i]; if(!it)return '';
+    var w=(typeof it.w==='number')?it.w:1;
+    var h='<div class="wbm-head">'+repLangText({ur:'اختیارات',en:'OPTIONS',roman:'OPTIONS'})+'</div>';
+    h+='<div class="wbm-label">'+repLangText({ur:'ترتیب',en:'Order',roman:'Order'})+'</div>';
+    h+='<button onclick="repWbMenuHide();repClipMove('+ci+','+i+',-1)">↑ '+repLangText({ur:'اوپر لے جائیں',en:'Move Up',roman:'Move Up'})+'</button>';
+    h+='<button onclick="repWbMenuHide();repClipMove('+ci+','+i+',1)">↓ '+repLangText({ur:'نیچے لے جائیں',en:'Move Down',roman:'Move Down'})+'</button>';
+    h+='<div class="wbm-label">'+repLangText({ur:'ملٹی پلائر ویٹ',en:'Multiplier Weight',roman:'Multiplier Weight'})+'</div>';
+    [[0.5,'0.5x'],[1,'1x'],[2,'2x'],[4,'4x'],[-1,'-1x']].forEach(function(p){
+        h+='<button class="wbm-w'+(w===p[0]?' on':'')+'" onclick="repWbMenuHide();repClipSetWeight('+ci+','+i+','+p[0]+')">'+p[1]+(w===p[0]?' ✓':'')+(p[0]===-1?' 🚫':'')+'</button>';
+    });
+    h+='<div class="wbm-label">'+repLangText({ur:'کلپ بورڈ میں منتقل کریں',en:'Move to Clipboard',roman:'Move to Clipboard'})+'</div>';
+    for(var t=0;t<REP_N_CLIPS;t++){ if(t===ci)continue; h+='<button onclick="repWbMenuHide();repClipMoveTo('+ci+','+i+','+t+')">📋 '+escapeHtml(repClipLabel(t))+'</button>'; }
+    if(it.combined&&it.sources&&it.sources.length) h+='<button onclick="repWbMenuHide();repClipUncombine('+ci+','+i+')">⊖ '+repLangText({ur:'الگ کریں — اصل '+it.sources.length+' ربرکس واپس',en:'Uncombine — restore '+it.sources.length+' original rubrics',roman:'Alag karein — asal '+it.sources.length+' rubrics wapas'})+'</button>';
+    h+='<button class="danger" onclick="repWbMenuHide();repClipDelete('+ci+','+i+')">🗑 '+repLangText({ur:'ربرک ڈیلیٹ کریں',en:'Delete Rubric',roman:'Delete Rubric'})+'</button>';
+    return h;
+}

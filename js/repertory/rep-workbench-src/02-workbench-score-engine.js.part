@@ -1,0 +1,90 @@
+// 🔑 v71: ایلی منیشن فلٹر (مشترکہ) — items = ایلی منیشن کلپ بورڈ کے ربرکس؛ رول 'every' = انٹرسیکشن، 'any' = یونین
+function repElimKeepSet(items,all){
+    var keep={}, first=true;
+    items.forEach(function(it){
+        if(typeof it.w==='number'&&it.w<0) return;               // منفی (-1x) ربرک شرط نہیں بنتا
+        var rems=repClipItemRemedies(it,all)||{};
+        if(repAnaOpts.elim==='every'){
+            if(first){ Object.keys(rems).forEach(function(a){keep[a]=1;}); first=false; }
+            else Object.keys(keep).forEach(function(a){ if(!rems[a])delete keep[a]; });
+        } else Object.keys(rems).forEach(function(a){keep[a]=1;});
+    });
+    return keep;
+}
+function _repAnaCompute(items,all,ci){
+    // 🔑 v38 weighted scoring: item.w = 0.5x | 1x | 2x | 4x | -1x (negative = subtract / eliminate)
+    var rows=[],col={},denom=0;
+    items.forEach(function(it){
+        var w=(typeof it.w==='number')?it.w:1;
+        var rems=repClipItemRemedies(it,all)||{};
+        rows.push({it:it,rems:rems,w:w});
+        if(w>0)denom+=_repCovUnit(w);
+        _repAnaAccum(col,rems,w);
+    });
+    if(denom<=0)denom=1;
+    var elimNotes=[];
+    if(typeof ci==='number'&&repClipElims[ci]&&items.length){
+        var keep=repElimKeepSet(items,all), removed=0;
+        Object.keys(col).forEach(function(a){ if(!keep[a]){ removed++; delete col[a]; } });
+        elimNotes.push({clip:ci,removed:removed});
+    }
+    return repAnaApplyMethod({rows:rows,col:col,abbrs:Object.keys(col),denom:denom,elimNotes:elimNotes},all);
+}
+// 🔑 v70: تجزیے کا طریقہ — Kent / Boenninghausen (پولیریٹی) + ترتیب
+function repOppositePath(path){
+    var p=String(path||''), pairs=[['agg.','amel.'],['aggravation','amelioration'],['worse','better']], out=null;
+    pairs.forEach(function(pr){ if(out)return;
+        var lo=p.toLowerCase(), i=lo.indexOf(pr[0]), j=lo.indexOf(pr[1]);
+        if(i!==-1) out=p.substring(0,i)+pr[1]+p.substring(i+pr[0].length);
+        else if(j!==-1) out=p.substring(0,j)+pr[0]+p.substring(j+pr[1].length);
+    });
+    return out;
+}
+var _repPathIdx={};
+function repFindRubricByPath(all,book,ch,path){
+    var sd=all?all[book]:null; if(!sd||!path)return null;
+    var ck=sd[ch]?ch:normalizeChapterKey(book,ch), chd=sd[ck]; if(!chd)return null;
+    var key=book+'|'+ck, idx=_repPathIdx[key];
+    if(!idx){ idx={}; Object.keys(chd).forEach(function(rid){ var r=chd[rid]; if(!r)return; var t=r.t||r.path; if(t)idx[repNormRubText(t)]=r; }); _repPathIdx[key]=idx; }
+    return idx[repNormRubText(path)]||null;
+}
+function repNormRubText(t){ return String(t||'').toLowerCase().replace(/\s*[,>›]\s*/g,', ').replace(/\s+/g,' ').trim(); }
+// ربرک کا اصل متن (ڈیٹا کا t) — کلپ بورڈ کا path کبھی باب کے نام سمیت ہوتا ہے
+function repRubTextOf(all,it){
+    var sd=all?all[it.book]:null, chd=sd?(sd[it.ch]||sd[normalizeChapterKey(it.book,it.ch)]):null, r=chd?chd[String(it.rid)]:null;
+    return (r&&(r.t||r.path))||it.path||'';
+}
+function repAnaApplyMethod(res,all){
+    var m=repAnaOpts.method||'hs', col=res.col;
+    res.method=m; res.pol=null; res.polPairs=0;
+    if(m==='boen'){
+        var pol={}, contra={};
+        res.rows.forEach(function(r){
+            var it=r.it; if(!it||it.combined||!(r.w>0))return;
+            var txt=repRubTextOf(all,it), op=repOppositePath(txt); if(!op)return;
+            var orub=repFindRubricByPath(all,it.book,it.ch,op);
+            // کینٹ میں اکثر «agg.» لکھا ہی نہیں ہوتا: "X amel." کا مخالف سادہ "X" ہے
+            if(!orub&&/\bamel(\.|ioration)?\s*$/i.test(txt)) orub=repFindRubricByPath(all,it.book,it.ch,txt.replace(/[,\s]*\bamel(\.|ioration)?\s*$/i,''));
+            if(!orub||!orub.r)return;
+            r.opp={path:orub.t||orub.path,rems:orub.r}; res.polPairs++;
+            Object.keys(col).forEach(function(a){
+                var g=r.rems[a]||0, og=orub.r[a]||0; if(!g&&!og)return;
+                pol[a]=(pol[a]||0)+(g-og);
+                if(g&&og>g) contra[a]=1;         // مخالف ربرک میں زیادہ گریڈ = کانٹرا انڈیکیشن
+            });
+        });
+        res.pol=pol; res.contra=contra;
+    }
+    res.abbrs=Object.keys(col).sort(function(a,b){
+        var A=col[a],B=col[b],d;
+        if(m==='kent'){ d=B.total-A.total; if(d)return d; d=B.cov-A.cov; if(d)return d; }
+        else if(m==='boen'){
+            var ca=res.contra&&res.contra[a]?1:0, cb=res.contra&&res.contra[b]?1:0; d=ca-cb; if(d)return d;
+            d=B.cov-A.cov; if(d)return d;
+            d=(B.total+((res.pol&&res.pol[b])||0))-(A.total+((res.pol&&res.pol[a])||0)); if(d)return d;
+        } else { d=B.cov-A.cov; if(d)return d; d=B.total-A.total; if(d)return d; }
+        return a.localeCompare(b);
+    });
+    window._repAnaLast=res;
+    return res;
+}

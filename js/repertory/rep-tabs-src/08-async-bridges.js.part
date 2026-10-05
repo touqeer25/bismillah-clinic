@@ -1,0 +1,29 @@
+    function searchLockTimeout(lock){
+        if(typeof window._repSearchSeq==='number') window._repSearchSeq++;
+        if(shell.searchLock===lock) shell.searchLock=null;
+    }
+    function observeAllSearch(lock){
+        var host=document.getElementById('repSearchView');
+        if(!host||!window.MutationObserver) return;
+        lock.observer=new MutationObserver(function(){
+            var status=host.querySelector('#repAllSearchStatus');
+            var value=status?status.textContent:'';
+            if(/All repertories loaded|تمام ریپرٹریز مکمل|Tamam repertories complete/i.test(value)){
+                finishLock(lock,true);if(shell.searchLock===lock)shell.searchLock=null;
+                renderTabStrip();
+            }
+        });
+        lock.observer.observe(host,{subtree:true,childList:true,characterData:true});
+    }
+    function startSearchLock(){
+        var lock=addLock('search',180000,searchLockTimeout);
+        shell.searchLock=lock;observeAllSearch(lock);return lock;
+    }
+    function needsDetailWait(){
+        var book=window.repCurrentBook,info=bookInfo(book);
+        if(window._repGlossary===null&&!window._repGlossaryFailed) return true;
+        if(info&&info.notesFile&&window._repNotes&&!Object.prototype.hasOwnProperty.call(window._repNotes,book)) return true;
+        if(window._repRemedyNames===null&&!window._repRemedyNamesLoading) return true;
+        return false;
+    }
+

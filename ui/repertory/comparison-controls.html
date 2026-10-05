@@ -1,0 +1,12 @@
+<div class="rep-side-tools" id="repSideTools">
+                        <div class="rst-row">
+                            <span class="rst-count" id="repSelCount">0 selected</span>
+                            <button class="rc-btn" onclick="repClipTrash()" title="Clear the ACTIVE clipboard (press twice)">Clear</button>
+                            <!-- 🔑 v54: Analyze = HomeoSetu "Remedy Score Grid" → Workbench Grid (ALL clipboards, weights, elimination) -->
+                            <button class="rc-btn primary" onclick="repSideAnalyze()" title="Analyze ALL clipboards (Workbench Grid: weights + elimination)">Analyze</button>
+                            <!-- 🔑 v95: کیس مریض کی وزٹ کے ساتھ محفوظ کریں -->
+                            <button class="rc-btn" onclick="repCaseSaveDialog()" title="اس کیس (کلپ بورڈ + تجزیہ) کو مریض کی وزٹ کے ساتھ محفوظ کریں / Save this case to a patient visit">📋💾</button>
+                        </div>
+                        <!-- 🔑 v54: Compare-Mode panel (selected rubric chips of the active clipboard) — filled by repCmpPanelRender() -->
+                        <div id="repCmpPanel" class="rst-cmp" style="display:none"></div>
+                    </div>

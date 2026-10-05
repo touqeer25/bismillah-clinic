@@ -1,0 +1,52 @@
+/* نسخہ 157 — بیرونی خول کے افعال الگ موضوعاتی حصوں میں */
+(function(){
+    'use strict';
+
+    var VERSION='157';
+    var started=false;
+    var raw={};
+    var shell={
+        root:null, strip:null, stripNav:null, hostRoot:null, hosts:null, templates:null, layout:null,
+        sideCol:null, sideHeader:null, compareTools:null, dockArea:null, toolbarExtras:[],
+        tabs:[], byId:Object.create(null), activeId:null, lastRepId:null,
+        sidebarMode:'chapters', sidebarHidden:false, suppress:false,
+        locks:[], pendingAction:null, searchLock:null, diffLock:null,
+        detailLock:null, indexLocks:[], chapterLocks:[],
+        toolbar:null, searchInput:null, sideList:null, sideTools:null,
+        menus:{}, controls:{}, baseToolsHtml:''
+    };
+
+    var STATE_KEYS=[
+        'repCurrentBook','repCurrentChapter','repChapterNames','repTreeCache','_repFullData',
+        'repCurrentChKey','repCurrentChName','repCurrentFlatTree','repCurrentTree',
+        'repTreePage','repTreePageSize','repRidToFlatIndex','repPendingNavRid',
+        'repFolderPath','repHistBack','repHistFwd','repFolderFilter','repSortAsc','repRidPathMap',
+        'repPendingPath','repCurrentDetail','repPendingDetail',
+        'repClipViewOpen','repWorkbenchOpen','repCompareOpen','repAnalysisOpen','repCompareSel','repActiveClip',
+        'repLastSearchView','_repSearchBeforeContext','_repSearchCache','_repSearchResults','_repSearchMode',
+        'repSearchMode','repSearchScope','repSearchAllBooks',
+        'repTreeCollapsed','repTreeViews','repGradeMin','repWbTab','_repWbArm','repAskOpen',
+        'repActivePageTab','repDiffCtx','repDiffSel','repDiffTab','repDiffLast','repDiffTheme',
+        'repDiffPoolOpen','repDiffOpts','repDiffBookTab'
+    ];
+    var REFERENCE_KEYS={
+        repTreeCache:1,_repFullData:1,repCurrentTree:1,repCurrentFlatTree:1,repRidToFlatIndex:1,
+        repRidPathMap:1,repLastSearchView:1,_repSearchResults:1,repDiffCtx:1,repDiffLast:1
+    };
+
+    var api={
+        openRepertory:openRepertory,
+        openBooks:openBooks,
+        openSearch:openSearchFromCurrent,
+        openDiff:openDiff,
+        openCompare:openCompare,
+        openClipboard:openClipboard,
+        openLibrary:openLibrary,
+        toggleSidebar:toggleSidebar,
+        closeTab:closeTab,
+        setSidebarMode:setSidebarMode,
+        activate:activateTab,
+        version:VERSION
+    };
+    window.RepWorkspaceTabs=api;
+

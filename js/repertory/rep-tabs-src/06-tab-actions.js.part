@@ -1,0 +1,182 @@
+    function closeTab(id,skipBusy){
+        var tab=findTab(id); if(!tab) return false;
+        if(id===shell.activeId&&isBusy()&&!skipBusy){queueAction(function(){closeTab(id,true);});return false;}
+        var wasActive=id===shell.activeId;
+        var replacement=null;
+        if(wasActive){
+            replacement=(tab.returnId&&findTab(tab.returnId))?findTab(tab.returnId):null;
+            if(!replacement){
+                var ix=shell.tabs.indexOf(tab);
+                replacement=shell.tabs[ix+1]||shell.tabs[ix-1]||null;
+            }
+            saveActiveTab();
+        }
+        shell.tabs=shell.tabs.filter(function(t){return t.id!==id;});
+        delete shell.byId[id];
+        if(shell.lastRepId===id){
+            shell.lastRepId=null;
+            for(var li=shell.tabs.length-1;li>=0;li--){if(shell.tabs[li].type==='repertory'){shell.lastRepId=shell.tabs[li].id;break;}}
+        }
+        shell.tabs.forEach(function(t){if(t.returnId===id)t.returnId=(replacement&&replacement.type==='repertory')?replacement.id:(shell.lastRepId||null);});
+        if(wasActive){
+            shell.activeId=null; shell.hosts=null;
+            if(replacement&&findTab(replacement.id)) activateTab(replacement.id,{skipBusy:true});
+            else createFallbackRepertory();
+        }
+        renderTabStrip();
+        return true;
+    }
+    function createFallbackRepertory(){
+        var tab=registerTab(makeTab('repertory','kent'));
+        tab.vars=null;tab.searchValue='';tab.sidebarMode='chapters';tab.sideHtml=null;tab.toolsHtml=shell.baseToolsHtml;
+        shell.activeId=null;
+        activateTab(tab.id,{skipBusy:true,restore:false,resetBook:'kent'});
+        if(raw.switchBook) raw.switchBook();
+    }
+
+    function makeContextTab(type,key,existingBehavior){
+        var source=liveTab();
+        var sourceVars=readState();
+        var sourceSideMode=shell.sidebarMode;
+        var sourceSideHtml=shell.sideList?shell.sideList.innerHTML:null;
+        var sourceToolsHtml=shell.sideTools?shell.sideTools.innerHTML:null;
+        var sourceScroll=shell.sideList?shell.sideList.scrollTop:0;
+        var target=type==='clipboard'?findTab('clip:'+key):findTab(type);
+        var isNew=!target;
+        if(!target) target=registerTab(makeTab(type,key));
+        target.returnId=(getNearestRep(source)&&getNearestRep(source).id)||shell.lastRepId;
+        if(isNew||existingBehavior==='context'){
+            target.vars=sourceVars;
+            target.sidebarMode=sourceSideMode;
+            target.sideHtml=sourceSideHtml;
+            target.toolsHtml=sourceToolsHtml;
+            target.sideScroll=sourceScroll;
+            target.searchValue=currentInputValue();
+        }
+        if(type==='diff'&&existingBehavior==='fresh'){
+            target.vars=sourceVars;
+            target.hosts=newHostSet();
+            target.sidebarMode=sourceSideMode;
+            target.sideHtml=sourceSideHtml;
+            target.toolsHtml=sourceToolsHtml;
+            target.sideScroll=sourceScroll;
+            target.searchValue=currentInputValue();
+        }
+        if(!isNew&&existingBehavior!=='fresh'&&source&&source.id!==target.id&&target.type!=='repertory'){
+            target.returnId=(getNearestRep(source)&&getNearestRep(source).id)||target.returnId;
+        }
+        if(type==='clipboard') target.clip=Number(key)||0;
+        activateTab(target.id,{restore:!(isNew||existingBehavior==='context'||existingBehavior==='fresh')});
+        return {tab:target,isNew:isNew,source:source};
+    }
+
+    function openRepertory(book){
+        if(!window.REP_BOOK_INFO||!window.REP_BOOK_INFO[book]) return false;
+        if(isBusy()){queueAction(function(){openRepertory(book);});return false;}
+        var existing=getRepTab(book);
+        if(existing){
+            if(!activateTab(existing.id)) return false;
+            shell.sidebarMode='chapters';existing.sidebarMode='chapters';
+            if(shell.sideList&&raw.renderChapterList) raw.renderChapterList();
+            updateSideHeader();renderTabStrip();return true;
+        }
+        var tab=registerTab(makeTab('repertory',book));
+        tab.vars=null;tab.searchValue='';tab.sidebarMode='chapters';tab.sideHtml=null;tab.toolsHtml=shell.baseToolsHtml;
+        if(!activateTab(tab.id,{restore:false,resetBook:book})) return false;
+        shell.sidebarMode='chapters';tab.sidebarMode='chapters';
+        var select=document.getElementById('repBookSelect');if(select)select.value=book;
+        if(raw.switchBook) raw.switchBook();
+        renderTabStrip();return true;
+    }
+    function openSearchFromCurrent(query){
+        if(isBusy()) return false;
+        var source=liveTab();
+        if(source&&source.type==='search') return true;
+        var ret=getNearestRep(source);
+        var search=findTab('search');
+        var isNew=!search;
+        if(!search) search=registerTab(makeTab('search'));
+        search.returnId=(ret&&ret.id)||shell.lastRepId;
+        search.vars=readState();
+        search.hosts=newHostSet();
+        search.searchValue=query==null?currentInputValue():String(query);
+        search.sidebarMode=shell.sidebarMode;
+        search.sideHtml=shell.sideList?shell.sideList.innerHTML:null;
+        search.toolsHtml=shell.sideTools?shell.sideTools.innerHTML:null;
+        search.sideScroll=shell.sideList?shell.sideList.scrollTop:0;
+        if(!activateTab(search.id,{restore:false,keepSearchValue:true})) return false;
+        setInputValue(search.searchValue);
+        setPageForTab(search);
+        renderTabStrip();return true;
+    }
+    function openDiff(){
+        if(isBusy()){queueAction(openDiff);return false;}
+        var found=findTab('diff');
+        if(found){return activateTab(found.id);}
+        var made=makeContextTab('diff',null,'context');
+        if(made.isNew&&raw.diffShow){try{raw.diffShow();}catch(e){console.error(e);}}
+        return true;
+    }
+    function openCompare(){
+        if(isBusy()){queueAction(openCompare);return false;}
+        if(typeof window.repOpenCompare==='function') return window.repOpenCompare();
+        var made=makeContextTab('compare',null,'context');
+        return !!made;
+    }
+    function openClipboard(index){
+        index=parseInt(index,10);if(!isFinite(index)||index<0)index=0;
+        if(window.REP_N_CLIPS&&index>=window.REP_N_CLIPS)index=window.REP_N_CLIPS-1;
+        if(isBusy()){queueAction(function(){openClipboard(index);});return false;}
+        var target=findTab('clip:'+index);
+        if(target){
+            target.returnId=(getNearestRep(liveTab())&&getNearestRep(liveTab()).id)||target.returnId;
+            return activateTab(target.id);
+        }
+        var made=makeContextTab('clipboard',index,'context');
+        if(typeof raw.toggleClip==='function'){
+            try{raw.toggleClip(index);}catch(e){console.error(e);}
+        }
+        renderTabStrip();return !!made;
+    }
+    function openLibrary(id){
+        if(isBusy()){queueAction(function(){openLibrary(id);});return false;}
+        var target=findTab('library'),isNew=!target;
+        if(!target){
+            var made=makeContextTab('library',null,'context');target=made.tab;
+        } else {
+            target.returnId=(getNearestRep(liveTab())&&getNearestRep(liveTab()).id)||target.returnId;
+            activateTab(target.id);
+        }
+        if(isNew&&typeof window.repLibOpen==='function'){
+            try{window.repLibOpen(id);}catch(e){console.error(e);}
+            moveLibraryIntoActiveHost();
+        }
+        renderTabStrip();return true;
+    }
+    function openCompareFresh(){
+        var made=makeContextTab('compare',null,'context');
+        if(typeof raw.openCompare==='function') raw.openCompare();
+        return made;
+    }
+    function findRootBookForContext(ctx){
+        if(ctx&&ctx.book&&window.REP_BOOK_INFO&&window.REP_BOOK_INFO[ctx.book]) return ctx.book;
+        var tab=getNearestRep(liveTab());return tab?tab.book:(window.repCurrentBook||'kent');
+    }
+    function restoreFromSearch(ctx){
+        var current=liveTab();
+        var input=currentInputValue();
+        var book=findRootBookForContext(ctx);
+        var target=getRepTab(book)|| (current&&findTab(current.returnId));
+        if(!target||target.type!=='repertory'){
+            openRepertory(book);target=getRepTab(book);
+        } else activateTab(target.id,{skipBusy:true});
+        if(input.trim()===''){target.searchValue='';setInputValue('');}
+        if(ctx&&input.trim().length<2) window._repSearchBeforeContext=clonePlain(ctx);
+        if(raw.pageTab){shell.suppress=true;try{raw.pageTab('rep');}finally{shell.suppress=false;}}
+        renderTabStrip();return true;
+    }
+    function openClipboardTabClose(){
+        var tab=liveTab(); if(tab&&tab.type==='clipboard') return closeTab(tab.id);
+        return false;
+    }
+

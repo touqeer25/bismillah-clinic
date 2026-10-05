@@ -1,0 +1,19 @@
+            <!-- 🔑 floating AI assistant ("Ask Sandhika" style) — FAB + chat panel -->
+            <button id="repAskFab" class="rep-ask-fab" onclick="repAskToggle()" title="Ask AI — Clinic Assistant">
+                <span class="rep-ask-dot"></span>
+                <span class="rep-ask-label">Ask AI <small>(Assistant)</small></span>
+                <span class="rep-ask-ava">🤖</span>
+            </button>
+            <div id="repAskPanel" class="rep-ask-panel">
+                <div class="rep-ask-head">
+                    <span class="rep-ask-ava big">🤖</span>
+                    <div class="rep-ask-headtxt"><b>Ask AI</b><small data-ur="کلینک اسسٹنٹ — ربرکس، لغت، استعمال" data-en="Clinic assistant — rubrics, glossary, usage" data-roman="Clinic assistant">Clinic assistant — rubrics, glossary, usage</small></div>
+                    <button class="rrp-close" onclick="repAskToggle()">✕</button>
+                </div>
+                <div id="repAskMsgs" class="rep-ask-msgs"></div>
+                <div id="repAskChips" class="rep-ask-chips"></div>
+                <div class="rep-ask-inputrow">
+                    <input type="text" id="repAskInput" placeholder="پوچھیں یا علامت لکھیں..." onkeydown="if(event.key==='Enter')repAskSend()">
+                    <button class="rc-btn primary" onclick="repAskSend()">➤</button>
+                </div>
+            </div>

@@ -1,0 +1,18 @@
+                    <!-- navbar: back / fwd / up + breadcrumb + gradation + view toggle -->
+                    <div class="rep-navbar">
+                        <button id="repBtnBack" class="rep-navbtn" onclick="repBack()" title="Back">←</button>
+                        <button id="repBtnFwd" class="rep-navbtn" onclick="repFwd()" title="Forward">→</button>
+                        <button id="repBtnUp" class="rep-navbtn" onclick="repUp()" title="Up to parent folder">↑</button>
+                        <div class="rep-breadcrumb" id="repBreadcrumb"></div>
+                        <!-- 🔑 v79 (صارف): GRADATION ہیڈنگ ختم — گریڈ آئکنز اب فلٹر بٹن ہیں: 3 = صرف 3، 2 = 2+3، 1 = 1+2+3 (دوبارہ کلک = فلٹر بند) -->
+                        <div class="rep-gradation" title="Remedy grades: 3 = strong, 2 = medium, 1 = light">
+                            <span class="rep-grad-item" data-g="1" role="button" onclick="repGradeSet(1)" title="گریڈ 1، 2 اور 3 — تمام ادویات / Grades 1+2+3 (all)"><i class="rep-gr-dot d1"></i>1</span>
+                            <span class="rep-grad-item" data-g="2" role="button" onclick="repGradeSet(2)" title="صرف گریڈ 2 اور 3 / Only grades 2 &amp; 3"><i class="rep-gr-dot d2"></i>2</span>
+                            <span class="rep-grad-item" data-g="3" role="button" onclick="repGradeSet(3)" title="صرف گریڈ 3 / Only grade 3"><i class="rep-gr-dot d3"></i>3</span>
+                        </div>
+                        <div class="rep-viewtoggle">
+                            <button id="repTreeRemsBtn" class="rep-viewbtn active" onclick="repTreeToggleRems()" title="ربرکس کے ساتھ ادویات دکھائیں / چھپائیں">💊</button>
+                            <button class="rep-viewbtn" onclick="repTreeExpandAll(true)" title="تمام ذیلی ربرکس کھولیں">⊞</button>
+                            <button class="rep-viewbtn" onclick="repTreeExpandAll(false)" title="صرف پہلی سطح — باقی بند">⊟</button>
+                        </div>
+                    </div>

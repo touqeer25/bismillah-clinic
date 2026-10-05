@@ -1,0 +1,116 @@
+    function makeButton(id,icon,titleMap,action,extraClass){
+        var b=document.createElement('button');
+        b.type='button'; b.id=id; b.className='rep-shell-icon'+(extraClass?' '+extraClass:'');
+        b.textContent=icon; b.setAttribute('aria-label',text(titleMap)); b.title=text(titleMap);
+        b.addEventListener('click',function(ev){ev.preventDefault();ev.stopPropagation();action();});
+        return b;
+    }
+    function menuButton(id,icon,titleMap,kind,items,selectFn){
+        var wrap=document.createElement('span'); wrap.className='rep-shell-menu-wrap';
+        var b=makeButton(id,icon,titleMap,function(){toggleMenu(kind);});
+        var arr=document.createElement('span'); arr.className='rep-shell-arrow'; arr.textContent='▾'; b.appendChild(arr);
+        var menu=document.createElement('div'); menu.className='rep-shell-menu'; menu.setAttribute('role','menu'); menu.dataset.menuKind=kind;
+        items.forEach(function(item){
+            var opt=document.createElement('button'); opt.type='button'; opt.dataset.value=item.value; opt.setAttribute('role','menuitemradio');
+            opt.addEventListener('click',function(ev){ev.preventDefault();ev.stopPropagation();selectFn(item.value);closeMenus();updateSearchControls();});
+            menu.appendChild(opt);
+        });
+        wrap.appendChild(b); wrap.appendChild(menu);
+        shell.menus[kind]={wrap:wrap,button:b,menu:menu,items:items};
+        return wrap;
+    }
+    function toggleMenu(kind){
+        Object.keys(shell.menus).forEach(function(k){
+            var m=shell.menus[k]; if(!m)return;
+            m.menu.classList.toggle('open',k===kind&&!m.menu.classList.contains('open'));
+            if(k===kind&&m.menu.classList.contains('open')) positionMenu(m);
+        });
+        updateSearchControls();
+    }
+    function positionMenu(menu){
+        if(!menu||!menu.button||!menu.menu) return;
+        var r=menu.button.getBoundingClientRect(),dir=(document.documentElement.dir||'rtl');
+        menu.menu.style.position='fixed';menu.menu.style.top=(r.bottom+5)+'px';
+        menu.menu.style.left='auto';menu.menu.style.right='auto';
+        if(dir==='rtl'){
+            var right=Math.max(8,window.innerWidth-r.right);
+            menu.menu.style.right=Math.min(right,Math.max(8,window.innerWidth-menu.menu.offsetWidth-8))+'px';
+        } else {
+            var left=Math.max(8,r.left);
+            menu.menu.style.left=Math.min(left,Math.max(8,window.innerWidth-menu.menu.offsetWidth-8))+'px';
+        }
+        if(r.bottom+menu.menu.offsetHeight+8>window.innerHeight) menu.menu.style.top=Math.max(8,r.top-menu.menu.offsetHeight-5)+'px';
+        menu.menu.style.direction=dir;
+    }
+    function closeMenus(){Object.keys(shell.menus).forEach(function(k){var m=shell.menus[k];if(m)m.menu.classList.remove('open');});}
+    function scopeItems(){
+        return [
+            {value:'chapter',map:{ur:'کھلے باب میں تلاش',en:'Search in open chapter',roman:'Khule baab mein talash'}},
+            {value:'book',map:{ur:'اس ریپرٹری میں تلاش',en:'Search in this repertory',roman:'Is repertory mein talash'}},
+            {value:'all',map:{ur:'تمام ریپرٹریز میں تلاش',en:'Search in all repertories',roman:'Tamam repertories mein talash'}}
+        ];
+    }
+    function typeItems(){
+        return [
+            {value:'rubric',map:{ur:'ربرک اور ذیلی ربرک',en:'Rubric and subrubric',roman:'Rubric aur subrubric'}},
+            {value:'remedy',map:{ur:'ادویہ',en:'Remedies',roman:'Adwiyeh'}},
+            {value:'rubric_remedy',map:{ur:'ربرک اور ادویہ',en:'Rubric and remedies',roman:'Rubric aur adwiyeh'}},
+            {value:'clinical',map:{ur:'کلینیکل حالت',en:'Clinical condition',roman:'Clinical halat'}}
+        ];
+    }
+    function updateSearchControls(){
+        var values={scope:window.repSearchScope||'chapter',kind:window.repSearchMode||'rubric'};
+        ['scope','kind'].forEach(function(key){
+            var menu=shell.menus[key]; if(!menu)return;
+            var value=values[key];
+            var item=menu.items.filter(function(x){return x.value===value;})[0]||menu.items[0];
+            var label=item?text(item.map):'';
+            menu.button.title=label; menu.button.setAttribute('aria-label',label);
+            menu.menu.querySelectorAll('button').forEach(function(btn){
+                var selected=btn.dataset.value===value;
+                btn.classList.toggle('selected',selected); btn.setAttribute('aria-checked',selected?'true':'false');
+                var found=menu.items.filter(function(x){return x.value===btn.dataset.value;})[0];
+                btn.textContent=found?text(found.map):'';
+            });
+        });
+    }
+    function updateToolbarButtons(){
+        var active=liveTab();
+        if(shell.controls.books){
+            shell.controls.books.classList.toggle('on',shell.sidebarMode==='books');
+            shell.controls.books.title=text({ur:'ریپرٹریوں کی فہرست',en:'Repertory list',roman:'Repertories ki fehrist'});
+            shell.controls.books.setAttribute('aria-label',shell.controls.books.title);
+        }
+        if(shell.controls.clip){
+            shell.controls.clip.classList.toggle('on',active&&active.type==='clipboard');
+            shell.controls.clip.title=text({ur:'فعال کلپ بورڈ کھولیں',en:'Open active clipboard',roman:'Active clipboard kholen'});
+            shell.controls.clip.setAttribute('aria-label',shell.controls.clip.title);
+        }
+    }
+    function installToolbar(){
+        var toolbar=shell.toolbar, searchWrap=toolbar.querySelector('.rep-search-wrap');
+        if(!toolbar||!searchWrap) return;
+        toolbar.classList.add('rep-shell-toolbar');
+        shell.controls.books=makeButton('repShellBooksBtn','📚',{ur:'ریپرٹریوں کی فہرست',en:'Repertory list',roman:'Repertories ki fehrist'},openBooks);
+        shell.controls.library=makeButton('repShellLibraryBtn','📖',{ur:'مطالعہ لائبریری',en:'Reading library',roman:'Mutala library'},openLibrary);
+        shell.controls.clip=makeButton('repShellClipboardBtn','📋',{ur:'فعال کلپ بورڈ کھولیں',en:'Open active clipboard',roman:'Active clipboard kholen'},function(){openClipboard(window.repActiveClip||0);});
+        var scopeWrap=menuButton('repShellScopeBtn','🔍',{ur:'تلاش کا دائرہ',en:'Search scope',roman:'Talash ka daira'},'scope',scopeItems(),function(v){if(typeof window.setRepSearchScope==='function')window.setRepSearchScope(v);});
+        var kindWrap=menuButton('repShellTypeBtn','🏷️',{ur:'تلاش کی قسم',en:'Search type',roman:'Talash ki qisam'},'kind',typeItems(),function(v){if(typeof window.setRepSearchType==='function')window.setRepSearchType(v);});
+        toolbar.insertBefore(shell.controls.books,searchWrap);
+        toolbar.insertBefore(shell.controls.library,searchWrap);
+        toolbar.insertBefore(shell.controls.clip,searchWrap);
+        toolbar.insertBefore(scopeWrap,searchWrap);
+        toolbar.insertBefore(kindWrap,searchWrap);
+        var cmpMode=document.getElementById('repCmpModeBtn');
+        var diff=makeButton('repShellDiffBtn','🔬',{ur:'تفریق اور نکاسی',en:'Differentiation and extraction',roman:'Tafreeq aur nikaasi'},openDiff);
+        var compare=makeButton('repShellCompareBtn','⇄',{ur:'کلپ بورڈز کا موازنہ',en:'Compare clipboards',roman:'Clipboards ka muwazna'},openCompare,'rep-shell-compare');
+        if(cmpMode&&cmpMode.parentNode){cmpMode.parentNode.insertBefore(diff,cmpMode);cmpMode.parentNode.insertBefore(compare,cmpMode);}
+        else {toolbar.appendChild(diff);toolbar.appendChild(compare);}
+        (shell.toolbarExtras||[]).forEach(function(extra){toolbar.appendChild(extra);});
+        shell.controls.diff=diff; shell.controls.compare=compare;
+        shell.controls.menus=[scopeWrap,kindWrap];
+        document.addEventListener('click',function(ev){
+            if(!ev.target.closest('.rep-shell-menu-wrap')) closeMenus();
+        });
+        updateSearchControls(); updateToolbarButtons();
+    }

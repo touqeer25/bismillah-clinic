@@ -1,0 +1,70 @@
+function renderWorkbench(){
+    var cd=document.getElementById('repRubricContent'); if(!cd)return;
+    repUpdateNavButtons(); repRenderBreadcrumb();
+    var h='<div class="rep-tool-head"><div class="rep-content-title"><span>⚙</span><b>'+repLangText({ur:'کیس ریپرٹورائزیشن — ورک بینچ',en:'CASE REPERTORISATION — WORKBENCH',roman:'CASE REPERTORISATION — WORKBENCH'})+'</b></div>'
+        +'<div style="display:flex;gap:6px;flex-wrap:wrap;"><button class="rc-btn" onclick="repOpenCompare()" title="'+repLangText({ur:'کلپ بورڈز آمنے سامنے + مشترکہ ادویات (کلاسک موازنہ ویو)',en:'Clipboards side by side + common remedies (classic compare view)',roman:'Clipboards aamne saamne (classic compare)'})+'">⇄ '+repLangText({ur:'کلپ بورڈز کا موازنہ',en:'Compare clipboards',roman:'Clipboards ka moazna'})+'</button>'
+        +'<button class="rc-btn" onclick="repCloseToolView()">✕ '+repLangText({ur:'بند کریں',en:'Close',roman:'Band karein'})+'</button></div></div>';
+    // tabs: Clipboards | Grid (N remedies) — HomeoSetu style
+    h+='<div class="rep-wb-tabs">'
+        +'<button class="'+(repWbTab!=='grid'?'on':'')+'" onclick="repWbSetTab(\'clips\')">📋 '+repLangText({ur:'کلپ بورڈز',en:'Clipboards',roman:'Clipboards'})+'</button>'
+        +'<button class="'+(repWbTab==='grid'?'on':'')+'" onclick="repWbSetTab(\'grid\')">📊 '+repLangText({ur:'گرڈ',en:'Grid',roman:'Grid'})+' <span id="repWbGridN" class="cnt">…</span></button>'
+        +'</div>';
+    h+=repAnaRulesHtml();
+    h+='<div id="repWbBody"></div>';
+    // bottom status bar (image 2: Active Clipboard | Rubrics Selected • Remedies found)
+    h+='<div class="rep-wb-status">'
+        +'<span>'+repLangText({ur:'فعال کلپ بورڈ:',en:'Active Clipboard:',roman:'Active Clipboard:'})+' <b class="on">'+escapeHtml(repClipLabel(repActiveClip))+'</b></span>'
+        +'<span class="sp">•</span><span>'+repLangText({ur:'منتخب ربرکس:',en:'Rubrics Selected:',roman:'Rubrics Selected:'})+' <b id="repWbSelN">'+repWbSelCount()+'</b></span>'
+        +'<span class="sp">•</span><span>'+repLangText({ur:'ملی ادویات:',en:'Remedies found:',roman:'Remedies found:'})+' <b id="repWbRemN">…</b></span>'
+        +'</div>';
+    cd.innerHTML=h; cd.scrollTop=0;
+    if(repWbTab==='grid') renderWbGrid(); else renderWbClips();
+    repRenderDock();
+    repWbUpdateCounts();
+}
+function renderWbClips(){
+    var body=document.getElementById('repWbBody'); if(!body)return;
+    var h='<p class="rep-tool-sub">'+repLangText({ur:'بارہ کلپ بورڈز ایک جگہ — ہر ربرک پر ⋮ مینو (ترتیب، ویٹ، منتقلی، ڈیلیٹ)۔ ☑ لگا کر ⊕ کمبائن / ⧉ مرج (ادویہ کا یونین، زیادہ گریڈ)۔ ایلی منیشن موڈ والے کلپ بورڈ کی شرط پوری نہ کرنے والی ادویات گرڈ سے ہٹ جاتی ہیں۔',en:'All 12 clipboards in one place — every rubric has a ⋮ menu (order, weight, move, delete). Tick ☑ then ⊕ Combine / ⧉ Merge (union of remedies, higher grade). Remedies failing an Elimination-Mode clipboard are removed from the Grid.',roman:'Barah clipboards aik jagah — ⋮ menu; ☑ laga kar ⊕ Combine / ⧉ Merge.'})+'</p>';
+    h+='<div class="rep-wb-grid">';
+    for(var ci=0;ci<REP_N_CLIPS;ci++){
+        var l=repClipboards[ci]||[], nsel=repClipSelIdx(ci).length;
+        h+='<div class="rep-wb-panel'+(repActiveClip===ci?' active':'')+(repClipElims[ci]?' elim':'')+'">';
+        h+='<div class="rep-wb-head"><button class="rep-wb-title" onclick="repToggleClipView('+ci+')" title="'+repLangText({ur:'لسٹ ویو میں کھولیں',en:'Open in list view',roman:'List view mein kholen'})+'">📋 '+escapeHtml(repClipLabel(ci))+' <span class="cnt">('+l.length+')</span></button>'
+            +'<div class="rep-wb-actions">'
+            +'<button class="rc-btn" onclick="repClipRename('+ci+')" title="'+repLangText({ur:'نام بدلیں',en:'Rename',roman:'Rename'})+'">✏</button>'
+            +'<button class="rc-btn" onclick="repSetClipActive('+ci+')" title="'+repLangText({ur:'فعال بنائیں',en:'Make active',roman:'Faal banayein'})+'">🎯</button>'
+            +'<button class="rc-btn" onclick="repOpenAnalysis('+ci+')" title="'+repLangText({ur:'اس کلپ بورڈ کا گرڈ',en:'This clipboard\'s grid',roman:'Is clipboard ka grid'})+'">📊</button>'
+            +'<button class="rc-btn danger" onclick="repWorkbenchClear('+ci+')" title="'+repLangText({ur:'خالی کریں (دو بار دبائیں)',en:'Clear (press twice)',roman:'Khali karein (do bar dabaein)'})+'">🗑</button>'
+            +'</div></div>';
+        // ⊕ کمبائن / ⧉ مرج (HomeoSetu): اس کلپ بورڈ کے ☑ منتخب ربرکس پر
+        h+='<div class="rep-wb-combrow">'
+            +'<button class="rc-btn'+(nsel>=2?'':' dis')+'" onclick="repClipCombine('+ci+')" title="'+repLangText({ur:'☑ منتخب ربرکس کو ایک مشترکہ ربرک بنائیں — ادویہ کا یونین، ایک دوا کئی میں ہو تو زیادہ گریڈ',en:'Combine the ☑ selected rubrics into one — union of remedies, higher grade kept',roman:'Selected rubrics ko aik mushtarka rubric banayein (union, higher grade)'})+'">⊕ '+repLangText({ur:'کمبائن',en:'Combine',roman:'Combine'})+' ('+nsel+')</button>'
+            +'<button class="rc-btn'+(nsel===2?'':' dis')+'" onclick="repClipMerge('+ci+')" title="'+repLangText({ur:'بالکل 2 منتخب ربرکس → ایک (نام: پہلا + دوسرا)',en:'Exactly 2 selected rubrics → one (name: first + second)',roman:'Bilkul 2 selected → aik (A + B)'})+'">⧉ '+repLangText({ur:'مرج 2→1',en:'Merge 2→1',roman:'Merge 2→1'})+'</button>'
+            +'</div>';
+        h+='<label class="rep-wb-elim" title="'+_repAttr(repElimRuleDesc())+'">'
+            +'<input type="checkbox" '+(repClipElims[ci]?'checked':'')+' onchange="repClipElimToggle('+ci+',this.checked)"> '
+            +repLangText({ur:'ایلی منیشن موڈ',en:'Elimination Mode',roman:'Elimination Mode'})+'</label>';
+        if(!l.length){
+            h+='<div class="rep-wb-empty">'+repLangText({ur:'خالی — کسی ربرک کارڈ کے ⋮ مینو سے شامل کریں',en:'Empty — use the ⋮ menu on any rubric card',roman:'Khali — kisi rubric card ke ⋮ menu se shamil karein'})+'</div>';
+        } else {
+            l.forEach(function(it,i){
+                h+='<div class="rep-wb-item'+(it.sel?' sel':'')+'" data-wbsel="'+ci+'-'+i+'">'
+                    +'<input type="checkbox" class="rep-wb-check" data-wbchk="'+ci+'-'+i+'" '+(it.sel?'checked':'')+' onchange="repClipSelToggle('+ci+','+i+')" title="'+repLangText({ur:'گرڈ کے لیے منتخب کریں',en:'Select for the Grid',roman:'Grid ke liye select karein'})+'">'
+                    +repBookBadgeHtml(it.book)
+                    +'<span class="rc-path" dir="ltr" onclick="repClipOpenIdx('+ci+','+i+')" title="'+_repAttr(it.path||'')+'">'+escapeHtml(_repTruncPath(it.path||'—',48))+'</span>'
+                    +(typeof repPathUrHtml==='function'?repPathUrHtml(it.path||'','rep-wb-ur'):'')   // 🔑 v101
+                    +repCombBadge(it)+repWChip(it.w)
+                    +(it.rems?'<span class="rpc-badge rems">⚡ '+it.rems+'</span>':'')
+                    +'<span class="rep-wb-ops">'
+                    +'<button class="rwb-btn" onclick="repClipMove('+ci+','+i+',-1)" title="'+repLangText({ur:'اوپر',en:'Move up',roman:'Ooper'})+'">↑</button>'
+                    +'<button class="rwb-btn" onclick="repClipMove('+ci+','+i+',1)" title="'+repLangText({ur:'نیچے',en:'Move down',roman:'Neeche'})+'">↓</button>'
+                    +'<button class="rwb-btn" onclick="repWbMenuShow(event,this,'+ci+','+i+')" title="'+repLangText({ur:'مزید فنکشنز',en:'More options',roman:'Mazeed functions'})+'">⋮</button>'
+                    +'</span></div>';
+            });
+        }
+        h+='</div>';
+    }
+    h+='</div>';
+    body.innerHTML=h;
+}
+// 🔑 combined Grid tab: selected rubrics of ALL clipboards, weighted, with elimination filtering

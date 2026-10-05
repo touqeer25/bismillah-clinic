@@ -1,0 +1,32 @@
+// 🔑 v55: گرڈ کی سرِفہرست ریمیڈیز → 🔬 تفریق (ٹاپ 3 / ٹاپ 5)
+function repAnaDiffBtnsHtml(abbrs){
+    if(typeof repDiffOpenWithRemedies!=='function'||!abbrs||abbrs.length<2) return '';
+    var h='';
+    [3,5].forEach(function(n){ if(abbrs.length>=n||(n===3&&abbrs.length>=2)){ var top=abbrs.slice(0,n); h+='<button class="rc-btn rep-ana-diff" data-r="'+_repAttr(top.join(','))+'" onclick="repDiffOpenWithRemedies(this.getAttribute(\'data-r\').split(\',\'))" title="'+_repAttr(top.join(' vs '))+'">🔬 '+repLangText({ur:'ٹاپ '+top.length+' کا فرق',en:'differentiate top '+top.length,roman:'top '+top.length+' ka farq'})+'</button>'; } });
+    return h;
+}
+function repFmtScore(t){ t=Math.round(t*10)/10; return (Math.abs(t-Math.round(t))<0.001)?String(Math.round(t)):t.toFixed(1); }
+function repElimRuleDesc(){ return repAnaOpts.elim==='every'
+    ? repLangText({ur:'گرڈ میں صرف وہی ادویات رہیں گی جو اس کلپ بورڈ کے ہر ایک ربرک میں موجود ہوں (ہومیوسیتو اصول)',en:'Grid keeps only remedies present in EVERY rubric of this clipboard (HomeoSetu rule)',roman:'Sirf wohi adwiyat jo is clipboard ke HAR rubric mein hon (HomeoSetu)'})
+    : repLangText({ur:'گرڈ میں صرف وہی ادویات رہیں گی جو اس کلپ بورڈ کے کسی ایک ربرک میں بھی موجود ہوں (پرانا اصول)',en:'Grid keeps only remedies present in at least ONE rubric of this clipboard (classic rule)',roman:'Jo kisi aik rubric mein bhi hon (classic)'}); }
+function repAnaRulesHtml(){
+    var e=repAnaOpts.elim, c=repAnaOpts.cov;
+    var anyElim=false; if(repWorkbenchOpen){ for(var q=0;q<REP_N_CLIPS;q++) if(repClipElims[q]&&(repClipboards[q]||[]).length) anyElim=true; }
+    else if(repAnalysisOpen>=0) anyElim=!!repClipElims[repAnalysisOpen];
+    var sw=(!repWorkbenchOpen&&repAnalysisOpen>=0)
+        ? '<label class="rar-sw"><input type="checkbox" '+(repClipElims[repAnalysisOpen]?'checked':'')+' onchange="repClipElimToggle('+repAnalysisOpen+',this.checked)"> 🚫 '+repLangText({ur:'اس کلپ بورڈ پر ایلی منیشن موڈ',en:'Elimination Mode on this clipboard',roman:'Elimination Mode'})+'</label>' : '';
+    var hint=anyElim?'':'<span class="rar-hint" style="font-size:11px;color:#b9770e;">ⓘ '+repLangText({ur:'کوئی کلپ بورڈ ایلی منیشن موڈ میں نہیں، اس لیے «ایلی منیشن» رول ابھی بے اثر ہے',en:'No clipboard is in Elimination Mode, so the Elimination rule has no effect yet',roman:'Elimination rule abhi be-asar hai'})+'</span>';
+    return '<div class="rep-ana-rules">'+sw
+        +'<span class="rar-lab">⚙ '+repLangText({ur:'اصول:',en:'Rules:',roman:'Rules:'})+'</span>'
+        +'<label title="'+repLangText({ur:'ایلی منیشن موڈ والے کلپ بورڈ کی شرط',en:'Condition applied by an Elimination-Mode clipboard',roman:'Elimination clipboard ki shart'})+'">🚫 '+repLangText({ur:'ایلی منیشن',en:'Elimination',roman:'Elimination'})+' <select onchange="repAnaSetOpt(\'elim\',this.value)">'
+        +'<option value="every"'+(e==='every'?' selected':'')+'>'+repLangText({ur:'ہر ربرک میں موجود ہو (ہومیوسیتو)',en:'in EVERY rubric (HomeoSetu)',roman:'har rubric mein (HomeoSetu)'})+'</option>'
+        +'<option value="any"'+(e==='any'?' selected':'')+'>'+repLangText({ur:'کسی ایک ربرک میں (پرانا)',en:'in ANY rubric (classic)',roman:'kisi aik rubric mein (classic)'})+'</option></select></label>'
+        +'<label title="'+repLangText({ur:'کوریج = دوا کتنے ربرکس میں ہے؛ ویٹ اسکور کو ہمیشہ گنا کرتا ہے',en:'Coverage = in how many rubrics the remedy appears; weight always multiplies the score',roman:'Coverage = kitne rubrics mein; weight score ko guna karta hai'})+'">📈 '+repLangText({ur:'کوریج',en:'Coverage',roman:'Coverage'})+' <select onchange="repAnaSetOpt(\'cov\',this.value)">'
+        +'<option value="count"'+(c==='count'?' selected':'')+'>'+repLangText({ur:'ہر ربرک = 1 (ہومیوسیتو)',en:'each rubric = 1 (HomeoSetu)',roman:'har rubric = 1 (HomeoSetu)'})+'</option>'
+        +'<option value="weighted"'+(c==='weighted'?' selected':'')+'>'+repLangText({ur:'ویٹ کے ساتھ (پرانا)',en:'weighted (classic)',roman:'weighted (classic)'})+'</option></select></label>'
+        +'<label title="'+repLangText({ur:'نتائج کی ترتیب کا طریقہ',en:'Ranking method',roman:'Tarteeb ka tareeqa'})+'">🧮 '+repLangText({ur:'طریقہ',en:'Method',roman:'Method'})+' <select onchange="repAnaSetOpt(\'method\',this.value)">'
+        +'<option value="hs"'+(repAnaOpts.method==='hs'?' selected':'')+'>'+repLangText({ur:'Sum of Symptoms (کوریج پہلے)',en:'Sum of Symptoms (coverage first)',roman:'Sum of Symptoms'})+'</option>'
+        +'<option value="kent"'+(repAnaOpts.method==='kent'?' selected':'')+'>'+repLangText({ur:'Kent — Sum of Degrees (گریڈز کا مجموعہ پہلے)',en:'Kent — Sum of Degrees first',roman:'Kent — Sum of Degrees'})+'</option>'
+        +'<option value="boen"'+(repAnaOpts.method==='boen'?' selected':'')+'>'+repLangText({ur:'Boenninghausen + Polarity',en:'Boenninghausen + Polarity',roman:'Boenninghausen + Polarity'})+'</option></select></label>'
+        +hint+'</div>';
+}
