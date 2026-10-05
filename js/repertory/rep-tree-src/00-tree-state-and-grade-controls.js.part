@@ -1,0 +1,29 @@
+// Bismillah Clinic — js/repertory/rep-tree.js — 🌳 ربرکس کی ٹری، سطحیں، رنگ اور ہر ربرک کے بٹن
+// (v78: 08-app-repertory.js کو بغیر کسی کوڈ تبدیلی کے حصوں میں بانٹا گیا؛ لوڈ ترتیب index.html میں وہی رکھیں)
+// ==================== 🌳 v72: کتابی ٹری ویو (کارڈ سسٹم کی جگہ) ====================
+// ریپرٹری کتاب/Radar کی طرح: ہر ربرک اپنی ٹری کی سطح پر اِنڈینٹ کے ساتھ، اسی ترتیب میں جو کتاب (چیپٹر فائل) میں ہے۔
+// ⚠ کوئی sort نہیں — node.order اور node.remedies کی اصل ترتیب جوں کی توں۔ ڈیٹا صرف پڑھا جاتا ہے، بدلا نہیں جاتا۔
+var repTreeOpts={rems:true};
+try{ var _to=JSON.parse(localStorage.getItem('bc_rep_tree_opts')||'{}'); if(_to&&_to.rems===false)repTreeOpts.rems=false; }catch(e){}
+function repTreeOptsSave(){ try{ localStorage.setItem('bc_rep_tree_opts',JSON.stringify(repTreeOpts)); }catch(e){} }
+// ==================== 🔑 v79 (صارف): گریڈ فلٹر — نیچلی بار کے گریڈ آئکنز ====================
+// 3 = صرف گریڈ 3 والی ریمیڈیز · 2 = گریڈ 2 اور 3 · 1 = گریڈ 1، 2 اور 3 (تینوں) · 0 = فلٹر بند
+// اسی گریڈ پر دوبارہ کلک = فلٹر بند۔ صرف دکھائی جانے والی ادویات متاثر ہوتی ہیں — گنتی/کلپ بورڈ/تجزیہ نہیں۔
+var repGradeMin=0;
+function repGradeClamp(g){ g=parseInt(g,10)||1; return g>=3?3:(g===2?2:1); }
+function repGradeShow(g){ return !repGradeMin || repGradeClamp(g)>=repGradeMin; }
+function repGradeSet(level){ level=parseInt(level,10)||0; if(level<1||level>3)return; repGradeMin=(repGradeMin===level)?0:level; repGradeSyncBtns(); repGradeApply(); }
+function repGradeSyncBtns(){
+    var it=document.querySelectorAll?document.querySelectorAll('.rep-grad-item'):[];
+    for(var i=0;i<it.length;i++){ var g=parseInt(it[i].getAttribute('data-g')||'0',10); if(it[i].classList)it[i].classList.toggle('on',repGradeMin===g); }
+}
+function repGradeApply(){
+    Object.keys(repTreeViews).forEach(function(id){ if(document.getElementById(id))repTreeRemount(id); });   // ٹری/فولڈر نظارے
+    var cd=document.getElementById('repRubricContent'); if(!cd)return;
+    if(cd.querySelector&&cd.querySelector('.rpd-titlerow')){ if(typeof renderRubricDetail==='function')renderRubricDetail(); return; }  // ربرک تفصیل صفحہ
+    var si=document.getElementById('repBrowserSearch');
+    if(si&&si.value&&si.value.trim()&&typeof searchRepertoryBrowser==='function') searchRepertoryBrowser();      // تلاش کے نتائج
+}
+var repTreeCollapsed={};              // full path → true (صرف اس سیشن کے لیے)
+var repTreeViews={};                  // elId → {rows,shown}
+var REP_TREE_CHUNK=300;

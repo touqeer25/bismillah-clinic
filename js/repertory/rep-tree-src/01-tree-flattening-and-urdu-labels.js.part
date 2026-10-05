@@ -1,0 +1,66 @@
+function repTreeFlatten(node,labels,parentFull,depth,out,filt){
+    var any=false;
+    (node.order||[]).forEach(function(k){                       // کتاب کی اصل ترتیب
+        var c=node.children[k]; if(!c)return;
+        var lab=labels.concat([k]), full=c.displayPathTitle?c.displayPathTitle:(c.pathTitle?c.pathTitle:_repJoinSeg(parentFull,k)), kids=_repNodeKids(c);   // دکھایا گیا راستہ، اصل ترجمہ کلید سے الگ
+        var translationFull=c.translationTitle||c.pathTitle||full;
+        var row={label:k,labels:lab,full:full,translationFull:translationFull!==full?translationFull:'',depth:depth,node:c,kids:kids};
+        var pos=out.length; out.push(row);
+        var selfHit=!filt||k.toLowerCase().indexOf(filt)!==-1;
+        var kidHit=false;
+        if(kids&&(filt||!repTreeCollapsed[full])) kidHit=repTreeFlatten(c,lab,full,depth+1,out,filt);
+        if(filt&&!selfHit&&!kidHit){ out.length=pos; return; }  // فلٹر: نہ خود ملے نہ اولاد میں → ہٹاؤ
+        any=true;
+    });
+    return any;
+}
+// 🔑 v75: ربرکس کا اردو ترجمہ — ur/rubric_labels_ur.json (لیبل → اردو)؛ صرف اردو زبان میں دکھتا ہے
+var _repUrLabels=null,_repUrCtx=null,_repUrLoading=false;
+function repUrLabelsOn(){ return (typeof currentLang!=='undefined'?currentLang:'ur')==='ur'; }
+function ensureRepUrLabels(cb){
+    if(_repUrLabels||_repUrLoading){ if(_repUrLabels&&cb)cb(); return; }
+    _repUrLoading=true;
+    fetch('ur/rubric_labels_ur.json?'+REP_DATA_V).then(function(r){ if(!r.ok)throw 0; return r.json(); })
+        .then(function(d){ _repUrLabels=(d&&d.labels)||{}; _repUrCtx=(d&&d.ctx)||{}; _repUrLoading=false; if(cb)cb(); })
+        .catch(function(){ _repUrLabels={}; _repUrCtx={}; _repUrLoading=false; });
+}
+// ترتیب: (1) پورے لیبل کا ترجمہ → (2) کوما والے ہر حصے کا ترجمہ → (3) الفاظ کی لغت (glossary_en_ur.json) سے لفظی ترجمہ۔
+// 2 اور 3 خودکار ہیں اس لیے {auto:true} — ہلکے رنگ میں دکھتے ہیں تاکہ معلوم رہے کہ یہ نظرثانی شدہ ترجمہ نہیں۔
+function repUrWord(w){
+    if(!_repGlossary) return '';
+    var W=_repGlossary.words||{}, A=_repGlossary.aliases||{}, e=W[w]||(A[w]?W[A[w]]:null);
+    return (e&&e.ur)||'';
+}
+// 🔑 v105 (صارف): ترجمہ اب **سیاق کے ساتھ** — یعنی اوپر والے ربرک کو دیکھ کر۔
+//   «absent persons, at» اکیلا مبہم ہے؛ ANGER کے نیچے اس کا مطلب «غیر حاضر لوگوں پر» ہے۔
+//   ctx کی کلید: «والد لیبل|خود کا لیبل» (چھوٹے حروف)۔ پہلے پورا راستہ، پھر قریبی والد، پھر عام ترجمہ۔
+function repUrCtxLookup(anc,k){
+    if(!_repUrCtx||!anc||!anc.length) return null;
+    var low=anc.map(function(x){ return String(x||'').toLowerCase().trim(); });
+    var full=low.join(' > ')+'|'+k;                       // پورا راستہ
+    if(_repUrCtx[full]) return _repUrCtx[full];
+    var par=low[low.length-1];                            // صرف قریبی والد
+    if(par&&_repUrCtx[par+'|'+k]) return _repUrCtx[par+'|'+k];
+    return null;
+}
+function repUrLabelObj(label,anc){
+    if(!_repUrLabels) return null;
+    // 🔑 v103: «(See …)» ترجمے سے باہر — وہ ربرک کا متن نہیں، اشارہ ہے
+    var _s=String(label||'').replace(/ \[\d+\]$/,'');
+    if(/\(\s*see\b/i.test(_s)) _s=_s.replace(/\s*\(\s*see\b[^)]*\)/ig,'').replace(/\s+,/g,',').replace(/,\s*$/,'').trim();
+    var k=_s.toLowerCase().trim(); if(!k) return null;
+    var cx=repUrCtxLookup(anc&&anc.length?anc.slice(0,-1):null,k);     // 🔑 v105: پہلے سیاق
+    if(cx) return {t:cx,auto:false,ctx:true};
+    if(_repUrLabels[k]) return {t:_repUrLabels[k],auto:false};
+    var segs=k.split(/,\s*/), out=[], any=false;
+    for(var i=0;i<segs.length;i++){
+        var sg=segs[i].trim(); if(!sg)continue;
+        if(_repUrLabels[sg]){ out.push(_repUrLabels[sg]); any=true; continue; }
+        if(/^[\d\s.:apm\-–]+$/.test(sg)){ out.push(sg); continue; }          // وقت/ہندسے جوں کے توں
+        var ws=sg.match(/[a-z]+|\d+/g)||[], tw=[];
+        ws.forEach(function(w){ var u=/^\d+$/.test(w)?w:repUrWord(w); if(u){ tw.push(u); any=true; } });
+        if(tw.length) out.push(tw.join(' '));
+    }
+    return any&&out.length?{t:out.join('، '),auto:true}:null;
+}
+function repUrLabel(label){ var o=repUrLabelObj(label); return o?o.t:''; }

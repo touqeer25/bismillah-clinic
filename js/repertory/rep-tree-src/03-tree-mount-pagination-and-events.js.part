@@ -1,0 +1,76 @@
+function repTreeMount(elId,node,labels,parentFull,ensureRid){
+    var el=document.getElementById(elId); if(!el||!node)return;
+    var rows=[]; repTreeFlatten(node,labels||[],parentFull||'',0,rows,(repFolderFilter||'').toLowerCase());
+    var v=repTreeViews[elId]={rows:rows,shown:0,node:node,labels:labels,parentFull:parentFull};
+    if(repUrLabelsOn()&&(!_repUrLabels||(!_repGlossary&&!_repGlossaryFailed))) ensureRepUrLabels(function(){ ensureRepGlossary(function(){ if(document.getElementById(elId)) repTreeRemount(elId); }); });
+    if(repUrLabelsOn()&&typeof ensureRepRubricsUr==='function') ensureRepRubricsUr(repCurrentBook,repCurrentChapter,function(){ if(document.getElementById(elId)) repTreeRemount(elId); });   // 🔑 v107: باب کے ربرک-جملے (ایک بار منگوائے، پھر دوبارہ بنائے)
+    if(typeof repRubUrPaintBtn==='function') repRubUrPaintBtn();   // 🔑 v107: زبان بدلنے پر بٹن دکھاؤ/چھپاؤ
+    var need=REP_TREE_CHUNK;
+    if(ensureRid){ for(var i=0;i<rows.length;i++){ if(rows[i].node.rid&&String(rows[i].node.rid)===String(ensureRid)){ need=Math.max(need,i+50); break; } } }
+    el.innerHTML='<div class="rtv" dir="ltr"></div><div class="rtv-more"></div>';
+    if(!rows.length){ el.firstChild.innerHTML='<div class="rep-empty-folder">'+repLangText({ur:'کوئی ربرک نہیں',en:'No rubrics',roman:'Koi rubric nahi'})+'</div>'; return; }
+    el.firstChild.onclick=repTreeClick;
+    repTreeMore(elId,need);
+}
+function repTreeMore(elId,n){
+    var v=repTreeViews[elId], el=document.getElementById(elId); if(!v||!el)return;
+    var box=el.querySelector('.rtv'), more=el.querySelector('.rtv-more'); if(!box)return;
+    var end=Math.min(v.rows.length,v.shown+(n||REP_TREE_CHUNK)), h='';
+    for(var i=v.shown;i<end;i++) h+=repTreeRowHtml(v.rows[i]);
+    box.insertAdjacentHTML('beforeend',h); v.shown=end;
+    if(v.shown<v.rows.length){
+        more.innerHTML='<button class="rc-btn">⬇ '+repLangText({ur:'مزید ربرکس',en:'More rubrics',roman:'Mazeed rubrics'})+' ('+(v.rows.length-v.shown).toLocaleString()+')</button>';
+        more.firstChild.onclick=function(){ repTreeMore(elId); };
+        if(window.IntersectionObserver){                        // اسکرول پر خود بخود اگلا حصہ
+            if(v.io)v.io.disconnect();
+            v.io=new IntersectionObserver(function(en){ if(en[0].isIntersecting){ v.io.disconnect(); repTreeMore(elId); } },{root:document.getElementById('repRubricContent'),rootMargin:'600px'});
+            v.io.observe(more);
+        }
+    } else { more.innerHTML=''; if(v.io)v.io.disconnect(); }
+}
+function repTreeRemount(elId){
+    var v=repTreeViews[elId], sc=document.getElementById('repRubricContent'), top=sc?sc.scrollTop:0, shown=v?v.shown:0;
+    if(!v)return;
+    repTreeMount(elId,v.node,v.labels,v.parentFull);
+    if(shown>REP_TREE_CHUNK) repTreeMore(elId,shown-REP_TREE_CHUNK);
+    if(sc)sc.scrollTop=top;
+}
+function repTreeClick(ev){
+    var t=ev.target;
+    if(t.closest('.rpc-chk')||t.closest('.rpc-kebab')) return;   // اپنے ہینڈلر
+    if(t.closest('.rtv-info')) return;
+    var row=t.closest('.rtv-row'); if(!row)return;
+    repKebabHide();
+    var ab=t.closest('.rtv-a'); if(ab){ repTreeAct(row,ab.getAttribute('data-act'),ab); return; }
+    if(t.classList.contains('rtv-r')){ copyRemedyToPrescription(t.getAttribute('data-a')); return; }
+    var elId=row.closest('[id]').id, full=row.getAttribute('data-full');
+    if(t.classList.contains('rtv-tg')&&row.getAttribute('data-kids')==='1'&&!repFolderFilter){
+        if(repTreeCollapsed[full])delete repTreeCollapsed[full]; else repTreeCollapsed[full]=true;
+        repTreeRemount(elId); return;
+    }
+    // 🔑 v74 (صارف): ربرک پر کلک سے الگ صفحہ نہیں کھلتا — اسی جگہ تفصیل کھلتی/بند ہوتی ہے؛
+    // صرف فولڈر (بغیر ادویات) پر کلک = شاخ کھولیں/بند کریں۔ مکمل صفحہ ⋮ مینو سے اب بھی دستیاب۔
+    if(!t.closest('.rtv-lab')&&!t.closest('.rtv-tg')) return;           // ادویات کی خالی جگہ پر کلک = کچھ نہیں
+    if(row.getAttribute('data-rems')==='0'&&row.getAttribute('data-kids')==='1'){
+        if(!repFolderFilter){ if(repTreeCollapsed[full])delete repTreeCollapsed[full]; else repTreeCollapsed[full]=true; repTreeRemount(elId); }
+        return;
+    }
+    var ib=row.querySelector('.rtv-a.info'); if(ib) repTreeAct(row,'info',ib);
+}
+function repTreeToggleRems(){
+    repTreeOpts.rems=!repTreeOpts.rems; repTreeOptsSave(); repTreeSyncBtns();
+    // Search results share this control; keep the list page in place and only toggle its remedy lines.
+    if(typeof repSearchSyncRemedyVisibility==='function'&&repSearchSyncRemedyVisibility()) return;
+    Object.keys(repTreeViews).forEach(function(id){ if(document.getElementById(id))repTreeRemount(id); });
+}
+function repTreeExpandAll(open){
+    Object.keys(repTreeViews).forEach(function(id){
+        var v=repTreeViews[id]; if(!document.getElementById(id))return;
+        if(open) repTreeCollapsed={};
+        else { var rows=[]; repTreeCollapsed={}; repTreeFlatten(v.node,v.labels||[],v.parentFull||'',0,rows,''); rows.forEach(function(r){ if(r.kids)repTreeCollapsed[r.full]=true; }); }
+        repTreeRemount(id);
+    });
+}
+function repTreeSyncBtns(){ var b=document.getElementById('repTreeRemsBtn'); if(b)b.classList.toggle('active',!!repTreeOpts.rems); }
+
+// 🔑 card building helpers

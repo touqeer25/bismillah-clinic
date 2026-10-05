@@ -18,7 +18,8 @@ const targets = [
     { label: 'تجزیہ و موازنہ', source: 'js/repertory/rep-analysis-src', output: 'js/repertory/rep-analysis.js', count: 4 },
     { label: 'تلاش', source: 'js/repertory/rep-search-src', output: 'js/repertory/rep-search.js', count: 5 },
     { label: 'کلپ بورڈ', source: 'js/repertory/rep-clipboards-src', output: 'js/repertory/rep-clipboards.js', count: 7 },
-    { label: 'موازنہ موڈ', source: 'js/repertory/rep-compare-mode-src', output: 'js/repertory/rep-compare-mode.js', count: 5 }
+    { label: 'موازنہ موڈ', source: 'js/repertory/rep-compare-mode-src', output: 'js/repertory/rep-compare-mode.js', count: 5 },
+    { label: 'درختی نمائش', source: 'js/repertory/rep-tree-src', output: 'js/repertory/rep-tree.js', count: 5 }
 ];
 for (const target of targets) {
     const sourceDir = path.join(root, target.source);
@@ -65,10 +66,20 @@ ok(comparePanel.includes('function repCmpPanelRender(') && comparePanel.includes
 ok(compareDock.includes('function repSyncDockTop(') && compareDock.includes('function renderClipView('), 'کلپ بورڈ پٹی اور منظر کے افعال الگ مجموعے میں ہیں');
 ok(compareMenu.includes('function repKebabRenderMenu(') && compareMenu.includes('function repKebabDetail('), 'تین نقطوں والے مینو کے افعال ایک ماخذ حصے میں ہیں');
 ok(compareRemedy.includes('function ensureRepGlossary(') && compareRemedy.includes('function repRenderRemedyPanel('), 'لغت اور دوا کے منظر کے افعال الگ حصے میں ہیں');
+const treeState = read('js/repertory/rep-tree-src/00-tree-state-and-grade-controls.js.part');
+const treeLabels = read('js/repertory/rep-tree-src/01-tree-flattening-and-urdu-labels.js.part');
+const treeRows = read('js/repertory/rep-tree-src/02-tree-row-rendering-and-actions.js.part');
+const treeMount = read('js/repertory/rep-tree-src/03-tree-mount-pagination-and-events.js.part');
+const treeFolders = read('js/repertory/rep-tree-src/04-folder-card-rendering.js.part');
+ok(treeState.includes('function repGradeSet(') && treeState.includes('var REP_TREE_CHUNK=300;') && !treeState.includes('function repTreeFlatten('), 'درخت کی حالت اور گریڈ اختیار درختی افعال سے الگ ہیں');
+ok(treeLabels.includes('function repTreeFlatten(') && treeLabels.includes('function repUrLabelObj('), 'درخت کی ترتیب اور اردو لیبل کی مددگار منطق الگ ہے');
+ok(treeRows.includes('function repTreeRowHtml(') && treeRows.includes('function repTreeAct(') && treeRows.includes('function repTreeVisibleLabel('), 'درختی سطر، کارروائیاں اور منظور شدہ ذہنی جڑ کی نمائش الگ حصے میں ہیں');
+ok(treeMount.includes('function repTreeMount(') && treeMount.includes('function repTreeClick(') && !treeMount.includes('function renderFolderCards('), 'درخت لگانے، صفحے بندی اور کلک کے افعال الگ ہیں');
+ok(treeFolders.includes('function repCardHtml(') && treeFolders.includes('function renderFolderCards(') && !treeFolders.includes('function repTreeMount('), 'فولڈر کارڈوں کی نمائش درخت لگانے کے عمل سے الگ ہے');
 
 const result = cp.spawnSync(process.execPath, ['tools/build_repertory_functions.js', '--check'], {
     cwd: root, encoding: 'utf8'
 });
-ok(result.status === 0, 'چھوں تیار فعلی فائلیں اپنے الگ ماخذ حصوں سے یکساں ہیں');
+ok(result.status === 0, 'ساتوں تیار فعلی فائلیں اپنے الگ ماخذ حصوں سے یکساں ہیں');
 
 console.log('فعلی فائل بندی کی جانچ مکمل، درست دعوے: ' + passes);

@@ -41,6 +41,12 @@ const targets = [
         sourceDir: path.join(root, 'js', 'repertory', 'rep-compare-mode-src'),
         entry: 'main.js.src',
         output: path.join(root, 'js', 'repertory', 'rep-compare-mode.js')
+    },
+    {
+        label: 'درختی نمائش',
+        sourceDir: path.join(root, 'js', 'repertory', 'rep-tree-src'),
+        entry: 'main.js.src',
+        output: path.join(root, 'js', 'repertory', 'rep-tree.js')
     }
 ];
 

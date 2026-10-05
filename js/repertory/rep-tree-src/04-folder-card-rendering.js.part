@@ -1,0 +1,92 @@
+function _repNodeKids(c){ return (c.order&&c.order.length>0)||Object.keys(c.children||{}).length>0; }
+function _repAttr(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+// 🔑 v45: فولڈر ویو میں «یہ ربرک خود» کارڈ — مین ربرک کی اپنی ریمیڈیز اب یہاں سے کھلتی ہیں
+// (صارف: ABSENT-MINDED کی 111 ریمیڈیز فولڈر کھولنے پر نہیں دکھ رہی تھیں — چاروں ریپرٹریز کے ہر فولڈر پر لاگو)
+function repSelfOpen(){
+    var node=repResolveNode(repFolderPath);
+    if(!node||!node.rid) return;
+    repOpenRubricDetail(repFullPathOf(repFolderPath),String(node.rid),repFolderPath.slice());
+}
+function repSelfCardHtml(node){
+    var rems=Object.keys(node.remedies||{}).length;
+    var label=repFolderPath[repFolderPath.length-1];
+    return '<div class="rpc-card self" onclick="repSelfOpen()">'
+        +'<div class="rpc-card-top"><div class="rpc-top-l">'+repCmpChkHtml(repCurrentBook,repCurrentChapter,String(node.rid||''),repFullPathOf(repFolderPath),rems)+'<div class="rpc-ico doc self">📄</div></div>'
+        +'<span class="rpc-self-tag">'+repLangText({ur:'مین ربرک',en:'MAIN RUBRIC',roman:'MAIN RUBRIC'})+'</span></div>'
+        +'<div class="rpc-title" dir="ltr">'+escapeHtml(label)+'</div>'
+        +'<div class="rpc-badges"><span class="rpc-badge rems" onclick="event.stopPropagation();repSelfOpen()">⚡ '+rems+' '+repLangText({ur:'ادویات',en:'remedies',roman:'remedies'})+'</span>'
+        +'<span class="rpc-self-hint">👁 '+repLangText({ur:'اس ربرک کی اپنی ادویات دیکھیں',en:'view this rubric\'s own remedies',roman:'is rubric ki apni adwiyat dekhein'})+'</span></div>'
+        +'</div>';
+}
+function repSelfRowHtml(node){
+    var rems=Object.keys(node.remedies||{}).length;
+    var label=repFolderPath[repFolderPath.length-1];
+    return '<div class="rpl-row self" onclick="repSelfOpen()">'
+        +repCmpChkHtml(repCurrentBook,repCurrentChapter,String(node.rid||''),repFullPathOf(repFolderPath),rems,'row')+'<div class="rpc-ico doc self" style="width:30px;height:30px;font-size:14px;">📄</div>'
+        +'<div class="rpl-name" dir="ltr">'+escapeHtml(label)+'</div>'
+        +'<div class="rpl-badges"><span class="rpc-self-tag">'+repLangText({ur:'مین ربرک',en:'MAIN RUBRIC',roman:'MAIN RUBRIC'})+'</span>'
+        +'<span class="rpc-badge rems" onclick="event.stopPropagation();repSelfOpen()">⚡ '+rems+'</span></div>'
+        +'</div>';
+}
+function repCardHtml(it){
+    var c=it.node,kids=_repNodeKids(c);
+    var rems=Object.keys(c.remedies||{}).length;
+    var rid=c.hasRubric&&c.rid?String(c.rid):'';
+    var full=_repJoinSeg(repFullPathOf(repFolderPath),it.label);
+    var badges='';
+    if(kids) badges+='<span class="rpc-badge kids">📁 '+c.order.length+'</span>';
+    if(rems) badges+='<span class="rpc-badge rems" onclick="event.stopPropagation();repOpenRubricDetail(_repFullOf(this),_repRidOf(this))" data-full="'+_repAttr(full)+'" data-rid="'+_repAttr(rid)+'">⚡ '+rems+' '+repLangText({ur:'ادویات',en:'remedies',roman:'remedies'})+'</span>';
+    if(!badges) badges='<span class="rpc-empty">Empty</span>';
+    return '<div class="rpc-card" data-kids="'+(kids?1:0)+'" data-label="'+_repAttr(it.label)+'" data-full="'+_repAttr(full)+'" data-rems="'+rems+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+' onclick="repCardClick(this)">'
+        +'<div class="rpc-card-top"><div class="rpc-top-l">'+repCmpChkHtml(repCurrentBook,repCurrentChapter,rid,full,rems)+'<div class="rpc-ico '+(kids?'folder':'doc')+'">'+(kids?'📁':'📄')+'</div></div>'
+        +'<button class="rpc-kebab" onclick="event.stopPropagation();repKebabShow(event,this)" data-full="'+_repAttr(full)+'" data-rid="'+_repAttr(rid)+'">⋮</button></div>'
+        +'<div class="rpc-title" dir="ltr">'+escapeHtml(it.label)+'</div>'
+        +'<div class="rpc-badges">'+badges+'</div>'
+        +'</div>';
+}
+function repListRowHtml(it){
+    var c=it.node,kids=_repNodeKids(c);
+    var rems=Object.keys(c.remedies||{}).length;
+    var rid=c.hasRubric&&c.rid?String(c.rid):'';
+    var full=_repJoinSeg(repFullPathOf(repFolderPath),it.label);
+    var badges='';
+    if(kids) badges+='<span class="rpc-badge kids">📁 '+c.order.length+'</span>';
+    if(rems) badges+='<span class="rpc-badge rems" onclick="event.stopPropagation();repOpenRubricDetail(_repFullOf(this),_repRidOf(this))" data-full="'+_repAttr(full)+'" data-rid="'+_repAttr(rid)+'">⚡ '+rems+'</span>';
+    if(!badges) badges='<span class="rpc-empty">Empty</span>';
+    return '<div class="rpl-row" data-kids="'+(kids?1:0)+'" data-label="'+_repAttr(it.label)+'" data-full="'+_repAttr(full)+'" data-rems="'+rems+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+' onclick="repCardClick(this)">'
+        +repCmpChkHtml(repCurrentBook,repCurrentChapter,rid,full,rems,'row')+'<div class="rpc-ico '+(kids?'folder':'doc')+'" style="width:30px;height:30px;font-size:14px;">'+(kids?'📁':'📄')+'</div>'
+        +'<div class="rpl-name" dir="ltr">'+escapeHtml(it.label)+'</div>'
+        +'<div class="rpl-badges">'+badges+'</div>'
+        +'<button class="rpc-kebab rpl-kebab" onclick="event.stopPropagation();repKebabShow(event,this)" data-full="'+_repAttr(full)+'" data-rid="'+_repAttr(rid)+'" title="'+repLangText({ur:'کاپی / تفصیل / کلپ بورڈ میں شامل کریں',en:'Copy / details / add to clipboard',roman:'Copy / tafseel / clipboard mein shamil'})+'">⋮</button>'
+        +'</div>';
+}
+function _repFullOf(el){ return el.getAttribute('data-full')||''; }
+function _repRidOf(el){ return el.getAttribute('data-rid')||''; }
+function _repJs(s){ return String(s==null?'':s).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function repCardClick(el){
+    repKebabHide();
+    var labels=repFolderPath.concat([el.getAttribute('data-label')]);
+    // 🔑 v46: ربرک کی اپنی ریمیڈیز ہوں تو پہلے ہی کلک پر ڈیٹیل پیج (ریمیڈیز فوراً نظر آئیں) —
+    // فولڈر ویو کا اضافی قدم ختم (صارف: پہلا کلک صرف چوڑائی بڑھاتا تھا، دوسرے کلک پر ریمیڈیز آتی تھیں)۔
+    // ذیلی ربرکس ڈیٹیل پیج کے SUB-RUBRICS سیکشن میں ہی مل جاتے ہیں۔
+    if((el.getAttribute('data-rems')||'0')!=='0'){ repOpenRubricDetail(_repFullOf(el),_repRidOf(el),labels); return; }
+    if(el.getAttribute('data-kids')==='1'){ repGo(labels); }
+    else { repOpenRubricDetail(_repFullOf(el),_repRidOf(el),labels); }
+}
+
+function renderFolderCards(){
+    var area=document.getElementById('repCardsArea'); if(!area)return;
+    var node=repResolveNode(repFolderPath);
+    if(!node){ area.innerHTML=''; repRenderDock(); return; }
+    // 🌳 v72: کتابی ٹری — مین ربرک کی اپنی ادویات اوپر کی تفصیل میں پہلے سے ہیں؛ نیچے پوری اولاد ترتیب وار
+    area.innerHTML='<div id="repTreeMain"></div>';
+    var nav=repPendingNavRid; repPendingNavRid=null;
+    repTreeMount('repTreeMain',node,repFolderPath.slice(),repFullPathOf(repFolderPath),nav);
+    repTreeSyncBtns();
+    repRenderDock();
+    if(nav) setTimeout(function(){ flashRubricRow(nav); },80);
+}
+
+// 🔑 v42: پیجیشن ہٹا دی گئی — repPageWindow/repGoPage/repTreePageSize سلائسنگ اب موجود نہیں؛
+// تمام ربرکس ایک صفحے پر، ڈاک میں 12 کلپ بورڈ چپس (موبائل پر افقی، ڈیسک ٹاپ پر بائیں پٹی میں عمودی)
+
