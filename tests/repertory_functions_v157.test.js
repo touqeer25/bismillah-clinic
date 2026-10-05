@@ -17,7 +17,8 @@ const targets = [
     { label: 'ورک بینچ', source: 'js/repertory/rep-workbench-src', output: 'js/repertory/rep-workbench.js', count: 8 },
     { label: 'تجزیہ و موازنہ', source: 'js/repertory/rep-analysis-src', output: 'js/repertory/rep-analysis.js', count: 4 },
     { label: 'تلاش', source: 'js/repertory/rep-search-src', output: 'js/repertory/rep-search.js', count: 5 },
-    { label: 'کلپ بورڈ', source: 'js/repertory/rep-clipboards-src', output: 'js/repertory/rep-clipboards.js', count: 7 }
+    { label: 'کلپ بورڈ', source: 'js/repertory/rep-clipboards-src', output: 'js/repertory/rep-clipboards.js', count: 7 },
+    { label: 'موازنہ موڈ', source: 'js/repertory/rep-compare-mode-src', output: 'js/repertory/rep-compare-mode.js', count: 5 }
 ];
 for (const target of targets) {
     const sourceDir = path.join(root, target.source);
@@ -54,10 +55,20 @@ const clipView = read('js/repertory/rep-clipboards-src/06-clipboard-view.js.part
 ok(clipStorage.includes('function repClipsLoad(') && clipStorage.includes('function repClipsSave('), 'کلپ بورڈ محفوظ کرنے اور واپس پڑھنے کے افعال الگ ہیں');
 ok(clipItems.includes('function repClipToggle(') && !clipItems.includes('function repToggleClipView('), 'کلپ بورڈ اندراجات کے اعمال صفحہ کھولنے سے الگ ہیں');
 ok(clipView.includes('function repToggleClipView(') && !clipView.includes('function repClipToggle('), 'کلپ بورڈ کا منظر اندراجات کے اعمال سے الگ ہے');
+const compareState = read('js/repertory/rep-compare-mode-src/00-compare-mode-state.js.part');
+const comparePanel = read('js/repertory/rep-compare-mode-src/01-compare-selection-panel.js.part');
+const compareDock = read('js/repertory/rep-compare-mode-src/02-clipboard-dock-view.js.part');
+const compareMenu = read('js/repertory/rep-compare-mode-src/03-kebab-menu-actions.js.part');
+const compareRemedy = read('js/repertory/rep-compare-mode-src/04-glossary-and-remedy-panel.js.part');
+ok(compareState.includes('function repCmpModeSet(') && compareState.includes('function repCmpChkClick(') && !compareState.includes('function repCmpPanelRender('), 'موازنہ موڈ کی حالت اور انتخابی نشان الگ حصے میں ہیں');
+ok(comparePanel.includes('function repCmpPanelRender(') && comparePanel.includes('function repSideAnalyze('), 'موازنہ انتخابی پینل اور تجزیے کی کارروائی الگ ہے');
+ok(compareDock.includes('function repSyncDockTop(') && compareDock.includes('function renderClipView('), 'کلپ بورڈ پٹی اور منظر کے افعال الگ مجموعے میں ہیں');
+ok(compareMenu.includes('function repKebabRenderMenu(') && compareMenu.includes('function repKebabDetail('), 'تین نقطوں والے مینو کے افعال ایک ماخذ حصے میں ہیں');
+ok(compareRemedy.includes('function ensureRepGlossary(') && compareRemedy.includes('function repRenderRemedyPanel('), 'لغت اور دوا کے منظر کے افعال الگ حصے میں ہیں');
 
 const result = cp.spawnSync(process.execPath, ['tools/build_repertory_functions.js', '--check'], {
     cwd: root, encoding: 'utf8'
 });
-ok(result.status === 0, 'پانچوں تیار فعلی فائلیں اپنے الگ ماخذ حصوں سے یکساں ہیں');
+ok(result.status === 0, 'چھوں تیار فعلی فائلیں اپنے الگ ماخذ حصوں سے یکساں ہیں');
 
 console.log('فعلی فائل بندی کی جانچ مکمل، درست دعوے: ' + passes);

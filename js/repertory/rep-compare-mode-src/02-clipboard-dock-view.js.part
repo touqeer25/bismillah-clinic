@@ -1,0 +1,94 @@
+// 🔑 dock renderer — v45: 12 کلپ بورڈ چپس (+ ✕ واپس جب لسٹ کھلی ہو)؛ CLIPBOARDS ہیڈنگ ختم (صارف درخواست)؛
+// پیجینشن گروپ (صفحات/ترتیب/صفحہ سائز) مکمل ہٹا دیا گیا — ڈیسک ٹاپ پر یہ ڈاک بائیں خالی پٹی میں عمودی ہے
+// 🔑 v46: ڈاک اوپر والی ٹول بار/بریڈکمب بار پر نہ چڑھے — 12 چپس کی بلندی پر سینٹرنگ اوپر бар سے ٹکراتی تھی؛
+// اب ڈاک کی اوپری حد سائیڈبار/کنٹینٹ کے ٹاپ سے ہم قالب (ڈائنامک — ٹول بار لپیٹنے پر بھی درست رہتا ہے)۔
+function repSyncDockTop(){
+    var a=document.getElementById('repDockArea'); if(!a)return;
+    // 🔑 v49: موبائل (≤820px) پر افقی ڈاک نیچے ہی ہے — کوئی top قید نہیں؛
+    // ڈیسک ٹاپ سے resize ہو کر موبائل آئے تو پرانا inline top صاف بھی کرو
+    if(window.innerWidth<=820){ a.style.top=''; return; }
+    // 🔑 v49 (صارف): ڈاک کے چپس چیپٹر لسٹ (.rep-sidebar) کے اوپری کنارے کے عین برابر شروع ہوں —
+    // پہلے .rep-side-col (اینالائز بار سمیت پورا کالم) اور justify-content:center تھا جس سے
+    // چپس لسٹ سے اوپر/نیچے تیرتے تھے؛ اب لسٹ ٹاپ = پینل ٹاپ، چپس نیچے کی جانب بڑھتے ہیں
+    var col=document.querySelector('#page-repertoryBrowser .rep-sidebar');
+    if(!col)return;
+    var t=Math.round(col.getBoundingClientRect().top);
+    if(t>120) a.style.top=t+'px';
+}
+window.addEventListener('resize',repSyncDockTop);
+// 🔑 v47 (آڈٹ فکس): فونٹ لوڈ ہونے/دیر سے لے آؤٹ شفٹ ہونے پر سائیڈبار ٹاپ ~10px نیچے کھسک جاتا ہے —
+// repSyncDockTop پرانا ویلیو یاد رکھتی تھی (ڈاک 10.4px ڈرفٹ)۔ load + fonts.ready + دیر سے دوبارہ ہم قالب کرو۔
+if(document.fonts && document.fonts.ready && document.fonts.ready.then){ document.fonts.ready.then(function(){ repSyncDockTop(); }); }
+// 🔑 v47: RTL/اردو فونٹ bunch میں دیر سے لوڈ ہوتے ہیں — loadingdone ہر batch کے بعد فائر ہوتا ہے (آڈٹ: RTL ڈرفٹ)
+if(document.fonts && document.fonts.addEventListener){ try{ document.fonts.addEventListener('loadingdone', repSyncDockTop); }catch(e){} }
+window.addEventListener('load',repSyncDockTop);
+setTimeout(repSyncDockTop,600); setTimeout(repSyncDockTop,1500); setTimeout(repSyncDockTop,2500);
+function repRenderDock(){
+    var d=document.getElementById('repDockArea'); if(!d)return;
+    var h='<div class="rep-dock">';
+    for(var i=0;i<REP_N_CLIPS;i++){
+        var n=(repClipboards[i]||[]).length;
+        h+='<button class="rep-dock-clip'+((repClipViewOpen&&repActiveClip===i)?' active':'')+'" onclick="repToggleClipView('+i+')" title="'+repLangText({ur:'کلپ بورڈ '+(i+1),en:'Clipboard '+(i+1),roman:'Clipboard '+(i+1)})+'">'+(i+1)+(n?'<i class="rep-clip-n">'+n+'</i>':'')+'</button>';
+    }
+    // 🔑 صارف درخواست (v39): ڈاک سے ورک بینچ/اینالیسس گرڈ/کاپی/کلیئر بٹن ہٹا دیے —
+    // یہ چار بٹن اب کلپ بورڈ لسٹ ویو کے ہیڈر میں ہیں۔ ڈاک 12 کلپ بورڈز دکھاتا ہے۔
+    if(repClipViewOpen) h+='<button class="rep-dock-ico" onclick="repCloseClipView()" title="'+repLangText({ur:'واپس',en:'Back',roman:'Wapas'})+'">✕</button>';
+    h+='</div>';
+    d.innerHTML=h;
+    repSyncDockTop();
+    repUpdateSelCount();
+}
+// 🔑 v42: repGoPage/repToggleSort/repCyclePageSize/renderFolderDock/repDockNoFolder ہٹا دیے — پیجینشن ختم
+
+// 🔑 clipboard contents view (main area)
+function renderClipView(){
+    var cd=document.getElementById('repRubricContent'); if(!cd)return;
+    repUpdateNavButtons(); repRenderBreadcrumb();
+    var l=repClipboards[repActiveClip]||[];
+    var h='<div class="rep-clip-head"><div class="rep-content-title"><span>📋</span><span>'+repLangText({ur:'کلپ بورڈ',en:'CLIPBOARD',roman:'CLIPBOARD'})+'</span><b>'+(repActiveClip+1)+'</b><span class="cnt">('+l.length+')</span></div>'
+        +'<div style="display:flex;gap:6px;flex-wrap:wrap;">'
+        +'<button class="rc-btn" onclick="repClipCopyAll()">📄 '+repLangText({ur:'کاپی',en:'Copy',roman:'Copy'})+'</button>'
+        +'<button class="rc-btn danger'+(repDockTrashArm?' armed':'')+'" onclick="repClipTrash()">🗑 '+(repDockTrashArm?repLangText({ur:'یقینی بنائیں؟',en:'Sure?',roman:'Yaqeeni banain?'}):repLangText({ur:'خالی کریں',en:'Clear',roman:'Khali karein'}))+'</button>'
+        +'<button class="rc-btn" onclick="repOpenWorkbench()">⚙ '+repLangText({ur:'ورک بینچ',en:'Workbench',roman:'Workbench'})+'</button>'
+        +'<button class="rc-btn" onclick="repOpenAnalysis('+repActiveClip+')">📊 '+repLangText({ur:'تجزیہ گرڈ',en:'Analysis Grid',roman:'Tajzia Grid'})+'</button>'
+        +'</div></div>';
+    if(!l.length){
+        h+='<div class="rep-empty-state"><div class="res-icon">📋</div><p class="res-title">'+repLangText({ur:'کلپ بورڈ '+(repActiveClip+1)+' خالی ہے',en:'Clipboard '+(repActiveClip+1)+' is empty',roman:'Clipboard '+(repActiveClip+1)+' khali hai'})+'</p><p class="res-sub">'+repLangText({ur:'کسی بھی ربرک کارڈ کے ⋮ مینو سے اسے شامل کریں',en:'Use the ⋮ menu on any rubric card to add it',roman:'Kisi bhi rubric card ke ⋮ menu se isay shamil karein'})+'</p></div>';
+    } else {
+        l.forEach(function(it,i){
+            var bi=REP_BOOK_INFO[it.book]||{abbr:it.book,name:it.book};
+            h+='<div class="rep-clip-row" onclick="repClipOpenItem('+i+')">'
+                +'<span class="rep-book-badge" style="background:'+repBookColor(it.book)+'">'+escapeHtml(bi.abbr)+'</span>'
+                +'<span class="rc-path" dir="ltr">'+escapeHtml(it.path||'—')+'</span>'
+                +repCombBadge(it)+repWChip(it.w)
+                +(it.rems?'<span class="rpc-badge rems">⚡ '+it.rems+'</span>':'')
+                +'<button class="rc-btn" onclick="event.stopPropagation();repClipOpenItem('+i+')">↩ '+repLangText({ur:'کھولیں',en:'Open',roman:'Kholen'})+'</button>'
+                +'<button class="rc-btn" onclick="event.stopPropagation();repWbMenuShow(event,this,'+repActiveClip+','+i+')" title="'+repLangText({ur:'مزید فنکشنز',en:'More options',roman:'Mazeed functions'})+'">⋮</button>'
+                +'<button class="rc-btn danger" onclick="event.stopPropagation();repClipRemoveItem('+i+')">🗑</button>'
+                +'</div>';
+        });
+    }
+    cd.innerHTML=h;
+    cd.scrollTop=0;
+    repRenderDock();
+}
+function repClipRemoveItem(i){
+    var l=repClipboards[repActiveClip]||[];
+    if(i<0||i>=l.length)return;
+    l.splice(i,1); repClipsSave(); renderClipView();
+}
+function repClipOpenItem(i){
+    var it=(repClipboards[repActiveClip]||[])[i]; if(!it)return;
+    repClipViewOpen=false;repWorkbenchOpen=false;repCompareOpen=false;repAnalysisOpen=-1;
+    repClipGoto(it.book,it.ch,it.rid);
+}
+
+// 🔑 empty state (no chapter selected) — HomeoSetu-style dashed box
+function repRenderEmptyState(){
+    var cd=document.getElementById('repRubricContent'); if(!cd)return;
+    cd.innerHTML='<div class="rep-empty-state"><div class="res-icon">📁</div>'
+        +'<p class="res-title">'+repLangText({ur:'بائیں مینو سے کوئی باب منتخب کریں',en:'Select a chapter from the left menu',roman:'Bayen menu se koi chapter select karein'})+'</p>'
+        +'<p class="res-sub">'+repLangText({ur:'ربرکس اور ادویات دیکھیں',en:'Browse rubrics and remedies',roman:'Rubrics aur remedies dekhein'})+'</p></div>';
+    repRenderBreadcrumb(); repUpdateNavButtons(); repRenderDock();
+}
+

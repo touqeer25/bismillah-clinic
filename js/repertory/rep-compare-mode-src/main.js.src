@@ -1,0 +1,5 @@
+/* @include: 00-compare-mode-state.js.part */
+/* @include: 01-compare-selection-panel.js.part */
+/* @include: 02-clipboard-dock-view.js.part */
+/* @include: 03-kebab-menu-actions.js.part */
+/* @include: 04-glossary-and-remedy-panel.js.part */

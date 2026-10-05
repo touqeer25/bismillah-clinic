@@ -1,0 +1,62 @@
+// 🔑 kebab (⋮) popup menu — copy + detail + ADD/REMOVE in 12 clipboards
+var _repKebabTarget=null;
+function repKebabShow(ev,btn){
+    ev.stopPropagation(); repKebabHide();
+    _repKebabTarget={full:btn.getAttribute('data-full')||'',rid:btn.getAttribute('data-rid')||''};
+    repKebabRenderMenu();
+    var r=btn.getBoundingClientRect();
+    var m=document.getElementById('repKebabMenu'); if(!m)return;
+    m.style.display='block';
+    m.style.top=(r.bottom+window.scrollY+4)+'px';
+    m.style.left=Math.max(8,r.right+window.scrollX-230)+'px';
+}
+function repKebabRenderMenu(){
+    var m=document.getElementById('repKebabMenu'); if(!m)return;
+    var t=_repKebabTarget||{full:'',rid:''};
+    var h='<button onclick="repKebabCopy()">📋 '+repLangText({ur:'پورا ربرک کاپی کریں',en:'Copy full rubric',roman:'Poora rubric copy karein'})+'</button>';
+    h+='<button onclick="repKebabDetail()">📖 '+repLangText({ur:'معنی اور ادویات کھولیں',en:'Open meaning & remedies',roman:'Meani aur adwiyat kholen'})+'</button>';
+    if(t.rid){
+        h+='<div class="rep-kebab-sep">'+repLangText({ur:'کلپ بورڈ',en:'CLIPBOARDS',roman:'CLIPBOARDS'})+'</div>';
+        for(var i=0;i<REP_N_CLIPS;i++){
+            var inside=repClipFind(i,repCurrentBook,t.rid)!==-1;
+            h+='<button class="'+(inside?'kb-in':'')+'" onclick="repKebabClipToggle('+i+')">'+(inside?'✅':'➕')+' '+repLangText({ur:'کلپ بورڈ',en:'Clipboard',roman:'Clipboard'})+' '+(i+1)+' — '+(inside?repLangText({ur:'ہٹائیں',en:'remove',roman:'hataein'}):repLangText({ur:'شامل کریں',en:'add',roman:'shamil karein'}))+'</button>';
+        }
+    }
+    m.innerHTML=h;
+}
+function repKebabClipToggle(ci){
+    var t=_repKebabTarget||{}; if(!t.rid)return;
+    var added=repClipToggle(ci,repCurrentBook,repCurrentChapter,t.rid,t.full,0);
+    var remsCount=0;
+    var e=(t.rid&&repRidPathMap[t.rid])?repRidPathMap[t.rid]:null;
+    if(e) remsCount=Object.keys(e.node.remedies||{}).length;
+    if(added){
+        // store the remedy count on the just-added item (first entry)
+        var l=repClipboards[ci];
+        for(var i=0;i<l.length;i++){ if(String(l[i].rid)===String(t.rid)&&l[i].book===repCurrentBook){ l[i].rems=remsCount; break; } }
+        repClipsSave();
+    }
+    showToast((added?'➕ ':'🗑 ')+repLangText({ur:'کلپ بورڈ '+(ci+1),en:'Clipboard '+(ci+1),roman:'Clipboard '+(ci+1)}));
+    if(repClipViewOpen) renderClipView();
+    repKebabRenderMenu();
+}
+function repKebabHide(){ var m=document.getElementById('repKebabMenu'); if(m)m.style.display='none'; }
+function repKebabCopy(){
+    var t=(_repKebabTarget&&_repKebabTarget.full)||'';
+    if(t&&navigator.clipboard){ navigator.clipboard.writeText(t).then(function(){ if(typeof showToast==='function')showToast('✅ '+t); }); }
+    repKebabHide();
+}
+function repKebabDetail(){
+    var t=_repKebabTarget||{};
+    repOpenRubricDetail(t.full,t.rid);
+    repKebabHide();
+}
+if(typeof document!=='undefined'){
+    document.addEventListener('click',function(ev){
+        var m=document.getElementById('repKebabMenu');
+        if(m&&m.style.display==='block'&&!m.contains(ev.target)) repKebabHide();
+        var wb=document.getElementById('repWbMenu');
+        if(wb&&wb.style.display==='block'&&!wb.contains(ev.target)) repWbMenuHide();
+    });
+}
+

@@ -1,0 +1,52 @@
+// Bismillah Clinic — js/repertory/rep-compare-mode.js — ☑ Compare mode
+// (v78: 08-app-repertory.js کو بغیر کسی کوڈ تبدیلی کے حصوں میں بانٹا گیا؛ لوڈ ترتیب index.html میں وہی رکھیں)
+// ==================== ☑ COMPARE MODE (HomeoSetu "Compare" بٹن کا کلون) ====================
+// موڈ آن: ہر ربرک کارڈ / قطار / سرچ نتیجے پر چیک باکس — ٹک = فعال کلپ بورڈ میں شامل، دوبارہ ٹک = ہٹانا۔
+// سائیڈ بار پینل: "N منتخب / کلیئر / اینالائز" + منتخب ربرکس کی چپس۔ کلپ بورڈ وہی 12 ہیں (الگ لسٹ نہیں)۔
+function repCmpModeToggle(){ repCmpModeSet(!repCompareMode); }
+function repCmpModeSet(on){
+    repCompareMode=!!on;
+    try{ localStorage.setItem('bc_rep_cmp_mode',repCompareMode?'1':'0'); }catch(e){}
+    repCmpSyncUI();
+    showToast(repCompareMode
+        ? repLangText({ur:'☑ کمپیئر موڈ آن — کارڈز پر ٹک لگائیں، ربرک '+repClipLabel(repActiveClip)+' میں جمع ہوں گے',en:'☑ Compare Mode ON — tick rubric cards to collect them in '+repClipLabel(repActiveClip),roman:'☑ Compare Mode ON — cards par tick lagaein'})
+        : repLangText({ur:'☐ کمپیئر موڈ آف',en:'☐ Compare Mode OFF',roman:'☐ Compare Mode OFF'}));
+    repCmpRerender();
+}
+function repCmpSyncUI(){
+    var b=document.getElementById('repCmpModeBtn');
+    if(b){ b.classList.toggle('on',repCompareMode); b.title=repLangText({ur:'کمپیئر موڈ: کارڈز پر ٹک لگا کر ربرکس فعال کلپ بورڈ میں جمع کریں، پھر اینالائز',en:'Compare Mode: tick rubric cards to collect them into the active clipboard, then Analyze',roman:'Compare Mode: cards par tick, phir Analyze'}); }
+    var tools=document.getElementById('repSideTools'); if(tools)tools.classList.toggle('cmp',repCompareMode);
+    repCmpPanelRender();
+}
+function repIsSearchView(){ var rc=document.getElementById('repRubricContent'); return !!(rc&&repLastSearchView&&rc.querySelector('.rep-search-results-list')); }
+function repCmpRerender(){
+    if(repClipViewOpen||repWorkbenchOpen||repCompareOpen||repAnalysisOpen>=0) return;
+    if(repCurrentDetail){ renderRubricDetail(); return; }
+    if(repIsSearchView()){
+        if(repLastSearchView.incremental&&typeof repSearchRefreshCompareButtons==='function'){
+            repSearchRefreshCompareButtons(); return;
+        }
+        displaySearchResults(repLastSearchView.results, repLastSearchView.info); return;
+    }
+    if(repCurrentChapter) renderFolderCards();
+}
+function repCmpChkHtml(book,ch,rid,full,rems,extra){
+    if(!repCompareMode||!rid) return '';
+    var on=repClipFind(repActiveClip,book,rid)!==-1;
+    return '<button type="button" class="rpc-chk'+(on?' on':'')+(extra?' '+extra:'')+'" data-book="'+_repAttr(book)+'" data-ch="'+_repAttr(ch)+'" data-rid="'+_repAttr(rid)+'" data-full="'+_repAttr(full)+'" data-rems="'+(parseInt(rems,10)||0)+'" onclick="event.stopPropagation();repCmpChkClick(this)" title="'+repLangText({ur:'موازنے کے لیے منتخب کریں → '+repClipLabel(repActiveClip),en:'Select for comparison → '+repClipLabel(repActiveClip),roman:'Compare ke liye select karein → '+repClipLabel(repActiveClip)})+'">'+(on?'✓':'')+'</button>';
+}
+function repCmpChkClick(btn){
+    var book=btn.getAttribute('data-book')||repCurrentBook, ch=btn.getAttribute('data-ch')||repCurrentChapter, rid=btn.getAttribute('data-rid')||'';
+    var full=btn.getAttribute('data-full')||'', rems=parseInt(btn.getAttribute('data-rems')||'0',10)||0;
+    if(!rid) return;
+    var added=repClipToggle(repActiveClip,book,ch,rid,full,rems);
+    repCmpSyncChecks(book,rid,added);
+    showToast((added?'☑ ':'☐ ')+repLangText({ur:added?repClipLabel(repActiveClip)+' میں شامل':repClipLabel(repActiveClip)+' سے ہٹا دیا',en:added?'Added to '+repClipLabel(repActiveClip):'Removed from '+repClipLabel(repActiveClip),roman:added?repClipLabel(repActiveClip)+' mein shamil':repClipLabel(repActiveClip)+' se hata diya'}));
+    repCmpPanelRender();
+}
+function repCmpSyncChecks(book,rid,on){
+    var list=document.querySelectorAll('.rpc-chk');
+    for(var i=0;i<list.length;i++){ var b=list[i]; if(b.getAttribute('data-book')===book&&b.getAttribute('data-rid')===String(rid)){ b.classList.toggle('on',!!on); b.textContent=on?'✓':''; } }
+    var db=document.getElementById('repDetailCmpBtn'); if(db&&repCurrentDetail&&String(repCurrentDetail.rid)===String(rid)&&repCurrentBook===book){ db.outerHTML=repDetailCmpBtnHtml(); }
+}

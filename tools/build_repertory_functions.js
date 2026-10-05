@@ -35,6 +35,12 @@ const targets = [
         sourceDir: path.join(root, 'js', 'repertory', 'rep-clipboards-src'),
         entry: 'main.js.src',
         output: path.join(root, 'js', 'repertory', 'rep-clipboards.js')
+    },
+    {
+        label: 'موازنہ موڈ',
+        sourceDir: path.join(root, 'js', 'repertory', 'rep-compare-mode-src'),
+        entry: 'main.js.src',
+        output: path.join(root, 'js', 'repertory', 'rep-compare-mode.js')
     }
 ];
 

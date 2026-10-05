@@ -1,0 +1,43 @@
+// سائیڈ بار کا کمپیئر پینل ("N منتخب / کلیئر / اینالائز" کے نیچے)
+function repCmpPanelRender(){
+    var p=document.getElementById('repCmpPanel'); if(!p)return;
+    if(!repCompareMode){ p.style.display='none'; p.innerHTML=''; return; }
+    var l=repClipboards[repActiveClip]||[];
+    var h='<div class="rst-cmp-head">☑ '+repLangText({ur:'کمپیئر موڈ',en:'Compare Mode',roman:'Compare Mode'})+' → <b>'+escapeHtml(repClipLabel(repActiveClip))+'</b>'
+        +'<button class="rst-x" onclick="repCmpModeSet(false)" title="'+repLangText({ur:'کمپیئر موڈ بند کریں',en:'Turn Compare Mode off',roman:'Compare Mode band karein'})+'">✕</button></div>';
+    if(!l.length){
+        h+='<div class="rst-cmp-hint">'+repLangText({ur:'کارڈز پر ☐ ٹک لگائیں — ربرک یہاں جمع ہوں گے',en:'Tick ☐ on rubric cards — they collect here',roman:'Cards par ☐ tick lagaein'})+'</div>';
+    } else {
+        h+='<div class="rst-chips">';
+        l.forEach(function(it,i){
+            h+='<span class="rst-chip'+(it.combined?' comb':'')+'" title="'+_repAttr((REP_BOOK_INFO[it.book]?REP_BOOK_INFO[it.book].abbr+': ':'')+(it.path||''))+'">'
+                +'<span class="rst-chip-t" dir="ltr" onclick="repClipOpenIdx('+repActiveClip+','+i+')">'+(it.combined?'⊕ ':'')+escapeHtml(_repTruncPath(it.path||'—',26))+'</span>'
+                +'<button class="rst-chip-x" onclick="repCmpChipRemove('+i+')" title="'+repLangText({ur:'ہٹائیں',en:'Remove',roman:'Hataein'})+'">✕</button></span>';
+        });
+        h+='</div>';
+    }
+    h+='<div class="rst-cmp-links">'
+        +'<button class="rst-link" onclick="repCmpAllSearch()" title="'+repLangText({ur:'سرچ سکوپ = سب ریپرٹریز، پھر اوپر سرچ باکس میں لکھیں — نتائج پر بھی ☐ ملے گا',en:'Search scope = all repertories; results also get ☐',roman:'Scope = sab repertories'})+'">🌐 '+repLangText({ur:'سب کتابوں میں تلاش',en:'Search all books',roman:'Sab kitabon mein talash'})+'</button>'
+        +'<button class="rst-link" onclick="repOpenCompare()" title="'+repLangText({ur:'کلپ بورڈز آمنے سامنے (کلاسک موازنہ ویو)',en:'Clipboards side by side (classic compare view)',roman:'Clipboards aamne saamne'})+'">⇄ '+repLangText({ur:'کلپ بورڈز کا موازنہ',en:'Compare clipboards',roman:'Clipboards ka moazna'})+'</button>'
+        +'</div>';
+    p.innerHTML=h; p.style.display='';
+}
+function repCmpChipRemove(i){
+    var l=repClipboards[repActiveClip]||[]; var it=l[i]; if(!it)return;
+    l.splice(i,1); repClipsSave(); repRenderDock();
+    repCmpSyncChecks(it.book,it.rid,false);
+    repCmpPanelRender();
+    if(repClipViewOpen)renderClipView(); else if(repWorkbenchOpen)renderWorkbench();
+}
+function repCmpAllSearch(){
+    var sel=document.getElementById('repScopeSelect'); if(sel)sel.value='all';
+    setRepSearchScope('all');
+    var inp=document.getElementById('repBrowserSearch'); if(inp){ inp.focus(); if(inp.value.trim().length>=2)searchRepertoryBrowser(); }
+}
+// سائیڈ بار "اینالائز" = HomeoSetu: تمام کلپ بورڈز → ورک بینچ گرڈ (ویٹ + ایلی منیشن)
+function repSideAnalyze(){
+    var total=0; for(var i=0;i<REP_N_CLIPS;i++)total+=(repClipboards[i]||[]).length;
+    if(!total){ showToast(repLangText({ur:'کلپ بورڈز خالی ہیں — پہلے ربرکس منتخب کریں (☑ کمپیئر موڈ یا ⋮ مینو)',en:'Clipboards are empty — select rubrics first (☑ Compare Mode or ⋮ menu)',roman:'Clipboards khali hain — pehle rubrics select karein'})); return; }
+    repOpenWorkbench('grid');
+}
+
