@@ -23,6 +23,18 @@ const targets = [
         sourceDir: path.join(root, 'js', 'repertory', 'rep-analysis-src'),
         entry: 'main.js.src',
         output: path.join(root, 'js', 'repertory', 'rep-analysis.js')
+    },
+    {
+        label: 'تلاش',
+        sourceDir: path.join(root, 'js', 'repertory', 'rep-search-src'),
+        entry: 'main.js.src',
+        output: path.join(root, 'js', 'repertory', 'rep-search.js')
+    },
+    {
+        label: 'کلپ بورڈ',
+        sourceDir: path.join(root, 'js', 'repertory', 'rep-clipboards-src'),
+        entry: 'main.js.src',
+        output: path.join(root, 'js', 'repertory', 'rep-clipboards.js')
     }
 ];
 
