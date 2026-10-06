@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="css/parser-studio.css?v=83">
     <link rel="stylesheet" href="css/repertory-tabs.css?v=158">
     <link rel="stylesheet" href="css/library-tab.css?v=158">
+    <link rel="stylesheet" href="css/repertory-editor.css?v=163">
 
 </head>
 <body dir="rtl" class="lang-ur">
@@ -993,6 +994,112 @@
         </button>
                 </div>
             </div>
+
+            <!-- ریپرٹری ترمیم کار: باب اور اردو ترجمہ الگ مسودوں میں -->
+            <section class="card rpe-card" id="repEditorRoot">
+                <div class="card-title rpe-card-title">
+                    📖 <span data-ur="ریپرٹری ترمیم کار" data-en="Repertory Editor" data-roman="Repertory Editor">ریپرٹری ترمیم کار</span>
+                    <span id="rpeDirtyBadge" class="rpe-badge" aria-live="polite">ابھی کوئی فائل نہیں کھلی</span>
+                </div>
+                <p class="rpe-intro" data-ur="باب اور اس کا اردو ترجمہ الگ فائلوں میں رہیں گے؛ ایک ہی نشست میں ترمیم، جانچ اور الگ یا مشترکہ محفوظ کاری کریں" data-en="The chapter and its Urdu translation remain separate files; edit, validate, and save separately or together in one session" data-roman="Bab aur us ka Urdu tarjuma alag files mein rahenge; aik hi session mein edit, jaanch aur alag ya mushtarka save karein">باب اور اس کا اردو ترجمہ الگ فائلوں میں رہیں گے؛ ایک ہی نشست میں ترمیم، جانچ اور الگ یا مشترکہ محفوظ کاری کریں</p>
+
+                <div class="rpe-file-grid">
+                    <article class="rpe-file-card">
+                        <div class="rpe-file-info"><span class="rpe-file-icon">🗂️</span><div><strong data-ur="ریپرٹری باب" data-en="Repertory chapter" data-roman="Repertory chapter">ریپرٹری باب</strong><code id="rpeChapterName" dir="ltr">ابھی فائل نہیں کھلی</code><small id="rpeChapterMeta">—</small></div></div>
+                        <button type="button" class="btn btn-light btn-sm" data-rpe-action="open-chapter"><span data-ur="باب کھولیں" data-en="Open chapter" data-roman="Open chapter">باب کھولیں</span></button>
+                    </article>
+                    <article class="rpe-file-card">
+                        <div class="rpe-file-info"><span class="rpe-file-icon">🌐</span><div><strong data-ur="اردو ترجمہ" data-en="Urdu translation" data-roman="Urdu translation">اردو ترجمہ</strong><code id="rpeTranslationName" dir="ltr">ابھی فائل نہیں کھلی</code><small id="rpeTranslationMeta">—</small></div></div>
+                        <button type="button" class="btn btn-light btn-sm" data-rpe-action="open-translation"><span data-ur="ترجمہ کھولیں" data-en="Open translation" data-roman="Open translation">ترجمہ کھولیں</span></button>
+                    </article>
+                </div>
+                <input type="file" id="rpeChapterInput" accept=".json,application/json" hidden>
+                <input type="file" id="rpeTranslationInput" accept=".json,application/json" hidden>
+
+                <div class="rpe-toolbar">
+                    <div id="rpeStatus" class="rpe-status" aria-live="polite" data-ur="پہلے ایک باب کی فائل کھولیں" data-en="Open a chapter file to begin" data-roman="Pehle bab ki file kholen">پہلے ایک باب کی فائل کھولیں</div>
+                    <div class="rpe-toolbar-actions">
+                        <button type="button" class="btn btn-light btn-xs" data-rpe-action="undo" id="rpeUndo" disabled><span data-ur="واپس" data-en="Undo" data-roman="Wapas">واپس</span></button>
+                        <button type="button" class="btn btn-light btn-xs" data-rpe-action="redo" id="rpeRedo" disabled><span data-ur="دوبارہ" data-en="Redo" data-roman="Dobara">دوبارہ</span></button>
+                        <button type="button" class="btn btn-light btn-xs" data-rpe-action="validate"><span data-ur="مطابقت جانچیں" data-en="Validate" data-roman="Mutabiqat jaanchein">مطابقت جانچیں</span></button>
+                        <button type="button" class="btn btn-light btn-xs" data-rpe-action="review"><span data-ur="تبدیلیاں دیکھیں" data-en="Review changes" data-roman="Tabdeeliyan dekhein">تبدیلیاں دیکھیں</span></button>
+                        <button type="button" class="btn btn-light btn-xs" data-rpe-action="raw"><span data-ur="خام فائل متن" data-en="Raw file text" data-roman="Khaam file matn">خام فائل متن</span></button>
+                    </div>
+                </div>
+                <div class="rpe-counts" id="rpeCounts" aria-live="polite">
+                    <span class="rpe-count good" id="rpeMatched">ملاپ: —</span>
+                    <span class="rpe-count warn" id="rpeMissing">ترجمہ درکار: —</span>
+                    <span class="rpe-count" id="rpeOrphans">بے جوڑ پرانے ترجمے: —</span>
+                </div>
+
+                <div class="rpe-workspace">
+                    <section class="rpe-panel rpe-tree-panel">
+                        <div class="rpe-panel-head"><div><h4 data-ur="باب کا درخت" data-en="Chapter tree" data-roman="Bab ka darakht">باب کا درخت</h4><small id="rpeSelectionCount">0 منتخب</small></div><button type="button" class="btn btn-light btn-xs" data-rpe-action="add-root"><span data-ur="＋ نیا" data-en="＋ New" data-roman="＋ Naya">＋ نیا</span></button></div>
+                        <div class="rpe-tree-tools"><input id="rpeSearch" type="search" autocomplete="off" data-ph-ur="ربرک تلاش کریں" data-ph-en="Search rubrics" data-ph-roman="Rubric talash karein" placeholder="ربرک تلاش کریں"><button type="button" class="btn btn-light btn-xs" data-rpe-action="clear-search" title="تلاش صاف کریں">×</button></div>
+                        <div id="rpeTree" class="rpe-tree" role="tree" aria-label="باب کا درخت"><div class="rpe-empty">باب کی فائل کھولنے کے بعد درخت یہاں دکھے گا</div></div>
+                        <div class="rpe-tree-actions">
+                            <button type="button" class="btn btn-light btn-xs" data-rpe-action="add-child" disabled><span data-ur="ذیلی ربرک" data-en="Add child" data-roman="Zeli rubric">ذیلی ربرک</span></button>
+                            <button type="button" class="btn btn-light btn-xs" data-rpe-action="add-sibling" disabled><span data-ur="ہم درجۂ ربرک" data-en="Add sibling" data-roman="Hum darja rubric">ہم درجۂ ربرک</span></button>
+                            <button type="button" class="btn btn-light btn-xs" data-rpe-action="split" disabled><span data-ur="تقسیم" data-en="Split" data-roman="Taqseem">تقسیم</span></button>
+                            <button type="button" class="btn btn-light btn-xs" data-rpe-action="merge" disabled><span data-ur="جوڑیں" data-en="Merge" data-roman="Jorein">جوڑیں</span></button>
+                            <button type="button" class="btn btn-danger btn-xs" data-rpe-action="delete" disabled><span data-ur="حذف" data-en="Delete" data-roman="Hazf">حذف</span></button>
+                        </div>
+                    </section>
+
+                    <section class="rpe-panel rpe-edit-panel">
+                        <div class="rpe-panel-head"><div><h4 data-ur="منتخب ربرک" data-en="Selected rubric" data-roman="Muntakhib rubric">منتخب ربرک</h4><small id="rpeSelectedId">—</small></div><span id="rpeNodeLock" class="rpe-lock"></span></div>
+                        <div class="rpe-tabs" dir="ltr" role="tablist">
+                            <button type="button" class="on" data-rpe-tab="rubric" role="tab" aria-selected="true"><span data-ur="ربرک" data-en="Rubric" data-roman="Rubric">ربرک</span></button>
+                            <button type="button" data-rpe-tab="remedies" role="tab" aria-selected="false"><span data-ur="دوائیں" data-en="Remedies" data-roman="Dawayein">دوائیں</span></button>
+                            <button type="button" data-rpe-tab="order" role="tab" aria-selected="false"><span data-ur="ترتیب" data-en="Order" data-roman="Tarteeb">ترتیب</span></button>
+                        </div>
+                        <div class="rpe-tab-pane on" data-rpe-pane="rubric">
+                            <div class="rpe-field"><label for="rpeLabel" data-ur="اس ربرک کا عنوان" data-en="Rubric label" data-roman="Is rubric ka unwan">اس ربرک کا عنوان</label><input id="rpeLabel" dir="ltr" autocomplete="off" disabled></div>
+                            <div class="rpe-field"><label data-ur="مکمل درختی راستہ" data-en="Full tree path" data-roman="Mukammal darakhti rasta">مکمل درختی راستہ</label><div id="rpeFullPath" class="rpe-fullpath" dir="ltr">—</div></div>
+                            <div class="rpe-field"><label for="rpeParent" data-ur="والد ربرک" data-en="Parent rubric" data-roman="Walid rubric">والد ربرک</label><select id="rpeParent" disabled><option value="">جڑ</option></select></div>
+                            <div class="rpe-control-block"><strong data-ur="حروف کی صورت" data-en="Letter case" data-roman="Huroof ki soorat">حروف کی صورت</strong><div class="rpe-segments" dir="ltr"><button type="button" data-rpe-case="original"><span data-ur="اصل جیسی" data-en="As entered" data-roman="Asal jaisi">اصل جیسی</span></button><button type="button" data-rpe-case="upper"><span data-ur="بڑے حروف" data-en="Uppercase" data-roman="Baray huroof">بڑے حروف</span></button><button type="button" data-rpe-case="lower"><span data-ur="چھوٹے حروف" data-en="Lowercase" data-roman="Chhotay huroof">چھوٹے حروف</span></button><button type="button" data-rpe-case="title"><span data-ur="ہر لفظ کا پہلا حرف بڑا" data-en="Title case" data-roman="Har lafz ka pehla harf bara">ہر لفظ کا پہلا حرف بڑا</span></button></div></div>
+                            <div class="rpe-control-block"><strong data-ur="ظاہری انداز" data-en="Display style" data-roman="Zahiri andaaz">ظاہری انداز</strong><div class="rpe-style-row"><label><span data-ur="وزن" data-en="Weight" data-roman="Wazan">وزن</span><select id="rpeWeight" disabled><option value="normal" data-ur="سادہ" data-en="Regular" data-roman="Saada">سادہ</option><option value="bold" data-ur="موٹا" data-en="Bold" data-roman="Mota">موٹا</option></select></label><label><span data-ur="حجم" data-en="Size" data-roman="Hajm">حجم</span><select id="rpeSize" disabled><option value="small" data-ur="چھوٹا" data-en="Small" data-roman="Chhota">چھوٹا</option><option value="normal" selected data-ur="معمول" data-en="Regular" data-roman="Mamool">معمول</option><option value="large" data-ur="بڑا" data-en="Large" data-roman="Bara">بڑا</option></select></label></div></div>
+                        </div>
+                        <div class="rpe-tab-pane" data-rpe-pane="remedies" hidden>
+                            <div class="rpe-remedy-add"><input id="rpeNewRemedy" dir="ltr" autocomplete="off" data-ph-ur="دوا کا نام" data-ph-en="Remedy name" data-ph-roman="Dawa ka naam" placeholder="دوا کا نام"><select id="rpeNewGrade" aria-label="نیا درجہ"><option value="1">1</option><option value="2">2</option><option value="3">3</option></select><button type="button" class="btn btn-info btn-xs" data-rpe-action="add-remedy" disabled><span data-ur="＋ دوا" data-en="＋ Remedy" data-roman="＋ Dawa">＋ دوا</span></button></div>
+                            <div class="rpe-remedy-table-wrap"><table class="rpe-remedy-table"><thead><tr><th data-ur="دوا" data-en="Remedy" data-roman="Dawa">دوا</th><th data-ur="درجہ" data-en="Grade" data-roman="Darja">درجہ</th><th data-ur="عمل" data-en="Action" data-roman="Amal">عمل</th></tr></thead><tbody id="rpeRemedies"><tr><td colspan="3">پہلے ربرک منتخب کریں</td></tr></tbody></table></div>
+                        </div>
+                        <div class="rpe-tab-pane" data-rpe-pane="order" hidden>
+                            <div class="rpe-field"><label for="rpeOrder" data-ur="اسی درجے میں مقام" data-en="Position among siblings" data-roman="Isi darjay mein maqam">اسی درجے میں مقام</label><input id="rpeOrder" inputmode="numeric" type="number" min="1" disabled></div>
+                            <div class="rpe-order-buttons"><button type="button" class="btn btn-light btn-sm" data-rpe-action="move-up" disabled><span data-ur="↑ اوپر" data-en="↑ Move up" data-roman="↑ Ooper">↑ اوپر</span></button><button type="button" class="btn btn-light btn-sm" data-rpe-action="move-down" disabled><span data-ur="↓ نیچے" data-en="↓ Move down" data-roman="↓ Neechay">↓ نیچے</span></button></div>
+                            <p class="rpe-help" data-ur="ترتیب بدلنے سے ترجمے کی کلید نہیں بدلے گی؛ والد یا عنوان بدلنے پر نسبت کی جانچ ہوگی" data-en="Reordering does not change the translation key; changing a parent or title triggers a link check" data-roman="Tarteeb badalne se tarjume ki kunji nahi badlegi; walid ya unwan badalne par rabt jaancha jayega">ترتیب بدلنے سے ترجمے کی کلید نہیں بدلے گی؛ والد یا عنوان بدلنے پر نسبت کی جانچ ہوگی</p>
+                        </div>
+                    </section>
+
+                    <section class="rpe-panel rpe-translation-panel">
+                        <div class="rpe-panel-head"><div><h4 data-ur="اردو ترجمہ" data-en="Urdu translation" data-roman="Urdu translation">اردو ترجمہ</h4><small data-ur="اس حصے میں صرف اردو عبارت بدلے گی" data-en="Only the Urdu text is edited here" data-roman="Is hissay mein sirf Urdu ibarat badlegi">اس حصے میں صرف اردو عبارت بدلے گی</small></div><span id="rpeTranslationState" class="rpe-lock"></span></div>
+                        <div class="rpe-translation-body">
+                            <label for="rpeTranslationText" data-ur="اس ربرک کی اردو عبارت" data-en="Urdu text for this rubric" data-roman="Is rubric ki Urdu ibarat">اس ربرک کی اردو عبارت</label>
+                            <textarea id="rpeTranslationText" dir="rtl" disabled data-ph-ur="اردو ترجمے کی فائل کھولیں" data-ph-en="Open an Urdu translation file" data-ph-roman="Urdu tarjume ki file kholen" placeholder="اردو ترجمے کی فائل کھولیں"></textarea>
+                            <div class="rpe-keybox"><strong data-ur="موجودہ کلید" data-en="Current key" data-roman="Maujooda kunji">موجودہ کلید</strong><code id="rpeKey" dir="ltr">—</code></div>
+                            <div id="rpeMapping" class="rpe-mapping" hidden></div>
+                            <div class="rpe-translation-actions"><button type="button" class="btn btn-light btn-xs" data-rpe-action="delete-translation" disabled><span data-ur="اردو عبارت حذف کریں" data-en="Remove translation" data-roman="Urdu ibarat hazf karein">اردو عبارت حذف کریں</span></button><button type="button" class="btn btn-light btn-xs" data-rpe-action="show-orphans"><span data-ur="بے جوڑ ترجمے" data-en="Unmatched translations" data-roman="Be jor tarjume">بے جوڑ ترجمے</span></button></div>
+                            <div id="rpeOrphanList" class="rpe-orphan-list" hidden></div>
+                        </div>
+                    </section>
+                </div>
+
+                <div id="rpeRawEditors" class="rpe-raw-editors" hidden>
+                    <div class="rpe-raw-head"><strong data-ur="خام فائل متن" data-en="Raw file text" data-roman="Khaam file matn">خام فائل متن</strong><button type="button" class="btn btn-light btn-xs" data-rpe-action="close-raw">×</button></div>
+                    <p class="rpe-help" data-ur="ناواقف باب کی ساخت میں باب کا خام متن بدلیں؛ ترجمہ فائل کا خام متن حفاظت کے لیے صرف مطالعے میں ہے" data-en="For an unfamiliar chapter, edit its raw text; translation raw text stays read-only for protection" data-roman="Na-waqif bab ka khaam matn badlein; tarjume ka khaam matn hifazat ke liye sirf mutala hai">ناواقف باب کی ساخت میں باب کا خام متن بدلیں؛ ترجمہ فائل کا خام متن حفاظت کے لیے صرف مطالعے میں ہے</p>
+                    <div class="rpe-raw-grid"><div><label for="rpeChapterRaw" data-ur="باب کی فائل" data-en="Chapter file" data-roman="Bab ki file">باب کی فائل</label><textarea id="rpeChapterRaw" dir="ltr" spellcheck="false"></textarea><button type="button" class="btn btn-light btn-xs" data-rpe-action="apply-chapter-raw"><span data-ur="باب کا متن لاگو کریں" data-en="Apply chapter text" data-roman="Bab ka matn laagu karein">باب کا متن لاگو کریں</span></button></div><div><label for="rpeTranslationRaw" data-ur="اردو ترجمے کی فائل — صرف مطالعہ" data-en="Urdu translation file — read only" data-roman="Urdu tarjume ki file — sirf mutala">اردو ترجمے کی فائل — صرف مطالعہ</label><textarea id="rpeTranslationRaw" dir="ltr" spellcheck="false" readonly></textarea><small class="rpe-help" data-ur="ترمیم صرف ربرک کی اردو عبارت والے خانے میں کریں؛ تعارفی معلومات اور قفل فہرست نہیں بدلیں گی" data-en="Edit only the rubric text field; metadata and lock list stay unchanged" data-roman="Sirf Urdu ibarat ke khanay mein tabdeeli karein; meta aur lock list nahi badlegi">ترمیم صرف ربرک کی اردو عبارت والے خانے میں کریں؛ تعارفی معلومات اور قفل فہرست نہیں بدلیں گی</small></div></div>
+                </div>
+
+                <div id="rpeValidation" class="rpe-validation" aria-live="polite"></div>
+                <div class="rpe-note" data-ur="محفوظ کرنے تک اصل فائلیں نہیں بدلیں گی۔ عنوان، درخت، تقسیم، جوڑ یا حذف سے پرانی اردو خودکار طور پر نہیں مٹے گی؛ نئی نسبت پہلے دکھائی جائے گی۔ نامعلوم خواص اور ترجمہ فائل کی تعارفی معلومات محفوظ رہیں گی" data-en="Original files stay unchanged until saving. Renames, hierarchy changes, splits, merges, or deletions never silently remove Urdu text; proposed links are shown first. Unknown fields and translation metadata are preserved" data-roman="Save tak asal files nahi badlein gi. Unwan, darakht, taqseem, jor ya hazf se purani Urdu khud nahi mitegi; naya rabt pehle dikhaya jayega">محفوظ کرنے تک اصل فائلیں نہیں بدلیں گی۔ عنوان، درخت، تقسیم، جوڑ یا حذف سے پرانی اردو خودکار طور پر نہیں مٹے گی؛ نئی نسبت پہلے دکھائی جائے گی۔ نامعلوم خواص اور ترجمہ فائل کی تعارفی معلومات محفوظ رہیں گی</div>
+
+                <div class="rpe-savebar">
+                    <span id="rpeSaveStatus" data-ur="مسودہ محفوظ نہیں" data-en="Draft not saved" data-roman="Musawadda mehfooz nahi">مسودہ محفوظ نہیں</span>
+                    <div class="rpe-save-actions"><button type="button" class="btn btn-light btn-sm" data-rpe-action="save-chapter" id="rpeSaveChapter" disabled><span data-ur="باب الگ محفوظ" data-en="Save chapter" data-roman="Bab alag mehfooz">باب الگ محفوظ</span></button><button type="button" class="btn btn-light btn-sm" data-rpe-action="save-translation" id="rpeSaveTranslation" disabled><span data-ur="اردو الگ محفوظ" data-en="Save translation" data-roman="Urdu alag mehfooz">اردو الگ محفوظ</span></button><button type="button" class="btn btn-success btn-sm" data-rpe-action="save-both" id="rpeSaveBoth" disabled><span data-ur="دونوں محفوظ کریں" data-en="Save both" data-roman="Dono mehfooz karein">دونوں محفوظ کریں</span></button></div>
+                </div>
+                <div id="rpeModal" class="rpe-modal" hidden><div class="rpe-modal-card" role="dialog" aria-modal="true"><div class="rpe-modal-head"><strong id="rpeModalTitle"></strong><button type="button" class="btn btn-light btn-xs" data-rpe-action="close-modal">×</button></div><div id="rpeModalBody" class="rpe-modal-body"></div><div id="rpeModalActions" class="rpe-modal-actions"></div></div></div>
+            </section>
+
             <div class="card">
                 <div class="card-title">
                     ⚙️ <span data-ur="سیٹنگز" data-en="Settings" data-roman="Settings">سیٹنگز</span>
@@ -1556,13 +1663,13 @@
 <script src="js/07-app-settings.js?v=33"></script>
 <script src="js/repertory/rep-books.js?v=81"></script>
 <script src="js/repertory/kent-tree-fix.js?v=147"></script>
-<script src="js/repertory/rep-chapters.js?v=148"></script>
+<script src="js/repertory/rep-chapters.js?v=149"></script>
 <script src="js/repertory/rep-folders.js?v=81"></script>
-<script src="js/repertory/rep-tree.js?v=148"></script>
+<script src="js/repertory/rep-tree.js?v=149"></script>
 <script src="js/repertory/rep-clipboards.js?v=80"></script>
 <script src="js/repertory/rep-compare-mode.js?v=81"></script>
-<script src="js/repertory/rep-rubric-detail.js?v=105"></script>
-<script src="js/repertory/rep-search.js?v=152"></script>
+<script src="js/repertory/rep-rubric-detail.js?v=106"></script>
+<script src="js/repertory/rep-search.js?v=153"></script>
 <script src="js/repertory/rep-workbench.js?v=101"></script>
 <script src="js/repertory/rep-analysis.js?v=80"></script>
 <!-- 🔑 v55: 🔬 remedy differentiation / extraction (loads after the repertory module) -->
@@ -1592,5 +1699,7 @@
 <script src="js/18-rubrics-ur.js?v=156"></script>
 <script src="js/ai-diagnosis-engine.js?v=2"></script>
 <script src="js/repertory/rep-tabs.js?v=158"></script>
+<!-- ریپرٹری ترمیم کار؛ موجودہ اطلاقی لوڈ ترتیب برقرار -->
+<script src="js/repertory/rep-editor.js?v=163"></script>
 </body>
 </html>

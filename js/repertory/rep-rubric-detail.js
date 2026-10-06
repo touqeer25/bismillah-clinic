@@ -73,6 +73,12 @@ function repDetailNode(){
     if(d.labels&&d.labels.length) return repResolveNode(d.labels);
     return repCurrentTree;
 }
+function repDetailStyleAttrs(node){
+    var d=node&&node.display||{},a=[];
+    if(d.weight==='bold'||d.weight==='normal')a.push('data-rpe-weight="'+d.weight+'"');
+    if(d.size==='small'||d.size==='normal'||d.size==='large')a.push('data-rpe-size="'+d.size+'"');
+    return a.length?' '+a.join(' '):'';
+}
 function repDetailParentFull(){
     var d=repCurrentDetail; if(!d)return '';
     var labels=(d.labels&&d.labels.length)?d.labels.slice(0,-1):repFolderPath.slice();
@@ -341,7 +347,7 @@ function renderRubricDetail(){
     var h='';
     // ---- title row: rubric text + < expander AFTER text + copy
     h+='<div class="rpd-titlerow">'
-      +'<div class="rpd-title" dir="ltr">'+(typeof repXrefHtml==='function'?repXrefHtml(full||'—'):escapeHtml(full||'—'))+'</div>'   // 🔑 v103
+      +'<div class="rpd-title" dir="ltr"'+repDetailStyleAttrs(node)+'>'+(typeof repXrefHtml==='function'?repXrefHtml(full||'—'):escapeHtml(full||'—'))+'</div>'   // 🔑 v103
       +(typeof repPathUrHtml==='function'?repPathUrHtml(d.translationFull||full||'','rpd-title-ur'):'')   // 🔑 اصل انگریزی ترجمہ-کلید سے اردو جملہ
       +'<button class="rpd-chev" id="repDetailChev" onclick="repToggleDetailInfo()" title="'+repLangText({ur:'مکمل تفصیل دیکھیں/چھپائیں',en:'Show/hide full details',roman:'Mukammal tafseel dekhein/chhupaein'})+'">&#9656;</button>'
       +repDetailCmpBtnHtml()

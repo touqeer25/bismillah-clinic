@@ -406,7 +406,8 @@ function _repBuildKentMindSourceTree(data){
         var node={
             name:label,sourceLabel:sourceLabel,sourceOrder:order,source_parent_id:parentId,
             children:{},order:[],remedies:rec.r||{},count:1,hasRubric:true,
-            path:String(rec.t||''),pathTitle:String(rec.t||''),oorep_id:null,rid:e.rid
+            path:String(rec.t||''),pathTitle:String(rec.t||''),oorep_id:null,rid:e.rid,
+            display:rec.display&&typeof rec.display==='object'&&!Array.isArray(rec.display)?rec.display:null
         };
         parent.children[label]=node;
         parent.order.push(label);
@@ -685,7 +686,7 @@ function buildRubricTree(data){
             var pt=parts[i].trim();
             if(!pt)continue;
             if(!n.children[pt]){
-                n.children[pt]={name:pt,children:{},order:[],remedies:{},count:0,hasRubric:false,path:'',oorep_id:null};
+                n.children[pt]={name:pt,children:{},order:[],remedies:{},count:0,hasRubric:false,path:'',oorep_id:null,display:null};
                 n.order.push(pt);
             }
             var _par=n; n=n.children[pt];
@@ -700,6 +701,7 @@ function buildRubricTree(data){
                 n.remedies=r.r||{};
                 n.hasRubric=true;
                 n.path=txt;
+                n.display=r.display&&typeof r.display==='object'&&!Array.isArray(r.display)?r.display:null;
                 n.oorep_id=r.oorep_id||null;
                 n.rid=rid;
             }
