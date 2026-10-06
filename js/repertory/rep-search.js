@@ -38,30 +38,13 @@ function repSearchResultRawDisplayText(r){
         : String((r&&r.text)||'');
 }
 function repSearchVisiblePathParts(r){
-    var parts=r&&Array.isArray(r.searchPath)?r.searchPath.slice():[];
-    if(r&&r.book==='kent'&&String(r.chapter).toLowerCase()==='mind'&&parts.length>1){
-        var chapter=String(r.chapter||'').trim().toLowerCase();
-        if(String(parts[0]||'').trim().toLowerCase()===chapter){
-            // Omit only the main/root rubric's See reference; references on child rubrics remain visible.
-            parts[1]=String(parts[1]||'').replace(/\s*\(\s*see\b[^)]*\)\s*$/i,'').trim();
-        }
-    }
-    return parts;
+    // 🔑 v163 (صارف): کراس ریفرنس بحال — ذہنی باب کے نتائج میں بھی (See …) اب دکھے گا
+    return r&&Array.isArray(r.searchPath)?r.searchPath.slice():[];
 }
 function repSearchResultDisplayText(r){
     var parts=repSearchVisiblePathParts(r);
     if(parts.length)return parts.join('; ');
-    var text=String((r&&r.text)||'');
-    if(r&&r.book==='kent'&&String(r.chapter).toLowerCase()==='mind'&&String(r.rid)==='r39'){
-        text=text.replace(/\s*\(\s*see\b[^)]*\)\s*$/i,'').trim();
-    }
-    return text;
-}
-function repSearchDisplayStyleAttrs(r){
-    var d=r&&r.display||{},a=[];
-    if(d.weight==='bold'||d.weight==='normal')a.push('data-rpe-weight="'+d.weight+'"');
-    if(d.size==='small'||d.size==='normal'||d.size==='large')a.push('data-rpe-size="'+d.size+'"');
-    return a.length?' '+a.join(' '):'';
+    return String((r&&r.text)||'');
 }
 function repSearchHighlightHtml(escapedHtml, queryWords){
     var result=escapedHtml;
@@ -79,7 +62,7 @@ function repSearchResultTitleHtml(r, queryWords){
     var display=(!hasTreePath&&full.length>180)?full.substring(0,177)+'...':full;
     var cls=hasTreePath?'rep-search-tree-path':'rep-search-rubric-title';
     var style=hasTreePath?'overflow-wrap:anywhere;white-space:normal;':'white-space:normal;';
-    return '<span dir="ltr" class="'+cls+'"'+repSearchDisplayStyleAttrs(r)+' style="'+style+'" title="'+escapeHtml(full)+'">'+
+    return '<span dir="ltr" class="'+cls+'" style="'+style+'" title="'+escapeHtml(full)+'">'+
         repSearchHighlightHtml(escapeHtml(display),queryWords||[])+'</span>';
 }
 
@@ -94,7 +77,7 @@ function repSearchResultListTitleHtml(r, queryWords){
         full=parts.join('; ');
     }
     if(!full) full=String((r&&r.text)||'');
-    return '<span dir="ltr" class="rep-search-list-title"'+repSearchDisplayStyleAttrs(r)+' title="'+escapeHtml(full)+'">'+
+    return '<span dir="ltr" class="rep-search-list-title" title="'+escapeHtml(full)+'">'+
         repSearchHighlightHtml(escapeHtml(full),queryWords||[])+'</span>';
 }
 function repSearchGroupHeadingHtml(r, curBook, curChapter){
@@ -515,7 +498,7 @@ function searchRepertoryBrowser(){
                     // 🔑 v152: ایک ہی سطر والی درجہ بندی اُس متن سے جو صارف کو نظر آتا ہے
                     // (محفوظ راستہ اگر ہو، ورنہ «(See …)» ہٹا کر) — بنیاد: FEAR (See Anxiety), sleep, before
                     var rankText=(pathInfo&&Array.isArray(pathInfo.path)&&pathInfo.path.length)?pathInfo.path.join('; '):t;
-                    var o={text:t, remedies:rub.r||{}, display:rub.display||null, chapter:ck, rid:rid, book:bookKey, adjRank:repAdjRankOf(rankText)};   // 🔑 v150 قاعدہ الف; اختیاری ظاہری انداز
+                    var o={text:t, remedies:rub.r||{}, chapter:ck, rid:rid, book:bookKey, adjRank:repAdjRankOf(rankText)};   // 🔑 v150 قاعدہ الف
                     if(pathInfo){ o.searchPath=pathInfo.path; o.searchOrder=pathInfo.order; }
                     if(repSearchMode==='remedy'||repSearchMode==='rubric_remedy'){ var m=matchedRemedyMap(rub); if(m)o.matched=m; }
                     out.push(o);

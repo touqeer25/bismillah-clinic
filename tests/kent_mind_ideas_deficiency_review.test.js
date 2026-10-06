@@ -16,9 +16,9 @@ const candidates=readJson('kent_sources/homeoint_mind_candidates.json');
 const candidateByOrder=new Map(candidates.map(row=>[row.source_order,row]));
 const localByOrder=new Map(Object.entries(mind).map(([id,row])=>[row.source_order,{id,row}]));
 
-assert.strictEqual(Object.keys(mind).length,4356,'ذہنی باب کی اصل قطاروں کی تعداد برقرار');
-assert.strictEqual(ur.meta.count,4356,'فعال اردو کلیدوں کی تعداد برقرار');
-assert.strictEqual(Object.keys(ur.rubrics).length,4356,'پرانے راستوں کی جگہ نئے راستے آئے، اضافی یا غائب کلید نہیں');
+assert.strictEqual(Object.keys(mind).length,4358,'ذہنی باب کی قطاریں: ماخذ 4356 + 2 سرخی-ربرکس (v157)');
+assert.strictEqual(ur.meta.count,4358,'فعال اردو کلیدیں: نئے ربرکس سمیت (v157)');
+assert.strictEqual(Object.keys(ur.rubrics).length,4358,'درست راستے، اضافی یا غائب کلید نہیں (v157)');
 assert.strictEqual(ur.meta.untranslated_count,0);
 assert.strictEqual(ur.locked.length,0);
 assert.strictEqual(override.review_id,'mind-ideas-deficiency-2026-10-05');
@@ -96,9 +96,9 @@ const sw=fs.readFileSync(path.join(ROOT,'service-worker.js'),'utf8');
 const sharedTest=fs.readFileSync(path.join(ROOT,'tests/rubrics_ur_v107.test.js'),'utf8');
 assert(/kent-tree-fix\.js\?v=147/.test(index));
 assert(/rep-chapters\.js\?v=148/.test(index));
-assert(/18-rubrics-ur\.js\?v=156/.test(index));
-assert(/REP_RUBUR_V\s*=\s*'156'/.test(urJs));
-assert(/CACHE_NAME='bhc-clinic-v162'/.test(sw));
-assert(sharedTest.includes("REP_RUBUR_V = '156'")&&sharedTest.includes('bhc-clinic-v162'));
+assert(/18-rubrics-ur\.js\?v=157/.test(index));
+assert(/REP_RUBUR_V\s*=\s*'157'/.test(urJs));
+assert(/CACHE_NAME='bhc-clinic-v163'/.test(sw));
+assert(sharedTest.includes("REP_RUBUR_V = '157'")&&sharedTest.includes('bhc-clinic-v163'));
 
 console.log('ذہنی باب کی کمیِ خیالات والی الگ شاخ، 3 اردو عبارتیں، دوائیں، والدین، تلاش اور نسخہ کامیاب');

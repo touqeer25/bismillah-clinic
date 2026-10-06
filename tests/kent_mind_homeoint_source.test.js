@@ -15,6 +15,10 @@ const remedies = readJson('remedy_names.json');
 const paths = readJson('kent_search_paths/mind.json');
 const manifest = readJson('kent_sources/homeoint_mind_source_manifest.json');
 const treeOverride = readJson('kent_sources/kent_mind_ideas_deficiency_tree_override.json');
+const corrections = readJson('kent_sources/kent_mind_tree_corrections_v157.json');
+const reparentedByOrder = new Map(corrections.reparented.map(c => [c.source_order, c]));
+const relabelledByOrder = new Map(corrections.relabelled.map(c => [c.source_order, c]));
+const insertedByOrder = new Map(corrections.inserted_rubrics.map(c => [c.source_order, c]));
 const treeOverridesByOrder = new Map(treeOverride.rows.map(row => [row.source_order, row]));
 const candidateSnapshotPath = path.join(ROOT, 'kent_sources/homeoint_mind_candidates.json');
 const abbreviationSnapshotPath = path.join(ROOT, 'kent_sources/homeoint_remedy_abbreviations.json');
@@ -23,6 +27,7 @@ const abbreviationSnapshotBytes = fs.readFileSync(abbreviationSnapshotPath);
 assert.strictEqual(crypto.createHash('sha256').update(candidateSnapshotBytes).digest('hex'), manifest.candidate_snapshot_sha256);
 assert.strictEqual(crypto.createHash('sha256').update(abbreviationSnapshotBytes).digest('hex'), manifest.remedy_abbreviations_snapshot_sha256);
 const sourceRows = JSON.parse(candidateSnapshotBytes.toString('utf8'));
+const snapByOrder = new Map(sourceRows.map(r => [r.source_order, r]));
 const sourceAbbreviations = JSON.parse(abbreviationSnapshotBytes.toString('utf8'));
 const rids = Object.keys(mind);
 const byOrder = new Map();
@@ -31,11 +36,14 @@ const gradeCounts = {1: 0, 2: 0, 3: 0};
 let withRemedies = 0;
 let remedyEntries = 0;
 
+// 🔑 v157: چھپے ہوئے سرخی-ربرکس (ANXIETY chill, during · MISTAKES words, mispronounces)
+// ماخذ عکس (4356) کے علاوہ شامل ہیں — کل 4358
+const INSERTED_HEADING_RUBRICS = 2;
 assert.strictEqual(manifest.candidate_count, 4356, 'approved Homeoint snapshot rubric count');
 assert.strictEqual(sourceRows.length, manifest.candidate_count);
 assert.strictEqual(Object.keys(sourceAbbreviations).length, manifest.remedy_abbreviation_count);
 assert.strictEqual(manifest.page_count, 95, 'all printed pages are represented');
-assert.strictEqual(rids.length, manifest.candidate_count);
+assert.strictEqual(rids.length, manifest.candidate_count + INSERTED_HEADING_RUBRICS, 'chapter = snapshot + inserted heading rubrics');
 assert.deepStrictEqual(master.mind, mind, 'master MIND and chapter MIND are identical');
 const mindIndex = index.filter(row => row.key === 'mind');
 assert.strictEqual(mindIndex.length, 1);
@@ -51,7 +59,7 @@ rids.forEach((rid, arrayIndex) => {
     assert(row.t.length > 0);
     assert.strictEqual(typeof row.source_label, 'string');
     assert(row.source_label.length > 0);
-    assert.strictEqual(row.source_order, arrayIndex, 'file order follows printed page order');
+    assert(arrayIndex === 0 || row.source_order > mind[rids[arrayIndex - 1]].source_order, 'printed page order stays monotonic for ' + rid);
     assert.strictEqual(Number.isInteger(row.source_page), true);
     assert(row.source_page >= 1 && row.source_page <= 95);
     assert.strictEqual(byOrder.has(row.source_order), false, 'source_order is unique');
@@ -114,10 +122,14 @@ rids.forEach((rid, arrayIndex) => {
 assert.deepStrictEqual(Object.keys(pageCounts).map(Number).sort((a, b) => a - b),
     Array.from({length: 95}, (_, i) => i + 1));
 Object.keys(manifest.page_counts).forEach(page => {
-    assert.strictEqual(pageCounts[page], manifest.page_counts[page], 'page count ' + page);
+    // 🔑 v157: سرخی-ربرکس (صفحہ 6 · صفحہ 67) متعلقہ صفحے کی گنتی میں ایک ایک اضافہ
+    const pg = Number(page);
+    const inserted = (pg === 6 || pg === 67) ? 1 : 0;
+    assert.strictEqual(pageCounts[page], manifest.page_counts[page] + inserted, 'page count ' + page);
 });
 assert.strictEqual(withRemedies, manifest.candidate_with_remedies);
-assert.strictEqual(rids.length - withRemedies, manifest.candidate_empty);
+// 🔑 v157: نئے سرخی-ربرکس بے علاج ہیں
+assert.strictEqual(rids.length - withRemedies, manifest.candidate_empty + INSERTED_HEADING_RUBRICS);
 assert.strictEqual(remedyEntries, 30787);
 assert.deepStrictEqual(gradeCounts, {1: 20931, 2: 7745, 3: 2111});
 assert.deepStrictEqual(gradeCounts, {
@@ -224,9 +236,29 @@ sourceRows.forEach(source => {
     const row = mind[rid];
     assert.strictEqual(row.source_page, source.page);
     const override = treeOverridesByOrder.get(source.source_order);
-    const expectedLabel = override ? override.new_source_label : source.label;
-    const expectedTitle = override ? override.new_title : source.source_path_labels.join(', ');
-    const expectedParentOrder = override ? override.new_parent_source_order : source.parent_source_order;
+    const reparentFix = reparentedByOrder.get(source.source_order);
+    const relabelFix = relabelledByOrder.get(source.source_order);
+    const expectedLabel = relabelFix ? relabelFix.new_source_label
+        : (override ? override.new_source_label : source.label);
+    const parentFix = reparentFix || relabelFix;
+    const expectedParentOrder = parentFix ? parentFix.new_parent_source_order
+        : (override ? override.new_parent_source_order : source.parent_source_order);
+    // متوقع مکمل عنوان: درست شدہ والد کی زنجیر سے (v157 درختی اصلاحات کے مطابق)
+    const chainLabels = [];
+    (function walkChain(order) {
+        if (order === null || order === undefined) return;
+        const ins = insertedByOrder.get(order);
+        if (ins) { chainLabels.unshift(ins.source_label); walkChain(ins.parent_source_order); return; }
+        const snap = snapByOrder.get(order);
+        const rFix = reparentedByOrder.get(order);
+        const lFix = relabelledByOrder.get(order);
+        chainLabels.unshift(lFix ? lFix.new_source_label : snap.label);
+        const nextOrder = rFix ? rFix.new_parent_source_order
+            : (lFix ? lFix.new_parent_source_order : snap.parent_source_order);
+        walkChain(nextOrder);
+    })(expectedParentOrder);
+    const expectedTitle = override ? override.new_title
+        : (expectedParentOrder === null ? expectedLabel : [...chainLabels, expectedLabel].join(', '));
     assert.strictEqual(row.source_label, expectedLabel);
     assert.strictEqual(row.t, expectedTitle);
     const expectedParent = expectedParentOrder === null ? null : byOrder.get(expectedParentOrder);

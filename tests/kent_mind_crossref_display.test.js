@@ -1,6 +1,7 @@
 'use strict';
 
-// UI-only suppression: preserve source paths/keys, omit top-level Kent MIND cross-references.
+// 🔑 v163 (صارف): کراس ریفرنس بحال — Kent MIND جڑ سطح سمیت ہر ربرک پر (See …) نظر آئے گا
+// (ماضی کی v146 UI-suppression ہٹا دی گئی؛ ماخذی راستے/کلیدیں پہلے ہی جوں کے توں ہیں)
 // Run: node tests/kent_mind_crossref_display.test.js
 const assert = require('assert');
 const fs = require('fs');
@@ -45,30 +46,38 @@ function renderedTreeTitle(book, chapter, label, labels) {
 }
 
 const sourceRoot = 'ANGER, irascibility (See Irritability and Quarrelsome)';
+
+// ۱) جڑ سطح: کراس ریفرنس نظر آئے — visible title میں اور renderer کے انداز میں
 const treeRoot = renderedTreeTitle('kent', 'mind', sourceRoot, [sourceRoot]);
-assert.strictEqual(treeRoot.title, 'ANGER, irascibility', 'Kent MIND root rubric title omits the See reference');
-assert.strictEqual(xrefRendererInput, 'ANGER, irascibility', 'xref renderer receives only the visible title');
+assert.strictEqual(treeRoot.title, escapeHtml(sourceRoot),
+    'Kent MIND root rubric keeps its See reference in the visible title');
+assert.strictEqual(xrefRendererInput, sourceRoot,
+    'xref renderer receives the full source label including the See reference');
+assert(treeRoot.html.includes('(See Irritability'), 'See reference text is rendered');
 assert.strictEqual(treeRoot.row.label, sourceRoot, 'source rubric label remains unchanged');
 assert(treeRoot.html.includes('data-full="' + sourceRoot + '"'), 'navigation keeps the original full path');
 
-const treeChild = renderedTreeTitle('kent', 'mind', sourceRoot, ['PARENT', sourceRoot]);
-assert.strictEqual(treeChild.title, sourceRoot, 'a rubric with an ancestor remains unchanged even at the start of a mounted sub-tree');
-const otherChapterRoot = renderedTreeTitle('kent', 'head', sourceRoot, [sourceRoot]);
-assert.strictEqual(otherChapterRoot.title, sourceRoot, 'other Kent chapters are not changed');
+// ۲) اصل ماخذ data فائل کبھی نہ بدلے — لیبل وہی رہے
+const mind = JSON.parse(fs.readFileSync(path.join(ROOT, 'kent_chapters/mind.json'), 'utf8'));
+assert.strictEqual(mind['r0'].t, 'ABANDONED (See Forsaken)', 'source data keeps See references');
+assert.strictEqual(mind['r0'].source_label, 'ABANDONED (See Forsaken)', 'source label keeps See references');
 
+// ۳) تلاش: breadcrumb میں بھی کراس ریفرنس برقرار
 const searchContext = { escapeHtml, repClipsLoad: () => {} };
 vm.createContext(searchContext);
 vm.runInContext(fs.readFileSync(path.join(ROOT, 'js/repertory/rep-search.js'), 'utf8'), searchContext,
     { filename: 'js/repertory/rep-search.js' });
 const sourcePath = ['MIND', sourceRoot, 'morning'];
 const result = { book: 'kent', chapter: 'mind', text: 'morning', searchPath: sourcePath };
-assert.strictEqual(searchContext.repSearchResultDisplayText(result), 'MIND; ANGER, irascibility; morning');
+assert.strictEqual(searchContext.repSearchResultDisplayText(result), 'MIND; ' + sourceRoot + '; morning',
+    'search breadcrumb shows the root See reference again');
 assert.deepStrictEqual(sourcePath, ['MIND', sourceRoot, 'morning'], 'search source breadcrumb remains unchanged');
 const resultHtml = searchContext.repSearchResultTitleHtml(result, []);
-assert(resultHtml.includes('MIND; ANGER, irascibility; morning'));
-assert(!resultHtml.includes('Irritability and Quarrelsome'), 'hidden root reference is absent from visible and title text');
+assert(resultHtml.includes('MIND; ' + sourceRoot + '; morning'), 'search title includes the See reference');
+
+// ۴) دوسرے ابواب متاثر نہ ہوں
 assert.strictEqual(searchContext.repSearchResultDisplayText({
     book: 'kent', chapter: 'head', text: 'head rubric', searchPath: ['HEAD', sourceRoot]
 }), 'HEAD; ' + sourceRoot, 'other chapter search paths are unchanged');
 
-console.log('PASS Kent MIND root cross-reference is hidden in tree and search display without changing source paths.');
+console.log('PASS Kent MIND cross-references are visible again in tree and search without changing source paths.');

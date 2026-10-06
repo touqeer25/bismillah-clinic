@@ -19,7 +19,7 @@
 var _repRubUr = {};            // book → chapter → { rubrics:{}, locked:{} }
 var _repRubUrLoading = {};     // 'book/chapter' → true جب تک منگوایا جا رہا ہو
 var REP_RUBUR_MODE_KEY = 'bc_ur_mode';          // 'full' | 'delta'
-var REP_RUBUR_V = '156';                                       // 🔑 ur/rubrics/**.json کے ہر بدلاؤ پر بڑھائیں (ساتھ CACHE_NAME بھی) — v156: چکر باب اور ذہنی باب کے ماخذی ربط اور اردو عبارتوں کی درستی
+var REP_RUBUR_V = '157';                                       // 🔑 ur/rubrics/**.json کے ہر بدلاؤ پر بڑھائیں (ساتھ CACHE_NAME بھی) — v157: ذہنی باب ہیرارکی اصلاحات + کراس ریفرنس اردو نمائش
 var REP_RUBUR_SEP_RE = /^(\s*[—–-]\s*|\s*،\s*|\s*,\s*|\s+)/;   // والد کے بعد جوڑنے والا نشان
 
 // ---------- کلید: پورا راستہ → معیاری صورت ----------
@@ -98,6 +98,44 @@ function repRubUrSplit(t, parentT) {
     return { base: '', sep: '', delta: t };
 }
 
+// ---------- کراس ریفرنس «(See …)» کا اردو اشارہ (v163) ----------
+// ماخذی ربرک کے اپنے لیبل پر لکھا کراس ریفرنس اردو ترجمے کے ساتھ بھی نظر آئے —
+// اہداف کے نام ur/rubrics/<book>/<chapter>_xref_ur.json (منظور شدہ نقشہ) سے، ورنہ انگریزی چھوٹے حروف میں
+var _repXrefUr = null;                     // 'book/chapter' → {targets:{}} یا {} (نہیں ہے)
+var REP_XREF_UR_RE = /\((?:See|Compare)\s+([^)]+)\)/ig;
+function ensureRepXrefUr(book, chapter) {
+    if (!book || !chapter) return;
+    var id = book + '/' + chapter;
+    _repXrefUr = _repXrefUr || {};
+    if (_repXrefUr[id] !== undefined) return;
+    _repXrefUr[id] = {};                   // پہلے خالی — فائل آئی تو بھرے گی (fetch نہ ہو تو خاموشی سے)
+    if (typeof fetch !== 'function') return;
+    var idKeep = id;
+    fetch('ur/rubrics/' + book + '/' + chapter + '_xref_ur.json?v=' + REP_RUBUR_V)
+        .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+        .then(function (d) { _repXrefUr[idKeep] = (d && d.targets) || {}; repRubUrRemountViews(); })
+        .catch(function () { _repXrefUr[idKeep] = {}; });
+}
+function repRubUrRemountViews() {
+    if (typeof repTreeViews !== 'undefined') {
+        Object.keys(repTreeViews).forEach(function (id) { if (document.getElementById(id) && typeof repTreeRemount === 'function') repTreeRemount(id); });
+    }
+}
+function repXrefUrHtml(book, ch, label) {
+    var map = _repXrefUr && _repXrefUr[book + '/' + ch];
+    if (!map) { ensureRepXrefUr(book, ch); return ''; }
+    var s = String(label || ''), m, parts = [];
+    REP_XREF_UR_RE.lastIndex = 0;
+    while ((m = REP_XREF_UR_RE.exec(s))) {
+        var target = m[1].trim().replace(/[.,;:]+$/, '');
+        var ur = Object.prototype.hasOwnProperty.call(map, target) ? map[target] : '';
+        if (ur) parts.push(ur);
+    }
+    if (!parts.length) return '';
+    var _ex = (typeof escapeHtml === 'function') ? escapeHtml : function (s) { return String(s); };
+    return ' <span class="rep-xref-ur" dir="rtl" lang="ur">(دیکھیے: ' + _ex(parts.join('؛ ')) + ')</span>';
+}
+
 // ---------- صف کے لیے تیار HTML (rep-tree.js یہی بلاتا ہے) ----------
 // r = {label, labels, full, depth}  — labels[] راستہ ہے، اس لیے کوما والے لیبل («stabbed, so that …») نہیں ٹوٹتے
 // «بنیاد» = قریب ترین بزرگ (والد، دادا … جڑ) جس کا جملہ اس جملے کے شروع میں موجود ہو
@@ -125,6 +163,8 @@ function repRubUrRowHtml(r) {
     var h = '<span class="rtv-ur rub' + (full ? '' : ' delta-only') + '" dir="rtl" lang="ur" title="' + esc(t) + '">';
     if (p.base && full) h += '<span class="rub-base">' + esc(p.base) + esc(p.sep) + '</span>';
     h += '<span class="rub-delta">' + esc(p.delta) + '</span></span>';
+    // 🔑 v163: اپنے لیبل کا کراس ریفرنس اردو میں بھی — «(دیکھیے: …)»
+    if (typeof repXrefUrHtml === 'function') h += repXrefUrHtml(book, ch, r.label);
     return h;
 }
 

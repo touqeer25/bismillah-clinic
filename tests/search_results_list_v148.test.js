@@ -88,7 +88,7 @@ setTimeout(function () {
         assert(!allResults.innerHTML.includes('rpc-card') && !allResults.innerHTML.includes('rep-cards-grid'),
             'incremental results do not use cards');
         assert(!content.innerHTML.includes('Irritability and Quarrelsome') &&
-            !allResults.innerHTML.includes('Irritability and Quarrelsome'), 'the main MIND root reference remains hidden');
+            allResults.innerHTML.includes('Irritability and Quarrelsome'), 'v163: the main MIND root reference is visible again');
 
         let compareRefreshes = 0;
         context.repSearchRefreshCompareButtons = function () { compareRefreshes++; return true; };

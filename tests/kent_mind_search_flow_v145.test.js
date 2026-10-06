@@ -107,11 +107,11 @@ setTimeout(function () {
         context.repTreeToggleRems();
         assert.strictEqual(context.repTreeOpts.rems, true, 'second 💊 toggle turns remedy display back on');
         assert.strictEqual(listClasses.has('show-remedies'), true, 'second toggle restores search-result remedies');
-        const visibleAngerLabel = 'ANGER, irascibility';
+        const visibleAngerLabel = 'ANGER, irascibility (See Irritability and Quarrelsome)'; // v163: کراس ریفرنس بحال
         assert(content.innerHTML.includes('class="rep-search-chapter-name">MIND</span>'), 'chapter appears once as the section heading');
         assert(content.innerHTML.includes('title="' + visibleAngerLabel + '"'), 'root rubric is shown without a repeated chapter breadcrumb');
         assert(content.innerHTML.includes('title="' + visibleAngerLabel + '; morning"'), 'child row keeps its path below the chapter heading');
-        assert(!content.innerHTML.includes('Irritability and Quarrelsome'), 'root cross-reference is not shown in search results');
+        assert(content.innerHTML.includes('Irritability and Quarrelsome'), 'v163: root cross-reference is visible in search results');
         assert(!content.innerHTML.includes('MIND; ANGER;'), 'no synthetic OOREP anchor is inserted');
         assert(content.innerHTML.indexOf('title="' + visibleAngerLabel + '"') <
             content.innerHTML.indexOf('title="' + visibleAngerLabel + '; morning"'), 'parent precedes child in printed source order');

@@ -17,9 +17,9 @@ assert.strictEqual(JSON.stringify(sidecar), JSON.stringify(freshlyBuilt),
 assert.strictEqual(sidecar.schema, 'kent-search-paths-v1');
 assert.strictEqual(sidecar.tree_fix_version, '147');
 assert.strictEqual(sidecar.display_tree_override_count, 2);
-assert.strictEqual(sidecar.source_record_count, 4356);
+assert.strictEqual(sidecar.source_record_count, 4358, 'v157: 2 inserted heading rubrics');
 assert.strictEqual(sidecar.hidden_anchor_count, 0);
-assert.strictEqual(sidecar.visible_rubric_count, 4356);
+assert.strictEqual(sidecar.visible_rubric_count, 4358, 'v157: 2 inserted heading rubrics');
 assert.strictEqual(Object.keys(sidecar.entries).length, sidecar.visible_rubric_count);
 
 // Kent's displayed, book-style path—not the third-party Complete Repertory's
@@ -99,15 +99,15 @@ assert(searchContext.repSearchResultDisplayText({
 }).includes('during (See Dreams)'), 'sub-rubric cross-references remain visible');
 assert.strictEqual(searchContext.repSearchResultDisplayText({
     book: 'kent', chapter: 'mind', text: 'ANGER, absent persons, at', searchPath: pathInfo.path
-}), 'MIND; ANGER, irascibility; absent persons, at');
+}), 'MIND; ANGER, irascibility (See Irritability and Quarrelsome); absent persons, at', 'v163: جڑ کراس ریفرنس بحال');
 assert.deepStrictEqual(JSON.parse(JSON.stringify(pathInfo.path)),
     ['MIND', angerLabel, 'absent persons, at'], 'the source breadcrumb is retained unchanged');
 
 const rendered = searchContext.repSearchResultTitleHtml({
-    text: 'leaf', searchPath: ['MIND', 'ANGER, irascibility', 'morning']
+    text: 'leaf', searchPath: ['MIND', angerLabel, 'morning']
 }, ['anger']);
 assert(rendered.includes('MIND; '));
-assert(rendered.includes('ANGER, irascibility; morning'));
+assert(rendered.includes(angerLabel + '; morning'));
 assert(rendered.includes('<mark style=') && rendered.includes('>ANGER</mark>'));
 assert(rendered.includes('class="rep-search-tree-path"'));
 
@@ -146,9 +146,9 @@ searchContext.displaySearchResults([{
     remedies: { aur: 2 }
 }], 'Search test');
 assert(resultContainer.innerHTML.includes('MIND; '));
-assert(resultContainer.innerHTML.includes('ANGER, irascibility; absent persons, at'));
-assert(!resultContainer.innerHTML.includes('Irritability and Quarrelsome'),
-    'the root-rubric cross-reference is hidden in rendered search results');
+assert(resultContainer.innerHTML.includes(angerLabel + '; absent persons, at'));
+assert(resultContainer.innerHTML.includes('Irritability and Quarrelsome'),
+    'v163: the root-rubric cross-reference is visible in rendered search results');
 assert(resultContainer.innerHTML.includes("navigateToRubric(\'kent\',\'mind\',\'r45\')"));
 assert.strictEqual(resultContainer.scrollTop, 0);
 searchContext.displaySearchResults([{

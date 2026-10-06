@@ -9,11 +9,8 @@ function repTreeRemsHtml(rems){
     return shown?h+'</span>':'';
 }
 function repTreeVisibleLabel(r){
-    var label=String(r&&r.label||'');
-    if(repCurrentBook==='kent'&&repCurrentChapter==='mind'&&r&&r.labels&&r.labels.length===1){
-        label=label.replace(/\s*\(\s*see\b[^)]*\)/ig,'').replace(/\s+,/g,',').trim();
-    }
-    return label;
+    // 🔑 v163 (صارف): کراس ریفرنس بحال — ذہنی باب کی جڑ سطح سمیت ہر سطح پر (See …) دکھے گا
+    return String(r&&r.label||'');
 }
 function repTreeRowHtml(r){
     var c=r.node, rems=Object.keys(c.remedies||{}).length, rid=c.hasRubric&&c.rid?String(c.rid):'';

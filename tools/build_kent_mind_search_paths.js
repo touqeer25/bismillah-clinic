@@ -55,7 +55,10 @@ function buildKentMindSearchPaths() {
                 const rid = String(child.rid);
                 const sourceOrder = Number(child.sourceOrder);
                 if (entries[rid]) throw new Error('Duplicate source rubric id: ' + rid);
-                if (!Number.isInteger(sourceOrder) || sourceOrder < 0) {
+                // Fractional orders are allowed for heading rubrics inserted between
+                // printed rows (e.g. ANXIETY chill, during = 181.5); they must still
+                // keep the printed-page order monotonic.
+                if (!Number.isFinite(sourceOrder) || sourceOrder < 0) {
                     throw new Error('Invalid printed-page order at ' + rid);
                 }
                 entries[rid] = { path: labels, order: sourceOrder + 1 };

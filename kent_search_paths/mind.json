@@ -8,11 +8,11 @@
   "tree_builder": "js/repertory/rep-chapters.js",
   "tree_fix_version": "147",
   "display_tree_override_count": 2,
-  "source_record_count": 4356,
+  "source_record_count": 4358,
   "hidden_anchor_count": 0,
-  "visible_rubric_count": 4356,
-  "source_sha256": "c9c0d674e160a97cb2521f4aefcd35464f12e9bca614ad744886429fd63451f4",
-  "build_sha256": "a1d1be76988080c1a18d650d943a522ff9a8e19aeb14210b364a1e4a58d7f02a",
+  "visible_rubric_count": 4358,
+  "source_sha256": "dd3c5381099bb161e5389af6428b8a16c93eb6d2958dc4b588c089eb2ba5dad9",
+  "build_sha256": "a007a1ae27ec7b5ac12296d37c8e2a2fd5d305149f4d79bac82b49e63c7274a1",
   "entries": {
     "r0": {
       "path": [
@@ -1118,7 +1118,6 @@
       "path": [
         "ANXIETY",
         "midnight, before",
-        "on waking, amel., on rising",
         "11 p.m."
       ],
       "order": 155
@@ -1127,7 +1126,6 @@
       "path": [
         "ANXIETY",
         "midnight, before",
-        "on waking, amel., on rising",
         "after"
       ],
       "order": 156
@@ -1136,7 +1134,6 @@
       "path": [
         "ANXIETY",
         "midnight, before",
-        "on waking, amel., on rising",
         "after",
         "on waking"
       ],
@@ -1146,7 +1143,6 @@
       "path": [
         "ANXIETY",
         "midnight, before",
-        "on waking, amel., on rising",
         "after",
         "1 to 3 a.m."
       ],
@@ -1156,7 +1152,6 @@
       "path": [
         "ANXIETY",
         "midnight, before",
-        "on waking, amel., on rising",
         "after",
         "2 a.m."
       ],
@@ -1166,7 +1161,6 @@
       "path": [
         "ANXIETY",
         "midnight, before",
-        "on waking, amel., on rising",
         "after",
         "until 2 a.m."
       ],
@@ -1176,7 +1170,6 @@
       "path": [
         "ANXIETY",
         "midnight, before",
-        "on waking, amel., on rising",
         "after",
         "3 a.m."
       ],
@@ -1186,7 +1179,6 @@
       "path": [
         "ANXIETY",
         "midnight, before",
-        "on waking, amel., on rising",
         "after",
         "3 a.m.",
         "after"
@@ -1197,7 +1189,6 @@
       "path": [
         "ANXIETY",
         "midnight, before",
-        "on waking, amel., on rising",
         "after",
         "4 a.m."
       ],
@@ -1340,10 +1331,17 @@
       ],
       "order": 182
     },
+    "h0181": {
+      "path": [
+        "ANXIETY",
+        "chill, during"
+      ],
+      "order": 182.5
+    },
     "r184": {
       "path": [
         "ANXIETY",
-        "chill, before",
+        "chill, during",
         "during"
       ],
       "order": 183
@@ -1351,7 +1349,7 @@
     "r185": {
       "path": [
         "ANXIETY",
-        "chill, before",
+        "chill, during",
         "after"
       ],
       "order": 184
@@ -3427,7 +3425,6 @@
     "r476": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "forenoon"
       ],
       "order": 477
@@ -3435,7 +3432,6 @@
     "r477": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "alternating with bursts of pleasantry and sarcasm"
       ],
       "order": 478
@@ -3443,7 +3439,6 @@
     "r478": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "amel., when alone"
       ],
       "order": 479
@@ -3451,7 +3446,6 @@
     "r479": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "avoids the sight of people"
       ],
       "order": 480
@@ -3459,7 +3453,6 @@
     "r480": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "avoids the sight of people",
         "and lies with closed eyes"
       ],
@@ -3468,7 +3461,6 @@
     "r481": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "avoids the sight of people",
         "and shuts herself up"
       ],
@@ -3477,7 +3469,6 @@
     "r482": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "avoids the sight of people",
         "country away from people, wants to get into the"
       ],
@@ -3486,7 +3477,6 @@
     "r483": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "desires solitude to practice masturbation"
       ],
       "order": 484
@@ -3494,7 +3484,6 @@
     "o46447": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "desires solitude to practice masturbation",
         "to indulge her fancy"
       ],
@@ -3503,7 +3492,6 @@
     "o46448": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "desires solitude to practice masturbation",
         "to indulge her fancy",
         "lie with closed eyes"
@@ -3513,7 +3501,6 @@
     "r486": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "dreads being alone, yet"
       ],
       "order": 487
@@ -3521,7 +3508,6 @@
     "r487": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "friends, of intimate"
       ],
       "order": 488
@@ -3529,7 +3515,6 @@
     "r488": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "heat, during"
       ],
       "order": 489
@@ -3537,7 +3522,6 @@
     "r489": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "meeting of friends, whom he imagines he has offended"
       ],
       "order": 490
@@ -3545,7 +3529,6 @@
     "r490": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "menses, during"
       ],
       "order": 491
@@ -3553,7 +3536,6 @@
     "r491": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "menses, during",
         "desires to be let alone"
       ],
@@ -3562,7 +3544,6 @@
     "r492": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "perspiration, during"
       ],
       "order": 493
@@ -3570,7 +3551,6 @@
     "r493": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "pregnant, when"
       ],
       "order": 494
@@ -3578,7 +3558,6 @@
     "r494": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "presence of strangers, to"
       ],
       "order": 495
@@ -3586,7 +3565,6 @@
     "o46460": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "presence of strangers, to",
         "people intolerable to her during stool"
       ],
@@ -3595,7 +3573,6 @@
     "o46461": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "presence of strangers, to",
         "people intolerable to her during stool",
         "during urination"
@@ -3605,7 +3582,6 @@
     "r497": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "smiling faces"
       ],
       "order": 498
@@ -3613,7 +3589,6 @@
     "r498": {
       "path": [
         "COMPANY aversion to",
-        "morning",
         "walk alone, want to"
       ],
       "order": 499
@@ -4787,7 +4762,6 @@
     "r664": {
       "path": [
         "DEATH, desires (See Loathing of Life)",
-        "morning, on waking",
         "forenoon"
       ],
       "order": 665
@@ -4795,7 +4769,6 @@
     "r665": {
       "path": [
         "DEATH, desires (See Loathing of Life)",
-        "morning, on waking",
         "afternoon"
       ],
       "order": 666
@@ -4803,7 +4776,6 @@
     "r666": {
       "path": [
         "DEATH, desires (See Loathing of Life)",
-        "morning, on waking",
         "evening"
       ],
       "order": 667
@@ -4811,7 +4783,6 @@
     "r667": {
       "path": [
         "DEATH, desires (See Loathing of Life)",
-        "morning, on waking",
         "chill, during"
       ],
       "order": 668
@@ -4819,7 +4790,6 @@
     "r668": {
       "path": [
         "DEATH, desires (See Loathing of Life)",
-        "morning, on waking",
         "convalescence, during"
       ],
       "order": 669
@@ -4827,7 +4797,6 @@
     "r669": {
       "path": [
         "DEATH, desires (See Loathing of Life)",
-        "morning, on waking",
         "menses, during"
       ],
       "order": 670
@@ -4835,7 +4804,6 @@
     "o46629": {
       "path": [
         "DEATH, desires (See Loathing of Life)",
-        "morning, on waking",
         "walking in open air while"
       ],
       "order": 671
@@ -18453,7 +18421,6 @@
     "o48397": {
       "path": [
         "IDEAS abundant, clearness of mind",
-        "forenoon",
         "evening"
       ],
       "order": 2520
@@ -18461,7 +18428,6 @@
     "o48398": {
       "path": [
         "IDEAS abundant, clearness of mind",
-        "forenoon",
         "evening",
         "bed, in"
       ],
@@ -18470,7 +18436,6 @@
     "o48401": {
       "path": [
         "IDEAS abundant, clearness of mind",
-        "forenoon",
         "night"
       ],
       "order": 2522
@@ -18478,7 +18443,6 @@
     "o48394": {
       "path": [
         "IDEAS abundant, clearness of mind",
-        "forenoon",
         "chill, during"
       ],
       "order": 2523
@@ -18486,7 +18450,6 @@
     "o48396": {
       "path": [
         "IDEAS abundant, clearness of mind",
-        "forenoon",
         "closing the eyes"
       ],
       "order": 2524
@@ -18494,7 +18457,6 @@
     "o48400": {
       "path": [
         "IDEAS abundant, clearness of mind",
-        "forenoon",
         "heat, during"
       ],
       "order": 2525
@@ -18502,7 +18464,6 @@
     "o48402": {
       "path": [
         "IDEAS abundant, clearness of mind",
-        "forenoon",
         "persistent"
       ],
       "order": 2526
@@ -18510,7 +18471,6 @@
     "o48403": {
       "path": [
         "IDEAS abundant, clearness of mind",
-        "forenoon",
         "perspiration, during"
       ],
       "order": 2527
@@ -18518,7 +18478,6 @@
     "o48404": {
       "path": [
         "IDEAS abundant, clearness of mind",
-        "forenoon",
         "urination, after"
       ],
       "order": 2528
@@ -21859,7 +21818,6 @@
     "r3023": {
       "path": [
         "MEMORY active (See Ideas)",
-        "evening",
         "alternating with dullness"
       ],
       "order": 3002
@@ -21867,7 +21825,6 @@
     "o48850": {
       "path": [
         "MEMORY active (See Ideas)",
-        "evening",
         "alternating with dullness",
         "with weak memory"
       ],
@@ -21876,7 +21833,6 @@
     "o48849": {
       "path": [
         "MEMORY active (See Ideas)",
-        "evening",
         "alternating with dullness",
         "with weak memory",
         "lassitude"
@@ -21886,7 +21842,6 @@
     "r3026": {
       "path": [
         "MEMORY active (See Ideas)",
-        "evening",
         "suppressing sexual desire, from"
       ],
       "order": 3005
@@ -22465,10 +22420,17 @@
       ],
       "order": 3082
     },
+    "h3081": {
+      "path": [
+        "MISTAKES in calculating",
+        "words, mispronounces"
+      ],
+      "order": 3082.5
+    },
     "r3110": {
       "path": [
         "MISTAKES in calculating",
-        "words, misplacing",
+        "words, mispronounces",
         "mispronounces"
       ],
       "order": 3083
@@ -22751,39 +22713,34 @@
     },
     "r3150": {
       "path": [
-        "MOOD, agreeable",
-        "changeable, variable, etc."
+        "MOOD, changeable, variable, etc."
       ],
       "order": 3122
     },
     "o48969": {
       "path": [
-        "MOOD, agreeable",
-        "changeable, variable, etc.",
+        "MOOD, changeable, variable, etc.",
         "evening"
       ],
       "order": 3123
     },
     "o48970": {
       "path": [
-        "MOOD, agreeable",
-        "changeable, variable, etc.",
+        "MOOD, changeable, variable, etc.",
         "heat, during"
       ],
       "order": 3124
     },
     "o48968": {
       "path": [
-        "MOOD, agreeable",
-        "changeable, variable, etc.",
+        "MOOD, changeable, variable, etc.",
         "dinner, after"
       ],
       "order": 3125
     },
     "o48971": {
       "path": [
-        "MOOD, agreeable",
-        "changeable, variable, etc.",
+        "MOOD, changeable, variable, etc.",
         "perspiration, during"
       ],
       "order": 3126
@@ -23613,42 +23570,41 @@
     },
     "r3277": {
       "path": [
-        "QUIET disposition",
         "RAGE, fury (See Insanity, Mania, Delirium)"
       ],
       "order": 3249
     },
     "r3278": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "evening"
       ],
       "order": 3250
     },
     "r3279": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "night"
       ],
       "order": 3251
     },
     "r3280": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "alone, while"
       ],
       "order": 3252
     },
     "r3281": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "alternating, affectionate disposition, with"
       ],
       "order": 3253
     },
     "r3289": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "alternating, affectionate disposition, with",
         "consciousness"
       ],
@@ -23656,7 +23612,7 @@
     },
     "r3290": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "alternating, affectionate disposition, with",
         "convulsions, with"
       ],
@@ -23664,7 +23620,7 @@
     },
     "r3291": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "alternating, affectionate disposition, with",
         "religious excitement, with"
       ],
@@ -23672,56 +23628,56 @@
     },
     "r3292": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "aroused, when"
       ],
       "order": 3257
     },
     "r3293": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "cold applications to head amel."
       ],
       "order": 3258
     },
     "r3294": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "constant"
       ],
       "order": 3259
     },
     "r3295": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "convulsive"
       ],
       "order": 3260
     },
     "r3296": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "does not know his relatives"
       ],
       "order": 3261
     },
     "r3297": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "drinking, while"
       ],
       "order": 3262
     },
     "r3298": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "epilepsy, after"
       ],
       "order": 3263
     },
     "r3299": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "epilepsy, after",
         "with"
       ],
@@ -23729,91 +23685,91 @@
     },
     "r3300": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "headache, with"
       ],
       "order": 3265
     },
     "r3301": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "insults, after"
       ],
       "order": 3266
     },
     "r3302": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "kill people, tries to"
       ],
       "order": 3267
     },
     "r3303": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "menses, during"
       ],
       "order": 3268
     },
     "r3304": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "mischievous"
       ],
       "order": 3269
     },
     "r3305": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "pulls hair of bystanders"
       ],
       "order": 3270
     },
     "r3306": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "shining objects, from"
       ],
       "order": 3271
     },
     "r3307": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "staring looks, with"
       ],
       "order": 3272
     },
     "r3308": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "strength increased"
       ],
       "order": 3273
     },
     "r3309": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "touch, renewed by"
       ],
       "order": 3274
     },
     "r3310": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "trying to drink, when or touching larynx"
       ],
       "order": 3275
     },
     "r3311": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "violent"
       ],
       "order": 3276
     },
     "r3312": {
       "path": [
-        "QUIET disposition",
+        "RAGE, fury (See Insanity, Mania, Delirium)",
         "water, sight of"
       ],
       "order": 3277
@@ -23860,7 +23816,6 @@
     "o49116": {
       "path": [
         "RECOGNIZE, does not his relatives",
-        "own house",
         "well known streets"
       ],
       "order": 3284
@@ -28623,7 +28578,6 @@
     "r3993": {
       "path": [
         "THINKING, aversion to",
-        "morning",
         "afternoon"
       ],
       "order": 3949
@@ -28631,7 +28585,6 @@
     "r3994": {
       "path": [
         "THINKING, aversion to",
-        "morning",
         "afternoon",
         "after walking in open air"
       ],
@@ -28640,7 +28593,6 @@
     "r3995": {
       "path": [
         "THINKING, aversion to",
-        "morning",
         "evening"
       ],
       "order": 3951

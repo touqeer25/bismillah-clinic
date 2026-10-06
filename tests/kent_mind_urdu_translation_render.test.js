@@ -48,9 +48,9 @@ assert.strictEqual(context.repRubUrGet('kent', 'mind', filled.t), 'حوصلے ک
     'v150: نئے ماخذی ربرک کا اردو جملہ لوڈر سے ملتا ہے (جڑ کا «(See …)» حصہ کلید سے ہٹتا ہے)');
 assert(context.repRubUrRowHtml({ label: filled.t, labels: [filled.t], full: filled.t, depth: 0 })
     .includes('حوصلے کا فقدان'), 'the row renders the Urdu sentence for the newly translated rubric');
-assert.strictEqual(Object.keys(translations.rubrics).length, 4356);
+assert.strictEqual(Object.keys(translations.rubrics).length, 4358, 'v157: inserted heading rubrics have Urdu');
 assert.strictEqual(translations.meta.untranslated_count, 0);
-assert.strictEqual(translations.meta.source_rubric_count, 4356);
+assert.strictEqual(translations.meta.source_rubric_count, 4358);
 
 assert.strictEqual(context.repRubUrGet('kent', 'mind', 'AMUSEMENT, averse to'),
     'تفریح سے بیزاری', 'والد کی عبارت درست رہتی ہے');

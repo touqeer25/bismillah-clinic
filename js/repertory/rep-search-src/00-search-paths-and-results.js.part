@@ -38,24 +38,13 @@ function repSearchResultRawDisplayText(r){
         : String((r&&r.text)||'');
 }
 function repSearchVisiblePathParts(r){
-    var parts=r&&Array.isArray(r.searchPath)?r.searchPath.slice():[];
-    if(r&&r.book==='kent'&&String(r.chapter).toLowerCase()==='mind'&&parts.length>1){
-        var chapter=String(r.chapter||'').trim().toLowerCase();
-        if(String(parts[0]||'').trim().toLowerCase()===chapter){
-            // Omit only the main/root rubric's See reference; references on child rubrics remain visible.
-            parts[1]=String(parts[1]||'').replace(/\s*\(\s*see\b[^)]*\)\s*$/i,'').trim();
-        }
-    }
-    return parts;
+    // 🔑 v163 (صارف): کراس ریفرنس بحال — ذہنی باب کے نتائج میں بھی (See …) اب دکھے گا
+    return r&&Array.isArray(r.searchPath)?r.searchPath.slice():[];
 }
 function repSearchResultDisplayText(r){
     var parts=repSearchVisiblePathParts(r);
     if(parts.length)return parts.join('; ');
-    var text=String((r&&r.text)||'');
-    if(r&&r.book==='kent'&&String(r.chapter).toLowerCase()==='mind'&&String(r.rid)==='r39'){
-        text=text.replace(/\s*\(\s*see\b[^)]*\)\s*$/i,'').trim();
-    }
-    return text;
+    return String((r&&r.text)||'');
 }
 function repSearchHighlightHtml(escapedHtml, queryWords){
     var result=escapedHtml;

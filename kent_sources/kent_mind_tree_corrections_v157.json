@@ -1,0 +1,508 @@
+{
+ "schema": "kent-mind-user-directed-tree-corrections-v1",
+ "review_id": "mind-tree-corrections-2026-10-07",
+ "user_directive_ur": "صارف کی واضح ہدایت: ربرکس کی ہیرارکی homeoint ماخذ کے مطابق درست کی جائے، کراس ریفرنس بحال ہوں اور ترجموں کی کمی پُر ہو",
+ "source": "http://www.homeoint.org/books/kentrep/kentmind.htm (صفحات 1-95)",
+ "evidence_ur": "ہر گروہ خام ماخذ HTML کی dir ساخت اور Medi-T صفحہ-سرخیوں کے قرارداد سے دستی طور پر ثابت کیا گیا؛ پرانا عکس (homeoint_mind_candidates.json) جوں کا توں محفوظ",
+ "correction_groups_ur": [
+  "صفحہ 5: midnight, before کی ہم درجہ سطریں (154-155)",
+  "صفحہ 6: سرخی-ربرک ANXIETY, chill, during شامل، during/after اس کے بچے",
+  "صفحہ 12: COMPANY aversion to کی 15 ہم درجہ سطریں",
+  "صفحہ 17: DEATH, desires کی 7 ہم درجہ سطریں",
+  "صفحہ 53: IDEAS abundant, clearness of mind کی 8 سطریں",
+  "صفحہ 64: MEMORY active کی 2 سطریں",
+  "صفحہ 71: RECOGNIZE میں well known streets ہم درجہ",
+  "صفحہ 87: THINKING, aversion to میں afternoon/evening ہم درجہ",
+  "صفحات 70-71: RAGE, fury جڑ ربرک اور اس کی 24 اولادیں (Medi-T dir خطا)",
+  "صفحہ 67: سرخی-ربرک words, mispronounces شامل، mispronounces اس کا بچہ",
+  "صفحہ 68: MOOD, changeable, variable, etc. جڑ ربرک (سرخی+علاج ایک سطر)"
+ ],
+ "inserted_rubrics": [
+  {
+   "rid": "h0181",
+   "source_label": "chill, during",
+   "parent_source_order": 120,
+   "source_order": 181.5,
+   "source_page": 6,
+   "title": "ANXIETY, chill, during",
+   "reason_ur": "صفحہ 6 کی سرخی ANXIETY, chill, during — ماخذ میں الگ ربرک، پارسر سے رہ گیا"
+  },
+  {
+   "rid": "h3081",
+   "source_label": "words, mispronounces",
+   "parent_source_order": 3065,
+   "source_order": 3081.5,
+   "source_page": 67,
+   "title": "MISTAKES in calculating, words, mispronounces",
+   "reason_ur": "صفحہ 67 کی سرخی MISTAKES, words, mispronounces — ماخذ میں الگ شاخ، پارسر سے رہ گیا"
+  }
+ ],
+ "reparented": [
+  {
+   "rid": "o46240",
+   "source_order": 154,
+   "old_parent_source_order": 153,
+   "new_parent_source_order": 152,
+   "reason_ur": "صفحہ 5: «11 p.m.» ماخذ میں midnight, before کا ہم درجہ ہے، on waking کا بچہ نہیں"
+  },
+  {
+   "rid": "h0155",
+   "source_order": 155,
+   "old_parent_source_order": 153,
+   "new_parent_source_order": 152,
+   "reason_ur": "صفحہ 5: «after» ماخذ میں midnight, before کا ہم درجہ ہے"
+  },
+  {
+   "rid": "r184",
+   "source_order": 182,
+   "old_parent_source_order": 181,
+   "new_parent_source_order": 181.5,
+   "reason_ur": "صفحہ 6: «during» نئے ربرک chill, during کا بچہ ہے (chill, before کا نہیں)"
+  },
+  {
+   "rid": "r185",
+   "source_order": 183,
+   "old_parent_source_order": 181,
+   "new_parent_source_order": 181.5,
+   "reason_ur": "صفحہ 6: «after» نئے ربرک chill, during کا بچہ ہے"
+  },
+  {
+   "rid": "r476",
+   "source_order": 476,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r477",
+   "source_order": 477,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r478",
+   "source_order": 478,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r479",
+   "source_order": 479,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r483",
+   "source_order": 483,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r486",
+   "source_order": 486,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r487",
+   "source_order": 487,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r488",
+   "source_order": 488,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r489",
+   "source_order": 489,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r490",
+   "source_order": 490,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r492",
+   "source_order": 492,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r493",
+   "source_order": 493,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r494",
+   "source_order": 494,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r497",
+   "source_order": 497,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r498",
+   "source_order": 498,
+   "old_parent_source_order": 475,
+   "new_parent_source_order": 474,
+   "reason_ur": "صفحہ 12: یہ سطریں ماخذ میں COMPANY aversion to کی ہم درجہ اولاد ہیں، صبح کے نیچے نہیں"
+  },
+  {
+   "rid": "r664",
+   "source_order": 664,
+   "old_parent_source_order": 663,
+   "new_parent_source_order": 662,
+   "reason_ur": "صفحہ 17: ماخذ میں یہ سطریں موت کی خواہش کی ہم درجہ اولاد ہیں، صبح جاگنے کے نیچے نہیں"
+  },
+  {
+   "rid": "r665",
+   "source_order": 665,
+   "old_parent_source_order": 663,
+   "new_parent_source_order": 662,
+   "reason_ur": "صفحہ 17: ماخذ میں یہ سطریں موت کی خواہش کی ہم درجہ اولاد ہیں، صبح جاگنے کے نیچے نہیں"
+  },
+  {
+   "rid": "r666",
+   "source_order": 666,
+   "old_parent_source_order": 663,
+   "new_parent_source_order": 662,
+   "reason_ur": "صفحہ 17: ماخذ میں یہ سطریں موت کی خواہش کی ہم درجہ اولاد ہیں، صبح جاگنے کے نیچے نہیں"
+  },
+  {
+   "rid": "r667",
+   "source_order": 667,
+   "old_parent_source_order": 663,
+   "new_parent_source_order": 662,
+   "reason_ur": "صفحہ 17: ماخذ میں یہ سطریں موت کی خواہش کی ہم درجہ اولاد ہیں، صبح جاگنے کے نیچے نہیں"
+  },
+  {
+   "rid": "r668",
+   "source_order": 668,
+   "old_parent_source_order": 663,
+   "new_parent_source_order": 662,
+   "reason_ur": "صفحہ 17: ماخذ میں یہ سطریں موت کی خواہش کی ہم درجہ اولاد ہیں، صبح جاگنے کے نیچے نہیں"
+  },
+  {
+   "rid": "r669",
+   "source_order": 669,
+   "old_parent_source_order": 663,
+   "new_parent_source_order": 662,
+   "reason_ur": "صفحہ 17: ماخذ میں یہ سطریں موت کی خواہش کی ہم درجہ اولاد ہیں، صبح جاگنے کے نیچے نہیں"
+  },
+  {
+   "rid": "o46629",
+   "source_order": 670,
+   "old_parent_source_order": 663,
+   "new_parent_source_order": 662,
+   "reason_ur": "صفحہ 17: ماخذ میں یہ سطریں موت کی خواہش کی ہم درجہ اولاد ہیں، صبح جاگنے کے نیچے نہیں"
+  },
+  {
+   "rid": "o48397",
+   "source_order": 2519,
+   "old_parent_source_order": 2518,
+   "new_parent_source_order": 2517,
+   "reason_ur": "صفحہ 53: ماخذ میں یہ سطریں IDEAS abundant, clearness of mind کی اولاد ہیں، forenoon کے نیچے نہیں"
+  },
+  {
+   "rid": "o48401",
+   "source_order": 2521,
+   "old_parent_source_order": 2518,
+   "new_parent_source_order": 2517,
+   "reason_ur": "صفحہ 53: ماخذ میں یہ سطریں IDEAS abundant, clearness of mind کی اولاد ہیں، forenoon کے نیچے نہیں"
+  },
+  {
+   "rid": "o48394",
+   "source_order": 2522,
+   "old_parent_source_order": 2518,
+   "new_parent_source_order": 2517,
+   "reason_ur": "صفحہ 53: ماخذ میں یہ سطریں IDEAS abundant, clearness of mind کی اولاد ہیں، forenoon کے نیچے نہیں"
+  },
+  {
+   "rid": "o48396",
+   "source_order": 2523,
+   "old_parent_source_order": 2518,
+   "new_parent_source_order": 2517,
+   "reason_ur": "صفحہ 53: ماخذ میں یہ سطریں IDEAS abundant, clearness of mind کی اولاد ہیں، forenoon کے نیچے نہیں"
+  },
+  {
+   "rid": "o48400",
+   "source_order": 2524,
+   "old_parent_source_order": 2518,
+   "new_parent_source_order": 2517,
+   "reason_ur": "صفحہ 53: ماخذ میں یہ سطریں IDEAS abundant, clearness of mind کی اولاد ہیں، forenoon کے نیچے نہیں"
+  },
+  {
+   "rid": "o48402",
+   "source_order": 2525,
+   "old_parent_source_order": 2518,
+   "new_parent_source_order": 2517,
+   "reason_ur": "صفحہ 53: ماخذ میں یہ سطریں IDEAS abundant, clearness of mind کی اولاد ہیں، forenoon کے نیچے نہیں"
+  },
+  {
+   "rid": "o48403",
+   "source_order": 2526,
+   "old_parent_source_order": 2518,
+   "new_parent_source_order": 2517,
+   "reason_ur": "صفحہ 53: ماخذ میں یہ سطریں IDEAS abundant, clearness of mind کی اولاد ہیں، forenoon کے نیچے نہیں"
+  },
+  {
+   "rid": "o48404",
+   "source_order": 2527,
+   "old_parent_source_order": 2518,
+   "new_parent_source_order": 2517,
+   "reason_ur": "صفحہ 53: ماخذ میں یہ سطریں IDEAS abundant, clearness of mind کی اولاد ہیں، forenoon کے نیچے نہیں"
+  },
+  {
+   "rid": "r3023",
+   "source_order": 3001,
+   "old_parent_source_order": 2999,
+   "new_parent_source_order": 2998,
+   "reason_ur": "صفحہ 64: «alternating with dullness» ماخذ میں evening کا ہم درجہ ہے"
+  },
+  {
+   "rid": "r3026",
+   "source_order": 3004,
+   "old_parent_source_order": 2999,
+   "new_parent_source_order": 2998,
+   "reason_ur": "صفحہ 64: «suppressing sexual desire, from» ماخذ میں evening کا ہم درجہ ہے"
+  },
+  {
+   "rid": "o49116",
+   "source_order": 3283,
+   "old_parent_source_order": 3282,
+   "new_parent_source_order": 3281,
+   "reason_ur": "صفحہ 71: «well known streets» ماخذ میں own house کا ہم درجہ ہے"
+  },
+  {
+   "rid": "r3993",
+   "source_order": 3948,
+   "old_parent_source_order": 3947,
+   "new_parent_source_order": 3946,
+   "reason_ur": "صفحہ 87: «afternoon» ماخذ میں morning کا ہم درجہ ہے"
+  },
+  {
+   "rid": "r3995",
+   "source_order": 3950,
+   "old_parent_source_order": 3947,
+   "new_parent_source_order": 3946,
+   "reason_ur": "صفحہ 87: «evening» ماخذ میں morning کا ہم درجہ ہے"
+  },
+  {
+   "rid": "r3277",
+   "source_order": 3248,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": null,
+   "reason_ur": "صفحات 70-71: RAGE, fury ماخذ کے مطابق الگ جڑی ربرک ہے (حروفِ تہجی کا عنوان)، QUIET disposition کا بچہ نہیں"
+  },
+  {
+   "rid": "r3278",
+   "source_order": 3249,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں"
+  },
+  {
+   "rid": "r3279",
+   "source_order": 3250,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں"
+  },
+  {
+   "rid": "r3280",
+   "source_order": 3251,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں"
+  },
+  {
+   "rid": "r3281",
+   "source_order": 3252,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں"
+  },
+  {
+   "rid": "r3292",
+   "source_order": 3256,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3293",
+   "source_order": 3257,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3294",
+   "source_order": 3258,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3295",
+   "source_order": 3259,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3296",
+   "source_order": 3260,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3297",
+   "source_order": 3261,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3298",
+   "source_order": 3262,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3300",
+   "source_order": 3264,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3301",
+   "source_order": 3265,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3302",
+   "source_order": 3266,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3303",
+   "source_order": 3267,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3304",
+   "source_order": 3268,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3305",
+   "source_order": 3269,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3306",
+   "source_order": 3270,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3307",
+   "source_order": 3271,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3308",
+   "source_order": 3272,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3309",
+   "source_order": 3273,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3310",
+   "source_order": 3274,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3311",
+   "source_order": 3275,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3312",
+   "source_order": 3276,
+   "old_parent_source_order": 3240,
+   "new_parent_source_order": 3248,
+   "reason_ur": "صفحات 70-71: یہ سطریں RAGE, fury کی اولاد ہیں (QUIET disposition کی نہیں)"
+  },
+  {
+   "rid": "r3110",
+   "source_order": 3082,
+   "old_parent_source_order": 3081,
+   "new_parent_source_order": 3081.5,
+   "reason_ur": "صفحہ 67: «mispronounces» نئے ربرک words, mispronounces کا بچہ ہے (words, misplacing کا نہیں)"
+  }
+ ],
+ "relabelled": [
+  {
+   "rid": "r3150",
+   "source_order": 3121,
+   "old_source_label": "changeable, variable, etc.",
+   "new_source_label": "MOOD, changeable, variable, etc.",
+   "old_parent_source_order": 3119,
+   "new_parent_source_order": null,
+   "reason_ur": "صفحہ 68 کی سرخی MOOD, changeable, variable, etc. — ماخذ میں الگ جڑی ربرک ہے (MOOD, agreeable کا بچہ نہیں)؛ علاج اسی ربرک کے ہیں"
+  }
+ ]
+}

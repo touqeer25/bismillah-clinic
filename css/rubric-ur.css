@@ -15,5 +15,8 @@
 .rpd-title .rep-xref{color:#7b8b9a;font-size:.8em}
 .rep-diff-t .rep-xref{color:#9aa8b6}
 
+/* 🔑 v163 — کراس ریفرنس کا اردو اشارہ «(دیکھیے: …)» — اردو جملے کے ساتھ، ہلکا اور الگ */
+.rtv-ur .rep-xref-ur,.rep-xref-ur{font-size:.82em;color:#7d94a8;font-weight:400}
+
 /* 🔑 v105 — سیاق کے ساتھ بنا ترجمہ (والد ربرک ملا کر) — ہلکا نیلا نشان */
 .rtv-ur.ctx{border-bottom:1px dotted #bcd9f5}
