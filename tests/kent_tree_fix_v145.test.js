@@ -22,7 +22,7 @@ for(const f of ['rep-chapters.js','rep-tree.js','rep-folders.js']){
 // فکس ڈیٹا
 w.eval(fs.readFileSync(path.join(ROOT,'js/repertory/kent-tree-fix.js'),'utf8'));
 ok(!!w.KENT_TREE_FIX&&!!w.KENT_TREE_FIX.ch,'A1 kent-tree-fix.js لوڈ ہوا');
-ok(w.KENT_TREE_FIX.v==='146','A2 ورژن 146');
+ok(w.KENT_TREE_FIX.v==='147','A2 ورژن 147');
 
 function buildFor(ch){
   w.repCurrentBook='kent'; w.repCurrentChapter=ch;
@@ -50,11 +50,22 @@ ok(anger.node.source_parent_id===null,'B6 ماخذی جڑ کا والد خالی
 ok(w.KENT_TREE_FIX.ch.mind.h.length===0&&w.KENT_TREE_FIX.ch.mind.g.length===0&&w.KENT_TREE_FIX.ch.mind.p.length===0,
   'B7 MIND میں پرانی چھپانے/گروہ/فروغ فہرستیں استعمال نہیں ہوتیں');
 const mindRubricRows=mrows.filter(r=>r.node.hasRubric&&r.node.rid);
-ok(mindRubricRows.length===4356,'B8 تمام 4,356 ماخذی ربرکس درخت میں ہیں');
-ok(mindRubricRows.every((r,i)=>mindData[r.node.rid].source_order===i),'B9 درخت کی ترتیب صفحات 1–95 کے ماخذی تسلسل کے عین مطابق ہے');
+ok(mindRubricRows.length===4358,'B8 تمام 4,358 ماخذی ربرکس درخت میں ہیں (v163: سرخیاں ANXIETY chill during اور MISTAKES words mispronounces شامل)');
+// B9 (v163): عالمی صعود درخت کی نمائشی ترتیب سے (IDEAS فولڈر وغیرہ) مختلف ہو سکتا ہے —
+// اصل اصول: ہر والد کی اولاد کے اندر بھائیوں کی ترتیب ماخذی source_order کے مطابق صعودی ہو
+let sibOk=true, sibBad=0;
+(function checkSiblings(n){
+  let prev=-Infinity;
+  (n.order||[]).forEach(k=>{
+    const c=n.children[k]; if(!c)return;
+    if(c.rid&&typeof c.sourceOrder==='number'){ if(c.sourceOrder<=prev){sibOk=false;sibBad++;} prev=c.sourceOrder; }
+    checkSiblings(c);
+  });
+})(mind);
+ok(sibOk,'B9 ہر والد کی اولاد میں بھائیوں کی ترتیب ماخذی تسلسل پر صعودی ہے'+(sibBad?' — '+sibBad+' جگہ':''));
 const emptyMindIds=Object.keys(mindData).filter(id=>!Object.keys(mindData[id].r||{}).length);
-ok(emptyMindIds.length===220&&emptyMindIds.every(id=>mindRubricRows.some(r=>r.node.rid===id)),
-  'B10 تمام 220 خالی ماخذی ربرکس بھی دکھائے گئے ہیں');
+ok(emptyMindIds.length===222&&emptyMindIds.every(id=>mindRubricRows.some(r=>r.node.rid===id)),
+  'B10 تمام 222 خالی ماخذی ربرکس بھی دکھائے گئے ہیں');
 const frightNight=mindRubricRows.find(r=>r.node.sourceLabel==='night'&&r.labels[0]==='FRIGHTENED easily (See Starting)');
 ok(!!frightNight&&mindData[frightNight.node.rid].source_parent_id==='r2372',
   'B11 صفحہ 49 کا «night» ماخذ کے مطابق «FRIGHTENED easily» کے نیچے ہے');

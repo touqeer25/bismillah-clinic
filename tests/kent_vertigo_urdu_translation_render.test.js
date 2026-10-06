@@ -21,23 +21,25 @@ const source=Object.entries(chapter)
   .map(([id,r])=>({id,r}))
   .sort((a,b)=>a.r.source_order-b.r.source_order);
 
-assert.strictEqual(Object.keys(chapter).length,567,'تمام پرانی مقامی قطاریں محفوظ رہیں');
-assert.strictEqual(source.length,429,'ماخذی قطاروں کی درست تعداد');
+assert.strictEqual(Object.keys(chapter).length,568,'تمام پرانی مقامی قطاریں محفوظ رہیں (568 = 567 + باب کی جڑ)');
+assert.strictEqual(source.length,430,'ماخذی قطاروں کی درست تعداد (429 + باب کی جڑ VERTIGO)');
 assert.strictEqual(Object.keys(chapter).length-source.length,138,'ماخذ سے نہ ملنے والی 138 پرانی قطاریں محفوظ رہیں');
-assert.strictEqual(rows.length,429,'ایپ میں صرف اصل ماخذی درخت کی 429 قطاریں');
-assert.strictEqual(manifest.source_crosswalk.source_rubric_rows,429);
-assert.strictEqual(manifest.source_crosswalk.chapter_heading_rows_excluded,1);
+assert.strictEqual(rows.length,430,'ایپ میں صرف اصل ماخذی درخت کی 430 قطاریں');
+assert.strictEqual(manifest.source_crosswalk.source_rubric_rows,430);
+assert.strictEqual(manifest.source_crosswalk.chapter_heading_rows_excluded,0);
 assert.strictEqual(manifest.source_crosswalk.initial_crosswalk_rows,395);
 assert.strictEqual(manifest.source_crosswalk.unique_exact_remedy_grade_rows,28);
 assert.strictEqual(manifest.source_crosswalk.manually_reviewed_title_context_rows,6);
-assert.strictEqual(manifest.source_crosswalk.new_source_rubrics_added,0);
+assert.strictEqual(manifest.source_crosswalk.new_source_rubrics_added,1);
 assert.strictEqual(manifest.source_crosswalk.existing_local_rows_preserved_outside_source_tree,138);
 assert.deepStrictEqual(manifest.source_crosswalk.source_path_based_depth_correction_orders,[146,270,271,272]);
 assert.strictEqual(translation.meta.root,'چکر — ');
-assert.strictEqual(translation.meta.count,567,'پرانی ترجمہ کلیدیں حذف نہیں ہوئیں');
+assert.strictEqual(translation.meta.count,568,'ترجمہ کلیدیں: 567 پرانی + باب کی جڑ');
 assert.strictEqual(translation.locked.length,0);
-assert.strictEqual(rows[0].full,'MORNING','باب کا عنوان الگ ربرک نہیں گنا گیا');
-assert(!source.some(x=>x.r.source_path==='VERTIGO'));
+assert.strictEqual(rows[0].full,'VERTIGO','باب کی جڑ پہلی قطار ہو (ماخذ صفحہ 96)');
+assert.strictEqual(source[0].id,'m63048','باب کی جڑ کا شناخت');
+assert.strictEqual(Object.keys(source[0].r.r).length,283,'باب کی جڑ کی 283 ادویات (homeoint صفحہ 96)');
+assert.strictEqual(source[0].r.source_page,96,'باب کی جڑ صفحہ 96 سے');
 
 const sourceById=new Map(source.map(x=>[x.id,x.r]));
 const activeKeys=new Set();
@@ -58,7 +60,8 @@ for(let i=0;i<source.length;i++){
   assert(!activeKeys.has(row.key),'ہر فعال قطار کی ترجمہ کلید منفرد ہو');
   activeKeys.add(row.key);
   assert(translation.rubrics[row.key],'ہر فعال ماخذی قطار کا اردو ترجمہ موجود ہو: '+r.source_path);
-  assert(translation.rubrics[row.key].startsWith('چکر — '),'ہر جملہ باب کی جڑ سے شروع ہو');
+  if(i===0){ assert.strictEqual(translation.rubrics[row.key],'چکر','باب کی جڑ کا جملہ خود «چکر» ہو'); }
+  else{ assert(translation.rubrics[row.key].startsWith('چکر — '),'ہر جملہ باب کی جڑ سے شروع ہو'); }
   assert(!/[A-Za-z]{2,}/.test(translation.rubrics[row.key]),'اردو ترجمے میں انگریزی لفظ نہ ہو: '+r.source_path);
   assert(!/[۰-۹٠-٩]/.test(translation.rubrics[row.key]),'اردو ہندسے نہ ہوں: '+r.source_path);
   assert(!translation.rubrics[row.key].endsWith('۔'),'قدر کے آخر میں نقطہ نہ ہو');
@@ -109,12 +112,12 @@ const urJs=fs.readFileSync(path.join(ROOT,'js/18-rubrics-ur.js'),'utf8');
 const sw=fs.readFileSync(path.join(ROOT,'service-worker.js'),'utf8');
 const repertoryJs=fs.readFileSync(path.join(ROOT,'js/repertory/rep-chapters.js'),'utf8');
 const sharedTest=fs.readFileSync(path.join(ROOT,'tests/rubrics_ur_v107.test.js'),'utf8');
-assert(/js\/18-rubrics-ur\.js\?v=157/.test(index),'صفحے میں اردو مواد کا نیا نسخہ');
-assert(/rep-chapters\.js\?v=148/.test(index),'صفحے میں چکر درخت کا نسخہ (v148)');
-assert(/REP_RUBUR_V\s*=\s*'157'/.test(urJs),'اردو مواد کا نسخہ 157');
-assert(/CACHE_NAME='bhc-clinic-v163'/.test(sw),'خدمت کار کا نیا محفوظ نسخہ');
+assert(/js\/18-rubrics-ur\.js\?v=158/.test(index),'صفحے میں اردو مواد کا نیا نسخہ');
+assert(/rep-chapters\.js\?v=149/.test(index),'صفحے میں چکر درخت کا نسخہ (v149)');
+assert(/REP_RUBUR_V\s*=\s*'158'/.test(urJs),'اردو مواد کا نسخہ 158');
+assert(/CACHE_NAME='bhc-clinic-v165'/.test(sw),'خدمت کار کا نیا محفوظ نسخہ');
 assert(/v147: چکر باب/.test(repertoryJs),'چکر درخت کی تبدیلی درج ہو');
-assert(sharedTest.includes("REP_RUBUR_V = '157'")&&sharedTest.includes('bhc-clinic-v163')&&sharedTest.includes('18-rubrics-ur.js?v=157'),'وسیع آزمائش کے نسخہ جاتی نشان تازہ ہوں');
+assert(sharedTest.includes("REP_RUBUR_V = '158'")&&sharedTest.includes('bhc-clinic-v165')&&sharedTest.includes('18-rubrics-ur.js?v=158'),'وسیع آزمائش کے نسخہ جاتی نشان تازہ ہوں');
 assert(/16\\d/.test(sharedTest),'مشترک آزمائش کی محفوظ نسخہ جانچ 16x کو قبول کرے');
 
-console.log('چکر باب کی ماخذی درخت، 429 ترجمہ ربط، دوا، نمونہ جاتی دکھائی، 112 درستیوں، اور نسخہ جاتی آزمائشیں کامیاب');
+console.log('چکر باب کی ماخذی درخت، 430 ترجمہ ربط، دوا، نمونہ جاتی دکھائی، 112 درستیوں، باب کی جڑ کی بحالی، اور نسخہ جاتی آزمائشیں کامیاب');

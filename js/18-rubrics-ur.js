@@ -19,7 +19,7 @@
 var _repRubUr = {};            // book → chapter → { rubrics:{}, locked:{} }
 var _repRubUrLoading = {};     // 'book/chapter' → true جب تک منگوایا جا رہا ہو
 var REP_RUBUR_MODE_KEY = 'bc_ur_mode';          // 'full' | 'delta'
-var REP_RUBUR_V = '157';                                       // 🔑 ur/rubrics/**.json کے ہر بدلاؤ پر بڑھائیں (ساتھ CACHE_NAME بھی) — v157: ذہنی باب ہیرارکی اصلاحات + کراس ریفرنس اردو نمائش
+var REP_RUBUR_V = '158';                                       // 🔑 ur/rubrics/**.json کے ہر بدلاؤ پر بڑھائیں (ساتھ CACHE_NAME بھی) — v157: ذہنی باب ہیرارکی اصلاحات + کراس ریفرنس اردو نمائش
 var REP_RUBUR_SEP_RE = /^(\s*[—–-]\s*|\s*،\s*|\s*,\s*|\s+)/;   // والد کے بعد جوڑنے والا نشان
 
 // ---------- کلید: پورا راستہ → معیاری صورت ----------

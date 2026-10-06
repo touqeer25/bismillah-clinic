@@ -1,0 +1,15 @@
+{
+ "meta": {
+  "schema": "kent-vertigo-xref-targets-ur-v1",
+  "note": "کینٹ چکر باب کی کراس ریفرنس اہداف کے اردو نام — (See …) کی اردو نمائش کے لیے (mind_xref_ur.json کی طرز پر)",
+  "updated": "2026-10-07",
+  "source": "homeoint.org/books/kentrep/kentvert.htm — چکر باب کے تمام (See …) اہداف (5)"
+ },
+ "targets": {
+  "Closing Eyes": "آنکھیں بند کرنا",
+  "Floating": "جیسے ہوا میں تیر رہا ہو",
+  "Lying": "لیٹنے پر",
+  "Stupefaction under Mind": "بے سدھی (ذہنی باب میں)",
+  "Walking": "چلتے ہوئے"
+ }
+}

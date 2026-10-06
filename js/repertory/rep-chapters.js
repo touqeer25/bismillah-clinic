@@ -430,7 +430,7 @@ function _repHasKentVertigoSourceData(data){
 }
 function _repBuildKentVertigoSourceTree(data){
     var entries=_repKentVertigoSourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
-    if(entries.length!==429) throw new Error('Expected 429 Kent Vertigo source rows; found '+entries.length);
+    if(entries.length!==430) throw new Error('Expected 430 Kent Vertigo source rows (chapter root VERTIGO included); found '+entries.length);
     entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
     var byRid=Object.create(null);
     entries.forEach(function(e,index){
