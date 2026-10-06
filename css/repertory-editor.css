@@ -109,5 +109,28 @@
 .rpd-title[data-rpe-size="small"],.rep-search-rubric-title[data-rpe-size="small"],.rep-search-list-title[data-rpe-size="small"]{font-size:11px}
 .rpd-title[data-rpe-size="large"],.rep-search-rubric-title[data-rpe-size="large"],.rep-search-list-title[data-rpe-size="large"]{font-size:16px}
 
-@media(max-width:1150px){.rpe-workspace{grid-template-columns:minmax(210px,260px) minmax(320px,1fr)}.rpe-translation-panel{grid-column:1/-1}.rpe-translation-body{display:grid;grid-template-columns:1fr 1fr;gap:8px}.rpe-translation-body>label{grid-column:1/-1}.rpe-translation-body textarea{min-height:120px}}
-@media(max-width:760px){.rpe-file-grid{grid-template-columns:1fr}.rpe-workspace{grid-template-columns:1fr}.rpe-translation-panel{grid-column:auto}.rpe-translation-body{display:block}.rpe-toolbar,.rpe-savebar{align-items:stretch;flex-direction:column}.rpe-toolbar-actions{justify-content:flex-start}.rpe-save-actions{display:grid;grid-template-columns:1fr 1fr}.rpe-file-card{align-items:flex-start;flex-direction:column}.rpe-file-card>.btn{width:100%;justify-content:center}.rpe-raw-grid{grid-template-columns:1fr}.rpe-card-title{align-items:flex-start}.rpe-file-info code{max-width:65vw}}
+.rpe-summary-grid{display:grid;grid-template-columns:minmax(220px,270px) minmax(330px,1fr) minmax(260px,330px);gap:10px;align-items:start;margin:8px 0 10px}
+.rpe-summary-grid>.rpe-counts{margin:0;align-content:flex-start;padding-top:3px}
+.rpe-command-toolbar{grid-column:2;min-width:0;display:flex;flex-direction:column;gap:5px;padding:7px;border:1px solid #c7d8e2;border-radius:9px;background:#f9fcfe}
+.rpe-command-title{font-size:10px;color:#245b76}
+.rpe-command-row{display:flex;align-items:center;gap:5px;flex-wrap:wrap;min-width:0}
+.rpe-command-toolbar .rpe-toolbar-actions{justify-content:flex-start;padding:0;gap:4px}
+.rpe-command-toolbar .rpe-tree-actions{display:flex;grid-template-columns:none;gap:4px;padding:0;border:0;flex:0 0 auto}
+.rpe-command-toolbar .rpe-tree-actions [data-rpe-action="merge"]{grid-column:auto}
+.rpe-command-toolbar .rpe-control-block{display:flex;align-items:center;gap:7px;margin:0;padding:5px 7px;flex:0 1 auto}
+.rpe-command-toolbar .rpe-control-block>strong{margin:0;white-space:nowrap}
+.rpe-command-toolbar .rpe-style-row{display:flex;gap:6px}
+.rpe-command-toolbar .rpe-style-row label{gap:4px}
+.rpe-command-toolbar .rpe-field{display:flex;align-items:center;gap:6px;margin:0;flex:1 1 250px;min-width:180px}
+.rpe-command-toolbar .rpe-field>label{margin:0;white-space:nowrap}
+.rpe-command-toolbar .rpe-field select,.rpe-command-toolbar .rpe-field input{flex:1;min-width:90px}
+.rpe-command-toolbar .rpe-path-field{flex:1 1 100%;min-width:220px}
+.rpe-command-toolbar .rpe-path-field .rpe-help{margin:0;flex:1 1 100%}
+.rpe-command-toolbar .rpe-parent-field{flex:1 1 100%;flex-wrap:wrap}
+.rpe-command-toolbar .rpe-parent-field>label{flex:0 0 100%}
+.rpe-parent-actions{display:flex;gap:4px;flex-wrap:wrap}
+.rpe-command-toolbar .rpe-order-buttons{align-items:center}
+.rpe-command-toolbar .rpe-remedy-add{margin:0;flex:1 1 270px}
+.rpe-command-toolbar .rpe-fullpath{width:100%;min-width:180px;height:31px;padding:6px 8px;border:1px solid #cbd9e0;border-radius:7px;background:#fff;text-align:left;direction:ltr;font:11px Arial,Tahoma,sans-serif}
+@media(max-width:1150px){.rpe-summary-grid{grid-template-columns:minmax(210px,260px) minmax(320px,1fr)}.rpe-summary-spacer{display:none}.rpe-command-toolbar{grid-column:2}.rpe-workspace{grid-template-columns:minmax(210px,260px) minmax(320px,1fr)}.rpe-translation-panel{grid-column:1/-1}.rpe-translation-body{display:grid;grid-template-columns:1fr 1fr;gap:8px}.rpe-translation-body>label{grid-column:1/-1}.rpe-translation-body textarea{min-height:120px}}
+@media(max-width:760px){.rpe-summary-grid{grid-template-columns:1fr}.rpe-command-toolbar{grid-column:1}.rpe-summary-spacer{display:none}.rpe-file-grid{grid-template-columns:1fr}.rpe-workspace{grid-template-columns:1fr}.rpe-translation-panel{grid-column:auto}.rpe-translation-body{display:block}.rpe-toolbar,.rpe-savebar{align-items:stretch;flex-direction:column}.rpe-toolbar-actions{justify-content:flex-start}.rpe-command-toolbar .rpe-field{flex-basis:100%}.rpe-save-actions{display:grid;grid-template-columns:1fr 1fr}.rpe-file-card{align-items:flex-start;flex-direction:column}.rpe-file-card>.btn{width:100%;justify-content:center}.rpe-raw-grid{grid-template-columns:1fr}.rpe-card-title{align-items:flex-start}.rpe-file-info code{max-width:65vw}}

@@ -104,13 +104,18 @@ function repTreeRemsHtml(rems){
     return shown?h+'</span>':'';
 }
 function repTreeVisibleLabel(r){
-    // 🔑 v163 (صارف): کراس ریفرنس بحال — ذہنی باب کی جڑ سطح سمیت ہر سطح پر (See …) دکھے گا
-    return String(r&&r.label||'');
+    var label=String(r&&r.label||'');
+    if(repCurrentBook==='kent'&&repCurrentChapter==='mind'&&r&&r.labels&&r.labels.length===1){
+        label=label.replace(/\s*\(\s*see\b[^)]*\)/ig,'').replace(/\s+,/g,',').trim();
+    }
+    return label;
 }
 function repTreeRowHtml(r){
     var c=r.node, rems=Object.keys(c.remedies||{}).length, rid=c.hasRubric&&c.rid?String(c.rid):'';
     var open=r.kids&&(repFolderFilter||!repTreeCollapsed[r.full]);
-    return '<div class="rtv-row'+(r.depth===0?' top':'')+'" style="--d:'+r.depth+';padding-left:'+(6+r.depth*18)+'px" data-full="'+_repAttr(r.full)+'" data-labels="'+_repAttr(JSON.stringify(r.labels))+'" data-rems="'+rems+'" data-kids="'+(r.kids?1:0)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+'>'
+    var ds=(c.display&&typeof c.display==='object')?c.display:{};
+    var wt=(ds.weight==='bold'||ds.weight==='normal')?ds.weight:'', sz=(ds.size==='small'||ds.size==='large')?ds.size:'';
+    return '<div class="rtv-row'+(r.depth===0?' top':'')+'" style="--d:'+r.depth+';padding-left:'+(6+r.depth*18)+'px" data-rpe-weight="'+wt+'" data-rpe-size="'+sz+'" data-full="'+_repAttr(r.full)+'" data-labels="'+_repAttr(JSON.stringify(r.labels))+'" data-rems="'+rems+'" data-kids="'+(r.kids?1:0)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+'>'
         +'<span class="rtv-tg">'+(r.kids?(open?'▾':'▸'):'·')+'</span>'
         +repTreeLevelIcon(r.depth,r.kids)
         +repCmpChkHtml(repCurrentBook,repCurrentChapter,rid,r.full,rems,'row')

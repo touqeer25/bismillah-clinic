@@ -14,9 +14,24 @@ function objectFieldFrom(record, choices){
 }
 function repKeyFallback(full){
     var s=String(full||'').replace(/ \[\d+\]$/,'');
-    s=s.replace(/\s*\(\s*see\b[^)]*\)/ig,'');
-    s=s.replace(/\s+,/g,',').replace(/,\s*,/g,',').replace(/,\s*$/,'').replace(/^\s*,/,'');
-    return s.replace(/\s+/g,' ').replace(/,(\S)/g,', $1').trim().toLowerCase();
+    s=pathWithoutReferences(s);
+    return s.replace(/,(\S)/g,', $1').trim().toLowerCase();
+}
+function pathWithoutReferences(value){
+    return String(value==null?'':value)
+        .replace(/\s*\(\s*(?:see\b|compare\b|cmp\.?(?=\s|[,;:]|$)|comp\.?(?=\s|[,;:]|$)|cf\.?(?=\s|[,;:]|$))[^)]*\)/ig,'')
+        .replace(/\s+,/g,',').replace(/,\s*,/g,',').replace(/,\s*$/,'').replace(/^\s*,/,'')
+        .replace(/\s+/g,' ').trim();
+}
+function splitFullPath(fullPath,parentPath,preferredSeparator){
+    var full=pathWithoutReferences(fullPath),parent=pathWithoutReferences(parentPath);
+    if(!parent)return {label:full,separator:preferredSeparator||', '};
+    var separators=[', ',' - ',' > ','/'];
+    for(var i=0;i<separators.length;i++){
+        var sep=separators[i];
+        if(full.indexOf(parent+sep)===0)return {label:full.slice(parent.length+sep.length).trim(),separator:sep};
+    }
+    return null;
 }
 function makeKey(full, keyFn){ return (keyFn||repKeyFallback)(full); }
 function prefixSeparator(child,parent){
@@ -37,19 +52,21 @@ function inferParentByPath(entries, byId){
             if(entry.parentId && !byId[entry.parentId]) entry.parentInvalid=true;
             return;
         }
-        var best=null;
+        var best=null,entryPath=entry.structuralPath||pathWithoutReferences(entry.originalPath);
         all.forEach(function(candidate){
-            if(candidate.id===entry.id || !candidate.originalPath || !entry.originalPath) return;
-            if(candidate.originalPath.length>=entry.originalPath.length) return;
-            var rest=entry.originalPath.slice(candidate.originalPath.length);
-            if(entry.originalPath.indexOf(candidate.originalPath)!==0) return;
+            var candidatePath=candidate.structuralPath||pathWithoutReferences(candidate.originalPath);
+            if(candidate.id===entry.id || !candidatePath || !entryPath) return;
+            if(candidatePath.length>=entryPath.length) return;
+            var rest=entryPath.slice(candidatePath.length);
+            if(entryPath.indexOf(candidatePath)!==0) return;
             if(!(rest.indexOf(', ')===0||rest.indexOf(' - ')===0||rest.indexOf(' > ')===0||rest.indexOf('/')===0)) return;
-            if(!best || candidate.originalPath.length>best.originalPath.length) best=candidate;
+            if(!best || candidatePath.length>(best.structuralPath||pathWithoutReferences(best.originalPath)).length) best=candidate;
         });
         entry.parentId=best?best.id:null;
         if(best){
-            entry.separator=prefixSeparator(entry.originalPath,best.originalPath);
-            var suffix=entry.originalPath.slice(best.originalPath.length+entry.separator.length);
+            var bestPath=best.structuralPath||pathWithoutReferences(best.originalPath);
+            entry.separator=prefixSeparator(entryPath,bestPath);
+            var suffix=entryPath.slice(bestPath.length+entry.separator.length);
             if(!entry.label)entry.label=suffix;
         }
     });
@@ -62,7 +79,7 @@ function analyzeChapter(doc, keyFn){
         if(!isObject(rec)) return;
         var titleField=fieldFrom(rec,['t','path','de_path','full_path']);
         if(!titleField) return;
-        entries.push({id:String(id),index:index,record:rec,titleField:titleField,originalPath:String(rec[titleField]||''),label:'',parentId:null,separator:', ',order:index});
+        entries.push({id:String(id),index:index,record:rec,titleField:titleField,originalPath:String(rec[titleField]||''),structuralPath:pathWithoutReferences(rec[titleField]||''),label:'',parentId:null,separator:', ',order:index});
     });
     if(!entries.length) return {kind:'raw',doc:doc,ids:[],nodes:[],fields:{},errors:['اس فائل میں پہچانی ہوئی ربرک ساخت نہیں؛ خام متن کی تدوین دستیاب ہے']};
 
@@ -81,22 +98,22 @@ function analyzeChapter(doc, keyFn){
         byId[e.id]=e;
         e.parentField=parentField;e.labelField=labelField;e.orderField=orderField;
         e.remediesField=objectFieldFrom(e.record,['r','remedies','medicines','grades'])||remediesField;
-        if(labelField && typeof e.record[labelField]==='string')e.label=String(e.record[labelField]);
+        if(labelField && typeof e.record[labelField]==='string')e.label=pathWithoutReferences(e.record[labelField]);
         if(orderField && typeof e.record[orderField]==='number')e.order=Number(e.record[orderField]);
     });
     inferParentByPath(entries,byId);
     entries.forEach(function(e){
         if(!e.label){
             var p=e.parentId&&byId[e.parentId];
-            if(p && e.originalPath.indexOf(p.originalPath)===0){
-                e.separator=prefixSeparator(e.originalPath,p.originalPath);
-                e.label=e.originalPath.slice(p.originalPath.length+e.separator.length);
-            } else e.label=e.originalPath;
+            if(p && e.structuralPath.indexOf(p.structuralPath)===0){
+                e.separator=prefixSeparator(e.structuralPath,p.structuralPath);
+                e.label=e.structuralPath.slice(p.structuralPath.length+e.separator.length);
+            } else e.label=e.structuralPath;
         }
-        if(!e.label)e.label=e.originalPath;
+        if(!e.label)e.label=e.structuralPath||pathWithoutReferences(e.originalPath);
         if(!e.parentId)e.parentId=null;
-        if(e.parentId&&byId[e.parentId]&&e.separator===', ')e.separator=prefixSeparator(e.originalPath,byId[e.parentId].originalPath);
-        e.fullPath=e.originalPath||e.label;
+        if(e.parentId&&byId[e.parentId]&&e.separator===', ')e.separator=prefixSeparator(e.structuralPath,byId[e.parentId].structuralPath);
+        e.fullPath=pathWithoutReferences(e.originalPath||e.label);
         e.record=e.record;
         e.remediesField=objectFieldFrom(e.record,['r','remedies','medicines','grades'])||remediesField;
         e.display=isObject(e.record.display)?e.record.display:{};
@@ -119,12 +136,13 @@ function refreshPaths(model, doc){
         if(parent){
             var parentPath=visit(String(parent.id));
             var sep=node.separator||', ';
-            full=parentPath+sep+String(node.label||'');
-        } else full=String(node.label||'');
-        node.fullPath=full;
+            full=parentPath+sep+pathWithoutReferences(node.label||'');
+        } else full=pathWithoutReferences(node.label||'');
+        node.label=pathWithoutReferences(node.label||'');
+        node.fullPath=pathWithoutReferences(full);
         node.key=repKeyFallback(full);
         if(node.titleField)node.record[node.titleField]=full;
-        if(model.fields.label && node.record[model.fields.label]!==undefined)node.record[model.fields.label]=String(node.label||'');
+        if(model.fields.label && node.record[model.fields.label]!==undefined && pathWithoutReferences(node.record[model.fields.label])!==String(node.label||''))node.record[model.fields.label]=String(node.label||'');
         if(node.parentField)node.record[node.parentField]=node.parentId==null?null:String(node.parentId);
         done[id]=1;visiting[id]=0;
         return full;
@@ -144,6 +162,11 @@ function descendants(model,id){
     var out=[],changed=true,seen=Object.create(null);seen[String(id)]=1;
     while(changed){changed=false;model.nodes.forEach(function(n){if(n.parentId!=null&&seen[String(n.parentId)]&&!seen[String(n.id)]){seen[String(n.id)]=1;out.push(String(n.id));changed=true;}});}
     return out;
+}
+function canSetParent(model,id,parentId){
+    if(parentId===null||parentId===''||parentId===undefined)return true;
+    var candidate=String(parentId),nodeId=String(id);
+    return !!(model&&model.kind==='record-map'&&model.byId[candidate]&&candidate!==nodeId&&descendants(model,nodeId).indexOf(candidate)===-1);
 }
 function validateModel(model,keyFn){
     var errors=[],warnings=[];
@@ -168,7 +191,7 @@ function validateModel(model,keyFn){
     Object.keys(keyIds).forEach(function(k){if(keyIds[k].length>1)warnings.push('ترجمے کی کلید دہرائی گئی: '+k+' ('+keyIds[k].length+')');});
     return {errors:errors,warnings:warnings,keys:keyIds};
 }
-var core={clone:clone,keyFallback:repKeyFallback,keyFor:makeKey,analyzeChapter:analyzeChapter,analyzeTranslation:analyzeTranslation,refreshPaths:refreshPaths,descendants:descendants,validateModel:validateModel};
+var core={clone:clone,keyFallback:repKeyFallback,pathWithoutReferences:pathWithoutReferences,splitFullPath:splitFullPath,keyFor:makeKey,analyzeChapter:analyzeChapter,analyzeTranslation:analyzeTranslation,refreshPaths:refreshPaths,descendants:descendants,canSetParent:canSetParent,validateModel:validateModel};
 root.RepEditorCore=core;
 if(typeof module!=='undefined'&&module.exports)module.exports=core;
 if(!root.document)return;
@@ -176,7 +199,27 @@ if(!root.document)return;
 var doc=root.document;
 var rootEl=doc.getElementById('repEditorRoot');
 if(!rootEl)return;
-var state={chapter:null,translation:null,selectedId:null,selectedIds:[],search:'',expanded:Object.create(null),undo:[],redo:[],associatedKeys:Object.create(null),mappingDecisions:Object.create(null),showOrphans:false,activeTab:'rubric',translationInputSnapshot:false};
+function moveControlToToolbar(selector,rowId){
+    var control=rootEl.querySelector(selector),row=doc.getElementById(rowId);
+    if(control&&row)row.appendChild(control);
+}
+function mountToolbarControls(){
+    moveControlToToolbar('.rpe-toolbar-actions','rpeToolActions');
+    moveControlToToolbar('.rpe-tree-actions','rpeToolActions');
+    moveControlToToolbar('[data-rpe-action="add-root"]','rpeToolActions');
+    moveControlToToolbar('.rpe-path-field','rpeToolPath');
+    moveControlToToolbar('.rpe-parent-field','rpeToolHierarchy');
+    var caseButton=rootEl.querySelector('[data-rpe-case]');
+    var styleSelect=rootEl.querySelector('#rpeWeight');
+    if(caseButton&&caseButton.closest('.rpe-control-block'))doc.getElementById('rpeToolStyle').appendChild(caseButton.closest('.rpe-control-block'));
+    if(styleSelect&&styleSelect.closest('.rpe-control-block'))doc.getElementById('rpeToolStyle').appendChild(styleSelect.closest('.rpe-control-block'));
+    var order=doc.getElementById('rpeOrder'),orderButtons=rootEl.querySelector('.rpe-order-buttons'),remedyAdd=rootEl.querySelector('.rpe-remedy-add');
+    if(order&&order.closest('.rpe-field'))doc.getElementById('rpeToolOrderMedicine').appendChild(order.closest('.rpe-field'));
+    if(orderButtons)doc.getElementById('rpeToolOrderMedicine').appendChild(orderButtons);
+    if(remedyAdd)doc.getElementById('rpeToolOrderMedicine').appendChild(remedyAdd);
+}
+mountToolbarControls();
+var state={chapter:null,translation:null,selectedId:null,selectedIds:[],search:'',expanded:Object.create(null),undo:[],redo:[],associatedKeys:Object.create(null),mappingDecisions:Object.create(null),showOrphans:false,activeTab:'rubric',translationInputSnapshot:false,pendingParentNodeId:null,pendingParentId:null};
 var text={
     openChapter:{ur:'باب کی فائل کھولیں',en:'Open chapter file',roman:'Bab ki file kholen'},
     openTranslation:{ur:'اردو ترجمے کی فائل کھولیں',en:'Open Urdu translation file',roman:'Urdu tarjume ki file kholen'},
@@ -194,6 +237,8 @@ var text={
     locked:{ur:'یہ ترجمہ قفل شدہ ہے؛ متن نہیں بدلے گا',en:'This translation is locked and cannot be edited',roman:'Yeh tarjuma lock hai; matn nahi badlega'},
     noSelection:{ur:'پہلے درخت سے ربرک منتخب کریں',en:'Select a rubric from the tree first',roman:'Pehle darakht se rubric muntakhib karein'},
     titleRequired:{ur:'ربرک کا عنوان خالی نہیں ہو سکتا',en:'Rubric title cannot be empty',roman:'Rubric ka unwan khali nahi ho sakta'},
+    pathMismatch:{ur:'مکمل راستہ منتخب والد کے راستے سے شروع ہونا چاہیے؛ راستہ درست کریں یا والد منتخب کریں',en:'The full path must begin with the selected parent path; edit the path or choose another parent',roman:'Mukammal rasta muntakhib walid ke rastay se shuru ho; rasta durust karein ya doosra walid chunein'},
+    invalidParent:{ur:'یہ والد دستیاب نہیں یا اس سے چکر بن سکتا ہے',en:'That parent is unavailable or would create a cycle',roman:'Yeh walid dastiyab nahi ya is se chakkar ban sakta hai'},
     noTranslation:{ur:'اردو ترجمے کی فائل ابھی نہیں کھلی',en:'The Urdu translation file is not open',roman:'Urdu tarjume ki file abhi nahi khuli'},
     rawApplied:{ur:'خام متن جانچ کر لاگو کیا گیا',en:'Raw text validated and applied',roman:'Khaam matn jaanch kar laagu kiya gaya'},
     rawInvalid:{ur:'متن درست JSON نہیں؛ مسودہ نہیں بدلا',en:'The text is not valid JSON; the draft was not changed',roman:'Matn durust JSON nahi; musawadda nahi badla'},
@@ -346,8 +391,16 @@ function markDirty(){
     renderStatus();updateButtons();
 }
 function updateButtons(){
-    var hasCh=!!state.chapter,hasUr=!!state.translation,hasNode=!!findNode(state.selectedId),structured=hasCh&&state.chapter.model.kind==='record-map';
+    var hasCh=!!state.chapter,hasUr=!!state.translation,selectedNode=findNode(state.selectedId),hasNode=!!selectedNode,structured=hasCh&&state.chapter.model.kind==='record-map';
     function disabled(id,val){var e=doc.getElementById(id);if(e)e.disabled=!!val;}
+    disabled('rpeFullPath',!(structured&&hasNode));
+    disabled('rpeParent',!(structured&&hasNode));
+    var pendingParent=state.pendingParentNodeId===String(state.selectedId)?state.pendingParentId:(selectedNode?selectedNode.parentId:null);
+    var pendingId=pendingParent==null||pendingParent===''?null:String(pendingParent);
+    var currentParent=selectedNode&&selectedNode.parentId!=null?String(selectedNode.parentId):null;
+    var pendingIsValid=core.canSetParent(state.chapter&&state.chapter.model,state.selectedId,pendingId);
+    disabled('rpeMoveParent',!(structured&&hasNode&&selectedNode.parentId!=null&&!!findNode(selectedNode.parentId)));
+    disabled('rpeMoveUnder',!(structured&&hasNode&&pendingIsValid&&pendingId!==currentParent));
     disabled('rpeUndo',!state.undo.length);disabled('rpeRedo',!state.redo.length);
     ['rpeSaveChapter'].forEach(function(id){disabled(id,!hasCh);});
     disabled('rpeSaveTranslation',!hasUr);disabled('rpeSaveBoth',!(hasCh&&hasUr));
@@ -408,8 +461,7 @@ function renderParentOptions(node){
     var select=doc.getElementById('rpeParent');if(!select)return;
     var options=['<option value="">'+esc(say('جڑ','Root','Jar'))+'</option>'];
     if(!state.chapter||state.chapter.model.kind!=='record-map'){select.innerHTML=options.join('');return;}
-    var blocked=Object.create(null);blocked[String(node.id)]=1;core.descendants(state.chapter.model,node.id).forEach(function(id){blocked[id]=1;});
-    orderedNodeIds(state.chapter.model).forEach(function(id){var n=findNode(id);if(!n||blocked[id])return;var label=(n.fullPath||n.label);options.push('<option value="'+esc(id)+'">'+esc(label)+'</option>');});
+    orderedNodeIds(state.chapter.model).forEach(function(id){var n=findNode(id);if(!n||!core.canSetParent(state.chapter.model,node.id,id))return;var label=(n.fullPath||n.label);options.push('<option value="'+esc(id)+'">'+esc(label)+'</option>');});
     select.innerHTML=options.join('');select.value=node.parentId==null?'':String(node.parentId);
 }
 function renderRemedies(node){
@@ -428,8 +480,8 @@ function renderSelected(){
     var structured=!!(state.chapter&&state.chapter.model.kind==='record-map');
     if(idEl)idEl.textContent=node?String(node.id):'—';
     if(label){label.disabled=!node||!structured;label.value=node?String(node.label||''):'';}
-    if(full)full.textContent=node?String(node.fullPath||''):'—';
-    if(parent){parent.disabled=!node||!structured;renderParentOptions(node||{id:'',parentId:null});}
+    if(full){full.disabled=!node||!structured;full.value=node?String(node.fullPath||''):'';}
+    if(parent){parent.disabled=!node||!structured;renderParentOptions(node||{id:'',parentId:null});if(node){parent.value=node.parentId==null?'':String(node.parentId);state.pendingParentNodeId=String(node.id);state.pendingParentId=node.parentId==null?null:String(node.parentId);}else{state.pendingParentNodeId=null;state.pendingParentId=null;}}
     var display=node&&isObject(node.record.display)?node.record.display:{};
     if(weight){weight.disabled=!node||!structured;weight.value=(display.weight==='bold'||display.weight==='normal')?display.weight:(node&&node.parentId==null?'bold':'normal');}
     if(size){size.disabled=!node||!structured;size.value=['small','large'].indexOf(display.size)!==-1?display.size:'normal';}
@@ -532,15 +584,63 @@ function changeNodeLabel(id,newLabel){
         normalizeOrder(state.chapter);
     });
 }
-function changeParent(id,parentId){
+function changeFullPath(id,rawPath){
     var node=findNode(id);if(!node)return;
-    parentId=parentId?String(parentId):null;
-    if(parentId===String(node.parentId||''))return;
-    if(parentId && (parentId===String(id)||core.descendants(state.chapter.model,id).indexOf(parentId)!==-1)){notify(say('اپنی اولاد کو والد نہیں بنایا جا سکتا','A rubric cannot be its own descendant parent','Apni aulaad ko walid nahi bana sakte'));renderSelected();return;}
+    var full=core.pathWithoutReferences(rawPath);
+    if(!full){notify(L('titleRequired'));renderSelected();return;}
+    var parent=node.parentId==null?null:findNode(node.parentId);
+    if(node.parentId!=null&&!parent){notify(L('invalidParent'));renderSelected();return;}
+    var parts=core.splitFullPath(full,parent?parent.fullPath:'',node.separator||', ');
+    if(!parts){notify(L('pathMismatch'));renderSelected();return;}
+    var label=core.pathWithoutReferences(parts.label);
+    if(!label){notify(L('titleRequired'));renderSelected();return;}
+    if(label===String(node.label||'')&&parts.separator===(node.separator||', ')&&full===String(node.fullPath||''))return;
+    commit(function(){
+        node=findNode(id);node.label=label;node.separator=parts.separator||node.separator||', ';
+        if(node.labelField)node.record[node.labelField]=label;
+        updateRecordPath(state.chapter);normalizeOrder(state.chapter);
+    });
+}
+function changeParent(id,parentId){
+    var node=findNode(id);if(!node)return false;
+    parentId=parentId===null||parentId===''||parentId===undefined?null:String(parentId);
+    var oldParent=node.parentId==null?null:String(node.parentId);
+    if(parentId===oldParent)return false;
+    if(parentId&&!core.canSetParent(state.chapter.model,id,parentId)){
+        notify(findNode(parentId)?say('اپنی اولاد کو والد نہیں بنایا جا سکتا','A rubric cannot be its own descendant parent','Apni aulaad ko walid nahi bana sakte'):L('invalidParent'));
+        renderSelected();return false;
+    }
     commit(function(){
         node=findNode(id);node.parentId=parentId;node.parentInvalid=false;
         if(node.parentField)node.record[node.parentField]=parentId;
         node.separator=node.separator||', ';
+        updateRecordPath(state.chapter);normalizeOrder(state.chapter);
+    });
+    return true;
+}
+function applySelectedParent(){
+    var node=findNode(state.selectedId);if(!node){notify(L('noSelection'));return;}
+    var target=state.pendingParentNodeId===String(node.id)?state.pendingParentId:node.parentId;
+    changeParent(String(node.id),target);
+}
+function moveOneParentUp(id){
+    var node=findNode(id);if(!node){notify(L('noSelection'));return;}
+    if(node.parentId==null)return;
+    var oldParent=findNode(node.parentId);if(!oldParent){notify(L('invalidParent'));return;}
+    var grandParentId=oldParent.parentId==null?null:String(oldParent.parentId);
+    if(grandParentId&&!findNode(grandParentId)){notify(L('invalidParent'));return;}
+    if(grandParentId&&(grandParentId===String(id)||core.descendants(state.chapter.model,id).indexOf(grandParentId)!==-1)){
+        notify(L('invalidParent'));return;
+    }
+    var siblings=childrenOf(grandParentId).filter(function(item){return String(item.id)!==String(id);});
+    var parentIndex=siblings.findIndex(function(item){return String(item.id)===String(oldParent.id);});
+    siblings.splice(parentIndex<0?siblings.length:parentIndex+1,0,node);
+    commit(function(){
+        node=findNode(id);oldParent=findNode(oldParent.id);
+        node.parentId=grandParentId;node.parentInvalid=false;
+        if(node.parentField)node.record[node.parentField]=grandParentId;
+        node.separator=oldParent.separator||', ';
+        setSiblingOrder(grandParentId,siblings);
         updateRecordPath(state.chapter);normalizeOrder(state.chapter);
     });
 }
@@ -849,6 +949,8 @@ function onClick(event){
         case 'apply-translation-raw':applyRaw('translation');break;
         case 'clear-search':clearSearch();break;
         case 'add-root':addRoot();break;
+        case 'move-parent':if(state.selectedId)moveOneParentUp(String(state.selectedId));break;
+        case 'move-under-parent':applySelectedParent();break;
         case 'add-child':addChild();break;
         case 'add-sibling':addSibling();break;
         case 'split':splitNode();break;
@@ -867,7 +969,8 @@ function onClick(event){
 function onChange(event){
     var target=event.target;
     if(target.id==='rpeLabel'){if(state.selectedId)changeNodeLabel(String(state.selectedId),target.value);return;}
-    if(target.id==='rpeParent'){if(state.selectedId)changeParent(String(state.selectedId),target.value);return;}
+    if(target.id==='rpeFullPath'){if(state.selectedId)changeFullPath(String(state.selectedId),target.value);return;}
+    if(target.id==='rpeParent'){state.pendingParentNodeId=state.selectedId==null?null:String(state.selectedId);state.pendingParentId=target.value===''?null:String(target.value);updateButtons();return;}
     if(target.id==='rpeWeight'){if(state.selectedId)setDisplay(String(state.selectedId),'weight',target.value);return;}
     if(target.id==='rpeSize'){if(state.selectedId)setDisplay(String(state.selectedId),'size',target.value);return;}
     if(target.id==='rpeOrder'){if(state.selectedId)setPosition(String(state.selectedId),target.value);return;}
