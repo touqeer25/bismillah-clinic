@@ -1,6 +1,10 @@
 // Smoke test: load the real index.html with ALL scripts in jsdom and make sure nothing throws at load time,
 // the repertory page initialises, and the new modules are wired. Run: node tests/app_smoke.jsdom.test.js
 const fs=require('fs'),path=require('path');const {JSDOM,VirtualConsole}=require(process.env.JSDOM_PATH||'/tmp/jsd/node_modules/jsdom');
+// ماحولیاتی شور (v168): نیٹ بلاک شدہ ماحول میں بیرونی وسائل (CDN) کے hang پر undici «socket idle timeout»
+// نُڈ کو Unhandled 'error' event سے کریش کر دیتا ہے — اصل assertions اِس سے آزاد ہیں، اس لیے صرف یہی معروف
+// شور نگل لیا جاتا ہے؛ باقی ہر غیر متوقع خرابی جیسی تھی ویسیی پھینکی جائے گی۔
+process.on('uncaughtException',e=>{ if(e&&(e.code==='UND_ERR_INFO'||/socket idle timeout/i.test(String(e&&e.message||e)))){ console.log('WARN: ماحولیاتی نیٹ ورک شور نظرانداز ('+(e.code||e.message)+') — assertions متاثر نہیں'); return; } throw e; });
 const ROOT=path.resolve(__dirname,'..');
 const errors=[]; const vc=new VirtualConsole(); vc.on('jsdomError',e=>{ const st=(e&&e.detail&&e.detail.stack)||(e&&e.stack)||''; if(/https?:\/\/(cdn\.|.*heapanalytics|.*cloudflare|.*jsdelivr)/i.test(st)) return; errors.push(String(e&&e.message||e)+' '+st.split('\n').slice(1,9).join(' ')); }); vc.on('error',(...a)=>errors.push(a.join(' ')));
 let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};const sleep=ms=>new Promise(r=>setTimeout(r,ms));

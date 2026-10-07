@@ -95,10 +95,10 @@ const urJs=fs.readFileSync(path.join(ROOT,'js/18-rubrics-ur.js'),'utf8');
 const sw=fs.readFileSync(path.join(ROOT,'service-worker.js'),'utf8');
 const sharedTest=fs.readFileSync(path.join(ROOT,'tests/rubrics_ur_v107.test.js'),'utf8');
 assert(/kent-tree-fix\.js\?v=147/.test(index));
-assert(/rep-chapters\.js\?v=151/.test(index));
-assert(/18-rubrics-ur\.js\?v=159/.test(index));
-assert(/REP_RUBUR_V\s*=\s*'159'/.test(urJs));
-assert(/CACHE_NAME='bhc-clinic-v167'/.test(sw));
-assert(sharedTest.includes("REP_RUBUR_V = '159'")&&sharedTest.includes('bhc-clinic-v167'));
+assert(/rep-chapters\.js\?v=152/.test(index));
+assert(/18-rubrics-ur\.js\?v=160/.test(index));
+assert(/REP_RUBUR_V\s*=\s*'160'/.test(urJs));
+assert(/CACHE_NAME='bhc-clinic-v168'/.test(sw));
+assert(sharedTest.includes("REP_RUBUR_V = '160'")&&sharedTest.includes('bhc-clinic-v168'));
 
 console.log('ذہنی باب کی کمیِ خیالات والی الگ شاخ، 3 اردو عبارتیں، دوائیں، والدین، تلاش اور نسخہ کامیاب');

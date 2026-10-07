@@ -1,0 +1,1695 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,235,0,EYE,0
+r0,235,0,AGGLUTINATED,65
+r1,235,1,"AGGLUTINATED, morning",76
+r2,235,1,"AGGLUTINATED, evening",2
+r3,235,1,"AGGLUTINATED, night",56
+r4,235,1,"AGGLUTINATED, air, in open",1
+r5,235,1,"AGGLUTINATED, menses, during",1
+r6,235,0,AMAUROSIS (See Paralysis),0
+r7,235,0,ANÆMIA of conjunctiva,2
+o30320,235,1,"ANÆMIA of conjunctiva, retina",4
+r9,235,0,"ANXIOUS look (See Face, Anxious expression)",0
+r10,235,0,ARCUS SENILIS (See Opacity),0
+r11,235,0,ASTIGMATISM,1
+r12,235,0,ATROPHY of optic nerve,3
+r13,235,1,"ATROPHY of optic nerve, tobacco, from",1
+r14,235,0,AVERSION to bringing objects near the eyes,2
+r15,235,0,"BAND around the eyeballs, sensation of",2
+r16,235,0,BLEEDING from eyes,25
+r17,235,1,"BLEEDING from eyes, blowing nose, on",1
+r18,235,1,"BLEEDING from eyes, burning, with",1
+r19,235,1,"BLEEDING from eyes, coughing, from",3
+r20,235,1,"BLEEDING from eyes, retinal hæmorrhage",10
+r21,235,1,"BLEEDING from eyes, whooping cough, in",1
+r22,235,1,"BLEEDING from eyes, lids",6
+r23,235,0,BLINKING (See Winking),4
+r24,235,0,BLOATED lids (See Swelling),0
+r25,235,0,BLOODSHOT (See Ecchymosis),0
+r26,235,0,BLUENESS of lids,5
+r27,235,1,"BLUENESS of lids, margins",4
+r28,235,1,"BLUENESS of lids, canthi",3
+r29,235,1,"BLUENESS of lids, conjunctiva",4
+r30,235,0,BOILS on lids (See Pustules),0
+r31,235,0,BRILLIANT,30
+r32,235,1,"BRILLIANT, during sweat",1
+r33,235,0,CANCER,7
+r34,235,1,"CANCER, epithelioma",2
+r35,236,2,"CANCER, epithelioma, cornea, of",1
+r36,236,2,"CANCER, epithelioma, lids of",4
+r37,236,3,"CANCER, epithelioma, lids of, lower",3
+r38,236,1,"CANCER, fungus",7
+r39,236,2,"CANCER, fungus, medullaris",4
+r40,236,1,"CANCER, lachrymal glands",1
+r41,236,0,CATARACT,48
+r42,236,1,"CATARACT, right eye",4
+r43,236,1,"CATARACT, left",1
+r44,236,1,"CATARACT, can see better on a dark day",1
+r45,236,1,"CATARACT, capsular",2
+r46,236,1,"CATARACT, contusion, from",2
+r47,236,1,"CATARACT, cortical",1
+r48,236,1,"CATARACT, foot-sweat suppressed, after",1
+r49,236,1,"CATARACT, incipient",4
+r50,236,1,"CATARACT, operation, after",2
+r51,236,1,"CATARACT, perpendicular high-sight, with",1
+r52,236,1,"CATARACT, reticularis",2
+r53,236,1,"CATARACT, senile",2
+r54,236,1,"CATARACT, soft",3
+r55,236,1,"CATARACT, viridis",3
+r56,236,1,"CATARACT, women, in",1
+r57,236,0,CHALLAZÆ (See Tumors),0
+r58,236,0,CHEMOSIS,29
+r59,236,1,"CHEMOSIS, right",2
+r60,236,1,"CHEMOSIS, left",1
+r61,236,1,"CHEMOSIS, evening, while at work",1
+r62,236,1,"CHEMOSIS, chill, during",1
+r63,236,1,"CHEMOSIS, operation for cataract, after",2
+r64,236,1,"CHEMOSIS, yellow",2
+r65,236,1,"CHEMOSIS, cornea",1
+r66,236,0,"CLOSE, desire to",14
+r67,236,1,"CLOSE, desire to, evening while at work",1
+r68,236,2,"CLOSE, desire to, evening while at work, chill, during",1
+r69,236,1,"CLOSE, desire to, difficult",8
+r70,236,1,"CLOSE, desire to, must",12
+r71,236,1,"CLOSE, desire to, involuntary",24
+r72,236,2,"CLOSE, desire to, involuntary, afternoon",1
+r73,236,1,"CLOSE, desire to, menses, during",1
+r74,236,1,"CLOSE, desire to, spasmodic closure",22
+r75,236,2,"CLOSE, desire to, spasmodic closure, morning",1
+r76,236,2,"CLOSE, desire to, spasmodic closure, evening",3
+r77,236,2,"CLOSE, desire to, spasmodic closure, night",2
+r78,236,2,"CLOSE, desire to, spasmodic closure, headache, with",1
+r79,236,2,"CLOSE, desire to, spasmodic closure, looking, on",1
+r80,236,1,"CLOSE, desire to, walking in open air, while",1
+r81,236,1,"CLOSE, desire to, weak feeling",1
+r82,236,0,"CLOSED (See Open, unable to)",10
+r83,236,1,"CLOSED (See Open, unable to), in melancholia",1
+r84,236,0,COLD agg.,5
+o30391,236,1,"COLD agg., amel.",8
+r86,236,0,COLDNESS in,40
+o30397,236,1,"COLDNESS in, left",1
+o30396,236,1,"COLDNESS in, evening",1
+o30395,236,1,"COLDNESS in, cold air blew in, as if",10
+o30401,236,1,"COLDNESS in, painful eye, in the",1
+o30403,236,1,"COLDNESS in, walking in open air",4
+r93,237,1,"COLDNESS in, walking in cold wind",1
+r94,237,1,"COLDNESS in, back of eyes",1
+r95,237,1,"COLDNESS in, canthi",3
+r96,237,1,"COLDNESS in, lids",4
+r97,237,2,"COLDNESS in, lids, edges of",1
+r98,237,3,"COLDNESS in, lids, edges of, closing eyes, on",1
+r99,237,0,CONDYLOMATA,8
+r100,237,1,"CONDYLOMATA, canthi",2
+r101,237,1,"CONDYLOMATA, eyebrows",3
+r102,237,1,"CONDYLOMATA, eyelid",5
+r103,237,2,"CONDYLOMATA, eyelid, right, lower",1
+r104,237,2,"CONDYLOMATA, eyelid, bleeding when touched",1
+r105,237,1,"CONDYLOMATA, iris",4
+r106,237,1,"CONDYLOMATA, sclerotics",1
+r107,237,0,CONGESTION (See Redness),0
+r108,237,0,CONICAL cornea,2
+r109,237,0,CONTORTED (See Distorted),0
+r110,237,0,CONTRACTIVE sensation,8
+r111,237,1,"CONTRACTIVE sensation, headache, during",1
+r112,237,0,CONVULSIVE (See Movement),0
+r113,237,0,"CRACKS, canthi, in",14
+r114,237,1,"CRACKS, canthi, in, outer",3
+r115,237,0,CRAWLING,13
+r116,237,1,"CRAWLING, canthi",1
+r117,237,0,"CROOKED, objects seem",1
+r118,237,0,CRUSTY margin of lids (See Eruptions),0
+r119,237,0,DARK around eyes (See Face),0
+r120,237,0,DEGENERATE cornea,1
+r121,237,0,DETACHMENT of retina,5
+r122,237,0,DILATATION (See Pupil),0
+r123,237,0,DISCHARGES of mucus or pus,76
+o30444,237,1,"DISCHARGES of mucus or pus, morning",10
+o30442,237,1,"DISCHARGES of mucus or pus, evening",1
+o30445,237,1,"DISCHARGES of mucus or pus, night",1
+o30423,237,1,"DISCHARGES of mucus or pus, acrid",15
+o30424,237,2,"DISCHARGES of mucus or pus, acrid, water",1
+o30425,237,1,"DISCHARGES of mucus or pus, bloody",23
+o30446,237,1,"DISCHARGES of mucus or pus, purulent",35
+o30447,237,2,"DISCHARGES of mucus or pus, purulent, daytime",1
+o30448,237,2,"DISCHARGES of mucus or pus, purulent, morning",1
+o30449,237,1,"DISCHARGES of mucus or pus, sensation of a hanging over eyes which must be wiped away",2
+o30450,237,1,"DISCHARGES of mucus or pus, thick",15
+o30451,237,1,"DISCHARGES of mucus or pus, thin",1
+o30452,237,1,"DISCHARGES of mucus or pus, white",5
+o30453,237,2,"DISCHARGES of mucus or pus, white, milk-white",1
+o30454,237,1,"DISCHARGES of mucus or pus, yellow",25
+r145,237,1,"DISCHARGES of mucus or pus, canthi",12
+o30435,237,2,"DISCHARGES of mucus or pus, canthi, morning",4
+o30427,237,2,"DISCHARGES of mucus or pus, canthi, dry, in",8
+o30428,237,3,"DISCHARGES of mucus or pus, canthi, dry, in, morning",1
+r156,237,2,"DISCHARGES of mucus or pus, canthi, hard, in",7
+o30430,238,3,"DISCHARGES of mucus or pus, canthi, hard, in, forenoon",1
+o30431,238,3,"DISCHARGES of mucus or pus, canthi, hard, in, night",1
+r149,238,2,"DISCHARGES of mucus or pus, canthi, pus",10
+r150,238,1,"DISCHARGES of mucus or pus, canthi, inner",9
+r151,238,2,"DISCHARGES of mucus or pus, canthi, inner, morning",5
+r152,238,2,"DISCHARGES of mucus or pus, canthi, inner, menses, during",1
+r153,238,1,"DISCHARGES of mucus or pus, canthi, outer",8
+r154,238,2,"DISCHARGES of mucus or pus, canthi, outer, morning",3
+r155,238,2,"DISCHARGES of mucus or pus, canthi, outer, night",2
+o30437,238,2,"DISCHARGES of mucus or pus, canthi, outer, hard, in",5
+r157,238,2,"DISCHARGES of mucus or pus, canthi, outer, purulent",1
+r158,238,1,"DISCHARGES of mucus or pus, lachrymal sac, from",12
+r159,238,0,DISCOLORATION around eyes (See Face),0
+o30455,238,1,"DISCOLORATION around eyes (See Face), of iris",8
+r161,238,0,DISTORTED,44
+r162,238,1,"DISTORTED, evening",2
+r163,238,1,"DISTORTED, sleep, during",5
+r164,238,1,"DISTORTED, iris",3
+r165,238,0,"DRAWN together, sensation of",3
+r166,238,0,DRYNESS,87
+r167,238,1,"DRYNESS, morning",10
+r168,238,2,"DRYNESS, morning, lachrymation, after",1
+r169,238,2,"DRYNESS, morning, waking, on",5
+r170,238,1,"DRYNESS, afternoon",1
+r171,238,1,"DRYNESS, evening",15
+r172,238,2,"DRYNESS, evening, on going to bed",1
+r173,238,1,"DRYNESS, night",1
+r174,238,1,"DRYNESS, artificial light, in",2
+r175,238,1,"DRYNESS, looking at bright light",1
+r176,238,1,"DRYNESS, menses, during",1
+r177,238,1,"DRYNESS, reading",5
+r178,238,1,"DRYNESS, waking, on",7
+r179,238,1,"DRYNESS, warm room",2
+r180,238,1,"DRYNESS, canthi",6
+o30465,238,2,"DRYNESS, canthi, evening",1
+r181,238,0,DULLNESS,76
+r182,238,1,"DULLNESS, exertion, after",1
+r183,238,1,"DULLNESS, sexual excesses",1
+r184,238,1,"DULLNESS, iris",4
+r185,238,0,ECCHYMOSIS,28
+r186,238,1,"ECCHYMOSIS, right",1
+r187,239,1,"ECCHYMOSIS, coughing, from",2
+r188,239,1,"ECCHYMOSIS, lids",2
+r189,239,0,"ENLARGEMENT, sensation of",35
+r190,239,1,"ENLARGEMENT, sensation of, right feels larger than left",1
+r191,239,1,"ENLARGEMENT, sensation of, morning",1
+r192,239,1,"ENLARGEMENT, sensation of, evening",1
+r193,239,1,"ENLARGEMENT, sensation of, night",1
+r194,239,2,"ENLARGEMENT, sensation of, night, gaslight, agg.",1
+r195,239,0,"ENLARGED, lens",1
+o66154,239,0,ERUPTIONS about the eyes (See Face),26
+o30496,239,1,"ERUPTIONS about the eyes (See Face), boils",1
+o30507,239,1,"ERUPTIONS about the eyes (See Face), fine",1
+o30508,239,1,"ERUPTIONS about the eyes (See Face), herpes",9
+o30509,239,2,"ERUPTIONS about the eyes (See Face), herpes, cornea",3
+o30532,239,1,"ERUPTIONS about the eyes (See Face), pimples",2
+o30533,239,1,"ERUPTIONS about the eyes (See Face), rash",1
+o30493,239,1,"ERUPTIONS about the eyes (See Face), above the eyes",1
+o30494,239,2,"ERUPTIONS about the eyes (See Face), above the eyes, bluish black vesicles",1
+o30495,239,1,"ERUPTIONS about the eyes (See Face), below eyes",4
+o30497,239,1,"ERUPTIONS about the eyes (See Face), canthi",2
+o30498,239,2,"ERUPTIONS about the eyes (See Face), canthi, external",1
+o30499,239,2,"ERUPTIONS about the eyes (See Face), canthi, inner crusts",1
+o30500,239,1,"ERUPTIONS about the eyes (See Face), eyebrows, about",14
+o30501,239,2,"ERUPTIONS about the eyes (See Face), eyebrows, about, crusty",4
+o30502,239,2,"ERUPTIONS about the eyes (See Face), eyebrows, about, itching",1
+o30503,239,2,"ERUPTIONS about the eyes (See Face), eyebrows, about, pimples",1
+o30504,239,2,"ERUPTIONS about the eyes (See Face), eyebrows, about, psoriasis",1
+o30505,239,2,"ERUPTIONS about the eyes (See Face), eyebrows, about, spongy",2
+o30506,239,2,"ERUPTIONS about the eyes (See Face), eyebrows, about, yellow",3
+o30510,239,1,"ERUPTIONS about the eyes (See Face), lids, on",19
+o30511,239,2,"ERUPTIONS about the eyes (See Face), lids, on, blotches",6
+o30512,239,2,"ERUPTIONS about the eyes (See Face), lids, on, crusts",13
+o30513,239,2,"ERUPTIONS about the eyes (See Face), lids, on, dry, burning, itching tetters",1
+o30514,239,2,"ERUPTIONS about the eyes (See Face), lids, on, eczema",6
+o30515,239,2,"ERUPTIONS about the eyes (See Face), lids, on, herpes",9
+o30516,239,2,"ERUPTIONS about the eyes (See Face), lids, on, itching",1
+o30517,239,2,"ERUPTIONS about the eyes (See Face), lids, on, pimples",10
+o30518,239,2,"ERUPTIONS about the eyes (See Face), lids, on, pustules",9
+o30519,239,3,"ERUPTIONS about the eyes (See Face), lids, on, pustules, canthi",10
+o30520,239,3,"ERUPTIONS about the eyes (See Face), lids, on, pustules, left, inner",1
+o30521,239,3,"ERUPTIONS about the eyes (See Face), lids, on, pustules, margins",3
+o30522,239,2,"ERUPTIONS about the eyes (See Face), lids, on, rash",1
+o30524,239,2,"ERUPTIONS about the eyes (See Face), lids, on, scaly herpes",5
+o30525,239,3,"ERUPTIONS about the eyes (See Face), lids, on, scaly herpes, margins",10
+o30523,239,2,"ERUPTIONS about the eyes (See Face), lids, on, scales",3
+o30526,239,2,"ERUPTIONS about the eyes (See Face), lids, on, scurfy",4
+o30527,239,2,"ERUPTIONS about the eyes (See Face), lids, on, spots",2
+o30528,239,2,"ERUPTIONS about the eyes (See Face), lids, on, tubercles",6
+o30529,239,2,"ERUPTIONS about the eyes (See Face), lids, on, vesicles",10
+o30530,239,3,"ERUPTIONS about the eyes (See Face), lids, on, vesicles, on margins",4
+o30531,239,3,"ERUPTIONS about the eyes (See Face), lids, on, vesicles, yellow",3
+r238,239,0,ERYSIPELOUS (See Inflammation),0
+r239,239,0,ESOPHORIA (See Paralysis),2
+r240,239,0,EVERSION of lids,19
+r241,239,1,"EVERSION of lids, lower",1
+r242,239,1,"EVERSION of lids, after nitrate of silver",1
+r243,240,0,EXCORIATION of lids,11
+h002,240,1,"EXCORIATION of lids, canthi",5
+r245,240,0,EXCRESCENCES (See Condylomata),0
+r246,240,0,"EXERTION, muscular, amel.",1
+r247,240,0,EXOPHORIA (See Paralysis),0
+r248,240,0,EXOPHTHALMUS (See Protrusion),0
+r249,240,0,EXPRESSIONLESS (See Dullness),0
+r250,240,0,EYE GUM,15
+r251,240,1,"EYE GUM, on lids",5
+r252,240,2,"EYE GUM, on lids, morning",5
+r253,240,1,"EYE GUM, canthi",11
+r254,240,2,"EYE GUM, canthi, outer",4
+r255,240,0,EYE LASHES (See Hair),0
+r256,240,0,FALLING of lids,38
+r257,240,1,"FALLING of lids, in evening",1
+r258,240,1,"FALLING of lids, during headache",1
+r259,240,0,FILMY,1
+r260,240,0,"FIRE, looking into, agg.",2
+r261,240,0,"FISSURE, canthi (See Cracks)",0
+r262,240,0,FISTULA of the cornea,1
+o30552,240,1,"FISTULA of the cornea, lachrymalis",21
+o30553,240,2,"FISTULA of the cornea, lachrymalis, discharging pus on pressure",3
+o30554,240,2,"FISTULA of the cornea, lachrymalis, suppurating",2
+r266,240,0,FIXED look (See Staring),0
+r267,240,0,"FRIGHTFUL look (See Face, expression)",0
+r268,240,0,"FRINGE sensation as of a, were falling over the eyes",1
+r269,240,0,"FULLNESS, sensation of",25
+r270,240,0,"FUNGUS, oculi (See Cancer)",0
+r271,240,0,GLASSY appearance,45
+r272,240,1,"GLASSY appearance, morning",1
+r273,240,1,"GLASSY appearance, chill, during",2
+r274,240,1,"GLASSY appearance, fever, during",5
+r275,240,1,"GLASSY appearance, perspiration",3
+r276,240,0,GLAUCOMA,4
+r277,240,0,GLAZED,4
+r278,240,0,"GLISTENING (See Brilliant, Glassy)",0
+r279,240,0,GRANULAR lids,36
+r280,240,1,"GRANULAR lids, evening",1
+r281,240,1,"GRANULAR lids, cold applications, amel.",2
+r282,240,1,"GRANULAR lids, summer",1
+h003,240,1,"GRANULAR lids, water agg.",1
+r284,240,1,"GRANULAR lids, outer canthi",1
+r285,240,0,GREEN color,2
+r286,240,1,"GREEN color, ring around (See Face, Discoloration)",0
+r287,240,0,"HAGGARD (See Face, Expression)",0
+r288,240,0,HAIR falling from brows,12
+o30572,240,1,"HAIR falling from brows, eye-lashes",19
+o30573,240,1,"HAIR falling from brows, eyebrows, white",1
+o30574,240,1,"HAIR falling from brows, sensation of, in eye",4
+o30575,240,2,"HAIR falling from brows, sensation of, in eye, afternoon",1
+r293,240,0,HARDNESS,1
+r294,240,1,"HARDNESS, lids (See Thickening)",14
+r295,241,1,"HARDNESS, meibomian glands of",3
+r296,241,1,"HARDNESS, sense of marble",1
+r297,241,0,HEAT in,72
+r298,241,1,"HEAT in, daytime",2
+r299,241,1,"HEAT in, morning",5
+r300,241,1,"HEAT in, forenoon",1
+r301,241,1,"HEAT in, evening",6
+r302,241,2,"HEAT in, evening, as if hot air streamed out",1
+r303,241,2,"HEAT in, evening, with candlelight",1
+r304,241,1,"HEAT in, night",3
+r305,241,1,"HEAT in, air, cold, agg.",1
+r306,241,1,"HEAT in, choroiditis",1
+r307,241,1,"HEAT in, closing eyes on",2
+r308,241,1,"HEAT in, eating, after",1
+r309,241,1,"HEAT in, exertion, during",3
+r310,241,1,"HEAT in, fever, during",1
+r311,241,1,"HEAT in, flushes",3
+r312,241,1,"HEAT in, iritis, in",2
+r313,241,1,"HEAT in, steaming out, sensation of",4
+r314,241,1,"HEAT in, using eyes",3
+r315,241,1,"HEAT in, canthi",4
+r316,241,2,"HEAT in, canthi, outer",3
+r317,241,1,"HEAT in, lids",14
+r318,241,2,"HEAT in, lids, margins",4
+r319,241,0,"HEAT, agg.",9
+r320,241,0,HEAVINESS,22
+r321,241,1,"HEAVINESS, menses, before",2
+r322,241,2,"HEAVINESS, menses, before, during",3
+r323,241,1,"HEAVINESS, lids",68
+r324,241,2,"HEAVINESS, lids, morning",6
+r325,241,3,"HEAVINESS, lids, morning, as if could not be held open",2
+r326,241,3,"HEAVINESS, lids, morning, on waking",2
+r327,241,2,"HEAVINESS, lids, evening",5
+r328,241,3,"HEAVINESS, lids, evening, reading by lamplight, while",1
+r329,241,2,"HEAVINESS, lids, frontal headache",1
+r330,241,2,"HEAVINESS, lids, using the eyes",2
+r331,241,0,HÆMORRHAGE (See Bleeding),0
+r332,241,0,HORDEOLA (See Styes),0
+r333,241,0,HYPERÆSTHESIA of the retina,6
+r334,241,0,HYPERPHORIA (See Paralysis),0
+r335,241,0,HYPERTROPHY of conjunctiva,1
+r336,241,0,"IMMOBILITY (See Fixed Look, Staring, etc.)",0
+r337,241,0,INDURATION (See Hardness),0
+r338,241,0,"INFANTS, eye complaints of (See Inflammation)",0
+r339,241,0,"INFILTRATION (See Thickening, Hardness)",0
+r340,241,0,INFLAMMATION,134
+r342,242,1,"INFLAMMATION, afternoon, 4 p.m.",1
+r343,242,1,"INFLAMMATION, acute",16
+r344,242,2,"INFLAMMATION, acute, injuries, after",2
+r345,242,1,"INFLAMMATION, alternating with sore throat",1
+h004,242,2,"INFLAMMATION, alternating with sore throat, with swelling of feet",1
+r347,242,1,"INFLAMMATION, arthritic (gouty and rheumatic)",34
+r348,242,1,"INFLAMMATION, burns, from",1
+r349,242,1,"INFLAMMATION, catarrhal from cold",51
+r350,242,2,"INFLAMMATION, catarrhal from cold, morning",3
+r351,242,2,"INFLAMMATION, catarrhal from cold, night",5
+r352,242,3,"INFLAMMATION, catarrhal from cold, night, after 1 a.m.",1
+r353,242,2,"INFLAMMATION, catarrhal from cold, when trying to read",1
+r354,242,1,"INFLAMMATION, cold agg.",2
+o30638,242,2,"INFLAMMATION, cold agg., amel.",7
+o30639,242,2,"INFLAMMATION, cold agg., wet weather",3
+r357,242,1,"INFLAMMATION, croupous",1
+r358,242,1,"INFLAMMATION, erysipelatous (See Face)",12
+r359,242,2,"INFLAMMATION, erysipelatous (See Face), from bites of insects",1
+r360,242,1,"INFLAMMATION, fire agg.",3
+o30650,242,2,"INFLAMMATION, fire agg., being over; cold air and cold applications amel.",1
+r362,242,1,"INFLAMMATION, foreign bodies",6
+r363,242,1,"INFLAMMATION, gaslight, from",1
+o30653,242,1,"INFLAMMATION, gonorrhœal",11
+r365,242,1,"INFLAMMATION, headache, with",3
+r366,242,1,"INFLAMMATION, heat agg.",9
+r367,242,1,"INFLAMMATION, infants",27
+r368,242,1,"INFLAMMATION, injuries, after",5
+r369,242,1,"INFLAMMATION, measles, after",5
+r370,242,1,"INFLAMMATION, menses, during",2
+r371,242,2,"INFLAMMATION, menses, during, suppressed",1
+r372,242,1,"INFLAMMATION, mercurial",3
+r373,242,2,"INFLAMMATION, mercurial, open air amel.",2
+r374,242,1,"INFLAMMATION, recurrent",4
+r375,242,1,"INFLAMMATION, sand and dust, from",1
+r376,242,1,"INFLAMMATION, scrofulous",64
+r377,242,1,"INFLAMMATION, summer",1
+r378,242,1,"INFLAMMATION, syphilitic",21
+r379,242,1,"INFLAMMATION, vaccination, after",1
+r380,242,1,"INFLAMMATION, warm covering amel.",1
+r381,242,1,"INFLAMMATION, warmth of bed agg.",1
+r382,242,1,"INFLAMMATION, washing agg.",1
+r383,243,1,"INFLAMMATION, wet, becoming, agg.",3
+o30692,243,2,"INFLAMMATION, wet, becoming, agg., getting feet",1
+r385,243,1,"INFLAMMATION, wind, dry cold",1
+r386,243,1,"INFLAMMATION, wounds",3
+r387,243,1,"INFLAMMATION, canthi",15
+r388,243,2,"INFLAMMATION, canthi, morning, agg.",1
+r389,243,2,"INFLAMMATION, canthi, with ulceration",4
+r390,243,2,"INFLAMMATION, canthi, inner",5
+r391,243,2,"INFLAMMATION, canthi, outer",3
+r392,243,3,"INFLAMMATION, canthi, outer, with ulceration",2
+r393,243,1,"INFLAMMATION, caruncles",3
+r394,243,1,"INFLAMMATION, choroid",25
+r395,243,1,"INFLAMMATION, conjunctiva",59
+r396,243,2,"INFLAMMATION, conjunctiva, croupous",3
+r397,243,2,"INFLAMMATION, conjunctiva, granular",15
+r398,243,3,"INFLAMMATION, conjunctiva, granular, cold applications amel.",3
+r399,243,2,"INFLAMMATION, conjunctiva, pustular (including cornea)",42
+r400,243,1,"INFLAMMATION, cornea",27
+r401,243,1,"INFLAMMATION, iris",43
+r402,243,2,"INFLAMMATION, iris, night, agg.",10
+r403,243,2,"INFLAMMATION, iris, adhesions, with",9
+r404,243,2,"INFLAMMATION, iris, hypopion, with",6
+r405,243,1,"INFLAMMATION, iris, rheumatic",14
+r406,243,2,"INFLAMMATION, iris, rheumatic, syphilitic",17
+r407,243,3,"INFLAMMATION, iris, rheumatic, syphilitic, bursting pain in eyeball, temple and side of face",1
+r408,243,2,"INFLAMMATION, iris, rheumatic, tubercular",2
+r409,243,1,"INFLAMMATION, lachrymal canal",12
+o30667,243,2,"INFLAMMATION, lachrymal canal, glands",7
+o30668,243,2,"INFLAMMATION, lachrymal canal, sac",9
+r412,243,1,"INFLAMMATION, lids",66
+r413,243,2,"INFLAMMATION, lids, margins",27
+r414,244,1,"INFLAMMATION, meibomian glands",12
+r415,244,2,"INFLAMMATION, meibomian glands, suppurative",2
+r416,244,1,"INFLAMMATION, optic nerve",5
+r417,244,1,"INFLAMMATION, retina",15
+r418,244,1,"INFLAMMATION, sclerotics",9
+r419,244,2,"INFLAMMATION, sclerotics, with stitches and aversion to sunlight",1
+r420,244,0,INJECTED,17
+r421,244,1,"INJECTED, canthus, inner",2
+r422,244,1,"INJECTED, conjunctiva full of dark vessels",51
+o30699,244,2,"INJECTED, conjunctiva full of dark vessels, morning",1
+o30698,244,2,"INJECTED, conjunctiva full of dark vessels, menses, before",1
+r425,244,1,"INJECTED, cornea",7
+r426,244,0,"INJURIES, from",12
+r427,244,0,INSENSIBILITY,7
+r428,244,0,"INTOXICATED appearance (See Face, expression)",0
+r429,244,0,INVERSION of lids,9
+r430,244,0,IRRITATION,15
+r431,244,1,"IRRITATION, daytime only",1
+r432,244,1,"IRRITATION, morning",1
+r433,244,1,"IRRITATION, afternoon",1
+r434,244,1,"IRRITATION, evening",3
+r435,244,2,"IRRITATION, evening, from candle-light",1
+r436,244,2,"IRRITATION, evening, reading by lamp-light",1
+r437,244,1,"IRRITATION, eyelids, amel. in cold air",1
+r438,244,1,"IRRITATION, optic nerve",1
+r439,244,0,ITCHING,101
+r440,244,1,"ITCHING, morning",8
+r441,244,2,"ITCHING, morning, after rising",1
+r442,244,1,"ITCHING, forenoon",1
+r443,244,2,"ITCHING, forenoon, 11 a.m.",1
+r444,244,1,"ITCHING, evening",19
+r445,244,2,"ITCHING, evening, not amel. by rubbing",1
+r446,244,1,"ITCHING, night",2
+r447,244,1,"ITCHING, air, open, amel.",1
+r448,244,1,"ITCHING, cold application amel.",1
+r449,244,1,"ITCHING, coryza, during",1
+r450,244,1,"ITCHING, dinner, after",1
+r451,244,1,"ITCHING, exertion of vision",1
+r452,244,1,"ITCHING, gas-light agg.",1
+r453,244,1,"ITCHING, house, in",1
+r454,244,1,"ITCHING, light produces",1
+r455,244,1,"ITCHING, rubbing agg.",3
+o30747,244,2,"ITCHING, rubbing agg., amel.",11
+r457,244,1,"ITCHING, warm bathing",1
+r458,244,1,"ITCHING, warm room",2
+r459,244,1,"ITCHING, canthi",42
+r460,245,2,"ITCHING, canthi, evening",2
+r461,245,3,"ITCHING, canthi, evening, air, open, agg.",1
+r462,245,4,"ITCHING, canthi, evening, air, open, agg., amel.",1
+r463,245,2,"ITCHING, canthi, inner",39
+r464,245,3,"ITCHING, canthi, inner, morning",1
+r465,245,3,"ITCHING, canthi, inner, evening",3
+r466,245,2,"ITCHING, canthi, outer",19
+r467,245,1,"ITCHING, eyebrows",26
+r468,245,2,"ITCHING, eyebrows, morning",1
+r469,245,2,"ITCHING, eyebrows, evening",1
+r470,245,1,"ITCHING, eyes, about",10
+r471,245,1,"ITCHING, lids",47
+r472,245,2,"ITCHING, lids, margin",27
+r473,245,2,"ITCHING, lids, daytime only",2
+r474,245,2,"ITCHING, lids, morning",2
+r475,245,2,"ITCHING, lids, evening",2
+r476,245,0,"JERKING of the muscles of the eyes (See Movements, Twitching)",0
+r477,245,0,LACHRYMATION (See Tears),154
+r478,245,1,"LACHRYMATION (See Tears), right",5
+r479,245,1,"LACHRYMATION (See Tears), left",7
+r480,245,1,"LACHRYMATION (See Tears), daytime only",4
+r481,245,1,"LACHRYMATION (See Tears), morning",20
+r482,245,2,"LACHRYMATION (See Tears), morning, waking, on",2
+r483,245,1,"LACHRYMATION (See Tears), forenoon",2
+r484,245,1,"LACHRYMATION (See Tears), evening",14
+r485,245,1,"LACHRYMATION (See Tears), night",4
+r486,245,1,"LACHRYMATION (See Tears), chill, during",1
+r487,245,1,"LACHRYMATION (See Tears), cold air, in",11
+r488,245,1,"LACHRYMATION (See Tears), coryza, during",31
+r489,245,1,"LACHRYMATION (See Tears), cough, with",32
+r492,246,2,"LACHRYMATION (See Tears), cough, with, whooping cough",3
+r493,246,1,"LACHRYMATION (See Tears), damp weather",2
+r494,246,1,"LACHRYMATION (See Tears), fever, during",13
+r495,246,1,"LACHRYMATION (See Tears), fire, looking at the",5
+r496,246,1,"LACHRYMATION (See Tears), headache, during",25
+r497,246,1,"LACHRYMATION (See Tears), laughing, when",1
+r498,246,1,"LACHRYMATION (See Tears), light, from",4
+r499,246,2,"LACHRYMATION (See Tears), light, from, bright",7
+r500,246,2,"LACHRYMATION (See Tears), light, from, of sun",4
+r501,246,1,"LACHRYMATION (See Tears), looking steadily",12
+r502,246,1,"LACHRYMATION (See Tears), menses, during",2
+o30773,246,1,"LACHRYMATION (See Tears), open air",45
+r504,246,2,"LACHRYMATION (See Tears), open air, amel.",3
+r505,246,1,"LACHRYMATION (See Tears), opening eyes, on",1
+r506,246,2,"LACHRYMATION (See Tears), opening eyes, on, forcibly",5
+r507,246,1,"LACHRYMATION (See Tears), pain, with other parts of body",2
+o30778,246,2,"LACHRYMATION (See Tears), pain, with other parts of body, in the eye",4
+o30779,246,3,"LACHRYMATION (See Tears), pain, with other parts of body, in the eye, throat",1
+r510,246,1,"LACHRYMATION (See Tears), reading, while",14
+r511,246,1,"LACHRYMATION (See Tears), room, in a",5
+r512,246,1,"LACHRYMATION (See Tears), stricture of lachrymal duct (See Stricture)",0
+r513,246,1,"LACHRYMATION (See Tears), warm room",2
+r514,246,1,"LACHRYMATION (See Tears), wind, in",10
+r515,246,1,"LACHRYMATION (See Tears), writing, while",2
+r516,246,2,"LACHRYMATION (See Tears), writing, while, after",1
+r517,246,1,"LACHRYMATION (See Tears), yawning, when",12
+r518,246,0,"LOOKING steadily (See Vision, Exertion of)",9
+o30789,246,1,"LOOKING steadily (See Vision, Exertion of), intently, amel.",1
+o30790,246,1,"LOOKING steadily (See Vision, Exertion of), into distance agg.",3
+o30791,246,1,"LOOKING steadily (See Vision, Exertion of), upward agg.",6
+o30792,246,1,"LOOKING steadily (See Vision, Exertion of), white objects agg.",1
+r523,246,0,"LOOSE, sensation as if",1
+r524,246,0,"LUPUS, eyebrows",3
+r525,246,1,"LUPUS, eyebrows, lids",3
+r526,246,1,"LUPUS, eyebrows, lower lid",1
+r527,246,0,LUSTRELESS (See Dullness),0
+r528,246,0,MELANOSIS,1
+r529,246,0,"MEMBRANE, sensation as if, drawn over eyes",5
+r530,246,0,MOONLIGHT amel. eye symptoms,1
+r531,246,0,"MOVEMENT, eyeballs, constant",6
+r532,246,1,"MOVEMENT, eyeballs, constant, closed lids, under",1
+r533,246,1,"MOVEMENT, eyeballs, constant, convulsive",13
+r534,246,2,"MOVEMENT, eyeballs, constant, convulsive, light agg.",1
+r535,246,2,"MOVEMENT, eyeballs, constant, convulsive, sleep, during",3
+r536,246,2,"MOVEMENT, eyeballs, constant, convulsive, waking, when",1
+r537,246,1,"MOVEMENT, eyeballs, constant, involuntary",7
+r538,246,2,"MOVEMENT, eyeballs, constant, involuntary, when staring ahead",1
+r539,246,1,"MOVEMENT, eyeballs, constant, pendulum like, from side to side",10
+r540,246,1,"MOVEMENT, eyeballs, constant, rolling",36
+o30810,247,2,"MOVEMENT, eyeballs, constant, rolling, drink, at sight of",1
+o30812,247,2,"MOVEMENT, eyeballs, constant, rolling, sleep, during",2
+o30811,247,2,"MOVEMENT, eyeballs, constant, rolling, movements, up and down",2
+o30813,247,2,"MOVEMENT, eyeballs, constant, rolling, upward (See Turned)",13
+r547,247,0,NARROWING of intervals between eyelids,6
+r548,247,0,NODULES in lids,3
+r549,247,1,"NODULES in lids, margins",6
+r550,247,0,NUMBNESS around eyes,1
+r551,247,0,NYSTAGMUS (See Movement),0
+r552,247,0,ONYX,3
+r553,247,0,OPACITY of cornea (See Spots),41
+r554,247,1,"OPACITY of cornea (See Spots), right",2
+r555,247,1,"OPACITY of cornea (See Spots), left",2
+r556,247,1,"OPACITY of cornea (See Spots), arcus senilis",11
+r557,247,1,"OPACITY of cornea (See Spots), punctuated",3
+r558,247,1,"OPACITY of cornea (See Spots), small-pox, after",1
+r559,247,1,"OPACITY of cornea (See Spots), wounds, from",1
+r560,247,1,"OPACITY of cornea (See Spots), vitreous",8
+r561,247,0,"OPENING the lids, difficult",34
+r562,247,1,"OPENING the lids, difficult, morning",16
+r563,247,2,"OPENING the lids, difficult, morning, on waking",2
+r564,247,2,"OPENING the lids, difficult, morning, night",6
+r565,247,1,"OPENING the lids, difficult, causes sneezing",1
+r566,247,0,OPEN lids,20
+r567,247,1,"OPEN lids, and close in quick succession",1
+r568,247,0,"OPEN, attack, before an",1
+o30830,247,1,"OPEN, attack, before an, delirium, with",2
+o30831,247,1,"OPEN, attack, before an, desire to keep eyes wide open",1
+o30832,247,1,"OPEN, attack, before an, dislikes to open them, fears it will agg. headache",1
+o30833,247,1,"OPEN, attack, before an, half open",50
+o30834,247,1,"OPEN, attack, before an, hard to keep open",11
+o30835,247,1,"OPEN, attack, before an, must keep them open and look into the light",1
+o30836,247,1,"OPEN, attack, before an, sensation as if wide",3
+o30837,247,2,"OPEN, attack, before an, sensation as if wide, closed lids are wide open",2
+o30838,247,1,"OPEN, attack, before an, sleep, during",16
+o30839,247,1,"OPEN, attack, before an, unable to",32
+h005,247,1,"OPEN, attack, before an, morning",6
+h006,247,2,"OPEN, attack, before an, morning, from pressure in forehead",1
+h007,247,2,"OPEN, attack, before an, morning, night",3
+h008,247,3,"OPEN, attack, before an, morning, night, waking, on",1
+h009,247,2,"OPEN, attack, before an, morning, headache, during",1
+h010,247,2,"OPEN, attack, before an, morning, menses, during",1
+h011,247,2,"OPEN, attack, before an, morning, waking, on",1
+o30847,247,1,"OPEN, attack, before an, unconsciousness, during",1
+r1704,247,0,"OPENNESS, spasmodic",21
+o30854,248,1,"OPENNESS, spasmodic, during delirium",2
+r589,248,0,PAIN,190
+r590,248,1,"PAIN, right",21
+r591,248,2,"PAIN, right, lying on left side",1
+r592,248,2,"PAIN, right, extending to left",1
+h012,248,3,"PAIN, right, extending to left, to forehead",1
+r594,248,1,"PAIN, left",18
+r595,248,1,"PAIN, daytime only",10
+r596,248,1,"PAIN, morning",35
+r597,248,2,"PAIN, morning, begins in an increases till noon and ceases in evening",2
+r598,248,2,"PAIN, morning, breakfast, after, amel.",1
+r599,248,2,"PAIN, morning, on opening",2
+r600,248,2,"PAIN, morning, rising, after",3
+r601,248,2,"PAIN, morning, twilight",1
+r602,248,2,"PAIN, morning, on waking",10
+r603,248,2,"PAIN, morning, walking, while",1
+r604,248,2,"PAIN, morning, working amel.",1
+r605,248,2,"PAIN, morning, 5 a.m.",1
+r606,248,2,"PAIN, morning, 7 a.m.",1
+r607,248,2,"PAIN, morning, 4 a.m., on waking",1
+r608,248,1,"PAIN, forenoon",10
+h013,248,2,"PAIN, forenoon, 8 to 9",1
+r610,248,2,"PAIN, forenoon, 10 a.m. till noon",2
+r611,248,2,"PAIN, forenoon, 11 a.m.",2
+r612,248,1,"PAIN, noon, daily",6
+r613,248,1,"PAIN, afternoon",15
+r614,248,2,"PAIN, afternoon, 1 p.m.",1
+r615,248,2,"PAIN, afternoon, 2 p.m.",3
+r616,248,3,"PAIN, afternoon, 2 p.m., after siesta",1
+r617,248,2,"PAIN, afternoon, 3 p.m.",1
+h014,248,2,"PAIN, afternoon, 3 or 4 p.m.",1
+r619,248,2,"PAIN, afternoon, 4 p.m.",5
+r620,248,3,"PAIN, afternoon, 4 p.m., after beer",1
+h015,248,2,"PAIN, afternoon, 4 to 8 p.m.",1
+r622,248,2,"PAIN, afternoon, 5 p.m.",3
+r623,248,2,"PAIN, afternoon, 6 p.m.",2
+r624,248,2,"PAIN, afternoon, on closing lids",1
+r625,248,2,"PAIN, afternoon, rolling upward or outward agg.",1
+r626,248,1,"PAIN, evening",47
+r627,248,2,"PAIN, evening, amel.",1
+r628,248,2,"PAIN, evening, 7 p.m.",2
+r629,248,2,"PAIN, evening, 8 p.m.",3
+r630,249,2,"PAIN, evening, on reading and writing",1
+r631,249,2,"PAIN, evening, air, in open",2
+r632,249,2,"PAIN, evening, gaslight, by",5
+r633,249,2,"PAIN, evening, looking at light",2
+r634,249,2,"PAIN, evening, lying down",3
+r635,249,2,"PAIN, evening, reading, while",5
+r636,249,2,"PAIN, evening, sewing, while",3
+r637,249,2,"PAIN, evening, sitting, while",1
+r638,249,2,"PAIN, evening, twilight",1
+r639,249,2,"PAIN, evening, walking and driving",1
+r640,249,2,"PAIN, evening, writing, while",2
+r641,249,1,"PAIN, night",36
+r642,249,2,"PAIN, night, bed, in",3
+r643,249,2,"PAIN, night, throbbing",1
+r644,249,2,"PAIN, night, waking, on",2
+r645,249,2,"PAIN, night, 11 p.m.",2
+r646,249,2,"PAIN, night, midnight",1
+r647,249,3,"PAIN, night, midnight, after",2
+r648,249,2,"PAIN, night, 3 a.m.",1
+r649,249,1,"PAIN, air, cold, agg.",8
+r650,249,2,"PAIN, air, cold, agg., amel.",2
+o30908,249,2,"PAIN, air, cold, agg., open air agg.",10
+o30909,249,3,"PAIN, air, cold, agg., open air agg., amel.",8
+r653,249,1,"PAIN, alternates with pain in abdomen",1
+h016,249,2,"PAIN, alternates with pain in abdomen, left arm",1
+h017,249,2,"PAIN, alternates with pain in abdomen, ovary",1
+r656,249,1,"PAIN, bathing eye agg.",1
+o30915,249,2,"PAIN, bathing eye agg., amel.",4
+o30916,249,2,"PAIN, bathing eye agg., in cold water amel.",4
+r659,249,1,"PAIN, bending forward agg.",1
+r660,249,1,"PAIN, blowing nose amel.",1
+r661,249,1,"PAIN, blow, from a",2
+r662,249,1,"PAIN, centre of eyeballs",1
+r663,249,1,"PAIN, changing from dark to light and light to dark",1
+r664,249,1,"PAIN, chill, during",1
+r665,249,1,"PAIN, close, must",3
+r666,249,1,"PAIN, closing agg.",11
+o31045,249,2,"PAIN, closing agg., amel.",7
+r668,249,1,"PAIN, coition, after",1
+r669,249,1,"PAIN, cold water amel.",11
+r670,249,1,"PAIN, coughing, on",2
+r671,249,1,"PAIN, covering eyes with hand amel.",2
+r672,249,1,"PAIN, dark, amel.",5
+r673,249,1,"PAIN, dinner, after",4
+r674,249,1,"PAIN, dryness of eyeballs, with",1
+r675,249,1,"PAIN, eating, after",2
+r676,249,1,"PAIN, exertion of vision, from",21
+r677,249,2,"PAIN, exertion of vision, from, fine work",10
+r678,249,1,"PAIN, fire, glare of",1
+r679,249,1,"PAIN, glaucoma, in",2
+r680,249,1,"PAIN, headache, during",7
+r681,249,2,"PAIN, headache, during, in occiput",1
+r682,249,1,"PAIN, heart, at each beat of",1
+r683,249,1,"PAIN, heat, during",15
+r684,249,1,"PAIN, increasing until noon",4
+r685,249,1,"PAIN, intermitting (See Paroxysmal)",0
+r686,249,1,"PAIN, light",33
+r687,249,2,"PAIN, light, artificial",20
+r688,249,2,"PAIN, light, daylight, from",7
+r689,249,2,"PAIN, light, dim light agg.",4
+r690,250,2,"PAIN, light, strong",12
+r691,250,1,"PAIN, looking, when (See Turning)",12
+r692,250,2,"PAIN, looking, when (See Turning), candlelight, at",2
+r693,250,2,"PAIN, looking, when (See Turning), sideways",1
+r694,250,2,"PAIN, looking, when (See Turning), steadily",15
+r695,250,3,"PAIN, looking, when (See Turning), steadily, at near objects",2
+r696,250,2,"PAIN, looking, when (See Turning), upward",9
+h018,250,1,"PAIN, lying, while",5
+r698,250,2,"PAIN, lying, while, amel.",2
+r699,250,2,"PAIN, lying, while, on left side amel.",1
+r700,250,2,"PAIN, lying, while, on painful side amel.",2
+r701,250,1,"PAIN, masturbation, after",1
+r702,250,1,"PAIN, menses, during",3
+o66195,250,1,"PAIN, motion of eyes, on",54
+r704,250,2,"PAIN, motion of eyes, on, amel.",2
+r705,250,2,"PAIN, motion of eyes, on, quick",2
+r706,250,1,"PAIN, opening lids, on",7
+r707,250,1,"PAIN, paroxysmal",8
+r708,250,1,"PAIN, periodic",9
+r709,250,1,"PAIN, pressure agg.",5
+o31316,250,2,"PAIN, pressure agg., after",1
+o31317,250,2,"PAIN, pressure agg., amel.",15
+r712,250,1,"PAIN, pulsating",5
+r713,250,1,"PAIN, raising lids",1
+r714,250,1,"PAIN, reading",60
+r715,250,2,"PAIN, reading, by candlelight",7
+r716,250,1,"PAIN, rest agg.",6
+o31325,250,2,"PAIN, rest agg., amel.",2
+r718,250,1,"PAIN, rheumatic",7
+r719,250,1,"PAIN, ring, as from a",1
+r720,250,1,"PAIN, rising, when",3
+r721,250,1,"PAIN, rubbing agg.",4
+o31334,250,2,"PAIN, rubbing agg., amel.",3
+r723,250,1,"PAIN, sewing, while",5
+r724,250,2,"PAIN, sewing, while, on fine work",6
+r725,250,1,"PAIN, sitting, while",3
+r726,250,1,"PAIN, sleep, before",2
+r727,250,2,"PAIN, sleep, before, amel.",3
+r728,250,2,"PAIN, sleep, before, after",3
+r729,250,1,"PAIN, smoking, from",1
+r730,250,1,"PAIN, spark, as from",1
+r731,250,1,"PAIN, step, at each",1
+r732,250,1,"PAIN, stool, during",1
+r733,250,2,"PAIN, stool, during, after",1
+r734,250,1,"PAIN, stooping, when",7
+r735,250,1,"PAIN, storm, before",3
+r736,250,2,"PAIN, storm, before, during",3
+r737,250,1,"PAIN, strained, as if",2
+r738,250,1,"PAIN, sunlight agg.",9
+r739,250,1,"PAIN, sunrise until sunset",1
+r740,250,1,"PAIN, swallowing, when",1
+r741,250,1,"PAIN, thunderstorm, during",1
+r742,250,1,"PAIN, thinking of the pain agg.",2
+r743,250,1,"PAIN, touch agg.",15
+r744,251,1,"PAIN, turning sideways",15
+o31532,251,2,"PAIN, turning sideways, right, to",1
+o31533,251,2,"PAIN, turning sideways, upwards",9
+r747,251,1,"PAIN, urination profuse, amel.",9
+r748,251,1,"PAIN, using (See Reading)",12
+r749,251,1,"PAIN, walking, while",2
+r750,251,2,"PAIN, walking, while, after",7
+h019,251,2,"PAIN, walking, while, in open air",4
+r752,251,3,"PAIN, walking, while, in open air, amel.",3
+r753,251,1,"PAIN, walking in warm room amel.",1
+r754,251,1,"PAIN, warmth agg.",6
+o31545,251,2,"PAIN, warmth agg., amel.",14
+r756,251,1,"PAIN, warm room agg.",4
+r757,251,1,"PAIN, warm stove agg.",2
+r758,251,1,"PAIN, warm, weather agg.",1
+r759,251,1,"PAIN, weeping, after",2
+r760,251,1,"PAIN, wet weather agg.",5
+r761,251,1,"PAIN, wine, after a glass",1
+r762,251,1,"PAIN, wind agg.",2
+r763,251,1,"PAIN, writing, while (See Exertion)",10
+r764,251,1,"PAIN, yawning",1
+r765,251,1,"PAIN, Extending, arm, to",1
+o31137,251,2,"PAIN, Extending, arm, to, backward",18
+o31138,251,2,"PAIN, Extending, arm, to, downward",6
+o31139,251,2,"PAIN, Extending, arm, to, ear, to",2
+o31140,251,2,"PAIN, Extending, arm, to, face, over side of",2
+o31141,251,2,"PAIN, Extending, arm, to, forehead, across",2
+o31142,251,3,"PAIN, Extending, arm, to, forehead, across, to",5
+o31143,251,2,"PAIN, Extending, arm, to, frontal sinus, to",1
+o31144,251,2,"PAIN, Extending, arm, to, occiput",11
+o31145,251,2,"PAIN, Extending, arm, to, outward",3
+o31146,251,2,"PAIN, Extending, arm, to, temples, to",6
+o31147,251,2,"PAIN, Extending, arm, to, vertex, to",4
+r777,251,1,"PAIN, around the eyes",13
+r778,251,1,"PAIN, behind the eyes (See Head)",0
+r779,251,1,"PAIN, between",5
+r780,251,2,"PAIN, between, eye and nose",1
+r781,251,1,"PAIN, canthi",5
+r782,251,2,"PAIN, canthi, inner",8
+r783,251,3,"PAIN, canthi, inner, extending around eyebrows",1
+r784,251,2,"PAIN, canthi, outer",2
+r785,251,2,"PAIN, canthi, on closing the eye",1
+r786,251,1,"PAIN, eyebrows",15
+r787,251,2,"PAIN, eyebrows, right",3
+r788,251,2,"PAIN, eyebrows, night agg.",2
+r789,251,2,"PAIN, eyebrows, reading, while",1
+r790,251,2,"PAIN, eyebrows, walking, after",1
+r791,251,1,"PAIN, eye and nose, between, in the afternoon",1
+r792,251,1,"PAIN, lachrymal duct",1
+r793,251,1,"PAIN, lids",10
+r794,251,2,"PAIN, lids, morning",5
+r795,251,2,"PAIN, lids, afternoon",1
+r796,251,2,"PAIN, lids, 1 p.m.",1
+r797,251,2,"PAIN, lids, closing, on",3
+r798,251,2,"PAIN, lids, using eyes, when",1
+r799,251,2,"PAIN, lids, evening",2
+r800,251,1,"PAIN, aching",114
+r801,252,2,"PAIN, aching, left",1
+r802,252,2,"PAIN, aching, morning",6
+r803,252,3,"PAIN, aching, morning, after breakfast amel.",1
+r804,252,3,"PAIN, aching, morning, waking, on",2
+r805,252,2,"PAIN, aching, forenoon",2
+r806,252,2,"PAIN, aching, afternoon",1
+r807,252,2,"PAIN, aching, evening",11
+r808,252,3,"PAIN, aching, evening, amel.",1
+r809,252,3,"PAIN, aching, evening, light, from",3
+r810,252,3,"PAIN, aching, evening, lying down, after",1
+r811,252,2,"PAIN, aching, night",5
+h020,252,3,"PAIN, aching, night, closing lids",1
+r813,252,4,"PAIN, aching, night, closing lids, amel.",2
+r814,252,2,"PAIN, aching, air, open amel.",1
+r815,252,2,"PAIN, aching, light, bright agg.",5
+r816,252,2,"PAIN, aching, looking sharply, when",6
+o30870,252,3,"PAIN, aching, looking sharply, when, at near objects",1
+o30871,252,3,"PAIN, aching, looking sharply, when, straining sight",5
+o30872,252,3,"PAIN, aching, looking sharply, when, up",1
+r820,252,2,"PAIN, aching, moving eyes agg.",8
+r821,252,2,"PAIN, aching, nausea, with",1
+r822,252,2,"PAIN, aching, onanism, after",1
+r823,252,2,"PAIN, aching, pressure, after",1
+r824,252,3,"PAIN, aching, pressure, after, amel.",1
+r825,252,2,"PAIN, aching, reading, while",9
+r826,252,2,"PAIN, aching, riding, while",1
+r827,252,2,"PAIN, aching, sleep, before",1
+r828,252,2,"PAIN, aching, stooping",1
+r829,252,2,"PAIN, aching, sunlight agg.",1
+r830,252,2,"PAIN, aching, touching, when",1
+r831,252,2,"PAIN, aching, walking in open air, while",2
+r832,252,2,"PAIN, aching, warmth amel.",2
+r833,252,2,"PAIN, aching, writing, while",1
+r834,252,2,"PAIN, aching, canthi",1
+r835,252,3,"PAIN, aching, canthi, inner",5
+r836,252,3,"PAIN, aching, canthi, outer",3
+r837,252,1,"PAIN, biting (See Burning)",0
+r838,252,1,"PAIN, boring",21
+r839,252,1,"PAIN, bruised (See Sore)",0
+r840,252,1,"PAIN, burning, smarting, biting",195
+r936,252,2,"PAIN, burning, smarting, biting, daytime only",6
+o30953,252,3,"PAIN, burning, smarting, biting, daytime only, reading, while",1
+r844,253,2,"PAIN, burning, smarting, biting, morning",39
+r845,253,2,"PAIN, burning, smarting, biting, breakfast, after",1
+r846,253,2,"PAIN, burning, smarting, biting, rising, on",6
+r847,253,2,"PAIN, burning, smarting, biting, waking, on",10
+h021,253,2,"PAIN, burning, smarting, biting, washing",2
+r849,253,3,"PAIN, burning, smarting, biting, washing, amel.",1
+r850,253,2,"PAIN, burning, smarting, biting, forenoon",8
+r851,253,2,"PAIN, burning, smarting, biting, noon",2
+r852,253,2,"PAIN, burning, smarting, biting, 12-30 p.m.",1
+r853,253,2,"PAIN, burning, smarting, biting, afternoon",15
+r854,253,3,"PAIN, burning, smarting, biting, afternoon, menses, during",1
+r855,253,2,"PAIN, burning, smarting, biting, evening",44
+r856,253,3,"PAIN, burning, smarting, biting, evening, air, in open",1
+r857,253,3,"PAIN, burning, smarting, biting, evening, bed, after going to",1
+r858,253,3,"PAIN, burning, smarting, biting, evening, candlelight, by",5
+r859,253,3,"PAIN, burning, smarting, biting, evening, fire, on looking at",3
+r860,253,3,"PAIN, burning, smarting, biting, evening, gaslight",1
+r861,253,3,"PAIN, burning, smarting, biting, evening, lying down amel.",1
+r862,253,3,"PAIN, burning, smarting, biting, evening, reading, while",4
+r863,253,3,"PAIN, burning, smarting, biting, evening, twilight",2
+r864,253,3,"PAIN, burning, smarting, biting, evening, writing, while",1
+h022,253,3,"PAIN, burning, smarting, biting, evening, 6 to 8 p.m.",1
+r866,253,2,"PAIN, burning, smarting, biting, night",16
+r867,253,3,"PAIN, burning, smarting, biting, night, reading in bed, while",1
+r868,253,3,"PAIN, burning, smarting, biting, night, like balls of fire",1
+r869,253,3,"PAIN, burning, smarting, biting, night, midnight, after",1
+h023,253,2,"PAIN, burning, smarting, biting, air, in open",7
+r871,253,3,"PAIN, burning, smarting, biting, air, in open, amel.",3
+r872,253,2,"PAIN, burning, smarting, biting, alternately",1
+r873,253,3,"PAIN, burning, smarting, biting, alternately, amel.",1
+o30933,253,2,"PAIN, burning, smarting, biting, candlelight",8
+r875,253,3,"PAIN, burning, smarting, biting, candlelight, amel.",1
+r876,253,2,"PAIN, burning, smarting, biting, chill, before",1
+r877,253,2,"PAIN, burning, smarting, biting, closing lids",10
+r878,253,2,"PAIN, burning, smarting, biting, cold bathing amel.",6
+o30950,253,3,"PAIN, burning, smarting, biting, cold bathing amel., wind",1
+r880,253,2,"PAIN, burning, smarting, biting, cough, with",3
+r881,253,2,"PAIN, burning, smarting, biting, dim light agg.",2
+r882,253,2,"PAIN, burning, smarting, biting, dinner, after",4
+r883,253,2,"PAIN, burning, smarting, biting, exertion of vision",5
+r884,253,2,"PAIN, burning, smarting, biting, fire, looking at the",5
+r885,253,2,"PAIN, burning, smarting, biting, headache, during",6
+r886,253,2,"PAIN, burning, smarting, biting, heat, during",5
+r887,253,2,"PAIN, burning, smarting, biting, itching",3
+r888,253,2,"PAIN, burning, smarting, biting, light agg.",4
+h024,253,3,"PAIN, burning, smarting, biting, light agg., bright",4
+o30975,253,4,"PAIN, burning, smarting, biting, light agg., bright, amel.",1
+r891,253,2,"PAIN, burning, smarting, biting, looking sharply, when",6
+o30977,253,3,"PAIN, burning, smarting, biting, looking sharply, when, at the light",2
+o30978,253,3,"PAIN, burning, smarting, biting, looking sharply, when, upward",1
+r894,253,2,"PAIN, burning, smarting, biting, lying down agg.",1
+r895,253,2,"PAIN, burning, smarting, biting, menses, during",4
+r896,253,2,"PAIN, burning, smarting, biting, motion agg.",1
+r897,253,2,"PAIN, burning, smarting, biting, one then the other",2
+r898,253,2,"PAIN, burning, smarting, biting, opening the eyes, on",3
+r899,253,2,"PAIN, burning, smarting, biting, operations, after",2
+r900,253,2,"PAIN, burning, smarting, biting, periodic",1
+r901,253,2,"PAIN, burning, smarting, biting, pressure amel.",1
+r902,254,2,"PAIN, burning, smarting, biting, reading, while",32
+r903,254,3,"PAIN, burning, smarting, biting, reading, while, fine print",5
+r904,254,2,"PAIN, burning, smarting, biting, rub, must",3
+h025,254,2,"PAIN, burning, smarting, biting, rubbing, on",5
+r906,254,3,"PAIN, burning, smarting, biting, rubbing, on, amel.",1
+r907,254,2,"PAIN, burning, smarting, biting, sand, as if, in",9
+r908,254,2,"PAIN, burning, smarting, biting, sleep, after",2
+r909,254,3,"PAIN, burning, smarting, biting, sleep, after, amel.",1
+r910,254,2,"PAIN, burning, smarting, biting, smoke, as from",6
+r911,254,2,"PAIN, burning, smarting, biting, spots",1
+r912,254,2,"PAIN, burning, smarting, biting, stool, after",1
+r913,254,2,"PAIN, burning, smarting, biting, stooping, on",1
+r914,254,2,"PAIN, burning, smarting, biting, touch agg.",2
+r915,254,2,"PAIN, burning, smarting, biting, warm bed agg.",1
+o31018,254,3,"PAIN, burning, smarting, biting, warm bed agg., room, in a",4
+o31019,254,4,"PAIN, burning, smarting, biting, warm bed agg., room, in a, walking, in a amel.",1
+r918,254,2,"PAIN, burning, smarting, biting, work, during",2
+r919,254,2,"PAIN, burning, smarting, biting, writing, while",9
+r920,254,2,"PAIN, burning, smarting, biting, yawning",1
+r921,254,2,"PAIN, burning, smarting, biting, around the eye",6
+r922,254,2,"PAIN, burning, smarting, biting, back of the eyes",1
+r923,254,2,"PAIN, burning, smarting, biting, canthi",59
+r924,254,3,"PAIN, burning, smarting, biting, canthi, morning",4
+r925,254,4,"PAIN, burning, smarting, biting, canthi, morning, waking, on",1
+r926,254,3,"PAIN, burning, smarting, biting, canthi, evening",3
+r927,254,4,"PAIN, burning, smarting, biting, canthi, evening, 5 p.m.",1
+r928,254,3,"PAIN, burning, smarting, biting, canthi, night",1
+r929,254,3,"PAIN, burning, smarting, biting, canthi, itching",1
+r930,254,3,"PAIN, burning, smarting, biting, canthi, washing, after",1
+r931,254,3,"PAIN, burning, smarting, biting, canthi, writing",1
+r932,254,3,"PAIN, burning, smarting, biting, canthi, inner",23
+r933,254,4,"PAIN, burning, smarting, biting, canthi, inner, morning",2
+r934,254,3,"PAIN, burning, smarting, biting, canthi, outer",20
+r935,254,2,"PAIN, burning, smarting, biting, margins of lids",44
+o30982,254,3,"PAIN, burning, smarting, biting, margins of lids, daytime only",2
+r937,254,3,"PAIN, burning, smarting, biting, margins of lids, morning",7
+r938,254,4,"PAIN, burning, smarting, biting, margins of lids, morning, on waking",4
+r939,254,4,"PAIN, burning, smarting, biting, margins of lids, morning, reading, while",1
+r940,254,3,"PAIN, burning, smarting, biting, margins of lids, forenoon",1
+r941,254,3,"PAIN, burning, smarting, biting, margins of lids, afternoon",3
+r942,254,3,"PAIN, burning, smarting, biting, margins of lids, evening",3
+r943,254,1,"PAIN, bursting",13
+r944,254,2,"PAIN, bursting, night",1
+r945,254,2,"PAIN, bursting, bubble, like a",1
+r946,254,2,"PAIN, bursting, light",1
+r947,254,2,"PAIN, bursting, lying",1
+r948,254,2,"PAIN, bursting, reading, while",2
+r949,254,2,"PAIN, bursting, stooping agg.",1
+r950,254,2,"PAIN, bursting, turning head agg.",1
+r951,254,2,"PAIN, bursting, using eyes",1
+r952,254,1,"PAIN, clawing in",1
+r953,254,1,"PAIN, constricting",8
+r954,254,2,"PAIN, constricting, evening",1
+r955,255,1,"PAIN, contractive",8
+r956,255,2,"PAIN, contractive, morning",1
+r957,255,2,"PAIN, contractive, evening",4
+r958,255,2,"PAIN, contractive, eyes, forehead and face concentrate in tip of nose",1
+r959,255,1,"PAIN, crushing",2
+r960,255,1,"PAIN, cutting",49
+r961,255,2,"PAIN, cutting, right",2
+r962,255,2,"PAIN, cutting, left",4
+r963,255,2,"PAIN, cutting, morning",1
+r964,255,2,"PAIN, cutting, evening",2
+r965,255,2,"PAIN, cutting, night agg.",1
+r966,255,2,"PAIN, cutting, candlelight",1
+r967,255,2,"PAIN, cutting, exerting them",2
+r968,255,2,"PAIN, cutting, lying on left side",1
+r969,255,2,"PAIN, cutting, moving, on",2
+r970,255,2,"PAIN, cutting, opening eyes",1
+r971,255,2,"PAIN, cutting, pressure amel.",2
+r972,255,2,"PAIN, cutting, reading, while",4
+r973,255,2,"PAIN, cutting, rest, during",1
+r974,255,2,"PAIN, cutting, stooping, on, agg.",1
+r975,255,2,"PAIN, cutting, sunlight",1
+r976,255,2,"PAIN, cutting, touching, from",1
+r977,255,2,"PAIN, cutting, walking in a warm room amel.",1
+r978,255,2,"PAIN, cutting, writing, from",3
+r979,255,2,"PAIN, cutting, extending inward",5
+o31065,255,3,"PAIN, cutting, extending inward, to head",1
+o31064,255,3,"PAIN, cutting, extending inward, outward",3
+r982,255,2,"PAIN, cutting, canthi",2
+r983,255,3,"PAIN, cutting, canthi, outer",3
+r984,255,1,"PAIN, darting (See Shooting)",0
+r985,255,1,"PAIN, digging",5
+r986,255,2,"PAIN, digging, canthi",1
+r987,255,1,"PAIN, dragging",3
+r988,255,1,"PAIN, drawing",60
+r989,255,2,"PAIN, drawing, daytime only",1
+r990,255,2,"PAIN, drawing, morning",2
+r991,255,2,"PAIN, drawing, forenoon",1
+r992,255,2,"PAIN, drawing, afternoon",1
+r993,255,2,"PAIN, drawing, evening",2
+r994,255,2,"PAIN, drawing, night",1
+r995,255,2,"PAIN, drawing, backward, the eyeball",21
+r996,255,2,"PAIN, drawing, closing eyes agg.",1
+r997,255,2,"PAIN, drawing, dinner, after",1
+r998,255,2,"PAIN, drawing, lamplight agg.",1
+r999,255,2,"PAIN, drawing, motion, on",3
+r1000,255,2,"PAIN, drawing, open air amel.",1
+r1001,255,2,"PAIN, drawing, outward",3
+r1002,255,2,"PAIN, drawing, pain in occiput during",1
+r1003,255,2,"PAIN, drawing, sitting, while",1
+r1004,255,2,"PAIN, drawing, standing, while",1
+r1005,255,2,"PAIN, drawing, sticking",1
+r1006,255,2,"PAIN, drawing, stiff sensation, in muscles",1
+r1007,255,2,"PAIN, drawing, string, as with a, to back of head or into the brain",5
+r1008,255,2,"PAIN, drawing, together",4
+r1009,255,2,"PAIN, drawing, toward the temple",1
+r1010,255,2,"PAIN, drawing, turning sideways",1
+r1011,255,2,"PAIN, drawing, walking, while",1
+r1012,255,2,"PAIN, drawing, extending to ear",1
+o31096,255,3,"PAIN, drawing, extending to ear, head",2
+o31097,255,4,"PAIN, drawing, extending to ear, head, to forehead",1
+o31098,255,3,"PAIN, drawing, extending to ear, occiput",2
+o31099,255,3,"PAIN, drawing, extending to ear, vertex",1
+r1017,256,2,"PAIN, drawing, canthi, in",2
+r1018,256,1,"PAIN, foreign body, as from",49
+r1019,256,2,"PAIN, foreign body, as from, right",1
+r1020,256,2,"PAIN, foreign body, as from, morning",1
+r1021,256,2,"PAIN, foreign body, as from, forenoon",3
+r1022,256,2,"PAIN, foreign body, as from, evening",1
+r1023,256,2,"PAIN, foreign body, as from, little grains",3
+r1024,256,2,"PAIN, foreign body, as from, under conjunctiva",1
+r1025,256,2,"PAIN, foreign body, as from, back behind lids",3
+r1026,256,2,"PAIN, foreign body, as from, canthi, in",1
+r1027,256,3,"PAIN, foreign body, as from, canthi, in, inner",2
+r1028,256,3,"PAIN, foreign body, as from, canthi, in, outer",6
+r1029,256,1,"PAIN, gnawing",5
+r1030,256,1,"PAIN, grinding",1
+r1031,256,1,"PAIN, jerking",3
+r1032,256,2,"PAIN, jerking, left",2
+r1033,256,1,"PAIN, lancinating (See Cutting)",0
+r1034,256,1,"PAIN, nail, as if",1
+r1035,256,1,"PAIN, piercing (See Stitching)",0
+r1036,256,1,"PAIN, pinching",3
+r1037,256,1,"PAIN, pressing, pressure, etc.",173
+o31294,256,2,"PAIN, pressing, pressure, etc., right",8
+o31265,256,2,"PAIN, pressing, pressure, etc., left",6
+o31247,256,2,"PAIN, pressing, pressure, etc., daytime only",3
+o31275,256,2,"PAIN, pressing, pressure, etc., morning",15
+o31276,256,3,"PAIN, pressing, pressure, etc., morning, waking, on",5
+h026,256,3,"PAIN, pressing, pressure, etc., morning, 5 a.m.",1
+o31261,256,2,"PAIN, pressing, pressure, etc., forenoon",3
+o31284,256,2,"PAIN, pressing, pressure, etc., noon",4
+o31235,256,2,"PAIN, pressing, pressure, etc., afternoon",7
+o31236,256,3,"PAIN, pressing, pressure, etc., afternoon, 2 p.m., after a nap",1
+o31237,256,3,"PAIN, pressing, pressure, etc., afternoon, 4 p.m., daily",1
+o31250,256,2,"PAIN, pressing, pressure, etc., evening",28
+o31251,256,3,"PAIN, pressing, pressure, etc., evening, air, in open",2
+o31252,256,3,"PAIN, pressing, pressure, etc., evening, bed, after going to",1
+o31253,256,3,"PAIN, pressing, pressure, etc., evening, candlelight, in",3
+o31254,256,3,"PAIN, pressing, pressure, etc., evening, reading, while",2
+o31255,256,3,"PAIN, pressing, pressure, etc., evening, twilight, in",1
+o31280,256,2,"PAIN, pressing, pressure, etc., night",6
+o31283,256,3,"PAIN, pressing, pressure, etc., night, open air, in",1
+o31282,256,3,"PAIN, pressing, pressure, etc., night, on waking",2
+o31281,256,3,"PAIN, pressing, pressure, etc., night, 11 p.m.",2
+h027,256,2,"PAIN, pressing, pressure, etc., air, in open",5
+o31239,256,3,"PAIN, pressing, pressure, etc., air, in open, amel.",3
+r1062,257,2,"PAIN, pressing, pressure, etc., burning, alternating with",1
+r1063,257,2,"PAIN, pressing, pressure, etc., candlelight",6
+r1064,257,2,"PAIN, pressing, pressure, etc., closing eyes, when",3
+r1065,257,2,"PAIN, pressing, pressure, etc., dark amel. (See Light)",3
+r1066,257,2,"PAIN, pressing, pressure, etc., dinner, after",4
+r1067,257,2,"PAIN, pressing, pressure, etc., eating, after",1
+r1068,257,2,"PAIN, pressing, pressure, etc., fever, during",3
+r1069,257,2,"PAIN, pressing, pressure, etc., fine work, during",2
+r1070,257,2,"PAIN, pressing, pressure, etc., hard substance in, as from a",1
+r1071,257,2,"PAIN, pressing, pressure, etc., headache, during",2
+r1072,257,2,"PAIN, pressing, pressure, etc., inward",10
+r1073,257,2,"PAIN, pressing, pressure, etc., light, agg.",8
+r1074,257,2,"PAIN, pressing, pressure, etc., looking, when",7
+r1075,257,3,"PAIN, pressing, pressure, etc., looking, when, at one point agg.",2
+r1076,257,3,"PAIN, pressing, pressure, etc., looking, when, at candlelight",2
+r1077,257,3,"PAIN, pressing, pressure, etc., looking, when, as from looking at sun",1
+r1078,257,3,"PAIN, pressing, pressure, etc., looking, when, sideways",1
+r1079,257,3,"PAIN, pressing, pressure, etc., looking, when, steadily",2
+r1080,257,3,"PAIN, pressing, pressure, etc., looking, when, up",3
+r1081,257,2,"PAIN, pressing, pressure, etc., menses, during",3
+o66201,257,2,"PAIN, pressing, pressure, etc., moving eyes, when",15
+r1083,257,3,"PAIN, pressing, pressure, etc., moving eyes, when, amel.",1
+r1084,257,2,"PAIN, pressing, pressure, etc., opening eyes",2
+r1085,257,2,"PAIN, pressing, pressure, etc., outward",43
+r1086,257,3,"PAIN, pressing, pressure, etc., outward, when pressing throat",1
+r1087,257,2,"PAIN, pressing, pressure, etc., periodical",2
+r1088,257,2,"PAIN, pressing, pressure, etc., plug, like a",2
+r1089,257,2,"PAIN, pressing, pressure, etc., pressing amel.",4
+r1090,257,2,"PAIN, pressing, pressure, etc., reading, while",18
+r1091,257,2,"PAIN, pressing, pressure, etc., rest, amel.",2
+r1092,257,2,"PAIN, pressing, pressure, etc., rubbing agg.",1
+o31296,257,3,"PAIN, pressing, pressure, etc., rubbing agg., amel.",2
+r1094,257,2,"PAIN, pressing, pressure, etc., sleep, as from loss of",1
+r1095,257,2,"PAIN, pressing, pressure, etc., smoking, from",1
+r1096,257,2,"PAIN, pressing, pressure, etc., stooping agg.",4
+r1097,257,2,"PAIN, pressing, pressure, etc., straining eyes",3
+r1098,257,2,"PAIN, pressing, pressure, etc., stye on lid, as from",1
+r1099,257,2,"PAIN, pressing, pressure, etc., throbbing in temples, after",1
+r1100,257,2,"PAIN, pressing, pressure, etc., touching agg.",4
+r1101,257,2,"PAIN, pressing, pressure, etc., turning eyes agg.",2
+o31305,257,3,"PAIN, pressing, pressure, etc., turning eyes agg., to right",1
+r1103,257,2,"PAIN, pressing, pressure, etc., walking, after",2
+h028,257,3,"PAIN, pressing, pressure, etc., walking, after, while, in open air",2
+h029,257,3,"PAIN, pressing, pressure, etc., walking, after, in open air amel.",2
+r1106,257,2,"PAIN, pressing, pressure, etc., warm bed amel.",1
+h030,257,3,"PAIN, pressing, pressure, etc., warm bed amel., room agg.",1
+r1108,257,2,"PAIN, pressing, pressure, etc., warmth amel.",2
+r1109,257,2,"PAIN, pressing, pressure, etc., washing in cold water amel.",4
+r1110,257,2,"PAIN, pressing, pressure, etc., weakness, causing",2
+r1111,257,2,"PAIN, pressing, pressure, etc., writing, while",1
+r1112,257,2,"PAIN, pressing, pressure, etc., extending downward",5
+o31258,257,3,"PAIN, pressing, pressure, etc., extending downward, to forehead",3
+o31257,257,3,"PAIN, pressing, pressure, etc., extending downward, into head",2
+r1115,257,2,"PAIN, pressing, pressure, etc., canthi, in",7
+r1116,257,3,"PAIN, pressing, pressure, etc., canthi, in, inner",20
+r1117,257,3,"PAIN, pressing, pressure, etc., canthi, in, outer",6
+r1118,257,2,"PAIN, pressing, pressure, etc., pulled out, as if being",2
+r1119,257,3,"PAIN, pressing, pressure, etc., pulled out, as if being, shut, when",1
+r1120,257,1,"PAIN, sand, as from",89
+o31344,258,2,"PAIN, sand, as from, right",1
+o31341,258,2,"PAIN, sand, as from, morning",7
+o31340,258,2,"PAIN, sand, as from, forenoon",2
+o31336,258,2,"PAIN, sand, as from, afternoon",1
+o31339,258,2,"PAIN, sand, as from, evening",8
+o31342,258,2,"PAIN, sand, as from, night",3
+o31343,258,2,"PAIN, sand, as from, open air amel.",1
+o31337,258,2,"PAIN, sand, as from, canthi, in",4
+o31338,258,3,"PAIN, sand, as from, canthi, in, outer",6
+r1131,258,1,"PAIN, shooting (See Stitching)",0
+r1132,258,1,"PAIN, smarting (See Burning)",0
+r1133,258,1,"PAIN, sore, bruised, tender",105
+o31388,258,2,"PAIN, sore, bruised, tender, right",2
+o31364,258,2,"PAIN, sore, bruised, tender, daytime only",1
+o31380,258,2,"PAIN, sore, bruised, tender, morning",5
+o31352,258,2,"PAIN, sore, bruised, tender, afternoon",3
+o31353,258,3,"PAIN, sore, bruised, tender, afternoon, 4 p.m.",1
+o31365,258,2,"PAIN, sore, bruised, tender, evening",9
+o31366,258,3,"PAIN, sore, bruised, tender, evening, walk, after a",1
+o31384,258,2,"PAIN, sore, bruised, tender, night",4
+o31354,258,2,"PAIN, sore, bruised, tender, air agg.",1
+o31355,258,2,"PAIN, sore, bruised, tender, air, cold",3
+o31356,258,2,"PAIN, sore, bruised, tender, bending head down",1
+o31357,258,2,"PAIN, sore, bruised, tender, blow, from",1
+o31362,258,2,"PAIN, sore, bruised, tender, chill, during",1
+o31363,258,2,"PAIN, sore, bruised, tender, cold applications amel.",3
+o31369,258,2,"PAIN, sore, bruised, tender, foreign body, as from",2
+o31378,258,2,"PAIN, sore, bruised, tender, light agg.",1
+o31379,258,2,"PAIN, sore, bruised, tender, menses, during",1
+o31381,258,2,"PAIN, sore, bruised, tender, motion, during",2
+o31382,258,2,"PAIN, sore, bruised, tender, moving the lids",3
+o31383,258,3,"PAIN, sore, bruised, tender, moving the lids, eyes",17
+o31385,258,2,"PAIN, sore, bruised, tender, opening, on",1
+o31386,258,2,"PAIN, sore, bruised, tender, pressing amel.",2
+o31387,258,2,"PAIN, sore, bruised, tender, reading, while",4
+o31367,258,2,"PAIN, sore, bruised, tender, extending into the head",1
+o31359,258,2,"PAIN, sore, bruised, tender, canthi",8
+o31360,258,3,"PAIN, sore, bruised, tender, canthi, inner",6
+o31361,258,3,"PAIN, sore, bruised, tender, canthi, outer",11
+o31368,258,2,"PAIN, sore, bruised, tender, eyebrows",1
+o31370,258,2,"PAIN, sore, bruised, tender, lids",22
+h031,258,2,"PAIN, sore, bruised, tender, closing, on",2
+h032,258,2,"PAIN, sore, bruised, tender, cold air, in",1
+h033,258,2,"PAIN, sore, bruised, tender, denuded, as if",2
+h034,258,2,"PAIN, sore, bruised, tender, rubbed, as if",1
+h035,258,2,"PAIN, sore, bruised, tender, margins of",6
+h036,258,3,"PAIN, sore, bruised, tender, margins of, morning",3
+h037,258,2,"PAIN, sore, bruised, tender, splinter, as from a",3
+r1170,258,1,"PAIN, stitching",139
+r1171,259,2,"PAIN, stitching, daytime",1
+r1172,259,2,"PAIN, stitching, right",4
+r1173,259,2,"PAIN, stitching, left",10
+r1174,259,3,"PAIN, stitching, left, lying on left side",1
+r1175,259,3,"PAIN, stitching, left, to right",2
+r1176,259,3,"PAIN, stitching, left, to vertex",2
+r1177,259,2,"PAIN, stitching, morning",10
+r1178,259,3,"PAIN, stitching, morning, waking, after",1
+r1179,259,3,"PAIN, stitching, morning, 6 a.m.",1
+r1180,259,2,"PAIN, stitching, forenoon",2
+r1181,259,2,"PAIN, stitching, afternoon",2
+r1182,259,3,"PAIN, stitching, afternoon, sitting, while",1
+r1183,259,3,"PAIN, stitching, afternoon, walking, while",1
+r1184,259,2,"PAIN, stitching, evening",12
+r1185,259,3,"PAIN, stitching, evening, bed, in",1
+r1186,259,3,"PAIN, stitching, evening, coryza, during",1
+r1187,259,3,"PAIN, stitching, evening, light, when looking at",1
+r1188,259,3,"PAIN, stitching, evening, reading, while",3
+r1189,259,2,"PAIN, stitching, night",14
+r1190,259,3,"PAIN, stitching, night, 10 p.m.",1
+r1191,259,3,"PAIN, stitching, night, midnight",1
+h038,259,2,"PAIN, stitching, air, open",5
+r1193,259,3,"PAIN, stitching, air, open, amel.",2
+r1194,259,2,"PAIN, stitching, alternating with pulsation",1
+r1195,259,2,"PAIN, stitching, bed, in",1
+r1196,259,2,"PAIN, stitching, burning",1
+r1197,259,2,"PAIN, stitching, candlelight, by",2
+r1198,259,2,"PAIN, stitching, closing eyes",2
+r1199,259,2,"PAIN, stitching, coughing, when",1
+r1200,259,2,"PAIN, stitching, dinner, after",2
+r1201,259,2,"PAIN, stitching, downward",1
+r1202,259,2,"PAIN, stitching, eating, after",1
+r1203,259,2,"PAIN, stitching, exerting them, after",1
+r1204,259,2,"PAIN, stitching, headache, during",2
+r1205,259,3,"PAIN, stitching, headache, during, after a",1
+r1206,259,2,"PAIN, stitching, heat, during",1
+r1207,259,2,"PAIN, stitching, house, in",1
+r1208,259,2,"PAIN, stitching, iritis, in",4
+r1209,259,2,"PAIN, stitching, light, bright, in",11
+r1210,259,2,"PAIN, stitching, looking fixedly",2
+r1211,259,2,"PAIN, stitching, looking at anything, white or red, or at the sun",1
+h039,259,2,"PAIN, stitching, lying down",1
+o31449,259,3,"PAIN, stitching, lying down, amel.",1
+r1214,259,2,"PAIN, stitching, menses, during",1
+o31454,259,2,"PAIN, stitching, motion",10
+r1216,259,3,"PAIN, stitching, motion, amel.",5
+r1217,259,2,"PAIN, stitching, opening the eyes, on",1
+r1218,259,2,"PAIN, stitching, pannus, in",1
+r1219,259,2,"PAIN, stitching, pressure agg.",1
+o31462,259,3,"PAIN, stitching, pressure agg., amel.",5
+r1221,259,2,"PAIN, stitching, pulsating",3
+r1222,259,2,"PAIN, stitching, radiating from the eyes",1
+r1223,259,2,"PAIN, stitching, reading, while",12
+r1224,260,2,"PAIN, stitching, rheumatic",3
+r1225,260,2,"PAIN, stitching, shaking the head, on",1
+r1226,260,2,"PAIN, stitching, sleep, on going to",1
+r1227,260,2,"PAIN, stitching, stool, after",1
+r1228,260,2,"PAIN, stitching, stooping agg.",2
+r1229,260,2,"PAIN, stitching, storm, before",3
+r1230,260,2,"PAIN, stitching, sudden",1
+r1231,260,2,"PAIN, stitching, sunlight",3
+r1232,260,2,"PAIN, stitching, swallowing",1
+r1233,260,2,"PAIN, stitching, talking, while",1
+r1234,260,2,"PAIN, stitching, walking in a warm room amel.",1
+h040,260,2,"PAIN, stitching, warmth",1
+r1236,260,3,"PAIN, stitching, warmth, amel.",4
+r1237,260,2,"PAIN, stitching, warm weather agg.",1
+r1238,260,2,"PAIN, stitching, washing, while",1
+r1239,260,2,"PAIN, stitching, wet weather",1
+r1240,260,2,"PAIN, stitching, writing, while",3
+r1241,260,2,"PAIN, stitching, extending backward",9
+o31426,260,3,"PAIN, stitching, extending backward, forward",1
+o31427,260,3,"PAIN, stitching, extending backward, head, to top of",3
+o31428,260,3,"PAIN, stitching, extending backward, inward",13
+o31429,260,3,"PAIN, stitching, extending backward, occiput",8
+o31430,260,3,"PAIN, stitching, extending backward, outward",13
+o31431,260,3,"PAIN, stitching, extending backward, side of head",1
+o31432,260,3,"PAIN, stitching, extending backward, temples",2
+r1249,260,2,"PAIN, stitching, about the eyes",5
+r1250,260,3,"PAIN, stitching, about the eyes, encircles",1
+r1251,260,2,"PAIN, stitching, canthi",17
+r1252,260,3,"PAIN, stitching, canthi, inner",42
+r1253,260,4,"PAIN, stitching, canthi, inner, morning",3
+r1254,260,5,"PAIN, stitching, canthi, inner, morning, open air",1
+r1255,260,4,"PAIN, stitching, canthi, inner, evening",2
+r1256,260,3,"PAIN, stitching, canthi, outer",16
+r1257,260,2,"PAIN, stitching, eyebrows",5
+r1258,260,2,"PAIN, stitching, lachrymal duct",1
+r1259,260,1,"PAIN, stinging",12
+r1260,260,2,"PAIN, stinging, about the eyes",2
+r1261,260,2,"PAIN, stinging, canthi",5
+r1262,260,2,"PAIN, stinging, lids",2
+r1263,260,1,"PAIN, tearing",77
+r1264,260,2,"PAIN, tearing, right",7
+r1265,260,2,"PAIN, tearing, left",6
+r1266,260,2,"PAIN, tearing, morning",3
+r1267,260,3,"PAIN, tearing, morning, walking, while",1
+r1268,260,2,"PAIN, tearing, forenoon",1
+r1269,260,2,"PAIN, tearing, noon",1
+r1270,260,2,"PAIN, tearing, afternoon",5
+r1271,260,3,"PAIN, tearing, afternoon, 2 p.m.",2
+r1272,260,2,"PAIN, tearing, evening",8
+r1273,260,3,"PAIN, tearing, evening, after lying down",2
+r1274,260,2,"PAIN, tearing, night",6
+r1275,260,3,"PAIN, tearing, night, around eyes agg.",2
+r1276,260,3,"PAIN, tearing, night, bed, in",1
+r1277,261,3,"PAIN, tearing, night, waking him",1
+r1278,261,2,"PAIN, tearing, bed, in, agg.",4
+r1279,261,2,"PAIN, tearing, closing eyes",1
+r1280,261,2,"PAIN, tearing, covering, with hand amel.",1
+r1281,261,2,"PAIN, tearing, damp weather",1
+r1282,261,2,"PAIN, tearing, light, on looking at the",2
+r1283,261,2,"PAIN, tearing, menses, during",1
+r1284,261,2,"PAIN, tearing, paroxysmal",3
+r1285,261,2,"PAIN, tearing, periodic",2
+r1286,261,2,"PAIN, tearing, warmth, while",1
+r1287,261,2,"PAIN, tearing, warmth agg.",1
+r1288,261,2,"PAIN, tearing, extending to brain",1
+o31505,261,3,"PAIN, tearing, extending to brain, forehead and cheeks",1
+o31506,261,3,"PAIN, tearing, extending to brain, occiput",1
+o31507,261,3,"PAIN, tearing, extending to brain, teeth",1
+o31508,261,3,"PAIN, tearing, extending to brain, temples",3
+o31509,261,3,"PAIN, tearing, extending to brain, zygoma",1
+r1294,261,2,"PAIN, tearing, canthi, in",2
+r1295,261,3,"PAIN, tearing, canthi, in, inner",5
+r1296,261,2,"PAIN, tearing, eyebrows",6
+r1297,261,2,"PAIN, tearing, lachrymal gland",1
+r1298,261,0,PANNUS,21
+r1299,261,0,PARALYSIS of iris,3
+r1300,261,0,PARALYSIS of lids,23
+r1301,261,1,"PARALYSIS of lids, upper",40
+r1302,261,2,"PARALYSIS of lids, upper, right",7
+r1303,261,2,"PARALYSIS of lids, upper, left",2
+r1304,261,2,"PARALYSIS of lids, upper, morning",1
+r1305,261,2,"PARALYSIS of lids, upper, cold, from",2
+r1306,261,2,"PARALYSIS of lids, upper, injury, after",1
+h041,261,1,"PARALYSIS of lids, of muscles of eyeball",10
+h042,261,2,"PARALYSIS of lids, of muscles of eyeball, external recti",5
+o31563,261,3,"PARALYSIS of lids, of muscles of eyeball, external recti, internal recti",13
+h043,261,3,"PARALYSIS of lids, of muscles of eyeball, external recti, superior oblique",4
+o31565,261,2,"PARALYSIS of lids, of muscles of eyeball, ciliary",13
+o31566,261,1,"PARALYSIS of lids, optic nerve, amaurosis",72
+h044,261,2,"PARALYSIS of lids, optic nerve, amaurosis, right",1
+h045,261,3,"PARALYSIS of lids, optic nerve, amaurosis, right, then left",1
+r1315,261,0,PHOTOMANIA,9
+r1316,261,1,"PHOTOMANIA, delirium, with",1
+r1317,261,0,PHOTOPHOBIA,137
+r1318,262,1,"PHOTOPHOBIA, morning",10
+r1319,262,2,"PHOTOPHOBIA, morning, rising, on",1
+r1320,262,2,"PHOTOPHOBIA, morning, waking, on",2
+r1321,262,1,"PHOTOPHOBIA, afternoon",1
+r1322,262,1,"PHOTOPHOBIA, evening",15
+h046,262,2,"PHOTOPHOBIA, evening, 6 to 8",1
+r1324,262,1,"PHOTOPHOBIA, night",2
+r1325,262,2,"PHOTOPHOBIA, night, midnight to 3 a.m.",1
+r1326,262,1,"PHOTOPHOBIA, artificial light",24
+r1327,262,1,"PHOTOPHOBIA, blue light",1
+r1328,262,1,"PHOTOPHOBIA, chill, during",11
+r1329,262,1,"PHOTOPHOBIA, chronic",3
+r1330,262,1,"PHOTOPHOBIA, coition, after",9
+r1331,262,1,"PHOTOPHOBIA, crusts are torn from nose, if",1
+r1332,262,1,"PHOTOPHOBIA, daylight",42
+r1333,262,2,"PHOTOPHOBIA, daylight, more than gaslight",2
+r1334,262,2,"PHOTOPHOBIA, daylight, only",2
+r1335,262,2,"PHOTOPHOBIA, daylight, desires lamplight",1
+r1336,262,1,"PHOTOPHOBIA, dinner, after",1
+r1337,262,1,"PHOTOPHOBIA, fire, light of",1
+r1338,262,1,"PHOTOPHOBIA, foggy weather, in",1
+r1339,262,1,"PHOTOPHOBIA, gaslight",6
+r1340,262,1,"PHOTOPHOBIA, headache, during",4
+r1341,262,1,"PHOTOPHOBIA, inflammation, without",2
+r1342,262,1,"PHOTOPHOBIA, menses, during",2
+r1343,262,1,"PHOTOPHOBIA, onanism, after",1
+r1344,262,1,"PHOTOPHOBIA, rage, during",9
+r1345,262,1,"PHOTOPHOBIA, snow, from",2
+r1346,262,1,"PHOTOPHOBIA, straining the eyes, after",1
+r1347,262,1,"PHOTOPHOBIA, sunlight",26
+r1348,262,1,"PHOTOPHOBIA, sweat during, sun's light",1
+h047,262,1,"PHOTOPHOBIA, walking in open air",2
+r1350,262,2,"PHOTOPHOBIA, walking in open air, amel.",1
+r1351,262,1,"PHOTOPHOBIA, warm room agg.",1
+r1352,262,1,"PHOTOPHOBIA, warm weather",1
+r1353,262,0,POLYPUS (See Tumors),0
+r1354,262,0,PROTRUSION,77
+r1355,262,1,"PROTRUSION, right eye more than left",1
+r1356,262,1,"PROTRUSION, exophthalmus",20
+r1357,262,1,"PROTRUSION, sensation of",6
+r1358,262,2,"PROTRUSION, sensation of, canthi, in",1
+r1359,262,0,PTERYGIUM,16
+r1360,262,1,"PTERYGIUM, of a pink color",1
+r1361,262,0,PUCKERED conjunctiva (See Wrinkled),0
+r1362,262,0,"PULLING sensation (See Pain, drawing)",4
+r1705,262,0,PULSATION in eyes,37
+r1364,263,1,"PULSATION in eyes, morning",1
+r1365,263,2,"PULSATION in eyes, morning, lying down",1
+r1366,263,1,"PULSATION in eyes, evening",2
+r1367,263,1,"PULSATION in eyes, night",4
+r1368,263,1,"PULSATION in eyes, midnight, after",1
+r1369,263,1,"PULSATION in eyes, alternating with stitching pain",1
+r1370,263,1,"PULSATION in eyes, paroxysmal",2
+r1371,263,1,"PULSATION in eyes, reading, while",1
+r1372,263,1,"PULSATION in eyes, around the eyes",1
+r1373,263,1,"PULSATION in eyes, upper lids",1
+r1374,263,0,PUPILS contracted,76
+r1375,263,1,"PUPILS contracted, right",3
+r1376,263,2,"PUPILS contracted, right, left",2
+r1377,263,3,"PUPILS contracted, right, left, right dilated",4
+r1378,263,2,"PUPILS contracted, right, chill, during",6
+r1379,263,2,"PUPILS contracted, right, heat, during",14
+r1380,263,2,"PUPILS contracted, right, one, the other dilated",3
+r1381,263,2,"PUPILS contracted, right, perspiration",12
+o31626,263,1,"PUPILS contracted, alternately contracted and dilated in the same light",19
+o31635,263,1,"PUPILS contracted, angular",5
+o31636,263,1,"PUPILS contracted, contract, difficult to",1
+o31637,263,1,"PUPILS contracted, dilated",108
+o31646,263,2,"PUPILS contracted, dilated, right more than left",5
+o31641,263,2,"PUPILS contracted, dilated, left more than right",2
+o31638,263,2,"PUPILS contracted, dilated, chill, during",12
+o31639,263,2,"PUPILS contracted, dilated, epilepsy, before",2
+o31640,263,2,"PUPILS contracted, dilated, heat, during",15
+o31642,263,2,"PUPILS contracted, dilated, menses, before",1
+o31643,263,3,"PUPILS contracted, dilated, menses, before, during",1
+o31644,263,2,"PUPILS contracted, dilated, perspiration, during",11
+o31645,263,2,"PUPILS contracted, dilated, reading agg.",1
+o31647,263,2,"PUPILS contracted, dilated, stupor, during",1
+o31648,263,2,"PUPILS contracted, dilated, toothache, during",1
+o31649,263,1,"PUPILS contracted, insensible to light",53
+o31650,263,1,"PUPILS contracted, irregular",11
+o31651,263,1,"PUPILS contracted, sluggish",18
+o31652,263,1,"PUPILS contracted, unequal",15
+o31653,263,1,"PUPILS contracted, weak",1
+r1402,264,0,PUSTULES on the cornea (See Inflammation),0
+r1403,264,0,QUIVERING,17
+r1404,264,1,"QUIVERING, right",1
+r1405,264,1,"QUIVERING, left",1
+r1406,264,1,"QUIVERING, evening",1
+r1407,264,1,"QUIVERING, night",2
+r1408,264,1,"QUIVERING, looking down, when",1
+o31666,264,2,"QUIVERING, looking down, when, steady",1
+r1410,264,1,"QUIVERING, canthi",1
+r1411,264,1,"QUIVERING, eyebrows",6
+r1412,264,1,"QUIVERING, lids",43
+r1413,264,2,"QUIVERING, lids, right",3
+r1414,264,3,"QUIVERING, lids, right, upper",4
+h048,264,1,"QUIVERING, left, upper",3
+h049,264,1,"QUIVERING, painful",1
+h050,264,1,"QUIVERING, while reading by candlelight",1
+r1418,264,0,REDNESS,162
+r1419,264,1,"REDNESS, daytime",1
+r1420,264,1,"REDNESS, morning",14
+r1421,264,2,"REDNESS, morning, 4 a.m.",1
+r1422,264,2,"REDNESS, morning, 9 a.m. to 3 p.m.",1
+r1423,264,1,"REDNESS, evening",5
+r1424,264,1,"REDNESS, air, open, amel.",1
+r1425,264,1,"REDNESS, headache, before",2
+r1426,264,2,"REDNESS, headache, before, during",4
+r1427,264,1,"REDNESS, injuries, after",5
+r1428,264,1,"REDNESS, menses, before",1
+r1429,264,2,"REDNESS, menses, before, during",11
+r1430,264,1,"REDNESS, reading, while",5
+r1431,264,1,"REDNESS, sewing, while",3
+r1432,264,1,"REDNESS, sexual excesses, after",1
+r1433,264,1,"REDNESS, canthi",23
+r1434,264,2,"REDNESS, canthi, inner",9
+r1435,264,2,"REDNESS, canthi, outer",5
+r1436,264,1,"REDNESS, carunculæ",1
+r1437,264,1,"REDNESS, lids",66
+r1438,264,2,"REDNESS, lids, morning",2
+r1439,264,2,"REDNESS, lids, night",1
+r1440,264,2,"REDNESS, lids, menses, before",1
+r1441,264,2,"REDNESS, lids, spots",1
+r1442,265,2,"REDNESS, lids, edges of",40
+r1443,265,2,"REDNESS, lids, veins",45
+r1444,265,0,RESTLESS eyes,8
+r1445,265,0,ROLLING (See Movement),0
+r1446,265,0,"ROUGH, cornea",1
+r1447,265,1,"ROUGH, cornea, sensation on winking",2
+r1448,265,0,"RUB, desire to",19
+r1449,265,0,SARCOMA (See Tumors),0
+r1450,265,0,SCROFULOUS affections,26
+r1451,265,0,SENSITIVE to bathing,2
+o31701,265,1,"SENSITIVE to bathing, brilliant objects",5
+o31702,265,1,"SENSITIVE to bathing, cold air",8
+o31703,265,2,"SENSITIVE to bathing, cold air, lids",1
+o31704,265,1,"SENSITIVE to bathing, cold water",3
+o31705,265,1,"SENSITIVE to bathing, heat, to",7
+r1457,265,1,"SENSITIVE to bathing, light (See Photophobia)",0
+r1458,265,0,"SHINING eyes (See Brilliant, Glassy)",0
+r1459,265,0,SICKLY look around the eyes,2
+r1460,265,0,SPARKLING (See Brilliant),0
+r1461,265,0,SPASMODIC (See Movement),0
+r1462,265,0,SPASMS of lids,20
+r1463,265,1,"SPASMS of lids, night",3
+o31709,265,1,"SPASMS of lids, ciliary muscle",17
+o31710,265,1,"SPASMS of lids, orbicularis palpebrarum",2
+r1466,265,0,"SPOTS specks, etc., on the cornea",41
+o31712,265,1,"SPOTS specks, etc., on the cornea, bluish",1
+o31713,265,2,"SPOTS specks, etc., on the cornea, bluish, brown",1
+o31715,265,2,"SPOTS specks, etc., on the cornea, bluish, scars",8
+o31714,265,2,"SPOTS specks, etc., on the cornea, bluish, humid spots, in outer canthi, pain if sweat touches them",1
+o31716,265,2,"SPOTS specks, etc., on the cornea, bluish, white spots in canthi",1
+o31717,265,2,"SPOTS specks, etc., on the cornea, bluish, yellow in white of eyes",2
+o31718,265,3,"SPOTS specks, etc., on the cornea, bluish, yellow in white of eyes, marked by a network of blood vessels on cornea",1
+r1474,265,0,STAPHYLOMA,12
+r1475,265,0,STARING,114
+r1476,266,1,"STARING, morning, in open air",1
+r1477,266,1,"STARING, evening",1
+r1478,266,2,"STARING, evening, bed, in",1
+r1479,266,2,"STARING, evening, convulsions, during",1
+r1480,266,2,"STARING, evening, waking, on",1
+r1481,266,1,"STARING, night",2
+r1482,266,2,"STARING, night, sleep, during",3
+r1483,266,1,"STARING, chill, during",1
+r1484,266,1,"STARING, cold, after being",1
+r1485,266,1,"STARING, headache, during",3
+r1486,266,1,"STARING, menses, before",1
+r1487,266,1,"STARING, music, on listening to",1
+r1488,266,1,"STARING, pain in forehead, with",1
+h051,266,2,"STARING, pain in forehead, with, occiput",1
+r1490,266,1,"STARING, sensation as though",1
+r1491,266,1,"STARING, sleeplessness, with",1
+r1492,266,1,"STARING, stupor, during",2
+r1493,266,1,"STARING, sunstroke",1
+r1494,266,1,"STARING, unconsciousness",1
+r1495,266,1,"STARING, waking, on",5
+r1496,266,2,"STARING, waking, on, suddenly",2
+r1497,266,0,STIFFNESS of eyeballs,18
+o31744,266,1,"STIFFNESS of eyeballs, muscles about the eyes",3
+o31743,266,1,"STIFFNESS of eyeballs, lids",11
+r1500,266,0,STRABISMUS,49
+r1501,266,1,"STRABISMUS, alternate days",1
+r1502,266,1,"STRABISMUS, convergent",6
+r1503,266,1,"STRABISMUS, divergent",13
+r1504,266,1,"STRABISMUS, mental emotions or fear agg.",3
+r1505,266,1,"STRABISMUS, periodic",5
+r1506,266,1,"STRABISMUS, reading, while",1
+r1507,266,1,"STRABISMUS, right turned in",1
+r1508,266,1,"STRABISMUS, left turned in",2
+r1509,266,0,STRICTURE of lachrymal duct,10
+r1510,266,0,STYES,37
+r1511,266,1,"STYES, right eye",4
+r1512,266,1,"STYES, left eye",6
+r1513,266,1,"STYES, induration from",6
+r1514,266,1,"STYES, recurrent",7
+r1515,266,1,"STYES, canthi, inner",3
+r1516,266,2,"STYES, canthi, inner, toward inner",7
+r1517,266,2,"STYES, canthi, inner, outer",1
+r1518,266,1,"STYES, upper lid",7
+r1519,266,1,"STYES, lower lid",11
+r1520,266,0,SUFFUSED (See Lachrymation),0
+r1521,266,0,SUGGILATIONS (See Ecchymosis),0
+r1522,266,0,SUNKEN,96
+r1523,266,1,"SUNKEN, morning",2
+r1524,266,1,"SUNKEN, forenoon",2
+r1525,267,1,"SUNKEN, afternoon agg.",1
+r1526,267,1,"SUNKEN, menses, during",1
+r1527,267,0,SWOLLEN,58
+r1528,267,1,"SWOLLEN, right",1
+r1529,267,1,"SWOLLEN, left",1
+r1530,267,1,"SWOLLEN, morning",13
+r1531,267,2,"SWOLLEN, morning, headache, after",1
+r1532,267,2,"SWOLLEN, morning, waking, on",5
+r1533,267,1,"SWOLLEN, forenoon",3
+r1534,267,1,"SWOLLEN, evening",2
+r1535,267,1,"SWOLLEN, night",1
+r1536,267,1,"SWOLLEN, sensation of swelling",13
+r1537,267,1,"SWOLLEN, around the eyes (See Face)",0
+r1538,267,1,"SWOLLEN, canthi",10
+r1539,267,2,"SWOLLEN, canthi, inner",4
+r1540,267,1,"SWOLLEN, carbuncles",5
+r1541,267,1,"SWOLLEN, conjunctiva",19
+r1542,267,2,"SWOLLEN, conjunctiva, dermoid",4
+r1543,267,1,"SWOLLEN, lachrymal canal",7
+o31779,267,2,"SWOLLEN, lachrymal canal, gland",5
+o31780,267,2,"SWOLLEN, lachrymal canal, sac",2
+r1546,267,1,"SWOLLEN, lids",100
+r1547,267,2,"SWOLLEN, lids, hard and red",2
+r1548,267,2,"SWOLLEN, lids, menses, during",3
+r1549,267,3,"SWOLLEN, lids, menses, during, suppressed",10
+o31789,267,2,"SWOLLEN, lids, œdematous",28
+r1551,267,2,"SWOLLEN, lids, purple color",1
+r1552,267,2,"SWOLLEN, lids, lower lids",8
+r1553,267,3,"SWOLLEN, lids, lower lids, left",2
+r1554,267,2,"SWOLLEN, lids, under the lids",6
+r1555,267,2,"SWOLLEN, lids, upper lids",13
+r1556,267,3,"SWOLLEN, lids, upper lids, right",3
+r1557,267,3,"SWOLLEN, lids, upper lids, left",3
+r1558,267,2,"SWOLLEN, lids, margins",18
+r1559,267,2,"SWOLLEN, lids, sensation of swelling",10
+r1560,267,2,"SWOLLEN, lids, watery, white",1
+r1561,267,1,"SWOLLEN, meibomian glands",13
+r1563,267,0,"TEARS, acrid",39
+r1564,268,1,"TEARS, acrid, night",1
+r1565,268,1,"TEARS, acrid, bland",1
+r1566,268,1,"TEARS, acrid, burning",33
+r1567,268,1,"TEARS, acrid, cold",1
+r1568,268,1,"TEARS, acrid, oily",1
+r1569,268,1,"TEARS, acrid, salty",3
+r1570,268,1,"TEARS, acrid, sensation as from",7
+r1571,268,0,TENSION,45
+r1572,268,1,"TENSION, morning",3
+r1573,268,1,"TENSION, closing eyes amel.",1
+r1574,268,1,"TENSION, coition, after",5
+r1575,268,1,"TENSION, fixing eyes agg.",1
+r1576,268,1,"TENSION, pain in occiput, with",1
+r1577,268,1,"TENSION, reading, while",2
+r1578,268,1,"TENSION, turning eyes",1
+r1579,268,1,"TENSION, around the eyes",5
+r1580,268,1,"TENSION, canthi, internal",1
+r1581,268,1,"TENSION, eyebrows",1
+r1582,268,1,"TENSION, lids",9
+r1583,268,2,"TENSION, lids, right",1
+r1584,268,2,"TENSION, lids, closing, on",1
+r1585,268,2,"TENSION, lids, reading, while",2
+r1586,268,2,"TENSION, lids, lower lid",1
+r1587,268,0,THICKENING of cornea,6
+o31829,268,1,"THICKENING of cornea, lids",15
+r1589,268,0,TINGLING,3
+r1590,268,0,TIRED sensation,15
+r1591,268,0,TREMULOUS (See Quivering),0
+r1592,268,0,TUMORS on lids,18
+r1593,268,1,"TUMORS on lids, right upper",1
+o31840,268,2,"TUMORS on lids, right upper, lower",1
+r1595,268,1,"TUMORS on lids, cystic",6
+r1596,268,1,"TUMORS on lids, meibomian glands",3
+r1597,268,1,"TUMORS on lids, nodules in the lids",4
+r1598,268,1,"TUMORS on lids, polypus under surface of upper lid",1
+o31838,268,2,"TUMORS on lids, polypus under surface of upper lid, outer canthus",1
+o31837,268,2,"TUMORS on lids, polypus under surface of upper lid, of conjunctiva",3
+r1601,268,1,"TUMORS on lids, sarcoma",2
+r1602,268,2,"TUMORS on lids, sarcoma, of conjunctiva",1
+r1603,268,1,"TUMORS on lids, tarsal tumors",8
+r1604,268,2,"TUMORS on lids, tarsal tumors, recurrent",2
+r1605,268,2,"TUMORS on lids, tarsal tumors, repeated styes, after",1
+r1606,268,1,"TUMORS on lids, wens",1
+r1607,268,0,TURNED (See Movement),6
+r1608,268,1,"TURNED (See Movement), downward",3
+r1609,268,1,"TURNED (See Movement), inwards",7
+r1610,268,1,"TURNED (See Movement), left",4
+r1611,268,1,"TURNED (See Movement), outward",12
+r1612,268,1,"TURNED (See Movement), right",2
+r1613,268,1,"TURNED (See Movement), upward",35
+r1614,268,2,"TURNED (See Movement), upward, right, to",2
+r1615,268,2,"TURNED (See Movement), upward, left, to",4
+r1616,268,2,"TURNED (See Movement), upward, falling asleep, with",1
+r1617,268,2,"TURNED (See Movement), upward, fever, during",1
+r1618,269,0,TWISTED sensation,1
+r1619,269,0,TWITCHING,33
+r1620,269,1,"TWITCHING, right",2
+r1621,269,1,"TWITCHING, left",3
+r1622,269,1,"TWITCHING, daytime",2
+r1623,269,1,"TWITCHING, cold water amel.",1
+r1624,269,1,"TWITCHING, painful",1
+r1625,269,1,"TWITCHING, paroxysms",2
+r1626,269,1,"TWITCHING, reading, while",1
+r1627,269,1,"TWITCHING, canthi",4
+r1628,269,2,"TWITCHING, canthi, inner",6
+r1629,269,2,"TWITCHING, canthi, outer",8
+r1630,269,1,"TWITCHING, eyebrows",11
+r1631,269,1,"TWITCHING, lids",74
+r1632,269,2,"TWITCHING, lids, right",8
+r1633,269,2,"TWITCHING, lids, left",8
+r1634,269,2,"TWITCHING, lids, lower",9
+r1635,269,2,"TWITCHING, lids, upper",14
+r1636,269,2,"TWITCHING, lids, closed, when",3
+r1637,269,2,"TWITCHING, lids, cold air",1
+r1638,269,2,"TWITCHING, lids, eating, while",1
+r1639,269,2,"TWITCHING, lids, menses, before",1
+r1640,269,2,"TWITCHING, lids, opening, on",1
+r1641,269,2,"TWITCHING, lids, reading, while",3
+r1642,269,3,"TWITCHING, lids, reading, while, by lamplight",1
+r1643,269,2,"TWITCHING, lids, sleep, during",1
+r1644,269,2,"TWITCHING, lids, thunderstorm, before",1
+r1645,269,0,"ULCERATION, conjunctiva",7
+r1646,269,1,"ULCERATION, conjunctiva, cornea",56
+r1647,269,2,"ULCERATION, conjunctiva, cornea, right to left",1
+r1648,269,2,"ULCERATION, conjunctiva, cornea, one, then the other",1
+r1649,269,2,"ULCERATION, conjunctiva, cornea, painful",1
+r1650,269,3,"ULCERATION, conjunctiva, cornea, painful, midnight to 3 a.m.",1
+r1651,269,2,"ULCERATION, conjunctiva, cornea, scars, from",3
+r1652,269,2,"ULCERATION, conjunctiva, cornea, vascular",6
+r1653,269,1,"ULCERATION, conjunctiva, lachrymal canal",1
+r1654,269,1,"ULCERATION, conjunctiva, lids",23
+r1655,269,2,"ULCERATION, conjunctiva, lids, canthi",2
+r1656,269,2,"ULCERATION, conjunctiva, lids, canthi, external",2
+r1657,269,2,"ULCERATION, conjunctiva, lids, under surfaces",9
+r1658,269,2,"ULCERATION, conjunctiva, lids, malignant",1
+r1659,269,2,"ULCERATION, conjunctiva, lids, margins",12
+r1660,269,1,"ULCERATION, conjunctiva, meibomian gland",1
+r1661,269,0,UNSTEADY look,10
+r1662,269,0,"VACANT look (See Face, Expression)",0
+r1663,269,0,VACILLATE (See Unsteady),0
+r1664,269,0,VEINS (See Redness),0
+r1706,269,0,VESICLES on the cornea,19
+r1665,270,0,WANDERING (See Unsteady),0
+r1666,270,0,WARTS (See Condylomata),0
+r1667,270,0,WATERY (See Lachrymation),0
+r1668,270,0,WEAK,104
+r1669,270,1,"WEAK, daytime",1
+r1670,270,1,"WEAK, morning",8
+r1671,270,1,"WEAK, forenoon",4
+r1672,270,1,"WEAK, noon",1
+r1673,270,1,"WEAK, afternoon",1
+r1674,270,1,"WEAK, evening",3
+r1675,270,2,"WEAK, evening, after going to bed",1
+r1676,270,2,"WEAK, evening, by the light",2
+r1677,270,1,"WEAK, coition, after",1
+r1678,270,1,"WEAK, dinner, after",1
+r1679,270,1,"WEAK, emissions, after",6
+r1680,270,1,"WEAK, light",4
+r1681,270,2,"WEAK, light, candlelight",1
+r1682,270,1,"WEAK, looking intently, while",1
+r1683,270,1,"WEAK, measles, after",2
+r1684,270,1,"WEAK, menses, during",1
+r1685,270,1,"WEAK, reading, while",11
+r1686,270,1,"WEAK, sexual excesses, after",4
+r1687,270,1,"WEAK, writing, while",4
+r1688,270,0,WILD look,32
+r1689,270,0,WINE agg.,2
+r1690,270,0,WINKING,26
+h052,270,1,"WINKING, air, open, in",1
+r1692,270,1,"WINKING, ameliorates",5
+r1693,270,1,"WINKING, epilepsy, during",1
+r1694,270,1,"WINKING, looking at bright objects",2
+r1695,270,1,"WINKING, reading, while",3
+r1696,270,1,"WINKING, sunlight",1
+r1697,270,1,"WINKING, writing, after",1
+r1698,270,0,"WIPE, inclination to",14
+r1699,270,0,WRINKLED conjunctiva,2
+r1700,270,0,YELLOWNESS,57
+r1701,270,1,"YELLOWNESS, of lower part",1
+r1702,270,1,"YELLOWNESS, spot on eye",2
+r1703,270,1,"YELLOWNESS, yellow brown rings around",1

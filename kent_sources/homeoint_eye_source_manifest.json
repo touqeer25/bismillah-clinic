@@ -1,0 +1,21 @@
+{
+ "book": "kent",
+ "chapter": "eye",
+ "source": "homeoint.org/books/kentrep kent0230–kent0265 (MEDI-T HTML)",
+ "pages": "235–270",
+ "source_canonical": "homeoint-eye-v1",
+ "source_rows": 1694,
+ "unique_source_paths": 1694,
+ "matched_app_records": 1642,
+ "new_source_records": 52,
+ "legacy_local_records": 162,
+ "ambiguous_app_records": 41,
+ "documented_corrections": [
+  "ص 238: دوسرا «evening : Nat-m.» مطبوعہ کتاب کے مطابق DRYNESS, canthi کی ذیلی (OOREP o30465 سے اتفاق) — MEDI-T dir سطح کی چوک"
+ ],
+ "policy": {
+  "remedies": "r := source_remedies (ماخذ مطبوعہ کتاب = سچ؛ OOREP مجموعے ضم)",
+  "hierarchy": "runtime tree از source_parent_id (rep-chapters.js eye بلڈر)",
+  "legacy": "فائل میں محفوظ، ماخذی درخت میں شامل نہیں — ڈاکٹر نظرثانی کے لیے رپورٹ"
+ }
+}
