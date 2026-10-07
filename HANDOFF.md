@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 8 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 170 · **اصل مخزن:**
+**آخری تجدید:** 8 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 171 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -1761,3 +1761,38 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 1. ڈاکٹر کان-تین-کالم.csv کی تصدیق (1,842 راستہ-تبدیل ربرکس) اور کان-پرانی-قطاریں.csv (173)
 2. اگلا باب: **HEARING (صفحات 321–323)** — چھوٹا باب؛ یا صارف کی ترجیح سے کوئی اور
 3. Vercel پش (v170 کے بعد)
+
+
+## مکمل شدہ پڑتال — سماعت (HEARING) باب: ماخذی درخت + ادویات + اردو (نسخہ 171)
+
+**اجازت:** 8 اکتوبر 2026 · صارف کی ہدایت: Drive PDF بطور تیسرا ماخذ + تصدیق-ضروری CSV چلانے کی ہدایت + «اب آگے اگلا چیپٹر کریں»؛ ماخذ homeoint.org کے مطبوعہ صفحات 321–323 (kent0320.htm کے P321→P324 اینکروں کے درمیان؛ kenthear.htm انڈیکس سے باب حد ثابت)
+
+### 12.1 باب کی حد — تصدیق شدہ
+- **HEARING = صفحات 321–323**: kenthear.htm انڈیکس کے تینوں اندراجات `../kentrep1/kent0320.htm#P321/322/323`؛ اختتام ص 323 — ص 324 پر NOSE کا آغاز (kent0320 میں ہی `<a NAME="P324">` کے ساتھ kentnose.htm فوٹر)
+- پورا باب ایک ہی فائل kent0320.htm میں — پارسر P321 سے کاٹ کر P324 تک پڑھتا ہے (پچھلی فائلوں کے dup-سیکشن skip کی ضرورت نہیں)
+
+### 12.2 ماخذی پارس — 146 منفرد قطاریں
+- جڑ HEARING + 145؛ 5 مین ربرک (ACUTE، DISTANT، ILLUSIONS، IMPAIRED، LOST)؛ گہرائی 3؛ صفحات: 321=43، 322=45، 323=58؛ صفر دوہرے راستے، صفر clamp
+
+### 12.3 تیسرا ماخذ (ڈاکٹر کی PDF) — مکمل تصدیق
+- Google Drive سے «REPERTORY OF THE HOMOEOPATHIC MATERIA MEDICA, J.T. Kent» PDF (14.1MB، 3066 صفحات) ڈاؤن لوڈ — آئندہ بابوں کے لیے مستقل تیسرا ماخذ: `kent_sources/pdf/kent-repertory.pdf`
+- PDF کے HEARING سیکشن سے ہر ربرک کی ادویہ فہرست بمقابلہ homeoint: **124/128 حرف بہ حرف مطابق**؛ 3 فرق ہائیفن-ورپنگ آرٹیفیکٹ (ferr-i/ferri وغیرہ)؛ 1 خالی سرخی متوقع — یعنی homeoint = مطبوعہ کتاب
+- PDF کے `-layout` انڈینٹیشن نے متنازع بلاکس کی حتمی تصدیق کی (warm room agg.، cough, during بلا agg.، suppressed intermittents، alternating with eye symptoms، voices and talking…)
+
+### 12.4 مستند درستیاں
+- **16 run-on لفٹیں (OOREP دو-فارم ٹیسٹ):** music,to×5 · noises,to×4 · air,open,agg.→amel. · cough,during→amel. · menses,before→during · report,relieved after→loud… · swallowing,on→amel. · walking,while→in the wind · warm room agg.→amel.
+- **3 گم شدہ ربرکس بحال (OOREP id خلاء 44981–83):** ACUTE, sounds of a hammer, vehicles/affect the teeth/long retained — والد کتاب+homeoint کے مطابق sounds of a hammer (OOREP کا مصنوعی «ACUTE, sounds» والد مسترد) — تصدیق-ضروری CSV میں
+- **8 دستی جوڑیاں (OOREP لیبل خوارافی، PDF-ثابت):** cough,during agg.→cough,during · distance,when at a agg.→… · swallowing,on agg.→… · warm from walking…agg.→… · distance,all sounds seem far off→…when at a, all sounds… · suppressed,…→suppressed intermittents,… · alternating,…→alternating with eye symptoms,…×2
+- والدین ربرکس میں گلی ہوئی ذیلی-ادویات ختم: ACUTE 105→76 · IMPAIRED 182→170 · LOST 100→97 · ILLUSIONS 17→15
+
+### 12.5 اردو، کوڈ، رپورٹیں
+- اردو: 146/146 فعال (138 منتقل + 7 نئے — لغت سے بنے پھر ہاتھ سے بہتر کیے، meta.auto) · جڑ «سماعت — » · 28 غیر-درخت پرانی محفوظ · REP_RUBUR_V 163
+- کوڈ: rep-chapters.js v171 (hearing بلڈر + ڈسپیچ) · KENT_TREE_FIX hearing.h=20 · _index 166 · master sync · سائیڈ کار rebuild · CACHE v171 · ٹیبز v171 · `.gitignore` کی 4 سطریں دوبارہ بحال
+- رپورٹیں: kent_sources/reports/سماعت-تین-کالم.csv (138) · سماعت-ہیرارکی-تصدیق.csv (146) · سماعت-تمام-اندراجات.csv · سماعت-پرانی-قطاریں.csv (20) · سماعت-پڑتال.xlsx · سماعت-اصلاحات-کا-خلاصہ.md
+- **نئی running فہرست: download/kent-confirmation-needed.csv** — 358 اندراجات (سر 269 مبہم + آنکھ 41 + کان 31 + وژن 11 + ذہن xref 1 + سماعت 5) — ہر باب کے ساتھ اضافہ ہوتا رہے گا؛ آخر میں ڈاکٹر کی تصدیق سے ایمپلیمنٹ
+- ٹیسٹ: نئی kent_hearing_homeoint_source.test.js + مکمل سوئٹ 48/48 پاس
+
+### 12.6 اگلے قدم
+1. ڈاکٹر سماعت-تین-کالم.csv کی تصدیق (138 راستہ/ادویہ-درست ربرکس) اور kent-confirmation-needed.csv کا جائزہ
+2. اگلا باب: **NOSE (صفحات 324–352)** — kent0320/0325 سے شروع؛ PDF تیسرا ماخذ دستیاب
+3. Vercel پش (v171 کے بعد)

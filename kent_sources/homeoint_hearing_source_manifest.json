@@ -1,0 +1,25 @@
+{
+ "book": "kent",
+ "chapter": "hearing",
+ "source": "homeoint.org/books/kentrep1 kent0320.htm (MEDI-T HTML) — P321→P324 اینکروں کے درمیان",
+ "pages": "321–323",
+ "source_canonical": "homeoint-hearing-v1",
+ "source_rows": 146,
+ "unique_source_paths": 146,
+ "matched_app_records": 138,
+ "new_source_records": 8,
+ "legacy_local_records": 20,
+ "ambiguous_app_records": 0,
+ "third_source_verification": "Drive PDF (مطبوعہ کتاب، REPERTORY OF THE HOMOEOPATHIC MATERIA MEDICA, J.T. Kent) — 124/128 ربرکس کی ادویہ فہرستیں حرف بہ حرف مطابق؛ 3 فرق ہائیفن-ورپنگ آرٹیفیکٹس",
+ "chapter_boundaries": "HEARING = صفحات 321–323 (kenthear.htm انڈیکس p.321–323 → kent0320.htm#P321-323؛ اختتام ص 323 — ص 324 پر NOSE آغاز)",
+ "documented_corrections": [
+  "16 run-on لفٹیں (OOREP دو-فارم ٹیسٹ — بھائی-فارم موجود + nesting-فارم غائب): music,to×5، noises,to×4، air,open,agg→amel.، cough,during→amel.، menses,before→during، report,relieved after→loud…، swallowing,on→amel.، walking,while→in the wind، warm room agg.→amel.",
+  "8 دستی جوڑیاں (OOREP لیبل-خوارافی، PDF کتاب سے ثابت): cough,during agg.→cough,during؛ distance,when at a agg.→distance,when at a؛ swallowing,on agg.→swallowing,on؛ warm from walking,on becoming agg.→…becoming؛ distance,all sounds seem far off→…when at a, all sounds…؛ suppressed,…→suppressed intermittents,…؛ alternating,…→alternating with eye symptoms,…×2",
+  "3 گم شدہ ربرکس بحال (OOREP id خلاء 44981–83): ACUTE, sounds of a hammer, vehicles/affect the teeth/long retained — والد کتاب کے مطابق sounds of a hammer (OOREP نے مصنوعی «sounds» رکھا تھا) — تصدیق-ضروری CSV میں درج"
+ ],
+ "policy": {
+  "remedies": "r := source_remedies (ماخذ مطبوعہ کتاب = سچ؛ OOREP والدین-مجموعے ختم)",
+  "hierarchy": "runtime tree از source_parent_id (rep-chapters.js hearing بلڈر)",
+  "legacy": "فائل میں محفوظ، ماخذی درخت میں شامل نہیں — تصدیق-ضروری CSV میں درج"
+ }
+}
