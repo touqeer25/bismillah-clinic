@@ -1,0 +1,27 @@
+{
+ "book": "kent",
+ "chapter": "face",
+ "source": "homeoint.org/books/kentrep1 kent0355–kent0395.htm (MEDI-T HTML) — P355→P397 اینکروں کے درمیان",
+ "pages": "355–396",
+ "source_canonical": "homeoint-face-v1",
+ "source_rows": 1988,
+ "unique_source_paths": 1988,
+ "matched_app_records": 1958,
+ "new_source_records": 30,
+ "legacy_local_records": 140,
+ "ambiguous_app_records": 27,
+ "third_source_verification": "Drive PDF (مطبوعہ کتاب REPERTORY OF THE HOMOEOPATHIC MATERIA MEDICA, J.T. Kent؛ FACE = مطبوعہ ص 771–812، PDF صفحہ 806–847) — ordered alignment: 1,987/1,987 ریکارڈ ترتیب سمیت، 1,984 حرف بہ حرف مطابق؛ 3 فرق صفحہ-نمبر گلو آرٹیفیکٹس (ferr780ar→ferr-ar.، merci791r→merc-i-r.، mag807c→mag-c.) — دستی طور پر برابر ثابت",
+ "chapter_boundaries": "FACE = صفحات 355–396 (kentface.htm انڈیکس سرخی \"FACE (p. 355-396)\"، 42 موضوعی اندراجات؛ اختتام ص 396 — P397 پر MOUTH، kentmout.htm انڈیکس سرخی \"MOUTH (p. 397-430)\" + پہلا اندراج Mouth p. 397 سے ثابت؛ kent0395 فٹر کا \"MOUTH p. 401\" غلط MEDI-T پرِیوِو تھا)",
+ "documented_corrections": [
+  "8 خاندانی گہرائی-درستیاں (خاندانی shift الگورتھم) — ہر ایک مطبوعہ کتاب کے صفحہ-تصویر + pdftotext -bbox x-координات سے حرف بہ حرف تصدیق شدہ: (1) ص 365 ENLARGED parotid gland کے right/left (کتاب x=128.7 دونوں — کوٹائپوگرافک گہرائی، sیمینٹکس d1)، (2) ص 374 EXCORIATED lips کے from acrid saliva (کتاب d1)، (3) ص 374 EXPRESSION, anxious کے cradle+downward (کتاب x=128.7 quirk — دونوں d1 سیمینٹکس)، (4) ص 375 FALLING of whiskers کے grief, after (کتاب d1)، (5) ص 381 cold applications agg. کے amel. (کتاب x=164.7 quirk — d2 سیمینٹکس)، (6) ص 388 jaws, lower کے morning/evening/night/walking (کتاب x=200.7 quirk — d3 سیمینٹکس؛ joints of x=164.7 برقرار)، (7) ص 390 jaw, lower کے evening/night/extending خاندان (کتاب x=200.7 quirk — upper x=164.7، to-ear x=236.7 برقرار)، (8) ص 395 mouth, around کے in sleep (کتاب x=164.7 quirk — d2 سیمینٹکس؛ corners of x=128.7)",
+  "8 دستی جوڑیاں (ادویہ Jaccard = 1.000 یا عین-فارم، کتابی تصدیق شدہ): r1077↔LARGE, sensation of being (کتاب ص 820 — col-0 مین؛ m32972 synthetic کی چوری واپس)، r1220↔PAIN, menses, before, after (کتاب ص 827 — menses,before کے نیچے during+after)، r1565↔PAIN, splinter, as from a (ص 842)، o33717↔SWELLING, on waking (ص 852 — OOREP لیبل «morning, on waking» فرق)، o33189↔PAIN, excitement (ص 826)، o33179↔PAIN, eating, while, after (ص 826)، o33163↔PAIN, drawing, upper jaw, submaxillary glands (ص 831)، o32904↔HEAT, walking, while (ص 821)",
+  "30 گم شدہ ماخذی قطاریں بحال (نئے hN): جڑ FACE، œdema، shriveled (+lips)، HEAT کے air-in-open/bed-in/flashes-خاندان، PAIN کے وقت-خاندان (afternoon 4-8، evening 7-8، morning 7-8)، drawing-upper-jaw خاندان (lips/masseter/parotid×2)، DISCOLORATION-ashy کے ghastly/pale-warm-room/pale-lying/red-afternoon×2، tension-night 1-4a.m.، swelling-on-waking، pain کے change-of-air/burning-morning/evening/menses/sleep-from/sore-on-walking/walking-in-open-air/rising-up-again/splinter خاندان — سب مطبوعہ کتاب میں موجود، OOREP ڈیٹا میں نہیں",
+  "OOREP کے فلیٹ-لیبل آرٹیفیکٹس ماخذی راستوں سے بدلے (393 گہرائی-شکوک خودکار درست): مثلاً «jaws, joints of» → «jaws, lower, joints of» (کتاب ص 844)، «jaw, upper» → «jaw, lower, upper» (ص 847)، «lying, on affected side, amel.» → «lying, while, on affected side agg., amel.»، LARGE/PAIN وقت-ربرکس فلیٹ فارم → کتابی nesting",
+  "کتاب کے کوٹائپوگرافک گہرائی-چھلانگوں کی normalize (ڈیٹا-ماڈل پابندی: monotonic +1) — کتاب کے indent-semantics کے برابر: jaws-lower کے بعد morning x=200.7 (d4)، cold-applications کے بعد amel. x=164.7، ENLARGED کے بعد right/left x=128.7 — سب کے سیمینٹک والدین وہی رہے"
+ ],
+ "policy": {
+  "remedies": "r := source_remedies (ماخذ مطبوعہ کتاب = سچ؛ OOREP والدین-مجموعے ختم)",
+  "hierarchy": "runtime tree از source_parent_id (rep-chapters.js face بلڈر)",
+  "legacy": "فائل میں محفوظ، ماخذی درخت سے باہر — اہم مقدمات تصدیق-ضروری CSV میں"
+ }
+}

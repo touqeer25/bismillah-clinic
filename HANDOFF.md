@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 8 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 172 · **اصل مخزن:**
+**آخری تجدید:** 8 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 173 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -1827,3 +1827,33 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 1. ڈاکٹر ناک-تین-کالم.csv کی تصدیق (1,424 راستہ/ادویہ-درست ربرکس) اور kent-confirmation-needed.csv کا جائزہ (خاص طور پر ناک کے 21 اندراجات: POLYPUS→PULSATION والد، 2 ضم، air-open لیگسی، نئے ترجمے، 8 خاندانی درستیاں)
 2. اگلا باب: **FACE (صفحات 355–396)** — kentface.htm انڈیکس + kent0350/0355 ماخذ دستیاب؛ PDF تیسرا ماخذ جاری
 3. Vercel پش (v172 کے بعد)
+
+## مکمل شدہ پڑتال — چہرہ (FACE) باب: ماخذی درخت + ادویات + اردو (نسخہ 173)
+
+### 14.1 باب حد اور ماخذ
+- **FACE = صفحات 355–396** — kentface.htm انڈیکس سرخی «FACE (p. 355-396)» + 42 موضوعی اندراجات؛ 9 ماخذ فائلیں kent0355–kent0395.htm (kentrep1/)؛ اختتام ص 396 — P397 پر MOUTH (kentmout.htm انڈیکس سرخی «MOUTH (p. 397-430)» + پہلا اندراج Mouth p. 397 سے ثابت)
+- ⚠ kent0395 فٹر کا «MOUTH p. 401» پرِیوِو MEDI-T کی غلطی تھا — انڈیکس + PDF (مطبوعہ ص 812) نے 397 تصدیق کیا
+- 1,988 خام قطاریں → **1,988 منفرد** (جڑ FACE + 1,987؛ صفر دوہرے راستے، صفر صفحہ-مارکر)؛ 131 مین ربرکس، جڑ کے بچے 132، گہرائی 6
+
+### 14.2 تیسرا ماخذ (Drive PDF) تصدیق
+- FACE = PDF صفحہ 806–847 (مطبوعہ ص 771–812)؛ **ordered alignment: PDF 1,987 ریکارڈ = homeoint 1,987 قطاریں، صفر drift؛ 1,984 حرف بہ حرف مطابق**؛ 3 صفحہ-نمبر گلو آرٹیفیکٹس (ferr780ar→ferr-ar.، merci791r→merc-i-r.، mag807c→mag-c.) دستی طور پر برابر ثابت
+- 8 خاندانی درستیوں کی حتمی تصدیق **pdftotext -bbox کے عین x-координات + صفحہ-تصاویر (pdftoppm)** سے — کتاب کی کوٹائپوگرافک گہرائی-چھلانگیں (مختصر فہرستوں کے بعد گہری چھپائی: right/left x=128.7، amel. x=164.7، morning x=200.7، in-sleep x=164.7) ڈیٹا-ماڈل کی monotonic +1 پابندی میں normalize؛ سیمینٹک والدین کتاب کے indent-semantics کے عین برابر
+
+### 14.3 مستند درستیاں
+- **8 خاندانی گہرائی-درستیاں (ہر ایک bbox سے حرف بہ حرف تصدیق شدہ):** (1) ص 365 ENLARGED parotid: right/left ہم سطح (jaw/submaxillary سے گہری چھپائی) · (2) ص 374 from-acrid-saliva d1 · (3) ص 374 cradle+downward d1 · (4) ص 375 grief,after d1 · (5) ص 381 cold-applications کا amel. d2 · (6) ص 388 jaws,lower کے morning/evening/night/walking d3 (joints-of x=164.7 برقرار) · (7) ص 390 jaw,lower کے evening/night/extending خاندان (upper x=164.7، to-ear x=236.7 برقرار) · (8) ص 395 in-sleep d2 (corners-of x=128.7)
+- **8 دستی جوڑیاں (Jaccard = 1.000 یا عین-فارم):** r1077↔LARGE, sensation of being (کتاب ص 820 col-0 مین؛ m32972 synthetic کی چوری واپس) · r1220↔menses, before, after (کتاب ص 827: menses,below کے نیچے during+after) · r1565↔splinter (ص 842 — lips-splinter ص 383 سے الگ) · o33717↔SWELLING, on waking · o33189↔PAIN, excitement (OOREP کا جعلی «agg.» ہٹا) · o33179↔eating, while, after · o33163↔drawing, upper jaw, submaxillary · o32904↔HEAT, walking, while
+- **30 گم شدہ ربرکس بحال (hN):** جڑ FACE · ŒDEMA (See Swelling) · SHRIVELED (+lips) · HEAT-flashes خاندان · PAIN وقت-خاندان (afternoon 4-8 p.m.، evening 7-8، morning 7-8) · drawing>upper-jaw خاندان · DISCOLORATION-ashy کے ghastly/pale/red-ذیلیاں · TENSION night 1-4 a.m. · SWELLING on-waking وغیرہ — سب کتاب میں موجود، OOREP میں نہیں
+- **393 OOREP فلیٹ-راستے ماخذی سے بدلے:** «jaws, joints of»→«jaws, lower, joints of» · «jaw, upper»→«jaw, lower, upper» · «lying, on affected side, amel.»→«lying, while, on affected side agg., amel.» وغیرہ
+- DISCOLORATION ساخت: کتابی مین خود «DISCOLORATION, ashy» (ص 776 col-0) — black/bluish/brown/pale/red/yellow d1 ذیلیاں
+
+### 14.4 اردو، کوڈ، رپورٹیں
+- اردو: 1988/1988 فعال (1958 منتقل + 29 auto) · جڑ «چہرہ — » · 622 غیر-درخت پرانی محفوظ · REP_RUBUR_V 165
+- کوڈ: rep-chapters.js v173 (face بلڈر + ڈسپیچ) · KENT_TREE_FIX face.h=140 (تمام لیگسی) · _index 2128 · master sync · mind search-paths side-car rebuild · CACHE v173 · ٹیبز v173 (css+js) · `.gitignore` بحال (صارف کمٹ میں پھر گم تھی)
+- رپورٹیں: kent_sources/reports/چہرہ-تین-کالم.csv (1,958) · چہرہ-ہیرارکی-تصدیق.csv (1,988) · چہرہ-تمام-اندراجات.csv (1,988) · چہرہ-پرانی-قطاریں.csv (140) · چہرہ-پڑتال.xlsx · چہرہ-اصلاحات-کا-خلاصہ.md
+- **تصدیق-ضروری CSV:** download/kent-confirmation-needed.csv — کل **414** اندراجات (سر 269 + چہرہ 35 + آنکھ 41 + کان 31 + ناک 21 + وژن 11 + سماعت 5 + ذہن 1)
+- ٹیسٹ: نئی kent_face_homeoint_source.test.js + مکمل سوئٹ **50/50 پاس** (پرانے ٹیسٹوں کے نسخہ-پن v173 پر)
+
+### 14.5 اگلے قدم
+1. ڈاکٹر چہرہ-تین-کالم.csv کی تصدیق (1,958 راستہ/ادویہ-درست ربرکس) اور kent-confirmation-needed.csv کا جائزہ (چہرہ کے 35 اندراجات: LARGE جوڑی، menses-after والد، دو splinter، 5 لیبل-فرق، 30 نئے ترجمے، 8 خاندانی درستیاں)
+2. اگلا باب: **MOUTH (صفحات 397–430)** — kentmout.htm انڈیکس + kent0395/kent0400 ماخذ دستیاب؛ PDF تیسرا ماخذ جاری (مطبوعہ ص 812 سے)
+3. Vercel پش (v173 کے بعد)
