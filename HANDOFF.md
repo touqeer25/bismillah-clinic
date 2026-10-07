@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 8 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 171 · **اصل مخزن:**
+**آخری تجدید:** 8 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 172 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -1796,3 +1796,34 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 1. ڈاکٹر سماعت-تین-کالم.csv کی تصدیق (138 راستہ/ادویہ-درست ربرکس) اور kent-confirmation-needed.csv کا جائزہ
 2. اگلا باب: **NOSE (صفحات 324–352)** — kent0320/0325 سے شروع؛ PDF تیسرا ماخذ دستیاب
 3. Vercel پش (v171 کے بعد)
+
+## مکمل شدہ پڑتال — ناک (NOSE) باب: ماخذی درخت + ادویات + اردو (نسخہ 172)
+
+### 13.1 باب حد اور ماخذ
+- **NOSE = صفحات 324–354** — kentnose.htm انڈیکس (p. 324-354، 31 موضوعی اندراجات) سے ثابت؛ 7 ماخذ فائلیں kent0320–kent0350.htm (ہر فائل کا پہلا سیکشن پچھلی کا dup — skip_until سے چھوٹا)؛ اختتام ص 354 — ص 355 پر FACE آغاز (kentface.htm انڈیکس p. 355؛ THROAT ص 448 سے)
+- ہر صفحے کا بریکرمب = انڈیکس اندراج سے 31/31 مطابق؛ 1,430 خام قطاریں → 1 صفحہ-مارکر کٹ → **1,429 منفرد** (جڑ NOSE + 1,428)
+- اینکر تسلسل: اینکر ہمیشہ پچھلے صفحے کے اختتامی بریکرمب پیراگراف کے اندر («NOSE p. N <a NAME=PN>») — after_anchor skip-2 اسی کو کھاتا ہے
+
+### 13.2 تیسرا ماخذ (Drive PDF) تصدیق
+- PDF صفحہ 741–805 = مطبوعہ ص 706–770 (NOSE)؛ **930/934 لیبل-ادویہ سیٹ حرف بہ حرف مطابق**؛ 4 باقیات نکالنے کے آرٹیفیکٹس (لمبا لیبل-ورپ، صفحہ-مارکر) — دستی طور پر برابر ثابت
+- PDF -layout انڈینٹیشن + صفحہ-تصاویر (pdftoppm) سے حتمی تصدیقات: 8 خاندانی درستیاں، bare sides مارکر، SWELLING left ×2، smarting morning ×2
+
+### 13.3 مستند درستیاں
+- **8 خاندانی گہرائی-درستیاں (خاندانی shift الگورتھم — MEDI-T دوہرے <dir>):** (1) ص 328 with cough and hoarseness · (2) ص 329 warm room, amel. · (3) ص 329 CRACKS corners+septum · (4) ص 335 DRYNESS داخل-خاندان · (5) ص 338 FOOD on swallowing · (6) ص 347 sore-bruised-externally خاندان (evening/blowing/compressing/spots/touch) · (7) ص 348 PICKING until-it-bleeds+constant-desire · (8) ص 349 SMELL acute خاندان — کتاب اور OOREP دونوں سے اتفاق
+- **1 صفحہ-مارکر کٹ:** ص 335 bare «sides» (کتاب ص 729 کا تسلسل مارکر — MEDI-T نے dir میں لپیٹا)
+- **2 دہرائے کتابی ربرکس ضم:** smarting-morning (ص 344+345، touch-on ذیلی) · SWELLING of, left (ص 352 ×2، دوسرا Aur-m)
+- **26 دستی جوڑیاں (Jaccard ≥ 0.96):** AGGLUTINATION×3 · CORYZA air-open (OOREP: agg. جوڑا) · DISCHARGE yellowish-white (OOREP: yellow نیچے) · DRYNESS alternating-sides · EPISTAXIS 10-12 · PAIN boring 7-12 · PAIN extending-rays خاندان×12 · PAIN stitching touching-radiating · PULSATION root/tip (OOREP نے POLYPUS بنا رکھا تھا — ادویہ-ثابت) · QUIVERING visible · SWELLING evening/red/right-side-to-tip
+- **4 گم شدہ ربرکس بحال (hN):** جڑ NOSE · PULSATION (10 ادویات) · PULSATION, left · YELLOW (See Discoloration and Spots) — OOREP ڈیٹا میں بالکل موجود نہیں تھے
+- والدین میں گلی ذیلی-ادویات ختم: CATARRH 171 ماخذی · DISCHARGE, right کی 61 ذیلیاں بحال
+
+### 13.4 اردو، کوڈ، رپورٹیں
+- اردو: 1428/1428 فعال (1424 منتقل + 3 auto: pulsation/pulsation-left/yellow) · جڑ «ناک — » · 868 غیر-درخت پرانی محفوظ · REP_RUBUR_V 164
+- کوڈ: rep-chapters.js v172 (nose بلڈر + ڈسپیچ) · KENT_TREE_FIX nose.h=90 (تمام لیگسی چھپے) · _index 1518 · master sync · سائیڈ کار rebuild · CACHE v172 · ٹیبز v172 · `.gitignore` بحال
+- رپورٹیں: kent_sources/reports/ناک-تین-کالم.csv (1424) · ناک-ہیرارکی-تصدیق.csv (1430) · ناک-تمام-اندراجات.csv (1428) · ناک-پرانی-قطاریں.csv (90) · ناک-پڑتال.xlsx · ناک-اصلاحات-کا-خلاصہ.md
+- **تصدیق-ضروری CSV:** download/kent-confirmation-needed.csv — کل **379** اندراجات (سر 269 + آنکھ 41 + کان 31 + ناک 21 + وژن 11 + سماعت 5 + ذہن 1)
+- ٹیسٹ: نئی kent_nose_homeoint_source.test.js + مکمل سوئٹ **49/49 پاس**
+
+### 13.5 اگلے قدم
+1. ڈاکٹر ناک-تین-کالم.csv کی تصدیق (1,424 راستہ/ادویہ-درست ربرکس) اور kent-confirmation-needed.csv کا جائزہ (خاص طور پر ناک کے 21 اندراجات: POLYPUS→PULSATION والد، 2 ضم، air-open لیگسی، نئے ترجمے، 8 خاندانی درستیاں)
+2. اگلا باب: **FACE (صفحات 355–396)** — kentface.htm انڈیکس + kent0350/0355 ماخذ دستیاب؛ PDF تیسرا ماخذ جاری
+3. Vercel پش (v172 کے بعد)

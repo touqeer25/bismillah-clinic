@@ -1,0 +1,28 @@
+{
+ "book": "kent",
+ "chapter": "nose",
+ "source": "homeoint.org/books/kentrep1 kent0320–kent0350.htm (MEDI-T HTML) — P324→P355 اینکروں کے درمیان",
+ "pages": "324–354",
+ "source_canonical": "homeoint-nose-v1",
+ "source_rows": 1428,
+ "unique_source_paths": 1428,
+ "matched_app_records": 1424,
+ "new_source_records": 4,
+ "legacy_local_records": 90,
+ "ambiguous_app_records": 16,
+ "third_source_verification": "Drive PDF (مطبوعہ کتاب، REPERTORY OF THE HOMOEOPATHIC MATERIA MEDICA, J.T. Kent؛ NOSE = مطبوعہ ص 706–770، PDF صفحہ 741–805) — 930/934 لیبل-ادویہ سیٹ حرف بہ حرف مطابق؛ 4 باقیات نکالنے کے آرٹیفیکٹس (لمبا لیبل-ورپ، صفحہ-مارکر) — دستی طور پر برابر ثابت",
+ "chapter_boundaries": "NOSE = صفحات 324–354 (kentnose.htm انڈیکس p.324–354، 31 موضوعی اندراجات = 31/31 صفحہ-بریکرمب؛ اختتام ص 354 — ص 355 پر FACE آغاز، kentface.htm انڈیکس p.355 سے ثابت)",
+ "documented_corrections": [
+  "8 خاندانی گہرائی-درستیاں (خاندانی shift الگورتھم — MEDI-T دوہرے <dir> بلاک؛ مطبوعہ کتاب اور OOREP دونوں سے اتفاق): (1) ص 328 with cough and hoarseness، (2) ص 329 warm room, amel.، (3) ص 329 CRACKS corners+septum، (4) ص 335 DRYNESS right+left+morning+بقیہ خاندان، (5) ص 338 FOOD on swallowing، (6) ص 347 sore-bruised-externally کا پورا خاندان (evening/blowing/compressing/spots/touch)، (7) ص 348 PICKING until-it-bleeds+constant-desire، (8) ص 349 SMELL acute کا پورا خاندان",
+  "1 صفحہ-مارکر قطار حذف (ص 335 bare «sides» — کتاب ص 729 کا صفحہ-اوپر تسلسل مارکر، MEDI-T نے dir میں لپیٹ دیا تھا)",
+  "2 دہرائے گئے کتابی ربرکس ضم (max گریڈ): PAIN, in, burning, smarting, morning (ص 344+345 — دوسرے کے نیچے touch, on) اور SWELLING of, left (ص 352×2 — دوسرا Aur-m؛ OOREP نے اُسے «shining, left side» بنا رکھا تھا)",
+  "26 دستی جوڑیاں (کتابی لیبل-فرق، ادویہ Jaccard ≥ 0.96): AGGLUTINATION×3 (ABSCESS نیچے)، CORYZA air-open (OOREP نے agg. جوڑ رکھا)، DISCHARGE yellowish-white (OOREP: yellow نیچے)، DRYNESS alternating-sides، EPISTAXIS 10-12 (OOREP: 10 a.m. to 12 a.m.)، PAIN boring 7-12، PAIN extending downward/to-brain-like-rays خاندان×12 (OOREP نے فلیٹ «extending to» کیا)، PAIN stitching touching-radiating (OOREP: extending)، PULSATION root/tip (OOREP نے POLYPUS root/tip بنا رکھا تھا — ادویہ-ثابت)، QUIVERING visible (OOREP: root, visible)، SWELLING evening/red/right-side-to-tip (OOREP: «SWELLING، agg.» وغیرہ)",
+  "4 گم شدہ ربرکس بحال (نیے hN): جڑ NOSE، PULSATION (ص 349، 10 ادویات)، PULSATION, left، YELLOW (See Discoloration and Spots) — تینوں PULSATION/YELLOW مطبوعہ کتاب میں موجود تھے مگر OOREP ڈیٹا میں نہیں",
+  "OOREP کے 2 غلط والد ثابت: POLYPUS root/tip درحقیقت PULSATION root/tip ہیں (ادویہ {bor, kali-bi, sarr} اور {ph-ac} حرف بہ حرف) — POLYPUS کی کتابی ذیلیاں صرف right/left/bleeds-easily/posterior-nares ہیں"
+ ],
+ "policy": {
+  "remedies": "r := source_remedies (ماخذ مطبوعہ کتاب = سچ؛ OOREP والدین-مجموعے ختم)",
+  "hierarchy": "runtime tree از source_parent_id (rep-chapters.js nose بلڈر)",
+  "legacy": "فائل میں محفوظ، ماخذی درخت سے باہر — اہم مقدمات تصدیق-ضروری CSV میں"
+ }
+}

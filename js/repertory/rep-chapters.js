@@ -782,6 +782,69 @@ function _repBuildKentHearingSourceTree(data){
     return root;
 }
 // ============================================================
+// 🔑 v172: ناک (NOSE) باب کی ماخذی قطاریں (صفحات 324–354) — homeoint.org
+// (parse_nose_source.py + crosswalk_nose.py + overlay_nose.py)؛ پرانی مقامی قطاریں فائل میں محفوظ
+// مگر ماخذی درخت سے باہر۔ باب حد: NOSE = 324–354 (kentnose.htm انڈیکس → kent0320–kent0350؛ اختتام ص 354،
+// ص 355 پر FACE آغاز)۔ مستند درستیاں: 8 خاندانی گہرائی-درستیاں (MEDI-T دوہرے <dir>؛ کتاب+OOREP سے اتفاق)،
+// 1 صفحہ-مارکر کٹ (bare sides)، 2 دہرائے کتابی ربرکس ضم، 26 دستی جوڑیاں (Jaccard ≥ 0.96)،
+// 4 گم شدہ ربرکس بحال (PULSATION×2، YELLOW، جڑ) — مانی فیسٹ + تصدیق-ضروری CSV میں تفصیل۔
+var _REP_KENT_NOSE_SOURCE_MARKER='homeoint-nose-v1';
+var _REP_KENT_NOSE_PAGES={first:324,last:354}, _REP_KENT_NOSE_COUNT=1428;
+function _repKentNoseSourceEntries(data){
+    return Object.keys(data||{}).map(function(rid){return {rid:String(rid),rec:data[rid]};})
+        .filter(function(e){return e.rec&&e.rec.source_canonical===_REP_KENT_NOSE_SOURCE_MARKER;});
+}
+function _repHasKentNoseSourceData(data){
+    return _repKentNoseSourceEntries(data).length===_REP_KENT_NOSE_COUNT;
+}
+function _repBuildKentNoseSourceTree(data){
+    var entries=_repKentNoseSourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    if(entries.length!==_REP_KENT_NOSE_COUNT) throw new Error('Expected '+_REP_KENT_NOSE_COUNT+' Kent NOSE source rows; found '+entries.length);
+    entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
+    var byRid=Object.create(null);
+    entries.forEach(function(e,index){
+        var rec=e.rec, order=Number(rec.source_order), parentId=rec.source_parent_id;
+        if(order!==index) throw new Error('Invalid Kent NOSE source order at '+e.rid+': '+order);
+        var page=Number(rec.source_page), depth=Number(rec.source_depth), label=String(rec.source_label||'');
+        if(page<324||page>354) throw new Error('Kent NOSE source row outside pages 324–354: '+e.rid);
+        if(!label) throw new Error('Empty Kent NOSE source label at '+e.rid);
+        var labels=Array.isArray(rec.source_path_labels)?rec.source_path_labels.map(String):[];
+        if(!labels.length||labels[labels.length-1]!==label||depth!==labels.length-1)
+            throw new Error('Kent NOSE source path/depth mismatch at '+e.rid);
+        var sourcePath=String(rec.source_path||'');
+        if(sourcePath!==labels.join(', ')) throw new Error('Kent NOSE source full path mismatch at '+e.rid);
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent NOSE source parent '+parentId+' for '+e.rid);
+        if(parentId!==null && Number(parent.sourceOrder)>=index)
+            throw new Error('Kent NOSE source parent must precede child at '+e.rid);
+        var parentPath=parent===root?'':String(parent.pathTitle||'');
+        var expectedPath=parentPath?parentPath+', '+label:label;
+        if(expectedPath!==sourcePath) throw new Error('Kent NOSE source parent link/path mismatch at '+e.rid);
+        if(parent.children[label]) throw new Error('Duplicate Kent NOSE sibling label '+label+' at '+e.rid);
+        var remedies=rec.r;
+        if(!remedies||typeof remedies!=='object'||Array.isArray(remedies))
+            throw new Error('Missing Kent NOSE remedies at '+e.rid);
+        Object.keys(remedies).forEach(function(code){
+            var grade=Number(remedies[code]);
+            if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
+                throw new Error('Invalid Kent NOSE medicine grade at '+e.rid+': '+code);
+        });
+        var node={
+            name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
+            children:{},order:[],remedies:remedies,count:1,hasRubric:true,
+            path:sourcePath,pathTitle:sourcePath,displayPathTitle:sourcePath,
+            translationTitle:String(rec.translation_title||sourcePath),
+            oorep_id:rec.oorep_id||null,rid:e.rid,sourceCanonical:true,
+            display:rec.display&&typeof rec.display==='object'&&!Array.isArray(rec.display)?rec.display:null
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        parent.count=(parent.count||0)+1;
+        byRid[e.rid]=node;
+    });
+    return root;
+}
+// ============================================================
 // 🔑 v143: کینٹ کا درخت کتاب کی اصل ساخت پر — homeoint.org + True-Original PDF سے موازنہ
 // مسئلہ: OOREP مرج کے بعد کئی کتابی مین ربرکس (مثلاً «ANGER, irascibility»)
 // OOREP کے چھوٹے مین («ANGER») کے نیچے بطور ذیلی ربرک چلے جاتے تھے، اور کچھ
@@ -972,6 +1035,10 @@ function buildRubricTree(data){
     // 🔑 v171: سماعت باب کی ماخذی قطاریں (صفحات 321–323) — وہی طرز جو کان باب میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'hearing' && _repHasKentHearingSourceData(data)){
         return _repBuildKentHearingSourceTree(data);
+    }
+    // 🔑 v172: ناک باب کی ماخذی قطاریں (صفحات 324–354) — وہی طرز جو سماعت باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'nose' && _repHasKentNoseSourceData(data)){
+        return _repBuildKentNoseSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest
