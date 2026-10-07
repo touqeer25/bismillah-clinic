@@ -1,0 +1,828 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,271,0,VISION,0
+r0,271,0,ACCOMMODATION defective,11
+r1,271,1,"ACCOMMODATION defective, action too great",1
+r2,271,1,"ACCOMMODATION defective, diminished",3
+r3,271,1,"ACCOMMODATION defective, headaches",1
+r4,271,1,"ACCOMMODATION defective, over-exertion",1
+r5,271,1,"ACCOMMODATION defective, slow",8
+r6,271,1,"ACCOMMODATION defective, tension",1
+r7,271,0,ACUTE,16
+r8,271,1,"ACUTE, at night, in hysterical persons",1
+r9,271,0,AMAUROSIS (See Paralysis),0
+r10,271,0,"APPROACH, objects seem to approach and then recede",1
+r11,271,0,BALLS (See Colors),1
+r12,271,1,"BALLS (See Colors), fire, of",1
+r13,271,1,"BALLS (See Colors), floating",1
+r14,271,1,"BALLS (See Colors), luminous",1
+r15,271,0,BLIND (See Lost),0
+r16,271,0,BLURRED,40
+r17,271,1,"BLURRED, morning",2
+r18,271,1,"BLURRED, evening",1
+r19,271,1,"BLURRED, closing eyes amel.",1
+r20,271,1,"BLURRED, distant objects",2
+r21,271,1,"BLURRED, emissions, after",4
+r22,271,1,"BLURRED, figures",1
+r23,271,1,"BLURRED, gaslight",1
+r24,271,1,"BLURRED, headache, before",6
+r25,271,1,"BLURRED, irritated, when",1
+r26,271,1,"BLURRED, letters",18
+r27,271,1,"BLURRED, looking a short time",1
+r28,271,1,"BLURRED, overheated",1
+r29,271,1,"BLURRED, pressure amel.",1
+r30,271,1,"BLURRED, turning eyes",1
+r31,271,1,"BLURRED, writing, while",1
+r32,271,0,BRIGHT (See Dazzling),4
+r33,271,0,"CHANGING (See Moving, Vanishing)",1
+r34,271,0,CIPHERS,3
+r35,271,0,CIRCLES (See Colors),10
+r36,271,1,"CIRCLES (See Colors), about light",1
+r37,271,1,"CIRCLES (See Colors), around an internal brighter field",1
+r38,271,1,"CIRCLES (See Colors), colored around white objects",1
+o63512,271,2,"CIRCLES (See Colors), colored around white objects, around a bright center",1
+o63513,271,2,"CIRCLES (See Colors), colored around white objects, bands",1
+r41,271,1,"CIRCLES (See Colors), fiery (See Fiery)",0
+r42,271,1,"CIRCLES (See Colors), heat, during",1
+r43,271,1,"CIRCLES (See Colors), reading, while",1
+r44,271,1,"CIRCLES (See Colors), turning",1
+r45,271,1,"CIRCLES (See Colors), yellow and white rays, with",1
+r46,271,1,"CIRCLES (See Colors), zigzags",1
+r47,271,2,"CIRCLES (See Colors), zigzags, of color",1
+r48,271,2,"CIRCLES (See Colors), zigzags, flickering",1
+r49,271,1,"CIRCLES (See Colors), objects move in a circle on closing eyes",1
+r50,271,0,CLOUDY (See Foggy),0
+h002,271,0,COBWEBS before eyes (See Foggy),0
+r51,272,0,COLORS before the eyes (See Spots),49
+o63624,272,1,"COLORS before the eyes (See Spots), evening",3
+o63583,272,1,"COLORS before the eyes (See Spots), blindness, color",5
+o63625,272,1,"COLORS before the eyes (See Spots), fast motions, when making",1
+o63685,272,1,"COLORS before the eyes (See Spots), rubbing, after",1
+r109,272,1,"COLORS before the eyes (See Spots), black",8
+o63524,272,2,"COLORS before the eyes (See Spots), black, animals",1
+o63525,272,2,"COLORS before the eyes (See Spots), black, balls",3
+r59,272,2,"COLORS before the eyes (See Spots), black, circles (See Rings)",0
+o63526,272,2,"COLORS before the eyes (See Spots), black, disk",1
+o63527,272,2,"COLORS before the eyes (See Spots), black, figures",2
+o63528,272,3,"COLORS before the eyes (See Spots), black, figures, floating before eyes",1
+o63529,272,2,"COLORS before the eyes (See Spots), black, flickerings",1
+o63530,272,2,"COLORS before the eyes (See Spots), black, flies, floating",1
+r111,272,2,"COLORS before the eyes (See Spots), black, floating",9
+o63532,272,2,"COLORS before the eyes (See Spots), black, halo",1
+o63533,272,2,"COLORS before the eyes (See Spots), black, horns",1
+o63534,272,2,"COLORS before the eyes (See Spots), black, letters change to points",1
+o63535,272,2,"COLORS before the eyes (See Spots), black, lightning",1
+o63536,272,2,"COLORS before the eyes (See Spots), black, looking down, when",1
+o63537,272,2,"COLORS before the eyes (See Spots), black, motes",1
+o63538,272,2,"COLORS before the eyes (See Spots), black, moving",1
+o63539,272,2,"COLORS before the eyes (See Spots), black, objects",5
+o63580,272,2,"COLORS before the eyes (See Spots), black, turning, on",2
+o63540,272,2,"COLORS before the eyes (See Spots), black, plate",1
+o63541,272,2,"COLORS before the eyes (See Spots), black, points",19
+o63544,272,3,"COLORS before the eyes (See Spots), black, points, morning",1
+o63542,272,3,"COLORS before the eyes (See Spots), black, points, candlelight, by",1
+o63543,272,3,"COLORS before the eyes (See Spots), black, points, dinner, before",1
+o63545,272,3,"COLORS before the eyes (See Spots), black, points, reading, while",2
+r118,272,2,"COLORS before the eyes (See Spots), black, reading, while",3
+o63547,272,3,"COLORS before the eyes (See Spots), black, reading, while, accompanying letter",1
+o63548,272,2,"COLORS before the eyes (See Spots), black, rings, circles",2
+o63549,272,3,"COLORS before the eyes (See Spots), black, rings, circles, floating",1
+o63550,272,3,"COLORS before the eyes (See Spots), black, rings, circles, headache, before",1
+o63551,272,3,"COLORS before the eyes (See Spots), black, rings, circles, heat, during",1
+o63552,272,3,"COLORS before the eyes (See Spots), black, rings, circles, reading",1
+o63553,272,3,"COLORS before the eyes (See Spots), black, rings, circles, waving",1
+o63554,272,2,"COLORS before the eyes (See Spots), black, rising, from stooping",1
+o63555,272,2,"COLORS before the eyes (See Spots), black, serpents",1
+o63556,272,2,"COLORS before the eyes (See Spots), black, sparks",1
+r110,272,2,"COLORS before the eyes (See Spots), black, spots",40
+o63569,272,3,"COLORS before the eyes (See Spots), black, spots, morning, waking, on",1
+o63558,272,3,"COLORS before the eyes (See Spots), black, spots, eating, after",1
+o63559,272,3,"COLORS before the eyes (See Spots), black, spots, exertion, physical",1
+o63560,272,3,"COLORS before the eyes (See Spots), black, spots, eyes are closed, when",2
+o63567,272,3,"COLORS before the eyes (See Spots), black, spots, headache, before a",1
+o63568,272,4,"COLORS before the eyes (See Spots), black, spots, headache, before a, during",2
+o63570,272,3,"COLORS before the eyes (See Spots), black, spots, moving in all directions",3
+o63571,272,3,"COLORS before the eyes (See Spots), black, spots, reading, after",2
+o63572,272,3,"COLORS before the eyes (See Spots), black, spots, rising from a seat, on",1
+o63573,272,3,"COLORS before the eyes (See Spots), black, spots, sewing, while",1
+o63574,272,3,"COLORS before the eyes (See Spots), black, spots, turning quickly",1
+o63575,272,3,"COLORS before the eyes (See Spots), black, spots, vertigo, with",2
+o63576,272,3,"COLORS before the eyes (See Spots), black, spots, writing, while",1
+o63561,272,3,"COLORS before the eyes (See Spots), black, spots, floating (muscæ volitantes)",61
+o63562,272,4,"COLORS before the eyes (See Spots), black, spots, floating (muscæ volitantes), eating, after",2
+r112,273,4,"COLORS before the eyes (See Spots), black, spots, floating (muscæ volitantes), reading, while",1
+r113,273,4,"COLORS before the eyes (See Spots), black, spots, floating (muscæ volitantes), sewing, after",1
+r114,273,4,"COLORS before the eyes (See Spots), black, spots, floating (muscæ volitantes), walking in open air",1
+r115,273,4,"COLORS before the eyes (See Spots), black, spots, floating (muscæ volitantes), writing, while",1
+r116,273,2,"COLORS before the eyes (See Spots), black, stripes",5
+r117,273,3,"COLORS before the eyes (See Spots), black, stripes, morning",1
+o63579,273,3,"COLORS before the eyes (See Spots), black, stripes, reading, while",2
+r119,273,2,"COLORS before the eyes (See Spots), black, veil",1
+r120,273,3,"COLORS before the eyes (See Spots), black, veil, before the right eye",1
+r121,273,1,"COLORS before the eyes (See Spots), blue",18
+r122,273,2,"COLORS before the eyes (See Spots), blue, right eye",1
+r123,273,2,"COLORS before the eyes (See Spots), blue, evening",1
+r124,273,2,"COLORS before the eyes (See Spots), blue, blindness for",1
+r125,273,2,"COLORS before the eyes (See Spots), blue, circles",1
+r126,273,2,"COLORS before the eyes (See Spots), blue, closed, when eyes are",1
+r127,273,2,"COLORS before the eyes (See Spots), blue, dark blue",2
+r128,273,2,"COLORS before the eyes (See Spots), blue, distance, in the",1
+r129,273,2,"COLORS before the eyes (See Spots), blue, halo around candle",2
+r130,273,2,"COLORS before the eyes (See Spots), blue, haze",1
+r131,273,2,"COLORS before the eyes (See Spots), blue, light around",1
+r132,273,3,"COLORS before the eyes (See Spots), blue, light around, of the candle",1
+r133,273,2,"COLORS before the eyes (See Spots), blue, reading",1
+r134,273,2,"COLORS before the eyes (See Spots), blue, rubbing, on",1
+r135,273,2,"COLORS before the eyes (See Spots), blue, points",1
+r136,273,2,"COLORS before the eyes (See Spots), blue, sparks",1
+r137,273,2,"COLORS before the eyes (See Spots), blue, spots",2
+r138,273,3,"COLORS before the eyes (See Spots), blue, spots, morning on rising",1
+r139,273,3,"COLORS before the eyes (See Spots), blue, spots, night, when lying on right side in a dark room",1
+r140,273,3,"COLORS before the eyes (See Spots), blue, spots, in a dark room",2
+r141,273,2,"COLORS before the eyes (See Spots), blue, stars",1
+r142,273,3,"COLORS before the eyes (See Spots), blue, stars, during headache",1
+r143,273,1,"COLORS before the eyes (See Spots), bright",52
+r144,273,1,"COLORS before the eyes (See Spots), dark",58
+r145,273,2,"COLORS before the eyes (See Spots), dark, circles",2
+r146,273,3,"COLORS before the eyes (See Spots), dark, circles, with points of light",1
+r147,273,2,"COLORS before the eyes (See Spots), dark, clouds",4
+r148,273,2,"COLORS before the eyes (See Spots), dark, objects",5
+r149,273,3,"COLORS before the eyes (See Spots), dark, objects, moving",1
+r150,273,3,"COLORS before the eyes (See Spots), dark, objects, seem dark",5
+r151,273,2,"COLORS before the eyes (See Spots), dark, points",4
+r152,273,3,"COLORS before the eyes (See Spots), dark, points, floating",2
+r153,273,2,"COLORS before the eyes (See Spots), dark, serpent-like waves",1
+r154,273,2,"COLORS before the eyes (See Spots), dark, specks",11
+r155,273,2,"COLORS before the eyes (See Spots), dark, spots",19
+r156,273,3,"COLORS before the eyes (See Spots), dark, spots, floating",3
+r157,273,3,"COLORS before the eyes (See Spots), dark, spots, reading agg.",3
+r158,273,3,"COLORS before the eyes (See Spots), dark, spots, white margins, with",1
+r159,273,2,"COLORS before the eyes (See Spots), dark, stripes",3
+r160,273,2,"COLORS before the eyes (See Spots), dark, worms",1
+r161,273,1,"COLORS before the eyes (See Spots), golden, everything looks",1
+r162,273,2,"COLORS before the eyes (See Spots), golden, everything looks, chain dangling before eyes",1
+r163,273,2,"COLORS before the eyes (See Spots), golden, everything looks, letters seem",1
+r164,273,1,"COLORS before the eyes (See Spots), gray, objects seem",10
+r165,273,2,"COLORS before the eyes (See Spots), gray, objects seem, black objects seem gray",1
+r166,273,2,"COLORS before the eyes (See Spots), gray, objects seem, bluish-gray circle around light",1
+r167,273,2,"COLORS before the eyes (See Spots), gray, objects seem, circles",1
+r168,273,2,"COLORS before the eyes (See Spots), gray, objects seem, covering before eyes",1
+r169,273,2,"COLORS before the eyes (See Spots), gray, objects seem, fog",1
+r170,273,2,"COLORS before the eyes (See Spots), gray, objects seem, halo",2
+r173,273,2,"COLORS before the eyes (See Spots), gray, objects seem, letters",1
+r174,274,3,"COLORS before the eyes (See Spots), gray, objects seem, letters, change to round gray spots",1
+r175,274,2,"COLORS before the eyes (See Spots), gray, objects seem, points",1
+r176,274,2,"COLORS before the eyes (See Spots), gray, objects seem, point before right eye moving with eye",1
+r177,274,2,"COLORS before the eyes (See Spots), gray, objects seem, reddish gray border around white things",1
+r178,274,2,"COLORS before the eyes (See Spots), gray, objects seem, serpent-like bodies",1
+r179,274,2,"COLORS before the eyes (See Spots), gray, objects seem, spots",5
+r180,274,3,"COLORS before the eyes (See Spots), gray, objects seem, spots, at a distance",1
+r181,274,2,"COLORS before the eyes (See Spots), gray, objects seem, veil",2
+r182,274,1,"COLORS before the eyes (See Spots), green",23
+r183,274,2,"COLORS before the eyes (See Spots), green, blindness for",1
+r184,274,2,"COLORS before the eyes (See Spots), green, dinner, during",1
+r185,274,3,"COLORS before the eyes (See Spots), green, dinner, during, amel. by eructations",1
+r186,274,2,"COLORS before the eyes (See Spots), green, circles",1
+r187,274,3,"COLORS before the eyes (See Spots), green, circles, around light",1
+r188,274,2,"COLORS before the eyes (See Spots), green, halo around light",9
+r189,274,2,"COLORS before the eyes (See Spots), green, letters",1
+r190,274,2,"COLORS before the eyes (See Spots), green, pea green, saw herself on looking in the glass",1
+r191,274,2,"COLORS before the eyes (See Spots), green, sparks",1
+r192,274,2,"COLORS before the eyes (See Spots), green, spots",6
+r193,274,3,"COLORS before the eyes (See Spots), green, spots, walking in the dark, while",1
+r194,274,2,"COLORS before the eyes (See Spots), green, stripes",1
+r195,274,2,"COLORS before the eyes (See Spots), green, vomiting",1
+r196,274,2,"COLORS before the eyes (See Spots), green, yellow-green",1
+r197,274,1,"COLORS before the eyes (See Spots), halo of colors around the light",39
+o63661,274,2,"COLORS before the eyes (See Spots), halo of colors around the light, around the letters while reading",2
+r199,274,1,"COLORS before the eyes (See Spots), rainbow, all the colors",6
+r200,274,2,"COLORS before the eyes (See Spots), rainbow, all the colors, beaming light of",1
+r201,274,2,"COLORS before the eyes (See Spots), rainbow, all the colors, circles",2
+r202,274,2,"COLORS before the eyes (See Spots), rainbow, all the colors, strip on closing one eye",1
+r203,274,1,"COLORS before the eyes (See Spots), red",21
+r204,274,2,"COLORS before the eyes (See Spots), red, night",5
+r205,274,3,"COLORS before the eyes (See Spots), red, night, and yellow during day",1
+r206,274,2,"COLORS before the eyes (See Spots), red, blindness for",1
+r207,274,2,"COLORS before the eyes (See Spots), red, circles",1
+r208,274,3,"COLORS before the eyes (See Spots), red, circles, on rubbing",1
+r209,274,3,"COLORS before the eyes (See Spots), red, circles, light seems to be",1
+r210,274,2,"COLORS before the eyes (See Spots), red, closing eyes",1
+r211,274,2,"COLORS before the eyes (See Spots), red, fiery spots",1
+r212,274,2,"COLORS before the eyes (See Spots), red, halo",5
+r213,274,3,"COLORS before the eyes (See Spots), red, halo, around the lamplight",1
+r214,274,2,"COLORS before the eyes (See Spots), red, luminous appearance",2
+r215,274,2,"COLORS before the eyes (See Spots), red, masses",1
+r216,274,2,"COLORS before the eyes (See Spots), red, objects seem",11
+r217,274,2,"COLORS before the eyes (See Spots), red, obstructions on looking at the light",1
+r218,274,2,"COLORS before the eyes (See Spots), red, paper looks red",1
+r219,274,2,"COLORS before the eyes (See Spots), red, points",1
+r220,274,2,"COLORS before the eyes (See Spots), red, sparks",2
+r221,274,2,"COLORS before the eyes (See Spots), red, spots",4
+r222,274,1,"COLORS before the eyes (See Spots), striped",7
+r223,274,1,"COLORS before the eyes (See Spots), variegated",15
+r224,274,1,"COLORS before the eyes (See Spots), violet",1
+r225,274,1,"COLORS before the eyes (See Spots), white",7
+r226,274,2,"COLORS before the eyes (See Spots), white, blindness for",1
+r227,274,2,"COLORS before the eyes (See Spots), white, candlelight seems",1
+r228,274,2,"COLORS before the eyes (See Spots), white, falling drops on looking at snow",1
+r229,274,2,"COLORS before the eyes (See Spots), white, flames",1
+r230,274,2,"COLORS before the eyes (See Spots), white, flickering",2
+r231,274,2,"COLORS before the eyes (See Spots), white, globules",1
+r232,274,2,"COLORS before the eyes (See Spots), white, green, objects look",1
+r233,274,2,"COLORS before the eyes (See Spots), white, margin around letters",1
+r234,274,2,"COLORS before the eyes (See Spots), white, pale, faces appear white",2
+r235,274,2,"COLORS before the eyes (See Spots), white, points",3
+r236,275,2,"COLORS before the eyes (See Spots), white, rays, flaming",1
+r237,275,2,"COLORS before the eyes (See Spots), white, sparks",1
+r238,275,2,"COLORS before the eyes (See Spots), white, spots",10
+r239,275,3,"COLORS before the eyes (See Spots), white, spots, then green",1
+r240,275,3,"COLORS before the eyes (See Spots), white, spots, waving",1
+r241,275,2,"COLORS before the eyes (See Spots), white, stars",6
+r242,275,3,"COLORS before the eyes (See Spots), white, stars, blowing nose, on",1
+r243,275,3,"COLORS before the eyes (See Spots), white, stars, writing, while",1
+r244,275,2,"COLORS before the eyes (See Spots), white, stripes",1
+r245,275,2,"COLORS before the eyes (See Spots), white, zigzags in a circle",1
+r246,275,1,"COLORS before the eyes (See Spots), yellow",24
+r247,275,2,"COLORS before the eyes (See Spots), yellow, day",1
+r248,275,3,"COLORS before the eyes (See Spots), yellow, day, and red at night",1
+r249,275,2,"COLORS before the eyes (See Spots), yellow, border around all objects",1
+r250,275,2,"COLORS before the eyes (See Spots), yellow, circle around light",3
+r251,275,3,"COLORS before the eyes (See Spots), yellow, circle around light, moving",1
+r252,275,2,"COLORS before the eyes (See Spots), yellow, cloud",1
+r253,275,2,"COLORS before the eyes (See Spots), yellow, crescent-shaped bodies floating obliquely upwards",1
+r254,275,2,"COLORS before the eyes (See Spots), yellow, flames",2
+r255,275,2,"COLORS before the eyes (See Spots), yellow, halo around the light",2
+r256,275,2,"COLORS before the eyes (See Spots), yellow, letters",1
+r257,275,2,"COLORS before the eyes (See Spots), yellow, points",1
+r258,275,2,"COLORS before the eyes (See Spots), yellow, red things look yellow",1
+r259,275,2,"COLORS before the eyes (See Spots), yellow, shiny tremulous mist",1
+r260,275,2,"COLORS before the eyes (See Spots), yellow, spots",4
+r261,275,3,"COLORS before the eyes (See Spots), yellow, spots, before left eye",1
+r262,275,3,"COLORS before the eyes (See Spots), yellow, spots, looking at white objects",1
+r263,275,3,"COLORS before the eyes (See Spots), yellow, spots, reading, while",1
+r264,275,2,"COLORS before the eyes (See Spots), yellow, veil",1
+r265,275,2,"COLORS before the eyes (See Spots), yellow, vomiting, while",1
+r266,275,0,CONFUSED (vision),26
+r267,275,0,"CROOKED, objects appear",1
+r268,275,1,"CROOKED, objects appear, lines, while reading",1
+r269,275,0,DANCING,8
+r270,275,1,"DANCING, headache, before",1
+r271,275,0,DAZZLING (See Trembling),31
+r272,275,1,"DAZZLING (See Trembling), candlelight",1
+r273,275,1,"DAZZLING (See Trembling), distant objects",1
+r274,275,1,"DAZZLING (See Trembling), looking long",1
+r275,275,1,"DAZZLING (See Trembling), reading, while",1
+r276,275,1,"DAZZLING (See Trembling), snow",4
+r277,275,1,"DAZZLING (See Trembling), spot before eyes",1
+r278,275,1,"DAZZLING (See Trembling), sunlight",4
+r279,275,1,"DAZZLING (See Trembling), urination, after",1
+r280,275,0,DIM,180
+r281,275,1,"DIM, right",10
+r282,276,1,"DIM, left eye",2
+r283,276,2,"DIM, left eye, with right-sided headache",1
+r284,276,1,"DIM, daytime",3
+r285,276,1,"DIM, morning",23
+r286,276,2,"DIM, morning, amel.",2
+r287,276,2,"DIM, morning, waking, on",6
+r288,276,2,"DIM, morning, washing amel.",1
+r289,276,1,"DIM, forenoon",3
+r290,276,2,"DIM, forenoon, reading, while",1
+h003,276,2,"DIM, forenoon, 7 until 10 a.m.",1
+r292,276,2,"DIM, forenoon, 11 a.m.",1
+r293,276,1,"DIM, noon",1
+r294,276,2,"DIM, noon, on rising from a seat",1
+r295,276,1,"DIM, afternoon, while reading",1
+r296,276,1,"DIM, evening",16
+r297,276,2,"DIM, evening, firelight agg.",1
+r298,276,2,"DIM, evening, lying down amel.",1
+r299,276,2,"DIM, evening, menses, during",1
+r300,276,2,"DIM, evening, reading",6
+r301,276,2,"DIM, evening, twilight",1
+r302,276,2,"DIM, evening, walking, while",2
+r303,276,3,"DIM, evening, walking, while, after, on entering a room",1
+r304,276,3,"DIM, evening, walking, while, fast",1
+r305,276,2,"DIM, evening, warm from exertion, when",1
+r306,276,2,"DIM, evening, 9 a.m.",1
+r307,276,1,"DIM, night",8
+r308,276,2,"DIM, night, better at night than by day",1
+r309,276,2,"DIM, night, menses, during",1
+r310,276,1,"DIM, air, open",7
+r311,276,2,"DIM, air, open, fresh, amel.",2
+r312,276,1,"DIM, alternating with deafness",1
+r313,276,1,"DIM, anxiety, during",1
+r314,276,1,"DIM, blowing nose",1
+r315,276,1,"DIM, bright light",2
+r316,276,1,"DIM, candlelight",6
+r317,276,1,"DIM, chill, during",4
+r318,276,1,"DIM, coition, after",7
+r319,276,1,"DIM, cold bathing amel.",3
+o63756,276,2,"DIM, cold bathing amel., head becoming, from",1
+r321,276,1,"DIM, cough, during",1
+r322,276,1,"DIM, damp weather",2
+r323,276,1,"DIM, dark day amel.",2
+r324,276,1,"DIM, descending stairs",1
+r325,276,1,"DIM, dinner, after",2
+r326,276,1,"DIM, diphtheria, after",7
+r327,276,1,"DIM, distant objects",17
+r328,276,1,"DIM, drunkards, in",1
+r329,276,1,"DIM, eating, while",3
+r330,276,2,"DIM, eating, while, after",2
+r331,276,1,"DIM, erect, on becoming",1
+r332,276,1,"DIM, exertion of eyes, after",5
+r333,276,2,"DIM, exertion of eyes, after, on fine work",4
+o63782,276,2,"DIM, exertion of eyes, after, body",2
+r335,276,1,"DIM, firelight agg.",2
+r336,276,1,"DIM, headache, before",9
+r337,276,2,"DIM, headache, before, during",19
+r338,276,2,"DIM, headache, before, after",1
+r339,276,1,"DIM, heat, in, agg.",1
+r340,276,1,"DIM, looking long",3
+o63795,276,2,"DIM, looking long, steadily amel.",2
+r342,276,1,"DIM, measles, after",4
+r343,276,1,"DIM, menses, before",3
+o63798,276,2,"DIM, menses, before, during",6
+r345,276,1,"DIM, mental exertion",1
+r346,276,1,"DIM, momentary spells",3
+r347,276,1,"DIM, motion, from uneven",1
+r348,276,1,"DIM, moving objects",2
+r349,276,1,"DIM, occiput, with pain in, extending to eye",1
+r350,276,1,"DIM, old people",1
+r351,276,1,"DIM, overheating",1
+r352,277,1,"DIM, reading",30
+r353,277,1,"DIM, recurrent",1
+r354,277,1,"DIM, rheumatism, during",1
+r355,277,1,"DIM, rising from bed",2
+o63820,277,2,"DIM, rising from bed, a seat",3
+o63821,277,2,"DIM, rising from bed, from stooping",1
+r358,277,1,"DIM, room, in, amel.",2
+r359,277,1,"DIM, rubbing agg.",1
+o63824,277,2,"DIM, rubbing agg., amel.",3
+r361,277,1,"DIM, seminal emission, after",4
+r362,277,1,"DIM, sideways, can only see objects when looking at them",1
+r363,277,1,"DIM, smoking",1
+r364,277,1,"DIM, standing",2
+r365,277,1,"DIM, stimulants, from",2
+r366,277,1,"DIM, straining eyes",3
+r367,277,1,"DIM, sunlight agg.",4
+r368,277,1,"DIM, suppressed foot-sweat, after",1
+r369,277,1,"DIM, thinking, from",1
+r370,277,1,"DIM, twilight amel.",1
+r371,277,1,"DIM, uncovering head, from",1
+r372,277,1,"DIM, urination amel.",1
+r373,277,1,"DIM, vertigo, during",58
+r374,277,1,"DIM, waking, on",2
+r375,277,1,"DIM, walking, while",5
+h004,277,2,"DIM, walking, while, in open air",3
+r377,277,3,"DIM, walking, while, in open air, amel.",1
+r378,277,1,"DIM, warmth",2
+r379,277,1,"DIM, washing in water, after",1
+r380,277,1,"DIM, white objects, when fixing eyes upon",1
+r381,277,1,"DIM, winking amel.",2
+r382,277,1,"DIM, wiping eyes amel.",11
+r383,277,1,"DIM, writing, while",12
+r384,277,0,DIPLOPIA,77
+r385,277,1,"DIPLOPIA, morning",2
+r386,277,1,"DIPLOPIA, evening",4
+r387,277,1,"DIPLOPIA, night",1
+r388,277,1,"DIPLOPIA, convulsions, with",5
+r389,277,1,"DIPLOPIA, distant objects",4
+r390,277,1,"DIPLOPIA, headache, with",1
+r391,277,1,"DIPLOPIA, horizontal objects, of",2
+r392,277,1,"DIPLOPIA, inclining head to either side",1
+r393,277,1,"DIPLOPIA, light, when looking at",1
+r394,277,1,"DIPLOPIA, looking downward",2
+o63857,277,2,"DIPLOPIA, looking downward, intensely",3
+o63858,277,2,"DIPLOPIA, looking downward, sideways",1
+o63859,277,3,"DIPLOPIA, looking downward, sideways, right",2
+o63860,277,2,"DIPLOPIA, looking downward, upward",1
+r399,277,1,"DIPLOPIA, lying down amel.",1
+r400,277,1,"DIPLOPIA, near objects",8
+r401,277,1,"DIPLOPIA, overwork at the desk",1
+r402,277,1,"DIPLOPIA, pregnancy, during",3
+r403,277,1,"DIPLOPIA, reading",7
+r404,277,1,"DIPLOPIA, riding in the cars, after",1
+r405,277,1,"DIPLOPIA, sleep, after",2
+r406,277,1,"DIPLOPIA, standing erect and looking down",1
+r407,277,1,"DIPLOPIA, turning eyes to right, on",1
+r408,277,1,"DIPLOPIA, vertigo, after",1
+r409,277,1,"DIPLOPIA, writing",2
+r410,278,0,"DISTANT, objects seem",20
+r411,278,1,"DISTANT, objects seem, dark, in the",1
+r412,278,1,"DISTANT, objects seem, on waking",1
+r413,278,0,EXERTION of vision agg. (See Looking),89
+o63878,278,1,"EXERTION of vision agg. (See Looking), physical, amel.",1
+r415,278,0,"FADE away, then reappear, objects",1
+r416,278,0,FAR-SIGHTED (See Hypermetropia),0
+r417,278,0,FEATHERY,10
+r418,278,0,FIERY,16
+r419,278,1,"FIERY, balls",2
+r420,278,1,"FIERY, bodies",2
+r421,278,1,"FIERY, circles",7
+r422,278,1,"FIERY, disks",1
+r423,278,1,"FIERY, points",8
+r424,278,2,"FIERY, points, moving with the eyes",1
+r425,278,1,"FIERY, rays about the light",2
+r426,278,1,"FIERY, rising from seat, on",1
+r427,278,1,"FIERY, shimmerings",1
+r428,278,1,"FIERY, showers",1
+r429,278,1,"FIERY, spots",3
+r430,278,1,"FIERY, zigzags",5
+r431,278,2,"FIERY, zigzags, around objects",2
+r432,278,0,"FIRE, a sea of, on closing the eyes",2
+r433,278,0,FLAMES,15
+r434,278,1,"FLAMES, night in bed",2
+o63898,278,2,"FLAMES, night in bed, waking, on",1
+r436,278,1,"FLAMES, various colored flames",3
+r437,278,0,FLASHES,29
+r438,278,1,"FLASHES, morning in the dark",1
+o63906,278,2,"FLASHES, morning in the dark, waking, on",1
+r440,278,1,"FLASHES, closing the eyes, on",6
+r441,278,1,"FLASHES, coughing, on",2
+r442,278,1,"FLASHES, dark, in the",4
+r443,278,1,"FLASHES, electric shocks, like",1
+r444,278,1,"FLASHES, sleep, on going to",1
+r445,278,1,"FLASHES, streaks",2
+r446,278,1,"FLASHES, waking, after",1
+r447,278,0,FLICKERING,90
+r448,278,1,"FLICKERING, right",2
+r449,278,1,"FLICKERING, left",2
+r450,278,1,"FLICKERING, daytime",2
+r451,278,1,"FLICKERING, morning",4
+r452,278,2,"FLICKERING, morning, headache, with",1
+r453,278,2,"FLICKERING, morning, rising, on",3
+r454,278,2,"FLICKERING, morning, waking",2
+r455,278,2,"FLICKERING, morning, writing",1
+r456,278,2,"FLICKERING, morning, 5 a.m.",1
+r457,279,1,"FLICKERING, afternoon after nap",1
+r458,279,2,"FLICKERING, afternoon after nap, evening",2
+h005,279,1,"FLICKERING, on attempting to read",1
+r460,279,1,"FLICKERING, night agg.",1
+r461,279,1,"FLICKERING, around outside the range of vision",1
+r462,279,1,"FLICKERING, ascending stairs",1
+r463,279,1,"FLICKERING, breakfast, after",1
+r464,279,1,"FLICKERING, candlelight",1
+r465,279,1,"FLICKERING, chill",5
+r466,279,1,"FLICKERING, circles",1
+r467,279,1,"FLICKERING, closing eyes, when",2
+r468,279,1,"FLICKERING, colors, various",1
+r469,279,1,"FLICKERING, dinner, during",1
+r470,279,2,"FLICKERING, dinner, during, after",1
+r471,279,1,"FLICKERING, eating amel.",1
+r472,279,1,"FLICKERING, entering a house, on",1
+r473,279,1,"FLICKERING, exercise, after",1
+r474,279,1,"FLICKERING, headache, at beginning of",1
+r475,279,2,"FLICKERING, headache, at beginning of, before",8
+r476,279,2,"FLICKERING, headache, at beginning of, during",13
+r477,279,1,"FLICKERING, light, when looking at",1
+r478,279,1,"FLICKERING, looking long",3
+o63934,279,2,"FLICKERING, looking long, intently",2
+r480,279,1,"FLICKERING, lying, while",1
+r481,279,1,"FLICKERING, moving to the right",1
+r482,279,1,"FLICKERING, paroxysmal",1
+r483,279,1,"FLICKERING, reading, while",7
+r484,279,1,"FLICKERING, rising, on",1
+r485,279,1,"FLICKERING, sewing, while",1
+r486,279,1,"FLICKERING, sleep, on going to",1
+r487,279,1,"FLICKERING, sudden",1
+r488,279,1,"FLICKERING, vertigo, with",8
+r489,279,1,"FLICKERING, wiping eyes agg.",1
+r490,279,1,"FLICKERING, writing, while",6
+r491,279,0,FOCAL distance changes while reading,4
+o63955,279,1,"FOCAL distance changes while reading, unequal",1
+r493,279,0,FOGGY,133
+r494,279,1,"FOGGY, daytime",1
+r495,279,1,"FOGGY, morning",10
+r496,279,2,"FOGGY, morning, 10 a.m. to 3 p.m.",1
+r497,279,1,"FOGGY, afternoon",3
+h006,279,2,"FOGGY, afternoon, 3 to 4 p.m.",1
+r499,279,2,"FOGGY, afternoon, 4 p.m. after sleep",2
+r500,279,1,"FOGGY, evening",9
+r501,279,2,"FOGGY, evening, candlelight",1
+r502,279,1,"FOGGY, bright light agg.",1
+r503,279,1,"FOGGY, candlelight, around",2
+r504,279,1,"FOGGY, circles",1
+r505,279,1,"FOGGY, colors, caused by",1
+r506,279,1,"FOGGY, dinner, after",2
+r507,279,1,"FOGGY, distant objects",1
+r508,279,1,"FOGGY, eating, after",2
+r509,279,1,"FOGGY, fever",1
+r510,279,1,"FOGGY, headache, during",3
+r511,279,1,"FOGGY, hemiopia, in",1
+r512,279,1,"FOGGY, incipient cataract",1
+r513,279,1,"FOGGY, lying on left side",1
+r514,279,1,"FOGGY, motion, during",1
+r515,279,1,"FOGGY, open air agg.",2
+r516,280,1,"FOGGY, reading, while",13
+r517,280,1,"FOGGY, rising from a seat",1
+r518,280,1,"FOGGY, room, in",2
+r519,280,1,"FOGGY, rubbing amel.",1
+r520,280,1,"FOGGY, seminal emissions, after",1
+r521,280,1,"FOGGY, sewing",1
+r522,280,1,"FOGGY, sitting, after long",1
+r523,280,1,"FOGGY, sleep, after",1
+r524,280,1,"FOGGY, standing",2
+r525,280,1,"FOGGY, sunlight agg.",2
+r526,280,1,"FOGGY, tremulous",1
+r527,280,1,"FOGGY, walking",3
+r528,280,1,"FOGGY, washing amel.",2
+r529,280,1,"FOGGY, writing",5
+r530,280,0,GAUZE (See Foggy),0
+r531,280,0,GLIMMERING (See Flickering),0
+r532,280,0,GLITTERING objects,7
+o63994,280,1,"GLITTERING objects, bodies on blowing nose",2
+o63995,280,2,"GLITTERING objects, bodies on blowing nose, bright, luminous appearances",3
+o63996,280,2,"GLITTERING objects, bodies on blowing nose, outside, the range of vision",1
+o63997,280,1,"GLITTERING objects, candlelight, in",1
+o63998,280,1,"GLITTERING objects, circle",1
+o63999,280,1,"GLITTERING objects, gaslight, in",1
+o64000,280,1,"GLITTERING objects, needles",1
+o64001,280,1,"GLITTERING objects, points",1
+o64002,280,1,"GLITTERING objects, reading, while",1
+o64003,280,1,"GLITTERING objects, stars",1
+o64004,280,1,"GLITTERING objects, vertigo, with",1
+o64005,280,1,"GLITTERING objects, zigzags",1
+r545,280,0,"HAIR, as if, hung before the sight and must be wiped away",8
+r546,280,0,HEMIOPIA,31
+r547,280,1,"HEMIOPIA, evening",2
+r548,280,1,"HEMIOPIA, right half lost",7
+r549,280,1,"HEMIOPIA, left half lost",3
+r550,280,1,"HEMIOPIA, horizontal",5
+r551,280,1,"HEMIOPIA, lower lost",3
+r552,280,1,"HEMIOPIA, menses, during",1
+r553,280,1,"HEMIOPIA, upper lost",5
+r554,280,1,"HEMIOPIA, vertical",14
+r555,280,1,"HEMIOPIA, walking, while",1
+r556,280,0,"HIGH, objects seem too (See Large)",0
+r557,280,0,HYPERMETROPIA,39
+r558,280,1,"HYPERMETROPIA, evening",1
+r559,280,1,"HYPERMETROPIA, overuse of eyes in fine work",1
+r560,280,0,ILLUSIONS,19
+r561,280,1,"ILLUSIONS, falling asleep, when",1
+r562,280,1,"ILLUSIONS, insects",3
+r563,280,1,"ILLUSIONS, objects passing",1
+r564,280,0,IMAGES too long retained,7
+r565,280,0,"INVERTED, objects seem",3
+r566,280,0,"JUMP, words when reading",2
+r567,280,0,LARGE field of vision,2
+o64028,280,1,"LARGE field of vision, flame of light",2
+o64029,280,1,"LARGE field of vision, objects seem",18
+h007,280,1,"LARGE field of vision, elongated",1
+h008,280,1,"LARGE field of vision, raises his foot unnecessarily high in stepping over small objects when walking",2
+h009,280,1,"LARGE field of vision, rising from a seat, on",1
+h010,280,1,"LARGE field of vision, twilight, in",1
+r574,281,0,LIGHT,5
+r575,281,1,"LIGHT, insensibility to",2
+r576,281,1,"LIGHT, points",1
+r577,281,2,"LIGHT, points, in a dark circle",1
+r578,281,1,"LIGHT, spots",1
+r579,281,1,"LIGHT, streaks of",1
+r580,281,2,"LIGHT, streaks of, pass downward; seen to one side of eye in dark",1
+r581,281,1,"LIGHT, waves of",1
+r582,281,0,LIGHTNINGS,25
+o64045,281,1,"LIGHTNINGS, noon",1
+o64044,281,1,"LIGHTNINGS, night, distant, sheet lightning in dark, 11 p.m.",1
+o64043,281,1,"LIGHTNINGS, dark, in",3
+o64046,281,1,"LIGHTNINGS, on falling asleep",3
+o64047,281,1,"LIGHTNINGS, on waking",1
+r588,281,0,LOSS OF VISION (blindness),109
+r589,281,1,"LOSS OF VISION (blindness), daytime",4
+r590,281,2,"LOSS OF VISION (blindness), daytime, light, caused by",4
+r591,281,1,"LOSS OF VISION (blindness), morning",3
+r592,281,2,"LOSS OF VISION (blindness), morning, fasting",1
+r593,281,2,"LOSS OF VISION (blindness), morning, rising",1
+r594,281,1,"LOSS OF VISION (blindness), forenoon",1
+r595,281,1,"LOSS OF VISION (blindness), noon",1
+r596,281,2,"LOSS OF VISION (blindness), noon, before eating",1
+r597,281,1,"LOSS OF VISION (blindness), afternoon",1
+r598,281,2,"LOSS OF VISION (blindness), afternoon, after pain in head and eyes",1
+r599,281,2,"LOSS OF VISION (blindness), afternoon, rising after sleep, on",1
+r600,281,2,"LOSS OF VISION (blindness), afternoon, stooping, on",1
+r601,281,2,"LOSS OF VISION (blindness), afternoon, 4 p.m.",1
+r602,281,1,"LOSS OF VISION (blindness), evening",8
+r603,281,2,"LOSS OF VISION (blindness), evening, light, caused by",3
+r604,281,2,"LOSS OF VISION (blindness), evening, menses, during",1
+r605,281,2,"LOSS OF VISION (blindness), evening, reading, while",1
+r606,281,2,"LOSS OF VISION (blindness), evening, sitting down during vertigo, on",1
+r607,281,2,"LOSS OF VISION (blindness), evening, sunset, at",1
+r608,281,2,"LOSS OF VISION (blindness), evening, twilight",2
+r609,281,1,"LOSS OF VISION (blindness), night",18
+r610,281,2,"LOSS OF VISION (blindness), night, flickering by day, blind at night",1
+r611,281,1,"LOSS OF VISION (blindness), abdominal pain, with",2
+h011,281,1,"LOSS OF VISION (blindness), air, open",1
+r613,281,2,"LOSS OF VISION (blindness), air, open, amel.",2
+r614,281,1,"LOSS OF VISION (blindness), alternates with headaches",1
+r615,281,1,"LOSS OF VISION (blindness), ascending stairs",1
+r616,281,1,"LOSS OF VISION (blindness), bright objects, by",2
+r617,281,1,"LOSS OF VISION (blindness), chill, during",1
+r618,281,1,"LOSS OF VISION (blindness), cold, after catching",1
+r619,281,1,"LOSS OF VISION (blindness), convulsions, before",1
+r620,281,2,"LOSS OF VISION (blindness), convulsions, before, after",1
+r621,281,1,"LOSS OF VISION (blindness), damp weather",1
+r622,281,1,"LOSS OF VISION (blindness), delirium, during",1
+r623,281,1,"LOSS OF VISION (blindness), dinner, after",2
+r624,281,1,"LOSS OF VISION (blindness), eating, after",3
+r625,281,1,"LOSS OF VISION (blindness), emotion, sudden, from",1
+r626,281,1,"LOSS OF VISION (blindness), exerting them",4
+r627,281,2,"LOSS OF VISION (blindness), exerting them, in sewing",3
+r628,281,1,"LOSS OF VISION (blindness), fainting, as from",25
+r629,281,1,"LOSS OF VISION (blindness), fixing eyes",7
+r631,282,1,"LOSS OF VISION (blindness), headache, at beginning of",2
+r632,282,2,"LOSS OF VISION (blindness), headache, at beginning of, after",1
+r633,282,1,"LOSS OF VISION (blindness), head, rush of blood to, during",1
+o64083,282,2,"LOSS OF VISION (blindness), head, rush of blood to, during, on turning",1
+o64084,282,3,"LOSS OF VISION (blindness), head, rush of blood to, during, on turning, suddenly",1
+r636,282,1,"LOSS OF VISION (blindness), injury to eye, after",1
+r637,282,1,"LOSS OF VISION (blindness), light, by",4
+r638,282,2,"LOSS OF VISION (blindness), light, by, artificial light",6
+r639,282,2,"LOSS OF VISION (blindness), light, by, entering from dark",1
+r640,282,2,"LOSS OF VISION (blindness), light, by, of sun",1
+r641,282,1,"LOSS OF VISION (blindness), lightning stroke, after",1
+r642,282,1,"LOSS OF VISION (blindness), looking downward",1
+o64095,282,2,"LOSS OF VISION (blindness), looking downward, at near objects",1
+o64096,282,2,"LOSS OF VISION (blindness), looking downward, on looking long at an object",1
+o64097,282,2,"LOSS OF VISION (blindness), looking downward, sideways",1
+o64098,282,2,"LOSS OF VISION (blindness), looking downward, upwards",1
+r647,282,1,"LOSS OF VISION (blindness), lying down amel.",3
+h012,282,1,"LOSS OF VISION (blindness), menses, during",4
+r649,282,2,"LOSS OF VISION (blindness), menses, during, amel.",1
+r650,282,1,"LOSS OF VISION (blindness), mental exertion",2
+r651,282,1,"LOSS OF VISION (blindness), motion agg.",1
+r652,282,1,"LOSS OF VISION (blindness), nausea, during",1
+r653,282,1,"LOSS OF VISION (blindness), paroxysmal",9
+r654,282,1,"LOSS OF VISION (blindness), parturition, during",4
+r655,282,1,"LOSS OF VISION (blindness), periodic",13
+r656,282,1,"LOSS OF VISION (blindness), reading, while",13
+r657,282,2,"LOSS OF VISION (blindness), reading, while, in a standing posture",1
+r658,282,1,"LOSS OF VISION (blindness), rising",4
+r659,282,2,"LOSS OF VISION (blindness), rising, from bed",5
+r660,282,2,"LOSS OF VISION (blindness), rising, after eating",1
+r661,282,1,"LOSS OF VISION (blindness), sitting, while",3
+r662,282,2,"LOSS OF VISION (blindness), sitting, while, bent over, after",1
+r663,282,1,"LOSS OF VISION (blindness), sleeping in the sun, after",1
+r664,282,1,"LOSS OF VISION (blindness), sleep amel.",2
+r665,282,1,"LOSS OF VISION (blindness), snow, by",1
+r666,282,1,"LOSS OF VISION (blindness), soup, while eating",1
+h013,282,1,"LOSS OF VISION (blindness), standing, on",1
+r668,282,2,"LOSS OF VISION (blindness), standing, on, amel.",1
+r669,282,1,"LOSS OF VISION (blindness), stooping",7
+r670,282,1,"LOSS OF VISION (blindness), sudden",9
+r671,282,1,"LOSS OF VISION (blindness), sunlight, sleeping in",1
+r672,282,1,"LOSS OF VISION (blindness), tobacco",3
+r673,282,1,"LOSS OF VISION (blindness), vanishing of sight",25
+r674,282,2,"LOSS OF VISION (blindness), vanishing of sight, menses, during",1
+r675,282,2,"LOSS OF VISION (blindness), vanishing of sight, rising from a seat",1
+h014,282,3,"LOSS OF VISION (blindness), vanishing of sight, rising from a seat, from stooping",1
+r677,282,2,"LOSS OF VISION (blindness), vanishing of sight, writing, while",1
+r678,282,1,"LOSS OF VISION (blindness), vertigo, during",15
+r679,282,1,"LOSS OF VISION (blindness), waking, on",2
+r680,282,1,"LOSS OF VISION (blindness), walking, while",6
+r681,282,2,"LOSS OF VISION (blindness), walking, while, in open air",1
+r682,282,1,"LOSS OF VISION (blindness), warm room agg.",1
+r683,282,1,"LOSS OF VISION (blindness), white objects, looking at",2
+r684,282,1,"LOSS OF VISION (blindness), writing",5
+r685,282,0,MIST (See Foggy),0
+r686,282,0,MISTAKES,5
+r687,282,0,MOONLIGHT amel.,1
+r688,282,0,MOVING,28
+r689,282,1,"MOVING, evening, reading, while",1
+r690,282,1,"MOVING, letters",6
+r691,282,2,"MOVING, letters, towards noon",1
+r692,282,1,"MOVING, objects seem to be",8
+r693,282,2,"MOVING, objects seem to be, backward",4
+r694,282,3,"MOVING, objects seem to be, backward, slowly",1
+r695,283,2,"MOVING, objects seem to be, backward and forward",2
+r696,283,2,"MOVING, objects seem to be, fine motion",1
+r697,283,2,"MOVING, objects seem to be, floating",1
+r698,283,2,"MOVING, objects seem to be, revolving",1
+r699,283,2,"MOVING, objects seem to be, side to side",1
+r700,283,2,"MOVING, objects seem to be, to and fro, towards noon",1
+r701,283,3,"MOVING, objects seem to be, to and fro, towards noon, to float",2
+r702,283,2,"MOVING, objects seem to be, up and down",5
+r703,283,1,"MOVING, something moving",2
+r704,283,0,"MULTIPLIED, objects seem (See Diplopia)",0
+r705,283,0,"MUSCÆ volitantes (See Colors, black)",0
+r706,283,0,MYOPIA,53
+r707,283,1,"MYOPIA, exerting the eyes, after",1
+r708,283,1,"MYOPIA, candlelight, sight worse by, than by daylight",1
+r709,283,1,"MYOPIA, looking away from work amel.",1
+r710,283,1,"MYOPIA, reading, while",3
+r711,283,0,"NEARER, objects seem",4
+r712,283,1,"NEARER, objects seem, to each other",1
+r713,283,0,NET before eyes,3
+r714,283,1,"NET before eyes, swimming",1
+r715,283,0,OBLIQUITY,2
+r716,283,0,"PALE, objects become, after looking long",1
+r717,283,0,QUIVERING (See Trembling),0
+r718,283,0,"RAIN, seems looking through rain",1
+r719,283,0,"RAINBOW (See Colors, halo)",0
+r720,283,0,RANGE of vision changes while reading (See Focal),0
+r721,283,0,"RAYS, light seems broken up into",1
+r722,283,1,"RAYS, light seems broken up into, curved, shooting from visual axis",1
+r723,283,0,RECEDING (See Moving),0
+r724,283,0,ROUND objects pass before eyes while lying,1
+r725,283,0,"RUN together, letters",37
+r726,283,1,"RUN together, letters, morning",1
+r727,283,1,"RUN together, letters, evening",1
+r728,283,2,"RUN together, letters, evening, reading in bed, while",1
+r729,283,1,"RUN together, letters, after a little while",1
+r730,283,1,"RUN together, letters, mental exertion, after",1
+r731,283,1,"RUN together, letters, writing, while",9
+r732,283,1,"RUN together, letters, objects",2
+r733,283,2,"RUN together, letters, objects, sewing, while",2
+r734,283,2,"RUN together, letters, objects, stitches, while sewing",1
+r735,283,0,"SCINTILLATIONS (See Sparks, Flickerings)",0
+r736,283,0,SCOTOMA,3
+r737,283,1,"SCOTOMA, central",2
+r738,283,0,SHADOWS,2
+r739,283,1,"SHADOWS, on one side of objects",1
+r740,283,1,"SHADOWS, look shaded",1
+r741,283,0,"SMALL, objects seem",17
+r742,283,0,SMOKY (See Foggy),0
+r743,283,0,SNAKE before the vision,2
+r744,283,0,"SNOW, falling",1
+r745,283,1,"SNOW, falling, morning, on waking, objects seem covered with",1
+r746,283,1,"SNOW, falling, flakes",2
+r747,283,0,SPARKS,66
+r748,283,1,"SPARKS, daytime",1
+r749,283,1,"SPARKS, morning",2
+r750,283,2,"SPARKS, morning, breakfast, after",1
+r751,283,2,"SPARKS, morning, on waking",1
+r752,284,1,"SPARKS, noon",2
+r753,284,1,"SPARKS, evening",1
+r754,284,2,"SPARKS, evening, like rays",1
+r755,284,1,"SPARKS, night",2
+r756,284,2,"SPARKS, night, on falling asleep",1
+r757,284,2,"SPARKS, night, on waking",2
+r758,284,1,"SPARKS, air, open, on going into",2
+r759,284,1,"SPARKS, blowing the nose, on",2
+r760,284,1,"SPARKS, closing eyes, on",1
+r761,284,1,"SPARKS, coughing, when",4
+r762,284,1,"SPARKS, dark, in",6
+r763,284,1,"SPARKS, dinner, during",1
+r764,284,1,"SPARKS, epileptic fit, before",1
+r765,284,1,"SPARKS, exertion of mind",1
+r766,284,1,"SPARKS, headache, before",12
+r767,284,2,"SPARKS, headache, before, during",4
+r768,284,1,"SPARKS, outside the field of vision, either side",1
+r769,284,1,"SPARKS, rest, during, agg.",1
+r770,284,1,"SPARKS, sewing, while",1
+r771,284,1,"SPARKS, sitting, while",1
+r772,284,1,"SPARKS, streaks in, after writing",1
+r773,284,1,"SPARKS, vertigo, during",3
+r774,284,1,"SPARKS, walking, while",1
+r775,284,1,"SPARKS, winking, on",1
+r776,284,1,"SPARKS, writing",1
+r777,284,0,SPOTS,16
+r778,284,1,"SPOTS, closing eyes, on",1
+r779,284,1,"SPOTS, colored",1
+r780,284,1,"SPOTS, floating",5
+r781,284,1,"SPOTS, headache, with",1
+r782,284,2,"SPOTS, headache, with, before",1
+r783,284,1,"SPOTS, jumping up and down",1
+r784,284,1,"SPOTS, looking steadily",1
+r785,284,1,"SPOTS, luminous",1
+r786,284,1,"SPOTS, reading",3
+r787,284,1,"SPOTS, round",1
+r788,284,1,"SPOTS, waking, on",1
+r789,284,1,"SPOTS, writing",1
+r790,284,0,"STARS (See Sparks, Flashes)",14
+r791,284,1,"STARS (See Sparks, Flashes), artificial light, in",1
+r792,284,1,"STARS (See Sparks, Flashes), dancing",1
+r793,284,1,"STARS (See Sparks, Flashes), right side of field of vision",1
+r794,284,1,"STARS (See Sparks, Flashes), starry halo round light",1
+r795,284,1,"STARS (See Sparks, Flashes), white (See Colors)",0
+r796,284,1,"STARS (See Sparks, Flashes), writing, when",1
+r797,284,0,STRIPES (See Colors),4
+r798,284,0,SWIMMING of letters,2
+o64247,284,1,"SWIMMING of letters, objects",11
+h015,284,2,"SWIMMING of letters, objects, 5 p.m.",1
+o68741,284,0,TREMBLING objects (See Dazzling),19
+o64253,284,1,"TREMBLING objects (See Dazzling), morning, on waking",1
+o64251,284,1,"TREMBLING objects (See Dazzling), evening by light",2
+o64252,284,1,"TREMBLING objects (See Dazzling), in artificial light",1
+o64254,284,1,"TREMBLING objects (See Dazzling), yellow shining tremulous mist",1
+r806,284,0,TRIPLOPIA,2
+r807,284,1,"TRIPLOPIA, turning eyes to right",1
+r808,284,0,VANISHING of sight (See Loss of Vision),0
+r809,284,0,VARIEGATED colors (See Colors),0
+r810,284,0,"VEIL, as through (See Foggy)",0
+r811,284,0,"VIBRATION, as of heated air (See Trembling)",1
+r812,284,0,"VISIONS, sees, on closing eyes (See Delusions)",2
+r813,284,0,WAVERING,8
+r814,284,0,"WAVING, luminous openings, he sees",1
+r815,284,0,"WEAK (See Eyes, weak)",87
+r816,284,1,"WEAK (See Eyes, weak), morning, as if the eyes were strained",1
+r817,284,1,"WEAK (See Eyes, weak), evening",2
+r818,284,2,"WEAK (See Eyes, weak), evening, candlelight, by",2
+r821,285,2,"WEAK (See Eyes, weak), evening, twilight",1
+r822,285,2,"WEAK (See Eyes, weak), evening, using agg.",1
+h016,285,1,"WEAK (See Eyes, weak), bring light agg.",2
+r824,285,1,"WEAK (See Eyes, weak), long distances, for",1
+r825,285,1,"WEAK (See Eyes, weak), using eyes agg.",15
+r826,285,0,WHIRLING,8
+r827,285,0,ZIGZAGS,4
+r828,285,1,"ZIGZAGS, circles of colors",2
+r829,285,1,"ZIGZAGS, flickering",4
+r830,285,1,"ZIGZAGS, fluttering",1
+r831,285,1,"ZIGZAGS, outside the range of vision",1
+r832,285,1,"ZIGZAGS, wavy",1
+r833,285,1,"ZIGZAGS, writing, while",1

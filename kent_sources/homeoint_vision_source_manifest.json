@@ -1,0 +1,23 @@
+{
+ "book": "kent",
+ "chapter": "vision",
+ "source": "homeoint.org/books/kentrep kent0270–kent0280 (MEDI-T HTML)",
+ "pages": "271–285",
+ "source_canonical": "homeoint-vision-v1",
+ "source_rows": 827,
+ "unique_source_paths": 827,
+ "matched_app_records": 811,
+ "new_source_records": 16,
+ "legacy_local_records": 74,
+ "ambiguous_app_records": 11,
+ "chapter_boundaries": "VISION = صفحات 271–285 (kentvisi.htm فہرست کا اختتام p.285 + kentear.htm کا آغاز p.286؛ EAR کا آغاز صفحہ 285 کے نصف میں — منتقلی مارکر کے ساتھ کٹ)",
+ "documented_corrections": [
+  "ص 281: MEDI-T نے «noon : Dig.» سے پہلے <dir> چھوڑ دیا — مطبوعہ کتاب میں LIGHTNINGS کی پوری وقت-خاندان ایک سطح پر (OOREP o64045 = LIGHTNINGS, noon سے اتفاق)",
+  "ص 285 نصف: EAR باب کا آغاز — منتقلی مارکر + باب سرخی + EAR کی 52 قطاریں VISION درخت سے کاٹیں (ایپ کا ear.json ABSCESS سے — o65309)"
+ ],
+ "policy": {
+  "remedies": "r := source_remedies (ماخذ مطبوعہ کتاب = سچ؛ OOREP مجموعے ضم)",
+  "hierarchy": "runtime tree از source_parent_id (rep-chapters.js vision بلڈر)",
+  "legacy": "فائل میں محفوظ، ماخذی درخت میں شامل نہیں — ڈاکٹر نظرثانی کے لیے رپورٹ"
+ }
+}

@@ -598,6 +598,67 @@ function _repBuildKentEyeSourceTree(data){
     });
     return root;
 }
+// 🔑 v169: وژن (VISION) باب (صفحات 271–285) کا ماخذی درخت — وہی طرز جو چکر/سر/آنکھ بابوں میں ثابت ہوا
+// (parse_vision_source.py + crosswalk_vision.py + overlay_vision.py)؛ پرانی مقامی قطاریں فائل میں محفوظ
+// مگر ماخذی درخت سے باہر۔ باب حد: VISION = 271–285 (kentvisi.htm اختتام p.285 + kentear.htm آغاز p.286؛ EAR
+// کا آغاز ص 285 کے نصف میں)۔ مستند درستی: ص 281 «noon : Dig.» سے <dir> چوک = LIGHTNINGS کی ذیلی (OOREP o64045)۔
+// ہر ماخذی قطار پر source_parent_id + source_order + source_page موجود۔
+var _REP_KENT_VISION_SOURCE_MARKER='homeoint-vision-v1';
+var _REP_KENT_VISION_PAGES={first:271,last:285}, _REP_KENT_VISION_COUNT=827;
+function _repKentVisionSourceEntries(data){
+    return Object.keys(data||{}).map(function(rid){return {rid:String(rid),rec:data[rid]};})
+        .filter(function(e){return e.rec&&e.rec.source_canonical===_REP_KENT_VISION_SOURCE_MARKER;});
+}
+function _repHasKentVisionSourceData(data){
+    return _repKentVisionSourceEntries(data).length===_REP_KENT_VISION_COUNT;
+}
+function _repBuildKentVisionSourceTree(data){
+    var entries=_repKentVisionSourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    if(entries.length!==_REP_KENT_VISION_COUNT) throw new Error('Expected '+_REP_KENT_VISION_COUNT+' Kent VISION source rows; found '+entries.length);
+    entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
+    var byRid=Object.create(null);
+    entries.forEach(function(e,index){
+        var rec=e.rec, order=Number(rec.source_order), parentId=rec.source_parent_id;
+        if(order!==index) throw new Error('Invalid Kent VISION source order at '+e.rid+': '+order);
+        var page=Number(rec.source_page), depth=Number(rec.source_depth), label=String(rec.source_label||'');
+        if(page<271||page>285) throw new Error('Kent VISION source row outside pages 271–285: '+e.rid);
+        if(!label) throw new Error('Empty Kent VISION source label at '+e.rid);
+        var labels=Array.isArray(rec.source_path_labels)?rec.source_path_labels.map(String):[];
+        if(!labels.length||labels[labels.length-1]!==label||depth!==labels.length-1)
+            throw new Error('Kent VISION source path/depth mismatch at '+e.rid);
+        var sourcePath=String(rec.source_path||'');
+        if(sourcePath!==labels.join(', ')) throw new Error('Kent VISION source full path mismatch at '+e.rid);
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent VISION source parent '+parentId+' for '+e.rid);
+        if(parentId!==null && Number(parent.sourceOrder)>=index)
+            throw new Error('Kent VISION source parent must precede child at '+e.rid);
+        var parentPath=parent===root?'':String(parent.pathTitle||'');
+        var expectedPath=parentPath?parentPath+', '+label:label;
+        if(expectedPath!==sourcePath) throw new Error('Kent VISION source parent link/path mismatch at '+e.rid);
+        if(parent.children[label]) throw new Error('Duplicate Kent VISION sibling label '+label+' at '+e.rid);
+        var remedies=rec.r;
+        if(!remedies||typeof remedies!=='object'||Array.isArray(remedies))
+            throw new Error('Missing Kent VISION remedies at '+e.rid);
+        Object.keys(remedies).forEach(function(code){
+            var grade=Number(remedies[code]);
+            if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
+                throw new Error('Invalid Kent VISION medicine grade at '+e.rid+': '+code);
+        });
+        var node={
+            name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
+            children:{},order:[],remedies:remedies,count:1,hasRubric:true,
+            path:sourcePath,pathTitle:sourcePath,displayPathTitle:sourcePath,
+            translationTitle:String(rec.translation_title||sourcePath),
+            oorep_id:rec.oorep_id||null,rid:e.rid,sourceCanonical:true,
+            display:rec.display&&typeof rec.display==='object'&&!Array.isArray(rec.display)?rec.display:null
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        parent.count=(parent.count||0)+1;
+        byRid[e.rid]=node;
+    });
+    return root;
+}
 // ============================================================
 // 🔑 v143: کینٹ کا درخت کتاب کی اصل ساخت پر — homeoint.org + True-Original PDF سے موازنہ
 // مسئلہ: OOREP مرج کے بعد کئی کتابی مین ربرکس (مثلاً «ANGER, irascibility»)
@@ -777,6 +838,10 @@ function buildRubricTree(data){
     // 🔑 v168: آنکھ باب کی ماخذی قطاریں (صفحات 235–270) — وہی طرز جو سر باب میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'eye' && _repHasKentEyeSourceData(data)){
         return _repBuildKentEyeSourceTree(data);
+    }
+    // 🔑 v169: وژن باب کی ماخذی قطاریں (صفحات 271–285) — وہی طرز جو آنکھ باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'vision' && _repHasKentVisionSourceData(data)){
+        return _repBuildKentVisionSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest

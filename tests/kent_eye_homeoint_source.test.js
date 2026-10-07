@@ -89,8 +89,8 @@ assert.strictEqual(manifest.legacy_local_records, 162);
 // 7) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const sw = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=152/.test(idx), 'صفحے میں چکر+سر+آنکھ درخت کا نسخہ (v152)');
-assert(/CACHE_NAME='bhc-clinic-v168'/.test(sw), 'خدمت کار نسخہ 168');
+assert(/rep-chapters\.js\?v=153/.test(idx), 'صفحے میں چکر+سر+آنکھ درخت کا نسخہ (v153)');
+assert(/CACHE_NAME='bhc-clinic-v169'/.test(sw), 'خدمت کار نسخہ 168');
 assert(/v168: آنکھ باب/.test(code), 'rep-chapters.js میں آنکھ بلڈر درج');
 
 console.log('آنکھ باب: ماخذی درخت 1694 قطاریں (صفحات 235–270)، جڑ EYE، ادویات ماخذی، اردو 100%، پرانی قطاریں محفوظ — کامیاب');
