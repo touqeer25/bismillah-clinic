@@ -1,5 +1,5 @@
 // Bismillah Clinic - Service Worker (robust offline cache)
-const CACHE_NAME='bhc-clinic-v165';
+const CACHE_NAME='bhc-clinic-v167';
 
 // Keep this list same-origin and reliable. Missing/external files are not allowed
 // to break the whole install anymore.
@@ -11,6 +11,7 @@ const CORE_ASSETS = [
   './css/differentiation.css',
   './css/repertory-tree.css',
   './css/rep-search-results.css',
+  './css/repertory-editor.css',
   './css/library.css',
   './css/library-tab.css',
   './css/layout-header.css',
@@ -39,6 +40,7 @@ const CORE_ASSETS = [
   './js/repertory/rep-books.js',
   './js/repertory/kent-tree-fix.js',   // v146: صفحہ 8 کی مصدقہ MIND درختی نمائش-درستی
   './js/repertory/rep-chapters.js',
+  './js/repertory/rep-editor.js',
   './js/repertory/KENT_ORDER_METHOD.md',   // v131: ترتیب کا طریقہ کار (کینٹ کے ساتھ منسلک دستاویز)
   './js/repertory/rep-folders.js',
   './js/repertory/rep-tree.js',

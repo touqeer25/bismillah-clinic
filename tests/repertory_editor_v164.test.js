@@ -14,7 +14,7 @@ const sourceBefore = JSON.stringify(mind);
 const model = core.analyzeChapter(mind, core.keyFallback);
 const checked = core.validateModel(model, core.keyFallback);
 assert.strictEqual(model.kind, 'record-map');
-assert.strictEqual(model.nodes.length, 4356);
+assert.strictEqual(model.nodes.length, 4358);
 assert.deepStrictEqual(model.fields, {parent:'source_parent_id',label:'source_label',order:'source_order',remedies:'r'});
 assert.deepStrictEqual(checked.errors, []);
 assert.deepStrictEqual(checked.warnings, []);
@@ -98,33 +98,33 @@ pass(/function mountToolbarControls\([\s\S]*?rpe-tree-actions','rpeToolActions'[
 pass(/id="rpeFullPath" class="rpe-fullpath"[^>]*disabled/.test(read('index.html')) && /function changeFullPath\([\s\S]*?pathWithoutReferences[\s\S]*?splitFullPath/.test(editor), 'مکمل راستہ قابلِ تدوین ہے اور حوالہ جاتی عبارت خارج ہوتی ہے');
 pass(/id="rpeMoveParent" data-rpe-action="move-parent"/.test(read('index.html')) && /id="rpeMoveUnder" data-rpe-action="move-under-parent"/.test(read('index.html')) && /function moveOneParentUp\([\s\S]*?oldParent\.parentId[\s\S]*?node\.parentId=grandParentId/.test(editor), 'ایک درجہ اوپر اور منتخب والد کے نیچے بنانے کے الگ اختیار موجود ہیں');
 pass(/function renderParentOptions\([\s\S]*?core\.canSetParent\(state\.chapter\.model,node\.id,id\)/.test(editor) && /function changeParent\([\s\S]*?core\.canSetParent\(state\.chapter\.model,id,parentId\)/.test(editor), 'اپنی اولاد کو والد بنانے سے پہلے اور عمل کے وقت چکر روکا جاتا ہے');
-pass(/display:rec\.display/.test(chapters) && /n\.display=r\.display/.test(chapters), 'باب کے ظاہری خواص درخت تک پہنچتے ہیں');
+pass(/display:rec\.display/.test(chapters) && /n\.display ?= ?e\.rec\.display/.test(chapters), 'باب کے ظاہری خواص درخت تک پہنچتے ہیں');
 pass(/data-rpe-weight/.test(tree) && /data-rpe-size/.test(tree), 'درخت میں وزن اور حجم دکھانے کی نشانیاں ہیں');
 pass(/display:rub\.display/.test(search) && /repSearchDisplayStyleAttrs/.test(search), 'تلاش کے نتائج میں ظاہری انداز دکھتا ہے');
 pass(/repDetailStyleAttrs\(node\)/.test(detail), 'ربرک کی تفصیل میں ظاہری انداز دکھتا ہے');
 pass(/repXrefUrHtml/.test(read('js/18-rubrics-ur.js')) && /_xref_ur\.json/.test(read('js/18-rubrics-ur.js')) && /rep-xref-ur/.test(read('css/rubric-ur.css')), 'تازہ مخزن کا اردو حوالہ جاتی اشارہ اور اس کا انداز برقرار ہے');
-pass(/REP_RUBUR_V = '157'/.test(read('js/18-rubrics-ur.js')) && /REP_DATA_V='v=19'/.test(read('js/repertory/rep-books.js')), 'تازہ مخزن کے اردو اور بابی مواد کے نسخے برقرار ہیں');
+pass(/REP_RUBUR_V = '159'/.test(read('js/18-rubrics-ur.js')) && /REP_DATA_V='v=19'/.test(read('js/repertory/rep-books.js')), 'تازہ مخزن کے اردو اور بابی مواد کے نسخے برقرار ہیں');
 
 // بدلی فائلوں کے نسخے، خدمت کار اثاثے اور آزمائشی پن ایک دوسرے سے ملتے ہیں
 const html = read('index.html');
 const worker = read('service-worker.js');
 const oldTest = read('tests/rubrics_ur_v107.test.js');
 for (const [file, version] of [
-  ['repertory-editor.css',164],
-  ['rubric-ur.css',104],
-  ['repertory-tabs.css',163],
-  ['rep-editor.js',164],
-  ['18-rubrics-ur.js',157],
-  ['rep-books.js',82],
-  ['rep-tabs.js',163],
-  ['rep-chapters.js',149],
+  ['repertory-editor.css',166],
+  ['rubric-ur.css',103],
+  ['repertory-tabs.css',167],
+  ['rep-editor.js',166],
+  ['18-rubrics-ur.js',159],
+  ['rep-books.js',81],
+  ['rep-tabs.js',167],
+  ['rep-chapters.js',151],
   ['rep-tree.js',149],
   ['rep-search.js',153],
-  ['rep-rubric-detail.js',106]
+  ['rep-rubric-detail.js',105]
 ]) pass(new RegExp(file.replace(/[.*+?^${}()|[\\]\\]/g,'\\$&')+'\\?v='+version).test(html), file+' کا نسخہ');
-pass(/CACHE_NAME='bhc-clinic-v164'/.test(worker), 'خدمت کار کا نسخہ 164');
+pass(/CACHE_NAME='bhc-clinic-v167'/.test(worker), 'خدمت کار کا نسخہ 164');
 pass(worker.includes("'./css/repertory-editor.css'") && worker.includes("'./js/repertory/rep-editor.js'"), 'ترمیم کار کے دونوں اثاثے خدمت کار میں');
-pass(/rep-chapters\\\.js\\\?v=149/.test(oldTest) && /rep-tree\\\.js\\\?v=149/.test(oldTest) && /rep-search\\\.js\\\?v=153/.test(oldTest) && /rep-rubric-detail\\\.js\\\?v=106/.test(oldTest), 'پرانے آزمائشی مجموعے کے نسخہ پن تازہ ہیں');
-pass(oldTest.includes("CACHE_NAME='bhc-clinic-v164'") && oldTest.includes('rubric-ur\\.css\\?v=104') && oldTest.includes('repertory-tabs\\.css\\?v=163') && oldTest.includes('repertory-editor\\.css\\?v=164') && oldTest.includes('18-rubrics-ur\\.js\\?v=157') && oldTest.includes('rep-books\\.js\\?v=82') && oldTest.includes('rep-tabs\\.js\\?v=163') && oldTest.includes('rep-editor\\.js\\?v=164'), 'اردو آزمائش میں تازہ مخزن اور موجودہ اطلاق کے نسخہ پن تازہ ہیں');
+pass(/rep-chapters\\\.js\\\?v=151/.test(oldTest) && /rep-tree\\\.js\\\?v=149/.test(oldTest) && /rep-search\\\.js\\\?v=153/.test(oldTest) && /rep-rubric-detail\\\.js\\\?v=105/.test(oldTest), 'پرانے آزمائشی مجموعے کے نسخہ پن تازہ ہیں');
+pass(oldTest.includes("CACHE_NAME='bhc-clinic-v167'") && oldTest.includes('rubric-ur\\.css\\?v=103') && oldTest.includes('repertory-tabs\\.css\\?v=167') && oldTest.includes('repertory-editor\\.css\\?v=166') && oldTest.includes('18-rubrics-ur\\.js\\?v=159') && oldTest.includes('rep-books\\.js\\?v=81') && oldTest.includes('rep-tabs\\.js\\?v=167') && oldTest.includes('rep-editor\\.js\\?v=166'), 'اردو آزمائش میں تازہ مخزن اور موجودہ اطلاق کے نسخہ پن تازہ ہیں');
 
 console.log('ریپرٹری ترمیم کار کی مخصوص جانچ کامیاب');

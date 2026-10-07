@@ -101,7 +101,10 @@ Object.keys(FIX).forEach(ch=>{
   const before=Object.keys(data).length;
   const after=flat(buildFor(ch)).filter(r=>r.node.hasRubric).length;
   totBefore+=before; totAfter+=after; chChecked++;
-  if(after!==before-FIX[ch].h.length){ ok(false,'C گنتی '+ch+': '+before+' → '+after+' (توقع: '+(before-FIX[ch].h.length)+')'); }
+  if(ch==='head'){
+    if(after!==6320){ ok(false,'C گنتی head (ماخذی درخت): '+before+' → '+after+' (توقع: 6320)'); }
+  }
+  else if(after!==before-FIX[ch].h.length){ ok(false,'C گنتی '+ch+': '+before+' → '+after+' (توقع: '+(before-FIX[ch].h.length)+')'); }
 });
 // بغیر فکس والے باب بھی
 const allCh=JSON.parse(fs.readFileSync(path.join(ROOT,'kent_chapters','_index.json'),'utf8')).map(c=>c.key);
@@ -114,11 +117,16 @@ allCh.forEach(ch=>{
   if(after!==before){ ok(false,'C2 گنتی (بغیر فکس) '+ch+': '+before+' → '+after); }
 });
 ok(true,'C3 تمام '+chChecked+' ابواب کی گنتی درست (کل '+totBefore+' → '+totAfter+')');
-ok(totBefore-totAfter===Object.keys(FIX).reduce((a,c)=>a+FIX[c].h.length,0),'C4 چھپائے گئے = منصوبے کے مطابق');
+{
+  const hd=JSON.parse(fs.readFileSync(path.join(ROOT,'kent_chapters','head.json'),'utf8'));
+  const exp=(Object.keys(FIX).reduce((a,c)=>a+FIX[c].h.length,0)-FIX.head.h.length)+(Object.keys(hd).length-6320);
+  ok(totBefore-totAfter===exp,'C4 چھپائے گئے = منصوبے کے مطابق (head: پرانی مقامی قطاریں ماخذی درخت سے باہر)');
+}
 
 // ---- D. ادویات کا تحفظ (وجود): ہر چھپے ہوئے (remedy,grade) کے لیے باب میں کوئی زندہ اندراج ----
 let remOk=true, remBad=0;
 Object.keys(FIX).forEach(ch=>{
+  if(ch==='head') return;   // v167: سر باب کی پرانی OOREP قطاریں فائل میں محفوظ ہیں؛ اُن کی غیر-ماخذی ادویہ (مثلاً paull — مطبوعہ سر باب میں کہیں نہیں) جان بوجھ کر نمائش سے باہر
   const data=JSON.parse(fs.readFileSync(path.join(ROOT,'kent_chapters',ch+'.json'),'utf8'));
   const hide=new Set(FIX[ch].h);
   const best={};
@@ -136,6 +144,7 @@ ok(remOk,'D1 ہر چھپے ہوئے ربرک کی ہر ادویہ (گریڈ سم
 // rehomed اور promoted ہر نوڈ ملے
 let nodesOk=true, miss=0;
 Object.keys(FIX).forEach(ch=>{
+  if(ch==='head') return;   // v167: سر باب کا ماخذی درخت — g/p rehome/promote فرسودہ
   const tree=buildFor(ch); const rows=flat(tree);
   const byFull={}; rows.forEach(r=>{ if(r.node.hasRubric&&r.node.rid) byFull[r.node.rid]=r; });
   FIX[ch].g.forEach(g=>{ if(!byFull[g[0]]){ nodesOk=false; miss++; } (g[1]||[]).forEach(p=>{ if(!byFull[p[0]]){ nodesOk=false; miss++; } }); });
@@ -146,10 +155,10 @@ ok(nodesOk,'D2 ہر گروپ جڑ، ہر rehomed اور ہر promoted ربرک �
 // ---- E. SHOCKS / DREAMS / AMUSEMENT / DEEP نمونے ----
 const head=buildFor('head'); const hrows=flat(head);
 const shocks=hrows.find(r=>r.depth===0&&r.label==='SHOCKS, blows, jerks, etc. (See Jerking Pain, Pulsation, Plug, Nail)');
-ok(!shocks,'E1 head: «SHOCKS, blows, jerks, etc.» اپنے (See …) کے ساتھ مین نہیں — ایپ کے عنوان میں (See …) نہیں');
+ok(!!shocks,'E1 head: «SHOCKS, blows, jerks, etc.» ماخذی لیبل (See …) سمیت مین ہے (v167 ماخذی درخت)');
 const shocks2=hrows.find(r=>r.depth===0&&r.label.indexOf('SHOCKS, blows, jerks')===0);
 ok(!!shocks2,'E2 head: «SHOCKS, blows, jerks, etc.» مین ربرک ہے');
-ok(hrows.some(r=>r.depth===1&&r.label==='forehead'&&r.labels[r.labels.length-2].indexOf('SHOCKS, blows, jerks')===0),'E3 head: «forehead» اب SHOCKS, blows, jerks, etc. کے نیچے ہے');
+ok(hrows.some(r=>r.depth===1&&r.label==='Forehead'&&r.labels[r.labels.length-2].indexOf('SHOCKS, blows, jerks')===0),'E3 head: «Forehead» ماخذی درخت میں SHOCKS, blows, jerks, etc. کے نیچے (v167)');
 ok(!hrows.some(r=>r.depth===0&&r.label==='SHOCKS'),'E4 head: synthetic «SHOCKS» مین نہیں');
 const sleep=buildFor('sleep'); const srows=flat(sleep);
 const dr=srows.find(r=>r.depth===0&&r.label==='DREAMS, absurd');

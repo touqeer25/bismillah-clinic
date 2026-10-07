@@ -110,7 +110,14 @@ function repTreeVisibleLabel(r){
 function repTreeRowHtml(r){
     var c=r.node, rems=Object.keys(c.remedies||{}).length, rid=c.hasRubric&&c.rid?String(c.rid):'';
     var open=r.kids&&(repFolderFilter||!repTreeCollapsed[r.full]);
-    return '<div class="rtv-row'+(r.depth===0?' top':'')+'" style="--d:'+r.depth+';padding-left:'+(6+r.depth*18)+'px" data-full="'+_repAttr(r.full)+'" data-labels="'+_repAttr(JSON.stringify(r.labels))+'" data-rems="'+rems+'" data-kids="'+(r.kids?1:0)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+'>'
+    // 🔑 v166: ربرک کی اپنی ظاہری ترجیح (ترمیم کار کے display خانے سے) — موٹا/سادہ، بڑا/چھوٹا
+    var _dp=c.display&&typeof c.display==='object'&&!Array.isArray(c.display)?c.display:null;
+    var _da='';
+    if(_dp){
+        if(_dp.weight==='bold'||_dp.weight==='normal')_da+=' data-rpe-weight="'+_dp.weight+'"';
+        if(_dp.size==='small'||_dp.size==='large'||_dp.size==='normal')_da+=' data-rpe-size="'+_dp.size+'"';
+    }
+    return '<div class="rtv-row'+(r.depth===0?' top':'')+'"'+_da+' style="--d:'+r.depth+';padding-left:'+(6+r.depth*18)+'px" data-full="'+_repAttr(r.full)+'" data-labels="'+_repAttr(JSON.stringify(r.labels))+'" data-rems="'+rems+'" data-kids="'+(r.kids?1:0)+'"'+(rid?' data-rid="'+_repAttr(rid)+'"':'')+'>'
         +'<span class="rtv-tg">'+(r.kids?(open?'▾':'▸'):'·')+'</span>'
         +repTreeLevelIcon(r.depth,r.kids)
         +repCmpChkHtml(repCurrentBook,repCurrentChapter,rid,r.full,rems,'row')

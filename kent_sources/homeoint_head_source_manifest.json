@@ -1,0 +1,18 @@
+{
+ "book": "kent",
+ "chapter": "head",
+ "source": "homeoint.org/books/kentrep kent0105–kent0230 (MEDI-T HTML)",
+ "pages": "107–234",
+ "source_canonical": "homeoint-head-v1",
+ "source_rows": 6320,
+ "unique_source_paths": 6320,
+ "matched_app_records": 5722,
+ "new_source_records": 598,
+ "legacy_local_records": 1199,
+ "ambiguous_app_records": 269,
+ "policy": {
+  "remedies": "r := source_remedies (ماخذ مطبوعہ کتاب = سچ؛ OOREP مجموعے ضم)",
+  "hierarchy": "runtime tree از source_parent_id (rep-chapters.js ہیڈ بلڈر)",
+  "legacy": "فائل میں محفوظ، ماخذی درخت میں شامل نہیں — ڈاکٹر نظرثانی کے لیے رپورٹ"
+ }
+}

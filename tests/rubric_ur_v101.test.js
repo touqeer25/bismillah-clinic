@@ -46,7 +46,7 @@ ok(sw.includes('./js/17-rubric-ur.js')&&sw.includes('./css/rubric-ur.css')&&sw.i
 
 // ---------- D. اصل کینٹ ڈیٹا پر ----------
 let tot=0,made=0;
-for(const ch of ['mind','head','stomach']){
+for(const ch of ['mind','stomach']){ // v167: head کے سارے فعال ربرکس کے ہاتھ سے لکھے جملے ur/rubrics/kent/head.json میں (6320/6320) — کمپوزر کی اس موٹ سے باہر
   const p2=path.join(ROOT,'kent_chapters',ch+'.json'); if(!fs.existsSync(p2)) continue;
   for(const v of Object.values(JSON.parse(fs.readFileSync(p2,'utf8')))){
     const t=v.t||''; if(t.split(',').length<3) continue; tot++; if(w.repRubricUrFull(t)) made++;

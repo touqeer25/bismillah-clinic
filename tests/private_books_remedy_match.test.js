@@ -1,5 +1,5 @@
 // v68.4: private-book remedy detection — short remedy names must still count (node tests/private_books_remedy_match.test.js) private books that write the remedy's short name must be recognised
-const fs=require('fs'),path=require('path');const {JSDOM}=require(process.env.JSDOM_PATH||'/home/user/jsd/node_modules/jsdom');
+const fs=require('fs'),path=require('path');const {JSDOM}=require(process.env.JSDOM_PATH||'/tmp/jsd2/node_modules/jsdom');
 const ROOT=path.resolve(__dirname,'..');
 const dom=new JSDOM('<!doctype html><html><body></body></html>',{runScripts:'dangerously',url:'http://localhost/'});const w=dom.window;
 w.currentLang='ur';w.escapeHtml=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));w.toasts=[];w.showToast=m=>w.toasts.push(String(m));

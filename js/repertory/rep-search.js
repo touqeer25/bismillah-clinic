@@ -46,6 +46,13 @@ function repSearchResultDisplayText(r){
     if(parts.length)return parts.join('; ');
     return String((r&&r.text)||'');
 }
+function repSearchDisplayStyleAttrs(r){
+    // 🔑 v166: ربرک کی اپنی ظاہری ترجیح — تلاش کے نتائج میں بھی وہی موٹا/سادہ، بڑا/چھوٹا
+    var d=r&&r.display||{},a=[];
+    if(d.weight==='bold'||d.weight==='normal')a.push('data-rpe-weight="'+d.weight+'"');
+    if(d.size==='small'||d.size==='normal'||d.size==='large')a.push('data-rpe-size="'+d.size+'"');
+    return a.length?' '+a.join(' '):'';
+}
 function repSearchHighlightHtml(escapedHtml, queryWords){
     var result=escapedHtml;
     (queryWords||[]).forEach(function(w){
@@ -62,7 +69,7 @@ function repSearchResultTitleHtml(r, queryWords){
     var display=(!hasTreePath&&full.length>180)?full.substring(0,177)+'...':full;
     var cls=hasTreePath?'rep-search-tree-path':'rep-search-rubric-title';
     var style=hasTreePath?'overflow-wrap:anywhere;white-space:normal;':'white-space:normal;';
-    return '<span dir="ltr" class="'+cls+'" style="'+style+'" title="'+escapeHtml(full)+'">'+
+    return '<span dir="ltr" class="'+cls+'"'+repSearchDisplayStyleAttrs(r)+' style="'+style+'" title="'+escapeHtml(full)+'">'+
         repSearchHighlightHtml(escapeHtml(display),queryWords||[])+'</span>';
 }
 
@@ -77,7 +84,7 @@ function repSearchResultListTitleHtml(r, queryWords){
         full=parts.join('; ');
     }
     if(!full) full=String((r&&r.text)||'');
-    return '<span dir="ltr" class="rep-search-list-title" title="'+escapeHtml(full)+'">'+
+    return '<span dir="ltr" class="rep-search-list-title"'+repSearchDisplayStyleAttrs(r)+' title="'+escapeHtml(full)+'">'+
         repSearchHighlightHtml(escapeHtml(full),queryWords||[])+'</span>';
 }
 function repSearchGroupHeadingHtml(r, curBook, curChapter){
@@ -498,7 +505,7 @@ function searchRepertoryBrowser(){
                     // 🔑 v152: ایک ہی سطر والی درجہ بندی اُس متن سے جو صارف کو نظر آتا ہے
                     // (محفوظ راستہ اگر ہو، ورنہ «(See …)» ہٹا کر) — بنیاد: FEAR (See Anxiety), sleep, before
                     var rankText=(pathInfo&&Array.isArray(pathInfo.path)&&pathInfo.path.length)?pathInfo.path.join('; '):t;
-                    var o={text:t, remedies:rub.r||{}, chapter:ck, rid:rid, book:bookKey, adjRank:repAdjRankOf(rankText)};   // 🔑 v150 قاعدہ الف
+                    var o={text:t, remedies:rub.r||{}, display:rub.display||null, chapter:ck, rid:rid, book:bookKey, adjRank:repAdjRankOf(rankText)};   // 🔑 v150 قاعدہ الف; v166 اختیاری ظاہری انداز
                     if(pathInfo){ o.searchPath=pathInfo.path; o.searchOrder=pathInfo.order; }
                     if(repSearchMode==='remedy'||repSearchMode==='rubric_remedy'){ var m=matchedRemedyMap(rub); if(m)o.matched=m; }
                     out.push(o);

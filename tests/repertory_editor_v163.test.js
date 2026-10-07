@@ -14,7 +14,7 @@ const sourceBefore = JSON.stringify(mind);
 const model = core.analyzeChapter(mind, core.keyFallback);
 const checked = core.validateModel(model, core.keyFallback);
 assert.strictEqual(model.kind, 'record-map');
-assert.strictEqual(model.nodes.length, 4356);
+assert.strictEqual(model.nodes.length, 4358);
 assert.deepStrictEqual(model.fields, {parent:'source_parent_id',label:'source_label',order:'source_order',remedies:'r'});
 assert.deepStrictEqual(checked.errors, []);
 assert.deepStrictEqual(checked.warnings, []);
@@ -67,7 +67,7 @@ pass(/if\(kind==='translation'\)\{notify\([\s\S]*?return;\}/.test(editor), 'خا
 pass(/translationRawUnknown/.test(editor), 'ناواقف ترجمہ ساخت صرف مطالعے کے طور پر واضح ہے');
 pass(/beforeunload/.test(editor), 'غیر محفوظ مسودے پر صفحہ بند کرنے کی تنبیہ ہے');
 pass(/typeof root\.repRubKey==='function'\?root\.repRubKey:null/.test(editor), 'ترجمہ کلید منظور شدہ کلید ساز سے بنتی ہے');
-pass(/display:rec\.display/.test(chapters) && /n\.display=r\.display/.test(chapters), 'باب کے ظاہری خواص درخت تک پہنچتے ہیں');
+pass(/display:rec\.display/.test(chapters) && /n\.display ?= ?e\.rec\.display/.test(chapters), 'باب کے ظاہری خواص درخت تک پہنچتے ہیں');
 pass(/data-rpe-weight/.test(tree) && /data-rpe-size/.test(tree), 'درخت میں وزن اور حجم دکھانے کی نشانیاں ہیں');
 pass(/display:rub\.display/.test(search) && /repSearchDisplayStyleAttrs/.test(search), 'تلاش کے نتائج میں ظاہری انداز دکھتا ہے');
 pass(/repDetailStyleAttrs\(node\)/.test(detail), 'ربرک کی تفصیل میں ظاہری انداز دکھتا ہے');
@@ -77,15 +77,15 @@ const html = read('index.html');
 const worker = read('service-worker.js');
 const oldTest = read('tests/rubrics_ur_v107.test.js');
 for (const [file, version] of [
-  ['repertory-editor.css',163],
-  ['rep-editor.js',163],
-  ['rep-chapters.js',149],
+  ['repertory-editor.css',166],
+  ['rep-editor.js',166],
+  ['rep-chapters.js',151],
   ['rep-tree.js',149],
   ['rep-search.js',153],
-  ['rep-rubric-detail.js',106]
+  ['rep-rubric-detail.js',105]
 ]) pass(new RegExp(file.replace(/[.*+?^${}()|[\\]\\]/g,'\\$&')+'\\?v='+version).test(html), file+' کا نسخہ');
-pass(/CACHE_NAME='bhc-clinic-v163'/.test(worker), 'خدمت کار کا نسخہ 163');
+pass(/CACHE_NAME='bhc-clinic-v167'/.test(worker), 'خدمت کار کا نسخہ 163');
 pass(worker.includes("'./css/repertory-editor.css'") && worker.includes("'./js/repertory/rep-editor.js'"), 'ترمیم کار کے دونوں اثاثے خدمت کار میں');
-pass(/rep-chapters\\\.js\\\?v=149/.test(oldTest) && /rep-tree\\\.js\\\?v=149/.test(oldTest) && /rep-search\\\.js\\\?v=153/.test(oldTest) && /rep-rubric-detail\\\.js\\\?v=106/.test(oldTest), 'پرانے آزمائشی مجموعے کے نسخہ پن تازہ ہیں');
+pass(/rep-chapters\\\.js\\\?v=151/.test(oldTest) && /rep-tree\\\.js\\\?v=149/.test(oldTest) && /rep-search\\\.js\\\?v=153/.test(oldTest) && /rep-rubric-detail\\\.js\\\?v=105/.test(oldTest), 'پرانے آزمائشی مجموعے کے نسخہ پن تازہ ہیں');
 
 console.log('ریپرٹری ترمیم کار کی مخصوص جانچ کامیاب');

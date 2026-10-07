@@ -1,6 +1,6 @@
 // v68.5: 🔒 private books must take part in the theme search and in the auto draft
 // run: JSDOM_PATH=/home/user/test-deps/node_modules/jsdom node tests/private_books_search.test.js
-const fs=require('fs'),path=require('path');const {JSDOM}=require(process.env.JSDOM_PATH||'/home/user/test-deps/node_modules/jsdom');
+const fs=require('fs'),path=require('path');const {JSDOM}=require(process.env.JSDOM_PATH||'/tmp/jsd2/node_modules/jsdom');
 const ROOT=path.resolve(__dirname,'..');
 const dom=new JSDOM('<!doctype html><html><body></body></html>',{runScripts:'dangerously',pretendToBeVisual:true,url:'http://localhost/'});const w=dom.window;
 w.currentLang='ur';w.escapeHtml=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));

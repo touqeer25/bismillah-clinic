@@ -135,7 +135,7 @@ function searchRepertoryBrowser(){
                     // 🔑 v152: ایک ہی سطر والی درجہ بندی اُس متن سے جو صارف کو نظر آتا ہے
                     // (محفوظ راستہ اگر ہو، ورنہ «(See …)» ہٹا کر) — بنیاد: FEAR (See Anxiety), sleep, before
                     var rankText=(pathInfo&&Array.isArray(pathInfo.path)&&pathInfo.path.length)?pathInfo.path.join('; '):t;
-                    var o={text:t, remedies:rub.r||{}, chapter:ck, rid:rid, book:bookKey, adjRank:repAdjRankOf(rankText)};   // 🔑 v150 قاعدہ الف
+                    var o={text:t, remedies:rub.r||{}, display:rub.display||null, chapter:ck, rid:rid, book:bookKey, adjRank:repAdjRankOf(rankText)};   // 🔑 v150 قاعدہ الف; v166 اختیاری ظاہری انداز
                     if(pathInfo){ o.searchPath=pathInfo.path; o.searchOrder=pathInfo.order; }
                     if(repSearchMode==='remedy'||repSearchMode==='rubric_remedy'){ var m=matchedRemedyMap(rub); if(m)o.matched=m; }
                     out.push(o);

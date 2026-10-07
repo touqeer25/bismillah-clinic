@@ -472,7 +472,8 @@ function renderRemedies(node){
     body.innerHTML=codes.map(function(code){
         var val=rem[code],str=String(val),opts=['1','2','3'];if(opts.indexOf(str)===-1)opts.push(str);
         var select='<select class="rpe-grade-select" data-rpe-grade="'+esc(code)+'" aria-label="'+esc(code)+' '+esc(say('کا درجہ','grade','ka darja'))+'">'+opts.map(function(o){return '<option value="'+esc(o)+'"'+(o===str?' selected':'')+'>'+esc(o)+'</option>';}).join('')+'</select>';
-        return '<tr><td>'+esc(code)+'</td><td>'+select+'</td><td><button type="button" class="btn btn-danger btn-xs" data-rpe-remove-remedy="'+esc(code)+'" title="'+esc(say('دوا حذف کریں','Remove remedy','Dawa hazf karein'))+'">×</button></td></tr>';
+        var name='<button type="button" class="rpe-remedy-name" data-rpe-rename-remedy="'+esc(code)+'" title="'+esc(say('نام بدلنے کے لیے کلک کریں','Click to rename','Naam badalne ke liye click karein'))+'" dir="ltr">'+esc(code)+'</button>';
+        return '<tr><td>'+name+'</td><td>'+select+'</td><td><button type="button" class="btn btn-danger btn-xs" data-rpe-remove-remedy="'+esc(code)+'" title="'+esc(say('دوا حذف کریں','Remove remedy','Dawa hazf karein'))+'">×</button></td></tr>';
     }).join('');
 }
 function renderSelected(){
@@ -489,7 +490,13 @@ function renderSelected(){
     var lock=doc.getElementById('rpeNodeLock');if(lock)lock.textContent=node&&state.chapter&&state.chapter.model.kind==='record-map'?say('شناخت '+node.id,'ID '+node.id,'Shanakht '+node.id):'';
     renderRemedies(node);
     renderTranslation(node);
-    rootEl.querySelectorAll('[data-rpe-case]').forEach(function(b){b.classList.toggle('sel',!!node&&String(node.label||'')===applyCase(String(node.label||''),b.getAttribute('data-rpe-case')));});
+    var baseLabel=node&&state.chapter&&state.chapter.baseLabels?state.chapter.baseLabels[String(node.id)]:null;
+    rootEl.querySelectorAll('[data-rpe-case]').forEach(function(b){
+        var on=false;
+        if(node){var mode=b.getAttribute('data-rpe-case');
+            if(mode==='original')on=baseLabel!=null&&String(node.label||'')===String(baseLabel);
+            else on=String(node.label||'')===applyCase(String(node.label||''),mode);}
+        b.classList.toggle('sel',on);});
 }
 function applyCase(value,mode){
     var s=String(value||'');
@@ -759,6 +766,15 @@ function removeRemedy(id,code){
     var node=findNode(id);if(!node)return;var field=node.remediesField,rem=field&&node.record[field];if(!isObject(rem)||!Object.prototype.hasOwnProperty.call(rem,code))return;
     commit(function(){node=findNode(id);delete node.record[field][code];});
 }
+function renameRemedy(id,oldCode,newCode){
+    newCode=String(newCode||'').trim();if(!newCode)return;
+    var node=findNode(id);if(!node)return;var field=node.remediesField,rem=field&&node.record[field];
+    if(!isObject(rem)||!Object.prototype.hasOwnProperty.call(rem,oldCode))return;
+    if(newCode===String(oldCode))return;
+    if(Object.prototype.hasOwnProperty.call(rem,newCode)){notify(say('نئا نام پہلے سے موجود ہے: ','New name already exists: ','Naya naam pehle se mojood hai: ')+newCode);return;}
+    commit(function(){node=findNode(id);var r=node.record[field];r[newCode]=r[oldCode];delete r[oldCode];});
+    notify(say('دوا کا نام بدل دیا گیا','Remedy renamed','Dawa ka naam badal diya gaya'));
+}
 function setTranslationText(value){
     var node=findNode(state.selectedId),map=translationMap();if(!node||!map||isLocked(currentKey(node)))return;
     var key=currentKey(node),old=map[key];if(String(old===undefined?'':old)===String(value))return;
@@ -884,6 +900,7 @@ function loadChapterText(name,handle,raw){
     if(state.chapter&&state.chapter.dirty&&!root.confirm(L('replaceDirty')))return false;
     var model=core.analyzeChapter(data,root.repRubKey);
     state.chapter=makeFileState(name,handle,raw,data,'chapter');state.chapter.model=model;state.chapter.baseKeys=baselineKeys(model);
+    state.chapter.baseLabels=Object.create(null);if(model.kind==='record-map')model.nodes.forEach(function(n){state.chapter.baseLabels[String(n.id)]=String(n.label||'');});
     state.associatedKeys=Object.create(null);state.mappingDecisions=Object.create(null);state.selectedIds=[];state.expanded=Object.create(null);
     if(model.kind==='record-map'){state.selectedId=model.nodes.length?String(model.nodes[0].id):null;model.nodes.forEach(function(n){state.associatedKeys[String(n.id)]=state.chapter.baseKeys[String(n.id)]||'';});}
     else {state.selectedId=null;doc.getElementById('rpeRawEditors').hidden=false;}
@@ -926,7 +943,9 @@ function clearSearch(){var e=doc.getElementById('rpeSearch');if(e)e.value='';sta
 function toggleOrphans(){state.showOrphans=!state.showOrphans;renderOrphanList();}
 function onClick(event){
     var tab=event.target.closest('[data-rpe-tab]');if(tab){state.activeTab=tab.getAttribute('data-rpe-tab');renderTabs();return;}
-    var caseButton=event.target.closest('[data-rpe-case]');if(caseButton){var n=findNode(state.selectedId);if(!n)return;var mode=caseButton.getAttribute('data-rpe-case'),value=applyCase(n.label,mode);if(value!==n.label)changeNodeLabel(String(n.id),value);return;}
+    var caseButton=event.target.closest('[data-rpe-case]');if(caseButton){var n=findNode(state.selectedId);if(!n)return;var mode=caseButton.getAttribute('data-rpe-case');
+        if(mode==='original'){var base=state.chapter&&state.chapter.baseLabels?state.chapter.baseLabels[String(n.id)]:null;if(base&&base!==String(n.label||''))changeNodeLabel(String(n.id),String(base));return;}
+        var value=applyCase(n.label,mode);if(value!==n.label)changeNodeLabel(String(n.id),value);return;}
     var select=event.target.closest('[data-rpe-select-id]');if(select){state.selectedId=String(select.getAttribute('data-rpe-select-id'));renderTree();renderSelected();updateButtons();return;}
     var toggle=event.target.closest('[data-rpe-toggle]');if(toggle){var id=String(toggle.getAttribute('data-rpe-toggle'));state.expanded[id]=!state.expanded[id];renderTree();return;}
     var check=event.target.closest('[data-rpe-check-id]');if(check){var checkedId=String(check.getAttribute('data-rpe-check-id')),i=state.selectedIds.indexOf(checkedId);if(check.checked){if(i<0)state.selectedIds.push(checkedId);}else if(i>=0)state.selectedIds.splice(i,1);renderCounts();updateButtons();return;}
@@ -934,6 +953,7 @@ function onClick(event){
     var keepButton=event.target.closest('[data-rpe-keep-old]');if(keepButton){keepOldMapping(String(keepButton.getAttribute('data-rpe-keep-old')));return;}
     var orphanButton=event.target.closest('[data-rpe-orphan-key]');if(orphanButton){mapOrphanToSelected(orphanButton.getAttribute('data-rpe-orphan-key'));return;}
     var rmButton=event.target.closest('[data-rpe-remove-remedy]');if(rmButton){removeRemedy(String(state.selectedId),rmButton.getAttribute('data-rpe-remove-remedy'));return;}
+    var renameButton=event.target.closest('[data-rpe-rename-remedy]');if(renameButton){var oldCode=String(renameButton.getAttribute('data-rpe-rename-remedy'));var nn=root.prompt(say('دوا کا نیا نام لکھیں','Enter the new remedy name','Dawa ka naya naam likhein'),oldCode);if(nn!==null)renameRemedy(String(state.selectedId),oldCode,nn);return;}
     var modalAction=event.target.closest('#rpeModal [data-rpe-action]');if(modalAction&&modalAction.getAttribute('data-rpe-action')==='close-modal'){closeModal();return;}
     var action=event.target.closest('[data-rpe-action]');if(!action)return;
     switch(action.getAttribute('data-rpe-action')){

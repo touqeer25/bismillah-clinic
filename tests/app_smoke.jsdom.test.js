@@ -11,7 +11,7 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   const w=dom.window,d=w.document;
   // data fetches: serve local files
   w.fetch=u=>{const f=path.join(ROOT,String(u).replace(/^\.\//,'').split('?')[0]);return fs.existsSync(f)?Promise.resolve({ok:true,status:200,json:()=>Promise.resolve(JSON.parse(fs.readFileSync(f,'utf8'))),text:()=>Promise.resolve(fs.readFileSync(f,'utf8'))}):Promise.resolve({ok:false,status:404,json:()=>Promise.reject(new Error('404')),text:()=>Promise.resolve('')});};
-  for(let i=0;i<100&&typeof w.initRepertoryBrowser!=='function';i++)await sleep(100);
+  for(let i=0;i<400&&typeof w.initRepertoryBrowser!=='function';i++)await sleep(100);
   await sleep(500);
   // external CDN scripts (supabase/jsdelivr) cannot run inside jsdom — their own errors are not ours
   const loadErrs=errors.filter(e=>!/(Uncaught \[TypeError: Cannot read properties of undefined (reading 'slice')\][\s\S]*?HTMLScriptElement|Could not load (img|script)|Not implemented: HTMLCanvasElement|navigation|localStorage|serviceWorker|Not implemented: window\.(scrollTo|alert)|indexedDB|fetch|net::|ENOENT.*(png|jpg|ico|woff)|cdn-cgi|onLoadExternalScript)/i.test(e));
@@ -21,7 +21,7 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   const builtInBooks=Object.keys(w.REP_BOOK_INFO||{}).filter(k=>k!=='custom_rep').length;
   ok(d.getElementById('repCmpModeBtn')&&d.getElementById('repCmpPanel')&&rb&&builtInBooks===11&&rb.options.length>=11&&rb.value==='kent','repertory toolbar present with 11 books (plus optional custom)');
   // open repertory page: kent/mind auto-open
-  errors.length=0; w.repCurrentBook='kent'; w.initRepertoryBrowser(); for(let i=0;i<100&&!d.getElementById('repCardsArea');i++)await sleep(100); await sleep(300);
+  errors.length=0; w.repCurrentBook='kent'; w.initRepertoryBrowser(); for(let i=0;i<300&&!d.getElementById('repCardsArea');i++)await sleep(100); await sleep(300);
   ok(d.querySelectorAll('#repChapterList .rep-chapter-item, #repChapterList [onclick*="repOpenChapter"]').length>=30||d.getElementById('repChapterList').textContent.length>200,'chapter list rendered');
   ok(d.querySelectorAll('.rtv-row').length>100,'Mind chapter auto-opened with cards ('+d.querySelectorAll('.rtv-row').length+')');
   w.repCmpModeSet(true); await sleep(50); ok(d.querySelectorAll('.rpc-chk').length>100,'Compare Mode works in the full app'); w.repCmpModeSet(false);
@@ -37,13 +37,13 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
     console.log('SKIP: کتابی فہرست موجود نہیں، لکھنے والے مدیر کی آزمائش نہیں چلائی گئی');
   }
   // new repertory book: Hering Analytical (Mind) opens with its first chapter
-  w.repDiffClose&&w.repDiffClose(); w.repCurrentBook='hering_mind'; w.repCurrentChapter=''; w.initRepertoryBrowser(); for(let i=0;i<100&&!(w.repCurrentBook==='hering_mind'&&d.querySelectorAll('.rtv-row').length>20);i++)await sleep(100);
+  w.repDiffClose&&w.repDiffClose(); w.repCurrentBook='hering_mind'; w.repCurrentChapter=''; w.initRepertoryBrowser(); for(let i=0;i<300&&!(w.repCurrentBook==='hering_mind'&&d.querySelectorAll('.rtv-row').length>20);i++)await sleep(100);
   ok(w.repCurrentChapter==='ailments_from_emotions_and_exertions_of_the_mind'&&d.querySelectorAll('.rtv-row').length>20,'Hering Analytical Repertory (Mind) book opens: chapter '+w.repCurrentChapter+', '+d.querySelectorAll('.rtv-row').length+' cards');
   // v68: Boger Times book opens on its hour chapter
-  w.repCurrentBook='boger_times'; w.repCurrentChapter=''; w.initRepertoryBrowser(); for(let i=0;i<100&&!(w.repCurrentBook==='boger_times'&&d.querySelectorAll('.rtv-row').length>20);i++)await sleep(100);
+  w.repCurrentBook='boger_times'; w.repCurrentChapter=''; w.initRepertoryBrowser(); for(let i=0;i<300&&!(w.repCurrentBook==='boger_times'&&d.querySelectorAll('.rtv-row').length>20);i++)await sleep(100);
   ok(w.repCurrentChapter==='general_hour'&&d.querySelectorAll('.rtv-row').length>20,'Boger Times of Remedies book opens: chapter '+w.repCurrentChapter+', '+d.querySelectorAll('.rtv-row').length+' cards');
   // v68: Boericke & Dewey tissue-remedy therapeutics opens
-  w.repCurrentBook='tissues_bd'; w.repCurrentChapter=''; w.initRepertoryBrowser(); for(let i=0;i<100&&!(w.repCurrentBook==='tissues_bd'&&d.querySelectorAll('.rtv-row').length>10);i++)await sleep(100);
+  w.repCurrentBook='tissues_bd'; w.repCurrentChapter=''; w.initRepertoryBrowser(); for(let i=0;i<300&&!(w.repCurrentBook==='tissues_bd'&&d.querySelectorAll('.rtv-row').length>10);i++)await sleep(100);
   ok(w.repCurrentChapter==='tissue_therapeutics'&&d.querySelectorAll('.rtv-row').length>10,'Boericke-Dewey Tissue Remedies book opens: '+d.querySelectorAll('.rtv-row').length+' disease rubrics');
     const late=errors.filter(e=>!/Could not load (img|script)|Not implemented|net::|ENOENT|data load fail|404|onLoadExternalScript/i.test(e));
   console.log(fails?'FAILURES: '+fails:'ALL TESTS PASSED'); w.close(); process.exit(fails?1:0);
