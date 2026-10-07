@@ -82,8 +82,8 @@ assert.strictEqual(manifest.legacy_local_records, 1199);
 // 7) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const sw = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=153/.test(idx), 'صفحے میں چکر+سر+آنکھ درخت کا نسخہ (v153)');
-assert(/CACHE_NAME='bhc-clinic-v169'/.test(sw), 'خدمت کار نسخہ 168');
+assert(/rep-chapters\.js\?v=170/.test(idx), 'صفحے میں چکر+سر+آنکھ درخت کا نسخہ (v153)');
+assert(/CACHE_NAME='bhc-clinic-v170'/.test(sw), 'خدمت کار نسخہ 168');
 assert(/v167: سر باب/.test(code), 'rep-chapters.js میں سر بلڈر درج');
 
 console.log('سر باب: ماخذی درخت 6320 قطاریں (صفحات 107–234)، جڑ HEAD، ادویات ماخذی، اردو 100%، پرانی قطاریں محفوظ — کامیاب');

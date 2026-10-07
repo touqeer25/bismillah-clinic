@@ -126,7 +126,7 @@ ok(true,'C3 تمام '+chChecked+' ابواب کی گنتی درست (کل '+tot
 // ---- D. ادویات کا تحفظ (وجود): ہر چھپے ہوئے (remedy,grade) کے لیے باب میں کوئی زندہ اندراج ----
 let remOk=true, remBad=0;
 Object.keys(FIX).forEach(ch=>{
-  if(ch==='head'||ch==='eye') return;   // v167/v168: سر + آنکھ بابوں کی پرانی OOREP قطاریں فائل میں محفوظ ہیں؛ اُن کی غیر-ماخذی ادویہ (مثلاً paull) جان بوجھ کر نمائش سے باہر
+  if(ch==='head'||ch==='eye'||ch==='vision'||ch==='ear') return;   // v167–v170: سر/آنکھ/وژن/کان بابوں کی پرانی OOREP قطاریں فائل میں محفوظ ہیں؛ اُن کی غیر-ماخذی ادویہ (مثلاً paull) جان بوجھ کر نمائش سے باہر
   const data=JSON.parse(fs.readFileSync(path.join(ROOT,'kent_chapters',ch+'.json'),'utf8'));
   const hide=new Set(FIX[ch].h);
   const best={};
@@ -144,7 +144,7 @@ ok(remOk,'D1 ہر چھپے ہوئے ربرک کی ہر ادویہ (گریڈ سم
 // rehomed اور promoted ہر نوڈ ملے
 let nodesOk=true, miss=0;
 Object.keys(FIX).forEach(ch=>{
-  if(ch==='head'||ch==='eye') return;   // v167/v168: سر + آنکھ بابوں کا ماخذی درخت — g/p rehome/promote فرسودہ
+  if(ch==='head'||ch==='eye'||ch==='vision'||ch==='ear') return;   // v167–v170: سر/آنکھ/وژن/کان بابوں کا ماخذی درخت — g/p rehome/promote فرسودہ
   const tree=buildFor(ch); const rows=flat(tree);
   const byFull={}; rows.forEach(r=>{ if(r.node.hasRubric&&r.node.rid) byFull[r.node.rid]=r; });
   FIX[ch].g.forEach(g=>{ if(!byFull[g[0]]){ nodesOk=false; miss++; } (g[1]||[]).forEach(p=>{ if(!byFull[p[0]]){ nodesOk=false; miss++; } }); });

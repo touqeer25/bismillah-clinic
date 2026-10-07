@@ -1,0 +1,1903 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,285,0,EAR,0
+o12700,285,0,"ABSCESS behind (See Boils, suppuration)",9
+o12703,285,1,"ABSCESS behind (See Boils, suppuration), every two weeks ear gathers and discharges",1
+o12702,285,1,"ABSCESS behind (See Boils, suppuration), below",1
+o12704,285,1,"ABSCESS behind (See Boils, suppuration), in meatus",6
+o12701,285,2,"ABSCESS behind (See Boils, suppuration), in meatus, menses, during",1
+o12705,285,0,ADHESIONS in middle ear,1
+o12706,285,0,AGGLUTINATION of auricle to head,1
+o12708,285,0,"AIR, sensation of in (See Wind)",2
+o12709,285,1,"AIR, sensation of in (See Wind), bubble of air",1
+o12710,285,1,"AIR, sensation of in (See Wind), cold",6
+o12711,285,1,"AIR, sensation of in (See Wind), distension, meatus in evening",1
+o12712,285,1,"AIR, sensation of in (See Wind), fanning before, sensation of",3
+o12714,285,1,"AIR, sensation of in (See Wind), forced into, when blowing nose",1
+o12713,285,2,"AIR, sensation of in (See Wind), forced into, when blowing nose, eructations, during",2
+o12715,285,1,"AIR, sensation of in (See Wind), rushing in",4
+o12716,285,2,"AIR, sensation of in (See Wind), rushing in, during eructations",1
+o12717,285,2,"AIR, sensation of in (See Wind), rushing in, out, as if",1
+o12718,285,3,"AIR, sensation of in (See Wind), rushing in, out, as if, as of cold air",1
+o12719,285,1,"AIR, sensation of in (See Wind), streaming into, on drawing jaw to other side",1
+o12707,285,1,"AIR, sensation of in (See Wind), open, sensitive to, about ears",4
+o12720,285,0,BALD spot above,1
+h002,285,0,BLEEDING (See Discharges),0
+o12721,285,0,BLOWING sensation in,3
+o12724,285,1,"BLOWING sensation in, right",2
+o12722,285,1,"BLOWING sensation in, headache, during",1
+o12723,285,1,"BLOWING sensation in, pulsative, at night",1
+o12725,285,0,"BOARD before, sensation of",1
+o12726,285,1,"BOARD before, sensation of, left",1
+o65313,285,0,BORING fingers in,9
+o12729,285,1,"BORING fingers in, child",4
+o12730,285,1,"BORING fingers in, sleep, during",1
+o12728,285,1,"BORING fingers in, amel.",6
+o12731,285,0,"BREATH, sensation as if it came from ear",1
+o12732,285,0,CALCAREOUS deposit on tympanum,2
+o12733,285,0,"CARIES, threatened",8
+o12734,285,1,"CARIES, threatened, mastoid process",8
+o12735,285,1,"CARIES, threatened, petrous portion temporal bone",1
+m12736,285,0,CATARRH (See Discharges),0
+o12736,285,1,"CATARRH (See Discharges), eustachian tube",24
+h003,285,0,"CHILBLAINS (See Itching, burning)",0
+o12737,285,0,CHILDREN,3
+h004,285,0,CLOSED sensation (See Stopped),0
+o12738,285,0,COLDNESS,30
+o12754,285,1,"COLDNESS, right",2
+o12755,285,2,"COLDNESS, right, and burning of left",1
+o12746,285,1,"COLDNESS, evening",2
+o12748,285,2,"COLDNESS, evening, in warm bed",1
+o12747,285,2,"COLDNESS, evening, 5 p.m.",1
+o12741,285,1,"COLDNESS, alternating with heat",1
+o12744,285,1,"COLDNESS, burning hot yet cold to touch",2
+o12745,285,1,"COLDNESS, draft, as from a",2
+o12749,285,1,"COLDNESS, extending through",1
+r0,286,1,"COLDNESS, heat, during",2
+o12753,286,1,"COLDNESS, one cold the other hot",2
+o12756,286,1,"COLDNESS, sensation of, in external ear",2
+o12757,286,1,"COLDNESS, water, as if cold, had got in",1
+o12758,286,2,"COLDNESS, water, as if cold, had got in, cold, running out of ear",1
+o12739,286,1,"COLDNESS, about the ear",2
+o12740,286,1,"COLDNESS, above the ear",2
+o12742,286,1,"COLDNESS, behind right ear",1
+o12743,286,1,"COLDNESS, below the ear",1
+o12751,286,1,"COLDNESS, meatus, in",5
+o12752,286,2,"COLDNESS, meatus, in, as from wind",5
+r12,286,0,CONGESTION of blood (See Fullness),0
+r13,286,0,CONSTRICTION of,1
+r14,286,0,CONTRACTION,4
+r15,286,1,"CONTRACTION, spasmodic, afternoon on sitting",1
+r16,286,1,"CONTRACTION, sensation of, evening after lying down, agg. sleeping on that side",1
+r17,286,1,"CONTRACTION, meatus, in",3
+r18,286,0,CRACKS behind ear (See Eruptions),0
+r19,286,0,CRAWLING (See Formication),0
+r20,286,0,"DILATATION of meatus, sensation of",1
+r21,286,1,"DILATATION of meatus, sensation of, evening",1
+r22,286,0,DISCHARGES,93
+r23,286,1,"DISCHARGES, right",6
+r24,286,1,"DISCHARGES, left",3
+r25,286,1,"DISCHARGES, night",1
+r26,286,2,"DISCHARGES, night, in warm bed",1
+r27,286,1,"DISCHARGES, every seven days",1
+r28,286,1,"DISCHARGES, blood",24
+r29,286,2,"DISCHARGES, blood, morning",1
+r30,286,2,"DISCHARGES, blood, cough, during",1
+r31,286,2,"DISCHARGES, blood, menses, instead of",2
+r32,286,2,"DISCHARGES, blood, prolonged suppuration, after",1
+r33,286,1,"DISCHARGES, bloody",41
+r34,286,1,"DISCHARGES, brownish",5
+r35,286,1,"DISCHARGES, caries threatening",9
+r36,286,1,"DISCHARGES, cheesy",2
+r37,286,1,"DISCHARGES, clear",1
+r38,286,1,"DISCHARGES, copious",1
+r39,286,1,"DISCHARGES, ear-wax",11
+r40,286,1,"DISCHARGES, eruption, suppressed, after",2
+r41,286,1,"DISCHARGES, excoriating",13
+r42,286,1,"DISCHARGES, fetid",26
+r43,286,1,"DISCHARGES, gluey, sticky",2
+r44,286,2,"DISCHARGES, gluey, sticky, green",6
+r45,286,2,"DISCHARGES, gluey, sticky, morning",1
+r46,286,2,"DISCHARGES, gluey, sticky, odorless",1
+r47,286,1,"DISCHARGES, ichorous",11
+r48,286,1,"DISCHARGES, measles, after",10
+r49,286,1,"DISCHARGES, offensive",43
+r50,287,2,"DISCHARGES, offensive, cadaverous smelling",1
+r51,287,2,"DISCHARGES, offensive, fish-brine, like",2
+r52,287,2,"DISCHARGES, offensive, putrid meat, like",3
+r53,287,2,"DISCHARGES, offensive, rotten cheese, like",2
+r54,287,2,"DISCHARGES, offensive, sour",1
+r55,287,1,"DISCHARGES, painful",3
+r56,287,1,"DISCHARGES, periodic every 7th day",1
+r57,287,1,"DISCHARGES, purulent",61
+r58,287,2,"DISCHARGES, purulent, with eczema",5
+r59,287,2,"DISCHARGES, purulent, mercury, after abuse of",6
+r60,287,2,"DISCHARGES, purulent, sulphur, after abuse of",3
+r61,287,1,"DISCHARGES, scarlet fever, after",20
+r62,287,1,"DISCHARGES, sequelæ",15
+r63,287,1,"DISCHARGES, serous",3
+r64,287,1,"DISCHARGES, suppressed",13
+r65,287,1,"DISCHARGES, thick",13
+r66,287,1,"DISCHARGES, thin",11
+r67,287,1,"DISCHARGES, watery",11
+r68,287,1,"DISCHARGES, white",4
+r69,287,1,"DISCHARGES, white, milky",1
+r70,287,1,"DISCHARGES, yellow",17
+r71,287,1,"DISCHARGES, yellowish green",6
+r72,287,0,"DISCOLORATION, blue",2
+r73,287,1,"DISCOLORATION, blue, brown spots",1
+r74,287,1,"DISCOLORATION, blue, livid",2
+r75,287,1,"DISCOLORATION, blue, redness",56
+r76,287,2,"DISCOLORATION, blue, redness, afternoon",1
+r77,287,2,"DISCOLORATION, blue, redness, evening",11
+r78,287,2,"DISCOLORATION, blue, redness, chilblains",1
+r79,287,2,"DISCOLORATION, blue, redness, erysipelatous (See Inflammation)",0
+r80,287,2,"DISCOLORATION, blue, redness, menses, during",1
+r81,287,2,"DISCOLORATION, blue, redness, one-sided",7
+r82,287,2,"DISCOLORATION, blue, redness, touched or scratched, when",1
+r83,287,2,"DISCOLORATION, blue, redness, about the ear",1
+r84,287,2,"DISCOLORATION, blue, redness, behind ears",8
+r85,287,2,"DISCOLORATION, blue, redness, concha",2
+r86,287,2,"DISCOLORATION, blue, redness, lobes",2
+r87,287,2,"DISCOLORATION, blue, redness, meatus",5
+r88,287,0,"DISTENTION, sensation of, in (See Fullness)",6
+r89,287,1,"DISTENTION, sensation of, in (See Fullness), on blowing nose",1
+r90,287,0,DRYNESS,18
+r91,287,1,"DRYNESS, sensation of",2
+r92,287,1,"DRYNESS, meatus",1
+r93,288,0,ERUPTIONS,53
+r94,288,1,"ERUPTIONS, blisters",3
+r95,288,1,"ERUPTIONS, blotches",8
+r96,288,1,"ERUPTIONS, boils",5
+r97,288,1,"ERUPTIONS, burning",5
+r98,288,1,"ERUPTIONS, confluent",2
+r99,288,1,"ERUPTIONS, cracked and desquamating a substance like powdered starch",1
+r100,288,1,"ERUPTIONS, desquamating",8
+r101,288,1,"ERUPTIONS, eczema",3
+r102,288,1,"ERUPTIONS, excoriating",6
+r103,288,1,"ERUPTIONS, herpes",10
+r104,288,1,"ERUPTIONS, itching",8
+r105,288,1,"ERUPTIONS, moist",13
+r106,288,1,"ERUPTIONS, pimples",23
+r107,288,1,"ERUPTIONS, purulent",6
+r108,288,1,"ERUPTIONS, scabby",16
+r109,288,1,"ERUPTIONS, scaly",4
+r110,288,1,"ERUPTIONS, scurfy",14
+r111,288,2,"ERUPTIONS, scurfy, right ear",1
+r112,288,1,"ERUPTIONS, vesicles",9
+r113,288,2,"ERUPTIONS, vesicles, coalescing",1
+r114,288,2,"ERUPTIONS, vesicles, discharging water",1
+r115,288,2,"ERUPTIONS, vesicles, gangrenous",1
+r116,288,2,"ERUPTIONS, vesicles, purulent",1
+r117,288,2,"ERUPTIONS, vesicles, serum, filled with",1
+r118,288,2,"ERUPTIONS, vesicles, surrounded by inflamed base",1
+r119,288,2,"ERUPTIONS, vesicles, transparent",1
+r120,288,2,"ERUPTIONS, vesicles, white",1
+r121,288,3,"ERUPTIONS, vesicles, white, on red base",1
+r122,288,1,"ERUPTIONS, extending to face",2
+h005,288,2,"ERUPTIONS, extending to face, to scalp",1
+r124,288,1,"ERUPTIONS, about the ears",9
+r125,288,2,"ERUPTIONS, about the ears, herpetic",1
+r126,288,2,"ERUPTIONS, about the ears, moist",1
+r127,288,2,"ERUPTIONS, about the ears, rash",1
+r128,288,2,"ERUPTIONS, about the ears, spread to scalp",1
+r129,288,1,"ERUPTIONS, above the ears, pimples",2
+r130,288,1,"ERUPTIONS, antitragus",1
+r131,288,1,"ERUPTIONS, behind ears",40
+r132,288,2,"ERUPTIONS, behind ears, left then right",1
+r133,288,2,"ERUPTIONS, behind ears, blotches",5
+r134,288,2,"ERUPTIONS, behind ears, boils",8
+r135,288,2,"ERUPTIONS, behind ears, burning",1
+r136,288,3,"ERUPTIONS, behind ears, burning, after scratching",1
+r137,288,2,"ERUPTIONS, behind ears, cracks",8
+r138,288,2,"ERUPTIONS, behind ears, eczema",7
+r139,288,2,"ERUPTIONS, behind ears, excoriating",7
+r140,288,2,"ERUPTIONS, behind ears, herpes",11
+r141,288,2,"ERUPTIONS, behind ears, itching",7
+r142,288,2,"ERUPTIONS, behind ears, moist",22
+r143,288,3,"ERUPTIONS, behind ears, moist, scratching, after",1
+r144,289,3,"ERUPTIONS, behind ears, moist, sticky",2
+r145,289,2,"ERUPTIONS, behind ears, pimples",18
+r146,289,3,"ERUPTIONS, behind ears, pimples, burning on touch",1
+r147,289,3,"ERUPTIONS, behind ears, pimples, itching",1
+r148,289,2,"ERUPTIONS, behind ears, pustules",11
+r149,289,2,"ERUPTIONS, behind ears, rash",2
+r150,289,2,"ERUPTIONS, behind ears, scabby",9
+r151,289,3,"ERUPTIONS, behind ears, scabby, exuding a glutinous moisture, sore on touch",1
+r152,289,3,"ERUPTIONS, behind ears, scabby, herpes",1
+r153,289,2,"ERUPTIONS, behind ears, scurfy",5
+r154,289,2,"ERUPTIONS, behind ears, sore",5
+r155,289,2,"ERUPTIONS, behind ears, vesicles",10
+r156,289,3,"ERUPTIONS, behind ears, vesicles, extends to face",2
+r157,289,1,"ERUPTIONS, below ears, boils",1
+r158,289,2,"ERUPTIONS, below ears, boils, vesicles",1
+r159,289,3,"ERUPTIONS, below ears, boils, vesicles, discharging water",1
+r160,289,1,"ERUPTIONS, concha",2
+r161,289,2,"ERUPTIONS, concha, crusts",2
+r162,289,2,"ERUPTIONS, concha, vesicles",2
+r163,289,1,"ERUPTIONS, in front of",5
+r164,289,2,"ERUPTIONS, in front of, boils",4
+r165,289,2,"ERUPTIONS, in front of, herpes",1
+r166,289,2,"ERUPTIONS, in front of, pustules",1
+r167,289,2,"ERUPTIONS, in front of, vesicles",1
+r168,289,1,"ERUPTIONS, lobes, on",6
+r169,289,2,"ERUPTIONS, lobes, on, boils",1
+r170,289,2,"ERUPTIONS, lobes, on, herpes",4
+r171,289,2,"ERUPTIONS, lobes, on, menses, during",1
+r172,289,2,"ERUPTIONS, lobes, on, pimples",2
+r173,289,2,"ERUPTIONS, lobes, on, scabs",1
+r174,289,2,"ERUPTIONS, lobes, on, scurfs",1
+r175,289,2,"ERUPTIONS, lobes, on, vesicles, caused by the discharge",1
+r176,289,1,"ERUPTIONS, margins, moist",1
+r177,289,1,"ERUPTIONS, meatus, in",3
+r178,289,2,"ERUPTIONS, meatus, in, boils",7
+r179,289,2,"ERUPTIONS, meatus, in, eczema",2
+r180,289,2,"ERUPTIONS, meatus, in, herpes",1
+r181,289,2,"ERUPTIONS, meatus, in, pimples",2
+r182,289,2,"ERUPTIONS, meatus, in, pustules",1
+r183,289,2,"ERUPTIONS, meatus, in, scurfy",3
+r184,289,2,"ERUPTIONS, meatus, in, vesicles",1
+r185,289,1,"ERUPTIONS, tragus",3
+r186,289,1,"ERUPTIONS, tympanum, scurfy",1
+r187,289,0,ERYSIPELAS (See Inflammation),0
+r188,289,0,EXOSTOSIS,1
+r189,289,0,"FLAPPING, in the ears (See Noises Fluttering)",0
+r190,289,0,FORMICATION,33
+r191,289,1,"FORMICATION, morning",1
+r192,289,1,"FORMICATION, eating, while",1
+r193,289,1,"FORMICATION, extending to lower law",1
+r194,289,1,"FORMICATION, about the ear",1
+r195,289,1,"FORMICATION, behind the ear",1
+r196,289,1,"FORMICATION, meatus",12
+r197,289,0,FREEZING easily,1
+r198,289,0,"FROZEN, as if",5
+r199,289,0,"FULLNESS, sensation of",39
+r200,289,1,"FULLNESS, sensation of, morning",2
+r201,289,1,"FULLNESS, sensation of, afternoon",1
+r202,289,2,"FULLNESS, sensation of, afternoon, 1 p.m.",1
+r204,290,1,"FULLNESS, sensation of, evening",2
+r205,290,1,"FULLNESS, sensation of, blowing nose, when",2
+r206,290,1,"FULLNESS, sensation of, boring in, amel.",1
+r207,290,1,"FULLNESS, sensation of, eating, while",1
+r208,290,1,"FULLNESS, sensation of, excitement, from",1
+r209,290,1,"FULLNESS, sensation of, stitching pains, after",1
+r210,290,1,"FULLNESS, sensation of, swallowing, from",2
+r211,290,0,FUNGUS excrescences,1
+r212,290,0,"HARDNESS, glands about ear (See Face)",0
+r213,290,0,HEAT,107
+r214,290,1,"HEAT, right",7
+r215,290,2,"HEAT, right, red and hot, left pale and cold",1
+r216,290,1,"HEAT, left",3
+r217,290,2,"HEAT, left, then right",1
+r218,290,1,"HEAT, morning, in bed",1
+r219,290,1,"HEAT, afternoon",1
+r220,290,2,"HEAT, afternoon, after coffee",1
+r221,290,2,"HEAT, afternoon, 1 p.m.",1
+r222,290,1,"HEAT, evening",10
+r223,290,2,"HEAT, evening, on going to bed",1
+r224,290,2,"HEAT, evening, 10 p.m.",1
+r225,290,1,"HEAT, night",2
+r226,290,2,"HEAT, night, midnight",1
+r227,290,1,"HEAT, chill, during",7
+r228,290,2,"HEAT, chill, during, in back",1
+r229,290,1,"HEAT, cold, alternating with",3
+r230,290,1,"HEAT, coldness of body, during",1
+r231,290,2,"HEAT, coldness of body, during, lying, while",1
+r232,290,2,"HEAT, coldness of body, during, to touch",1
+r233,290,1,"HEAT, eating, after",1
+r234,290,1,"HEAT, escaping, sensation of",8
+r235,290,2,"HEAT, escaping, sensation of, as if hot water were running out of right",1
+r236,290,1,"HEAT, flushes",2
+r237,290,1,"HEAT, one-sided",5
+r238,290,1,"HEAT, pressure in occiput, during",1
+r239,290,1,"HEAT, redness of one ear, with",2
+r240,290,1,"HEAT, swallowing, from",1
+r241,290,1,"HEAT, extending over half of head",1
+o12969,290,2,"HEAT, extending over half of head, occiput to nape of neck",1
+o12970,290,2,"HEAT, extending over half of head, to pharynx, evening while riding",1
+r244,290,1,"HEAT, inside",11
+r245,290,0,"HOLLOWNESS, sensation of",2
+r246,290,1,"HOLLOWNESS, sensation of, in morning amel. after dinner",1
+r247,290,0,INFLAMMATION,22
+r248,290,1,"INFLAMMATION, erysipelatous",19
+r249,290,1,"INFLAMMATION, suppurative",2
+r250,290,1,"INFLAMMATION, concha",2
+r251,290,1,"INFLAMMATION, eustachian tube",18
+r252,290,1,"INFLAMMATION, inside",54
+r253,291,1,"INFLAMMATION, margin",1
+r254,291,1,"INFLAMMATION, media",34
+r255,291,1,"INFLAMMATION, petrous portion temporal bone",1
+r256,291,0,ITCHING in,93
+o13034,291,1,"ITCHING in, right",12
+o13025,291,1,"ITCHING in, left",19
+o13030,291,1,"ITCHING in, morning",4
+o12997,291,1,"ITCHING in, afternoon",4
+o13018,291,1,"ITCHING in, evening",11
+o13020,291,2,"ITCHING in, evening, walking, while",1
+o13019,291,2,"ITCHING in, evening, 9 p.m.",1
+o13032,291,1,"ITCHING in, night",3
+o12998,291,1,"ITCHING in, alternating with anus",1
+o13007,291,1,"ITCHING in, boring with finger, amel.",12
+o13008,291,2,"ITCHING in, boring with finger, amel., does not amel.",4
+o13009,291,1,"ITCHING in, burning",26
+o13010,291,2,"ITCHING in, burning, after scratching",1
+o13011,291,2,"ITCHING in, burning, warm room",1
+o13013,291,1,"ITCHING in, corrosive",1
+o13014,291,1,"ITCHING in, cough, from",1
+o13015,291,1,"ITCHING in, eating, while",1
+o13023,291,1,"ITCHING in, frozen, as if",5
+o13028,291,1,"ITCHING in, lying",1
+o13029,291,1,"ITCHING in, menses, during",1
+o13031,291,1,"ITCHING in, moving jaws, when",1
+o13033,291,1,"ITCHING in, riding, after",1
+o13035,291,1,"ITCHING in, rising, soon after",2
+o13036,291,1,"ITCHING in, rubbing agg.",1
+o13038,291,2,"ITCHING in, rubbing agg., does not amel.",1
+o13037,291,2,"ITCHING in, rubbing agg., amel.",2
+o13039,291,1,"ITCHING in, scratching, amel.",3
+o13040,291,2,"ITCHING in, scratching, amel., does not amel.",4
+o13041,291,2,"ITCHING in, scratching, amel., must scratch until it bleeds",3
+o13042,291,1,"ITCHING in, sleep, during",1
+o13043,291,1,"ITCHING in, stitching",1
+o13044,291,1,"ITCHING in, stooping, on",1
+o13045,291,1,"ITCHING in, swallowing",2
+o13046,291,2,"ITCHING in, swallowing, compelling",2
+o13047,291,1,"ITCHING in, touch amel.",2
+o13049,291,1,"ITCHING in, walking, while",1
+o13050,291,1,"ITCHING in, warm room",2
+o13051,291,2,"ITCHING in, warm room, entering from cold air",1
+o13052,291,1,"ITCHING in, yawning, while",1
+o12999,291,1,"ITCHING in, antitragus",1
+o13021,291,1,"ITCHING in, extending over whole body",1
+o12996,291,1,"ITCHING in, about the ear, evening",1
+r301,291,1,"ITCHING in, behind ear",24
+r302,292,2,"ITCHING in, behind ear, noon",1
+r303,292,2,"ITCHING in, behind ear, evening in bed",2
+r304,292,2,"ITCHING in, behind ear, night",5
+r305,292,2,"ITCHING in, behind ear, burning, followed by",1
+r306,292,2,"ITCHING in, behind ear, scratching amel.",4
+r307,292,1,"ITCHING in, below ear",5
+o65323,292,2,"ITCHING in, below ear, scratching amel.",1
+r309,292,1,"ITCHING in, concha",8
+r310,292,1,"ITCHING in, external ear",32
+r311,292,1,"ITCHING in, in front of",1
+r312,292,1,"ITCHING in, eustachian tubes",9
+r313,292,2,"ITCHING in, eustachian tubes, compels swallowing",1
+r314,292,1,"ITCHING in, lobes",11
+r315,292,2,"ITCHING in, lobes, at night",1
+r316,292,1,"ITCHING in, tragus",1
+r317,292,0,"LUMPS, hard, behind ear",1
+r318,292,0,LUPUS on the lobe,1
+r319,292,0,MOISTURE behind the ears,12
+o13056,292,1,"MOISTURE behind the ears, concha",2
+o13057,292,1,"MOISTURE behind the ears, margin",1
+r322,292,0,"NODES on ears, copper-colored",3
+o13059,292,1,"NODES on ears, copper-colored, behind",2
+r324,292,0,NOISES in,212
+r333,292,0,NOISES,0
+o13344,292,1,"NOISES, right",28
+o13272,292,1,"NOISES, left",20
+r649,292,1,"NOISES, daytime",2
+r334,292,1,"NOISES, morning",34
+o13288,292,2,"NOISES, morning, bed, in",7
+o13289,292,3,"NOISES, morning, bed, in, on moving the jaw",1
+o13291,292,2,"NOISES, morning, rising, on",1
+r713,292,3,"NOISES, morning, rising, on, after",5
+r335,293,2,"NOISES, morning, waking, on",6
+r336,293,1,"NOISES, forenoon",7
+r337,293,2,"NOISES, forenoon, 9 a.m.",2
+r338,293,2,"NOISES, forenoon, 11 a.m.",2
+r339,293,1,"NOISES, noon",3
+r340,293,1,"NOISES, afternoon",19
+r341,293,2,"NOISES, afternoon, 2 p.m.",3
+r342,293,2,"NOISES, afternoon, 3 p.m.",3
+r343,293,2,"NOISES, afternoon, 4 p.m.",3
+r344,293,2,"NOISES, afternoon, 5 p.m.",2
+r345,293,2,"NOISES, afternoon, 6 p.m.",1
+r346,293,1,"NOISES, evening",45
+r347,293,2,"NOISES, evening, in bed",9
+r348,293,2,"NOISES, evening, 7 p.m.",2
+r349,293,2,"NOISES, evening, 8 p.m.",1
+r350,293,2,"NOISES, evening, 9 p.m.",1
+r351,293,2,"NOISES, evening, 10 p.m.",1
+r352,293,1,"NOISES, night",29
+r353,293,2,"NOISES, night, headache, with, agg.",1
+r354,293,2,"NOISES, night, waking, on",2
+r355,293,2,"NOISES, night, midnight",2
+r356,293,3,"NOISES, night, midnight, lying on the ear",1
+r357,293,3,"NOISES, night, midnight, waking, on",1
+r358,293,2,"NOISES, night, 2 a.m.",1
+h006,293,1,"NOISES, air, in open",4
+r360,293,2,"NOISES, air, in open, amel.",4
+r361,293,1,"NOISES, anxiety agg.",1
+r362,293,1,"NOISES, blowing nose, when",11
+r363,293,1,"NOISES, boring into ear amel.",3
+r364,293,1,"NOISES, breakfast, during",3
+r365,293,1,"NOISES, breathing, when",3
+r366,293,1,"NOISES, chewing, when",17
+r367,293,1,"NOISES, chill, during",6
+r368,293,1,"NOISES, closing eyes",1
+r369,293,1,"NOISES, coition, during",1
+r370,293,1,"NOISES, coition, after",2
+r371,293,1,"NOISES, cold drinks after",1
+r372,293,1,"NOISES, convulsions after",1
+r373,293,1,"NOISES, coughing, on",2
+r374,293,1,"NOISES, dinner (See Eating)",0
+r375,293,1,"NOISES, eating, while (See Chewing)",7
+r376,293,2,"NOISES, eating, while (See Chewing), after",7
+r377,293,1,"NOISES, epilepsy, after",1
+r378,293,1,"NOISES, excited, when",1
+r379,293,1,"NOISES, falling asleep, when",2
+r380,293,1,"NOISES, fever, during",2
+r381,293,1,"NOISES, headache, during",10
+r382,293,1,"NOISES, inspiration, during",2
+o13275,293,1,"NOISES, lying, while",16
+r384,293,1,"NOISES, lying, amel.",5
+r385,293,1,"NOISES, lying, upon the ear",8
+r386,293,1,"NOISES, menses, before",4
+r387,293,1,"NOISES, menses, during",8
+r388,293,1,"NOISES, menses, after",3
+r390,294,1,"NOISES, menses, suppressed",3
+r391,294,1,"NOISES, mental exertion",3
+r392,294,1,"NOISES, motion, during",5
+r393,294,1,"NOISES, moving head",3
+o13295,294,2,"NOISES, moving head, jaw (See Chewing)",4
+r395,294,1,"NOISES, music amel.",2
+r396,294,1,"NOISES, noise agg.",6
+r397,294,1,"NOISES, opening mouth (See Moving Jaw)",0
+r398,294,1,"NOISES, pain, with every attack of",2
+r399,294,1,"NOISES, perspiration, with",2
+h007,294,1,"NOISES, rising, on",3
+r401,294,2,"NOISES, rising, on, amel.",2
+r402,294,2,"NOISES, rising, on, from a seat",2
+r403,294,2,"NOISES, rising, on, stooping",2
+r404,294,1,"NOISES, rubbing amel.",1
+r405,294,1,"NOISES, sitting, while",10
+r406,294,1,"NOISES, sneezing, on",4
+r407,294,1,"NOISES, standing amel.",1
+r408,294,1,"NOISES, stool, during",1
+r409,294,1,"NOISES, stool, after",2
+r410,294,1,"NOISES, stooping, when",1
+o13546,294,1,"NOISES, swallowing, when",23
+r412,294,1,"NOISES, swallowing, amel.",1
+r413,294,1,"NOISES, synchronous, with pulse",11
+r414,294,1,"NOISES, talking, while",4
+r415,294,1,"NOISES, turning head",2
+r416,294,1,"NOISES, vertigo, with",46
+r417,294,2,"NOISES, vertigo, with, before",2
+r418,294,1,"NOISES, waking, on",10
+r419,294,2,"NOISES, waking, on, with a start",2
+o13570,294,1,"NOISES, walking, while",12
+r421,294,1,"NOISES, walking, amel.",2
+r422,294,1,"NOISES, walking, fast",1
+r423,294,1,"NOISES, walking, in the open air",3
+r424,294,1,"NOISES, warm room agg.",4
+r425,294,1,"NOISES, whistling, while",1
+r426,294,1,"NOISES, writing, while",2
+r427,294,1,"NOISES, yawning, when",5
+r428,294,1,"NOISES, bagpipe, as from distant",1
+r429,294,1,"NOISES, bat, sounds as from",1
+r430,294,2,"NOISES, bat, sounds as from, night",1
+r431,294,1,"NOISES, beating, sounds (distant) amel. on rising",1
+o13074,294,2,"NOISES, beating, sounds (distant) amel. on rising, someone beating a door",1
+r433,294,1,"NOISES, bees, sound of (See Buzzing)",0
+r434,294,1,"NOISES, bell of a clock",1
+r435,294,1,"NOISES, bells (See Ringing)",13
+r436,294,2,"NOISES, bells (See Ringing), morning",1
+r437,294,1,"NOISES, blowing",4
+r438,294,1,"NOISES, bubbling",14
+r439,294,1,"NOISES, buzzing",112
+r440,295,2,"NOISES, buzzing, right",5
+r441,295,2,"NOISES, buzzing, left",2
+r442,295,2,"NOISES, buzzing, morning",2
+r443,295,3,"NOISES, buzzing, morning, on waking",1
+r444,295,2,"NOISES, buzzing, forenoon",2
+r445,295,2,"NOISES, buzzing, noon",2
+r446,295,2,"NOISES, buzzing, afternoon",1
+r447,295,2,"NOISES, buzzing, evening",6
+r448,295,3,"NOISES, buzzing, evening, in bed",1
+r449,295,2,"NOISES, buzzing, night",4
+r450,295,2,"NOISES, buzzing, alternating with whistling",1
+r451,295,2,"NOISES, buzzing, chill, during",1
+r452,295,2,"NOISES, buzzing, descending stairs, while",1
+r453,295,2,"NOISES, buzzing, epilepsy, after",1
+r454,295,2,"NOISES, buzzing, headache, with",1
+r455,295,2,"NOISES, buzzing, intermittent, in",1
+r456,295,2,"NOISES, buzzing, leaning on head amel.",1
+r457,295,2,"NOISES, buzzing, menses, before",1
+r458,295,2,"NOISES, buzzing, menses, during",1
+r459,295,2,"NOISES, buzzing, mental exertion, after",1
+r460,295,2,"NOISES, buzzing, one and then the other",1
+r461,295,2,"NOISES, buzzing, perspiration, during",1
+r462,295,2,"NOISES, buzzing, side lain on",1
+r463,295,2,"NOISES, buzzing, sitting, while",1
+r464,295,2,"NOISES, buzzing, stool, during",1
+r465,295,2,"NOISES, buzzing, stool, after",1
+r466,295,2,"NOISES, buzzing, swallowing, when",1
+r467,295,2,"NOISES, buzzing, vertigo, with",8
+r468,295,2,"NOISES, buzzing, whistling agg.",1
+r469,295,1,"NOISES, cannonading",3
+r470,295,2,"NOISES, cannonading, distant",1
+r471,295,1,"NOISES, cascade, sound of (See Rushing)",0
+r472,295,1,"NOISES, cat, like a spitting",3
+r473,295,2,"NOISES, cat, like a spitting, afternoon",1
+r474,295,1,"NOISES, chirping",24
+r475,295,2,"NOISES, chirping, right",1
+r476,295,2,"NOISES, chirping, morning in bed",1
+r477,295,2,"NOISES, chirping, evening",3
+r478,295,2,"NOISES, chirping, night",4
+r479,295,2,"NOISES, chirping, intermittent, during",6
+r480,295,1,"NOISES, clashing",3
+r481,295,1,"NOISES, clucking",11
+r482,295,2,"NOISES, clucking, left, while lying on it",1
+r483,295,2,"NOISES, clucking, rising from stooping, when",2
+r484,295,2,"NOISES, clucking, stooping, on",1
+r485,295,1,"NOISES, cracking",36
+r486,295,2,"NOISES, cracking, morning",1
+r487,295,3,"NOISES, cracking, morning, bed, in",1
+r488,295,3,"NOISES, cracking, morning, breakfast, during",1
+r489,295,3,"NOISES, cracking, morning, breakfast, after",1
+r490,295,3,"NOISES, cracking, morning, moving jaw",1
+r491,295,2,"NOISES, cracking, evening",1
+r492,295,3,"NOISES, cracking, evening, eating, while",2
+r493,295,2,"NOISES, cracking, night",1
+r494,295,2,"NOISES, cracking, blowing nose",4
+r495,295,2,"NOISES, cracking, burst, as if drum had, during sleep",1
+r496,295,2,"NOISES, cracking, chewing, when",12
+r497,295,2,"NOISES, cracking, coughing, while",1
+r498,295,2,"NOISES, cracking, intermittent",1
+r499,295,2,"NOISES, cracking, lying amel.",1
+r500,295,2,"NOISES, cracking, moving head",2
+o13152,295,3,"NOISES, cracking, moving head, the jaw",2
+r502,296,2,"NOISES, cracking, opening the mouth",1
+r503,296,2,"NOISES, cracking, reading aloud",1
+r504,296,2,"NOISES, cracking, sleep, during",2
+r505,296,2,"NOISES, cracking, sneezing, on",3
+r506,296,2,"NOISES, cracking, stroking cheek",1
+r507,296,2,"NOISES, cracking, swallowing, when",14
+r508,296,2,"NOISES, cracking, turning head",1
+r509,296,2,"NOISES, cracking, walking fast",1
+r510,296,2,"NOISES, cracking, yawning, when",1
+r511,296,1,"NOISES, crackling",34
+r512,296,2,"NOISES, crackling, morning, during breakfast",1
+r513,296,2,"NOISES, crackling, evening",2
+r514,296,2,"NOISES, crackling, blowing nose",2
+r515,296,2,"NOISES, crackling, chewing, when",2
+r516,296,2,"NOISES, crackling, lying upon ear",1
+r517,296,2,"NOISES, crackling, motion of jaws (See Chewing)",1
+r518,296,2,"NOISES, crackling, opening the mouth, on",1
+r519,296,2,"NOISES, crackling, sneezing, on",1
+r520,296,2,"NOISES, crackling, swallowing, when",7
+r521,296,2,"NOISES, crackling, synchronous with pulse",2
+r522,296,2,"NOISES, crackling, walking, while",2
+r523,296,1,"NOISES, crashing",6
+r524,296,2,"NOISES, crashing, night",1
+r525,296,3,"NOISES, crashing, night, on falling asleep",2
+r526,296,2,"NOISES, crashing, as from breaking of a pane of glass",3
+r527,296,1,"NOISES, creaking",6
+r528,296,2,"NOISES, creaking, morning in bed on moving jaws",1
+r529,296,2,"NOISES, creaking, evening",1
+r530,296,3,"NOISES, creaking, evening, while eating",1
+r531,296,2,"NOISES, creaking, swallowing, when",3
+r532,296,1,"NOISES, crickets (See Chirping)",0
+r533,296,1,"NOISES, croaking like frogs, while sitting",1
+r534,296,2,"NOISES, croaking like frogs, while sitting, while walking",1
+r535,296,1,"NOISES, cymbals and drums, sounds of",1
+r536,296,1,"NOISES, din when stepping hard",1
+r537,296,1,"NOISES, drumming",8
+r538,296,2,"NOISES, drumming, morning",1
+r539,296,3,"NOISES, drumming, morning, waking, on",1
+r540,296,2,"NOISES, drumming, distant",3
+r541,296,2,"NOISES, drumming, dull",1
+r542,296,2,"NOISES, drumming, lain on, the ear, amel. rising up",1
+r543,296,2,"NOISES, drumming, walking, while",1
+r544,296,1,"NOISES, echoes (See Reverberations)",0
+r545,296,1,"NOISES, explosion, like an",5
+r546,296,2,"NOISES, explosion, like an, as from breaking glass",3
+r547,296,2,"NOISES, explosion, like an, sleep, during",3
+r548,296,1,"NOISES, fluttering sounds",59
+o13223,296,2,"NOISES, fluttering sounds, right",3
+o13220,296,2,"NOISES, fluttering sounds, morning",1
+o13221,296,3,"NOISES, fluttering sounds, morning, waking, after",1
+o13217,296,2,"NOISES, fluttering sounds, evening",3
+o13218,296,3,"NOISES, fluttering sounds, evening, 5 p.m.",1
+o13212,296,2,"NOISES, fluttering sounds, bird, as of a",4
+o13213,296,2,"NOISES, fluttering sounds, breathing, when",1
+o13214,296,2,"NOISES, fluttering sounds, butterfly, as of a",2
+o13215,296,2,"NOISES, fluttering sounds, dinner, during",1
+o13216,296,2,"NOISES, fluttering sounds, eructation, with",2
+o13219,296,2,"NOISES, fluttering sounds, lying amel.",2
+o13222,296,2,"NOISES, fluttering sounds, rhythmical",1
+o13224,296,2,"NOISES, fluttering sounds, swallowing, when",1
+r562,296,1,"NOISES, gong, like, while lying",1
+r563,297,1,"NOISES, guns, sound of",4
+r564,297,2,"NOISES, guns, sound of, night",1
+r565,297,2,"NOISES, guns, sound of, swallowing, when",1
+r566,297,1,"NOISES, gurgling in ears as of air bubbles",1
+r567,297,1,"NOISES, hammering sounds of",1
+r568,297,1,"NOISES, hissing",34
+r569,297,2,"NOISES, hissing, morning with snuffling and eructation",1
+r570,297,2,"NOISES, hissing, evening",2
+r571,297,2,"NOISES, hissing, boiling water, as from",8
+r572,297,2,"NOISES, hissing, epilepsy, after",1
+r573,297,2,"NOISES, hissing, synchronous with pulse",1
+r574,297,2,"NOISES, hissing, talking, while",1
+r575,297,2,"NOISES, hissing, horn, of blowing a",1
+r576,297,1,"NOISES, humming",99
+r577,297,2,"NOISES, humming, morning",2
+r578,297,3,"NOISES, humming, morning, after rising",2
+r579,297,3,"NOISES, humming, morning, waking, on",2
+r580,297,3,"NOISES, humming, morning, 11 a.m.",1
+r581,297,2,"NOISES, humming, evening",4
+r582,297,3,"NOISES, humming, evening, supper, after",1
+r583,297,2,"NOISES, humming, night",2
+r584,297,2,"NOISES, humming, air, open, agg.",1
+r585,297,2,"NOISES, humming, air, open, amel.",1
+r586,297,2,"NOISES, humming, chewing",1
+r587,297,2,"NOISES, humming, chill, during",2
+r588,297,2,"NOISES, humming, heat, during",2
+r589,297,2,"NOISES, humming, leaning head on table amel.",1
+r590,297,2,"NOISES, humming, lying",1
+r591,297,3,"NOISES, humming, lying, on the ear",1
+r592,297,2,"NOISES, humming, menses, before",3
+r593,297,2,"NOISES, humming, menses, during",1
+r594,297,2,"NOISES, humming, mental anxiety agg.",1
+r595,297,2,"NOISES, humming, motion, on",1
+r596,297,2,"NOISES, humming, noises, loud, agg.",2
+r597,297,2,"NOISES, humming, room, in, agg.",1
+h008,297,2,"NOISES, humming, sitting, while, agg.",1
+r599,297,2,"NOISES, humming, sleep, after",1
+r600,297,2,"NOISES, humming, synchronous with pulse",2
+r601,297,2,"NOISES, humming, talking, while",1
+r602,297,2,"NOISES, humming, vertigo, with",1
+r603,297,2,"NOISES, humming, warm room agg.",1
+r604,297,1,"NOISES, machinery, sound of",1
+r605,297,2,"NOISES, machinery, sound of, 2 p.m.",1
+r606,297,1,"NOISES, mice, sound of",1
+r607,297,1,"NOISES, mill, sound of",6
+r608,297,2,"NOISES, mill, sound of, morning on waking",1
+o13286,297,3,"NOISES, mill, sound of, morning on waking, distance, at a",2
+r610,297,1,"NOISES, music, he seems to hear",15
+r611,297,2,"NOISES, music, he seems to hear, evening",2
+r612,297,3,"NOISES, music, he seems to hear, evening, on lying down",1
+r613,297,2,"NOISES, music, he seems to hear, piping",1
+r614,297,2,"NOISES, music, he seems to hear, rest, during",1
+r615,297,2,"NOISES, music, he seems to hear, shrill",1
+r616,297,2,"NOISES, music, he seems to hear, whimpering tune",1
+r617,297,1,"NOISES, nails driven into a board at a distance, sound of",1
+r618,297,1,"NOISES, rain, sound of",3
+r619,298,1,"NOISES, reports in",24
+r620,298,2,"NOISES, reports in, morning",2
+r621,298,3,"NOISES, reports in, morning, after breakfast",1
+r622,298,2,"NOISES, reports in, afternoon on going to sleep",1
+r623,298,2,"NOISES, reports in, night",2
+r624,298,2,"NOISES, reports in, blowing the nose",1
+r625,298,2,"NOISES, reports in, breaking of glass, like the",3
+r626,298,2,"NOISES, reports in, distant shots, as of",5
+r627,298,2,"NOISES, reports in, drops of blood, with",1
+r628,298,2,"NOISES, reports in, menses, during",1
+r629,298,2,"NOISES, reports in, sleep, on going to",3
+r630,298,2,"NOISES, reports in, sleep, during",1
+r631,298,2,"NOISES, reports in, swallowing, when",1
+r632,298,2,"NOISES, reports in, violent in ears",1
+r633,298,1,"NOISES, reverberating (includes Echoes and Reechoes)",34
+r634,298,2,"NOISES, reverberating (includes Echoes and Reechoes), morning",3
+r635,298,3,"NOISES, reverberating (includes Echoes and Reechoes), morning, before breakfast",1
+r636,298,2,"NOISES, reverberating (includes Echoes and Reechoes), forenoon",1
+r637,298,2,"NOISES, reverberating (includes Echoes and Reechoes), 4 p.m.",1
+r638,298,2,"NOISES, reverberating (includes Echoes and Reechoes), blowing nose",2
+r639,298,2,"NOISES, reverberating (includes Echoes and Reechoes), every sound",3
+r640,298,3,"NOISES, reverberating (includes Echoes and Reechoes), every sound, with difficult hearing",2
+r641,298,2,"NOISES, reverberating (includes Echoes and Reechoes), own voice",7
+r642,298,2,"NOISES, reverberating (includes Echoes and Reechoes), painful",2
+r643,298,2,"NOISES, reverberating (includes Echoes and Reechoes), swallowing, when",1
+r644,298,2,"NOISES, reverberating (includes Echoes and Reechoes), waking, on",1
+r645,298,2,"NOISES, reverberating (includes Echoes and Reechoes), walking amel.",1
+r646,298,1,"NOISES, ringing",182
+r647,298,2,"NOISES, ringing, right",22
+r648,298,2,"NOISES, ringing, left",15
+o13360,298,2,"NOISES, ringing, daytime",1
+r650,298,2,"NOISES, ringing, morning",5
+r651,298,3,"NOISES, ringing, morning, in bed",3
+r652,298,3,"NOISES, ringing, morning, on rising",3
+r653,298,2,"NOISES, ringing, forenoon",2
+r654,298,3,"NOISES, ringing, forenoon, 9 a.m.",1
+r655,298,3,"NOISES, ringing, forenoon, 11 a.m.",1
+r656,298,2,"NOISES, ringing, noon",1
+r657,298,2,"NOISES, ringing, afternoon",3
+r658,298,3,"NOISES, ringing, afternoon, 2 p.m.",1
+r659,299,3,"NOISES, ringing, afternoon, 3 p.m.",1
+r660,299,3,"NOISES, ringing, afternoon, 4 p.m.",1
+r661,299,3,"NOISES, ringing, afternoon, 6 p.m.",1
+r662,299,2,"NOISES, ringing, evening",8
+r663,299,3,"NOISES, ringing, evening, in bed",5
+r664,299,3,"NOISES, ringing, evening, 7 p.m.",1
+r665,299,3,"NOISES, ringing, evening, 8 p.m.",1
+r666,299,2,"NOISES, ringing, night",5
+r667,299,3,"NOISES, ringing, night, forcing him to rise and walk about",1
+r668,299,3,"NOISES, ringing, night, midnight, on waking",1
+r669,299,3,"NOISES, ringing, night, 2 a.m.",1
+r670,299,2,"NOISES, ringing, air, open",1
+r671,299,2,"NOISES, ringing, blowing nose",2
+r672,299,2,"NOISES, ringing, boring amel.",2
+r673,299,2,"NOISES, ringing, chill, during",6
+r674,299,2,"NOISES, ringing, closing eyes",1
+r675,299,2,"NOISES, ringing, coition, after",1
+r676,299,2,"NOISES, ringing, coldness, during",1
+r677,299,2,"NOISES, ringing, cold water amel.",1
+r678,299,2,"NOISES, ringing, cough, with",1
+r679,299,2,"NOISES, ringing, dinner, during",1
+r680,299,2,"NOISES, ringing, dinner, after",2
+r681,299,2,"NOISES, ringing, distant",4
+r682,299,2,"NOISES, ringing, epileptic fit, before",1
+r683,299,2,"NOISES, ringing, excitement, from",1
+r684,299,2,"NOISES, ringing, headache, during",9
+r685,299,2,"NOISES, ringing, lying down agg.",1
+o13376,299,3,"NOISES, ringing, lying down agg., after",1
+r687,299,2,"NOISES, ringing, menses, before",2
+r688,299,2,"NOISES, ringing, menses, during",2
+r689,299,2,"NOISES, ringing, motion, during",1
+r690,299,2,"NOISES, ringing, moving the head",1
+r691,299,2,"NOISES, ringing, one, burning in the other",1
+r692,299,2,"NOISES, ringing, rest amel.",2
+r693,299,2,"NOISES, ringing, rising amel.",1
+r694,299,2,"NOISES, ringing, rubbing amel.",1
+r695,299,2,"NOISES, ringing, sitting, while",3
+r696,299,2,"NOISES, ringing, sneezing, on",1
+r697,299,2,"NOISES, ringing, stool, during",1
+r698,299,2,"NOISES, ringing, stool, after",1
+r699,299,2,"NOISES, ringing, stooping up ear with finger does not amel.",1
+r700,299,2,"NOISES, ringing, talking, while",1
+r701,299,2,"NOISES, ringing, turning head",1
+r702,299,2,"NOISES, ringing, vertigo, with",7
+r703,299,2,"NOISES, ringing, waking, on",5
+r704,299,2,"NOISES, ringing, walking, while",4
+r705,299,2,"NOISES, ringing, walking, in opening air",2
+r706,299,2,"NOISES, ringing, yawning, with",1
+r707,299,1,"NOISES, roaring",171
+r708,299,2,"NOISES, roaring, right",13
+r709,300,2,"NOISES, roaring, left",10
+r710,300,2,"NOISES, roaring, daytime",2
+r711,300,2,"NOISES, roaring, morning",9
+r712,300,3,"NOISES, roaring, morning, bed, in",2
+o13448,300,3,"NOISES, roaring, morning, rising, after",4
+r714,300,3,"NOISES, roaring, morning, waking, on",1
+r715,300,3,"NOISES, roaring, morning, 11 a.m.",1
+r716,300,2,"NOISES, roaring, afternoon",4
+r717,300,3,"NOISES, roaring, afternoon, coming from open air",1
+r718,300,3,"NOISES, roaring, afternoon, rising, on",1
+r719,300,3,"NOISES, roaring, afternoon, 3 p.m.",2
+r720,300,3,"NOISES, roaring, afternoon, 4 p.m.",1
+r721,300,2,"NOISES, roaring, evening",18
+r722,300,3,"NOISES, roaring, evening, waking, on",1
+r723,300,3,"NOISES, roaring, evening, 7 p.m.",1
+r724,300,3,"NOISES, roaring, evening, 9 p.m.",1
+r725,300,2,"NOISES, roaring, night",14
+r726,300,3,"NOISES, roaring, night, waking, on",2
+r727,300,2,"NOISES, roaring, air, open, amel.",3
+r728,300,2,"NOISES, roaring, blowing nose",1
+r729,300,2,"NOISES, roaring, boring finger in ear amel.",2
+r730,300,2,"NOISES, roaring, coition, during",1
+r731,300,2,"NOISES, roaring, coition, after",2
+r732,300,2,"NOISES, roaring, cold, from feet becoming",1
+r733,300,2,"NOISES, roaring, dinner, after",2
+r734,300,2,"NOISES, roaring, eating, while",2
+r735,300,2,"NOISES, roaring, eating, after",3
+r736,300,2,"NOISES, roaring, epilepsy, after",1
+r737,300,2,"NOISES, roaring, fever, during",1
+r738,300,2,"NOISES, roaring, headache, with",2
+r739,300,2,"NOISES, roaring, heat, during",2
+r740,300,2,"NOISES, roaring, holding hand over eyes, amel.",1
+r741,300,2,"NOISES, roaring, inspiration, during",1
+h009,300,2,"NOISES, roaring, lying, while",6
+r743,300,3,"NOISES, roaring, lying, while, amel.",1
+h010,300,3,"NOISES, roaring, lying, while, on the ear",2
+r745,300,4,"NOISES, roaring, lying, while, on the ear, amel.",1
+r746,300,2,"NOISES, roaring, menses, before",1
+r747,300,2,"NOISES, roaring, menses, during",5
+r748,300,2,"NOISES, roaring, menses, suppressed",1
+r749,300,2,"NOISES, roaring, mental exertion",1
+r750,300,2,"NOISES, roaring, motion agg.",1
+r751,300,2,"NOISES, roaring, pain, with every attack of",2
+r752,300,2,"NOISES, roaring, perspiration, during",2
+r753,300,2,"NOISES, roaring, reading agg.",1
+r754,300,2,"NOISES, roaring, rhythmical",4
+r755,300,2,"NOISES, roaring, rising, on",2
+r756,300,3,"NOISES, roaring, rising, on, from a seat",1
+r757,300,2,"NOISES, roaring, room, in, agg.",2
+r758,300,2,"NOISES, roaring, sitting, while",3
+r759,300,2,"NOISES, roaring, sitting up amel.",2
+r760,300,2,"NOISES, roaring, sneezing, on",1
+r761,300,2,"NOISES, roaring, sound, at every",2
+r762,300,2,"NOISES, roaring, stool, straining at",1
+r763,300,2,"NOISES, roaring, stooping, after",1
+r764,300,2,"NOISES, roaring, stooping, when",1
+r765,300,2,"NOISES, roaring, supper, after",1
+r766,300,2,"NOISES, roaring, swallowing amel.",1
+r767,300,2,"NOISES, roaring, talking agg.",1
+r768,300,2,"NOISES, roaring, vertigo, with",13
+r769,300,2,"NOISES, roaring, walking, while",4
+r770,300,2,"NOISES, roaring, waterfall, as from, on opening mouth during dinner",1
+r771,300,1,"NOISES, rolling sound",2
+r772,300,2,"NOISES, rolling sound, morning",1
+r773,300,1,"NOISES, rumbling",8
+r774,300,2,"NOISES, rumbling, evening in bed",1
+r775,300,2,"NOISES, rumbling, tornado, like a distant",1
+r776,301,1,"NOISES, rushing",69
+r777,301,2,"NOISES, rushing, right",1
+r778,301,2,"NOISES, rushing, morning",2
+r779,301,2,"NOISES, rushing, evening",5
+r780,301,2,"NOISES, rushing, night",7
+r781,301,2,"NOISES, rushing, midnight, when lying on the ear",1
+r782,301,2,"NOISES, rushing, coition, during",1
+r783,301,2,"NOISES, rushing, distant",1
+r784,301,2,"NOISES, rushing, eructations, from",1
+r785,301,2,"NOISES, rushing, lying, while",5
+r786,301,2,"NOISES, rushing, lying, on the ear",1
+r787,301,2,"NOISES, rushing, menses, before",1
+r788,301,2,"NOISES, rushing, menses, during",1
+r789,301,2,"NOISES, rushing, mental exertion",1
+r790,301,2,"NOISES, rushing, rising from a seat",1
+r791,301,2,"NOISES, rushing, room, in",1
+r792,301,2,"NOISES, rushing, steam escaping, like",2
+r793,301,2,"NOISES, rushing, synchronous with pulse",2
+r794,301,2,"NOISES, rushing, water, as of",8
+r795,301,3,"NOISES, rushing, water, as of, after 4 p.m.",1
+r796,301,2,"NOISES, rushing, waterfall, like a",16
+r797,301,3,"NOISES, rushing, waterfall, like a, opening the mouth, on",1
+r798,301,1,"NOISES, rustling",13
+r799,301,2,"NOISES, rustling, moving jaws",2
+r800,301,1,"NOISES, shrieking, on blowing nose",1
+r801,301,1,"NOISES, singing",74
+r802,301,2,"NOISES, singing, right",4
+r803,301,2,"NOISES, singing, left",2
+r804,301,2,"NOISES, singing, morning",1
+r805,301,2,"NOISES, singing, afternoon, while walking in open air",1
+r806,301,3,"NOISES, singing, afternoon, while walking in open air, 5 p.m.",1
+r807,301,2,"NOISES, singing, evening",2
+r808,301,2,"NOISES, singing, night",2
+r809,301,3,"NOISES, singing, night, lying down, after",1
+r810,301,2,"NOISES, singing, closing eyes, on",1
+r811,301,2,"NOISES, singing, locusts, like",2
+r812,301,2,"NOISES, singing, lying, while",3
+r813,301,2,"NOISES, singing, menses, before",1
+r814,301,2,"NOISES, singing, menses, during",1
+r815,301,2,"NOISES, singing, menses, after",2
+r816,301,2,"NOISES, singing, periodic",1
+r817,301,2,"NOISES, singing, resting head on table amel.",1
+r818,301,2,"NOISES, singing, sitting, while",1
+r819,301,2,"NOISES, singing, steam escaping",1
+r820,301,2,"NOISES, singing, teakettle, like a",2
+r821,301,2,"NOISES, singing, vertigo, with",3
+r822,301,2,"NOISES, singing, walking in open air, while",1
+r823,301,1,"NOISES, snapping",10
+r824,301,2,"NOISES, snapping, evening",1
+r825,301,2,"NOISES, snapping, blowing nose, on",1
+r826,301,2,"NOISES, snapping, electric sparks, like",6
+r827,301,2,"NOISES, snapping, eructation, after every",1
+r828,301,2,"NOISES, snapping, opening the mouth, on",1
+r829,302,2,"NOISES, snapping, swallowing, when",1
+r830,302,2,"NOISES, snapping, synchronous with the pulse",1
+r831,302,2,"NOISES, snapping, turning the head, on",1
+r832,302,1,"NOISES, squashing on swallowing",1
+r833,302,1,"NOISES, squeaking",1
+r834,302,1,"NOISES, swashing",3
+r835,302,2,"NOISES, swashing, on moving jaws",1
+r836,302,1,"NOISES, steam escaping, like",5
+r837,302,1,"NOISES, thundering (See Rumbling)",11
+r838,302,2,"NOISES, thundering (See Rumbling), morning",1
+r839,302,2,"NOISES, thundering (See Rumbling), night",1
+r840,302,2,"NOISES, thundering (See Rumbling), sitting",1
+r841,302,1,"NOISES, ticking sound",6
+r842,302,2,"NOISES, ticking sound, evening",1
+r843,302,1,"NOISES, tick-tack sound",2
+r844,302,1,"NOISES, tinkling",36
+r845,302,1,"NOISES, trumpets, din like",1
+r846,302,1,"NOISES, twanging a harp string",2
+o13562,302,2,"NOISES, twanging a harp string, a loose wire",1
+r848,302,1,"NOISES, twittering (See Chirping)",0
+r849,302,1,"NOISES, warbling, of birds",2
+r850,302,1,"NOISES, watch, as of, when winding",1
+r851,302,1,"NOISES, water, as if, were in ear",1
+o13575,302,2,"NOISES, water, as if, were in ear, boiling, sound",5
+r853,302,1,"NOISES, waterfalls (See Rushing)",0
+r854,302,1,"NOISES, whirling",6
+r855,302,2,"NOISES, whirling, evening in bed",1
+r856,302,2,"NOISES, whirling, rhythmical",1
+r857,302,1,"NOISES, whispering",3
+r858,302,2,"NOISES, whispering, morning",1
+r859,302,2,"NOISES, whispering, evening",1
+r860,302,1,"NOISES, whistling",28
+r861,302,2,"NOISES, whistling, forenoon",1
+r862,302,3,"NOISES, whistling, forenoon, 9 a.m.",1
+r863,302,2,"NOISES, whistling, afternoon",1
+r864,302,2,"NOISES, whistling, evening",2
+r865,302,2,"NOISES, whistling, alternating with roaring",1
+r866,302,2,"NOISES, whistling, blowing the nose",4
+r867,302,2,"NOISES, whistling, walking, while",1
+r868,302,2,"NOISES, whistling, writing, while",1
+r869,302,1,"NOISES, whizzing",44
+r870,302,2,"NOISES, whizzing, daytime",1
+r871,302,2,"NOISES, whizzing, morning",1
+r872,302,2,"NOISES, whizzing, forenoon, 11 a.m.",1
+r873,302,2,"NOISES, whizzing, evening",3
+r874,302,3,"NOISES, whizzing, evening, lying down, after",1
+r875,302,3,"NOISES, whizzing, evening, writing, while",1
+r876,302,2,"NOISES, whizzing, night",1
+r877,302,3,"NOISES, whizzing, night, while in bed amel.",2
+r878,302,3,"NOISES, whizzing, night, blowing nose, on",1
+h011,302,1,"NOISES, wind, sound of",17
+h012,302,2,"NOISES, wind, sound of, afternoon",2
+h013,302,2,"NOISES, wind, sound of, night",1
+h014,302,2,"NOISES, wind, sound of, noise agg.",1
+h015,302,2,"NOISES, wind, sound of, whirlwind",1
+r884,302,0,NUMBNESS,11
+r885,303,1,"NUMBNESS, left",3
+r886,303,1,"NUMBNESS, about ear",2
+r887,303,1,"NUMBNESS, concha",1
+r888,303,1,"NUMBNESS, in front of",1
+r889,303,1,"NUMBNESS, in mastoid",1
+r890,303,1,"NUMBNESS, in meatus",2
+r891,303,0,OBSTRUCTION (See Stopped),0
+r892,303,0,ODOR,1
+r893,303,0,"OPEN, meatus seems open",2
+r894,303,1,"OPEN, meatus seems open, morning",1
+r895,303,0,"OPENING, sensation of, through which the air penetrates on opening and closing the mouth",1
+o13617,303,1,"OPENING, sensation of, through which the air penetrates on opening and closing the mouth, and closing, sensation like a valve",6
+h016,303,1,"OPENING, sensation of, through which the air penetrates on opening and closing the mouth, at every step",1
+r898,303,0,PAIN,223
+r899,303,1,"PAIN, right",52
+r900,303,2,"PAIN, right, then left",2
+r901,303,2,"PAIN, right, lying on it amel.",1
+r902,303,1,"PAIN, left",25
+r903,303,2,"PAIN, left, then right",4
+r904,303,1,"PAIN, day and night",1
+r905,303,1,"PAIN, daytime",2
+r906,303,1,"PAIN, morning",22
+r907,303,2,"PAIN, morning, waking on",2
+r908,303,2,"PAIN, morning, 8 a.m.",2
+r909,303,1,"PAIN, forenoon",7
+r910,303,2,"PAIN, forenoon, sitting, while",1
+r911,303,2,"PAIN, forenoon, standing, while",1
+r912,303,2,"PAIN, forenoon, 9 a.m.",2
+r913,303,2,"PAIN, forenoon, 9 a.m. after going out",1
+r914,303,2,"PAIN, forenoon, 10 a.m.",1
+r915,303,2,"PAIN, forenoon, 10-30 a.m.",1
+r916,303,2,"PAIN, forenoon, 11 a.m.",2
+r917,303,1,"PAIN, noon",5
+r918,303,1,"PAIN, afternoon",21
+r919,303,2,"PAIN, afternoon, 1 p.m.",1
+r920,303,2,"PAIN, afternoon, 2 p.m.",1
+r921,304,2,"PAIN, afternoon, 3 p.m.",1
+r922,304,2,"PAIN, afternoon, 4 p.m.",2
+r923,304,2,"PAIN, afternoon, 5 p.m.",1
+r924,304,1,"PAIN, evening",42
+r925,304,2,"PAIN, evening, 7 p.m.",2
+r926,304,2,"PAIN, evening, 7-30 p.m.",1
+r927,304,2,"PAIN, evening, 8 p.m.",1
+h017,304,2,"PAIN, evening, 8 to 10 p.m.",1
+r929,304,2,"PAIN, evening, 9 p.m.",2
+r930,304,1,"PAIN, night",26
+r931,304,2,"PAIN, night, 10 p.m.",1
+r932,304,2,"PAIN, night, midnight",1
+r933,304,3,"PAIN, night, midnight, after",1
+r934,304,4,"PAIN, night, midnight, after, walking in wind",1
+r935,304,4,"PAIN, night, midnight, after, driving her out of bed",1
+o13665,304,1,"PAIN, air, in cold",13
+r937,304,2,"PAIN, air, in cold, amel.",1
+r938,304,2,"PAIN, air, in cold, draft",5
+o13668,304,2,"PAIN, air, in cold, open, in",11
+o13667,304,3,"PAIN, air, in cold, open, in, amel.",2
+r941,304,1,"PAIN, alternating with eyes",1
+r942,304,1,"PAIN, bell, during stroke of",2
+r943,304,1,"PAIN, blowing nose, on",16
+r944,304,1,"PAIN, boring with finger agg.",4
+o13720,304,2,"PAIN, boring with finger agg., amel.",9
+r946,304,1,"PAIN, breathing, when",1
+r947,304,1,"PAIN, centering at the ear, hard pains",1
+r948,304,1,"PAIN, changing weather",4
+r949,304,1,"PAIN, chewing, when",12
+r950,304,1,"PAIN, chill, during",8
+r951,304,1,"PAIN, cold, when feet become",1
+r952,304,1,"PAIN, cold, from taking",6
+r953,304,2,"PAIN, cold, from taking, in head",4
+r954,304,1,"PAIN, cold applications agg.",7
+o13801,304,2,"PAIN, cold applications agg., amel.",2
+r956,304,1,"PAIN, cold drinks amel.",1
+r957,304,1,"PAIN, cold weather in",1
+r958,304,1,"PAIN, cough, during",6
+r959,304,1,"PAIN, damp weather",5
+r960,304,1,"PAIN, descending steps",2
+r961,304,1,"PAIN, dinner, after",5
+r962,304,1,"PAIN, drinking, while (See Swallowing)",1
+h018,304,1,"PAIN, eating, while",6
+r964,304,1,"PAIN, eating, amel.",1
+r965,304,1,"PAIN, eating, after",2
+r966,304,1,"PAIN, eructations, during",2
+r967,304,1,"PAIN, exertion of vision, after",1
+r968,304,1,"PAIN, face-ache, with",3
+r969,304,1,"PAIN, fainting with pain in ear",3
+r970,304,1,"PAIN, full moon, during",1
+r971,304,1,"PAIN, hammer, from sound of",1
+r972,304,1,"PAIN, headache, during",8
+r973,304,1,"PAIN, heat, during",4
+r974,304,1,"PAIN, hiccough, from",1
+r975,304,1,"PAIN, intermittent",3
+r976,304,1,"PAIN, laughing, when",1
+r977,304,1,"PAIN, leaning on hand",4
+r978,304,1,"PAIN, lie down, compelled to",1
+r979,304,1,"PAIN, lying in bed, while",7
+r981,305,2,"PAIN, lying in bed, while, on right side",1
+o13984,305,2,"PAIN, lying in bed, while, on ear",9
+r983,305,3,"PAIN, lying in bed, while, on ear, amel.",1
+r984,305,1,"PAIN, menses, during",7
+r985,305,1,"PAIN, menses, suppressed",3
+r986,305,1,"PAIN, mercury, abuse of",3
+h019,305,1,"PAIN, motion, on",2
+r988,305,2,"PAIN, motion, on, amel.",2
+r989,305,2,"PAIN, motion, on, of head",1
+h020,305,3,"PAIN, motion, on, of head, lower jaw",4
+r991,305,1,"PAIN, music, from",5
+r992,305,1,"PAIN, nausea, with",1
+r993,305,1,"PAIN, noises, from",12
+r994,305,2,"PAIN, noises, from, in the deaf ear",1
+r995,305,1,"PAIN, opening the mouth amel.",1
+r996,305,1,"PAIN, paroxysmal",8
+r997,305,1,"PAIN, periodical",4
+r998,305,1,"PAIN, perspiration, during",1
+r999,305,1,"PAIN, pressing forehead, on",1
+h021,305,1,"PAIN, pressure, on",4
+r1001,305,2,"PAIN, pressure, on, amel.",5
+r1002,305,1,"PAIN, pulsating",4
+r1003,305,1,"PAIN, reason, pain which almost deprived him of",2
+r1004,305,1,"PAIN, rising from a seat",1
+h022,305,2,"PAIN, rising from a seat, stooping, from",1
+o14085,305,3,"PAIN, rising from a seat, stooping, from, amel.",1
+r1007,305,1,"PAIN, room, on entering",1
+r1008,305,1,"PAIN, rubbing amel.",4
+r1009,305,1,"PAIN, rhythmical",1
+r1010,305,1,"PAIN, singing, while",1
+r1011,305,1,"PAIN, sitting, while",6
+r1012,305,1,"PAIN, sitting, after long",1
+r1013,305,1,"PAIN, sleep amel.",1
+h023,305,1,"PAIN, sneezing, on",5
+r1015,305,2,"PAIN, sneezing, on, amel.",1
+r1016,305,1,"PAIN, sore throat, with",7
+r1017,305,1,"PAIN, sounds, sharp",3
+r1018,305,1,"PAIN, standing, while",3
+r1019,305,1,"PAIN, stool, during",1
+r1020,305,1,"PAIN, stooping, while",4
+r1021,305,1,"PAIN, suppression of ague, after",1
+r1022,305,1,"PAIN, swallowing, on",35
+r1023,305,2,"PAIN, swallowing, on, right ear",1
+h024,305,2,"PAIN, swallowing, on, left ear",3
+r1025,305,3,"PAIN, swallowing, on, left ear, amel.",1
+r1026,305,1,"PAIN, talking, while",4
+r1027,305,1,"PAIN, thunderstorm, before",1
+r1028,305,1,"PAIN, tobacco, from",1
+r1029,305,1,"PAIN, toothache, with",7
+r1030,305,1,"PAIN, touch, on",5
+r1031,305,1,"PAIN, traumatic causes",1
+r1032,305,1,"PAIN, turning eyes outward, on",1
+o14324,305,2,"PAIN, turning eyes outward, on, head, on",5
+r1034,305,1,"PAIN, urine profuse",1
+r1035,305,1,"PAIN, vexation, after",1
+r1036,305,1,"PAIN, waking, on",3
+r1037,305,1,"PAIN, walking, while",8
+o14336,305,2,"PAIN, walking, while, in open air",10
+r1039,305,3,"PAIN, walking, while, in open air, amel.",1
+h025,305,1,"PAIN, warm room, in",4
+r1041,305,2,"PAIN, warm room, in, amel.",1
+r1042,305,2,"PAIN, warm room, in, entering from cold air, agg.",1
+r1043,306,1,"PAIN, warmth of bed agg.",5
+r1044,306,2,"PAIN, warmth of bed agg., and wrapping up, amel.",10
+o14344,306,2,"PAIN, warmth of bed agg., dry",1
+r1046,306,1,"PAIN, wind, in cold",4
+r1047,306,2,"PAIN, wind, in cold, and rain",1
+r1048,306,1,"PAIN, writing, while",1
+r1049,306,1,"PAIN, yawning, on",5
+r1050,306,1,"PAIN, extending to chest",1
+o13892,306,2,"PAIN, extending to chest, chin",1
+o13893,306,2,"PAIN, extending to chest, downward",3
+o13894,306,2,"PAIN, extending to chest, eustachian tube",2
+o13895,306,2,"PAIN, extending to chest, eye",4
+o13896,306,3,"PAIN, extending to chest, eye, left",1
+o13897,306,2,"PAIN, extending to chest, face",7
+o13898,306,2,"PAIN, extending to chest, finger ends",1
+o13899,306,2,"PAIN, extending to chest, forehead",3
+o13900,306,2,"PAIN, extending to chest, head",1
+o13901,306,2,"PAIN, extending to chest, inward",18
+o13902,306,2,"PAIN, extending to chest, jaw",4
+o13903,306,3,"PAIN, extending to chest, jaw, lower",4
+o13904,306,3,"PAIN, extending to chest, jaw, upper",1
+o13906,306,2,"PAIN, extending to chest, left to right",1
+o13907,306,2,"PAIN, extending to chest, legs, to",1
+o13905,306,2,"PAIN, extending to chest, left arm",1
+o13908,306,2,"PAIN, extending to chest, lobule",1
+o13909,306,2,"PAIN, extending to chest, malar bone",1
+o13910,306,2,"PAIN, extending to chest, mouth, roof of",1
+o13911,306,2,"PAIN, extending to chest, neck",4
+o13912,306,3,"PAIN, extending to chest, neck, side of",6
+o13913,306,2,"PAIN, extending to chest, nose",1
+o13914,306,2,"PAIN, extending to chest, occiput",2
+o13915,306,3,"PAIN, extending to chest, occiput, side of",1
+o13916,306,2,"PAIN, extending to chest, other ear",3
+o13917,306,2,"PAIN, extending to chest, outward",25
+o13918,306,2,"PAIN, extending to chest, parietal bone",2
+o13919,306,2,"PAIN, extending to chest, parotid gland and mastoid process",2
+o13920,306,2,"PAIN, extending to chest, shoulder",3
+o13921,306,3,"PAIN, extending to chest, shoulder, left",1
+o13922,306,2,"PAIN, extending to chest, side of neck and clavicular region and to last back teeth and side of occiput",1
+o13923,306,2,"PAIN, extending to chest, spine",1
+o13924,306,2,"PAIN, extending to chest, teeth",7
+o13925,306,2,"PAIN, extending to chest, temples",9
+o13926,306,2,"PAIN, extending to chest, throat",6
+o13927,306,2,"PAIN, extending to chest, vertex",2
+o13928,306,2,"PAIN, extending to chest, zygoma",2
+r1088,306,1,"PAIN, about the ear",19
+r1089,306,2,"PAIN, about the ear, morning after rising",2
+o13623,306,3,"PAIN, about the ear, morning after rising, walk, after a",1
+r1091,306,1,"PAIN, above the ear",28
+r1092,306,2,"PAIN, above the ear, morning",1
+r1093,306,2,"PAIN, above the ear, evening",2
+r1094,306,2,"PAIN, above the ear, stool, during",1
+r1095,306,2,"PAIN, above the ear, extending to upper back teeth",1
+r1096,306,1,"PAIN, antitragus",1
+r1097,306,1,"PAIN, behind ear",106
+r1098,307,2,"PAIN, behind ear, right",1
+r1099,307,2,"PAIN, behind ear, left",3
+r1100,307,2,"PAIN, behind ear, morning",3
+r1101,307,3,"PAIN, behind ear, morning, 11 a.m.",1
+r1102,307,2,"PAIN, behind ear, afternoon",3
+r1103,307,3,"PAIN, behind ear, afternoon, on waking",1
+r1104,307,3,"PAIN, behind ear, afternoon, 1 p.m.",2
+r1105,307,3,"PAIN, behind ear, afternoon, 3 p.m.",1
+r1106,307,3,"PAIN, behind ear, afternoon, 4 p.m.",2
+r1107,307,2,"PAIN, behind ear, evening",3
+o13677,307,2,"PAIN, behind ear, air, open",2
+r1109,307,2,"PAIN, behind ear, lying on it",1
+r1110,307,2,"PAIN, behind ear, moving head",2
+r1111,307,2,"PAIN, behind ear, paroxysmal",1
+r1112,307,2,"PAIN, behind ear, pulsating",1
+r1113,307,2,"PAIN, behind ear, reading, while",2
+r1114,307,2,"PAIN, behind ear, rest, during",1
+r1115,307,2,"PAIN, behind ear, shaking the head",1
+r1116,307,2,"PAIN, behind ear, sitting amel.",1
+o13695,307,3,"PAIN, behind ear, sitting amel., up in bed amel.",1
+r1118,307,2,"PAIN, behind ear, touch agg.",2
+r1119,307,2,"PAIN, behind ear, waking, on, agg.",1
+r1120,307,2,"PAIN, behind ear, walk bent, must",1
+r1121,307,2,"PAIN, behind ear, walking in open air",1
+r1122,307,2,"PAIN, behind ear, warm bed",1
+r1123,307,2,"PAIN, behind ear, writing, while",1
+r1124,307,2,"PAIN, behind ear, extending down neck",1
+o13680,307,3,"PAIN, behind ear, extending down neck, to eye",1
+o13681,307,3,"PAIN, behind ear, extending down neck, to left arm",1
+o13682,307,3,"PAIN, behind ear, extending down neck, to temple",1
+r1128,307,1,"PAIN, below the ear",17
+r1129,307,2,"PAIN, below the ear, moving head agg.",1
+r1130,307,2,"PAIN, below the ear, rubbing amel.",1
+r1131,307,2,"PAIN, below the ear, sitting, while",1
+r1132,307,2,"PAIN, below the ear, swallowing, when",1
+r1133,307,2,"PAIN, below the ear, extending to lower jaw",1
+r1134,307,1,"PAIN, concha",2
+r1135,307,1,"PAIN, in front of ear",24
+r1136,307,1,"PAIN, inside (in meatus)",107
+r1137,307,1,"PAIN, lobule",9
+r1138,307,1,"PAIN, tragus",1
+r1139,307,1,"PAIN, aching",60
+r1140,307,2,"PAIN, aching, right",6
+r1141,308,2,"PAIN, aching, left",7
+r1142,308,3,"PAIN, aching, left, then right",1
+r1143,308,2,"PAIN, aching, morning, in bed",1
+r1144,308,3,"PAIN, aching, morning, in bed, rising, on",1
+r1145,308,2,"PAIN, aching, afternoon",1
+r1146,308,2,"PAIN, aching, evening",6
+r1147,308,3,"PAIN, aching, evening, in open air",1
+r1148,308,3,"PAIN, aching, evening, 5 p.m.",3
+r1149,308,2,"PAIN, aching, night",2
+r1150,308,3,"PAIN, aching, night, midnight, after",1
+r1151,308,4,"PAIN, aching, night, midnight, after, after walking in the wind",1
+r1152,308,2,"PAIN, aching, air, in open",2
+r1153,308,2,"PAIN, aching, blowing nose",1
+r1154,308,2,"PAIN, aching, lying down, after",1
+r1155,308,2,"PAIN, aching, menses, during",1
+r1156,308,2,"PAIN, aching, pressure amel.",1
+r1157,308,2,"PAIN, aching, swallowing, on",2
+r1158,308,2,"PAIN, aching, thunderstorm, before a",1
+r1159,308,2,"PAIN, aching, warm room, on entering, amel.",1
+r1160,308,2,"PAIN, aching, above ear",3
+r1161,308,2,"PAIN, aching, behind ear",11
+r1162,308,3,"PAIN, aching, behind ear, open air",1
+r1163,308,3,"PAIN, aching, behind ear, shaking head",1
+r1164,308,3,"PAIN, aching, behind ear, touch agg.",1
+r1165,308,3,"PAIN, aching, behind ear, extending to temples",1
+r1166,308,2,"PAIN, aching, in front of ear",4
+r1167,308,3,"PAIN, aching, in front of ear, 3 p.m.",1
+r1168,308,1,"PAIN, biting",4
+r1169,308,2,"PAIN, biting, left",1
+r1170,308,2,"PAIN, biting, evening, electric sparks, like",1
+o13712,308,3,"PAIN, biting, evening, electric sparks, like, itching",2
+o13714,308,4,"PAIN, biting, evening, electric sparks, like, itching, boring into ear with finger agg.",1
+h026,308,4,"PAIN, biting, evening, electric sparks, like, itching, 8 to 10 p.m.",1
+r1174,308,2,"PAIN, biting, behind the ear",2
+r1175,308,1,"PAIN, blow, as from",11
+r1176,308,1,"PAIN, boring in",55
+o13745,308,2,"PAIN, boring in, right",18
+o13741,308,2,"PAIN, boring in, left",7
+o13742,308,2,"PAIN, boring in, morning",1
+o13737,308,2,"PAIN, boring in, forenoon",1
+o13724,308,2,"PAIN, boring in, afternoon",4
+o13734,308,2,"PAIN, boring in, evening",2
+o13743,308,2,"PAIN, boring in, night",2
+o13723,308,2,"PAIN, boring in, acute",1
+o13732,308,2,"PAIN, boring in, bores into ear with finger",3
+o13733,308,2,"PAIN, boring in, dinner, after",1
+o13736,308,2,"PAIN, boring in, feet become cold, when",1
+o13740,308,2,"PAIN, boring in, lain on, one",1
+o13744,308,2,"PAIN, boring in, pressure on",1
+o13746,308,2,"PAIN, boring in, sticking",1
+o13747,308,2,"PAIN, boring in, tickling",1
+o13748,308,2,"PAIN, boring in, walking in open air, while",1
+o13749,308,2,"PAIN, boring in, warmth of bed, from",1
+o13735,308,2,"PAIN, boring in, extending to left nostril",1
+o13721,308,2,"PAIN, boring in, about the ear",3
+o13722,308,2,"PAIN, boring in, above the ear",3
+r1203,308,2,"PAIN, boring in, behind the ear",14
+o13729,308,3,"PAIN, boring in, behind the ear, right",3
+o13727,308,3,"PAIN, boring in, behind the ear, left",3
+o13726,308,3,"PAIN, boring in, behind the ear, evening",1
+o13728,308,3,"PAIN, boring in, behind the ear, reading",1
+r1204,309,3,"PAIN, boring in, behind the ear, writing",1
+r1205,309,2,"PAIN, boring in, below the ear",1
+r1206,309,2,"PAIN, boring in, in front of ear",4
+r1207,309,3,"PAIN, boring in, in front of ear, on bending head to right",1
+r1208,309,1,"PAIN, bruised (See Sore)",0
+r1209,309,1,"PAIN, burning",80
+r1210,309,2,"PAIN, burning, right",16
+r1211,309,2,"PAIN, burning, left",9
+r1212,309,2,"PAIN, burning, noon",1
+r1213,309,2,"PAIN, burning, afternoon",1
+r1214,309,2,"PAIN, burning, evening",5
+r1215,309,3,"PAIN, burning, evening, bed, in",1
+r1216,309,3,"PAIN, burning, evening, open air agg.",1
+r1217,309,3,"PAIN, burning, evening, pressure amel.",1
+r1218,309,3,"PAIN, burning, evening, rubbing, after",1
+h027,309,3,"PAIN, burning, evening, 8 to 10 p.m., like electric sparks",1
+r1220,309,2,"PAIN, burning, night",1
+r1221,309,3,"PAIN, burning, night, before sleep",1
+r1222,309,2,"PAIN, burning, air, open, agg.",1
+r1223,309,2,"PAIN, burning, dry warmth, from",1
+r1224,309,2,"PAIN, burning, eating, after, amel.",1
+r1225,309,2,"PAIN, burning, heat, during",1
+r1226,309,2,"PAIN, burning, menses, during",1
+r1227,309,2,"PAIN, burning, perspiring, when",1
+r1228,309,2,"PAIN, burning, scratching, after",1
+r1229,309,2,"PAIN, burning, spots, in",1
+r1230,309,2,"PAIN, burning, touched, when",1
+r1231,309,2,"PAIN, burning, walking in open air",1
+r1232,309,2,"PAIN, burning, warm room, coming from cold air",1
+r1233,309,2,"PAIN, burning, yawning, when",1
+r1234,309,2,"PAIN, burning, about the ear",1
+r1235,309,2,"PAIN, burning, behind the ear",9
+r1236,309,3,"PAIN, burning, behind the ear, right",4
+r1237,309,3,"PAIN, burning, behind the ear, night",1
+r1238,309,2,"PAIN, burning, below",1
+r1239,309,3,"PAIN, burning, below, menses, during",1
+r1240,309,2,"PAIN, burning, concha",8
+r1241,309,2,"PAIN, burning, external ear",8
+r1242,309,2,"PAIN, burning, lobe",5
+r1243,309,2,"PAIN, burning, meatus, in",15
+r1244,309,3,"PAIN, burning, meatus, in, right",1
+r1245,309,2,"PAIN, burning, tragus",1
+r1246,309,1,"PAIN, burrowing",5
+r1247,309,2,"PAIN, burrowing, right",2
+r1248,309,2,"PAIN, burrowing, ear lain on",1
+r1249,309,1,"PAIN, bursting sensation",14
+r1250,309,2,"PAIN, bursting sensation, coughing, on",1
+r1251,309,2,"PAIN, bursting sensation, sneezing, on",1
+r1252,309,2,"PAIN, bursting sensation, with each heart beat",1
+r1253,309,2,"PAIN, bursting sensation, in front of",1
+r1254,309,1,"PAIN, cramp in",38
+r1255,309,2,"PAIN, cramp in, right",3
+r1256,309,2,"PAIN, cramp in, left",5
+r1257,309,3,"PAIN, cramp in, left, walking",1
+r1258,310,2,"PAIN, cramp in, evening",2
+r1259,310,2,"PAIN, cramp in, walking in open air",2
+o13817,310,3,"PAIN, cramp in, walking in open air, while walking in open air",1
+r1261,310,2,"PAIN, cramp in, behind",2
+r1262,310,2,"PAIN, cramp in, lobule",1
+r1263,310,1,"PAIN, cutting in",18
+r1264,310,2,"PAIN, cutting in, left",2
+r1265,310,2,"PAIN, cutting in, evening",1
+r1266,310,2,"PAIN, cutting in, boring with finger amel.",1
+r1267,310,2,"PAIN, cutting in, motion of jaw agg.",1
+r1268,310,2,"PAIN, cutting in, open air, on going into",1
+r1269,310,2,"PAIN, cutting in, above the ear",1
+r1270,310,2,"PAIN, cutting in, eustachian tubes when chewing",1
+r1271,310,2,"PAIN, cutting in, in front",1
+r1272,310,2,"PAIN, cutting in, mastoid process",3
+r1273,310,1,"PAIN, darting (See Stitching)",0
+r1274,310,1,"PAIN, digging",11
+r1275,310,2,"PAIN, digging, right",3
+r1276,310,2,"PAIN, digging, left",2
+r1277,310,2,"PAIN, digging, afternoon",2
+r1278,310,2,"PAIN, digging, night",2
+r1279,310,3,"PAIN, digging, night, lying on it",1
+r1280,310,2,"PAIN, digging, as if an insect had got into them",1
+r1281,310,2,"PAIN, digging, extending to left nostril",1
+r1282,310,1,"PAIN, drawing in",74
+r1283,310,2,"PAIN, drawing in, right",15
+r1284,310,2,"PAIN, drawing in, left",12
+r1285,310,2,"PAIN, drawing in, evening",2
+r1286,310,2,"PAIN, drawing in, night",3
+r1287,310,3,"PAIN, drawing in, night, from taking cold",1
+r1288,310,2,"PAIN, drawing in, dinner, after",1
+r1289,310,2,"PAIN, drawing in, downwards",1
+r1290,310,2,"PAIN, drawing in, eructations, during",1
+r1291,310,2,"PAIN, drawing in, lying down, after",1
+r1292,310,2,"PAIN, drawing in, motion of lower jaw",2
+r1293,310,2,"PAIN, drawing in, outwards",3
+r1294,310,2,"PAIN, drawing in, paroxysmal",2
+r1295,310,2,"PAIN, drawing in, pressing on ear",1
+r1296,310,2,"PAIN, drawing in, rising from a seat, on",1
+r1297,310,2,"PAIN, drawing in, sneezing, after, amel.",1
+r1298,310,2,"PAIN, drawing in, swallowing",2
+r1299,310,2,"PAIN, drawing in, extending into eustachian tube",1
+o13862,310,3,"PAIN, drawing in, extending into eustachian tube, to neck and shoulders",1
+o13863,310,3,"PAIN, drawing in, extending into eustachian tube, to the teeth",1
+r1302,310,2,"PAIN, drawing in, about the ear",3
+r1303,310,3,"PAIN, drawing in, about the ear, afternoon",1
+r1304,310,3,"PAIN, drawing in, about the ear, pressure amel.",1
+r1305,310,2,"PAIN, drawing in, above the ear",6
+r1306,310,3,"PAIN, drawing in, above the ear, in bed",1
+r1307,310,3,"PAIN, drawing in, above the ear, in an old scar",1
+r1308,310,3,"PAIN, drawing in, above the ear, extending to crown",1
+r1309,310,2,"PAIN, drawing in, behind the ear",25
+r1310,310,3,"PAIN, drawing in, behind the ear, daytime",1
+r1311,310,3,"PAIN, drawing in, behind the ear, motion, on",1
+r1312,310,3,"PAIN, drawing in, behind the ear, rest, during",1
+r1313,310,3,"PAIN, drawing in, behind the ear, touch agg.",1
+r1314,310,3,"PAIN, drawing in, behind the ear, extending to jaw",1
+o13852,310,4,"PAIN, drawing in, behind the ear, extending to jaw, downward",1
+o13853,310,4,"PAIN, drawing in, behind the ear, extending to jaw, to mastoid process",1
+r1317,311,2,"PAIN, drawing in, in front",2
+r1318,311,2,"PAIN, drawing in, lobule",3
+r1319,311,3,"PAIN, drawing in, lobule, under",1
+r1320,311,1,"PAIN, excoriating (See Burning)",0
+r1321,311,1,"PAIN, forcing out (See Pressing)",0
+r1322,311,1,"PAIN, foreign body in, as if",1
+r1323,311,2,"PAIN, foreign body in, as if, eustachian tubes",1
+r1324,311,1,"PAIN, gnawing",8
+r1325,311,2,"PAIN, gnawing, right",2
+r1326,311,2,"PAIN, gnawing, left then right",1
+r1327,311,2,"PAIN, gnawing, afternoon",1
+r1328,311,2,"PAIN, gnawing, evening",1
+r1329,311,2,"PAIN, gnawing, night",1
+r1330,311,2,"PAIN, gnawing, rubbing amel.",1
+r1331,311,2,"PAIN, gnawing, behind the ear",1
+r1332,311,1,"PAIN, griping",1
+r1333,311,2,"PAIN, griping, left",1
+r1334,311,2,"PAIN, griping, night",1
+r1335,311,3,"PAIN, griping, night, on waking",1
+r1336,311,1,"PAIN, jerking",26
+r1337,311,2,"PAIN, jerking, morning",1
+r1338,311,2,"PAIN, jerking, evening",1
+r1339,311,3,"PAIN, jerking, evening, on lying down",1
+r1340,311,3,"PAIN, jerking, evening, after lying in bed amel.",1
+r1341,311,2,"PAIN, jerking, behind",4
+r1342,311,2,"PAIN, jerking, in front",1
+r1343,311,1,"PAIN, lacerating",4
+r1344,311,2,"PAIN, lacerating, right",1
+r1345,311,1,"PAIN, lancinating",26
+r1346,311,2,"PAIN, lancinating, morning",1
+r1347,311,2,"PAIN, lancinating, evening",1
+r1348,311,2,"PAIN, lancinating, intermittent",1
+r1349,311,2,"PAIN, lancinating, outward",1
+r1350,311,2,"PAIN, lancinating, behind ear",1
+r1351,311,2,"PAIN, lancinating, below ear",1
+r1352,311,1,"PAIN, piercing",8
+r1353,311,2,"PAIN, piercing, right",2
+r1354,311,2,"PAIN, piercing, inward",1
+r1355,311,2,"PAIN, piercing, outward",2
+r1356,311,1,"PAIN, pinching in",30
+r1357,311,2,"PAIN, pinching in, right",2
+r1358,311,3,"PAIN, pinching in, right, then left",1
+r1359,311,2,"PAIN, pinching in, left",4
+r1360,311,2,"PAIN, pinching in, morning",1
+r1361,311,2,"PAIN, pinching in, afternoon",1
+r1362,311,2,"PAIN, pinching in, evening",1
+r1363,311,2,"PAIN, pinching in, night",1
+r1364,311,2,"PAIN, pinching in, hiccoughing, when",1
+r1365,311,2,"PAIN, pinching in, about the ear",1
+r1366,311,2,"PAIN, pinching in, behind the ear",4
+r1367,311,1,"PAIN, pressing, out, as if something must be torn from within",3
+r1368,311,1,"PAIN, pressing",88
+r1369,311,2,"PAIN, pressing, right",10
+r1370,311,3,"PAIN, pressing, right, then left",1
+r1371,311,2,"PAIN, pressing, left",5
+r1372,312,3,"PAIN, pressing, left, then right",1
+r1373,312,2,"PAIN, pressing, morning",3
+r1374,312,3,"PAIN, pressing, morning, on waking",2
+r1375,312,3,"PAIN, pressing, morning, 9 a.m.",1
+r1376,312,3,"PAIN, pressing, morning, 10-30 a.m.",1
+r1377,312,2,"PAIN, pressing, evening",5
+r1378,312,2,"PAIN, pressing, air, cold, amel.",1
+r1379,312,2,"PAIN, pressing, boring, with finger, agg.",1
+r1380,312,2,"PAIN, pressing, boring, with finger, amel.",1
+r1381,312,2,"PAIN, pressing, chewing",1
+r1382,312,2,"PAIN, pressing, cold weather",1
+r1383,312,2,"PAIN, pressing, coughing, when",1
+r1384,312,2,"PAIN, pressing, forward in ear",7
+r1385,312,2,"PAIN, pressing, intermittent",1
+r1386,312,2,"PAIN, pressing, lying on ear",2
+r1387,312,2,"PAIN, pressing, menses, during",1
+r1388,312,2,"PAIN, pressing, motion of jaw",1
+r1389,312,2,"PAIN, pressing, outward",21
+r1390,312,2,"PAIN, pressing, plug, like a",2
+r1391,312,2,"PAIN, pressing, rhythmical",1
+r1392,312,2,"PAIN, pressing, sneezing, on",2
+r1393,312,2,"PAIN, pressing, stool, during",1
+r1394,312,2,"PAIN, pressing, stooping, when",2
+r1395,312,2,"PAIN, pressing, swallowing",3
+r1396,312,2,"PAIN, pressing, walking in open air",1
+r1397,312,2,"PAIN, pressing, warm room",2
+r1398,312,2,"PAIN, pressing, above the ear",12
+r1399,312,3,"PAIN, pressing, above the ear, morning",1
+r1400,312,3,"PAIN, pressing, above the ear, stool, during",1
+r1401,312,2,"PAIN, pressing, behind",25
+r1402,312,3,"PAIN, pressing, behind, left",1
+r1403,312,3,"PAIN, pressing, behind, evening",1
+r1404,312,3,"PAIN, pressing, behind, lying on it",1
+r1405,312,3,"PAIN, pressing, behind, sitting amel.",1
+r1406,312,3,"PAIN, pressing, behind, walking agg.",1
+r1407,312,2,"PAIN, pressing, below",3
+r1408,312,2,"PAIN, pressing, concha",1
+r1409,312,2,"PAIN, pressing, in front",6
+r1410,312,3,"PAIN, pressing, in front, warm room, in",1
+r1411,312,2,"PAIN, pressing, tragus",1
+r1412,312,1,"PAIN, pricking",5
+r1413,312,2,"PAIN, pricking, itching",1
+r1414,312,1,"PAIN, scraping",1
+r1415,312,1,"PAIN, screwing",2
+r1416,312,2,"PAIN, screwing, morning on waking",1
+r1417,312,2,"PAIN, screwing, twisting, evening",1
+r1418,312,1,"PAIN, shooting (See Stitching)",0
+r1419,312,1,"PAIN, soreness",28
+r1420,312,2,"PAIN, soreness, evening",1
+r1421,312,2,"PAIN, soreness, about the ear",2
+r1422,312,2,"PAIN, soreness, behind",20
+r1423,312,3,"PAIN, soreness, behind, cough, with",1
+r1424,312,2,"PAIN, soreness, below ear",4
+r1425,312,3,"PAIN, soreness, below ear, mastoid",1
+r1426,312,2,"PAIN, soreness, concha",2
+r1427,312,2,"PAIN, soreness, external ear",8
+r1428,312,2,"PAIN, soreness, in front",4
+r1429,312,2,"PAIN, soreness, lobule",2
+r1430,312,1,"PAIN, spasmodic",7
+r1431,312,2,"PAIN, spasmodic, inside ear",16
+r1432,312,2,"PAIN, spasmodic, behind the ears",1
+r1433,312,1,"PAIN, stinging (See Stitching)",0
+r1434,313,1,"PAIN, stitching, in",171
+r1435,313,2,"PAIN, stitching, in, right",34
+r1436,313,3,"PAIN, stitching, in, right, then left",3
+r1437,313,2,"PAIN, stitching, in, left",36
+r1438,313,3,"PAIN, stitching, in, left, then right",2
+r1439,313,2,"PAIN, stitching, in, morning",8
+r1440,313,3,"PAIN, stitching, in, morning, bed, in",1
+r1441,313,3,"PAIN, stitching, in, morning, waking, on",1
+r1442,313,3,"PAIN, stitching, in, morning, washing in cold water, when",1
+r1443,313,2,"PAIN, stitching, in, forenoon",10
+r1444,313,3,"PAIN, stitching, in, forenoon, 10 a.m.",1
+r1445,313,2,"PAIN, stitching, in, noon",3
+r1446,313,2,"PAIN, stitching, in, afternoon",9
+r1447,313,3,"PAIN, stitching, in, afternoon, 1 p.m.",1
+r1448,313,3,"PAIN, stitching, in, afternoon, 3 p.m.",2
+r1449,313,3,"PAIN, stitching, in, afternoon, 4 p.m.",2
+r1450,313,3,"PAIN, stitching, in, afternoon, 5 p.m.",1
+r1451,313,2,"PAIN, stitching, in, evening",22
+r1452,313,3,"PAIN, stitching, in, evening, bed, in",6
+r1453,313,3,"PAIN, stitching, in, evening, bed, on going to",1
+r1454,313,3,"PAIN, stitching, in, evening, eating, after",1
+r1455,313,3,"PAIN, stitching, in, evening, lying on it agg.",1
+r1456,313,3,"PAIN, stitching, in, evening, 6 p.m.",1
+r1457,313,3,"PAIN, stitching, in, evening, 8 p.m.",1
+h028,313,3,"PAIN, stitching, in, evening, 8 to 10 p.m.",1
+r1459,313,3,"PAIN, stitching, in, evening, 9 p.m.",1
+r1460,313,2,"PAIN, stitching, in, night",9
+r1461,313,3,"PAIN, stitching, in, night, toothache, with",1
+r1462,313,3,"PAIN, stitching, in, night, waking, on",1
+r1463,313,3,"PAIN, stitching, in, night, 10 p.m.",1
+r1464,313,2,"PAIN, stitching, in, air, from draft of",1
+h029,313,2,"PAIN, stitching, in, cold",1
+h030,313,3,"PAIN, stitching, in, cold, open, agg.",3
+h031,313,4,"PAIN, stitching, in, cold, open, agg., going into",1
+r1468,313,2,"PAIN, stitching, in, bell, from stroke of",2
+r1469,313,2,"PAIN, stitching, in, blowing nose, when",5
+r1470,313,2,"PAIN, stitching, in, boring into ear with finger amel.",5
+r1471,313,2,"PAIN, stitching, in, chewing, while",2
+r1472,313,2,"PAIN, stitching, in, chill, during",4
+o14150,314,2,"PAIN, stitching, in, chilliness, on beginning of",1
+o14151,314,2,"PAIN, stitching, in, closing eyes amel.",1
+o14152,314,3,"PAIN, stitching, in, closing eyes amel., mouth, on",1
+o14153,314,2,"PAIN, stitching, in, cold stitches",1
+o14155,314,3,"PAIN, stitching, in, cold stitches, ice-cold needle",1
+o14154,314,3,"PAIN, stitching, in, cold stitches, amel.",1
+o14157,314,2,"PAIN, stitching, in, cough, with",1
+o14158,314,2,"PAIN, stitching, in, damp weather",1
+o14159,314,2,"PAIN, stitching, in, deaf ear, in the",1
+o14160,314,2,"PAIN, stitching, in, descending stairs",1
+o14161,314,2,"PAIN, stitching, in, drinking, while",1
+o14162,314,2,"PAIN, stitching, in, eating, while",1
+o14183,314,2,"PAIN, stitching, in, headache, with",2
+o14184,314,2,"PAIN, stitching, in, heat, during",1
+o14187,314,2,"PAIN, stitching, in, inward",4
+o14188,314,2,"PAIN, stitching, in, laughing, when",1
+h032,314,2,"PAIN, stitching, in, lying",1
+o14193,314,2,"PAIN, stitching, in, lying on it",1
+o14194,314,2,"PAIN, stitching, in, lying on right side",1
+o14195,314,3,"PAIN, stitching, in, lying on right side, left side",1
+o14196,314,2,"PAIN, stitching, in, menses, during",1
+o14201,314,2,"PAIN, stitching, in, moving jaw",2
+o14202,314,2,"PAIN, stitching, in, music, from",2
+h033,314,2,"PAIN, stitching, in, opening mouth",1
+o14209,314,3,"PAIN, stitching, in, opening mouth, amel.",1
+o14210,314,2,"PAIN, stitching, in, outward",11
+o14211,314,2,"PAIN, stitching, in, paroxysmal",1
+o14212,314,2,"PAIN, stitching, in, pressing forehead",1
+r1543,314,2,"PAIN, stitching, in, rest, during",2
+o14216,314,2,"PAIN, stitching, in, rising from bed, amel.",1
+o14217,314,2,"PAIN, stitching, in, rubbing amel.",1
+o14218,314,2,"PAIN, stitching, in, singing, while",1
+o14219,314,2,"PAIN, stitching, in, sitting, while",3
+o14220,314,2,"PAIN, stitching, in, sneezing, on",1
+o14221,314,2,"PAIN, stitching, in, standing, while",1
+o14222,314,2,"PAIN, stitching, in, stool, after",1
+o14223,314,2,"PAIN, stitching, in, stooping, when",3
+o14224,314,2,"PAIN, stitching, in, swallowing, when",12
+o14225,314,2,"PAIN, stitching, in, talking, while",1
+o14227,314,2,"PAIN, stitching, in, turning head, when",1
+o14228,314,2,"PAIN, stitching, in, waking, on",2
+o14230,314,2,"PAIN, stitching, in, walking, while",5
+o14229,314,2,"PAIN, stitching, in, walking, in open air",3
+o14231,314,2,"PAIN, stitching, in, warm room, on entering",2
+o14232,314,2,"PAIN, stitching, in, warmth of bed agg.",1
+o14233,314,2,"PAIN, stitching, in, yawning, when",1
+o14173,314,2,"PAIN, stitching, in, extending inward",3
+o14180,314,3,"PAIN, stitching, in, extending inward, outward",6
+o14174,314,3,"PAIN, stitching, in, extending inward, ear to ear",1
+h034,314,4,"PAIN, stitching, in, extending inward, ear to ear, to neck",1
+h035,314,4,"PAIN, stitching, in, extending inward, ear to ear, to roof of mouth",1
+h036,314,4,"PAIN, stitching, in, extending inward, ear to ear, to shoulder",1
+h037,314,4,"PAIN, stitching, in, extending inward, ear to ear, to temples",1
+h038,314,4,"PAIN, stitching, in, extending inward, ear to ear, to throat",1
+o14116,314,2,"PAIN, stitching, in, about the ear",6
+o14117,314,2,"PAIN, stitching, in, above the ear",10
+o14119,314,3,"PAIN, stitching, in, above the ear, walking, while",1
+o14118,314,3,"PAIN, stitching, in, above the ear, 4 p.m.",1
+o14129,314,2,"PAIN, stitching, in, antitragus, on touch",2
+r1539,314,2,"PAIN, stitching, in, behind the ear",46
+o14143,314,3,"PAIN, stitching, in, behind the ear, right",4
+o14138,314,3,"PAIN, stitching, in, behind the ear, left",1
+o14139,314,3,"PAIN, stitching, in, behind the ear, morning",1
+o14131,314,3,"PAIN, stitching, in, behind the ear, afternoon",2
+o14132,314,4,"PAIN, stitching, in, behind the ear, afternoon, 1 p.m.",1
+o14133,315,4,"PAIN, stitching, in, behind the ear, afternoon, 3 p.m.",1
+o14134,315,3,"PAIN, stitching, in, behind the ear, evening",3
+o14140,315,3,"PAIN, stitching, in, behind the ear, motion",1
+o14141,315,3,"PAIN, stitching, in, behind the ear, pressure amel.",1
+o14142,315,3,"PAIN, stitching, in, behind the ear, rest, during",1
+o14135,315,3,"PAIN, stitching, in, behind the ear, extending to eye",1
+h039,315,4,"PAIN, stitching, in, behind the ear, extending to eye, to jaws",2
+h040,315,4,"PAIN, stitching, in, behind the ear, extending to eye, to neck",1
+o14145,315,2,"PAIN, stitching, in, below the ear",9
+o14156,315,2,"PAIN, stitching, in, concha",5
+o14163,315,2,"PAIN, stitching, in, eustachian tube",1
+o14185,315,2,"PAIN, stitching, in, in front of ear",13
+o14186,315,3,"PAIN, stitching, in, in front of ear, evening",3
+o14191,315,2,"PAIN, stitching, in, lobes",7
+o14226,315,2,"PAIN, stitching, in, tragus",1
+r1554,315,1,"PAIN, tearing in",113
+r1555,315,2,"PAIN, tearing in, right",28
+r1556,315,3,"PAIN, tearing in, right, to right teeth",1
+r1557,315,3,"PAIN, tearing in, right, to left",2
+r1558,315,2,"PAIN, tearing in, left",22
+r1559,315,3,"PAIN, tearing in, left, to right",1
+r1560,315,2,"PAIN, tearing in, morning",3
+r1561,315,3,"PAIN, tearing in, morning, bed, in",1
+r1562,315,3,"PAIN, tearing in, morning, 8 a.m.",1
+r1563,315,2,"PAIN, tearing in, forenoon",5
+r1564,315,3,"PAIN, tearing in, forenoon, 9 a.m.",1
+r1565,315,2,"PAIN, tearing in, noon",1
+r1566,315,2,"PAIN, tearing in, afternoon",6
+r1567,315,2,"PAIN, tearing in, evening",9
+r1568,315,3,"PAIN, tearing in, evening, bed, in",1
+r1569,315,3,"PAIN, tearing in, evening, 7 p.m.",2
+r1570,315,2,"PAIN, tearing in, night",1
+r1571,315,2,"PAIN, tearing in, bending body to the right",1
+r1572,315,2,"PAIN, tearing in, boring with finger agg.",1
+r1573,315,2,"PAIN, tearing in, cold air agg.",1
+r1574,315,2,"PAIN, tearing in, dinner, after",3
+r1575,315,2,"PAIN, tearing in, eating, while",1
+r1576,315,2,"PAIN, tearing in, intermitting",2
+r1577,315,2,"PAIN, tearing in, lying on ear agg.",2
+r1578,315,2,"PAIN, tearing in, menses, during",1
+r1579,315,2,"PAIN, tearing in, moving lower jaw agg.",2
+r1580,315,2,"PAIN, tearing in, noises agg.",1
+r1581,315,2,"PAIN, tearing in, paroxysmal",1
+r1582,315,2,"PAIN, tearing in, pressure of the hand amel.",4
+r1583,315,2,"PAIN, tearing in, rising from stooping",1
+r1584,315,2,"PAIN, tearing in, rubbing amel.",2
+r1585,315,2,"PAIN, tearing in, sitting, while",3
+r1586,315,2,"PAIN, tearing in, standing, while",2
+r1587,315,2,"PAIN, tearing in, swallowing agg.",1
+r1588,315,2,"PAIN, tearing in, warm room agg.",1
+r1589,315,2,"PAIN, tearing in, extending downwards",2
+o14283,315,3,"PAIN, tearing in, extending downwards, to teeth",1
+o14284,315,3,"PAIN, tearing in, extending downwards, to temples",2
+o14285,315,3,"PAIN, tearing in, extending downwards, to upper jaw",3
+r1593,316,2,"PAIN, tearing in, about the ear",10
+r1594,316,2,"PAIN, tearing in, above the ear",5
+r1595,316,3,"PAIN, tearing in, above the ear, right",1
+r1596,316,3,"PAIN, tearing in, above the ear, left",1
+r1597,316,3,"PAIN, tearing in, above the ear, evening",1
+r1598,316,2,"PAIN, tearing in, antitragus",2
+r1599,316,2,"PAIN, tearing in, behind the ear",43
+r1600,316,3,"PAIN, tearing in, behind the ear, right",3
+r1601,316,3,"PAIN, tearing in, behind the ear, left",1
+r1602,316,3,"PAIN, tearing in, behind the ear, afternoon",5
+r1603,316,4,"PAIN, tearing in, behind the ear, afternoon, 1 p.m.",2
+r1604,316,4,"PAIN, tearing in, behind the ear, afternoon, 3 p.m.",1
+r1605,316,4,"PAIN, tearing in, behind the ear, afternoon, 4 p.m.",1
+r1606,316,3,"PAIN, tearing in, behind the ear, evening",2
+r1607,316,4,"PAIN, tearing in, behind the ear, evening, sitting up in the bed amel.",1
+r1608,316,4,"PAIN, tearing in, behind the ear, evening, 9 p.m.",1
+r1609,316,3,"PAIN, tearing in, behind the ear, intermittent",1
+r1610,316,3,"PAIN, tearing in, behind the ear, moving head",1
+r1611,316,3,"PAIN, tearing in, behind the ear, reading, while",1
+r1612,316,3,"PAIN, tearing in, behind the ear, extending to nape of neck",1
+o14259,316,4,"PAIN, tearing in, behind the ear, extending to nape of neck, clavicle",1
+o14260,316,4,"PAIN, tearing in, behind the ear, extending to nape of neck, neck",2
+o14261,316,4,"PAIN, tearing in, behind the ear, extending to nape of neck, shoulder",1
+o14262,316,4,"PAIN, tearing in, behind the ear, extending to nape of neck, upward in afternoon",2
+o14263,316,4,"PAIN, tearing in, behind the ear, extending to nape of neck, vertex, occiput, nape and shoulder agg. moving head",1
+r1618,316,2,"PAIN, tearing in, below the ear",9
+r1619,316,3,"PAIN, tearing in, below the ear, moving head agg.",1
+r1620,316,3,"PAIN, tearing in, below the ear, rubbing amel.",1
+r1621,316,3,"PAIN, tearing in, below the ear, sitting, while",1
+r1622,316,2,"PAIN, tearing in, concha",11
+r1623,316,2,"PAIN, tearing in, in front of ear",17
+r1624,316,3,"PAIN, tearing in, in front of ear, extending to cheek",1
+h041,316,4,"PAIN, tearing in, in front of ear, extending to cheek, temples",2
+r1626,316,2,"PAIN, tearing in, lobes",8
+r1627,316,3,"PAIN, tearing in, lobes, left",2
+r1628,316,2,"PAIN, tearing in, tragus, in the",2
+r1629,316,1,"PAIN, twinging",23
+r1630,316,2,"PAIN, twinging, right",5
+r1631,316,2,"PAIN, twinging, left",4
+r1632,316,2,"PAIN, twinging, morning in bed",1
+r1633,316,2,"PAIN, twinging, afternoon",1
+r1634,316,2,"PAIN, twinging, evening",3
+r1635,316,2,"PAIN, twinging, spasmodic",1
+r1636,316,1,"PAIN, ulcerative",9
+r1637,316,0,PERSPIRATION,1
+r1638,316,1,"PERSPIRATION, behind ears",1
+r1639,316,0,POLYPUS,17
+r1640,316,1,"POLYPUS, bleeding",3
+r1641,316,1,"POLYPUS, soft, easily bleeding",3
+r1642,316,0,PUFFING in ears from pulsation of temporal arteries,1
+r1643,316,0,PULSATION,84
+r1644,317,1,"PULSATION, right",12
+r1645,317,1,"PULSATION, left",11
+r1646,317,1,"PULSATION, morning",1
+r1647,317,2,"PULSATION, morning, after breakfast",1
+r1648,317,1,"PULSATION, forenoon",1
+r1649,317,1,"PULSATION, evening",4
+r1650,317,2,"PULSATION, evening, on falling asleep",1
+r1651,317,2,"PULSATION, evening, in bed",2
+r1652,317,1,"PULSATION, night",6
+r1653,317,2,"PULSATION, night, lying on the ear, when",5
+r1654,317,2,"PULSATION, night, warm in bed, when becoming",1
+r1655,317,1,"PULSATION, air, exposure to, agg.",1
+r1656,317,1,"PULSATION, dinner, after",2
+r1657,317,1,"PULSATION, eating agg.",1
+r1658,317,1,"PULSATION, lying on the side",2
+o14378,317,2,"PULSATION, lying on the side, on the ear",6
+r1660,317,1,"PULSATION, pressure amel.",1
+r1661,317,1,"PULSATION, sitting, while",2
+r1662,317,1,"PULSATION, standing, while",1
+h042,317,1,"PULSATION, stooping, on",3
+r1664,317,2,"PULSATION, stooping, on, amel.",1
+r1665,317,1,"PULSATION, walking, after",1
+r1666,317,1,"PULSATION, writing, while",2
+r1667,317,1,"PULSATION, behind ear",11
+r1668,317,2,"PULSATION, behind ear, cold air amel.",1
+r1669,317,2,"PULSATION, behind ear, lying on affected side",1
+r1670,317,2,"PULSATION, behind ear, moving head",1
+r1671,317,2,"PULSATION, behind ear, walking amel.",1
+r1672,317,2,"PULSATION, behind ear, warmth agg.",1
+r1673,317,1,"PULSATION, below ear",1
+r1674,317,1,"PULSATION, in front of ear",4
+r1675,317,2,"PULSATION, in front of ear, morning",1
+r1676,317,2,"PULSATION, in front of ear, evening",1
+r1677,317,2,"PULSATION, in front of ear, lying down, after",1
+o14373,317,3,"PULSATION, in front of ear, lying down, after, on ear",1
+r1679,317,1,"PULSATION, lobes",2
+r1680,317,0,QUIVERING,2
+r1681,317,0,RAWNESS behind (See Eruptions),0
+r1682,317,0,REDNESS (See Discoloration),0
+r1683,317,0,"RETRACTION, sense of",1
+r1684,317,0,REVERBERATIONS (See Noises),0
+r1685,317,0,"ROLLING, as of something, to and fro in ear on shaking head",1
+r1686,317,0,ROUGH epidermis in ears,1
+r1687,317,0,RUSH of blood to right ear,1
+r1688,317,0,SCRATCHING sensation,1
+r1689,317,0,SENSIBILITY increased,5
+o14400,317,1,"SENSIBILITY increased, in deaf ear (painful)",1
+r1691,317,1,"SENSIBILITY increased, to wind (See Wind)",0
+o14399,317,1,"SENSIBILITY increased, diminished",1
+r1693,317,0,SHOCKS on swallowing,1
+r1694,317,0,STEATOMA (See Tumors),0
+r1695,317,1,"STEATOMA (See Tumors), behind ears",1
+r1696,317,0,STENOSIS (See Contraction),0
+r1697,317,0,STOPPED sensation,116
+r1698,317,1,"STOPPED sensation, right",15
+r1699,318,1,"STOPPED sensation, left",13
+r1700,318,2,"STOPPED sensation, left, then right",1
+r1701,318,1,"STOPPED sensation, morning",7
+r1702,318,2,"STOPPED sensation, morning, breakfast, after amel.",1
+r1703,318,1,"STOPPED sensation, forenoon",3
+r1704,318,1,"STOPPED sensation, afternoon",2
+r1705,318,2,"STOPPED sensation, afternoon, amel.",1
+r1706,318,2,"STOPPED sensation, afternoon, 3 p.m.",1
+r1707,318,1,"STOPPED sensation, evening",5
+r1708,318,2,"STOPPED sensation, evening, bed, in",1
+r1709,318,2,"STOPPED sensation, evening, sitting, while",1
+r1710,318,2,"STOPPED sensation, evening, 8 p.m.",1
+r1711,318,1,"STOPPED sensation, air open",1
+r1712,318,1,"STOPPED sensation, alternating sides",1
+h043,318,1,"STOPPED sensation, blowing nose",6
+r1714,318,2,"STOPPED sensation, blowing nose, amel.",2
+r1715,318,1,"STOPPED sensation, boring with finger amel.",4
+r1716,318,1,"STOPPED sensation, cough, after",1
+r1717,318,1,"STOPPED sensation, dinner, after",1
+r1718,318,1,"STOPPED sensation, eating, while",1
+r1719,318,1,"STOPPED sensation, excitement agg.",1
+r1720,318,1,"STOPPED sensation, hawking, when",1
+r1721,318,1,"STOPPED sensation, loud report, ears open, with",1
+r1722,318,1,"STOPPED sensation, lying, while, agg.",1
+o14425,318,2,"STOPPED sensation, lying, while, agg., on it, after",1
+r1724,318,1,"STOPPED sensation, menses, during",1
+r1725,318,1,"STOPPED sensation, reading aloud",1
+r1726,318,1,"STOPPED sensation, rhythmically",1
+r1727,318,1,"STOPPED sensation, rising, on, amel.",1
+h044,318,1,"STOPPED sensation, swallowing, during",1
+r1729,318,1,"STOPPED sensation, swallowing, amel.",4
+r1730,318,1,"STOPPED sensation, talking, while",1
+r1731,318,1,"STOPPED sensation, valve, by a, as if",5
+r1732,318,1,"STOPPED sensation, walking, while",1
+r1733,318,1,"STOPPED sensation, writing, while",1
+r1734,318,1,"STOPPED sensation, yawning amel.",2
+r1735,318,0,"STROKES, blows in ears",5
+r1736,318,0,"SUPPURATION, middle ear",21
+r1737,318,1,"SUPPURATION, middle ear, behind ear",3
+r1738,318,1,"SUPPURATION, middle ear, in front of ear",1
+r1739,318,0,SURGING,1
+r1740,318,0,SWELLING,46
+r1741,318,1,"SWELLING, right",5
+r1742,318,1,"SWELLING, left",6
+r1743,318,1,"SWELLING, about the ear",3
+r1744,318,2,"SWELLING, about the ear, of glands",5
+r1745,318,1,"SWELLING, antitragus",2
+r1746,318,1,"SWELLING, behind",27
+r1747,318,2,"SWELLING, behind, hard and red",1
+r1748,318,2,"SWELLING, behind, knotty swelling",2
+r1749,318,2,"SWELLING, behind, lymphatic glands",3
+r1750,318,2,"SWELLING, behind, periosteum",2
+r1751,318,2,"SWELLING, behind, shiny",3
+r1752,318,2,"SWELLING, behind, warmth of bed amel.",1
+r1753,318,1,"SWELLING, below",10
+r1754,318,2,"SWELLING, below, glands",8
+r1755,318,1,"SWELLING, concha",5
+r1756,319,1,"SWELLING, in front of ear",6
+r1757,319,1,"SWELLING, inside (meatus)",22
+r1758,319,2,"SWELLING, inside (meatus), evening",1
+r1759,319,1,"SWELLING, lobes",3
+r1760,319,1,"SWELLING, parotid gland (See Face)",0
+r1761,319,0,TENSION,9
+r1762,319,1,"TENSION, behind",6
+r1763,319,1,"TENSION, concha",1
+r1764,319,1,"TENSION, inside",7
+r1765,319,0,THROBBING (See Pulsation),0
+r1766,319,0,TICKLING (See Itching),0
+r1767,319,0,TINGLING,55
+r1768,319,1,"TINGLING, morning in bed",1
+r1769,319,1,"TINGLING, noon",1
+r1770,319,1,"TINGLING, night",1
+r1771,319,1,"TINGLING, sitting, while",1
+r1772,319,1,"TINGLING, sneezing, when",1
+r1773,319,1,"TINGLING, turning head",1
+r1774,319,1,"TINGLING, walking, while",1
+r1775,319,1,"TINGLING, walking, in open air",1
+r1776,319,1,"TINGLING, meatus",1
+r1777,319,0,"TREMBLING in, after sad news",2
+r1778,319,0,"TUBERCLE, hard behind right ear",1
+o14482,319,1,"TUBERCLE, hard behind right ear, left ear",1
+r1780,319,1,"TUBERCLE, hard behind right ear, on the lobe",2
+r1781,319,0,"TUMORS, cystic",1
+r1782,319,1,"TUMORS, cystic, behind ears, small",4
+r1783,319,1,"TUMORS, cystic, in front of",2
+r1784,319,1,"TUMORS, cystic, lobe, on",2
+o14488,319,2,"TUMORS, cystic, lobe, on, under",1
+r1786,319,1,"TUMORS, cystic, steatoma",2
+r1787,319,1,"TUMORS, cystic, wen, behind ears",2
+r1788,319,0,TWITCHING,45
+r1789,319,1,"TWITCHING, right",8
+r1790,319,1,"TWITCHING, left",4
+r1791,319,1,"TWITCHING, morning",3
+r1792,319,2,"TWITCHING, morning, waking, on",1
+r1793,319,2,"TWITCHING, morning, 6 a.m.",1
+r1794,319,1,"TWITCHING, evening",2
+r1795,319,1,"TWITCHING, blowing nose",1
+r1796,319,1,"TWITCHING, rising, on",1
+r1797,319,1,"TWITCHING, sneezing, when",1
+r1798,319,1,"TWITCHING, extending to eye and lower jaw",1
+o14498,319,2,"TWITCHING, extending to eye and lower jaw, to lower jaw",1
+o14497,319,2,"TWITCHING, extending to eye and lower jaw, outward",1
+o14499,319,2,"TWITCHING, extending to eye and lower jaw, to mouth",1
+o14500,319,2,"TWITCHING, extending to eye and lower jaw, to throat",1
+r1803,319,1,"TWITCHING, below ear",1
+r1804,319,1,"TWITCHING, concha",4
+r1805,319,1,"TWITCHING, in front",1
+r1806,319,1,"TWITCHING, lobe, in",2
+r1807,319,2,"TWITCHING, lobe, in, visible",1
+r1808,319,1,"TWITCHING, meatus",6
+r1809,319,0,ULCERATION,16
+r1810,319,1,"ULCERATION, right",1
+r1811,319,1,"ULCERATION, left",4
+r1812,319,1,"ULCERATION, swallowing, painful",1
+r1813,319,1,"ULCERATION, about the ear",1
+r1814,319,1,"ULCERATION, inside",14
+r1815,320,1,"ULCERATION, in front of ear",2
+r1816,320,2,"ULCERATION, in front of ear, fistulous opening",1
+r1817,320,1,"ULCERATION, lobe, in hole for earrings",3
+r1818,320,1,"ULCERATION, tympanum",7
+r1819,320,0,VALVE (See Opening),0
+r1820,320,0,"WART-LIKE growth behind ear, inflamed and ulcerated",1
+o14523,320,1,"WART-LIKE growth behind ear, inflamed and ulcerated, on the ears",1
+r1822,320,0,"WATER, sensation of, in ear",4
+r1823,320,1,"WATER, sensation of, in ear, left ear",1
+r1824,320,1,"WATER, sensation of, in ear, cold, running out of ears",1
+r1825,320,1,"WATER, sensation of, in ear, hot, running out of right ear",1
+o14525,320,2,"WATER, sensation of, in ear, hot, running out of right ear, in left ear",1
+r1827,320,1,"WATER, sensation of, in ear, passing out of",3
+r1828,320,1,"WATER, sensation of, in ear, rushing into ears",1
+r1829,320,1,"WATER, sensation of, in ear, warm, in",1
+h045,320,1,"WATER, sensation of, in ear, WAX, black",2
+h046,320,1,"WATER, sensation of, in ear, brown",1
+h047,320,2,"WATER, sensation of, in ear, brown, red or dark",1
+h048,320,1,"WATER, sensation of, in ear, dry",5
+h049,320,2,"WATER, sensation of, in ear, dry, peeling off in scales",1
+h050,320,1,"WATER, sensation of, in ear, hardened",6
+o14538,320,1,"WATER, sensation of, in ear, increased",25
+h051,320,1,"WATER, sensation of, in ear, pale",1
+h052,320,1,"WATER, sensation of, in ear, purulent",2
+h053,320,1,"WATER, sensation of, in ear, red",3
+h054,320,1,"WATER, sensation of, in ear, reddish",1
+h055,320,1,"WATER, sensation of, in ear, rotten paper, like",1
+h056,320,1,"WATER, sensation of, in ear, soft",1
+h057,320,1,"WATER, sensation of, in ear, thick",2
+o14546,320,1,"WATER, sensation of, in ear, thin",13
+o14547,320,1,"WATER, sensation of, in ear, wanting",8
+h058,320,1,"WATER, sensation of, in ear, whitish",4
+h059,320,2,"WATER, sensation of, in ear, whitish, like mush",1
+h060,320,1,"WATER, sensation of, in ear, yellow",3
+r1849,320,0,"WEN, behind ear",2
+r1850,320,1,"WEN, behind ear, on lobe",1
+r1851,320,0,"WIND, sensitive to (See Air)",5
+r1852,320,1,"WIND, sensitive to (See Air), sensation of, in",15
+o14553,320,2,"WIND, sensitive to (See Air), sensation of, in, cold, as if blowing against meatus of right ear",4
+o14556,320,2,"WIND, sensitive to (See Air), sensation of, in, passing out of ears",6
+o14557,320,3,"WIND, sensitive to (See Air), sensation of, in, passing out of ears, putting finger in, amel.",1
+o14555,320,2,"WIND, sensitive to (See Air), sensation of, in, passing into or blowing upon",7
+o14558,320,2,"WIND, sensitive to (See Air), sensation of, in, puffing out or ears",2
+r1862,320,0,"WORMS, sensation of",9

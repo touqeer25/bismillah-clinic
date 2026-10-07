@@ -1,0 +1,23 @@
+{
+ "book": "kent",
+ "chapter": "ear",
+ "source": "homeoint.org/books/kentrep kent0285–kent0315 + kentrep1/kent0305–0315 (MEDI-T HTML)",
+ "pages": "285–320",
+ "source_canonical": "homeoint-ear-v1",
+ "source_rows": 1902,
+ "unique_source_paths": 1902,
+ "matched_app_records": 1842,
+ "new_source_records": 60,
+ "legacy_local_records": 173,
+ "ambiguous_app_records": 31,
+ "chapter_boundaries": "EAR = صفحات 285–320 (kentear.htm ہیڈر p.285-320 + 36 فہرست اندراجات P285–P320؛ آغاز ص 285 کے نصف میں منتقلی مارکر سے؛ اختتام p.320 WORMS — kent0315尾部 HEARING فوٹر p.321 سے پہلے)",
+ "documented_corrections": [
+  "ص 281: MEDI-T نے «noon : Dig.» سے پہلے <dir> چھوڑ دیا — مطبوعہ کتاب میں LIGHTNINGS کی پوری وقت-خاندان ایک سطح پر (OOREP o64045 = LIGHTNINGS, noon سے اتفاق)",
+  "ص 285 نصف: EAR باب کا آغاز — منتقلی مارکر + باب سرخی + EAR کی 52 قطاریں EAR درخت سے کاٹیں (ایپ کا ear.json ABSCESS سے — o65309)"
+ ],
+ "policy": {
+  "remedies": "r := source_remedies (ماخذ مطبوعہ کتاب = سچ؛ OOREP مجموعے ضم)",
+  "hierarchy": "runtime tree از source_parent_id (rep-chapters.js ear بلڈر)",
+  "legacy": "فائل میں محفوظ، ماخذی درخت میں شامل نہیں — ڈاکٹر نظرثانی کے لیے رپورٹ"
+ }
+}
