@@ -907,6 +907,70 @@ function _repBuildKentFaceSourceTree(data){
     });
     return root;
 }
+// 🔑 v174: منہ (MOUTH) باب کی ماخذی قطاریں (صفحات 397–430) — homeoint.org
+// (parse_mouth_source.py + crosswalk_mouth.py + overlay_mouth.py)؛ پرانی مقامی قطاریں فائل میں محفوظ
+// مگر ماخذی درخت سے باہر۔ باب حد: MOUTH = 397–430 (kentmout.htm انڈیکس سرخی p. 397-430، 34 اندراجات = 34/34
+// صفحہ-بریکرمب؛ اختتام ص 430 — PDF ثابت: مطبوعہ ص 930 MOUTH اختتام کے بعد ص 931 پر TEETH سرخی +
+// ABSCESS of roots؛ kent0430 میں P431 = CARIES)۔
+// مستند درستیاں: TEETH باب-آغاز کٹ (16 قطاریں — MEDI-T نے ص 430 کے اندر ڈالی تھیں)،
+// 15 خاندانی گہرائی-درستیاں، 3 حقیقی کتابی دہرائے (max-گریڈ ضم)، 30 دستی جوڑیاں
+// (Jaccard = 1.000) — مانی فیسٹ + CSV میں تفصیل۔
+var _REP_KENT_MOUTH_SOURCE_MARKER='homeoint-mouth-v1';
+var _REP_KENT_MOUTH_PAGES={first:397,last:430}, _REP_KENT_MOUTH_COUNT=1516;
+function _repKentMouthSourceEntries(data){
+    return Object.keys(data||{}).map(function(rid){return {rid:String(rid),rec:data[rid]};})
+        .filter(function(e){return e.rec&&e.rec.source_canonical===_REP_KENT_MOUTH_SOURCE_MARKER;});
+}
+function _repHasKentMouthSourceData(data){
+    return _repKentMouthSourceEntries(data).length===_REP_KENT_MOUTH_COUNT;
+}
+function _repBuildKentMouthSourceTree(data){
+    var entries=_repKentMouthSourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    if(entries.length!==_REP_KENT_MOUTH_COUNT) throw new Error('Expected '+_REP_KENT_MOUTH_COUNT+' Kent MOUTH source rows; found '+entries.length);
+    entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
+    var byRid=Object.create(null);
+    entries.forEach(function(e,index){
+        var rec=e.rec, order=Number(rec.source_order), parentId=rec.source_parent_id;
+        if(order!==index) throw new Error('Invalid Kent MOUTH source order at '+e.rid+': '+order);
+        var page=Number(rec.source_page), depth=Number(rec.source_depth), label=String(rec.source_label||'');
+        if(page<397||page>430) throw new Error('Kent MOUTH source row outside pages 397–430: '+e.rid);
+        if(!label) throw new Error('Empty Kent MOUTH source label at '+e.rid);
+        var labels=Array.isArray(rec.source_path_labels)?rec.source_path_labels.map(String):[];
+        if(!labels.length||labels[labels.length-1]!==label||depth!==labels.length-1)
+            throw new Error('Kent MOUTH source path/depth mismatch at '+e.rid);
+        var sourcePath=String(rec.source_path||'');
+        if(sourcePath!==labels.join(', ')) throw new Error('Kent MOUTH source full path mismatch at '+e.rid);
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent MOUTH source parent '+parentId+' for '+e.rid);
+        if(parentId!==null && Number(parent.sourceOrder)>=index)
+            throw new Error('Kent MOUTH source parent must precede child at '+e.rid);
+        var parentPath=parent===root?'':String(parent.pathTitle||'');
+        var expectedPath=parentPath?parentPath+', '+label:label;
+        if(expectedPath!==sourcePath) throw new Error('Kent MOUTH source parent link/path mismatch at '+e.rid);
+        if(parent.children[label]) throw new Error('Duplicate Kent MOUTH sibling label '+label+' at '+e.rid);
+        var remedies=rec.r;
+        if(!remedies||typeof remedies!=='object'||Array.isArray(remedies))
+            throw new Error('Missing Kent MOUTH remedies at '+e.rid);
+        Object.keys(remedies).forEach(function(code){
+            var grade=Number(remedies[code]);
+            if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
+                throw new Error('Invalid Kent MOUTH medicine grade at '+e.rid+': '+code);
+        });
+        var node={
+            name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
+            children:{},order:[],remedies:remedies,count:1,hasRubric:true,
+            path:sourcePath,pathTitle:sourcePath,displayPathTitle:sourcePath,
+            translationTitle:String(rec.translation_title||sourcePath),
+            oorep_id:rec.oorep_id||null,rid:e.rid,sourceCanonical:true,
+            display:rec.display&&typeof rec.display==='object'&&!Array.isArray(rec.display)?rec.display:null
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        parent.count=(parent.count||0)+1;
+        byRid[e.rid]=node;
+    });
+    return root;
+}
 // ============================================================
 // 🔑 v143: کینٹ کا درخت کتاب کی اصل ساخت پر — homeoint.org + True-Original PDF سے موازنہ
 // مسئلہ: OOREP مرج کے بعد کئی کتابی مین ربرکس (مثلاً «ANGER, irascibility»)
@@ -1106,6 +1170,10 @@ function buildRubricTree(data){
     // 🔑 v173: چہرہ باب کی ماخذی قطاریں (صفحات 355–396) — وہی طرز جو ناک باب میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'face' && _repHasKentFaceSourceData(data)){
         return _repBuildKentFaceSourceTree(data);
+    }
+    // 🔑 v174: منہ باب کی ماخذی قطاریں (صفحات 397–430) — وہی طرز جو چہرہ باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'mouth' && _repHasKentMouthSourceData(data)){
+        return _repBuildKentMouthSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest

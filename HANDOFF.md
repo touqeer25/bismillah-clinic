@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 8 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 173 · **اصل مخزن:**
+**آخری تجدید:** 8 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 174 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -1857,3 +1857,35 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 1. ڈاکٹر چہرہ-تین-کالم.csv کی تصدیق (1,958 راستہ/ادویہ-درست ربرکس) اور kent-confirmation-needed.csv کا جائزہ (چہرہ کے 35 اندراجات: LARGE جوڑی، menses-after والد، دو splinter، 5 لیبل-فرق، 30 نئے ترجمے، 8 خاندانی درستیاں)
 2. اگلا باب: **MOUTH (صفحات 397–430)** — kentmout.htm انڈیکس + kent0395/kent0400 ماخذ دستیاب؛ PDF تیسرا ماخذ جاری (مطبوعہ ص 812 سے)
 3. Vercel پش (v173 کے بعد)
+
+## مکمل شدہ پڑتال — منہ (MOUTH) باب: ماخذی درخت + ادویات + اردو (نسخہ 174)
+
+### 15.1 باب حد اور ماخذ
+- **MOUTH = صفحات 397–430** — kentmout.htm انڈیکس سرخی «MOUTH (p. 397-430)» + 34 موضوعی اندراجات = 34/34 صفحہ-بریکرمب؛ 7 ماخذ فائلیں kent0395–kent0425.htm (kentrep1/)؛ kent0400/kent0415 میں lowercase اینکرز (EAR کی kent0295 طرز — re.I regexes سنبھالتے ہیں)
+- **اختتام ص 430 — PDF سے حرف بہ حرف ثابت:** مطبوعہ ص 930 MOUTH کا اختتام (WRINKLED Palate → morning : Calc-p.) کے بعد ص 931 پر TEETH سرخی + ABSCESS of roots؛ kent0430 میں P431 = CARIES
+- 1,535 خام قطاریں → TEETH بلاک کٹ (16) → **1,519 منفرد** (جڑ MOUTH + 1,518) → 3 کتابی دہرائے ضم → **1,516** (165 مین ربرکس، جڑ کے بچے 166، گہرائی 6)
+
+### 15.2 تیسرا ماخذ (Drive PDF) تصدیق
+- MOUTH = PDF صفحہ 897–966؛ **ordered alignment: PDF 1,518 ریکارڈ = homeoint 1,518 قطاریں، صفر drift؛ 1,512 حرف بہ حرف مطابق**؛ 6 فرق = 3 PDF text-layer لپیٹ-جوڑے (MUCOUS corrugated+discolored، SWELLING teeth+bluish-red، TUMORS hard+rounded) — خام HTML سے ہر ایک کی تصدیق: homeoint = مطبوعہ کتاب 100%
+- ⚠ PDF کی پیجنگ homeoint سے مختلف (ہر باب کا اپنا آف سیٹ) — باب-حد form-feed شمار + مضمون تلاش سے طے کی گئی (MOUTH آغاز PDF 897، TEETH آغاز PDF 967)
+
+### 15.3 مستند درستیاں
+- **TEETH باب-آغاز کٹ:** MEDI-T نے TEETH سرخی + ABSCESS of roots…BREAKING off (16 قطاریں) homeoint ص 430 کے اندر رکھ دیا تھا — PDF صفحہ-حد (مطبوعہ 930→931) سے کٹ؛ یہ 16 قطاریں مستقبل کے TEETH باب کے پہلے اندراج ہیں (parser لاگ میں محفوظ)
+- **15 خاندانی گہرائی-درستیاں (خاندانی shift):** ص 399 during-chill · ص 400 red+centre · ص 405 velum · ص 407 silvery-white · ص 410 morning · ص 413 swallowing · ص 414 right-upper/pressing/back-part · ص 415 cannot-be/menses · ص 419 crying · ص 421 after-smoking · ص 427 when-protruding — ہر ایک کے پیچھے MEDI-T کا دوہرے <dir> بلاک؛ مطبوعہ کتاب کی انڈینٹیشن (pdftotext -layout) سے سیمینٹک والدین کی تصدیق
+- **3 حقیقی کتابی دہرائے → max-گریڈ ضم (راستوں کی سطح پر):** DISCOLORATION…Palate, bluish, red ×2 (ص 400 — col-23 «red : Phos., sulph.» + col-15 بڑا «red : Acon.…»؛ ضم 33 ادویات) · PAIN, aching, Gums, Palate ×2 (ص 410 — ضم 19) · …, Tongue ×2 (ضم 16) — PDF 904/924/925 سے حرف بہ حرف ثابت
+- **30 دستی جوڑیاں (Jaccard = 1.000):** SPEECH broken↔difficult خاندان 15 (OOREP نے «broken (See Mind)» کو «difficult» لکھا) · TASTE bitter-sweet↔bloody خاندان 7 (OOREP غلط لیبل) · DISCOLORATION Gums-black/greenish-brown 4 · biting-Tongue ذیلی 3 · EXCRESCENCES-painful-Gums 1
+- **685 OOREP فلیٹ-راستے ماخذی سے بدلے:** «PAIN, burning, tongue, tip»→«PAIN, burning, raw and smarting, Tongue, tip» · «TASTE, bitter, food tastes»→«TASTE, acid (See Sour), bitter, food tastes» · «DISCOLORATION, tongue, black, centre»→«DISCOLORATION, blueness, Tongue, black, centre» (کتاب: Tongue, black واقعی blueness کے تحت)
+- OSCILLATING tongue (See Protruded) (ص 409): کتاب میں خالی سرخی (صرف کراس-ریفرنس) — MEDI-T + PDF دونوں سے تصدیق؛ ایپ کی r830 (3 ادویات) پرانیاں میں محفوظ
+- ⚠ ضم کا سبق: دہرائے والدین کے بچے interleaved ہوں تو پارسر-سطح پر ضم نہ کریں (بچوں کے والدین بدل جاتے ہیں) — overlay راستوں کی سطح پر ضم کرتا ہے (پہلی واقعے کا parent_path)
+
+### 15.4 اردو، کوڈ، رپورٹیں
+- اردو: 1516/1516 فعال (1514 منتقل + 1 auto + جڑ «منہ — منہ») · 935 غیر-درخت پرانی محفوظ · REP_RUBUR_V 166
+- کوڈ: rep-chapters.js v174 (mouth بلڈر + ڈسپیچ) · KENT_TREE_FIX mouth.h=129 (تمام لیگسی) · _index 1645 · master sync · mind search-paths side-car rebuild · CACHE v174 · ٹیبز v174 (css+js) · `.gitignore` بحال (صارف کمٹ میں پھر گم تھی)
+- رپورٹیں: kent_sources/reports/منہ-تین-کالم.csv (1,514) · منہ-ہیرارکی-تصدیق.csv (1,519) · منہ-تمام-اندراجات.csv (1,516) · منہ-پرانی-قطاریں.csv (129) · منہ-پڑتال.xlsx · منہ-اصلاحات-کا-خلاصہ.md
+- **تصدیق-ضروری CSV:** download/kent-confirmation-needed.csv — کل **448** اندراجات (سر 269 + منہ 34 + چہرہ 35 + آنکھ 41 + کان 31 + ناک 21 + وژن 11 + سماعت 5 + ذہن 1)
+- ٹیسٹ: نئی kent_mouth_homeoint_source.test.js + مکمل سوئٹ **51/51 پاس** (پرانے ٹیسٹوں کے نسخہ-پن v174 پر)
+
+### 15.5 اگلے قدم
+1. ڈاکٹر منہ-تین-کالم.csv کی تصدیق (1,514 راستہ/ادویہ-درست ربرکس) اور kent-confirmation-needed.csv کا جائزہ (منہ کے 34 اندراجات: TEETH کٹ، 3 ضم، 30 دستی جوڑیاں، 2 نئے ترجمے، 15 خاندانی درستیاں، r830 سوال)
+2. اگلا باب: **TEETH (صفحات 431–443)** — ماخذ: kent0425 (P431-نصف)/kent0430–kent0440 + ماخذ-پارس لاگ میں پہلے 16 اندراج محفوظ (ABSCESS of roots…BREAKING off)؛ PDF تیسرا ماخذ جاری (مطبوعہ ص 931 سے)
+3. Vercel پش (v174 کے بعد)

@@ -144,7 +144,7 @@ ok(remOk,'D1 ہر چھپے ہوئے ربرک کی ہر ادویہ (گریڈ سم
 // rehomed اور promoted ہر نوڈ ملے
 let nodesOk=true, miss=0;
 Object.keys(FIX).forEach(ch=>{
-  if(ch==='head'||ch==='eye'||ch==='vision'||ch==='ear'||ch==='nose'||ch==='hearing'||ch==='face') return;   // v167–v173: سر/آنکھ/وژن/کان/ناک/چہرہ بابوں کا ماخذی درخت — g/p rehome/promote فرسودہ
+  if(ch==='head'||ch==='eye'||ch==='vision'||ch==='ear'||ch==='nose'||ch==='hearing'||ch==='face'||ch==='mouth') return;   // v167–v174: سر/آنکھ/وژن/کان/ناک/چہرہ/منہ بابوں کا ماخذی درخت — g/p rehome/promote فرسودہ
   const tree=buildFor(ch); const rows=flat(tree);
   const byFull={}; rows.forEach(r=>{ if(r.node.hasRubric&&r.node.rid) byFull[r.node.rid]=r; });
   FIX[ch].g.forEach(g=>{ if(!byFull[g[0]]){ nodesOk=false; miss++; } (g[1]||[]).forEach(p=>{ if(!byFull[p[0]]){ nodesOk=false; miss++; } }); });
