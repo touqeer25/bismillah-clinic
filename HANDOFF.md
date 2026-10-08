@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 9 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 175 · **اصل مخزن:**
+**آخری تجدید:** 9 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 176 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -1920,3 +1920,33 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 1. ڈاکٹر دنت-تین-کالم.csv کی تصدیق (763 راستہ/ادویہ-درست ربرکس) اور kent-confirmation-needed.csv کا جائزہ (دنت کے 45 اندراجات: باب-آغاز واپسی، biting-لفٹ، left دہرایا ضم، 2 aggregate واپسی، 29 دستی جوڑیاں، 3 نئی خالی سرخیاں + ترجمے، 8 نمائندہ پرانیاں)
 2. اگلا باب: **THROAT INTERNAL (صفحات 448–470)** — kentthro.htm انڈیکس؛ PDF تیسرا ماخذ جاری (مطبوعہ ص 966 سے / PDF 1002)
 3. Vercel پش (v175 کے بعد)
+
+## مکمل شدہ پڑتال — گلا (THROAT) باب: ماخذی درخت + ادویات + اردو (نسخہ 176)
+
+### 17.1 باب حد اور ماخذ
+- **THROAT = صفحات 448–470** — kentthro.htm فہرست سرخی «THROAT (p. 448-470)» + **23/23 صفحہ-اندراجات subsequence**؛ 6 ماخذ فائلیں: kent0445 (P448 سے) + kent0450/kent0455/kent0460/kent0465/kent0470 — نوٹ: kent0450+ فائلیں homeoint کے `books/kentrep1/` ذیلی فولڈر میں ہیں (kentrep/ نہیں)
+- آغاز PDF 1002 = کتابی ص 448 (سرخی صفحے کی سطرِ اول — دانت باب سے بالکل صاف انتقال)؛ اختتام P471 = EXTERNAL THROAT آغاز (kentexth.htm انڈیکس + PDF 1048) — External throat الگ باب (471–475)
+- P448 سے پہلے TEETH-باڈی کے 2 غیر بند <dir> (46/44) — خاندانی clamp الگورتھم سے درست؛ 983 خام → **982 منفرد** (جڑ THROAT + 981؛ صفر دوہرے راستے)؛ 108 جڑ-بچے (جڑ + 107 مین)، گہرائی 5
+
+### 17.2 تیسرا ماخذ (Drive PDF) تصدیق
+- THROAT = PDF صفحہ 1002–1047 (46 PDF صفحات؛ ~2:1 تناسب)؛ **ordered alignment: 980/981 حرف بہ حرف مطابق، صفر باقیات (دونوں طرف)**
+- واحد فرق = مستند کتابی ضم (ص 450 «redness, dark red») — دونوں واقعے PDF 1007 پر عین کتاب کے مطابق: «dark red : Acon.…rhus-t.» (20) + «dark red : Arg-n., Bapt., calc., caust., cupr-ac., lach.» (6)
+
+### 17.3 مستند درستیاں
+- **3 خاندانی clamps (MEDI-T دوہرے <dir>):** ص 460 «PAIN, extending to ear, swallowing, on» d3→d2 (بھائی glands of neck/larynx)؛ ص 465 «PAIN, stitching, extending to ear, when swallowing» d4→d3 (بھائی root of tongue)؛ ص 468 «SWALLOWING, difficult, morning» d2→d1 — وقت-خاندان (morning/forenoon/noon/evening) مین «SWALLOWING, difficult» (149 ادویہ) کے براہِ راست بچے
+- **ص 450 کتابی دہرایا:** «redness, dark red» کتاب میں واقعی دو بار → max-گریڈ ضم (23 یونین؛ پہلا واقعہ r120 برقرار) — دانت ص 445 ضم-پالیسی
+- **21 دستی جوڑے (سب J=1.00 ادویہ-عین):** OOREP کے agg. لاحقے (o61610/o61680/o61698/o61789/o61914/o61916/o61918/o61921/o61868)، کٹے سیگمنٹ (o61238 constricting، o61780 cold-from، o61931 POWDER-hoist، o62000–07 SPASMS-hoist)، وقت-فارمیٹ (o61390 «6 to 7 p.m.»، o61727 «8 to 9 a.m.»)، اور **کتابی «on becoming» r733** (PDF 1022 ثابت: 12=12 ادویہ — OOREP نے «cold» سگمنٹ بدلا تھا)
+- **2 aggregate واپسی:** r438 «PAIN, cold» (28 = air-cold union) اور r745 «PAIN, stitching, swallowing» (53 = union) ماخذی مینوں سے واپس — عین-فارم o61583 (9)/o61868 (48) کو
+- **69 OOREP aggregate/duplicate پرانیاں میں** — r525 «PAIN, swallowing» (159 union)، r68 «CHOKING, swallowing» (35 union)، o68556 «PAIN, extending to» (40)، 16 خالی m-کنٹینرز (m61177 APPLE core، m61183 BONE، m61184 BREAD crumbs — عین-فارم r-ریکارڈز ماخذی درخت پر)
+
+### 17.4 اردو، کوڈ، رپورٹیں
+- اردو: 982/982 فعال (980 منتقل + 1 auto h002 + جڑ «گلا — گلا») · 381 غیر-درخت پرانی محفوظ · REP_RUBUR_V 168
+- کوڈ: rep-chapters.js v176 (throat بلڈر + ڈسپیچ، Pages 448–470/Count 982 سخت جائزے) · KENT_TREE_FIX throat.h 23→69 (تمام لیگسی) + g سے 4 legacy pair صفائی + p برقرار (22 سب ماخذی) · _index 1051 · master sync (indent=1) · mind search-paths side-car rebuild · CACHE v176 · ٹیبز v176 (css+js)
+- رپورٹیں: kent_sources/reports/گلا-تین-کالم.csv (980) · گلا-ہیرارکی-تصدیق.csv (982) · گلا-تمام-اندراجات.csv (982) · گلا-پرانی-قطاریں.csv (69) · گلا-پڑتال.xlsx · گلا-اصلاحات-کا-خلاصہ.md
+- **تصدیق-ضروری CSV:** download/kent-confirmation-needed.csv — گلا کے **30** نئے اندراجات + پچھلے ابواب کے حوالہ-سرخیاں (FACE/HEARING/NOSE/MOUTH/TEETH)
+- ٹیسٹ: نئی kent_throat_homeoint_source.test.js + مکمل سوئٹ **53/53 پاس** (پرانے ٹیسٹوں کے نسخہ-پن v176 پر) · کوریج G7 4631→4623 · کل 68306→68262
+
+### 17.5 اگلے قدم
+1. ڈاکٹر گلا-تین-کالم.csv کی تصدیق (980 راستہ/ادویہ-درست ربرکس) اور kent-confirmation-needed.csv کا جائزہ (گلا کے 30 اندراجات: 3 خاندانی clamps، dark red ضم، 2 aggregate واپسی، 21 دستی جوڑیاں، جڑ + h002 نئے ریکارڈ، 7 نمائندہ پرانیاں)
+2. اگلا باب: **EXTERNAL THROAT (صفحات 471–475)** — kentexth.htm انڈیکس؛ PDF تیسرا ماخذ جاری (PDF 1048 سے)
+3. Vercel پش (v176 کے بعد)

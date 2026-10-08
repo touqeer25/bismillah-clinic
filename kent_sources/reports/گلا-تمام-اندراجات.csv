@@ -1,0 +1,983 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,448,0,THROAT,0
+r0,448,0,ABSCESS (See Suppuration),0
+r1,448,0,ANÆSTHESIA,9
+r2,448,0,ANGINA (See Pain),0
+r3,448,0,APHTHÆ,11
+r4,448,1,"APHTHÆ, Tonsils, on",3
+r5,448,0,"APPLE core had lodged, sensation as if",1
+r6,448,0,ASTRINGENT sensation,3
+r7,448,0,BLACK (See Discoloration),0
+r8,448,0,BLISTERED,1
+r9,448,0,BLOOD oozing,21
+r10,448,1,"BLOOD oozing, Tonsils",5
+r11,448,1,"BLOOD oozing, Uvulæ",1
+r12,448,0,BLOTCHES (See Mucous Patches),0
+r13,448,0,"BONE in, sensation of (See Pain, as of a splinter)",6
+r14,448,0,"BREAD crumbs, sensation of",7
+r15,448,1,"BREAD crumbs, sensation of, hawking amel.",1
+o61186,448,0,BUBBLING in œsophagus,1
+r17,448,0,CALCAREOUS deposit,1
+r18,448,0,CANCEROUS,3
+r19,448,0,CASEOUS deposits in tonsils,3
+r20,448,0,CATARRH,22
+r21,448,0,CHEESY looking spots,4
+r22,448,0,"CHOKING, constricting (See Larynx)",146
+r23,448,1,"CHOKING, constricting (See Larynx), daytime",1
+r24,448,1,"CHOKING, constricting (See Larynx), morning",7
+r25,448,2,"CHOKING, constricting (See Larynx), morning, waking, on",1
+r26,448,2,"CHOKING, constricting (See Larynx), morning, 4 a.m.",1
+r27,448,2,"CHOKING, constricting (See Larynx), morning, 5 a.m.",1
+r28,448,1,"CHOKING, constricting (See Larynx), forenoon",1
+r29,448,1,"CHOKING, constricting (See Larynx), afternoon",4
+r30,448,2,"CHOKING, constricting (See Larynx), afternoon, 3 p.m.",1
+r31,448,1,"CHOKING, constricting (See Larynx), evening",4
+r32,448,1,"CHOKING, constricting (See Larynx), night",8
+r33,448,1,"CHOKING, constricting (See Larynx), bending the neck",1
+r34,448,1,"CHOKING, constricting (See Larynx), bowing the head",1
+r35,448,1,"CHOKING, constricting (See Larynx), clearing the throat, when (See Retching)",12
+r37,449,1,"CHOKING, constricting (See Larynx), clothing agg.",11
+r38,449,1,"CHOKING, constricting (See Larynx), convulsive",11
+r39,449,1,"CHOKING, constricting (See Larynx), coughing, on",3
+r40,449,1,"CHOKING, constricting (See Larynx), dinner, during",1
+r41,449,1,"CHOKING, constricting (See Larynx), drinking, when",7
+r42,449,2,"CHOKING, constricting (See Larynx), drinking, when, if looked at",1
+r43,449,1,"CHOKING, constricting (See Larynx), eating, while",6
+r44,449,2,"CHOKING, constricting (See Larynx), eating, while, bread",1
+r45,449,1,"CHOKING, constricting (See Larynx), headache, with",1
+r46,449,1,"CHOKING, constricting (See Larynx), lying down, on",3
+o61211,449,2,"CHOKING, constricting (See Larynx), lying down, on, on back amel.",1
+r48,449,1,"CHOKING, constricting (See Larynx), menses, before",1
+r49,449,1,"CHOKING, constricting (See Larynx), palpitation, from",1
+r50,449,1,"CHOKING, constricting (See Larynx), paroxysmal",1
+r51,449,1,"CHOKING, constricting (See Larynx), raising arm",1
+r52,449,1,"CHOKING, constricting (See Larynx), sleep, on going to (See Larynx)",11
+r53,449,1,"CHOKING, constricting (See Larynx), smoking",1
+r54,449,1,"CHOKING, constricting (See Larynx), speaking, when",2
+r55,449,1,"CHOKING, constricting (See Larynx), swallowing, on (Compare Retching under Stomach)",28
+r56,449,2,"CHOKING, constricting (See Larynx), swallowing, on (Compare Retching under Stomach), compelling",4
+r57,449,2,"CHOKING, constricting (See Larynx), swallowing, on (Compare Retching under Stomach), liquids",5
+r58,449,2,"CHOKING, constricting (See Larynx), swallowing, on (Compare Retching under Stomach), solids",3
+o61238,449,1,"CHOKING, constricting (See Larynx), walking, while",1
+r60,449,2,"CHOKING, constricting (See Larynx), walking, while, amel.",1
+r61,449,1,"CHOKING, constricting (See Larynx), water, sight or thought of",2
+r62,449,1,"CHOKING, constricting (See Larynx), writing, while",1
+o61218,449,1,"CHOKING, constricting (See Larynx), Œsophagus",45
+o61221,449,2,"CHOKING, constricting (See Larynx), Œsophagus, morning on waking",1
+o61222,449,2,"CHOKING, constricting (See Larynx), Œsophagus, night",1
+o61219,449,2,"CHOKING, constricting (See Larynx), Œsophagus, below upwards",2
+o61220,449,2,"CHOKING, constricting (See Larynx), Œsophagus, inspiration, on",1
+o61223,449,2,"CHOKING, constricting (See Larynx), Œsophagus, swallowing",2
+o61224,449,3,"CHOKING, constricting (See Larynx), Œsophagus, swallowing, fluids",2
+o61225,449,3,"CHOKING, constricting (See Larynx), Œsophagus, swallowing, solids",1
+r71,449,1,"CHOKING, constricting (See Larynx), os hyoids, region of",1
+r72,449,0,CLEARING throat (See Scraping),0
+o61241,449,0,CLUCKING sound œsophagus,1
+r74,449,0,COATED,4
+r75,449,1,"COATED, tonsils",1
+r76,449,0,"COLD, sensitive to (See Sensitive)",0
+r77,449,0,"COLDNESS, sensation of",20
+r78,449,1,"COLDNESS, sensation of, left, sensation of cold wind",1
+r79,449,1,"COLDNESS, sensation of, evening",1
+r80,449,1,"COLDNESS, sensation of, chilliness beginning in throat",1
+r81,449,1,"COLDNESS, sensation of, cold air, as from",4
+o61247,449,2,"COLDNESS, sensation of, cold air, as from, water were dropping down, as if",1
+o61248,449,2,"COLDNESS, sensation of, cold air, as from, wind, in",1
+r84,449,1,"COLDNESS, sensation of, expiration, on",1
+r85,449,1,"COLDNESS, sensation of, icy coldness",2
+r86,449,1,"COLDNESS, sensation of, inspiration, on",2
+r87,449,1,"COLDNESS, sensation of, peppermint, as from",4
+r88,449,1,"COLDNESS, sensation of, swallowing, on",1
+r89,449,1,"COLDNESS, sensation of, warm drinks seem cold",1
+o61254,449,1,"COLDNESS, sensation of, Œsophagus",7
+o61255,449,2,"COLDNESS, sensation of, Œsophagus, icy",1
+r92,449,0,CONDYLOMATA,4
+r93,449,0,CONTRACTION (See Choking),0
+r94,449,0,CRAMP,10
+r95,450,1,"CRAMP, on swallowing food, compelling him to retch",1
+o61261,450,1,"CRAMP, Œsophagus on swallowing",1
+r97,450,0,CRAWLING,34
+r98,450,1,"CRAWLING, morning",1
+r99,450,2,"CRAWLING, morning, in bed",2
+r100,450,1,"CRAWLING, evening",1
+r101,450,1,"CRAWLING, causing cough",7
+r102,450,1,"CRAWLING, menses, during",1
+r103,450,1,"CRAWLING, nausea, during",1
+r104,450,1,"CRAWLING, swallowing, on",1
+r105,450,1,"CRAWLING, worm, as if, were squirming in",3
+o61270,450,1,"CRAWLING, Œsophagus, in",3
+r107,450,0,CRUMBS (See Bread),0
+r108,450,0,CUTICLE (See Membrane),0
+r109,450,0,DENUDED (See Erosion),0
+r110,450,0,DIPHTHERIA (See Membrane),0
+r111,450,0,"DISCOLORATION, black (See Gangrenous)",1
+r112,450,1,"DISCOLORATION, black (See Gangrenous), copper-colored",2
+r113,450,1,"DISCOLORATION, black (See Gangrenous), dark",3
+r114,450,1,"DISCOLORATION, black (See Gangrenous), mottled",2
+r115,450,1,"DISCOLORATION, black (See Gangrenous), pale",1
+r116,450,1,"DISCOLORATION, black (See Gangrenous), purple",15
+r117,450,2,"DISCOLORATION, black (See Gangrenous), purple, tonsils",2
+r118,450,1,"DISCOLORATION, black (See Gangrenous), redness",80
+r119,450,2,"DISCOLORATION, black (See Gangrenous), redness, in spots",1
+r120,450,2,"DISCOLORATION, black (See Gangrenous), redness, dark red",23
+r121,450,2,"DISCOLORATION, black (See Gangrenous), redness, network",1
+r122,450,2,"DISCOLORATION, black (See Gangrenous), redness, Pharynx",26
+r123,450,3,"DISCOLORATION, black (See Gangrenous), redness, Pharynx, back part",4
+r124,450,2,"DISCOLORATION, black (See Gangrenous), redness, Tonsils",16
+r125,450,2,"DISCOLORATION, black (See Gangrenous), redness, Uvula",24
+r126,450,1,"DISCOLORATION, black (See Gangrenous), white spots",2
+r127,450,1,"DISCOLORATION, black (See Gangrenous), yellow spots",4
+o61290,450,0,"DISTENSION of œsophagus, sensation of",3
+r129,450,0,DRYNESS,195
+r130,451,1,"DRYNESS, daytime",1
+r131,451,1,"DRYNESS, morning",37
+r132,451,2,"DRYNESS, morning, waking, while",11
+r133,451,2,"DRYNESS, morning, walking, while",1
+r134,451,1,"DRYNESS, forenoon",1
+r135,451,1,"DRYNESS, noon",1
+r136,451,1,"DRYNESS, afternoon",7
+r137,451,2,"DRYNESS, afternoon, waking, on",1
+r138,451,2,"DRYNESS, afternoon, 5 p.m.",3
+r139,451,1,"DRYNESS, evening",16
+r140,451,2,"DRYNESS, evening, sleep, before",2
+r141,451,2,"DRYNESS, evening, 6 p.m.",1
+r142,451,1,"DRYNESS, night",24
+r143,451,1,"DRYNESS, midnight",4
+r144,451,2,"DRYNESS, midnight, after",1
+r145,451,1,"DRYNESS, air, open, in",3
+r146,451,1,"DRYNESS, bed, in",2
+r147,451,1,"DRYNESS, chill, during",1
+r148,451,1,"DRYNESS, dinner, after",1
+r149,451,1,"DRYNESS, drinking does not amel.",1
+r150,451,1,"DRYNESS, eating, after",2
+r151,451,2,"DRYNESS, eating, after, amel.",1
+r152,451,1,"DRYNESS, hawking agg.",1
+r153,451,1,"DRYNESS, heat, during",4
+r154,451,1,"DRYNESS, inspiration, on",2
+r155,451,1,"DRYNESS, lying, while",2
+r156,451,1,"DRYNESS, painful",1
+r157,451,1,"DRYNESS, rest, during",1
+r158,451,1,"DRYNESS, rising, when",2
+r159,451,1,"DRYNESS, speaking very difficult",3
+r160,451,1,"DRYNESS, swallowing, on",1
+r161,451,2,"DRYNESS, swallowing, on, saliva amel.",1
+r162,451,1,"DRYNESS, talking, from",2
+r163,451,1,"DRYNESS, thirst, without",13
+r164,451,1,"DRYNESS, waking, on",25
+r165,451,1,"DRYNESS, walking in open air",1
+o61318,451,1,"DRYNESS, Œsophagus",15
+r167,451,1,"DRYNESS, Posterior part",3
+r168,451,0,ELONGATED uvula,38
+r169,451,0,EMPTINESS,3
+r170,451,1,"EMPTINESS, on swallowing",1
+r983,451,0,ENLARGEMENT of tonsils,32
+r171,452,0,EROSION,5
+r172,452,1,"EROSION, spots",1
+r173,452,0,EXCORIATION (See Rawness under Pain),10
+r174,452,0,"FISHBONE (See Pain, as of a Splinter)",0
+r175,452,0,FISSURED pharynx,4
+r176,452,0,FOOD lodges in the throat,17
+o61344,452,1,"FOOD lodges in the throat, sensation of",4
+o61343,452,1,"FOOD lodges in the throat, passes into choanæ (See also Liquids)",4
+o61342,452,1,"FOOD lodges in the throat, Œsophagus, sensation as if food lodged in",9
+o61339,452,2,"FOOD lodges in the throat, Œsophagus, sensation as if food lodged in, food is felt until it enters the stomach",4
+o61340,452,2,"FOOD lodges in the throat, Œsophagus, sensation as if food lodged in, food turned like a corkscrew on a swallowing",1
+o61341,452,3,"FOOD lodges in the throat, Œsophagus, sensation as if food lodged in, food turned like a corkscrew on a swallowing, passed over raw places",1
+r183,452,0,"FOREIGN body, sensation of (See Lump)",41
+r184,452,1,"FOREIGN body, sensation of (See Lump), morning",2
+r185,452,1,"FOREIGN body, sensation of (See Lump), afternoon",1
+r186,452,1,"FOREIGN body, sensation of (See Lump), evening",1
+r187,452,1,"FOREIGN body, sensation of (See Lump), apple core",1
+r188,452,1,"FOREIGN body, sensation of (See Lump), bone (See Bone)",0
+r189,452,1,"FOREIGN body, sensation of (See Lump), bread crumbs (See Bread)",0
+r190,452,1,"FOREIGN body, sensation of (See Lump), skin hanging loose in, and he must swallow over it",1
+r191,452,1,"FOREIGN body, sensation of (See Lump), smoking, while",2
+r192,452,1,"FOREIGN body, sensation of (See Lump), string, as if a",2
+r193,452,1,"FOREIGN body, sensation of (See Lump), stone",1
+r194,452,1,"FOREIGN body, sensation of (See Lump), swallowing",2
+r195,452,2,"FOREIGN body, sensation of (See Lump), swallowing, does not amel.",6
+o61350,452,1,"FOREIGN body, sensation of (See Lump), Œsophagus",7
+r197,452,0,FORMICATION (See Crawling),0
+r198,452,0,FULLNESS,33
+r199,452,1,"FULLNESS, afternoon",1
+r200,452,1,"FULLNESS, lying down",1
+r201,452,1,"FULLNESS, swallowing, on",1
+r202,452,1,"FULLNESS, turning head to left",1
+r203,452,1,"FULLNESS, writing",1
+r204,452,0,GANGRENE,32
+r205,452,1,"GANGRENE, Uvula",3
+r206,452,0,GLAZED appearance,10
+r207,452,0,GLOBUS hystericus (See Lump),0
+r208,452,0,GRANULATED,4
+o61367,452,0,"GURGLING, drinking, when, Œsophagus",10
+o61368,452,1,"GURGLING, drinking, when, Œsophagus, convulsion, during",2
+o61369,452,1,"GURGLING, drinking, when, Œsophagus, coughing, after",1
+o61370,452,1,"GURGLING, drinking, when, Œsophagus, sleeping, while",1
+r213,452,0,"HAIR, sensation of",8
+r214,452,1,"HAIR, sensation of, afternoon",1
+r984,452,0,"HAWK, disposition to",108
+o61374,453,1,"HAWK, disposition to, 11 a.m.",1
+o61381,453,1,"HAWK, disposition to, morning",18
+o61378,453,1,"HAWK, disposition to, forenoon",1
+o61379,453,2,"HAWK, disposition to, forenoon, 11 a.m.",1
+o61377,453,1,"HAWK, disposition to, evening",2
+o61382,453,1,"HAWK, disposition to, night",1
+o61375,453,1,"HAWK, disposition to, air, in open",2
+o61376,453,1,"HAWK, disposition to, breakfast, after",1
+o61380,453,1,"HAWK, disposition to, ineffectual",4
+o61383,453,1,"HAWK, disposition to, roughness, from",1
+o61385,453,1,"HAWK, disposition to, sleep, during",1
+o61384,453,2,"HAWK, disposition to, sleep, during, after",1
+o61386,453,1,"HAWK, disposition to, talking, while",1
+o61387,453,1,"HAWK, disposition to, walking in open air",2
+r230,453,0,HAWKS up cheesy lumps,10
+r231,453,0,HEAT,91
+r232,453,1,"HEAT, morning",2
+r233,453,1,"HEAT, forenoon",1
+r234,453,1,"HEAT, afternoon",1
+r235,453,2,"HEAT, afternoon, 2 p.m.",1
+r236,453,1,"HEAT, evening",3
+o61390,453,1,"HEAT, 6 to 7 p.m.",1
+r238,453,1,"HEAT, night",1
+r239,453,1,"HEAT, cold air amel.",1
+r240,453,1,"HEAT, cough, after",1
+r241,453,1,"HEAT, respiration, on",1
+r242,453,1,"HEAT, swallowing, on",2
+r243,453,1,"HEAT, walking in open air, while",1
+r244,453,1,"HEAT, extending to stomach",5
+o61400,453,1,"HEAT, Œsophagus",25
+r246,453,0,INDURATION of tonsils,10
+r247,453,0,INFLAMMATION,122
+r248,453,1,"INFLAMMATION, right",13
+r249,453,1,"INFLAMMATION, left",11
+r250,454,1,"INFLAMMATION, forenoon",1
+r251,454,1,"INFLAMMATION, night",2
+r252,454,1,"INFLAMMATION, alternating with sore eyes",1
+r253,454,1,"INFLAMMATION, children",1
+r254,454,1,"INFLAMMATION, chronic",27
+r255,454,1,"INFLAMMATION, cold, after",4
+r256,454,1,"INFLAMMATION, erysipelatous",9
+r257,454,1,"INFLAMMATION, follicular",21
+r258,454,1,"INFLAMMATION, menses, before",1
+r259,454,2,"INFLAMMATION, menses, before, during",1
+r260,454,1,"INFLAMMATION, mercury, after",3
+r261,454,1,"INFLAMMATION, painless",1
+r262,454,1,"INFLAMMATION, phlegmonous",11
+r263,454,1,"INFLAMMATION, waking, on",2
+r264,454,1,"INFLAMMATION, warmth of bed agg.",2
+o61418,454,1,"INFLAMMATION, Œsophagus",21
+r266,454,1,"INFLAMMATION, Pharynx (chronic)",13
+r267,454,1,"INFLAMMATION, Tonsils",67
+r268,454,2,"INFLAMMATION, Tonsils, cold weather, every spell of",2
+r269,454,2,"INFLAMMATION, Tonsils, painless",1
+r270,454,2,"INFLAMMATION, Tonsils, recurrent",11
+r271,454,1,"INFLAMMATION, Uvula",23
+r272,454,0,IRRITATION,32
+r273,454,1,"IRRITATION, morning",3
+r274,454,1,"IRRITATION, evening",1
+r275,454,1,"IRRITATION, night",1
+r276,454,1,"IRRITATION, extending to eustachian tube",1
+o61435,454,1,"IRRITATION, Œsophagus",2
+r278,454,1,"IRRITATION, Pharynx",4
+r279,454,0,ITCHING,18
+r280,454,1,"ITCHING, coughing, when",1
+r281,454,1,"ITCHING, periodical",1
+o61439,454,1,"ITCHING, Œsophagus",2
+r283,454,1,"ITCHING, Pharynx",2
+r284,454,2,"ITCHING, Pharynx, swallowing, when",2
+r285,454,0,Jerking,2
+r286,454,1,"Jerking, to pit of stomach",1
+r287,454,0,"LEAF, sensation in pharynx as if leaf lay before posterior nares, morning after waking",1
+r288,454,0,LIQUIDS taken are forced into nose (See also Food),28
+r985,454,0,"LUMP, plug, etc., sensation of",97
+o61455,455,1,"LUMP, plug, etc., sensation of, morning",2
+o61453,455,1,"LUMP, plug, etc., sensation of, forenoon",2
+o61454,455,2,"LUMP, plug, etc., sensation of, forenoon, riding, while",1
+o61448,455,1,"LUMP, plug, etc., sensation of, afternoon",1
+o61451,455,1,"LUMP, plug, etc., sensation of, evening",3
+o61452,455,2,"LUMP, plug, etc., sensation of, evening, swallowing, on",1
+o61456,455,1,"LUMP, plug, etc., sensation of, night",2
+o61449,455,1,"LUMP, plug, etc., sensation of, coughing amel.",1
+o61450,455,1,"LUMP, plug, etc., sensation of, eructations amel.",2
+o61461,455,1,"LUMP, plug, etc., sensation of, painful",1
+o61462,455,1,"LUMP, plug, etc., sensation of, rising sensation",34
+o61463,455,1,"LUMP, plug, etc., sensation of, sleep, during",5
+o61464,455,1,"LUMP, plug, etc., sensation of, smoking, while",2
+o61465,455,1,"LUMP, plug, etc., sensation of, stone",1
+o61468,455,1,"LUMP, plug, etc., sensation of, swallowing, on",14
+o61467,455,2,"LUMP, plug, etc., sensation of, swallowing, on, not amel. by",7
+o61466,455,2,"LUMP, plug, etc., sensation of, swallowing, on, empty",5
+o61469,455,2,"LUMP, plug, etc., sensation of, swallowing, on, returns after",4
+o61470,455,2,"LUMP, plug, etc., sensation of, swallowing, on, when not",4
+o61457,455,1,"LUMP, plug, etc., sensation of, Œsophagus",28
+o61458,455,2,"LUMP, plug, etc., sensation of, Œsophagus, eating, after",2
+o61459,455,2,"LUMP, plug, etc., sensation of, Œsophagus, periodical",1
+o61460,455,2,"LUMP, plug, etc., sensation of, Œsophagus, swallowing amel.",1
+r313,455,0,"MEMBRANE, exudation, diphtheria, etc.",56
+r356,455,1,"MEMBRANE, exudation, diphtheria, etc., right",8
+o61502,455,2,"MEMBRANE, exudation, diphtheria, etc., right, extending to left",3
+r357,455,1,"MEMBRANE, exudation, diphtheria, etc., left",7
+o61490,455,2,"MEMBRANE, exudation, diphtheria, etc., left, alternating sides",1
+o61491,455,2,"MEMBRANE, exudation, diphtheria, etc., left, extending to right",4
+o61471,455,1,"MEMBRANE, exudation, diphtheria, etc., blood-streaked",1
+o61472,455,1,"MEMBRANE, exudation, diphtheria, etc., bluish",5
+o61473,455,1,"MEMBRANE, exudation, diphtheria, etc., brownish",1
+o61474,455,1,"MEMBRANE, exudation, diphtheria, etc., curdy",1
+o61475,455,1,"MEMBRANE, exudation, diphtheria, etc., dark",2
+o61476,455,1,"MEMBRANE, exudation, diphtheria, etc., deep-seated",4
+o61477,455,1,"MEMBRANE, exudation, diphtheria, etc., dirty-looking",2
+o61478,455,1,"MEMBRANE, exudation, diphtheria, etc., dry and shrivelled",1
+o61479,455,1,"MEMBRANE, exudation, diphtheria, etc., elastic",1
+o61480,455,1,"MEMBRANE, exudation, diphtheria, etc., entire throat",4
+o61485,455,1,"MEMBRANE, exudation, diphtheria, etc., gray",17
+o61486,455,1,"MEMBRANE, exudation, diphtheria, etc., greenish",3
+o61487,455,1,"MEMBRANE, exudation, diphtheria, etc., irregular",2
+o61488,455,1,"MEMBRANE, exudation, diphtheria, etc., leathery",1
+o61492,455,1,"MEMBRANE, exudation, diphtheria, etc., loose",3
+o61493,455,1,"MEMBRANE, exudation, diphtheria, etc., migratory",1
+o61494,455,1,"MEMBRANE, exudation, diphtheria, etc., patches",2
+o61495,455,2,"MEMBRANE, exudation, diphtheria, etc., patches, isolated",1
+o61496,455,2,"MEMBRANE, exudation, diphtheria, etc., patches, small (specks)",7
+o61497,455,1,"MEMBRANE, exudation, diphtheria, etc., pearly",3
+o61499,455,1,"MEMBRANE, exudation, diphtheria, etc., profuse",5
+r341,456,1,"MEMBRANE, exudation, diphtheria, etc., putrid",3
+r342,456,1,"MEMBRANE, exudation, diphtheria, etc., scanty",2
+r343,456,1,"MEMBRANE, exudation, diphtheria, etc., thick",3
+r344,456,1,"MEMBRANE, exudation, diphtheria, etc., thin",2
+r345,456,1,"MEMBRANE, exudation, diphtheria, etc., transparent",2
+r346,456,1,"MEMBRANE, exudation, diphtheria, etc., varnished, shining",1
+r347,456,1,"MEMBRANE, exudation, diphtheria, etc., wash leather",2
+r348,456,1,"MEMBRANE, exudation, diphtheria, etc., white",23
+r349,456,1,"MEMBRANE, exudation, diphtheria, etc., wrinkled",1
+r350,456,1,"MEMBRANE, exudation, diphtheria, etc., yellow",12
+r351,456,1,"MEMBRANE, exudation, diphtheria, etc., extending to nose",7
+o61482,456,2,"MEMBRANE, exudation, diphtheria, etc., extending to nose, larynx",2
+r353,456,1,"MEMBRANE, exudation, diphtheria, etc., Fauces",2
+r354,456,1,"MEMBRANE, exudation, diphtheria, etc., Pharynx, posterior wall",5
+r355,456,1,"MEMBRANE, exudation, diphtheria, etc., Tonsils",16
+o61508,456,2,"MEMBRANE, exudation, diphtheria, etc., Tonsils, right",5
+o61507,456,2,"MEMBRANE, exudation, diphtheria, etc., Tonsils, left",3
+r358,456,1,"MEMBRANE, exudation, diphtheria, etc., Uvula",8
+r359,456,0,MUCUS,155
+r360,456,1,"MUCUS, morning",53
+r361,456,2,"MUCUS, morning, waking, on",2
+r362,456,2,"MUCUS, morning, 11 a.m.",1
+r363,456,1,"MUCUS, evening",6
+r364,456,2,"MUCUS, evening, 4 p.m.",1
+r365,456,2,"MUCUS, evening, 6 p.m.",1
+r366,456,1,"MUCUS, night",5
+r367,456,2,"MUCUS, night, on waking",1
+r368,456,2,"MUCUS, night, midnight",1
+r369,456,1,"MUCUS, air, open, in",1
+r370,456,1,"MUCUS, albuminous",8
+r371,456,1,"MUCUS, bed, in",1
+r372,456,1,"MUCUS, bitter",7
+r373,456,1,"MUCUS, bloody",18
+r374,456,1,"MUCUS, breakfast, before",1
+r375,456,1,"MUCUS, difficult to detach",4
+r376,456,1,"MUCUS, drawn from posterior nares",50
+r377,457,1,"MUCUS, easily discharged",2
+r378,457,1,"MUCUS, eating, while",3
+r379,457,1,"MUCUS, false membrane, like",3
+r380,457,1,"MUCUS, foul",2
+r381,457,1,"MUCUS, frothy",4
+r382,457,1,"MUCUS, gelatinous",5
+r383,457,1,"MUCUS, gluey",2
+r384,457,1,"MUCUS, grayish",8
+r385,457,1,"MUCUS, greenish",10
+r386,457,1,"MUCUS, hanging down",5
+r387,457,1,"MUCUS, lumps",2
+r388,457,1,"MUCUS, metallic taste",1
+r389,457,1,"MUCUS, offensive",4
+r390,457,1,"MUCUS, old cheese, tasting like",1
+r391,457,1,"MUCUS, putrid",1
+r392,457,1,"MUCUS, qualmishness, during",1
+r393,457,1,"MUCUS, red as blood",1
+r394,457,1,"MUCUS, ropy (See Tenacious)",0
+r395,457,1,"MUCUS, saltish",13
+r396,457,1,"MUCUS, sensation of",3
+r397,457,1,"MUCUS, sour",5
+r398,457,1,"MUCUS, swallow, which must",1
+r399,457,2,"MUCUS, swallow, which must, which can neither swallow nor hawk up",1
+r400,457,1,"MUCUS, sweetish",6
+r401,457,1,"MUCUS, tenacious",97
+r402,457,2,"MUCUS, tenacious, morning",12
+r403,457,2,"MUCUS, tenacious, evening",2
+r404,457,2,"MUCUS, tenacious, night",1
+r405,457,1,"MUCUS, thick",37
+r406,457,2,"MUCUS, thick, morning",2
+r407,457,1,"MUCUS, tough (See Tenacious)",0
+r408,457,1,"MUCUS, viscid (See Tenacious)",0
+r409,457,1,"MUCUS, watery",4
+r410,457,2,"MUCUS, watery, morning",1
+r411,457,1,"MUCUS, white",23
+r412,457,2,"MUCUS, white, morning",1
+r413,457,2,"MUCUS, white, milk white",1
+r414,457,1,"MUCUS, yellow",22
+r415,457,2,"MUCUS, yellow, morning",1
+r416,457,2,"MUCUS, yellow, forenoon",1
+r417,457,2,"MUCUS, yellow, lower part",3
+r418,457,0,MUCOUS patches,8
+r419,457,0,NARROW sensation,15
+r420,457,1,"NARROW sensation, coughing, when",1
+r421,457,1,"NARROW sensation, swallowing, when",2
+r422,458,0,"NAUSEA, in the throat (See Stomach)",0
+r423,458,0,NUMBNESS (See Anæsthesia),9
+r424,458,0,OBSTRUCTION,9
+r425,458,1,"OBSTRUCTION, morning",1
+r426,458,1,"OBSTRUCTION, swallowing, when",4
+r427,458,1,"OBSTRUCTION, waking, on",1
+r428,458,0,PAIN,120
+r429,458,1,"PAIN, right",11
+r430,458,1,"PAIN, left",6
+r431,458,1,"PAIN, daytime",1
+r432,458,1,"PAIN, morning",16
+r433,458,2,"PAIN, morning, waking, on",4
+r434,458,1,"PAIN, noon",1
+r435,458,1,"PAIN, afternoon",2
+r436,458,1,"PAIN, evening",12
+r437,458,1,"PAIN, night",14
+o61583,458,1,"PAIN, air, cold",9
+r439,458,2,"PAIN, air, cold, amel.",4
+r440,458,1,"PAIN, apple core, as from",2
+r441,458,1,"PAIN, bending head forwards",2
+r442,458,1,"PAIN, blowing nose",1
+r443,458,1,"PAIN, change of weather",1
+r444,458,1,"PAIN, chill, before",1
+r445,458,2,"PAIN, chill, before, during",1
+r446,458,1,"PAIN, clearing the throat, on",1
+r447,458,1,"PAIN, cold, from a",5
+o61654,458,2,"PAIN, cold, from a, drinks",8
+r449,458,3,"PAIN, cold, from a, drinks, amel.",9
+r733,458,1,"PAIN, on becoming",12
+r451,458,1,"PAIN, coughing, on",33
+r452,458,2,"PAIN, coughing, on, after",2
+r453,458,1,"PAIN, damp weather",4
+r454,458,1,"PAIN, depressing the tongue",1
+r455,458,1,"PAIN, dinner, after",1
+r456,458,1,"PAIN, draft of air",3
+r457,458,1,"PAIN, drinking agg.",1
+o61678,458,2,"PAIN, drinking agg., amel.",3
+o61680,458,1,"PAIN, eating, while",3
+r460,458,2,"PAIN, eating, while, amel.",8
+r461,458,1,"PAIN, expectoration agg.",1
+r462,458,1,"PAIN, expiration, on",1
+r463,458,1,"PAIN, hawking, on",5
+r464,458,1,"PAIN, heat, during",3
+r465,458,1,"PAIN, inspiration, on",7
+r466,458,1,"PAIN, lifting, on",1
+o61698,458,1,"PAIN, lying, while",2
+r468,458,2,"PAIN, lying, while, amel.",1
+r469,459,1,"PAIN, menses, before",2
+r470,459,2,"PAIN, menses, before, during",5
+r471,459,1,"PAIN, mental exertion, during",1
+r472,459,1,"PAIN, motion, on",4
+r473,459,1,"PAIN, moving the tongue",2
+r474,459,1,"PAIN, paroxysmal",2
+r475,459,1,"PAIN, pulsating",1
+r476,459,1,"PAIN, putting out the tongue",3
+r477,459,1,"PAIN, rheumatic",3
+r478,459,1,"PAIN, rising, on",1
+r479,459,1,"PAIN, sharp, as from something",2
+r480,459,1,"PAIN, sitting amel.",1
+r481,459,1,"PAIN, sleep, after",4
+r482,459,1,"PAIN, smoking, after",1
+r483,459,1,"PAIN, sneezing, on",3
+r484,459,1,"PAIN, speaking, on",11
+r485,459,1,"PAIN, stooping, on",2
+r486,459,1,"PAIN, swallowing, on",138
+r487,459,2,"PAIN, swallowing, on, empty, on",50
+r488,459,2,"PAIN, swallowing, on, food",16
+r489,459,2,"PAIN, swallowing, on, liquids",7
+o61880,459,2,"PAIN, swallowing, on, after",9
+r491,459,3,"PAIN, swallowing, on, after, amel.",10
+r492,459,2,"PAIN, swallowing, on, when not",24
+r493,459,2,"PAIN, swallowing, on, behind hyoid bone, when",1
+r494,459,1,"PAIN, sweet agg.",2
+o61889,459,2,"PAIN, sweet agg., amel.",1
+r496,459,1,"PAIN, talking",7
+r497,459,1,"PAIN, touched, when",16
+r498,459,1,"PAIN, turning the head",5
+r499,459,1,"PAIN, ulcerative",4
+r500,459,1,"PAIN, waking, on",5
+r501,459,1,"PAIN, warm bed",3
+o61914,459,2,"PAIN, warm bed, drinks",7
+o61915,459,3,"PAIN, warm bed, drinks, amel.",12
+o61916,459,2,"PAIN, warm bed, room",2
+o61917,459,3,"PAIN, warm bed, room, amel.",1
+o61918,459,1,"PAIN, warmth in general",4
+r507,459,2,"PAIN, warmth in general, amel.",5
+o61921,460,1,"PAIN, yawning, when",7
+r509,460,2,"PAIN, yawning, when, amel.",1
+r510,460,1,"PAIN, extending to ear",32
+r511,460,2,"PAIN, extending to ear, swallowing, on",16
+o61686,460,2,"PAIN, extending to ear, glands of neck",1
+o61687,460,3,"PAIN, extending to ear, glands of neck, submaxillary",1
+o61688,460,2,"PAIN, extending to ear, larynx",2
+o61689,460,2,"PAIN, extending to ear, stomach",3
+o61708,460,1,"PAIN, Œsophagus",17
+o61711,460,2,"PAIN, Œsophagus, swallowing, on",6
+o61712,460,3,"PAIN, Œsophagus, swallowing, on, solids",1
+o61709,460,2,"PAIN, Œsophagus, extending to stomach",5
+o61710,460,3,"PAIN, Œsophagus, extending to stomach, on sneezing",1
+r521,460,1,"PAIN, Pharynx",13
+r522,460,2,"PAIN, Pharynx, cough, during",1
+r523,460,2,"PAIN, Pharynx, sneezing",1
+r524,460,2,"PAIN, Pharynx, turning head",1
+h002,460,2,"PAIN, Pharynx, swallowing (See Pain in general)",0
+r526,460,2,"PAIN, Pharynx, lower part",2
+r527,460,1,"PAIN, Tonsils",15
+r528,460,2,"PAIN, Tonsils, right",1
+r529,460,2,"PAIN, Tonsils, morning",1
+r530,460,3,"PAIN, Tonsils, morning, on waking",1
+r531,460,3,"PAIN, Tonsils, morning, 8 a.m.",1
+r532,460,2,"PAIN, Tonsils, yawning",1
+r533,460,1,"PAIN, Uvula",2
+r534,460,1,"PAIN, burning",174
+r535,460,2,"PAIN, burning, daytime",1
+r536,460,2,"PAIN, burning, morning",7
+r537,460,2,"PAIN, burning, forenoon",3
+r538,460,2,"PAIN, burning, noon",1
+r539,460,2,"PAIN, burning, evening",4
+r540,460,2,"PAIN, burning, night",2
+r541,460,3,"PAIN, burning, night, cold drinks, from",1
+r542,460,3,"PAIN, burning, night, midnight",2
+r543,460,2,"PAIN, burning, bread, after",1
+r544,460,2,"PAIN, burning, cold drinks, after",5
+r545,460,3,"PAIN, burning, cold drinks, after, amel.",1
+r546,460,2,"PAIN, burning, cough, after",8
+r547,460,2,"PAIN, burning, dinner, after",2
+r548,461,2,"PAIN, burning, drinking",2
+r549,461,2,"PAIN, burning, eating, after",6
+r550,461,3,"PAIN, burning, eating, after, amel.",1
+r551,461,2,"PAIN, burning, eructations, after",2
+r552,461,2,"PAIN, burning, expiration",3
+r553,461,2,"PAIN, burning, hawking, when",2
+o61610,461,2,"PAIN, burning, inspiration, on",3
+r555,461,3,"PAIN, burning, inspiration, on, amel.",4
+r556,461,2,"PAIN, burning, itching smarting",12
+r557,461,2,"PAIN, burning, lying down, on",1
+r558,461,2,"PAIN, burning, menses, during",2
+r559,461,2,"PAIN, burning, peppery",2
+r560,461,2,"PAIN, burning, pressure, on",1
+r561,461,2,"PAIN, burning, seashore, at",1
+r562,461,2,"PAIN, burning, sleep amel.",1
+r563,461,2,"PAIN, burning, smoking",2
+r564,461,2,"PAIN, burning, supper, after",1
+r565,461,2,"PAIN, burning, swallowing, when",14
+r566,461,3,"PAIN, burning, swallowing, when, empty, on",3
+r567,461,2,"PAIN, burning, sweets, after",1
+r568,461,2,"PAIN, burning, vomiting after",4
+r569,461,2,"PAIN, burning, waking, on",1
+r570,461,2,"PAIN, burning, warm drinks amel.",4
+r571,461,2,"PAIN, burning, extending to abdomen",1
+o61602,461,3,"PAIN, burning, extending to abdomen, chest",2
+o61603,461,3,"PAIN, burning, extending to abdomen, lips",1
+o61604,461,3,"PAIN, burning, extending to abdomen, nostrils, left",1
+o61605,461,3,"PAIN, burning, extending to abdomen, œsophagus",6
+o61606,461,3,"PAIN, burning, extending to abdomen, stomach",16
+o61619,461,2,"PAIN, burning, Œsophagus",69
+o61629,461,3,"PAIN, burning, Œsophagus, morning",1
+o61628,461,3,"PAIN, burning, Œsophagus, forenoon",1
+o61630,461,3,"PAIN, burning, Œsophagus, noon",1
+o61620,461,3,"PAIN, burning, Œsophagus, afternoon",1
+o61625,461,3,"PAIN, burning, Œsophagus, evening",1
+o61621,461,3,"PAIN, burning, Œsophagus, drinking, while",3
+o61622,461,3,"PAIN, burning, Œsophagus, eating, after",2
+o61623,461,4,"PAIN, burning, Œsophagus, eating, after, some hours after",1
+o61624,461,3,"PAIN, burning, Œsophagus, eructations, from",3
+o61631,461,3,"PAIN, burning, Œsophagus, pressure, on",1
+o61632,461,3,"PAIN, burning, Œsophagus, prickling",1
+o61634,461,3,"PAIN, burning, Œsophagus, swallowing, when",3
+o61633,461,4,"PAIN, burning, Œsophagus, swallowing, when, water",2
+o61626,461,3,"PAIN, burning, Œsophagus, extending to stomach",8
+o61627,461,4,"PAIN, burning, Œsophagus, extending to stomach, upward",3
+r593,461,2,"PAIN, burning, Tonsils",6
+r594,461,3,"PAIN, burning, Tonsils, cold air amel.",1
+r595,461,2,"PAIN, burning, Uvula",5
+r596,461,1,"PAIN, cutting",12
+r597,461,2,"PAIN, cutting, coughing, on",3
+r598,461,2,"PAIN, cutting, hawking, on",1
+r599,461,2,"PAIN, cutting, swallowing, on",2
+r600,461,2,"PAIN, cutting, extending to stomach",1
+r601,461,1,"PAIN, drawing",21
+r602,461,2,"PAIN, drawing, night",1
+r603,461,2,"PAIN, drawing, moving the tongue",1
+r604,461,2,"PAIN, drawing, sitting up amel.",1
+r605,462,2,"PAIN, drawing, swallowing, when not",1
+r606,462,2,"PAIN, drawing, extending to ear",3
+r607,462,2,"PAIN, drawing, Tonsils",3
+r608,462,1,"PAIN, lancinating",6
+r609,462,2,"PAIN, lancinating, Tonsils",1
+r610,462,1,"PAIN, pressing",76
+r611,462,2,"PAIN, pressing, daytime",1
+r612,462,2,"PAIN, pressing, morning",7
+r613,462,3,"PAIN, pressing, morning, rising, on",1
+r614,462,3,"PAIN, pressing, morning, waking, on",1
+o61727,462,3,"PAIN, pressing, morning, 8 to 9 a.m.",1
+r616,462,2,"PAIN, pressing, evening",2
+r617,462,2,"PAIN, pressing, night",2
+r618,462,3,"PAIN, pressing, night, in bed",1
+r619,462,2,"PAIN, pressing, asunder",1
+r620,462,2,"PAIN, pressing, speaking, while",1
+r621,462,2,"PAIN, pressing, swallowing, on",10
+r622,462,2,"PAIN, pressing, extending to ear",4
+o61724,462,3,"PAIN, pressing, extending to ear, abdomen",1
+o61725,462,3,"PAIN, pressing, extending to ear, stomach",1
+o61732,462,2,"PAIN, pressing, Œsophagus",12
+o61735,462,3,"PAIN, pressing, Œsophagus, eating, while",1
+o61734,462,3,"PAIN, pressing, Œsophagus, ball, as if",1
+o61733,462,3,"PAIN, pressing, Œsophagus, as if pressed on by the larynx",1
+o61736,462,3,"PAIN, pressing, Œsophagus, swallowing",1
+r630,462,2,"PAIN, pressing, Tonsils",10
+r631,462,1,"PAIN, rawness",116
+r632,462,2,"PAIN, rawness, morning",15
+r633,462,2,"PAIN, rawness, forenoon",2
+r634,462,2,"PAIN, rawness, evening",11
+r635,462,2,"PAIN, rawness, night",3
+r636,462,2,"PAIN, rawness, clearing throat, when",1
+r637,462,2,"PAIN, rawness, cold air, drawing",2
+r638,462,2,"PAIN, rawness, coughing, when",14
+r639,462,2,"PAIN, rawness, damp weather",1
+r640,462,2,"PAIN, rawness, dinner, after",1
+r641,462,2,"PAIN, rawness, eating, after",1
+r642,462,3,"PAIN, rawness, eating, after, amel.",1
+r643,462,2,"PAIN, rawness, expiration, on",2
+r644,462,2,"PAIN, rawness, hawking, when",2
+r645,462,2,"PAIN, rawness, sleep, after",1
+r646,462,2,"PAIN, rawness, smoking, while",1
+r647,462,2,"PAIN, rawness, swallowing, when",11
+r648,463,2,"PAIN, rawness, waking, on",1
+r649,463,2,"PAIN, rawness, walking, while",1
+r650,463,3,"PAIN, rawness, walking, while, in open air",1
+r651,463,2,"PAIN, rawness, extending to stomach",2
+o61757,463,2,"PAIN, rawness, Œsophagus",5
+r653,463,2,"PAIN, rawness, Tonsils",1
+r654,463,2,"PAIN, rawness, Uvula",1
+r655,463,1,"PAIN, shooting (See Stitching)",0
+r656,463,1,"PAIN, sore",135
+r657,463,2,"PAIN, sore, right",21
+r658,463,3,"PAIN, sore, right, extending to left",5
+r659,463,2,"PAIN, sore, left",14
+r660,463,3,"PAIN, sore, left, extending into ear",1
+r661,463,3,"PAIN, sore, left, to right",3
+r662,463,2,"PAIN, sore, daytime",2
+r663,463,2,"PAIN, sore, morning",21
+r664,463,3,"PAIN, sore, morning, swallowing, when not",1
+r665,463,3,"PAIN, sore, morning, waking, on",6
+r666,463,3,"PAIN, sore, morning, 7 a.m.",1
+r667,463,2,"PAIN, sore, forenoon",2
+r668,463,3,"PAIN, sore, forenoon, 10 a.m.",1
+r669,463,2,"PAIN, sore, afternoon",5
+r670,463,3,"PAIN, sore, afternoon, 4 p.m.",1
+r671,463,3,"PAIN, sore, afternoon, 5 p.m.",1
+r672,463,2,"PAIN, sore, evening",18
+r673,463,2,"PAIN, sore, night",6
+r674,463,2,"PAIN, sore, air, cold, from",7
+o61779,463,3,"PAIN, sore, air, cold, from, draft of",2
+o61780,463,3,"PAIN, sore, air, cold, from, open",1
+o61781,463,4,"PAIN, sore, air, cold, from, open, amel.",1
+r678,463,2,"PAIN, sore, alternating sides",1
+r679,463,2,"PAIN, sore, change of weather",1
+r680,463,2,"PAIN, sore, clearing the throat, on",1
+r681,463,2,"PAIN, sore, coughing, on",11
+r682,463,2,"PAIN, sore, damp weather, in",4
+o61789,463,2,"PAIN, sore, eating, while",3
+r684,463,3,"PAIN, sore, eating, while, amel.",3
+r685,463,2,"PAIN, sore, expiration, during",1
+r686,463,2,"PAIN, sore, hawking, after",2
+r687,463,2,"PAIN, sore, lump",7
+r688,463,2,"PAIN, sore, menses, before",2
+r689,463,3,"PAIN, sore, menses, before, during",4
+r690,463,2,"PAIN, sore, opening mouth, difficult, with",1
+r691,463,2,"PAIN, sore, pressure, on",1
+r692,463,2,"PAIN, sore, singers (See Larynx)",0
+r693,463,2,"PAIN, sore, sneezing",1
+r694,463,2,"PAIN, sore, speaking, from",1
+r695,463,2,"PAIN, sore, stooping, after",1
+r696,464,2,"PAIN, sore, straining throat, after",1
+r697,464,2,"PAIN, sore, swallowing (See Pain in General)",0
+r698,464,2,"PAIN, sore, sweets, after",2
+r699,464,2,"PAIN, sore, talking",1
+r700,464,2,"PAIN, sore, waking, on",13
+r701,464,2,"PAIN, sore, extending to chest",2
+o61793,464,3,"PAIN, sore, extending to chest, ears",6
+o61794,464,3,"PAIN, sore, extending to chest, larynx",1
+o61795,464,3,"PAIN, sore, extending to chest, nape",1
+o61796,464,3,"PAIN, sore, extending to chest, stomach",1
+o61811,464,2,"PAIN, sore, Œsophagus",8
+o61812,464,3,"PAIN, sore, Œsophagus, feels food whole length of œsophagus",1
+o61813,464,3,"PAIN, sore, Œsophagus, swallowing, as if, over a sore spot",3
+r709,464,1,"PAIN, splinter, as from a",19
+r710,464,2,"PAIN, splinter, as from a, as from awns of barley in the pharynx",2
+r711,464,2,"PAIN, splinter, as from a, cold, from becoming",1
+r712,464,2,"PAIN, splinter, as from a, swallowing, on",3
+r713,464,2,"PAIN, splinter, as from a, extending to ear on yawning",1
+o61830,464,3,"PAIN, splinter, as from a, extending to ear on yawning, on turning head",1
+o61831,464,2,"PAIN, splinter, as from a, Œsophagus",1
+r716,464,1,"PAIN, stinging",13
+r717,464,2,"PAIN, stinging, menses, before",1
+r718,464,2,"PAIN, stinging, swallowing, on",13
+r719,464,3,"PAIN, stinging, swallowing, on, when not",6
+r720,464,2,"PAIN, stinging, talking, while",2
+r721,464,2,"PAIN, stinging, yawning, when",1
+o61835,464,2,"PAIN, stinging, Œsophagus, in",1
+r723,464,1,"PAIN, stitching",101
+r724,464,2,"PAIN, stitching, right",2
+r725,464,2,"PAIN, stitching, left",4
+r726,464,2,"PAIN, stitching, morning",6
+r727,464,3,"PAIN, stitching, morning, on rising",2
+r728,464,2,"PAIN, stitching, afternoon",1
+r729,464,2,"PAIN, stitching, evening",7
+r730,464,2,"PAIN, stitching, night",3
+r731,464,2,"PAIN, stitching, ascending steps",1
+r732,464,2,"PAIN, stitching, asthma, before",1
+o61844,464,2,"PAIN, stitching, cold, on becoming",1
+r734,464,2,"PAIN, stitching, coughing, on",10
+r735,464,2,"PAIN, stitching, deep breathing, on",1
+r736,464,2,"PAIN, stitching, eating, while",1
+r737,464,2,"PAIN, stitching, exertion, on",1
+r738,464,2,"PAIN, stitching, hawking, on",1
+r739,464,2,"PAIN, stitching, inspiration, on",1
+r740,464,2,"PAIN, stitching, mental excitement, after",1
+r741,464,2,"PAIN, stitching, motion of the tongue, from",1
+r742,464,2,"PAIN, stitching, rest, during",1
+r743,464,2,"PAIN, stitching, sneezing, on",2
+o61868,464,2,"PAIN, stitching, swallowing, on",48
+r746,465,3,"PAIN, stitching, swallowing, on, amel.",1
+r747,465,3,"PAIN, stitching, swallowing, on, empty, on",5
+r748,465,3,"PAIN, stitching, swallowing, on, when not",5
+r749,465,2,"PAIN, stitching, talking, while",3
+r750,465,3,"PAIN, stitching, talking, while, after",1
+r751,465,2,"PAIN, stitching, touched externally, when",1
+r752,465,2,"PAIN, stitching, walking rapidly",1
+r753,465,2,"PAIN, stitching, yawning, when",4
+r754,465,2,"PAIN, stitching, extending to ear",17
+r755,465,3,"PAIN, stitching, extending to ear, when swallowing",8
+o61852,465,3,"PAIN, stitching, extending to ear, root of tongue",1
+o61861,465,2,"PAIN, stitching, Œsophagus",3
+o61862,465,3,"PAIN, stitching, Œsophagus, as if a bone had lodged in it",1
+r759,465,2,"PAIN, stitching, Tonsils",9
+r760,465,3,"PAIN, stitching, Tonsils, right",1
+r761,465,3,"PAIN, stitching, Tonsils, left",3
+r762,465,2,"PAIN, stitching, Uvula",4
+r763,465,1,"PAIN, tearing",20
+r764,465,2,"PAIN, tearing, morning",1
+r765,465,2,"PAIN, tearing, coughing, on",2
+r766,465,2,"PAIN, tearing, inspiration, on",1
+r767,465,3,"PAIN, tearing, inspiration, on, cold air",2
+r768,465,2,"PAIN, tearing, lifting, on",1
+r769,465,2,"PAIN, tearing, mental exertion",1
+r770,465,2,"PAIN, tearing, swallowing, on (See Pain)",0
+r771,465,3,"PAIN, tearing, swallowing, on (See Pain), saliva",1
+o61898,465,2,"PAIN, tearing, Œsophagus",1
+r773,465,2,"PAIN, tearing, Tonsils",1
+r774,465,3,"PAIN, tearing, Tonsils, swallowing, on",1
+r775,465,0,PALENESS,7
+r776,465,0,PARALYSIS,22
+o61924,465,1,"PARALYSIS, Œsophagus",21
+o61925,465,2,"PARALYSIS, Œsophagus, sensation of",8
+r779,465,1,"PARALYSIS, Pharynx",11
+r780,465,1,"PARALYSIS, post diphtheritic",12
+r781,465,0,PIMPLES on uvula,2
+r782,465,0,"PLUG, sensation of (See Lump)",0
+r783,465,0,"POWDER, sensation of a",1
+o61930,465,1,"POWDER, sensation of a, PRICKLY",8
+o61931,465,2,"POWDER, sensation of a, PRICKLY, extending down œsophagus",1
+r786,465,0,PULSATING,17
+r787,465,1,"PULSATING, after cough",1
+r788,465,1,"PULSATING, Tonsils",3
+r789,465,2,"PULSATING, Tonsils, left",1
+r790,465,0,PUSTULES,4
+r791,465,1,"PUSTULES, Tonsils, on",1
+r792,465,0,"RELAXATION, sensation of",1
+r793,465,1,"RELAXATION, sensation of, Uvula",3
+o61940,465,0,REVERSED peristaltic action of œsophagus,1
+r795,465,0,RIGIDITY,2
+r796,465,0,ROUGHNESS,98
+r797,466,1,"ROUGHNESS, daytime",1
+r798,466,1,"ROUGHNESS, morning",13
+r799,466,2,"ROUGHNESS, morning, rising, on",2
+r800,466,2,"ROUGHNESS, morning, waking, on",4
+r801,466,1,"ROUGHNESS, evening",3
+r802,466,1,"ROUGHNESS, night",2
+r803,466,1,"ROUGHNESS, coughing, from",21
+r804,466,1,"ROUGHNESS, eating amel.",1
+r805,466,1,"ROUGHNESS, hawking, from",1
+r806,466,1,"ROUGHNESS, swallowing, on",9
+r807,466,1,"ROUGHNESS, talking, from",1
+o61952,466,1,"ROUGHNESS, Œsophagus",4
+r809,466,1,"ROUGHNESS, Uvula",1
+r810,466,0,"SCAB, posterior wall greenish yellow",1
+r811,466,0,SCRAPING,117
+r812,466,1,"SCRAPING, morning",10
+r813,466,1,"SCRAPING, forenoon",2
+r814,466,1,"SCRAPING, afternoon",3
+r815,466,1,"SCRAPING, evening",8
+r816,466,1,"SCRAPING, night",6
+r817,466,2,"SCRAPING, night, lying on side, while",1
+r818,466,1,"SCRAPING, beer, after",2
+r819,466,1,"SCRAPING, bread, after",3
+r820,466,1,"SCRAPING, dryness, from",1
+r821,466,1,"SCRAPING, ices, after",1
+r822,466,1,"SCRAPING, reading aloud, after",1
+r823,466,1,"SCRAPING, sleep, after long",1
+r824,466,1,"SCRAPING, swallowing, after",11
+r825,466,2,"SCRAPING, swallowing, after, empty",1
+r826,466,1,"SCRAPING, tobacco, from",1
+r827,466,0,SCRATCHING,43
+r828,466,1,"SCRATCHING, morning",1
+r829,466,1,"SCRATCHING, evening",1
+r830,466,1,"SCRATCHING, crumbs of bread, like",3
+r831,466,1,"SCRATCHING, sand, as from",1
+r832,466,0,SENSITIVE,11
+r833,466,1,"SENSITIVE, to air",2
+r834,466,2,"SENSITIVE, to air, cold",1
+o61979,466,1,"SENSITIVE, Œsophagus",1
+r836,466,1,"SENSITIVE, Uvula",2
+r837,466,0,SHOCKS on waking,1
+r838,466,0,SHRIVELLED uvula,1
+r986,466,0,"SKIN, sensation of a, hanging in the throat",9
+r839,467,0,"spasms, spasmodic constriction, convulsions etc.",35
+o61986,467,1,"spasms, spasmodic constriction, convulsions etc., anger, after",1
+o61998,467,1,"spasms, spasmodic constriction, convulsions etc., swallowing, on",6
+o61997,467,2,"spasms, spasmodic constriction, convulsions etc., swallowing, on, compelling him to retch",2
+o61999,467,1,"spasms, spasmodic constriction, convulsions etc., water, at sight or thought of",2
+o61987,467,1,"spasms, spasmodic constriction, convulsions etc., Œsophagus",54
+o61989,467,2,"spasms, spasmodic constriction, convulsions etc., Œsophagus, evening",3
+o61990,467,2,"spasms, spasmodic constriction, convulsions etc., Œsophagus, night",2
+o61988,467,2,"spasms, spasmodic constriction, convulsions etc., Œsophagus, eructations, during",1
+o61991,467,2,"spasms, spasmodic constriction, convulsions etc., Œsophagus, old people can only swallow liquids",1
+o61992,467,2,"spasms, spasmodic constriction, convulsions etc., Œsophagus, periodical",1
+o61993,467,2,"spasms, spasmodic constriction, convulsions etc., Œsophagus, swallow liquids, can only",3
+o61995,467,2,"spasms, spasmodic constriction, convulsions etc., Œsophagus, swallowing, on",7
+o61994,467,3,"spasms, spasmodic constriction, convulsions etc., Œsophagus, swallowing, on, liquids",6
+o62000,467,1,"spasms, spasmodic constriction, convulsions etc., SPONGY sensation",1
+o62001,467,1,"spasms, spasmodic constriction, convulsions etc., SPOTS in the pharynx",3
+o62002,467,1,"spasms, spasmodic constriction, convulsions etc., STIFFNESS",13
+o62003,467,1,"spasms, spasmodic constriction, convulsions etc., STRICTURE œsophagus",16
+o62004,467,1,"spasms, spasmodic constriction, convulsions etc., SUFFOCATIVE sensation",10
+o62006,467,2,"spasms, spasmodic constriction, convulsions etc., SUFFOCATIVE sensation, night",1
+o62005,467,2,"spasms, spasmodic constriction, convulsions etc., SUFFOCATIVE sensation, cold drinks",1
+o62007,467,2,"spasms, spasmodic constriction, convulsions etc., SUFFOCATIVE sensation, warm drinks amel.",1
+r861,467,0,"SULPHUR vapor in throat, sensation of, on coughing",3
+r862,467,1,"SULPHUR vapor in throat, sensation of, on coughing, inspiration",2
+r863,467,0,"SUPPURATION, tonsils",37
+r864,467,1,"SUPPURATION, tonsils, right",2
+r865,467,1,"SUPPURATION, tonsils, left",1
+r866,467,0,"SWALLOW, constant disposition to",61
+r867,467,1,"SWALLOW, constant disposition to, evening",1
+r868,467,1,"SWALLOW, constant disposition to, night",3
+r869,467,1,"SWALLOW, constant disposition to, choking, from",5
+r870,467,1,"SWALLOW, constant disposition to, contraction in larynx, from",3
+r871,467,1,"SWALLOW, constant disposition to, eating amel.",2
+r872,467,1,"SWALLOW, constant disposition to, excitement agg.",1
+r873,467,1,"SWALLOW, constant disposition to, fullness, in throat, from",3
+r874,467,1,"SWALLOW, constant disposition to, lump in throat, from",15
+r875,467,1,"SWALLOW, constant disposition to, mucus, from thick",3
+r876,467,1,"SWALLOW, constant disposition to, pain in larynx, from",1
+r877,467,1,"SWALLOW, constant disposition to, spasm in throat, from",2
+r878,467,1,"SWALLOW, constant disposition to, speaking, while",1
+r879,467,1,"SWALLOW, constant disposition to, walking in wind, while",1
+r881,467,0,"SWALLOWING, difficult",149
+r882,468,1,"SWALLOWING, difficult, morning",4
+r883,468,1,"SWALLOWING, difficult, forenoon",1
+r884,468,1,"SWALLOWING, difficult, noon",2
+r885,468,1,"SWALLOWING, difficult, evening",4
+r886,468,1,"SWALLOWING, difficult, night",2
+r887,468,1,"SWALLOWING, difficult, acrid foods",1
+r888,468,1,"SWALLOWING, difficult, breakfast",1
+r889,468,1,"SWALLOWING, difficult, chorea, from",1
+r890,468,1,"SWALLOWING, difficult, drink, must, in order to swallow",7
+r891,468,1,"SWALLOWING, difficult, fluids only, can swallow, but solid food gags",6
+r892,468,1,"SWALLOWING, difficult, liquids",31
+r893,468,2,"SWALLOWING, difficult, liquids, more difficult than solids",5
+r894,468,2,"SWALLOWING, difficult, liquids, regurgitate through the nose (See Liquids)",0
+r895,468,1,"SWALLOWING, difficult, menses, during",1
+r896,468,1,"SWALLOWING, difficult, paralysis, from (See Paralysis, Liquids)",0
+r897,468,1,"SWALLOWING, difficult, saliva",5
+r898,468,1,"SWALLOWING, difficult, solids",27
+r899,468,2,"SWALLOWING, difficult, solids, morning",1
+r900,468,1,"SWALLOWING, difficult, sweets",1
+r901,468,1,"SWALLOWING, difficult, waking, on",3
+r902,468,1,"SWALLOWING, difficult, impeded",42
+r903,468,2,"SWALLOWING, difficult, impeded, night",1
+r904,468,2,"SWALLOWING, difficult, impeded, food (See Solids)",0
+r905,468,2,"SWALLOWING, difficult, impeded, liquids only, can swallow, least food gags",6
+r906,468,3,"SWALLOWING, difficult, impeded, liquids only, can swallow, least food gags, solids reach a certain point and are violently ejected",1
+r907,468,2,"SWALLOWING, difficult, impeded, lying, while",1
+r908,468,2,"SWALLOWING, difficult, impeded, pressure on larynx, from",1
+r909,468,2,"SWALLOWING, difficult, impeded, solids",11
+r910,468,2,"SWALLOWING, difficult, impeded, must drink at every mouthful to wash down the food",7
+r911,468,1,"SWALLOWING, difficult, impossible",58
+r912,468,2,"SWALLOWING, difficult, impossible, choking, from",5
+r913,468,2,"SWALLOWING, difficult, impossible, cold things",1
+o62058,468,2,"SWALLOWING, difficult, impossible, constriction of œsophagus",9
+r915,468,2,"SWALLOWING, difficult, impossible, cardiac opening",1
+r916,469,2,"SWALLOWING, difficult, impossible, liquids, anything but",6
+r917,469,3,"SWALLOWING, difficult, impossible, liquids, anything but, even a teaspoonful of",2
+r918,469,2,"SWALLOWING, difficult, impossible, lying, while",2
+r919,469,2,"SWALLOWING, difficult, impossible, menses, during",1
+r920,469,2,"SWALLOWING, difficult, impossible, mucus is hawked out, until",1
+r921,469,2,"SWALLOWING, difficult, impossible, paralysis, from",20
+r922,469,2,"SWALLOWING, difficult, impossible, swelling of the tongue",1
+r923,469,2,"SWALLOWING, difficult, impossible, typhus in",2
+r924,469,1,"SWALLOWING, difficult, incomplete",1
+r925,469,1,"SWALLOWING, difficult, involuntary",5
+r926,469,2,"SWALLOWING, difficult, involuntary, walking in the wind, when",1
+r927,469,1,"SWALLOWING, difficult, sleep, in",1
+r928,469,0,SWELLING,87
+r929,469,1,"SWELLING, morning",1
+r930,469,1,"SWELLING, evening",2
+r931,469,1,"SWELLING, night",1
+o62075,469,1,"SWELLING, œdematous",11
+r933,469,1,"SWELLING, Tonsils",82
+r934,469,2,"SWELLING, Tonsils, right",9
+r935,469,2,"SWELLING, Tonsils, left",7
+r936,469,1,"SWELLING, Uvula",40
+o62080,469,2,"SWELLING, Uvula, œdematous",12
+r938,469,0,SWOLLEN sensation,37
+r939,469,0,SYPHILITIC affections,16
+r940,469,0,TENSION,28
+r941,469,1,"TENSION, right side",1
+r942,469,1,"TENSION, afternoon",1
+r943,469,1,"TENSION, menses, before",1
+r944,469,1,"TENSION, swallowing, when",4
+r945,469,1,"TENSION, yawning, when",1
+o62086,469,1,"TENSION, Œsophagus",2
+r947,469,0,THICK sensation,2
+r948,469,0,"THREAD hanging, in, sensation of",2
+r949,469,0,TICKLING (See Larynx),0
+r950,469,0,TINGLING (See Formication),3
+o62093,469,1,"TINGLING (See Formication), in œsophagus",1
+r952,470,0,TURNING about in,1
+r953,470,0,TWITCHING,5
+r954,470,1,"TWITCHING, extending to pit of stomach",1
+r955,470,0,ULCERS,69
+r956,470,1,"ULCERS, right",2
+r957,470,1,"ULCERS, left",2
+r958,470,1,"ULCERS, burning",2
+r959,470,1,"ULCERS, cold agg.",1
+r960,470,1,"ULCERS, deep",4
+r961,470,1,"ULCERS, menses, before",1
+r962,470,1,"ULCERS, mercury, after",5
+r963,470,1,"ULCERS, offensive",1
+r964,470,1,"ULCERS, scarlet fever does not come out, when",1
+r965,470,1,"ULCERS, spreading",5
+r966,470,1,"ULCERS, stinging in",4
+r967,470,1,"ULCERS, Fauces",20
+r968,470,2,"ULCERS, Fauces, with burning",1
+o62106,470,1,"ULCERS, Œsophagus",1
+r970,470,1,"ULCERS, Pharynx",6
+r971,470,1,"ULCERS, Tonsils",25
+r972,470,2,"ULCERS, Tonsils, yellow",2
+r973,470,1,"ULCERS, Uvula",11
+r974,470,2,"ULCERS, Uvula, spreading",3
+r975,470,2,"ULCERS, Uvula, syphilitic",7
+r976,470,0,VARICOSIS,7
+r977,470,1,"VARICOSIS, Pharynx",10
+r978,470,1,"VARICOSIS, Tonsils",4
+r979,470,0,VESICLES,5
+r980,470,1,"VESICLES, Pharynx",2
+r981,470,1,"VESICLES, Tonsils",3
+r982,470,1,"VESICLES, WART like excrescences (See Condylomata)",0

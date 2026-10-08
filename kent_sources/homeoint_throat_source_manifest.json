@@ -1,0 +1,28 @@
+{
+ "book": "kent",
+ "chapter": "throat",
+ "source": "homeoint.org/books/kentrep kentrep1 kent0445–kent0470 (MEDI-T HTML)",
+ "pages": "448 – 470",
+ "source_canonical": "homeoint-throat-v1",
+ "source_rows": 982,
+ "unique_source_paths": 982,
+ "matched_app_records": 980,
+ "new_source_records": 2,
+ "legacy_local_records": 69,
+ "ambiguous_app_records": 11,
+ "third_source_pdf": "Drive PDF صفحہ 1002–1047 (مطبوعہ ص 448–470) — ordered alignment: 980/981 حرف بہ حرف، صفر باقیات؛ واحد فرق = مستند کتابی ضم (ص 450 dark red) — دونوں واقعے PDF 1007 پر عین کتاب کے مطابق",
+ "chapter_boundaries": "THROAT = صفحات 448–470 — kentthro.htm فہرست «THROAT (p. 448-470)» 23/23 صفحہ-اندراجات subsequence؛ آغاز PDF 1002 = کتابی ص 448 (سرخی سطرِ اول)؛ اختتام P471 = EXTERNAL THROAT آغاز (kentexth.htm انڈیکس + PDF 1048)؛ فائلیں kent0450+ books/kentrep1/ ذیلی فولڈر میں",
+ "documented_corrections": [
+  "ص 460: «PAIN, extending to ear, swallowing, on» MEDI-T دوہرے <dir> سے d3 پر — خاندانی clamp d2 (بھائی glands of neck/larynx کے ساتھ — OOREP ریکارڈز کی ساخت سے اتفاق)",
+  "ص 465: «PAIN, stitching, extending to ear, when swallowing» d4→d3 (بھائی root of tongue کے ساتھ)",
+  "ص 468: «SWALLOWING, difficult, morning» d2→d1 — وقت-خاندان morning/forenoon/noon/evening SWALLOWING, difficult (149 ادویہ) کے براہِ راست بچے (P448 پر TEETH-باڈی کے 2 غیر بند dir بھی خاندانی shift سے درست)",
+  "ص 450: «redness, dark red» کتاب میں واقعی دو بار (PDF 1007) — in spots کے بعد 20 ادویات + Uvula کے بعد 6 (Arg-n., Bapt., calc., caust., cupr-ac., lach.) → max-گریڈ ضم 26 (teeth ص 445 ضم-پالیسی)",
+  "21 دستی جوڑے (سب J=1.00 ادویہ-عین): r438 «PAIN, cold» (aggregate union) ماخذی مین «PAIN, air, cold» سے واپس، عین-فارم o61583 (9) کو؛ r745 «PAIN, stitching, swallowing» (union) واپس، عین-فارم o61868 (48) کو؛ r733 «PAIN, cold, on becoming» → کتابی «on becoming» (PDF 1022 ثابت)؛ باقی 18: OOREP کے agg. لاحقے (o61610/o61680/o61698/o61789/o61914/o61916/o61918/o61921/o61868)، کٹے سیگمنٹ (o61238 constricting، o61780 cold-from، o61931 POWDER-hoist، o62000–07 SPASMS-hoist)، وقت-فارمیٹ (o61390، o61727)",
+  "67 OOREP aggregate/duplicate ریکارڈ پرانیاں میں محفوظ — ان کی ادویہ ماخذی درخت میں عین-فارم ریکارڈز کے ذریعے موجود: r525 «PAIN, swallowing» (159 = swallowing-خاندان union)، r68 «CHOKING, swallowing» (35 = union)، o68556 «PAIN, extending to» (40 = union)، o68542/o68548/o68559/o68564/o68570/o68571/o68537/o68539 aggregate کنٹینرز + 16 خالی m-کنٹینرز (m61177 APPLE core، m61183 BONE، m61184 BREAD crumbs وغیرہ — عین-فارم r-ریکارڈز ماخذی درخت پر جُڑے)"
+ ],
+ "policy": {
+  "remedies": "r := source_remedies (ماخذ مطبوعہ کتاب = سچ؛ OOREP مجموعے ضم)",
+  "hierarchy": "runtime tree از source_parent_id (rep-chapters.js throat بلڈر)",
+  "legacy": "فائل میں محفوظ، ماخذی درخت میں شامل نہیں — ڈاکٹر نظرثانی کے لیے رپورٹ"
+ }
+}
