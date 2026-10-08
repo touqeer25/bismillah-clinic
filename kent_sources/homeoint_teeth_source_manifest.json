@@ -1,0 +1,28 @@
+{
+ "book": "kent",
+ "chapter": "teeth",
+ "source": "homeoint.org/books/kentrep kent0430–kent0445 (MEDI-T HTML)",
+ "pages": "430 (نصف) – 447",
+ "source_canonical": "homeoint-teeth-v1",
+ "source_rows": 767,
+ "unique_source_paths": 767,
+ "matched_app_records": 763,
+ "new_source_records": 4,
+ "legacy_local_records": 98,
+ "ambiguous_app_records": 25,
+ "third_source_pdf": "Drive PDF صفحہ 967–1001 (مطبوعہ ص 931–965) — ordered alignment: 767=767، صفر drift؛ 4 فرق = PDF text-layer لپیٹیں (ص 953 evening-in-bed-ذیلی + ص 948 left-ذیلی) — خام HTML سے ہر ایک کتاب کے مطابق ثابت",
+ "chapter_boundaries": "TEETH = صفحات 430 (نصف) – 447 — kentteet.htm فہرست «TEETH (p. 430-447)» 18/18 صفحہ-اندراجات؛ kent0430 کا P430 سیکشن MOUTH-دم + TEETH سرخی رکھتا ہے (MOUTH v174 سے کٹا ہوا 16-قطار بلاک یہاں واپس)؛ اختتام P448 = THROAT آغاز (PDF 1002)",
+ "documented_corrections": [
+  "ص 430 نصف: MEDI-T کے P430 سیکشن میں TEETH سرخی دوبارہ چھپی — دوسری دہرائی حذف (runtime duplicate-sibling exception بچت)",
+  "ص 435: «biting teeth together, when» (44 ادویات) MEDI-T نے bending-forward کی col-2 گہرائی سے چپکا دیا تھا — PAIN کا col-1 بھائی (OOREP o60574 بھائی-فارم «PAIN, biting teeth together, when agg.» 44 ادویات J=1.0) → d2→d1 خاندانی لفٹ",
+  "ص 445 (مطبوعہ 948+949): «stitching, stinging, left» کتاب میں واقعی دو بار — ص 948 (Ail., anac., bell., iod., phos., samb., sul-ac., sulph.) + ص 949 اختتام (Alum.) → max-گریڈ ضم (MOUTH ضم-پالیسی؛ بے-اولاد دہرایا — محفوظ)",
+  "29 دستی جوڑے: OOREP aggregate/duplicate تجزیہ — r145 «PAIN, cold» (95 ادویہ = air-cold خاندان کا union) اور r287 «PAIN, pressure» (41 = pressure خاندان union) ماخذی مین سے واپس، عین-فارم شرکاء o60539 (41)/o60908 (13) کو دیں؛ باقی 27 J=1.00 جوڑے (OOREP کے agg./amel. لاحقے اور کٹے سیگمنٹوں کی وجہ سے خودکار میچر رہ گیا تھا)",
+  "98 OOREP aggregate/duplicate ریکارڈ پرانیاں میں محفوظ — ان کی ادویہ ماخذی درخت میں عین-فارم ریکارڈز کے ذریعے موجود (مثلاً o68466 «PAIN, biting teeth together» 54 = biting-خاندان کا union)",
+  "پرانیاں مین ربرکس کے عین-فارم شرکاء موجود: CARIES، CLINCH together، ELONGATION، EDGE، WISDOM teeth، SHOCKS، SOFT، SPONGY، STICK together، TENSION، TORPOR، TWISTED، WARM teeth feel، WATER sour، NERVES، ODOR، OIL، PROUD flesh، SHARP، PRESSING together، LARGE and swollen وغیرہ — سب ماخذی مینوں پر J≥0.86 جُڑے"
+ ],
+ "policy": {
+  "remedies": "r := source_remedies (ماخذ مطبوعہ کتاب = سچ؛ OOREP مجموعے ضم)",
+  "hierarchy": "runtime tree از source_parent_id (rep-chapters.js teeth بلڈر)",
+  "legacy": "فائل میں محفوظ، ماخذی درخت میں شامل نہیں — ڈاکٹر نظرثانی کے لیے رپورٹ"
+ }
+}

@@ -1,0 +1,764 @@
+﻿شناخت,پرانا راستہ (ایپ),نیا راستہ (مطبوعہ کتاب),اردو جملہ,ادویات پرانی,ادویات ماخذی,فرق
+o60437,ABSCESS of roots,ABSCESS of roots,دانت — جڑوں کا پھوڑا,16,16,یکساں
+o60438,ADHERE together,ADHERE together,دانت — آپس میں چپک جانا,3,3,یکساں
+o60439,"AIR, sensation as from cold air blowing on","AIR, sensation as from cold air blowing on",دانت — ہوا، جیسے ٹھنڈی ہوا ان پر چل رہی ہو,1,1,یکساں
+o60447,BITES tumbler when drinking,BITES tumbler when drinking,دانت — پیتے وقت گلاس کو دانتوں سے کاٹے,1,1,یکساں
+o60448,BREAKING off,BREAKING off,دانت — ٹوٹ جانا,5,5,یکساں
+r0,"CARIES, decayed, hollow","CARIES, decayed, hollow",دانت — ہڈی کا گلنا، گلا ہوا، کھوکھلا,90,87,ماخذی مطابق کیے
+r1,"CARIES, decayed, hollow, appear, as soon as they","CARIES, decayed, hollow, appear, as soon as they",دانت — ہڈی کا گلنا، گلا ہوا، کھوکھلا، جیسے ہی نکلتے ہی گل جائیں,2,2,یکساں
+r2,"CARIES, decayed, hollow, gums, at edge of","CARIES, decayed, hollow, gums, at edge of",دانت — ہڈی کا گلنا، گلا ہوا، کھوکھلا، مسوڑھوں کے کنارے پر,3,3,یکساں
+r3,"CARIES, decayed, hollow, internal","CARIES, decayed, hollow, internal",دانت — ہڈی کا گلنا، گلا ہوا، کھوکھلا، اندر سے,1,1,یکساں
+r4,"CARIES, decayed, hollow, premature in children","CARIES, decayed, hollow, premature in children",دانت — ہڈی کا گلنا، گلا ہوا، کھوکھلا، بچوں میں جلدی,7,7,یکساں
+r5,"CARIES, decayed, hollow, rapid","CARIES, decayed, hollow, rapid",دانت — ہڈی کا گلنا، گلا ہوا، کھوکھلا، تیزی سے,11,11,یکساں
+r6,"CARIES, decayed, hollow, roots, at","CARIES, decayed, hollow, roots, at",دانت — ہڈی کا گلنا، گلا ہوا، کھوکھلا، جڑوں میں,3,3,یکساں
+r8,"CARIES, decayed, hollow, sensation of","CARIES, decayed, hollow, sensation of",دانت — ہڈی کا گلنا، گلا ہوا، کھوکھلا، گلے ہونے کا احساس,1,1,یکساں
+r7,"CARIES, decayed, hollow, sides of teeth","CARIES, decayed, hollow, sides of teeth",دانت — ہڈی کا گلنا، گلا ہوا، کھوکھلا، دانتوں کے پہلوؤں میں,3,3,یکساں
+r9,CHATTERING,CHATTERING,دانت — دانتوں کا کھٹکھٹانا,7,6,ماخذی مطابق کیے
+r10,"CHATTERING, with inward trembling","CHATTERING, with inward trembling",دانت — دانتوں کا کھٹکھٹانا، اندرونی لرزش کے ساتھ,1,1,یکساں
+r11,"CLINCH together, constant inclination to","CLINCH together, constant inclination to",دانت — دانت بھینچنا، بار بار بھینچنے کو جی چاہے,23,23,یکساں
+r12,CLINCHED firmly,CLINCHED firmly,دانت — دانت مضبوطی سے بھینچے ہوئے,9,8,ماخذی مطابق کیے
+r13,"CLINCHED firmly, midnight, after","CLINCHED firmly, midnight, after",دانت — دانت مضبوطی سے بھینچے ہوئے، آدھی رات کے بعد,1,1,یکساں
+r14,COATED (See Mucus and Sordes),COATED (See Mucus and Sordes),دانت — تہہ چڑھی (کوٹنگ),0,0,یکساں
+r15,COLDNESS,COLDNESS,دانت — ٹھنڈک,30,30,یکساں
+r16,"COLDNESS, afternoon","COLDNESS, afternoon",دانت — ٹھنڈک، سہ پہر,1,1,یکساں
+r17,CRACKING when rubbing,CRACKING when rubbing,دانت — رگڑنے پر چٹخن,1,1,یکساں
+r18,CRAWLING,CRAWLING,دانت — رینگنے کا احساس,10,10,یکساں
+r19,CRUMBLING,CRUMBLING,دانت — بھربھرا کر ٹوٹنا,13,13,یکساں
+r20,CRUSTS black (See Mucus),CRUSTS black (See Mucus),دانت — پپڑیاں، سیاہ,0,0,یکساں
+r21,CUPPED in children,CUPPED in children,دانت — پیالہ نما (کھوکھلے)، بچوں میں,1,1,یکساں
+r22,DARK spots (See Discoloration),DARK spots (See Discoloration),دانت — گہرے دھبے,0,0,یکساں
+r23,DECAYED (See Caries),DECAYED (See Caries),دانت — گلا ہوا,0,0,یکساں
+r24,DENTITION difficult,DENTITION difficult,دانت — دانت نکلنا مشکل,16,16,یکساں
+r26,DIRTY look,DIRTY look,دانت — میلی سی شکل,3,3,یکساں
+r27,DISCOLORED black,DISCOLORED black,دانت — رنگ بدلا ہوا، سیاہ,17,17,یکساں
+o60473,"DISCOLORED, black, after aching","DISCOLORED black, after aching",دانت — رنگ بدلا ہوا، سیاہ، مسلسل درد کے بعد,1,1,یکساں
+o60474,"DISCOLORED, black, in streaks","DISCOLORED black, in streaks",دانت — رنگ بدلا ہوا، سیاہ، لکیروں میں,1,1,یکساں
+r35,"DULL, feel (See Edge)","DULL, feel (See Edge)",دانت — کند لگے (بے حس),0,0,یکساں
+r36,DWARFED,DWARFED,دانت — چھوٹے (سکڑے),1,1,یکساں
+r37,"EDGE, feel as if on","EDGE, feel as if on",دانت — کنارہ، جیسے اسی پر ہو,42,40,ماخذی مطابق کیے
+r39,"EDGE, feel as if on, as if covered with lime","EDGE, feel as if on, as if covered with lime",دانت — کنارہ، جیسے اسی پر ہو، جیسے چونے کی تہہ چڑھی ہو,1,1,یکساں
+r38,"EDGE, feel as if on, left side","EDGE, feel as if on, left side",دانت — کنارہ، جیسے اسی پر ہو، بائیں طرف,1,1,یکساں
+r40,"EDGE, feel as if on, menses, during","EDGE, feel as if on, menses, during",دانت — کنارہ، جیسے اسی پر ہو، حیض کے دوران,1,1,یکساں
+r41,"EDGE, feel as if on, sour vomiting, with","EDGE, feel as if on, sour vomiting, with",دانت — کنارہ، جیسے اسی پر ہو، کھٹی قے کے ساتھ,1,1,یکساں
+r42,EDGES feel sharp and hurt gums,EDGES feel sharp and hurt gums,دانت — کنارے تیز لگیں اور مسوڑھوں کو چبھیں,1,1,یکساں
+r764,"ELONGATION, sensation of","ELONGATION, sensation of",دانت — لمبا ہونا، لمبے ہونے کا احساس,83,82,ماخذی مطابق کیے
+o60488,"ELONGATION, sensation of, air, open, agg.","ELONGATION, sensation of, air, open, agg.",دانت — لمبا ہونا، لمبے ہونے کا احساس، کھلی ہوا میں بگاڑ,2,2,یکساں
+o60489,"ELONGATION, sensation of, chewing, when","ELONGATION, sensation of, chewing, when",دانت — لمبا ہونا، لمبے ہونے کا احساس، چباتے وقت,4,4,یکساں
+o60490,"ELONGATION, sensation of, decayed teeth","ELONGATION, sensation of, decayed teeth",دانت — لمبا ہونا، لمبے ہونے کا احساس، گلے دانتوں میں,2,2,یکساں
+o60491,"ELONGATION, sensation of, incisors","ELONGATION, sensation of, incisors",دانت — لمبا ہونا، لمبے ہونے کا احساس، سامنے کے دانتوں میں,6,6,یکساں
+o60492,"ELONGATION, sensation of, night in bed","ELONGATION, sensation of, night in bed",دانت — لمبا ہونا، لمبے ہونے کا احساس، رات بستر میں,1,1,یکساں
+r49,ENAMEL deficient,ENAMEL deficient,دانت — مینا (اینامل) کی کمی,2,2,یکساں
+r50,"EXFOLIATION (See Looseness, Elongation)","EXFOLIATION (See Looseness, Elongation)",دانت — اکھڑنا (جھڑ جانا),0,0,یکساں
+r51,FORMICATION,FORMICATION,دانت — چیونٹیاں رینگنے کا احساس,1,1,یکساں
+r52,"FORMICATION, evening","FORMICATION, evening",دانت — چیونٹیاں رینگنے کا احساس، شام,1,1,یکساں
+r53,"FORMICATION, painful","FORMICATION, painful",دانت — چیونٹیاں رینگنے کا احساس، دردناک,1,1,یکساں
+r54,GRINDING,GRINDING,دانت — دانت پیسنا,64,48,ماخذی مطابق کیے
+r56,"GRINDING, chill, during","GRINDING, chill, during (See Chewing)",دانت — دانت پیسنا، سردی لگنے کے دوران,8,8,یکساں
+r57,"GRINDING, convulsive","GRINDING, convulsive",دانت — دانت پیسنا، تشنج کے ساتھ,8,8,یکساں
+r58,"GRINDING, epilepsy","GRINDING, epilepsy",دانت — دانت پیسنا، مرگی میں,4,4,یکساں
+r59,"GRINDING, maniacal rage, during","GRINDING, maniacal rage, during",دانت — دانت پیسنا، پاگل پن کے غیظ کے دوران,8,8,یکساں
+r60,"GRINDING, menses, toward close of","GRINDING, menses, toward close of",دانت — دانت پیسنا، حیض کے ختم ہونے کے قریب,1,1,یکساں
+r55,"GRINDING, morning soon as awake","GRINDING, morning soon as awake",دانت — دانت پیسنا، صبح جاگتے ہی,2,2,یکساں
+r61,"GRINDING, sitting, while","GRINDING, sitting, while",دانت — دانت پیسنا، بیٹھے ہوئے,2,2,یکساں
+r62,"GRINDING, sleep, during","GRINDING, sleep, during",دانت — دانت پیسنا، نیند کے دوران,36,36,یکساں
+r63,HEAT (See Under Pain),HEAT (See Under Pain),دانت — گرمی,0,0,یکساں
+r64,HEAVINESS,HEAVINESS,دانت — بھاری پن,3,3,یکساں
+r65,HOLLOW (See Under Caries),HOLLOW (See Under Caries),دانت — کھوکھلا پن,0,0,یکساں
+r66,INCRUSTATIONS,INCRUSTATIONS,دانت — پپڑیں,1,1,یکساں
+r67,INFLAMED dentine,INFLAMED dentine,دانت — سوزش، ڈنٹائن (دانت کی اندرونی تہہ) کی,1,1,یکساں
+r68,IRREGULAR formation of lower teeth in a scrofulous child with mesenteric disease,IRREGULAR formation of lower teeth in a scrofulous child with mesenteric disease,دانت — نچلے دانتوں کی بے قاعدہ بناوٹ، اسکروفولا والے بچے میں، آنتوں کی بیماری کے ساتھ,1,1,یکساں
+r69,ITCHING in,ITCHING in,دانت — خارش,9,9,یکساں
+r70,"ITCHING in, open air agg.","ITCHING in, open air agg.",دانت — خارش، کھلی ہوا میں بگاڑ,1,1,یکساں
+r71,"ITCHING in, supper, after","ITCHING in, supper, after",دانت — خارش، رات کے کھانے کے بعد,1,1,یکساں
+r72,"LARGE and swollen, sensation","LARGE and swollen, sensation",دانت — بڑے اور سوجے ہوئے، ایسا احساس,8,8,یکساں
+r73,"LONG, feel too (See Elongation)","LONG, feel too (See Elongation)",دانت — بہت لمبے لگیں,0,0,یکساں
+r74,LOOSENESS of,LOOSENESS of,دانت — ڈھیلا پن,85,76,ماخذی مطابق کیے
+r76,"LOOSENESS of, falling out","LOOSENESS of, falling out",دانت — ڈھیلا پن، گرنے والے,12,8,ماخذی مطابق کیے
+r77,"LOOSENESS of, falling out, sensation of","LOOSENESS of, falling out, sensation of",دانت — ڈھیلا پن، گرنے والے، گرنے کا احساس,4,4,یکساں
+r75,"LOOSENESS of, morning","LOOSENESS of, morning",دانت — ڈھیلا پن، صبح,4,4,یکساں
+r78,"LOOSENESS of, painful","LOOSENESS of, painful",دانت — ڈھیلا پن، دردناک,7,7,یکساں
+r79,"LOOSENESS of, sensation","LOOSENESS of, sensation",دانت — ڈھیلا پن، ایسا احساس,25,25,یکساں
+r80,"LOOSENESS of, sensation, when masticating","LOOSENESS of, sensation, when masticating",دانت — ڈھیلا پن، ایسا احساس، چباتے وقت,4,4,یکساں
+r81,"LOOSENESS of, sound teeth","LOOSENESS of, sound teeth",دانت — ڈھیلا پن، صحت مند دانتوں میں,4,4,یکساں
+r82,"LOOSENESS of, sudden paroxysm","LOOSENESS of, sudden paroxysm",دانت — ڈھیلا پن، اچانک دورے میں,1,1,یکساں
+r83,MUCUS on (See Sordes),MUCUS on (See Sordes),دانت — بلغم (لعاب),33,17,ماخذی مطابق کیے
+r85,"MUCUS on (See Sordes), black","MUCUS on (See Sordes), black",دانت — بلغم، سیاہ,4,4,یکساں
+r86,"MUCUS on (See Sordes), black, crusts","MUCUS on (See Sordes), black, crusts",دانت — بلغم، سیاہ، پپڑیوں کی صورت,1,1,یکساں
+r87,"MUCUS on (See Sordes), brown","MUCUS on (See Sordes), brown",دانت — بلغم، بھورا,9,9,یکساں
+r84,"MUCUS on (See Sordes), morning","MUCUS on (See Sordes), morning",دانت — بلغم، صبح,2,2,یکساں
+r88,"MUCUS on (See Sordes), offensive","MUCUS on (See Sordes), offensive",دانت — بلغم، بدبودار,2,2,یکساں
+r89,"MUCUS on (See Sordes), sticky","MUCUS on (See Sordes), sticky",دانت — بلغم، چپکا,2,2,یکساں
+r90,"MUCUS on (See Sordes), thick","MUCUS on (See Sordes), thick",دانت — بلغم، گاڑھا,5,5,یکساں
+r91,"MUCUS on (See Sordes), yellow","MUCUS on (See Sordes), yellow",دانت — بلغم، زرد,6,6,یکساں
+r92,"NERVES, injuries to dental nerves","NERVES, injuries to dental nerves",دانت — اعصاب، دانتوں کے اعصاب کو چوٹ,1,1,یکساں
+r93,NOTCHED (See Serrated),NOTCHED (See Serrated),دانت — دانتے دار (نشان والے),0,0,یکساں
+r94,NUMBNESS,NUMBNESS,دانت — سن ہونا,15,15,یکساں
+r95,"NUMBNESS, morning, after rising","NUMBNESS, morning, after rising",دانت — سن ہونا، صبح اٹھنے کے بعد,1,1,یکساں
+r96,"ODOR, from offensive","ODOR, from offensive (See Mouth, Odor)",دانت — بو، بدبودار,8,8,یکساں
+r97,"OIL, feel as if covered with","OIL, feel as if covered with",دانت — تیل، جیسے تیل کی تہہ چڑھی ہو,1,1,یکساں
+r98,"PAIN, toothache in general","PAIN, toothache in general",دانت — درد، عام دانت کا درد,159,159,ماخذی مطابق کیے
+r714,PERIOSTITIS,PERIOSTITIS,دانت — ہڈی کی جھلی کی سوزش (پیریوسٹائٹس),3,3,یکساں
+r715,"PRESSING together send a shock through head, ears and nose","PRESSING together send a shock through head, ears and nose",دانت — دانت دبانے سے سر، کانوں اور ناک میں جھٹکا گزرے,1,1,یکساں
+r716,"PROUD flesh, surrounded by","PROUD flesh, surrounded by",دانت — زائد گوشت (گوشت کی بڑھوتری)، جس سے دانت گھرے ہوں,1,1,یکساں
+r717,"PULSATIONS (See Pain, Pulsating)","PULSATIONS (See Pain, Pulsating)",دانت — دھڑکن,0,0,یکساں
+r718,"PULSATIONS (See Pain, Pulsating), painless","PULSATIONS (See Pain, Pulsating), painless",دانت — دھڑکن، بے درد,3,3,یکساں
+r719,"ROUGHNESS, sensation of","ROUGHNESS, sensation of",دانت — کھردرا پن، کھردرے ہونے کا احساس,1,1,یکساں
+r721,"SENSITIVE, tender","SENSITIVE, tender",دانت — حساس، نرم,40,40,یکساں
+r742,SERRATED,SERRATED,دانت — دانتے دار,5,5,یکساں
+r743,"SHARP, edges seem, and hurt tongue","SHARP, edges seem, and hurt tongue",دانت — تیز، کنارے تیز لگیں اور زبان کو چبھیں,1,1,یکساں
+r744,"SHOCKS, electric","SHOCKS, electric",دانت — جھٹکے، بجلی جیسے,2,2,یکساں
+r745,SLIME on (See Mucus),SLIME on (See Mucus),دانت — لیس دار تہہ,0,0,یکساں
+r746,"SOFT, feel","SOFT, feel",دانت — نرم لگیں,9,9,یکساں
+r747,SORDES (See Mucus),SORDES (See Mucus),دانت — میلا جماؤ,37,32,ماخذی مطابق کیے
+r749,"SORDES (See Mucus), black","SORDES (See Mucus), black",دانت — میلا جماؤ، سیاہ,2,2,یکساں
+r750,"SORDES (See Mucus), bloody","SORDES (See Mucus), bloody",دانت — میلا جماؤ، خونی,2,2,یکساں
+r748,"SORDES (See Mucus), brown","SORDES (See Mucus), brown",دانت — میلا جماؤ، بھورا,5,5,یکساں
+r751,"SORDES (See Mucus), dark","SORDES (See Mucus), dark",دانت — میلا جماؤ، گہرا,3,3,یکساں
+r752,"SPONGY, feel","SPONGY, feel",دانت — اسفنج جیسے لگیں,1,1,یکساں
+r754,"STICK together, as if glued","STICK together, as if glued",دانت — آپس میں چپک جانا، جیسے سریش سے چپکے ہوں,3,3,یکساں
+r753,STICKY,STICKY,دانت — چپکا,3,3,یکساں
+r755,"TENSION, in","TENSION, in",دانت — تناؤ، اندر,7,6,ماخذی مطابق کیے
+r756,"TENSION, in, right side","TENSION, in, right side",دانت — تناؤ، اندر، دائیں طرف,1,1,یکساں
+r757,"TORPOR, sense of","TORPOR, sense of",دانت — سن پن، بے حسی، اس کا احساس,2,2,یکساں
+r758,"TWISTED, feeling as if","TWISTED, feeling as if",دانت — مڑے ہوئے، جیسے مڑ گئے ہوں,1,1,یکساں
+r759,ULCERATION of roots,ULCERATION of roots,دانت — جڑوں میں ناسور بننا,1,1,یکساں
+r760,"WARM teeth feel, left upper jaw","WARM teeth feel, left upper jaw",دانت — دانت گرم لگیں، بائیں اوپری جبڑے میں,1,1,یکساں
+r761,"WATER sour, fetid, coming from","WATER sour, fetid, coming from",دانت — پانی کھٹا، بدبودار، جس سے نکلے,1,1,یکساں
+r762,WEDGE-SHAPED,WEDGE-SHAPED,دانت — پھانے کی شکل کے (ویج نما),1,1,یکساں
+r763,"WISDOM teeth, ailments from eruption of","WISDOM teeth, ailments from eruption of",دانت — عقل داڑھ، اس کے نکلنے سے ہونے والی تکالیف,4,4,یکساں
+o60440,"AIR, sensation as, if forced into them","AIR, sensation as from cold air blowing on, if forced into them",دانت — ہوا، ایسا احساس، جیسے ان میں ہوا بھر دی گئی ہو,2,2,یکساں
+o60441,"AIR, sensation as, streaming from","AIR, sensation as from cold air blowing on, streaming from",دانت — ہوا، ایسا احساس، جیسے ان سے ہوا نکل رہی ہو,1,1,یکساں
+o60470,"DENTITION, slow","DENTITION difficult, slow",دانت — دانت نکلنا، آہستہ,6,6,یکساں
+o60475,"DISCOLORED, brown, sooty","DISCOLORED black, brown, sooty",دانت — رنگ بدلا ہوا، بھورا، سیاہی مائل,1,1,یکساں
+o60477,"DISCOLORED, dark, spots","DISCOLORED black, dark, spots",دانت — رنگ بدلا ہوا، گہرا، دھبوں میں,1,1,یکساں
+o60478,"DISCOLORED, gray","DISCOLORED black, gray",دانت — رنگ بدلا ہوا، سرمئی,3,3,یکساں
+o60479,"DISCOLORED, yellow","DISCOLORED black, yellow",دانت — رنگ بدلا ہوا، زرد,12,12,یکساں
+o60799,"PAIN, jerking, evening, now in upper, now in lower molars, when in upper and they are pressed by tip of finger, suddenly changes to lower","PAIN, toothache in general, jerking, evening in bed, now in upper, now in lower molars, when in upper and they are pressed by tip of finger, suddenly changes to lower",دانت — درد، جھٹکے دار، شام، کبھی اوپری کبھی نچلی داڑھ میں، اوپری کو انگلی کی نوک سے دبانے پر اچانک نچلی میں بدل جائے,1,1,یکساں
+r591,"PAIN, pulled out, feel as if, were being, and, left in their sockets, as if","PAIN, toothache in general, pulled out, feel as if, were being, and, left in their sockets, as if",دانت — درد، جیسے دانت نکالا جا رہا ہو، اور گڑھوں میں چھوڑ دیا گیا ہو,1,1,یکساں
+o60659,"PAIN, drawing, extending, to, head, to side of","PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, head, to side of",دانت — درد، کھینچتا ہوا، سر کے پہلو تک,2,2,یکساں
+o60663,"PAIN, drawing, extending, to, other teeth, right side","PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, other teeth, right side",دانت — درد، کھینچتا ہوا، دوسرے دانتوں تک، دائیں طرف,1,1,یکساں
+o60666,"PAIN, drawing, extending, to, temple, right","PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, temple, right",دانت — درد، کھینچتا ہوا، دائیں کنپٹی تک,2,2,یکساں
+o60657,"PAIN, drawing, extending, to, ear","PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, ear",دانت — درد، کھینچتا ہوا، کان تک,9,9,یکساں
+o60658,"PAIN, drawing, extending, to, eyes","PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, eyes",دانت — درد، کھینچتا ہوا، آنکھوں تک,2,2,یکساں
+o60660,"PAIN, drawing, extending, to, larynx","PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, larynx",دانت — درد، کھینچتا ہوا، نرخرے تک,2,2,یکساں
+o60661,"PAIN, drawing, extending, to, malar bone","PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, malar bone",دانت — درد، کھینچتا ہوا، گال کی ہڈی تک,2,2,یکساں
+o60662,"PAIN, drawing, extending, to, neck","PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, neck",دانت — درد، کھینچتا ہوا، گردن تک,1,1,یکساں
+o60665,"PAIN, drawing, extending, to, shoulders","PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, shoulders",دانت — درد، کھینچتا ہوا، کندھوں تک,1,1,یکساں
+o60667,"PAIN, drawing, extending, to, throat","PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, throat",دانت — درد، کھینچتا ہوا، گلے تک,1,1,یکساں
+o61026,"PAIN, tearing, extending, to, malar bones","PAIN, toothache in general, tearing, extending out through left ear, to ears, malar bones",دانت — درد، چیرتا ہوا، گال کی ہڈیوں تک,1,1,یکساں
+o61027,"PAIN, tearing, extending, to, temple","PAIN, toothache in general, tearing, extending out through left ear, to ears, temple",دانت — درد، چیرتا ہوا، کنپٹی تک,4,4,یکساں
+o61028,"PAIN, tearing, extending, to, zygoma","PAIN, toothache in general, tearing, extending out through left ear, to ears, zygoma",دانت — درد، چیرتا ہوا، گال کی ہڈی کے ابھار (زائگوما) تک,3,3,یکساں
+o61040,"PAIN, tearing, molars, lower, left","PAIN, toothache in general, tearing, molars, lower, left",دانت — درد، چیرتا ہوا، نچلی داڑھ میں، بائیں,1,1,یکساں
+o61043,"PAIN, tearing, molars, upper, left","PAIN, toothache in general, tearing, molars, upper right, left",دانت — درد، چیرتا ہوا، اوپری داڑھ میں، بائیں,6,6,یکساں
+o61046,"PAIN, tearing, morning, after, washing","PAIN, toothache in general, tearing, morning, after walking, washing",دانت — درد، چیرتا ہوا، صبح، منہ دھونے کے بعد,1,1,یکساں
+r123,"PAIN, morning, bed in, waking, on","PAIN, toothache in general, morning, bed in, waking, on",دانت — درد، صبح، بستر میں، جاگنے پر,8,8,یکساں
+r125,"PAIN, morning, rising, after, when washing","PAIN, toothache in general, morning, rising, after, when washing",دانت — درد، صبح، اٹھنے کے بعد، منہ دھوتے وقت,1,1,یکساں
+r405,"PAIN, extending, tooth, to another, from one","PAIN, toothache in general, extending to arms, tooth, to another, from one",دانت — درد، پھیلتا ہوا، ایک دانت سے دوسرے دانت تک,5,5,یکساں
+r451,"PAIN, drawing, evening, right side, going off after lying down","PAIN, toothache in general, drawing, evening, right side, going off after lying down",دانت — درد، کھینچتا ہوا، شام، دائیں طرف، لیٹنے کے بعد ختم ہو جائے,1,1,یکساں
+r455,"PAIN, drawing, air, in open, amel.","PAIN, toothache in general, drawing, air, in open, amel.",دانت — درد، کھینچتا ہوا، کھلی ہوا میں آرام,2,2,یکساں
+r457,"PAIN, drawing, bed, agg., in","PAIN, toothache in general, drawing, bed, agg., in",دانت — درد، کھینچتا ہوا، بستر میں بگاڑ,2,2,یکساں
+r503,"PAIN, drawing, upper teeth, right side, all night","PAIN, toothache in general, drawing, upper teeth, right side, all night",دانت — درد، کھینچتا ہوا، اوپری دانتوں میں، دائیں طرف، ساری رات,1,1,یکساں
+r525,"PAIN, gnawing, air, cold inhaling, amel.","PAIN, toothache in general, gnawing, air, cold inhaling, amel.",دانت — درد، کترتا ہوا، ٹھنڈی ہوا اندر لینے سے آرام,1,1,یکساں
+r536,"PAIN, grumbling, right side, one lower molar, with sensation as if headache came from that side","PAIN, toothache in general, grumbling (See Dull), right side, one lower molar, with sensation as if headache came from that side",دانت — درد، گڑگڑاتا ہوا، دائیں طرف، ایک نچلی داڑھ میں، جیسے سر درد اسی طرف سے آ رہا ہو,1,1,یکساں
+r547,"PAIN, jerking, rising from bed, after, amel.","PAIN, toothache in general, jerking, rising from bed, after, amel.",دانت — درد، جھٹکے دار، بستر سے اٹھنے کے بعد آرام,1,1,یکساں
+r556,"PAIN, jerking, molars, upper, right side","PAIN, toothache in general, jerking, molars, upper, right side",دانت — درد، جھٹکے دار، اوپری داڑھ میں، دائیں طرف,1,1,یکساں
+r580,"PAIN, pressing, transitory jerking in upper molars and jaws, right side, in afternoon","PAIN, toothache in general, pressing, transitory jerking in upper molars and jaws, right side, in afternoon",دانت — درد، دبانے والا، اوپری داڑھ اور جبڑوں میں گزرتے جھٹکے، دائیں طرف، سہ پہر کو,1,1,یکساں
+r655,"PAIN, tearing, night, midnight, before","PAIN, toothache in general, tearing, night, midnight, before",دانت — درد، چیرتا ہوا، رات، آدھی رات سے پہلے,2,2,یکساں
+r675,"PAIN, tearing, rising from bed, on, amel.","PAIN, toothache in general, tearing, rising from bed, on, amel.",دانت — درد، چیرتا ہوا، بستر سے اٹھنے پر آرام,1,1,یکساں
+r687,"PAIN, tearing, molars, lower, right","PAIN, toothache in general, tearing, molars, lower, right",دانت — درد، چیرتا ہوا، نچلی داڑھ میں، دائیں,2,2,یکساں
+r691,"PAIN, tearing, molars, left, alternating with itching in left ear","PAIN, toothache in general, tearing, molars, left, alternating with itching in left ear",دانت — درد، چیرتا ہوا، بائیں داڑھ میں، بائیں کان کی خارش کے ساتھ باری باری,1,1,یکساں
+r696,"PAIN, tearing, roots, eating, after","PAIN, toothache in general, tearing, roots, eating, after",دانت — درد، چیرتا ہوا، جڑوں میں، کھانے کے بعد,2,2,یکساں
+o60566,"PAIN, bending, backward, from","PAIN, toothache in general, bending forward with forehead on table agg., backward, from",دانت — درد، جھکنا، پیچھے کی طرف، سے,1,1,یکساں
+o60567,"PAIN, bending, to either side, from","PAIN, toothache in general, bending forward with forehead on table agg., to either side, from",دانت — درد، جھکنا، کسی بھی طرف، سے,1,1,یکساں
+o60656,"PAIN, drawing, extending, to cheek","PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek",دانت — درد، کھینچتا ہوا، گال تک,2,2,یکساں
+o60699,"PAIN, drawing, warm, room","PAIN, toothache in general, drawing, warm fluids, room",دانت — درد، کھینچتا ہوا، گرم کمرے میں,1,1,یکساں
+o60712,"PAIN, dull, upper molars, during mastication","PAIN, toothache in general, dull, upper molars with tearing pain in cheek bone, during mastication",دانت — درد، مدھم، اوپری داڑھ میں، چباتے وقت,1,1,یکساں
+o60736,"PAIN, extending, ear, right","PAIN, toothache in general, extending to arms, ear, right",دانت — درد، پھیلتا ہوا، دائیں کان تک,3,3,یکساں
+o60738,"PAIN, extending, eyes, on going into cold air","PAIN, toothache in general, extending to arms, eyes, on going into cold air",دانت — درد، پھیلتا ہوا، آنکھوں تک، ٹھنڈی ہوا میں جانے پر,1,1,یکساں
+o60740,"PAIN, extending, face, during menses","PAIN, toothache in general, extending to arms, face, during menses",دانت — درد، پھیلتا ہوا، چہرے تک، حیض کے دوران,1,1,یکساں
+o60741,"PAIN, extending, face, left side","PAIN, toothache in general, extending to arms, face, left side",دانت — درد، پھیلتا ہوا، چہرے تک، بائیں طرف,1,1,یکساں
+o60742,"PAIN, extending, fingers, to","PAIN, toothache in general, extending to arms, fingers, to",دانت — درد، پھیلتا ہوا، انگلیوں تک,1,1,یکساں
+o60753,"PAIN, extending, side, entire left","PAIN, toothache in general, extending to arms, side, entire left",دانت — درد، پھیلتا ہوا، پورا بایاں پہلو,1,1,یکساں
+o60801,"PAIN, jerking, extending, head","PAIN, toothache in general, jerking, extending to temples, head",دانت — درد، جھٹکے دار، سر تک,1,1,یکساں
+o61004,"PAIN, suddenly, ceases, begins slowly","PAIN, toothache in general, suddenly begins and goes, ceases, begins slowly",دانت — درد، اچانک ختم ہو، آہستہ شروع ہو,1,1,یکساں
+o61025,"PAIN, tearing, extending, to ears","PAIN, toothache in general, tearing, extending out through left ear, to ears",دانت — درد، چیرتا ہوا، کانوں تک,5,5,یکساں
+o61032,"PAIN, tearing, lying on, sound side","PAIN, toothache in general, tearing, lying on painful side, sound side",دانت — درد، چیرتا ہوا، صحت مند پہلو پر لیٹنے سے,1,1,یکساں
+o61033,"PAIN, tearing, menses, before","PAIN, toothache in general, tearing, menses, before",دانت — درد، چیرتا ہوا، حیض سے پہلے,1,1,یکساں
+o61093,"PAIN, upper teeth, right, molar","PAIN, toothache in general, upper teeth, right bi-cuspid, molar",دانت — درد، اوپری دانتوں میں، دائیں، داڑھ میں,1,1,یکساں
+r122,"PAIN, morning, bed in, wakes him","PAIN, toothache in general, morning, bed in, wakes him",دانت — درد، صبح، بستر میں، نیند سے جگا دے,1,1,یکساں
+r133,"PAIN, evening, in bed, amel.","PAIN, toothache in general, evening, in bed, amel.",دانت — درد، شام، بستر میں آرام,1,1,یکساں
+r138,"PAIN, night, lying, when","PAIN, toothache in general, night, lying, when",دانت — درد، رات، لیٹنے پر,3,3,یکساں
+r141,"PAIN, night, midnight, before","PAIN, toothache in general, night, midnight, before",دانت — درد، رات، آدھی رات سے پہلے,17,17,یکساں
+r146,"PAIN, air, cold, amel.","PAIN, toothache in general, air, cold, amel.",دانت — درد، ہوا، ٹھنڈی ہوا سے آرام,11,11,یکساں
+r185,"PAIN, catarrh, when catarrh is better, toothache is worse and vice versa","PAIN, toothache in general, catarrh, when catarrh is better, toothache is worse and vice versa",دانت — درد، جب نزلہ زکام کم ہو تو درد بڑھے اور اس کے برعکس,1,1,یکساں
+r204,"PAIN, cold, from a, air (See Air)","PAIN, toothache in general, cold, from a, air (See Air)",دانت — درد، ٹھنڈک، ٹھنڈ لگنے سے، ٹھنڈی ہوا سے,0,0,یکساں
+r217,"PAIN, diverted, when, amel.","PAIN, toothache in general, diverted, when, amel.",دانت — درد، توجہ ہٹانے پر آرام,3,3,یکساں
+r258,"PAIN, menses, at beginning, and end","PAIN, toothache in general, menses, at beginning, and end",دانت — درد، حیض شروع ہوتے وقت، اور آخر میں,1,1,یکساں
+r340,"PAIN, touch, of food, from","PAIN, toothache in general, touch, of food, from",دانت — درد، کھانے کے چھونے سے,8,8,یکساں
+r414,"PAIN, boring, evening, with tearing and digging","PAIN, toothache in general, boring, evening, with tearing and digging",دانت — درد، برما سا، شام، چیرتے اور کھودتے درد کے ساتھ,1,1,یکساں
+r416,"PAIN, boring, dinner, after","PAIN, toothache in general, boring, dinner, after",دانت — درد، برما سا، دوپہر کے کھانے کے بعد,1,1,یکساں
+r430,"PAIN, crushed, as if, molars","PAIN, toothache in general, crushed, as if, molars",دانت — درد، جیسے کچل دیا گیا، داڑھ میں,1,1,یکساں
+r432,"PAIN, cutting, evening, when lying in bed","PAIN, toothache in general, cutting, evening, when lying in bed",دانت — درد، کاٹتا ہوا، شام، بستر میں لیٹے ہوئے,1,1,یکساں
+r433,"PAIN, cutting, lying, while","PAIN, toothache in general, cutting, lying, while",دانت — درد، کاٹتا ہوا، لیٹے ہوئے,1,1,یکساں
+r434,"PAIN, cutting, open air, in the","PAIN, toothache in general, cutting, open air, in the",دانت — درد، کاٹتا ہوا، کھلی ہوا میں,1,1,یکساں
+r436,"PAIN, cutting, swollen submaxillary gland, seems to originate in","PAIN, toothache in general, cutting, swollen submaxillary gland, seems to originate in",دانت — درد، کاٹتا ہوا، جبڑے کے نیچے کی سوجی ہوئی غدود سے شروع ہوتا لگے,1,1,یکساں
+r437,"PAIN, cutting, thunderstorm, before","PAIN, toothache in general, cutting, thunderstorm, before",دانت — درد، کاٹتا ہوا، آندھی طوفان سے پہلے,1,1,یکساں
+r438,"PAIN, cutting, roots, in","PAIN, toothache in general, cutting, roots, in",دانت — درد، کاٹتا ہوا، جڑوں میں,1,1,یکساں
+r442,"PAIN, digging, with pressure, sensation as if pain were felt below left lower molars","PAIN, toothache in general, digging, with pressure, sensation as if pain were felt below left lower molars",دانت — درد، کھودتا ہوا، دباؤ کے ساتھ، جیسے درد بائیں نچلی داڑھ کے نیچے محسوس ہو,1,1,یکساں
+r445,"PAIN, drawing, morning, 10 a.m.","PAIN, toothache in general, drawing, morning, 10 a.m.",دانت — درد، کھینچتا ہوا، صبح 10 بجے,1,1,یکساں
+r446,"PAIN, drawing, noon, towards","PAIN, toothache in general, drawing, noon, towards",دانت — درد، کھینچتا ہوا، دوپہر کی طرف,1,1,یکساں
+r448,"PAIN, drawing, afternoon, 5 p.m.","PAIN, toothache in general, drawing, afternoon, 5 p.m.",دانت — درد، کھینچتا ہوا، سہ پہر 5 بجے,1,1,یکساں
+r450,"PAIN, drawing, evening, in bed","PAIN, toothache in general, drawing, evening, in bed",دانت — درد، کھینچتا ہوا، شام، بستر میں,1,1,یکساں
+r453,"PAIN, drawing, night, when lying down","PAIN, toothache in general, drawing, night, when lying down",دانت — درد، کھینچتا ہوا، رات، لیٹنے پر,2,2,یکساں
+r456,"PAIN, drawing, biting, only when","PAIN, toothache in general, drawing, biting, only when",دانت — درد، کھینچتا ہوا، صرف کاٹنے پر,1,1,یکساں
+r466,"PAIN, drawing, menses, during","PAIN, toothache in general, drawing, menses, during",دانت — درد، کھینچتا ہوا، حیض کے دوران,2,2,یکساں
+r467,"PAIN, drawing, music, from","PAIN, toothache in general, drawing, music, from",دانت — درد، کھینچتا ہوا، موسیقی سے,1,1,یکساں
+r470,"PAIN, drawing, stretched, as if nerves were","PAIN, toothache in general, drawing, stretched, as if nerves were",دانت — درد، کھینچتا ہوا، جیسے اعصاب کھنچ گئے ہوں,3,3,یکساں
+r473,"PAIN, drawing, thunderstorm, before","PAIN, toothache in general, drawing, thunderstorm, before",دانت — درد، کھینچتا ہوا، آندھی طوفان سے پہلے,1,1,یکساں
+r474,"PAIN, drawing, walking, while","PAIN, toothache in general, drawing, walking, while",دانت — درد، کھینچتا ہوا، چلتے ہوئے,1,1,یکساں
+r493,"PAIN, drawing, incisors, lower","PAIN, toothache in general, drawing, incisors, lower",دانت — درد، کھینچتا ہوا، نچلے سامنے کے دانت,5,5,یکساں
+r497,"PAIN, drawing, molars, right","PAIN, toothache in general, drawing, molars, right",دانت — درد، کھینچتا ہوا، داڑھ میں، دائیں,2,2,یکساں
+r498,"PAIN, drawing, molars, left","PAIN, toothache in general, drawing, molars, left",دانت — درد، کھینچتا ہوا، داڑھ میں، بائیں,3,3,یکساں
+r499,"PAIN, drawing, molars, lower","PAIN, toothache in general, drawing, molars, lower",دانت — درد، کھینچتا ہوا، نچلی داڑھ میں,2,2,یکساں
+r500,"PAIN, drawing, molars, upper","PAIN, toothache in general, drawing, molars, upper",دانت — درد، کھینچتا ہوا، اوپری داڑھ میں,4,4,یکساں
+r502,"PAIN, drawing, upper teeth, amel. by cold finger","PAIN, toothache in general, drawing, upper teeth, amel. by cold finger",دانت — درد، کھینچتا ہوا، اوپری دانتوں میں، ٹھنڈی انگلی سے آرام,1,1,یکساں
+r505,"PAIN, drawing, lower teeth, canine","PAIN, toothache in general, drawing, lower teeth, canine",دانت — درد، کھینچتا ہوا، نچلے دانتوں میں، کچلی والا دانت,1,1,یکساں
+r506,"PAIN, drawing, roots, in","PAIN, toothache in general, drawing, roots, in",دانت — درد، کھینچتا ہوا، جڑوں میں,2,2,یکساں
+r517,"PAIN, fly to pieces, as if would, on biting together","PAIN, toothache in general, fly to pieces, as if would, on biting together",دانت — درد، جیسے بھر کر بکھر جائیں گے، دانت بھینچنے پر,1,1,یکساں
+r520,"PAIN, gnawing, morning, in bed","PAIN, toothache in general, gnawing, morning, in bed",دانت — درد، کترتا ہوا، صبح، بستر میں,1,1,یکساں
+r522,"PAIN, gnawing, evening, 9 p.m.","PAIN, toothache in general, gnawing, evening, 9 p.m.",دانت — درد، کترتا ہوا، رات 9 بجے,1,1,یکساں
+r526,"PAIN, gnawing, eating, after","PAIN, toothache in general, gnawing, eating, after",دانت — درد، کترتا ہوا، کھانے کے بعد,1,1,یکساں
+r529,"PAIN, gnawing, molars, lower","PAIN, toothache in general, gnawing, molars, lower",دانت — درد، کترتا ہوا، نچلی داڑھ میں,2,2,یکساں
+r537,"PAIN, grumbling, left side, upper","PAIN, toothache in general, grumbling (See Dull), left side, upper",دانت — درد، گڑگڑاتا ہوا، بائیں طرف، اوپر,1,1,یکساں
+r538,"PAIN, grumbling, lower teeth, left side","PAIN, toothache in general, grumbling (See Dull), lower teeth, left side",دانت — درد، گڑگڑاتا ہوا، نچلے دانتوں میں، بائیں طرف,1,1,یکساں
+r544,"PAIN, jerking, night, after midnight","PAIN, toothache in general, jerking, night, after midnight",دانت — درد، جھٹکے دار، رات، آدھی رات کے بعد,1,1,یکساں
+r546,"PAIN, jerking, eating, after","PAIN, toothache in general, jerking, eating, after",دانت — درد، جھٹکے دار، کھانے کے بعد,1,1,یکساں
+r551,"PAIN, jerking, stretch and let loose, as if nerves were put on","PAIN, toothache in general, jerking, stretch and let loose, as if nerves were put on",دانت — درد، جھٹکے دار، جیسے اعصاب کھینچ کر چھوڑ دیے گئے ہوں,1,1,یکساں
+r553,"PAIN, jerking, torn out, as if tooth would be","PAIN, toothache in general, jerking, torn out, as if tooth would be",دانت — درد، جھٹکے دار، جیسے دانت اکھاڑ لیا جائے گا,4,4,یکساں
+r554,"PAIN, jerking, canines, upper","PAIN, toothache in general, jerking, canines, upper",دانت — درد، جھٹکے دار، اوپری کچلی والے دانتوں میں,1,1,یکساں
+r557,"PAIN, jerking, root, in","PAIN, toothache in general, jerking, root, in",دانت — درد، جھٹکے دار، جڑ میں,2,2,یکساں
+r565,"PAIN, pinching, cold drinks, from","PAIN, toothache in general, pinching, cold drinks, from",دانت — درد، چٹکی جیسا، ٹھنڈے مشروبات سے,1,1,یکساں
+r571,"PAIN, pressing, as if pressed into sockets, old stumps","PAIN, toothache in general, pressing, as if pressed into sockets, old stumps",دانت — درد، دبانے والا، جیسے گڑھوں میں دبا دیے گئے ہوں، پرانے ڈھونڈوں میں,1,1,یکساں
+r574,"PAIN, pressing, asunder, expansive","PAIN, toothache in general, pressing, asunder, expansive",دانت — درد، دبانے والا، جیسے الگ الگ ہو رہے ہوں، پھیلاؤ کے ساتھ,9,9,یکساں
+r575,"PAIN, pressing, dinner, after","PAIN, toothache in general, pressing, dinner, after",دانت — درد، دبانے والا، دوپہر کے کھانے کے بعد,1,1,یکساں
+r576,"PAIN, pressing, filling, of the","PAIN, toothache in general, pressing, filling, of the",دانت — درد، دبانے والا، بھرائی میں,1,1,یکساں
+r579,"PAIN, pressing, swallowing, when","PAIN, toothache in general, pressing, swallowing, when",دانت — درد، دبانے والا، نگلتے وقت,1,1,یکساں
+r581,"PAIN, pressing, warm room, on entering","PAIN, toothache in general, pressing, warm room, on entering",دانت — درد، دبانے والا، گرم کمرے میں داخل ہوتے ہی,1,1,یکساں
+r582,"PAIN, pressing, incisor, in one","PAIN, toothache in general, pressing, incisor, in one",دانت — درد، دبانے والا، سامنے کے ایک دانت میں,1,1,یکساں
+r583,"PAIN, pressing, roots, in","PAIN, toothache in general, pressing, roots, in",دانت — درد، دبانے والا، جڑوں میں,5,5,یکساں
+r586,"PAIN, pricking, night, waking him","PAIN, toothache in general, pricking, night, waking him",دانت — درد، چبھتا ہوا، رات، نیند سے جگا دے,1,1,یکساں
+r587,"PAIN, pricking, molars, especially","PAIN, toothache in general, pricking, molars, especially",دانت — درد، چبھتا ہوا، خاص کر داڑھ میں,1,1,یکساں
+r593,"PAIN, scraping, roots, as if scraped with a knife","PAIN, toothache in general, scraping, roots, as if scraped with a knife",دانت — درد، کھرچنے والا، جڑوں میں، جیسے چھری سے کھرچا جائے,1,1,یکساں
+r649,"PAIN, tearing, morning, after walking","PAIN, toothache in general, tearing, morning, after walking",دانت — درد، چیرتا ہوا، صبح، چلنے کے بعد,1,1,یکساں
+r654,"PAIN, tearing, night, lying on painful side agg.","PAIN, toothache in general, tearing, night, lying on painful side agg.",دانت — درد، چیرتا ہوا، رات، درد والے پہلو پر لیٹنے سے بگاڑ,1,1,یکساں
+r657,"PAIN, tearing, air, as from a current of","PAIN, toothache in general, tearing, air, as from a current of",دانت — درد، چیرتا ہوا، جیسے ہوا کے جھونکے سے,1,1,یکساں
+r660,"PAIN, tearing, bed, worse after going to","PAIN, toothache in general, tearing, bed, worse after going to",دانت — درد، چیرتا ہوا، بستر میں جانے کے بعد بگاڑ,1,1,یکساں
+r664,"PAIN, tearing, eating, while","PAIN, toothache in general, tearing, eating, while",دانت — درد، چیرتا ہوا، کھاتے ہوئے,5,5,یکساں
+r671,"PAIN, tearing, opening mouth, when","PAIN, toothache in general, tearing, opening mouth, when",دانت — درد، چیرتا ہوا، منہ کھولنے پر,2,2,یکساں
+r673,"PAIN, tearing, pregnancy, during","PAIN, toothache in general, tearing, pregnancy, during",دانت — درد، چیرتا ہوا، حمل کے دوران,1,1,یکساں
+r684,"PAIN, tearing, incisors, lower","PAIN, toothache in general, tearing, incisors, lower",دانت — درد، چیرتا ہوا، نچلے سامنے کے دانتوں میں,3,3,یکساں
+r689,"PAIN, tearing, molars, upper right","PAIN, toothache in general, tearing, molars, upper right",دانت — درد، چیرتا ہوا، اوپری دائیں داڑھ میں,2,2,یکساں
+r693,"PAIN, tearing, molars, after getting wet","PAIN, toothache in general, tearing, molars, after getting wet",دانت — درد، چیرتا ہوا، داڑھ میں، بھیگنے کے بعد,1,1,یکساں
+r695,"PAIN, tearing, roots, as if being torn out","PAIN, toothache in general, tearing, roots, as if being torn out",دانت — درد، چیرتا ہوا، جڑوں میں، جیسے اکھاڑا جا رہا ہو,1,1,یکساں
+r700,"PAIN, tearing, roots, left side posteriorly","PAIN, toothache in general, tearing, roots, left side posteriorly",دانت — درد، چیرتا ہوا، جڑوں میں، بائیں طرف پیچھے کو,2,2,یکساں
+r701,"PAIN, tearing, roots, pressure of finger amel.","PAIN, toothache in general, tearing, roots, pressure of finger amel.",دانت — درد، چیرتا ہوا، جڑوں میں، انگلی سے دبانے پر آرام,1,1,یکساں
+r710,"PAIN, ulcerative, at roots, from touch","PAIN, toothache in general, ulcerative, at roots, from touch",دانت — درد، زخمی، جڑوں میں، چھونے سے,1,1,یکساں
+r711,"PAIN, ulcerative, at roots, worse when chewing","PAIN, toothache in general, ulcerative, at roots, worse when chewing",دانت — درد، زخمی، جڑوں میں، چباتے وقت بگاڑ,2,2,یکساں
+r612,"PAIN, stitching, left, upper and lower, worse lying down, compelling him to walk, better from external pressure","PAIN, toothache in general, stitching, stinging, left, upper and lower, worse lying down, compelling him to walk, better from external pressure",دانت — درد، چبھتا ہوا، بائیں، اوپری اور نچلے، لیٹنے سے بگاڑ، چلنے پر مجبور کرے، باہری دباؤ سے آرام,1,1,یکساں
+o60550,"PAIN, alternating with, dizziness","PAIN, toothache in general, alternating with catarrh, dizziness",دانت — درد، باری باری ساتھ، چکر کے ساتھ,1,1,یکساں
+o60551,"PAIN, alternating with, headache","PAIN, toothache in general, alternating with catarrh, headache",دانت — درد، باری باری ساتھ، سر درد کے ساتھ,1,1,یکساں
+o60552,"PAIN, alternating with, itching in ear","PAIN, toothache in general, alternating with catarrh, itching in ear",دانت — درد، باری باری ساتھ، کان میں خارش کے ساتھ,1,1,یکساں
+o60553,"PAIN, alternating with, sides","PAIN, toothache in general, alternating with catarrh, sides",دانت — درد، باری باری ساتھ، پہلوؤں کے ساتھ,5,5,یکساں
+o60554,"PAIN, alternating with, stitching pain in left breast","PAIN, toothache in general, alternating with catarrh, stitching pain in left breast",دانت — درد، باری باری ساتھ، بائیں پستان میں چبھنے والے درد کے ساتھ,1,1,یکساں
+o60555,"PAIN, alternating with, tearing in limbs","PAIN, toothache in general, alternating with catarrh, tearing in limbs",دانت — درد، باری باری ساتھ، اعضا میں چیرتے درد کے ساتھ,1,1,یکساں
+o60556,"PAIN, alternating with, vertigo","PAIN, toothache in general, alternating with catarrh, vertigo",دانت — درد، باری باری ساتھ، چکر کے ساتھ,1,1,یکساں
+o60565,"PAIN, bending forward, amel.","PAIN, toothache in general, bending forward with forehead on table agg., amel.",دانت — درد، آگے جھکنے سے آرام,1,1,یکساں
+o60664,"PAIN, drawing, extending, to, other, parts","PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, other teeth, right side, parts",دانت — درد، کھینچتا ہوا، دوسرے حصوں تک,1,1,یکساں
+o60732,"PAIN, extending, cheeks","PAIN, toothache in general, extending to arms, cheeks",دانت — درد، پھیلتا ہوا، گالوں تک,2,2,یکساں
+o60733,"PAIN, extending, chest","PAIN, toothache in general, extending to arms, chest",دانت — درد، پھیلتا ہوا، سینے تک,1,1,یکساں
+o60734,"PAIN, extending, downward","PAIN, toothache in general, extending to arms, downward",دانت — درد، پھیلتا ہوا، نیچے کی طرف,2,2,یکساں
+o60743,"PAIN, extending, forehead","PAIN, toothache in general, extending to arms, forehead",دانت — درد، پھیلتا ہوا، ماتھے تک,7,7,یکساں
+o60744,"PAIN, extending, head","PAIN, toothache in general, extending to arms, head",دانت — درد، پھیلتا ہوا، سر تک,31,31,یکساں
+o60745,"PAIN, extending, larynx","PAIN, toothache in general, extending to arms, larynx",دانت — درد، پھیلتا ہوا، نرخرے تک,4,4,یکساں
+o60746,"PAIN, extending, left arm","PAIN, toothache in general, extending to arms, left arm",دانت — درد، پھیلتا ہوا، بائیں بازو تک,1,1,یکساں
+o60747,"PAIN, extending, neck","PAIN, toothache in general, extending to arms, neck",دانت — درد، پھیلتا ہوا، گردن تک,6,6,یکساں
+o60748,"PAIN, extending, nose","PAIN, toothache in general, extending to arms, nose",دانت — درد، پھیلتا ہوا، ناک تک,6,6,یکساں
+o60749,"PAIN, extending, occiput","PAIN, toothache in general, extending to arms, occiput",دانت — درد، پھیلتا ہوا، گدی تک,1,1,یکساں
+o60750,"PAIN, extending, oesophagus","PAIN, toothache in general, extending to arms, œsophagus",دانت — درد، پھیلتا ہوا، غذا کی نالی تک,1,1,یکساں
+o60751,"PAIN, extending, other parts","PAIN, toothache in general, extending to arms, other parts",دانت — درد، پھیلتا ہوا، دوسرے حصوں تک,1,1,یکساں
+o60752,"PAIN, extending, shoulders","PAIN, toothache in general, extending to arms, shoulders",دانت — درد، پھیلتا ہوا، کندھوں تک,2,2,یکساں
+o60787,"PAIN, heat of stove, amel.","PAIN, toothache in general, heat of stove agg. (See Warmth), amel.",دانت — درد، چولہے کی گرمی سے آرام,1,1,یکساں
+o60857,"PAIN, motion, amel.","PAIN, toothache in general, motion agg., amel.",دانت — درد، حرکت سے آرام,4,4,یکساں
+o60936,"PAIN, sitting, erect agg.","PAIN, toothache in general, sitting agg., erect agg.",دانت — درد، سیدھا بیٹھنے سے بگاڑ,1,1,یکساں
+o60937,"PAIN, sitting, quiet amel.","PAIN, toothache in general, sitting agg., quiet amel.",دانت — درد، سکون سے بیٹھنے پر آرام,1,1,یکساں
+o60938,"PAIN, sitting, up in bed amel.","PAIN, toothache in general, sitting agg., up in bed amel.",دانت — درد، بستر میں اٹھ کر بیٹھنے سے آرام,6,6,یکساں
+o61000,"PAIN, stooping, amel.","PAIN, toothache in general, stooping agg., amel.",دانت — درد، جھکنے سے آرام,1,1,یکساں
+o61002,"PAIN, sucking teeth, amel.","PAIN, toothache in general, sucking teeth agg., amel.",دانت — درد، دانت چوسنے سے آرام,6,6,یکساں
+o61073,"PAIN, tobacco, chewing","PAIN, toothache in general, tobacco smoking, chewing",دانت — درد، تمباکو چبانے سے,1,1,یکساں
+r102,"PAIN, molars, right","PAIN, toothache in general, molars, right",دانت — درد، داڑھ میں، دائیں,1,1,یکساں
+r103,"PAIN, molars, left","PAIN, toothache in general, molars, left",دانت — درد، داڑھ میں، بائیں,3,3,یکساں
+r105,"PAIN, upper teeth, right bi-cuspid","PAIN, toothache in general, upper teeth, right bi-cuspid",دانت — درد، اوپری دانتوں میں، دائیں دو نوکیلی دانت,1,1,یکساں
+r110,"PAIN, upper teeth, left 2nd bi-cuspid","PAIN, toothache in general, upper teeth, left 2nd bi-cuspid",دانت — درد، اوپری دانتوں میں، بائیں دوسرا دو نوکیلی دانت,1,1,یکساں
+r112,"PAIN, lower teeth, 2nd molar","PAIN, toothache in general, lower teeth, 2nd molar",دانت — درد، نچلے دانتوں میں، دوسری داڑھ,1,1,یکساں
+r113,"PAIN, lower teeth, one incisor","PAIN, toothache in general, lower teeth, one incisor",دانت — درد، نچلے دانتوں میں، ایک سامنے کا دانت,1,1,یکساں
+r114,"PAIN, lower teeth, 1st bi-cuspid","PAIN, toothache in general, lower teeth, 1st bi-cuspid",دانت — درد، نچلے دانتوں میں، پہلا دو نوکیلی دانت,1,1,یکساں
+r116,"PAIN, right, to left","PAIN, toothache in general, right, to left",دانت — درد، دائیں سے بائیں,2,2,یکساں
+r118,"PAIN, left, to right","PAIN, toothache in general, left, to right",دانت — درد، بائیں سے دائیں,2,2,یکساں
+r126,"PAIN, morning, 3 a.m.","PAIN, toothache in general, morning, 3 a.m.",دانت — درد، صبح، رات 3 بجے,1,1,یکساں
+r130,"PAIN, afternoon, after dinner","PAIN, toothache in general, afternoon, after dinner",دانت — درد، سہ پہر، دوپہر کے کھانے کے بعد,4,4,یکساں
+r134,"PAIN, evening, smoking amel.","PAIN, toothache in general, evening, smoking amel.",دانت — درد، شام، سگریٹ پینے سے آرام,1,1,یکساں
+r135,"PAIN, evening, 6 p.m. lasting till 1 or 2 a.m.","PAIN, toothache in general, evening, 6 p.m. lasting till 1 or 2 a.m.",دانت — درد، شام 6 بجے سے رات 1 یا 2 بجے تک,1,1,یکساں
+r137,"PAIN, night, chilliness as it disappears","PAIN, toothache in general, night, chilliness as it disappears",دانت — درد، رات، ٹھنڈ لگنا جب درد جاتا رہے,1,1,یکساں
+r139,"PAIN, night, 9 p.m.","PAIN, toothache in general, night, 9 p.m.",دانت — درد، رات 9 بجے,1,1,یکساں
+r140,"PAIN, night, 10 p.m.","PAIN, toothache in general, night, 10 p.m.",دانت — درد، رات 10 بجے,1,1,یکساں
+r144,"PAIN, night, 3 a.m.","PAIN, toothache in general, night, 3 a.m.",دانت — درد، رات 3 بجے,1,1,یکساں
+r163,"PAIN, anger, after","PAIN, toothache in general, anger, after",دانت — درد، غصے کے بعد,2,2,یکساں
+r164,"PAIN, anxiety, with","PAIN, toothache in general, anxiety, with",دانت — درد، بے چینی کے ساتھ,3,3,یکساں
+r165,"PAIN, autumn, in the","PAIN, toothache in general, autumn, in the",دانت — درد، خزاں میں,10,10,یکساں
+r166,"PAIN, bed, on going to","PAIN, toothache in general, bed, on going to (See Evening and Night)",دانت — درد، سونے جاتے وقت,2,2,یکساں
+r169,"PAIN, beer, amel.","PAIN, toothache in general, beer, amel.",دانت — درد، بیئر سے آرام,1,1,یکساں
+r180,"PAIN, blowing the nose, on","PAIN, toothache in general, blowing the nose, on",دانت — درد، ناک سنکنے پر,2,2,یکساں
+r181,"PAIN, bread, from eating","PAIN, toothache in general, bread, from eating",دانت — درد، روٹی کھانے سے,1,1,یکساں
+r183,"PAIN, breathing, deep agg.","PAIN, toothache in general, breathing, deep agg.",دانت — درد، سانس لینے پر، گہری سانس سے بگاڑ,1,1,یکساں
+r192,"PAIN, chamomile, from","PAIN, toothache in general, chamomile, from",دانت — درد، بابونہ سے,2,2,یکساں
+r195,"PAIN, chill, during","PAIN, toothache in general, chill, during",دانت — درد، سردی لگنے کے دوران,8,8,یکساں
+r196,"PAIN, chilliness, with","PAIN, toothache in general, chilliness, with",دانت — درد، ٹھنڈ لگنے کے ساتھ,7,7,یکساں
+r198,"PAIN, coffee, from","PAIN, toothache in general, coffee, from",دانت — درد، کافی سے,13,13,یکساں
+r199,"PAIN, coition, after","PAIN, toothache in general, coition, after",دانت — درد، مباشرت کے بعد,1,1,یکساں
+r201,"PAIN, cold, from a","PAIN, toothache in general, cold, from a",دانت — درد، ٹھنڈک، ٹھنڈ لگنے سے,27,27,یکساں
+r212,"PAIN, concussion, from","PAIN, toothache in general, concussion, from",دانت — درد، چوٹ کے جھٹکے سے,2,2,یکساں
+r214,"PAIN, crumbs of bread, from","PAIN, toothache in general, crumbs of bread, from",دانت — درد، روٹی کے چوروں سے,3,3,یکساں
+r215,"PAIN, damp places, from working in","PAIN, toothache in general, damp places, from working in",دانت — درد، گیلی جگہوں میں کام کرنے سے,4,4,یکساں
+r221,"PAIN, eating, before dinner","PAIN, toothache in general, eating, before dinner",دانت — درد، دوپہر کے کھانے سے پہلے,2,2,یکساں
+r230,"PAIN, filled tooth, in a","PAIN, toothache in general, filled tooth, in a",دانت — درد، بھرے ہوئے دانت میں,3,3,یکساں
+r231,"PAIN, filling, after","PAIN, toothache in general, filling, after",دانت — درد، دانت بھرنے کے بعد,5,5,یکساں
+r232,"PAIN, fruit, after eating","PAIN, toothache in general, fruit, after eating",دانت — درد، پھل کھانے کے بعد,2,2,یکساں
+r234,"PAIN, heated, when","PAIN, toothache in general, heated, when",دانت — درد، گرم ہونے پر,1,1,یکساں
+r237,"PAIN, hot food, from","PAIN, toothache in general, hot food, from (See Warm)",دانت — درد، گرم کھانے سے,6,6,یکساں
+r238,"PAIN, inspiration, on","PAIN, toothache in general, inspiration, on",دانت — درد، سانس اندر لینے پر,1,1,یکساں
+r245,"PAIN, lying, head, low, with, agg.","PAIN, toothache in general, lying, while, head, low, with, agg.",دانت — درد، لیٹنا، سر نیچا رکھنے سے بگاڑ,1,1,یکساں
+r257,"PAIN, menses, at beginning","PAIN, toothache in general, menses, at beginning",دانت — درد، حیض شروع ہوتے وقت,2,2,یکساں
+r264,"PAIN, mental exertion, from","PAIN, toothache in general, mental exertion, from",دانت — درد، ذہنی محنت سے,3,3,یکساں
+r265,"PAIN, mercury, from","PAIN, toothache in general, mercury, from",دانت — درد، پارے سے,4,4,یکساں
+r271,"PAIN, nursing mothers, in","PAIN, toothache in general, nursing mothers, in",دانت — درد، دودھ پلانے والی عورتوں میں,10,10,یکساں
+r273,"PAIN, opening mouth, from","PAIN, toothache in general, opening mouth, from",دانت — درد، منہ کھولنے سے,7,7,یکساں
+r274,"PAIN, operation, after dental (See Filling)","PAIN, toothache in general, operation, after dental (See Filling)",دانت — درد، دانت کا آپریشن کے بعد,0,0,یکساں
+r276,"PAIN, pears, after eating","PAIN, toothache in general, pears, after eating",دانت — درد، ناشپاتی کھانے کے بعد,1,1,یکساں
+r278,"PAIN, periodical, every other day","PAIN, toothache in general, periodical, every other day",دانت — درد، وقفے وقفے سے باقاعدہ، ایک دن چھوڑ کر,2,2,یکساں
+r279,"PAIN, periodical, every seven days","PAIN, toothache in general, periodical, every seven days",دانت — درد، وقفے وقفے سے باقاعدہ، ہر سات دن بعد,4,4,یکساں
+r286,"PAIN, pregnancy, during","PAIN, toothache in general, pregnancy, during",دانت — درد، حمل کے دوران,19,19,یکساں
+r288,"PAIN, pressure, amel.","PAIN, toothache in general, pressure, amel.",دانت — درد، دباؤ سے آرام,33,33,یکساں
+r289,"PAIN, pressure, of cold hand amel.","PAIN, toothache in general, pressure, of cold hand amel.",دانت — درد، ٹھنڈے ہاتھ کے دباؤ سے آرام,1,1,یکساں
+r291,"PAIN, quinine, from abuse of","PAIN, toothache in general, quinine, from abuse of",دانت — درد، کونین کے زیادہ استعمال سے,3,3,یکساں
+r292,"PAIN, reading, while","PAIN, toothache in general, reading, while",دانت — درد، پڑھتے ہوئے,4,4,یکساں
+r294,"PAIN, riding in a carriage, while","PAIN, toothache in general, riding in a carriage, while",دانت — درد، گاڑی میں سفر کرتے ہوئے,2,2,یکساں
+r297,"PAIN, saliva, with involuntary flow of","PAIN, toothache in general, saliva, with involuntary flow of",دانت — درد، بے اختیار لعاب بہنے کے ساتھ,6,6,یکساں
+r305,"PAIN, sleep, on going to","PAIN, toothache in general, sleep, on going to",دانت — درد، سونے جاتے وقت,4,4,یکساں
+r311,"PAIN, sound teeth, in","PAIN, toothache in general, sound teeth, in",دانت — درد، صحت مند دانتوں میں,21,21,یکساں
+r314,"PAIN, spring, in the","PAIN, toothache in general, spring, in the",دانت — درد، بہار میں,18,18,یکساں
+r315,"PAIN, standing up, after","PAIN, toothache in general, standing up, after",دانت — درد، کھڑے ہونے کے بعد,3,3,یکساں
+r324,"PAIN, summer, in the","PAIN, toothache in general, summer, in the",دانت — درد، گرمیوں میں,13,13,یکساں
+r325,"PAIN, suppressed foot sweat, after","PAIN, toothache in general, suppressed foot sweat, after",دانت — درد، پاؤں کا پسینہ بند ہونے کے بعد,1,1,یکساں
+r327,"PAIN, sweets, after","PAIN, toothache in general, sweets, after",دانت — درد، میٹھے کے بعد,4,4,یکساں
+r328,"PAIN, swelling of cheek, with","PAIN, toothache in general, swelling of cheek, with",دانت — درد، گال کی سوجن کے ساتھ,17,17,یکساں
+r329,"PAIN, talking, from","PAIN, toothache in general, talking, from",دانت — درد، بات کرنے سے,7,7,یکساں
+r333,"PAIN, thinking about it, other thing (See Diverted)","PAIN, toothache in general, thinking about it, other thing (See Diverted)",دانت — درد، کسی دوسری چیز کے بارے میں سوچنے پر,0,0,یکساں
+r334,"PAIN, thunderstorm, before","PAIN, toothache in general, thunderstorm, before",دانت — درد، آندھی طوفان سے پہلے,1,1,یکساں
+r336,"PAIN, tobacco smoking, amel.","PAIN, toothache in general, tobacco smoking, amel.",دانت — درد، تمباکو پینے سے آرام,7,7,یکساں
+r339,"PAIN, touch, amel.","PAIN, toothache in general, touch, amel.",دانت — درد، چھونے سے آرام,4,4,یکساں
+r341,"PAIN, touch, of tongue","PAIN, toothache in general, touch, of tongue",دانت — درد، زبان لگنے سے,15,15,یکساں
+r342,"PAIN, travelling, while","PAIN, toothache in general, travelling, while",دانت — درد، سفر کرتے ہوئے,7,7,یکساں
+r344,"PAIN, vexation, after","PAIN, toothache in general, vexation, after",دانت — درد، کوفت کے بعد,4,4,یکساں
+r364,"PAIN, washerwomen, in","PAIN, toothache in general, washerwomen, in",دانت — درد، کپڑے دھونے والیوں میں,1,1,یکساں
+r365,"PAIN, washing, after","PAIN, toothache in general, washing, after",دانت — درد، منہ دھونے کے بعد,12,12,یکساں
+r368,"PAIN, water held in mouth, agg.","PAIN, toothache in general, water held in mouth, agg.",دانت — درد، منہ میں پانی بھرنے سے بگاڑ,1,1,یکساں
+r370,"PAIN, wet, from getting","PAIN, toothache in general, wet, from getting",دانت — درد، بھیگ جانے سے,4,4,یکساں
+r371,"PAIN, wind, in raw","PAIN, toothache in general, wind, in raw",دانت — درد، کچی (نم) ہوا میں,7,7,یکساں
+r404,"PAIN, extending, temples","PAIN, toothache in general, extending to arms, temples",دانت — درد، پھیلتا ہوا، کنپٹیوں تک,28,28,یکساں
+r406,"PAIN, extending, throat","PAIN, toothache in general, extending to arms, throat",دانت — درد، پھیلتا ہوا، گلے تک,2,2,یکساں
+r407,"PAIN, extending, tongue","PAIN, toothache in general, extending to arms, tongue",دانت — درد، پھیلتا ہوا، زبان تک,1,1,یکساں
+r408,"PAIN, extending, upward","PAIN, toothache in general, extending to arms, upward",دانت — درد، پھیلتا ہوا، اوپر کی طرف,1,1,یکساں
+r409,"PAIN, extending, zygoma","PAIN, toothache in general, extending to arms, zygoma",دانت — درد، پھیلتا ہوا، گال کی ہڈی کے ابھار (زائگوما) تک,3,3,یکساں
+r412,"PAIN, blows, sensation of","PAIN, toothache in general, blows, sensation of",دانت — درد، جیسے ضربیں لگیں,3,3,یکساں
+r417,"PAIN, boring, in roots","PAIN, toothache in general, boring, in roots",دانت — درد، برما سا، جڑوں میں,1,1,یکساں
+r419,"PAIN, break off, as if would","PAIN, toothache in general, break off, as if would",دانت — درد، جیسے ٹوٹ جائیں گے,1,1,یکساں
+r420,"PAIN, bruised, as if (See Sore)","PAIN, toothache in general, bruised, as if (See Sore)",دانت — درد، جیسے کچلا گیا ہو,0,0,یکساں
+r423,"PAIN, burst, as if would","PAIN, toothache in general, burst, as if would",دانت — درد، جیسے پھٹ جائیں گے,2,2,یکساں
+r435,"PAIN, cutting, shooting through gums to roots of incisors and canines","PAIN, toothache in general, cutting, shooting through gums to roots of incisors and canines",دانت — درد، کاٹتا ہوا، مسوڑھوں سے سامنے کے دانتوں اور کچلی والے دانتوں کی جڑوں تک دوڑتا ہوا,1,1,یکساں
+r441,"PAIN, digging, evening","PAIN, toothache in general, digging, evening",دانت — درد، کھودتا ہوا، شام,1,1,یکساں
+r465,"PAIN, drawing, exertion of mind","PAIN, toothache in general, drawing, exertion of mind",دانت — درد، کھینچتا ہوا، ذہنی محنت سے,1,1,یکساں
+r468,"PAIN, drawing, pulsating","PAIN, toothache in general, drawing, pulsating",دانت — درد، کھینچتا ہوا، دھڑکن کے ساتھ,2,2,یکساں
+r469,"PAIN, drawing, reading","PAIN, toothache in general, drawing, reading",دانت — درد، کھینچتا ہوا، پڑھتے ہوئے,1,1,یکساں
+r471,"PAIN, drawing, sudden","PAIN, toothache in general, drawing, sudden",دانت — درد، کھینچتا ہوا، اچانک,1,1,یکساں
+r472,"PAIN, drawing, sweat amel.","PAIN, toothache in general, drawing, sweat amel.",دانت — درد، کھینچتا ہوا، پسینے سے آرام,1,1,یکساں
+r476,"PAIN, drawing, wandering","PAIN, toothache in general, drawing, wandering",دانت — درد، کھینچتا ہوا، ادھر ادھر گھومتا ہوا,2,2,یکساں
+r477,"PAIN, drawing, warmth agg.","PAIN, toothache in general, drawing, warmth agg.",دانت — درد، کھینچتا ہوا، گرمائش سے بگاڑ,1,1,یکساں
+r478,"PAIN, drawing, warm fluids","PAIN, toothache in general, drawing, warm fluids",دانت — درد، کھینچتا ہوا، گرم مشروبات سے,3,3,یکساں
+r480,"PAIN, drawing, extending from lower incisors to malar bone and temple","PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple",دانت — درد، کھینچتا ہوا، نچلے سامنے کے دانتوں سے گال کی ہڈی اور کنپٹی تک پھیلتا ہوا,1,1,یکساں
+r501,"PAIN, drawing, upper teeth","PAIN, toothache in general, drawing, upper teeth",دانت — درد، کھینچتا ہوا، اوپری دانتوں میں,2,2,یکساں
+r508,"PAIN, drawing-lancinating, as if air a current of air rushed into","PAIN, toothache in general, drawing-lancinating, as if air a current of air rushed into",دانت — درد، کھینچتا اور نشتر جیسا، جیسے ہوا کا جھونکا اندر داخل ہو,1,1,یکساں
+r512,"PAIN, dull, griping","PAIN, toothache in general, dull, griping",دانت — درد، مدھم، مروڑ کے ساتھ,1,1,یکساں
+r513,"PAIN, dull, as if soft and became bent on chewing","PAIN, toothache in general, dull, as if soft and became bent on chewing",دانت — درد، مدھم، جیسے چباتے وقت نرم ہو کر مڑ گئے ہوں,1,1,یکساں
+r514,"PAIN, dull, upper molars with tearing pain in cheek bone","PAIN, toothache in general, dull, upper molars with tearing pain in cheek bone",دانت — درد، مدھم، اوپری داڑھ میں، گال کی ہڈی میں چیرتے درد کے ساتھ,1,1,یکساں
+r516,"PAIN, dull, with trembling of heart","PAIN, toothache in general, dull, with trembling of heart",دانت — درد، مدھم، دل کی دھڑکن کے ساتھ,1,1,یکساں
+r523,"PAIN, gnawing, night","PAIN, toothache in general, gnawing, night",دانت — درد، کترتا ہوا، رات,2,2,یکساں
+r527,"PAIN, gnawing, sitting up in bed amel.","PAIN, toothache in general, gnawing, sitting up in bed amel.",دانت — درد، کترتا ہوا، بستر میں اٹھ کر بیٹھنے سے آرام,1,1,یکساں
+r528,"PAIN, gnawing, warm room","PAIN, toothache in general, gnawing, warm room",دانت — درد، کترتا ہوا، گرم کمرے میں,1,1,یکساں
+r540,"PAIN, jerking, 9 a.m.","PAIN, toothache in general, jerking, 9 a.m.",دانت — درد، جھٹکے دار، صبح 9 بجے,1,1,یکساں
+r541,"PAIN, jerking, evening in bed","PAIN, toothache in general, jerking, evening in bed",دانت — درد، جھٹکے دار، شام بستر میں,2,2,یکساں
+r545,"PAIN, jerking, drinking cold water","PAIN, toothache in general, jerking, drinking cold water",دانت — درد، جھٹکے دار، ٹھنڈا پانی پینے سے,1,1,یکساں
+r548,"PAIN, jerking, sitting up in bed amel.","PAIN, toothache in general, jerking, sitting up in bed amel.",دانت — درد، جھٹکے دار، بستر میں اٹھ کر بیٹھنے سے آرام,1,1,یکساں
+r552,"PAIN, jerking, stroking head amel.","PAIN, toothache in general, jerking, stroking head amel.",دانت — درد، جھٹکے دار، سر سہلانے سے آرام,1,1,یکساں
+r558,"PAIN, jerking, extending to temples","PAIN, toothache in general, jerking, extending to temples",دانت — درد، جھٹکے دار، کنپٹیوں تک پھیلتا ہوا,1,1,یکساں
+r567,"PAIN, pressing, as if blood were forced into them","PAIN, toothache in general, pressing, as if blood were forced into them",دانت — درد، دبانے والا، جیسے ان میں خون بھر دیا گیا ہو,2,2,یکساں
+r568,"PAIN, pressing, as if too close","PAIN, toothache in general, pressing, as if too close",دانت — درد، دبانے والا، جیسے بہت قریب ہوں,11,11,یکساں
+r569,"PAIN, pressing, as if held in a grip","PAIN, toothache in general, pressing, as if held in a grip",دانت — درد، دبانے والا، جیسے کسی پکڑ میں دبے ہوں,2,2,یکساں
+r570,"PAIN, pressing, as if pressed into sockets","PAIN, toothache in general, pressing, as if pressed into sockets",دانت — درد، دبانے والا، جیسے گڑھوں میں دبا دیے گئے ہوں,2,2,یکساں
+r572,"PAIN, pressing, as if a shred of meat were between the teeth","PAIN, toothache in general, pressing, as if a shred of meat were between the teeth",دانت — درد، دبانے والا، جیسے دانتوں کے بیچ گوشت کا ٹکڑا پھنسا ہو,3,3,یکساں
+r573,"PAIN, pressing, as if wedged","PAIN, toothache in general, pressing, as if wedged",دانت — درد، دبانے والا، جیسے پھنس گئے ہوں,5,5,یکساں
+r577,"PAIN, pressing, inward","PAIN, toothache in general, pressing, inward",دانت — درد، دبانے والا، اندر کی طرف,2,2,یکساں
+r578,"PAIN, pressing, outward","PAIN, toothache in general, pressing, outward",دانت — درد، دبانے والا، باہر کی طرف,7,7,یکساں
+r584,"PAIN, pressing, upper teeth","PAIN, toothache in general, pressing, upper teeth",دانت — درد، دبانے والا، اوپری دانتوں میں,3,3,یکساں
+r588,"PAIN, pricking, masticating agg.","PAIN, toothache in general, pricking, masticating agg.",دانت — درد، چبھتا ہوا، چبانے سے بگاڑ,1,1,یکساں
+r589,"PAIN, pricking, touching decayed teeth","PAIN, toothache in general, pricking, touching decayed teeth",دانت — درد، چبھتا ہوا، گلے دانتوں کو چھونے پر,1,1,یکساں
+r595,"PAIN, screwing, better momentarily from cold water","PAIN, toothache in general, screwing, better momentarily from cold water",دانت — درد، پیچ کی طرح کسنے والا، ٹھنڈے پانی سے لمحہ بھر آرام,1,1,یکساں
+r598,"PAIN, sore, bruised","PAIN, toothache in general, sore, bruised",دانت — درد، دکھتا، کچلا ہوا,43,43,یکساں
+r606,"PAIN, splintered, as if","PAIN, toothache in general, splintered, as if",دانت — درد، جیسے چھلکا چبھا ہو,1,1,یکساں
+r607,"PAIN, sprained, as if","PAIN, toothache in general, sprained, as if",دانت — درد، جیسے موچ آ گئی ہو,1,1,یکساں
+r608,"PAIN, stitching, stinging","PAIN, toothache in general, stitching, stinging",دانت — درد، چبھتا ہوا، ڈنک جیسا,98,98,یکساں
+r651,"PAIN, tearing, afternoon","PAIN, toothache in general, tearing, afternoon",دانت — درد، چیرتا ہوا، سہ پہر,1,1,یکساں
+r652,"PAIN, tearing, evening","PAIN, toothache in general, tearing, evening",دانت — درد، چیرتا ہوا، شام,9,9,یکساں
+r662,"PAIN, tearing, cold air","PAIN, toothache in general, tearing, cold air",دانت — درد، چیرتا ہوا، ٹھنڈی ہوا سے,2,2,یکساں
+r663,"PAIN, tearing, cold water","PAIN, toothache in general, tearing, cold water",دانت — درد، چیرتا ہوا، ٹھنڈے پانی سے,6,6,یکساں
+r665,"PAIN, tearing, lying on painful side","PAIN, toothache in general, tearing, lying on painful side",دانت — درد، چیرتا ہوا، درد والے پہلو پر لیٹنے سے,1,1,یکساں
+r670,"PAIN, tearing, motion amel.","PAIN, toothache in general, tearing, motion amel.",دانت — درد، چیرتا ہوا، حرکت سے آرام,1,1,یکساں
+r672,"PAIN, tearing, paroxysmal","PAIN, toothache in general, tearing, paroxysmal",دانت — درد، چیرتا ہوا، دوروں کی شکل میں,1,1,یکساں
+r674,"PAIN, tearing, pulsating","PAIN, toothache in general, tearing, pulsating",دانت — درد، چیرتا ہوا، دھڑکن کے ساتھ,2,2,یکساں
+r676,"PAIN, tearing, wandering","PAIN, toothache in general, tearing, wandering",دانت — درد، چیرتا ہوا، ادھر ادھر گھومتا ہوا,1,1,یکساں
+r677,"PAIN, tearing, warmth amel.","PAIN, toothache in general, tearing, warmth amel.",دانت — درد، چیرتا ہوا، گرمائش سے آرام,1,1,یکساں
+r678,"PAIN, tearing, extending out through left ear","PAIN, toothache in general, tearing, extending out through left ear",دانت — درد، چیرتا ہوا، بائیں کان سے باہر تک پھیلتا ہوا,1,1,یکساں
+r698,"PAIN, tearing, roots, eating, dinner, during","PAIN, toothache in general, tearing, roots, eating, after, dinner, during",دانت — درد، چیرتا ہوا، جڑوں میں، دوپہر کے کھانے کے دوران,1,1,یکساں
+r703,"PAIN, tingling, in points of crowns in evening","PAIN, toothache in general, tingling, in points of crowns in evening",دانت — درد، جھنجھناہٹ کے ساتھ، دانتوں کے تاج کے نکات میں، شام کو,1,1,یکساں
+r705,"PAIN, twitching, right side","PAIN, toothache in general, twitching, right side",دانت — درد، پھڑکن کے ساتھ، دائیں طرف,1,1,یکساں
+r706,"PAIN, twitching, left","PAIN, toothache in general, twitching, left",دانت — درد، پھڑکن کے ساتھ، بائیں,1,1,یکساں
+r707,"PAIN, twitching, warmth of bed amel.","PAIN, toothache in general, twitching, warmth of bed amel.",دانت — درد، پھڑکن کے ساتھ، بستر کی گرمائش سے آرام,1,1,یکساں
+r712,"PAIN, wedged, as if (See Pressing)","PAIN, toothache in general, wedged, as if (See Pressing)",دانت — درد، جیسے دانت پھنس گئے ہوں,0,0,یکساں
+r726,"SENSITIVE, chewing, when","SENSITIVE, tender, chewing, when",دانت — حساس، چباتے وقت,6,6,یکساں
+r728,"SENSITIVE, cold water, to","SENSITIVE, tender, cold water, to",دانت — حساس، ٹھنڈے پانی سے,19,19,یکساں
+r732,"SENSITIVE, painful, in decayed lower molars","SENSITIVE, tender, painful, in decayed lower molars",دانت — حساس، دردناک، گلے ہوئے نچلی داڑھ میں,1,1,یکساں
+r734,"SENSITIVE, pressure, to","SENSITIVE, tender, pressure, to",دانت — حساس، دباؤ سے,4,4,یکساں
+r736,"SENSITIVE, touch, to","SENSITIVE, tender, touch, to",دانت — حساس، چھونے سے,9,9,یکساں
+r737,"SENSITIVE, warmth, to","SENSITIVE, tender, warmth, to",دانت — حساس، گرمائش سے,2,2,یکساں
+r739,"SENSITIVE, molars, decayed","SENSITIVE, tender, molars, decayed",دانت — حساس، داڑھ، گلے ہوئے,2,2,یکساں
+o60731,"PAIN, extending, bones, maxillary, lower","PAIN, toothache in general, extending to arms, bones, cheek, maxillary, lower",دانت — درد، پھیلتا ہوا، نچلے جبڑے کی ہڈی میں,1,1,یکساں
+o60776,"PAIN, gnawing, molars, with violent tearing, in right ear","PAIN, toothache in general, gnawing, molars, lower, with violent tearing behind ear, in right ear",دانت — درد، کترتا ہوا، شدید چیرتے درد کے ساتھ، دائیں کان میں,1,1,یکساں
+r189,"PAIN, biting teeth together, menses, during, desire to","PAIN, toothache in general, biting teeth together, when, menses, during, desire to",دانت — درد، دانت بھینچنے پر، حیض کے دوران، بھینچنے کو جی چاہے,1,1,یکساں
+r255,"PAIN, masticating, food, only when, not from empty chewing","PAIN, toothache in general, masticating, from, food, only when, not from empty chewing",دانت — درد، چبانے سے، صرف کھانے کے ساتھ، خالی چبانے سے نہیں,1,1,یکساں
+r460,"PAIN, drawing, cold, finger, amel. by","PAIN, toothache in general, drawing, cold, from, finger, amel. by",دانت — درد، کھینچتا ہوا، ٹھنڈی انگلی سے آرام,1,1,یکساں
+r619,"PAIN, stitching, night, after midnight, better after rising","PAIN, toothache in general, stitching, stinging, night, after midnight, better after rising",دانت — درد، چبھتا ہوا، رات، آدھی رات کے بعد، اٹھنے کے بعد بہتر,1,1,یکساں
+r643,"PAIN, stitching, molars, lower, root","PAIN, toothache in general, stitching, stinging, molars, lower, root",دانت — درد، چبھتا ہوا، نچلی داڑھ میں، جڑ میں,1,1,یکساں
+r644,"PAIN, stitching, molars, lower, later only in right","PAIN, toothache in general, stitching, stinging, molars, lower, later only in right",دانت — درد، چبھتا ہوا، نچلی داڑھ میں، بعد میں صرف دائیں میں,1,1,یکساں
+r656,"PAIN, tearing, night, midnight, after","PAIN, toothache in general, tearing, night, midnight, before, after",دانت — درد، چیرتا ہوا، رات، آدھی رات کے بعد,2,2,یکساں
+r692,"PAIN, tearing, molars, left, alternating with right","PAIN, toothache in general, tearing, molars, left, alternating with itching in left ear, alternating with right",دانت — درد، چیرتا ہوا، بائیں داڑھ میں، دائیں کے ساتھ باری باری,1,1,یکساں
+r697,"PAIN, tearing, roots, eating, during","PAIN, toothache in general, tearing, roots, eating, after, during",دانت — درد، چیرتا ہوا، جڑوں میں، کھانے کے دوران,1,1,یکساں
+r590,"PAIN, pulled out, feel as if, were being","PAIN, toothache in general, pulled out, feel as if, were being",دانت — درد، جیسے دانت نکالا جا رہا ہو,25,24,ماخذی مطابق کیے
+o60446,"BITE, wants to, on something hard which relieves pain, dentition","BITE, together, desire to (See Clinch), wants to, on something hard which relieves pain, dentition",دانت — کاٹنا، کسی سخت چیز پر کاٹنے کو جی چاہے، جس سے درد کم ہو، دانت نکلنے کے دوران,1,1,یکساں
+o60547,"PAIN, air, sensation, rushed out of","PAIN, toothache in general, air, cold, sensation as from cold air, rushed out of",دانت — درد، ہوا، ایسا احساس، جیسے ہوا باہر نکلتی ہو,1,1,یکساں
+o60548,"PAIN, air, sensation, were forced into","PAIN, toothache in general, air, cold, sensation as from cold air, were forced into",دانت — درد، ہوا، ایسا احساس، جیسے اندر زبردستی بھری گئی ہو,2,2,یکساں
+o60829,"PAIN, lying, painless side, amel.","PAIN, toothache in general, lying, while, painless side agg., amel.",دانت — درد، بے درد پہلو پر آرام,1,1,یکساں
+o60872,"PAIN, nursing, nurses, while the infant","PAIN, toothache in general, nursing mothers, in, nurses, while the infant",دانت — درد، جب ماں بچے کو دودھ پلائے,1,1,یکساں
+o60970,"PAIN, stitching, extending, eyes","PAIN, toothache in general, stitching, stinging, extending to ear, eyes",دانت — درد، چبھتا ہوا، آنکھوں تک,4,4,یکساں
+o60971,"PAIN, stitching, extending, right side of head","PAIN, toothache in general, stitching, stinging, extending to ear, right side of head",دانت — درد، چبھتا ہوا، سر کے دائیں طرف تک,1,1,یکساں
+o60972,"PAIN, stitching, extending, zygoma","PAIN, toothache in general, stitching, stinging, extending to ear, zygoma",دانت — درد، چبھتا ہوا، گال کی ہڈی کے ابھار (زائگوما) تک,1,1,یکساں
+o61060,"PAIN, tearing, roots, eating, dinner, amel. after","PAIN, toothache in general, tearing, roots, eating, after, dinner, during, amel. after",دانت — درد، چیرتا ہوا، جڑوں میں، دوپہر کے کھانے کے بعد آرام,1,1,یکساں
+o61103,"PAIN, warm, food, from","PAIN, toothache in general, warm drinks, from, food, from",دانت — درد، گرم کھانے سے,26,26,یکساں
+o61105,"PAIN, warm, things, amel.","PAIN, toothache in general, warm drinks, from, things, amel.",دانت — درد، گرم چیزوں سے آرام,14,14,یکساں
+o61118,"PAIN, water, from having hands in, warm or cold","PAIN, toothache in general, water held in mouth, agg., from having hands in, warm or cold",دانت — درد، ہاتھ گرم یا ٹھنڈے پانی میں ڈالنے سے,1,1,یکساں
+r100,"PAIN, canines","PAIN, toothache in general, canines",دانت — درد، کچلی والے دانتوں میں,16,16,یکساں
+r119,"PAIN, daytime","PAIN, toothache in general, daytime",دانت — درد، دن میں,7,7,یکساں
+r127,"PAIN, forenoon","PAIN, toothache in general, forenoon",دانت — درد، دوپہر سے پہلے,10,10,یکساں
+r128,"PAIN, noon","PAIN, toothache in general, noon",دانت — درد، دوپہر,2,2,یکساں
+r143,"PAIN, night, midnight, after","PAIN, toothache in general, night, midnight, before, after",دانت — درد، رات، آدھی رات کے بعد,15,15,یکساں
+r147,"PAIN, air, draft, from a","PAIN, toothache in general, air, cold, draft, from a",دانت — درد، ہوا، جھونکے سے,10,10,یکساں
+r155,"PAIN, alternating with catarrh","PAIN, toothache in general, alternating with catarrh",دانت — درد، نزلے زکام کے ساتھ باری باری,1,1,یکساں
+r170,"PAIN, bending forward with forehead on table agg.","PAIN, toothache in general, bending forward with forehead on table agg.",دانت — درد، آگے جھکنا، ماتھا میز پر رکھنے سے بگاڑ,1,1,یکساں
+r178,"PAIN, biting on elastic substance amel.","PAIN, toothache in general, biting on elastic substance amel.",دانت — درد، کسی لچکدار چیز پر کاٹنے سے آرام,1,1,یکساں
+r179,"PAIN, bleeding of gums amel.","PAIN, toothache in general, bleeding of gums amel.",دانت — درد، مسوڑھوں سے خون آنے پر آرام,5,5,یکساں
+r184,"PAIN, brushing teeth agg.","PAIN, toothache in general, brushing teeth agg.",دانت — درد، دانت صاف کرنے سے بگاڑ,5,5,یکساں
+r191,"PAIN, chewing (See Masticating)","PAIN, toothache in general, chewing (See Masticating)",دانت — درد، چبانے سے,0,0,یکساں
+r193,"PAIN, change of weather","PAIN, toothache in general, change of weather",دانت — درد، موسم بدلنے پر,3,3,یکساں
+r194,"PAIN, children","PAIN, toothache in general, children",دانت — درد، بچوں میں,11,11,یکساں
+r197,"PAIN, chronic","PAIN, toothache in general, chronic",دانت — درد، مزمن (پرانا),1,1,یکساں
+r203,"PAIN, cold, from a, in the Spring","PAIN, toothache in general, cold, from a, from a, in the Spring",دانت — درد، ٹھنڈک، ٹھنڈ لگنے سے، بہار میں,1,1,یکساں
+r206,"PAIN, cold, anything, amel.","PAIN, toothache in general, cold, from a, anything, amel.",دانت — درد، ٹھنڈک، ہر ٹھنڈی چیز سے آرام,15,15,یکساں
+r207,"PAIN, cold, drinks, from","PAIN, toothache in general, cold, from a, drinks, from",دانت — درد، ٹھنڈک، ٹھنڈے مشروبات سے,49,49,یکساں
+r208,"PAIN, cold, food, from","PAIN, toothache in general, cold, from a, food, from",دانت — درد، ٹھنڈک، ٹھنڈے کھانے سے,16,16,یکساں
+r213,"PAIN, coughing agg.","PAIN, toothache in general, coughing agg.",دانت — درد، کھانسنے سے بگاڑ,3,3,یکساں
+r220,"PAIN, dry weather","PAIN, toothache in general, dry weather",دانت — درد، خشک موسم میں,1,1,یکساں
+r223,"PAIN, eating, during, amel.","PAIN, toothache in general, eating, before dinner, during, amel.",دانت — درد، کھاتے ہوئے آرام,10,10,یکساں
+r226,"PAIN, eating, after, amel.","PAIN, toothache in general, eating, before dinner, after, amel.",دانت — درد، کھانے کے بعد آرام,10,10,یکساں
+r229,"PAIN, exertion agg.","PAIN, toothache in general, exertion agg.",دانت — درد، محنت سے بگاڑ,1,1,یکساں
+r233,"PAIN, gradually increasing and decreasing","PAIN, toothache in general, gradually increasing and decreasing",دانت — درد، آہستہ آہستہ بڑھتا اور گھٹتا ہوا,2,2,یکساں
+r235,"PAIN, heat of stove agg.","PAIN, toothache in general, heat of stove agg. (See Warmth)",دانت — درد، چولہے کی گرمی سے بگاڑ,1,1,یکساں
+r239,"PAIN, intermittent","PAIN, toothache in general, intermittent (See Paroxysmal)",دانت — درد، وقفے وقفے سے,19,19,یکساں
+r240,"PAIN, lachrymation (See Weeping)","PAIN, toothache in general, lachrymation (See Weeping)",دانت — درد، آنکھوں میں پانی کے ساتھ,0,0,یکساں
+r241,"PAIN, loose teeth","PAIN, toothache in general, loose teeth",دانت — درد، ڈھیلے دانتوں میں,1,1,یکساں
+r247,"PAIN, lying, painful side, agg.","PAIN, toothache in general, lying, while, painful side, agg.",دانت — درد، لیٹنا، درد والے پہلو پر بگاڑ,5,5,یکساں
+r251,"PAIN, lying, right side, on","PAIN, toothache in general, lying, while, right side, on",دانت — درد، دائیں پہلو پر,1,1,یکساں
+r266,"PAIN, motion agg.","PAIN, toothache in general, motion agg.",دانت — درد، حرکت سے بگاڑ,12,12,یکساں
+r268,"PAIN, music agg.","PAIN, toothache in general, music agg.",دانت — درد، موسیقی سے بگاڑ,1,1,یکساں
+r269,"PAIN, nervous patients","PAIN, toothache in general, nervous patients",دانت — درد، اعصابی مریضوں میں,9,9,یکساں
+r270,"PAIN, noise agg.","PAIN, toothache in general, noise agg.",دانت — درد، شور سے بگاڑ,4,4,یکساں
+r275,"PAIN, paroxysmal","PAIN, toothache in general, paroxysmal (See Intermittent)",دانت — درد، دوروں کی شکل میں,17,17,یکساں
+r290,"PAIN, pulsating","PAIN, toothache in general, pulsating",دانت — درد، دھڑکتا ہوا,68,68,یکساں
+r293,"PAIN, rheumatic","PAIN, toothache in general, rheumatic",دانت — درد، گٹھیا والا,18,18,یکساں
+r295,"PAIN, rising from bed amel.","PAIN, toothache in general, rising from bed amel.",دانت — درد، بستر سے اٹھنے سے آرام,4,4,یکساں
+r296,"PAIN, rubbing cheek amel.","PAIN, toothache in general, rubbing cheek amel.",دانت — درد، گال ملنے سے آرام,2,2,یکساں
+r300,"PAIN, salt amel.","PAIN, toothache in general, salt amel.",دانت — درد، نمک سے آرام,1,1,یکساں
+r301,"PAIN, sitting agg.","PAIN, toothache in general, sitting agg.",دانت — درد، بیٹھنے سے بگاڑ,7,7,یکساں
+r307,"PAIN, sleep, after, amel.","PAIN, toothache in general, sleep, on going to, after, amel.",دانت — درد، نیند کے بعد آرام,4,4,یکساں
+r308,"PAIN, sleep, wakes from, with pain","PAIN, toothache in general, sleep, on going to, wakes from, with pain (See Morning)",دانت — درد سے نیند کھل جائے,5,5,یکساں
+r309,"PAIN, smoke agg. (See Tobacco)","PAIN, toothache in general, smoke agg. (See Tobacco)",دانت — درد، دھوئیں سے بگاڑ,0,0,یکساں
+r310,"PAIN, sneezing agg.","PAIN, toothache in general, sneezing agg.",دانت — درد، چھینکنے سے بگاڑ,1,1,یکساں
+r317,"PAIN, stimulants agg.","PAIN, toothache in general, stimulants agg.",دانت — درد، محرکات سے بگاڑ,1,1,یکساں
+r318,"PAIN, stooping agg.","PAIN, toothache in general, stooping agg.",دانت — درد، جھکنے سے بگاڑ,2,2,یکساں
+r320,"PAIN, sucking teeth agg.","PAIN, toothache in general, sucking teeth agg.",دانت — درد، دانت چوسنے سے بگاڑ,10,10,یکساں
+r322,"PAIN, suddenly begins and goes","PAIN, toothache in general, suddenly begins and goes",دانت — درد، اچانک شروع ہو کر چلا جائے,2,2,یکساں
+r326,"PAIN, swallowing agg.","PAIN, toothache in general, swallowing agg.",دانت — درد، نگلنے سے بگاڑ,4,4,یکساں
+r331,"PAIN, tea drinking","PAIN, toothache in general, tea drinking",دانت — درد، چائے پینے سے,8,8,یکساں
+r332,"PAIN, thinking about it","PAIN, toothache in general, thinking about it",دانت — درد، اس کے بارے میں سوچنے سے,4,4,یکساں
+r343,"PAIN, uncovering body amel.","PAIN, toothache in general, uncovering body amel.",دانت — درد، جسم سے کپڑے ہٹانے پر آرام,1,1,یکساں
+r350,"PAIN, wandering","PAIN, toothache in general, wandering",دانت — درد، ادھر ادھر گھومتا ہوا,8,8,یکساں
+r372,"PAIN, wind, in dry, cold","PAIN, toothache in general, wind, in raw, in dry, cold",دانت — درد، خشک ٹھنڈی ہوا میں,2,2,یکساں
+r374,"PAIN, wine agg.","PAIN, toothache in general, wine agg.",دانت — درد، شراب سے بگاڑ,5,5,یکساں
+r375,"PAIN, winter","PAIN, toothache in general, winter",دانت — درد، سردیوں میں,21,21,یکساں
+r376,"PAIN, wrapping (See Warmth)","PAIN, toothache in general, wrapping (See Warmth)",دانت — درد، لپیٹنے سے,0,0,یکساں
+r377,"PAIN, extending to arms","PAIN, toothache in general, extending to arms",دانت — درد، بازوؤں تک پھیلتا ہوا,2,2,یکساں
+r410,"PAIN, beating (See Pulsating)","PAIN, toothache in general, beating (See Pulsating)",دانت — درد، ضرب لگنے جیسا,0,0,یکساں
+r415,"PAIN, boring, evening, while lying","PAIN, toothache in general, boring, evening, with tearing and digging, while lying",دانت — درد، برما سا، شام، لیٹے ہوئے,1,1,یکساں
+r421,"PAIN, bubbling","PAIN, toothache in general, bubbling",دانت — درد، بلبلے اٹھتے ہوئے,5,5,یکساں
+r422,"PAIN, burning","PAIN, toothache in general, burning",دانت — درد، جلتا ہوا,26,26,یکساں
+r424,"PAIN, buzzing","PAIN, toothache in general, buzzing",دانت — درد، بھنبھناہٹ کے ساتھ,1,1,یکساں
+r425,"PAIN, clawing","PAIN, toothache in general, clawing",دانت — درد، پنجے مارتا ہوا,1,1,یکساں
+r426,"PAIN, contracting","PAIN, toothache in general, contracting",دانت — درد، سکڑتا ہوا,5,5,یکساں
+r427,"PAIN, corrosive","PAIN, toothache in general, corrosive",دانت — درد، گلانے والا (کسیلا),11,11,یکساں
+r428,"PAIN, cramp-like (See Jerking)","PAIN, toothache in general, cramp-like (See Jerking)",دانت — درد، اینٹھن والا,0,0,یکساں
+r431,"PAIN, cutting","PAIN, toothache in general, cutting",دانت — درد، کاٹتا ہوا,19,19,یکساں
+r439,"PAIN, darting (See Stitching)","PAIN, toothache in general, darting (See Stitching)",دانت — درد، جھٹکے سے دوڑتا ہوا,0,0,یکساں
+r459,"PAIN, drawing, cold, amel. from","PAIN, toothache in general, drawing, cold, from, amel. from",دانت — درد، کھینچتا ہوا، ٹھنڈک سے آرام,1,1,یکساں
+r462,"PAIN, drawing, eating, amel.","PAIN, toothache in general, drawing, eating, while, amel.",دانت — درد، کھینچتا ہوا، کھانے سے آرام,3,3,یکساں
+r463,"PAIN, drawing, eating, cold food","PAIN, toothache in general, drawing, eating, while, cold food",دانت — درد، کھینچتا ہوا، ٹھنڈا کھانا کھانے سے,1,1,یکساں
+r464,"PAIN, drawing, eating, after","PAIN, toothache in general, drawing, eating, while, after",دانت — درد، کھینچتا ہوا، کھانے کے بعد,3,3,یکساں
+r475,"PAIN, drawing, walking, in open air","PAIN, toothache in general, drawing, walking, while, in open air",دانت — درد، کھینچتا ہوا، کھلی ہوا میں چلتے ہوئے,1,1,یکساں
+r494,"PAIN, drawing, incisors, upper","PAIN, toothache in general, drawing, incisors, lower, upper",دانت — درد، کھینچتا ہوا، اوپری سامنے کے دانت,5,5,یکساں
+r495,"PAIN, drawing, incisors, one of","PAIN, toothache in general, drawing, incisors, lower, one of",دانت — درد، کھینچتا ہوا، سامنے کے دانتوں میں سے ایک میں,1,1,یکساں
+r507,"PAIN, drawing-bubbling","PAIN, toothache in general, drawing-bubbling",دانت — درد، کھینچتے ہوئے بلبلوں کے ساتھ,1,1,یکساں
+r509,"PAIN, drawing-pressure","PAIN, toothache in general, drawing-pressure",دانت — درد، کھینچتا ہوا دباؤ کے ساتھ,1,1,یکساں
+r510,"PAIN, drawing-tearing","PAIN, toothache in general, drawing-tearing",دانت — درد، کھینچتا اور چیرتا ہوا,1,1,یکساں
+r518,"PAIN, forced out (See Pressing)","PAIN, toothache in general, forced out (See Pressing)",دانت — درد، جیسے دانت زبردستی باہر دھکیلا جائے,0,0,یکساں
+r530,"PAIN, gnawing, molars, right","PAIN, toothache in general, gnawing, molars, lower, right",دانت — درد، کترتا ہوا، داڑھ میں، دائیں,2,2,یکساں
+r531,"PAIN, gnawing, molars, alternating with itching in ear","PAIN, toothache in general, gnawing, molars, lower, alternating with itching in ear",دانت — درد، کترتا ہوا، داڑھ میں، کان میں خارش کے ساتھ باری باری,1,1,یکساں
+r532,"PAIN, gnawing, molars, with violent tearing behind ear","PAIN, toothache in general, gnawing, molars, lower, with violent tearing behind ear",دانت — درد، کترتا ہوا، داڑھ میں، کان کے پیچھے شدید چیرتے درد کے ساتھ,1,1,یکساں
+r534,"PAIN, gnawing, molars, upper","PAIN, toothache in general, gnawing, molars, lower, upper",دانت — درد، کترتا ہوا، اوپری داڑھ میں,2,2,یکساں
+r550,"PAIN, jerking, smoking, amel.","PAIN, toothache in general, jerking, smoking, while, amel.",دانت — درد، جھٹکے دار، سگریٹ سے آرام,1,1,یکساں
+r560,"PAIN, knocking","PAIN, toothache in general, knocking",دانت — درد، کھٹکھٹاہٹ,3,3,یکساں
+r561,"PAIN, lancinating (See Tearing)","PAIN, toothache in general, lancinating (See Tearing)",دانت — درد، نشتر جیسا,0,0,یکساں
+r562,"PAIN, neuralgic","PAIN, toothache in general, neuralgic",دانت — درد، اعصابی (نیورالجک),18,18,یکساں
+r563,"PAIN, piercing","PAIN, toothache in general, piercing",دانت — درد، آر پار چبھتا ہوا,17,17,یکساں
+r585,"PAIN, pricking","PAIN, toothache in general, pricking",دانت — درد، چبھتا ہوا (سوئی جیسا),10,10,یکساں
+r594,"PAIN, screwing","PAIN, toothache in general, screwing",دانت — درد، پیچ کی طرح کسنے والا,2,2,یکساں
+r596,"PAIN, shocks (See Jerking)","PAIN, toothache in general, shocks (See Jerking)",دانت — درد، جھٹکوں کے ساتھ,0,0,یکساں
+r597,"PAIN, shooting (See Stitching)","PAIN, toothache in general, shooting (See Stitching)",دانت — درد، دوڑتا ہوا (تیر جیسا),0,0,یکساں
+r599,"PAIN, sore, air, from drawing in","PAIN, toothache in general, sore, bruised, air, from drawing in",دانت — درد، دکھتا ہوا، ہوا اندر لینے سے,1,1,یکساں
+r601,"PAIN, sore, cold drink, from","PAIN, toothache in general, sore, bruised, cold drink, from",دانت — درد، دکھتا ہوا، ٹھنڈا مشروب پینے سے,2,2,یکساں
+r602,"PAIN, sore, masticating, when","PAIN, toothache in general, sore, bruised, masticating, when",دانت — درد، دکھتا ہوا، چباتے وقت,2,2,یکساں
+r603,"PAIN, sore, meals, between","PAIN, toothache in general, sore, bruised, meals, between",دانت — درد، دکھتا ہوا، کھانوں کے درمیان,1,1,یکساں
+r604,"PAIN, sore, molars, right upper","PAIN, toothache in general, sore, bruised, molars, right upper",دانت — درد، دکھتا ہوا، دائیں اوپری داڑھ میں,1,1,یکساں
+r610,"PAIN, stitching, right, upper","PAIN, toothache in general, stitching, stinging, right, upper",دانت — درد، چبھتا ہوا، دائیں، اوپری,1,1,یکساں
+r615,"PAIN, stitching, morning, on waking","PAIN, toothache in general, stitching, stinging, morning, on waking",دانت — درد، چبھتا ہوا، صبح جاگنے پر,1,1,یکساں
+r618,"PAIN, stitching, night, after midnight","PAIN, toothache in general, stitching, stinging, night, after midnight",دانت — درد، چبھتا ہوا، رات، آدھی رات کے بعد,2,2,یکساں
+r620,"PAIN, stitching, air, when drawing in","PAIN, toothache in general, stitching, stinging, air, when drawing in",دانت — درد، چبھتا ہوا، ہوا اندر لیتے وقت,2,2,یکساں
+r621,"PAIN, stitching, biting, when","PAIN, toothache in general, stitching, stinging, biting, when",دانت — درد، چبھتا ہوا، کاٹنے پر,2,2,یکساں
+r622,"PAIN, stitching, cold, touched by anything","PAIN, toothache in general, stitching, stinging, cold, touched by anything",دانت — درد، چبھتا ہوا، ٹھنڈی چیز چھونے پر,2,2,یکساں
+r623,"PAIN, stitching, dinner, after","PAIN, toothache in general, stitching, stinging, dinner, after",دانت — درد، چبھتا ہوا، دوپہر کے کھانے کے بعد,2,2,یکساں
+r627,"PAIN, stitching, food, when touched by warm","PAIN, toothache in general, stitching, stinging, food, when touched by warm",دانت — درد، چبھتا ہوا، گرم کھانا چھونے پر,2,2,یکساں
+r629,"PAIN, stitching, menses suppressed, with","PAIN, toothache in general, stitching, stinging, menses suppressed, with",دانت — درد، چبھتا ہوا، حیض بند ہونے کے ساتھ,1,1,یکساں
+r638,"PAIN, stitching, incisors, upper","PAIN, toothache in general, stitching, stinging, incisors, upper",دانت — درد، چبھتا ہوا، اوپری سامنے کے دانتوں میں,1,1,یکساں
+r640,"PAIN, stitching, lower teeth, right side","PAIN, toothache in general, stitching, stinging, lower teeth, right side",دانت — درد، چبھتا ہوا، نچلے دانتوں میں، دائیں طرف,1,1,یکساں
+r659,"PAIN, tearing, biting together, amel.","PAIN, toothache in general, tearing, biting together, when, amel.",دانت — درد، چیرتا ہوا، دانت بھینچنے پر، آرام,1,1,یکساں
+r661,"PAIN, tearing, bed, from warmth of","PAIN, toothache in general, tearing, bed, worse after going to, from warmth of",دانت — درد، چیرتا ہوا، بستر کی گرمائش سے,2,2,یکساں
+r669,"PAIN, tearing, menses, during","PAIN, toothache in general, tearing, menses, before, during",دانت — درد، چیرتا ہوا، حیض کے دوران,3,3,یکساں
+r713,"PAIN, wrenching","PAIN, toothache in general, wrenching",دانت — درد، مروڑتے ہوئے (اینٹھن والا),2,2,یکساں
+r720,"ROUGHNESS, from tartar","ROUGHNESS, sensation of, from tartar",دانت — کھردرا پن، دانتوں کی میل (ٹارٹر) سے,1,1,یکساں
+r722,"SENSITIVE, evening","SENSITIVE, tender, evening",دانت — حساس، شام,1,1,یکساں
+r723,"SENSITIVE, cannot bear dental operation","SENSITIVE, tender, cannot bear dental operation",دانت — حساس، دانت کا آپریشن برداشت نہ کر سکیں,4,4,یکساں
+r724,"SENSITIVE, to air","SENSITIVE, tender, to air",دانت — حساس، ہوا سے,13,13,یکساں
+r725,"SENSITIVE, brushing","SENSITIVE, tender, brushing",دانت — حساس، برش کرنے سے,1,1,یکساں
+r731,"SENSITIVE, hollow tooth","SENSITIVE, tender, hollow tooth",دانت — حساس، کھوکھلے دانت میں,5,5,یکساں
+r733,"SENSITIVE, points of","SENSITIVE, tender, points of",دانت — حساس، نوکوں پر,1,1,یکساں
+r735,"SENSITIVE, sounds reverberate painfully in","SENSITIVE, tender, sounds reverberate painfully in",دانت — حساس، آوازیں درد کے ساتھ گونجیں,1,1,یکساں
+r738,"SENSITIVE, incisors","SENSITIVE, tender, incisors",دانت — حساس، سامنے کے دانت,5,5,یکساں
+r99,"PAIN, incisors","PAIN, toothache in general, incisors",دانت — درد، سامنے کے دانتوں میں,60,60,یکساں
+o60735,"PAIN, extending, ear","PAIN, toothache in general, extending to arms, ear",دانت — درد، پھیلتا ہوا، کان تک,56,54,ماخذی مطابق کیے
+r111,"PAIN, lower teeth","PAIN, toothache in general, lower teeth",دانت — درد، نچلے دانتوں میں,94,93,ماخذی مطابق کیے
+o60737,"PAIN, extending, eyes","PAIN, toothache in general, extending to arms, eyes",دانت — درد، پھیلتا ہوا، آنکھوں تک,25,24,ماخذی مطابق کیے
+r647,"PAIN, tearing","PAIN, toothache in general, tearing",دانت — درد، چیرتا ہوا,124,122,ماخذی مطابق کیے
+r101,"PAIN, molars","PAIN, toothache in general, molars",دانت — درد، داڑھ میں,93,91,ماخذی مطابق کیے
+o60442,"BITE, afraid, to for fear they would fall out","BITE, together, desire to (See Clinch), afraid, to for fear they would fall out",دانت — کاٹنا، ڈر سے کہ دانت گر جائیں گے,1,1,یکساں
+o60443,"BITE, cannot, at night","BITE, together, desire to (See Clinch), cannot, at night",دانت — کاٹنا، نہ کر سکے، رات کو,1,1,یکساں
+o60444,"BITE, sends a shock through head, ear and nose","BITE, together, desire to (See Clinch), sends a shock through head, ear and nose",دانت — کاٹنا، جھٹکا سا سر، کان اور ناک میں سے گزرے,1,1,یکساں
+o60445,"BITE, sudden, involuntary","BITE, together, desire to (See Clinch), sudden, involuntary",دانت — کاٹنا، اچانک، بے اختیار,1,1,یکساں
+o60631,"PAIN, damp, weather","PAIN, toothache in general, damp places, from working in, weather",دانت — درد، گیلا موسم,16,16,یکساں
+o60965,"PAIN, stitching, drinking","PAIN, toothache in general, stitching, stinging, drinking",دانت — درد، چبھتا ہوا، پینے سے,2,2,یکساں
+o61136,"SENSITIVE, cold, filled tooth","SENSITIVE, tender, cold water, to, filled tooth",دانت — حساس، ٹھنڈک سے، بھرے ہوئے دانت میں,1,1,یکساں
+o61137,"SENSITIVE, cold, the least","SENSITIVE, tender, cold water, to, the least",دانت — حساس، ٹھنڈک سے، معمولی سی ٹھنڈک سے بھی,2,2,یکساں
+r152,"PAIN, air, sensation as from cold air","PAIN, toothache in general, air, cold, sensation as from cold air",دانت — درد، ہوا، جیسے ٹھنڈی ہوا لگے,3,3,یکساں
+r167,"PAIN, bed, in","PAIN, toothache in general, bed, on going to (See Evening and Night), in",دانت — درد، بستر میں,25,25,یکساں
+r187,"PAIN, biting teeth together, afraid for fear would fall out","PAIN, toothache in general, biting teeth together, when, afraid for fear would fall out",دانت — درد، دانت بھینچنے پر، ڈر سے کہ گر جائیں گے,1,1,یکساں
+r190,"PAIN, biting teeth together, amel.","PAIN, toothache in general, biting teeth together, when, amel.",دانت — درد، دانت بھینچنے پر، آرام,16,16,یکساں
+r200,"PAIN, coition, relieved after","PAIN, toothache in general, coition, after, relieved after",دانت — درد، مباشرت کے بعد آرام,1,1,یکساں
+r202,"PAIN, cold, after overheating","PAIN, toothache in general, cold, from a, after overheating",دانت — درد، ٹھنڈک، زیادہ گرمی کے بعد,4,4,یکساں
+r209,"PAIN, cold, hand applied amel.","PAIN, toothache in general, cold, from a, hand applied amel.",دانت — درد، ٹھنڈک، ہاتھ لگانے سے آرام,2,2,یکساں
+r210,"PAIN, cold, cold water amel.","PAIN, toothache in general, cold, from a, cold water amel.",دانت — درد، ٹھنڈک، ٹھنڈے پانی سے آرام,31,31,یکساں
+r211,"PAIN, cold, weather","PAIN, toothache in general, cold, from a, weather",دانت — درد، ٹھنڈک، ٹھنڈے موسم میں,3,3,یکساں
+r219,"PAIN, drinking, amel.","PAIN, toothache in general, drinking, from, amel.",دانت — درد، پینے سے آرام,2,2,یکساں
+r228,"PAIN, excitement, amel.","PAIN, toothache in general, excitement, from, amel.",دانت — درد، جوش سے آرام,1,1,یکساں
+r243,"PAIN, lying, amel.","PAIN, toothache in general, lying, while, amel.",دانت — درد، لیٹنے سے آرام,7,7,یکساں
+r244,"PAIN, lying, immediately after","PAIN, toothache in general, lying, while, immediately after",دانت — درد، لیٹنے کے فوراً بعد,8,8,یکساں
+r249,"PAIN, lying, painless side agg.","PAIN, toothache in general, lying, while, painless side agg.",دانت — درد، بے درد پہلو پر بگاڑ,4,4,یکساں
+r253,"PAIN, masticating, amel. by","PAIN, toothache in general, masticating, from, amel. by",دانت — درد، چبانے سے آرام,3,3,یکساں
+r254,"PAIN, masticating, only when","PAIN, toothache in general, masticating, from, only when",دانت — درد، صرف چباتے وقت,3,3,یکساں
+r256,"PAIN, masticating, after","PAIN, toothache in general, masticating, from, after",دانت — درد، چبانے کے بعد,3,3,یکساں
+r281,"PAIN, perspiration, amel.","PAIN, toothache in general, perspiration, during, amel.",دانت — درد، پسینے سے آرام,4,4,یکساں
+r282,"PAIN, perspiration, from suppressed","PAIN, toothache in general, perspiration, during, from suppressed",دانت — درد، پسینہ بند ہونے سے,1,1,یکساں
+r283,"PAIN, perspiration, tendency to perspire","PAIN, toothache in general, perspiration, during, tendency to perspire",دانت — درد، پسینہ آنے کے رجحان میں,1,1,یکساں
+r299,"PAIN, salt food, amel.","PAIN, toothache in general, salt food, from, amel.",دانت — درد، نمکین کھانے سے آرام,1,1,یکساں
+r313,"PAIN, sour things, amel.","PAIN, toothache in general, sour things, from, amel.",دانت — درد، کھٹی چیزوں سے آرام,1,1,یکساں
+r316,"PAIN, standing up, amel.","PAIN, toothache in general, standing up, after, amel.",دانت — درد، کھڑے ہونے سے آرام,6,6,یکساں
+r330,"PAIN, talking, of others agg.","PAIN, toothache in general, talking, from, of others agg.",دانت — درد، دوسروں کی بات کرنے سے بگاڑ,2,2,یکساں
+r346,"PAIN, walking, amel.","PAIN, toothache in general, walking, while, amel.",دانت — درد، چلنے سے آرام,5,5,یکساں
+r352,"PAIN, warm drinks, amel.","PAIN, toothache in general, warm drinks, from, amel.",دانت — درد، گرم مشروبات سے آرام,15,15,یکساں
+r373,"PAIN, wind, amel.","PAIN, toothache in general, wind, in raw, amel.",دانت — درد، ہوا سے آرام,1,1,یکساں
+r413,"PAIN, boring","PAIN, toothache in general, boring",دانت — درد، برما سا,45,44,ماخذی مطابق کیے
+r600,"PAIN, sore, eating amel.","PAIN, toothache in general, sore, bruised, eating amel.",دانت — درد، دکھتا ہوا، کھانے سے آرام,1,1,یکساں
+r605,"PAIN, sore, pressure amel.","PAIN, toothache in general, sore, bruised, pressure amel.",دانت — درد، دکھتا ہوا، دباؤ سے آرام,1,1,یکساں
+r616,"PAIN, stitching, evening","PAIN, toothache in general, stitching, stinging, evening",دانت — درد، چبھتا ہوا، شام,3,3,یکساں
+r628,"PAIN, stitching, intermittent","PAIN, toothache in general, stitching, stinging, intermittent",دانت — درد، چبھتا ہوا، وقفے وقفے سے,1,1,یکساں
+r630,"PAIN, stitching, outward","PAIN, toothache in general, stitching, stinging, outward",دانت — درد، چبھتا ہوا، باہر کی طرف,1,1,یکساں
+r631,"PAIN, stitching, rasping","PAIN, toothache in general, stitching, stinging, rasping",دانت — درد، چبھتا ہوا، رگڑنے والا (کھردرا),1,1,یکساں
+r632,"PAIN, stitching, warm bed amel.","PAIN, toothache in general, stitching, stinging, warm bed amel.",دانت — درد، چبھتا ہوا، گرم بستر سے آرام,1,1,یکساں
+r633,"PAIN, stitching, extending to ear","PAIN, toothache in general, stitching, stinging, extending to ear",دانت — درد، چبھتا ہوا، کان تک پھیلتا ہوا,11,11,یکساں
+r740,"SENSITIVE, molars, worse from eating","SENSITIVE, tender, molars, decayed, worse from eating",دانت — حساس، داڑھ، کھانے سے بگاڑ,1,1,یکساں
+r741,"SENSITIVE, molars, upper","SENSITIVE, tender, molars, decayed, upper",دانت — حساس، داڑھ، اوپری,1,1,یکساں
+r109,"PAIN, upper teeth","PAIN, toothache in general, upper teeth",دانت — درد، اوپری دانتوں میں,75,73,ماخذی مطابق کیے
+r440,"PAIN, digging","PAIN, toothache in general, digging",دانت — درد، کھودتا ہوا,33,32,ماخذی مطابق کیے
+o60542,"PAIN, air, drawn in, amel.","PAIN, toothache in general, air, cold, drawn in, from, amel.",دانت — درد، ہوا، اندر کھینچنے سے آرام,7,7,یکساں
+o60544,"PAIN, air, open, amel.","PAIN, toothache in general, air, cold, open, in the, amel.",دانت — درد، ہوا، کھلی ہوا سے آرام,11,11,یکساں
+o60827,"PAIN, lying, painful side, amel.","PAIN, toothache in general, lying, while, painful side, agg., amel.",دانت — درد، لیٹنا، درد والے پہلو پر آرام,6,6,یکساں
+o61096,"PAIN, walking, open air, amel.","PAIN, toothache in general, walking, while, open air, in, amel.",دانت — درد، کھلی ہوا میں آرام,14,14,یکساں
+o61098,"PAIN, walking, open air, in the wind","PAIN, toothache in general, walking, while, open air, in, in the wind",دانت — درد، کھلی ہوا میں، ہوا کے سامنے,1,1,یکساں
+o61107,"PAIN, warmth, external, amel.","PAIN, toothache in general, warm drinks, from, warmth, external, amel.",دانت — درد، باہری گرمائش سے آرام,31,31,یکساں
+o61115,"PAIN, washing, with cold water, amel.","PAIN, toothache in general, washing, after, with cold water, from, amel.",دانت — درد، ٹھنڈے پانی سے منہ دھونے سے آرام,9,9,یکساں
+r626,"PAIN, stitching, eating, amel.","PAIN, toothache in general, stitching, stinging, eating, while, amel.",دانت — درد، چبھتا ہوا، کھانے سے آرام,1,1,یکساں
+r704,"PAIN, twitching","PAIN, toothache in general, twitching",دانت — درد، پھڑکن کے ساتھ,24,23,ماخذی مطابق کیے
+o60739,"PAIN, extending, face","PAIN, toothache in general, extending to arms, face",دانت — درد، پھیلتا ہوا، چہرے تک,25,23,ماخذی مطابق کیے
+o60823,"PAIN, lying, head, high, agg.","PAIN, toothache in general, lying, while, head, low, with, agg., high, agg.",دانت — درد، لیٹنا، سر اونچا رکھنے سے بگاڑ,1,1,یکساں
+r117,"PAIN, left","PAIN, toothache in general, left",دانت — درد، بائیں,35,33,ماخذی مطابق کیے
+o60729,"PAIN, extending, bones, cheek","PAIN, toothache in general, extending to arms, bones, cheek",دانت — درد، پھیلتا ہوا، گال کی ہڈی میں,15,15,ماخذی مطابق کیے
+r539,"PAIN, jerking","PAIN, toothache in general, jerking",دانت — درد، جھٹکے دار,76,71,ماخذی مطابق کیے
+r115,"PAIN, right","PAIN, toothache in general, right",دانت — درد، دائیں,30,28,ماخذی مطابق کیے
+r519,"PAIN, gnawing","PAIN, toothache in general, gnawing",دانت — درد، کترتا ہوا,30,28,ماخذی مطابق کیے
+r136,"PAIN, night","PAIN, toothache in general, night",دانت — درد، رات,78,72,ماخذی مطابق کیے
+r443,"PAIN, drawing","PAIN, toothache in general, drawing",دانت — درد، کھینچتا ہوا,111,102,ماخذی مطابق کیے
+r338,"PAIN, touch","PAIN, toothache in general, touch",دانت — درد، چھونے پر,60,55,ماخذی مطابق کیے
+r702,"PAIN, tingling","PAIN, toothache in general, tingling",دانت — درد، جھنجھناہٹ کے ساتھ,11,10,ماخذی مطابق کیے
+r646,"PAIN, stitching, left","PAIN, toothache in general, stitching, stinging, left",دانت — درد، چبھتا ہوا، بائیں,8,9,ماخذی مطابق کیے
+r609,"PAIN, stitching, right","PAIN, toothache in general, stitching, stinging, right",دانت — درد، چبھتا ہوا، دائیں,9,8,ماخذی مطابق کیے
+r449,"PAIN, drawing, evening","PAIN, toothache in general, drawing, evening",دانت — درد، کھینچتا ہوا، شام,6,5,ماخذی مطابق کیے
+o60476,"DISCOLORED, dark","DISCOLORED black, dark",دانت — رنگ بدلا ہوا، گہرا,4,3,ماخذی مطابق کیے
+r653,"PAIN, tearing, night","PAIN, toothache in general, tearing, night",دانت — درد، چیرتا ہوا، رات,16,13,ماخذی مطابق کیے
+r637,"PAIN, stitching, incisors","PAIN, toothache in general, stitching, stinging, incisors",دانت — درد، چبھتا ہوا، سامنے کے دانتوں میں,7,6,ماخذی مطابق کیے
+r708,"PAIN, ulcerative","PAIN, toothache in general, ulcerative",دانت — درد، زخمی (ناسور والا),12,10,ماخذی مطابق کیے
+r452,"PAIN, drawing, night","PAIN, toothache in general, drawing, night",دانت — درد، کھینچتا ہوا، رات,10,8,ماخذی مطابق کیے
+r648,"PAIN, tearing, morning","PAIN, toothache in general, tearing, morning",دانت — درد، چیرتا ہوا، صبح,5,4,ماخذی مطابق کیے
+r709,"PAIN, ulcerative, at roots","PAIN, toothache in general, ulcerative, at roots",دانت — درد، زخمی، جڑوں میں,5,4,ماخذی مطابق کیے
+r535,"PAIN, grumbling","PAIN, toothache in general, grumbling (See Dull)",دانت — درد، گڑگڑاتا ہوا (گہرا),17,14,ماخذی مطابق کیے
+r129,"PAIN, afternoon","PAIN, toothache in general, afternoon",دانت — درد، سہ پہر,16,13,ماخذی مطابق کیے
+r511,"PAIN, dull","PAIN, toothache in general, dull",دانت — درد، مدھم (کند),16,13,ماخذی مطابق کیے
+r222,"PAIN, eating, during","PAIN, toothache in general, eating, before dinner, during",دانت — درد، کھاتے ہوئے,47,39,ماخذی مطابق کیے
+r694,"PAIN, tearing, roots","PAIN, toothache in general, tearing, roots",دانت — درد، چیرتا ہوا، جڑوں میں,18,14,ماخذی مطابق کیے
+r131,"PAIN, evening","PAIN, toothache in general, evening",دانت — درد، شام,61,49,ماخذی مطابق کیے
+o60730,"PAIN, extending, bones, maxillary","PAIN, toothache in general, extending to arms, bones, cheek, maxillary",دانت — درد، پھیلتا ہوا، جبڑے کی ہڈی میں,5,4,ماخذی مطابق کیے
+r124,"PAIN, morning, rising, after","PAIN, toothache in general, morning, rising, after",دانت — درد، صبح، اٹھنے کے بعد,4,3,ماخذی مطابق کیے
+r444,"PAIN, drawing, morning","PAIN, toothache in general, drawing, morning",دانت — درد، کھینچتا ہوا، صبح,4,3,ماخذی مطابق کیے
+r447,"PAIN, drawing, afternoon","PAIN, toothache in general, drawing, afternoon",دانت — درد، کھینچتا ہوا، سہ پہر,4,3,ماخذی مطابق کیے
+r521,"PAIN, gnawing, evening","PAIN, toothache in general, gnawing, evening",دانت — درد، کترتا ہوا، شام,4,3,ماخذی مطابق کیے
+r543,"PAIN, jerking, night","PAIN, toothache in general, jerking, night",دانت — درد، جھٹکے دار، رات,4,3,ماخذی مطابق کیے
+r639,"PAIN, stitching, lower teeth","PAIN, toothache in general, stitching, stinging, lower teeth",دانت — درد، چبھتا ہوا، نچلے دانتوں میں,4,3,ماخذی مطابق کیے
+r566,"PAIN, pressing","PAIN, toothache in general, pressing",دانت — درد، دبانے والا,65,47,ماخذی مطابق کیے
+r107,"PAIN, upper teeth, left","PAIN, toothache in general, upper teeth, left",دانت — درد، اوپری دانتوں میں، بائیں,3,2,ماخذی مطابق کیے
+r120,"PAIN, morning","PAIN, toothache in general, morning",دانت — درد، صبح,36,25,ماخذی مطابق کیے
+r686,"PAIN, tearing, molars, lower","PAIN, toothache in general, tearing, molars, lower",دانت — درد، چیرتا ہوا، نچلی داڑھ میں,8,5,ماخذی مطابق کیے
+r564,"PAIN, pinching","PAIN, toothache in general, pinching",دانت — درد، چٹکی جیسا,3,2,ماخذی مطابق کیے
+r592,"PAIN, scraping","PAIN, toothache in general, scraping",دانت — درد، کھرچنے والا,3,2,ماخذی مطابق کیے
+r642,"PAIN, stitching, molars, lower","PAIN, toothache in general, stitching, stinging, molars, lower",دانت — درد، چبھتا ہوا، نچلی داڑھ میں,3,2,ماخذی مطابق کیے
+r614,"PAIN, stitching, morning","PAIN, toothache in general, stitching, stinging, morning",دانت — درد، چبھتا ہوا، صبح,3,2,ماخذی مطابق کیے
+r121,"PAIN, morning, bed in","PAIN, toothache in general, morning, bed in",دانت — درد، صبح، بستر میں,14,8,ماخذی مطابق کیے
+r617,"PAIN, stitching, night","PAIN, toothache in general, stitching, stinging, night",دانت — درد، چبھتا ہوا، رات,5,3,ماخذی مطابق کیے
+r277,"PAIN, periodical","PAIN, toothache in general, periodical",دانت — درد، وقفے وقفے سے باقاعدہ,9,5,ماخذی مطابق کیے
+r429,"PAIN, crushed, as if","PAIN, toothache in general, crushed, as if",دانت — درد، جیسے کچل دیا گیا,2,1,ماخذی مطابق کیے
+r504,"PAIN, drawing, lower teeth","PAIN, toothache in general, drawing, lower teeth",دانت — درد، کھینچتا ہوا، نچلے دانتوں میں,2,1,ماخذی مطابق کیے
+r555,"PAIN, jerking, molars","PAIN, toothache in general, jerking, molars",دانت — درد، جھٹکے دار، داڑھ میں,2,1,ماخذی مطابق کیے
+r182,"PAIN, breathing","PAIN, toothache in general, breathing",دانت — درد، سانس لینے پر,2,1,ماخذی مطابق کیے
+r188,"PAIN, biting teeth together, menses, during","PAIN, toothache in general, biting teeth together, when, menses, during",دانت — درد، دانت بھینچنے پر، حیض کے دوران,2,1,ماخذی مطابق کیے
+r683,"PAIN, tearing, incisors","PAIN, toothache in general, tearing, incisors",دانت — درد، چیرتا ہوا، سامنے کے دانتوں میں,5,2,ماخذی مطابق کیے
+r685,"PAIN, tearing, molars","PAIN, toothache in general, tearing, molars",دانت — درد، چیرتا ہوا، داڑھ میں,25,10,ماخذی مطابق کیے
+r641,"PAIN, stitching, molars","PAIN, toothache in general, stitching, stinging, molars",دانت — درد، چبھتا ہوا، داڑھ میں,9,3,ماخذی مطابق کیے
+r496,"PAIN, drawing, molars","PAIN, toothache in general, drawing, molars",دانت — درد، کھینچتا ہوا، داڑھ میں,11,2,ماخذی مطابق کیے
+r411,"PAIN, biting","PAIN, toothache in general, biting",دانت — درد، کاٹنے والا,56,4,ماخذی مطابق کیے
+o60543,"PAIN, air, drawn in, from agg.","PAIN, toothache in general, air, cold, drawn in, from",دانت — درد، ہوا، اندر کھینچنے سے بگاڑ,34,34,یکساں
+o60545,"PAIN, air, open, in the agg.","PAIN, toothache in general, air, cold, open, in the",دانت — درد، ہوا، کھلی ہوا میں بگاڑ,27,27,یکساں
+o60574,"PAIN, biting teeth together, when agg.","PAIN, toothache in general, biting teeth together, when",دانت — درد، دانت بھینچنے پر، بگاڑ,44,44,یکساں
+o60606,"PAIN, cold, anything agg.","PAIN, toothache in general, cold, from a, anything",دانت — درد، ٹھنڈک، ہر ٹھنڈی چیز سے بگاڑ,47,47,یکساں
+o60714,"PAIN, eating, after agg.","PAIN, toothache in general, eating, before dinner, after",دانت — درد، کھانے کے بعد بگاڑ,39,39,یکساں
+o60722,"PAIN, evening, in bed agg.","PAIN, toothache in general, evening, in bed",دانت — درد، شام، بستر میں بگاڑ,27,27,یکساں
+o60831,"PAIN, lying, while agg.","PAIN, toothache in general, lying, while",دانت — درد، لیٹے ہوئے بگاڑ,21,21,یکساں
+o60835,"PAIN, masticating, from agg.","PAIN, toothache in general, masticating, from",دانت — درد، چبانے سے بگاڑ,59,59,یکساں
+o60939,"PAIN, sleep, after agg.","PAIN, toothache in general, sleep, on going to, after",دانت — درد، نیند کے بعد بگاڑ,18,18,یکساں
+o61071,"PAIN, tobacco smoking agg.","PAIN, toothache in general, tobacco smoking",دانت — درد، تمباکو پینے سے بگاڑ,12,12,یکساں
+o61097,"PAIN, walking, open air, in agg.","PAIN, toothache in general, walking, while, open air, in",دانت — درد، کھلی ہوا میں بگاڑ,14,14,یکساں
+o61102,"PAIN, warm drinks, from agg.","PAIN, toothache in general, warm drinks, from",دانت — درد، گرم مشروبات سے بگاڑ,26,26,یکساں
+o61104,"PAIN, warm, things agg.","PAIN, toothache in general, warm drinks, from, things",دانت — درد، گرم چیزوں سے بگاڑ,37,37,یکساں
+o61106,"PAIN, warmth, external agg.","PAIN, toothache in general, warm drinks, from, warmth, external",دانت — درد، باہری گرمائش سے بگاڑ,21,21,یکساں
+r360,"PAIN, warmth, of bed agg.","PAIN, toothache in general, warm drinks, from, of bed agg.",دانت — درد، بستر کی گرمائش سے بگاڑ,17,17,یکساں
+r362,"PAIN, warmth, room, agg.","PAIN, toothache in general, warm drinks, from, room, agg.",دانت — درد، گرم کمرے میں بگاڑ,20,20,یکساں
+o61116,"PAIN, washing, with cold water, from agg.","PAIN, toothache in general, washing, after, with cold water, from",دانت — درد، ٹھنڈے پانی سے منہ دھونے سے بگاڑ,12,12,یکساں
+o60539,"PAIN, air, cold agg.","PAIN, toothache in general, air, cold",دانت — درد، ہوا، ٹھنڈی ہوا سے بگاڑ,41,41,یکساں
+o60562,"PAIN, beer agg.","PAIN, toothache in general, beer",دانت — درد، بیئر سے بگاڑ,4,4,یکساں
+o60582,"PAIN, boring, in root, sound teeth","PAIN, toothache in general, boring, in roots, sound teeth",دانت — درد، برما سا، جڑ میں، صحت مند دانتوں میں,2,2,یکساں
+o60640,"PAIN, drawing, air, in open agg.","PAIN, toothache in general, drawing, air, in open",دانت — درد، کھینچتا ہوا، کھلی ہوا میں بگاڑ,4,4,یکساں
+o60646,"PAIN, drawing, cold, from agg.","PAIN, toothache in general, drawing, cold, from",دانت — درد، کھینچتا ہوا، ٹھنڈک سے بگاڑ,2,2,یکساں
+o60650,"PAIN, drawing, eating, while agg.","PAIN, toothache in general, drawing, eating, while",دانت — درد، کھینچتا ہوا، کھاتے ہوئے بگاڑ,5,5,یکساں
+o60706,"PAIN, drinking, from agg.","PAIN, toothache in general, drinking, from",دانت — درد، پینے سے بگاڑ,7,7,یکساں
+o60719,"PAIN, eating, during, only","PAIN, toothache in general, eating, before dinner, only",دانت — درد، صرف کھاتے ہوئے,2,2,یکساں
+o60726,"PAIN, excitement, from agg.","PAIN, toothache in general, excitement, from",دانت — درد، جوش سے بگاڑ,6,6,یکساں
+o60766,"PAIN, gnawing, air, cold inhaling agg.","PAIN, toothache in general, gnawing, air, cold inhaling",دانت — درد، کترتا ہوا، ٹھنڈی ہوا اندر لینے سے بگاڑ,1,1,یکساں
+o60810,"PAIN, jerking, smoking, while agg.","PAIN, toothache in general, jerking, smoking, while",دانت — درد، جھٹکے دار، سگریٹ پیتے ہوئے بگاڑ,1,1,یکساں
+o60837,"PAIN, menses, after","PAIN, toothache in general, before, after",دانت — درد، حیض کے بعد,7,7,یکساں
+o60842,"PAIN, menses, during, if the flow diminishes","PAIN, toothache in general, before, during, if the flow diminishes",دانت — درد، حیض کے دوران، اگر بہاؤ کم ہو جائے,1,1,یکساں
+o60843,"PAIN, menses, during, menorrhagia","PAIN, toothache in general, before, during, menorrhagia",دانت — درد، حیض کے دوران، کثرتِ حیض میں,1,1,یکساں
+o60880,"PAIN, perspiration, during agg.","PAIN, toothache in general, perspiration, during",دانت — درد، پسینے کے دوران بگاڑ,2,2,یکساں
+o60883,"PAIN, picking teeth, amel. by.","PAIN, toothache in general, picking teeth, excited by, amel. by",دانت — درد، دانت کریدنے سے آرام,4,4,یکساں
+o60884,"PAIN, picking teeth, excited by agg.","PAIN, toothache in general, picking teeth, excited by",دانت — درد، دانت کریدنے سے بگاڑ,3,3,یکساں
+o60908,"PAIN, pressure agg.","PAIN, toothache in general, pressure",دانت — درد، دباؤ سے بگاڑ,13,13,یکساں
+o60930,"PAIN, salt food, from agg.","PAIN, toothache in general, salt food, from",دانت — درد، نمکین کھانے سے بگاڑ,1,1,یکساں
+o60954,"PAIN, sour things, from agg.","PAIN, toothache in general, sour things, from",دانت — درد، کھٹی چیزوں سے بگاڑ,1,1,یکساں
+o60967,"PAIN, stitching, eating, while agg.","PAIN, toothache in general, stitching, stinging, eating, while",دانت — درد، چبھتا ہوا، کھاتے ہوئے بگاڑ,2,2,یکساں
+o60987,"PAIN, stitching, molars, upper","PAIN, toothache in general, stitching, stinging, upper",دانت — درد، چبھتا ہوا، اوپری داڑھ میں,2,2,یکساں
+o61019,"PAIN, tearing, biting together, when agg.","PAIN, toothache in general, tearing, biting together, when",دانت — درد، چیرتا ہوا، دانت بھینچنے پر، بگاڑ,1,1,یکساں
+o61099,"PAIN, walking, while agg.","PAIN, toothache in general, walking, while",دانت — درد، چلتے ہوئے بگاڑ,4,4,یکساں
+o61109,"PAIN, warmth, of bed, amel.","PAIN, toothache in general, warm drinks, from, of bed agg., amel.",دانت — درد، بستر کی گرمائش سے آرام,6,6,یکساں
+o61112,"PAIN, warmth, wrapping up head amel.","PAIN, toothache in general, warm drinks, from, wrapping up head amel.",دانت — درد، سر لپیٹنے سے آرام,3,3,یکساں
+r363,"PAIN, warmth, room, amel.","PAIN, toothache in general, warm drinks, from, room, agg., amel.",دانت — درد، گرم کمرے میں آرام,5,5,یکساں
+r667,"PAIN, menses, before","PAIN, toothache in general, before",دانت — درد، حیض سے پہلے,10,10,یکساں
+r176,"PAIN, menses, during","PAIN, toothache in general, before, during",دانت — درد، حیض کے دوران,24,23,ماخذی مطابق کیے

@@ -1,0 +1,768 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,430,0,TEETH,0
+o60437,430,0,ABSCESS of roots,16
+o60438,430,0,ADHERE together,3
+o60439,430,0,"AIR, sensation as from cold air blowing on",1
+o60440,430,1,"AIR, sensation as from cold air blowing on, if forced into them",2
+o60441,430,1,"AIR, sensation as from cold air blowing on, streaming from",1
+h002,430,0,"BITE, together, desire to (See Clinch)",0
+o60442,430,1,"BITE, together, desire to (See Clinch), afraid, to for fear they would fall out",1
+o60443,430,1,"BITE, together, desire to (See Clinch), cannot, at night",1
+o60445,430,1,"BITE, together, desire to (See Clinch), sudden, involuntary",1
+o60444,430,1,"BITE, together, desire to (See Clinch), sends a shock through head, ear and nose",1
+o60446,430,1,"BITE, together, desire to (See Clinch), wants to, on something hard which relieves pain, dentition",1
+o60447,430,0,BITES tumbler when drinking,1
+h003,430,0,BLEEDING (See Gums),0
+o60448,430,0,BREAKING off,5
+r0,431,0,"CARIES, decayed, hollow",87
+r1,431,1,"CARIES, decayed, hollow, appear, as soon as they",2
+r2,431,1,"CARIES, decayed, hollow, gums, at edge of",3
+r3,431,1,"CARIES, decayed, hollow, internal",1
+r4,431,1,"CARIES, decayed, hollow, premature in children",7
+r5,431,1,"CARIES, decayed, hollow, rapid",11
+r6,431,1,"CARIES, decayed, hollow, roots, at",3
+r7,431,1,"CARIES, decayed, hollow, sides of teeth",3
+r8,431,1,"CARIES, decayed, hollow, sensation of",1
+r9,431,0,CHATTERING,6
+r10,431,1,"CHATTERING, with inward trembling",1
+r11,431,0,"CLINCH together, constant inclination to",23
+r12,431,0,CLINCHED firmly,8
+r13,431,1,"CLINCHED firmly, midnight, after",1
+r14,431,0,COATED (See Mucus and Sordes),0
+r15,431,0,COLDNESS,30
+r16,431,1,"COLDNESS, afternoon",1
+r17,431,0,CRACKING when rubbing,1
+r18,431,0,CRAWLING,10
+r19,431,0,CRUMBLING,13
+r20,431,0,CRUSTS black (See Mucus),0
+r21,431,0,CUPPED in children,1
+r22,431,0,DARK spots (See Discoloration),0
+r23,431,0,DECAYED (See Caries),0
+r24,431,0,DENTITION difficult,16
+o60470,431,1,"DENTITION difficult, slow",6
+r26,431,0,DIRTY look,3
+r27,431,0,DISCOLORED black,17
+o60473,431,1,"DISCOLORED black, after aching",1
+o60474,431,1,"DISCOLORED black, in streaks",1
+o60475,431,1,"DISCOLORED black, brown, sooty",1
+o60476,431,1,"DISCOLORED black, dark",3
+o60477,431,2,"DISCOLORED black, dark, spots",1
+o60478,431,1,"DISCOLORED black, gray",3
+o60479,431,1,"DISCOLORED black, yellow",12
+r35,431,0,"DULL, feel (See Edge)",0
+r36,431,0,DWARFED,1
+r37,431,0,"EDGE, feel as if on",40
+r38,431,1,"EDGE, feel as if on, left side",1
+r39,431,1,"EDGE, feel as if on, as if covered with lime",1
+r40,431,1,"EDGE, feel as if on, menses, during",1
+r41,431,1,"EDGE, feel as if on, sour vomiting, with",1
+r42,431,0,EDGES feel sharp and hurt gums,1
+r764,431,0,"ELONGATION, sensation of",82
+o60492,432,1,"ELONGATION, sensation of, night in bed",1
+o60488,432,1,"ELONGATION, sensation of, air, open, agg.",2
+o60489,432,1,"ELONGATION, sensation of, chewing, when",4
+o60490,432,1,"ELONGATION, sensation of, decayed teeth",2
+o60491,432,1,"ELONGATION, sensation of, incisors",6
+r49,432,0,ENAMEL deficient,2
+r50,432,0,"EXFOLIATION (See Looseness, Elongation)",0
+r51,432,0,FORMICATION,1
+r52,432,1,"FORMICATION, evening",1
+r53,432,1,"FORMICATION, painful",1
+r54,432,0,GRINDING,48
+r55,432,1,"GRINDING, morning soon as awake",2
+r56,432,1,"GRINDING, chill, during (See Chewing)",8
+r57,432,1,"GRINDING, convulsive",8
+r58,432,1,"GRINDING, epilepsy",4
+r59,432,1,"GRINDING, maniacal rage, during",8
+r60,432,1,"GRINDING, menses, toward close of",1
+r61,432,1,"GRINDING, sitting, while",2
+r62,432,1,"GRINDING, sleep, during",36
+r63,432,0,HEAT (See Under Pain),0
+r64,432,0,HEAVINESS,3
+r65,432,0,HOLLOW (See Under Caries),0
+r66,432,0,INCRUSTATIONS,1
+r67,432,0,INFLAMED dentine,1
+r68,432,0,IRREGULAR formation of lower teeth in a scrofulous child with mesenteric disease,1
+r69,432,0,ITCHING in,9
+r70,432,1,"ITCHING in, open air agg.",1
+r71,432,1,"ITCHING in, supper, after",1
+r72,432,0,"LARGE and swollen, sensation",8
+r73,432,0,"LONG, feel too (See Elongation)",0
+r74,432,0,LOOSENESS of,76
+r75,432,1,"LOOSENESS of, morning",4
+r76,432,1,"LOOSENESS of, falling out",8
+r77,432,2,"LOOSENESS of, falling out, sensation of",4
+r78,432,1,"LOOSENESS of, painful",7
+r79,432,1,"LOOSENESS of, sensation",25
+r80,432,2,"LOOSENESS of, sensation, when masticating",4
+r81,432,1,"LOOSENESS of, sound teeth",4
+r82,432,1,"LOOSENESS of, sudden paroxysm",1
+r83,433,0,MUCUS on (See Sordes),17
+r84,433,1,"MUCUS on (See Sordes), morning",2
+r85,433,1,"MUCUS on (See Sordes), black",4
+r86,433,2,"MUCUS on (See Sordes), black, crusts",1
+r87,433,1,"MUCUS on (See Sordes), brown",9
+r88,433,1,"MUCUS on (See Sordes), offensive",2
+r89,433,1,"MUCUS on (See Sordes), sticky",2
+r90,433,1,"MUCUS on (See Sordes), thick",5
+r91,433,1,"MUCUS on (See Sordes), yellow",6
+r92,433,0,"NERVES, injuries to dental nerves",1
+r93,433,0,NOTCHED (See Serrated),0
+r94,433,0,NUMBNESS,15
+r95,433,1,"NUMBNESS, morning, after rising",1
+r96,433,0,"ODOR, from offensive (See Mouth, Odor)",8
+r97,433,0,"OIL, feel as if covered with",1
+r98,433,0,"PAIN, toothache in general",159
+r99,433,1,"PAIN, toothache in general, incisors",60
+r100,433,1,"PAIN, toothache in general, canines",16
+r101,433,1,"PAIN, toothache in general, molars",91
+r102,433,2,"PAIN, toothache in general, molars, right",1
+r103,433,2,"PAIN, toothache in general, molars, left",3
+r109,433,1,"PAIN, toothache in general, upper teeth",73
+r105,433,2,"PAIN, toothache in general, upper teeth, right bi-cuspid",1
+o61093,433,3,"PAIN, toothache in general, upper teeth, right bi-cuspid, molar",1
+r107,433,2,"PAIN, toothache in general, upper teeth, left",2
+r110,434,2,"PAIN, toothache in general, upper teeth, left 2nd bi-cuspid",1
+r111,434,1,"PAIN, toothache in general, lower teeth",93
+r112,434,2,"PAIN, toothache in general, lower teeth, 2nd molar",1
+r113,434,2,"PAIN, toothache in general, lower teeth, one incisor",1
+r114,434,2,"PAIN, toothache in general, lower teeth, 1st bi-cuspid",1
+r115,434,1,"PAIN, toothache in general, right",28
+r116,434,2,"PAIN, toothache in general, right, to left",2
+r117,434,1,"PAIN, toothache in general, left",33
+r118,434,2,"PAIN, toothache in general, left, to right",2
+r119,434,1,"PAIN, toothache in general, daytime",7
+r120,434,1,"PAIN, toothache in general, morning",25
+r121,434,2,"PAIN, toothache in general, morning, bed in",8
+r122,434,3,"PAIN, toothache in general, morning, bed in, wakes him",1
+r123,434,3,"PAIN, toothache in general, morning, bed in, waking, on",8
+r124,434,2,"PAIN, toothache in general, morning, rising, after",3
+r125,434,3,"PAIN, toothache in general, morning, rising, after, when washing",1
+r126,434,2,"PAIN, toothache in general, morning, 3 a.m.",1
+r127,434,1,"PAIN, toothache in general, forenoon",10
+r128,434,1,"PAIN, toothache in general, noon",2
+r129,434,1,"PAIN, toothache in general, afternoon",13
+r130,434,2,"PAIN, toothache in general, afternoon, after dinner",4
+r131,434,1,"PAIN, toothache in general, evening",49
+o60722,434,2,"PAIN, toothache in general, evening, in bed",27
+r133,434,3,"PAIN, toothache in general, evening, in bed, amel.",1
+r134,434,2,"PAIN, toothache in general, evening, smoking amel.",1
+r135,434,2,"PAIN, toothache in general, evening, 6 p.m. lasting till 1 or 2 a.m.",1
+r136,434,1,"PAIN, toothache in general, night",72
+r137,434,2,"PAIN, toothache in general, night, chilliness as it disappears",1
+r138,434,2,"PAIN, toothache in general, night, lying, when",3
+r139,434,2,"PAIN, toothache in general, night, 9 p.m.",1
+r140,434,2,"PAIN, toothache in general, night, 10 p.m.",1
+r141,434,2,"PAIN, toothache in general, night, midnight, before",17
+r143,435,3,"PAIN, toothache in general, night, midnight, before, after",15
+r144,435,2,"PAIN, toothache in general, night, 3 a.m.",1
+o60539,435,1,"PAIN, toothache in general, air, cold",41
+r146,435,2,"PAIN, toothache in general, air, cold, amel.",11
+r147,435,2,"PAIN, toothache in general, air, cold, draft, from a",10
+o60543,435,2,"PAIN, toothache in general, air, cold, drawn in, from",34
+o60542,435,3,"PAIN, toothache in general, air, cold, drawn in, from, amel.",7
+o60545,435,2,"PAIN, toothache in general, air, cold, open, in the",27
+o60544,435,3,"PAIN, toothache in general, air, cold, open, in the, amel.",11
+r152,435,2,"PAIN, toothache in general, air, cold, sensation as from cold air",3
+o60547,435,3,"PAIN, toothache in general, air, cold, sensation as from cold air, rushed out of",1
+o60548,435,3,"PAIN, toothache in general, air, cold, sensation as from cold air, were forced into",2
+r155,435,1,"PAIN, toothache in general, alternating with catarrh",1
+o60550,435,2,"PAIN, toothache in general, alternating with catarrh, dizziness",1
+o60551,435,2,"PAIN, toothache in general, alternating with catarrh, headache",1
+o60552,435,2,"PAIN, toothache in general, alternating with catarrh, itching in ear",1
+o60553,435,2,"PAIN, toothache in general, alternating with catarrh, sides",5
+o60554,435,2,"PAIN, toothache in general, alternating with catarrh, stitching pain in left breast",1
+o60555,435,2,"PAIN, toothache in general, alternating with catarrh, tearing in limbs",1
+o60556,435,2,"PAIN, toothache in general, alternating with catarrh, vertigo",1
+r163,435,1,"PAIN, toothache in general, anger, after",2
+r164,435,1,"PAIN, toothache in general, anxiety, with",3
+r165,435,1,"PAIN, toothache in general, autumn, in the",10
+r166,435,1,"PAIN, toothache in general, bed, on going to (See Evening and Night)",2
+r167,435,2,"PAIN, toothache in general, bed, on going to (See Evening and Night), in",25
+o60562,435,1,"PAIN, toothache in general, beer",4
+r169,435,2,"PAIN, toothache in general, beer, amel.",1
+r170,435,1,"PAIN, toothache in general, bending forward with forehead on table agg.",1
+o60565,435,2,"PAIN, toothache in general, bending forward with forehead on table agg., amel.",1
+o60567,435,2,"PAIN, toothache in general, bending forward with forehead on table agg., to either side, from",1
+o60566,435,2,"PAIN, toothache in general, bending forward with forehead on table agg., backward, from",1
+o60574,435,1,"PAIN, toothache in general, biting teeth together, when",44
+r187,435,2,"PAIN, toothache in general, biting teeth together, when, afraid for fear would fall out",1
+r188,435,2,"PAIN, toothache in general, biting teeth together, when, menses, during",1
+r189,435,3,"PAIN, toothache in general, biting teeth together, when, menses, during, desire to",1
+r190,435,2,"PAIN, toothache in general, biting teeth together, when, amel.",16
+r178,435,1,"PAIN, toothache in general, biting on elastic substance amel.",1
+r179,435,1,"PAIN, toothache in general, bleeding of gums amel.",5
+r180,435,1,"PAIN, toothache in general, blowing the nose, on",2
+r181,435,1,"PAIN, toothache in general, bread, from eating",1
+r182,435,1,"PAIN, toothache in general, breathing",1
+r183,435,2,"PAIN, toothache in general, breathing, deep agg.",1
+r184,435,1,"PAIN, toothache in general, brushing teeth agg.",5
+r185,435,1,"PAIN, toothache in general, catarrh, when catarrh is better, toothache is worse and vice versa",1
+r191,436,1,"PAIN, toothache in general, chewing (See Masticating)",0
+r192,436,1,"PAIN, toothache in general, chamomile, from",2
+r193,436,1,"PAIN, toothache in general, change of weather",3
+r194,436,1,"PAIN, toothache in general, children",11
+r195,436,1,"PAIN, toothache in general, chill, during",8
+r196,436,1,"PAIN, toothache in general, chilliness, with",7
+r197,436,1,"PAIN, toothache in general, chronic",1
+r198,436,1,"PAIN, toothache in general, coffee, from",13
+r199,436,1,"PAIN, toothache in general, coition, after",1
+r200,436,2,"PAIN, toothache in general, coition, after, relieved after",1
+r201,436,1,"PAIN, toothache in general, cold, from a",27
+r202,436,2,"PAIN, toothache in general, cold, from a, after overheating",4
+r203,436,2,"PAIN, toothache in general, cold, from a, from a, in the Spring",1
+r204,436,2,"PAIN, toothache in general, cold, from a, air (See Air)",0
+o60606,436,2,"PAIN, toothache in general, cold, from a, anything",47
+r206,436,3,"PAIN, toothache in general, cold, from a, anything, amel.",15
+r207,436,2,"PAIN, toothache in general, cold, from a, drinks, from",49
+r208,436,2,"PAIN, toothache in general, cold, from a, food, from",16
+r209,436,2,"PAIN, toothache in general, cold, from a, hand applied amel.",2
+r210,436,2,"PAIN, toothache in general, cold, from a, cold water amel.",31
+r211,436,2,"PAIN, toothache in general, cold, from a, weather",3
+r212,436,1,"PAIN, toothache in general, concussion, from",2
+r213,436,1,"PAIN, toothache in general, coughing agg.",3
+r214,436,1,"PAIN, toothache in general, crumbs of bread, from",3
+r215,436,1,"PAIN, toothache in general, damp places, from working in",4
+o60631,436,2,"PAIN, toothache in general, damp places, from working in, weather",16
+r217,436,1,"PAIN, toothache in general, diverted, when, amel.",3
+o60706,436,1,"PAIN, toothache in general, drinking, from",7
+r219,436,2,"PAIN, toothache in general, drinking, from, amel.",2
+r220,436,1,"PAIN, toothache in general, dry weather",1
+r221,436,1,"PAIN, toothache in general, eating, before dinner",2
+r222,436,2,"PAIN, toothache in general, eating, before dinner, during",39
+r223,436,3,"PAIN, toothache in general, eating, before dinner, during, amel.",10
+o60719,436,2,"PAIN, toothache in general, eating, before dinner, only",2
+o60714,436,2,"PAIN, toothache in general, eating, before dinner, after",39
+r226,436,3,"PAIN, toothache in general, eating, before dinner, after, amel.",10
+o60726,437,1,"PAIN, toothache in general, excitement, from",6
+r228,437,2,"PAIN, toothache in general, excitement, from, amel.",1
+r229,437,1,"PAIN, toothache in general, exertion agg.",1
+r230,437,1,"PAIN, toothache in general, filled tooth, in a",3
+r231,437,1,"PAIN, toothache in general, filling, after",5
+r232,437,1,"PAIN, toothache in general, fruit, after eating",2
+r233,437,1,"PAIN, toothache in general, gradually increasing and decreasing",2
+r234,437,1,"PAIN, toothache in general, heated, when",1
+r235,437,1,"PAIN, toothache in general, heat of stove agg. (See Warmth)",1
+o60787,437,2,"PAIN, toothache in general, heat of stove agg. (See Warmth), amel.",1
+r237,437,1,"PAIN, toothache in general, hot food, from (See Warm)",6
+r238,437,1,"PAIN, toothache in general, inspiration, on",1
+r239,437,1,"PAIN, toothache in general, intermittent (See Paroxysmal)",19
+r240,437,1,"PAIN, toothache in general, lachrymation (See Weeping)",0
+r241,437,1,"PAIN, toothache in general, loose teeth",1
+o60831,437,1,"PAIN, toothache in general, lying, while",21
+r243,437,2,"PAIN, toothache in general, lying, while, amel.",7
+r244,437,2,"PAIN, toothache in general, lying, while, immediately after",8
+r245,437,2,"PAIN, toothache in general, lying, while, head, low, with, agg.",1
+o60823,437,3,"PAIN, toothache in general, lying, while, head, low, with, agg., high, agg.",1
+r247,437,2,"PAIN, toothache in general, lying, while, painful side, agg.",5
+o60827,437,3,"PAIN, toothache in general, lying, while, painful side, agg., amel.",6
+r249,437,2,"PAIN, toothache in general, lying, while, painless side agg.",4
+o60829,437,3,"PAIN, toothache in general, lying, while, painless side agg., amel.",1
+r251,437,2,"PAIN, toothache in general, lying, while, right side, on",1
+o60835,437,1,"PAIN, toothache in general, masticating, from",59
+r253,437,2,"PAIN, toothache in general, masticating, from, amel. by",3
+r254,437,2,"PAIN, toothache in general, masticating, from, only when",3
+r255,437,2,"PAIN, toothache in general, masticating, from, food, only when, not from empty chewing",1
+r256,437,2,"PAIN, toothache in general, masticating, from, after",3
+r257,437,1,"PAIN, toothache in general, menses, at beginning",2
+r258,437,2,"PAIN, toothache in general, menses, at beginning, and end",1
+r667,437,1,"PAIN, toothache in general, before",10
+r176,437,2,"PAIN, toothache in general, before, during",23
+o60842,437,3,"PAIN, toothache in general, before, during, if the flow diminishes",1
+o60843,437,3,"PAIN, toothache in general, before, during, menorrhagia",1
+o60837,437,2,"PAIN, toothache in general, before, after",7
+r264,437,1,"PAIN, toothache in general, mental exertion, from",3
+r265,437,1,"PAIN, toothache in general, mercury, from",4
+r266,437,1,"PAIN, toothache in general, motion agg.",12
+o60857,437,2,"PAIN, toothache in general, motion agg., amel.",4
+r268,437,1,"PAIN, toothache in general, music agg.",1
+r269,437,1,"PAIN, toothache in general, nervous patients",9
+r270,437,1,"PAIN, toothache in general, noise agg.",4
+r271,437,1,"PAIN, toothache in general, nursing mothers, in",10
+o60872,437,2,"PAIN, toothache in general, nursing mothers, in, nurses, while the infant",1
+r273,437,1,"PAIN, toothache in general, opening mouth, from",7
+r274,437,1,"PAIN, toothache in general, operation, after dental (See Filling)",0
+r275,437,1,"PAIN, toothache in general, paroxysmal (See Intermittent)",17
+r276,438,1,"PAIN, toothache in general, pears, after eating",1
+r277,438,1,"PAIN, toothache in general, periodical",5
+r278,438,2,"PAIN, toothache in general, periodical, every other day",2
+r279,438,2,"PAIN, toothache in general, periodical, every seven days",4
+o60880,438,1,"PAIN, toothache in general, perspiration, during",2
+r281,438,2,"PAIN, toothache in general, perspiration, during, amel.",4
+r282,438,2,"PAIN, toothache in general, perspiration, during, from suppressed",1
+r283,438,2,"PAIN, toothache in general, perspiration, during, tendency to perspire",1
+o60884,438,1,"PAIN, toothache in general, picking teeth, excited by",3
+o60883,438,2,"PAIN, toothache in general, picking teeth, excited by, amel. by",4
+r286,438,1,"PAIN, toothache in general, pregnancy, during",19
+o60908,438,1,"PAIN, toothache in general, pressure",13
+r288,438,2,"PAIN, toothache in general, pressure, amel.",33
+r289,438,2,"PAIN, toothache in general, pressure, of cold hand amel.",1
+r290,438,1,"PAIN, toothache in general, pulsating",68
+r291,438,1,"PAIN, toothache in general, quinine, from abuse of",3
+r292,438,1,"PAIN, toothache in general, reading, while",4
+r293,438,1,"PAIN, toothache in general, rheumatic",18
+r294,438,1,"PAIN, toothache in general, riding in a carriage, while",2
+r295,438,1,"PAIN, toothache in general, rising from bed amel.",4
+r296,438,1,"PAIN, toothache in general, rubbing cheek amel.",2
+r297,438,1,"PAIN, toothache in general, saliva, with involuntary flow of",6
+o60930,438,1,"PAIN, toothache in general, salt food, from",1
+r299,438,2,"PAIN, toothache in general, salt food, from, amel.",1
+r300,438,1,"PAIN, toothache in general, salt amel.",1
+r301,438,1,"PAIN, toothache in general, sitting agg.",7
+o60936,438,2,"PAIN, toothache in general, sitting agg., erect agg.",1
+o60937,438,2,"PAIN, toothache in general, sitting agg., quiet amel.",1
+o60938,438,2,"PAIN, toothache in general, sitting agg., up in bed amel.",6
+r305,438,1,"PAIN, toothache in general, sleep, on going to",4
+o60939,438,2,"PAIN, toothache in general, sleep, on going to, after",18
+r307,438,3,"PAIN, toothache in general, sleep, on going to, after, amel.",4
+r308,438,2,"PAIN, toothache in general, sleep, on going to, wakes from, with pain (See Morning)",5
+r309,438,1,"PAIN, toothache in general, smoke agg. (See Tobacco)",0
+r310,438,1,"PAIN, toothache in general, sneezing agg.",1
+r311,438,1,"PAIN, toothache in general, sound teeth, in",21
+o60954,438,1,"PAIN, toothache in general, sour things, from",1
+r313,438,2,"PAIN, toothache in general, sour things, from, amel.",1
+r314,438,1,"PAIN, toothache in general, spring, in the",18
+r315,438,1,"PAIN, toothache in general, standing up, after",3
+r316,438,2,"PAIN, toothache in general, standing up, after, amel.",6
+r317,438,1,"PAIN, toothache in general, stimulants agg.",1
+r318,438,1,"PAIN, toothache in general, stooping agg.",2
+o61000,438,2,"PAIN, toothache in general, stooping agg., amel.",1
+r320,438,1,"PAIN, toothache in general, sucking teeth agg.",10
+o61002,438,2,"PAIN, toothache in general, sucking teeth agg., amel.",6
+r322,438,1,"PAIN, toothache in general, suddenly begins and goes",2
+o61004,438,2,"PAIN, toothache in general, suddenly begins and goes, ceases, begins slowly",1
+r324,439,1,"PAIN, toothache in general, summer, in the",13
+r325,439,1,"PAIN, toothache in general, suppressed foot sweat, after",1
+r326,439,1,"PAIN, toothache in general, swallowing agg.",4
+r327,439,1,"PAIN, toothache in general, sweets, after",4
+r328,439,1,"PAIN, toothache in general, swelling of cheek, with",17
+r329,439,1,"PAIN, toothache in general, talking, from",7
+r330,439,2,"PAIN, toothache in general, talking, from, of others agg.",2
+r331,439,1,"PAIN, toothache in general, tea drinking",8
+r332,439,1,"PAIN, toothache in general, thinking about it",4
+r333,439,2,"PAIN, toothache in general, thinking about it, other thing (See Diverted)",0
+r334,439,1,"PAIN, toothache in general, thunderstorm, before",1
+o61071,439,1,"PAIN, toothache in general, tobacco smoking",12
+r336,439,2,"PAIN, toothache in general, tobacco smoking, amel.",7
+o61073,439,2,"PAIN, toothache in general, tobacco smoking, chewing",1
+r338,439,1,"PAIN, toothache in general, touch",55
+r339,439,2,"PAIN, toothache in general, touch, amel.",4
+r340,439,2,"PAIN, toothache in general, touch, of food, from",8
+r341,439,2,"PAIN, toothache in general, touch, of tongue",15
+r342,439,1,"PAIN, toothache in general, travelling, while",7
+r343,439,1,"PAIN, toothache in general, uncovering body amel.",1
+r344,439,1,"PAIN, toothache in general, vexation, after",4
+o61099,439,1,"PAIN, toothache in general, walking, while",4
+r346,439,2,"PAIN, toothache in general, walking, while, amel.",5
+o61097,439,2,"PAIN, toothache in general, walking, while, open air, in",14
+o61098,439,3,"PAIN, toothache in general, walking, while, open air, in, in the wind",1
+o61096,439,3,"PAIN, toothache in general, walking, while, open air, in, amel.",14
+r350,439,1,"PAIN, toothache in general, wandering",8
+o61102,439,1,"PAIN, toothache in general, warm drinks, from",26
+r352,439,2,"PAIN, toothache in general, warm drinks, from, amel.",15
+o61103,439,2,"PAIN, toothache in general, warm drinks, from, food, from",26
+o61104,439,2,"PAIN, toothache in general, warm drinks, from, things",37
+o61105,439,3,"PAIN, toothache in general, warm drinks, from, things, amel.",14
+o61106,439,2,"PAIN, toothache in general, warm drinks, from, warmth, external",21
+o61107,439,3,"PAIN, toothache in general, warm drinks, from, warmth, external, amel.",31
+o61112,439,2,"PAIN, toothache in general, warm drinks, from, wrapping up head amel.",3
+r360,440,2,"PAIN, toothache in general, warm drinks, from, of bed agg.",17
+o61109,440,3,"PAIN, toothache in general, warm drinks, from, of bed agg., amel.",6
+r362,440,2,"PAIN, toothache in general, warm drinks, from, room, agg.",20
+r363,440,3,"PAIN, toothache in general, warm drinks, from, room, agg., amel.",5
+r364,440,1,"PAIN, toothache in general, washerwomen, in",1
+r365,440,1,"PAIN, toothache in general, washing, after",12
+o61116,440,2,"PAIN, toothache in general, washing, after, with cold water, from",12
+o61115,440,3,"PAIN, toothache in general, washing, after, with cold water, from, amel.",9
+r368,440,1,"PAIN, toothache in general, water held in mouth, agg.",1
+o61118,440,2,"PAIN, toothache in general, water held in mouth, agg., from having hands in, warm or cold",1
+r370,440,1,"PAIN, toothache in general, wet, from getting",4
+r371,440,1,"PAIN, toothache in general, wind, in raw",7
+r372,440,2,"PAIN, toothache in general, wind, in raw, in dry, cold",2
+r373,440,2,"PAIN, toothache in general, wind, in raw, amel.",1
+r374,440,1,"PAIN, toothache in general, wine agg.",5
+r375,440,1,"PAIN, toothache in general, winter",21
+r376,440,1,"PAIN, toothache in general, wrapping (See Warmth)",0
+r377,440,1,"PAIN, toothache in general, extending to arms",2
+o60746,440,2,"PAIN, toothache in general, extending to arms, left arm",1
+o60729,440,2,"PAIN, toothache in general, extending to arms, bones, cheek",15
+o60730,440,3,"PAIN, toothache in general, extending to arms, bones, cheek, maxillary",4
+o60731,440,4,"PAIN, toothache in general, extending to arms, bones, cheek, maxillary, lower",1
+o60732,440,2,"PAIN, toothache in general, extending to arms, cheeks",2
+o60733,440,2,"PAIN, toothache in general, extending to arms, chest",1
+o60734,440,2,"PAIN, toothache in general, extending to arms, downward",2
+o60735,440,2,"PAIN, toothache in general, extending to arms, ear",54
+o60736,440,3,"PAIN, toothache in general, extending to arms, ear, right",3
+o60737,440,2,"PAIN, toothache in general, extending to arms, eyes",24
+o60738,440,3,"PAIN, toothache in general, extending to arms, eyes, on going into cold air",1
+o60739,440,2,"PAIN, toothache in general, extending to arms, face",23
+o60741,440,3,"PAIN, toothache in general, extending to arms, face, left side",1
+o60740,440,3,"PAIN, toothache in general, extending to arms, face, during menses",1
+o60742,440,2,"PAIN, toothache in general, extending to arms, fingers, to",1
+o60743,440,2,"PAIN, toothache in general, extending to arms, forehead",7
+o60744,440,2,"PAIN, toothache in general, extending to arms, head",31
+o60745,440,2,"PAIN, toothache in general, extending to arms, larynx",4
+o60747,440,2,"PAIN, toothache in general, extending to arms, neck",6
+o60748,440,2,"PAIN, toothache in general, extending to arms, nose",6
+o60749,440,2,"PAIN, toothache in general, extending to arms, occiput",1
+o60750,440,2,"PAIN, toothache in general, extending to arms, œsophagus",1
+o60751,440,2,"PAIN, toothache in general, extending to arms, other parts",1
+o60752,440,2,"PAIN, toothache in general, extending to arms, shoulders",2
+o60753,440,2,"PAIN, toothache in general, extending to arms, side, entire left",1
+r404,441,2,"PAIN, toothache in general, extending to arms, temples",28
+r405,441,2,"PAIN, toothache in general, extending to arms, tooth, to another, from one",5
+r406,441,2,"PAIN, toothache in general, extending to arms, throat",2
+r407,441,2,"PAIN, toothache in general, extending to arms, tongue",1
+r408,441,2,"PAIN, toothache in general, extending to arms, upward",1
+r409,441,2,"PAIN, toothache in general, extending to arms, zygoma",3
+r410,441,1,"PAIN, toothache in general, beating (See Pulsating)",0
+r411,441,1,"PAIN, toothache in general, biting",4
+r412,441,1,"PAIN, toothache in general, blows, sensation of",3
+r413,441,1,"PAIN, toothache in general, boring",44
+r414,441,2,"PAIN, toothache in general, boring, evening, with tearing and digging",1
+r415,441,3,"PAIN, toothache in general, boring, evening, with tearing and digging, while lying",1
+r416,441,2,"PAIN, toothache in general, boring, dinner, after",1
+r417,441,2,"PAIN, toothache in general, boring, in roots",1
+o60582,441,3,"PAIN, toothache in general, boring, in roots, sound teeth",2
+r419,441,1,"PAIN, toothache in general, break off, as if would",1
+r420,441,1,"PAIN, toothache in general, bruised, as if (See Sore)",0
+r421,441,1,"PAIN, toothache in general, bubbling",5
+r422,441,1,"PAIN, toothache in general, burning",26
+r423,441,1,"PAIN, toothache in general, burst, as if would",2
+r424,441,1,"PAIN, toothache in general, buzzing",1
+r425,441,1,"PAIN, toothache in general, clawing",1
+r426,441,1,"PAIN, toothache in general, contracting",5
+r427,441,1,"PAIN, toothache in general, corrosive",11
+r428,441,1,"PAIN, toothache in general, cramp-like (See Jerking)",0
+r429,441,1,"PAIN, toothache in general, crushed, as if",1
+r430,441,2,"PAIN, toothache in general, crushed, as if, molars",1
+r431,441,1,"PAIN, toothache in general, cutting",19
+r432,441,2,"PAIN, toothache in general, cutting, evening, when lying in bed",1
+r433,441,2,"PAIN, toothache in general, cutting, lying, while",1
+r434,441,2,"PAIN, toothache in general, cutting, open air, in the",1
+r435,441,2,"PAIN, toothache in general, cutting, shooting through gums to roots of incisors and canines",1
+r436,441,2,"PAIN, toothache in general, cutting, swollen submaxillary gland, seems to originate in",1
+r437,441,2,"PAIN, toothache in general, cutting, thunderstorm, before",1
+r438,441,2,"PAIN, toothache in general, cutting, roots, in",1
+r439,441,1,"PAIN, toothache in general, darting (See Stitching)",0
+r440,441,1,"PAIN, toothache in general, digging",32
+r441,441,2,"PAIN, toothache in general, digging, evening",1
+r442,441,2,"PAIN, toothache in general, digging, with pressure, sensation as if pain were felt below left lower molars",1
+r443,441,1,"PAIN, toothache in general, drawing",102
+r444,441,2,"PAIN, toothache in general, drawing, morning",3
+r445,441,3,"PAIN, toothache in general, drawing, morning, 10 a.m.",1
+r446,441,2,"PAIN, toothache in general, drawing, noon, towards",1
+r447,441,2,"PAIN, toothache in general, drawing, afternoon",3
+r448,441,3,"PAIN, toothache in general, drawing, afternoon, 5 p.m.",1
+r449,442,2,"PAIN, toothache in general, drawing, evening",5
+r450,442,3,"PAIN, toothache in general, drawing, evening, in bed",1
+r451,442,3,"PAIN, toothache in general, drawing, evening, right side, going off after lying down",1
+r452,442,2,"PAIN, toothache in general, drawing, night",8
+r453,442,3,"PAIN, toothache in general, drawing, night, when lying down",2
+o60640,442,2,"PAIN, toothache in general, drawing, air, in open",4
+r455,442,3,"PAIN, toothache in general, drawing, air, in open, amel.",2
+r456,442,2,"PAIN, toothache in general, drawing, biting, only when",1
+r457,442,2,"PAIN, toothache in general, drawing, bed, agg., in",2
+o60646,442,2,"PAIN, toothache in general, drawing, cold, from",2
+r459,442,3,"PAIN, toothache in general, drawing, cold, from, amel. from",1
+r460,442,3,"PAIN, toothache in general, drawing, cold, from, finger, amel. by",1
+o60650,442,2,"PAIN, toothache in general, drawing, eating, while",5
+r462,442,3,"PAIN, toothache in general, drawing, eating, while, amel.",3
+r463,442,3,"PAIN, toothache in general, drawing, eating, while, cold food",1
+r464,442,3,"PAIN, toothache in general, drawing, eating, while, after",3
+r465,442,2,"PAIN, toothache in general, drawing, exertion of mind",1
+r466,442,2,"PAIN, toothache in general, drawing, menses, during",2
+r467,442,2,"PAIN, toothache in general, drawing, music, from",1
+r468,442,2,"PAIN, toothache in general, drawing, pulsating",2
+r469,442,2,"PAIN, toothache in general, drawing, reading",1
+r470,442,2,"PAIN, toothache in general, drawing, stretched, as if nerves were",3
+r471,442,2,"PAIN, toothache in general, drawing, sudden",1
+r472,442,2,"PAIN, toothache in general, drawing, sweat amel.",1
+r473,442,2,"PAIN, toothache in general, drawing, thunderstorm, before",1
+r474,442,2,"PAIN, toothache in general, drawing, walking, while",1
+r475,442,3,"PAIN, toothache in general, drawing, walking, while, in open air",1
+r476,442,2,"PAIN, toothache in general, drawing, wandering",2
+r477,442,2,"PAIN, toothache in general, drawing, warmth agg.",1
+r478,442,2,"PAIN, toothache in general, drawing, warm fluids",3
+o60699,442,3,"PAIN, toothache in general, drawing, warm fluids, room",1
+r480,442,2,"PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple",1
+o60656,442,3,"PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek",2
+o60657,442,4,"PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, ear",9
+o60658,442,4,"PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, eyes",2
+o60659,442,4,"PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, head, to side of",2
+o60661,442,4,"PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, malar bone",2
+o60662,442,4,"PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, neck",1
+o60660,442,4,"PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, larynx",2
+o60665,442,4,"PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, shoulders",1
+o60663,442,4,"PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, other teeth, right side",1
+o60664,442,5,"PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, other teeth, right side, parts",1
+o60666,442,4,"PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, temple, right",2
+o60667,442,4,"PAIN, toothache in general, drawing, extending from lower incisors to malar bone and temple, to cheek, throat",1
+r493,442,2,"PAIN, toothache in general, drawing, incisors, lower",5
+r494,442,3,"PAIN, toothache in general, drawing, incisors, lower, upper",5
+r495,442,3,"PAIN, toothache in general, drawing, incisors, lower, one of",1
+r496,442,2,"PAIN, toothache in general, drawing, molars",2
+r497,442,3,"PAIN, toothache in general, drawing, molars, right",2
+r498,442,3,"PAIN, toothache in general, drawing, molars, left",3
+r499,442,3,"PAIN, toothache in general, drawing, molars, lower",2
+r500,442,3,"PAIN, toothache in general, drawing, molars, upper",4
+r501,442,2,"PAIN, toothache in general, drawing, upper teeth",2
+r502,442,3,"PAIN, toothache in general, drawing, upper teeth, amel. by cold finger",1
+r503,442,3,"PAIN, toothache in general, drawing, upper teeth, right side, all night",1
+r504,442,2,"PAIN, toothache in general, drawing, lower teeth",1
+r505,442,3,"PAIN, toothache in general, drawing, lower teeth, canine",1
+r506,442,2,"PAIN, toothache in general, drawing, roots, in",2
+r507,442,1,"PAIN, toothache in general, drawing-bubbling",1
+r508,442,1,"PAIN, toothache in general, drawing-lancinating, as if air a current of air rushed into",1
+r509,442,1,"PAIN, toothache in general, drawing-pressure",1
+r510,442,1,"PAIN, toothache in general, drawing-tearing",1
+r511,442,1,"PAIN, toothache in general, dull",13
+r512,442,2,"PAIN, toothache in general, dull, griping",1
+r513,442,2,"PAIN, toothache in general, dull, as if soft and became bent on chewing",1
+r514,442,2,"PAIN, toothache in general, dull, upper molars with tearing pain in cheek bone",1
+o60712,442,3,"PAIN, toothache in general, dull, upper molars with tearing pain in cheek bone, during mastication",1
+r516,442,2,"PAIN, toothache in general, dull, with trembling of heart",1
+r517,443,1,"PAIN, toothache in general, fly to pieces, as if would, on biting together",1
+r518,443,1,"PAIN, toothache in general, forced out (See Pressing)",0
+r519,443,1,"PAIN, toothache in general, gnawing",28
+r520,443,2,"PAIN, toothache in general, gnawing, morning, in bed",1
+r521,443,2,"PAIN, toothache in general, gnawing, evening",3
+r522,443,3,"PAIN, toothache in general, gnawing, evening, 9 p.m.",1
+r523,443,2,"PAIN, toothache in general, gnawing, night",2
+o60766,443,2,"PAIN, toothache in general, gnawing, air, cold inhaling",1
+r525,443,3,"PAIN, toothache in general, gnawing, air, cold inhaling, amel.",1
+r526,443,2,"PAIN, toothache in general, gnawing, eating, after",1
+r527,443,2,"PAIN, toothache in general, gnawing, sitting up in bed amel.",1
+r528,443,2,"PAIN, toothache in general, gnawing, warm room",1
+r529,443,2,"PAIN, toothache in general, gnawing, molars, lower",2
+r530,443,3,"PAIN, toothache in general, gnawing, molars, lower, right",2
+r531,443,3,"PAIN, toothache in general, gnawing, molars, lower, alternating with itching in ear",1
+r532,443,3,"PAIN, toothache in general, gnawing, molars, lower, with violent tearing behind ear",1
+o60776,443,4,"PAIN, toothache in general, gnawing, molars, lower, with violent tearing behind ear, in right ear",1
+r534,443,3,"PAIN, toothache in general, gnawing, molars, lower, upper",2
+r535,443,1,"PAIN, toothache in general, grumbling (See Dull)",14
+r536,443,2,"PAIN, toothache in general, grumbling (See Dull), right side, one lower molar, with sensation as if headache came from that side",1
+r537,443,2,"PAIN, toothache in general, grumbling (See Dull), left side, upper",1
+r538,443,2,"PAIN, toothache in general, grumbling (See Dull), lower teeth, left side",1
+r539,443,1,"PAIN, toothache in general, jerking",71
+r540,443,2,"PAIN, toothache in general, jerking, 9 a.m.",1
+r541,443,2,"PAIN, toothache in general, jerking, evening in bed",2
+o60799,443,3,"PAIN, toothache in general, jerking, evening in bed, now in upper, now in lower molars, when in upper and they are pressed by tip of finger, suddenly changes to lower",1
+r543,443,2,"PAIN, toothache in general, jerking, night",3
+r544,443,3,"PAIN, toothache in general, jerking, night, after midnight",1
+r545,443,2,"PAIN, toothache in general, jerking, drinking cold water",1
+r546,443,2,"PAIN, toothache in general, jerking, eating, after",1
+r547,443,2,"PAIN, toothache in general, jerking, rising from bed, after, amel.",1
+r548,443,2,"PAIN, toothache in general, jerking, sitting up in bed amel.",1
+o60810,443,2,"PAIN, toothache in general, jerking, smoking, while",1
+r550,443,3,"PAIN, toothache in general, jerking, smoking, while, amel.",1
+r551,443,2,"PAIN, toothache in general, jerking, stretch and let loose, as if nerves were put on",1
+r552,443,2,"PAIN, toothache in general, jerking, stroking head amel.",1
+r553,443,2,"PAIN, toothache in general, jerking, torn out, as if tooth would be",4
+r554,443,2,"PAIN, toothache in general, jerking, canines, upper",1
+r555,443,2,"PAIN, toothache in general, jerking, molars",1
+r556,443,3,"PAIN, toothache in general, jerking, molars, upper, right side",1
+r557,443,2,"PAIN, toothache in general, jerking, root, in",2
+r558,443,2,"PAIN, toothache in general, jerking, extending to temples",1
+o60801,443,3,"PAIN, toothache in general, jerking, extending to temples, head",1
+r560,443,1,"PAIN, toothache in general, knocking",3
+r561,443,1,"PAIN, toothache in general, lancinating (See Tearing)",0
+r562,443,1,"PAIN, toothache in general, neuralgic",18
+r563,443,1,"PAIN, toothache in general, piercing",17
+r564,443,1,"PAIN, toothache in general, pinching",2
+r565,443,2,"PAIN, toothache in general, pinching, cold drinks, from",1
+r566,443,1,"PAIN, toothache in general, pressing",47
+r567,444,2,"PAIN, toothache in general, pressing, as if blood were forced into them",2
+r568,444,2,"PAIN, toothache in general, pressing, as if too close",11
+r569,444,2,"PAIN, toothache in general, pressing, as if held in a grip",2
+r570,444,2,"PAIN, toothache in general, pressing, as if pressed into sockets",2
+r571,444,3,"PAIN, toothache in general, pressing, as if pressed into sockets, old stumps",1
+r572,444,2,"PAIN, toothache in general, pressing, as if a shred of meat were between the teeth",3
+r573,444,2,"PAIN, toothache in general, pressing, as if wedged",5
+r574,444,2,"PAIN, toothache in general, pressing, asunder, expansive",9
+r575,444,2,"PAIN, toothache in general, pressing, dinner, after",1
+r576,444,2,"PAIN, toothache in general, pressing, filling, of the",1
+r577,444,2,"PAIN, toothache in general, pressing, inward",2
+r578,444,2,"PAIN, toothache in general, pressing, outward",7
+r579,444,2,"PAIN, toothache in general, pressing, swallowing, when",1
+r580,444,2,"PAIN, toothache in general, pressing, transitory jerking in upper molars and jaws, right side, in afternoon",1
+r581,444,2,"PAIN, toothache in general, pressing, warm room, on entering",1
+r582,444,2,"PAIN, toothache in general, pressing, incisor, in one",1
+r583,444,2,"PAIN, toothache in general, pressing, roots, in",5
+r584,444,2,"PAIN, toothache in general, pressing, upper teeth",3
+r585,444,1,"PAIN, toothache in general, pricking",10
+r586,444,2,"PAIN, toothache in general, pricking, night, waking him",1
+r587,444,2,"PAIN, toothache in general, pricking, molars, especially",1
+r588,444,2,"PAIN, toothache in general, pricking, masticating agg.",1
+r589,444,2,"PAIN, toothache in general, pricking, touching decayed teeth",1
+r590,444,1,"PAIN, toothache in general, pulled out, feel as if, were being",24
+r591,444,2,"PAIN, toothache in general, pulled out, feel as if, were being, and, left in their sockets, as if",1
+r592,444,1,"PAIN, toothache in general, scraping",2
+r593,444,2,"PAIN, toothache in general, scraping, roots, as if scraped with a knife",1
+r594,444,1,"PAIN, toothache in general, screwing",2
+r595,444,2,"PAIN, toothache in general, screwing, better momentarily from cold water",1
+r596,444,1,"PAIN, toothache in general, shocks (See Jerking)",0
+r597,444,1,"PAIN, toothache in general, shooting (See Stitching)",0
+r598,444,1,"PAIN, toothache in general, sore, bruised",43
+r599,444,2,"PAIN, toothache in general, sore, bruised, air, from drawing in",1
+r600,444,2,"PAIN, toothache in general, sore, bruised, eating amel.",1
+r601,444,2,"PAIN, toothache in general, sore, bruised, cold drink, from",2
+r602,444,2,"PAIN, toothache in general, sore, bruised, masticating, when",2
+r603,444,2,"PAIN, toothache in general, sore, bruised, meals, between",1
+r604,444,2,"PAIN, toothache in general, sore, bruised, molars, right upper",1
+r605,444,2,"PAIN, toothache in general, sore, bruised, pressure amel.",1
+r606,444,1,"PAIN, toothache in general, splintered, as if",1
+r607,444,1,"PAIN, toothache in general, sprained, as if",1
+r608,444,1,"PAIN, toothache in general, stitching, stinging",98
+r609,444,2,"PAIN, toothache in general, stitching, stinging, right",8
+r610,444,3,"PAIN, toothache in general, stitching, stinging, right, upper",1
+r646,444,2,"PAIN, toothache in general, stitching, stinging, left",9
+r612,444,3,"PAIN, toothache in general, stitching, stinging, left, upper and lower, worse lying down, compelling him to walk, better from external pressure",1
+r614,445,2,"PAIN, toothache in general, stitching, stinging, morning",2
+r615,445,3,"PAIN, toothache in general, stitching, stinging, morning, on waking",1
+r616,445,2,"PAIN, toothache in general, stitching, stinging, evening",3
+r617,445,2,"PAIN, toothache in general, stitching, stinging, night",3
+r618,445,3,"PAIN, toothache in general, stitching, stinging, night, after midnight",2
+r619,445,4,"PAIN, toothache in general, stitching, stinging, night, after midnight, better after rising",1
+r620,445,2,"PAIN, toothache in general, stitching, stinging, air, when drawing in",2
+r621,445,2,"PAIN, toothache in general, stitching, stinging, biting, when",2
+r622,445,2,"PAIN, toothache in general, stitching, stinging, cold, touched by anything",2
+r623,445,2,"PAIN, toothache in general, stitching, stinging, dinner, after",2
+o60965,445,2,"PAIN, toothache in general, stitching, stinging, drinking",2
+o60967,445,2,"PAIN, toothache in general, stitching, stinging, eating, while",2
+r626,445,3,"PAIN, toothache in general, stitching, stinging, eating, while, amel.",1
+r627,445,2,"PAIN, toothache in general, stitching, stinging, food, when touched by warm",2
+r628,445,2,"PAIN, toothache in general, stitching, stinging, intermittent",1
+r629,445,2,"PAIN, toothache in general, stitching, stinging, menses suppressed, with",1
+r630,445,2,"PAIN, toothache in general, stitching, stinging, outward",1
+r631,445,2,"PAIN, toothache in general, stitching, stinging, rasping",1
+r632,445,2,"PAIN, toothache in general, stitching, stinging, warm bed amel.",1
+r633,445,2,"PAIN, toothache in general, stitching, stinging, extending to ear",11
+o60970,445,3,"PAIN, toothache in general, stitching, stinging, extending to ear, eyes",4
+o60971,445,3,"PAIN, toothache in general, stitching, stinging, extending to ear, right side of head",1
+o60972,445,3,"PAIN, toothache in general, stitching, stinging, extending to ear, zygoma",1
+r637,445,2,"PAIN, toothache in general, stitching, stinging, incisors",6
+r638,445,3,"PAIN, toothache in general, stitching, stinging, incisors, upper",1
+r639,445,2,"PAIN, toothache in general, stitching, stinging, lower teeth",3
+r640,445,3,"PAIN, toothache in general, stitching, stinging, lower teeth, right side",1
+r641,445,2,"PAIN, toothache in general, stitching, stinging, molars",3
+r642,445,3,"PAIN, toothache in general, stitching, stinging, molars, lower",2
+r643,445,4,"PAIN, toothache in general, stitching, stinging, molars, lower, root",1
+r644,445,4,"PAIN, toothache in general, stitching, stinging, molars, lower, later only in right",1
+o60987,445,2,"PAIN, toothache in general, stitching, stinging, upper",2
+r647,445,1,"PAIN, toothache in general, tearing",122
+r648,445,2,"PAIN, toothache in general, tearing, morning",4
+r649,445,3,"PAIN, toothache in general, tearing, morning, after walking",1
+o61046,445,4,"PAIN, toothache in general, tearing, morning, after walking, washing",1
+r651,445,2,"PAIN, toothache in general, tearing, afternoon",1
+r652,445,2,"PAIN, toothache in general, tearing, evening",9
+r653,445,2,"PAIN, toothache in general, tearing, night",13
+r654,445,3,"PAIN, toothache in general, tearing, night, lying on painful side agg.",1
+r655,445,3,"PAIN, toothache in general, tearing, night, midnight, before",2
+r656,445,4,"PAIN, toothache in general, tearing, night, midnight, before, after",2
+r657,445,2,"PAIN, toothache in general, tearing, air, as from a current of",1
+o61019,445,2,"PAIN, toothache in general, tearing, biting together, when",1
+r659,445,3,"PAIN, toothache in general, tearing, biting together, when, amel.",1
+r660,445,2,"PAIN, toothache in general, tearing, bed, worse after going to",1
+r661,445,3,"PAIN, toothache in general, tearing, bed, worse after going to, from warmth of",2
+r662,445,2,"PAIN, toothache in general, tearing, cold air",2
+r663,445,2,"PAIN, toothache in general, tearing, cold water",6
+r664,445,2,"PAIN, toothache in general, tearing, eating, while",5
+r665,445,2,"PAIN, toothache in general, tearing, lying on painful side",1
+o61032,445,3,"PAIN, toothache in general, tearing, lying on painful side, sound side",1
+o61033,445,2,"PAIN, toothache in general, tearing, menses, before",1
+r669,446,3,"PAIN, toothache in general, tearing, menses, before, during",3
+r670,446,2,"PAIN, toothache in general, tearing, motion amel.",1
+r671,446,2,"PAIN, toothache in general, tearing, opening mouth, when",2
+r672,446,2,"PAIN, toothache in general, tearing, paroxysmal",1
+r673,446,2,"PAIN, toothache in general, tearing, pregnancy, during",1
+r674,446,2,"PAIN, toothache in general, tearing, pulsating",2
+r675,446,2,"PAIN, toothache in general, tearing, rising from bed, on, amel.",1
+r676,446,2,"PAIN, toothache in general, tearing, wandering",1
+r677,446,2,"PAIN, toothache in general, tearing, warmth amel.",1
+r678,446,2,"PAIN, toothache in general, tearing, extending out through left ear",1
+o61025,446,3,"PAIN, toothache in general, tearing, extending out through left ear, to ears",5
+o61026,446,4,"PAIN, toothache in general, tearing, extending out through left ear, to ears, malar bones",1
+o61027,446,4,"PAIN, toothache in general, tearing, extending out through left ear, to ears, temple",4
+o61028,446,4,"PAIN, toothache in general, tearing, extending out through left ear, to ears, zygoma",3
+r683,446,2,"PAIN, toothache in general, tearing, incisors",2
+r684,446,3,"PAIN, toothache in general, tearing, incisors, lower",3
+r685,446,2,"PAIN, toothache in general, tearing, molars",10
+r686,446,3,"PAIN, toothache in general, tearing, molars, lower",5
+r687,446,4,"PAIN, toothache in general, tearing, molars, lower, right",2
+o61040,446,4,"PAIN, toothache in general, tearing, molars, lower, left",1
+r689,446,3,"PAIN, toothache in general, tearing, molars, upper right",2
+o61043,446,4,"PAIN, toothache in general, tearing, molars, upper right, left",6
+r691,446,3,"PAIN, toothache in general, tearing, molars, left, alternating with itching in left ear",1
+r692,446,4,"PAIN, toothache in general, tearing, molars, left, alternating with itching in left ear, alternating with right",1
+r693,446,3,"PAIN, toothache in general, tearing, molars, after getting wet",1
+r694,446,2,"PAIN, toothache in general, tearing, roots",14
+r695,446,3,"PAIN, toothache in general, tearing, roots, as if being torn out",1
+r696,446,3,"PAIN, toothache in general, tearing, roots, eating, after",2
+r697,446,4,"PAIN, toothache in general, tearing, roots, eating, after, during",1
+r698,446,4,"PAIN, toothache in general, tearing, roots, eating, after, dinner, during",1
+o61060,446,5,"PAIN, toothache in general, tearing, roots, eating, after, dinner, during, amel. after",1
+r700,446,3,"PAIN, toothache in general, tearing, roots, left side posteriorly",2
+r701,446,3,"PAIN, toothache in general, tearing, roots, pressure of finger amel.",1
+r702,446,1,"PAIN, toothache in general, tingling",10
+r703,446,2,"PAIN, toothache in general, tingling, in points of crowns in evening",1
+r704,446,1,"PAIN, toothache in general, twitching",23
+r705,446,2,"PAIN, toothache in general, twitching, right side",1
+r706,446,2,"PAIN, toothache in general, twitching, left",1
+r707,446,2,"PAIN, toothache in general, twitching, warmth of bed amel.",1
+r708,446,1,"PAIN, toothache in general, ulcerative",10
+r709,446,2,"PAIN, toothache in general, ulcerative, at roots",4
+r710,446,3,"PAIN, toothache in general, ulcerative, at roots, from touch",1
+r711,446,3,"PAIN, toothache in general, ulcerative, at roots, worse when chewing",2
+r712,446,1,"PAIN, toothache in general, wedged, as if (See Pressing)",0
+r713,446,1,"PAIN, toothache in general, wrenching",2
+r714,446,0,PERIOSTITIS,3
+r715,446,0,"PRESSING together send a shock through head, ears and nose",1
+r716,446,0,"PROUD flesh, surrounded by",1
+r717,446,0,"PULSATIONS (See Pain, Pulsating)",0
+r718,446,1,"PULSATIONS (See Pain, Pulsating), painless",3
+r719,446,0,"ROUGHNESS, sensation of",1
+r720,446,1,"ROUGHNESS, sensation of, from tartar",1
+r721,446,0,"SENSITIVE, tender",40
+r722,446,1,"SENSITIVE, tender, evening",1
+r723,446,1,"SENSITIVE, tender, cannot bear dental operation",4
+r724,446,1,"SENSITIVE, tender, to air",13
+r725,446,1,"SENSITIVE, tender, brushing",1
+r726,446,1,"SENSITIVE, tender, chewing, when",6
+r728,447,1,"SENSITIVE, tender, cold water, to",19
+o61137,447,2,"SENSITIVE, tender, cold water, to, the least",2
+o61136,447,2,"SENSITIVE, tender, cold water, to, filled tooth",1
+r731,447,1,"SENSITIVE, tender, hollow tooth",5
+r732,447,1,"SENSITIVE, tender, painful, in decayed lower molars",1
+r733,447,1,"SENSITIVE, tender, points of",1
+r734,447,1,"SENSITIVE, tender, pressure, to",4
+r735,447,1,"SENSITIVE, tender, sounds reverberate painfully in",1
+r736,447,1,"SENSITIVE, tender, touch, to",9
+r737,447,1,"SENSITIVE, tender, warmth, to",2
+r738,447,1,"SENSITIVE, tender, incisors",5
+r739,447,1,"SENSITIVE, tender, molars, decayed",2
+r740,447,2,"SENSITIVE, tender, molars, decayed, worse from eating",1
+r741,447,2,"SENSITIVE, tender, molars, decayed, upper",1
+r742,447,0,SERRATED,5
+r743,447,0,"SHARP, edges seem, and hurt tongue",1
+r744,447,0,"SHOCKS, electric",2
+r745,447,0,SLIME on (See Mucus),0
+r746,447,0,"SOFT, feel",9
+r747,447,0,SORDES (See Mucus),32
+r748,447,1,"SORDES (See Mucus), brown",5
+r749,447,1,"SORDES (See Mucus), black",2
+r750,447,1,"SORDES (See Mucus), bloody",2
+r751,447,1,"SORDES (See Mucus), dark",3
+r752,447,0,"SPONGY, feel",1
+r753,447,0,STICKY,3
+r754,447,0,"STICK together, as if glued",3
+r755,447,0,"TENSION, in",6
+r756,447,1,"TENSION, in, right side",1
+r757,447,0,"TORPOR, sense of",2
+r758,447,0,"TWISTED, feeling as if",1
+r759,447,0,ULCERATION of roots,1
+r760,447,0,"WARM teeth feel, left upper jaw",1
+r761,447,0,"WATER sour, fetid, coming from",1
+r762,447,0,WEDGE-SHAPED,1
+r763,447,0,"WISDOM teeth, ailments from eruption of",4
+h004,447,0,YELLOW (See Discoloration),0
