@@ -1,0 +1,9 @@
+﻿شناخت,پرانا راستہ,ادویات,نوٹ
+m14889,AIR,0,"خالی m-کنٹینر «AIR» (0 ادویہ) — ماخذ میں مین «AIR, sensitive to» (8) عین-فارم موجود"
+m14931,FULLNESS,0,خالی m-کنٹینر «FULLNESS» (0) — ماخذ «FULLNESS in throat-pit» (3) + ذیلی «in jugular» (o14931) موجود
+r106,"PAIN, burning",21,"OOREP aggregate «PAIN, burning» (21 ادویہ) — burning-خاندان (sides/right/left/Throat-pit وغیرہ) کا union؛ ماخذی مین «PAIN, burning, sides» (12) موجود"
+o65427,"PAIN, drawing, sides, extending",7,"OOREP aggregate «PAIN, drawing, sides, extending» (7) — extending-خاندان (o14977-80 جُڑے) کا union"
+o65428,"PAIN, sides, extending",6,"OOREP aggregate «PAIN, sides, extending» (6) — «PAIN, Sides, extending to behind ear» خاندان کا union"
+o65429,"PAIN, sides, motion",6,"OOREP aggregate «PAIN, sides, motion» (6) — «PAIN, Sides, motion, on» خاندان (r84/r85 جُڑے) کا union"
+o65430,PULSATION,41,"OOREP aggregate «PULSATION» (41 ادویہ) — carotids-خاندان کا union؛ ماخذی مین «PULSATION, carotids» (32) موجود"
+m15127,TUMORS,0,"خالی m-کنٹینر «TUMORS» (0) — ماخذ مین «TUMORS, side» (1) + 3 ذیلیاں موجود"

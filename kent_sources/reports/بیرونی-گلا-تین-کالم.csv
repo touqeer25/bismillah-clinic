@@ -1,0 +1,248 @@
+﻿شناخت,پرانا راستہ (ایپ),نیا راستہ (مطبوعہ کتاب),اردو جملہ,ادویات پرانی,ادویات ماخذی,فرق
+r0,ABSCESS,ABSCESS,بیرونی گلا — پھوڑا,14,14,یکساں
+r1,"AIR, sensitive to","AIR, sensitive to",بیرونی گلا — ہوا سے حساس,8,8,یکساں
+r2,CLOTHING agg.,CLOTHING agg.,بیرونی گلا — کپڑوں سے بگاڑ,21,21,یکساں
+r3,COLDNESS,COLDNESS,بیرونی گلا — ٹھنڈک,6,5,ماخذی مطابق کیے
+r4,"COLDNESS, evening","COLDNESS, evening",بیرونی گلا — ٹھنڈک، شام,1,1,یکساں
+r5,"COLDNESS, in region of thyroid gland","COLDNESS, in region of thyroid gland",بیرونی گلا — ٹھنڈک، تھائرائیڈ غدود کے علاقے میں,1,1,یکساں
+r6,CONSTRICTION,CONSTRICTION,بیرونی گلا — جکڑن,22,13,ماخذی مطابق کیے
+r7,"CONSTRICTION, lying","CONSTRICTION, lying",بیرونی گلا — جکڑن، لیٹنے سے,1,1,یکساں
+r8,"CONSTRICTION, sleep, during","CONSTRICTION, sleep, during",بیرونی گلا — جکڑن، نیند کے دوران,1,1,یکساں
+r10,"CONSTRICTION, throat-pit","CONSTRICTION, Throat-pit",بیرونی گلا — جکڑن، گلے کے گڑھے میں,5,5,یکساں
+r11,"CONSTRICTION, throat-pit, eating amel.","CONSTRICTION, Throat-pit, eating amel.",بیرونی گلا — جکڑن، گلے کے گڑھے میں، کھانے سے آرام,1,1,یکساں
+r12,"CONSTRICTION, throat-pit, sleep, on going to","CONSTRICTION, Throat-pit, sleep, on going to",بیرونی گلا — جکڑن، گلے کے گڑھے میں، سونے جاتے وقت,1,1,یکساں
+r9,"CONSTRICTION, thyroid gland","CONSTRICTION, thyroid gland",بیرونی گلا — جکڑن، تھائرائیڈ غدود میں,5,5,یکساں
+r13,CRAMP in side,CRAMP in side,بیرونی گلا — پہلو میں اینٹھن,1,1,یکساں
+r14,CRAWLING in glands,CRAWLING in glands,بیرونی گلا — غدود میں رینگنے کا احساس,1,1,یکساں
+r16,"DISCOLORATION, blue","DISCOLORATION, blue",بیرونی گلا — رنگت بدلنا، نیلا,1,1,یکساں
+r18,"DISCOLORATION, brown, in spots","DISCOLORATION, brown, in spots",بیرونی گلا — رنگت بدلنا، بھورا، دھبوں کی شکل میں,2,2,یکساں
+r19,"DISCOLORATION, lividity","DISCOLORATION, lividity",بیرونی گلا — رنگت بدلنا، سیاہی مائل نیلا (کالا پڑ جانا),1,1,یکساں
+r20,"DISCOLORATION, purple","DISCOLORATION, purple",بیرونی گلا — رنگت بدلنا، جامنی,1,1,یکساں
+r22,"DISCOLORATION, redness, in spots","DISCOLORATION, redness, in spots",بیرونی گلا — رنگت بدلنا، سرخی، دھبوں کی شکل میں,6,6,یکساں
+r23,"DISCOLORATION, yellow","DISCOLORATION, yellow",بیرونی گلا — رنگت بدلنا، زرد,2,1,ماخذی مطابق کیے
+r24,"DISCOLORATION, yellow, spots","DISCOLORATION, yellow, spots",بیرونی گلا — رنگت بدلنا، زرد، دھبے,1,1,یکساں
+r26,"ERUPTION, blotches","ERUPTION, blotches",بیرونی گلا — دانے، چکتے,5,5,یکساں
+r27,"ERUPTION, boils side of neck","ERUPTION, boils side of neck",بیرونی گلا — دانے، پھوڑے، گردن کے پہلو پر,10,10,یکساں
+r28,"ERUPTION, crusts","ERUPTION, crusts",بیرونی گلا — دانے، پپڑیاں,1,1,یکساں
+r29,"ERUPTION, herpes","ERUPTION, herpes",بیرونی گلا — دانے، ہرپیز,4,4,یکساں
+r30,"ERUPTION, moist","ERUPTION, moist",بیرونی گلا — دانے، نم,1,1,یکساں
+r31,"ERUPTION, pimples","ERUPTION, pimples",بیرونی گلا — دانے، پھنسیاں,21,21,یکساں
+r32,"ERUPTION, pustules","ERUPTION, pustules",بیرونی گلا — دانے، پیپ والے دانے,2,2,یکساں
+r33,"ERUPTION, rash","ERUPTION, rash",بیرونی گلا — دانے، ریش,1,1,یکساں
+r34,"ERUPTION, tubercles","ERUPTION, tubercles",بیرونی گلا — دانے، گلٹیاں,8,8,یکساں
+r35,"ERUPTION, urticaria","ERUPTION, urticaria",بیرونی گلا — دانے، پِتّی,2,2,یکساں
+r36,"ERUPTION, vesicles","ERUPTION, vesicles",بیرونی گلا — دانے، آبلے,7,5,ماخذی مطابق کیے
+r37,"ERUPTION, vesicles, side of","ERUPTION, vesicles, side of",بیرونی گلا — دانے، آبلے، پہلو پر,2,1,ماخذی مطابق کیے
+r38,"ERUPTION, vesicles, side of, from ear, discharge","ERUPTION, vesicles, side of, from ear, discharge",بیرونی گلا — دانے، آبلے، پہلو پر، کان سے، رطوبت,1,1,یکساں
+r39,FISTULAE,FISTULÆ,بیرونی گلا — ناسور (فسچولا),2,2,یکساں
+r40,FORMICATION,FORMICATION,بیرونی گلا — چیونٹیاں رینگنے کا احساس,2,1,ماخذی مطابق کیے
+r41,"FORMICATION, throat-pit, causing cough","FORMICATION, throat-pit, causing cough",بیرونی گلا — چیونٹیاں رینگنے کا احساس، گلے کے گڑھے میں، کھانسی پیدا کرے,1,1,یکساں
+r42,FULLNESS in throat-pit,FULLNESS in throat-pit,بیرونی گلا — گلے کے گڑھے میں بھراؤ,3,3,یکساں
+r44,GOITRE,GOITRE,بیرونی گلا — گلہڑ (گوائٹر),53,49,ماخذی مطابق کیے
+r47,"GOITRE, constriction","GOITRE, constriction",بیرونی گلا — گلہڑ (گوائٹر)، جکڑن کے ساتھ,5,5,یکساں
+r48,"GOITRE, exophthalmic","GOITRE, exophthalmic",بیرونی گلا — گلہڑ (گوائٹر)، آنکھیں باہر نکلی ہوئی (ایکسوفتھلمس),15,15,یکساں
+r49,"GOITRE, indurated","GOITRE, indurated",بیرونی گلا — گلہڑ (گوائٹر)، سخت,2,2,یکساں
+r46,"GOITRE, left","GOITRE, left",بیرونی گلا — گلہڑ (گوائٹر)، بائیں,1,1,یکساں
+r50,"GOITRE, painful","GOITRE, painful",بیرونی گلا — گلہڑ (گوائٹر)، دردناک,3,3,یکساں
+r51,"GOITRE, painful, menses, during","GOITRE, painful, menses, during",بیرونی گلا — گلہڑ (گوائٹر)، دردناک، حیض کے دوران,1,1,یکساں
+r52,"GOITRE, painful, on swallowing","GOITRE, painful, on swallowing",بیرونی گلا — گلہڑ (گوائٹر)، دردناک، نگلتے وقت,1,1,یکساں
+r45,"GOITRE, right sided","GOITRE, right sided",بیرونی گلا — گلہڑ (گوائٹر)، دائیں طرف,8,8,یکساں
+r53,"GOITRE, sensitive","GOITRE, sensitive",بیرونی گلا — گلہڑ (گوائٹر)، حساس,1,1,یکساں
+r54,"GOITRE, vascular","GOITRE, vascular",بیرونی گلا — گلہڑ (گوائٹر)، رگوں سے بھری,2,2,یکساں
+r55,"GRASPING, sensation of (See Constriction)","GRASPING, sensation of (See Constriction)",بیرونی گلا — پکڑنے کا احساس,0,0,یکساں
+r56,INDURATION of glands,INDURATION of glands,بیرونی گلا — غدود کی سختی,38,37,ماخذی مطابق کیے
+r57,"INDURATION of glands, like knotted cords","INDURATION of glands, like knotted cords",بیرونی گلا — غدود کی سختی، جیسے گرہ لگے تار,16,16,یکساں
+r58,ITCHING,ITCHING,بیرونی گلا — خارش,30,29,ماخذی مطابق کیے
+r61,"ITCHING, evening","ITCHING, evening",بیرونی گلا — خارش، شام,2,1,ماخذی مطابق کیے
+r62,"ITCHING, evening, before going to sleep","ITCHING, evening, before going to sleep",بیرونی گلا — خارش، شام، سونے سے پہلے,1,1,یکساں
+r66,"ITCHING, extending to chest","ITCHING, extending to chest",بیرونی گلا — خارش، سینے تک پھیلتی ہوئی,1,1,یکساں
+r59,"ITCHING, morning","ITCHING, morning",بیرونی گلا — خارش، صبح,1,1,یکساں
+r60,"ITCHING, morning, dressing, while","ITCHING, morning, dressing, while",بیرونی گلا — خارش، صبح، کپڑے پہنتے وقت,1,1,یکساں
+r63,"ITCHING, night","ITCHING, night",بیرونی گلا — خارش، رات,1,1,یکساں
+r64,"ITCHING, scratching amel.","ITCHING, scratching amel.",بیرونی گلا — خارش، کھجانے سے آرام,1,1,یکساں
+r65,"ITCHING, swallowing agg.","ITCHING, swallowing agg.",بیرونی گلا — خارش، نگلنے سے بگاڑ,2,2,یکساں
+r68,LUMP in throat-pit,LUMP in throat-pit,بیرونی گلا — گلے کے گڑھے میں گلٹی (گانٹھ),1,1,یکساں
+r69,NUMBNESS,NUMBNESS,بیرونی گلا — سن ہونا,5,5,یکساں
+r103,"PAIN, burning, sides","PAIN, burning, sides",بیرونی گلا — درد، جلتا ہوا، پہلوؤں میں,14,12,ماخذی مطابق کیے
+r107,"PAIN, burning, sides, dinner, after","PAIN, burning, sides, dinner, after",بیرونی گلا — درد، جلتا ہوا، پہلوؤں میں، دوپہر کے کھانے کے بعد,1,1,یکساں
+r105,"PAIN, burning, sides, left","PAIN, burning, sides, left",بیرونی گلا — درد، جلتا ہوا، پہلوؤں میں، بائیں,4,4,یکساں
+r108,"PAIN, burning, sides, motion","PAIN, burning, sides, motion",بیرونی گلا — درد، جلتا ہوا، پہلوؤں میں، حرکت سے,1,1,یکساں
+r104,"PAIN, burning, sides, right","PAIN, burning, sides, right",بیرونی گلا — درد، جلتا ہوا، پہلوؤں میں، دائیں,4,4,یکساں
+r72,"PAIN, cervical glands","PAIN, Cervical glands",بیرونی گلا — درد، گردن کے غدود میں,14,14,یکساں
+r74,"PAIN, cervical glands, coughing, when","PAIN, Cervical glands, coughing, when",بیرونی گلا — درد، گردن کے غدود میں، کھانستے وقت,1,1,یکساں
+r73,"PAIN, cervical glands, night","PAIN, Cervical glands, night",بیرونی گلا — درد، گردن کے غدود میں، رات,2,2,یکساں
+r112,"PAIN, crushed, as if","PAIN, crushed, as if",بیرونی گلا — درد، جیسے کچل دیا گیا,1,1,یکساں
+r113,"PAIN, cutting, sides","PAIN, cutting, sides",بیرونی گلا — درد، کاٹتا ہوا، پہلوؤں میں,1,1,یکساں
+r114,"PAIN, cutting, sides, left","PAIN, cutting, sides, left",بیرونی گلا — درد، کاٹتا ہوا، پہلوؤں میں، بائیں,1,1,یکساں
+r115,"PAIN, drawing, sides","PAIN, drawing, sides",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں,36,26,ماخذی مطابق کیے
+r121,"PAIN, drawing, sides, afternoon","PAIN, drawing, sides, afternoon",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، سہ پہر,3,3,یکساں
+r122,"PAIN, drawing, sides, bending head backward","PAIN, drawing, sides, bending head backward",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، سر پیچھے جھکانے پر,1,1,یکساں
+r132,"PAIN, drawing, sides, extending to ear, behind","PAIN, drawing, sides, extending to ear, behind",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، کان کے پیچھے تک پھیلتا ہوا,1,1,یکساں
+r124,"PAIN, drawing, sides, holding head erect","PAIN, drawing, sides, holding head erect",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، سر سیدھا رکھنے پر,1,1,یکساں
+r125,"PAIN, drawing, sides, jerking left side","PAIN, drawing, sides, jerking left side",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، بائیں طرف جھٹکے,1,1,یکساں
+r126,"PAIN, drawing, sides, lancinating","PAIN, drawing, sides, lancinating",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، نشتر جیسا,1,1,یکساں
+r118,"PAIN, drawing, sides, left","PAIN, drawing, sides, left",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، بائیں,6,6,یکساں
+r119,"PAIN, drawing, sides, morning","PAIN, drawing, sides, morning",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، صبح,1,1,یکساں
+r120,"PAIN, drawing, sides, morning, on waking","PAIN, drawing, sides, morning, on waking",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، صبح، جاگنے پر,1,1,یکساں
+r127,"PAIN, drawing, sides, motion, on","PAIN, drawing, sides, motion, on",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، حرکت پر,6,6,یکساں
+r116,"PAIN, drawing, sides, right","PAIN, drawing, sides, right",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، دائیں,11,11,یکساں
+r117,"PAIN, drawing, sides, right, to lower jaw","PAIN, drawing, sides, right, to lower jaw",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، دائیں، نچلے جبڑے تک,1,1,یکساں
+r128,"PAIN, drawing, sides, sitting, while","PAIN, drawing, sides, sitting, while",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، بیٹھے ہوئے,1,1,یکساں
+r129,"PAIN, drawing, sides, turning head","PAIN, drawing, sides, turning head",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، سر گھمانے پر,2,2,یکساں
+r130,"PAIN, drawing, sides, twitching","PAIN, drawing, sides, twitching",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، پھڑکن کے ساتھ,1,1,یکساں
+r131,"PAIN, drawing, sides, walking in open air","PAIN, drawing, sides, walking in open air",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، کھلی ہوا میں چلنے پر,1,1,یکساں
+r71,"PAIN, morning","PAIN, morning",بیرونی گلا — درد، صبح,1,1,یکساں
+r137,"PAIN, pressing, sides","PAIN, pressing, sides",بیرونی گلا — درد، دبانے والا، پہلوؤں میں,30,19,ماخذی مطابق کیے
+r144,"PAIN, pressing, sides, extending behind ear","PAIN, pressing, sides, extending behind ear",بیرونی گلا — درد، دبانے والا، پہلوؤں میں، کان کے پیچھے تک پھیلتا ہوا,1,1,یکساں
+r138,"PAIN, pressing, sides, intermittent","PAIN, pressing, sides, intermittent",بیرونی گلا — درد، دبانے والا، پہلوؤں میں، وقفے وقفے سے,1,1,یکساں
+r139,"PAIN, pressing, sides, motion amel.","PAIN, pressing, sides, motion amel.",بیرونی گلا — درد، دبانے والا، پہلوؤں میں، حرکت سے آرام,1,1,یکساں
+r140,"PAIN, pressing, sides, talking, while","PAIN, pressing, sides, talking, while",بیرونی گلا — درد، دبانے والا، پہلوؤں میں، باتیں کرتے ہوئے,1,1,یکساں
+r145,"PAIN, pressing, sides, throat-pit","PAIN, pressing, sides, Throat-pit",بیرونی گلا — درد، دبانے والا، پہلوؤں میں، گلے کے گڑھے میں,11,10,ماخذی مطابق کیے
+r146,"PAIN, pressing, sides, throat-pit, anger, after","PAIN, pressing, sides, Throat-pit, anger, after",بیرونی گلا — درد، دبانے والا، پہلوؤں میں، گلے کے گڑھے میں، غصے کے بعد,1,1,یکساں
+r147,"PAIN, pressing, sides, throat-pit, foreign body, as of","PAIN, pressing, sides, Throat-pit, foreign body, as of",بیرونی گلا — درد، دبانے والا، پہلوؤں میں، گلے کے گڑھے میں، جیسے کوئی باہری چیز ہو,1,1,یکساں
+r148,"PAIN, pressing, sides, throat-pit, inspiration, on","PAIN, pressing, sides, Throat-pit, inspiration, on",بیرونی گلا — درد، دبانے والا، پہلوؤں میں، گلے کے گڑھے میں، سانس اندر لینے پر,1,1,یکساں
+r149,"PAIN, pressing, sides, throat-pit, swallowing agg.","PAIN, pressing, sides, Throat-pit, swallowing agg.",بیرونی گلا — درد، دبانے والا، پہلوؤں میں، گلے کے گڑھے میں، نگلنے سے بگاڑ,1,1,یکساں
+r150,"PAIN, pressing, sides, thyroid gland","PAIN, pressing, sides, Thyroid gland",بیرونی گلا — درد، دبانے والا، پہلوؤں میں، تھائرائیڈ غدود میں,1,1,یکساں
+r141,"PAIN, pressing, sides, turning head","PAIN, pressing, sides, turning head",بیرونی گلا — درد، دبانے والا، پہلوؤں میں، سر گھمانے پر,1,1,یکساں
+r142,"PAIN, pressing, sides, walking in open air","PAIN, pressing, sides, walking in open air",بیرونی گلا — درد، دبانے والا، پہلوؤں میں، کھلی ہوا میں چلنے پر,1,1,یکساں
+r75,"PAIN, sides","PAIN, Sides",بیرونی گلا — درد، پہلوؤں میں,40,26,ماخذی مطابق کیے
+r79,"PAIN, sides, afternoon","PAIN, Sides, afternoon",بیرونی گلا — درد، پہلوؤں میں، سہ پہر,2,2,یکساں
+r81,"PAIN, sides, bending head to right","PAIN, Sides, bending head to right",بیرونی گلا — درد، پہلوؤں میں، سر دائیں طرف جھکانے پر,1,1,یکساں
+r82,"PAIN, sides, blowing nose","PAIN, Sides, blowing nose",بیرونی گلا — درد، پہلوؤں میں، ناک صاف کرنے پر,1,1,یکساں
+r93,"PAIN, sides, extending to behind ear","PAIN, Sides, extending to behind ear",بیرونی گلا — درد، پہلوؤں میں، کان کے پیچھے تک پھیلتا ہوا,1,1,یکساں
+r78,"PAIN, sides, forenoon","PAIN, Sides, forenoon",بیرونی گلا — درد، پہلوؤں میں، دوپہر سے پہلے,1,1,یکساں
+r76,"PAIN, sides, left","PAIN, Sides, left",بیرونی گلا — درد، پہلوؤں میں، بائیں,1,1,یکساں
+r77,"PAIN, sides, morning","PAIN, Sides, morning",بیرونی گلا — درد، پہلوؤں میں، صبح,3,3,یکساں
+r83,"PAIN, sides, motion, on","PAIN, Sides, motion, on",بیرونی گلا — درد، پہلوؤں میں، حرکت پر,4,4,یکساں
+r80,"PAIN, sides, night","PAIN, Sides, night",بیرونی گلا — درد، پہلوؤں میں، رات,1,1,یکساں
+r86,"PAIN, sides, paroxysmal","PAIN, Sides, paroxysmal",بیرونی گلا — درد، پہلوؤں میں، دوروں کی شکل میں,1,1,یکساں
+r87,"PAIN, sides, pulsating","PAIN, Sides, pulsating",بیرونی گلا — درد، پہلوؤں میں، دھڑکن کے ساتھ,1,1,یکساں
+r88,"PAIN, sides, rheumatic","PAIN, Sides, rheumatic",بیرونی گلا — درد، پہلوؤں میں، گٹھیا والا,4,4,یکساں
+r89,"PAIN, sides, turning head on","PAIN, Sides, turning head on",بیرونی گلا — درد، پہلوؤں میں، سر گھمانے پر,6,3,ماخذی مطابق کیے
+r91,"PAIN, sides, turning head on, painful side","PAIN, Sides, turning head on, painful side",بیرونی گلا — درد، پہلوؤں میں، سر گھمانے پر، درد والی طرف,1,1,یکساں
+r90,"PAIN, sides, turning head on, to right","PAIN, Sides, turning head on, to right",بیرونی گلا — درد، پہلوؤں میں، سر گھمانے پر، دائیں طرف,4,4,یکساں
+r92,"PAIN, sides, waking, on","PAIN, Sides, waking, on",بیرونی گلا — درد، پہلوؤں میں، جاگنے پر,1,1,یکساں
+r152,"PAIN, soreness","PAIN, soreness",بیرونی گلا — درد، دکھتا، کچلا ہوا,28,15,ماخذی مطابق کیے
+r156,"PAIN, soreness, cervical glands","PAIN, soreness, Cervical glands",بیرونی گلا — درد، دکھتا، کچلا ہوا، گردن کے غدود میں,14,14,یکساں
+r153,"PAIN, soreness, forenoon","PAIN, soreness, forenoon",بیرونی گلا — درد، دکھتا، کچلا ہوا، دوپہر سے پہلے,1,1,یکساں
+r154,"PAIN, soreness, motion, on","PAIN, soreness, motion, on",بیرونی گلا — درد، دکھتا، کچلا ہوا، حرکت پر,1,1,یکساں
+r157,"PAIN, soreness, thyroid gland","PAIN, soreness, Thyroid gland",بیرونی گلا — درد، دکھتا، کچلا ہوا، تھائرائیڈ غدود میں,3,3,یکساں
+r155,"PAIN, soreness, turning head","PAIN, soreness, turning head",بیرونی گلا — درد، دکھتا، کچلا ہوا، سر گھمانے پر,1,1,یکساں
+r158,"PAIN, sprain, as from a, in sides, left","PAIN, sprain, as from a, in sides, left",بیرونی گلا — درد، جیسے موچ آ گئی ہو، پہلوؤں میں، بائیں,1,1,یکساں
+r160,"PAIN, stitching, extending to ear","PAIN, stitching, extending to ear",بیرونی گلا — درد، چبھتا ہوا، کان تک پھیلتا ہوا,3,3,یکساں
+r161,"PAIN, stitching, sides","PAIN, stitching, Sides",بیرونی گلا — درد، چبھتا ہوا، پہلوؤں میں,23,20,ماخذی مطابق کیے
+r164,"PAIN, stitching, sides, afternoon","PAIN, stitching, Sides, afternoon",بیرونی گلا — درد، چبھتا ہوا، پہلوؤں میں، سہ پہر,1,1,یکساں
+r165,"PAIN, stitching, sides, evening","PAIN, stitching, Sides, evening",بیرونی گلا — درد، چبھتا ہوا، پہلوؤں میں، شام,1,1,یکساں
+r169,"PAIN, stitching, sides, extending to arms","PAIN, stitching, Sides, extending to arms",بیرونی گلا — درد، چبھتا ہوا، پہلوؤں میں، بازوؤں تک پھیلتا ہوا,1,1,یکساں
+r163,"PAIN, stitching, sides, morning","PAIN, stitching, Sides, morning",بیرونی گلا — درد، چبھتا ہوا، پہلوؤں میں، صبح,1,1,یکساں
+r166,"PAIN, stitching, sides, night","PAIN, stitching, Sides, night",بیرونی گلا — درد، چبھتا ہوا، پہلوؤں میں، رات,1,1,یکساں
+r162,"PAIN, stitching, sides, right","PAIN, stitching, Sides, right",بیرونی گلا — درد، چبھتا ہوا، پہلوؤں میں، دائیں,1,1,یکساں
+r167,"PAIN, stitching, sides, swallowing amel.","PAIN, stitching, Sides, swallowing amel.",بیرونی گلا — درد، چبھتا ہوا، پہلوؤں میں، نگلنے سے آرام,1,1,یکساں
+r168,"PAIN, stitching, sides, turning head","PAIN, stitching, Sides, turning head",بیرونی گلا — درد، چبھتا ہوا، پہلوؤں میں، سر گھمانے پر,1,1,یکساں
+r170,"PAIN, stitching, throat-pit","PAIN, stitching, Throat-pit",بیرونی گلا — درد، چبھتا ہوا، گلے کے گڑھے میں,3,3,یکساں
+r171,"PAIN, stitching, throat-pit, inspiration, on","PAIN, stitching, Throat-pit, inspiration, on",بیرونی گلا — درد، چبھتا ہوا، گلے کے گڑھے میں، سانس اندر لینے پر,1,1,یکساں
+r172,"PAIN, stitching, thyroid gland","PAIN, stitching, Thyroid gland",بیرونی گلا — درد، چبھتا ہوا، تھائرائیڈ غدود میں,5,5,یکساں
+r174,"PAIN, tearing, sides","PAIN, tearing, Sides",بیرونی گلا — درد، چیرتا ہوا، پہلوؤں میں,25,19,ماخذی مطابق کیے
+r178,"PAIN, tearing, sides, evening","PAIN, tearing, Sides, evening",بیرونی گلا — درد، چیرتا ہوا، پہلوؤں میں، شام,1,1,یکساں
+r185,"PAIN, tearing, sides, extending to ear","PAIN, tearing, Sides, extending to ear",بیرونی گلا — درد، چیرتا ہوا، پہلوؤں میں، کان تک پھیلتا ہوا,2,2,یکساں
+r176,"PAIN, tearing, sides, left","PAIN, tearing, Sides, left",بیرونی گلا — درد، چیرتا ہوا، پہلوؤں میں، بائیں,2,2,یکساں
+r177,"PAIN, tearing, sides, morning","PAIN, tearing, Sides, morning",بیرونی گلا — درد، چیرتا ہوا، پہلوؤں میں، صبح,1,1,یکساں
+r180,"PAIN, tearing, sides, motion, on","PAIN, tearing, Sides, motion, on",بیرونی گلا — درد، چیرتا ہوا، پہلوؤں میں، حرکت پر,3,3,یکساں
+r179,"PAIN, tearing, sides, night","PAIN, tearing, Sides, night",بیرونی گلا — درد، چیرتا ہوا، پہلوؤں میں، رات,1,1,یکساں
+r181,"PAIN, tearing, sides, paroxysmal","PAIN, tearing, Sides, paroxysmal",بیرونی گلا — درد، چیرتا ہوا، پہلوؤں میں، دوروں کی شکل میں,1,1,یکساں
+r182,"PAIN, tearing, sides, pressure amel.","PAIN, tearing, Sides, pressure amel.",بیرونی گلا — درد، چیرتا ہوا، پہلوؤں میں، دباؤ سے آرام,1,1,یکساں
+r183,"PAIN, tearing, sides, rheumatic","PAIN, tearing, Sides, rheumatic",بیرونی گلا — درد، چیرتا ہوا، پہلوؤں میں، گٹھیا والا,1,1,یکساں
+r175,"PAIN, tearing, sides, right","PAIN, tearing, Sides, right",بیرونی گلا — درد، چیرتا ہوا، پہلوؤں میں، دائیں,1,1,یکساں
+r184,"PAIN, tearing, sides, walking, on","PAIN, tearing, Sides, walking, on",بیرونی گلا — درد، چیرتا ہوا، پہلوؤں میں، چلنے پر,1,1,یکساں
+r98,"PAIN, throat-pit","PAIN, Throat-pit",بیرونی گلا — درد، گلے کے گڑھے میں,5,4,ماخذی مطابق کیے
+r99,"PAIN, throat-pit, drinking, when","PAIN, Throat-pit, drinking, when",بیرونی گلا — درد، گلے کے گڑھے میں، پیتے وقت,1,1,یکساں
+r100,"PAIN, throat-pit, hawking of mucus","PAIN, Throat-pit, hawking of mucus",بیرونی گلا — درد، گلے کے گڑھے میں، بلغم کھنکارنے پر,1,1,یکساں
+r101,"PAIN, thyroid gland","PAIN, Thyroid gland",بیرونی گلا — درد، تھائرائیڈ غدود میں,5,4,ماخذی مطابق کیے
+r102,"PAIN, thyroid gland, moving head, on","PAIN, Thyroid gland, moving head, on",بیرونی گلا — درد، تھائرائیڈ غدود میں، سر ہلانے پر,1,1,یکساں
+r151,"PAIN, shooting, sides (See Stitching)","PAIN, shooting, sides (See Stitching)",بیرونی گلا — درد، تیر جیسا (دوڑتا ہوا)، پہلوؤں میں,0,0,یکساں
+r187,PARALYSIS,PARALYSIS,بیرونی گلا — فالج,4,2,ماخذی مطابق کیے
+r188,"PARALYSIS, diphtheria, after","PARALYSIS, diphtheria, after",بیرونی گلا — فالج، خناق کے بعد,1,1,یکساں
+r189,"PARALYSIS, sterno-mastoid","PARALYSIS, sterno-mastoid",بیرونی گلا — فالج، سٹرنو-ماسٹائڈ پٹھے میں,1,1,یکساں
+r190,PERSPIRATION,PERSPIRATION,بیرونی گلا — پسینہ,20,18,ماخذی مطابق کیے
+r191,"PERSPIRATION, evening","PERSPIRATION, evening",بیرونی گلا — پسینہ، شام,1,1,یکساں
+r194,"PERSPIRATION, midnight, on waking","PERSPIRATION, midnight, on waking",بیرونی گلا — پسینہ، آدھی رات، جاگنے پر,2,2,یکساں
+r195,"PULSATION, carotids","PULSATION, carotids",بیرونی گلا — دھڑکن، گلے کی شریانیں (کیروٹڈ),32,32,یکساں
+r200,SENSITIVE to slightest touch,SENSITIVE to slightest touch,بیرونی گلا — ذرا سے چھونے سے حساس,3,3,یکساں
+r201,SPASMS sides of neck,SPASMS sides of neck,بیرونی گلا — گردن کے پہلوؤں میں اینٹھن,2,2,یکساں
+r202,SPOTS,SPOTS,بیرونی گلا — دھبے,12,12,یکساں
+r203,STIFFNESS of sides,STIFFNESS of sides,بیرونی گلا — پہلوؤں کی اکڑن,39,38,ماخذی مطابق کیے
+r205,"STIFFNESS of sides, left","STIFFNESS of sides, left",بیرونی گلا — پہلوؤں کی اکڑن، بائیں,10,10,یکساں
+r206,"STIFFNESS of sides, morning","STIFFNESS of sides, morning",بیرونی گلا — پہلوؤں کی اکڑن، صبح,2,2,یکساں
+r204,"STIFFNESS of sides, right","STIFFNESS of sides, right",بیرونی گلا — پہلوؤں کی اکڑن، دائیں,5,5,یکساں
+r209,"SWELLING, cervical glands","SWELLING, Cervical glands",بیرونی گلا — سوجن، گردن کے غدود کی,71,70,ماخذی مطابق کیے
+r210,"SWELLING, cervical glands, evening agg.","SWELLING, Cervical glands, evening agg.",بیرونی گلا — سوجن، گردن کے غدود کی، شام کو بگاڑ,1,1,یکساں
+r213,"SWELLING, cervical glands, extending to shoulder","SWELLING, Cervical glands, extending to shoulder",بیرونی گلا — سوجن، گردن کے غدود کی، کندھے تک پھیلتی ہوئی,1,1,یکساں
+r211,"SWELLING, cervical glands, hard","SWELLING, Cervical glands, hard",بیرونی گلا — سوجن، گردن کے غدود کی، سخت,8,8,یکساں
+r212,"SWELLING, cervical glands, suppurative","SWELLING, Cervical glands, suppurative",بیرونی گلا — سوجن، گردن کے غدود کی، پیپ بناتی ہوئی,9,9,یکساں
+r214,"SWELLING, sides","SWELLING, Sides",بیرونی گلا — سوجن، پہلوؤں کی,22,22,یکساں
+r208,"SWELLING, speaking loud, when","SWELLING, speaking loud, when",بیرونی گلا — سوجن، بلند آواز میں بولنے پر,1,1,یکساں
+r215,"SWELLING, thyroid gland","SWELLING, Thyroid gland",بیرونی گلا — سوجن، تھائرائیڈ غدود کی,13,11,ماخذی مطابق کیے
+r216,"SWELLING, thyroid gland, right","SWELLING, Thyroid gland, right",بیرونی گلا — سوجن، تھائرائیڈ غدود کی، دائیں,2,1,ماخذی مطابق کیے
+r217,"SWELLING, thyroid gland, right, sensation of","SWELLING, Thyroid gland, right, sensation of",بیرونی گلا — سوجن، تھائرائیڈ غدود کی، دائیں، سوجن کا احساس,1,1,یکساں
+r218,"SWELLING, veins","SWELLING, Veins",بیرونی گلا — سوجن، رگوں کی,5,5,یکساں
+r220,"TENSION, sides","TENSION, Sides",بیرونی گلا — تناؤ، پہلوؤں میں,33,25,ماخذی مطابق کیے
+r227,"TENSION, sides, convulsive","TENSION, Sides, convulsive",بیرونی گلا — تناؤ، پہلوؤں میں، تشنج کے ساتھ,2,2,یکساں
+r224,"TENSION, sides, evening","TENSION, Sides, evening",بیرونی گلا — تناؤ، پہلوؤں میں، شام,1,1,یکساں
+r225,"TENSION, sides, evening, while standing","TENSION, Sides, evening, while standing",بیرونی گلا — تناؤ، پہلوؤں میں، شام، کھڑے ہوئے,1,1,یکساں
+r222,"TENSION, sides, left","TENSION, Sides, left",بیرونی گلا — تناؤ، پہلوؤں میں، بائیں,1,1,یکساں
+r228,"TENSION, sides, lying on side","TENSION, Sides, lying on side",بیرونی گلا — تناؤ، پہلوؤں میں، کروٹ لیٹنے پر,1,1,یکساں
+r223,"TENSION, sides, morning","TENSION, Sides, morning",بیرونی گلا — تناؤ، پہلوؤں میں، صبح,1,1,یکساں
+r229,"TENSION, sides, moving head, on","TENSION, Sides, moving head, on",بیرونی گلا — تناؤ، پہلوؤں میں، سر ہلانے پر,4,4,یکساں
+r226,"TENSION, sides, night","TENSION, Sides, night",بیرونی گلا — تناؤ، پہلوؤں میں، رات,1,1,یکساں
+r230,"TENSION, sides, painful","TENSION, Sides, painful",بیرونی گلا — تناؤ، پہلوؤں میں، دردناک,1,1,یکساں
+r231,"TENSION, sides, rheumatic","TENSION, Sides, rheumatic",بیرونی گلا — تناؤ، پہلوؤں میں، گٹھیا والا,1,1,یکساں
+r221,"TENSION, sides, right","TENSION, Sides, right",بیرونی گلا — تناؤ، پہلوؤں میں، دائیں,2,2,یکساں
+r232,"TENSION, sides, swallowing, on","TENSION, Sides, swallowing, on",بیرونی گلا — تناؤ، پہلوؤں میں، نگلتے وقت,1,1,یکساں
+r233,"TENSION, sides, waking, on","TENSION, Sides, waking, on",بیرونی گلا — تناؤ، پہلوؤں میں، جاگنے پر,1,1,یکساں
+r234,"TENSION, sides, walking, after","TENSION, Sides, walking, after",بیرونی گلا — تناؤ، پہلوؤں میں، چلنے کے بعد,1,1,یکساں
+r235,TORTICOLLIS,TORTICOLLIS,بیرونی گلا — گردن کا ٹیڑھا پن (ٹارٹیکولس),24,20,ماخذی مطابق کیے
+r236,"TORTICOLLIS, chin drawn to sternum","TORTICOLLIS, chin drawn to sternum",بیرونی گلا — گردن کا ٹیڑھا پن (ٹارٹیکولس)، ٹھوڑی سینے کی طرف کھنچی,1,1,یکساں
+r237,"TORTICOLLIS, drawn to right","TORTICOLLIS, drawn to right",بیرونی گلا — گردن کا ٹیڑھا پن (ٹارٹیکولس)، دائیں طرف کھنچا ہوا,4,4,یکساں
+r239,"TUMORS, side","TUMORS, side",بیرونی گلا — رسولیاں، پہلو میں,1,1,یکساں
+r243,TWITCHING,TWITCHING,بیرونی گلا — پھڑکن,6,6,یکساں
+r244,"TWITCHING, from left side of the neck to the left side of the throat","TWITCHING, from left side of the neck to the left side of the throat",بیرونی گلا — پھڑکن، گردن کے بائیں طرف سے گلے کے بائیں طرف تک,1,1,یکساں
+r245,ULCERS,ULCERS,بیرونی گلا — ناسور (زخم),3,3,یکساں
+r246,UNCOVERING throat agg.,UNCOVERING throat agg.,بیرونی گلا — گلا کھولنے (ننگا کرنے) سے بگاڑ,17,17,یکساں
+r251,WARTS,WARTS,بیرونی گلا — مسے,3,3,یکساں
+o14931,"FULLNESS, in jugular","FULLNESS in throat-pit, in jugular",بیرونی گلا — بھراؤ (بھرا بھرا لگنا)، گردن کی رگ (جوگولر) میں,1,1,یکساں
+o14949,"ITCHING, extending, eustachian tubes","ITCHING, extending to chest, eustachian tubes",بیرونی گلا — خارش، پھیلتی ہوئی، نالی (یوسٹیشین) تک,1,1,یکساں
+o14975,"PAIN, drawing, sides, bending, forward","PAIN, drawing, sides, bending head backward, forward",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، آگے جھکنے پر,1,1,یکساں
+o15008,"PAIN, pressing, sides, walking, rapidly in open air amel.","PAIN, pressing, sides, walking in open air, rapidly in open air amel.",بیرونی گلا — درد، دبانے والا، پہلوؤں میں، کھلی ہوا میں تیز چلنے سے آرام,1,1,یکساں
+o15014,"PAIN, sides, extending, eye","PAIN, Sides, extending to behind ear, eye",بیرونی گلا — درد، پہلوؤں میں، پھیلتا ہوا، آنکھ تک,1,1,یکساں
+o15015,"PAIN, sides, extending, pectoral muscles","PAIN, Sides, extending to behind ear, pectoral muscles",بیرونی گلا — درد، پہلوؤں میں، پھیلتا ہوا، سینے کے پٹھوں تک,1,1,یکساں
+o15016,"PAIN, sides, extending, shoulder","PAIN, Sides, extending to behind ear, shoulder",بیرونی گلا — درد، پہلوؤں میں، پھیلتا ہوا، کندھے تک,3,3,یکساں
+o15017,"PAIN, sides, extending, wrist","PAIN, Sides, extending to behind ear, wrist",بیرونی گلا — درد، پہلوؤں میں، پھیلتا ہوا، کلائی تک,1,1,یکساں
+o15057,"PAIN, tearing, sides, extending, occiput","PAIN, tearing, Sides, extending to ear, occiput",بیرونی گلا — درد، چیرتا ہوا، پہلوؤں میں، پھیلتا ہوا، گدی تک,1,1,یکساں
+o15124,"TORTICOLLIS, drawn, to left","TORTICOLLIS, drawn to right, to left",بیرونی گلا — گردن کا ٹیڑھا پن (ٹارٹیکولس)، بائیں طرف کھنچا ہوا,5,5,یکساں
+o14977,"PAIN, drawing, sides, extending, limbs, into","PAIN, drawing, sides, extending to ear, behind, limbs, into",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، پھیلتا ہوا، اعضاء میں,1,1,یکساں
+o14978,"PAIN, drawing, sides, extending, lower jaw","PAIN, drawing, sides, extending to ear, behind, lower jaw",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، پھیلتا ہوا، نچلے جبڑے تک,1,1,یکساں
+o14979,"PAIN, drawing, sides, extending, shoulder","PAIN, drawing, sides, extending to ear, behind, shoulder",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، پھیلتا ہوا، کندھے تک,3,3,یکساں
+o14980,"PAIN, drawing, sides, extending, upward","PAIN, drawing, sides, extending to ear, behind, upward",بیرونی گلا — درد، کھینچتا ہوا، پہلوؤں میں، پھیلتا ہوا، اوپر کی طرف,2,2,یکساں
+r111,"PAIN, burning, throat-pit, morning","PAIN, burning, sides, Throat-pit, morning",بیرونی گلا — درد، جلتا ہوا، گلے کے گڑھے میں، صبح,1,1,یکساں
+r84,"PAIN, sides, motion, cramping","PAIN, Sides, motion, on, cramping",بیرونی گلا — درد، پہلوؤں میں، حرکت سے، اینٹھن کے ساتھ,1,1,یکساں
+r85,"PAIN, sides, motion, of head","PAIN, Sides, motion, on, of head",بیرونی گلا — درد، پہلوؤں میں، حرکت سے، سر ہلانے پر,1,1,یکساں
+r109,"PAIN, burning, cervical glands","PAIN, burning, sides, Cervical glands",بیرونی گلا — درد، جلتا ہوا، گردن کے غدود میں,3,3,یکساں
+r110,"PAIN, burning, throat-pit","PAIN, burning, sides, Throat-pit",بیرونی گلا — درد، جلتا ہوا، گلے کے گڑھے میں,4,4,یکساں
+r196,"PULSATION, excitement, from","PULSATION, carotids, excitement, from",بیرونی گلا — دھڑکن، جوش سے,1,1,یکساں
+r199,"PULSATION, sides, evening","PULSATION, carotids, Sides, evening",بیرونی گلا — دھڑکن، پہلوؤں میں، شام,1,1,یکساں
+r197,"PULSATION, glands","PULSATION, carotids, Glands",بیرونی گلا — دھڑکن، غدود میں,3,3,یکساں
+r198,"PULSATION, sides","PULSATION, carotids, Sides",بیرونی گلا — دھڑکن، پہلوؤں میں,9,9,یکساں
+r25,ERUPTION,ERUPTION,بیرونی گلا — دانے,46,17,ماخذی مطابق کیے
+r17,"DISCOLORATION, brown","DISCOLORATION, brown",بیرونی گلا — رنگت بدلنا، بھورا,3,1,ماخذی مطابق کیے
+r193,"PERSPIRATION, midnight","PERSPIRATION, midnight",بیرونی گلا — پسینہ، آدھی رات,3,1,ماخذی مطابق کیے
+r15,DISCOLORATION,DISCOLORATION,بیرونی گلا — رنگت بدلنا,14,4,ماخذی مطابق کیے
+r207,SWELLING,SWELLING,بیرونی گلا — سوجن,89,24,ماخذی مطابق کیے
+r159,"PAIN, stitching","PAIN, stitching",بیرونی گلا — درد، چبھتا ہوا,34,9,ماخذی مطابق کیے
+r21,"DISCOLORATION, redness","DISCOLORATION, redness",بیرونی گلا — رنگت بدلنا، سرخی,8,2,ماخذی مطابق کیے
+r173,"PAIN, tearing","PAIN, tearing",بیرونی گلا — درد، چیرتا ہوا,29,6,ماخذی مطابق کیے
+r219,TENSION,TENSION,بیرونی گلا — تناؤ,36,4,ماخذی مطابق کیے
+r70,PAIN,PAIN,بیرونی گلا — درد,131,10,ماخذی مطابق کیے
+o15077,"PERSPIRATION, evening, 6 p.m. to 9 p.m.","PERSPIRATION, evening, 6 to 9 p.m.",بیرونی گلا — پسینہ، شام 6 سے 9 بجے,1,1,یکساں
+o15122,"TORTICOLLIS, cystic","TUMORS, side, cystic",بیرونی گلا — گردن کا ٹیڑھا پن (ٹارٹیکولس)، تھیلی دار (سسٹک),1,1,یکساں
+o15125,"TORTICOLLIS, fatty","TUMORS, side, fatty",بیرونی گلا — گردن کا ٹیڑھا پن (ٹارٹیکولس)، چربیلا,1,1,یکساں
+o15126,"TORTICOLLIS, recurrent fibroid","TUMORS, side, recurrent fibroid",بیرونی گلا — گردن کا ٹیڑھا پن (ٹارٹیکولس)، بار بار ہونے والا ریشے دار,1,1,یکساں

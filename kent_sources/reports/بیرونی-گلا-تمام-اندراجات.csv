@@ -1,0 +1,249 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,471,0,EXTERNAL THROAT,0
+r0,471,0,ABSCESS,14
+r1,471,0,"AIR, sensitive to",8
+r2,471,0,CLOTHING agg.,21
+r3,471,0,COLDNESS,5
+r4,471,1,"COLDNESS, evening",1
+r5,471,1,"COLDNESS, in region of thyroid gland",1
+r6,471,0,CONSTRICTION,13
+r7,471,1,"CONSTRICTION, lying",1
+r8,471,1,"CONSTRICTION, sleep, during",1
+r9,471,1,"CONSTRICTION, thyroid gland",5
+r10,471,1,"CONSTRICTION, Throat-pit",5
+r11,471,2,"CONSTRICTION, Throat-pit, eating amel.",1
+r12,471,2,"CONSTRICTION, Throat-pit, sleep, on going to",1
+r13,471,0,CRAMP in side,1
+r14,471,0,CRAWLING in glands,1
+r15,471,0,DISCOLORATION,4
+r16,471,1,"DISCOLORATION, blue",1
+r17,471,1,"DISCOLORATION, brown",1
+r18,471,2,"DISCOLORATION, brown, in spots",2
+r19,471,1,"DISCOLORATION, lividity",1
+r20,471,1,"DISCOLORATION, purple",1
+r21,471,1,"DISCOLORATION, redness",2
+r22,471,2,"DISCOLORATION, redness, in spots",6
+r23,471,1,"DISCOLORATION, yellow",1
+r24,471,2,"DISCOLORATION, yellow, spots",1
+r25,471,0,ERUPTION,17
+r26,471,1,"ERUPTION, blotches",5
+r27,471,1,"ERUPTION, boils side of neck",10
+r28,471,1,"ERUPTION, crusts",1
+r29,471,1,"ERUPTION, herpes",4
+r30,471,1,"ERUPTION, moist",1
+r31,471,1,"ERUPTION, pimples",21
+r32,471,1,"ERUPTION, pustules",2
+r33,471,1,"ERUPTION, rash",1
+r34,471,1,"ERUPTION, tubercles",8
+r35,471,1,"ERUPTION, urticaria",2
+r36,471,1,"ERUPTION, vesicles",5
+r37,471,2,"ERUPTION, vesicles, side of",1
+r38,471,3,"ERUPTION, vesicles, side of, from ear, discharge",1
+r39,471,0,FISTULÆ,2
+r40,471,0,FORMICATION,1
+r41,471,1,"FORMICATION, throat-pit, causing cough",1
+r42,471,0,FULLNESS in throat-pit,3
+o14931,471,1,"FULLNESS in throat-pit, in jugular",1
+r44,471,0,GOITRE,49
+r45,471,1,"GOITRE, right sided",8
+r46,471,1,"GOITRE, left",1
+r47,471,1,"GOITRE, constriction",5
+r48,472,1,"GOITRE, exophthalmic",15
+r49,472,1,"GOITRE, indurated",2
+r50,472,1,"GOITRE, painful",3
+r51,472,2,"GOITRE, painful, menses, during",1
+r52,472,2,"GOITRE, painful, on swallowing",1
+r53,472,1,"GOITRE, sensitive",1
+r54,472,1,"GOITRE, vascular",2
+r55,472,0,"GRASPING, sensation of (See Constriction)",0
+r56,472,0,INDURATION of glands,37
+r57,472,1,"INDURATION of glands, like knotted cords",16
+r58,472,0,ITCHING,29
+r59,472,1,"ITCHING, morning",1
+r60,472,2,"ITCHING, morning, dressing, while",1
+r61,472,1,"ITCHING, evening",1
+r62,472,2,"ITCHING, evening, before going to sleep",1
+r63,472,1,"ITCHING, night",1
+r64,472,1,"ITCHING, scratching amel.",1
+r65,472,1,"ITCHING, swallowing agg.",2
+r66,472,1,"ITCHING, extending to chest",1
+o14949,472,2,"ITCHING, extending to chest, eustachian tubes",1
+r68,472,0,LUMP in throat-pit,1
+r69,472,0,NUMBNESS,5
+r70,472,0,PAIN,10
+r71,472,1,"PAIN, morning",1
+r72,472,1,"PAIN, Cervical glands",14
+r73,472,2,"PAIN, Cervical glands, night",2
+r74,472,2,"PAIN, Cervical glands, coughing, when",1
+r75,472,1,"PAIN, Sides",26
+r76,472,2,"PAIN, Sides, left",1
+r77,472,2,"PAIN, Sides, morning",3
+r78,472,2,"PAIN, Sides, forenoon",1
+r79,472,2,"PAIN, Sides, afternoon",2
+r80,472,2,"PAIN, Sides, night",1
+r81,472,2,"PAIN, Sides, bending head to right",1
+r82,472,2,"PAIN, Sides, blowing nose",1
+r83,472,2,"PAIN, Sides, motion, on",4
+r84,472,3,"PAIN, Sides, motion, on, cramping",1
+r85,472,3,"PAIN, Sides, motion, on, of head",1
+r86,472,2,"PAIN, Sides, paroxysmal",1
+r87,472,2,"PAIN, Sides, pulsating",1
+r88,472,2,"PAIN, Sides, rheumatic",4
+r89,472,2,"PAIN, Sides, turning head on",3
+r90,472,3,"PAIN, Sides, turning head on, to right",4
+r91,472,3,"PAIN, Sides, turning head on, painful side",1
+r92,472,2,"PAIN, Sides, waking, on",1
+r93,472,2,"PAIN, Sides, extending to behind ear",1
+o15014,472,3,"PAIN, Sides, extending to behind ear, eye",1
+o15015,472,3,"PAIN, Sides, extending to behind ear, pectoral muscles",1
+o15016,472,3,"PAIN, Sides, extending to behind ear, shoulder",3
+o15017,472,3,"PAIN, Sides, extending to behind ear, wrist",1
+r98,472,1,"PAIN, Throat-pit",4
+r99,472,2,"PAIN, Throat-pit, drinking, when",1
+r100,472,2,"PAIN, Throat-pit, hawking of mucus",1
+r101,472,1,"PAIN, Thyroid gland",4
+r102,472,2,"PAIN, Thyroid gland, moving head, on",1
+r103,472,1,"PAIN, burning, sides",12
+r104,472,2,"PAIN, burning, sides, right",4
+r105,472,2,"PAIN, burning, sides, left",4
+r107,473,2,"PAIN, burning, sides, dinner, after",1
+r108,473,2,"PAIN, burning, sides, motion",1
+r109,473,2,"PAIN, burning, sides, Cervical glands",3
+r110,473,2,"PAIN, burning, sides, Throat-pit",4
+r111,473,3,"PAIN, burning, sides, Throat-pit, morning",1
+r112,473,1,"PAIN, crushed, as if",1
+r113,473,1,"PAIN, cutting, sides",1
+r114,473,2,"PAIN, cutting, sides, left",1
+r115,473,1,"PAIN, drawing, sides",26
+r116,473,2,"PAIN, drawing, sides, right",11
+r117,473,3,"PAIN, drawing, sides, right, to lower jaw",1
+r118,473,2,"PAIN, drawing, sides, left",6
+r119,473,2,"PAIN, drawing, sides, morning",1
+r120,473,3,"PAIN, drawing, sides, morning, on waking",1
+r121,473,2,"PAIN, drawing, sides, afternoon",3
+r122,473,2,"PAIN, drawing, sides, bending head backward",1
+o14975,473,3,"PAIN, drawing, sides, bending head backward, forward",1
+r124,473,2,"PAIN, drawing, sides, holding head erect",1
+r125,473,2,"PAIN, drawing, sides, jerking left side",1
+r126,473,2,"PAIN, drawing, sides, lancinating",1
+r127,473,2,"PAIN, drawing, sides, motion, on",6
+r128,473,2,"PAIN, drawing, sides, sitting, while",1
+r129,473,2,"PAIN, drawing, sides, turning head",2
+r130,473,2,"PAIN, drawing, sides, twitching",1
+r131,473,2,"PAIN, drawing, sides, walking in open air",1
+r132,473,2,"PAIN, drawing, sides, extending to ear, behind",1
+o14977,473,3,"PAIN, drawing, sides, extending to ear, behind, limbs, into",1
+o14978,473,3,"PAIN, drawing, sides, extending to ear, behind, lower jaw",1
+o14979,473,3,"PAIN, drawing, sides, extending to ear, behind, shoulder",3
+o14980,473,3,"PAIN, drawing, sides, extending to ear, behind, upward",2
+r137,473,1,"PAIN, pressing, sides",19
+r138,473,2,"PAIN, pressing, sides, intermittent",1
+r139,473,2,"PAIN, pressing, sides, motion amel.",1
+r140,473,2,"PAIN, pressing, sides, talking, while",1
+r141,473,2,"PAIN, pressing, sides, turning head",1
+r142,473,2,"PAIN, pressing, sides, walking in open air",1
+o15008,473,3,"PAIN, pressing, sides, walking in open air, rapidly in open air amel.",1
+r144,473,2,"PAIN, pressing, sides, extending behind ear",1
+r145,473,2,"PAIN, pressing, sides, Throat-pit",10
+r146,473,3,"PAIN, pressing, sides, Throat-pit, anger, after",1
+r147,473,3,"PAIN, pressing, sides, Throat-pit, foreign body, as of",1
+r148,473,3,"PAIN, pressing, sides, Throat-pit, inspiration, on",1
+r149,473,3,"PAIN, pressing, sides, Throat-pit, swallowing agg.",1
+r150,473,2,"PAIN, pressing, sides, Thyroid gland",1
+r151,473,1,"PAIN, shooting, sides (See Stitching)",0
+r152,473,1,"PAIN, soreness",15
+r153,473,2,"PAIN, soreness, forenoon",1
+r154,473,2,"PAIN, soreness, motion, on",1
+r155,473,2,"PAIN, soreness, turning head",1
+r156,473,2,"PAIN, soreness, Cervical glands",14
+r157,473,2,"PAIN, soreness, Thyroid gland",3
+r158,473,1,"PAIN, sprain, as from a, in sides, left",1
+r159,473,1,"PAIN, stitching",9
+r160,473,2,"PAIN, stitching, extending to ear",3
+r161,473,2,"PAIN, stitching, Sides",20
+r162,473,3,"PAIN, stitching, Sides, right",1
+r163,473,3,"PAIN, stitching, Sides, morning",1
+r164,473,3,"PAIN, stitching, Sides, afternoon",1
+r165,473,3,"PAIN, stitching, Sides, evening",1
+r166,473,3,"PAIN, stitching, Sides, night",1
+r167,473,3,"PAIN, stitching, Sides, swallowing amel.",1
+r168,473,3,"PAIN, stitching, Sides, turning head",1
+r169,473,3,"PAIN, stitching, Sides, extending to arms",1
+r170,474,2,"PAIN, stitching, Throat-pit",3
+r171,474,3,"PAIN, stitching, Throat-pit, inspiration, on",1
+r172,474,2,"PAIN, stitching, Thyroid gland",5
+r173,474,1,"PAIN, tearing",6
+r174,474,2,"PAIN, tearing, Sides",19
+r175,474,3,"PAIN, tearing, Sides, right",1
+r176,474,3,"PAIN, tearing, Sides, left",2
+r177,474,3,"PAIN, tearing, Sides, morning",1
+r178,474,3,"PAIN, tearing, Sides, evening",1
+r179,474,3,"PAIN, tearing, Sides, night",1
+r180,474,3,"PAIN, tearing, Sides, motion, on",3
+r181,474,3,"PAIN, tearing, Sides, paroxysmal",1
+r182,474,3,"PAIN, tearing, Sides, pressure amel.",1
+r183,474,3,"PAIN, tearing, Sides, rheumatic",1
+r184,474,3,"PAIN, tearing, Sides, walking, on",1
+r185,474,3,"PAIN, tearing, Sides, extending to ear",2
+o15057,474,4,"PAIN, tearing, Sides, extending to ear, occiput",1
+r187,474,0,PARALYSIS,2
+r188,474,1,"PARALYSIS, diphtheria, after",1
+r189,474,1,"PARALYSIS, sterno-mastoid",1
+r190,474,0,PERSPIRATION,18
+r191,474,1,"PERSPIRATION, evening",1
+o15077,474,2,"PERSPIRATION, evening, 6 to 9 p.m.",1
+r193,474,1,"PERSPIRATION, midnight",1
+r194,474,2,"PERSPIRATION, midnight, on waking",2
+r195,474,0,"PULSATION, carotids",32
+r196,474,1,"PULSATION, carotids, excitement, from",1
+r197,474,1,"PULSATION, carotids, Glands",3
+r198,474,1,"PULSATION, carotids, Sides",9
+r199,474,2,"PULSATION, carotids, Sides, evening",1
+r200,474,0,SENSITIVE to slightest touch,3
+r201,474,0,SPASMS sides of neck,2
+r202,474,0,SPOTS,12
+r203,474,0,STIFFNESS of sides,38
+r204,474,1,"STIFFNESS of sides, right",5
+r205,474,1,"STIFFNESS of sides, left",10
+r206,474,1,"STIFFNESS of sides, morning",2
+r207,474,0,SWELLING,24
+r208,474,1,"SWELLING, speaking loud, when",1
+r209,474,1,"SWELLING, Cervical glands",70
+r210,474,2,"SWELLING, Cervical glands, evening agg.",1
+r211,474,2,"SWELLING, Cervical glands, hard",8
+r212,474,2,"SWELLING, Cervical glands, suppurative",9
+r213,474,2,"SWELLING, Cervical glands, extending to shoulder",1
+r214,474,1,"SWELLING, Sides",22
+r215,475,1,"SWELLING, Thyroid gland",11
+r216,475,2,"SWELLING, Thyroid gland, right",1
+r217,475,3,"SWELLING, Thyroid gland, right, sensation of",1
+r218,475,1,"SWELLING, Veins",5
+r219,475,0,TENSION,4
+r220,475,1,"TENSION, Sides",25
+r221,475,2,"TENSION, Sides, right",2
+r222,475,2,"TENSION, Sides, left",1
+r223,475,2,"TENSION, Sides, morning",1
+r224,475,2,"TENSION, Sides, evening",1
+r225,475,3,"TENSION, Sides, evening, while standing",1
+r226,475,2,"TENSION, Sides, night",1
+r227,475,2,"TENSION, Sides, convulsive",2
+r228,475,2,"TENSION, Sides, lying on side",1
+r229,475,2,"TENSION, Sides, moving head, on",4
+r230,475,2,"TENSION, Sides, painful",1
+r231,475,2,"TENSION, Sides, rheumatic",1
+r232,475,2,"TENSION, Sides, swallowing, on",1
+r233,475,2,"TENSION, Sides, waking, on",1
+r234,475,2,"TENSION, Sides, walking, after",1
+r235,475,0,TORTICOLLIS,20
+r236,475,1,"TORTICOLLIS, chin drawn to sternum",1
+r237,475,1,"TORTICOLLIS, drawn to right",4
+o15124,475,2,"TORTICOLLIS, drawn to right, to left",5
+r239,475,0,"TUMORS, side",1
+o15122,475,1,"TUMORS, side, cystic",1
+o15125,475,1,"TUMORS, side, fatty",1
+o15126,475,1,"TUMORS, side, recurrent fibroid",1
+r243,475,0,TWITCHING,6
+r244,475,1,"TWITCHING, from left side of the neck to the left side of the throat",1
+r245,475,0,ULCERS,3
+r246,475,0,UNCOVERING throat agg.,17
+r251,475,0,WARTS,3
