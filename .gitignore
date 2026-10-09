@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+ur/review/
+ur/rubrics/*.bak
+kent_chapters/*.bak
+node_modules/

@@ -1239,6 +1239,77 @@ function _repBuildKentStomachSourceTree(data){
     });
     return root;
 }
+
+// ============================================================
+// 🔑 v179: شکم (ABDOMEN) باب کی ماخذی قطاریں (صفحات 541–605) — homeoint.org
+// (parse_abdomen_source.py + crosswalk_abdomen.py + overlay_abdomen.py)؛ پرانی مقامی قطاریں
+// فائل میں محفوظ مگر ماخذی درخت سے باہر۔ باب حد: ABDOMEN = 541–605 (kentabdo.htm فہرست
+// «ABDOMEN (p. 541-605)» — 65 اندراجات؛ آغاز PDF 1194 = کتابی ص 541؛ اختتام P605 = TUMORS
+// آخری مینز، RECTUM از PDF 1343؛ P605 کتابی درستی kent0605 ڈپ سیکشن سے کراس-تصدیق شدہ — عین 2162 حروف)۔
+// مستند درستیاں: 10 خاندانی clamps (ص484/486/501/506/510/512×2 — MEDI-T اضافی <dir>، بلا-وسط بچے)،
+// 1 ماخذ ترمیم (ص535 MEDI-T flat «VOMITING, amel.» ← کتابی «VOMITING, wine, amel.» — PDF
+// «wine agg. : Ant-c. / amel. : Kalm.»)، 14 دستی J=1.00 جوڑے (19 OOREP agg.-لاحقہ/سیگمنٹ-کٹی،
+// 5 وقت-فارمیٹ، o58512 forenoon↔morning کتابی 11 a.m.، o59389 مبہم سے J=1.000، o59728
+// کتابی لیبل «often, for»، باقی نام-مختصر سازی) — مانی فیسٹ homeoint_stomach_source_manifest.json۔
+// PDF تیسرا ماخذ: 1194–1342 — ordered alignment 3269/3275، صفر باقیات؛ 4 فرق سب دستاویزی
+// (2 PDF لائن-ٹوٹ جوڑا ص553، ŒDEMA ص554 PDF-گلو، ص581 صفحہ-سٹیمپ nat1230c — ماخذ درست)۔
+// انڈیکس-تصدیق 63/65 — 2 MEDI-T انڈیکس غلطیاں PDF ثابت (p570 spleen←Sides، p582 sides←liver)۔
+var _REP_KENT_ABDOMEN_SOURCE_MARKER='homeoint-abdomen-v1';
+var _REP_KENT_ABDOMEN_PAGES={first:541,last:605}, _REP_KENT_ABDOMEN_COUNT=3269;
+function _repKentAbdomenSourceEntries(data){
+    return Object.keys(data||{}).map(function(rid){return {rid:String(rid),rec:data[rid]};})
+        .filter(function(e){return e.rec&&e.rec.source_canonical===_REP_KENT_ABDOMEN_SOURCE_MARKER;});
+}
+function _repHasKentAbdomenSourceData(data){
+    return _repKentAbdomenSourceEntries(data).length===_REP_KENT_ABDOMEN_COUNT;
+}
+function _repBuildKentAbdomenSourceTree(data){
+    var entries=_repKentAbdomenSourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    if(entries.length!==_REP_KENT_ABDOMEN_COUNT) throw new Error('Expected '+_REP_KENT_ABDOMEN_COUNT+' Kent ABDOMEN source rows; found '+entries.length);
+    entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
+    var byRid=Object.create(null);
+    entries.forEach(function(e,index){
+        var rec=e.rec, order=Number(rec.source_order), parentId=rec.source_parent_id;
+        if(order!==index) throw new Error('Invalid Kent ABDOMEN source order at '+e.rid+': '+order);
+        var page=Number(rec.source_page), depth=Number(rec.source_depth), label=String(rec.source_label||'');
+        if(page<541||page>605) throw new Error('Kent ABDOMEN source row outside pages 541–605: '+e.rid);
+        if(!label) throw new Error('Empty Kent ABDOMEN source label at '+e.rid);
+        var labels=Array.isArray(rec.source_path_labels)?rec.source_path_labels.map(String):[];
+        if(!labels.length||labels[labels.length-1]!==label||depth!==labels.length-1)
+            throw new Error('Kent ABDOMEN source path/depth mismatch at '+e.rid);
+        var sourcePath=String(rec.source_path||'');
+        if(sourcePath!==labels.join(', ')) throw new Error('Kent ABDOMEN source full path mismatch at '+e.rid);
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent ABDOMEN source parent '+parentId+' for '+e.rid);
+        if(parentId!==null && Number(parent.sourceOrder)>=index)
+            throw new Error('Kent ABDOMEN source parent must precede child at '+e.rid);
+        var parentPath=parent===root?'':String(parent.pathTitle||'');
+        var expectedPath=parentPath?parentPath+', '+label:label;
+        if(expectedPath!==sourcePath) throw new Error('Kent ABDOMEN source parent link/path mismatch at '+e.rid);
+        if(parent.children[label]) throw new Error('Duplicate Kent STOMACH sibling label '+label+' at '+e.rid);
+        var remedies=rec.r;
+        if(!remedies||typeof remedies!=='object'||Array.isArray(remedies))
+            throw new Error('Missing Kent STOMACH remedies at '+e.rid);
+        Object.keys(remedies).forEach(function(code){
+            var grade=Number(remedies[code]);
+            if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
+                throw new Error('Invalid Kent STOMACH medicine grade at '+e.rid+': '+code);
+        });
+        var node={
+            name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
+            children:{},order:[],remedies:remedies,count:1,hasRubric:true,
+            path:sourcePath,pathTitle:sourcePath,displayPathTitle:sourcePath,
+            translationTitle:String(rec.translation_title||sourcePath),
+            oorep_id:rec.oorep_id||null,rid:e.rid,sourceCanonical:true,
+            display:rec.display&&typeof rec.display==='object'&&!Array.isArray(rec.display)?rec.display:null
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        parent.count=(parent.count||0)+1;
+        byRid[e.rid]=node;
+    });
+    return root;
+}
 // ============================================================
 // 🔑 v143: کینٹ کا درخت کتاب کی اصل ساخت پر — homeoint.org + True-Original PDF سے موازنہ
 // مسئلہ: OOREP مرج کے بعد کئی کتابی مین ربرکس (مثلاً «ANGER, irascibility»)
@@ -1458,6 +1529,300 @@ function buildRubricTree(data){
     // 🔑 v178: معدہ باب کی ماخذی قطاریں (صفحات 476–540) — وہی طرز جو بیرونی گلا باب میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'stomach' && _repHasKentStomachSourceData(data)){
         return _repBuildKentStomachSourceTree(data);
+    }
+    // 🔑 v179: شکم باب کی ماخذی قطاریں (صفحات 541–605) — وہی طرز جو معدہ باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'abdomen' && _repHasKentAbdomenSourceData(data)){
+        return _repBuildKentAbdomenSourceTree(data);
+    }
+    // Kent English and Repertorium Publicum have many meaningful commas inside
+    // a single rubric label. Therefore they must be nested by the longest
+    // already-existing rubric prefix, not by every comma.
+    // This fixes BUBO/BALL in Kent and oorep Publicum rubric ordering.
+    if(repCurrentBook === 'kent' || repCurrentBook === 'publicum' || (REP_BOOK_INFO[repCurrentBook] && REP_BOOK_INFO[repCurrentBook].tree === 'prefix')){
+        // 🔑 v143: کینٹ — چھپائے گئے twin/synthetic لنگر فلٹر (kent-tree-fix.js)
+        if(repCurrentBook === 'kent' && window.KENT_TREE_FIX && window.KENT_TREE_FIX.ch){
+            var _kf=window.KENT_TREE_FIX.ch[repCurrentChapter];
+            if(_kf && _kf.h && _kf.h.length){
+                var _hs={};_kf.h.forEach(function(id){_hs[id]=1;});
+                var _d2={};Object.keys(data).forEach(function(k){if(!_hs[k])_d2[k]=data[k];});
+                data=_d2;
+            }
+        }
+        var _kt=_repBuildTreeByExistingRubrics(data);
+        if(repCurrentBook === 'kent'){
+            _kt=_repApplyKentTreeFix(_kt);
+            _repSortTreeKentOrder(_kt, true);   // 🔑 v143: درستی کے بعد کتابی ترتیب (v130/v131 قانون)
+        }
+        return _kt;
+    }
+
+    var root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    
+    Object.keys(data).forEach(function(rid){
+        var r=data[rid];
+        if(!r)return;
+        var txt=r.path||r.de_path||r.t||'';
+        if(!txt)return;
+        var parts = (repCurrentBook === 'synthesis91') ? _repSplitSynthesisPathForTree(txt) : _repSplitCommaOutsideParentheses(txt);
+        // 🔑 v80 (صارف فکس): Synthesis کا path ہمیشہ چیپٹر نام سے شروع ہوتا ہے (مثلاً «MIND - ABRUPT - ...»)۔
+        // چیپٹر نام ربرک نہیں — اُسے ٹری سے ہٹا دو تاکہ اصل مین ربرکس (ABRUPT، ABSENTMINDED ...) سیدھا چیپٹر کے نیچے آئیں۔
+        // (تمام 83 ابواب میں path کا پہلا سیگمنٹ == چیپٹر نام — تصدیق شدہ؛ دوسری کتابوں کی ٹری/ادویات متبدیل نہیں)
+        if(repCurrentBook === 'synthesis91' && parts.length) parts = parts.slice(1);
+        var n=root;
+        for(var i=0;i<parts.length;i++){
+            var pt=parts[i].trim();
+            if(!pt)continue;
+            if(!n.children[pt]){
+                n.children[pt]={name:pt,children:{},order:[],remedies:{},count:0,hasRubric:false,path:'',oorep_id:null,display:null};
+                n.order.push(pt);
+            }
+            var _par=n; n=n.children[pt];
+            if(!n.__par) Object.defineProperty(n,'__par',{value:_par,enumerable:false});
+            n.count++;
+            if(i===parts.length-1){
+                if(n.hasRubric){   // 🔑 v72: دوہرا ربرک — پہلے والا اوور رائٹ ہو کر غائب ہو جاتا تھا؛ اب الگ «[2]»
+                    var par=n.__par||root, k2=2; while(par.children[pt+' ['+k2+']'])k2++;
+                    var dl2=pt+' ['+k2+']'; par.children[dl2]={name:dl2,children:{},order:[],remedies:{},count:1,hasRubric:false,path:'',oorep_id:null,dup:k2};
+                    par.order.push(dl2); n=par.children[dl2];
+                }
+                n.remedies=r.r||{};
+                n.hasRubric=true;
+                n.path=txt;
+                n.display=r.display&&typeof r.display==='object'&&!Array.isArray(r.display)?r.display:null;
+                n.oorep_id=r.oorep_id||null;
+                n.rid=rid;
+            }
+        }
+    });
+    return root;
+}
+
+var repTreePage=0,repTreePageSize=50;
+var repRidToFlatIndex={};   // (kept for API compat)
+var repPendingNavRid=null;  // 🔑 rubric ID waiting to be scrolled-to after render
+// ============================================================
+// 🔑 v143: کینٹ کا درخت کتاب کی اصل ساخت پر — homeoint.org + True-Original PDF سے موازنہ
+// مسئلہ: OOREP مرج کے بعد کئی کتابی مین ربرکس (مثلاً «ANGER, irascibility»)
+// OOREP کے چھوٹے مین («ANGER») کے نیچے بطور ذیلی ربرک چلے جاتے تھے، اور کچھ
+// synthetic (ادویات کے بغیر) لنگر بھی بن گئے تھے۔
+// حل: kent-tree-fix.js (آف لائن سکرپٹ سے تیار، دونوں مآخذ سے تصدیق شدہ):
+//   (الف) h والے twin/synthetic لنگر ڈیٹا سطح پر فلٹر (اُن کی ادویات گروپ میں موجود رہتی ہیں)
+//   (ب) g گروپس: کتابی مین کے بچے دوبارہ اُسی کے نیچے (کتابی لیبل کے ساتھ)
+//   (ج) p کتابی مین جڑ پر (مکمل کتابی عنوان کے ساتھ) — مثلاً «ANGER, irascibility»
+// تفصیل اور گنتی: KENT_ORDER_METHOD.md · HANDOFF.md v143
+// ============================================================
+function _repApplyKentTreeFix(tree){
+    var fix=(window.KENT_TREE_FIX&&window.KENT_TREE_FIX.ch)?window.KENT_TREE_FIX.ch[repCurrentChapter]:null;
+    if(!fix)return tree;
+    var byRid={},parByRid={};
+    (function walk(n,par){
+        (n.order||[]).forEach(function(k){
+            var c=n.children[k];if(!c)return;
+            if(c.rid){byRid[String(c.rid)]=c;parByRid[String(c.rid)]=n;}
+            walk(c,n);
+        });
+    })(tree,null);
+    // (ب) گروپس — بچوں کو کتابی مین کے نیچے (لیبل = کتاب کا ذیلی ربرک)
+    (fix.g||[]).forEach(function(g){
+        var root=byRid[String(g[0])];if(!root)return;
+        (g[1]||[]).forEach(function(pair){
+            var c=byRid[String(pair[0])];if(!c)return;
+            var par=parByRid[String(pair[0])];
+            if(par&&par.children[c.name]===c){
+                delete par.children[c.name];
+                par.order=par.order.filter(function(x){return x!==c.name;});
+            }
+            var nm=String(pair[1]||c.name),base=nm,k2=2;
+            while(root.children[nm]&&root.children[nm]!==c){nm=base+' ['+(k2++)+']';}
+            if(root.children[nm]!==c){
+                c.name=nm;
+                if(!c.pathTitle)c.pathTitle=c.path||'';
+                root.children[nm]=c;root.order.push(nm);
+                byRid[String(pair[0])]=c;parByRid[String(pair[0])]=root;
+            }
+        });
+    });
+    // (ج) کتابی مین جڑ پر — مکمل کتابی عنوان کے ساتھ
+    (fix.p||[]).forEach(function(id){
+        var c=byRid[String(id)];if(!c)return;
+        var par=parByRid[String(id)];if(!par)return;
+        if(par.children[c.name]===c){
+            delete par.children[c.name];
+            par.order=par.order.filter(function(x){return x!==c.name;});
+        }
+        var nm=(c.path||c.name).replace(/\s+,/g,',').trim(),base=nm,k2=2;
+        while(tree.children[nm]&&tree.children[nm]!==c){nm=base+' ['+(k2++)+']';}
+        if(tree.children[nm]!==c){
+            c.name=nm;
+            if(!c.pathTitle)c.pathTitle=c.path||'';
+            tree.children[nm]=c;tree.order.push(nm);
+            parByRid[String(id)]=null;
+        }
+    });
+    return tree;
+}
+
+// ============================================================
+// 🔑 v130: کینٹ کی کتابی ترتیب بحال کرنا (صرف دکھانے/برآمد پر اثر — ڈیٹا، کلیدیں اور ترجمے جوں کے توں)
+// مسئلہ: kent_chapters/*.json کی فائل ترتیب کتاب کی نہیں (پرانا merge سکرپٹ ہر سطح کو «سب سے چھوٹا
+// OOREP id» ملا کر چنتا تھا)۔ لیکن کتاب کی اصل ترتیب ہمارے پرانے r-id میں محفوظ ہے۔
+// کینٹ کا اپنا قانون (PREFACE، صفحہ I): «general rubric ... followed by the particulars, viz. the time of
+// occurrence, the circumstances, and lastly the extensions» — یعنی: عام ربرک، پھر وقت، پھر شرائط،
+// پھر محل/نوعیت، اور پھیلاؤ سب سے آخر میں۔
+// قاعدہ: (الف) پرانے ربرک (r…) اپنی کتابی ترتیب پر (r نمبر کے حساب سے)۔ (ب) نئے ربرک (o/m) اُوپر
+// والے پروٹوکول کے حساب سے درمیان میں ٹھیک جگہ پر۔ (ج) کسی سطح پر کوئی پرانا ربرک نہ ہو تو سب
+// پروٹوکول کی ترتیب پر۔
+function _repKentTimeRank(b){
+    var T={daytime:0,morning:1,forenoon:2,noon:3,afternoon:4,evening:5,night:6,midnight:7,
+           'before midnight':8,'after midnight':9};
+    return T.hasOwnProperty(b)?T[b]:null;
+}
+function _repKentLabelKey(label){
+    var b=String(label||'').replace(/\s*\[\d+\]\s*$/,'').trim().toLowerCase();
+    if(b==='right'||b==='right, then left') return [0,0,b];
+    if(b==='left'||b==='left, then right')  return [0,1,b];
+    var t=_repKentTimeRank(b); if(t!==null) return [2,t,b];
+    if(b==='before') return [3,0,b];
+    if(b==='during') return [3,1,b];
+    if(b==='after')  return [3,2,b];
+    if(b==='amel.')  return [3,3,b];
+    if(b==='agg.')   return [3,4,b];
+    return [4,0,b];
+}
+function _repKentKeyCmp(a,b){
+    if(a[0]!==b[0]) return a[0]<b[0]?-1:1;
+    if(a[1]!==b[1]) return a[1]<b[1]?-1:1;
+    return a[2] < b[2] ? -1 : (a[2] > b[2] ? 1 : 0);
+}
+function _repKentRNum(rid){ var m=/^r(\d+)$/.exec(String(rid||'')); return m?parseInt(m[1],10):null; }
+// 🔑 v131: مین ربرک (جڑ) کی سطح کینٹ میں حروفِ تہجی سے ہے — کتاب سے تصدیق شدہ
+// (تفصیل اور حوالے: KENT_ORDER_METHOD.md)۔ صرف دو استثنا: «… in general» والا عام ربرک سب سے اوپر
+// (CHILL میں «COLDNESS in general»، FEVER میں «HEAT in general»)، اور وقت کا بلاک (daytime → … → midnight)
+// جو اُن ابواب میں پہلے آتا ہے جہاں کتاب نے وقت کو مقدم رکھا (cough، expectoration، chill، fever،
+// generalities، perspiration، vertigo)۔
+function _repKentNormLabel(label){
+    var s=String(label||'').replace(/\s*\[\d+\]\s*$/,'').replace(/\(See [^)]*\)/g,' ');
+    s=s.replace(/&#140;/g,'OE').replace(/&#146;/g,"'").replace(/Æ/g,'AE').replace(/æ/g,'ae')
+       .replace(/Œ/g,'OE').replace(/œ/g,'oe').replace(/’/g,"'");
+    // 🔑 v131: hyphen پہلے ہٹا دیں (کتاب «RE-ECHO» کو «READING» سے بعد رکھتی ہے) — باقی علامات جگہ
+    return s.toLowerCase().replace(/-/g,'').replace(/[^a-z0-9]+/g,' ').replace(/^\s+|\s+$/g,'');
+}
+function _repKentRootKey(label){
+    var b=String(label||'').replace(/\s*\[\d+\]\s*$/,'').trim().toLowerCase();
+    var n=_repKentNormLabel(label);
+    if(/ in general$/.test(b)) return [0,0,n];
+    var t=_repKentTimeRank(b); if(t!==null) return [1,t,n];
+    return [2,0,n];
+}
+function _repSortTreeKentOrder(node, isRoot){
+    if(!node||!node.order) return node;
+    node.order.forEach(function(l){ _repSortTreeKentOrder(node.children[l], false); });
+    var kids=node.order.map(function(l, i){
+        var ch=node.children[l]||{};
+        return {l:l, i:i, rid:ch.rid||'', dup:ch.dup, key:_repKentLabelKey(l)};
+    });
+    if(isRoot){
+        // 🔑 v131: مین ربرک (جڑ) کی سطح — کینٹ کی کتاب میں مین ربرک حروفِ تہجی سے ہیں، اِس لیے اُنہیں
+        // حروفِ تہجی کی ترتیب دی جائے۔ (p.1497 GENITALIA MALE کے آغاز اور دیگر ابواب سے تصدیق شدہ:
+        // ABSCESS → ADDISON'S → BUBBLING → … ) اِس سے وہ ربرک بھی اپنی اصل جگہ پر آ جاتے ہیں جو
+        // ڈیٹا میں باب کے آخری سرے پر پڑے تھے — مثال rectum کا «ASH-COLORED (See Gray)» (یہ اصل میں
+        // STOOL کا مین ربرک ہے، کتاب صفحہ 1372) اب APHTHOUS کے بعد اور BALL سے پہلے آتا ہے۔
+        // طریقہ کار، کتابی حوالے اور تصدیق: KENT_ORDER_METHOD.md
+        // کلید کے تین درجے: [0] «… in general» سب سے اوپر · [1] وقت کا بلاک (DAYTIME … MIDNIGHT) · [2] باقی حروفِ تہجی
+        kids.forEach(function(k){ k.rk=_repKentRootKey(k.l); });
+        // «… in general» (کتاب کا عام ربرک — PREFACE: generals to particulars) کو سب سے اوپر صرف اُس وقت
+        // رکھیں جب وہ اسی باب کا پہلا ربرک ہو: CHILL کا «COLDNESS in general» اور FEVER کا «HEAT in general»
+        // (دونوں کتاب میں باب کے آغاز پر ہیں)۔ ورنہ (مثلاً GENERALITIES کا «SWELLING in general») وہ اپنی
+        // حروفِ تہجی والی جگہ پر ہی رہے گا — کتاب میں وہ SWELLING کے نیچے درمیان میں آتا ہے۔
+        var minRn=null;
+        kids.forEach(function(k){ var r=_repKentRNum(k.rid); if(r!==null && (minRn===null || r<minRn)) minRn=r; });
+        kids.forEach(function(k){
+            if(k.rk[0]===0 && minRn!==null && _repKentRNum(k.rid)!==minRn) k.rk=[2,0,k.rk[2]];
+        });
+        kids.sort(function(a,b){ var c=_repKentKeyCmp(a.rk,b.rk); return c? c : (a.i-b.i); });
+        node.order=kids.map(function(k){ return k.l; });
+        return node;
+    }
+    var rkids=kids.filter(function(k){ return _repKentRNum(k.rid)!==null; })
+                  .sort(function(a,b){ return _repKentRNum(a.rid)-_repKentRNum(b.rid); });
+    var rest =kids.filter(function(k){ return _repKentRNum(k.rid)===null; })
+                  .sort(function(a,b){ return _repKentKeyCmp(a.key,b.key); });
+    if(!rkids.length){ node.order=rest.map(function(k){ return k.l; }); return node; }
+    rest.forEach(function(e){
+        // 🔑 نئے ربرک کو حروفِ تہجی کے حساب سے سب سے قریب پچھلے پرانے ربرک کے بعد رکھیں
+        // (پرانے ربرک کتابی ترتیب پر ہیں جو عموماً حروفِ تہجی ہی ہے — مگر ہر باب میں نہیں)
+        var best=-1;
+        for(var j=0;j<rkids.length;j++){
+            if(_repKentKeyCmp(rkids[j].key,e.key)<=0){
+                if(best<0 || _repKentKeyCmp(rkids[j].key,rkids[best].key)>0) best=j;
+            }
+        }
+        rkids.splice(best+1,0,e);
+    });
+    node.order=rkids.map(function(k){ return k.l; });
+    return node;
+}
+
+function buildRubricTree(data){
+    // 🔑 v146: MIND hierarchy/order use explicit Homeoint parents plus the audited page-8 display correction.
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'mind' && _repHasKentMindSourceData(data)){
+        return _repBuildKentMindSourceTree(data);
+    }
+    // چکر باب کی ماخذی قطاریں الگ درخت بناتی ہیں؛ پرانی مقامی قطاریں فائل میں محفوظ رہتی ہیں۔
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'vertigo' && _repHasKentVertigoSourceData(data)){
+        return _repBuildKentVertigoSourceTree(data);
+    }
+    // 🔑 v167: سر باب کی ماخذی قطاریں (صفحات 107–234) — وہی طرز جو چکر باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'head' && _repHasKentHeadSourceData(data)){
+        return _repBuildKentHeadSourceTree(data);
+    }
+    // 🔑 v168: آنکھ باب کی ماخذی قطاریں (صفحات 235–270) — وہی طرز جو سر باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'eye' && _repHasKentEyeSourceData(data)){
+        return _repBuildKentEyeSourceTree(data);
+    }
+    // 🔑 v169: وژن باب کی ماخذی قطاریں (صفحات 271–285) — وہی طرز جو آنکھ باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'vision' && _repHasKentVisionSourceData(data)){
+        return _repBuildKentVisionSourceTree(data);
+    }
+    // 🔑 v170: کان باب کی ماخذی قطاریں (صفحات 285–320) — وہی طرز جو وژن باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'ear' && _repHasKentEarSourceData(data)){
+        return _repBuildKentEarSourceTree(data);
+    }
+    // 🔑 v171: سماعت باب کی ماخذی قطاریں (صفحات 321–323) — وہی طرز جو کان باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'hearing' && _repHasKentHearingSourceData(data)){
+        return _repBuildKentHearingSourceTree(data);
+    }
+    // 🔑 v172: ناک باب کی ماخذی قطاریں (صفحات 324–354) — وہی طرز جو سماعت باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'nose' && _repHasKentNoseSourceData(data)){
+        return _repBuildKentNoseSourceTree(data);
+    }
+    // 🔑 v173: چہرہ باب کی ماخذی قطاریں (صفحات 355–396) — وہی طرز جو ناک باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'face' && _repHasKentFaceSourceData(data)){
+        return _repBuildKentFaceSourceTree(data);
+    }
+    // 🔑 v174: منہ باب کی ماخذی قطاریں (صفحات 397–430) — وہی طرز جو چہرہ باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'mouth' && _repHasKentMouthSourceData(data)){
+        return _repBuildKentMouthSourceTree(data);
+    }
+    // 🔑 v175: دانت باب کی ماخذی قطاریں (صفحات 430 نصف – 447) — وہی طرز جو منہ باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'teeth' && _repHasKentTeethSourceData(data)){
+        return _repBuildKentTeethSourceTree(data);
+    }
+    // 🔑 v176: گلا باب کی ماخذی قطاریں (صفحات 448–470) — وہی طرز جو دانت باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'throat' && _repHasKentThroatSourceData(data)){
+        return _repBuildKentThroatSourceTree(data);
+    }
+    // 🔑 v177: بیرونی گلا باب کی ماخذی قطاریں (صفحات 471–475) — وہی طرز جو گلا باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'external_throat' && _repHasKentExtThroatSourceData(data)){
+        return _repBuildKentExtThroatSourceTree(data);
+    }
+    // 🔑 v178: معدہ باب کی ماخذی قطاریں (صفحات 476–540) — وہی طرز جو بیرونی گلا باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'stomach' && _repHasKentStomachSourceData(data)){
+        return _repBuildKentStomachSourceTree(data);
+    }
+    // 🔑 v179: شکم باب کی ماخذی قطاریں (صفحات 541–605) — وہی طرز جو معدہ باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'abdomen' && _repHasKentAbdomenSourceData(data)){
+        return _repBuildKentAbdomenSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest

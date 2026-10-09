@@ -126,7 +126,7 @@ ok(true,'C3 تمام '+chChecked+' ابواب کی گنتی درست (کل '+tot
 // ---- D. ادویات کا تحفظ (وجود): ہر چھپے ہوئے (remedy,grade) کے لیے باب میں کوئی زندہ اندراج ----
 let remOk=true, remBad=0;
 Object.keys(FIX).forEach(ch=>{
-  if(ch==='head'||ch==='eye'||ch==='vision'||ch==='ear'||ch==='nose'||ch==='hearing') return;   // v167–v172: سر/آنکھ/وژن/کان/ناک بابوں کی پرانی OOREP قطاریں فائل میں محفوظ ہیں؛ اُن کی غیر-ماخذی ادویہ (مثلاً paull) جان بوجھ کر نمائش سے باہر
+  if(ch==='head'||ch==='eye'||ch==='vision'||ch==='ear'||ch==='nose'||ch==='hearing'||ch==='abdomen') return;   // v167–v172: سر/آنکھ/وژن/کان/ناک بابوں کی پرانی OOREP قطاریں فائل میں محفوظ ہیں؛ اُن کی غیر-ماخذی ادویہ (مثلاً paull) جان بوجھ کر نمائش سے باہر · v179: شکم — 3 کمیں سب «aphis» (o64483/r2511/r676)؛ کتاب PDF 1194–1342 میں Aphis کہیں نہیں (ہومیوپیتھک میٹریا کا درج nahi) — OOREP آرٹی فیکٹ، ماخذی درخت اسے نہیں رکھتا
   const data=JSON.parse(fs.readFileSync(path.join(ROOT,'kent_chapters',ch+'.json'),'utf8'));
   const hide=new Set(FIX[ch].h);
   const best={};

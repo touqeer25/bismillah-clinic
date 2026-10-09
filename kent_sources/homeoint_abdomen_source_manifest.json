@@ -1,0 +1,29 @@
+{
+ "book": "kent",
+ "chapter": "stomach",
+ "source": "homeoint.org/books/kentrep1 kent0540–kent0600 (MEDI-T HTML) — kentabdo.htm انڈیکس «ABDOMEN (p. 541-605)»",
+ "pages": "541 – 605",
+ "source_canonical": "homeoint-abdomen-v1",
+ "source_rows": 3269,
+ "unique_source_paths": 3269,
+ "matched_app_records": 3136,
+ "new_source_records": 133,
+ "legacy_local_records": 456,
+ "ambiguous_app_records": 92,
+ "third_source_pdf": "Drive PDF صفحہ 1194–1342 (مطبوعہ ص 541–605) — ordered alignment: 3269/3275 مکمل مطابق، صفر drift-بقیات؛ 4 ادویہ-فرق سب دستاویزی: (1-2) PDF لائن-ٹوٹ آرٹی فاکٹ جوڑا ص553 «CONTRACTION, Umbilicus, sleep, during»+«CORD connecting anus and navel…» (PDF نے اگلی قطار کا لیبل ادویات میں گلا — ماخذ درست)؛ (3) ص554 «ŒDEMA (See Dropsy)» — PDF نکالنے نے اگلے حصے کی ادویات جوڑ دیں، ماخذ (بے-ادویات See-ref) درست، حقیقی œdema-6-ادویات قطار ص546 DROPSY ascites کے تحت موجود؛ (4) ص581 صفحہ-سٹیمپ آرٹی فیکٹ (nat1230c → Nat-c.)",
+ "chapter_boundaries": "ABDOMEN = صفحات 541–605 — kentabdo.htm فہرست 65/65 صفحہ-اندراجات؛ آغاز P541 (kent0540.htm؛ PDF 1194)؛ اختتام P605 (TUMORS آخری مین — PDF 1342، RECTUM از PDF 1343)؛ P605 کی کتابی درستی kent0605.htm کے P605 سیکشن سے کراس-تصدیق (عین ایک، 2162 حروف)؛ انڈیکس-تصدیق 63/65 — 2 فرق MEDI-T انڈیکس کی غلطیاں (PDF ثابت): p570 انڈیکس «spleen» ← کتاب «Sides» (PDF 1254 سرخی)، p582 انڈیکس «sides» ← کتاب «liver» (PDF 1282 سرخی)",
+ "documented_corrections": [
+  "10 خاندانی clamps (MEDI-T اضافی <dir>): ص544 in-spots؛ ص546 chronic-diarrhœa؛ ص557 amel.؛ ص561 ilium-ilium؛ ص563×3 amel.؛ ص565 extending-to-back؛ ص567 walking-agg؛ ص586 amel. — سب ساختی ثبوت (بلا-وسط بچے/والد پہلے سے موجود)",
+  "14 دستی جوڑے (سب J=1.00 ادویات-عین): 7 OOREP «agg.»-لاحقہ/لمبے-راستے (o1911 «PAIN, lying, on back agg.» ↔ ماخذ «…lying, while, on back»؛ o64374؛ r1059؛ r1373؛ r1393؛ r1419؛ r2294)؛ 3 ہجے-تبدیلی ileo→کتابی Ilio-cæcal (o213 DISTENSION؛ o735 burning؛ o3015 RUMBLING)؛ 3 TENSION «agg.» (o3171/o3183/o3190)؛ o1694 (ہجے+agg.)",
+  "85 OOREP aggregate/کنٹینر مبہم → legacy: m259 «DROPSY»، m2919 «PROTRUSION»، o64310 «MOVEMENTS» (99 unions)، r676 «PAIN» (360)، r902 «PAIN, stool» (175)، o64402 «PAIN, eating» (92) وغیرہ — OOREP کے شمارشدہ unions کی کتابی اکیلی قطار موجود نہیں",
+  "371 legacy مقامی قطاریں (OOREP unions + agg./amel. اسپلٹ + m-کنٹینرز) فائل میں محفوظ، ماخذی درخت سے باہر — ڈاکٹر نظرثانی کے لیے رپورٹ",
+  "7 دوہرے norm-راستے ضم (raw-key اسکیم — refs محفوظ): ص547+ص564 «PAIN, aching…(See…), Sides, morning/evening/night/coughing-on/menses-during/stool-during/walking-while» — کتابی طور پر الگ قطاریں جو مختلف صفحات پر دہرائی گئیں، max-گریڈ ضم",
+  "133 نئے hN: جڑ ABDOMEN + کتابی قطاریں جو OOREP ایپ میں نہیں — خاص طور پر «PAIN, aching, dull pain (See Boring, Drawing, Distress, Digging, Gnawing, Pressing, etc.)» ذیلی درخت کی ~90 قطاریں (OOREP نے یہ سیگمنٹ ماڈل ہی نہیں کیا تھا) + ص554 «ŒDEMA (See Dropsy)»",
+  "r2679 «PAIN, ileo-caecal region» (22 ادویات) کا J=0.913 — کتابی «PAIN, aching…(See…), Ilio-cæcal region» سے 1+1 ادویہ فرق → legacy رکھا، تصدیق-ضروری فہرست میں"
+ ],
+ "policy": {
+  "remedies": "r := source_remedies (ماخذ مطبوعہ کتاب = سچ؛ OOREP مجموعے ضم/legacy)",
+  "hierarchy": "runtime tree از source_parent_id (rep-chapters.js stomach بلڈر)",
+  "legacy": "فائل میں محفوظ، ماخذی درخت میں شامل نہیں — ڈاکٹر نظرثانی کے لیے رپورٹ"
+ }
+}
