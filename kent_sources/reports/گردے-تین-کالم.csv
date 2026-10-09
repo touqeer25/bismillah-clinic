@@ -1,0 +1,231 @@
+﻿شناخت,پرانا راستہ (ایپ),نیا راستہ (مطبوعہ کتاب),اردو جملہ,ادویات پرانی,ادویات ماخذی,فرق
+o45100,ABSCESS,ABSCESS,گردے — پھوڑا,5,5,یکساں
+o45101,ADDISON'S disease,ADDISON'S disease,گردے — ایڈیسن کا مرض,33,33,یکساں
+o45102,BUBBLING sensation in region of,BUBBLING sensation in region of,گردے — علاقے میں بلبلوں کی آواز کا احساس,3,3,یکساں
+o45103,CATARRH,CATARRH,گردے — نزلہ (کیٹار),5,5,یکساں
+o45105,"COLD sensation, region of","COLD sensation, region of",گردے — ٹھنڈک کا احساس، گردوں کے علاقے میں,1,1,یکساں
+o45106,"FLUTTERING sensation, region of","FLUTTERING sensation, region of",گردے — پھڑپھڑاہٹ کا احساس، گردوں کے علاقے میں,1,1,یکساں
+o45108,"FORMICATION, region of","FORMICATION, region of",گردے — چیونٹیاں رینگنے کا احساس، گردوں کے علاقے میں,1,1,یکساں
+o45110,"HEAT, extending to bladder","HEAT, extending to bladder",گردے — گرمی، مثانے تک پھیلتی ہوئی,1,1,یکساں
+o45111,"HEAT, region of","HEAT, region of",گردے — گرمی، گردوں کے علاقے میں,8,8,یکساں
+o45112,"HEAT, region of, sitting, while","HEAT, region of, sitting, while",گردے — گرمی، گردوں کے علاقے میں، بیٹھے ہوئے,1,1,یکساں
+o45115,"HEAVINESS, morning, waking, on","HEAVINESS, morning, waking, on",گردے — بھاری پن، صبح جاگتے ہی,1,1,یکساں
+o45116,"HEAVINESS, region of","HEAVINESS, region of",گردے — بھاری پن، گردوں کے علاقے میں,7,7,یکساں
+o45117,"HEAVINESS, region of, afternoon","HEAVINESS, region of, afternoon",گردے — بھاری پن، گردوں کے علاقے میں، سہ پہر,2,2,یکساں
+o45118,"HEAVINESS, region of, evening","HEAVINESS, region of, evening",گردے — بھاری پن، گردوں کے علاقے میں، شام,1,1,یکساں
+o45120,"HEAVINESS, region of, night, motion agg.","HEAVINESS, region of, night, motion agg.",گردے — بھاری پن، گردوں کے علاقے میں، رات، حرکت سے بگاڑ,1,1,یکساں
+o45121,"HEAVINESS, sitting agg.","HEAVINESS, sitting agg.",گردے — بھاری پن، بیٹھنے سے بگاڑ,1,1,یکساں
+o45123,"INFLAMMATION, acute parenchymatous","INFLAMMATION, acute parenchymatous (See Albumen)",گردے — سوزش، شدید، گردے کے خلیوں کی (پیرینکائمٹس),13,13,یکساں
+o45124,"INFLAMMATION, bloody, ink-like, albuminous urine, with","INFLAMMATION, bloody, ink-like, albuminous urine, with",گردے — سوزش، خون آلود، سیاہی جیسے، البومن والے پیشاب کے ساتھ,1,1,یکساں
+o45125,"INFLAMMATION, cardiac and hepatic affections, with","INFLAMMATION, cardiac and hepatic affections, with",گردے — سوزش، دل اور جگر کے امراض کے ساتھ,2,2,یکساں
+o45126,"INFLAMMATION, suppurative","INFLAMMATION, suppurative",گردے — سوزش، پیپ بنانے والی,5,5,یکساں
+o45127,"INFLAMMATION, toxaemic","INFLAMMATION, toxæmic",گردے — سوزش، زہریلی (ٹاکسیمک),1,1,یکساں
+o45128,"INFLAMMATION, ureters","INFLAMMATION, Ureters",گردے — سوزش، حالب (یوریٹر) کی,3,3,یکساں
+o45203,"PAIN, extending, abdomen","PAIN, extending over abdomen, abdomen",گردے — درد، پھیلتا ہوا، پیٹ تک,4,4,یکساں
+o45204,"PAIN, extending, bladder","PAIN, extending over abdomen, bladder",گردے — درد، پھیلتا ہوا، مثانے تک,15,15,یکساں
+o45205,"PAIN, extending, epigastrium","PAIN, extending over abdomen, epigastrium",گردے — درد، پھیلتا ہوا، معدے کے اوپری حصے تک,1,1,یکساں
+o45206,"PAIN, extending, hip","PAIN, extending over abdomen, hip",گردے — درد، پھیلتا ہوا، کولھے تک,7,7,یکساں
+o45207,"PAIN, extending, right ilium","PAIN, extending over abdomen, right ilium",گردے — درد، پھیلتا ہوا، دائیں کولھے کی ہڈی تک,1,1,یکساں
+o45208,"PAIN, extending, right, thigh","PAIN, extending over abdomen, right ilium, thigh",گردے — درد، پھیلتا ہوا، دائیں ران تک,1,1,یکساں
+o45209,"PAIN, extending, testes","PAIN, extending over abdomen, testes",گردے — درد، پھیلتا ہوا، خصیوں تک,4,4,یکساں
+o45210,"PAIN, extending, uterus","PAIN, extending over abdomen, uterus",گردے — درد، پھیلتا ہوا، رحم تک,1,1,یکساں
+o45225,"PAIN, motion, amel.","PAIN, motion agg., amel.",گردے — درد، حرکت سے آرام,1,1,یکساں
+o45243,"PAIN, region of, extending, chest","PAIN, region of, extending to calves, chest",گردے — درد، گردوں کے علاقے میں، پھیلتا ہوا، سینے تک,1,1,یکساں
+o45244,"PAIN, region of, extending, downward","PAIN, region of, extending to calves, downward",گردے — درد، گردوں کے علاقے میں، پھیلتا ہوا، نیچے کی طرف,2,2,یکساں
+o45245,"PAIN, region of, extending, from genitals, anus and thighs","PAIN, region of, extending to calves, from genitals, anus and thighs",گردے — درد، گردوں کے علاقے میں، پھیلتا ہوا، شرمگاہ، مقعد اور رانوں سے,1,1,یکساں
+o45248,"PAIN, region of, extending, prostate gland","PAIN, region of, extending to calves, prostate gland",گردے — درد، گردوں کے علاقے میں، پھیلتا ہوا، پروسٹیٹ غدود تک,2,2,یکساں
+o45249,"PAIN, region of, extending, thighs","PAIN, region of, extending to calves, thighs",گردے — درد، گردوں کے علاقے میں، پھیلتا ہوا، رانوں تک,6,6,یکساں
+o45250,"PAIN, region of, extending, ureters","PAIN, region of, extending to calves, ureters",گردے — درد، گردوں کے علاقے میں، پھیلتا ہوا، حالب تک,4,4,یکساں
+o45336,"SUPPRESSION of urine, suppressed gonorrhoea, from","SUPPRESSION of urine, suppressed gonorrhœa, from",گردے — پیشاب کا رک جانا، سوزاک دب جانے سے,2,2,یکساں
+r101,"PAIN, burning, left","PAIN, burning, left",گردے — درد، جلتا ہوا، بائیں طرف,3,3,یکساں
+r102,"PAIN, burning, lying, while","PAIN, burning, lying, while",گردے — درد، جلتا ہوا، لیٹے ہوئے,1,1,یکساں
+r103,"PAIN, burning, oppressed breathing and faintness, with","PAIN, burning, oppressed breathing and faintness, with",گردے — درد، جلتا ہوا، سانس کی تنگی اور غشی کے ساتھ,1,1,یکساں
+r104,"PAIN, burning, urination, before","PAIN, burning, urination, before",گردے — درد، جلتا ہوا، پیشاب سے پہلے,2,2,یکساں
+r106,"PAIN, burning, extending through left ilium to pubis, in women","PAIN, burning, extending through left ilium to pubis, in women",گردے — درد، جلتا ہوا، بائیں کولھے کی ہڈی سے ناف کے نیچے کی ہڈی تک پھیلتا ہوا، عورتوں میں,1,1,یکساں
+r108,"PAIN, burning, along ureters, to bladder","PAIN, burning, along ureters, to bladder",گردے — درد، جلتا ہوا، حالب کے ساتھ ساتھ، مثانے تک,2,2,یکساں
+r109,"PAIN, burning, region of","PAIN, burning, region of",گردے — درد، جلتا ہوا، گردوں کے علاقے میں,7,7,یکساں
+r11,"PAIN, right","PAIN, right",گردے — درد، دائیں طرف,2,2,یکساں
+r110,"PAIN, burning, ureters","PAIN, burning, Ureters",گردے — درد، جلتا ہوا، حالب میں,3,3,یکساں
+r111,"PAIN, constricting, extending to bladder","PAIN, constricting, extending to bladder",گردے — درد، جکڑنے والا، مثانے تک پھیلتا ہوا,1,1,یکساں
+r114,"PAIN, contracting, down ureters to penis","PAIN, contracting, down ureters to penis",گردے — درد، سکڑنے والا، حالب سے نیچے عضو تناسل تک,1,1,یکساں
+r115,"PAIN, cramping","PAIN, cramping",گردے — درد، اینٹھن والا، مروڑتے ہوئے,7,7,یکساں
+r118,"PAIN, cutting, paroxysmal, and burning in both","PAIN, cutting, paroxysmal, and burning in both",گردے — درد، کاٹتا ہوا، دوروں کی شکل میں، اور دونوں میں جلن,1,1,یکساں
+r119,"PAIN, cutting, urination, before","PAIN, cutting, urination, before",گردے — درد، کاٹتا ہوا، پیشاب سے پہلے,1,1,یکساں
+r120,"PAIN, cutting, region of","PAIN, cutting, region of",گردے — درد، کاٹتا ہوا، گردوں کے علاقے میں,3,3,یکساں
+r121,"PAIN, cutting, region of, heat amel., cold agg.","PAIN, cutting, region of, heat amel., cold agg.",گردے — درد، کاٹتا ہوا، گردوں کے علاقے میں، گرمی سے آرام، سردی سے بگاڑ,1,1,یکساں
+r122,"PAIN, cutting, region of, lancinations, friction and pressure amel.","PAIN, cutting, region of, lancinations, friction and pressure amel.",گردے — درد، کاٹتا ہوا، گردوں کے علاقے میں، نشتر جیسے وار، رگڑنے اور دبانے سے آرام,1,1,یکساں
+r123,"PAIN, cutting, ureters","PAIN, cutting, Ureters",گردے — درد، کاٹتا ہوا، حالب میں,41,41,ماخذی مطابق کیے
+r124,"PAIN, cutting, ureters, alternating with pain in glans","PAIN, cutting, Ureters, alternating with pain in glans",گردے — درد، کاٹتا ہوا، حالب میں، عضو تناسل کے سرے کے درد کے ساتھ باری باری,1,1,یکساں
+r125,"PAIN, cutting, ureters, urination, after","PAIN, cutting, Ureters, urination, after",گردے — درد، کاٹتا ہوا، حالب میں، پیشاب کے بعد,1,1,یکساں
+r126,"PAIN, cutting, ureters, vomiting, with","PAIN, cutting, Ureters, vomiting, with",گردے — درد، کاٹتا ہوا، حالب میں، قے کے ساتھ,1,1,یکساں
+r128,"PAIN, digging, region of, pressure agg.","PAIN, digging, region of, pressure agg.",گردے — درد، کھودتا ہوا، گردوں کے علاقے میں، دباؤ سے بگاڑ,1,1,یکساں
+r129,"PAIN, dragging, ureters, like labor pain, with urging to urinate","PAIN, dragging, ureters, like labor pain, with urging to urinate",گردے — درد، نیچے کو کھینچنے والا، حالب میں، زچگی کے درد جیسا، پیشاب کی خواہش کے ساتھ,1,1,یکساں
+r13,"PAIN, morning, waking, on","PAIN, morning, waking, on",گردے — درد، صبح جاگتے ہی,1,1,یکساں
+r131,"PAIN, drawing, right, 5 a.m.","PAIN, drawing, right, 5 a.m.",گردے — درد، کھینچتا ہوا، دائیں طرف، صبح 5 بجے,1,1,یکساں
+r132,"PAIN, drawing, left","PAIN, drawing, left",گردے — درد، کھینچتا ہوا، بائیں طرف,2,2,یکساں
+r133,"PAIN, drawing, stooping, when","PAIN, drawing, stooping, when",گردے — درد، کھینچتا ہوا، جھکتے وقت,1,1,یکساں
+r134,"PAIN, drawing, tensive, riding, while","PAIN, drawing, tensive, riding, while",گردے — درد، کھینچتا ہوا، تناؤ کے ساتھ، سواری کرتے ہوئے,1,1,یکساں
+r135,"PAIN, drawing, extending right to hip","PAIN, drawing, extending right to hip",گردے — درد، کھینچتا ہوا، دائیں سے کولھے تک پھیلتا ہوا,1,1,یکساں
+r136,"PAIN, drawing, region of","PAIN, drawing, region of",گردے — درد، کھینچتا ہوا، گردوں کے علاقے میں,14,14,یکساں
+r137,"PAIN, drawing, region of, evening, sitting, while","PAIN, drawing, region of, evening, sitting, while",گردے — درد، کھینچتا ہوا، گردوں کے علاقے میں، شام، بیٹھے ہوئے,2,2,یکساں
+r138,"PAIN, drawing, region of, extending into inguinal region","PAIN, drawing, region of, extending into inguinal region",گردے — درد، کھینچتا ہوا، گردوں کے علاقے میں، کچھوں کے علاقے میں پھیلتا ہوا,1,1,یکساں
+r139,"PAIN, drawing, region of, right hip","PAIN, drawing, region of, right hip",گردے — درد، کھینچتا ہوا، گردوں کے علاقے میں، دائیں کولھے تک,1,1,یکساں
+r141,"PAIN, drawing, ureters, right","PAIN, drawing, Ureters, right",گردے — درد، کھینچتا ہوا، دائیں حالب میں,1,1,یکساں
+r142,"PAIN, drawing, ureters, left","PAIN, drawing, Ureters, left",گردے — درد، کھینچتا ہوا، بائیں حالب میں,2,2,یکساں
+r144,"PAIN, gnawing, region of","PAIN, gnawing, region of",گردے — درد، کترتا ہوا، گردوں کے علاقے میں,1,1,یکساں
+r145,"PAIN, lancinating (See Cutting)","PAIN, lancinating (See Cutting)",گردے — درد، نشتر جیسا,0,0,یکساں
+r146,"PAIN, piercing in both ureters, with urging to urinate","PAIN, piercing in both ureters, with urging to urinate",گردے — درد، دونوں حالب میں آر پار کرتا ہوا، پیشاب کی خواہش کے ساتھ,1,1,یکساں
+r148,"PAIN, pressing, morning","PAIN, pressing, morning",گردے — درد، دبانے والا، صبح,1,1,یکساں
+r149,"PAIN, pressing, night","PAIN, pressing, night",گردے — درد، دبانے والا، رات,1,1,یکساں
+r15,"PAIN, afternoon, 4 p.m. to 9 p.m.","PAIN, afternoon, 4 p.m. to 9 p.m.",گردے — درد، سہ پہر 4 سے 9 بجے,1,1,یکساں
+r150,"PAIN, pressing, motion amel.","PAIN, pressing, motion amel.",گردے — درد، دبانے والا، حرکت سے آرام,1,1,یکساں
+r151,"PAIN, pressing, sitting, while","PAIN, pressing, sitting, while",گردے — درد، دبانے والا، بیٹھے ہوئے,2,2,یکساں
+r152,"PAIN, pressing, urination, before","PAIN, pressing, urination, before",گردے — درد، دبانے والا، پیشاب سے پہلے,1,1,یکساں
+r153,"PAIN, pressing, region of","PAIN, pressing, region of",گردے — درد، دبانے والا، گردوں کے علاقے میں,7,7,یکساں
+r154,"PAIN, shooting (See Stitching)","PAIN, shooting (See Stitching)",گردے — درد، دوڑتا ہوا,0,0,یکساں
+r16,"PAIN, afternoon, 4 p.m. to 8 p.m.","PAIN, afternoon, 4 p.m. to 8 p.m.",گردے — درد، سہ پہر 4 سے 8 بجے,1,1,یکساں
+r165,"PAIN, stabbing, region of","PAIN, stabbing, region of",گردے — درد، چھرا گھونپنے جیسا، گردوں کے علاقے میں,2,2,یکساں
+r166,"PAIN, stitching, stinging, sticking","PAIN, stitching, stinging, sticking",گردے — درد، چبھتا ہوا، ڈنک جیسا، گڑتا ہوا,58,58,یکساں
+r17,"PAIN, evening","PAIN, evening",گردے — درد، شام,4,4,یکساں
+r19,"PAIN, night, undressing, while","PAIN, night, undressing, while",گردے — درد، رات، کپڑے اتارتے ہوئے,1,1,یکساں
+r194,"PAIN, tearing, morning, rising, after","PAIN, tearing, morning, rising, after",گردے — درد، چیرتا ہوا، صبح، اٹھنے کے بعد,1,1,یکساں
+r195,"PAIN, tearing, agonizing as from passing calculus, in back and hips","PAIN, tearing, agonizing as from passing calculus, in back and hips",گردے — درد، چیرتا ہوا، پیٹھ اور کولھوں میں پتھری گزرنے جیسا ناقابل برداشت,1,1,یکساں
+r196,"PAIN, tearing, pulsating","PAIN, tearing, pulsating",گردے — درد، چیرتا ہوا، دھڑکن کے ساتھ,1,1,یکساں
+r197,"PAIN, tearing, radiating","PAIN, tearing, radiating",گردے — درد، چیرتا ہوا، شعاعوں کی طرح پھیلتا ہوا,1,1,یکساں
+r198,"PAIN, tearing, standing amel.","PAIN, tearing, standing amel.",گردے — درد، چیرتا ہوا، کھڑے ہونے سے آرام,1,1,یکساں
+r199,"PAIN, tearing, stooping, on","PAIN, tearing, stooping, on",گردے — درد، چیرتا ہوا، جھکنے پر,2,2,یکساں
+r20,"PAIN, alternating with vertigo","PAIN, alternating with vertigo",گردے — درد، چکر کے ساتھ باری باری,1,1,یکساں
+r200,"PAIN, tearing, wet weather","PAIN, tearing, wet weather",گردے — درد، چیرتا ہوا، گیلی آب و ہوا میں,1,1,یکساں
+r201,"PAIN, tearing, extending to thighs, with stiffness","PAIN, tearing, extending to thighs, with stiffness",گردے — درد، چیرتا ہوا، رانوں تک پھیلتا ہوا، اکڑن کے ساتھ,1,1,یکساں
+r203,"PAIN, tearing, ureters, extend downwards, touch, motion and inspiration agg.","PAIN, tearing, Ureters, extend downwards, touch, motion and inspiration agg.",گردے — درد، چیرتا ہوا، حالب میں، نیچے کی طرف پھیلتا ہوا، چھونے، حرکت اور سانس اندر لینے سے بگاڑ,2,2,یکساں
+r204,"PAIN, ulcerative","PAIN, ulcerative",گردے — درد، ناسور والا,1,1,یکساں
+r206,"PULSATION, extending into abdomen","PULSATION, extending into abdomen",گردے — دھڑکن، پیٹ میں پھیلتی ہوئی,1,1,یکساں
+r207,"PULSATION, restless sensation","PULSATION, restless sensation",گردے — دھڑکن، بے چینی کا احساس,1,1,یکساں
+r209,"SUPPRESSION of urine, cholera, in","SUPPRESSION of urine, cholera, in",گردے — پیشاب کا رک جانا، ہیضے میں,6,6,یکساں
+r21,"PAIN, apyrexia, during","PAIN, apyrexia, during",گردے — درد، بخار کے اُترنے کے دوران,5,5,یکساں
+r210,"SUPPRESSION of urine, concussion of spinal column, from","SUPPRESSION of urine, concussion of spinal column, from",گردے — پیشاب کا رک جانا، ریڑھ کی ہڈی کو چوٹ لگنے سے,3,3,یکساں
+r211,"SUPPRESSION of urine, convulsion, with","SUPPRESSION of urine, convulsion, with",گردے — پیشاب کا رک جانا، تشنج کے ساتھ,4,4,یکساں
+r212,"SUPPRESSION of urine, fever, with","SUPPRESSION of urine, fever, with",گردے — پیشاب کا رک جانا، بخار کے ساتھ,12,12,یکساں
+r213,"SUPPRESSION of urine, menses, during","SUPPRESSION of urine, menses, during",گردے — پیشاب کا رک جانا، حیض کے دوران,1,1,یکساں
+r214,"SUPPRESSION of urine, perspiration, with","SUPPRESSION of urine, perspiration, with",گردے — پیشاب کا رک جانا، پسینے کے ساتھ,13,13,یکساں
+r215,"SUPPRESSION of urine, stupor, with","SUPPRESSION of urine, stupor, with",گردے — پیشاب کا رک جانا، بیہوشی (سپور) کے ساتھ,2,2,یکساں
+r217,"SUPPRESSION of urine, violent","SUPPRESSION of urine, violent",گردے — پیشاب کا رک جانا، شدید,4,4,یکساں
+r218,SUPPURATION (See Inflammation),SUPPURATION (See Inflammation),گردے — پیپ پڑنا,0,0,یکساں
+r219,SWELLING,SWELLING,گردے — سوجن,1,1,یکساں
+r22,"PAIN, bending body, on","PAIN, bending body, on",گردے — درد، جسم جھکانے پر,1,1,یکساں
+r220,"TWITCHING, region of","TWITCHING, region of",گردے — پھڑکن، گردوں کے علاقے میں,2,2,یکساں
+r23,"PAIN, blowing nose","PAIN, blowing nose",گردے — درد، ناک صاف کرنے سے,1,1,یکساں
+r24,"PAIN, breathing deeply, when","PAIN, breathing deeply, when",گردے — درد، گہری سانس لیتے وقت,4,4,یکساں
+r25,"PAIN, chill, during","PAIN, chill, during",گردے — درد، سردی لگنے کے دوران,7,7,یکساں
+r256,"WEARINESS, region of","WEARINESS, region of",گردے — تھکن، گردوں کے علاقے میں,10,10,یکساں
+r26,"PAIN, coughing","PAIN, coughing",گردے — درد، کھانسنے سے,1,1,یکساں
+r27,"PAIN, dancing, while","PAIN, dancing, while",گردے — درد، ناچتے ہوئے,1,1,یکساں
+r28,"PAIN, desire be delayed, if","PAIN, desire be delayed, if",گردے — درد، پیشاب کی خواہش روکی جائے تو,3,3,یکساں
+r29,"PAIN, jar, from","PAIN, jar, from",گردے — درد، ہلنے سے,6,6,یکساں
+r30,"PAIN, laughing, when","PAIN, laughing, when",گردے — درد، ہنستے وقت,1,1,یکساں
+r31,"PAIN, lifting, when","PAIN, lifting, when",گردے — درد، چیز اٹھاتے وقت,1,1,یکساں
+r32,"PAIN, lying, while","PAIN, lying, while",گردے — درد، لیٹے ہوئے,6,6,یکساں
+r36,"PAIN, menses, at beginning of","PAIN, menses, at beginning of",گردے — درد، حیض کے شروع میں,3,3,یکساں
+r38,"PAIN, motion agg.","PAIN, motion agg.",گردے — درد، حرکت سے بگاڑ,11,11,یکساں
+r40,"PAIN, paroxysmal","PAIN, paroxysmal",گردے — درد، دوروں کی شکل میں,5,5,یکساں
+r41,"PAIN, pulsating","PAIN, pulsating",گردے — درد، دھڑکتا ہوا,2,2,یکساں
+r42,"PAIN, radiating","PAIN, radiating",گردے — درد، شعاعوں کی طرح پھیلتا ہوا,2,2,یکساں
+r43,"PAIN, riding","PAIN, riding",گردے — درد، سواری سے,3,3,یکساں
+r44,"PAIN, sitting, while","PAIN, sitting, while",گردے — درد، بیٹھے ہوئے,4,4,یکساں
+r45,"PAIN, sneezing agg.","PAIN, sneezing agg.",گردے — درد، چھینکنے سے بگاڑ,3,3,یکساں
+r46,"PAIN, standing amel.","PAIN, standing amel.",گردے — درد، کھڑے ہونے سے آرام,1,1,یکساں
+r47,"PAIN, stooping, when","PAIN, stooping, when",گردے — درد، جھکتے وقت,5,5,یکساں
+r49,"PAIN, straightening out legs agg.","PAIN, straightening out legs agg.",گردے — درد، ٹانگیں سیدھی کرنے سے بگاڑ,1,1,یکساں
+r50,"PAIN, swelling of right knee, with","PAIN, swelling of right knee, with",گردے — درد، دائیں گھٹنے کی سوجن کے ساتھ,1,1,یکساں
+r51,"PAIN, urging to urinate, during","PAIN, urging to urinate, during",گردے — درد، پیشاب کی خواہش کے دوران,9,9,یکساں
+r52,"PAIN, urination, before","PAIN, urination, before",گردے — درد، پیشاب سے پہلے,2,2,یکساں
+r55,"PAIN, walking, while","PAIN, walking, while",گردے — درد، چلتے ہوئے,7,7,یکساں
+r56,"PAIN, extending over abdomen","PAIN, extending over abdomen",گردے — درد، پیٹ پر پھیلتا ہوا,1,1,یکساں
+r66,"PAIN, region of, bands of clothing, from","PAIN, region of, bands of clothing, from",گردے — درد، گردوں کے علاقے میں، کپڑوں کی پٹیوں سے,1,1,یکساں
+r67,"PAIN, region of, digging, when","PAIN, region of, digging, when",گردے — درد، گردوں کے علاقے میں، کھودتے وقت,1,1,یکساں
+r68,"PAIN, region of, lie only on the back, can","PAIN, region of, lie only on the back, can",گردے — درد، گردوں کے علاقے میں، صرف چت لیٹ ہی سکے,1,1,یکساں
+r69,"PAIN, region of, stretching, after","PAIN, region of, stretching, after",گردے — درد، گردوں کے علاقے میں، تانی لینے کے بعد,1,1,یکساں
+r7,"LAMENESS, region of, left, with cramp, extending into thighs","LAMENESS, region of, left, with cramp, extending into thighs",گردے — لنگڑاہٹ، گردوں کے علاقے میں، بائیں طرف، اینٹھن کے ساتھ، رانوں تک پھیلتی ہوئی,1,1,یکساں
+r70,"PAIN, region of, extending to calves","PAIN, region of, extending to calves",گردے — درد، گردوں کے علاقے میں، پنڈلیوں تک پھیلتا ہوا,1,1,یکساں
+r79,"PAIN, ureters, right side","PAIN, Ureters, right side",گردے — درد، دائیں حالب میں,12,12,یکساں
+r8,"LAMENESS, region of, waking, on","LAMENESS, region of, waking, on",گردے — لنگڑاہٹ، گردوں کے علاقے میں، جاگنے پر,1,1,یکساں
+r89,"PAIN, aching, evening","PAIN, aching, evening",گردے — درد، مسلسل درد، شام,2,2,یکساں
+r9,"NUMBNESS, region of","NUMBNESS, region of",گردے — سن ہونا، گردوں کے علاقے میں,1,1,یکساں
+r90,"PAIN, aching, night","PAIN, aching, night",گردے — درد، مسلسل درد، رات,2,2,یکساں
+r91,"PAIN, aching, riding, while","PAIN, aching, riding, while",گردے — درد، مسلسل درد، سواری کرتے ہوئے,1,1,یکساں
+r95,"PAIN, aching, region of, afternoon","PAIN, aching, region of, afternoon",گردے — درد، مسلسل درد، گردوں کے علاقے میں، سہ پہر,2,2,یکساں
+r96,"PAIN, aching, region of, evening","PAIN, aching, region of, evening",گردے — درد، مسلسل درد، گردوں کے علاقے میں، شام,1,1,یکساں
+r98,"PAIN, aching, region of, urination, before","PAIN, aching, region of, urination, before",گردے — درد، مسلسل درد، گردوں کے علاقے میں، پیشاب سے پہلے,1,1,یکساں
+r99,"PAIN, aching, region of, waking, on","PAIN, aching, region of, waking, on",گردے — درد، مسلسل درد، گردوں کے علاقے میں، جاگنے پر,1,1,یکساں
+r208,SUPPRESSION of urine,SUPPRESSION of urine,گردے — پیشاب کا رک جانا (بندش),81,78,ماخذی مطابق کیے
+o45315,"PAIN, ureters, extending, urethra, into","PAIN, Ureters, right side, extending to penis and testes, urethra, into",گردے — درد، حالب میں، پھیلتا ہوا، پیشاب کی نالی میں,3,3,یکساں
+r112,"PAIN, constricting, down ureters to penis, pressure on glans amel., at times pain goes upward","PAIN, constricting, extending to bladder, down ureters to penis, pressure on glans amel., at times pain goes upward",گردے — درد، جکڑنے والا، حالب سے نیچے عضو تناسل تک، اُس کے سرے پر دباؤ سے آرام، کبھی درد اوپر کی طرف جاتا ہے,1,1,یکساں
+o45302,"PAIN, tearing, extending, downwards","PAIN, tearing, extending to thighs, with stiffness, downwards",گردے — درد، چیرتا ہوا، پھیلتا ہوا، نیچے کی طرف,3,3,یکساں
+o45312,"PAIN, ureters, extending, right thigh","PAIN, Ureters, right side, extending to penis and testes, right thigh",گردے — درد، حالب میں، پھیلتا ہوا، دائیں ران تک,1,1,یکساں
+o45313,"PAIN, ureters, extending, thighs and feet","PAIN, Ureters, right side, extending to penis and testes, thighs and feet",گردے — درد، حالب میں، پھیلتا ہوا، رانوں اور قدموں تک,1,1,یکساں
+r105,"PAIN, burning, urination, during","PAIN, burning, urination, before, during",گردے — درد، جلتا ہوا، پیشاب کے دوران,1,1,یکساں
+r33,"PAIN, lying, on abdomen, amel.","PAIN, lying, while, on abdomen, amel.",گردے — درد، پیٹ کے بل لیٹنے سے آرام,1,1,یکساں
+r35,"PAIN, lying, on back, amel.","PAIN, lying, while, on back, amel.",گردے — درد، چت لیٹنے سے آرام,1,1,یکساں
+r93,"PAIN, aching, urination, amel.","PAIN, aching, urination, during, amel.",گردے — درد، مسلسل درد، پیشاب سے آرام,2,2,یکساں
+o45122,INFLAMMATION,INFLAMMATION,گردے — سوزش,86,80,ماخذی مطابق کیے
+r37,"PAIN, menses, during","PAIN, menses, at beginning of, during",گردے — درد، حیض کے دوران,2,2,یکساں
+r48,"PAIN, stooping, after long","PAIN, stooping, when, after long",گردے — درد، دیر تک جھکے رہنے کے بعد,1,1,یکساں
+r53,"PAIN, urination, during","PAIN, urination, before, during",گردے — درد، پیشاب کے دوران,7,7,یکساں
+r54,"PAIN, urination, after amel.","PAIN, urination, before, after amel.",گردے — درد، پیشاب کے بعد آرام,3,3,یکساں
+r80,"PAIN, ureters, left side","PAIN, Ureters, right side, left side",گردے — درد، بائیں حالب میں,13,13,یکساں
+r81,"PAIN, ureters, radiating from renal region","PAIN, Ureters, right side, radiating from renal region",گردے — درد، حالب میں، گردوں کے علاقے سے شعاعوں کی طرح پھیلتا ہوا,2,2,یکساں
+r83,"PAIN, ureters, extending to penis and testes","PAIN, Ureters, right side, extending to penis and testes",گردے — درد، حالب میں، عضو تناسل اور خصیوں تک پھیلتا ہوا,5,5,یکساں
+r205,PULSATION,PULSATION,گردے — دھڑکن,11,10,ماخذی مطابق کیے
+o45314,"PAIN, ureters, extending, urethra, and seminal cords","PAIN, Ureters, right side, extending to penis and testes, urethra, into, and seminal cords",گردے — درد، حالب میں، پھیلتا ہوا، پیشاب کی نالی اور منی کی نالیوں تک,2,2,یکساں
+r172,"PAIN, stitching, evening, bed, in","PAIN, stitching, stinging, sticking, evening, bed, in",گردے — درد، چبھتا ہوا، شام، بستر میں,1,1,یکساں
+r179,"PAIN, stitching, motion, of arms, on","PAIN, stitching, stinging, sticking, motion, of arms, on",گردے — درد، چبھتا ہوا، بازو ہلانے پر,1,1,یکساں
+o45275,"PAIN, stitching, extending, down ureters","PAIN, stitching, stinging, sticking, extending to bladder, down ureters",گردے — درد، چبھتا ہوا، پھیلتا ہوا، حالب سے نیچے,14,14,یکساں
+o45276,"PAIN, stitching, extending, knee","PAIN, stitching, stinging, sticking, extending to bladder, knee",گردے — درد، چبھتا ہوا، پھیلتا ہوا، گھٹنے تک,3,3,یکساں
+o45277,"PAIN, stitching, extending, urethra","PAIN, stitching, stinging, sticking, extending to bladder, urethra",گردے — درد، چبھتا ہوا، پھیلتا ہوا، پیشاب کی نالی تک,2,2,یکساں
+o45278,"PAIN, stitching, extending, uterus","PAIN, stitching, stinging, sticking, extending to bladder, uterus",گردے — درد، چبھتا ہوا، پھیلتا ہوا، رحم تک,1,1,یکساں
+r169,"PAIN, stitching, morning, 4 a.m.","PAIN, stitching, stinging, sticking, morning, 4 a.m.",گردے — درد، چبھتا ہوا، صبح 4 بجے,1,1,یکساں
+r174,"PAIN, stitching, cold, becoming","PAIN, stitching, stinging, sticking, cold, becoming",گردے — درد، چبھتا ہوا، سردی لگنے پر,1,1,یکساں
+r175,"PAIN, stitching, eating, after","PAIN, stitching, stinging, sticking, eating, after",گردے — درد، چبھتا ہوا، کھانے کے بعد,1,1,یکساں
+r176,"PAIN, stitching, inspiration, on deep","PAIN, stitching, stinging, sticking, inspiration, on deep",گردے — درد، چبھتا ہوا، گہری سانس اندر لینے پر,5,5,یکساں
+r182,"PAIN, stitching, sitting, while","PAIN, stitching, stinging, sticking, sitting, while",گردے — درد، چبھتا ہوا، بیٹھے ہوئے,3,3,یکساں
+r186,"PAIN, stitching, urinating, after","PAIN, stitching, stinging, sticking, urinating, after",گردے — درد، چبھتا ہوا، پیشاب کے بعد,1,1,یکساں
+r94,"PAIN, aching, region of","PAIN, aching, region of",گردے — درد، مسلسل درد، گردوں کے علاقے میں,32,28,ماخذی مطابق کیے
+r170,"PAIN, stitching, afternoon","PAIN, stitching, stinging, sticking, afternoon",گردے — درد، چبھتا ہوا، سہ پہر,2,2,یکساں
+r173,"PAIN, stitching, night","PAIN, stitching, stinging, sticking, night",گردے — درد، چبھتا ہوا، رات,1,1,یکساں
+r177,"PAIN, stitching, lying on face amel.","PAIN, stitching, stinging, sticking, lying on face amel.",گردے — درد، چبھتا ہوا، منہ کے بل لیٹنے سے آرام,1,1,یکساں
+r180,"PAIN, stitching, pulsating","PAIN, stitching, stinging, sticking, pulsating",گردے — درد، چبھتا ہوا، دھڑکن کے ساتھ,1,1,یکساں
+r181,"PAIN, stitching, radiating","PAIN, stitching, stinging, sticking, radiating",گردے — درد، چبھتا ہوا، شعاعوں کی طرح پھیلتا ہوا,1,1,یکساں
+r183,"PAIN, stitching, sneezing","PAIN, stitching, stinging, sticking, sneezing",گردے — درد، چبھتا ہوا، چھینکنے سے,1,1,یکساں
+r187,"PAIN, stitching, warm bed amel.","PAIN, stitching, stinging, sticking, warm bed amel.",گردے — درد، چبھتا ہوا، گرم بستر سے آرام,1,1,یکساں
+r188,"PAIN, stitching, extending to bladder","PAIN, stitching, stinging, sticking, extending to bladder",گردے — درد، چبھتا ہوا، مثانے تک پھیلتا ہوا,8,8,یکساں
+r12,"PAIN, morning","PAIN, morning",گردے — درد، صبح,7,6,ماخذی مطابق کیے
+r18,"PAIN, night","PAIN, night",گردے — درد، رات,7,6,ماخذی مطابق کیے
+r185,"PAIN, stitching, standing, amel.","PAIN, stitching, stinging, sticking, standing, while, amel.",گردے — درد، چبھتا ہوا، کھڑے ہونے سے آرام,1,1,یکساں
+r100,"PAIN, burning","PAIN, burning",گردے — درد، جلتا ہوا,30,23,ماخذی مطابق کیے
+o45246,"PAIN, region of, extending, groin","PAIN, region of, extending to calves, groin",گردے — درد، گردوں کے علاقے میں، پھیلتا ہوا، کچھوں تک,4,3,ماخذی مطابق کیے
+r155,"PAIN, sore, bruised","PAIN, shooting (See Stitching), sore, bruised",گردے — درد، دکھتا، کچلا ہوا,59,47,ماخذی مطابق کیے
+r147,"PAIN, pressing","PAIN, pressing",گردے — درد، دبانے والا,23,16,ماخذی مطابق کیے
+r193,"PAIN, tearing","PAIN, tearing",گردے — درد، چیرتا ہوا,13,9,ماخذی مطابق کیے
+r127,"PAIN, digging","PAIN, digging",گردے — درد، کھودتا ہوا,3,2,ماخذی مطابق کیے
+r143,"PAIN, gnawing","PAIN, gnawing",گردے — درد، کترتا ہوا,3,2,ماخذی مطابق کیے
+r140,"PAIN, drawing, ureters","PAIN, drawing, Ureters",گردے — درد، کھینچتا ہوا، حالب میں,8,5,ماخذی مطابق کیے
+r14,"PAIN, afternoon","PAIN, afternoon",گردے — درد، سہ پہر,5,3,ماخذی مطابق کیے
+r10,PAIN,PAIN,گردے — درد,193,102,ماخذی مطابق کیے
+r65,"PAIN, region of","PAIN, region of",گردے — درد، گردوں کے علاقے میں,36,19,ماخذی مطابق کیے
+o45104,COLD sensation,COLD sensation,گردے — ٹھنڈک کا احساس,2,1,ماخذی مطابق کیے
+o45107,FORMICATION,FORMICATION,گردے — چیونٹیاں رینگنے کا احساس,2,1,ماخذی مطابق کیے
+o45114,"HEAVINESS, morning","HEAVINESS, morning",گردے — بھاری پن، صبح,2,1,ماخذی مطابق کیے
+o45119,"HEAVINESS, region of, night","HEAVINESS, region of, night",گردے — بھاری پن، گردوں کے علاقے میں، رات,2,1,ماخذی مطابق کیے
+r107,"PAIN, burning, along ureters","PAIN, burning, along ureters",گردے — درد، جلتا ہوا، حالب کے ساتھ ساتھ,4,2,ماخذی مطابق کیے
+r113,"PAIN, contracting","PAIN, contracting",گردے — درد، سکڑنے والا,2,1,ماخذی مطابق کیے
+r6,"LAMENESS, region of","LAMENESS, region of",گردے — لنگڑاہٹ، گردوں کے علاقے میں,4,2,ماخذی مطابق کیے
+r117,"PAIN, cutting","PAIN, cutting",گردے — درد، کاٹتا ہوا,56,24,ماخذی مطابق کیے
+r88,"PAIN, aching","PAIN, aching",گردے — درد، مسلسل درد,45,19,ماخذی مطابق کیے
+r168,"PAIN, stitching, morning","PAIN, stitching, stinging, sticking, morning",گردے — درد، چبھتا ہوا، صبح,2,1,ماخذی مطابق کیے
+r171,"PAIN, stitching, evening","PAIN, stitching, stinging, sticking, evening",گردے — درد، چبھتا ہوا، شام,2,1,ماخذی مطابق کیے
+r178,"PAIN, stitching, motion","PAIN, stitching, stinging, sticking, motion",گردے — درد، چبھتا ہوا، حرکت,2,1,ماخذی مطابق کیے
+r252,HEAT,HEAT,گردے — گرمی,13,4,ماخذی مطابق کیے
+r130,"PAIN, drawing","PAIN, drawing",گردے — درد، کھینچتا ہوا,25,5,ماخذی مطابق کیے
+r253,HEAVINESS,HEAVINESS,گردے — بھاری پن,10,2,ماخذی مطابق کیے
+r97,"PAIN, aching, region of, 10 p.m.","PAIN, aching, region of, 10 p.m.",گردے — درد، مسلسل درد، گردوں کے علاقے میں، رات 10 بجے,1,1,ماخذی مطابق کیے
+o45263,"PAIN, sore, bruised, region of","PAIN, shooting (See Stitching), region of",گردے — درد، دکھتا، کچلا ہوا، گردوں کے علاقے میں,20,20,یکساں

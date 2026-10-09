@@ -1,0 +1,247 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,662,0,KIDNEYS,0
+o45100,662,0,ABSCESS,5
+o45101,662,0,ADDISON'S disease,33
+o45102,662,0,BUBBLING sensation in region of,3
+h002,662,0,"CALCULI (See Urine, Sediment)",0
+o45103,662,0,CATARRH,5
+o45104,662,0,COLD sensation,1
+o45105,662,1,"COLD sensation, region of",1
+o45106,662,0,"FLUTTERING sensation, region of",1
+o45107,662,0,FORMICATION,1
+o45108,662,1,"FORMICATION, region of",1
+r252,662,0,HEAT,4
+o45110,662,1,"HEAT, extending to bladder",1
+o45111,662,1,"HEAT, region of",8
+o45112,662,2,"HEAT, region of, sitting, while",1
+r253,662,0,HEAVINESS,2
+o45114,662,1,"HEAVINESS, morning",1
+o45115,662,2,"HEAVINESS, morning, waking, on",1
+o45121,662,1,"HEAVINESS, sitting agg.",1
+o45116,662,1,"HEAVINESS, region of",7
+o45117,662,2,"HEAVINESS, region of, afternoon",2
+o45118,662,2,"HEAVINESS, region of, evening",1
+o45119,662,2,"HEAVINESS, region of, night",1
+o45120,662,3,"HEAVINESS, region of, night, motion agg.",1
+o45122,662,0,INFLAMMATION,80
+o45123,663,1,"INFLAMMATION, acute parenchymatous (See Albumen)",13
+o45124,663,1,"INFLAMMATION, bloody, ink-like, albuminous urine, with",1
+o45125,663,1,"INFLAMMATION, cardiac and hepatic affections, with",2
+o45126,663,1,"INFLAMMATION, suppurative",5
+o45127,663,1,"INFLAMMATION, toxæmic",1
+o45128,663,1,"INFLAMMATION, Ureters",3
+r6,663,0,"LAMENESS, region of",2
+r7,663,1,"LAMENESS, region of, left, with cramp, extending into thighs",1
+r8,663,1,"LAMENESS, region of, waking, on",1
+r9,663,0,"NUMBNESS, region of",1
+r10,663,0,PAIN,102
+r11,663,1,"PAIN, right",2
+r12,663,1,"PAIN, morning",6
+r13,663,2,"PAIN, morning, waking, on",1
+r14,663,1,"PAIN, afternoon",3
+r15,663,2,"PAIN, afternoon, 4 p.m. to 9 p.m.",1
+r16,663,2,"PAIN, afternoon, 4 p.m. to 8 p.m.",1
+r17,663,1,"PAIN, evening",4
+r18,663,1,"PAIN, night",6
+r19,663,2,"PAIN, night, undressing, while",1
+r20,663,1,"PAIN, alternating with vertigo",1
+r21,663,1,"PAIN, apyrexia, during",5
+r22,663,1,"PAIN, bending body, on",1
+r23,663,1,"PAIN, blowing nose",1
+r24,663,1,"PAIN, breathing deeply, when",4
+r25,663,1,"PAIN, chill, during",7
+r26,663,1,"PAIN, coughing",1
+r27,663,1,"PAIN, dancing, while",1
+r28,663,1,"PAIN, desire be delayed, if",3
+r29,663,1,"PAIN, jar, from",6
+r30,663,1,"PAIN, laughing, when",1
+r31,663,1,"PAIN, lifting, when",1
+r32,663,1,"PAIN, lying, while",6
+r33,663,2,"PAIN, lying, while, on abdomen, amel.",1
+h003,663,2,"PAIN, lying, while, on back",1
+r35,663,3,"PAIN, lying, while, on back, amel.",1
+r36,663,1,"PAIN, menses, at beginning of",3
+r37,663,2,"PAIN, menses, at beginning of, during",2
+r38,663,1,"PAIN, motion agg.",11
+o45225,663,2,"PAIN, motion agg., amel.",1
+r40,663,1,"PAIN, paroxysmal",5
+r41,663,1,"PAIN, pulsating",2
+r42,663,1,"PAIN, radiating",2
+r43,663,1,"PAIN, riding",3
+r44,663,1,"PAIN, sitting, while",4
+r45,663,1,"PAIN, sneezing agg.",3
+r46,663,1,"PAIN, standing amel.",1
+r47,663,1,"PAIN, stooping, when",5
+r48,663,2,"PAIN, stooping, when, after long",1
+r49,663,1,"PAIN, straightening out legs agg.",1
+r50,663,1,"PAIN, swelling of right knee, with",1
+r51,663,1,"PAIN, urging to urinate, during",9
+r52,663,1,"PAIN, urination, before",2
+r53,663,2,"PAIN, urination, before, during",7
+r54,663,2,"PAIN, urination, before, after amel.",3
+r55,664,1,"PAIN, walking, while",7
+r56,664,1,"PAIN, extending over abdomen",1
+o45203,664,2,"PAIN, extending over abdomen, abdomen",4
+o45204,664,2,"PAIN, extending over abdomen, bladder",15
+o45205,664,2,"PAIN, extending over abdomen, epigastrium",1
+o45206,664,2,"PAIN, extending over abdomen, hip",7
+o45207,664,2,"PAIN, extending over abdomen, right ilium",1
+o45208,664,3,"PAIN, extending over abdomen, right ilium, thigh",1
+o45209,664,2,"PAIN, extending over abdomen, testes",4
+o45210,664,2,"PAIN, extending over abdomen, uterus",1
+r65,664,1,"PAIN, region of",19
+r66,664,2,"PAIN, region of, bands of clothing, from",1
+r67,664,2,"PAIN, region of, digging, when",1
+r68,664,2,"PAIN, region of, lie only on the back, can",1
+r69,664,2,"PAIN, region of, stretching, after",1
+r70,664,2,"PAIN, region of, extending to calves",1
+o45243,664,3,"PAIN, region of, extending to calves, chest",1
+o45244,664,3,"PAIN, region of, extending to calves, downward",2
+o45245,664,3,"PAIN, region of, extending to calves, from genitals, anus and thighs",1
+o45246,664,3,"PAIN, region of, extending to calves, groin",3
+h004,664,3,"PAIN, region of, extending to calves, anxious nausea, with",1
+o45248,664,3,"PAIN, region of, extending to calves, prostate gland",2
+o45249,664,3,"PAIN, region of, extending to calves, thighs",6
+o45250,664,3,"PAIN, region of, extending to calves, ureters",4
+r79,664,1,"PAIN, Ureters, right side",12
+r80,664,2,"PAIN, Ureters, right side, left side",13
+r81,664,2,"PAIN, Ureters, right side, radiating from renal region",2
+h005,664,2,"PAIN, Ureters, right side, vomiting, with",1
+r83,664,2,"PAIN, Ureters, right side, extending to penis and testes",5
+o45312,664,3,"PAIN, Ureters, right side, extending to penis and testes, right thigh",1
+o45313,664,3,"PAIN, Ureters, right side, extending to penis and testes, thighs and feet",1
+o45315,664,3,"PAIN, Ureters, right side, extending to penis and testes, urethra, into",3
+o45314,664,4,"PAIN, Ureters, right side, extending to penis and testes, urethra, into, and seminal cords",2
+r88,664,1,"PAIN, aching",19
+r89,664,2,"PAIN, aching, evening",2
+r90,664,2,"PAIN, aching, night",2
+r91,664,2,"PAIN, aching, riding, while",1
+h006,664,2,"PAIN, aching, urination, during",4
+r93,664,3,"PAIN, aching, urination, during, amel.",2
+r94,664,2,"PAIN, aching, region of",28
+r95,664,3,"PAIN, aching, region of, afternoon",2
+r96,664,3,"PAIN, aching, region of, evening",1
+r97,664,3,"PAIN, aching, region of, 10 p.m.",1
+r98,664,3,"PAIN, aching, region of, urination, before",1
+r99,664,3,"PAIN, aching, region of, waking, on",1
+r100,664,1,"PAIN, burning",23
+r101,664,2,"PAIN, burning, left",3
+r102,664,2,"PAIN, burning, lying, while",1
+r103,664,2,"PAIN, burning, oppressed breathing and faintness, with",1
+r104,664,2,"PAIN, burning, urination, before",2
+r105,664,3,"PAIN, burning, urination, before, during",1
+r106,664,2,"PAIN, burning, extending through left ilium to pubis, in women",1
+r107,664,2,"PAIN, burning, along ureters",2
+r108,664,3,"PAIN, burning, along ureters, to bladder",2
+r109,664,2,"PAIN, burning, region of",7
+r110,664,2,"PAIN, burning, Ureters",3
+r111,664,1,"PAIN, constricting, extending to bladder",1
+r112,664,2,"PAIN, constricting, extending to bladder, down ureters to penis, pressure on glans amel., at times pain goes upward",1
+r113,665,1,"PAIN, contracting",1
+r114,665,2,"PAIN, contracting, down ureters to penis",1
+r115,665,1,"PAIN, cramping",7
+h007,665,2,"PAIN, cramping, 4 to 9 p.m.",1
+r117,665,1,"PAIN, cutting",24
+r118,665,2,"PAIN, cutting, paroxysmal, and burning in both",1
+r119,665,2,"PAIN, cutting, urination, before",1
+r120,665,2,"PAIN, cutting, region of",3
+r121,665,3,"PAIN, cutting, region of, heat amel., cold agg.",1
+r122,665,3,"PAIN, cutting, region of, lancinations, friction and pressure amel.",1
+r123,665,2,"PAIN, cutting, Ureters",41
+r124,665,3,"PAIN, cutting, Ureters, alternating with pain in glans",1
+r125,665,3,"PAIN, cutting, Ureters, urination, after",1
+r126,665,3,"PAIN, cutting, Ureters, vomiting, with",1
+r127,665,1,"PAIN, digging",2
+r128,665,2,"PAIN, digging, region of, pressure agg.",1
+r129,665,1,"PAIN, dragging, ureters, like labor pain, with urging to urinate",1
+r130,665,1,"PAIN, drawing",5
+r131,665,2,"PAIN, drawing, right, 5 a.m.",1
+r132,665,2,"PAIN, drawing, left",2
+r133,665,2,"PAIN, drawing, stooping, when",1
+r134,665,2,"PAIN, drawing, tensive, riding, while",1
+r135,665,2,"PAIN, drawing, extending right to hip",1
+r136,665,2,"PAIN, drawing, region of",14
+r137,665,3,"PAIN, drawing, region of, evening, sitting, while",2
+r138,665,3,"PAIN, drawing, region of, extending into inguinal region",1
+r139,665,3,"PAIN, drawing, region of, right hip",1
+r140,665,2,"PAIN, drawing, Ureters",5
+r141,665,3,"PAIN, drawing, Ureters, right",1
+r142,665,3,"PAIN, drawing, Ureters, left",2
+r143,665,1,"PAIN, gnawing",2
+r144,665,2,"PAIN, gnawing, region of",1
+r145,665,1,"PAIN, lancinating (See Cutting)",0
+r146,665,1,"PAIN, piercing in both ureters, with urging to urinate",1
+r147,665,1,"PAIN, pressing",16
+r148,665,2,"PAIN, pressing, morning",1
+r149,665,2,"PAIN, pressing, night",1
+r150,665,2,"PAIN, pressing, motion amel.",1
+r151,665,2,"PAIN, pressing, sitting, while",2
+r152,665,2,"PAIN, pressing, urination, before",1
+r153,665,2,"PAIN, pressing, region of",7
+r154,665,1,"PAIN, shooting (See Stitching)",0
+r155,665,2,"PAIN, shooting (See Stitching), sore, bruised",47
+h008,665,2,"PAIN, shooting (See Stitching), right",3
+h009,665,2,"PAIN, shooting (See Stitching), left",2
+h010,665,2,"PAIN, shooting (See Stitching), afternoon",1
+h011,665,2,"PAIN, shooting (See Stitching), evening",1
+h012,665,2,"PAIN, shooting (See Stitching), exerting the muscles, while",1
+h013,665,2,"PAIN, shooting (See Stitching), jar",6
+h014,665,2,"PAIN, shooting (See Stitching), sitting, while",2
+o45263,665,2,"PAIN, shooting (See Stitching), region of",20
+h015,665,3,"PAIN, shooting (See Stitching), region of, extending to thighs",1
+r165,665,1,"PAIN, stabbing, region of",2
+r166,665,1,"PAIN, stitching, stinging, sticking",58
+r168,666,2,"PAIN, stitching, stinging, sticking, morning",1
+r169,666,3,"PAIN, stitching, stinging, sticking, morning, 4 a.m.",1
+r170,666,2,"PAIN, stitching, stinging, sticking, afternoon",2
+r171,666,2,"PAIN, stitching, stinging, sticking, evening",1
+r172,666,3,"PAIN, stitching, stinging, sticking, evening, bed, in",1
+r173,666,2,"PAIN, stitching, stinging, sticking, night",1
+r174,666,2,"PAIN, stitching, stinging, sticking, cold, becoming",1
+r175,666,2,"PAIN, stitching, stinging, sticking, eating, after",1
+r176,666,2,"PAIN, stitching, stinging, sticking, inspiration, on deep",5
+r177,666,2,"PAIN, stitching, stinging, sticking, lying on face amel.",1
+r178,666,2,"PAIN, stitching, stinging, sticking, motion",1
+r179,666,3,"PAIN, stitching, stinging, sticking, motion, of arms, on",1
+r180,666,2,"PAIN, stitching, stinging, sticking, pulsating",1
+r181,666,2,"PAIN, stitching, stinging, sticking, radiating",1
+r182,666,2,"PAIN, stitching, stinging, sticking, sitting, while",3
+r183,666,2,"PAIN, stitching, stinging, sticking, sneezing",1
+h016,666,2,"PAIN, stitching, stinging, sticking, standing, while",1
+r185,666,3,"PAIN, stitching, stinging, sticking, standing, while, amel.",1
+r186,666,2,"PAIN, stitching, stinging, sticking, urinating, after",1
+r187,666,2,"PAIN, stitching, stinging, sticking, warm bed amel.",1
+r188,666,2,"PAIN, stitching, stinging, sticking, extending to bladder",8
+o45276,666,3,"PAIN, stitching, stinging, sticking, extending to bladder, knee",3
+o45277,666,3,"PAIN, stitching, stinging, sticking, extending to bladder, urethra",2
+o45275,666,3,"PAIN, stitching, stinging, sticking, extending to bladder, down ureters",14
+o45278,666,3,"PAIN, stitching, stinging, sticking, extending to bladder, uterus",1
+r193,666,1,"PAIN, tearing",9
+r194,666,2,"PAIN, tearing, morning, rising, after",1
+r195,666,2,"PAIN, tearing, agonizing as from passing calculus, in back and hips",1
+r196,666,2,"PAIN, tearing, pulsating",1
+r197,666,2,"PAIN, tearing, radiating",1
+r198,666,2,"PAIN, tearing, standing amel.",1
+r199,666,2,"PAIN, tearing, stooping, on",2
+r200,666,2,"PAIN, tearing, wet weather",1
+r201,666,2,"PAIN, tearing, extending to thighs, with stiffness",1
+o45302,666,3,"PAIN, tearing, extending to thighs, with stiffness, downwards",3
+r203,666,2,"PAIN, tearing, Ureters, extend downwards, touch, motion and inspiration agg.",2
+r204,666,1,"PAIN, ulcerative",1
+r205,666,0,PULSATION,10
+r206,666,1,"PULSATION, extending into abdomen",1
+r207,666,1,"PULSATION, restless sensation",1
+r208,666,0,SUPPRESSION of urine,78
+r209,666,1,"SUPPRESSION of urine, cholera, in",6
+r210,666,1,"SUPPRESSION of urine, concussion of spinal column, from",3
+r211,666,1,"SUPPRESSION of urine, convulsion, with",4
+r212,666,1,"SUPPRESSION of urine, fever, with",12
+r213,666,1,"SUPPRESSION of urine, menses, during",1
+r214,666,1,"SUPPRESSION of urine, perspiration, with",13
+r215,666,1,"SUPPRESSION of urine, stupor, with",2
+o45336,666,1,"SUPPRESSION of urine, suppressed gonorrhœa, from",2
+r217,666,1,"SUPPRESSION of urine, violent",4
+r218,667,0,SUPPURATION (See Inflammation),0
+r219,667,0,SWELLING,1
+r220,667,0,"TWITCHING, region of",2
+r256,667,0,"WEARINESS, region of",10

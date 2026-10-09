@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 9 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 182 · **اصل مخزن:**
+**آخری تجدید:** 9 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 183 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -2143,3 +2143,34 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 1. ڈاکٹر مثانہ-تین-کالم.csv کی تصدیق (685 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (49 اندراجات — خاص طور پر 25 اردو خود-بنے اور 10 مبہم OOREP برتن)
 2. اگلا باب: کتابی ترتیب کے مطابق — **URINARY ORGANS: KIDNEYS (MEDI-T ص 662 سے — کتابی ص 663، PDF 1461 سے)** — kenturor.htm انڈیکس میں Kidneys کے 6 صفحہ-اندراجات (p662–p667)؛ ماخذ فائلیں kent0660 (P662 سیکشن KIDNEYS اینکر سے) + kent0665 + kent0670 — scripts/stool_pages میں پہلے سے موجود
 3. Vercel پش (v182 کے بعد)
+
+## مکمل شدہ پڑتال — گردے (KIDNEYS) باب: ماخذی درخت + ادویات + اردو (نسخہ 183)
+
+**اجازت:** 9 اکتوبر 2026 · صارف کی ہدایت: «KIDNEYS شروع کریں» → «مکمل کریں»؛ ماخذ homeoint.org کے مطبوعہ صفحات 662–667 (MEDI-T انتساب — kenturor.htm انڈیکس Kidneys کے 6/6 صفحہ-اندراجات)
+
+### 21.1 باب حد اور ماخذ
+- **KIDNEYS = صفحات 662–667 (MEDI-T انتساب)** — kenturor.htm فہرست **6/6 صفحہ-اندراجات subsequence**؛ 3 ماخذ فائلیں: kent0660 (P662 سیکشن کے اندر NAME="KIDNEYS" اینکر سے — سیکشن کے بیچ میں، صفحہ-اینکر نہیں؛ ABSCESS پہلی قطار) + kent0665 (P665 ڈپ skip، P666–P667؛ NAME="PROSTATE" اینکر سے پہلے اختتام) — kent0670 کی ضرورت نہ پڑی
+- ⚠ **p666 stub-cut:** kent0660 کے دم میں بغیر-اینکر سرخی + مارکر + >>>>> nav کا stub — stub-cut regex سے کٹ، دستاویزی
+- آخری ربرک «WEARINESS, region of» (10 ادویہ، p667)؛ کتاب (PDF): KIDNEYS سرخی PDF index 1460 کی سطرِ اول = **کتابی ص 663** (MEDI-T انتساب کتاب سے ایک پیچھے — برقرار)
+- 247 خام → **246 منفرد** (جڑ KIDNEYS + 245)؛ 21 جڑ-بچے (جڑ + 20 مین)، گہرائی 5 (0–4)؛ **صفر clamp** (MEDI-T <dir> ساخت صفائی — صرف کتابی دہرائی merge نیچے)
+
+### 21.2 تیسرا ماخذ (Drive PDF) تصدیق
+- KIDNEYS = PDF صفحہ 1461–1472 (0-بنیاد index 1460–1471 = کتابی ص 663–667)؛ **246/246 حرف-بہ-حرف عین مطابق — صفر ادویہ-فرق، صفر drift، صفر دونوں-طرفہ باقیات** (پچھلے بابوں کی طرز سے سب سے صاف)
+- 11 صفحہ-سرخی گلا «X.urinaryorgans/kidneys» (آخری ادویہ سے گلا) — نکالنے کے وقت JUNK pattern سے فلٹر ہوتی ہیں، ماخذ پر اثر نہیں
+
+### 21.3 کراس واک + اوورلے + اردو
+- کراس واک: 246 ماخذ ↔ 264 ایپ — **230 جُڑے**، 7 مبہم OOREP برتن (PAIN extending 27/lying 7/region-extending 18/stitching-extending 17/ureters 25/ureters-extending 9/ureters-vomiting 1 — سب کٹے راستے، کتابی مین ماخذی درخت پر)، 16 ماخذ-اکیلے نئی hN، 34 ایپ-اکیلے legacy
+- **1 کتابی دہرائی:** «PAIN, pulsating» دوبار — p663 (Bufo) + p665 (Berb) — merge union (گریڈ max) = ایپ r41 عین — درخت میں ایک قطار
+- اوورلے: kidneys.json **280 = 246 ماخذی (MARK=homeoint-kidneys-v1) + 34 legacy** (7 مبہم + 5 خالی m-کنٹینر + 22 مجموعے/کٹے راستے)؛ 16 نئے hN (جڑ KIDNEYS + CALCULI کراس-ریفرنس + PAIN کے 14 گہرے ذیلی — shooting خاندان 8، ureters/lying/region/cramping وغیرہ)؛ مانی فیسٹ homeoint_kidneys_source_manifest.json
+- اردو: **230 منتقل + جڑ «گردے — گردے» + 15 خود-بنے (meta.auto) = 246/246 فعال 100%**؛ 61 غیر-درخت پرانی محفوظ (فائل 341) · REP_RUBUR_V 175
+
+### 21.4 کوڈ، رپورٹیں، ٹیسٹ
+- کوڈ: rep-chapters.js v183 (_repBuildKentKidneysSourceTree + دونوں ڈسپیچ سائٹس — Pages 662–667/Count 246 سخت جائزے) · KENT_TREE_FIX kidneys.h 34 legacy ids (7 مبہم سمیت) g/p صاف · _index 280 · master sync (**minified** 20.6 MiB، round-trip تصدیق) · CACHE v183 · ٹیبز/صفحہ ٹیگ v183 · 18-rubrics-ur v175
+- رپورٹیں: kent_sources/reports/ گردے-تین-کالم.csv (230) · گردے-ہیرارکی-تصدیق.csv (247 خام) · گردے-تمام-اندراجات.csv (246) · گردے-پرانی-قطاریں.csv (34) · گردے-پڑتال.xlsx · گردے-اصلاحات-کا-خلاصہ.md (+ download کاپیاں)
+- **تصدیق-ضروری CSV:** download/kent-confirmation-needed.csv — گردے کے 35 اندراجات (باب-حد 2، مبہم OOREP 7، نئے hN 16، نمائندہ ادویہ-فرق 8، کتابی دہرائی 1، PDF آرٹی فاکٹ 1) — کل 119
+- ٹیسٹ: نئی kent_kidneys_homeoint_source.test.js (درخت 246، جڑ-بچے 21، گہرائی 5، ABSCESS 5/ADDISON'S 33/PAIN 102/INFLAMMATION 80/SUPPRESSION 78، tearing 9+9، sore-bruised 47، pulsating union، sticking→morning→4 a.m. ساخت، گہری d4 «and seminal cords»، WEARINESS آخری، باب-حد، r===source_remedies، اردو «گردے — » 100%، meta.auto 15، مانی فیسٹ) + تمام پرانے پنز v183/175 پر
+
+### 21.5 اگلے قدم
+1. ڈاکٹر گردے-تین-کالم.csv کی تصدیق (230 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (35 اندراجات — خاص طور پر 15 اردو خود-بنے اور 7 مبہم OOREP برتن)
+2. اگلا باب: کتابی ترتیب کے مطابق — **URINARY ORGANS: PROSTATE GLAND (MEDI-T ص 667 سے)** — kenturor.htm انڈیکس؛ ماخذ فائلیں kent0665 (P667 سیکشن NAME="PROSTATE" اینکر سے) + kent0670 — urethra/urine اس کے بعد (p668–p679 تک URINARY ORGANS کا اختتام)
+3. Vercel پش (v183 کے بعد)

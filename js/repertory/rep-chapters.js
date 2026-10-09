@@ -1493,6 +1493,74 @@ function _repBuildKentBladderSourceTree(data){
     });
     return root;
 }
+// 🔑 v183: گردے (KIDNEYS) باب کی ماخذی قطاریں (صفحات 662–667) — homeoint.org
+// (parse_kidneys_source.py + crosswalk_kidneys.py + overlay_kidneys.py)؛ پرانی مقامی قطاریں
+// فائل میں محفوظ مگر ماخذی درخت سے باہر۔ باب حد: KIDNEYS = 662–667 (MEDI-T انتساب — kenturor.htm
+// فہرست 6/6 صفحہ-اندراجات subsequence)؛ آغاز kent0660.htm کے P662 سیکشن کے اندر NAME="KIDNEYS" اینکر
+// (صفحہ-اینکر نہیں، سیکشن کے بیچ میں — ABSCESS پہلی قطار)؛ اختتام kent0665.htm کے P667 سیکشن میں
+// NAME="PROSTATE" اینکر سے پہلے (آخری ربرک WEARINESS, region of)۔ kent0660 کے دم کا p666 stub
+// (بغیر-اینکر سرخی + مارکر + >>>>> nav) stub-cut regex سے کٹ — دستاویزی۔ کتاب (PDF) KIDNEYS سرخی
+// کتابی ص 663 (PDF index 1460) کی سطرِ اول — MEDI-T انتساب کتاب سے ایک پیچھے، برقرار (manifest)۔
+// PDF alignment: 246/246 حرف-بہ-حرف عین مطابق، صفر فرق، صفر drift، صفر دونوں-طرفہ باقیات
+// (11 صفحہ-سرخی گلا «X.urinaryorgans/kidneys» نکالنے پر ہی فلٹر — JUNK pattern)۔
+// کتابی دہرائی: «PAIN, pulsating» دوبار (p663 Bufo + p665 Berb) — crosswalk merge union
+// (گرےڈ max) = ایپ r41 عین — درخت میں ایک قطار (پہلی جگہ پر)۔
+var _REP_KENT_KIDNEYS_SOURCE_MARKER='homeoint-kidneys-v1';
+var _REP_KENT_KIDNEYS_PAGES={first:662,last:667}, _REP_KENT_KIDNEYS_COUNT=246;
+function _repKentKidneysSourceEntries(data){
+    return Object.keys(data||{}).map(function(rid){return {rid:String(rid),rec:data[rid]};})
+        .filter(function(e){return e.rec&&e.rec.source_canonical===_REP_KENT_KIDNEYS_SOURCE_MARKER;});
+}
+function _repHasKentKidneysSourceData(data){
+    return _repKentKidneysSourceEntries(data).length===_REP_KENT_KIDNEYS_COUNT;
+}
+function _repBuildKentKidneysSourceTree(data){
+    var entries=_repKentKidneysSourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    if(entries.length!==_REP_KENT_KIDNEYS_COUNT) throw new Error('Expected '+_REP_KENT_KIDNEYS_COUNT+' Kent KIDNEYS source rows; found '+entries.length);
+    entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
+    var byRid=Object.create(null);
+    entries.forEach(function(e,index){
+        var rec=e.rec, order=Number(rec.source_order), parentId=rec.source_parent_id;
+        if(order!==index) throw new Error('Invalid Kent KIDNEYS source order at '+e.rid+': '+order);
+        var page=Number(rec.source_page), depth=Number(rec.source_depth), label=String(rec.source_label||'');
+        if(page<662||page>667) throw new Error('Kent KIDNEYS source row outside pages 662–667: '+e.rid);
+        if(!label) throw new Error('Empty Kent KIDNEYS source label at '+e.rid);
+        var labels=Array.isArray(rec.source_path_labels)?rec.source_path_labels.map(String):[];
+        if(!labels.length||labels[labels.length-1]!==label||depth!==labels.length-1)
+            throw new Error('Kent KIDNEYS source path/depth mismatch at '+e.rid);
+        var sourcePath=String(rec.source_path||'');
+        if(sourcePath!==labels.join(', ')) throw new Error('Kent KIDNEYS source full path mismatch at '+e.rid);
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent KIDNEYS source parent '+parentId+' for '+e.rid);
+        if(parentId!==null && Number(parent.sourceOrder)>=index)
+            throw new Error('Kent KIDNEYS source parent must precede child at '+e.rid);
+        var parentPath=parent===root?'':String(parent.pathTitle||'');
+        var expectedPath=parentPath?parentPath+', '+label:label;
+        if(expectedPath!==sourcePath) throw new Error('Kent KIDNEYS source parent link/path mismatch at '+e.rid);
+        if(parent.children[label]) throw new Error('Duplicate Kent KIDNEYS sibling label '+label+' at '+e.rid);
+        var remedies=rec.r;
+        if(!remedies||typeof remedies!=='object'||Array.isArray(remedies))
+            throw new Error('Missing Kent KIDNEYS remedies at '+e.rid);
+        Object.keys(remedies).forEach(function(code){
+            var grade=Number(remedies[code]);
+            if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
+                throw new Error('Invalid Kent KIDNEYS medicine grade at '+e.rid+': '+code);
+        });
+        var node={
+            name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
+            children:{},order:[],remedies:remedies,count:1,hasRubric:true,
+            path:sourcePath,pathTitle:sourcePath,displayPathTitle:sourcePath,
+            translationTitle:String(rec.translation_title||sourcePath),
+            oorep_id:rec.oorep_id||null,rid:e.rid,sourceCanonical:true,
+            display:rec.display&&typeof rec.display==='object'&&!Array.isArray(rec.display)?rec.display:null
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        parent.count=(parent.count||0)+1;
+        byRid[e.rid]=node;
+    });
+    return root;
+}
 // ============================================================
 // 🔑 v143: کینٹ کا درخت کتاب کی اصل ساخت پر — homeoint.org + True-Original PDF سے موازنہ
 // مسئلہ: OOREP مرج کے بعد کئی کتابی مین ربرکس (مثلاً «ANGER, irascibility»)
@@ -1728,6 +1796,10 @@ function buildRubricTree(data){
     // 🔑 v182: مثانہ باب کی ماخذی قطاریں (صفحات 645–662) — وہی طرز جو سٹول باب میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'bladder' && _repHasKentBladderSourceData(data)){
         return _repBuildKentBladderSourceTree(data);
+    }
+    // 🔑 v183: گردے باب کی ماخذی قطاریں (صفحات 662–667) — وہی طرز جو مثانہ باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'kidneys' && _repHasKentKidneysSourceData(data)){
+        return _repBuildKentKidneysSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest
@@ -2030,6 +2102,10 @@ function buildRubricTree(data){
     // 🔑 v182: مثانہ باب کی ماخذی قطاریں (صفحات 645–662) — وہی طرز جو سٹول باب میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'bladder' && _repHasKentBladderSourceData(data)){
         return _repBuildKentBladderSourceTree(data);
+    }
+    // 🔑 v183: گردے باب کی ماخذی قطاریں (صفحات 662–667) — وہی طرز جو مثانہ باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'kidneys' && _repHasKentKidneysSourceData(data)){
+        return _repBuildKentKidneysSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest

@@ -95,8 +95,8 @@ assert.strictEqual(manifest.legacy_local_records, 74);
 // 7) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const sw = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=182/.test(idx), 'صفحے میں چکر+سر+آنکھ+وژن درخت کا نسخہ (v153)');
-assert(/CACHE_NAME='bhc-clinic-v182'/.test(sw), 'خدمت کار نسخہ 169');
+assert(/rep-chapters\.js\?v=183/.test(idx), 'صفحے میں چکر+سر+آنکھ+وژن درخت کا نسخہ (v153)');
+assert(/CACHE_NAME='bhc-clinic-v183'/.test(sw), 'خدمت کار نسخہ 169');
 assert(/v169: وژن باب/.test(code), 'rep-chapters.js میں وژن بلڈر درج');
 
 console.log('وژن باب: ماخذی درخت 827 قطاریں (صفحات 271–285)، جڑ VISION، ادویات ماخذی، اردو 100%، پرانی قطاریں محفوظ — کامیاب');

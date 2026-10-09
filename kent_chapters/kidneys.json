@@ -1,1 +1,7636 @@
-{"o45100":{"t":"ABSCESS","r":{"ars":2,"hep":2,"hippoz":1,"merc":2,"sil":1},"oorep_id":45100},"o45101":{"t":"ADDISON'S disease","r":{"ant-c":1,"arg-n":1,"ars":2,"ars-i":2,"bell":2,"calc":3,"calc-ar":1,"carb-v":1,"caust":1,"chin":1,"cupr":1,"ferr":2,"ferr-i":2,"iod":3,"kali-ar":1,"kali-c":2,"kreos":1,"lyc":1,"mang":1,"med":1,"nat-m":3,"nat-s":1,"nit-ac":2,"ol-j":1,"phos":3,"pic-ac":1,"psor":1,"sec":1,"sep":2,"sil":3,"spig":2,"sulph":2,"ther":1},"oorep_id":45101},"o45102":{"t":"BUBBLING sensation in region of","r":{"berb":2,"lyc":1,"med":2},"oorep_id":45102},"o45103":{"t":"CATARRH","r":{"canth":1,"coll":1,"petr":1,"sil":1,"sulph":1},"oorep_id":45103},"o45104":{"t":"COLD sensation","r":{"cham":1,"spira":1},"oorep_id":45104},"o45105":{"t":"COLD sensation, region of","r":{"cham":1},"oorep_id":45105},"m45106":{"t":"FLUTTERING sensation","r":{}},"o45106":{"t":"FLUTTERING sensation, region of","r":{"chim":1},"oorep_id":45106},"o45107":{"t":"FORMICATION","r":{"dirc":1,"hydrc":1},"oorep_id":45107},"o45108":{"t":"FORMICATION, region of","r":{"dirc":1},"oorep_id":45108},"r252":{"t":"HEAT","r":{"aur":1,"berb":1,"cimic":1,"helon":2,"kali-i":1,"lach":1,"nat-m":2,"nux-v":2,"phos":2,"phyt":1,"plb":1,"ter":1,"zing":1},"oorep_id":45109},"o45110":{"t":"HEAT, extending to bladder","r":{"aur":1},"oorep_id":45110},"o45111":{"t":"HEAT, region of","r":{"berb":1,"cimic":1,"helon":2,"nat-m":2,"phos":2,"phyt":1,"plb":1,"ter":1},"oorep_id":45111},"o45112":{"t":"HEAT, region of, sitting, while","r":{"nat-m":1},"oorep_id":45112},"r253":{"t":"HEAVINESS","r":{"aeth":1,"carl":2,"cimic":1,"dirc":1,"equis":1,"helon":2,"phos":1,"sang":1,"tell":1,"ter":2},"oorep_id":45113},"o45114":{"t":"HEAVINESS, morning","r":{"aeth":1,"sang":1},"oorep_id":45114},"o45115":{"t":"HEAVINESS, morning, waking, on","r":{"aeth":1},"oorep_id":45115},"o45116":{"t":"HEAVINESS, region of","r":{"cimic":1,"dirc":1,"helon":2,"phos":1,"sang":1,"tell":1,"ter":2},"oorep_id":45116},"o45117":{"t":"HEAVINESS, region of, afternoon","r":{"helon":1,"sang":1},"oorep_id":45117},"o45118":{"t":"HEAVINESS, region of, evening","r":{"helon":1},"oorep_id":45118},"o45119":{"t":"HEAVINESS, region of, night","r":{"cimic":1,"tell":1},"oorep_id":45119},"o45120":{"t":"HEAVINESS, region of, night, motion agg.","r":{"cimic":1},"oorep_id":45120},"o45121":{"t":"HEAVINESS, sitting agg.","r":{"carl":2},"oorep_id":45121},"o45122":{"t":"INFLAMMATION","r":{"acon":2,"all-c":2,"alum":1,"am-c":1,"apis":3,"arg-n":2,"arn":3,"ars":2,"arund":1,"asc-c":2,"aur":2,"bell":3,"benz-ac":3,"berb":2,"bry":2,"cact":1,"calad":1,"calc-ar":2,"calc-s":1,"camph":1,"cann-s":2,"canth":3,"caps":2,"carb-ac":2,"caust":1,"chel":2,"chim":2,"coc-c":1,"colch":3,"coll":1,"con":2,"cop":1,"crot-c":1,"crot-h":2,"cub":1,"dig":1,"ery-a":2,"eup-pur":2,"gels":2,"glon":2,"hell":2,"helon":2,"hep":2,"hippoz":1,"indg":1,"kali-ar":2,"kali-c":2,"kali-chl":3,"kali-i":2,"kali-p":1,"kali-s":1,"lil-t":1,"lith":1,"lyc":3,"lycps":1,"merc":2,"merc-c":2,"merc-cy":1,"nat-s":3,"nux-v":2,"oci":3,"pareir":1,"ph-ac":1,"phos":2,"phyt":2,"pic-ac":1,"plb":1,"polyg-h":2,"prun-s":1,"puls":2,"rhus-t":2,"sabin":2,"samb":1,"sars":2,"sec":1,"senec":2,"sep":1,"sil":2,"stram":2,"sul-ac":1,"sulph":3,"tarent":1,"ter":3,"thuj":2,"uran":1,"zinc":1},"oorep_id":45122},"o45123":{"t":"INFLAMMATION, acute parenchymatous","r":{"apis":3,"canth":2,"carb-ac":1,"colch":2,"con":2,"glon":2,"helon":1,"kali-chl":2,"kali-s":1,"nat-s":3,"stram":2,"ter":3,"uran":1},"oorep_id":45123},"o45124":{"t":"INFLAMMATION, bloody, ink-like, albuminous urine, with","r":{"colch":3},"oorep_id":45124},"o45125":{"t":"INFLAMMATION, cardiac and hepatic affections, with","r":{"aur":2,"calc-ar":2},"oorep_id":45125},"o45126":{"t":"INFLAMMATION, suppurative","r":{"ars":2,"hep":2,"hippoz":1,"merc":2,"sil":2},"oorep_id":45126},"o45127":{"t":"INFLAMMATION, toxaemic","r":{"crot-h":2},"oorep_id":45127},"o45128":{"t":"INFLAMMATION, ureters","r":{"arn":1,"canth":2,"ter":1},"oorep_id":45128},"m45129":{"t":"LAMENESS","r":{}},"r6":{"t":"LAMENESS, region of","r":{"agar":1,"cimic":1,"phys":1,"ptel":1},"oorep_id":45129},"r7":{"t":"LAMENESS, region of, left, with cramp, extending into thighs","r":{"agar":1},"oorep_id":45130},"r8":{"t":"LAMENESS, region of, waking, on","r":{"ptel":1},"oorep_id":45131},"m45132":{"t":"NUMBNESS","r":{}},"r9":{"t":"NUMBNESS, region of","r":{"berb":3},"oorep_id":45132},"r10":{"t":"PAIN","r":{"abrot":1,"acon":2,"aesc":2,"aeth":2,"agar":1,"agn":2,"all-c":2,"all-s":1,"aloe":1,"alum":2,"alumn":1,"am-br":1,"ambr":1,"anan":1,"ant-c":1,"ant-t":1,"aphis":1,"apis":2,"apoc":1,"aran":1,"arg-n":2,"arn":2,"ars":2,"ars-h":2,"arund":1,"asaf":2,"asar":1,"aspar":1,"astac":1,"aur-m":1,"bad":1,"bapt":1,"bell":3,"benz-ac":2,"berb":3,"bov":1,"brach":1,"bry":2,"bufo":1,"cact":2,"cadm":1,"cahin":2,"calad":1,"calc":2,"calc-ar":2,"calc-f":1,"calc-p":2,"cann-i":2,"cann-s":2,"canth":3,"caps":2,"carb-an":3,"carl":2,"caust":3,"cedr":1,"cham":2,"chel":2,"chim":2,"chin":1,"chin-a":2,"chin-s":2,"chlol":1,"cimic":1,"cinnb":2,"clem":3,"coc-c":2,"colch":3,"coloc":2,"con":1,"cop":1,"crot-c":2,"crot-h":2,"crot-t":1,"cupr-ac":1,"cur":1,"cycl":1,"daph":1,"dig":1,"dios":2,"dor":1,"dulc":2,"elat":1,"epig":1,"equis":1,"erig":1,"eup-pur":2,"ferr":2,"ferr-ar":1,"ferr-i":1,"ferr-p":1,"fl-ac":1,"gamb":1,"gels":2,"graph":3,"grat":1,"ham":2,"hell":1,"helon":2,"hep":2,"hydr":2,"hydr-ac":1,"hyper":1,"indg":1,"iod":2,"ip":2,"ipom":2,"iris":1,"ir-f":1,"kali-ar":1,"kali-bi":3,"kali-br":1,"kali-c":2,"kali-chl":2,"kali-i":2,"kali-n":2,"kali-p":1,"kali-s":1,"kreos":2,"lac-d":2,"lach":2,"lachn":1,"laur":1,"lec":1,"lept":1,"lith":2,"lob":1,"lyc":3,"lycps":1,"lyss":1,"mag-m":1,"manc":2,"mang":1,"med":2,"meny":1,"meph":1,"merc":2,"merc-c":1,"mez":2,"mill":2,"mit":1,"myric":1,"nat-a":2,"nat-m":2,"nat-p":1,"nat-s":2,"nit-ac":2,"nux-m":2,"nux-v":2,"oci":3,"op":2,"ox-ac":1,"pall":2,"pareir":3,"petr":1,"ph-ac":2,"phos":2,"phys":1,"phyt":2,"pin-s":1,"plb":2,"psor":1,"ptel":1,"puls":3,"ran-s":1,"raph":1,"rat":2,"rheum":1,"rhus-t":2,"ruta":1,"sabad":1,"sang":1,"sars":3,"scut":1,"sel":2,"senec":2,"sep":2,"sil":1,"staph":2,"still":1,"sulph":2,"syph":1,"tab":2,"tarent":2,"tell":1,"ter":3,"thuj":2,"upa":1,"valer":1,"verat":3,"vesp":2,"vip":1,"zinc":2,"zing":1},"oorep_id":45133},"r88":{"t":"PAIN, aching","r":{"acon":1,"aesc":1,"agar":1,"agn":1,"all-c":1,"ambr":1,"ant-c":1,"apoc":1,"benz-ac":1,"berb":3,"brach":1,"calc":2,"cann-i":2,"canth":2,"carl":1,"caust":1,"chel":1,"chin-s":2,"cinnb":1,"coc-c":1,"crot-h":2,"elat":1,"equis":1,"eup-pur":2,"ham":1,"helon":2,"hydr":2,"ir-f":1,"kali-bi":2,"lyc":3,"merc-c":1,"mit":1,"nat-a":2,"pall":1,"phos":1,"phys":1,"sabad":1,"sang":1,"scut":1,"sep":1,"still":1,"tab":1,"tarent":1,"ter":2,"zing":1},"oorep_id":45134},"r89":{"t":"PAIN, aching, evening","r":{"canth":2,"helon":1},"oorep_id":45135},"r90":{"t":"PAIN, aching, night","r":{"calc":1,"cann-i":2},"oorep_id":45136},"r94":{"t":"PAIN, aching, region of","r":{"acon":1,"agar":1,"all-c":1,"ambr":1,"ant-c":1,"apoc":1,"berb":3,"brach":1,"calc":1,"canth":2,"carl":1,"caust":1,"chin-s":2,"coc-c":1,"elat":1,"equis":1,"ham":1,"hydr":2,"ir-f":1,"kali-bi":2,"lyc":1,"merc-c":1,"mit":1,"nat-a":1,"pall":1,"phos":1,"phys":1,"sabad":1,"sang":1,"sep":1,"still":1,"tab":1},"oorep_id":45137},"r97":{"t":"PAIN, aching, region of, 10 p.m.","r":{"ir-f":1},"oorep_id":45138},"r95":{"t":"PAIN, aching, region of, afternoon","r":{"chin-s":2,"sang":1},"oorep_id":45139},"r96":{"t":"PAIN, aching, region of, evening","r":{"canth":2},"oorep_id":45140},"r98":{"t":"PAIN, aching, region of, urination, before","r":{"tab":1},"oorep_id":45141},"r99":{"t":"PAIN, aching, region of, waking, on","r":{"still":1},"oorep_id":45142},"r91":{"t":"PAIN, aching, riding, while","r":{"calc":2},"oorep_id":45143},"o67275":{"t":"PAIN, aching, urination","r":{"aesc":1,"agn":1,"ant-c":1,"berb":1,"lyc":3,"tarent":1},"oorep_id":67275},"r93":{"t":"PAIN, aching, urination, amel.","r":{"lyc":3,"tarent":1},"oorep_id":45144},"o45145":{"t":"PAIN, aching, urination, during agg.","r":{"aesc":1,"agn":1,"ant-c":1,"berb":1},"oorep_id":45145},"r14":{"t":"PAIN, afternoon","r":{"bad":1,"chel":2,"chin-s":1,"lyc":3,"sang":1},"oorep_id":45146},"r16":{"t":"PAIN, afternoon, 4 p.m. to 8 p.m.","r":{"lyc":3},"oorep_id":45147},"r15":{"t":"PAIN, afternoon, 4 p.m. to 9 p.m.","r":{"chel":2},"oorep_id":45148},"r20":{"t":"PAIN, alternating with vertigo","r":{"alum":1},"oorep_id":45149},"r21":{"t":"PAIN, apyrexia, during","r":{"bell":1,"chin":1,"hep":1,"lyc":1,"staph":1},"oorep_id":45150},"r22":{"t":"PAIN, bending body, on","r":{"chin":1},"oorep_id":45151},"r23":{"t":"PAIN, blowing nose","r":{"calc-p":2},"oorep_id":45152},"r24":{"t":"PAIN, breathing deeply, when","r":{"aeth":1,"astac":1,"benz-ac":2,"sel":1},"oorep_id":45153},"r100":{"t":"PAIN, burning","r":{"apis":1,"ars-h":2,"arund":1,"bell":2,"benz-ac":2,"berb":2,"bufo":1,"cann-i":1,"canth":2,"cedr":1,"coloc":2,"helon":2,"hep":1,"ip":2,"kali-bi":2,"kali-c":2,"kali-i":2,"kali-n":1,"lac-d":2,"lachn":1,"nat-m":1,"nux-v":2,"phyt":1,"pin-s":1,"puls":2,"rheum":1,"ter":3,"thuj":1,"zinc":1,"zing":1},"oorep_id":45154},"r107":{"t":"PAIN, burning, along ureters","r":{"bell":1,"cedr":1,"pin-s":1,"ter":2},"oorep_id":45155},"r108":{"t":"PAIN, burning, along ureters, to bladder","r":{"bell":1,"ter":2},"oorep_id":45156},"r106":{"t":"PAIN, burning, extending through left ilium to pubis, in women","r":{"arund":1},"oorep_id":45157},"r101":{"t":"PAIN, burning, left","r":{"benz-ac":1,"lachn":1,"zing":1},"oorep_id":45158},"r102":{"t":"PAIN, burning, lying, while","r":{"lac-d":1},"oorep_id":45159},"r103":{"t":"PAIN, burning, oppressed breathing and faintness, with","r":{"bufo":1},"oorep_id":45160},"r109":{"t":"PAIN, burning, region of","r":{"berb":2,"coloc":2,"kali-n":1,"lac-d":2,"nat-m":1,"phyt":1,"ter":2},"oorep_id":45161},"r110":{"t":"PAIN, burning, ureters","r":{"cedr":1,"pin-s":1,"ter":1},"oorep_id":45162},"o67276":{"t":"PAIN, burning, urination","r":{"rheum":1,"thuj":1},"oorep_id":67276},"r104":{"t":"PAIN, burning, urination, before","r":{"rheum":1,"thuj":1},"oorep_id":45163},"r105":{"t":"PAIN, burning, urination, during","r":{"rheum":1},"oorep_id":45164},"r25":{"t":"PAIN, chill, during","r":{"ars":1,"canth":1,"kali-c":1,"lyc":1,"nux-v":1,"puls":1,"zinc":1},"oorep_id":45165},"o67277":{"t":"PAIN, constricting","r":{"canth":1,"nit-ac":1},"oorep_id":67277},"r112":{"t":"PAIN, constricting, down ureters to penis, pressure on glans amel., at times pain goes upward","r":{"canth":1},"oorep_id":45166},"r111":{"t":"PAIN, constricting, extending to bladder","r":{"nit-ac":1},"oorep_id":45167},"r113":{"t":"PAIN, contracting","r":{"canth":3,"clem":1},"oorep_id":45168},"r114":{"t":"PAIN, contracting, down ureters to penis","r":{"canth":3},"oorep_id":45169},"r26":{"t":"PAIN, coughing","r":{"bell":2},"oorep_id":45170},"r115":{"t":"PAIN, cramping","r":{"cadm":1,"caust":3,"chel":2,"cycl":1,"kali-i":1,"nit-ac":2,"oci":1},"oorep_id":45171},"o45172":{"t":"PAIN, cramping, 4 p.m. to 9 p.m.","r":{"chel":2},"oorep_id":45172},"r117":{"t":"PAIN, cutting","r":{"acon":1,"aesc":1,"apis":2,"arg-n":2,"arn":2,"ars":2,"aspar":1,"bad":1,"bell":3,"benz-ac":2,"berb":3,"bufo":1,"cadm":1,"cann-i":1,"cann-s":1,"canth":3,"carb-an":3,"chlol":1,"clem":1,"coc-c":1,"colch":2,"coloc":1,"con":1,"daph":1,"dios":2,"equis":1,"erig":1,"eup-pur":1,"graph":2,"indg":1,"kali-ar":1,"kali-bi":3,"kali-c":2,"kali-i":2,"lach":2,"lyc":3,"med":2,"merc":2,"mez":1,"nat-s":1,"nux-m":2,"nux-v":2,"oci":3,"op":2,"pareir":3,"phos":2,"plb":1,"psor":1,"sars":3,"senec":1,"sep":1,"sil":1,"staph":2,"tab":2,"verat":3,"zinc":1},"oorep_id":45173},"r118":{"t":"PAIN, cutting, paroxysmal, and burning in both","r":{"canth":3},"oorep_id":45174},"r120":{"t":"PAIN, cutting, region of","r":{"plb":1,"staph":2,"zinc":1},"oorep_id":45175},"r121":{"t":"PAIN, cutting, region of, heat amel., cold agg.","r":{"staph":2},"oorep_id":45176},"r122":{"t":"PAIN, cutting, region of, lancinations, friction and pressure amel.","r":{"plb":1},"oorep_id":45177},"r123":{"t":"PAIN, cutting, ureters","r":{"aesc":1,"apis":2,"arg-n":2,"arn":2,"ars":2,"aspar":1,"bell":3,"benz-ac":2,"berb":3,"cann-s":1,"canth":2,"carb-an":3,"chlol":1,"coc-c":1,"colch":1,"con":1,"dios":2,"equis":1,"erig":1,"eup-pur":1,"indg":1,"kali-ar":1,"kali-c":2,"lach":2,"lyc":3,"med":2,"nat-s":1,"nux-m":2,"nux-v":2,"oci":3,"op":2,"pareir":3,"phos":2,"psor":1,"sars":3,"senec":1,"sep":1,"sil":1,"tab":2,"verat":3,"zinc":1},"oorep_id":45178},"r124":{"t":"PAIN, cutting, ureters, alternating with pain in glans","r":{"canth":1},"oorep_id":45179},"r125":{"t":"PAIN, cutting, ureters, urination, after","r":{"apis":1},"oorep_id":45180},"r126":{"t":"PAIN, cutting, ureters, vomiting, with","r":{"oci":3},"oorep_id":45181},"r119":{"t":"PAIN, cutting, urination, before","r":{"graph":1},"oorep_id":45182},"r27":{"t":"PAIN, dancing, while","r":{"alum":1},"oorep_id":45183},"r28":{"t":"PAIN, desire be delayed, if","r":{"con":1,"pall":1,"rhus-t":1},"oorep_id":45184},"r127":{"t":"PAIN, digging","r":{"berb":3,"cur":1,"kali-i":1},"oorep_id":45185},"r128":{"t":"PAIN, digging, region of, pressure agg.","r":{"berb":3},"oorep_id":45186},"r129":{"t":"PAIN, dragging, ureters, like labor pain, with urging to urinate","r":{"cham":2},"oorep_id":45187},"r130":{"t":"PAIN, drawing","r":{"agar":1,"aloe":1,"alumn":1,"astac":1,"benz-ac":2,"berb":1,"calad":1,"cann-s":2,"carl":1,"cham":1,"cinnb":1,"clem":3,"coc-c":1,"iod":2,"kali-c":1,"kali-n":1,"lach":1,"meny":1,"nat-m":2,"nux-m":2,"ruta":1,"sulph":1,"ter":3,"thuj":1,"zinc":2},"oorep_id":45188},"r135":{"t":"PAIN, drawing, extending right to hip","r":{"ter":2},"oorep_id":45189},"r132":{"t":"PAIN, drawing, left","r":{"benz-ac":2,"kali-c":1},"oorep_id":45190},"r136":{"t":"PAIN, drawing, region of","r":{"aloe":1,"alumn":1,"benz-ac":1,"berb":1,"cann-s":2,"carl":1,"cinnb":1,"iod":2,"kali-n":1,"lach":1,"meny":1,"ruta":1,"ter":3,"zinc":2},"oorep_id":45191},"r137":{"t":"PAIN, drawing, region of, evening, sitting, while","r":{"meny":1,"ruta":1},"oorep_id":45192},"r138":{"t":"PAIN, drawing, region of, extending into inguinal region","r":{"cann-s":1},"oorep_id":45193},"r139":{"t":"PAIN, drawing, region of, right hip","r":{"ter":1},"oorep_id":45194},"r131":{"t":"PAIN, drawing, right, 5 a.m.","r":{"coc-c":1},"oorep_id":45195},"r133":{"t":"PAIN, drawing, stooping, when","r":{"benz-ac":2},"oorep_id":45196},"r134":{"t":"PAIN, drawing, tensive, riding, while","r":{"agar":1},"oorep_id":45197},"r140":{"t":"PAIN, drawing, ureters","r":{"astac":1,"berb":1,"calad":1,"cham":1,"coc-c":1,"nat-m":2,"sulph":1,"thuj":1},"oorep_id":45198},"r142":{"t":"PAIN, drawing, ureters, left","r":{"calad":1,"coc-c":1},"oorep_id":45199},"r141":{"t":"PAIN, drawing, ureters, right","r":{"astac":1},"oorep_id":45200},"r17":{"t":"PAIN, evening","r":{"canth":1,"ox-ac":1,"sil":1,"tarent":1},"oorep_id":45201},"r56":{"t":"PAIN, extending over abdomen","r":{"hydr-ac":1},"oorep_id":45202},"o67278":{"t":"PAIN, extending","r":{"arg-n":1,"arn":1,"ars":1,"bell":1,"berb":1,"canth":1,"chel":1,"coc-c":1,"dios":1,"equis":1,"hydr-ac":1,"kali-bi":1,"kali-i":1,"lyc":2,"nat-m":1,"nit-ac":1,"nux-m":2,"nux-v":2,"oci":1,"ox-ac":1,"petr":1,"phyt":1,"sang":1,"sars":2,"syph":1,"tab":1,"ter":1},"oorep_id":67278},"o45203":{"t":"PAIN, extending, abdomen","r":{"berb":1,"canth":1,"kali-bi":1,"nux-v":2},"oorep_id":45203},"o45204":{"t":"PAIN, extending, bladder","r":{"arg-n":1,"ars":1,"bell":1,"berb":1,"canth":1,"chel":1,"coc-c":1,"kali-i":1,"lyc":2,"nit-ac":1,"oci":1,"petr":1,"phyt":1,"sars":2,"tab":1},"oorep_id":45204},"o45205":{"t":"PAIN, extending, epigastrium","r":{"hydr-ac":1},"oorep_id":45205},"o45206":{"t":"PAIN, extending, hip","r":{"arn":1,"berb":1,"lyc":1,"nux-m":2,"nux-v":2,"ox-ac":1,"ter":1},"oorep_id":45206},"o45207":{"t":"PAIN, extending, right ilium","r":{"sang":1},"oorep_id":45207},"o45208":{"t":"PAIN, extending, right, thigh","r":{"nux-v":2},"oorep_id":45208},"o45209":{"t":"PAIN, extending, testes","r":{"dios":1,"equis":1,"nux-v":1,"syph":1},"oorep_id":45209},"o45210":{"t":"PAIN, extending, uterus","r":{"nat-m":1},"oorep_id":45210},"r143":{"t":"PAIN, gnawing","r":{"berb":2,"brach":1,"tarent":2},"oorep_id":45211},"r144":{"t":"PAIN, gnawing, region of","r":{"brach":1},"oorep_id":45212},"r29":{"t":"PAIN, jar, from","r":{"aeth":1,"alum":1,"bell":2,"berb":2,"calc-p":1,"cann-s":1},"oorep_id":45213},"r30":{"t":"PAIN, laughing, when","r":{"cann-i":2},"oorep_id":45214},"r31":{"t":"PAIN, lifting, when","r":{"calc-p":2},"oorep_id":45215},"o67279":{"t":"PAIN, lying","r":{"aeth":1,"berb":1,"chel":1,"colch":1,"coloc":1,"nux-v":1,"rhus-t":1},"oorep_id":67279},"r33":{"t":"PAIN, lying, on abdomen, amel.","r":{"chel":1},"oorep_id":45216},"o45217":{"t":"PAIN, lying, on back agg.","r":{"chel":1},"oorep_id":45217},"r35":{"t":"PAIN, lying, on back, amel.","r":{"nux-v":1},"oorep_id":45218},"r32":{"t":"PAIN, lying, while","r":{"aeth":1,"berb":1,"colch":1,"coloc":1,"nux-v":1,"rhus-t":1},"oorep_id":45219},"o67280":{"t":"PAIN, menses","r":{"berb":2,"cur":1,"raph":1,"verat":2},"oorep_id":67280},"r36":{"t":"PAIN, menses, at beginning of","r":{"berb":2,"raph":1,"verat":2},"oorep_id":45220},"r37":{"t":"PAIN, menses, during","r":{"berb":1,"cur":1},"oorep_id":45221},"r12":{"t":"PAIN, morning","r":{"alum":1,"bell":1,"cahin":2,"ham":1,"kali-c":1,"ox-ac":1,"tarent":1},"oorep_id":45222},"r13":{"t":"PAIN, morning, waking, on","r":{"ox-ac":1},"oorep_id":45223},"r38":{"t":"PAIN, motion agg.","r":{"aesc":1,"arg-n":1,"berb":2,"cahin":1,"coc-c":1,"colch":2,"dor":1,"gels":2,"ham":2,"kali-bi":1,"nux-v":2},"oorep_id":45224},"o45225":{"t":"PAIN, motion, amel.","r":{"ter":1},"oorep_id":45225},"r18":{"t":"PAIN, night","r":{"ars-h":1,"calc":1,"cann-i":1,"chel":1,"cinnb":1,"helon":1,"tarent":1},"oorep_id":45226},"r19":{"t":"PAIN, night, undressing, while","r":{"helon":1},"oorep_id":45227},"r40":{"t":"PAIN, paroxysmal","r":{"aran":1,"bell":2,"chel":2,"coc-c":2,"sulph":1},"oorep_id":45228},"r146":{"t":"PAIN, piercing in both ureters, with urging to urinate","r":{"nat-s":1},"oorep_id":45229},"r147":{"t":"PAIN, pressing","r":{"agar":1,"am-br":1,"aphis":1,"ars-h":1,"berb":2,"calc":2,"canth":2,"carl":2,"cimic":1,"clem":1,"coc-c":1,"graph":1,"ham":1,"hydr":1,"hyper":1,"kali-c":2,"nit-ac":2,"nux-v":2,"pall":1,"ran-s":1,"ter":2,"thuj":2,"zinc":1},"oorep_id":45230},"r148":{"t":"PAIN, pressing, morning","r":{"kali-c":1},"oorep_id":45231},"r150":{"t":"PAIN, pressing, motion amel.","r":{"ter":1},"oorep_id":45232},"r149":{"t":"PAIN, pressing, night","r":{"calc":1},"oorep_id":45233},"r153":{"t":"PAIN, pressing, region of","r":{"agar":1,"ars-h":1,"berb":2,"cimic":1,"ham":1,"hydr":1,"pall":1},"oorep_id":45234},"r151":{"t":"PAIN, pressing, sitting, while","r":{"pall":1,"ter":2},"oorep_id":45235},"r152":{"t":"PAIN, pressing, urination, before","r":{"graph":1},"oorep_id":45236},"r41":{"t":"PAIN, pulsating","r":{"berb":1,"bufo":1},"oorep_id":45237},"r42":{"t":"PAIN, radiating","r":{"berb":2,"pareir":1},"oorep_id":45238},"r65":{"t":"PAIN, region of","r":{"abrot":1,"agar":1,"all-s":1,"ars-h":1,"benz-ac":1,"berb":3,"bov":1,"cadm":1,"cahin":1,"calc":2,"calc-p":2,"cann-s":1,"canth":1,"chel":1,"chin-a":2,"colch":1,"cop":1,"erig":1,"fl-ac":1,"graph":1,"hep":1,"hydr":1,"ip":1,"kali-bi":1,"kreos":1,"myric":1,"nux-v":1,"oci":1,"ox-ac":1,"pareir":1,"petr":1,"phys":1,"phyt":1,"rhus-t":1,"sars":2,"sel":1},"oorep_id":45239},"r66":{"t":"PAIN, region of, bands of clothing, from","r":{"chel":1},"oorep_id":45240},"r67":{"t":"PAIN, region of, digging, when","r":{"calc-p":1},"oorep_id":45241},"r70":{"t":"PAIN, region of, extending to calves","r":{"berb":2},"oorep_id":45242},"o67281":{"t":"PAIN, region of, extending","r":{"agar":1,"benz-ac":1,"berb":3,"cann-s":1,"canth":1,"chel":1,"graph":1,"hep":1,"ip":1,"kali-bi":1,"kreos":1,"nux-v":1,"oci":1,"pareir":1,"petr":1,"phyt":1,"sars":2,"sel":1},"oorep_id":67281},"o45243":{"t":"PAIN, region of, extending, chest","r":{"benz-ac":1},"oorep_id":45243},"o45244":{"t":"PAIN, region of, extending, downward","r":{"berb":1,"sars":2},"oorep_id":45244},"o45245":{"t":"PAIN, region of, extending, from genitals, anus and thighs","r":{"kreos":1},"oorep_id":45245},"o45246":{"t":"PAIN, region of, extending, groin","r":{"cann-s":1,"kali-bi":1,"pareir":1,"petr":1},"oorep_id":45246},"o45247":{"t":"PAIN, region of, extending, groin, anxious nausea, with","r":{"cann-s":1},"oorep_id":45247},"o45248":{"t":"PAIN, region of, extending, prostate gland","r":{"graph":1,"sel":1},"oorep_id":45248},"o45249":{"t":"PAIN, region of, extending, thighs","r":{"agar":1,"berb":3,"hep":1,"ip":1,"kali-bi":1,"nux-v":1},"oorep_id":45249},"o45250":{"t":"PAIN, region of, extending, ureters","r":{"canth":1,"chel":1,"oci":1,"phyt":1},"oorep_id":45250},"r68":{"t":"PAIN, region of, lie only on the back, can","r":{"colch":1},"oorep_id":45251},"r69":{"t":"PAIN, region of, stretching, after","r":{"calc":1},"oorep_id":45252},"r43":{"t":"PAIN, riding","r":{"alum":1,"berb":1,"calc":2},"oorep_id":45253},"r11":{"t":"PAIN, right","r":{"lyss":1,"senec":2},"oorep_id":45254},"r44":{"t":"PAIN, sitting, while","r":{"berb":2,"pall":2,"ter":1,"valer":1},"oorep_id":45255},"r45":{"t":"PAIN, sneezing agg.","r":{"aeth":2,"ars":1,"bell":2},"oorep_id":45256},"r155":{"t":"PAIN, sore, bruised","r":{"abrot":1,"acon":1,"aeth":1,"agar":1,"alum":1,"apis":2,"apoc":1,"arg-n":2,"ars":1,"asaf":2,"asar":1,"bell":2,"benz-ac":1,"berb":3,"brach":1,"cact":2,"calc":1,"calc-ar":2,"calc-p":1,"cann-i":2,"cann-s":2,"canth":2,"chel":2,"cinnb":1,"clem":1,"coc-c":2,"colch":1,"equis":1,"ferr-i":1,"graph":3,"hell":1,"helon":2,"hep":2,"hydr":1,"kali-c":1,"kali-i":1,"manc":2,"mang":1,"meny":1,"merc":1,"merc-c":1,"nat-a":1,"nat-s":2,"nux-v":2,"pareir":2,"phos":1,"phys":1,"phyt":1,"plb":1,"puls":3,"rat":2,"rhus-t":2,"sel":1,"tab":1,"tarent":1,"tell":1,"ter":2,"vesp":2,"zinc":1},"oorep_id":45257},"o45258":{"t":"PAIN, sore, bruised, afternoon","r":{"kali-c":1},"oorep_id":45258},"o45259":{"t":"PAIN, sore, bruised, evening","r":{"meny":1},"oorep_id":45259},"o45260":{"t":"PAIN, sore, bruised, exerting the muscles, while","r":{"apoc":1},"oorep_id":45260},"o45261":{"t":"PAIN, sore, bruised, jar","r":{"aeth":1,"alum":1,"bell":2,"berb":2,"calc-p":1,"cann-i":2},"oorep_id":45261},"o45262":{"t":"PAIN, sore, bruised, left","r":{"benz-ac":1,"zinc":1},"oorep_id":45262},"o45263":{"t":"PAIN, sore, bruised, region of","r":{"abrot":1,"benz-ac":1,"berb":3,"brach":1,"cann-s":1,"chel":2,"coc-c":2,"equis":1,"hydr":1,"mang":1,"merc-c":1,"nat-a":1,"nux-v":2,"phos":1,"phys":1,"phyt":1,"rhus-t":2,"tell":1,"ter":1,"zinc":1},"oorep_id":45263},"o45264":{"t":"PAIN, sore, bruised, region of, extending to thighs","r":{"berb":2},"oorep_id":45264},"o45265":{"t":"PAIN, sore, bruised, right","r":{"helon":2,"nux-v":2,"phyt":1},"oorep_id":45265},"o45266":{"t":"PAIN, sore, bruised, sitting, while","r":{"kali-c":1,"meny":1},"oorep_id":45266},"r165":{"t":"PAIN, stabbing, region of","r":{"arn":1,"erig":1},"oorep_id":45267},"r46":{"t":"PAIN, standing amel.","r":{"berb":1},"oorep_id":45268},"r167":{"t":"PAIN, stitching","r":{"acon":2,"aesc":1,"aeth":1,"agar":1,"anan":1,"ant-t":1,"apis":1,"arg-n":1,"arn":2,"ars":2,"astac":1,"bapt":1,"bell":2,"berb":3,"bov":1,"bufo":1,"calad":1,"calc-f":1,"cann-i":1,"canth":2,"carb-an":1,"chel":2,"chin":1,"cinnb":1,"coc-c":2,"coloc":2,"con":1,"crot-t":1,"cupr-ac":1,"cycl":1,"dig":1,"erig":1,"gamb":1,"grat":1,"hep":1,"ip":2,"kali-ar":1,"kali-bi":3,"kali-c":2,"kali-i":1,"kali-n":2,"kali-p":1,"kali-s":1,"lach":2,"laur":1,"lob":1,"lyc":3,"mag-m":1,"mang":1,"mez":2,"nat-m":2,"nat-p":1,"nux-v":2,"oci":1,"pareir":1,"ph-ac":1,"phos":1,"plb":2,"ran-s":1,"sep":1,"staph":2,"sulph":1,"tab":1,"tarent":2,"ter":1,"upa":1,"valer":1,"vip":1,"zinc":1},"oorep_id":67282},"r170":{"t":"PAIN, stitching, afternoon","r":{"crot-t":1,"tarent":2},"oorep_id":45269},"r174":{"t":"PAIN, stitching, cold, becoming","r":{"staph":2},"oorep_id":45270},"r175":{"t":"PAIN, stitching, eating, after","r":{"con":1},"oorep_id":45271},"r171":{"t":"PAIN, stitching, evening","r":{"coc-c":1,"zinc":1},"oorep_id":45272},"r172":{"t":"PAIN, stitching, evening, bed, in","r":{"coc-c":1},"oorep_id":45273},"r188":{"t":"PAIN, stitching, extending to bladder","r":{"arg-n":1,"bell":1,"berb":3,"coc-c":1,"cupr-ac":1,"kali-bi":3,"lach":2,"oci":1},"oorep_id":45274},"o67283":{"t":"PAIN, stitching, extending","r":{"apis":1,"arg-n":1,"bell":1,"berb":3,"calad":1,"chel":2,"coc-c":1,"cupr-ac":1,"ip":1,"kali-bi":3,"lach":2,"lyc":3,"nat-m":1,"oci":1,"pareir":1,"tab":1,"ter":1},"oorep_id":67283},"o45275":{"t":"PAIN, stitching, extending, down ureters","r":{"apis":1,"arg-n":1,"bell":1,"berb":3,"calad":1,"chel":2,"coc-c":1,"cupr-ac":1,"kali-bi":3,"lach":2,"lyc":3,"pareir":1,"tab":1,"ter":1},"oorep_id":45275},"o45276":{"t":"PAIN, stitching, extending, knee","r":{"berb":1,"ip":1,"kali-bi":1},"oorep_id":45276},"o45277":{"t":"PAIN, stitching, extending, urethra","r":{"berb":2,"coc-c":1},"oorep_id":45277},"o45278":{"t":"PAIN, stitching, extending, uterus","r":{"nat-m":1},"oorep_id":45278},"r176":{"t":"PAIN, stitching, inspiration, on deep","r":{"ars":2,"astac":1,"crot-t":1,"cycl":1,"laur":1},"oorep_id":45279},"r177":{"t":"PAIN, stitching, lying on face amel.","r":{"chel":1},"oorep_id":45280},"r168":{"t":"PAIN, stitching, morning","r":{"chel":1,"cinnb":1},"oorep_id":45281},"r169":{"t":"PAIN, stitching, morning, 4 a.m.","r":{"cinnb":1},"oorep_id":45282},"r178":{"t":"PAIN, stitching, motion","r":{"ant-t":1,"kali-bi":1},"oorep_id":45283},"r179":{"t":"PAIN, stitching, motion, of arms, on","r":{"ant-t":1},"oorep_id":45284},"r173":{"t":"PAIN, stitching, night","r":{"tarent":2},"oorep_id":45285},"r180":{"t":"PAIN, stitching, pulsating","r":{"bufo":1},"oorep_id":45286},"r181":{"t":"PAIN, stitching, radiating","r":{"berb":3},"oorep_id":45287},"r182":{"t":"PAIN, stitching, sitting, while","r":{"berb":2,"dig":1,"valer":1},"oorep_id":45288},"r183":{"t":"PAIN, stitching, sneezing","r":{"ars":1},"oorep_id":45289},"o67284":{"t":"PAIN, stitching, standing","r":{"berb":1,"zinc":1},"oorep_id":67284},"r185":{"t":"PAIN, stitching, standing, amel.","r":{"berb":1},"oorep_id":45290},"o45291":{"t":"PAIN, stitching, standing, while agg.","r":{"zinc":1},"oorep_id":45291},"r166":{"t":"PAIN, stitching, stinging, sticking","r":{"acon":2,"aesc":1,"aeth":1,"agar":1,"anan":1,"ant-t":1,"arn":2,"ars":2,"astac":1,"bapt":1,"bell":2,"berb":3,"bov":1,"calc-f":1,"cann-i":1,"canth":2,"carb-an":1,"chel":2,"chin":1,"coc-c":2,"coloc":2,"crot-t":1,"cycl":1,"dig":1,"erig":1,"gamb":1,"grat":1,"hep":1,"ip":2,"kali-ar":1,"kali-bi":3,"kali-c":2,"kali-i":1,"kali-n":2,"kali-p":1,"kali-s":1,"lach":2,"lob":1,"lyc":2,"mag-m":1,"mang":1,"mez":2,"nat-m":2,"nat-p":1,"nux-v":2,"ph-ac":1,"phos":1,"plb":2,"ran-s":1,"sep":1,"staph":2,"sulph":1,"tarent":1,"ter":1,"upa":1,"valer":1,"vip":1,"zinc":1},"oorep_id":45292},"r186":{"t":"PAIN, stitching, urinating, after","r":{"bufo":1},"oorep_id":45293},"r187":{"t":"PAIN, stitching, warm bed amel.","r":{"staph":2},"oorep_id":45294},"o67285":{"t":"PAIN, stooping","r":{"alum":1,"apis":1,"berb":2,"chin":1,"sulph":2},"oorep_id":67285},"r48":{"t":"PAIN, stooping, after long","r":{"sulph":1},"oorep_id":45295},"r47":{"t":"PAIN, stooping, when","r":{"alum":1,"apis":1,"berb":2,"chin":1,"sulph":2},"oorep_id":45296},"r49":{"t":"PAIN, straightening out legs agg.","r":{"colch":1},"oorep_id":45297},"r50":{"t":"PAIN, swelling of right knee, with","r":{"benz-ac":1},"oorep_id":45298},"r193":{"t":"PAIN, tearing","r":{"aesc":1,"arg-n":1,"arn":1,"bell":1,"berb":3,"canth":3,"kali-c":1,"lyc":2,"mez":2,"raph":1,"rhus-t":2,"sars":1,"zinc":1},"oorep_id":45299},"r195":{"t":"PAIN, tearing, agonizing as from passing calculus, in back and hips","r":{"arn":1},"oorep_id":45300},"r201":{"t":"PAIN, tearing, extending to thighs, with stiffness","r":{"berb":2},"oorep_id":45301},"o45302":{"t":"PAIN, tearing, extending, downwards","r":{"arg-n":1,"bell":1,"sars":1},"oorep_id":45302},"r194":{"t":"PAIN, tearing, morning, rising, after","r":{"berb":1},"oorep_id":45303},"r196":{"t":"PAIN, tearing, pulsating","r":{"berb":2},"oorep_id":45304},"r197":{"t":"PAIN, tearing, radiating","r":{"berb":3},"oorep_id":45305},"r198":{"t":"PAIN, tearing, standing amel.","r":{"berb":1},"oorep_id":45306},"r199":{"t":"PAIN, tearing, stooping, on","r":{"berb":1,"raph":1},"oorep_id":45307},"r203":{"t":"PAIN, tearing, ureters, extend downwards, touch, motion and inspiration agg.","r":{"arg-n":1,"bell":1},"oorep_id":45308},"r200":{"t":"PAIN, tearing, wet weather","r":{"rhus-t":2},"oorep_id":45309},"r204":{"t":"PAIN, ulcerative","r":{"cann-s":1},"oorep_id":45310},"o67286":{"t":"PAIN, ureters","r":{"aesc":1,"agar":1,"aloe":1,"apis":1,"benz-ac":1,"berb":3,"calad":1,"cann-i":1,"cann-s":1,"canth":1,"clem":1,"coc-c":1,"con":1,"dios":2,"epig":1,"indg":1,"ipom":2,"kali-c":1,"lyc":3,"nux-v":2,"oci":3,"pareir":2,"sars":2,"tab":1,"tarent":1},"oorep_id":67286},"r83":{"t":"PAIN, ureters, extending to penis and testes","r":{"cann-i":1,"canth":1,"con":1,"dios":2,"nux-v":1},"oorep_id":45311},"o67287":{"t":"PAIN, ureters, extending","r":{"berb":3,"cann-i":1,"canth":1,"clem":1,"coc-c":1,"con":1,"dios":2,"nux-v":1,"pareir":1},"oorep_id":67287},"o45312":{"t":"PAIN, ureters, extending, right thigh","r":{"nux-v":1},"oorep_id":45312},"o45313":{"t":"PAIN, ureters, extending, thighs and feet","r":{"pareir":1},"oorep_id":45313},"o67288":{"t":"PAIN, ureters, extending, urethra","r":{"berb":3,"canth":1,"clem":1,"coc-c":1,"dios":1},"oorep_id":67288},"o45314":{"t":"PAIN, ureters, extending, urethra, and seminal cords","r":{"clem":1,"dios":1},"oorep_id":45314},"o45315":{"t":"PAIN, ureters, extending, urethra, into","r":{"berb":3,"canth":1,"coc-c":1},"oorep_id":45315},"r80":{"t":"PAIN, ureters, left side","r":{"aesc":1,"agar":1,"aloe":1,"benz-ac":1,"berb":2,"calad":1,"cann-s":1,"canth":1,"epig":1,"ipom":2,"kali-c":1,"lyc":2,"pareir":2},"oorep_id":45316},"r81":{"t":"PAIN, ureters, radiating from renal region","r":{"berb":3,"pareir":1},"oorep_id":45317},"r79":{"t":"PAIN, ureters, right side","r":{"apis":1,"berb":1,"cann-s":1,"canth":1,"dios":2,"indg":1,"lyc":3,"nux-v":2,"oci":2,"sars":2,"tab":1,"tarent":1},"oorep_id":45318},"r82":{"t":"PAIN, ureters, vomiting, with","r":{"oci":3},"oorep_id":45319},"r51":{"t":"PAIN, urging to urinate, during","r":{"ars-h":2,"canth":2,"coc-c":1,"ferr":2,"graph":1,"hep":1,"kreos":2,"merc-c":1,"ruta":1},"oorep_id":45320},"o67289":{"t":"PAIN, urination","r":{"aesc":1,"ant-c":1,"berb":1,"graph":1,"lyc":3,"med":2,"phos":1,"puls":2,"rheum":1,"senec":2,"tarent":1},"oorep_id":67289},"r54":{"t":"PAIN, urination, after amel.","r":{"lyc":3,"med":2,"tarent":1},"oorep_id":45321},"r52":{"t":"PAIN, urination, before","r":{"graph":1,"lyc":2},"oorep_id":45322},"r53":{"t":"PAIN, urination, during","r":{"aesc":1,"ant-c":1,"berb":1,"phos":1,"puls":2,"rheum":1,"senec":2},"oorep_id":45323},"r55":{"t":"PAIN, walking, while","r":{"alum":1,"carb-an":1,"clem":1,"ham":1,"nit-ac":1,"nux-v":2,"zinc":1},"oorep_id":45324},"r145":{"t":"PAIN, lancinating (See Cutting)","r":{}},"r154":{"t":"PAIN, shooting (See Stitching)","r":{}},"r205":{"t":"PULSATION","r":{"act-sp":1,"berb":2,"bufo":1,"canth":1,"chel":1,"kali-i":1,"med":1,"pic-ac":1,"puls-n":1,"sabin":1,"sulph":1},"oorep_id":45325},"r206":{"t":"PULSATION, extending into abdomen","r":{"kali-i":1},"oorep_id":45326},"r207":{"t":"PULSATION, restless sensation","r":{"puls-n":1},"oorep_id":45327},"r208":{"t":"SUPPRESSION of urine","r":{"acon":3,"aeth":2,"ail":2,"am-caust":1,"anthr":2,"apis":3,"apoc":1,"aran":1,"arn":3,"ars":3,"ars-h":2,"ars-i":2,"arum-t":2,"aur":1,"bell":2,"bism":1,"bufo":1,"cact":2,"calc":1,"camph":3,"canth":3,"carb-ac":2,"carb-s":1,"carb-v":3,"caust":1,"cic":2,"colch":2,"con":1,"crot-h":2,"cupr":3,"cupr-s":1,"cycl":1,"dig":2,"dulc":1,"elaps":1,"elat":2,"erig":2,"eup-pur":2,"hell":2,"hep":1,"hydr":2,"hyos":2,"iod":1,"kali-bi":2,"kali-chl":1,"lac-c":2,"lach":3,"laur":3,"lil-t":1,"lyc":3,"merc":1,"merc-c":2,"merc-cy":1,"morph":2,"nit-ac":2,"nux-v":1,"op":3,"osm":1,"petr":1,"phos":2,"phyt":1,"plb":2,"podo":2,"puls":1,"pyrog":1,"rhus-t":1,"rob":2,"sec":3,"sel":2,"sil":2,"stram":3,"sul-ac":1,"sulph":2,"tab":1,"tarax":1,"tarent":2,"ter":2,"urt-u":2,"verat":3,"vip":1,"zinc":1},"oorep_id":45328},"r209":{"t":"SUPPRESSION of urine, cholera, in","r":{"ars":3,"camph":1,"carb-v":2,"cupr":2,"sec":2,"verat":1},"oorep_id":45329},"r210":{"t":"SUPPRESSION of urine, concussion of spinal column, from","r":{"arn":2,"rhus-t":1,"tarent":2},"oorep_id":45330},"r211":{"t":"SUPPRESSION of urine, convulsion, with","r":{"cupr":3,"dig":1,"hyos":1,"stram":2},"oorep_id":45331},"r212":{"t":"SUPPRESSION of urine, fever, with","r":{"arn":2,"ars":2,"bell":2,"cact":2,"canth":2,"colch":1,"crot-h":1,"hyos":2,"op":2,"plb":2,"sel":2,"stram":2},"oorep_id":45332},"r213":{"t":"SUPPRESSION of urine, menses, during","r":{"kali-bi":1},"oorep_id":45333},"r214":{"t":"SUPPRESSION of urine, perspiration, with","r":{"acon":1,"apis":2,"arn":1,"ars":1,"camph":1,"canth":2,"dulc":1,"hyos":1,"lyc":2,"op":3,"puls":1,"stram":1,"sulph":1},"oorep_id":45334},"r215":{"t":"SUPPRESSION of urine, stupor, with","r":{"dig":1,"plb":1},"oorep_id":45335},"o45336":{"t":"SUPPRESSION of urine, suppressed gonorrhoea, from","r":{"camph":3,"canth":3},"oorep_id":45336},"r217":{"t":"SUPPRESSION of urine, violent","r":{"cic":1,"cupr":2,"cycl":1,"sulph":1},"oorep_id":45337},"r218":{"t":"SUPPURATION (See Inflammation)","r":{}},"r219":{"t":"SWELLING","r":{"kali-i":1},"oorep_id":45338},"m45339":{"t":"TWITCHING","r":{}},"r220":{"t":"TWITCHING, region of","r":{"canth":1,"mang":1},"oorep_id":45339},"m45340":{"t":"WEARINESS","r":{}},"r256":{"t":"WEARINESS, region of","r":{"arg-n":1,"benz-ac":1,"berb":1,"carb-an":1,"cham":1,"cimic":1,"helon":1,"manc":1,"phyt":1,"tarent":1},"oorep_id":45340}}
+{
+ "h001": {
+  "t": "KIDNEYS",
+  "r": {},
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 0,
+  "source_page": 662,
+  "source_depth": 0,
+  "source_label": "KIDNEYS",
+  "source_parent_id": null,
+  "source_path": "KIDNEYS",
+  "source_path_labels": [
+   "KIDNEYS"
+  ],
+  "source_remedies": {}
+ },
+ "o45100": {
+  "t": "ABSCESS",
+  "r": {
+   "ars": 2,
+   "hep": 2,
+   "hippoz": 1,
+   "merc": 2,
+   "sil": 1
+  },
+  "oorep_id": 45100,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 1,
+  "source_page": 662,
+  "source_depth": 0,
+  "source_label": "ABSCESS",
+  "source_parent_id": null,
+  "source_path": "ABSCESS",
+  "source_path_labels": [
+   "ABSCESS"
+  ],
+  "source_remedies": {
+   "ars": 2,
+   "hep": 2,
+   "hippoz": 1,
+   "merc": 2,
+   "sil": 1
+  }
+ },
+ "o45101": {
+  "t": "ADDISON'S disease",
+  "r": {
+   "ant-c": 1,
+   "arg-n": 1,
+   "ars-i": 2,
+   "ars": 2,
+   "bell": 2,
+   "calc-ar": 1,
+   "calc": 3,
+   "carb-v": 1,
+   "caust": 1,
+   "chin": 1,
+   "cupr": 1,
+   "ferr-i": 2,
+   "ferr": 2,
+   "iod": 3,
+   "kali-ar": 1,
+   "kali-c": 2,
+   "kreos": 1,
+   "lyc": 1,
+   "mang": 1,
+   "med": 1,
+   "nat-m": 3,
+   "nat-s": 1,
+   "nit-ac": 2,
+   "ol-j": 1,
+   "phos": 3,
+   "pic-ac": 1,
+   "psor": 1,
+   "sec": 1,
+   "sep": 2,
+   "sil": 3,
+   "spig": 2,
+   "sulph": 2,
+   "ther": 1
+  },
+  "oorep_id": 45101,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 2,
+  "source_page": 662,
+  "source_depth": 0,
+  "source_label": "ADDISON'S disease",
+  "source_parent_id": null,
+  "source_path": "ADDISON'S disease",
+  "source_path_labels": [
+   "ADDISON'S disease"
+  ],
+  "source_remedies": {
+   "ant-c": 1,
+   "arg-n": 1,
+   "ars-i": 2,
+   "ars": 2,
+   "bell": 2,
+   "calc-ar": 1,
+   "calc": 3,
+   "carb-v": 1,
+   "caust": 1,
+   "chin": 1,
+   "cupr": 1,
+   "ferr-i": 2,
+   "ferr": 2,
+   "iod": 3,
+   "kali-ar": 1,
+   "kali-c": 2,
+   "kreos": 1,
+   "lyc": 1,
+   "mang": 1,
+   "med": 1,
+   "nat-m": 3,
+   "nat-s": 1,
+   "nit-ac": 2,
+   "ol-j": 1,
+   "phos": 3,
+   "pic-ac": 1,
+   "psor": 1,
+   "sec": 1,
+   "sep": 2,
+   "sil": 3,
+   "spig": 2,
+   "sulph": 2,
+   "ther": 1
+  }
+ },
+ "o45102": {
+  "t": "BUBBLING sensation in region of",
+  "r": {
+   "berb": 2,
+   "lyc": 1,
+   "med": 2
+  },
+  "oorep_id": 45102,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 3,
+  "source_page": 662,
+  "source_depth": 0,
+  "source_label": "BUBBLING sensation in region of",
+  "source_parent_id": null,
+  "source_path": "BUBBLING sensation in region of",
+  "source_path_labels": [
+   "BUBBLING sensation in region of"
+  ],
+  "source_remedies": {
+   "berb": 2,
+   "lyc": 1,
+   "med": 2
+  }
+ },
+ "h002": {
+  "t": "CALCULI (See Urine, Sediment)",
+  "r": {},
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 4,
+  "source_page": 662,
+  "source_depth": 0,
+  "source_label": "CALCULI (See Urine, Sediment)",
+  "source_parent_id": null,
+  "source_path": "CALCULI (See Urine, Sediment)",
+  "source_path_labels": [
+   "CALCULI (See Urine, Sediment)"
+  ],
+  "source_remedies": {}
+ },
+ "o45103": {
+  "t": "CATARRH",
+  "r": {
+   "canth": 1,
+   "coll": 1,
+   "petr": 1,
+   "sil": 1,
+   "sulph": 1
+  },
+  "oorep_id": 45103,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 5,
+  "source_page": 662,
+  "source_depth": 0,
+  "source_label": "CATARRH",
+  "source_parent_id": null,
+  "source_path": "CATARRH",
+  "source_path_labels": [
+   "CATARRH"
+  ],
+  "source_remedies": {
+   "canth": 1,
+   "coll": 1,
+   "petr": 1,
+   "sil": 1,
+   "sulph": 1
+  }
+ },
+ "o45104": {
+  "t": "COLD sensation",
+  "r": {
+   "spira": 1
+  },
+  "oorep_id": 45104,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 6,
+  "source_page": 662,
+  "source_depth": 0,
+  "source_label": "COLD sensation",
+  "source_parent_id": null,
+  "source_path": "COLD sensation",
+  "source_path_labels": [
+   "COLD sensation"
+  ],
+  "source_remedies": {
+   "spira": 1
+  }
+ },
+ "o45105": {
+  "t": "COLD sensation, region of",
+  "r": {
+   "cham": 1
+  },
+  "oorep_id": 45105,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 7,
+  "source_page": 662,
+  "source_depth": 1,
+  "source_label": "region of",
+  "source_parent_id": "o45104",
+  "source_path": "COLD sensation, region of",
+  "source_path_labels": [
+   "COLD sensation",
+   "region of"
+  ],
+  "source_remedies": {
+   "cham": 1
+  }
+ },
+ "o45106": {
+  "t": "FLUTTERING sensation, region of",
+  "r": {
+   "chim": 1
+  },
+  "oorep_id": 45106,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 8,
+  "source_page": 662,
+  "source_depth": 0,
+  "source_label": "FLUTTERING sensation, region of",
+  "source_parent_id": null,
+  "source_path": "FLUTTERING sensation, region of",
+  "source_path_labels": [
+   "FLUTTERING sensation, region of"
+  ],
+  "source_remedies": {
+   "chim": 1
+  }
+ },
+ "o45107": {
+  "t": "FORMICATION",
+  "r": {
+   "hydrc": 1
+  },
+  "oorep_id": 45107,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 9,
+  "source_page": 662,
+  "source_depth": 0,
+  "source_label": "FORMICATION",
+  "source_parent_id": null,
+  "source_path": "FORMICATION",
+  "source_path_labels": [
+   "FORMICATION"
+  ],
+  "source_remedies": {
+   "hydrc": 1
+  }
+ },
+ "o45108": {
+  "t": "FORMICATION, region of",
+  "r": {
+   "dirc": 1
+  },
+  "oorep_id": 45108,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 10,
+  "source_page": 662,
+  "source_depth": 1,
+  "source_label": "region of",
+  "source_parent_id": "o45107",
+  "source_path": "FORMICATION, region of",
+  "source_path_labels": [
+   "FORMICATION",
+   "region of"
+  ],
+  "source_remedies": {
+   "dirc": 1
+  }
+ },
+ "r252": {
+  "t": "HEAT",
+  "r": {
+   "kali-i": 1,
+   "lach": 1,
+   "nux-v": 2,
+   "zing": 1
+  },
+  "oorep_id": 45109,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 11,
+  "source_page": 662,
+  "source_depth": 0,
+  "source_label": "HEAT",
+  "source_parent_id": null,
+  "source_path": "HEAT",
+  "source_path_labels": [
+   "HEAT"
+  ],
+  "source_remedies": {
+   "kali-i": 1,
+   "lach": 1,
+   "nux-v": 2,
+   "zing": 1
+  }
+ },
+ "o45110": {
+  "t": "HEAT, extending to bladder",
+  "r": {
+   "aur": 1
+  },
+  "oorep_id": 45110,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 12,
+  "source_page": 662,
+  "source_depth": 1,
+  "source_label": "extending to bladder",
+  "source_parent_id": "r252",
+  "source_path": "HEAT, extending to bladder",
+  "source_path_labels": [
+   "HEAT",
+   "extending to bladder"
+  ],
+  "source_remedies": {
+   "aur": 1
+  }
+ },
+ "o45111": {
+  "t": "HEAT, region of",
+  "r": {
+   "berb": 1,
+   "cimic": 1,
+   "helon": 2,
+   "nat-m": 2,
+   "phos": 2,
+   "phyt": 1,
+   "plb": 1,
+   "ter": 1
+  },
+  "oorep_id": 45111,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 13,
+  "source_page": 662,
+  "source_depth": 1,
+  "source_label": "region of",
+  "source_parent_id": "r252",
+  "source_path": "HEAT, region of",
+  "source_path_labels": [
+   "HEAT",
+   "region of"
+  ],
+  "source_remedies": {
+   "berb": 1,
+   "cimic": 1,
+   "helon": 2,
+   "nat-m": 2,
+   "phos": 2,
+   "phyt": 1,
+   "plb": 1,
+   "ter": 1
+  }
+ },
+ "o45112": {
+  "t": "HEAT, region of, sitting, while",
+  "r": {
+   "nat-m": 1
+  },
+  "oorep_id": 45112,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 14,
+  "source_page": 662,
+  "source_depth": 2,
+  "source_label": "sitting, while",
+  "source_parent_id": "o45111",
+  "source_path": "HEAT, region of, sitting, while",
+  "source_path_labels": [
+   "HEAT",
+   "region of",
+   "sitting, while"
+  ],
+  "source_remedies": {
+   "nat-m": 1
+  }
+ },
+ "r253": {
+  "t": "HEAVINESS",
+  "r": {
+   "carl": 2,
+   "equis": 1
+  },
+  "oorep_id": 45113,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 15,
+  "source_page": 662,
+  "source_depth": 0,
+  "source_label": "HEAVINESS",
+  "source_parent_id": null,
+  "source_path": "HEAVINESS",
+  "source_path_labels": [
+   "HEAVINESS"
+  ],
+  "source_remedies": {
+   "carl": 2,
+   "equis": 1
+  }
+ },
+ "o45114": {
+  "t": "HEAVINESS, morning",
+  "r": {
+   "sang": 1
+  },
+  "oorep_id": 45114,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 16,
+  "source_page": 662,
+  "source_depth": 1,
+  "source_label": "morning",
+  "source_parent_id": "r253",
+  "source_path": "HEAVINESS, morning",
+  "source_path_labels": [
+   "HEAVINESS",
+   "morning"
+  ],
+  "source_remedies": {
+   "sang": 1
+  }
+ },
+ "o45115": {
+  "t": "HEAVINESS, morning, waking, on",
+  "r": {
+   "aeth": 1
+  },
+  "oorep_id": 45115,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 17,
+  "source_page": 662,
+  "source_depth": 2,
+  "source_label": "waking, on",
+  "source_parent_id": "o45114",
+  "source_path": "HEAVINESS, morning, waking, on",
+  "source_path_labels": [
+   "HEAVINESS",
+   "morning",
+   "waking, on"
+  ],
+  "source_remedies": {
+   "aeth": 1
+  }
+ },
+ "o45121": {
+  "t": "HEAVINESS, sitting agg.",
+  "r": {
+   "carl": 2
+  },
+  "oorep_id": 45121,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 18,
+  "source_page": 662,
+  "source_depth": 1,
+  "source_label": "sitting agg.",
+  "source_parent_id": "r253",
+  "source_path": "HEAVINESS, sitting agg.",
+  "source_path_labels": [
+   "HEAVINESS",
+   "sitting agg."
+  ],
+  "source_remedies": {
+   "carl": 2
+  }
+ },
+ "o45116": {
+  "t": "HEAVINESS, region of",
+  "r": {
+   "cimic": 1,
+   "dirc": 1,
+   "helon": 2,
+   "phos": 1,
+   "sang": 1,
+   "tell": 1,
+   "ter": 2
+  },
+  "oorep_id": 45116,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 19,
+  "source_page": 662,
+  "source_depth": 1,
+  "source_label": "region of",
+  "source_parent_id": "r253",
+  "source_path": "HEAVINESS, region of",
+  "source_path_labels": [
+   "HEAVINESS",
+   "region of"
+  ],
+  "source_remedies": {
+   "cimic": 1,
+   "dirc": 1,
+   "helon": 2,
+   "phos": 1,
+   "sang": 1,
+   "tell": 1,
+   "ter": 2
+  }
+ },
+ "o45117": {
+  "t": "HEAVINESS, region of, afternoon",
+  "r": {
+   "helon": 1,
+   "sang": 1
+  },
+  "oorep_id": 45117,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 20,
+  "source_page": 662,
+  "source_depth": 2,
+  "source_label": "afternoon",
+  "source_parent_id": "o45116",
+  "source_path": "HEAVINESS, region of, afternoon",
+  "source_path_labels": [
+   "HEAVINESS",
+   "region of",
+   "afternoon"
+  ],
+  "source_remedies": {
+   "helon": 1,
+   "sang": 1
+  }
+ },
+ "o45118": {
+  "t": "HEAVINESS, region of, evening",
+  "r": {
+   "helon": 1
+  },
+  "oorep_id": 45118,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 21,
+  "source_page": 662,
+  "source_depth": 2,
+  "source_label": "evening",
+  "source_parent_id": "o45116",
+  "source_path": "HEAVINESS, region of, evening",
+  "source_path_labels": [
+   "HEAVINESS",
+   "region of",
+   "evening"
+  ],
+  "source_remedies": {
+   "helon": 1
+  }
+ },
+ "o45119": {
+  "t": "HEAVINESS, region of, night",
+  "r": {
+   "tell": 1
+  },
+  "oorep_id": 45119,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 22,
+  "source_page": 662,
+  "source_depth": 2,
+  "source_label": "night",
+  "source_parent_id": "o45116",
+  "source_path": "HEAVINESS, region of, night",
+  "source_path_labels": [
+   "HEAVINESS",
+   "region of",
+   "night"
+  ],
+  "source_remedies": {
+   "tell": 1
+  }
+ },
+ "o45120": {
+  "t": "HEAVINESS, region of, night, motion agg.",
+  "r": {
+   "cimic": 1
+  },
+  "oorep_id": 45120,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 23,
+  "source_page": 662,
+  "source_depth": 3,
+  "source_label": "motion agg.",
+  "source_parent_id": "o45119",
+  "source_path": "HEAVINESS, region of, night, motion agg.",
+  "source_path_labels": [
+   "HEAVINESS",
+   "region of",
+   "night",
+   "motion agg."
+  ],
+  "source_remedies": {
+   "cimic": 1
+  }
+ },
+ "o45122": {
+  "t": "INFLAMMATION",
+  "r": {
+   "acon": 2,
+   "all-c": 2,
+   "alum": 1,
+   "am-c": 1,
+   "apis": 3,
+   "arg-n": 2,
+   "arn": 3,
+   "ars": 1,
+   "arund": 1,
+   "asc-c": 2,
+   "aur": 2,
+   "bell": 3,
+   "benz-ac": 3,
+   "berb": 2,
+   "bry": 2,
+   "cact": 1,
+   "calad": 1,
+   "calc-s": 1,
+   "camph": 1,
+   "cann-s": 2,
+   "canth": 3,
+   "caps": 2,
+   "carb-ac": 2,
+   "caust": 1,
+   "chel": 2,
+   "chim": 2,
+   "coc-c": 1,
+   "colch": 2,
+   "coll": 1,
+   "cop": 1,
+   "crot-c": 1,
+   "crot-h": 1,
+   "cub": 1,
+   "dig": 1,
+   "ery-a": 2,
+   "eup-pur": 2,
+   "gels": 2,
+   "hell": 2,
+   "helon": 2,
+   "hep": 2,
+   "indg": 1,
+   "kali-ar": 2,
+   "kali-c": 2,
+   "kali-chl": 3,
+   "kali-i": 2,
+   "kali-p": 1,
+   "kali-s": 1,
+   "lil-t": 1,
+   "lith": 1,
+   "lyc": 3,
+   "lycps": 1,
+   "merc-c": 2,
+   "merc-cy": 1,
+   "merc": 2,
+   "nat-s": 1,
+   "nux-v": 2,
+   "oci": 3,
+   "pareir": 1,
+   "ph-ac": 1,
+   "phos": 2,
+   "phyt": 2,
+   "pic-ac": 1,
+   "plb": 1,
+   "polyg-h": 2,
+   "prun-s": 1,
+   "puls": 2,
+   "rhus-t": 2,
+   "sabin": 2,
+   "samb": 1,
+   "sars": 2,
+   "sec": 1,
+   "senec": 2,
+   "sep": 1,
+   "sul-ac": 1,
+   "sulph": 3,
+   "tarent": 1,
+   "ter": 3,
+   "thuj": 2,
+   "uran": 1,
+   "zinc": 1
+  },
+  "oorep_id": 45122,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 24,
+  "source_page": 662,
+  "source_depth": 0,
+  "source_label": "INFLAMMATION",
+  "source_parent_id": null,
+  "source_path": "INFLAMMATION",
+  "source_path_labels": [
+   "INFLAMMATION"
+  ],
+  "source_remedies": {
+   "acon": 2,
+   "all-c": 2,
+   "alum": 1,
+   "am-c": 1,
+   "apis": 3,
+   "arg-n": 2,
+   "arn": 3,
+   "ars": 1,
+   "arund": 1,
+   "asc-c": 2,
+   "aur": 2,
+   "bell": 3,
+   "benz-ac": 3,
+   "berb": 2,
+   "bry": 2,
+   "cact": 1,
+   "calad": 1,
+   "calc-s": 1,
+   "camph": 1,
+   "cann-s": 2,
+   "canth": 3,
+   "caps": 2,
+   "carb-ac": 2,
+   "caust": 1,
+   "chel": 2,
+   "chim": 2,
+   "coc-c": 1,
+   "colch": 2,
+   "coll": 1,
+   "cop": 1,
+   "crot-c": 1,
+   "crot-h": 1,
+   "cub": 1,
+   "dig": 1,
+   "ery-a": 2,
+   "eup-pur": 2,
+   "gels": 2,
+   "hell": 2,
+   "helon": 2,
+   "hep": 2,
+   "indg": 1,
+   "kali-ar": 2,
+   "kali-c": 2,
+   "kali-chl": 3,
+   "kali-i": 2,
+   "kali-p": 1,
+   "kali-s": 1,
+   "lil-t": 1,
+   "lith": 1,
+   "lyc": 3,
+   "lycps": 1,
+   "merc-c": 2,
+   "merc-cy": 1,
+   "merc": 2,
+   "nat-s": 1,
+   "nux-v": 2,
+   "oci": 3,
+   "pareir": 1,
+   "ph-ac": 1,
+   "phos": 2,
+   "phyt": 2,
+   "pic-ac": 1,
+   "plb": 1,
+   "polyg-h": 2,
+   "prun-s": 1,
+   "puls": 2,
+   "rhus-t": 2,
+   "sabin": 2,
+   "samb": 1,
+   "sars": 2,
+   "sec": 1,
+   "senec": 2,
+   "sep": 1,
+   "sul-ac": 1,
+   "sulph": 3,
+   "tarent": 1,
+   "ter": 3,
+   "thuj": 2,
+   "uran": 1,
+   "zinc": 1
+  }
+ },
+ "o45123": {
+  "t": "INFLAMMATION, acute parenchymatous (See Albumen)",
+  "r": {
+   "apis": 3,
+   "canth": 2,
+   "carb-ac": 1,
+   "colch": 2,
+   "con": 2,
+   "glon": 2,
+   "helon": 1,
+   "kali-chl": 2,
+   "kali-s": 1,
+   "nat-s": 3,
+   "stram": 2,
+   "ter": 3,
+   "uran": 1
+  },
+  "oorep_id": 45123,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 25,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "acute parenchymatous (See Albumen)",
+  "source_parent_id": "o45122",
+  "source_path": "INFLAMMATION, acute parenchymatous (See Albumen)",
+  "source_path_labels": [
+   "INFLAMMATION",
+   "acute parenchymatous (See Albumen)"
+  ],
+  "source_remedies": {
+   "apis": 3,
+   "canth": 2,
+   "carb-ac": 1,
+   "colch": 2,
+   "con": 2,
+   "glon": 2,
+   "helon": 1,
+   "kali-chl": 2,
+   "kali-s": 1,
+   "nat-s": 3,
+   "stram": 2,
+   "ter": 3,
+   "uran": 1
+  }
+ },
+ "o45124": {
+  "t": "INFLAMMATION, bloody, ink-like, albuminous urine, with",
+  "r": {
+   "colch": 3
+  },
+  "oorep_id": 45124,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 26,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "bloody, ink-like, albuminous urine, with",
+  "source_parent_id": "o45122",
+  "source_path": "INFLAMMATION, bloody, ink-like, albuminous urine, with",
+  "source_path_labels": [
+   "INFLAMMATION",
+   "bloody, ink-like, albuminous urine, with"
+  ],
+  "source_remedies": {
+   "colch": 3
+  }
+ },
+ "o45125": {
+  "t": "INFLAMMATION, cardiac and hepatic affections, with",
+  "r": {
+   "aur": 2,
+   "calc-ar": 2
+  },
+  "oorep_id": 45125,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 27,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "cardiac and hepatic affections, with",
+  "source_parent_id": "o45122",
+  "source_path": "INFLAMMATION, cardiac and hepatic affections, with",
+  "source_path_labels": [
+   "INFLAMMATION",
+   "cardiac and hepatic affections, with"
+  ],
+  "source_remedies": {
+   "aur": 2,
+   "calc-ar": 2
+  }
+ },
+ "o45126": {
+  "t": "INFLAMMATION, suppurative",
+  "r": {
+   "ars": 2,
+   "hep": 2,
+   "hippoz": 1,
+   "merc": 2,
+   "sil": 2
+  },
+  "oorep_id": 45126,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 28,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "suppurative",
+  "source_parent_id": "o45122",
+  "source_path": "INFLAMMATION, suppurative",
+  "source_path_labels": [
+   "INFLAMMATION",
+   "suppurative"
+  ],
+  "source_remedies": {
+   "ars": 2,
+   "hep": 2,
+   "hippoz": 1,
+   "merc": 2,
+   "sil": 2
+  }
+ },
+ "o45127": {
+  "t": "INFLAMMATION, toxæmic",
+  "r": {
+   "crot-h": 2
+  },
+  "oorep_id": 45127,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 29,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "toxæmic",
+  "source_parent_id": "o45122",
+  "source_path": "INFLAMMATION, toxæmic",
+  "source_path_labels": [
+   "INFLAMMATION",
+   "toxæmic"
+  ],
+  "source_remedies": {
+   "crot-h": 2
+  }
+ },
+ "o45128": {
+  "t": "INFLAMMATION, Ureters",
+  "r": {
+   "arn": 1,
+   "canth": 2,
+   "ter": 1
+  },
+  "oorep_id": 45128,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 30,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "Ureters",
+  "source_parent_id": "o45122",
+  "source_path": "INFLAMMATION, Ureters",
+  "source_path_labels": [
+   "INFLAMMATION",
+   "Ureters"
+  ],
+  "source_remedies": {
+   "arn": 1,
+   "canth": 2,
+   "ter": 1
+  }
+ },
+ "r6": {
+  "t": "LAMENESS, region of",
+  "r": {
+   "cimic": 1,
+   "phys": 1
+  },
+  "oorep_id": 45129,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 31,
+  "source_page": 663,
+  "source_depth": 0,
+  "source_label": "LAMENESS, region of",
+  "source_parent_id": null,
+  "source_path": "LAMENESS, region of",
+  "source_path_labels": [
+   "LAMENESS, region of"
+  ],
+  "source_remedies": {
+   "cimic": 1,
+   "phys": 1
+  }
+ },
+ "r7": {
+  "t": "LAMENESS, region of, left, with cramp, extending into thighs",
+  "r": {
+   "agar": 1
+  },
+  "oorep_id": 45130,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 32,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "left, with cramp, extending into thighs",
+  "source_parent_id": "r6",
+  "source_path": "LAMENESS, region of, left, with cramp, extending into thighs",
+  "source_path_labels": [
+   "LAMENESS, region of",
+   "left, with cramp, extending into thighs"
+  ],
+  "source_remedies": {
+   "agar": 1
+  }
+ },
+ "r8": {
+  "t": "LAMENESS, region of, waking, on",
+  "r": {
+   "ptel": 1
+  },
+  "oorep_id": 45131,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 33,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "waking, on",
+  "source_parent_id": "r6",
+  "source_path": "LAMENESS, region of, waking, on",
+  "source_path_labels": [
+   "LAMENESS, region of",
+   "waking, on"
+  ],
+  "source_remedies": {
+   "ptel": 1
+  }
+ },
+ "r9": {
+  "t": "NUMBNESS, region of",
+  "r": {
+   "berb": 3
+  },
+  "oorep_id": 45132,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 34,
+  "source_page": 663,
+  "source_depth": 0,
+  "source_label": "NUMBNESS, region of",
+  "source_parent_id": null,
+  "source_path": "NUMBNESS, region of",
+  "source_path_labels": [
+   "NUMBNESS, region of"
+  ],
+  "source_remedies": {
+   "berb": 3
+  }
+ },
+ "r10": {
+  "t": "PAIN",
+  "r": {
+   "acon": 1,
+   "aesc": 2,
+   "aeth": 1,
+   "agn": 2,
+   "all-c": 2,
+   "aloe": 1,
+   "alum": 2,
+   "ambr": 1,
+   "aphis": 1,
+   "apis": 2,
+   "arg-n": 2,
+   "arn": 2,
+   "ars": 1,
+   "arund": 1,
+   "aur-m": 1,
+   "bad": 1,
+   "bell": 2,
+   "benz-ac": 2,
+   "berb": 3,
+   "bry": 2,
+   "cahin": 1,
+   "calc-p": 2,
+   "calc": 2,
+   "cann-i": 2,
+   "cann-s": 2,
+   "canth": 3,
+   "caps": 2,
+   "cedr": 1,
+   "chel": 2,
+   "chim": 2,
+   "cimic": 1,
+   "cinnb": 2,
+   "clem": 2,
+   "coc-c": 1,
+   "colch": 3,
+   "crot-c": 2,
+   "dios": 2,
+   "dulc": 2,
+   "eup-pur": 2,
+   "ferr-ar": 1,
+   "ferr-i": 1,
+   "ferr-p": 1,
+   "ferr": 2,
+   "gamb": 1,
+   "ham": 1,
+   "hell": 1,
+   "helon": 2,
+   "hep": 2,
+   "hydr": 1,
+   "hyper": 1,
+   "ip": 2,
+   "ipom": 2,
+   "iris": 1,
+   "kali-ar": 1,
+   "kali-bi": 2,
+   "kali-br": 1,
+   "kali-c": 2,
+   "kali-chl": 2,
+   "kali-i": 1,
+   "kali-n": 1,
+   "kali-p": 1,
+   "lach": 1,
+   "lec": 1,
+   "lept": 1,
+   "lith": 2,
+   "lob": 1,
+   "lyc": 2,
+   "lycps": 1,
+   "lyss": 1,
+   "manc": 1,
+   "med": 2,
+   "meph": 1,
+   "merc-c": 1,
+   "mez": 1,
+   "mill": 2,
+   "nat-a": 1,
+   "nat-m": 2,
+   "nat-s": 1,
+   "nit-ac": 2,
+   "nux-m": 1,
+   "nux-v": 2,
+   "ox-ac": 1,
+   "pareir": 2,
+   "ph-ac": 2,
+   "phos": 2,
+   "phyt": 2,
+   "plb": 2,
+   "ptel": 1,
+   "puls": 2,
+   "ran-s": 1,
+   "rat": 1,
+   "sars": 3,
+   "sel": 2,
+   "senec": 2,
+   "sep": 2,
+   "still": 1,
+   "tab": 1,
+   "tarent": 2,
+   "ter": 2,
+   "thuj": 2,
+   "zinc": 2,
+   "zing": 1
+  },
+  "oorep_id": 45133,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 35,
+  "source_page": 663,
+  "source_depth": 0,
+  "source_label": "PAIN",
+  "source_parent_id": null,
+  "source_path": "PAIN",
+  "source_path_labels": [
+   "PAIN"
+  ],
+  "source_remedies": {
+   "acon": 1,
+   "aesc": 2,
+   "aeth": 1,
+   "agn": 2,
+   "all-c": 2,
+   "aloe": 1,
+   "alum": 2,
+   "ambr": 1,
+   "aphis": 1,
+   "apis": 2,
+   "arg-n": 2,
+   "arn": 2,
+   "ars": 1,
+   "arund": 1,
+   "aur-m": 1,
+   "bad": 1,
+   "bell": 2,
+   "benz-ac": 2,
+   "berb": 3,
+   "bry": 2,
+   "cahin": 1,
+   "calc-p": 2,
+   "calc": 2,
+   "cann-i": 2,
+   "cann-s": 2,
+   "canth": 3,
+   "caps": 2,
+   "cedr": 1,
+   "chel": 2,
+   "chim": 2,
+   "cimic": 1,
+   "cinnb": 2,
+   "clem": 2,
+   "coc-c": 1,
+   "colch": 3,
+   "crot-c": 2,
+   "dios": 2,
+   "dulc": 2,
+   "eup-pur": 2,
+   "ferr-ar": 1,
+   "ferr-i": 1,
+   "ferr-p": 1,
+   "ferr": 2,
+   "gamb": 1,
+   "ham": 1,
+   "hell": 1,
+   "helon": 2,
+   "hep": 2,
+   "hydr": 1,
+   "hyper": 1,
+   "ip": 2,
+   "ipom": 2,
+   "iris": 1,
+   "kali-ar": 1,
+   "kali-bi": 2,
+   "kali-br": 1,
+   "kali-c": 2,
+   "kali-chl": 2,
+   "kali-i": 1,
+   "kali-n": 1,
+   "kali-p": 1,
+   "lach": 1,
+   "lec": 1,
+   "lept": 1,
+   "lith": 2,
+   "lob": 1,
+   "lyc": 2,
+   "lycps": 1,
+   "lyss": 1,
+   "manc": 1,
+   "med": 2,
+   "meph": 1,
+   "merc-c": 1,
+   "mez": 1,
+   "mill": 2,
+   "nat-a": 1,
+   "nat-m": 2,
+   "nat-s": 1,
+   "nit-ac": 2,
+   "nux-m": 1,
+   "nux-v": 2,
+   "ox-ac": 1,
+   "pareir": 2,
+   "ph-ac": 2,
+   "phos": 2,
+   "phyt": 2,
+   "plb": 2,
+   "ptel": 1,
+   "puls": 2,
+   "ran-s": 1,
+   "rat": 1,
+   "sars": 3,
+   "sel": 2,
+   "senec": 2,
+   "sep": 2,
+   "still": 1,
+   "tab": 1,
+   "tarent": 2,
+   "ter": 2,
+   "thuj": 2,
+   "zinc": 2,
+   "zing": 1
+  }
+ },
+ "r11": {
+  "t": "PAIN, right",
+  "r": {
+   "lyss": 1,
+   "senec": 2
+  },
+  "oorep_id": 45254,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 36,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "right",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, right",
+  "source_path_labels": [
+   "PAIN",
+   "right"
+  ],
+  "source_remedies": {
+   "lyss": 1,
+   "senec": 2
+  }
+ },
+ "r12": {
+  "t": "PAIN, morning",
+  "r": {
+   "alum": 1,
+   "bell": 1,
+   "cahin": 2,
+   "ham": 1,
+   "kali-c": 1,
+   "tarent": 1
+  },
+  "oorep_id": 45222,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 37,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "morning",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, morning",
+  "source_path_labels": [
+   "PAIN",
+   "morning"
+  ],
+  "source_remedies": {
+   "alum": 1,
+   "bell": 1,
+   "cahin": 2,
+   "ham": 1,
+   "kali-c": 1,
+   "tarent": 1
+  }
+ },
+ "r13": {
+  "t": "PAIN, morning, waking, on",
+  "r": {
+   "ox-ac": 1
+  },
+  "oorep_id": 45223,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 38,
+  "source_page": 663,
+  "source_depth": 2,
+  "source_label": "waking, on",
+  "source_parent_id": "r12",
+  "source_path": "PAIN, morning, waking, on",
+  "source_path_labels": [
+   "PAIN",
+   "morning",
+   "waking, on"
+  ],
+  "source_remedies": {
+   "ox-ac": 1
+  }
+ },
+ "r14": {
+  "t": "PAIN, afternoon",
+  "r": {
+   "bad": 1,
+   "chin-s": 1,
+   "sang": 1
+  },
+  "oorep_id": 45146,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 39,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "afternoon",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, afternoon",
+  "source_path_labels": [
+   "PAIN",
+   "afternoon"
+  ],
+  "source_remedies": {
+   "bad": 1,
+   "chin-s": 1,
+   "sang": 1
+  }
+ },
+ "r15": {
+  "t": "PAIN, afternoon, 4 p.m. to 9 p.m.",
+  "r": {
+   "chel": 2
+  },
+  "oorep_id": 45148,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 40,
+  "source_page": 663,
+  "source_depth": 2,
+  "source_label": "4 p.m. to 9 p.m.",
+  "source_parent_id": "r14",
+  "source_path": "PAIN, afternoon, 4 p.m. to 9 p.m.",
+  "source_path_labels": [
+   "PAIN",
+   "afternoon",
+   "4 p.m. to 9 p.m."
+  ],
+  "source_remedies": {
+   "chel": 2
+  }
+ },
+ "r16": {
+  "t": "PAIN, afternoon, 4 p.m. to 8 p.m.",
+  "r": {
+   "lyc": 3
+  },
+  "oorep_id": 45147,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 41,
+  "source_page": 663,
+  "source_depth": 2,
+  "source_label": "4 p.m. to 8 p.m.",
+  "source_parent_id": "r14",
+  "source_path": "PAIN, afternoon, 4 p.m. to 8 p.m.",
+  "source_path_labels": [
+   "PAIN",
+   "afternoon",
+   "4 p.m. to 8 p.m."
+  ],
+  "source_remedies": {
+   "lyc": 3
+  }
+ },
+ "r17": {
+  "t": "PAIN, evening",
+  "r": {
+   "canth": 1,
+   "ox-ac": 1,
+   "sil": 1,
+   "tarent": 1
+  },
+  "oorep_id": 45201,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 42,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "evening",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, evening",
+  "source_path_labels": [
+   "PAIN",
+   "evening"
+  ],
+  "source_remedies": {
+   "canth": 1,
+   "ox-ac": 1,
+   "sil": 1,
+   "tarent": 1
+  }
+ },
+ "r18": {
+  "t": "PAIN, night",
+  "r": {
+   "ars-h": 1,
+   "calc": 1,
+   "cann-i": 1,
+   "chel": 1,
+   "cinnb": 1,
+   "tarent": 1
+  },
+  "oorep_id": 45226,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 43,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "night",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, night",
+  "source_path_labels": [
+   "PAIN",
+   "night"
+  ],
+  "source_remedies": {
+   "ars-h": 1,
+   "calc": 1,
+   "cann-i": 1,
+   "chel": 1,
+   "cinnb": 1,
+   "tarent": 1
+  }
+ },
+ "r19": {
+  "t": "PAIN, night, undressing, while",
+  "r": {
+   "helon": 1
+  },
+  "oorep_id": 45227,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 44,
+  "source_page": 663,
+  "source_depth": 2,
+  "source_label": "undressing, while",
+  "source_parent_id": "r18",
+  "source_path": "PAIN, night, undressing, while",
+  "source_path_labels": [
+   "PAIN",
+   "night",
+   "undressing, while"
+  ],
+  "source_remedies": {
+   "helon": 1
+  }
+ },
+ "r20": {
+  "t": "PAIN, alternating with vertigo",
+  "r": {
+   "alum": 1
+  },
+  "oorep_id": 45149,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 45,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "alternating with vertigo",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, alternating with vertigo",
+  "source_path_labels": [
+   "PAIN",
+   "alternating with vertigo"
+  ],
+  "source_remedies": {
+   "alum": 1
+  }
+ },
+ "r21": {
+  "t": "PAIN, apyrexia, during",
+  "r": {
+   "bell": 1,
+   "chin": 1,
+   "hep": 1,
+   "lyc": 1,
+   "staph": 1
+  },
+  "oorep_id": 45150,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 46,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "apyrexia, during",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, apyrexia, during",
+  "source_path_labels": [
+   "PAIN",
+   "apyrexia, during"
+  ],
+  "source_remedies": {
+   "bell": 1,
+   "chin": 1,
+   "hep": 1,
+   "lyc": 1,
+   "staph": 1
+  }
+ },
+ "r22": {
+  "t": "PAIN, bending body, on",
+  "r": {
+   "chin": 1
+  },
+  "oorep_id": 45151,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 47,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "bending body, on",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, bending body, on",
+  "source_path_labels": [
+   "PAIN",
+   "bending body, on"
+  ],
+  "source_remedies": {
+   "chin": 1
+  }
+ },
+ "r23": {
+  "t": "PAIN, blowing nose",
+  "r": {
+   "calc-p": 2
+  },
+  "oorep_id": 45152,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 48,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "blowing nose",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, blowing nose",
+  "source_path_labels": [
+   "PAIN",
+   "blowing nose"
+  ],
+  "source_remedies": {
+   "calc-p": 2
+  }
+ },
+ "r24": {
+  "t": "PAIN, breathing deeply, when",
+  "r": {
+   "aeth": 1,
+   "astac": 1,
+   "benz-ac": 2,
+   "sel": 1
+  },
+  "oorep_id": 45153,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 49,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "breathing deeply, when",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, breathing deeply, when",
+  "source_path_labels": [
+   "PAIN",
+   "breathing deeply, when"
+  ],
+  "source_remedies": {
+   "aeth": 1,
+   "astac": 1,
+   "benz-ac": 2,
+   "sel": 1
+  }
+ },
+ "r25": {
+  "t": "PAIN, chill, during",
+  "r": {
+   "ars": 1,
+   "canth": 1,
+   "kali-c": 1,
+   "lyc": 1,
+   "nux-v": 1,
+   "puls": 1,
+   "zinc": 1
+  },
+  "oorep_id": 45165,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 50,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "chill, during",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, chill, during",
+  "source_path_labels": [
+   "PAIN",
+   "chill, during"
+  ],
+  "source_remedies": {
+   "ars": 1,
+   "canth": 1,
+   "kali-c": 1,
+   "lyc": 1,
+   "nux-v": 1,
+   "puls": 1,
+   "zinc": 1
+  }
+ },
+ "r26": {
+  "t": "PAIN, coughing",
+  "r": {
+   "bell": 2
+  },
+  "oorep_id": 45170,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 51,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "coughing",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, coughing",
+  "source_path_labels": [
+   "PAIN",
+   "coughing"
+  ],
+  "source_remedies": {
+   "bell": 2
+  }
+ },
+ "r27": {
+  "t": "PAIN, dancing, while",
+  "r": {
+   "alum": 1
+  },
+  "oorep_id": 45183,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 52,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "dancing, while",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, dancing, while",
+  "source_path_labels": [
+   "PAIN",
+   "dancing, while"
+  ],
+  "source_remedies": {
+   "alum": 1
+  }
+ },
+ "r28": {
+  "t": "PAIN, desire be delayed, if",
+  "r": {
+   "con": 1,
+   "pall": 1,
+   "rhus-t": 1
+  },
+  "oorep_id": 45184,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 53,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "desire be delayed, if",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, desire be delayed, if",
+  "source_path_labels": [
+   "PAIN",
+   "desire be delayed, if"
+  ],
+  "source_remedies": {
+   "con": 1,
+   "pall": 1,
+   "rhus-t": 1
+  }
+ },
+ "r29": {
+  "t": "PAIN, jar, from",
+  "r": {
+   "aeth": 1,
+   "alum": 1,
+   "bell": 2,
+   "berb": 2,
+   "calc-p": 1,
+   "cann-s": 1
+  },
+  "oorep_id": 45213,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 54,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "jar, from",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, jar, from",
+  "source_path_labels": [
+   "PAIN",
+   "jar, from"
+  ],
+  "source_remedies": {
+   "aeth": 1,
+   "alum": 1,
+   "bell": 2,
+   "berb": 2,
+   "calc-p": 1,
+   "cann-s": 1
+  }
+ },
+ "r30": {
+  "t": "PAIN, laughing, when",
+  "r": {
+   "cann-i": 2
+  },
+  "oorep_id": 45214,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 55,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "laughing, when",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, laughing, when",
+  "source_path_labels": [
+   "PAIN",
+   "laughing, when"
+  ],
+  "source_remedies": {
+   "cann-i": 2
+  }
+ },
+ "r31": {
+  "t": "PAIN, lifting, when",
+  "r": {
+   "calc-p": 2
+  },
+  "oorep_id": 45215,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 56,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "lifting, when",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, lifting, when",
+  "source_path_labels": [
+   "PAIN",
+   "lifting, when"
+  ],
+  "source_remedies": {
+   "calc-p": 2
+  }
+ },
+ "r32": {
+  "t": "PAIN, lying, while",
+  "r": {
+   "aeth": 1,
+   "berb": 1,
+   "colch": 1,
+   "coloc": 1,
+   "nux-v": 1,
+   "rhus-t": 1
+  },
+  "oorep_id": 45219,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 57,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "lying, while",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, lying, while",
+  "source_path_labels": [
+   "PAIN",
+   "lying, while"
+  ],
+  "source_remedies": {
+   "aeth": 1,
+   "berb": 1,
+   "colch": 1,
+   "coloc": 1,
+   "nux-v": 1,
+   "rhus-t": 1
+  }
+ },
+ "r33": {
+  "t": "PAIN, lying, while, on abdomen, amel.",
+  "r": {
+   "chel": 1
+  },
+  "oorep_id": 45216,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 58,
+  "source_page": 663,
+  "source_depth": 2,
+  "source_label": "on abdomen, amel.",
+  "source_parent_id": "r32",
+  "source_path": "PAIN, lying, while, on abdomen, amel.",
+  "source_path_labels": [
+   "PAIN",
+   "lying, while",
+   "on abdomen, amel."
+  ],
+  "source_remedies": {
+   "chel": 1
+  }
+ },
+ "h003": {
+  "t": "PAIN, lying, while, on back",
+  "r": {
+   "chel": 1
+  },
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 59,
+  "source_page": 663,
+  "source_depth": 2,
+  "source_label": "on back",
+  "source_parent_id": "r32",
+  "source_path": "PAIN, lying, while, on back",
+  "source_path_labels": [
+   "PAIN",
+   "lying, while",
+   "on back"
+  ],
+  "source_remedies": {
+   "chel": 1
+  }
+ },
+ "r35": {
+  "t": "PAIN, lying, while, on back, amel.",
+  "r": {
+   "nux-v": 1
+  },
+  "oorep_id": 45218,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 60,
+  "source_page": 663,
+  "source_depth": 3,
+  "source_label": "amel.",
+  "source_parent_id": "h003",
+  "source_path": "PAIN, lying, while, on back, amel.",
+  "source_path_labels": [
+   "PAIN",
+   "lying, while",
+   "on back",
+   "amel."
+  ],
+  "source_remedies": {
+   "nux-v": 1
+  }
+ },
+ "r36": {
+  "t": "PAIN, menses, at beginning of",
+  "r": {
+   "berb": 2,
+   "raph": 1,
+   "verat": 2
+  },
+  "oorep_id": 45220,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 61,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "menses, at beginning of",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, menses, at beginning of",
+  "source_path_labels": [
+   "PAIN",
+   "menses, at beginning of"
+  ],
+  "source_remedies": {
+   "berb": 2,
+   "raph": 1,
+   "verat": 2
+  }
+ },
+ "r37": {
+  "t": "PAIN, menses, at beginning of, during",
+  "r": {
+   "berb": 1,
+   "cur": 1
+  },
+  "oorep_id": 45221,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 62,
+  "source_page": 663,
+  "source_depth": 2,
+  "source_label": "during",
+  "source_parent_id": "r36",
+  "source_path": "PAIN, menses, at beginning of, during",
+  "source_path_labels": [
+   "PAIN",
+   "menses, at beginning of",
+   "during"
+  ],
+  "source_remedies": {
+   "berb": 1,
+   "cur": 1
+  }
+ },
+ "r38": {
+  "t": "PAIN, motion agg.",
+  "r": {
+   "aesc": 1,
+   "arg-n": 1,
+   "berb": 2,
+   "cahin": 1,
+   "coc-c": 1,
+   "colch": 2,
+   "dor": 1,
+   "gels": 2,
+   "ham": 2,
+   "kali-bi": 1,
+   "nux-v": 2
+  },
+  "oorep_id": 45224,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 63,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "motion agg.",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, motion agg.",
+  "source_path_labels": [
+   "PAIN",
+   "motion agg."
+  ],
+  "source_remedies": {
+   "aesc": 1,
+   "arg-n": 1,
+   "berb": 2,
+   "cahin": 1,
+   "coc-c": 1,
+   "colch": 2,
+   "dor": 1,
+   "gels": 2,
+   "ham": 2,
+   "kali-bi": 1,
+   "nux-v": 2
+  }
+ },
+ "o45225": {
+  "t": "PAIN, motion agg., amel.",
+  "r": {
+   "ter": 1
+  },
+  "oorep_id": 45225,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 64,
+  "source_page": 663,
+  "source_depth": 2,
+  "source_label": "amel.",
+  "source_parent_id": "r38",
+  "source_path": "PAIN, motion agg., amel.",
+  "source_path_labels": [
+   "PAIN",
+   "motion agg.",
+   "amel."
+  ],
+  "source_remedies": {
+   "ter": 1
+  }
+ },
+ "r40": {
+  "t": "PAIN, paroxysmal",
+  "r": {
+   "aran": 1,
+   "bell": 2,
+   "chel": 2,
+   "coc-c": 2,
+   "sulph": 1
+  },
+  "oorep_id": 45228,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 65,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "paroxysmal",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, paroxysmal",
+  "source_path_labels": [
+   "PAIN",
+   "paroxysmal"
+  ],
+  "source_remedies": {
+   "aran": 1,
+   "bell": 2,
+   "chel": 2,
+   "coc-c": 2,
+   "sulph": 1
+  }
+ },
+ "r41": {
+  "t": "PAIN, pulsating",
+  "r": {
+   "bufo": 1,
+   "berb": 1
+  },
+  "oorep_id": 45237,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 66,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "pulsating",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, pulsating",
+  "source_path_labels": [
+   "PAIN",
+   "pulsating"
+  ],
+  "source_remedies": {
+   "bufo": 1,
+   "berb": 1
+  }
+ },
+ "r42": {
+  "t": "PAIN, radiating",
+  "r": {
+   "berb": 2,
+   "pareir": 1
+  },
+  "oorep_id": 45238,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 67,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "radiating",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, radiating",
+  "source_path_labels": [
+   "PAIN",
+   "radiating"
+  ],
+  "source_remedies": {
+   "berb": 2,
+   "pareir": 1
+  }
+ },
+ "r43": {
+  "t": "PAIN, riding",
+  "r": {
+   "alum": 1,
+   "berb": 1,
+   "calc": 2
+  },
+  "oorep_id": 45253,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 68,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "riding",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, riding",
+  "source_path_labels": [
+   "PAIN",
+   "riding"
+  ],
+  "source_remedies": {
+   "alum": 1,
+   "berb": 1,
+   "calc": 2
+  }
+ },
+ "r44": {
+  "t": "PAIN, sitting, while",
+  "r": {
+   "berb": 2,
+   "pall": 2,
+   "ter": 1,
+   "valer": 1
+  },
+  "oorep_id": 45255,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 69,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "sitting, while",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, sitting, while",
+  "source_path_labels": [
+   "PAIN",
+   "sitting, while"
+  ],
+  "source_remedies": {
+   "berb": 2,
+   "pall": 2,
+   "ter": 1,
+   "valer": 1
+  }
+ },
+ "r45": {
+  "t": "PAIN, sneezing agg.",
+  "r": {
+   "aeth": 2,
+   "ars": 1,
+   "bell": 2
+  },
+  "oorep_id": 45256,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 70,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "sneezing agg.",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, sneezing agg.",
+  "source_path_labels": [
+   "PAIN",
+   "sneezing agg."
+  ],
+  "source_remedies": {
+   "aeth": 2,
+   "ars": 1,
+   "bell": 2
+  }
+ },
+ "r46": {
+  "t": "PAIN, standing amel.",
+  "r": {
+   "berb": 1
+  },
+  "oorep_id": 45268,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 71,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "standing amel.",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, standing amel.",
+  "source_path_labels": [
+   "PAIN",
+   "standing amel."
+  ],
+  "source_remedies": {
+   "berb": 1
+  }
+ },
+ "r47": {
+  "t": "PAIN, stooping, when",
+  "r": {
+   "alum": 1,
+   "apis": 1,
+   "berb": 2,
+   "chin": 1,
+   "sulph": 2
+  },
+  "oorep_id": 45296,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 72,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "stooping, when",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, stooping, when",
+  "source_path_labels": [
+   "PAIN",
+   "stooping, when"
+  ],
+  "source_remedies": {
+   "alum": 1,
+   "apis": 1,
+   "berb": 2,
+   "chin": 1,
+   "sulph": 2
+  }
+ },
+ "r48": {
+  "t": "PAIN, stooping, when, after long",
+  "r": {
+   "sulph": 1
+  },
+  "oorep_id": 45295,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 73,
+  "source_page": 663,
+  "source_depth": 2,
+  "source_label": "after long",
+  "source_parent_id": "r47",
+  "source_path": "PAIN, stooping, when, after long",
+  "source_path_labels": [
+   "PAIN",
+   "stooping, when",
+   "after long"
+  ],
+  "source_remedies": {
+   "sulph": 1
+  }
+ },
+ "r49": {
+  "t": "PAIN, straightening out legs agg.",
+  "r": {
+   "colch": 1
+  },
+  "oorep_id": 45297,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 74,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "straightening out legs agg.",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, straightening out legs agg.",
+  "source_path_labels": [
+   "PAIN",
+   "straightening out legs agg."
+  ],
+  "source_remedies": {
+   "colch": 1
+  }
+ },
+ "r50": {
+  "t": "PAIN, swelling of right knee, with",
+  "r": {
+   "benz-ac": 1
+  },
+  "oorep_id": 45298,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 75,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "swelling of right knee, with",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, swelling of right knee, with",
+  "source_path_labels": [
+   "PAIN",
+   "swelling of right knee, with"
+  ],
+  "source_remedies": {
+   "benz-ac": 1
+  }
+ },
+ "r51": {
+  "t": "PAIN, urging to urinate, during",
+  "r": {
+   "ars-h": 2,
+   "canth": 2,
+   "coc-c": 1,
+   "ferr": 2,
+   "graph": 1,
+   "hep": 1,
+   "kreos": 2,
+   "merc-c": 1,
+   "ruta": 1
+  },
+  "oorep_id": 45320,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 76,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "urging to urinate, during",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, urging to urinate, during",
+  "source_path_labels": [
+   "PAIN",
+   "urging to urinate, during"
+  ],
+  "source_remedies": {
+   "ars-h": 2,
+   "canth": 2,
+   "coc-c": 1,
+   "ferr": 2,
+   "graph": 1,
+   "hep": 1,
+   "kreos": 2,
+   "merc-c": 1,
+   "ruta": 1
+  }
+ },
+ "r52": {
+  "t": "PAIN, urination, before",
+  "r": {
+   "graph": 1,
+   "lyc": 2
+  },
+  "oorep_id": 45322,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 77,
+  "source_page": 663,
+  "source_depth": 1,
+  "source_label": "urination, before",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, urination, before",
+  "source_path_labels": [
+   "PAIN",
+   "urination, before"
+  ],
+  "source_remedies": {
+   "graph": 1,
+   "lyc": 2
+  }
+ },
+ "r53": {
+  "t": "PAIN, urination, before, during",
+  "r": {
+   "aesc": 1,
+   "ant-c": 1,
+   "berb": 1,
+   "phos": 1,
+   "puls": 2,
+   "rheum": 1,
+   "senec": 2
+  },
+  "oorep_id": 45323,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 78,
+  "source_page": 663,
+  "source_depth": 2,
+  "source_label": "during",
+  "source_parent_id": "r52",
+  "source_path": "PAIN, urination, before, during",
+  "source_path_labels": [
+   "PAIN",
+   "urination, before",
+   "during"
+  ],
+  "source_remedies": {
+   "aesc": 1,
+   "ant-c": 1,
+   "berb": 1,
+   "phos": 1,
+   "puls": 2,
+   "rheum": 1,
+   "senec": 2
+  }
+ },
+ "r54": {
+  "t": "PAIN, urination, before, after amel.",
+  "r": {
+   "lyc": 3,
+   "med": 2,
+   "tarent": 1
+  },
+  "oorep_id": 45321,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 79,
+  "source_page": 663,
+  "source_depth": 2,
+  "source_label": "after amel.",
+  "source_parent_id": "r52",
+  "source_path": "PAIN, urination, before, after amel.",
+  "source_path_labels": [
+   "PAIN",
+   "urination, before",
+   "after amel."
+  ],
+  "source_remedies": {
+   "lyc": 3,
+   "med": 2,
+   "tarent": 1
+  }
+ },
+ "r55": {
+  "t": "PAIN, walking, while",
+  "r": {
+   "alum": 1,
+   "carb-an": 1,
+   "clem": 1,
+   "ham": 1,
+   "nit-ac": 1,
+   "nux-v": 2,
+   "zinc": 1
+  },
+  "oorep_id": 45324,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 80,
+  "source_page": 664,
+  "source_depth": 1,
+  "source_label": "walking, while",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, walking, while",
+  "source_path_labels": [
+   "PAIN",
+   "walking, while"
+  ],
+  "source_remedies": {
+   "alum": 1,
+   "carb-an": 1,
+   "clem": 1,
+   "ham": 1,
+   "nit-ac": 1,
+   "nux-v": 2,
+   "zinc": 1
+  }
+ },
+ "r56": {
+  "t": "PAIN, extending over abdomen",
+  "r": {
+   "hydr-ac": 1
+  },
+  "oorep_id": 45202,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 81,
+  "source_page": 664,
+  "source_depth": 1,
+  "source_label": "extending over abdomen",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, extending over abdomen",
+  "source_path_labels": [
+   "PAIN",
+   "extending over abdomen"
+  ],
+  "source_remedies": {
+   "hydr-ac": 1
+  }
+ },
+ "o45203": {
+  "t": "PAIN, extending over abdomen, abdomen",
+  "r": {
+   "berb": 1,
+   "canth": 1,
+   "kali-bi": 1,
+   "nux-v": 2
+  },
+  "oorep_id": 45203,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 82,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "abdomen",
+  "source_parent_id": "r56",
+  "source_path": "PAIN, extending over abdomen, abdomen",
+  "source_path_labels": [
+   "PAIN",
+   "extending over abdomen",
+   "abdomen"
+  ],
+  "source_remedies": {
+   "berb": 1,
+   "canth": 1,
+   "kali-bi": 1,
+   "nux-v": 2
+  }
+ },
+ "o45204": {
+  "t": "PAIN, extending over abdomen, bladder",
+  "r": {
+   "arg-n": 1,
+   "ars": 1,
+   "bell": 1,
+   "berb": 1,
+   "canth": 1,
+   "chel": 1,
+   "coc-c": 1,
+   "kali-i": 1,
+   "lyc": 2,
+   "nit-ac": 1,
+   "oci": 1,
+   "petr": 1,
+   "phyt": 1,
+   "sars": 2,
+   "tab": 1
+  },
+  "oorep_id": 45204,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 83,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "bladder",
+  "source_parent_id": "r56",
+  "source_path": "PAIN, extending over abdomen, bladder",
+  "source_path_labels": [
+   "PAIN",
+   "extending over abdomen",
+   "bladder"
+  ],
+  "source_remedies": {
+   "arg-n": 1,
+   "ars": 1,
+   "bell": 1,
+   "berb": 1,
+   "canth": 1,
+   "chel": 1,
+   "coc-c": 1,
+   "kali-i": 1,
+   "lyc": 2,
+   "nit-ac": 1,
+   "oci": 1,
+   "petr": 1,
+   "phyt": 1,
+   "sars": 2,
+   "tab": 1
+  }
+ },
+ "o45205": {
+  "t": "PAIN, extending over abdomen, epigastrium",
+  "r": {
+   "hydr-ac": 1
+  },
+  "oorep_id": 45205,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 84,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "epigastrium",
+  "source_parent_id": "r56",
+  "source_path": "PAIN, extending over abdomen, epigastrium",
+  "source_path_labels": [
+   "PAIN",
+   "extending over abdomen",
+   "epigastrium"
+  ],
+  "source_remedies": {
+   "hydr-ac": 1
+  }
+ },
+ "o45206": {
+  "t": "PAIN, extending over abdomen, hip",
+  "r": {
+   "arn": 1,
+   "berb": 1,
+   "lyc": 1,
+   "nux-m": 2,
+   "nux-v": 2,
+   "ox-ac": 1,
+   "ter": 1
+  },
+  "oorep_id": 45206,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 85,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "hip",
+  "source_parent_id": "r56",
+  "source_path": "PAIN, extending over abdomen, hip",
+  "source_path_labels": [
+   "PAIN",
+   "extending over abdomen",
+   "hip"
+  ],
+  "source_remedies": {
+   "arn": 1,
+   "berb": 1,
+   "lyc": 1,
+   "nux-m": 2,
+   "nux-v": 2,
+   "ox-ac": 1,
+   "ter": 1
+  }
+ },
+ "o45207": {
+  "t": "PAIN, extending over abdomen, right ilium",
+  "r": {
+   "sang": 1
+  },
+  "oorep_id": 45207,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 86,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "right ilium",
+  "source_parent_id": "r56",
+  "source_path": "PAIN, extending over abdomen, right ilium",
+  "source_path_labels": [
+   "PAIN",
+   "extending over abdomen",
+   "right ilium"
+  ],
+  "source_remedies": {
+   "sang": 1
+  }
+ },
+ "o45208": {
+  "t": "PAIN, extending over abdomen, right ilium, thigh",
+  "r": {
+   "nux-v": 2
+  },
+  "oorep_id": 45208,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 87,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "thigh",
+  "source_parent_id": "o45207",
+  "source_path": "PAIN, extending over abdomen, right ilium, thigh",
+  "source_path_labels": [
+   "PAIN",
+   "extending over abdomen",
+   "right ilium",
+   "thigh"
+  ],
+  "source_remedies": {
+   "nux-v": 2
+  }
+ },
+ "o45209": {
+  "t": "PAIN, extending over abdomen, testes",
+  "r": {
+   "dios": 1,
+   "equis": 1,
+   "nux-v": 1,
+   "syph": 1
+  },
+  "oorep_id": 45209,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 88,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "testes",
+  "source_parent_id": "r56",
+  "source_path": "PAIN, extending over abdomen, testes",
+  "source_path_labels": [
+   "PAIN",
+   "extending over abdomen",
+   "testes"
+  ],
+  "source_remedies": {
+   "dios": 1,
+   "equis": 1,
+   "nux-v": 1,
+   "syph": 1
+  }
+ },
+ "o45210": {
+  "t": "PAIN, extending over abdomen, uterus",
+  "r": {
+   "nat-m": 1
+  },
+  "oorep_id": 45210,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 89,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "uterus",
+  "source_parent_id": "r56",
+  "source_path": "PAIN, extending over abdomen, uterus",
+  "source_path_labels": [
+   "PAIN",
+   "extending over abdomen",
+   "uterus"
+  ],
+  "source_remedies": {
+   "nat-m": 1
+  }
+ },
+ "r65": {
+  "t": "PAIN, region of",
+  "r": {
+   "abrot": 1,
+   "all-s": 1,
+   "ars-h": 1,
+   "bov": 1,
+   "cadm": 1,
+   "cahin": 1,
+   "calc-p": 2,
+   "calc": 2,
+   "chel": 1,
+   "chin-a": 2,
+   "cop": 1,
+   "erig": 1,
+   "fl-ac": 1,
+   "hydr": 1,
+   "kreos": 1,
+   "myric": 1,
+   "ox-ac": 1,
+   "phys": 1,
+   "rhus-t": 1
+  },
+  "oorep_id": 45239,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 90,
+  "source_page": 664,
+  "source_depth": 1,
+  "source_label": "region of",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, region of",
+  "source_path_labels": [
+   "PAIN",
+   "region of"
+  ],
+  "source_remedies": {
+   "abrot": 1,
+   "all-s": 1,
+   "ars-h": 1,
+   "bov": 1,
+   "cadm": 1,
+   "cahin": 1,
+   "calc-p": 2,
+   "calc": 2,
+   "chel": 1,
+   "chin-a": 2,
+   "cop": 1,
+   "erig": 1,
+   "fl-ac": 1,
+   "hydr": 1,
+   "kreos": 1,
+   "myric": 1,
+   "ox-ac": 1,
+   "phys": 1,
+   "rhus-t": 1
+  }
+ },
+ "r66": {
+  "t": "PAIN, region of, bands of clothing, from",
+  "r": {
+   "chel": 1
+  },
+  "oorep_id": 45240,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 91,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "bands of clothing, from",
+  "source_parent_id": "r65",
+  "source_path": "PAIN, region of, bands of clothing, from",
+  "source_path_labels": [
+   "PAIN",
+   "region of",
+   "bands of clothing, from"
+  ],
+  "source_remedies": {
+   "chel": 1
+  }
+ },
+ "r67": {
+  "t": "PAIN, region of, digging, when",
+  "r": {
+   "calc-p": 1
+  },
+  "oorep_id": 45241,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 92,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "digging, when",
+  "source_parent_id": "r65",
+  "source_path": "PAIN, region of, digging, when",
+  "source_path_labels": [
+   "PAIN",
+   "region of",
+   "digging, when"
+  ],
+  "source_remedies": {
+   "calc-p": 1
+  }
+ },
+ "r68": {
+  "t": "PAIN, region of, lie only on the back, can",
+  "r": {
+   "colch": 1
+  },
+  "oorep_id": 45251,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 93,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "lie only on the back, can",
+  "source_parent_id": "r65",
+  "source_path": "PAIN, region of, lie only on the back, can",
+  "source_path_labels": [
+   "PAIN",
+   "region of",
+   "lie only on the back, can"
+  ],
+  "source_remedies": {
+   "colch": 1
+  }
+ },
+ "r69": {
+  "t": "PAIN, region of, stretching, after",
+  "r": {
+   "calc": 1
+  },
+  "oorep_id": 45252,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 94,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "stretching, after",
+  "source_parent_id": "r65",
+  "source_path": "PAIN, region of, stretching, after",
+  "source_path_labels": [
+   "PAIN",
+   "region of",
+   "stretching, after"
+  ],
+  "source_remedies": {
+   "calc": 1
+  }
+ },
+ "r70": {
+  "t": "PAIN, region of, extending to calves",
+  "r": {
+   "berb": 2
+  },
+  "oorep_id": 45242,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 95,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "extending to calves",
+  "source_parent_id": "r65",
+  "source_path": "PAIN, region of, extending to calves",
+  "source_path_labels": [
+   "PAIN",
+   "region of",
+   "extending to calves"
+  ],
+  "source_remedies": {
+   "berb": 2
+  }
+ },
+ "o45243": {
+  "t": "PAIN, region of, extending to calves, chest",
+  "r": {
+   "benz-ac": 1
+  },
+  "oorep_id": 45243,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 96,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "chest",
+  "source_parent_id": "r70",
+  "source_path": "PAIN, region of, extending to calves, chest",
+  "source_path_labels": [
+   "PAIN",
+   "region of",
+   "extending to calves",
+   "chest"
+  ],
+  "source_remedies": {
+   "benz-ac": 1
+  }
+ },
+ "o45244": {
+  "t": "PAIN, region of, extending to calves, downward",
+  "r": {
+   "berb": 1,
+   "sars": 2
+  },
+  "oorep_id": 45244,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 97,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "downward",
+  "source_parent_id": "r70",
+  "source_path": "PAIN, region of, extending to calves, downward",
+  "source_path_labels": [
+   "PAIN",
+   "region of",
+   "extending to calves",
+   "downward"
+  ],
+  "source_remedies": {
+   "berb": 1,
+   "sars": 2
+  }
+ },
+ "o45245": {
+  "t": "PAIN, region of, extending to calves, from genitals, anus and thighs",
+  "r": {
+   "kreos": 1
+  },
+  "oorep_id": 45245,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 98,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "from genitals, anus and thighs",
+  "source_parent_id": "r70",
+  "source_path": "PAIN, region of, extending to calves, from genitals, anus and thighs",
+  "source_path_labels": [
+   "PAIN",
+   "region of",
+   "extending to calves",
+   "from genitals, anus and thighs"
+  ],
+  "source_remedies": {
+   "kreos": 1
+  }
+ },
+ "o45246": {
+  "t": "PAIN, region of, extending to calves, groin",
+  "r": {
+   "kali-bi": 1,
+   "pareir": 1,
+   "petr": 1
+  },
+  "oorep_id": 45246,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 99,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "groin",
+  "source_parent_id": "r70",
+  "source_path": "PAIN, region of, extending to calves, groin",
+  "source_path_labels": [
+   "PAIN",
+   "region of",
+   "extending to calves",
+   "groin"
+  ],
+  "source_remedies": {
+   "kali-bi": 1,
+   "pareir": 1,
+   "petr": 1
+  }
+ },
+ "h004": {
+  "t": "PAIN, region of, extending to calves, anxious nausea, with",
+  "r": {
+   "cann-s": 1
+  },
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 100,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "anxious nausea, with",
+  "source_parent_id": "r70",
+  "source_path": "PAIN, region of, extending to calves, anxious nausea, with",
+  "source_path_labels": [
+   "PAIN",
+   "region of",
+   "extending to calves",
+   "anxious nausea, with"
+  ],
+  "source_remedies": {
+   "cann-s": 1
+  }
+ },
+ "o45248": {
+  "t": "PAIN, region of, extending to calves, prostate gland",
+  "r": {
+   "graph": 1,
+   "sel": 1
+  },
+  "oorep_id": 45248,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 101,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "prostate gland",
+  "source_parent_id": "r70",
+  "source_path": "PAIN, region of, extending to calves, prostate gland",
+  "source_path_labels": [
+   "PAIN",
+   "region of",
+   "extending to calves",
+   "prostate gland"
+  ],
+  "source_remedies": {
+   "graph": 1,
+   "sel": 1
+  }
+ },
+ "o45249": {
+  "t": "PAIN, region of, extending to calves, thighs",
+  "r": {
+   "agar": 1,
+   "berb": 3,
+   "hep": 1,
+   "ip": 1,
+   "kali-bi": 1,
+   "nux-v": 1
+  },
+  "oorep_id": 45249,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 102,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "thighs",
+  "source_parent_id": "r70",
+  "source_path": "PAIN, region of, extending to calves, thighs",
+  "source_path_labels": [
+   "PAIN",
+   "region of",
+   "extending to calves",
+   "thighs"
+  ],
+  "source_remedies": {
+   "agar": 1,
+   "berb": 3,
+   "hep": 1,
+   "ip": 1,
+   "kali-bi": 1,
+   "nux-v": 1
+  }
+ },
+ "o45250": {
+  "t": "PAIN, region of, extending to calves, ureters",
+  "r": {
+   "canth": 1,
+   "chel": 1,
+   "oci": 1,
+   "phyt": 1
+  },
+  "oorep_id": 45250,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 103,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "ureters",
+  "source_parent_id": "r70",
+  "source_path": "PAIN, region of, extending to calves, ureters",
+  "source_path_labels": [
+   "PAIN",
+   "region of",
+   "extending to calves",
+   "ureters"
+  ],
+  "source_remedies": {
+   "canth": 1,
+   "chel": 1,
+   "oci": 1,
+   "phyt": 1
+  }
+ },
+ "r79": {
+  "t": "PAIN, Ureters, right side",
+  "r": {
+   "apis": 1,
+   "berb": 1,
+   "cann-s": 1,
+   "canth": 1,
+   "dios": 2,
+   "indg": 1,
+   "lyc": 3,
+   "nux-v": 2,
+   "oci": 2,
+   "sars": 2,
+   "tab": 1,
+   "tarent": 1
+  },
+  "oorep_id": 45318,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 104,
+  "source_page": 664,
+  "source_depth": 1,
+  "source_label": "Ureters, right side",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, Ureters, right side",
+  "source_path_labels": [
+   "PAIN",
+   "Ureters, right side"
+  ],
+  "source_remedies": {
+   "apis": 1,
+   "berb": 1,
+   "cann-s": 1,
+   "canth": 1,
+   "dios": 2,
+   "indg": 1,
+   "lyc": 3,
+   "nux-v": 2,
+   "oci": 2,
+   "sars": 2,
+   "tab": 1,
+   "tarent": 1
+  }
+ },
+ "r80": {
+  "t": "PAIN, Ureters, right side, left side",
+  "r": {
+   "aesc": 1,
+   "agar": 1,
+   "aloe": 1,
+   "benz-ac": 1,
+   "berb": 2,
+   "calad": 1,
+   "cann-s": 1,
+   "canth": 1,
+   "epig": 1,
+   "ipom": 2,
+   "kali-c": 1,
+   "lyc": 2,
+   "pareir": 2
+  },
+  "oorep_id": 45316,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 105,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "left side",
+  "source_parent_id": "r79",
+  "source_path": "PAIN, Ureters, right side, left side",
+  "source_path_labels": [
+   "PAIN",
+   "Ureters, right side",
+   "left side"
+  ],
+  "source_remedies": {
+   "aesc": 1,
+   "agar": 1,
+   "aloe": 1,
+   "benz-ac": 1,
+   "berb": 2,
+   "calad": 1,
+   "cann-s": 1,
+   "canth": 1,
+   "epig": 1,
+   "ipom": 2,
+   "kali-c": 1,
+   "lyc": 2,
+   "pareir": 2
+  }
+ },
+ "r81": {
+  "t": "PAIN, Ureters, right side, radiating from renal region",
+  "r": {
+   "berb": 3,
+   "pareir": 1
+  },
+  "oorep_id": 45317,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 106,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "radiating from renal region",
+  "source_parent_id": "r79",
+  "source_path": "PAIN, Ureters, right side, radiating from renal region",
+  "source_path_labels": [
+   "PAIN",
+   "Ureters, right side",
+   "radiating from renal region"
+  ],
+  "source_remedies": {
+   "berb": 3,
+   "pareir": 1
+  }
+ },
+ "h005": {
+  "t": "PAIN, Ureters, right side, vomiting, with",
+  "r": {
+   "oci": 3
+  },
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 107,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "vomiting, with",
+  "source_parent_id": "r79",
+  "source_path": "PAIN, Ureters, right side, vomiting, with",
+  "source_path_labels": [
+   "PAIN",
+   "Ureters, right side",
+   "vomiting, with"
+  ],
+  "source_remedies": {
+   "oci": 3
+  }
+ },
+ "r83": {
+  "t": "PAIN, Ureters, right side, extending to penis and testes",
+  "r": {
+   "cann-i": 1,
+   "canth": 1,
+   "con": 1,
+   "dios": 2,
+   "nux-v": 1
+  },
+  "oorep_id": 45311,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 108,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "extending to penis and testes",
+  "source_parent_id": "r79",
+  "source_path": "PAIN, Ureters, right side, extending to penis and testes",
+  "source_path_labels": [
+   "PAIN",
+   "Ureters, right side",
+   "extending to penis and testes"
+  ],
+  "source_remedies": {
+   "cann-i": 1,
+   "canth": 1,
+   "con": 1,
+   "dios": 2,
+   "nux-v": 1
+  }
+ },
+ "o45312": {
+  "t": "PAIN, Ureters, right side, extending to penis and testes, right thigh",
+  "r": {
+   "nux-v": 1
+  },
+  "oorep_id": 45312,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 109,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "right thigh",
+  "source_parent_id": "r83",
+  "source_path": "PAIN, Ureters, right side, extending to penis and testes, right thigh",
+  "source_path_labels": [
+   "PAIN",
+   "Ureters, right side",
+   "extending to penis and testes",
+   "right thigh"
+  ],
+  "source_remedies": {
+   "nux-v": 1
+  }
+ },
+ "o45313": {
+  "t": "PAIN, Ureters, right side, extending to penis and testes, thighs and feet",
+  "r": {
+   "pareir": 1
+  },
+  "oorep_id": 45313,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 110,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "thighs and feet",
+  "source_parent_id": "r83",
+  "source_path": "PAIN, Ureters, right side, extending to penis and testes, thighs and feet",
+  "source_path_labels": [
+   "PAIN",
+   "Ureters, right side",
+   "extending to penis and testes",
+   "thighs and feet"
+  ],
+  "source_remedies": {
+   "pareir": 1
+  }
+ },
+ "o45315": {
+  "t": "PAIN, Ureters, right side, extending to penis and testes, urethra, into",
+  "r": {
+   "berb": 3,
+   "canth": 1,
+   "coc-c": 1
+  },
+  "oorep_id": 45315,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 111,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "urethra, into",
+  "source_parent_id": "r83",
+  "source_path": "PAIN, Ureters, right side, extending to penis and testes, urethra, into",
+  "source_path_labels": [
+   "PAIN",
+   "Ureters, right side",
+   "extending to penis and testes",
+   "urethra, into"
+  ],
+  "source_remedies": {
+   "berb": 3,
+   "canth": 1,
+   "coc-c": 1
+  }
+ },
+ "o45314": {
+  "t": "PAIN, Ureters, right side, extending to penis and testes, urethra, into, and seminal cords",
+  "r": {
+   "clem": 1,
+   "dios": 1
+  },
+  "oorep_id": 45314,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 112,
+  "source_page": 664,
+  "source_depth": 4,
+  "source_label": "and seminal cords",
+  "source_parent_id": "o45315",
+  "source_path": "PAIN, Ureters, right side, extending to penis and testes, urethra, into, and seminal cords",
+  "source_path_labels": [
+   "PAIN",
+   "Ureters, right side",
+   "extending to penis and testes",
+   "urethra, into",
+   "and seminal cords"
+  ],
+  "source_remedies": {
+   "clem": 1,
+   "dios": 1
+  }
+ },
+ "r88": {
+  "t": "PAIN, aching",
+  "r": {
+   "apoc": 1,
+   "benz-ac": 1,
+   "calc": 2,
+   "cann-i": 2,
+   "canth": 2,
+   "chel": 1,
+   "cinnb": 1,
+   "coc-c": 1,
+   "crot-h": 2,
+   "equis": 1,
+   "eup-pur": 2,
+   "helon": 2,
+   "kali-bi": 1,
+   "lyc": 2,
+   "nat-a": 2,
+   "scut": 1,
+   "tarent": 1,
+   "ter": 2,
+   "zing": 1
+  },
+  "oorep_id": 45134,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 113,
+  "source_page": 664,
+  "source_depth": 1,
+  "source_label": "aching",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, aching",
+  "source_path_labels": [
+   "PAIN",
+   "aching"
+  ],
+  "source_remedies": {
+   "apoc": 1,
+   "benz-ac": 1,
+   "calc": 2,
+   "cann-i": 2,
+   "canth": 2,
+   "chel": 1,
+   "cinnb": 1,
+   "coc-c": 1,
+   "crot-h": 2,
+   "equis": 1,
+   "eup-pur": 2,
+   "helon": 2,
+   "kali-bi": 1,
+   "lyc": 2,
+   "nat-a": 2,
+   "scut": 1,
+   "tarent": 1,
+   "ter": 2,
+   "zing": 1
+  }
+ },
+ "r89": {
+  "t": "PAIN, aching, evening",
+  "r": {
+   "canth": 2,
+   "helon": 1
+  },
+  "oorep_id": 45135,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 114,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "evening",
+  "source_parent_id": "r88",
+  "source_path": "PAIN, aching, evening",
+  "source_path_labels": [
+   "PAIN",
+   "aching",
+   "evening"
+  ],
+  "source_remedies": {
+   "canth": 2,
+   "helon": 1
+  }
+ },
+ "r90": {
+  "t": "PAIN, aching, night",
+  "r": {
+   "calc": 1,
+   "cann-i": 2
+  },
+  "oorep_id": 45136,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 115,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "night",
+  "source_parent_id": "r88",
+  "source_path": "PAIN, aching, night",
+  "source_path_labels": [
+   "PAIN",
+   "aching",
+   "night"
+  ],
+  "source_remedies": {
+   "calc": 1,
+   "cann-i": 2
+  }
+ },
+ "r91": {
+  "t": "PAIN, aching, riding, while",
+  "r": {
+   "calc": 2
+  },
+  "oorep_id": 45143,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 116,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "riding, while",
+  "source_parent_id": "r88",
+  "source_path": "PAIN, aching, riding, while",
+  "source_path_labels": [
+   "PAIN",
+   "aching",
+   "riding, while"
+  ],
+  "source_remedies": {
+   "calc": 2
+  }
+ },
+ "h006": {
+  "t": "PAIN, aching, urination, during",
+  "r": {
+   "aesc": 1,
+   "agn": 1,
+   "ant-c": 1,
+   "berb": 1
+  },
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 117,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "urination, during",
+  "source_parent_id": "r88",
+  "source_path": "PAIN, aching, urination, during",
+  "source_path_labels": [
+   "PAIN",
+   "aching",
+   "urination, during"
+  ],
+  "source_remedies": {
+   "aesc": 1,
+   "agn": 1,
+   "ant-c": 1,
+   "berb": 1
+  }
+ },
+ "r93": {
+  "t": "PAIN, aching, urination, during, amel.",
+  "r": {
+   "lyc": 3,
+   "tarent": 1
+  },
+  "oorep_id": 45144,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 118,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "amel.",
+  "source_parent_id": "h006",
+  "source_path": "PAIN, aching, urination, during, amel.",
+  "source_path_labels": [
+   "PAIN",
+   "aching",
+   "urination, during",
+   "amel."
+  ],
+  "source_remedies": {
+   "lyc": 3,
+   "tarent": 1
+  }
+ },
+ "r94": {
+  "t": "PAIN, aching, region of",
+  "r": {
+   "acon": 1,
+   "agar": 1,
+   "all-c": 1,
+   "ambr": 1,
+   "ant-c": 1,
+   "apoc": 1,
+   "berb": 3,
+   "brach": 1,
+   "calc": 1,
+   "carl": 1,
+   "caust": 1,
+   "coc-c": 1,
+   "elat": 1,
+   "equis": 1,
+   "ham": 1,
+   "hydr": 2,
+   "kali-bi": 2,
+   "lyc": 1,
+   "merc-c": 1,
+   "mit": 1,
+   "nat-a": 1,
+   "pall": 1,
+   "phos": 1,
+   "phys": 1,
+   "sabad": 1,
+   "sep": 1,
+   "still": 1,
+   "tab": 1
+  },
+  "oorep_id": 45137,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 119,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "region of",
+  "source_parent_id": "r88",
+  "source_path": "PAIN, aching, region of",
+  "source_path_labels": [
+   "PAIN",
+   "aching",
+   "region of"
+  ],
+  "source_remedies": {
+   "acon": 1,
+   "agar": 1,
+   "all-c": 1,
+   "ambr": 1,
+   "ant-c": 1,
+   "apoc": 1,
+   "berb": 3,
+   "brach": 1,
+   "calc": 1,
+   "carl": 1,
+   "caust": 1,
+   "coc-c": 1,
+   "elat": 1,
+   "equis": 1,
+   "ham": 1,
+   "hydr": 2,
+   "kali-bi": 2,
+   "lyc": 1,
+   "merc-c": 1,
+   "mit": 1,
+   "nat-a": 1,
+   "pall": 1,
+   "phos": 1,
+   "phys": 1,
+   "sabad": 1,
+   "sep": 1,
+   "still": 1,
+   "tab": 1
+  }
+ },
+ "r95": {
+  "t": "PAIN, aching, region of, afternoon",
+  "r": {
+   "chin-s": 2,
+   "sang": 1
+  },
+  "oorep_id": 45139,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 120,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "afternoon",
+  "source_parent_id": "r94",
+  "source_path": "PAIN, aching, region of, afternoon",
+  "source_path_labels": [
+   "PAIN",
+   "aching",
+   "region of",
+   "afternoon"
+  ],
+  "source_remedies": {
+   "chin-s": 2,
+   "sang": 1
+  }
+ },
+ "r96": {
+  "t": "PAIN, aching, region of, evening",
+  "r": {
+   "canth": 2
+  },
+  "oorep_id": 45140,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 121,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "evening",
+  "source_parent_id": "r94",
+  "source_path": "PAIN, aching, region of, evening",
+  "source_path_labels": [
+   "PAIN",
+   "aching",
+   "region of",
+   "evening"
+  ],
+  "source_remedies": {
+   "canth": 2
+  }
+ },
+ "r97": {
+  "t": "PAIN, aching, region of, 10 p.m.",
+  "r": {
+   "ir-fl": 1
+  },
+  "oorep_id": 45138,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 122,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "10 p.m.",
+  "source_parent_id": "r94",
+  "source_path": "PAIN, aching, region of, 10 p.m.",
+  "source_path_labels": [
+   "PAIN",
+   "aching",
+   "region of",
+   "10 p.m."
+  ],
+  "source_remedies": {
+   "ir-fl": 1
+  }
+ },
+ "r98": {
+  "t": "PAIN, aching, region of, urination, before",
+  "r": {
+   "tab": 1
+  },
+  "oorep_id": 45141,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 123,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "urination, before",
+  "source_parent_id": "r94",
+  "source_path": "PAIN, aching, region of, urination, before",
+  "source_path_labels": [
+   "PAIN",
+   "aching",
+   "region of",
+   "urination, before"
+  ],
+  "source_remedies": {
+   "tab": 1
+  }
+ },
+ "r99": {
+  "t": "PAIN, aching, region of, waking, on",
+  "r": {
+   "still": 1
+  },
+  "oorep_id": 45142,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 124,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "waking, on",
+  "source_parent_id": "r94",
+  "source_path": "PAIN, aching, region of, waking, on",
+  "source_path_labels": [
+   "PAIN",
+   "aching",
+   "region of",
+   "waking, on"
+  ],
+  "source_remedies": {
+   "still": 1
+  }
+ },
+ "r100": {
+  "t": "PAIN, burning",
+  "r": {
+   "apis": 1,
+   "ars-h": 2,
+   "arund": 1,
+   "bell": 2,
+   "benz-ac": 2,
+   "berb": 2,
+   "bufo": 1,
+   "cann-i": 1,
+   "canth": 2,
+   "helon": 2,
+   "hep": 1,
+   "ip": 2,
+   "kali-bi": 2,
+   "kali-c": 2,
+   "kali-i": 2,
+   "kali-n": 1,
+   "nat-m": 1,
+   "nux-v": 2,
+   "pin-s": 1,
+   "puls": 2,
+   "rheum": 1,
+   "ter": 3,
+   "zinc": 1
+  },
+  "oorep_id": 45154,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 125,
+  "source_page": 664,
+  "source_depth": 1,
+  "source_label": "burning",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, burning",
+  "source_path_labels": [
+   "PAIN",
+   "burning"
+  ],
+  "source_remedies": {
+   "apis": 1,
+   "ars-h": 2,
+   "arund": 1,
+   "bell": 2,
+   "benz-ac": 2,
+   "berb": 2,
+   "bufo": 1,
+   "cann-i": 1,
+   "canth": 2,
+   "helon": 2,
+   "hep": 1,
+   "ip": 2,
+   "kali-bi": 2,
+   "kali-c": 2,
+   "kali-i": 2,
+   "kali-n": 1,
+   "nat-m": 1,
+   "nux-v": 2,
+   "pin-s": 1,
+   "puls": 2,
+   "rheum": 1,
+   "ter": 3,
+   "zinc": 1
+  }
+ },
+ "r101": {
+  "t": "PAIN, burning, left",
+  "r": {
+   "benz-ac": 1,
+   "lachn": 1,
+   "zing": 1
+  },
+  "oorep_id": 45158,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 126,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "left",
+  "source_parent_id": "r100",
+  "source_path": "PAIN, burning, left",
+  "source_path_labels": [
+   "PAIN",
+   "burning",
+   "left"
+  ],
+  "source_remedies": {
+   "benz-ac": 1,
+   "lachn": 1,
+   "zing": 1
+  }
+ },
+ "r102": {
+  "t": "PAIN, burning, lying, while",
+  "r": {
+   "lac-d": 1
+  },
+  "oorep_id": 45159,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 127,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "lying, while",
+  "source_parent_id": "r100",
+  "source_path": "PAIN, burning, lying, while",
+  "source_path_labels": [
+   "PAIN",
+   "burning",
+   "lying, while"
+  ],
+  "source_remedies": {
+   "lac-d": 1
+  }
+ },
+ "r103": {
+  "t": "PAIN, burning, oppressed breathing and faintness, with",
+  "r": {
+   "bufo": 1
+  },
+  "oorep_id": 45160,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 128,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "oppressed breathing and faintness, with",
+  "source_parent_id": "r100",
+  "source_path": "PAIN, burning, oppressed breathing and faintness, with",
+  "source_path_labels": [
+   "PAIN",
+   "burning",
+   "oppressed breathing and faintness, with"
+  ],
+  "source_remedies": {
+   "bufo": 1
+  }
+ },
+ "r104": {
+  "t": "PAIN, burning, urination, before",
+  "r": {
+   "rheum": 1,
+   "thuj": 1
+  },
+  "oorep_id": 45163,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 129,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "urination, before",
+  "source_parent_id": "r100",
+  "source_path": "PAIN, burning, urination, before",
+  "source_path_labels": [
+   "PAIN",
+   "burning",
+   "urination, before"
+  ],
+  "source_remedies": {
+   "rheum": 1,
+   "thuj": 1
+  }
+ },
+ "r105": {
+  "t": "PAIN, burning, urination, before, during",
+  "r": {
+   "rheum": 1
+  },
+  "oorep_id": 45164,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 130,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "during",
+  "source_parent_id": "r104",
+  "source_path": "PAIN, burning, urination, before, during",
+  "source_path_labels": [
+   "PAIN",
+   "burning",
+   "urination, before",
+   "during"
+  ],
+  "source_remedies": {
+   "rheum": 1
+  }
+ },
+ "r106": {
+  "t": "PAIN, burning, extending through left ilium to pubis, in women",
+  "r": {
+   "arund": 1
+  },
+  "oorep_id": 45157,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 131,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "extending through left ilium to pubis, in women",
+  "source_parent_id": "r100",
+  "source_path": "PAIN, burning, extending through left ilium to pubis, in women",
+  "source_path_labels": [
+   "PAIN",
+   "burning",
+   "extending through left ilium to pubis, in women"
+  ],
+  "source_remedies": {
+   "arund": 1
+  }
+ },
+ "r107": {
+  "t": "PAIN, burning, along ureters",
+  "r": {
+   "cedr": 1,
+   "pin-s": 1
+  },
+  "oorep_id": 45155,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 132,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "along ureters",
+  "source_parent_id": "r100",
+  "source_path": "PAIN, burning, along ureters",
+  "source_path_labels": [
+   "PAIN",
+   "burning",
+   "along ureters"
+  ],
+  "source_remedies": {
+   "cedr": 1,
+   "pin-s": 1
+  }
+ },
+ "r108": {
+  "t": "PAIN, burning, along ureters, to bladder",
+  "r": {
+   "bell": 1,
+   "ter": 2
+  },
+  "oorep_id": 45156,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 133,
+  "source_page": 664,
+  "source_depth": 3,
+  "source_label": "to bladder",
+  "source_parent_id": "r107",
+  "source_path": "PAIN, burning, along ureters, to bladder",
+  "source_path_labels": [
+   "PAIN",
+   "burning",
+   "along ureters",
+   "to bladder"
+  ],
+  "source_remedies": {
+   "bell": 1,
+   "ter": 2
+  }
+ },
+ "r109": {
+  "t": "PAIN, burning, region of",
+  "r": {
+   "berb": 2,
+   "coloc": 2,
+   "kali-n": 1,
+   "lac-d": 2,
+   "nat-m": 1,
+   "phyt": 1,
+   "ter": 2
+  },
+  "oorep_id": 45161,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 134,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "region of",
+  "source_parent_id": "r100",
+  "source_path": "PAIN, burning, region of",
+  "source_path_labels": [
+   "PAIN",
+   "burning",
+   "region of"
+  ],
+  "source_remedies": {
+   "berb": 2,
+   "coloc": 2,
+   "kali-n": 1,
+   "lac-d": 2,
+   "nat-m": 1,
+   "phyt": 1,
+   "ter": 2
+  }
+ },
+ "r110": {
+  "t": "PAIN, burning, Ureters",
+  "r": {
+   "cedr": 1,
+   "pin-s": 1,
+   "ter": 1
+  },
+  "oorep_id": 45162,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 135,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "Ureters",
+  "source_parent_id": "r100",
+  "source_path": "PAIN, burning, Ureters",
+  "source_path_labels": [
+   "PAIN",
+   "burning",
+   "Ureters"
+  ],
+  "source_remedies": {
+   "cedr": 1,
+   "pin-s": 1,
+   "ter": 1
+  }
+ },
+ "r111": {
+  "t": "PAIN, constricting, extending to bladder",
+  "r": {
+   "nit-ac": 1
+  },
+  "oorep_id": 45167,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 136,
+  "source_page": 664,
+  "source_depth": 1,
+  "source_label": "constricting, extending to bladder",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, constricting, extending to bladder",
+  "source_path_labels": [
+   "PAIN",
+   "constricting, extending to bladder"
+  ],
+  "source_remedies": {
+   "nit-ac": 1
+  }
+ },
+ "r112": {
+  "t": "PAIN, constricting, extending to bladder, down ureters to penis, pressure on glans amel., at times pain goes upward",
+  "r": {
+   "canth": 1
+  },
+  "oorep_id": 45166,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 137,
+  "source_page": 664,
+  "source_depth": 2,
+  "source_label": "down ureters to penis, pressure on glans amel., at times pain goes upward",
+  "source_parent_id": "r111",
+  "source_path": "PAIN, constricting, extending to bladder, down ureters to penis, pressure on glans amel., at times pain goes upward",
+  "source_path_labels": [
+   "PAIN",
+   "constricting, extending to bladder",
+   "down ureters to penis, pressure on glans amel., at times pain goes upward"
+  ],
+  "source_remedies": {
+   "canth": 1
+  }
+ },
+ "r113": {
+  "t": "PAIN, contracting",
+  "r": {
+   "clem": 1
+  },
+  "oorep_id": 45168,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 138,
+  "source_page": 665,
+  "source_depth": 1,
+  "source_label": "contracting",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, contracting",
+  "source_path_labels": [
+   "PAIN",
+   "contracting"
+  ],
+  "source_remedies": {
+   "clem": 1
+  }
+ },
+ "r114": {
+  "t": "PAIN, contracting, down ureters to penis",
+  "r": {
+   "canth": 3
+  },
+  "oorep_id": 45169,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 139,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "down ureters to penis",
+  "source_parent_id": "r113",
+  "source_path": "PAIN, contracting, down ureters to penis",
+  "source_path_labels": [
+   "PAIN",
+   "contracting",
+   "down ureters to penis"
+  ],
+  "source_remedies": {
+   "canth": 3
+  }
+ },
+ "r115": {
+  "t": "PAIN, cramping",
+  "r": {
+   "cadm": 1,
+   "caust": 3,
+   "chel": 2,
+   "cycl": 1,
+   "kali-i": 1,
+   "nit-ac": 2,
+   "oci": 1
+  },
+  "oorep_id": 45171,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 140,
+  "source_page": 665,
+  "source_depth": 1,
+  "source_label": "cramping",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, cramping",
+  "source_path_labels": [
+   "PAIN",
+   "cramping"
+  ],
+  "source_remedies": {
+   "cadm": 1,
+   "caust": 3,
+   "chel": 2,
+   "cycl": 1,
+   "kali-i": 1,
+   "nit-ac": 2,
+   "oci": 1
+  }
+ },
+ "h007": {
+  "t": "PAIN, cramping, 4 to 9 p.m.",
+  "r": {
+   "chel": 2
+  },
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 141,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "4 to 9 p.m.",
+  "source_parent_id": "r115",
+  "source_path": "PAIN, cramping, 4 to 9 p.m.",
+  "source_path_labels": [
+   "PAIN",
+   "cramping",
+   "4 to 9 p.m."
+  ],
+  "source_remedies": {
+   "chel": 2
+  }
+ },
+ "r117": {
+  "t": "PAIN, cutting",
+  "r": {
+   "acon": 1,
+   "arg-n": 1,
+   "arn": 2,
+   "bad": 1,
+   "berb": 2,
+   "bufo": 1,
+   "cadm": 1,
+   "cann-i": 1,
+   "canth": 3,
+   "clem": 1,
+   "coc-c": 1,
+   "colch": 2,
+   "coloc": 1,
+   "daph": 1,
+   "eup-pur": 1,
+   "graph": 2,
+   "kali-bi": 3,
+   "kali-i": 2,
+   "merc": 2,
+   "mez": 1,
+   "nux-m": 2,
+   "plb": 1,
+   "staph": 2,
+   "zinc": 1
+  },
+  "oorep_id": 45173,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 142,
+  "source_page": 665,
+  "source_depth": 1,
+  "source_label": "cutting",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, cutting",
+  "source_path_labels": [
+   "PAIN",
+   "cutting"
+  ],
+  "source_remedies": {
+   "acon": 1,
+   "arg-n": 1,
+   "arn": 2,
+   "bad": 1,
+   "berb": 2,
+   "bufo": 1,
+   "cadm": 1,
+   "cann-i": 1,
+   "canth": 3,
+   "clem": 1,
+   "coc-c": 1,
+   "colch": 2,
+   "coloc": 1,
+   "daph": 1,
+   "eup-pur": 1,
+   "graph": 2,
+   "kali-bi": 3,
+   "kali-i": 2,
+   "merc": 2,
+   "mez": 1,
+   "nux-m": 2,
+   "plb": 1,
+   "staph": 2,
+   "zinc": 1
+  }
+ },
+ "r118": {
+  "t": "PAIN, cutting, paroxysmal, and burning in both",
+  "r": {
+   "canth": 3
+  },
+  "oorep_id": 45174,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 143,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "paroxysmal, and burning in both",
+  "source_parent_id": "r117",
+  "source_path": "PAIN, cutting, paroxysmal, and burning in both",
+  "source_path_labels": [
+   "PAIN",
+   "cutting",
+   "paroxysmal, and burning in both"
+  ],
+  "source_remedies": {
+   "canth": 3
+  }
+ },
+ "r119": {
+  "t": "PAIN, cutting, urination, before",
+  "r": {
+   "graph": 1
+  },
+  "oorep_id": 45182,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 144,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "urination, before",
+  "source_parent_id": "r117",
+  "source_path": "PAIN, cutting, urination, before",
+  "source_path_labels": [
+   "PAIN",
+   "cutting",
+   "urination, before"
+  ],
+  "source_remedies": {
+   "graph": 1
+  }
+ },
+ "r120": {
+  "t": "PAIN, cutting, region of",
+  "r": {
+   "plb": 1,
+   "staph": 2,
+   "zinc": 1
+  },
+  "oorep_id": 45175,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 145,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "region of",
+  "source_parent_id": "r117",
+  "source_path": "PAIN, cutting, region of",
+  "source_path_labels": [
+   "PAIN",
+   "cutting",
+   "region of"
+  ],
+  "source_remedies": {
+   "plb": 1,
+   "staph": 2,
+   "zinc": 1
+  }
+ },
+ "r121": {
+  "t": "PAIN, cutting, region of, heat amel., cold agg.",
+  "r": {
+   "staph": 2
+  },
+  "oorep_id": 45176,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 146,
+  "source_page": 665,
+  "source_depth": 3,
+  "source_label": "heat amel., cold agg.",
+  "source_parent_id": "r120",
+  "source_path": "PAIN, cutting, region of, heat amel., cold agg.",
+  "source_path_labels": [
+   "PAIN",
+   "cutting",
+   "region of",
+   "heat amel., cold agg."
+  ],
+  "source_remedies": {
+   "staph": 2
+  }
+ },
+ "r122": {
+  "t": "PAIN, cutting, region of, lancinations, friction and pressure amel.",
+  "r": {
+   "plb": 1
+  },
+  "oorep_id": 45177,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 147,
+  "source_page": 665,
+  "source_depth": 3,
+  "source_label": "lancinations, friction and pressure amel.",
+  "source_parent_id": "r120",
+  "source_path": "PAIN, cutting, region of, lancinations, friction and pressure amel.",
+  "source_path_labels": [
+   "PAIN",
+   "cutting",
+   "region of",
+   "lancinations, friction and pressure amel."
+  ],
+  "source_remedies": {
+   "plb": 1
+  }
+ },
+ "r123": {
+  "t": "PAIN, cutting, Ureters",
+  "r": {
+   "aesc": 1,
+   "apis": 2,
+   "arg-n": 2,
+   "arn": 2,
+   "ars": 2,
+   "aspar": 1,
+   "bell": 3,
+   "benz-ac": 2,
+   "berb": 3,
+   "cann-s": 1,
+   "canth": 2,
+   "carb-an": 3,
+   "chlol": 1,
+   "coc-c": 1,
+   "colch": 1,
+   "con": 1,
+   "dios": 2,
+   "equis": 1,
+   "erig": 1,
+   "eup-pur": 1,
+   "indg": 1,
+   "kali-ar": 1,
+   "kali-c": 2,
+   "lach": 2,
+   "lyc": 3,
+   "med": 2,
+   "nat-s": 1,
+   "nux-m": 2,
+   "nux-v": 2,
+   "oci": 2,
+   "op": 2,
+   "pareir": 3,
+   "phos": 2,
+   "psor": 1,
+   "sars": 3,
+   "senec": 1,
+   "sep": 1,
+   "sil": 1,
+   "tab": 2,
+   "verat": 3,
+   "zinc": 1
+  },
+  "oorep_id": 45178,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 148,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "Ureters",
+  "source_parent_id": "r117",
+  "source_path": "PAIN, cutting, Ureters",
+  "source_path_labels": [
+   "PAIN",
+   "cutting",
+   "Ureters"
+  ],
+  "source_remedies": {
+   "aesc": 1,
+   "apis": 2,
+   "arg-n": 2,
+   "arn": 2,
+   "ars": 2,
+   "aspar": 1,
+   "bell": 3,
+   "benz-ac": 2,
+   "berb": 3,
+   "cann-s": 1,
+   "canth": 2,
+   "carb-an": 3,
+   "chlol": 1,
+   "coc-c": 1,
+   "colch": 1,
+   "con": 1,
+   "dios": 2,
+   "equis": 1,
+   "erig": 1,
+   "eup-pur": 1,
+   "indg": 1,
+   "kali-ar": 1,
+   "kali-c": 2,
+   "lach": 2,
+   "lyc": 3,
+   "med": 2,
+   "nat-s": 1,
+   "nux-m": 2,
+   "nux-v": 2,
+   "oci": 2,
+   "op": 2,
+   "pareir": 3,
+   "phos": 2,
+   "psor": 1,
+   "sars": 3,
+   "senec": 1,
+   "sep": 1,
+   "sil": 1,
+   "tab": 2,
+   "verat": 3,
+   "zinc": 1
+  }
+ },
+ "r124": {
+  "t": "PAIN, cutting, Ureters, alternating with pain in glans",
+  "r": {
+   "canth": 1
+  },
+  "oorep_id": 45179,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 149,
+  "source_page": 665,
+  "source_depth": 3,
+  "source_label": "alternating with pain in glans",
+  "source_parent_id": "r123",
+  "source_path": "PAIN, cutting, Ureters, alternating with pain in glans",
+  "source_path_labels": [
+   "PAIN",
+   "cutting",
+   "Ureters",
+   "alternating with pain in glans"
+  ],
+  "source_remedies": {
+   "canth": 1
+  }
+ },
+ "r125": {
+  "t": "PAIN, cutting, Ureters, urination, after",
+  "r": {
+   "apis": 1
+  },
+  "oorep_id": 45180,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 150,
+  "source_page": 665,
+  "source_depth": 3,
+  "source_label": "urination, after",
+  "source_parent_id": "r123",
+  "source_path": "PAIN, cutting, Ureters, urination, after",
+  "source_path_labels": [
+   "PAIN",
+   "cutting",
+   "Ureters",
+   "urination, after"
+  ],
+  "source_remedies": {
+   "apis": 1
+  }
+ },
+ "r126": {
+  "t": "PAIN, cutting, Ureters, vomiting, with",
+  "r": {
+   "oci": 3
+  },
+  "oorep_id": 45181,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 151,
+  "source_page": 665,
+  "source_depth": 3,
+  "source_label": "vomiting, with",
+  "source_parent_id": "r123",
+  "source_path": "PAIN, cutting, Ureters, vomiting, with",
+  "source_path_labels": [
+   "PAIN",
+   "cutting",
+   "Ureters",
+   "vomiting, with"
+  ],
+  "source_remedies": {
+   "oci": 3
+  }
+ },
+ "r127": {
+  "t": "PAIN, digging",
+  "r": {
+   "cur": 1,
+   "kali-i": 1
+  },
+  "oorep_id": 45185,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 152,
+  "source_page": 665,
+  "source_depth": 1,
+  "source_label": "digging",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, digging",
+  "source_path_labels": [
+   "PAIN",
+   "digging"
+  ],
+  "source_remedies": {
+   "cur": 1,
+   "kali-i": 1
+  }
+ },
+ "r128": {
+  "t": "PAIN, digging, region of, pressure agg.",
+  "r": {
+   "berb": 3
+  },
+  "oorep_id": 45186,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 153,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "region of, pressure agg.",
+  "source_parent_id": "r127",
+  "source_path": "PAIN, digging, region of, pressure agg.",
+  "source_path_labels": [
+   "PAIN",
+   "digging",
+   "region of, pressure agg."
+  ],
+  "source_remedies": {
+   "berb": 3
+  }
+ },
+ "r129": {
+  "t": "PAIN, dragging, ureters, like labor pain, with urging to urinate",
+  "r": {
+   "cham": 2
+  },
+  "oorep_id": 45187,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 154,
+  "source_page": 665,
+  "source_depth": 1,
+  "source_label": "dragging, ureters, like labor pain, with urging to urinate",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, dragging, ureters, like labor pain, with urging to urinate",
+  "source_path_labels": [
+   "PAIN",
+   "dragging, ureters, like labor pain, with urging to urinate"
+  ],
+  "source_remedies": {
+   "cham": 2
+  }
+ },
+ "r130": {
+  "t": "PAIN, drawing",
+  "r": {
+   "clem": 3,
+   "coc-c": 1,
+   "nux-m": 2,
+   "ter": 3,
+   "zinc": 1
+  },
+  "oorep_id": 45188,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 155,
+  "source_page": 665,
+  "source_depth": 1,
+  "source_label": "drawing",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, drawing",
+  "source_path_labels": [
+   "PAIN",
+   "drawing"
+  ],
+  "source_remedies": {
+   "clem": 3,
+   "coc-c": 1,
+   "nux-m": 2,
+   "ter": 3,
+   "zinc": 1
+  }
+ },
+ "r131": {
+  "t": "PAIN, drawing, right, 5 a.m.",
+  "r": {
+   "coc-c": 1
+  },
+  "oorep_id": 45195,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 156,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "right, 5 a.m.",
+  "source_parent_id": "r130",
+  "source_path": "PAIN, drawing, right, 5 a.m.",
+  "source_path_labels": [
+   "PAIN",
+   "drawing",
+   "right, 5 a.m."
+  ],
+  "source_remedies": {
+   "coc-c": 1
+  }
+ },
+ "r132": {
+  "t": "PAIN, drawing, left",
+  "r": {
+   "benz-ac": 2,
+   "kali-c": 1
+  },
+  "oorep_id": 45190,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 157,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "left",
+  "source_parent_id": "r130",
+  "source_path": "PAIN, drawing, left",
+  "source_path_labels": [
+   "PAIN",
+   "drawing",
+   "left"
+  ],
+  "source_remedies": {
+   "benz-ac": 2,
+   "kali-c": 1
+  }
+ },
+ "r133": {
+  "t": "PAIN, drawing, stooping, when",
+  "r": {
+   "benz-ac": 2
+  },
+  "oorep_id": 45196,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 158,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "stooping, when",
+  "source_parent_id": "r130",
+  "source_path": "PAIN, drawing, stooping, when",
+  "source_path_labels": [
+   "PAIN",
+   "drawing",
+   "stooping, when"
+  ],
+  "source_remedies": {
+   "benz-ac": 2
+  }
+ },
+ "r134": {
+  "t": "PAIN, drawing, tensive, riding, while",
+  "r": {
+   "agar": 1
+  },
+  "oorep_id": 45197,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 159,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "tensive, riding, while",
+  "source_parent_id": "r130",
+  "source_path": "PAIN, drawing, tensive, riding, while",
+  "source_path_labels": [
+   "PAIN",
+   "drawing",
+   "tensive, riding, while"
+  ],
+  "source_remedies": {
+   "agar": 1
+  }
+ },
+ "r135": {
+  "t": "PAIN, drawing, extending right to hip",
+  "r": {
+   "ter": 2
+  },
+  "oorep_id": 45189,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 160,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "extending right to hip",
+  "source_parent_id": "r130",
+  "source_path": "PAIN, drawing, extending right to hip",
+  "source_path_labels": [
+   "PAIN",
+   "drawing",
+   "extending right to hip"
+  ],
+  "source_remedies": {
+   "ter": 2
+  }
+ },
+ "r136": {
+  "t": "PAIN, drawing, region of",
+  "r": {
+   "aloe": 1,
+   "alumn": 1,
+   "benz-ac": 1,
+   "berb": 1,
+   "cann-s": 2,
+   "carl": 1,
+   "cinnb": 1,
+   "iod": 2,
+   "kali-n": 1,
+   "lach": 1,
+   "meny": 1,
+   "ruta": 1,
+   "ter": 3,
+   "zinc": 2
+  },
+  "oorep_id": 45191,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 161,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "region of",
+  "source_parent_id": "r130",
+  "source_path": "PAIN, drawing, region of",
+  "source_path_labels": [
+   "PAIN",
+   "drawing",
+   "region of"
+  ],
+  "source_remedies": {
+   "aloe": 1,
+   "alumn": 1,
+   "benz-ac": 1,
+   "berb": 1,
+   "cann-s": 2,
+   "carl": 1,
+   "cinnb": 1,
+   "iod": 2,
+   "kali-n": 1,
+   "lach": 1,
+   "meny": 1,
+   "ruta": 1,
+   "ter": 3,
+   "zinc": 2
+  }
+ },
+ "r137": {
+  "t": "PAIN, drawing, region of, evening, sitting, while",
+  "r": {
+   "meny": 1,
+   "ruta": 1
+  },
+  "oorep_id": 45192,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 162,
+  "source_page": 665,
+  "source_depth": 3,
+  "source_label": "evening, sitting, while",
+  "source_parent_id": "r136",
+  "source_path": "PAIN, drawing, region of, evening, sitting, while",
+  "source_path_labels": [
+   "PAIN",
+   "drawing",
+   "region of",
+   "evening, sitting, while"
+  ],
+  "source_remedies": {
+   "meny": 1,
+   "ruta": 1
+  }
+ },
+ "r138": {
+  "t": "PAIN, drawing, region of, extending into inguinal region",
+  "r": {
+   "cann-s": 1
+  },
+  "oorep_id": 45193,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 163,
+  "source_page": 665,
+  "source_depth": 3,
+  "source_label": "extending into inguinal region",
+  "source_parent_id": "r136",
+  "source_path": "PAIN, drawing, region of, extending into inguinal region",
+  "source_path_labels": [
+   "PAIN",
+   "drawing",
+   "region of",
+   "extending into inguinal region"
+  ],
+  "source_remedies": {
+   "cann-s": 1
+  }
+ },
+ "r139": {
+  "t": "PAIN, drawing, region of, right hip",
+  "r": {
+   "ter": 1
+  },
+  "oorep_id": 45194,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 164,
+  "source_page": 665,
+  "source_depth": 3,
+  "source_label": "right hip",
+  "source_parent_id": "r136",
+  "source_path": "PAIN, drawing, region of, right hip",
+  "source_path_labels": [
+   "PAIN",
+   "drawing",
+   "region of",
+   "right hip"
+  ],
+  "source_remedies": {
+   "ter": 1
+  }
+ },
+ "r140": {
+  "t": "PAIN, drawing, Ureters",
+  "r": {
+   "berb": 1,
+   "cham": 1,
+   "nat-m": 2,
+   "sulph": 1,
+   "thuj": 1
+  },
+  "oorep_id": 45198,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 165,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "Ureters",
+  "source_parent_id": "r130",
+  "source_path": "PAIN, drawing, Ureters",
+  "source_path_labels": [
+   "PAIN",
+   "drawing",
+   "Ureters"
+  ],
+  "source_remedies": {
+   "berb": 1,
+   "cham": 1,
+   "nat-m": 2,
+   "sulph": 1,
+   "thuj": 1
+  }
+ },
+ "r141": {
+  "t": "PAIN, drawing, Ureters, right",
+  "r": {
+   "astac": 1
+  },
+  "oorep_id": 45200,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 166,
+  "source_page": 665,
+  "source_depth": 3,
+  "source_label": "right",
+  "source_parent_id": "r140",
+  "source_path": "PAIN, drawing, Ureters, right",
+  "source_path_labels": [
+   "PAIN",
+   "drawing",
+   "Ureters",
+   "right"
+  ],
+  "source_remedies": {
+   "astac": 1
+  }
+ },
+ "r142": {
+  "t": "PAIN, drawing, Ureters, left",
+  "r": {
+   "calad": 1,
+   "coc-c": 1
+  },
+  "oorep_id": 45199,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 167,
+  "source_page": 665,
+  "source_depth": 3,
+  "source_label": "left",
+  "source_parent_id": "r140",
+  "source_path": "PAIN, drawing, Ureters, left",
+  "source_path_labels": [
+   "PAIN",
+   "drawing",
+   "Ureters",
+   "left"
+  ],
+  "source_remedies": {
+   "calad": 1,
+   "coc-c": 1
+  }
+ },
+ "r143": {
+  "t": "PAIN, gnawing",
+  "r": {
+   "berb": 2,
+   "tarent": 2
+  },
+  "oorep_id": 45211,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 168,
+  "source_page": 665,
+  "source_depth": 1,
+  "source_label": "gnawing",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, gnawing",
+  "source_path_labels": [
+   "PAIN",
+   "gnawing"
+  ],
+  "source_remedies": {
+   "berb": 2,
+   "tarent": 2
+  }
+ },
+ "r144": {
+  "t": "PAIN, gnawing, region of",
+  "r": {
+   "brach": 1
+  },
+  "oorep_id": 45212,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 169,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "region of",
+  "source_parent_id": "r143",
+  "source_path": "PAIN, gnawing, region of",
+  "source_path_labels": [
+   "PAIN",
+   "gnawing",
+   "region of"
+  ],
+  "source_remedies": {
+   "brach": 1
+  }
+ },
+ "r145": {
+  "t": "PAIN, lancinating (See Cutting)",
+  "r": {},
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 170,
+  "source_page": 665,
+  "source_depth": 1,
+  "source_label": "lancinating (See Cutting)",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, lancinating (See Cutting)",
+  "source_path_labels": [
+   "PAIN",
+   "lancinating (See Cutting)"
+  ],
+  "source_remedies": {}
+ },
+ "r146": {
+  "t": "PAIN, piercing in both ureters, with urging to urinate",
+  "r": {
+   "nat-s": 1
+  },
+  "oorep_id": 45229,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 171,
+  "source_page": 665,
+  "source_depth": 1,
+  "source_label": "piercing in both ureters, with urging to urinate",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, piercing in both ureters, with urging to urinate",
+  "source_path_labels": [
+   "PAIN",
+   "piercing in both ureters, with urging to urinate"
+  ],
+  "source_remedies": {
+   "nat-s": 1
+  }
+ },
+ "r147": {
+  "t": "PAIN, pressing",
+  "r": {
+   "am-br": 1,
+   "aphis": 1,
+   "calc": 2,
+   "canth": 2,
+   "carl": 2,
+   "cimic": 1,
+   "clem": 1,
+   "coc-c": 1,
+   "hyper": 1,
+   "kali-c": 2,
+   "nit-ac": 2,
+   "nux-v": 2,
+   "ran-s": 1,
+   "ter": 1,
+   "thuj": 2,
+   "zinc": 1
+  },
+  "oorep_id": 45230,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 172,
+  "source_page": 665,
+  "source_depth": 1,
+  "source_label": "pressing",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, pressing",
+  "source_path_labels": [
+   "PAIN",
+   "pressing"
+  ],
+  "source_remedies": {
+   "am-br": 1,
+   "aphis": 1,
+   "calc": 2,
+   "canth": 2,
+   "carl": 2,
+   "cimic": 1,
+   "clem": 1,
+   "coc-c": 1,
+   "hyper": 1,
+   "kali-c": 2,
+   "nit-ac": 2,
+   "nux-v": 2,
+   "ran-s": 1,
+   "ter": 1,
+   "thuj": 2,
+   "zinc": 1
+  }
+ },
+ "r148": {
+  "t": "PAIN, pressing, morning",
+  "r": {
+   "kali-c": 1
+  },
+  "oorep_id": 45231,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 173,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "morning",
+  "source_parent_id": "r147",
+  "source_path": "PAIN, pressing, morning",
+  "source_path_labels": [
+   "PAIN",
+   "pressing",
+   "morning"
+  ],
+  "source_remedies": {
+   "kali-c": 1
+  }
+ },
+ "r149": {
+  "t": "PAIN, pressing, night",
+  "r": {
+   "calc": 1
+  },
+  "oorep_id": 45233,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 174,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "night",
+  "source_parent_id": "r147",
+  "source_path": "PAIN, pressing, night",
+  "source_path_labels": [
+   "PAIN",
+   "pressing",
+   "night"
+  ],
+  "source_remedies": {
+   "calc": 1
+  }
+ },
+ "r150": {
+  "t": "PAIN, pressing, motion amel.",
+  "r": {
+   "ter": 1
+  },
+  "oorep_id": 45232,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 175,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "motion amel.",
+  "source_parent_id": "r147",
+  "source_path": "PAIN, pressing, motion amel.",
+  "source_path_labels": [
+   "PAIN",
+   "pressing",
+   "motion amel."
+  ],
+  "source_remedies": {
+   "ter": 1
+  }
+ },
+ "r151": {
+  "t": "PAIN, pressing, sitting, while",
+  "r": {
+   "pall": 1,
+   "ter": 2
+  },
+  "oorep_id": 45235,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 176,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "sitting, while",
+  "source_parent_id": "r147",
+  "source_path": "PAIN, pressing, sitting, while",
+  "source_path_labels": [
+   "PAIN",
+   "pressing",
+   "sitting, while"
+  ],
+  "source_remedies": {
+   "pall": 1,
+   "ter": 2
+  }
+ },
+ "r152": {
+  "t": "PAIN, pressing, urination, before",
+  "r": {
+   "graph": 1
+  },
+  "oorep_id": 45236,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 177,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "urination, before",
+  "source_parent_id": "r147",
+  "source_path": "PAIN, pressing, urination, before",
+  "source_path_labels": [
+   "PAIN",
+   "pressing",
+   "urination, before"
+  ],
+  "source_remedies": {
+   "graph": 1
+  }
+ },
+ "r153": {
+  "t": "PAIN, pressing, region of",
+  "r": {
+   "agar": 1,
+   "ars-h": 1,
+   "berb": 2,
+   "cimic": 1,
+   "ham": 1,
+   "hydr": 1,
+   "pall": 1
+  },
+  "oorep_id": 45234,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 178,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "region of",
+  "source_parent_id": "r147",
+  "source_path": "PAIN, pressing, region of",
+  "source_path_labels": [
+   "PAIN",
+   "pressing",
+   "region of"
+  ],
+  "source_remedies": {
+   "agar": 1,
+   "ars-h": 1,
+   "berb": 2,
+   "cimic": 1,
+   "ham": 1,
+   "hydr": 1,
+   "pall": 1
+  }
+ },
+ "r154": {
+  "t": "PAIN, shooting (See Stitching)",
+  "r": {},
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 179,
+  "source_page": 665,
+  "source_depth": 1,
+  "source_label": "shooting (See Stitching)",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, shooting (See Stitching)",
+  "source_path_labels": [
+   "PAIN",
+   "shooting (See Stitching)"
+  ],
+  "source_remedies": {}
+ },
+ "r155": {
+  "t": "PAIN, shooting (See Stitching), sore, bruised",
+  "r": {
+   "acon": 1,
+   "agar": 1,
+   "alum": 1,
+   "apis": 2,
+   "arg-n": 2,
+   "ars": 1,
+   "asaf": 2,
+   "asar": 1,
+   "benz-ac": 1,
+   "berb": 3,
+   "brach": 1,
+   "cact": 2,
+   "calc-ar": 2,
+   "calc": 1,
+   "cann-s": 2,
+   "canth": 2,
+   "chel": 2,
+   "cinnb": 1,
+   "clem": 1,
+   "coc-c": 2,
+   "colch": 1,
+   "ferr-i": 1,
+   "graph": 3,
+   "hell": 1,
+   "helon": 2,
+   "hep": 2,
+   "kali-i": 1,
+   "manc": 2,
+   "meny": 1,
+   "merc-c": 1,
+   "merc": 1,
+   "nat-s": 2,
+   "nux-v": 2,
+   "pareir": 2,
+   "phys": 1,
+   "phyt": 1,
+   "plb": 1,
+   "puls": 3,
+   "rat": 2,
+   "rhus-t": 1,
+   "sel": 1,
+   "tab": 1,
+   "tarent": 1,
+   "tell": 1,
+   "ter": 2,
+   "vesp": 2,
+   "zinc": 1
+  },
+  "oorep_id": 45257,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 180,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "sore, bruised",
+  "source_parent_id": "r154",
+  "source_path": "PAIN, shooting (See Stitching), sore, bruised",
+  "source_path_labels": [
+   "PAIN",
+   "shooting (See Stitching)",
+   "sore, bruised"
+  ],
+  "source_remedies": {
+   "acon": 1,
+   "agar": 1,
+   "alum": 1,
+   "apis": 2,
+   "arg-n": 2,
+   "ars": 1,
+   "asaf": 2,
+   "asar": 1,
+   "benz-ac": 1,
+   "berb": 3,
+   "brach": 1,
+   "cact": 2,
+   "calc-ar": 2,
+   "calc": 1,
+   "cann-s": 2,
+   "canth": 2,
+   "chel": 2,
+   "cinnb": 1,
+   "clem": 1,
+   "coc-c": 2,
+   "colch": 1,
+   "ferr-i": 1,
+   "graph": 3,
+   "hell": 1,
+   "helon": 2,
+   "hep": 2,
+   "kali-i": 1,
+   "manc": 2,
+   "meny": 1,
+   "merc-c": 1,
+   "merc": 1,
+   "nat-s": 2,
+   "nux-v": 2,
+   "pareir": 2,
+   "phys": 1,
+   "phyt": 1,
+   "plb": 1,
+   "puls": 3,
+   "rat": 2,
+   "rhus-t": 1,
+   "sel": 1,
+   "tab": 1,
+   "tarent": 1,
+   "tell": 1,
+   "ter": 2,
+   "vesp": 2,
+   "zinc": 1
+  }
+ },
+ "h008": {
+  "t": "PAIN, shooting (See Stitching), right",
+  "r": {
+   "helon": 2,
+   "nux-v": 2,
+   "phyt": 1
+  },
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 181,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "right",
+  "source_parent_id": "r154",
+  "source_path": "PAIN, shooting (See Stitching), right",
+  "source_path_labels": [
+   "PAIN",
+   "shooting (See Stitching)",
+   "right"
+  ],
+  "source_remedies": {
+   "helon": 2,
+   "nux-v": 2,
+   "phyt": 1
+  }
+ },
+ "h009": {
+  "t": "PAIN, shooting (See Stitching), left",
+  "r": {
+   "benz-ac": 1,
+   "zinc": 1
+  },
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 182,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "left",
+  "source_parent_id": "r154",
+  "source_path": "PAIN, shooting (See Stitching), left",
+  "source_path_labels": [
+   "PAIN",
+   "shooting (See Stitching)",
+   "left"
+  ],
+  "source_remedies": {
+   "benz-ac": 1,
+   "zinc": 1
+  }
+ },
+ "h010": {
+  "t": "PAIN, shooting (See Stitching), afternoon",
+  "r": {
+   "kali-c": 1
+  },
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 183,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "afternoon",
+  "source_parent_id": "r154",
+  "source_path": "PAIN, shooting (See Stitching), afternoon",
+  "source_path_labels": [
+   "PAIN",
+   "shooting (See Stitching)",
+   "afternoon"
+  ],
+  "source_remedies": {
+   "kali-c": 1
+  }
+ },
+ "h011": {
+  "t": "PAIN, shooting (See Stitching), evening",
+  "r": {
+   "meny": 1
+  },
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 184,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "evening",
+  "source_parent_id": "r154",
+  "source_path": "PAIN, shooting (See Stitching), evening",
+  "source_path_labels": [
+   "PAIN",
+   "shooting (See Stitching)",
+   "evening"
+  ],
+  "source_remedies": {
+   "meny": 1
+  }
+ },
+ "h012": {
+  "t": "PAIN, shooting (See Stitching), exerting the muscles, while",
+  "r": {
+   "apoc": 1
+  },
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 185,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "exerting the muscles, while",
+  "source_parent_id": "r154",
+  "source_path": "PAIN, shooting (See Stitching), exerting the muscles, while",
+  "source_path_labels": [
+   "PAIN",
+   "shooting (See Stitching)",
+   "exerting the muscles, while"
+  ],
+  "source_remedies": {
+   "apoc": 1
+  }
+ },
+ "h013": {
+  "t": "PAIN, shooting (See Stitching), jar",
+  "r": {
+   "aeth": 1,
+   "alum": 1,
+   "bell": 2,
+   "berb": 2,
+   "calc-p": 1,
+   "cann-i": 2
+  },
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 186,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "jar",
+  "source_parent_id": "r154",
+  "source_path": "PAIN, shooting (See Stitching), jar",
+  "source_path_labels": [
+   "PAIN",
+   "shooting (See Stitching)",
+   "jar"
+  ],
+  "source_remedies": {
+   "aeth": 1,
+   "alum": 1,
+   "bell": 2,
+   "berb": 2,
+   "calc-p": 1,
+   "cann-i": 2
+  }
+ },
+ "h014": {
+  "t": "PAIN, shooting (See Stitching), sitting, while",
+  "r": {
+   "kali-c": 1,
+   "meny": 1
+  },
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 187,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "sitting, while",
+  "source_parent_id": "r154",
+  "source_path": "PAIN, shooting (See Stitching), sitting, while",
+  "source_path_labels": [
+   "PAIN",
+   "shooting (See Stitching)",
+   "sitting, while"
+  ],
+  "source_remedies": {
+   "kali-c": 1,
+   "meny": 1
+  }
+ },
+ "o45263": {
+  "t": "PAIN, shooting (See Stitching), region of",
+  "r": {
+   "abrot": 1,
+   "benz-ac": 1,
+   "berb": 3,
+   "brach": 1,
+   "cann-s": 1,
+   "chel": 2,
+   "coc-c": 2,
+   "equis": 1,
+   "hydr": 1,
+   "mang": 1,
+   "merc-c": 1,
+   "nat-a": 1,
+   "nux-v": 2,
+   "phos": 1,
+   "phys": 1,
+   "phyt": 1,
+   "rhus-t": 2,
+   "tell": 1,
+   "ter": 1,
+   "zinc": 1
+  },
+  "oorep_id": 45263,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 188,
+  "source_page": 665,
+  "source_depth": 2,
+  "source_label": "region of",
+  "source_parent_id": "r154",
+  "source_path": "PAIN, shooting (See Stitching), region of",
+  "source_path_labels": [
+   "PAIN",
+   "shooting (See Stitching)",
+   "region of"
+  ],
+  "source_remedies": {
+   "abrot": 1,
+   "benz-ac": 1,
+   "berb": 3,
+   "brach": 1,
+   "cann-s": 1,
+   "chel": 2,
+   "coc-c": 2,
+   "equis": 1,
+   "hydr": 1,
+   "mang": 1,
+   "merc-c": 1,
+   "nat-a": 1,
+   "nux-v": 2,
+   "phos": 1,
+   "phys": 1,
+   "phyt": 1,
+   "rhus-t": 2,
+   "tell": 1,
+   "ter": 1,
+   "zinc": 1
+  }
+ },
+ "h015": {
+  "t": "PAIN, shooting (See Stitching), region of, extending to thighs",
+  "r": {
+   "berb": 2
+  },
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 189,
+  "source_page": 665,
+  "source_depth": 3,
+  "source_label": "extending to thighs",
+  "source_parent_id": "o45263",
+  "source_path": "PAIN, shooting (See Stitching), region of, extending to thighs",
+  "source_path_labels": [
+   "PAIN",
+   "shooting (See Stitching)",
+   "region of",
+   "extending to thighs"
+  ],
+  "source_remedies": {
+   "berb": 2
+  }
+ },
+ "r165": {
+  "t": "PAIN, stabbing, region of",
+  "r": {
+   "arn": 1,
+   "erig": 1
+  },
+  "oorep_id": 45267,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 190,
+  "source_page": 665,
+  "source_depth": 1,
+  "source_label": "stabbing, region of",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, stabbing, region of",
+  "source_path_labels": [
+   "PAIN",
+   "stabbing, region of"
+  ],
+  "source_remedies": {
+   "arn": 1,
+   "erig": 1
+  }
+ },
+ "r166": {
+  "t": "PAIN, stitching, stinging, sticking",
+  "r": {
+   "acon": 2,
+   "aesc": 1,
+   "aeth": 1,
+   "agar": 1,
+   "anan": 1,
+   "ant-t": 1,
+   "arn": 2,
+   "ars": 2,
+   "astac": 1,
+   "bapt": 1,
+   "bell": 2,
+   "berb": 3,
+   "bov": 1,
+   "calc-f": 1,
+   "cann-i": 1,
+   "canth": 2,
+   "carb-an": 1,
+   "chel": 2,
+   "chin": 1,
+   "coc-c": 2,
+   "coloc": 2,
+   "crot-t": 1,
+   "cycl": 1,
+   "dig": 1,
+   "erig": 1,
+   "gamb": 1,
+   "grat": 1,
+   "hep": 1,
+   "ip": 2,
+   "kali-ar": 1,
+   "kali-bi": 3,
+   "kali-c": 2,
+   "kali-i": 1,
+   "kali-n": 2,
+   "kali-p": 1,
+   "kali-s": 1,
+   "lach": 2,
+   "lob": 1,
+   "lyc": 2,
+   "mag-m": 1,
+   "mang": 1,
+   "mez": 2,
+   "nat-m": 2,
+   "nat-p": 1,
+   "nux-v": 2,
+   "ph-ac": 1,
+   "phos": 1,
+   "plb": 2,
+   "ran-s": 1,
+   "sep": 1,
+   "staph": 2,
+   "sulph": 1,
+   "tarent": 1,
+   "ter": 1,
+   "upa": 1,
+   "valer": 1,
+   "vip": 1,
+   "zinc": 1
+  },
+  "oorep_id": 45292,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 191,
+  "source_page": 665,
+  "source_depth": 1,
+  "source_label": "stitching, stinging, sticking",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, stitching, stinging, sticking",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking"
+  ],
+  "source_remedies": {
+   "acon": 2,
+   "aesc": 1,
+   "aeth": 1,
+   "agar": 1,
+   "anan": 1,
+   "ant-t": 1,
+   "arn": 2,
+   "ars": 2,
+   "astac": 1,
+   "bapt": 1,
+   "bell": 2,
+   "berb": 3,
+   "bov": 1,
+   "calc-f": 1,
+   "cann-i": 1,
+   "canth": 2,
+   "carb-an": 1,
+   "chel": 2,
+   "chin": 1,
+   "coc-c": 2,
+   "coloc": 2,
+   "crot-t": 1,
+   "cycl": 1,
+   "dig": 1,
+   "erig": 1,
+   "gamb": 1,
+   "grat": 1,
+   "hep": 1,
+   "ip": 2,
+   "kali-ar": 1,
+   "kali-bi": 3,
+   "kali-c": 2,
+   "kali-i": 1,
+   "kali-n": 2,
+   "kali-p": 1,
+   "kali-s": 1,
+   "lach": 2,
+   "lob": 1,
+   "lyc": 2,
+   "mag-m": 1,
+   "mang": 1,
+   "mez": 2,
+   "nat-m": 2,
+   "nat-p": 1,
+   "nux-v": 2,
+   "ph-ac": 1,
+   "phos": 1,
+   "plb": 2,
+   "ran-s": 1,
+   "sep": 1,
+   "staph": 2,
+   "sulph": 1,
+   "tarent": 1,
+   "ter": 1,
+   "upa": 1,
+   "valer": 1,
+   "vip": 1,
+   "zinc": 1
+  }
+ },
+ "r168": {
+  "t": "PAIN, stitching, stinging, sticking, morning",
+  "r": {
+   "chel": 1
+  },
+  "oorep_id": 45281,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 192,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "morning",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, morning",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "morning"
+  ],
+  "source_remedies": {
+   "chel": 1
+  }
+ },
+ "r169": {
+  "t": "PAIN, stitching, stinging, sticking, morning, 4 a.m.",
+  "r": {
+   "cinnb": 1
+  },
+  "oorep_id": 45282,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 193,
+  "source_page": 666,
+  "source_depth": 3,
+  "source_label": "4 a.m.",
+  "source_parent_id": "r168",
+  "source_path": "PAIN, stitching, stinging, sticking, morning, 4 a.m.",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "morning",
+   "4 a.m."
+  ],
+  "source_remedies": {
+   "cinnb": 1
+  }
+ },
+ "r170": {
+  "t": "PAIN, stitching, stinging, sticking, afternoon",
+  "r": {
+   "crot-t": 1,
+   "tarent": 2
+  },
+  "oorep_id": 45269,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 194,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "afternoon",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, afternoon",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "afternoon"
+  ],
+  "source_remedies": {
+   "crot-t": 1,
+   "tarent": 2
+  }
+ },
+ "r171": {
+  "t": "PAIN, stitching, stinging, sticking, evening",
+  "r": {
+   "zinc": 1
+  },
+  "oorep_id": 45272,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 195,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "evening",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, evening",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "evening"
+  ],
+  "source_remedies": {
+   "zinc": 1
+  }
+ },
+ "r172": {
+  "t": "PAIN, stitching, stinging, sticking, evening, bed, in",
+  "r": {
+   "coc-c": 1
+  },
+  "oorep_id": 45273,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 196,
+  "source_page": 666,
+  "source_depth": 3,
+  "source_label": "bed, in",
+  "source_parent_id": "r171",
+  "source_path": "PAIN, stitching, stinging, sticking, evening, bed, in",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "evening",
+   "bed, in"
+  ],
+  "source_remedies": {
+   "coc-c": 1
+  }
+ },
+ "r173": {
+  "t": "PAIN, stitching, stinging, sticking, night",
+  "r": {
+   "tarent": 2
+  },
+  "oorep_id": 45285,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 197,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "night",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, night",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "night"
+  ],
+  "source_remedies": {
+   "tarent": 2
+  }
+ },
+ "r174": {
+  "t": "PAIN, stitching, stinging, sticking, cold, becoming",
+  "r": {
+   "staph": 2
+  },
+  "oorep_id": 45270,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 198,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "cold, becoming",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, cold, becoming",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "cold, becoming"
+  ],
+  "source_remedies": {
+   "staph": 2
+  }
+ },
+ "r175": {
+  "t": "PAIN, stitching, stinging, sticking, eating, after",
+  "r": {
+   "con": 1
+  },
+  "oorep_id": 45271,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 199,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "eating, after",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, eating, after",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "eating, after"
+  ],
+  "source_remedies": {
+   "con": 1
+  }
+ },
+ "r176": {
+  "t": "PAIN, stitching, stinging, sticking, inspiration, on deep",
+  "r": {
+   "ars": 2,
+   "astac": 1,
+   "crot-t": 1,
+   "cycl": 1,
+   "laur": 1
+  },
+  "oorep_id": 45279,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 200,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "inspiration, on deep",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, inspiration, on deep",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "inspiration, on deep"
+  ],
+  "source_remedies": {
+   "ars": 2,
+   "astac": 1,
+   "crot-t": 1,
+   "cycl": 1,
+   "laur": 1
+  }
+ },
+ "r177": {
+  "t": "PAIN, stitching, stinging, sticking, lying on face amel.",
+  "r": {
+   "chel": 1
+  },
+  "oorep_id": 45280,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 201,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "lying on face amel.",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, lying on face amel.",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "lying on face amel."
+  ],
+  "source_remedies": {
+   "chel": 1
+  }
+ },
+ "r178": {
+  "t": "PAIN, stitching, stinging, sticking, motion",
+  "r": {
+   "kali-bi": 1
+  },
+  "oorep_id": 45283,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 202,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "motion",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, motion",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "motion"
+  ],
+  "source_remedies": {
+   "kali-bi": 1
+  }
+ },
+ "r179": {
+  "t": "PAIN, stitching, stinging, sticking, motion, of arms, on",
+  "r": {
+   "ant-t": 1
+  },
+  "oorep_id": 45284,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 203,
+  "source_page": 666,
+  "source_depth": 3,
+  "source_label": "of arms, on",
+  "source_parent_id": "r178",
+  "source_path": "PAIN, stitching, stinging, sticking, motion, of arms, on",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "motion",
+   "of arms, on"
+  ],
+  "source_remedies": {
+   "ant-t": 1
+  }
+ },
+ "r180": {
+  "t": "PAIN, stitching, stinging, sticking, pulsating",
+  "r": {
+   "bufo": 1
+  },
+  "oorep_id": 45286,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 204,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "pulsating",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, pulsating",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "pulsating"
+  ],
+  "source_remedies": {
+   "bufo": 1
+  }
+ },
+ "r181": {
+  "t": "PAIN, stitching, stinging, sticking, radiating",
+  "r": {
+   "berb": 3
+  },
+  "oorep_id": 45287,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 205,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "radiating",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, radiating",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "radiating"
+  ],
+  "source_remedies": {
+   "berb": 3
+  }
+ },
+ "r182": {
+  "t": "PAIN, stitching, stinging, sticking, sitting, while",
+  "r": {
+   "berb": 2,
+   "dig": 1,
+   "valer": 1
+  },
+  "oorep_id": 45288,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 206,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "sitting, while",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, sitting, while",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "sitting, while"
+  ],
+  "source_remedies": {
+   "berb": 2,
+   "dig": 1,
+   "valer": 1
+  }
+ },
+ "r183": {
+  "t": "PAIN, stitching, stinging, sticking, sneezing",
+  "r": {
+   "ars": 1
+  },
+  "oorep_id": 45289,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 207,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "sneezing",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, sneezing",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "sneezing"
+  ],
+  "source_remedies": {
+   "ars": 1
+  }
+ },
+ "h016": {
+  "t": "PAIN, stitching, stinging, sticking, standing, while",
+  "r": {
+   "zinc": 1
+  },
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 208,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "standing, while",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, standing, while",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "standing, while"
+  ],
+  "source_remedies": {
+   "zinc": 1
+  }
+ },
+ "r185": {
+  "t": "PAIN, stitching, stinging, sticking, standing, while, amel.",
+  "r": {
+   "berb": 1
+  },
+  "oorep_id": 45290,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 209,
+  "source_page": 666,
+  "source_depth": 3,
+  "source_label": "amel.",
+  "source_parent_id": "h016",
+  "source_path": "PAIN, stitching, stinging, sticking, standing, while, amel.",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "standing, while",
+   "amel."
+  ],
+  "source_remedies": {
+   "berb": 1
+  }
+ },
+ "r186": {
+  "t": "PAIN, stitching, stinging, sticking, urinating, after",
+  "r": {
+   "bufo": 1
+  },
+  "oorep_id": 45293,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 210,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "urinating, after",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, urinating, after",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "urinating, after"
+  ],
+  "source_remedies": {
+   "bufo": 1
+  }
+ },
+ "r187": {
+  "t": "PAIN, stitching, stinging, sticking, warm bed amel.",
+  "r": {
+   "staph": 2
+  },
+  "oorep_id": 45294,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 211,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "warm bed amel.",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, warm bed amel.",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "warm bed amel."
+  ],
+  "source_remedies": {
+   "staph": 2
+  }
+ },
+ "r188": {
+  "t": "PAIN, stitching, stinging, sticking, extending to bladder",
+  "r": {
+   "arg-n": 1,
+   "bell": 1,
+   "berb": 3,
+   "coc-c": 1,
+   "cupr-ac": 1,
+   "kali-bi": 3,
+   "lach": 2,
+   "oci": 1
+  },
+  "oorep_id": 45274,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 212,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "extending to bladder",
+  "source_parent_id": "r166",
+  "source_path": "PAIN, stitching, stinging, sticking, extending to bladder",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "extending to bladder"
+  ],
+  "source_remedies": {
+   "arg-n": 1,
+   "bell": 1,
+   "berb": 3,
+   "coc-c": 1,
+   "cupr-ac": 1,
+   "kali-bi": 3,
+   "lach": 2,
+   "oci": 1
+  }
+ },
+ "o45276": {
+  "t": "PAIN, stitching, stinging, sticking, extending to bladder, knee",
+  "r": {
+   "berb": 1,
+   "ip": 1,
+   "kali-bi": 1
+  },
+  "oorep_id": 45276,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 213,
+  "source_page": 666,
+  "source_depth": 3,
+  "source_label": "knee",
+  "source_parent_id": "r188",
+  "source_path": "PAIN, stitching, stinging, sticking, extending to bladder, knee",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "extending to bladder",
+   "knee"
+  ],
+  "source_remedies": {
+   "berb": 1,
+   "ip": 1,
+   "kali-bi": 1
+  }
+ },
+ "o45277": {
+  "t": "PAIN, stitching, stinging, sticking, extending to bladder, urethra",
+  "r": {
+   "berb": 2,
+   "coc-c": 1
+  },
+  "oorep_id": 45277,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 214,
+  "source_page": 666,
+  "source_depth": 3,
+  "source_label": "urethra",
+  "source_parent_id": "r188",
+  "source_path": "PAIN, stitching, stinging, sticking, extending to bladder, urethra",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "extending to bladder",
+   "urethra"
+  ],
+  "source_remedies": {
+   "berb": 2,
+   "coc-c": 1
+  }
+ },
+ "o45275": {
+  "t": "PAIN, stitching, stinging, sticking, extending to bladder, down ureters",
+  "r": {
+   "apis": 1,
+   "arg-n": 1,
+   "bell": 1,
+   "berb": 3,
+   "calad": 1,
+   "chel": 2,
+   "coc-c": 1,
+   "cupr-ac": 1,
+   "kali-bi": 3,
+   "lach": 2,
+   "lyc": 3,
+   "pareir": 1,
+   "tab": 1,
+   "ter": 1
+  },
+  "oorep_id": 45275,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 215,
+  "source_page": 666,
+  "source_depth": 3,
+  "source_label": "down ureters",
+  "source_parent_id": "r188",
+  "source_path": "PAIN, stitching, stinging, sticking, extending to bladder, down ureters",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "extending to bladder",
+   "down ureters"
+  ],
+  "source_remedies": {
+   "apis": 1,
+   "arg-n": 1,
+   "bell": 1,
+   "berb": 3,
+   "calad": 1,
+   "chel": 2,
+   "coc-c": 1,
+   "cupr-ac": 1,
+   "kali-bi": 3,
+   "lach": 2,
+   "lyc": 3,
+   "pareir": 1,
+   "tab": 1,
+   "ter": 1
+  }
+ },
+ "o45278": {
+  "t": "PAIN, stitching, stinging, sticking, extending to bladder, uterus",
+  "r": {
+   "nat-m": 1
+  },
+  "oorep_id": 45278,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 216,
+  "source_page": 666,
+  "source_depth": 3,
+  "source_label": "uterus",
+  "source_parent_id": "r188",
+  "source_path": "PAIN, stitching, stinging, sticking, extending to bladder, uterus",
+  "source_path_labels": [
+   "PAIN",
+   "stitching, stinging, sticking",
+   "extending to bladder",
+   "uterus"
+  ],
+  "source_remedies": {
+   "nat-m": 1
+  }
+ },
+ "r193": {
+  "t": "PAIN, tearing",
+  "r": {
+   "aesc": 1,
+   "berb": 3,
+   "canth": 3,
+   "kali-c": 1,
+   "lyc": 2,
+   "mez": 2,
+   "raph": 1,
+   "rhus-t": 2,
+   "zinc": 1
+  },
+  "oorep_id": 45299,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 217,
+  "source_page": 666,
+  "source_depth": 1,
+  "source_label": "tearing",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, tearing",
+  "source_path_labels": [
+   "PAIN",
+   "tearing"
+  ],
+  "source_remedies": {
+   "aesc": 1,
+   "berb": 3,
+   "canth": 3,
+   "kali-c": 1,
+   "lyc": 2,
+   "mez": 2,
+   "raph": 1,
+   "rhus-t": 2,
+   "zinc": 1
+  }
+ },
+ "r194": {
+  "t": "PAIN, tearing, morning, rising, after",
+  "r": {
+   "berb": 1
+  },
+  "oorep_id": 45303,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 218,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "morning, rising, after",
+  "source_parent_id": "r193",
+  "source_path": "PAIN, tearing, morning, rising, after",
+  "source_path_labels": [
+   "PAIN",
+   "tearing",
+   "morning, rising, after"
+  ],
+  "source_remedies": {
+   "berb": 1
+  }
+ },
+ "r195": {
+  "t": "PAIN, tearing, agonizing as from passing calculus, in back and hips",
+  "r": {
+   "arn": 1
+  },
+  "oorep_id": 45300,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 219,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "agonizing as from passing calculus, in back and hips",
+  "source_parent_id": "r193",
+  "source_path": "PAIN, tearing, agonizing as from passing calculus, in back and hips",
+  "source_path_labels": [
+   "PAIN",
+   "tearing",
+   "agonizing as from passing calculus, in back and hips"
+  ],
+  "source_remedies": {
+   "arn": 1
+  }
+ },
+ "r196": {
+  "t": "PAIN, tearing, pulsating",
+  "r": {
+   "berb": 2
+  },
+  "oorep_id": 45304,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 220,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "pulsating",
+  "source_parent_id": "r193",
+  "source_path": "PAIN, tearing, pulsating",
+  "source_path_labels": [
+   "PAIN",
+   "tearing",
+   "pulsating"
+  ],
+  "source_remedies": {
+   "berb": 2
+  }
+ },
+ "r197": {
+  "t": "PAIN, tearing, radiating",
+  "r": {
+   "berb": 3
+  },
+  "oorep_id": 45305,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 221,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "radiating",
+  "source_parent_id": "r193",
+  "source_path": "PAIN, tearing, radiating",
+  "source_path_labels": [
+   "PAIN",
+   "tearing",
+   "radiating"
+  ],
+  "source_remedies": {
+   "berb": 3
+  }
+ },
+ "r198": {
+  "t": "PAIN, tearing, standing amel.",
+  "r": {
+   "berb": 1
+  },
+  "oorep_id": 45306,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 222,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "standing amel.",
+  "source_parent_id": "r193",
+  "source_path": "PAIN, tearing, standing amel.",
+  "source_path_labels": [
+   "PAIN",
+   "tearing",
+   "standing amel."
+  ],
+  "source_remedies": {
+   "berb": 1
+  }
+ },
+ "r199": {
+  "t": "PAIN, tearing, stooping, on",
+  "r": {
+   "berb": 1,
+   "raph": 1
+  },
+  "oorep_id": 45307,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 223,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "stooping, on",
+  "source_parent_id": "r193",
+  "source_path": "PAIN, tearing, stooping, on",
+  "source_path_labels": [
+   "PAIN",
+   "tearing",
+   "stooping, on"
+  ],
+  "source_remedies": {
+   "berb": 1,
+   "raph": 1
+  }
+ },
+ "r200": {
+  "t": "PAIN, tearing, wet weather",
+  "r": {
+   "rhus-t": 2
+  },
+  "oorep_id": 45309,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 224,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "wet weather",
+  "source_parent_id": "r193",
+  "source_path": "PAIN, tearing, wet weather",
+  "source_path_labels": [
+   "PAIN",
+   "tearing",
+   "wet weather"
+  ],
+  "source_remedies": {
+   "rhus-t": 2
+  }
+ },
+ "r201": {
+  "t": "PAIN, tearing, extending to thighs, with stiffness",
+  "r": {
+   "berb": 2
+  },
+  "oorep_id": 45301,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 225,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "extending to thighs, with stiffness",
+  "source_parent_id": "r193",
+  "source_path": "PAIN, tearing, extending to thighs, with stiffness",
+  "source_path_labels": [
+   "PAIN",
+   "tearing",
+   "extending to thighs, with stiffness"
+  ],
+  "source_remedies": {
+   "berb": 2
+  }
+ },
+ "o45302": {
+  "t": "PAIN, tearing, extending to thighs, with stiffness, downwards",
+  "r": {
+   "arg-n": 1,
+   "bell": 1,
+   "sars": 1
+  },
+  "oorep_id": 45302,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 226,
+  "source_page": 666,
+  "source_depth": 3,
+  "source_label": "downwards",
+  "source_parent_id": "r201",
+  "source_path": "PAIN, tearing, extending to thighs, with stiffness, downwards",
+  "source_path_labels": [
+   "PAIN",
+   "tearing",
+   "extending to thighs, with stiffness",
+   "downwards"
+  ],
+  "source_remedies": {
+   "arg-n": 1,
+   "bell": 1,
+   "sars": 1
+  }
+ },
+ "r203": {
+  "t": "PAIN, tearing, Ureters, extend downwards, touch, motion and inspiration agg.",
+  "r": {
+   "arg-n": 1,
+   "bell": 1
+  },
+  "oorep_id": 45308,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 227,
+  "source_page": 666,
+  "source_depth": 2,
+  "source_label": "Ureters, extend downwards, touch, motion and inspiration agg.",
+  "source_parent_id": "r193",
+  "source_path": "PAIN, tearing, Ureters, extend downwards, touch, motion and inspiration agg.",
+  "source_path_labels": [
+   "PAIN",
+   "tearing",
+   "Ureters, extend downwards, touch, motion and inspiration agg."
+  ],
+  "source_remedies": {
+   "arg-n": 1,
+   "bell": 1
+  }
+ },
+ "r204": {
+  "t": "PAIN, ulcerative",
+  "r": {
+   "cann-s": 1
+  },
+  "oorep_id": 45310,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 228,
+  "source_page": 666,
+  "source_depth": 1,
+  "source_label": "ulcerative",
+  "source_parent_id": "r10",
+  "source_path": "PAIN, ulcerative",
+  "source_path_labels": [
+   "PAIN",
+   "ulcerative"
+  ],
+  "source_remedies": {
+   "cann-s": 1
+  }
+ },
+ "r205": {
+  "t": "PULSATION",
+  "r": {
+   "act-sp": 1,
+   "berb": 2,
+   "bufo": 1,
+   "canth": 1,
+   "chel": 1,
+   "kali-i": 1,
+   "med": 1,
+   "pic-ac": 1,
+   "sabin": 1,
+   "sulph": 1
+  },
+  "oorep_id": 45325,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 229,
+  "source_page": 666,
+  "source_depth": 0,
+  "source_label": "PULSATION",
+  "source_parent_id": null,
+  "source_path": "PULSATION",
+  "source_path_labels": [
+   "PULSATION"
+  ],
+  "source_remedies": {
+   "act-sp": 1,
+   "berb": 2,
+   "bufo": 1,
+   "canth": 1,
+   "chel": 1,
+   "kali-i": 1,
+   "med": 1,
+   "pic-ac": 1,
+   "sabin": 1,
+   "sulph": 1
+  }
+ },
+ "r206": {
+  "t": "PULSATION, extending into abdomen",
+  "r": {
+   "kali-i": 1
+  },
+  "oorep_id": 45326,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 230,
+  "source_page": 666,
+  "source_depth": 1,
+  "source_label": "extending into abdomen",
+  "source_parent_id": "r205",
+  "source_path": "PULSATION, extending into abdomen",
+  "source_path_labels": [
+   "PULSATION",
+   "extending into abdomen"
+  ],
+  "source_remedies": {
+   "kali-i": 1
+  }
+ },
+ "r207": {
+  "t": "PULSATION, restless sensation",
+  "r": {
+   "puls-n": 1
+  },
+  "oorep_id": 45327,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 231,
+  "source_page": 666,
+  "source_depth": 1,
+  "source_label": "restless sensation",
+  "source_parent_id": "r205",
+  "source_path": "PULSATION, restless sensation",
+  "source_path_labels": [
+   "PULSATION",
+   "restless sensation"
+  ],
+  "source_remedies": {
+   "puls-n": 1
+  }
+ },
+ "r208": {
+  "t": "SUPPRESSION of urine",
+  "r": {
+   "acon": 3,
+   "aeth": 2,
+   "ail": 2,
+   "am-caust": 1,
+   "anthr": 2,
+   "apis": 3,
+   "apoc": 1,
+   "aran": 1,
+   "arn": 3,
+   "ars-h": 2,
+   "ars-i": 2,
+   "ars": 3,
+   "arum-t": 2,
+   "aur": 1,
+   "bell": 2,
+   "bism": 1,
+   "bufo": 1,
+   "cact": 2,
+   "calc": 1,
+   "camph": 2,
+   "canth": 3,
+   "carb-ac": 2,
+   "carb-s": 1,
+   "carb-v": 3,
+   "caust": 1,
+   "cic": 2,
+   "colch": 2,
+   "con": 1,
+   "crot-h": 2,
+   "cupr-s": 1,
+   "cupr": 2,
+   "dig": 2,
+   "dulc": 1,
+   "elaps": 1,
+   "elat": 2,
+   "erig": 2,
+   "eup-pur": 2,
+   "hell": 2,
+   "hep": 1,
+   "hydr": 2,
+   "hyos": 2,
+   "iod": 1,
+   "kali-bi": 2,
+   "kali-chl": 1,
+   "lac-c": 2,
+   "lach": 3,
+   "laur": 3,
+   "lil-t": 1,
+   "lyc": 3,
+   "merc-c": 2,
+   "merc-cy": 1,
+   "merc": 1,
+   "morph": 2,
+   "nit-ac": 2,
+   "nux-v": 1,
+   "op": 2,
+   "osm": 1,
+   "petr": 1,
+   "phos": 2,
+   "phyt": 1,
+   "plb": 2,
+   "podo": 2,
+   "puls": 1,
+   "pyrog": 1,
+   "rob": 2,
+   "sec": 3,
+   "sil": 2,
+   "stram": 3,
+   "sul-ac": 1,
+   "sulph": 2,
+   "tab": 1,
+   "tarax": 1,
+   "tarent": 2,
+   "ter": 2,
+   "urt-u": 2,
+   "verat": 3,
+   "vip": 1,
+   "zinc": 1
+  },
+  "oorep_id": 45328,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 232,
+  "source_page": 666,
+  "source_depth": 0,
+  "source_label": "SUPPRESSION of urine",
+  "source_parent_id": null,
+  "source_path": "SUPPRESSION of urine",
+  "source_path_labels": [
+   "SUPPRESSION of urine"
+  ],
+  "source_remedies": {
+   "acon": 3,
+   "aeth": 2,
+   "ail": 2,
+   "am-caust": 1,
+   "anthr": 2,
+   "apis": 3,
+   "apoc": 1,
+   "aran": 1,
+   "arn": 3,
+   "ars-h": 2,
+   "ars-i": 2,
+   "ars": 3,
+   "arum-t": 2,
+   "aur": 1,
+   "bell": 2,
+   "bism": 1,
+   "bufo": 1,
+   "cact": 2,
+   "calc": 1,
+   "camph": 2,
+   "canth": 3,
+   "carb-ac": 2,
+   "carb-s": 1,
+   "carb-v": 3,
+   "caust": 1,
+   "cic": 2,
+   "colch": 2,
+   "con": 1,
+   "crot-h": 2,
+   "cupr-s": 1,
+   "cupr": 2,
+   "dig": 2,
+   "dulc": 1,
+   "elaps": 1,
+   "elat": 2,
+   "erig": 2,
+   "eup-pur": 2,
+   "hell": 2,
+   "hep": 1,
+   "hydr": 2,
+   "hyos": 2,
+   "iod": 1,
+   "kali-bi": 2,
+   "kali-chl": 1,
+   "lac-c": 2,
+   "lach": 3,
+   "laur": 3,
+   "lil-t": 1,
+   "lyc": 3,
+   "merc-c": 2,
+   "merc-cy": 1,
+   "merc": 1,
+   "morph": 2,
+   "nit-ac": 2,
+   "nux-v": 1,
+   "op": 2,
+   "osm": 1,
+   "petr": 1,
+   "phos": 2,
+   "phyt": 1,
+   "plb": 2,
+   "podo": 2,
+   "puls": 1,
+   "pyrog": 1,
+   "rob": 2,
+   "sec": 3,
+   "sil": 2,
+   "stram": 3,
+   "sul-ac": 1,
+   "sulph": 2,
+   "tab": 1,
+   "tarax": 1,
+   "tarent": 2,
+   "ter": 2,
+   "urt-u": 2,
+   "verat": 3,
+   "vip": 1,
+   "zinc": 1
+  }
+ },
+ "r209": {
+  "t": "SUPPRESSION of urine, cholera, in",
+  "r": {
+   "ars": 3,
+   "camph": 1,
+   "carb-v": 2,
+   "cupr": 2,
+   "sec": 2,
+   "verat": 1
+  },
+  "oorep_id": 45329,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 233,
+  "source_page": 666,
+  "source_depth": 1,
+  "source_label": "cholera, in",
+  "source_parent_id": "r208",
+  "source_path": "SUPPRESSION of urine, cholera, in",
+  "source_path_labels": [
+   "SUPPRESSION of urine",
+   "cholera, in"
+  ],
+  "source_remedies": {
+   "ars": 3,
+   "camph": 1,
+   "carb-v": 2,
+   "cupr": 2,
+   "sec": 2,
+   "verat": 1
+  }
+ },
+ "r210": {
+  "t": "SUPPRESSION of urine, concussion of spinal column, from",
+  "r": {
+   "arn": 2,
+   "rhus-t": 1,
+   "tarent": 2
+  },
+  "oorep_id": 45330,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 234,
+  "source_page": 666,
+  "source_depth": 1,
+  "source_label": "concussion of spinal column, from",
+  "source_parent_id": "r208",
+  "source_path": "SUPPRESSION of urine, concussion of spinal column, from",
+  "source_path_labels": [
+   "SUPPRESSION of urine",
+   "concussion of spinal column, from"
+  ],
+  "source_remedies": {
+   "arn": 2,
+   "rhus-t": 1,
+   "tarent": 2
+  }
+ },
+ "r211": {
+  "t": "SUPPRESSION of urine, convulsion, with",
+  "r": {
+   "cupr": 3,
+   "dig": 1,
+   "hyos": 1,
+   "stram": 2
+  },
+  "oorep_id": 45331,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 235,
+  "source_page": 666,
+  "source_depth": 1,
+  "source_label": "convulsion, with",
+  "source_parent_id": "r208",
+  "source_path": "SUPPRESSION of urine, convulsion, with",
+  "source_path_labels": [
+   "SUPPRESSION of urine",
+   "convulsion, with"
+  ],
+  "source_remedies": {
+   "cupr": 3,
+   "dig": 1,
+   "hyos": 1,
+   "stram": 2
+  }
+ },
+ "r212": {
+  "t": "SUPPRESSION of urine, fever, with",
+  "r": {
+   "arn": 2,
+   "ars": 2,
+   "bell": 2,
+   "cact": 2,
+   "canth": 2,
+   "colch": 1,
+   "crot-h": 1,
+   "hyos": 2,
+   "op": 2,
+   "plb": 2,
+   "sel": 2,
+   "stram": 2
+  },
+  "oorep_id": 45332,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 236,
+  "source_page": 666,
+  "source_depth": 1,
+  "source_label": "fever, with",
+  "source_parent_id": "r208",
+  "source_path": "SUPPRESSION of urine, fever, with",
+  "source_path_labels": [
+   "SUPPRESSION of urine",
+   "fever, with"
+  ],
+  "source_remedies": {
+   "arn": 2,
+   "ars": 2,
+   "bell": 2,
+   "cact": 2,
+   "canth": 2,
+   "colch": 1,
+   "crot-h": 1,
+   "hyos": 2,
+   "op": 2,
+   "plb": 2,
+   "sel": 2,
+   "stram": 2
+  }
+ },
+ "r213": {
+  "t": "SUPPRESSION of urine, menses, during",
+  "r": {
+   "kali-bi": 1
+  },
+  "oorep_id": 45333,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 237,
+  "source_page": 666,
+  "source_depth": 1,
+  "source_label": "menses, during",
+  "source_parent_id": "r208",
+  "source_path": "SUPPRESSION of urine, menses, during",
+  "source_path_labels": [
+   "SUPPRESSION of urine",
+   "menses, during"
+  ],
+  "source_remedies": {
+   "kali-bi": 1
+  }
+ },
+ "r214": {
+  "t": "SUPPRESSION of urine, perspiration, with",
+  "r": {
+   "acon": 1,
+   "apis": 2,
+   "arn": 1,
+   "ars": 1,
+   "camph": 1,
+   "canth": 2,
+   "dulc": 1,
+   "hyos": 1,
+   "lyc": 2,
+   "op": 3,
+   "puls": 1,
+   "stram": 1,
+   "sulph": 1
+  },
+  "oorep_id": 45334,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 238,
+  "source_page": 666,
+  "source_depth": 1,
+  "source_label": "perspiration, with",
+  "source_parent_id": "r208",
+  "source_path": "SUPPRESSION of urine, perspiration, with",
+  "source_path_labels": [
+   "SUPPRESSION of urine",
+   "perspiration, with"
+  ],
+  "source_remedies": {
+   "acon": 1,
+   "apis": 2,
+   "arn": 1,
+   "ars": 1,
+   "camph": 1,
+   "canth": 2,
+   "dulc": 1,
+   "hyos": 1,
+   "lyc": 2,
+   "op": 3,
+   "puls": 1,
+   "stram": 1,
+   "sulph": 1
+  }
+ },
+ "r215": {
+  "t": "SUPPRESSION of urine, stupor, with",
+  "r": {
+   "dig": 1,
+   "plb": 1
+  },
+  "oorep_id": 45335,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 239,
+  "source_page": 666,
+  "source_depth": 1,
+  "source_label": "stupor, with",
+  "source_parent_id": "r208",
+  "source_path": "SUPPRESSION of urine, stupor, with",
+  "source_path_labels": [
+   "SUPPRESSION of urine",
+   "stupor, with"
+  ],
+  "source_remedies": {
+   "dig": 1,
+   "plb": 1
+  }
+ },
+ "o45336": {
+  "t": "SUPPRESSION of urine, suppressed gonorrhœa, from",
+  "r": {
+   "camph": 3,
+   "canth": 3
+  },
+  "oorep_id": 45336,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 240,
+  "source_page": 666,
+  "source_depth": 1,
+  "source_label": "suppressed gonorrhœa, from",
+  "source_parent_id": "r208",
+  "source_path": "SUPPRESSION of urine, suppressed gonorrhœa, from",
+  "source_path_labels": [
+   "SUPPRESSION of urine",
+   "suppressed gonorrhœa, from"
+  ],
+  "source_remedies": {
+   "camph": 3,
+   "canth": 3
+  }
+ },
+ "r217": {
+  "t": "SUPPRESSION of urine, violent",
+  "r": {
+   "cic": 1,
+   "cupr": 2,
+   "cycl": 1,
+   "sulph": 1
+  },
+  "oorep_id": 45337,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 241,
+  "source_page": 666,
+  "source_depth": 1,
+  "source_label": "violent",
+  "source_parent_id": "r208",
+  "source_path": "SUPPRESSION of urine, violent",
+  "source_path_labels": [
+   "SUPPRESSION of urine",
+   "violent"
+  ],
+  "source_remedies": {
+   "cic": 1,
+   "cupr": 2,
+   "cycl": 1,
+   "sulph": 1
+  }
+ },
+ "r218": {
+  "t": "SUPPURATION (See Inflammation)",
+  "r": {},
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 242,
+  "source_page": 667,
+  "source_depth": 0,
+  "source_label": "SUPPURATION (See Inflammation)",
+  "source_parent_id": null,
+  "source_path": "SUPPURATION (See Inflammation)",
+  "source_path_labels": [
+   "SUPPURATION (See Inflammation)"
+  ],
+  "source_remedies": {}
+ },
+ "r219": {
+  "t": "SWELLING",
+  "r": {
+   "kali-i": 1
+  },
+  "oorep_id": 45338,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 243,
+  "source_page": 667,
+  "source_depth": 0,
+  "source_label": "SWELLING",
+  "source_parent_id": null,
+  "source_path": "SWELLING",
+  "source_path_labels": [
+   "SWELLING"
+  ],
+  "source_remedies": {
+   "kali-i": 1
+  }
+ },
+ "r220": {
+  "t": "TWITCHING, region of",
+  "r": {
+   "canth": 1,
+   "mang": 1
+  },
+  "oorep_id": 45339,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 244,
+  "source_page": 667,
+  "source_depth": 0,
+  "source_label": "TWITCHING, region of",
+  "source_parent_id": null,
+  "source_path": "TWITCHING, region of",
+  "source_path_labels": [
+   "TWITCHING, region of"
+  ],
+  "source_remedies": {
+   "canth": 1,
+   "mang": 1
+  }
+ },
+ "r256": {
+  "t": "WEARINESS, region of",
+  "r": {
+   "arg-n": 1,
+   "benz-ac": 1,
+   "berb": 1,
+   "carb-an": 1,
+   "cham": 1,
+   "cimic": 1,
+   "helon": 1,
+   "manc": 1,
+   "phyt": 1,
+   "tarent": 1
+  },
+  "oorep_id": 45340,
+  "source_canonical": "homeoint-kidneys-v1",
+  "source_order": 245,
+  "source_page": 667,
+  "source_depth": 0,
+  "source_label": "WEARINESS, region of",
+  "source_parent_id": null,
+  "source_path": "WEARINESS, region of",
+  "source_path_labels": [
+   "WEARINESS, region of"
+  ],
+  "source_remedies": {
+   "arg-n": 1,
+   "benz-ac": 1,
+   "berb": 1,
+   "carb-an": 1,
+   "cham": 1,
+   "cimic": 1,
+   "helon": 1,
+   "manc": 1,
+   "phyt": 1,
+   "tarent": 1
+  }
+ },
+ "m45106": {
+  "t": "FLUTTERING sensation",
+  "r": {}
+ },
+ "m45129": {
+  "t": "LAMENESS",
+  "r": {}
+ },
+ "m45132": {
+  "t": "NUMBNESS",
+  "r": {}
+ },
+ "o67275": {
+  "t": "PAIN, aching, urination",
+  "r": {
+   "aesc": 1,
+   "agn": 1,
+   "ant-c": 1,
+   "berb": 1,
+   "lyc": 3,
+   "tarent": 1
+  },
+  "oorep_id": 67275
+ },
+ "o45145": {
+  "t": "PAIN, aching, urination, during agg.",
+  "r": {
+   "aesc": 1,
+   "agn": 1,
+   "ant-c": 1,
+   "berb": 1
+  },
+  "oorep_id": 45145
+ },
+ "o67276": {
+  "t": "PAIN, burning, urination",
+  "r": {
+   "rheum": 1,
+   "thuj": 1
+  },
+  "oorep_id": 67276
+ },
+ "o67277": {
+  "t": "PAIN, constricting",
+  "r": {
+   "canth": 1,
+   "nit-ac": 1
+  },
+  "oorep_id": 67277
+ },
+ "o45172": {
+  "t": "PAIN, cramping, 4 p.m. to 9 p.m.",
+  "r": {
+   "chel": 2
+  },
+  "oorep_id": 45172
+ },
+ "o67278": {
+  "t": "PAIN, extending",
+  "r": {
+   "arg-n": 1,
+   "arn": 1,
+   "ars": 1,
+   "bell": 1,
+   "berb": 1,
+   "canth": 1,
+   "chel": 1,
+   "coc-c": 1,
+   "dios": 1,
+   "equis": 1,
+   "hydr-ac": 1,
+   "kali-bi": 1,
+   "kali-i": 1,
+   "lyc": 2,
+   "nat-m": 1,
+   "nit-ac": 1,
+   "nux-m": 2,
+   "nux-v": 2,
+   "oci": 1,
+   "ox-ac": 1,
+   "petr": 1,
+   "phyt": 1,
+   "sang": 1,
+   "sars": 2,
+   "syph": 1,
+   "tab": 1,
+   "ter": 1
+  },
+  "oorep_id": 67278
+ },
+ "o67279": {
+  "t": "PAIN, lying",
+  "r": {
+   "aeth": 1,
+   "berb": 1,
+   "chel": 1,
+   "colch": 1,
+   "coloc": 1,
+   "nux-v": 1,
+   "rhus-t": 1
+  },
+  "oorep_id": 67279
+ },
+ "o45217": {
+  "t": "PAIN, lying, on back agg.",
+  "r": {
+   "chel": 1
+  },
+  "oorep_id": 45217
+ },
+ "o67280": {
+  "t": "PAIN, menses",
+  "r": {
+   "berb": 2,
+   "cur": 1,
+   "raph": 1,
+   "verat": 2
+  },
+  "oorep_id": 67280
+ },
+ "o67281": {
+  "t": "PAIN, region of, extending",
+  "r": {
+   "agar": 1,
+   "benz-ac": 1,
+   "berb": 3,
+   "cann-s": 1,
+   "canth": 1,
+   "chel": 1,
+   "graph": 1,
+   "hep": 1,
+   "ip": 1,
+   "kali-bi": 1,
+   "kreos": 1,
+   "nux-v": 1,
+   "oci": 1,
+   "pareir": 1,
+   "petr": 1,
+   "phyt": 1,
+   "sars": 2,
+   "sel": 1
+  },
+  "oorep_id": 67281
+ },
+ "o45247": {
+  "t": "PAIN, region of, extending, groin, anxious nausea, with",
+  "r": {
+   "cann-s": 1
+  },
+  "oorep_id": 45247
+ },
+ "o45258": {
+  "t": "PAIN, sore, bruised, afternoon",
+  "r": {
+   "kali-c": 1
+  },
+  "oorep_id": 45258
+ },
+ "o45259": {
+  "t": "PAIN, sore, bruised, evening",
+  "r": {
+   "meny": 1
+  },
+  "oorep_id": 45259
+ },
+ "o45260": {
+  "t": "PAIN, sore, bruised, exerting the muscles, while",
+  "r": {
+   "apoc": 1
+  },
+  "oorep_id": 45260
+ },
+ "o45261": {
+  "t": "PAIN, sore, bruised, jar",
+  "r": {
+   "aeth": 1,
+   "alum": 1,
+   "bell": 2,
+   "berb": 2,
+   "calc-p": 1,
+   "cann-i": 2
+  },
+  "oorep_id": 45261
+ },
+ "o45262": {
+  "t": "PAIN, sore, bruised, left",
+  "r": {
+   "benz-ac": 1,
+   "zinc": 1
+  },
+  "oorep_id": 45262
+ },
+ "o45264": {
+  "t": "PAIN, sore, bruised, region of, extending to thighs",
+  "r": {
+   "berb": 2
+  },
+  "oorep_id": 45264
+ },
+ "o45265": {
+  "t": "PAIN, sore, bruised, right",
+  "r": {
+   "helon": 2,
+   "nux-v": 2,
+   "phyt": 1
+  },
+  "oorep_id": 45265
+ },
+ "o45266": {
+  "t": "PAIN, sore, bruised, sitting, while",
+  "r": {
+   "kali-c": 1,
+   "meny": 1
+  },
+  "oorep_id": 45266
+ },
+ "r167": {
+  "t": "PAIN, stitching",
+  "r": {
+   "acon": 2,
+   "aesc": 1,
+   "aeth": 1,
+   "agar": 1,
+   "anan": 1,
+   "ant-t": 1,
+   "apis": 1,
+   "arg-n": 1,
+   "arn": 2,
+   "ars": 2,
+   "astac": 1,
+   "bapt": 1,
+   "bell": 2,
+   "berb": 3,
+   "bov": 1,
+   "bufo": 1,
+   "calad": 1,
+   "calc-f": 1,
+   "cann-i": 1,
+   "canth": 2,
+   "carb-an": 1,
+   "chel": 2,
+   "chin": 1,
+   "cinnb": 1,
+   "coc-c": 2,
+   "coloc": 2,
+   "con": 1,
+   "crot-t": 1,
+   "cupr-ac": 1,
+   "cycl": 1,
+   "dig": 1,
+   "erig": 1,
+   "gamb": 1,
+   "grat": 1,
+   "hep": 1,
+   "ip": 2,
+   "kali-ar": 1,
+   "kali-bi": 3,
+   "kali-c": 2,
+   "kali-i": 1,
+   "kali-n": 2,
+   "kali-p": 1,
+   "kali-s": 1,
+   "lach": 2,
+   "laur": 1,
+   "lob": 1,
+   "lyc": 3,
+   "mag-m": 1,
+   "mang": 1,
+   "mez": 2,
+   "nat-m": 2,
+   "nat-p": 1,
+   "nux-v": 2,
+   "oci": 1,
+   "pareir": 1,
+   "ph-ac": 1,
+   "phos": 1,
+   "plb": 2,
+   "ran-s": 1,
+   "sep": 1,
+   "staph": 2,
+   "sulph": 1,
+   "tab": 1,
+   "tarent": 2,
+   "ter": 1,
+   "upa": 1,
+   "valer": 1,
+   "vip": 1,
+   "zinc": 1
+  },
+  "oorep_id": 67282
+ },
+ "o67283": {
+  "t": "PAIN, stitching, extending",
+  "r": {
+   "apis": 1,
+   "arg-n": 1,
+   "bell": 1,
+   "berb": 3,
+   "calad": 1,
+   "chel": 2,
+   "coc-c": 1,
+   "cupr-ac": 1,
+   "ip": 1,
+   "kali-bi": 3,
+   "lach": 2,
+   "lyc": 3,
+   "nat-m": 1,
+   "oci": 1,
+   "pareir": 1,
+   "tab": 1,
+   "ter": 1
+  },
+  "oorep_id": 67283
+ },
+ "o67284": {
+  "t": "PAIN, stitching, standing",
+  "r": {
+   "berb": 1,
+   "zinc": 1
+  },
+  "oorep_id": 67284
+ },
+ "o45291": {
+  "t": "PAIN, stitching, standing, while agg.",
+  "r": {
+   "zinc": 1
+  },
+  "oorep_id": 45291
+ },
+ "o67285": {
+  "t": "PAIN, stooping",
+  "r": {
+   "alum": 1,
+   "apis": 1,
+   "berb": 2,
+   "chin": 1,
+   "sulph": 2
+  },
+  "oorep_id": 67285
+ },
+ "o67286": {
+  "t": "PAIN, ureters",
+  "r": {
+   "aesc": 1,
+   "agar": 1,
+   "aloe": 1,
+   "apis": 1,
+   "benz-ac": 1,
+   "berb": 3,
+   "calad": 1,
+   "cann-i": 1,
+   "cann-s": 1,
+   "canth": 1,
+   "clem": 1,
+   "coc-c": 1,
+   "con": 1,
+   "dios": 2,
+   "epig": 1,
+   "indg": 1,
+   "ipom": 2,
+   "kali-c": 1,
+   "lyc": 3,
+   "nux-v": 2,
+   "oci": 3,
+   "pareir": 2,
+   "sars": 2,
+   "tab": 1,
+   "tarent": 1
+  },
+  "oorep_id": 67286
+ },
+ "o67287": {
+  "t": "PAIN, ureters, extending",
+  "r": {
+   "berb": 3,
+   "cann-i": 1,
+   "canth": 1,
+   "clem": 1,
+   "coc-c": 1,
+   "con": 1,
+   "dios": 2,
+   "nux-v": 1,
+   "pareir": 1
+  },
+  "oorep_id": 67287
+ },
+ "o67288": {
+  "t": "PAIN, ureters, extending, urethra",
+  "r": {
+   "berb": 3,
+   "canth": 1,
+   "clem": 1,
+   "coc-c": 1,
+   "dios": 1
+  },
+  "oorep_id": 67288
+ },
+ "r82": {
+  "t": "PAIN, ureters, vomiting, with",
+  "r": {
+   "oci": 3
+  },
+  "oorep_id": 45319
+ },
+ "o67289": {
+  "t": "PAIN, urination",
+  "r": {
+   "aesc": 1,
+   "ant-c": 1,
+   "berb": 1,
+   "graph": 1,
+   "lyc": 3,
+   "med": 2,
+   "phos": 1,
+   "puls": 2,
+   "rheum": 1,
+   "senec": 2,
+   "tarent": 1
+  },
+  "oorep_id": 67289
+ },
+ "m45339": {
+  "t": "TWITCHING",
+  "r": {}
+ },
+ "m45340": {
+  "t": "WEARINESS",
+  "r": {}
+ }
+}
