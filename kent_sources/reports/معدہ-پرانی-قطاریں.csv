@@ -1,0 +1,283 @@
+﻿شناخت,پرانا راستہ,ادویات,نوٹ
+m57331,AIR,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+m57332,ALIVE,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+r28,APPETITE,297,OOREP دور کی قطار — ماخذی درخت سے باہر، فائل میں محفوظ
+o68197,"APPETITE, increased (hunger in general), chill",11,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68198,"APPETITE, increased (hunger in general), eating",40,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68199,"APPETITE, increased (hunger in general), fever",11,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68200,"APPETITE, increased (hunger in general), headache",16,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68201,"APPETITE, increased (hunger in general), menses",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68202,"APPETITE, increased (hunger in general), vomiting",8,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+r110,"APPETITE, ravenous",171,OOREP دور کی قطار — ماخذی درخت سے باہر، فائل میں محفوظ
+o68204,"APPETITE, ravenous, diarrhoea",14,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+r111,"APPETITE, ravenous, eating",30,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68206,"APPETITE, wanting, food",9,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68207,"APPETITE, wanting, menses",12,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+r184,AVERSION,223,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+m57571,BALANCED up and down,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+m57572,BALL,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+m57575,BLOWS in pit of stomach,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+o68209,"COLDNESS, eating",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68210,"COLDNESS, ice",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68211,"CONSTRICTION, eating",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68212,"CONSTRICTION, extending",4,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68213,"CONSTRICTION, inspiration",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68214,"CONTRACTION, walking",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+r324,DESIRES,226,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+r325,"DESIRES, alcoholic drinks",87,OOREP دور کی قطار — ماخذی درخت سے باہر، فائل میں محفوظ
+r387,"DESIRES, ice",9,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68217,"DESIRES, raw",6,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68218,"DESIRES, warm",31,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68219,"DISTENTION, dinner",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68220,"DISTENTION, eating",51,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+r507,EMPTINESS,212,OOREP دور کی قطار — ماخذی درخت سے باہر، فائل میں محفوظ
+o68222,"EMPTINESS, dinner",8,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68223,"EMPTINESS, eating",61,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68224,"EMPTINESS, eructations",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o57841,"EMPTINESS, eructations, after agg.",1,OOREP agg./amel. اسپلٹ قطار — ماخذی درخت کی اصل ربرک پر ادویات موجود
+o57842,"EMPTINESS, eructations, after, amel.",1,OOREP agg./amel. اسپلٹ قطار — ماخذی درخت کی اصل ربرک پر ادویات موجود
+o68225,"EMPTINESS, menses",6,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68226,"EMPTINESS, sleep",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68227,"EMPTINESS, walking",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68228,"ERUCTATIONS, bitter, dinner",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68229,"ERUCTATIONS, bitter, eating",16,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68230,"ERUCTATIONS, bread",6,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68231,"ERUCTATIONS, breakfast",21,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68232,"ERUCTATIONS, chill",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68233,"ERUCTATIONS, dinner",30,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+r628,"ERUCTATIONS, dinner, after, while walking",1,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68234,"ERUCTATIONS, drinking",24,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+r829,"ERUCTATIONS, eating",93,OOREP دور کی قطار — ماخذی درخت سے باہر، فائل میں محفوظ
+o68236,"ERUCTATIONS, eggs, spoiled like, morning",7,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68237,"ERUCTATIONS, empty, breakfast",6,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68238,"ERUCTATIONS, empty, drinking",7,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68239,"ERUCTATIONS, empty, menses",1,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68240,"ERUCTATIONS, empty, morning, rising",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68241,"ERUCTATIONS, food (regurgitation), dinner",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68242,"ERUCTATIONS, food (regurgitation), eating",16,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68243,"ERUCTATIONS, meat",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68244,"ERUCTATIONS, menses",17,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68245,"ERUCTATIONS, milk",19,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68246,"ERUCTATIONS, sitting",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68247,"ERUCTATIONS, sleep",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68248,"ERUCTATIONS, sour, breakfast",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68249,"ERUCTATIONS, sour, drinking",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68250,"ERUCTATIONS, sour, eating",32,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68251,"ERUCTATIONS, sour, menses",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68252,"ERUCTATIONS, sour, walking",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68253,"ERUCTATIONS, stool",16,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68254,"ERUCTATIONS, walking",11,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68255,"ERUCTATIONS, waterbrash, dinner",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+r1030,FULLNESS,0,OOREP دور کی قطار — ماخذی درخت سے باہر، فائل میں محفوظ
+o68256,"FULLNESS, sensation of, eating",84,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68257,"FULLNESS, sensation of, night",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+m58357,GOUT,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+o68258,"GURGLING, drinking",9,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+m58365,HANGING down,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+o68259,"HEARTBURN, smoking",6,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+r1130,HEAT,0,OOREP دور کی قطار — ماخذی درخت سے باہر، فائل میں محفوظ
+o68260,"HEAT, flushes, eating",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68261,"HEAT, flushes, eructations",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68262,"HEAT, flushes, extending",31,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68263,"HEAT, flushes, extending, to",15,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68264,"HEAT, flushes, water, cold",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68265,HEAVINESS,151,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68266,"HEAVINESS, eating",59,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68267,"HEAVINESS, menses",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68268,"HICCOUGH, cough",1,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68269,"HICCOUGH, dinner",19,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68270,"HICCOUGH, drinking",8,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68271,"HICCOUGH, eating",41,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68272,"HICCOUGH, fever",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68273,"HICCOUGH, forenoon",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68274,"HICCOUGH, smoking",17,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68275,"HICCOUGH, vomiting",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+m58540,HORRIBLE sensation,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+m58572,INDURATION,0,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68276,"INFLAMMATION, cold",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+m58580,JUMPING,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+m58595,LUMP,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+m58603,MOVEMENT in,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+m58604,NARROW,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+o68277,"NAUSEA, abdomen",62,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68278,"NAUSEA, air",24,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68279,"NAUSEA, beer",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68280,"NAUSEA, bread",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68281,"NAUSEA, breakfast",41,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68282,"NAUSEA, chill",48,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68283,"NAUSEA, chilliness",15,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68284,"NAUSEA, coffee",10,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68285,"NAUSEA, coition",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68286,"NAUSEA, cold drinks",24,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68287,"NAUSEA, dinner",38,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68288,"NAUSEA, drinking",32,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68289,"NAUSEA, eating",129,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68290,"NAUSEA, eggs",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68291,"NAUSEA, eructations",29,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68292,"NAUSEA, evening, eating",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68293,"NAUSEA, exertion",8,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68294,"NAUSEA, fever",27,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68295,"NAUSEA, fish",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68296,"NAUSEA, food",38,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68297,"NAUSEA, lying",27,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68298,"NAUSEA, meat",8,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68299,"NAUSEA, menses",65,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o58733,"NAUSEA, morning, rising, on agg.",26,OOREP agg./amel. اسپلٹ قطار — ماخذی درخت کی اصل ربرک پر ادویات موجود
+o68301,"NAUSEA, motion",35,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68302,"NAUSEA, odors",6,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68303,"NAUSEA, palpitation",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68304,"NAUSEA, pressure",17,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68305,"NAUSEA, riding",21,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68306,"NAUSEA, rising",28,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68307,"NAUSEA, sitting",16,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68308,"NAUSEA, sleep",29,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68309,"NAUSEA, smoking",33,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o58809,"NAUSEA, soup agg.",4,OOREP agg./amel. اسپلٹ قطار — ماخذی درخت کی اصل ربرک پر ادویات موجود
+o68311,"NAUSEA, standing",9,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68312,"NAUSEA, stool",58,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68313,"NAUSEA, throat",41,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68314,"NAUSEA, tobacco",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68315,"NAUSEA, walking",39,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o58850,"NAUSEA, warm drinks agg.",4,OOREP agg./amel. اسپلٹ قطار — ماخذی درخت کی اصل ربرک پر ادویات موجود
+o68316,"NAUSEA, warm, room",17,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68318,"NAUSEA, water",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68319,"NAUSEA, wine",6,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+m58862,OBSTRUCTION of pylorus,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+m58863,OPEN,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+o68320,"PAIN, air",6,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68321,"PAIN, bending double",13,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68322,"PAIN, bread",19,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68323,"PAIN, breakfast",18,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68324,"PAIN, breathing",8,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68325,"PAIN, burning, breakfast",11,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68326,"PAIN, burning, cold drinks",6,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68327,"PAIN, burning, dinner",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68328,"PAIN, burning, eating",23,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68329,"PAIN, burning, eructations",6,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68330,"PAIN, burning, extending",37,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68331,"PAIN, burning, motion",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68332,"PAIN, burning, stool",6,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68333,"PAIN, burning, vomiting",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68334,"PAIN, cold drinks",35,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68335,"PAIN, cold, food",7,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+r1908,"PAIN, cramping",180,OOREP دور کی قطار — ماخذی درخت سے باہر، فائل میں محفوظ
+o68337,"PAIN, cramping, breakfast",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68338,"PAIN, cramping, clothing",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68339,"PAIN, cramping, dinner",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68340,"PAIN, cramping, eating",28,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o59019,"PAIN, cramping, lying agg.",3,OOREP agg./amel. اسپلٹ قطار — ماخذی درخت کی اصل ربرک پر ادویات موجود
+o68342,"PAIN, cramping, menses",8,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68343,"PAIN, cramping, motion",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68345,"PAIN, cramping, sitting",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68344,"PAIN, cramping, sitting, bent",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o59051,"PAIN, cramping, sitting, bent, while agg.",1,OOREP agg./amel. اسپلٹ قطار — ماخذی درخت کی اصل ربرک پر ادویات موجود
+o68346,"PAIN, cramping, stool",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68347,"PAIN, cramping, walking",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68348,"PAIN, cutting, eating",8,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68349,"PAIN, cutting, extending",4,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68350,"PAIN, cutting, extending, to",4,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68351,"PAIN, dinner",37,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68352,"PAIN, drawing, extending",6,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68353,"PAIN, drawing, extending, to",5,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68354,"PAIN, drinking",31,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68355,"PAIN, eating",132,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o59144,"PAIN, eating, after agg.",117,OOREP agg./amel. اسپلٹ قطار — ماخذی درخت کی اصل ربرک پر ادویات موجود
+o68357,"PAIN, eructations",27,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68358,"PAIN, extending",46,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68359,"PAIN, gnawing, dinner",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68360,"PAIN, gnawing, eating",18,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68361,"PAIN, ice cream",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+r1693,"PAIN, lying",27,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o59241,"PAIN, lying, side agg.",6,OOREP agg./amel. اسپلٹ قطار — ماخذی درخت کی اصل ربرک پر ادویات موجود
+o68364,"PAIN, meat",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68365,"PAIN, menses",29,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68366,"PAIN, milk",10,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68367,"PAIN, morning, eating",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68368,"PAIN, motion",22,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68369,"PAIN, night, waking",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o59289,"PAIN, perspiration on pit of",3,OOREP دور کی قطار — ماخذی درخت سے باہر، فائل میں محفوظ
+o68370,"PAIN, pressing, air",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68371,"PAIN, pressing, dinner",17,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68372,"PAIN, pressing, eating",85,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68373,"PAIN, pressing, extending",4,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68374,"PAIN, pressing, lying",7,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68375,"PAIN, pressing, menses",9,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68376,"PAIN, pressing, sitting",9,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68377,"PAIN, pressing, standing",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68378,"PAIN, pressing, stool",7,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68379,"PAIN, pressing, walking",12,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68380,"PAIN, rising",8,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68381,"PAIN, sitting",23,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+r2175,"PAIN, sore",159,OOREP دور کی قطار — ماخذی درخت سے باہر، فائل میں محفوظ
+o68383,"PAIN, sore, dinner",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68384,"PAIN, sore, eating",7,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68385,"PAIN, sore, walking",6,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68386,"PAIN, standing",7,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68387,"PAIN, stitching, breathing",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68388,"PAIN, stitching, eructations",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68389,"PAIN, stitching, extending",22,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68390,"PAIN, stitching, lying",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68391,"PAIN, stitching, pressure",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68392,"PAIN, stitching, sitting",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68393,"PAIN, stool",20,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68394,"PAIN, supper",9,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+r1754,"PAIN, swallowing",8,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o59543,"PAIN, waking, on agg.",12,OOREP agg./amel. اسپلٹ قطار — ماخذی درخت کی اصل ربرک پر ادویات موجود
+o68397,"PAIN, walking",32,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o59545,"PAIN, walking, in open air agg.",6,OOREP agg./amel. اسپلٹ قطار — ماخذی درخت کی اصل ربرک پر ادویات موجود
+o68399,"PAIN, warm",23,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68400,"PULSATION, eating",10,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68401,"PULSATION, walking",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68402,"RETCHING, eating",20,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68403,"RETCHING, swallowing",5,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+m59628,RETRACTION,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+m59630,SENSITIVENESS,0,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68404,"SINKING (See Emptiness), eating",14,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68405,"SINKING (See Emptiness), morning, breakfast",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+m59658,SLAKING lime,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+m59659,STONE,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود
+o68406,"STONE, sensation of, eating",10,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68407,"TENSION, eating",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68408,"THIRST, chill",69,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68409,"THIRST, eating",23,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68410,"THIRST, heat",81,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68411,"THIRST, menses",16,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68412,"THIRST, perspiration",35,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+r2478,"THIRST, stool",16,OOREP دور کی قطار — ماخذی درخت سے باہر، فائل میں محفوظ
+o68414,"THIRST, vomiting",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68415,"VOMITING, bile, chill",16,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68416,"VOMITING, bile, headache",25,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68417,"VOMITING, bitter, chill",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68418,"VOMITING, bitter, menses",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68419,"VOMITING, blood, menses",7,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68420,"VOMITING, bread",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68421,"VOMITING, breakfast",15,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68422,"VOMITING, brownish, evening",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68423,"VOMITING, chill",31,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68424,"VOMITING, closing eyes",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68425,"VOMITING, convulsions",7,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68426,"VOMITING, diarrhoea",49,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68427,"VOMITING, dinner",10,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68428,"VOMITING, drinking",75,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68429,"VOMITING, eating",81,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o59941,"VOMITING, eating, after agg.",80,OOREP agg./amel. اسپلٹ قطار — ماخذی درخت کی اصل ربرک پر ادویات موجود
+o68431,"VOMITING, egg",4,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68432,"VOMITING, fish",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68433,"VOMITING, food, chill",7,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68434,"VOMITING, food, eating",35,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68435,"VOMITING, food, lying",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68436,"VOMITING, heat",34,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68437,"VOMITING, lying",11,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68438,"VOMITING, lying, side",6,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68439,"VOMITING, menses",40,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68440,"VOMITING, perspiration",10,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68441,"VOMITING, rising",8,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68442,"VOMITING, sour, breakfast",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68443,"VOMITING, sour, menses",8,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68444,"VOMITING, stool",20,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68445,"VOMITING, swallow",2,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68446,"VOMITING, urticaria",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+o68447,"VOMITING, walking",3,مبہم (OOREP aggregate/تنازع) — ماخذی درخت سے باہر محفوظ
+o68448,"VOMITING, water, eating",3,OOREP شمارشدہ union (o68xxx سیریز) — ماخذی قطاروں سے خودکار مجموعہ؛ ماخذی درخت سے باہر محفوظ
+r2959,WATER,0,OOREP دور کی قطار — ماخذی درخت سے باہر، فائل میں محفوظ
+m60217,WINE,0,خالی m-کنٹینر — ماخذی درخت میں اصل ربرکس موجود

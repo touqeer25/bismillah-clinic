@@ -125,8 +125,8 @@ if (fs.existsSync(csvPath)) {
 // 7) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const swf = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=177/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v177)');
-assert(/CACHE_NAME='bhc-clinic-v177'/.test(swf), 'خدمت کار نسخہ 177');
+assert(/rep-chapters\.js\?v=178/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v177)');
+assert(/CACHE_NAME='bhc-clinic-v178'/.test(swf), 'خدمت کار نسخہ 177');
 assert(/v177: بیرونی گلا باب/.test(code), 'rep-chapters.js میں بیرونی گلا بلڈر درج');
 
 console.log('بیرونی گلا باب: ماخذی درخت 248 قطاریں (صفحات 471–475)، جڑ EXTERNAL THROAT، ادویات ماخذی، اردو 100%، پرانی قطاریں محفوظ — کامیاب');

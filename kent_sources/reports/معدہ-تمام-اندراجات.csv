@@ -1,0 +1,2941 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,476,0,STOMACH,0
+r0,476,0,"AIR, as if was forcing through",1
+r1,476,0,"ALIVE, sensation as if something, in",4
+r2,476,0,ANXIETY,65
+r3,476,1,"ANXIETY, morning, on waking, in drunkards",1
+r4,476,1,"ANXIETY, night, on rising up",1
+o57334,476,1,"ANXIETY, diarrhœa, before",1
+r6,476,1,"ANXIETY, eating, after",3
+r7,476,2,"ANXIETY, eating, after, small quantity",1
+r8,476,1,"ANXIETY, excitement, after",1
+r9,476,1,"ANXIETY, menses, during, agg.",1
+r10,476,1,"ANXIETY, people, on approach of",1
+r11,476,1,"ANXIETY, rising up, on",1
+r12,476,1,"ANXIETY, standing, while",1
+r13,476,1,"ANXIETY, vexation, after",1
+r14,476,1,"ANXIETY, waking, on",2
+r15,476,0,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered)",28
+r16,476,1,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), changeable",10
+r17,476,1,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), constant",11
+r18,476,1,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), diminished",112
+r19,476,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), diminished, morning",9
+r20,476,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), diminished, noon",9
+r21,476,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), diminished, evening",4
+r22,476,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), diminished, eating, when time for",2
+r23,476,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), diminished, menses, during",1
+r24,476,1,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), easy satiety",67
+r25,476,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), easy satiety, morning",1
+r26,476,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), easy satiety, evening",1
+r27,476,1,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), eat, with inability to",4
+r29,477,1,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), emptiness, with (See Emptiness)",0
+r30,477,1,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), gnawing",6
+r31,477,1,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general)",171
+r32,477,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), daytime",3
+r33,477,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), morning",30
+r34,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), morning, breakfast, after",2
+r35,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), morning, stool, after",1
+r36,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), morning, 7 a.m.",1
+r37,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), morning, 8 a.m.",1
+r38,477,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), forenoon",10
+r39,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), forenoon, 10 a.m.",5
+r40,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), forenoon, 11 a.m.",8
+r41,477,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), noon",18
+r42,477,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), afternoon",9
+r43,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), afternoon, after drinking",1
+r44,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), afternoon, 2 p.m.",2
+r45,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), afternoon, 4 p.m.",1
+r46,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), afternoon, 5 p.m.",1
+r47,477,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), evening",31
+r48,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), evening, 6 p.m.",1
+r49,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), evening, 9 p.m.",1
+r50,477,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), night",16
+r51,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), night, 11 p.m.",1
+r52,477,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), air, open, amel.",1
+r53,477,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), alternating with loss of appetite",7
+r54,477,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), beer, after",1
+r55,477,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), chill, before",4
+r56,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), chill, before, during",9
+r57,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), chill, before, after",1
+r58,477,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), eating increases the",1
+o57375,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), eating increases the, returns only while",4
+r60,477,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), eating, after",37
+r61,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), eating, after, does not amel. (See Emptiness)",0
+r62,477,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), fever, during",6
+r63,477,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), fever, during, after",6
+r65,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), headache, with",15
+r66,478,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), headache, with, before",2
+r67,478,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), headache, with, after",1
+r68,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), intermittent, in (See Chill)",2
+r69,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), menses, before",2
+r70,478,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), menses, before, during",1
+r71,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), pain in stomach, with",4
+r72,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), perspiration, during",3
+r73,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), siesta, after",1
+r74,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), sitting, after",1
+r75,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), stool, after",3
+r76,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), tormenting",6
+r77,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), unusual time",4
+r78,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), vanishing on attempting to eat",1
+o57406,478,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), vanishing on attempting to eat, at sight of food",6
+r80,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), vomiting, after",5
+r81,478,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), vomiting, after, with",3
+r82,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), waking, on",3
+r83,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), weakness, with",4
+r84,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), increased (hunger in general), wine, after",1
+r85,478,1,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), insatiable",20
+r86,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), insatiable, morning",1
+r87,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), insatiable, noon",2
+r88,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), insatiable, evening",2
+r89,478,1,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive",140
+o57441,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, morning",10
+o57436,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, forenoon",4
+o57437,478,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, forenoon, 10 a.m.",3
+o57438,478,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, forenoon, 11 a.m.",4
+o57445,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, noon",8
+o57416,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, afternoon",4
+o57417,478,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, afternoon, 2 p.m.",1
+o57418,478,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, afternoon, 4 p.m.",1
+o57419,478,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, afternoon, 5 p.m.",1
+o57433,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, evening",20
+o57434,478,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, evening, 6 p.m.",1
+o57435,478,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, evening, 8 p.m.",1
+o57444,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, night",15
+o57420,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, ague, before",2
+o57421,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, apyrexia, during",1
+o57423,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, convulsions, after",1
+o57425,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, diarrhœa, with",13
+o57424,478,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, diarrhœa, with, preceding",1
+o57426,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, dysentery, in",1
+o57427,478,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, eating increases the hunger",1
+r112,479,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, eating increases the hunger, after, soon",29
+r113,479,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, eating increases the hunger, 2 hours after",1
+r114,479,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, eating increases the hunger, 3 hours after",1
+r115,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, emaciation, with",9
+r116,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, epilepsy, before",2
+r117,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, gastralgia, in",2
+r118,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, marasmus, with",17
+r119,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, nausea, after",1
+r120,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, neuralgia, with",1
+r121,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, sleep, prevents",7
+r122,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), ravenous, canine, excessive, walking, while",4
+r123,479,1,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), relish, without (See Aversion to food)",64
+r124,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), relish, without (See Aversion to food), until begins to eat",3
+r125,479,1,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting",203
+r126,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, morning",38
+r127,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, noon",21
+r128,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, evening",19
+r129,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, coition, after",1
+r130,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, exertion, after",1
+r131,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, foggy weather, in",1
+r132,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, food, at sight of",8
+r133,479,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, food, at sight of, smell of",3
+r134,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, fullness, from sense of",3
+r135,479,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, hunger, with",28
+r136,480,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, menses, before",4
+r137,480,3,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, menses, before, during",10
+r138,480,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, returns after eating a mouthful",5
+r139,480,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, after thinking of food",1
+r140,480,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, sadness, from",1
+r141,480,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, thirst, with",20
+r142,480,2,"APPETITE, capricious (hunger, but knows not for what, or refuses things when offered), wanting, vexation, after",3
+r143,480,0,APPREHENSION in,12
+r144,480,1,"APPREHENSION in, mounting to head and back again",1
+r145,480,0,"AURA EPILEPTICA, felt at solar plexus (See Epileptic Aura)",0
+r146,480,0,AVERSION to acids,10
+o57471,480,1,"AVERSION to acids, alcoholic stimulants",11
+o57472,480,1,"AVERSION to acids, ale",2
+o57473,480,1,"AVERSION to acids, apples",1
+o57474,480,1,"AVERSION to acids, bananas",1
+r213,480,1,"AVERSION to acids, beef",2
+o57476,480,1,"AVERSION to acids, beer",25
+o57478,480,2,"AVERSION to acids, beer, morning",1
+o57477,480,2,"AVERSION to acids, beer, evening",3
+o57479,480,1,"AVERSION to acids, brandy",4
+o57480,480,2,"AVERSION to acids, brandy, in brandy drinkers",1
+o57481,480,1,"AVERSION to acids, bread",30
+o57483,480,2,"AVERSION to acids, bread, brown",5
+o57482,480,2,"AVERSION to acids, bread, and butter",4
+o57484,480,1,"AVERSION to acids, breakfast",3
+o57485,480,1,"AVERSION to acids, butter",12
+o57486,480,1,"AVERSION to acids, cereals",2
+o57487,480,1,"AVERSION to acids, cheese",2
+o57488,480,1,"AVERSION to acids, chocolate",2
+o57489,480,1,"AVERSION to acids, coffee",31
+o57490,480,1,"AVERSION to acids, cold drinks (See Water, Cold)",2
+o57491,480,1,"AVERSION to acids, dinner",3
+o57492,480,1,"AVERSION to acids, drinks",33
+o57493,480,2,"AVERSION to acids, drinks, headache, during",1
+o57494,480,2,"AVERSION to acids, drinks, heat, during",1
+o57495,480,2,"AVERSION to acids, drinks, hot",2
+o57496,480,2,"AVERSION to acids, drinks, warm",3
+o57497,480,1,"AVERSION to acids, eggs",4
+o57498,480,2,"AVERSION to acids, eggs, to the odor of",1
+o57499,480,1,"AVERSION to acids, everything",22
+o57501,480,2,"AVERSION to acids, everything, daytime",1
+o57503,480,2,"AVERSION to acids, everything, morning",2
+o57502,480,2,"AVERSION to acids, everything, forenoon",1
+o57500,480,2,"AVERSION to acids, everything, afternoon 1 p.m.",1
+o57504,480,1,"AVERSION to acids, farinaceous food",2
+o57505,480,1,"AVERSION to acids, fats and rich food",34
+o57506,480,1,"AVERSION to acids, fish",7
+o57507,480,2,"AVERSION to acids, fish, salt",1
+r185,481,1,"AVERSION to acids, flour",3
+r186,481,1,"AVERSION to acids, food",122
+r187,481,2,"AVERSION to acids, food, daytime",1
+r188,481,2,"AVERSION to acids, food, morning",3
+r189,481,2,"AVERSION to acids, food, noon",1
+r190,481,2,"AVERSION to acids, food, evening",3
+r191,481,2,"AVERSION to acids, food, cold",3
+r192,481,2,"AVERSION to acids, food, cooked",18
+r193,481,2,"AVERSION to acids, food, dinner, during",4
+r194,481,2,"AVERSION to acids, food, eating a little, after",7
+r195,481,2,"AVERSION to acids, food, hot",5
+r196,481,2,"AVERSION to acids, food, hunger, with",31
+r197,481,2,"AVERSION to acids, food, seen, if",2
+r198,481,2,"AVERSION to acids, food, smell of",6
+r199,481,2,"AVERSION to acids, food, sudden, while eating",2
+r200,481,2,"AVERSION to acids, food, supper, during",1
+r201,481,2,"AVERSION to acids, food, tastes it, until he, then he is ravenous",1
+r202,481,2,"AVERSION to acids, food, thinking of eating, when",1
+r203,481,2,"AVERSION to acids, food, warm",20
+r204,481,1,"AVERSION to acids, fruit",2
+r205,481,1,"AVERSION to acids, garlic",1
+r206,481,1,"AVERSION to acids, gruel",2
+r207,481,1,"AVERSION to acids, herring",1
+r208,481,1,"AVERSION to acids, hot food (See Food)",0
+r209,481,1,"AVERSION to acids, liquid",1
+r210,481,1,"AVERSION to acids, meat",88
+r211,481,2,"AVERSION to acids, meat, noon",2
+r212,481,2,"AVERSION to acids, meat, evening",1
+o57533,481,2,"AVERSION to acids, meat, beef",1
+r214,481,2,"AVERSION to acids, meat, boiled",3
+r215,481,2,"AVERSION to acids, meat, dinner, during",1
+r216,481,2,"AVERSION to acids, meat, fat meat",3
+r217,481,2,"AVERSION to acids, meat, fresh meat",1
+r218,481,2,"AVERSION to acids, meat, menses, during",1
+r219,481,2,"AVERSION to acids, meat, mutton",1
+r220,481,2,"AVERSION to acids, meat, thinking of it, while",1
+r221,481,1,"AVERSION to acids, milk",30
+r222,481,2,"AVERSION to acids, milk, morning",1
+r223,481,2,"AVERSION to acids, milk, boiled",1
+r224,481,2,"AVERSION to acids, milk, smell of",1
+r225,481,2,"AVERSION to acids, milk, mother's",7
+r226,482,1,"AVERSION to acids, onions",1
+r227,482,1,"AVERSION to acids, oysters",1
+r228,482,1,"AVERSION to acids, pickles",1
+r229,482,1,"AVERSION to acids, plums",1
+r230,482,1,"AVERSION to acids, pork",5
+r231,482,1,"AVERSION to acids, potatoes",3
+r232,482,1,"AVERSION to acids, puddings",3
+r233,482,1,"AVERSION to acids, rich foods (See Fats)",0
+r234,482,1,"AVERSION to acids, salt food",9
+r235,482,1,"AVERSION to acids, sauerkraut",1
+r236,482,1,"AVERSION to acids, solid food",5
+r237,482,1,"AVERSION to acids, soup",7
+r238,482,1,"AVERSION to acids, sweets",12
+r239,482,1,"AVERSION to acids, tea",3
+r240,482,1,"AVERSION to acids, tobacco",32
+r241,482,2,"AVERSION to acids, tobacco, morning",1
+r242,482,2,"AVERSION to acids, tobacco, smoking (his accustomed cigar)",37
+r243,482,3,"AVERSION to acids, tobacco, smoking (his accustomed cigar), morning",1
+r244,482,3,"AVERSION to acids, tobacco, smoking (his accustomed cigar), forenoon",1
+r245,482,1,"AVERSION to acids, veal",2
+r246,482,1,"AVERSION to acids, vegetables",5
+r247,482,1,"AVERSION to acids, warm cooked food (See Food)",0
+r248,482,1,"AVERSION to acids, water",32
+r249,482,2,"AVERSION to acids, water, cold",16
+r250,482,1,"AVERSION to acids, wine",15
+r251,482,0,"BALANCED up and down, as if stomach were",1
+r252,482,0,"BALL, sensation of",4
+r253,482,1,"BALL, sensation of, burning",1
+r254,482,1,"BALL, sensation of, rising up into throat",2
+r255,482,0,"BLOWS in pit of stomach, sensation of",4
+r256,482,0,BUBBLING,2
+r257,482,0,CANCER,28
+r258,482,0,"CLAWING in (See Pain, Clawing)",0
+r259,482,0,CLOTHING disturbs,26
+r260,482,0,COLDNESS,78
+r261,482,1,"COLDNESS, morning, in bed",3
+r262,482,1,"COLDNESS, forenoon",1
+r263,482,2,"COLDNESS, forenoon, eructations, during and after",1
+r264,482,2,"COLDNESS, forenoon, riding, while",1
+r265,482,1,"COLDNESS, noon",1
+r266,482,1,"COLDNESS, evening",2
+r267,482,1,"COLDNESS, chilliness in pit of",5
+r268,482,1,"COLDNESS, cold drinks, after",5
+o57582,483,1,"COLDNESS, diarrhœa, during",2
+r270,483,1,"COLDNESS, eating, before",1
+r271,483,2,"COLDNESS, eating, before, after",4
+r272,483,1,"COLDNESS, fruit, after",2
+r273,483,1,"COLDNESS, heat, after",1
+r274,483,1,"COLDNESS, ice, like, with pain",2
+o57593,483,2,"COLDNESS, ice, like, with pain, after cold drinks",1
+r276,483,1,"COLDNESS, icy",5
+r277,483,1,"COLDNESS, ice cream, after",1
+r278,483,1,"COLDNESS, loosening clothing amel.",1
+r279,483,1,"COLDNESS, extending to body",1
+r280,483,0,CONSTRICTION,72
+r281,483,1,"CONSTRICTION, morning",2
+r282,483,2,"CONSTRICTION, morning, rising, after",1
+r283,483,1,"CONSTRICTION, forenoon",2
+r284,483,2,"CONSTRICTION, forenoon, before eructations",1
+r285,483,1,"CONSTRICTION, afternoon",1
+r286,483,2,"CONSTRICTION, afternoon, 4 p.m.",1
+r287,483,1,"CONSTRICTION, evening",3
+r288,483,1,"CONSTRICTION, night",2
+r289,483,2,"CONSTRICTION, night, before midnight",1
+r290,483,1,"CONSTRICTION, convulsion, before",1
+r291,483,1,"CONSTRICTION, convulsive",6
+r292,483,1,"CONSTRICTION, dinner, after",2
+r293,483,1,"CONSTRICTION, eating, after",1
+r294,483,2,"CONSTRICTION, eating, after, amel.",3
+r295,483,1,"CONSTRICTION, fasting, when",1
+r296,483,1,"CONSTRICTION, inspiration, on",1
+r297,483,2,"CONSTRICTION, inspiration, on, deep, agg.",1
+r298,483,1,"CONSTRICTION, menses, before",1
+r299,483,1,"CONSTRICTION, periodic",1
+r300,483,1,"CONSTRICTION, extending to chest",1
+o57610,483,2,"CONSTRICTION, extending to chest, pharynx",1
+o57611,483,2,"CONSTRICTION, extending to chest, spine",1
+o57612,483,2,"CONSTRICTION, extending to chest, throat",2
+r304,483,1,"CONSTRICTION, cardiac orifice on swallowing",3
+r305,483,1,"CONSTRICTION, pylorus, of",2
+r306,483,0,CONTRACTION,47
+r307,483,1,"CONTRACTION, morning",1
+r308,483,1,"CONTRACTION, evening",3
+r309,483,1,"CONTRACTION, night",1
+r310,483,1,"CONTRACTION, coughing, after",1
+r311,483,1,"CONTRACTION, dinner, after",1
+r312,483,1,"CONTRACTION, eating, after",2
+r313,483,1,"CONTRACTION, sitting, while",2
+r314,483,1,"CONTRACTION, spasmodic",1
+r315,483,1,"CONTRACTION, stimulants, after",1
+r316,483,1,"CONTRACTION, stooping",1
+r317,483,1,"CONTRACTION, vomiting, while",2
+o57638,483,1,"CONTRACTION, walking, while",2
+r319,483,2,"CONTRACTION, walking, while, amel.",1
+r320,483,0,CRAWLING,11
+r321,483,0,CROAKING like frogs,1
+r322,483,1,"CROAKING like frogs, on turning in bed",1
+r323,483,0,DEATH-LIKE sensation,3
+r2993,483,0,DESIRES alcoholic drinks,57
+r326,484,1,"DESIRES alcoholic drinks, menses, before",1
+r327,484,1,"DESIRES alcoholic drinks, ale",3
+r328,484,1,"DESIRES alcoholic drinks, beer",52
+r329,484,2,"DESIRES alcoholic drinks, beer, evening",1
+r330,484,1,"DESIRES alcoholic drinks, brandy",34
+r331,484,1,"DESIRES alcoholic drinks, whisky",22
+r332,484,1,"DESIRES alcoholic drinks, wine",37
+r333,484,2,"DESIRES alcoholic drinks, wine, claret",4
+r334,484,1,"DESIRES alcoholic drinks, almonds",1
+r335,484,1,"DESIRES alcoholic drinks, apples",5
+r336,484,1,"DESIRES alcoholic drinks, aromatic drinks",1
+r337,484,1,"DESIRES alcoholic drinks, ashes",1
+r338,484,1,"DESIRES alcoholic drinks, bacon",5
+r339,484,1,"DESIRES alcoholic drinks, bananas",1
+r340,484,1,"DESIRES alcoholic drinks, bitter drinks",4
+o57659,484,2,"DESIRES alcoholic drinks, bitter drinks, food",2
+r342,484,1,"DESIRES alcoholic drinks, bread",30
+r343,484,2,"DESIRES alcoholic drinks, bread, and butter",10
+r344,484,2,"DESIRES alcoholic drinks, bread, dry",1
+r345,484,2,"DESIRES alcoholic drinks, bread, rye bread",4
+r346,484,2,"DESIRES alcoholic drinks, bread, boiled in milk",1
+r347,484,2,"DESIRES alcoholic drinks, bread, only",2
+r348,484,1,"DESIRES alcoholic drinks, butter",2
+r349,484,1,"DESIRES alcoholic drinks, chalk (See Lime)",0
+r350,484,1,"DESIRES alcoholic drinks, charcoal",5
+r351,484,1,"DESIRES alcoholic drinks, cheese",6
+r352,484,2,"DESIRES alcoholic drinks, cheese, strong",2
+r353,484,1,"DESIRES alcoholic drinks, cherries",1
+r354,484,1,"DESIRES alcoholic drinks, chocolate",2
+r355,484,1,"DESIRES alcoholic drinks, cider",2
+r356,484,1,"DESIRES alcoholic drinks, cloves",2
+r357,484,1,"DESIRES alcoholic drinks, coal",3
+r358,484,1,"DESIRES alcoholic drinks, coffee",30
+r359,484,2,"DESIRES alcoholic drinks, coffee, which nauseates",1
+r360,484,2,"DESIRES alcoholic drinks, coffee, burnt",2
+r361,484,1,"DESIRES alcoholic drinks, cold drinks",95
+r362,484,1,"DESIRES alcoholic drinks, cold food",14
+r363,484,1,"DESIRES alcoholic drinks, menses, during",1
+h002,484,1,"DESIRES alcoholic drinks, milk (See Milk)",0
+r365,485,1,"DESIRES alcoholic drinks, cucumbers",3
+r366,485,1,"DESIRES alcoholic drinks, delicacies",17
+r367,485,1,"DESIRES alcoholic drinks, dry food",1
+r368,485,1,"DESIRES alcoholic drinks, earth (See Lime)",0
+r369,485,1,"DESIRES alcoholic drinks, eggs",4
+r370,485,2,"DESIRES alcoholic drinks, eggs, fried",1
+r371,485,2,"DESIRES alcoholic drinks, eggs, boiled",1
+r372,485,3,"DESIRES alcoholic drinks, eggs, boiled, soft",2
+r373,485,1,"DESIRES alcoholic drinks, farinaceous food",4
+r374,485,1,"DESIRES alcoholic drinks, fat",5
+r375,485,1,"DESIRES alcoholic drinks, fat ham",4
+r376,485,1,"DESIRES alcoholic drinks, fish",3
+r377,485,1,"DESIRES alcoholic drinks, flour",3
+r378,485,1,"DESIRES alcoholic drinks, fried food",1
+r379,485,1,"DESIRES alcoholic drinks, fruit",19
+r380,485,2,"DESIRES alcoholic drinks, fruit, acid",9
+r381,485,2,"DESIRES alcoholic drinks, fruit, green",2
+r382,485,1,"DESIRES alcoholic drinks, ham fat",1
+r383,485,1,"DESIRES alcoholic drinks, herring",4
+r384,485,1,"DESIRES alcoholic drinks, highly seasoned food",11
+r385,485,1,"DESIRES alcoholic drinks, honey",1
+r386,485,1,"DESIRES alcoholic drinks, hot drinks (See Warm Drinks)",0
+h003,485,1,"DESIRES alcoholic drinks, ice",5
+r388,485,1,"DESIRES alcoholic drinks, ice cream",5
+r389,485,1,"DESIRES alcoholic drinks, indigestible things",7
+r390,485,1,"DESIRES alcoholic drinks, indistinct, knows not what",10
+r391,485,1,"DESIRES alcoholic drinks, juicy things (See Refreshing things)",8
+r392,485,1,"DESIRES alcoholic drinks, lard",1
+r393,485,1,"DESIRES alcoholic drinks, lemons",3
+r394,485,1,"DESIRES alcoholic drinks, lemonade",10
+r395,485,1,"DESIRES alcoholic drinks, lime, slate pencils, earth, chalk, clay, etc.",7
+r396,485,1,"DESIRES alcoholic drinks, liquid food",11
+r397,485,1,"DESIRES alcoholic drinks, many things",3
+r398,485,1,"DESIRES alcoholic drinks, meat",20
+r399,485,2,"DESIRES alcoholic drinks, meat, smoked",4
+r364,485,1,"DESIRES alcoholic drinks, milk",27
+r401,485,2,"DESIRES alcoholic drinks, milk, boiled",2
+r402,485,2,"DESIRES alcoholic drinks, milk, cold",7
+r403,485,2,"DESIRES alcoholic drinks, milk, hot",4
+r404,485,2,"DESIRES alcoholic drinks, milk, sour",1
+r405,485,2,"DESIRES alcoholic drinks, milk, warm",1
+r406,485,1,"DESIRES alcoholic drinks, mustard",7
+r407,485,1,"DESIRES alcoholic drinks, nuts",1
+r408,485,1,"DESIRES alcoholic drinks, onions, raw",2
+r409,485,1,"DESIRES alcoholic drinks, oranges",5
+r410,485,1,"DESIRES alcoholic drinks, oysters",8
+r411,485,1,"DESIRES alcoholic drinks, pastry",4
+r412,485,1,"DESIRES alcoholic drinks, pepper",1
+r413,485,2,"DESIRES alcoholic drinks, pepper, cayenne",1
+r414,485,1,"DESIRES alcoholic drinks, pickles",10
+r415,485,1,"DESIRES alcoholic drinks, plums",1
+r416,485,2,"DESIRES alcoholic drinks, plums, sauce",1
+r417,485,1,"DESIRES alcoholic drinks, pork",2
+r418,485,1,"DESIRES alcoholic drinks, potatoes",2
+r419,485,1,"DESIRES alcoholic drinks, puddings",1
+r420,486,1,"DESIRES alcoholic drinks, pungent things",9
+r421,486,1,"DESIRES alcoholic drinks, rags, clean",1
+r422,486,1,"DESIRES alcoholic drinks, raw food",4
+o57737,486,2,"DESIRES alcoholic drinks, raw food, ham",1
+o57738,486,2,"DESIRES alcoholic drinks, raw food, potatoes",1
+r425,486,1,"DESIRES alcoholic drinks, tomatoes",1
+r426,486,1,"DESIRES alcoholic drinks, refreshing things",23
+r427,486,1,"DESIRES alcoholic drinks, rice, dry",2
+r428,486,1,"DESIRES alcoholic drinks, salads",1
+r429,486,1,"DESIRES alcoholic drinks, salt things",30
+r430,486,1,"DESIRES alcoholic drinks, sand",1
+r431,486,1,"DESIRES alcoholic drinks, sardines",2
+r432,486,1,"DESIRES alcoholic drinks, sauerkraut",2
+r433,486,1,"DESIRES alcoholic drinks, smoked things",3
+r434,486,1,"DESIRES alcoholic drinks, snow",1
+r435,486,1,"DESIRES alcoholic drinks, snuff",1
+r436,486,1,"DESIRES alcoholic drinks, soup (See Liquid Food)",1
+r437,486,1,"DESIRES alcoholic drinks, sour, acids, etc.",77
+r438,486,1,"DESIRES alcoholic drinks, starch",5
+r439,486,1,"DESIRES alcoholic drinks, strange things",7
+r440,486,2,"DESIRES alcoholic drinks, strange things, during pregnancy",3
+r441,486,1,"DESIRES alcoholic drinks, sweets",36
+r442,486,2,"DESIRES alcoholic drinks, sweets, sugar",5
+r443,486,3,"DESIRES alcoholic drinks, sweets, sugar, evening",1
+r444,486,1,"DESIRES alcoholic drinks, tea",5
+r445,486,2,"DESIRES alcoholic drinks, tea, grounds",1
+r446,486,1,"DESIRES alcoholic drinks, tobacco",15
+r447,486,2,"DESIRES alcoholic drinks, tobacco, smoking",9
+r448,486,1,"DESIRES alcoholic drinks, tonics",12
+r449,486,1,"DESIRES alcoholic drinks, vegetables",8
+r450,486,1,"DESIRES alcoholic drinks, vinegar",9
+r451,486,1,"DESIRES alcoholic drinks, warm drinks",23
+r452,486,2,"DESIRES alcoholic drinks, warm drinks, chill, during",3
+r453,486,2,"DESIRES alcoholic drinks, warm drinks, fever, during",4
+o57768,486,2,"DESIRES alcoholic drinks, warm drinks, food",11
+o57769,486,2,"DESIRES alcoholic drinks, warm drinks, soups",5
+r456,486,0,DISORDERED,44
+r457,486,1,"DISORDERED, acids, after",4
+r458,486,1,"DISORDERED, beer, after",4
+r459,486,1,"DISORDERED, bread, after",7
+r460,487,1,"DISORDERED, cheese, mouldy",1
+r461,487,1,"DISORDERED, coition, after",1
+r462,487,1,"DISORDERED, cold, after a",2
+r463,487,1,"DISORDERED, eggs",1
+r464,487,1,"DISORDERED, excitement, from",7
+r465,487,1,"DISORDERED, fat food, after",6
+r466,487,1,"DISORDERED, fish",1
+r467,487,1,"DISORDERED, fresh meat",1
+r468,487,1,"DISORDERED, fruit, after",5
+r469,487,1,"DISORDERED, ice cream",4
+r470,487,1,"DISORDERED, mental exertion",9
+r471,487,1,"DISORDERED, milk, after",16
+r472,487,1,"DISORDERED, oysters",2
+r473,487,1,"DISORDERED, peaches, after",1
+r474,487,1,"DISORDERED, sauerkraut, after",1
+r475,487,1,"DISORDERED, vexation, after",2
+r476,487,0,DISTENTION,118
+r477,487,1,"DISTENTION, morning",2
+r478,487,1,"DISTENTION, forenoon",1
+r479,487,1,"DISTENTION, afternoon",3
+r480,487,1,"DISTENTION, evening",4
+r481,487,2,"DISTENTION, evening, 9 p.m. until midnight",1
+r482,487,1,"DISTENTION, night, on waking",1
+r483,487,1,"DISTENTION, chill, during",1
+r484,487,1,"DISTENTION, contradiction, after",1
+r485,487,1,"DISTENTION, convulsion, during",1
+r486,487,1,"DISTENTION, dinner, before",1
+r487,487,2,"DISTENTION, dinner, before, after",4
+r488,487,1,"DISTENTION, drinking, after",2
+o57800,487,1,"DISTENTION, eating, while",1
+r490,487,2,"DISTENTION, eating, while, after",48
+r491,487,2,"DISTENTION, eating, while, amel.",2
+r492,487,1,"DISTENTION, eructations amel.",4
+o57802,487,2,"DISTENTION, eructations amel., do not amel.",3
+r494,487,1,"DISTENTION, excitement, after",2
+r495,487,1,"DISTENTION, exertion, during mental",1
+r496,487,1,"DISTENTION, fish, after pickled",1
+r497,487,1,"DISTENTION, flatus, passing, amel.",1
+r498,487,1,"DISTENTION, lying on abdomen amel.",1
+r499,487,1,"DISTENTION, menses, before",1
+r500,487,1,"DISTENTION, milk, after",1
+r501,487,1,"DISTENTION, motion amel.",1
+r502,487,1,"DISTENTION, oysters, after",2
+r503,487,1,"DISTENTION, rising, after",1
+r504,487,1,"DISTENTION, stool amel.",1
+r505,487,1,"DISTENTION, supper, after",1
+r506,487,1,"DISTENTION, walking amel.",2
+r2994,487,0,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling",189
+r508,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, daytime",2
+r509,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, morning",25
+r510,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, morning, anxiety, with",2
+r511,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, morning, breakfast, before",11
+o57866,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, morning, menses, during",1
+r513,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, morning, rising, on",2
+r514,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, morning, waking, on",4
+r515,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, morning, 2 a.m.",2
+r516,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, morning, 5 a.m.",1
+r517,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, forenoon",6
+r518,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, forenoon, 10 a.m. until evening",2
+r519,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, forenoon, 11 a.m.",13
+r520,488,3,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, forenoon, 11 a.m., with dull pain",1
+r521,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, noon",2
+r522,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, afternoon",5
+r523,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, afternoon, 1 p.m.",1
+r524,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, afternoon, 2 p.m.",1
+r525,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, afternoon, 3 p.m.",1
+r526,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, evening",4
+r527,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, evening, eating, after amel.",1
+r528,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, evening, sleep, before",1
+r529,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, evening, 8 p.m.",2
+r530,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, night",4
+r531,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, midnight",2
+r532,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, air, open, amel.",1
+r533,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, aversion to food",17
+r534,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, breakfast, after",6
+r535,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, chill, during",2
+r536,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, climacteric period",3
+r537,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, cough, with",4
+o57832,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, diarrhœa, with",5
+r539,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, dinner, before",5
+r540,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, dinner, before, after",4
+r541,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, drowsiness, during",1
+r542,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, eating, before",3
+r543,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, eating, before, while",2
+r544,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, eating, before, not relieved by",40
+r545,488,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, eating, before, after",30
+r546,488,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, epilepsy, before",1
+h004,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, eructation, after",1
+h005,489,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, eructation, after, amel.",1
+r549,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, fever, during",1
+r550,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, headache, during",6
+r551,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, hunger, without",27
+r552,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, inspiration agg.",1
+r553,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, lying down amel.",2
+r554,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, meeting a friend, when",1
+r555,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, menses, before",3
+r512,489,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, menses, before, during",3
+r557,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, nausea, during",33
+r558,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, nursing, after",2
+r559,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, paroxysmal",2
+r560,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, pressure, from",1
+r561,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, rising, after",1
+r562,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, siesta, after",1
+r563,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, sighing",1
+r564,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, sitting, while",2
+r565,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, sleep, before",1
+r566,489,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, sleep, before, during",2
+r567,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, stool, after",9
+r568,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, talking agg.",1
+r569,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, thinking of food, when",1
+r570,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, throbbing, with",10
+r571,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, trembling",4
+r572,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, vomiting, after",1
+r573,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, walking, while",3
+r574,489,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, walking, while, after",1
+r575,489,2,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, walking, while, about the room agg.",1
+r576,489,1,"EMPTINESS, weak feeling, faintness, goneness, hungry feeling, extending to heart",1
+r577,489,0,EPILEPTIC aura,10
+r578,489,1,"EPILEPTIC aura, rising from stomach to head",1
+r579,489,0,ERUCTATIONS,213
+r580,489,1,"ERUCTATIONS, daytime",3
+r581,489,1,"ERUCTATIONS, morning",35
+r582,489,2,"ERUCTATIONS, morning, breakfast, before",2
+r583,489,2,"ERUCTATIONS, morning, rising, on",6
+r584,489,2,"ERUCTATIONS, morning, stool, after",1
+r585,489,2,"ERUCTATIONS, morning, waking, on",2
+r586,490,1,"ERUCTATIONS, forenoon",17
+r587,490,1,"ERUCTATIONS, noon",3
+r588,490,2,"ERUCTATIONS, noon, eating, while",1
+r589,490,1,"ERUCTATIONS, afternoon",26
+r590,490,2,"ERUCTATIONS, afternoon, eating, after",1
+r591,490,2,"ERUCTATIONS, afternoon, 4 p.m. after",3
+r592,490,1,"ERUCTATIONS, evening",38
+r593,490,1,"ERUCTATIONS, night",21
+r594,490,2,"ERUCTATIONS, night, first half of",1
+r595,490,2,"ERUCTATIONS, night, lying, while",1
+r596,490,2,"ERUCTATIONS, night, waking, on",2
+r597,490,2,"ERUCTATIONS, night, 9 p.m. until midnight",1
+r598,490,2,"ERUCTATIONS, night, 11 p.m.",2
+r599,490,2,"ERUCTATIONS, night, midnight on waking",1
+r600,490,1,"ERUCTATIONS, acids, after",2
+r601,490,1,"ERUCTATIONS, aggravate",12
+r602,490,1,"ERUCTATIONS, air, in open",1
+r603,490,1,"ERUCTATIONS, alternating with hiccough",3
+o57912,490,2,"ERUCTATIONS, alternating with hiccough, yawning",2
+r605,490,1,"ERUCTATIONS, ameliorate",64
+r606,490,1,"ERUCTATIONS, apyrexia, during",1
+r607,490,1,"ERUCTATIONS, beer, after",1
+r608,490,1,"ERUCTATIONS, bread, after",5
+r609,490,2,"ERUCTATIONS, bread, after, and milk, after",1
+r610,490,1,"ERUCTATIONS, breakfast, before",2
+r611,490,2,"ERUCTATIONS, breakfast, before, during",2
+r612,490,2,"ERUCTATIONS, breakfast, before, after",17
+r613,490,1,"ERUCTATIONS, butter, after eating",2
+r614,490,1,"ERUCTATIONS, cabbage, after",1
+r615,490,1,"ERUCTATIONS, chill, during",1
+r616,490,2,"ERUCTATIONS, chill, during, after",1
+r617,490,1,"ERUCTATIONS, chilliness, with",1
+r618,490,1,"ERUCTATIONS, choking, after",1
+r619,490,1,"ERUCTATIONS, coffee, after",4
+r620,490,1,"ERUCTATIONS, constant",6
+r621,490,1,"ERUCTATIONS, convulsive",8
+r622,490,1,"ERUCTATIONS, coughing, after",4
+r623,490,1,"ERUCTATIONS, difficult",4
+r624,490,1,"ERUCTATIONS, dinner, before",1
+r625,490,2,"ERUCTATIONS, dinner, before, during",4
+r626,490,2,"ERUCTATIONS, dinner, before, after",26
+r627,490,3,"ERUCTATIONS, dinner, before, after, when rising from stooping",1
+h006,490,3,"ERUCTATIONS, dinner, before, after, while walking",1
+r629,490,1,"ERUCTATIONS, drinking, after",22
+r630,490,2,"ERUCTATIONS, drinking, after, cold water",1
+r631,490,2,"ERUCTATIONS, drinking, after, amel.",1
+r632,490,1,"ERUCTATIONS, drunkards, in",2
+r633,491,1,"ERUCTATIONS, eating, while",8
+o57975,491,2,"ERUCTATIONS, eating, while, after",92
+r635,491,1,"ERUCTATIONS, excitement",1
+r636,491,1,"ERUCTATIONS, faintness, causing",1
+r637,491,1,"ERUCTATIONS, farinaceous, food, after",2
+r638,491,1,"ERUCTATIONS, fasting, while",8
+r639,491,1,"ERUCTATIONS, fats, after",6
+r640,491,1,"ERUCTATIONS, fever, during",3
+r641,491,1,"ERUCTATIONS, headache",4
+r642,491,1,"ERUCTATIONS, ineffectual and incomplete",57
+r643,491,2,"ERUCTATIONS, ineffectual and incomplete, morning",1
+r644,491,3,"ERUCTATIONS, ineffectual and incomplete, morning, after breakfast",1
+r645,491,2,"ERUCTATIONS, ineffectual and incomplete, forenoon",1
+r646,491,2,"ERUCTATIONS, ineffectual and incomplete, evening",1
+r647,491,2,"ERUCTATIONS, ineffectual and incomplete, night",2
+r648,491,3,"ERUCTATIONS, ineffectual and incomplete, night, before menses",1
+r649,491,3,"ERUCTATIONS, ineffectual and incomplete, night, on going to bed",1
+r650,491,1,"ERUCTATIONS, lying amel.",2
+r651,491,1,"ERUCTATIONS, meat, after",1
+r652,491,1,"ERUCTATIONS, menses, before",11
+r653,491,2,"ERUCTATIONS, menses, before, during",8
+r654,491,1,"ERUCTATIONS, mental exertion",1
+r655,491,1,"ERUCTATIONS, milk, after",18
+r656,491,1,"ERUCTATIONS, motion, on",2
+r657,491,1,"ERUCTATIONS, oysters, after",1
+r658,491,1,"ERUCTATIONS, painful",14
+r659,491,1,"ERUCTATIONS, paroxysmal",9
+r660,491,1,"ERUCTATIONS, peaches, after",1
+r661,491,1,"ERUCTATIONS, periodical",2
+r662,491,1,"ERUCTATIONS, pork, after",1
+r663,491,1,"ERUCTATIONS, potatoes, after",2
+r664,491,1,"ERUCTATIONS, pressing on stomach, from",1
+o58173,491,2,"ERUCTATIONS, pressing on stomach, from, painful parts, when",1
+r666,491,1,"ERUCTATIONS, rich food, after",8
+r667,491,1,"ERUCTATIONS, rising from lying, when",1
+o58189,491,2,"ERUCTATIONS, rising from lying, when, up, on",2
+r669,491,1,"ERUCTATIONS, sardines, after",1
+r670,491,1,"ERUCTATIONS, shooting pain, with",1
+r671,491,1,"ERUCTATIONS, sitting, while",2
+r672,491,2,"ERUCTATIONS, sitting, while, bent, while",2
+r673,491,1,"ERUCTATIONS, sleep, after",1
+r674,491,2,"ERUCTATIONS, sleep, after, amel.",2
+r675,491,1,"ERUCTATIONS, smoking, while",2
+r676,491,1,"ERUCTATIONS, soup, after",4
+r677,491,1,"ERUCTATIONS, stool, before",1
+r678,491,2,"ERUCTATIONS, stool, before, during",7
+o58243,491,2,"ERUCTATIONS, stool, before, after",9
+r680,492,1,"ERUCTATIONS, stooping, on",3
+r681,492,1,"ERUCTATIONS, sudden",1
+r682,492,1,"ERUCTATIONS, supper, after",10
+r683,492,1,"ERUCTATIONS, suppressed",3
+r684,492,2,"ERUCTATIONS, suppressed, followed by pain in stomach",1
+r685,492,1,"ERUCTATIONS, swallowing, when",1
+r686,492,1,"ERUCTATIONS, sweets, after",4
+r687,492,1,"ERUCTATIONS, tobacco, from",1
+r688,492,1,"ERUCTATIONS, urination, during",1
+r689,492,1,"ERUCTATIONS, vomiting, when",1
+r690,492,1,"ERUCTATIONS, waking, on",7
+o58266,492,1,"ERUCTATIONS, walking, while",7
+r692,492,2,"ERUCTATIONS, walking, while, amel.",1
+r693,492,2,"ERUCTATIONS, walking, while, in open air, while",5
+r694,492,1,"ERUCTATIONS, wine, after",1
+r695,492,1,"ERUCTATIONS, acrid",55
+r696,492,2,"ERUCTATIONS, acrid, afternoon",2
+r697,492,2,"ERUCTATIONS, acrid, evening",3
+r698,492,2,"ERUCTATIONS, acrid, night",1
+r699,492,2,"ERUCTATIONS, acrid, bread, after",1
+r700,492,2,"ERUCTATIONS, acrid, dinner, after",1
+r701,492,2,"ERUCTATIONS, acrid, drunkards, in",1
+r702,492,2,"ERUCTATIONS, acrid, eating, after",4
+r703,492,2,"ERUCTATIONS, acrid, fever, during",1
+r704,492,2,"ERUCTATIONS, acrid, sweets, after",2
+r705,492,1,"ERUCTATIONS, almonds, tasting like",2
+r706,492,1,"ERUCTATIONS, apples, tasting of",1
+r707,492,1,"ERUCTATIONS, audible (See Loud)",0
+r708,492,1,"ERUCTATIONS, bitter",102
+r709,492,2,"ERUCTATIONS, bitter, morning",5
+r710,492,3,"ERUCTATIONS, bitter, morning, breakfast, after",2
+r711,492,3,"ERUCTATIONS, bitter, morning, coughing, after",1
+r712,492,3,"ERUCTATIONS, bitter, morning, rising, on",2
+r713,492,2,"ERUCTATIONS, bitter, forenoon",4
+r714,492,2,"ERUCTATIONS, bitter, afternoon",1
+r715,492,2,"ERUCTATIONS, bitter, evening",5
+r716,492,3,"ERUCTATIONS, bitter, evening, milk soup, after",1
+r717,492,3,"ERUCTATIONS, bitter, evening, potatoes, after",1
+r718,492,2,"ERUCTATIONS, bitter, night",7
+r719,492,2,"ERUCTATIONS, bitter, anger, after",1
+r720,492,2,"ERUCTATIONS, bitter, bread and butter, after",1
+r721,492,2,"ERUCTATIONS, bitter, dinner, during",1
+o57921,492,3,"ERUCTATIONS, bitter, dinner, during, after",3
+r723,492,4,"ERUCTATIONS, bitter, dinner, during, after, amel.",1
+r724,492,2,"ERUCTATIONS, bitter, drinking water, after",1
+r725,492,2,"ERUCTATIONS, bitter, eating, after",15
+r726,492,3,"ERUCTATIONS, bitter, eating, after, amel.",1
+r727,492,2,"ERUCTATIONS, bitter, fasting, while",1
+r728,492,2,"ERUCTATIONS, bitter, fat food, after",2
+r729,492,2,"ERUCTATIONS, bitter, food comes up",2
+r730,492,2,"ERUCTATIONS, bitter, menses, during",2
+r731,493,2,"ERUCTATIONS, bitter, potatoes, after",1
+r732,493,2,"ERUCTATIONS, bitter, rich food, after",2
+r733,493,2,"ERUCTATIONS, bitter, sour food, after",1
+r734,493,2,"ERUCTATIONS, bitter, stool, during",1
+r735,493,2,"ERUCTATIONS, bitter, stooping, when",1
+r736,493,2,"ERUCTATIONS, bitter, supper, after",1
+r737,493,2,"ERUCTATIONS, bitter, walking in open air, while",1
+r738,493,1,"ERUCTATIONS, bloody",5
+r739,493,1,"ERUCTATIONS, burning (See Heartburn)",6
+r740,493,1,"ERUCTATIONS, disgusting (See Foul)",0
+r741,493,1,"ERUCTATIONS, eggs, spoiled like",22
+r742,493,2,"ERUCTATIONS, eggs, spoiled like, morning, on rising",7
+r743,493,3,"ERUCTATIONS, eggs, spoiled like, morning, on rising, on waking",1
+r744,493,2,"ERUCTATIONS, eggs, spoiled like, evening",1
+r745,493,2,"ERUCTATIONS, eggs, spoiled like, night",2
+r746,493,2,"ERUCTATIONS, eggs, spoiled like, pregnancy, during",1
+r747,493,2,"ERUCTATIONS, eggs, spoiled like, smelling like",8
+r748,493,3,"ERUCTATIONS, eggs, spoiled like, smelling like, night",1
+r749,493,1,"ERUCTATIONS, egg, tasting like yolk of",1
+r750,493,1,"ERUCTATIONS, empty",200
+r751,493,2,"ERUCTATIONS, empty, morning",18
+r752,493,3,"ERUCTATIONS, empty, morning, fasting, after",4
+r753,493,3,"ERUCTATIONS, empty, morning, rising, on",1
+r754,493,4,"ERUCTATIONS, empty, morning, rising, on, after",1
+r755,493,3,"ERUCTATIONS, empty, morning, waking, on",2
+r756,493,3,"ERUCTATIONS, empty, morning, 7 a.m.",1
+r757,493,2,"ERUCTATIONS, empty, forenoon",12
+r758,493,3,"ERUCTATIONS, empty, forenoon, 9 a.m.",1
+r759,493,3,"ERUCTATIONS, empty, forenoon, 10 a.m.",2
+r760,493,3,"ERUCTATIONS, empty, forenoon, 11 a.m.",1
+r761,493,2,"ERUCTATIONS, empty, noon",2
+r762,493,3,"ERUCTATIONS, empty, noon, eating, while",1
+r763,493,2,"ERUCTATIONS, empty, afternoon",13
+r764,493,3,"ERUCTATIONS, empty, afternoon, coffee, after",1
+r765,493,3,"ERUCTATIONS, empty, afternoon, while stomach is empty",1
+r766,493,3,"ERUCTATIONS, empty, afternoon, 5 p.m.",3
+r767,493,3,"ERUCTATIONS, empty, afternoon, 6 p.m.",1
+r768,493,2,"ERUCTATIONS, empty, evening",10
+r769,493,3,"ERUCTATIONS, empty, evening, hiccough, during",1
+r770,493,3,"ERUCTATIONS, empty, evening, lying, while",1
+r771,493,2,"ERUCTATIONS, empty, night",8
+r772,493,3,"ERUCTATIONS, empty, night, menses, before",1
+r773,494,3,"ERUCTATIONS, empty, night, 7 p.m.",2
+r774,494,3,"ERUCTATIONS, empty, night, 9 p.m. until midnight",1
+o58027,494,4,"ERUCTATIONS, empty, night, 9 p.m. until midnight, while walking in open air",1
+r776,494,3,"ERUCTATIONS, empty, night, 9-30 p.m.",1
+r777,494,3,"ERUCTATIONS, empty, night, 11 p.m.",1
+r778,494,2,"ERUCTATIONS, empty, air, open, in",1
+r779,494,2,"ERUCTATIONS, empty, alternating with hiccough",1
+r780,494,2,"ERUCTATIONS, empty, beer, after",1
+r781,494,2,"ERUCTATIONS, empty, breakfast, before",2
+r782,494,3,"ERUCTATIONS, empty, breakfast, before, after",4
+r783,494,2,"ERUCTATIONS, empty, coldness, during",1
+r784,494,2,"ERUCTATIONS, empty, cough, after",4
+r785,494,2,"ERUCTATIONS, empty, dinner, after",7
+r786,494,2,"ERUCTATIONS, empty, drinking, after",6
+r787,494,3,"ERUCTATIONS, empty, drinking, after, cold water",1
+r788,494,2,"ERUCTATIONS, empty, eating, after",23
+r789,494,2,"ERUCTATIONS, empty, fasting, while",2
+r790,494,2,"ERUCTATIONS, empty, headache, during",2
+r791,494,2,"ERUCTATIONS, empty, hysteria, during",1
+r792,494,2,"ERUCTATIONS, empty, menses, before",1
+r793,494,3,"ERUCTATIONS, empty, menses, before, menstrual colic, during",1
+r794,494,2,"ERUCTATIONS, empty, mental exertion",1
+r795,494,2,"ERUCTATIONS, empty, nausea, during",2
+r796,494,2,"ERUCTATIONS, empty, rising up",1
+r797,494,2,"ERUCTATIONS, empty, soup, after",2
+r798,494,2,"ERUCTATIONS, empty, stool, after",1
+r799,494,2,"ERUCTATIONS, empty, sugar, from",1
+r800,494,2,"ERUCTATIONS, empty, supper, after",3
+r801,494,2,"ERUCTATIONS, empty, waking, on",3
+r802,494,1,"ERUCTATIONS, fluid",45
+r803,494,2,"ERUCTATIONS, fluid, morning",3
+r804,494,3,"ERUCTATIONS, fluid, morning, breakfast, after",1
+r805,494,2,"ERUCTATIONS, fluid, forenoon",1
+r806,494,2,"ERUCTATIONS, fluid, afternoon",1
+r807,494,3,"ERUCTATIONS, fluid, afternoon, 4 p.m.",1
+r808,494,2,"ERUCTATIONS, fluid, night",1
+r809,494,3,"ERUCTATIONS, fluid, night, white bread, after",1
+r810,494,2,"ERUCTATIONS, fluid, coffee, after",1
+r811,494,2,"ERUCTATIONS, fluid, dinner, after",1
+r812,494,2,"ERUCTATIONS, fluid, eating, after",2
+r813,494,2,"ERUCTATIONS, fluid, greenish",2
+r814,494,2,"ERUCTATIONS, fluid, yellow",1
+r815,494,1,"ERUCTATIONS, food (regurgitation)",72
+r816,494,2,"ERUCTATIONS, food (regurgitation), morning",1
+r817,494,2,"ERUCTATIONS, food (regurgitation), noon",1
+r818,494,2,"ERUCTATIONS, food (regurgitation), afternoon",5
+r819,494,2,"ERUCTATIONS, food (regurgitation), evening",1
+r820,494,2,"ERUCTATIONS, food (regurgitation), night",3
+r821,494,3,"ERUCTATIONS, food (regurgitation), night, what was eaten at noon",1
+r822,494,3,"ERUCTATIONS, food (regurgitation), night, midnight, after",1
+r823,494,2,"ERUCTATIONS, food (regurgitation), bitter tasting",3
+r824,494,2,"ERUCTATIONS, food (regurgitation), coughing, after",2
+r825,494,2,"ERUCTATIONS, food (regurgitation), dinner, after",4
+r826,494,3,"ERUCTATIONS, food (regurgitation), dinner, after, while walking",1
+r827,494,2,"ERUCTATIONS, food (regurgitation), eating, while",6
+r828,494,3,"ERUCTATIONS, food (regurgitation), eating, while, after",8
+r830,495,3,"ERUCTATIONS, food (regurgitation), eating, while, immediately after",3
+r831,495,3,"ERUCTATIONS, food (regurgitation), eating, while, one hour after",2
+r832,495,3,"ERUCTATIONS, food (regurgitation), eating, while, two hours after",3
+r833,495,3,"ERUCTATIONS, food (regurgitation), eating, while, five hours after",1
+r834,495,2,"ERUCTATIONS, food (regurgitation), mouthful, by the",12
+r835,495,2,"ERUCTATIONS, food (regurgitation), rancid",1
+r836,495,2,"ERUCTATIONS, food (regurgitation), stooping, when",3
+r837,495,2,"ERUCTATIONS, food (regurgitation), supper, after",1
+r838,495,2,"ERUCTATIONS, food (regurgitation), vexation, after",1
+r839,495,2,"ERUCTATIONS, food (regurgitation), walking, while",1
+r840,495,1,"ERUCTATIONS, food, tasting like",84
+r841,495,2,"ERUCTATIONS, food, tasting like, morning",1
+r842,495,2,"ERUCTATIONS, food, tasting like, afternoon",2
+r843,495,3,"ERUCTATIONS, food, tasting like, afternoon, 1 p.m.",1
+r844,495,3,"ERUCTATIONS, food, tasting like, afternoon, after dinner",4
+r845,495,2,"ERUCTATIONS, food, tasting like, drinking water agg.",1
+r846,495,2,"ERUCTATIONS, food, tasting like, smoking, while",1
+r847,495,1,"ERUCTATIONS, foul",55
+r848,495,2,"ERUCTATIONS, foul, morning",1
+r849,495,2,"ERUCTATIONS, foul, forenoon",1
+r850,495,2,"ERUCTATIONS, foul, evening",3
+r851,495,2,"ERUCTATIONS, foul, night",1
+r852,495,2,"ERUCTATIONS, foul, drunkards, in",1
+r853,495,2,"ERUCTATIONS, foul, fat or rich food, after",4
+r854,495,2,"ERUCTATIONS, foul, milk, after",1
+r855,495,2,"ERUCTATIONS, foul, pastry or pork, after",1
+r856,495,2,"ERUCTATIONS, foul, peaches, after",1
+r857,495,1,"ERUCTATIONS, frothy",7
+r858,495,2,"ERUCTATIONS, frothy, morning",1
+r859,495,1,"ERUCTATIONS, garlic, like",6
+r860,495,2,"ERUCTATIONS, garlic, like, after a spasm",1
+r861,495,1,"ERUCTATIONS, greasy",7
+r862,495,1,"ERUCTATIONS, hiccough, like",7
+r863,495,2,"ERUCTATIONS, hiccough, like, after dinner",2
+r864,495,1,"ERUCTATIONS, hot",18
+r865,495,2,"ERUCTATIONS, hot, morning",1
+r866,495,2,"ERUCTATIONS, hot, eating, after",1
+r867,495,1,"ERUCTATIONS, large quantities of wind",7
+r868,495,1,"ERUCTATIONS, lime water, tasting like",1
+r869,495,1,"ERUCTATIONS, liquid (See Fluid)",0
+r870,495,1,"ERUCTATIONS, long continued",1
+r871,495,1,"ERUCTATIONS, loud",42
+r872,495,2,"ERUCTATIONS, loud, afternoon",1
+r873,495,2,"ERUCTATIONS, loud, eating, after",2
+r874,495,2,"ERUCTATIONS, loud, fasting, while",1
+r875,495,2,"ERUCTATIONS, loud, involuntary",1
+r876,495,2,"ERUCTATIONS, loud, milk, after",1
+r877,495,2,"ERUCTATIONS, loud, stooping, when",1
+r878,495,2,"ERUCTATIONS, loud, uncontrollable",1
+r879,496,1,"ERUCTATIONS, meat, tasting of",2
+r880,496,2,"ERUCTATIONS, meat, tasting of, bad meat",1
+r881,496,1,"ERUCTATIONS, milk, of",7
+r882,496,2,"ERUCTATIONS, milk, of, afternoon",1
+r883,496,2,"ERUCTATIONS, milk, of, while walking",1
+r884,496,1,"ERUCTATIONS, mouldy",1
+r885,496,1,"ERUCTATIONS, mucus",14
+r886,496,2,"ERUCTATIONS, mucus, morning",4
+r887,496,3,"ERUCTATIONS, mucus, morning, coughing, after",1
+r888,496,2,"ERUCTATIONS, mucus, evening",2
+r889,496,1,"ERUCTATIONS, musk, tasting of",2
+r890,496,1,"ERUCTATIONS, nauseous",22
+r891,496,2,"ERUCTATIONS, nauseous, after rich food",2
+r892,496,1,"ERUCTATIONS, nose, through",3
+r893,496,1,"ERUCTATIONS, offensive (See Foul)",0
+r894,496,1,"ERUCTATIONS, pungent",1
+r895,496,2,"ERUCTATIONS, pungent, on coughing",1
+r896,496,1,"ERUCTATIONS, putrid",20
+r897,496,1,"ERUCTATIONS, rancid",29
+r898,496,2,"ERUCTATIONS, rancid, morning, after soup",1
+r899,496,2,"ERUCTATIONS, rancid, afternoon",1
+r900,496,2,"ERUCTATIONS, rancid, evening",1
+r901,496,3,"ERUCTATIONS, rancid, evening, after eating",1
+r902,496,3,"ERUCTATIONS, rancid, evening, 4 p.m.",1
+r903,496,2,"ERUCTATIONS, rancid, night",1
+r904,496,2,"ERUCTATIONS, rancid, dinner, during",1
+r905,496,2,"ERUCTATIONS, rancid, eating, after",1
+r906,496,2,"ERUCTATIONS, rancid, rich food, after",1
+r907,496,1,"ERUCTATIONS, salty",13
+r908,496,1,"ERUCTATIONS, sobbing",7
+r909,496,1,"ERUCTATIONS, sour",145
+r910,496,2,"ERUCTATIONS, sour, daytime",2
+r911,496,2,"ERUCTATIONS, sour, morning",5
+r912,496,3,"ERUCTATIONS, sour, morning, after waking",1
+r913,496,2,"ERUCTATIONS, sour, forenoon",3
+r914,496,2,"ERUCTATIONS, sour, afternoon",6
+r915,496,3,"ERUCTATIONS, sour, afternoon, after dinner",1
+r916,496,2,"ERUCTATIONS, sour, evening",8
+r917,496,3,"ERUCTATIONS, sour, evening, air, open, in",1
+r918,496,3,"ERUCTATIONS, sour, evening, bed, in",1
+r919,496,3,"ERUCTATIONS, sour, evening, eating, after",1
+r920,496,2,"ERUCTATIONS, sour, night",5
+r921,496,2,"ERUCTATIONS, sour, bread, after",4
+r922,496,2,"ERUCTATIONS, sour, breakfast, during",1
+r923,496,3,"ERUCTATIONS, sour, breakfast, during, after",1
+r924,496,2,"ERUCTATIONS, sour, cabbage, after",1
+r925,497,2,"ERUCTATIONS, sour, coffee, after",2
+r926,497,2,"ERUCTATIONS, sour, cough, after",2
+r927,497,2,"ERUCTATIONS, sour, dinner, after",9
+r928,497,2,"ERUCTATIONS, sour, drinking, after",2
+r929,497,3,"ERUCTATIONS, sour, drinking, after, water, after",1
+r930,497,2,"ERUCTATIONS, sour, drunkards, in",1
+r931,497,2,"ERUCTATIONS, sour, eating, after",30
+r932,497,3,"ERUCTATIONS, sour, eating, after, 1 to 3 hours after",1
+r933,497,3,"ERUCTATIONS, sour, eating, after, 2 hours after",1
+r934,497,2,"ERUCTATIONS, sour, farinaceous food, after",2
+r935,497,2,"ERUCTATIONS, sour, fat food",3
+r936,497,2,"ERUCTATIONS, sour, fruit, after",1
+r937,497,2,"ERUCTATIONS, sour, intermittents, in",1
+r938,497,2,"ERUCTATIONS, sour, lying on the back, while",1
+r939,497,2,"ERUCTATIONS, sour, menses, before",1
+r940,497,3,"ERUCTATIONS, sour, menses, before, during",1
+r941,497,2,"ERUCTATIONS, sour, milk, after",12
+r942,497,2,"ERUCTATIONS, sour, nausea, during",1
+r943,497,2,"ERUCTATIONS, sour, pregnancy, during",1
+r944,497,2,"ERUCTATIONS, sour, rich food, after",3
+r945,497,2,"ERUCTATIONS, sour, sitting bent, while",2
+r946,497,2,"ERUCTATIONS, sour, sugar, after",1
+r947,497,2,"ERUCTATIONS, sour, supper, after",1
+r948,497,2,"ERUCTATIONS, sour, vertigo, during",1
+r949,497,2,"ERUCTATIONS, sour, waking, on",1
+r950,497,2,"ERUCTATIONS, sour, walking, while",1
+r951,497,3,"ERUCTATIONS, sour, walking, while, in open air",3
+r952,497,1,"ERUCTATIONS, sulphuretted hydrogen (See Spoiled eggs)",0
+r953,497,1,"ERUCTATIONS, sweetish",12
+r954,497,2,"ERUCTATIONS, sweetish, morning",3
+r955,497,2,"ERUCTATIONS, sweetish, fluid",4
+r956,497,2,"ERUCTATIONS, sweetish, menses, before",1
+r957,497,2,"ERUCTATIONS, sweetish, pregnancy, during",2
+r958,497,2,"ERUCTATIONS, sweetish, water",1
+r959,497,1,"ERUCTATIONS, tallow, tasting of rancid",1
+r960,497,1,"ERUCTATIONS, tasteless (See Empty)",0
+r961,497,1,"ERUCTATIONS, water, of",31
+r962,497,2,"ERUCTATIONS, water, of, morning",1
+r963,497,3,"ERUCTATIONS, water, of, morning, nausea, during",2
+r964,497,3,"ERUCTATIONS, water, of, morning, rising, after",1
+r965,497,2,"ERUCTATIONS, water, of, forenoon",1
+r966,497,2,"ERUCTATIONS, water, of, afternoon",1
+r967,497,2,"ERUCTATIONS, water, of, evening",1
+r968,497,2,"ERUCTATIONS, water, of, night",1
+r969,497,3,"ERUCTATIONS, water, of, night, before menses",1
+r970,497,2,"ERUCTATIONS, water, of, motion, on",1
+r971,497,2,"ERUCTATIONS, water, of, nausea, during",1
+r972,497,2,"ERUCTATIONS, water, of, potatoes, after",1
+r973,497,2,"ERUCTATIONS, water, of, sitting, while",1
+r974,497,1,"ERUCTATIONS, waterbrash",131
+r975,497,2,"ERUCTATIONS, waterbrash, morning",1
+r976,497,2,"ERUCTATIONS, waterbrash, noon, after eating",1
+r977,497,2,"ERUCTATIONS, waterbrash, afternoon, while walking",1
+r978,497,2,"ERUCTATIONS, waterbrash, evening",6
+r979,497,2,"ERUCTATIONS, waterbrash, night",3
+r980,497,3,"ERUCTATIONS, waterbrash, night, menses, during",1
+r981,497,2,"ERUCTATIONS, waterbrash, acids, after",1
+r982,498,2,"ERUCTATIONS, waterbrash, cool water",1
+r983,498,2,"ERUCTATIONS, waterbrash, dinner, before",1
+r984,498,3,"ERUCTATIONS, waterbrash, dinner, before, after",1
+r985,498,2,"ERUCTATIONS, waterbrash, drinking, after",2
+r986,498,2,"ERUCTATIONS, waterbrash, eating, after",17
+r987,498,2,"ERUCTATIONS, waterbrash, fasting agg.",1
+r988,498,2,"ERUCTATIONS, waterbrash, fresh meat",1
+r989,498,2,"ERUCTATIONS, waterbrash, lying, while",1
+r990,498,2,"ERUCTATIONS, waterbrash, menses, before",2
+r991,498,2,"ERUCTATIONS, waterbrash, milk, after",3
+r992,498,2,"ERUCTATIONS, waterbrash, periodical, every other day",1
+r993,498,2,"ERUCTATIONS, waterbrash, pregnancy, during",7
+r994,498,2,"ERUCTATIONS, waterbrash, riding in a carriage",1
+r995,498,2,"ERUCTATIONS, waterbrash, stool, after",1
+r996,498,2,"ERUCTATIONS, waterbrash, strong food, after",1
+r997,498,2,"ERUCTATIONS, waterbrash, supper, after",1
+r998,498,0,"FAINTNESS (See Emptiness, Sinking)",0
+r999,498,0,"FASTING, sensation of (See Emptiness)",0
+r1000,498,0,FERMENTATION,7
+r1001,498,1,"FERMENTATION, fruit, after",1
+r1002,498,0,FLABBINESS,7
+r1003,498,0,FLATULENCE (See Eructations),0
+r1004,498,0,FLUTTERING (See Trembling),0
+r1005,498,0,FOREIGN body,4
+r1006,498,0,FORMICATION,10
+r1007,498,0,"FULLNESS, sensation of",143
+r1008,498,1,"FULLNESS, sensation of, morning",5
+r1009,498,2,"FULLNESS, sensation of, morning, fasting, when",2
+r1010,498,2,"FULLNESS, sensation of, morning, waking, on",1
+r1011,498,1,"FULLNESS, sensation of, noon",3
+r1012,498,2,"FULLNESS, sensation of, noon, eating, after",1
+r1013,498,2,"FULLNESS, sensation of, noon, bread and milk, after",1
+r1014,498,1,"FULLNESS, sensation of, afternoon",5
+r1015,498,1,"FULLNESS, sensation of, evening",5
+r1016,498,2,"FULLNESS, sensation of, evening, bed, in",1
+r1017,498,2,"FULLNESS, sensation of, evening, eating, after",1
+r1018,498,1,"FULLNESS, sensation of, night, on going to bed",1
+r1019,498,2,"FULLNESS, sensation of, night, on going to bed, midnight",1
+r1020,498,1,"FULLNESS, sensation of, bread, after",1
+r1021,498,1,"FULLNESS, sensation of, breakfast, after",4
+r1022,498,2,"FULLNESS, sensation of, breakfast, after, with sensation of hunger",1
+r1023,498,1,"FULLNESS, sensation of, chill, during",1
+r1024,498,1,"FULLNESS, sensation of, clothing agg.",1
+r1025,498,1,"FULLNESS, sensation of, coffee, after",1
+r1026,498,1,"FULLNESS, sensation of, contradiction, after",1
+r1027,498,1,"FULLNESS, sensation of, dinner, after",10
+r1028,498,1,"FULLNESS, sensation of, drinking, after",6
+r1029,498,1,"FULLNESS, sensation of, eating, after",76
+o58323,499,2,"FULLNESS, sensation of, eating, after, ever so little, after",29
+o58322,499,2,"FULLNESS, sensation of, eating, after, amel.",3
+o58324,499,1,"FULLNESS, sensation of, eructations amel.",7
+o58328,499,1,"FULLNESS, sensation of, hunger, during",3
+o58329,499,1,"FULLNESS, sensation of, menses, during",3
+o58338,499,1,"FULLNESS, sensation of, oppression of breathing, with",4
+o58339,499,1,"FULLNESS, sensation of, pregnancy, during",1
+o58340,499,1,"FULLNESS, sensation of, sleep amel.",1
+o58341,499,1,"FULLNESS, sensation of, soup, after",1
+o58342,499,1,"FULLNESS, sensation of, supper, after",2
+o58343,499,1,"FULLNESS, sensation of, waking, on",2
+o58344,499,1,"FULLNESS, sensation of, walking, after",2
+o58345,499,1,"FULLNESS, sensation of, water, after",1
+o58346,499,1,"FULLNESS, sensation of, wine, after",1
+r1045,499,0,GAGGING (See Nausea),13
+r1046,499,1,"GAGGING (See Nausea), morning",2
+r1047,499,1,"GAGGING (See Nausea), night",1
+r1048,499,1,"GAGGING (See Nausea), breakfast, after",1
+r1049,499,1,"GAGGING (See Nausea), coughing, from (See Retching)",19
+r1050,499,1,"GAGGING (See Nausea), drinking, when",1
+r1051,499,1,"GAGGING (See Nausea), eating, after",4
+r1052,499,1,"GAGGING (See Nausea), expectoration, during",3
+r1053,499,1,"GAGGING (See Nausea), mucus in fauces, from",5
+r1054,499,0,GANGRENE,3
+r1055,499,0,GONENESS (See Emptiness),0
+r1056,499,0,"GOUT, metastasis",4
+r1057,499,0,GURGLING,26
+r1058,499,1,"GURGLING, morning",1
+r1059,499,2,"GURGLING, morning, while walking",1
+r1060,499,1,"GURGLING, drinking, when",8
+r1061,499,2,"GURGLING, drinking, when, after",1
+r1062,499,1,"GURGLING, eating, while",1
+r1063,499,1,"GURGLING, nausea, with",1
+r1064,499,0,HÆMORRHAGE (See Vomiting),0
+r1065,499,0,"HANGING down, sensation of, relaxed",27
+r1066,499,1,"HANGING down, sensation of, relaxed, morning",1
+r1067,499,1,"HANGING down, sensation of, relaxed, stool, after",2
+r1068,499,1,"HANGING down, sensation of, relaxed, walking, while",1
+r1069,499,0,HARDNESS,9
+r1070,499,1,"HARDNESS, eructations amel.",1
+r1071,499,1,"HARDNESS, sensation of, in the pylorus",1
+r1072,499,0,HEARTBURN,118
+r1073,499,1,"HEARTBURN, daytime",1
+r1074,499,1,"HEARTBURN, morning",3
+r1075,499,2,"HEARTBURN, morning, before breakfast",1
+r1076,500,2,"HEARTBURN, morning, smoking, while",1
+r1077,500,1,"HEARTBURN, forenoon",3
+r1078,500,1,"HEARTBURN, afternoon",9
+r1079,500,1,"HEARTBURN, evening",11
+r1080,500,2,"HEARTBURN, evening, bed, after going to",2
+r1081,500,2,"HEARTBURN, evening, smoking, after",1
+r1082,500,2,"HEARTBURN, evening, wine, after",1
+r1083,500,1,"HEARTBURN, night",5
+r1084,500,2,"HEARTBURN, night, lying down, on",1
+r1085,500,2,"HEARTBURN, night, pregnancy, during",1
+r1086,500,2,"HEARTBURN, night, midnight",1
+r1087,500,1,"HEARTBURN, acids, after",1
+r1088,500,1,"HEARTBURN, beer, after",1
+r1089,500,1,"HEARTBURN, coffee, after",2
+r1090,500,1,"HEARTBURN, dinner, after",9
+r1091,500,1,"HEARTBURN, drinking, after",1
+r1092,500,1,"HEARTBURN, drunkards, in",2
+r1093,500,1,"HEARTBURN, eating, after",20
+r1094,500,1,"HEARTBURN, eggs, boiled, after",1
+r1095,500,1,"HEARTBURN, eructation, after",5
+r1096,500,1,"HEARTBURN, fat food, after",3
+r1097,500,1,"HEARTBURN, meat, after",2
+r1098,500,1,"HEARTBURN, menses, before",1
+r1099,500,1,"HEARTBURN, milk, after",2
+r1100,500,1,"HEARTBURN, nausea, with",3
+r1101,500,1,"HEARTBURN, pregnancy, during",7
+r1102,500,1,"HEARTBURN, sitting bent, while",1
+r1103,500,1,"HEARTBURN, smoking, while",4
+o58403,500,2,"HEARTBURN, smoking, while, after",4
+r1105,500,1,"HEARTBURN, soup, after",1
+r1106,500,1,"HEARTBURN, sour things, after",1
+r1107,500,1,"HEARTBURN, stool, after",1
+r1108,500,1,"HEARTBURN, stooping, on",1
+r1109,500,1,"HEARTBURN, sugar, after",1
+r1110,500,1,"HEARTBURN, supper, after",4
+r1111,500,1,"HEARTBURN, tobacco, from",3
+r1112,500,1,"HEARTBURN, walking in open air, while",1
+r1113,500,1,"HEARTBURN, wine, after",3
+r1114,500,0,"HEAT, flushes",137
+r1115,500,1,"HEAT, flushes, morning",3
+r1116,500,1,"HEAT, flushes, noon",1
+r1117,500,1,"HEAT, flushes, afternoon",1
+r1118,500,1,"HEAT, flushes, evening",3
+r1119,500,1,"HEAT, flushes, night in bed",1
+r1120,500,1,"HEAT, flushes, bread, after",1
+r1121,500,1,"HEAT, flushes, dinner, during",1
+r1122,500,1,"HEAT, flushes, eating, before",1
+o58418,500,2,"HEAT, flushes, eating, before, after",3
+r1124,500,3,"HEAT, flushes, eating, before, after, amel.",2
+r1125,500,1,"HEAT, flushes, empty, when",1
+o58422,500,2,"HEAT, flushes, empty, when, eructations, after",1
+o58423,500,3,"HEAT, flushes, empty, when, eructations, after, amel.",1
+r1128,500,1,"HEAT, flushes, waking, on",1
+o58437,500,1,"HEAT, flushes, water, cold, after",1
+o58438,501,2,"HEAT, flushes, water, cold, after, amel.",2
+o58425,501,1,"HEAT, flushes, extending to abdomen",4
+o58426,501,2,"HEAT, flushes, extending to abdomen, over body",3
+o58427,501,2,"HEAT, flushes, extending to abdomen, over chest",5
+o58428,501,2,"HEAT, flushes, extending to abdomen, to eyes",1
+o58429,501,3,"HEAT, flushes, extending to abdomen, to eyes, fauces",1
+o58430,501,3,"HEAT, flushes, extending to abdomen, to eyes, head",11
+o58431,501,3,"HEAT, flushes, extending to abdomen, to eyes, throat",4
+o58432,501,2,"HEAT, flushes, extending to abdomen, upwards",12
+r1141,501,0,"HEAVINESS, weight, oppression (See Fullness)",134
+o58457,501,1,"HEAVINESS, weight, oppression (See Fullness), morning",5
+o58458,501,2,"HEAVINESS, weight, oppression (See Fullness), morning, on waking",2
+o58453,501,1,"HEAVINESS, weight, oppression (See Fullness), forenoon",1
+o58462,501,1,"HEAVINESS, weight, oppression (See Fullness), noon",4
+o58463,501,2,"HEAVINESS, weight, oppression (See Fullness), noon, eating, after",1
+o58439,501,1,"HEAVINESS, weight, oppression (See Fullness), afternoon",5
+o58440,501,2,"HEAVINESS, weight, oppression (See Fullness), afternoon, eating, after",1
+o58452,501,1,"HEAVINESS, weight, oppression (See Fullness), evening",5
+o58460,501,1,"HEAVINESS, weight, oppression (See Fullness), night",5
+o58461,501,2,"HEAVINESS, weight, oppression (See Fullness), night, waking, on",1
+o58441,501,1,"HEAVINESS, weight, oppression (See Fullness), ascending stairs",1
+o58442,501,1,"HEAVINESS, weight, oppression (See Fullness), beer, after",2
+o58443,501,1,"HEAVINESS, weight, oppression (See Fullness), bread, after",2
+o58444,501,1,"HEAVINESS, weight, oppression (See Fullness), breakfast, after",8
+o58445,501,1,"HEAVINESS, weight, oppression (See Fullness), cold drinks, after",3
+o58446,501,1,"HEAVINESS, weight, oppression (See Fullness), damp weather",3
+o58447,501,1,"HEAVINESS, weight, oppression (See Fullness), dinner, after",4
+o58449,501,1,"HEAVINESS, weight, oppression (See Fullness), eating, while",1
+o58448,501,2,"HEAVINESS, weight, oppression (See Fullness), eating, while, after",58
+o58450,501,1,"HEAVINESS, weight, oppression (See Fullness), empty, while",1
+o58451,501,1,"HEAVINESS, weight, oppression (See Fullness), eructations amel.",4
+o58454,501,1,"HEAVINESS, weight, oppression (See Fullness), meat, after",1
+o58455,501,1,"HEAVINESS, weight, oppression (See Fullness), menses, before",1
+o58456,501,2,"HEAVINESS, weight, oppression (See Fullness), menses, before, during",2
+o58459,501,1,"HEAVINESS, weight, oppression (See Fullness), nausea, during",1
+o58464,501,1,"HEAVINESS, weight, oppression (See Fullness), potatoes, after",1
+o58465,501,1,"HEAVINESS, weight, oppression (See Fullness), pressure agg.",2
+o58466,501,1,"HEAVINESS, weight, oppression (See Fullness), sleep, after",1
+o58467,501,1,"HEAVINESS, weight, oppression (See Fullness), standing long, from",1
+o58468,501,1,"HEAVINESS, weight, oppression (See Fullness), stooping after",1
+o58469,501,1,"HEAVINESS, weight, oppression (See Fullness), supper, after",2
+o58470,501,1,"HEAVINESS, weight, oppression (See Fullness), trembling, with",1
+o58471,501,1,"HEAVINESS, weight, oppression (See Fullness), waking, on",4
+o58472,501,1,"HEAVINESS, weight, oppression (See Fullness), walking in open air amel.",2
+o58473,501,1,"HEAVINESS, weight, oppression (See Fullness), water, after",1
+r1177,501,0,HICCOUGH,147
+r1178,502,1,"HICCOUGH, daytime",3
+r1179,502,1,"HICCOUGH, morning",5
+r1180,502,2,"HICCOUGH, morning, fasting, while",1
+r1181,502,2,"HICCOUGH, morning, rising, after",3
+r1182,502,2,"HICCOUGH, morning, forenoon, eating after",2
+o58512,502,2,"HICCOUGH, morning, 11 a.m.",1
+r1184,502,1,"HICCOUGH, noon",3
+r1185,502,1,"HICCOUGH, afternoon",3
+r1186,502,2,"HICCOUGH, afternoon, 1 p.m.",2
+r1187,502,2,"HICCOUGH, afternoon, 2 p.m.",2
+r1188,502,1,"HICCOUGH, evening",12
+r1189,502,2,"HICCOUGH, evening, bed, in",3
+r1190,502,2,"HICCOUGH, evening, fasting, while",1
+o58502,502,2,"HICCOUGH, evening, 5 to 8 p.m.",1
+r1192,502,2,"HICCOUGH, evening, 6 p.m.",3
+r1193,502,2,"HICCOUGH, evening, 6-30 p.m.",1
+r1194,502,1,"HICCOUGH, night",8
+r1195,502,2,"HICCOUGH, night, sleep, during",1
+r1196,502,2,"HICCOUGH, night, midnight",1
+r1197,502,1,"HICCOUGH, alcoholic drinks, after",1
+r1198,502,1,"HICCOUGH, bed, in",5
+r1199,502,1,"HICCOUGH, bread and butter, after",1
+r1200,502,1,"HICCOUGH, breakfast after",2
+r1201,502,1,"HICCOUGH, chill, after",1
+r1202,502,1,"HICCOUGH, cold taken, after",1
+r1203,502,1,"HICCOUGH, convulsions, with",5
+r1204,502,1,"HICCOUGH, convulsive",9
+r1205,502,1,"HICCOUGH, cough, during",1
+r1206,502,2,"HICCOUGH, cough, during, after",1
+r1207,502,1,"HICCOUGH, dinner, before",3
+r1208,502,2,"HICCOUGH, dinner, before, during",4
+r1209,502,2,"HICCOUGH, dinner, before, after",16
+r1210,502,1,"HICCOUGH, drinking, after",6
+r1211,502,2,"HICCOUGH, drinking, after, cold water, after",1
+r1212,502,2,"HICCOUGH, drinking, after, hot drinks",1
+r1213,502,1,"HICCOUGH, drunkards, in",1
+r1214,502,1,"HICCOUGH, eating, before",3
+r1215,502,2,"HICCOUGH, eating, before, while",5
+r1216,502,2,"HICCOUGH, eating, before, after",40
+r1217,502,1,"HICCOUGH, eructations, after",3
+r1218,502,1,"HICCOUGH, exercise, after",1
+r1219,502,1,"HICCOUGH, fever, during",2
+r1220,502,2,"HICCOUGH, fever, during, at the hour when the fever ought to come",1
+r1221,502,2,"HICCOUGH, fever, during, intermittent",1
+r1222,502,3,"HICCOUGH, fever, during, intermittent, after",1
+r1223,502,1,"HICCOUGH, loud",1
+r1224,502,1,"HICCOUGH, motion, on",2
+r1225,502,1,"HICCOUGH, painful",10
+r1226,502,1,"HICCOUGH, pork, after",1
+r1227,502,1,"HICCOUGH, pregnancy, during",2
+r1228,502,1,"HICCOUGH, quinine, after",1
+r1229,502,1,"HICCOUGH, reading aloud, while",1
+r1230,503,1,"HICCOUGH, sleep, during",2
+r1231,503,1,"HICCOUGH, smoking, while",16
+r1232,503,2,"HICCOUGH, smoking, while, before eating",1
+r1233,503,2,"HICCOUGH, smoking, while, after",3
+r1234,503,1,"HICCOUGH, spasm, before",1
+r1235,503,1,"HICCOUGH, supper, after",6
+r1236,503,1,"HICCOUGH, thinking about it, on",1
+r1237,503,1,"HICCOUGH, typhoid, in",1
+r1238,503,1,"HICCOUGH, unconscious, when",1
+r1239,503,1,"HICCOUGH, violent",17
+r1240,503,1,"HICCOUGH, vomiting, while",2
+r1241,503,2,"HICCOUGH, vomiting, while, after",2
+r1242,503,0,"HORRIBLE sensation, morning, on waking, in drunkards",1
+r1243,503,0,HUNGER (See Appetite),0
+r1244,503,0,INACTIVITY,9
+r1245,503,0,INDIGESTION (Includes Complaints After Substances Not Otherwise Described),56
+r1246,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), morning",1
+r1247,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), evening",2
+r1248,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), abuse of drugs, after",1
+r1249,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), bad water, after",3
+r1250,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), cheese, after",1
+r1251,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), coffee, after",4
+r1252,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), cold food, after",2
+o58549,503,2,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), cold food, after, after taking",3
+r1254,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), cold weather, from",1
+r1255,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), eggs",4
+r1256,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), farinaceous food, from",6
+r1257,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), fish, after",1
+r1258,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), fruit, after",3
+r1259,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), grief, after",2
+r1260,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), ice cream",4
+r1261,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), meat",3
+r1262,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), mental exertion, after",8
+r1263,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), milk, after",11
+r1264,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), old people",1
+r1265,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), onions, after",3
+r1266,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), pears, after",1
+r1267,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), pork, after",3
+r1268,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), potatoes, after",1
+r1269,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), salt meat, after",1
+r1270,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), sour food, after",3
+r1271,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), vexation, after",3
+r1272,503,1,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), warm drinks, after",1
+o58570,503,2,"INDIGESTION (Includes Complaints After Substances Not Otherwise Described), warm drinks, after, food, after",1
+r1274,503,0,INDURATION of the walls,11
+o58572,503,1,"INDURATION of the walls, pylorus",1
+r1276,503,0,INFLAMMATION,66
+r1277,503,1,"INFLAMMATION, cold, after taking",2
+r1278,503,2,"INFLAMMATION, cold, after taking, things, after",1
+r1279,503,3,"INFLAMMATION, cold, after taking, things, after, when overheated",2
+r1280,504,0,IRRITATION,21
+r1281,504,0,JERKING,6
+r1282,504,1,"JERKING, on opening the mouth",1
+r1283,504,0,"JUMPING, sensation of",1
+r1284,504,0,"LIVING in, as if something were (See Alive)",0
+r1285,504,0,LOATHING of food (See Nausea),107
+r1286,504,1,"LOATHING of food (See Nausea), morning on waking",1
+r1287,504,1,"LOATHING of food (See Nausea), noon",1
+r1288,504,1,"LOATHING of food (See Nausea), evening",3
+r1289,504,1,"LOATHING of food (See Nausea), night",1
+r1290,504,1,"LOATHING of food (See Nausea), alternating with hunger",1
+r1291,504,1,"LOATHING of food (See Nausea), beer, after",2
+r1292,504,1,"LOATHING of food (See Nausea), eat, on attempting to",1
+r1293,504,1,"LOATHING of food (See Nausea), eating, after",6
+r1294,504,1,"LOATHING of food (See Nausea), emotions, after",1
+r1295,504,1,"LOATHING of food (See Nausea), intermittent fever, during",1
+r1296,504,1,"LOATHING of food (See Nausea), pain, during",1
+r1297,504,1,"LOATHING of food (See Nausea), pregnancy, during",1
+r1298,504,1,"LOATHING of food (See Nausea), sudden while eating",1
+r1299,504,0,"LUMP, sensation of (See Stone)",31
+r1300,504,1,"LUMP, sensation of (See Stone), midnight, after",1
+r1301,504,1,"LUMP, sensation of (See Stone), as if a, had fallen to back on rising from seat",1
+r1302,504,1,"LUMP, sensation of (See Stone), cold drinks, after",2
+r1303,504,1,"LUMP, sensation of (See Stone), eating, after",8
+r1304,504,1,"LUMP, sensation of (See Stone), eructation amel.",1
+r1305,504,1,"LUMP, sensation of (See Stone), lying on back, while",1
+r1306,504,1,"LUMP, sensation of (See Stone), pulsating",1
+r1307,504,0,"MOVEMENT in, sensation of",15
+r1308,504,0,"NARROW, pylorus feels too",6
+r1309,504,0,NAUSEA,273
+r1310,505,1,"NAUSEA, daytime",8
+r1311,505,1,"NAUSEA, morning",90
+r1312,505,2,"NAUSEA, morning, bed, in",8
+o68300,505,2,"NAUSEA, morning, rising, on",26
+r1314,505,3,"NAUSEA, morning, rising, on, amel.",1
+r1315,505,2,"NAUSEA, morning, waking, on",8
+r1316,505,1,"NAUSEA, forenoon",28
+r1317,505,2,"NAUSEA, forenoon, 10 a.m.",3
+r1318,505,2,"NAUSEA, forenoon, 11 a.m.",9
+r1319,505,1,"NAUSEA, noon",13
+r1320,505,1,"NAUSEA, afternoon",28
+r1321,505,2,"NAUSEA, afternoon, 1 p.m.",4
+r1322,505,2,"NAUSEA, afternoon, 2 p.m.",5
+r1323,505,2,"NAUSEA, afternoon, 3 p.m.",1
+r1324,505,2,"NAUSEA, afternoon, 4 p.m.",4
+r1325,505,2,"NAUSEA, afternoon, 5-30 p.m.",1
+r1326,505,1,"NAUSEA, evening",53
+o58678,505,2,"NAUSEA, evening, drinking, after",1
+o58680,505,2,"NAUSEA, evening, eating, while",2
+r1329,505,3,"NAUSEA, evening, eating, while, after amel.",1
+r1330,505,2,"NAUSEA, evening, walking in the open air",3
+r1331,505,1,"NAUSEA, night",43
+r1332,505,2,"NAUSEA, night, lying down, after",12
+r1333,505,2,"NAUSEA, night, rising from sleep, on",1
+r1334,505,2,"NAUSEA, night, waking, on",7
+r1335,505,2,"NAUSEA, night, midnight",8
+r1336,505,3,"NAUSEA, night, midnight, after",1
+r1337,505,3,"NAUSEA, night, midnight, rising, on",1
+r1338,505,3,"NAUSEA, night, midnight, until morning",1
+r1339,505,2,"NAUSEA, night, 2 a.m.",2
+r1340,505,2,"NAUSEA, night, 3 a.m.",1
+r1341,505,2,"NAUSEA, night, 4 a.m.",2
+r1342,505,2,"NAUSEA, night, 5 a.m.",2
+r1343,506,1,"NAUSEA, abdomen, on compressing",1
+r1344,506,2,"NAUSEA, abdomen, on compressing, during pain in",23
+r1345,506,2,"NAUSEA, abdomen, on compressing, in",43
+o58616,506,1,"NAUSEA, air, in open",11
+r1347,506,2,"NAUSEA, air, in open, amel.",14
+r1348,506,2,"NAUSEA, air, in open, draft, in a",1
+r1349,506,1,"NAUSEA, alternating with hunger",1
+r1350,506,1,"NAUSEA, amorous caresses, from",2
+r1351,506,1,"NAUSEA, anxiety, after",3
+r1352,506,1,"NAUSEA, apyrexia",3
+r1353,506,1,"NAUSEA, ascending stairs rapidly",1
+r1354,506,1,"NAUSEA, backache, during",3
+r1355,506,1,"NAUSEA, bed, in, amel.",1
+r1356,506,1,"NAUSEA, beer, after",4
+r1357,506,2,"NAUSEA, beer, after, odor of, agg.",1
+r1358,506,1,"NAUSEA, brandy amel.",1
+o58629,506,1,"NAUSEA, bread, black, after",1
+r1359,506,2,"NAUSEA, bread, black, after, after",2
+r1361,506,1,"NAUSEA, breakfast, before",19
+r1362,506,2,"NAUSEA, breakfast, before, during",7
+o58630,506,2,"NAUSEA, breakfast, before, after",18
+r1364,506,3,"NAUSEA, breakfast, before, after, amel.",1
+r1365,506,1,"NAUSEA, chest, in",18
+r1366,506,2,"NAUSEA, chest, in, from pain in",1
+r1367,506,1,"NAUSEA, chilliness, with",4
+r1368,506,2,"NAUSEA, chilliness, with, after",12
+r1369,506,1,"NAUSEA, chill, before",8
+r1370,506,2,"NAUSEA, chill, before, during",36
+r1371,506,2,"NAUSEA, chill, before, after",4
+r1372,506,3,"NAUSEA, chill, before, after, lasting until next chill",1
+r1373,506,2,"NAUSEA, chill, before, close of",1
+o58643,506,1,"NAUSEA, closing the eyes",3
+r1375,506,2,"NAUSEA, closing the eyes, amel.",1
+r1376,506,1,"NAUSEA, coffee, after",9
+r1377,506,2,"NAUSEA, coffee, after, smell of",1
+r1378,506,1,"NAUSEA, coition, during",1
+r1379,506,2,"NAUSEA, coition, during, after",2
+r1380,506,1,"NAUSEA, cold, when",5
+r1381,506,1,"NAUSEA, cold drinks, after",22
+r1382,506,2,"NAUSEA, cold drinks, after, not after warm",2
+r1383,506,2,"NAUSEA, cold drinks, after, when heated",1
+r1384,506,2,"NAUSEA, cold drinks, after, amel.",3
+r1385,506,1,"NAUSEA, constant",27
+r1386,506,1,"NAUSEA, cough, during",37
+r1387,506,1,"NAUSEA, crowd, in a",1
+r1388,506,1,"NAUSEA, deathly",10
+r1389,507,1,"NAUSEA, dinner, before",3
+r1390,507,2,"NAUSEA, dinner, before, during",11
+r1391,507,2,"NAUSEA, dinner, before, after",29
+r1392,507,1,"NAUSEA, dreams, from",1
+o58665,507,1,"NAUSEA, drinking, while",1
+r1327,507,2,"NAUSEA, drinking, while, after",28
+r1395,507,2,"NAUSEA, drinking, while, amel.",6
+r1396,507,1,"NAUSEA, drunkards, in",5
+r1397,507,1,"NAUSEA, dryness in pharynx, from",1
+r1398,507,1,"NAUSEA, eating, before",16
+r1328,507,2,"NAUSEA, eating, before, while",35
+o58668,507,2,"NAUSEA, eating, before, eating, after",106
+o58669,507,3,"NAUSEA, eating, before, eating, after, amel.",24
+r1402,507,1,"NAUSEA, eggs, after eating",1
+r1403,507,1,"NAUSEA, eggs, smell of",1
+r1404,507,1,"NAUSEA, erect, on becoming",3
+o58676,507,1,"NAUSEA, eructations, during",5
+r1406,507,2,"NAUSEA, eructations, during, amel.",25
+r1407,507,1,"NAUSEA, excitement, after",1
+r1408,507,1,"NAUSEA, exercising from",6
+r1409,507,1,"NAUSEA, exertion, after",4
+r1410,507,2,"NAUSEA, exertion, after, vision of",4
+r1411,507,1,"NAUSEA, faint-like",17
+r1412,507,1,"NAUSEA, fasting, while",8
+r1413,507,1,"NAUSEA, fats, after eating",4
+r1414,507,1,"NAUSEA, fever, during",25
+r1415,507,2,"NAUSEA, fever, during, after",3
+r1416,507,1,"NAUSEA, fish, after",1
+r1417,507,2,"NAUSEA, fish, after, smell of",1
+r1418,507,1,"NAUSEA, food, on looking at",14
+r1419,507,2,"NAUSEA, food, on looking at, smell of",10
+r1420,507,2,"NAUSEA, food, on looking at, thought of",14
+r1421,507,3,"NAUSEA, food, on looking at, thought of, food eaten",3
+r1422,507,2,"NAUSEA, food, on looking at, with relish for",1
+r1423,507,2,"NAUSEA, food, on looking at, rich, from",9
+r1424,508,1,"NAUSEA, fruit, after",3
+r1425,508,1,"NAUSEA, hawking, when",8
+r1426,508,1,"NAUSEA, headache, during",116
+r1427,508,1,"NAUSEA, hunger (See Emptiness)",0
+r1428,508,1,"NAUSEA, hyacinths, from the odor of",1
+r1429,508,1,"NAUSEA, ice cream, after",3
+r1430,508,1,"NAUSEA, inability to vomit",1
+r1431,508,1,"NAUSEA, intermittent",13
+r1432,508,2,"NAUSEA, intermittent, night before paroxysms of",1
+r1433,508,1,"NAUSEA, labor, during",7
+r1434,508,1,"NAUSEA, liquids, from",1
+r1435,508,1,"NAUSEA, looking steadily",4
+o58713,508,2,"NAUSEA, looking steadily, at moving object (See Vertigo)",1
+o58714,508,1,"NAUSEA, lying down, on",11
+o58715,508,2,"NAUSEA, lying down, on, amel.",9
+o58716,508,2,"NAUSEA, lying down, on, on back",1
+o58720,508,2,"NAUSEA, lying down, on, on side",2
+o58721,508,3,"NAUSEA, lying down, on, on side, amel.",2
+o58719,508,2,"NAUSEA, lying down, on, on right side",1
+o58717,508,2,"NAUSEA, lying down, on, on left side",5
+o58718,508,3,"NAUSEA, lying down, on, on left side, amel.",1
+r1445,508,1,"NAUSEA, meat, after",6
+r1446,508,2,"NAUSEA, meat, after, smell of",2
+r1447,508,1,"NAUSEA, menses, before",22
+r1448,508,2,"NAUSEA, menses, before, during",47
+r1449,508,2,"NAUSEA, menses, before, after",1
+r1450,508,2,"NAUSEA, menses, before, suppressed, with",21
+r1451,508,1,"NAUSEA, mental exertion, form",4
+r1452,508,1,"NAUSEA, milk, after",5
+r1453,508,1,"NAUSEA, mortification, after",1
+o58738,508,1,"NAUSEA, motion, on",30
+r1455,508,2,"NAUSEA, motion, on, amel.",1
+r1456,508,2,"NAUSEA, motion, on, of eyes agg.",5
+r1457,508,1,"NAUSEA, mouth, in",9
+r1458,508,1,"NAUSEA, mucus in throat, from",1
+r1459,508,1,"NAUSEA, music, from",2
+r1460,508,1,"NAUSEA, mutton, smell of",1
+r1461,508,1,"NAUSEA, noise, from",2
+r1462,508,1,"NAUSEA, odors, from",5
+r1463,508,2,"NAUSEA, odors, from, of his own body",1
+r1464,508,1,"NAUSEA, operation on abdomen, after",2
+r1465,508,1,"NAUSEA, oranges, odor of",1
+r1466,508,1,"NAUSEA, organ, from sound of",1
+r1467,508,1,"NAUSEA, overheated, after being",1
+r1468,509,1,"NAUSEA, pain, during",8
+r1469,509,2,"NAUSEA, pain, during, in back",1
+r1470,509,2,"NAUSEA, pain, during, in heart",1
+r1471,509,2,"NAUSEA, pain, during, in sacrum",1
+r1472,509,1,"NAUSEA, palpitation, after",2
+r1473,509,2,"NAUSEA, palpitation, after, causes",1
+r1474,509,1,"NAUSEA, pastry, after",1
+r1475,509,1,"NAUSEA, periodic",7
+r1476,509,1,"NAUSEA, perspiration, during",9
+r1477,509,1,"NAUSEA, piano playing, from",1
+r1478,509,1,"NAUSEA, plums, after",1
+r1479,509,1,"NAUSEA, pork, after",3
+r1480,509,1,"NAUSEA, potatoes, after",1
+r1481,509,1,"NAUSEA, pregnancy, during",60
+r1482,509,1,"NAUSEA, pressure on painful spot from",1
+o58778,509,2,"NAUSEA, pressure on painful spot from, abdomen, on",3
+o58779,509,2,"NAUSEA, pressure on painful spot from, stomach, on",12
+o58780,509,2,"NAUSEA, pressure on painful spot from, throat, on",1
+r1486,509,1,"NAUSEA, prolonged",1
+r1487,509,1,"NAUSEA, putting hands in warm water",1
+r1488,509,1,"NAUSEA, raising head from pillow",5
+r1489,509,1,"NAUSEA, reading, while",9
+r1490,509,1,"NAUSEA, rich food (See Food)",0
+o58785,509,1,"NAUSEA, riding in a carriage or on the cars, while",19
+o58787,509,2,"NAUSEA, riding in a carriage or on the cars, while, before breakfast",1
+o58786,509,2,"NAUSEA, riding in a carriage or on the cars, while, amel.",1
+r1494,509,1,"NAUSEA, rinsing the mouth, on",3
+r1495,509,1,"NAUSEA, rising, on",21
+r1496,509,2,"NAUSEA, rising, on, up in bed",10
+o58789,509,2,"NAUSEA, rising, on, after",2
+r1498,509,3,"NAUSEA, rising, on, after, amel.",1
+r1499,509,1,"NAUSEA, salivation, with",7
+r1500,509,1,"NAUSEA, salt, on thinking of",1
+r1501,509,1,"NAUSEA, seasickness",16
+r1502,509,1,"NAUSEA, sewing, from",2
+r1503,509,1,"NAUSEA, shuddering, when",5
+r1504,509,1,"NAUSEA, sitting down, when",1
+o58801,509,2,"NAUSEA, sitting down, when, while",13
+o58799,509,2,"NAUSEA, sitting down, when, bent over amel.",1
+o58800,509,2,"NAUSEA, sitting down, when, up in bed",5
+r1508,509,1,"NAUSEA, sleep, before",4
+o58805,509,2,"NAUSEA, sleep, before, during",4
+r1510,509,2,"NAUSEA, sleep, before, after",21
+r1511,509,2,"NAUSEA, sleep, before, amel.",1
+r1512,509,1,"NAUSEA, smoking, while",18
+r1513,509,2,"NAUSEA, smoking, while, after",18
+r1514,510,1,"NAUSEA, sneezing, when",1
+r1515,510,1,"NAUSEA, soup",3
+r1516,510,2,"NAUSEA, soup, amel.",3
+r1517,510,2,"NAUSEA, soup, odor and thought of",1
+r1518,510,1,"NAUSEA, sour things amel.",1
+r1519,510,1,"NAUSEA, spitting, from",1
+o58815,510,1,"NAUSEA, standing, while",8
+r1521,510,2,"NAUSEA, standing, while, amel.",1
+r1522,510,1,"NAUSEA, stool, before",21
+o58820,510,2,"NAUSEA, stool, before, during",30
+r1524,510,2,"NAUSEA, stool, before, after",19
+r1525,510,2,"NAUSEA, stool, before, amel.",4
+r1526,510,2,"NAUSEA, stool, before, desire for, during",1
+r1527,510,1,"NAUSEA, stooping, on",12
+r1528,510,1,"NAUSEA, sudden",10
+r1529,510,2,"NAUSEA, sudden, while eating",4
+r1530,510,1,"NAUSEA, sun, heat of",1
+r1531,510,1,"NAUSEA, supper, after",8
+r1532,510,1,"NAUSEA, swallowing, saliva",9
+r1533,510,1,"NAUSEA, swallowing amel.",1
+r1534,510,1,"NAUSEA, sweets",3
+r1535,510,1,"NAUSEA, swinging, from",3
+r1536,510,1,"NAUSEA, talking, while",3
+r1537,510,1,"NAUSEA, tea, after",1
+r1538,510,1,"NAUSEA, thinking of it agg.",8
+r1539,510,1,"NAUSEA, throat, in",39
+r1540,510,2,"NAUSEA, throat, in, from spasm in throat",1
+r1541,510,2,"NAUSEA, throat, in, by tight fitting collar",1
+r1542,510,1,"NAUSEA, tobacco, odor of",1
+r1543,510,2,"NAUSEA, tobacco, odor of, thought of",1
+r1544,510,1,"NAUSEA, touching lips",1
+r1545,510,1,"NAUSEA, uncovering amel.",1
+r1546,510,1,"NAUSEA, urinating, after",4
+r1547,510,1,"NAUSEA, urine, if retains",1
+r1548,510,1,"NAUSEA, using the eyes",5
+r1549,510,1,"NAUSEA, vaccination, after",1
+r1550,510,1,"NAUSEA, vertigo, during (See Vertigo)",0
+r1551,510,1,"NAUSEA, vexation, after",6
+r1552,510,1,"NAUSEA, vomiting does not amel.",2
+r1553,510,1,"NAUSEA, waking, on (See Sleep, after)",0
+o58849,510,1,"NAUSEA, walking, while",29
+r1555,510,2,"NAUSEA, walking, while, after",5
+r1556,510,2,"NAUSEA, walking, while, amel.",4
+r1557,510,2,"NAUSEA, walking, while, in open air, while",10
+o68317,510,1,"NAUSEA, warm drinks",4
+r1559,510,2,"NAUSEA, warm drinks, amel.",1
+o58852,510,2,"NAUSEA, warm drinks, room, in",14
+o58853,510,3,"NAUSEA, warm drinks, room, in, on entering, after being in open air",5
+o58854,510,2,"NAUSEA, warm drinks, stove",1
+r1563,510,1,"NAUSEA, washing, while",1
+r1564,511,1,"NAUSEA, water, after drinking (See Drinking)",0
+r1565,511,2,"NAUSEA, water, after drinking (See Drinking), sight of water, from",1
+r1566,511,2,"NAUSEA, water, after drinking (See Drinking), thinking of",1
+r1567,511,1,"NAUSEA, wine, after",5
+r1568,511,2,"NAUSEA, wine, after, amel.",1
+r1569,511,2,"NAUSEA, wine, after, sour, from",1
+r1570,511,1,"NAUSEA, yawning, when",2
+r1571,511,0,"OBSTRUCTION of pylorus, sensation of (See Narrow)",3
+r1572,511,0,"OPEN, as if stomach were, sensation",1
+r1573,511,0,"OVERLOADED, sensation as if (See Heaviness and Fullness)",0
+r1574,511,0,PAIN,202
+r1575,511,1,"PAIN, morning",36
+r1576,511,2,"PAIN, morning, bed, in",4
+o59260,511,2,"PAIN, morning, eating, after",2
+o59261,511,3,"PAIN, morning, eating, after, amel.",1
+r1579,511,2,"PAIN, morning, fasting, while",2
+r1580,511,2,"PAIN, morning, rising, on",4
+r1581,511,2,"PAIN, morning, stool, after",1
+r1582,511,2,"PAIN, morning, waking, on",10
+r1583,511,2,"PAIN, morning, walking, while",6
+r1584,511,2,"PAIN, morning, until 1 p.m.",1
+r1585,511,1,"PAIN, forenoon",13
+r1586,511,2,"PAIN, forenoon, stool, after",2
+o59189,511,2,"PAIN, forenoon, 8 to 9 a.m.",1
+r1588,511,1,"PAIN, noon",6
+r1589,511,1,"PAIN, afternoon",24
+r1590,511,1,"PAIN, evening",34
+r1591,511,2,"PAIN, evening, bed, in",5
+r1592,511,2,"PAIN, evening, chill, during",1
+r1593,511,2,"PAIN, evening, menses, before",1
+r1594,511,2,"PAIN, evening, singing, while",1
+r1595,511,2,"PAIN, evening, 8 p.m., walking in open air",1
+r1596,511,1,"PAIN, night",36
+r1597,512,2,"PAIN, night, bed, in",3
+r1598,512,2,"PAIN, night, lying on the back, while",1
+r1599,512,2,"PAIN, night, sleep, during",1
+o59282,512,2,"PAIN, night, waking, on",2
+r1601,512,3,"PAIN, night, waking, on, amel.",1
+r1602,512,2,"PAIN, night, 9 p.m., until midnight",1
+r1603,512,2,"PAIN, night, midnight",3
+r1604,512,3,"PAIN, night, midnight, after",2
+r1605,512,2,"PAIN, night, 1 a.m.",1
+r1606,512,2,"PAIN, night, 2 a.m.",4
+r1607,512,1,"PAIN, acids, after",3
+o58868,512,1,"PAIN, air, open",4
+r1609,512,2,"PAIN, air, open, amel.",1
+r1610,512,2,"PAIN, air, open, cold, blowing on abdomen",1
+r1611,512,1,"PAIN, alternating with pain in limbs",1
+r1612,512,1,"PAIN, anger, after",2
+r1613,512,1,"PAIN, appears and disappears gradually",1
+r1614,512,1,"PAIN, appears gradually and disappears suddenly",1
+r1615,512,1,"PAIN, apples, sour, after",1
+r1616,512,1,"PAIN, apyrexia, during",1
+r1617,512,1,"PAIN, ascending steps, on",2
+r1618,512,1,"PAIN, bandaging abdomen amel.",2
+r1619,512,1,"PAIN, bed-covers, from",1
+r1620,512,1,"PAIN, beer, after",2
+o58881,512,1,"PAIN, bending double, on",2
+r1622,512,2,"PAIN, bending double, on, amel.",12
+o58882,512,2,"PAIN, bending double, on, backward amel.",4
+r1624,512,1,"PAIN, blowing nose, on",2
+r1625,512,1,"PAIN, bread, after",17
+r1626,512,2,"PAIN, bread, after, amel.",1
+r1627,512,2,"PAIN, bread, after, rye",1
+r1628,512,1,"PAIN, breakfast, before",3
+r1629,512,2,"PAIN, breakfast, before, after",15
+r1630,512,1,"PAIN, breathing, on",7
+r1631,512,2,"PAIN, breathing, on, deep, on",1
+r1632,512,1,"PAIN, cheese",1
+r1633,512,1,"PAIN, chill, during",12
+r1634,512,1,"PAIN, clothing, from",6
+r1635,512,1,"PAIN, coffee, after",5
+r1636,512,1,"PAIN, coition, after",1
+r1637,512,1,"PAIN, cold drinks, after",31
+r1638,512,2,"PAIN, cold drinks, after, when overheated",3
+r1639,512,2,"PAIN, cold drinks, after, amel.",7
+r1640,512,1,"PAIN, cold, food, after",6
+r1641,512,2,"PAIN, cold, food, after, amel.",1
+r1642,512,1,"PAIN, contradiction, from",1
+r1643,512,1,"PAIN, convulsions, with",1
+r1644,512,1,"PAIN, cough, an attack of, before",4
+r1645,512,1,"PAIN, coughing, from",35
+r1646,512,1,"PAIN, damp weather, in",2
+r1647,512,1,"PAIN, dinner, before",4
+o59118,512,2,"PAIN, dinner, before, during",2
+r1649,512,2,"PAIN, dinner, before, after",30
+r1650,512,2,"PAIN, dinner, before, amel.",3
+r1651,512,1,"PAIN, disappointment, after",1
+r1652,513,1,"PAIN, drawing up the limbs amel.",2
+r1653,513,1,"PAIN, drinking, after",31
+r1654,513,2,"PAIN, drinking, after, quickly agg.",1
+r1655,513,1,"PAIN, drunkards, in",6
+r1656,513,1,"PAIN, eating, while",21
+r1577,513,2,"PAIN, eating, while, after",116
+r1658,513,3,"PAIN, eating, while, after, an hour after",3
+r1659,513,3,"PAIN, eating, while, after, 2 or 3 hours, after",7
+r1578,513,3,"PAIN, eating, while, after, amel.",33
+r1661,513,1,"PAIN, eructations agg.",3
+o59151,513,2,"PAIN, eructations agg., suppressed, after",2
+o59150,513,2,"PAIN, eructations agg., amel.",23
+r1664,513,1,"PAIN, excitement, after",5
+r1665,513,1,"PAIN, exercising, while",5
+r1666,513,1,"PAIN, fainting, with",3
+r1667,513,1,"PAIN, fasting, while",16
+r1668,513,1,"PAIN, fat food, after",3
+r1669,513,1,"PAIN, flatulent food, after",1
+r1670,513,1,"PAIN, flatus, passing, amel.",6
+r1671,513,1,"PAIN, fluids, after",2
+r1672,513,1,"PAIN, fright, from",2
+r1673,513,1,"PAIN, fruit, after",2
+r1674,513,1,"PAIN, heat amel.",8
+o59220,513,2,"PAIN, heat amel., during",11
+r1676,513,1,"PAIN, hot drinks agg.",3
+r1677,513,1,"PAIN, hunger, during",3
+r1678,513,1,"PAIN, ice cream, after",4
+r1679,513,2,"PAIN, ice cream, after, amel.",1
+r1680,513,1,"PAIN, inspiration, deep",14
+r1681,513,1,"PAIN, jar of walking agg.",8
+r1682,513,1,"PAIN, jolting in a carriage, from",2
+r1683,513,1,"PAIN, knee-elbow position amel.",1
+r1684,513,1,"PAIN, lactation, from",1
+r1685,513,1,"PAIN, lifting, after",3
+r1686,513,1,"PAIN, loss of animal fluids",2
+o59246,513,1,"PAIN, lying, while",8
+r1688,513,2,"PAIN, lying, while, amel.",10
+r1689,513,2,"PAIN, lying, while, on abdomen agg.",1
+o59240,513,3,"PAIN, lying, while, on abdomen agg., amel.",1
+o59237,513,2,"PAIN, lying, while, back",2
+r1692,513,3,"PAIN, lying, while, back, amel.",2
+r1694,514,2,"PAIN, lying, while, with legs drawn up amel.",1
+r1695,514,2,"PAIN, lying, while, side",3
+r1696,514,3,"PAIN, lying, while, side, amel.",1
+r1697,514,3,"PAIN, lying, while, side, right",1
+r1698,514,3,"PAIN, lying, while, side, left",2
+r1699,514,3,"PAIN, lying, while, side, with legs drawn up amel.",1
+r1700,514,1,"PAIN, meat, after",4
+r1701,514,2,"PAIN, meat, after, boiled, after",1
+r1702,514,1,"PAIN, menses, before",11
+r1703,514,2,"PAIN, menses, before, during",23
+r1704,514,2,"PAIN, menses, before, after",5
+r1705,514,2,"PAIN, menses, before, instead of",1
+r1706,514,1,"PAIN, mental exertion, on",2
+r1707,514,1,"PAIN, milk, after",10
+r1708,514,2,"PAIN, milk, after, sweet milk, amel.",1
+r1709,514,1,"PAIN, misstep, from",5
+r1710,514,1,"PAIN, mortification, after",1
+o59270,514,1,"PAIN, motion, on",19
+r1712,514,2,"PAIN, motion, on, amel.",4
+r1713,514,1,"PAIN, nausea, during",1
+r1714,514,1,"PAIN, oysters, after",1
+r1715,514,1,"PAIN, paroxysmal",18
+r1716,514,1,"PAIN, pears, after",1
+r1717,514,1,"PAIN, periodical",8
+r1718,514,2,"PAIN, periodical, third day, every",1
+r1719,514,1,"PAIN, potatoes, after",2
+r1720,514,1,"PAIN, pregnancy, during",3
+r1721,514,1,"PAIN, pressing on spine, from",1
+o59389,514,1,"PAIN, pressure",26
+r1723,514,2,"PAIN, pressure, amel.",7
+r1724,514,1,"PAIN, radiating",3
+r1725,514,1,"PAIN, raising arm high",1
+r1726,514,1,"PAIN, rich food, after",4
+r1727,514,1,"PAIN, riding in a carriage",2
+o59395,514,2,"PAIN, riding in a carriage, after",1
+r1729,514,1,"PAIN, rising, after",4
+r1730,514,2,"PAIN, rising, after, amel.",3
+r1731,514,2,"PAIN, rising, after, from bed, on",2
+r1732,514,1,"PAIN, rubbing amel.",1
+r1733,514,1,"PAIN, sitting, while",12
+o59402,514,2,"PAIN, sitting, while, bent over",5
+r1735,514,3,"PAIN, sitting, while, bent over, amel.",5
+o59404,514,2,"PAIN, sitting, while, erect",1
+r1737,514,3,"PAIN, sitting, while, erect, amel.",1
+r1738,514,1,"PAIN, soup, after",2
+r1739,514,1,"PAIN, speaking, from",6
+r1740,514,1,"PAIN, standing, while",6
+r1741,514,2,"PAIN, standing, while, still amel.",1
+r1742,514,1,"PAIN, stool, before",5
+r1743,514,2,"PAIN, stool, before, during",10
+o59501,514,2,"PAIN, stool, before, after",6
+r1745,514,3,"PAIN, stool, before, after, amel.",1
+r1746,514,1,"PAIN, stooping",10
+r1747,514,1,"PAIN, strain, from",3
+r1748,514,1,"PAIN, stretching amel.",2
+r1749,514,1,"PAIN, sudden",3
+r1750,514,1,"PAIN, sugar, after",1
+o59510,514,1,"PAIN, supper, after",8
+r1752,514,2,"PAIN, supper, after, amel., after",2
+r1753,514,1,"PAIN, swallowing, on",5
+r1755,515,2,"PAIN, swallowing, on, at cardiac end of stomach",5
+r1756,515,1,"PAIN, touch",2
+r1757,515,1,"PAIN, turning in bed",2
+r1758,515,1,"PAIN, urination, during",2
+r1759,515,1,"PAIN, vaccination, after",1
+r1760,515,1,"PAIN, vexation, after",6
+r1761,515,1,"PAIN, violent",32
+r1762,515,2,"PAIN, violent, going to the back",2
+o68396,515,1,"PAIN, waking, on",12
+r1764,515,2,"PAIN, waking, on, amel.",1
+o59548,515,1,"PAIN, walking, while",20
+r1766,515,2,"PAIN, walking, while, amel.",9
+r1767,515,2,"PAIN, walking, while, in open air",5
+r1768,515,3,"PAIN, walking, while, in open air, 8 p.m.",1
+r1769,515,3,"PAIN, walking, while, in open air, amel.",1
+r1770,515,1,"PAIN, warm application, amel.",5
+r1771,515,1,"PAIN, warm drinks amel.",12
+o59552,515,2,"PAIN, warm drinks amel., milk amel.",2
+o59551,515,2,"PAIN, warm drinks amel., food agg.",6
+r1774,515,1,"PAIN, warmth of bed amel.",4
+r1775,515,1,"PAIN, water, after (See Drinking)",0
+r1776,515,1,"PAIN, wine, after",1
+r1777,515,1,"PAIN, yawning agg.",1
+o59556,515,2,"PAIN, yawning agg., amel.",2
+r1779,515,1,"PAIN, extending to left side of abdomen",1
+o59177,515,2,"PAIN, extending to left side of abdomen, over abdomen",4
+o59161,515,2,"PAIN, extending to left side of abdomen, arm, to",1
+o59164,515,2,"PAIN, extending to left side of abdomen, bladder and testes",1
+o59162,515,2,"PAIN, extending to left side of abdomen, back",18
+o59163,515,3,"PAIN, extending to left side of abdomen, back, between shoulders",1
+o59165,515,2,"PAIN, extending to left side of abdomen, chest, into",14
+o59167,515,3,"PAIN, extending to left side of abdomen, chest, into, when coughing",1
+o59166,515,3,"PAIN, extending to left side of abdomen, chest, into, after dinner",1
+o59168,515,2,"PAIN, extending to left side of abdomen, clavicle, left",1
+o59169,515,2,"PAIN, extending to left side of abdomen, downward",1
+o59170,515,2,"PAIN, extending to left side of abdomen, groins",1
+o59171,515,2,"PAIN, extending to left side of abdomen, heart, to",3
+o59172,515,2,"PAIN, extending to left side of abdomen, hypochondria, to",3
+o59173,515,2,"PAIN, extending to left side of abdomen, left shoulder",1
+o59174,515,2,"PAIN, extending to left side of abdomen, limbs, to",1
+o59175,515,2,"PAIN, extending to left side of abdomen, navel, to",1
+o59176,515,2,"PAIN, extending to left side of abdomen, œsophagus, to",2
+o59178,515,2,"PAIN, extending to left side of abdomen, scapula, left",1
+o59179,515,2,"PAIN, extending to left side of abdomen, sternum",2
+o59180,515,2,"PAIN, extending to left side of abdomen, throat",7
+o59181,515,2,"PAIN, extending to left side of abdomen, transversely",4
+r1801,515,1,"PAIN, boring (See Gnawing)",0
+r1802,515,1,"PAIN, burning",193
+r1803,516,2,"PAIN, burning, morning",6
+r1804,516,2,"PAIN, burning, forenoon",1
+r1805,516,2,"PAIN, burning, noon",1
+r1806,516,2,"PAIN, burning, afternoon",6
+r1807,516,3,"PAIN, burning, afternoon, after stool",1
+r1808,516,2,"PAIN, burning, evening",9
+r1809,516,3,"PAIN, burning, evening, eating fish, on",1
+r1810,516,3,"PAIN, burning, evening, 8 p.m.",1
+r1811,516,3,"PAIN, burning, evening, 9 p.m.",1
+r1812,516,2,"PAIN, burning, night",6
+r1813,516,3,"PAIN, burning, night, waking, on",1
+r1814,516,3,"PAIN, burning, night, midnight, after",1
+r1815,516,2,"PAIN, burning, bending forward",1
+r1816,516,2,"PAIN, burning, bread, after",1
+o58898,516,2,"PAIN, burning, breakfast, during",1
+r1818,516,3,"PAIN, burning, breakfast, during, after",7
+r1819,516,3,"PAIN, burning, breakfast, during, amel.",3
+r1820,516,2,"PAIN, burning, chilliness, during",1
+r1821,516,2,"PAIN, burning, circumscribed",1
+r1822,516,2,"PAIN, burning, cold drinks, after",5
+r1823,516,3,"PAIN, burning, cold drinks, after, amel.",1
+r1824,516,2,"PAIN, burning, cough, during",1
+r1825,516,2,"PAIN, burning, digestion, during",1
+r1826,516,2,"PAIN, burning, dinner, after",3
+r1827,516,3,"PAIN, burning, dinner, after, amel.",1
+r1828,516,2,"PAIN, burning, drinking, after",6
+r1829,516,2,"PAIN, burning, drunkards, in",1
+r1830,516,2,"PAIN, burning, eating, after",16
+r1831,516,3,"PAIN, burning, eating, after, amel.",4
+r1832,516,3,"PAIN, burning, eating, after, some hours after",4
+r1833,516,2,"PAIN, burning, eructations, after",4
+r1834,516,3,"PAIN, burning, eructations, after, amel.",2
+r1835,516,2,"PAIN, burning, fasting, while",2
+r1836,516,2,"PAIN, burning, fright, after",1
+r1837,516,2,"PAIN, burning, headache, during",1
+r1838,516,2,"PAIN, burning, heat, during",4
+r1839,516,2,"PAIN, burning, inspiration",1
+r1840,516,2,"PAIN, burning, lying down, on",1
+r1841,516,2,"PAIN, burning, menses, during",1
+r1842,516,2,"PAIN, burning, motion, on",3
+r1843,516,3,"PAIN, burning, motion, on, of child in utero",1
+r1844,516,2,"PAIN, burning, paroxysmal",3
+r1845,516,2,"PAIN, burning, periodical",2
+r1846,516,2,"PAIN, burning, pressure agg.",4
+r1847,516,2,"PAIN, burning, reading, while",1
+r1848,516,2,"PAIN, burning, rising amel.",1
+r1849,516,2,"PAIN, burning, sitting, while",1
+r1850,516,2,"PAIN, burning, standing, while",2
+r1851,516,2,"PAIN, burning, stool, before",1
+r1852,516,3,"PAIN, burning, stool, before, after",3
+r1853,516,3,"PAIN, burning, stool, before, amel.",2
+r1854,516,2,"PAIN, burning, sudden",2
+r1855,516,2,"PAIN, burning, supper, after",1
+r1856,516,2,"PAIN, burning, tea, after",1
+o58955,516,2,"PAIN, burning, vomiting, when",3
+r1858,516,3,"PAIN, burning, vomiting, when, amel.",2
+r1859,516,2,"PAIN, burning, waking, after",3
+r1860,517,2,"PAIN, burning, walking, while",3
+r1861,517,2,"PAIN, burning, warm things, after",1
+r1862,517,2,"PAIN, burning, warm drinks amel.",1
+r1863,517,2,"PAIN, burning, extending back, to",1
+o58919,517,3,"PAIN, burning, extending back, to, chest",6
+o58920,517,3,"PAIN, burning, extending back, to, larynx",1
+o58921,517,3,"PAIN, burning, extending back, to, mouth",5
+o58922,517,3,"PAIN, burning, extending back, to, throat",15
+o58923,517,4,"PAIN, burning, extending back, to, throat, after eating",2
+o58924,517,3,"PAIN, burning, extending back, to, up the œsophagus",4
+o58925,517,3,"PAIN, burning, extending back, to, upward",15
+r1871,517,1,"PAIN, clawing",21
+r1872,517,2,"PAIN, clawing, morning",2
+r1873,517,3,"PAIN, clawing, morning, breakfast amel.",1
+r1874,517,3,"PAIN, clawing, morning, on waking",1
+r1875,517,2,"PAIN, clawing, evening",2
+r1876,517,2,"PAIN, clawing, eating, after",1
+r1877,517,2,"PAIN, clawing, rising from bed",1
+r1878,517,1,"PAIN, corrosive (See Burning)",3
+r1879,517,1,"PAIN, cramping, griping, constricting",168
+o59027,517,2,"PAIN, cramping, griping, constricting, morning",7
+o59028,517,3,"PAIN, cramping, griping, constricting, morning, bed, in",3
+o59029,517,3,"PAIN, cramping, griping, constricting, morning, rising, after",1
+o59030,517,3,"PAIN, cramping, griping, constricting, morning, waking, on",2
+o59013,517,2,"PAIN, cramping, griping, constricting, forenoon",3
+o59040,517,2,"PAIN, cramping, griping, constricting, noon",2
+o58982,517,2,"PAIN, cramping, griping, constricting, afternoon",5
+o58983,517,3,"PAIN, cramping, griping, constricting, afternoon, 1 to 2 p.m.",1
+o58984,517,3,"PAIN, cramping, griping, constricting, afternoon, 4 p.m.",1
+o58985,517,3,"PAIN, cramping, griping, constricting, afternoon, 5 p.m.",1
+o58986,517,3,"PAIN, cramping, griping, constricting, afternoon, 6 p.m.",1
+o59009,517,2,"PAIN, cramping, griping, constricting, evening",8
+o59010,517,3,"PAIN, cramping, griping, constricting, evening, bed, in",2
+o59034,517,2,"PAIN, cramping, griping, constricting, night",12
+o59038,517,3,"PAIN, cramping, griping, constricting, night, bed, in",1
+o59035,517,3,"PAIN, cramping, griping, constricting, night, 2 a.m.",2
+o59036,517,3,"PAIN, cramping, griping, constricting, night, 3 a.m.",1
+o59037,517,3,"PAIN, cramping, griping, constricting, night, 4 a.m. till noon daily",1
+o59039,517,3,"PAIN, cramping, griping, constricting, night, midnight",1
+o58987,517,2,"PAIN, cramping, griping, constricting, ascending stairs",1
+o58988,517,2,"PAIN, cramping, griping, constricting, bed, after going to",2
+o58989,517,2,"PAIN, cramping, griping, constricting, bending forward amel.",5
+o58990,517,2,"PAIN, cramping, griping, constricting, breakfast, after",2
+o58991,517,3,"PAIN, cramping, griping, constricting, breakfast, after, amel.",1
+o58992,517,2,"PAIN, cramping, griping, constricting, cheese, spoiled",1
+o58993,517,2,"PAIN, cramping, griping, constricting, clothing, tight",2
+o58994,517,3,"PAIN, cramping, griping, constricting, clothing, tight, amel.",2
+o58995,517,2,"PAIN, cramping, griping, constricting, coffee drinkers, in",2
+r1909,518,2,"PAIN, cramping, griping, constricting, cold drinks, after",6
+r1910,518,2,"PAIN, cramping, griping, constricting, cold, from a",2
+r1911,518,2,"PAIN, cramping, griping, constricting, deathly feeling below sternum",1
+r1912,518,2,"PAIN, cramping, griping, constricting, dinner, before",1
+r1913,518,3,"PAIN, cramping, griping, constricting, dinner, before, during",1
+r1914,518,3,"PAIN, cramping, griping, constricting, dinner, before, after",2
+r1915,518,2,"PAIN, cramping, griping, constricting, disposition to",4
+r1916,518,2,"PAIN, cramping, griping, constricting, drawing up limbs amel.",1
+r1917,518,2,"PAIN, cramping, griping, constricting, drinking, after",3
+r1918,518,2,"PAIN, cramping, griping, constricting, eating, before",1
+o59005,518,3,"PAIN, cramping, griping, constricting, eating, before, after",24
+r1920,518,4,"PAIN, cramping, griping, constricting, eating, before, after, amel.",5
+r1921,518,2,"PAIN, cramping, griping, constricting, eructations amel.",7
+r1922,518,2,"PAIN, cramping, griping, constricting, fasting, while",2
+r1923,518,2,"PAIN, cramping, griping, constricting, fruit, after",1
+r1924,518,2,"PAIN, cramping, griping, constricting, heat, during",5
+r1925,518,2,"PAIN, cramping, griping, constricting, inspiration",2
+r1926,518,2,"PAIN, cramping, griping, constricting, loss of animal fluids, after",1
+r1927,518,2,"PAIN, cramping, griping, constricting, lying",2
+r1928,518,3,"PAIN, cramping, griping, constricting, lying, amel.",3
+r1929,518,3,"PAIN, cramping, griping, constricting, lying, back amel.",1
+r1930,518,3,"PAIN, cramping, griping, constricting, lying, side",1
+r1931,518,4,"PAIN, cramping, griping, constricting, lying, side, left amel.",1
+r1932,518,2,"PAIN, cramping, griping, constricting, menses, before",5
+r1933,518,3,"PAIN, cramping, griping, constricting, menses, before, during",3
+r1934,518,3,"PAIN, cramping, griping, constricting, menses, before, after",2
+o59032,518,2,"PAIN, cramping, griping, constricting, motion, on",3
+r1936,518,3,"PAIN, cramping, griping, constricting, motion, on, amel.",1
+r1937,518,2,"PAIN, cramping, griping, constricting, nausea, before",1
+r1938,518,2,"PAIN, cramping, griping, constricting, paroxysmal",2
+r1939,518,2,"PAIN, cramping, griping, constricting, periodic",5
+r1940,518,2,"PAIN, cramping, griping, constricting, pork, after",1
+r1941,518,2,"PAIN, cramping, griping, constricting, pregnancy",1
+r1942,518,2,"PAIN, cramping, griping, constricting, pressure amel.",2
+r1943,518,2,"PAIN, cramping, griping, constricting, riding amel.",1
+r1944,518,2,"PAIN, cramping, griping, constricting, rye bread, after",1
+r1945,518,2,"PAIN, cramping, griping, constricting, salad, after",1
+r1946,518,2,"PAIN, cramping, griping, constricting, sausage, spoiled",1
+r1947,518,2,"PAIN, cramping, griping, constricting, sitting, while",3
+h007,518,3,"PAIN, cramping, griping, constricting, sitting, while, bent, while",1
+r1949,518,3,"PAIN, cramping, griping, constricting, sitting, while, bent, amel.",1
+r1950,518,2,"PAIN, cramping, griping, constricting, standing erect amel.",3
+r1951,518,2,"PAIN, cramping, griping, constricting, stool, before",2
+r1952,518,3,"PAIN, cramping, griping, constricting, stool, before, during",2
+r1953,518,3,"PAIN, cramping, griping, constricting, stool, before, after",1
+r1954,518,3,"PAIN, cramping, griping, constricting, stool, before, causing urging to",1
+r1955,518,2,"PAIN, cramping, griping, constricting, stooping, on",3
+r1956,518,2,"PAIN, cramping, griping, constricting, straightening up amel.",1
+r1957,518,2,"PAIN, cramping, griping, constricting, stretching amel.",1
+r1958,518,2,"PAIN, cramping, griping, constricting, supper, after",1
+r1959,518,2,"PAIN, cramping, griping, constricting, talking",1
+r1960,518,2,"PAIN, cramping, griping, constricting, transversely across",1
+r1961,518,2,"PAIN, cramping, griping, constricting, vomiting, before",2
+o59066,518,2,"PAIN, cramping, griping, constricting, walking, while",2
+r1963,518,3,"PAIN, cramping, griping, constricting, walking, while, amel.",3
+r1964,518,2,"PAIN, cramping, griping, constricting, warmth amel.",2
+o59068,518,3,"PAIN, cramping, griping, constricting, warmth amel., of bed amel.",1
+r1966,518,2,"PAIN, cramping, griping, constricting, wine from",1
+r1967,518,2,"PAIN, cramping, griping, constricting, extending to throat",1
+r1968,518,1,"PAIN, cutting",90
+r1969,518,2,"PAIN, cutting, morning",3
+r1970,518,2,"PAIN, cutting, forenoon",1
+r1971,519,2,"PAIN, cutting, afternoon",3
+r1972,519,3,"PAIN, cutting, afternoon, 1 p.m. while yawning",1
+r1973,519,3,"PAIN, cutting, afternoon, 4 p.m.",1
+r1974,519,3,"PAIN, cutting, afternoon, 5 p.m.",1
+r1975,519,2,"PAIN, cutting, evening",5
+r1976,519,2,"PAIN, cutting, night",3
+r1977,519,3,"PAIN, cutting, night, driving out of bed",1
+r1978,519,3,"PAIN, cutting, night, midnight, after",2
+r1979,519,3,"PAIN, cutting, night, 1 a.m.",1
+r1980,519,2,"PAIN, cutting, bending backward amel.",1
+o59076,519,3,"PAIN, cutting, bending backward amel., double amel.",2
+r1982,519,2,"PAIN, cutting, breakfast, after",1
+r1983,519,2,"PAIN, cutting, breathing agg.",2
+r1984,519,2,"PAIN, cutting, cold drinks, after",1
+o59080,519,3,"PAIN, cutting, cold drinks, after, taken in open air, from",1
+r1986,519,2,"PAIN, cutting, coughing, on",1
+r1987,519,2,"PAIN, cutting, convulsive before stool",1
+r1988,519,2,"PAIN, cutting, dinner, after",1
+r1989,519,2,"PAIN, cutting, eating, while",1
+r1990,519,3,"PAIN, cutting, eating, while, after",8
+r1991,519,2,"PAIN, cutting, eructations amel.",2
+r1992,519,2,"PAIN, cutting, flatus, emission of, amel.",1
+r1993,519,2,"PAIN, cutting, inspiration, on",1
+r1994,519,2,"PAIN, cutting, intermittent fever",1
+r1995,519,2,"PAIN, cutting, lying agg.",1
+r1996,519,2,"PAIN, cutting, menses, during",2
+r1997,519,2,"PAIN, cutting, paroxysmal",4
+r1998,519,2,"PAIN, cutting, pressure amel.",3
+r1999,519,2,"PAIN, cutting, riding in the open air",1
+r2000,519,2,"PAIN, cutting, sitting, while",3
+r2001,519,2,"PAIN, cutting, soup, after",1
+r2002,519,2,"PAIN, cutting, stool, before",1
+r2003,519,2,"PAIN, cutting, stooping, on",1
+r2004,519,2,"PAIN, cutting, sudden",1
+r2005,519,2,"PAIN, cutting, vomiting, when",1
+r2006,519,2,"PAIN, cutting, walking, while",1
+r2007,519,2,"PAIN, cutting, warm milk, after",1
+r2008,519,2,"PAIN, cutting, extending to spine",1
+o59089,519,3,"PAIN, cutting, extending to spine, to back",1
+o59090,519,4,"PAIN, cutting, extending to spine, to back, chest",2
+o59091,519,4,"PAIN, cutting, extending to spine, to back, navel",1
+r2012,519,1,"PAIN, darting (See Stitching)",0
+r2013,519,1,"PAIN, digging (See Gnawing)",0
+r2014,519,1,"PAIN, drawing",44
+r2015,519,2,"PAIN, drawing, morning",2
+r2016,519,3,"PAIN, drawing, morning, after stool",1
+r2017,519,2,"PAIN, drawing, chills, after",1
+r2018,519,2,"PAIN, drawing, dinner, after",2
+r2019,519,2,"PAIN, drawing, drinking",1
+r2020,519,2,"PAIN, drawing, eating, while",2
+r2021,519,2,"PAIN, drawing, inwards",2
+r2022,519,2,"PAIN, drawing, motion agg.",1
+r2023,519,2,"PAIN, drawing, paroxysmal",1
+r2024,519,2,"PAIN, drawing, riding in a carriage, after",1
+r2025,519,2,"PAIN, drawing, stooping agg.",1
+r2026,519,2,"PAIN, drawing, talking",1
+r2027,519,2,"PAIN, drawing, walking in open air, while",1
+r2028,519,2,"PAIN, drawing, extending into chest",2
+o59127,519,3,"PAIN, drawing, extending into chest, to left clavicle",1
+o59129,519,4,"PAIN, drawing, extending into chest, to left clavicle, small of back",1
+o59128,519,4,"PAIN, drawing, extending into chest, to left clavicle, pharynx",1
+o59130,519,4,"PAIN, drawing, extending into chest, to left clavicle, sternum",1
+o59131,519,4,"PAIN, drawing, extending into chest, to left clavicle, throat",1
+r2034,519,1,"PAIN, gnawing",74
+r2035,520,2,"PAIN, gnawing, left side",1
+r2036,520,2,"PAIN, gnawing, morning",3
+r2037,520,3,"PAIN, gnawing, morning, rising, after",1
+r2038,520,3,"PAIN, gnawing, morning, while fasting",2
+r2039,520,3,"PAIN, gnawing, morning, 5 a.m.",2
+r2040,520,2,"PAIN, gnawing, forenoon",1
+r2041,520,2,"PAIN, gnawing, noon, after eating",1
+r2042,520,2,"PAIN, gnawing, afternoon",1
+r2043,520,2,"PAIN, gnawing, evening",1
+r2044,520,2,"PAIN, gnawing, night",1
+r2045,520,2,"PAIN, gnawing, bending forward",1
+r2046,520,2,"PAIN, gnawing, chill, during",1
+r2047,520,2,"PAIN, gnawing, dinner, before",1
+r2048,520,3,"PAIN, gnawing, dinner, before, after",2
+r2049,520,2,"PAIN, gnawing, drinking agg.",1
+r2050,520,2,"PAIN, gnawing, eating, before",4
+r2051,520,3,"PAIN, gnawing, eating, before, after",4
+r2052,520,3,"PAIN, gnawing, eating, before, amel.",13
+r2053,520,2,"PAIN, gnawing, lying amel.",1
+r2054,520,2,"PAIN, gnawing, pain in stomach, during",1
+r2055,520,2,"PAIN, gnawing, sitting bent agg.",1
+r2056,520,2,"PAIN, gnawing, standing",1
+r2057,520,2,"PAIN, gnawing, sudden",1
+r2058,520,2,"PAIN, gnawing, supper amel.",1
+r2059,520,2,"PAIN, gnawing, walking, while",1
+r2060,520,2,"PAIN, gnawing, griping (See Cramping)",0
+r2061,520,1,"PAIN, lancinating",12
+r2062,520,2,"PAIN, lancinating, night",1
+r2063,520,2,"PAIN, lancinating, midnight, after",1
+r2064,520,2,"PAIN, lancinating, inspiration, deep, agg.",1
+r2065,520,1,"PAIN, pinching (See Cramping)",0
+r2066,520,1,"PAIN, pressing",200
+r2067,520,2,"PAIN, pressing, morning",15
+r2068,520,3,"PAIN, pressing, morning, bed, in",2
+r2069,520,3,"PAIN, pressing, morning, waking, on",7
+r2070,520,2,"PAIN, pressing, forenoon",10
+r2071,520,2,"PAIN, pressing, noon",3
+r2072,520,2,"PAIN, pressing, afternoon",8
+r2073,520,3,"PAIN, pressing, afternoon, 2 p.m.",1
+o59296,520,3,"PAIN, pressing, afternoon, 4 to 5 p.m.",1
+r2075,520,2,"PAIN, pressing, evening",15
+r2076,520,3,"PAIN, pressing, evening, bed, in",2
+r2077,521,2,"PAIN, pressing, night",10
+r2078,521,3,"PAIN, pressing, night, drives out of bed",1
+r2079,521,3,"PAIN, pressing, night, lying on back, while",1
+r2080,521,3,"PAIN, pressing, night, midnight, after",1
+r2081,521,3,"PAIN, pressing, night, 2 a.m.",1
+r2082,521,2,"PAIN, pressing, air, in open",1
+r2083,521,3,"PAIN, pressing, air, in open, cold, if touches abdomen",1
+r2084,521,2,"PAIN, pressing, alternating with headache",1
+r2085,521,2,"PAIN, pressing, bandaging abdomen amel.",1
+r2086,521,2,"PAIN, pressing, beer, after",2
+r2087,521,2,"PAIN, pressing, bending backward amel.",1
+o59303,521,3,"PAIN, pressing, bending backward amel., forward agg.",1
+r2089,521,2,"PAIN, pressing, bread, after",6
+r2090,521,2,"PAIN, pressing, breakfast, after",13
+r2091,521,2,"PAIN, pressing, chill, during",3
+r2092,521,2,"PAIN, pressing, clothing, from",2
+r2093,521,2,"PAIN, pressing, coffee, after",1
+r2094,521,2,"PAIN, pressing, coition, after",1
+r2095,521,2,"PAIN, pressing, cold food, after",1
+r2096,521,2,"PAIN, pressing, coughing, on",2
+r2097,521,2,"PAIN, pressing, dinner, before",3
+r2098,521,3,"PAIN, pressing, dinner, before, after",15
+r2099,521,2,"PAIN, pressing, drinking, after",5
+r2100,521,3,"PAIN, pressing, drinking, after, cold drink",3
+o59319,521,2,"PAIN, pressing, eating, while",8
+r2102,521,3,"PAIN, pressing, eating, while, after",80
+r2103,521,3,"PAIN, pressing, eating, while, little, after",8
+r2104,521,3,"PAIN, pressing, eating, while, amel.",8
+r2105,521,2,"PAIN, pressing, eructations amel.",21
+r2106,521,2,"PAIN, pressing, exertion, on",1
+r2107,521,2,"PAIN, pressing, expiration agg.",1
+r2108,521,2,"PAIN, pressing, fasting, while",5
+r2109,521,2,"PAIN, pressing, fat food, after",1
+r2110,521,2,"PAIN, pressing, heart, as if, were being crushed",4
+r2111,521,2,"PAIN, pressing, heat, after",1
+r2112,521,2,"PAIN, pressing, inspiration agg.",5
+r2113,521,2,"PAIN, pressing, lifting, after",3
+r2114,521,2,"PAIN, pressing, lying, while",2
+o59335,521,3,"PAIN, pressing, lying, while, on back",1
+r2116,521,3,"PAIN, pressing, lying, while, on back amel.",3
+o59337,521,4,"PAIN, pressing, lying, while, on back amel., side",1
+o59338,521,5,"PAIN, pressing, lying, while, on back amel., side, left",1
+r2119,521,2,"PAIN, pressing, menses, before",1
+r2120,521,3,"PAIN, pressing, menses, before, during",8
+r2121,521,3,"PAIN, pressing, menses, before, after",2
+r2122,521,2,"PAIN, pressing, mental exertion, after",1
+r2123,521,2,"PAIN, pressing, milk, after",5
+r2124,521,2,"PAIN, pressing, motion agg.",9
+o59349,521,3,"PAIN, pressing, motion agg., amel.",1
+r2126,521,2,"PAIN, pressing, paroxysmal",1
+r2127,521,2,"PAIN, pressing, pears, after",1
+r2128,521,2,"PAIN, pressing, potatoes, after",1
+r2129,522,2,"PAIN, pressing, pressure agg. (See Soreness)",10
+r2130,522,2,"PAIN, pressing, reading aloud",1
+r2131,522,2,"PAIN, pressing, riding, while",2
+r2132,522,2,"PAIN, pressing, rising from bed, on",3
+r2133,522,2,"PAIN, pressing, sitting, while",6
+o59363,522,3,"PAIN, pressing, sitting, while, bent",1
+r2135,522,4,"PAIN, pressing, sitting, while, bent, amel.",2
+o59365,522,2,"PAIN, pressing, erect amel.",1
+r2137,522,2,"PAIN, pressing, smoking amel.",1
+r2138,522,2,"PAIN, pressing, soup, after",2
+o59370,522,2,"PAIN, pressing, standing, while",1
+r2140,522,3,"PAIN, pressing, standing, while, amel.",1
+r2141,522,2,"PAIN, pressing, step, at every",1
+r2142,522,2,"PAIN, pressing, stone, as if (See Stone)",0
+r2143,522,2,"PAIN, pressing, stool, during",1
+r2144,522,3,"PAIN, pressing, stool, during, after",6
+r2145,522,2,"PAIN, pressing, stooping agg.",1
+r2146,522,2,"PAIN, pressing, straightening out, after",1
+r2147,522,2,"PAIN, pressing, supper, after",6
+r2148,522,2,"PAIN, pressing, swallowing agg.",1
+r2149,522,2,"PAIN, pressing, sweet things, after",1
+r2150,522,2,"PAIN, pressing, talking",1
+r2151,522,2,"PAIN, pressing, vexation, after",3
+r2152,522,2,"PAIN, pressing, waking, on",10
+o59385,522,2,"PAIN, pressing, walking, while",6
+o59383,522,3,"PAIN, pressing, walking, while, in open air",4
+r2155,522,4,"PAIN, pressing, walking, while, in open air, amel.",1
+r2156,522,3,"PAIN, pressing, walking, while, amel.",4
+r2157,522,2,"PAIN, pressing, warm food amel.",1
+r2158,522,2,"PAIN, pressing, warmth of bed amel.",1
+r2159,522,2,"PAIN, pressing, weight, as from",32
+r2160,522,2,"PAIN, pressing, extending to back",2
+o59326,522,3,"PAIN, pressing, extending to back, to neck",1
+o59327,522,4,"PAIN, pressing, extending to back, to neck, sternum",1
+r2163,522,1,"PAIN, scraping",11
+r2164,522,2,"PAIN, scraping, stool, after",1
+r2165,522,1,"PAIN, shooting (See Stitching)",0
+r2166,522,1,"PAIN, sore, bruised, beaten (tenderness)",150
+o59421,522,2,"PAIN, sore, bruised, beaten (tenderness), morning",6
+o59422,522,3,"PAIN, sore, bruised, beaten (tenderness), morning, on rising",1
+o59407,522,2,"PAIN, sore, bruised, beaten (tenderness), afternoon",1
+o59418,522,2,"PAIN, sore, bruised, beaten (tenderness), evening",7
+o59424,522,2,"PAIN, sore, bruised, beaten (tenderness), night",1
+o59425,522,3,"PAIN, sore, bruised, beaten (tenderness), night, bed, in",1
+o59408,522,2,"PAIN, sore, bruised, beaten (tenderness), bending, from",1
+o59409,522,2,"PAIN, sore, bruised, beaten (tenderness), breathing, deep",1
+r2176,523,2,"PAIN, sore, bruised, beaten (tenderness), clothing agg.",12
+r2177,523,2,"PAIN, sore, bruised, beaten (tenderness), coughing, on",26
+r2178,523,2,"PAIN, sore, bruised, beaten (tenderness), dinner, during",1
+r2179,523,3,"PAIN, sore, bruised, beaten (tenderness), dinner, during, after",3
+r2180,523,2,"PAIN, sore, bruised, beaten (tenderness), eating, after",5
+r2181,523,3,"PAIN, sore, bruised, beaten (tenderness), eating, after, amel.",2
+r2182,523,2,"PAIN, sore, bruised, beaten (tenderness), eructating, on",1
+r2183,523,2,"PAIN, sore, bruised, beaten (tenderness), inspiration, on",2
+r2184,523,2,"PAIN, sore, bruised, beaten (tenderness), motion amel.",1
+r2185,523,2,"PAIN, sore, bruised, beaten (tenderness), sitting still, on",1
+r2186,523,2,"PAIN, sore, bruised, beaten (tenderness), stepping, on",5
+r2187,523,2,"PAIN, sore, bruised, beaten (tenderness), stooping agg.",1
+r2188,523,2,"PAIN, sore, bruised, beaten (tenderness), swallowing a morsel, after",1
+r2189,523,2,"PAIN, sore, bruised, beaten (tenderness), talking, on",3
+r2190,523,2,"PAIN, sore, bruised, beaten (tenderness), turning in bed",1
+o59433,523,2,"PAIN, sore, bruised, beaten (tenderness), walking, while",5
+r2192,523,3,"PAIN, sore, bruised, beaten (tenderness), walking, while, amel.",1
+r2193,523,2,"PAIN, sore, bruised, beaten (tenderness), extending to mouth",1
+r2194,523,1,"PAIN, stitching",129
+r2195,523,2,"PAIN, stitching, daytime",1
+r2196,523,2,"PAIN, stitching, morning",3
+h008,523,3,"PAIN, stitching, morning, standing, while",1
+r2198,523,2,"PAIN, stitching, forenoon",2
+r2199,523,2,"PAIN, stitching, afternoon",4
+r2200,523,3,"PAIN, stitching, afternoon, on lying down",1
+r2201,523,3,"PAIN, stitching, afternoon, 1 p.m.",1
+r2202,523,3,"PAIN, stitching, afternoon, 3 p.m.",2
+r2203,523,2,"PAIN, stitching, evening",5
+r2204,523,3,"PAIN, stitching, evening, bed, in",1
+r2205,523,2,"PAIN, stitching, night",1
+r2206,523,2,"PAIN, stitching, bend body backward, forcing to",1
+r2207,523,2,"PAIN, stitching, bending to the right",1
+r2208,523,2,"PAIN, stitching, breathing, on",5
+r2209,523,3,"PAIN, stitching, breathing, on, between",1
+r2210,523,2,"PAIN, stitching, cold, on taking",1
+r2211,523,2,"PAIN, stitching, coughing, on",7
+r2212,523,2,"PAIN, stitching, descending, on",1
+r2213,523,2,"PAIN, stitching, dinner, after",5
+r2214,523,2,"PAIN, stitching, eating, after",2
+o59454,523,2,"PAIN, stitching, eructations, during",3
+r2216,523,3,"PAIN, stitching, eructations, during, amel.",1
+r2217,523,2,"PAIN, stitching, false step, on a",2
+r2218,523,2,"PAIN, stitching, inspiring",8
+r2219,523,2,"PAIN, stitching, jarring",1
+r2220,523,2,"PAIN, stitching, lifting, on",1
+r2221,523,2,"PAIN, stitching, lying down, after",2
+o59475,523,3,"PAIN, stitching, lying down, after, amel.",1
+o59476,523,3,"PAIN, stitching, lying down, after, on side",1
+o59477,523,4,"PAIN, stitching, lying down, after, on side, left",1
+r2225,523,2,"PAIN, stitching, menses, during",1
+r2226,523,2,"PAIN, stitching, motion agg.",3
+r2227,523,2,"PAIN, stitching, moving arms",1
+r2228,524,2,"PAIN, stitching, paroxysmal",5
+r2229,524,2,"PAIN, stitching, periodical",1
+o59486,524,2,"PAIN, stitching, pressure, on",2
+r2231,524,3,"PAIN, stitching, pressure, on, amel.",1
+r2232,524,2,"PAIN, stitching, sitting, while",2
+r2233,524,3,"PAIN, stitching, sitting, while, bent",1
+r2234,524,3,"PAIN, stitching, sitting, while, up amel.",1
+r2235,524,2,"PAIN, stitching, soup, after",1
+r2236,524,2,"PAIN, stitching, standing, while",2
+r2237,524,2,"PAIN, stitching, stepping, on",3
+r2238,524,2,"PAIN, stitching, stool, after",1
+r2239,524,2,"PAIN, stitching, swallowing food quickly",1
+r2240,524,2,"PAIN, stitching, talking, while",1
+r2241,524,2,"PAIN, stitching, uncovering, on",1
+r2242,524,2,"PAIN, stitching, vexation, from",1
+r2243,524,2,"PAIN, stitching, walking, while",7
+r2244,524,2,"PAIN, stitching, warm milk, after",1
+r2245,524,2,"PAIN, stitching, yawning",1
+r2246,524,2,"PAIN, stitching, extending to abdomen",1
+o59458,524,3,"PAIN, stitching, extending to abdomen, ankle",1
+o59459,524,3,"PAIN, stitching, extending to abdomen, axilla, left, and back",1
+o59460,524,3,"PAIN, stitching, extending to abdomen, back",10
+o59461,524,3,"PAIN, stitching, extending to abdomen, breasts",1
+o59462,524,3,"PAIN, stitching, extending to abdomen, chest",6
+o59463,524,3,"PAIN, stitching, extending to abdomen, downward",2
+o59464,524,3,"PAIN, stitching, extending to abdomen, hip joint",1
+o59465,524,3,"PAIN, stitching, extending to abdomen, inward",1
+o59466,524,3,"PAIN, stitching, extending to abdomen, spine",1
+o59467,524,3,"PAIN, stitching, extending to abdomen, sternum",2
+o59468,524,3,"PAIN, stitching, extending to abdomen, upwards",1
+r2258,524,1,"PAIN, tearing",36
+r2259,524,2,"PAIN, tearing, evening, in bed",1
+r2260,524,2,"PAIN, tearing, anger, after",1
+o59516,524,2,"PAIN, tearing, bending body to right",1
+o59517,524,3,"PAIN, tearing, bending body to right, amel.",1
+r2263,524,2,"PAIN, tearing, eructations, during",1
+r2264,524,2,"PAIN, tearing, menses, during",1
+r2265,524,2,"PAIN, tearing, motion agg.",1
+r2266,524,2,"PAIN, tearing, paroxysmal",2
+r2267,524,2,"PAIN, tearing, pressure agg.",1
+r2268,524,2,"PAIN, tearing, stooping, after",1
+r2269,524,2,"PAIN, tearing, sudden",1
+r2270,524,2,"PAIN, tearing, talking",1
+r2271,524,2,"PAIN, tearing, walking, while",1
+o59520,524,2,"PAIN, tearing, extending into œsophagus",1
+r2273,524,1,"PAIN, ulcerative",17
+r2274,524,2,"PAIN, ulcerative, coughing, on",1
+r2275,524,2,"PAIN, ulcerative, dinner, after",1
+r2276,524,2,"PAIN, ulcerative, eating amel.",1
+r2277,524,2,"PAIN, ulcerative, pressing",1
+r2278,524,2,"PAIN, ulcerative, turning in bed, on",1
+h009,524,0,PERSPIRATION on pit of,3
+r2280,524,0,PULSATION,81
+r2281,524,1,"PULSATION, morning",4
+r2282,524,1,"PULSATION, noon",1
+r2283,524,1,"PULSATION, evening",1
+r2284,524,2,"PULSATION, evening, while lying on the back",1
+r2285,524,1,"PULSATION, night",2
+r2286,524,1,"PULSATION, air, open, amel.",1
+r2287,525,1,"PULSATION, cough, with",16
+r2288,525,1,"PULSATION, dinner, after",1
+r2289,525,1,"PULSATION, eating, while",2
+r2290,525,2,"PULSATION, eating, while, after",10
+r2291,525,1,"PULSATION, eructations amel.",1
+r2292,525,1,"PULSATION, gastric and abdominal sufferings, during",1
+r2293,525,1,"PULSATION, headache, with",1
+r2294,525,1,"PULSATION, leaning against anything",1
+r2295,525,1,"PULSATION, lying on back, while",3
+r2296,525,1,"PULSATION, meditation, during",1
+r2297,525,1,"PULSATION, menses, after",1
+r2298,525,1,"PULSATION, nausea, with",1
+r2299,525,1,"PULSATION, rising amel.",1
+r2300,525,1,"PULSATION, straightening up",1
+r2301,525,1,"PULSATION, supper, after",1
+r2302,525,1,"PULSATION, trembling",3
+r2303,525,1,"PULSATION, walking, after",1
+r2304,525,2,"PULSATION, walking, after, amel.",1
+r2305,525,0,QUIVERING (See Trembling),0
+r2306,525,0,REGURGITATION (See Eructation),0
+r2307,525,0,RELAXED (See Hanging Down),0
+r2308,525,0,RELAXATION of pylorus,2
+r2309,525,0,REPUGNANCE to food (See Loathing),0
+r2310,525,0,RETCHING,150
+r2311,525,1,"RETCHING, daytime",1
+r2312,525,1,"RETCHING, morning",8
+r2313,525,2,"RETCHING, morning, rising, on",1
+r2314,525,2,"RETCHING, morning, walking, on",1
+r2315,525,1,"RETCHING, noon, after soup",2
+r2316,525,1,"RETCHING, afternoon",1
+r2317,525,1,"RETCHING, evening",7
+r2318,525,2,"RETCHING, evening, walking, while",1
+r2319,525,1,"RETCHING, night",12
+r2320,525,2,"RETCHING, night, 1 a.m., on waking",1
+r2321,525,1,"RETCHING, air, in open",1
+r2322,525,1,"RETCHING, coffee, after",2
+r2323,525,1,"RETCHING, cold drinks, after",6
+r2324,525,1,"RETCHING, convulsive",4
+r2325,525,1,"RETCHING, cough, with",70
+o59591,525,1,"RETCHING, diarrhœa, during",3
+r2327,525,1,"RETCHING, drinking, after",5
+r2328,525,1,"RETCHING, drunkards, in",3
+o59594,525,1,"RETCHING, dyspnœa, from",1
+r2330,526,1,"RETCHING, eating, after",18
+r2331,526,2,"RETCHING, eating, after, amel.",2
+r2332,526,1,"RETCHING, epilepsy, before",1
+r2333,526,1,"RETCHING, fasting, while",2
+r2334,526,1,"RETCHING, happy surprise",1
+r2335,526,1,"RETCHING, hawking mucus from fauces",14
+r2336,526,1,"RETCHING, ineffectual",28
+r2337,526,1,"RETCHING, liquids, after",2
+r2338,526,1,"RETCHING, menses, during",2
+r2339,526,1,"RETCHING, milk, after",1
+r2340,526,1,"RETCHING, motion, during",1
+r2341,526,1,"RETCHING, painful",4
+r2342,526,1,"RETCHING, salivation, with",2
+r2343,526,1,"RETCHING, smoking, after",1
+r2344,526,1,"RETCHING, soup, after",1
+r2345,526,1,"RETCHING, spasmodic",1
+r2346,526,1,"RETCHING, stool, during",4
+r2347,526,1,"RETCHING, swallowing, on",5
+r2348,526,2,"RETCHING, swallowing, on, empty, agg.",1
+r2349,526,1,"RETCHING, touching inside of throat",1
+r2350,526,1,"RETCHING, violent",5
+r2351,526,1,"RETCHING, vomiting, after",6
+r2352,526,1,"RETCHING, waking, after",2
+o59626,526,1,"RETCHING, warm drinks",2
+r2354,526,2,"RETCHING, warm drinks, amel.",1
+r2355,526,0,"RETRACTION, sense of",9
+r2356,526,0,SATIETY (See Appetite),0
+r2357,526,0,SENSITIVENESS to talking,3
+o59630,526,1,"SENSITIVENESS to talking, bad news",1
+r2359,526,0,SHOCK,5
+r2360,526,1,"SHOCK, convulsions, before",1
+r2361,526,1,"SHOCK, eating",1
+r2362,526,1,"SHOCK, lying on the side",1
+r2363,526,1,"SHOCK, sleep, during",1
+r2364,526,0,SINKING (See Emptiness),84
+r2365,526,1,"SINKING (See Emptiness), morning",5
+r2366,526,2,"SINKING (See Emptiness), morning, breakfast, before",1
+r2367,526,3,"SINKING (See Emptiness), morning, breakfast, before, after",1
+r2368,526,2,"SINKING (See Emptiness), morning, waking, on",1
+r2369,526,1,"SINKING (See Emptiness), forenoon",2
+r2370,526,2,"SINKING (See Emptiness), forenoon, after acids",1
+r2371,526,1,"SINKING (See Emptiness), evening",1
+r2372,526,1,"SINKING (See Emptiness), night",3
+r2373,526,1,"SINKING (See Emptiness), bad news",1
+r2374,526,1,"SINKING (See Emptiness), eating, before",2
+r2375,526,2,"SINKING (See Emptiness), eating, before, after",11
+r2376,526,2,"SINKING (See Emptiness), eating, before, amel.",2
+r2377,526,1,"SINKING (See Emptiness), inspiration agg.",1
+r2378,526,1,"SINKING (See Emptiness), meeting a friend, when",1
+r2379,526,1,"SINKING (See Emptiness), paroxysmal",1
+r2380,526,1,"SINKING (See Emptiness), pressure, from",1
+r2381,526,1,"SINKING (See Emptiness), sitting, while",1
+r2382,526,1,"SINKING (See Emptiness), stool, after",4
+r2383,526,1,"SINKING (See Emptiness), waking, on",1
+r2384,526,1,"SINKING (See Emptiness), walking amel.",1
+r2385,526,1,"SINKING (See Emptiness), extending to heart",1
+r2995,526,0,"SLAKING lime, sensation of",1
+r2386,527,0,"STONE, sensation of",51
+r2387,527,1,"STONE, sensation of, morning",1
+r2388,527,2,"STONE, sensation of, morning, bed, in",1
+r2389,527,2,"STONE, sensation of, morning, waking, on",1
+r2390,527,1,"STONE, sensation of, cold, after vomiting",1
+r2391,527,1,"STONE, sensation of, dinner, after",1
+r2392,527,1,"STONE, sensation of, eating, after",9
+r2393,527,2,"STONE, sensation of, eating, after, amel.",1
+r2394,527,1,"STONE, sensation of, eructations amel.",2
+r2395,527,1,"STONE, sensation of, hawking amel.",1
+r2396,527,1,"STONE, sensation of, motion agg.",3
+r2397,527,1,"STONE, sensation of, supper, after",1
+r2398,527,0,SUMMER,1
+r2399,527,0,SWASHING,2
+r2400,527,1,"SWASHING, morning",1
+r2401,527,0,SWELLING (See Distension),0
+r2402,527,0,TENSION,77
+r2403,527,1,"TENSION, morning",2
+r2404,527,2,"TENSION, morning, in bed",1
+r2405,527,1,"TENSION, forenoon",1
+r2406,527,1,"TENSION, noon",1
+r2407,527,1,"TENSION, evening",2
+r2408,527,1,"TENSION, night, 2 a.m.",1
+r2409,527,1,"TENSION, clothing agg.",2
+r2410,527,1,"TENSION, dinner, after",3
+r2411,527,1,"TENSION, drinking amel.",1
+r2412,527,1,"TENSION, eating, before",1
+r2413,527,2,"TENSION, eating, before, after",3
+r2414,527,1,"TENSION, menses, during",1
+r2415,527,1,"TENSION, milk amel.",1
+r2416,527,1,"TENSION, motion agg.",1
+o59687,527,2,"TENSION, motion agg., amel.",1
+r2418,527,1,"TENSION, riding in a carriage, while",1
+r2419,527,1,"TENSION, stool, after",1
+r2420,527,1,"TENSION, walking agg.",2
+r2421,527,0,THIRST,211
+r2422,527,1,"THIRST, daytime",1
+r2423,527,1,"THIRST, morning",46
+r2424,528,2,"THIRST, morning, milk, after",1
+r2425,528,2,"THIRST, morning, waking, on",8
+r2426,528,1,"THIRST, forenoon",12
+r2427,528,2,"THIRST, forenoon, 10 a.m.",2
+r2428,528,1,"THIRST, noon",5
+r2429,528,1,"THIRST, afternoon",34
+r2430,528,2,"THIRST, afternoon, 2 p.m.",1
+r2431,528,2,"THIRST, afternoon, 3 p.m.",4
+r2432,528,2,"THIRST, afternoon, 4 p.m.",3
+r2433,528,2,"THIRST, afternoon, 4 p.m. during chill",1
+r2434,528,2,"THIRST, afternoon, 6 p.m.",3
+r2435,528,1,"THIRST, evening",70
+r2436,528,1,"THIRST, night",51
+r2437,528,2,"THIRST, night, waking, on",8
+r2438,528,2,"THIRST, night, midnight",6
+r2439,528,2,"THIRST, night, 3 a.m.",1
+r2440,528,1,"THIRST, alternating with aversion to drink",1
+r2441,528,1,"THIRST, anger, after",2
+r2442,528,1,"THIRST, appetite, lost (See Appetite)",0
+r2443,528,1,"THIRST, apyrexia, during",2
+r2444,528,1,"THIRST, beer, agg. after",1
+r2445,528,1,"THIRST, burning, vehement",70
+r2446,528,2,"THIRST, burning, vehement, without desire to drink",1
+r2447,528,1,"THIRST, chill, before",16
+r2448,528,2,"THIRST, chill, before, during",59
+r2449,528,2,"THIRST, chill, before, after",20
+r2450,528,3,"THIRST, chill, before, after, yet cannot drink, makes headache unbearable",1
+r2451,528,1,"THIRST, choking sensation when drinking, with",1
+r2452,528,1,"THIRST, coition, after",1
+r2453,528,1,"THIRST, cold drinks (See Desire)",0
+r2454,528,1,"THIRST, constant (See Unquenchable)",0
+r2455,528,1,"THIRST, convulsions, during",1
+r2456,529,1,"THIRST, dinner, after",15
+r2457,529,1,"THIRST, dread of liquids, with",22
+r2458,529,1,"THIRST, eating, while",9
+o59716,529,1,"THIRST, after",18
+r2460,529,1,"THIRST, extreme",187
+r2461,529,1,"THIRST, headache, with",10
+r2462,529,1,"THIRST, heat, during",79
+r2463,529,2,"THIRST, heat, during, after",15
+r2464,529,1,"THIRST, inability to swallow, with",5
+r2465,529,1,"THIRST, large quantities, for",23
+o59728,529,2,"THIRST, large quantities, for, often, for",4
+r2467,529,2,"THIRST, large quantities, for, long intervals, at",1
+r2468,529,1,"THIRST, menses, before",4
+r2469,529,2,"THIRST, menses, before, during",12
+r2470,529,1,"THIRST, pains, with the",4
+r2471,529,1,"THIRST, perspiration, during",28
+r2472,529,2,"THIRST, perspiration, during, after",7
+r2473,529,1,"THIRST, sleep, after",5
+r2474,529,1,"THIRST, small quantities, for",20
+r2475,529,2,"THIRST, small quantities, for, often",19
+r2476,529,1,"THIRST, stool, before",9
+r2477,529,2,"THIRST, stool, before, during",9
+r2479,530,2,"THIRST, stool, before, after",9
+r2480,530,1,"THIRST, supper, after",3
+r2481,530,1,"THIRST, unquenchable",50
+r2482,530,2,"THIRST, unquenchable, disgust for drink, with",1
+r2483,530,1,"THIRST, vomiting, before",1
+r2484,530,2,"THIRST, vomiting, before, after",2
+r2485,530,1,"THIRST, waking, on",10
+r2486,530,1,"THIRST, walking, after",3
+r2487,530,1,"THIRST, without desire to drink",6
+r2488,530,0,THIRSTLESS,87
+r2489,530,1,"THIRSTLESS, desire to drink, with",10
+r2490,530,1,"THIRSTLESS, heat, during",47
+r2491,530,0,TICKLING,7
+r2492,530,0,TINGLING,5
+r2493,530,0,TREMBLING,35
+r2494,530,1,"TREMBLING, daytime",1
+r2495,530,1,"TREMBLING, morning, on waking",1
+r2496,530,1,"TREMBLING, noon",1
+r2497,530,1,"TREMBLING, breakfast, after",1
+r2498,530,1,"TREMBLING, chilly, when",1
+r2499,530,1,"TREMBLING, conversation, from",1
+r2500,530,1,"TREMBLING, coughing, when",2
+r2501,530,1,"TREMBLING, eating, on",1
+r2502,530,1,"TREMBLING, heat, during",4
+r2503,530,1,"TREMBLING, lying down, on",1
+r2504,530,1,"TREMBLING, menses, during",3
+r2505,530,1,"TREMBLING, nausea, with",2
+r2506,530,1,"TREMBLING, noise, from",1
+r2507,530,1,"TREMBLING, urination, after",1
+r2508,530,1,"TREMBLING, extends all over body",1
+r2509,530,0,TURNING,8
+r2510,530,1,"TURNING, morning, after rising",1
+r2511,530,1,"TURNING, lying on it, while",1
+r2512,530,1,"TURNING, motion, on",1
+r2513,530,1,"TURNING, over, seems to, on coughing",3
+r2514,530,1,"TURNING, swallowing liquids, after",1
+r2515,530,0,TWISTING,33
+r2516,530,1,"TWISTING, morning",1
+r2517,530,1,"TWISTING, forenoon",1
+r2518,530,1,"TWISTING, night",1
+r2519,530,1,"TWISTING, breakfast, after",2
+r2520,530,1,"TWISTING, dinner, after",1
+r2521,530,1,"TWISTING, eating agg.",1
+r2522,530,1,"TWISTING, lying on it, while",1
+r2523,531,1,"TWISTING, paroxysmal",1
+r2524,531,1,"TWISTING, sudden",1
+r2525,531,1,"TWISTING, extending into abdomen",1
+o59788,531,2,"TWISTING, extending into abdomen, chest",1
+r2527,531,0,TWITCHING,19
+r2528,531,1,"TWITCHING, convulsive",1
+r2529,531,1,"TWITCHING, eating amel.",1
+r2530,531,1,"TWITCHING, sitting, while",1
+r2531,531,1,"TWITCHING, walking about amel.",1
+r2532,531,1,"TWITCHING, extending to larynx",1
+o59799,531,2,"TWITCHING, extending to larynx, throat",1
+r2534,531,0,ULCERS,21
+r2535,531,0,UNEASINESS,36
+r2536,531,0,VOMITING,177
+r2537,531,1,"VOMITING, morning",52
+r2538,531,2,"VOMITING, morning, rising, on",4
+r2539,531,1,"VOMITING, forenoon",7
+r2540,531,2,"VOMITING, forenoon, 7 a.m.",1
+r2541,531,2,"VOMITING, forenoon, 9 a.m., during headache",1
+r2542,531,2,"VOMITING, forenoon, 10 a.m.",1
+r2543,531,2,"VOMITING, forenoon, 11 a.m.",1
+r2544,531,1,"VOMITING, noon",4
+r2545,531,1,"VOMITING, afternoon",9
+o59810,531,2,"VOMITING, afternoon, 2 to 3 p.m.",1
+r2547,531,2,"VOMITING, afternoon, 4 p.m.",1
+r2548,531,1,"VOMITING, evening",22
+r2549,531,1,"VOMITING, night",52
+r2550,531,2,"VOMITING, night, midnight",5
+r2551,531,3,"VOMITING, night, midnight, after",2
+r2552,531,2,"VOMITING, night, 1 a.m., on waking",1
+r2553,531,1,"VOMITING, acids, after",1
+r2554,531,1,"VOMITING, aggravation, after",3
+r2555,532,1,"VOMITING, alternating with convulsions",1
+r2556,532,1,"VOMITING, anger, after",4
+r2557,532,1,"VOMITING, apyrexia, during",2
+r2558,532,1,"VOMITING, bed, after going to",1
+r2559,532,1,"VOMITING, beer, after",3
+r2560,532,2,"VOMITING, beer, after, but not after water",1
+r2561,532,1,"VOMITING, bread, after",2
+r2562,532,2,"VOMITING, bread, after, black, after",2
+r2563,532,1,"VOMITING, breakfast, before",6
+r2564,532,2,"VOMITING, breakfast, before, after",9
+r2565,532,1,"VOMITING, bright light, from",1
+r2566,532,1,"VOMITING, brushing teeth, on",1
+r2567,532,1,"VOMITING, chill, before",11
+r2568,532,2,"VOMITING, chill, before, during",22
+r2569,532,2,"VOMITING, chill, before, after",10
+r2570,532,1,"VOMITING, chloroform",1
+o59914,532,1,"VOMITING, closing eyes, on",1
+r2572,532,2,"VOMITING, closing eyes, on, amel.",1
+r2573,532,1,"VOMITING, coffee, after",5
+r2574,532,1,"VOMITING, coition, after",1
+r2575,532,1,"VOMITING, cold, on becoming",1
+r2576,532,1,"VOMITING, convulsions, before",2
+r2577,532,2,"VOMITING, convulsions, before, during",2
+r2578,532,2,"VOMITING, convulsions, before, after",5
+r2579,532,1,"VOMITING, convulsive",8
+r2580,532,1,"VOMITING, coughing, on",76
+o59926,532,1,"VOMITING, diarrhœa, before",6
+o59927,532,2,"VOMITING, diarrhœa, before, during",49
+r2583,532,1,"VOMITING, difficult",12
+r2584,532,1,"VOMITING, dinner, before",2
+r2585,532,2,"VOMITING, dinner, before, after",8
+r2586,532,1,"VOMITING, drawing catarrhal plugs from posterior nares",1
+r2587,532,1,"VOMITING, drinking, after",68
+r2588,532,2,"VOMITING, drinking, after, cold water after",27
+o59934,532,3,"VOMITING, drinking, after, cold water after, amel.",3
+r2590,532,2,"VOMITING, drinking, after, immediately after",10
+r2591,532,2,"VOMITING, drinking, after, smallest quantity",7
+r2592,532,2,"VOMITING, drinking, after, not after eating",1
+r2593,532,2,"VOMITING, drinking, after, soon as water becomes warm in stomach",3
+r2594,533,1,"VOMITING, drunkards, of",16
+r2595,533,1,"VOMITING, easy",22
+r2596,533,1,"VOMITING, eating, while, sudden",11
+o68430,533,2,"VOMITING, eating, while, sudden, after",80
+o59943,533,3,"VOMITING, eating, while, sudden, after, only after",1
+o59942,533,3,"VOMITING, eating, while, sudden, after, amel.",1
+r2600,533,1,"VOMITING, egg, after",3
+r2601,533,2,"VOMITING, egg, after, smell of",1
+r2602,533,1,"VOMITING, erect, on becoming",1
+r2603,533,1,"VOMITING, eruptions, from receding",1
+r2604,533,1,"VOMITING, excitement, after",3
+r2605,533,1,"VOMITING, exertion, on",8
+r2606,533,1,"VOMITING, expectoration, on (See Coughing, Hawking)",5
+r2607,533,1,"VOMITING, fat food, after",2
+r2608,533,1,"VOMITING, fish, after fried",1
+r2609,533,2,"VOMITING, fish, after fried, smell of",1
+r2610,533,1,"VOMITING, forcible",13
+r2611,533,2,"VOMITING, forcible, shortly after eating",1
+r2612,533,1,"VOMITING, frequent",11
+r2613,533,1,"VOMITING, hawking up mucus, when",12
+r2614,533,1,"VOMITING, headache, during",88
+r2615,533,1,"VOMITING, heat, during",33
+r2616,533,2,"VOMITING, heat, during, after",2
+r2617,533,1,"VOMITING, hot water amel.",1
+r2618,533,1,"VOMITING, ice cream, after",4
+r2619,533,1,"VOMITING, incessant",32
+r2620,533,1,"VOMITING, intermittent, in",6
+r2621,533,1,"VOMITING, intoxication, during",2
+r2622,533,1,"VOMITING, itching with nausea, must scratch until he vomits",1
+r2623,533,1,"VOMITING, larynx, from irritation",1
+r2624,533,1,"VOMITING, lifting, after",1
+r2625,533,1,"VOMITING, lying on the back, while",4
+o60034,533,2,"VOMITING, lying on the back, while, side agg.",1
+o60036,533,3,"VOMITING, lying on the back, while, side agg., right in liver affections",1
+o60037,533,4,"VOMITING, lying on the back, while, side agg., right in liver affections, amel.",2
+o60035,533,3,"VOMITING, lying on the back, while, side agg., left",3
+o60033,533,2,"VOMITING, lying on the back, while, after",2
+r2631,534,1,"VOMITING, measles, during",1
+r2632,534,1,"VOMITING, meats, from fresh",1
+r2633,534,1,"VOMITING, meat, after",1
+r2634,534,1,"VOMITING, menses, before",10
+r2635,534,2,"VOMITING, menses, before, during",30
+r2636,534,2,"VOMITING, menses, before, after",6
+r2637,534,2,"VOMITING, menses, before, suppressed",9
+r2638,534,1,"VOMITING, mental exertion",3
+r2639,534,1,"VOMITING, milk, after",29
+r2640,534,2,"VOMITING, milk, after, mother's",8
+r2641,534,1,"VOMITING, motion, on",21
+r2642,534,1,"VOMITING, moving from right side",1
+r2643,534,1,"VOMITING, odor of food",1
+r2644,534,1,"VOMITING, opium, after",1
+r2645,534,1,"VOMITING, overheated, after",1
+r2646,534,1,"VOMITING, painful",12
+r2647,534,1,"VOMITING, palpitation, with",4
+r2648,534,1,"VOMITING, paroxysmal",8
+r2649,534,1,"VOMITING, periodic",9
+r2650,534,1,"VOMITING, perspiration, during",9
+r2651,534,2,"VOMITING, perspiration, during, when perspiration fails",1
+r2652,534,1,"VOMITING, plums, after",1
+r2653,534,1,"VOMITING, pregnancy, during",68
+r2654,534,1,"VOMITING, putting hands in warm water",1
+r2655,534,1,"VOMITING, raising the head",4
+r2656,534,1,"VOMITING, rice, after",1
+r2657,534,1,"VOMITING, rich food, after",6
+r2658,534,1,"VOMITING, riding in a carriage, while",17
+r2659,534,1,"VOMITING, rinsing mouth, when (See Brushing Teeth)",1
+r2660,534,1,"VOMITING, rising up in bed",4
+o60109,534,2,"VOMITING, rising up in bed, from bed",3
+o60108,534,2,"VOMITING, rising up in bed, after",2
+r2663,534,1,"VOMITING, saliva running down the throat while sitting, from",1
+r2664,534,1,"VOMITING, smoking, from",8
+r2665,534,1,"VOMITING, soup, after",2
+r2666,534,1,"VOMITING, sour wine, after",1
+r2667,534,1,"VOMITING, speaking loud",1
+r2668,534,1,"VOMITING, spitting, after",1
+r2669,534,1,"VOMITING, standing up, on",1
+r2670,534,1,"VOMITING, stool, before",7
+r2671,534,2,"VOMITING, stool, before, during",15
+r2672,534,2,"VOMITING, stool, before, ineffectual, after",1
+r2673,534,2,"VOMITING, stool, before, straining, after",1
+r2674,534,1,"VOMITING, stooping, after",2
+r2675,534,1,"VOMITING, stupor, during",1
+r2676,534,1,"VOMITING, sudden",8
+r2677,535,1,"VOMITING, supper, after",3
+r2678,535,1,"VOMITING, swallow, on trying to",1
+r2679,535,2,"VOMITING, swallow, on trying to, saliva, on",1
+r2680,535,1,"VOMITING, swoon, after",1
+r2681,535,1,"VOMITING, teething children, in",3
+r2682,535,1,"VOMITING, unconsciousness, during",2
+r2683,535,1,"VOMITING, uncovering abdomen amel.",1
+r2684,535,1,"VOMITING, urticaria, during",2
+r2685,535,2,"VOMITING, urticaria, during, from suppression of",1
+r2686,535,1,"VOMITING, vertigo, during",31
+r2687,535,1,"VOMITING, vexation, after",7
+r2688,535,1,"VOMITING, violent",28
+r2689,535,1,"VOMITING, waking, on",13
+r2690,535,1,"VOMITING, walking, while",2
+r2691,535,2,"VOMITING, walking, while, in open air",1
+r2692,535,1,"VOMITING, warm food",1
+r2693,535,1,"VOMITING, water, from the sight of",1
+r2694,535,1,"VOMITING, wine agg.",1
+o60206,535,1,"VOMITING, wine, amel.",1
+r2696,535,1,"VOMITING, acrid",20
+r2697,535,2,"VOMITING, acrid, morning, while coughing",1
+r2698,535,2,"VOMITING, acrid, night",1
+r2699,535,1,"VOMITING, albuminous",6
+r2700,535,1,"VOMITING, bile",132
+r2701,535,2,"VOMITING, bile, morning",8
+r2702,535,3,"VOMITING, bile, morning, on waking",1
+r2703,535,2,"VOMITING, bile, afternoon",1
+r2704,535,2,"VOMITING, bile, evening",2
+r2705,535,2,"VOMITING, bile, night",6
+r2706,535,3,"VOMITING, bile, night, 9 p.m.",1
+r2707,535,2,"VOMITING, bile, anger, after",2
+r2708,535,2,"VOMITING, bile, blood, then",3
+r2709,535,2,"VOMITING, bile, chill, before",2
+r2710,535,3,"VOMITING, bile, chill, before, during",14
+r2711,535,3,"VOMITING, bile, chill, before, after",3
+r2712,535,2,"VOMITING, bile, cold water, after",2
+r2713,535,2,"VOMITING, bile, colic, with",4
+r2714,535,2,"VOMITING, bile, cough, during",11
+r2715,535,2,"VOMITING, bile, eating, after",4
+r2716,535,2,"VOMITING, bile, exertion, after",1
+r2717,535,2,"VOMITING, bile, fever, during the",24
+r2718,535,2,"VOMITING, bile, food, then",1
+r2719,535,2,"VOMITING, bile, headache, with",25
+r2720,535,3,"VOMITING, bile, headache, with, after eating sweets",1
+r2721,536,2,"VOMITING, bile, lying on right side or back",1
+r2722,536,2,"VOMITING, bile, mental exertion, after",1
+r2723,536,2,"VOMITING, bile, motion, on least",2
+r2724,536,2,"VOMITING, bile, perspiration, during",13
+r2725,536,2,"VOMITING, bile, rising, on",1
+r2726,536,2,"VOMITING, bile, sitting up in bed",1
+r2727,536,2,"VOMITING, bile, tea, after",1
+r2728,536,2,"VOMITING, bile, trembling and great nausea, causing prostration",1
+r2729,536,2,"VOMITING, bile, vexation, after",1
+r2730,536,1,"VOMITING, bitter",73
+r2731,536,2,"VOMITING, bitter, morning",6
+r2732,536,3,"VOMITING, bitter, morning, cough, during",1
+r2733,536,3,"VOMITING, bitter, morning, waking, on",3
+r2734,536,2,"VOMITING, bitter, noon, while eating soup",1
+r2735,536,2,"VOMITING, bitter, afternoon",1
+r2736,536,2,"VOMITING, bitter, evening",2
+r2737,536,3,"VOMITING, bitter, evening, during cough in bed",1
+r2738,536,2,"VOMITING, bitter, night",3
+r2739,536,2,"VOMITING, bitter, breakfast, before",1
+r2740,536,2,"VOMITING, bitter, chill, during",1
+r2741,536,3,"VOMITING, bitter, chill, during, at close of",1
+r2742,536,2,"VOMITING, bitter, coffee, after",2
+r2743,536,2,"VOMITING, bitter, coughing, on",2
+r2744,536,2,"VOMITING, bitter, drinking, after",2
+r2745,536,3,"VOMITING, bitter, drinking, after, cold water",1
+r2746,536,2,"VOMITING, bitter, eating, after",3
+r2747,536,2,"VOMITING, bitter, heat, during",2
+r2748,536,2,"VOMITING, bitter, headache, during",4
+r2749,536,2,"VOMITING, bitter, menses, before",1
+r2750,536,3,"VOMITING, bitter, menses, before, during",1
+r2751,536,2,"VOMITING, bitter, mortification, after",1
+r2752,536,2,"VOMITING, bitter, soup, from",1
+r2753,536,2,"VOMITING, bitter, standing, on",1
+r2754,536,2,"VOMITING, bitter, waking, on",1
+r2755,536,1,"VOMITING, black",47
+r2756,536,2,"VOMITING, black, menses, on appearance of",1
+r2757,536,1,"VOMITING, blood",107
+r2758,536,2,"VOMITING, blood, morning",1
+r2759,536,2,"VOMITING, blood, evening",2
+r2760,536,2,"VOMITING, blood, night",3
+r2761,536,2,"VOMITING, blood, black",2
+r2762,536,2,"VOMITING, blood, clotted",9
+r2763,536,2,"VOMITING, blood, cough, with",1
+r2764,536,2,"VOMITING, blood, drinking, after",1
+r2765,536,2,"VOMITING, blood, drunkards, in",2
+r2766,536,2,"VOMITING, blood, eating, after",1
+r2767,536,2,"VOMITING, blood, exertion, after",1
+r2768,536,2,"VOMITING, blood, lying agg.",1
+r2769,537,2,"VOMITING, blood, lying on the back",1
+r2770,537,2,"VOMITING, blood, menses, during",1
+r2771,537,3,"VOMITING, blood, menses, during, instead of, in girls",1
+r2772,537,3,"VOMITING, blood, menses, during, suppressed, during",7
+r2773,537,2,"VOMITING, blood, motion",1
+r2774,537,2,"VOMITING, blood, pregnancy, during",1
+r2775,537,2,"VOMITING, blood, summer evenings",1
+r2776,537,2,"VOMITING, blood, suppressed, hæmorrhoidal flow, after",5
+r2777,537,2,"VOMITING, blood, thin",1
+r2778,537,1,"VOMITING, brownish",19
+r2779,537,2,"VOMITING, brownish, evening, after coffee",1
+r2780,537,3,"VOMITING, brownish, evening, after coffee, after milk",1
+r2781,537,1,"VOMITING, chocolate colored",3
+r2782,537,1,"VOMITING, clear",10
+r2783,537,1,"VOMITING, coffee grounds, like",20
+r2784,537,1,"VOMITING, curdled milk (See Milk)",0
+r2785,537,1,"VOMITING, dark",15
+r2786,537,2,"VOMITING, dark, after drinking",1
+r2787,537,1,"VOMITING, everything",10
+r2788,537,1,"VOMITING, fecal",12
+r2789,537,1,"VOMITING, filamentous",4
+r2790,537,1,"VOMITING, food",118
+r2791,537,2,"VOMITING, food, morning",5
+r2792,537,3,"VOMITING, food, morning, waking, on",1
+r2793,537,2,"VOMITING, food, afternoon",1
+r2794,537,2,"VOMITING, food, evening",5
+r2795,537,3,"VOMITING, food, evening, sunset, after",1
+r2796,537,2,"VOMITING, food, night",4
+r2797,537,3,"VOMITING, food, night, midnight",3
+r2798,537,3,"VOMITING, food, night, 1 a.m., on waking",1
+r2799,537,2,"VOMITING, food, animal food, all",1
+r2800,537,2,"VOMITING, food, bile, then",7
+r2801,537,2,"VOMITING, food, blood, then",1
+r2802,537,2,"VOMITING, food, breakfast, after",3
+r2803,537,2,"VOMITING, food, chill, before",4
+r2804,537,3,"VOMITING, food, chill, before, during",3
+r2805,537,3,"VOMITING, food, chill, before, after",1
+r2806,537,2,"VOMITING, food, cough, from",17
+r2807,537,2,"VOMITING, food, dinner, after",2
+r2808,537,2,"VOMITING, food, drink, not of",1
+r2809,537,2,"VOMITING, food, eating, while",8
+r2810,537,3,"VOMITING, food, eating, while, immediately after",23
+r2811,537,3,"VOMITING, food, eating, while, 5 or 6 hours after",2
+r2812,537,3,"VOMITING, food, eating, while, one day after",2
+r2813,537,3,"VOMITING, food, eating, while, intervals of days after food has filled the stomach",1
+r2814,537,3,"VOMITING, food, eating, while, some hours after",2
+r2815,537,3,"VOMITING, food, eating, while, undigested food 2 or 3 hours after",2
+r2816,538,2,"VOMITING, food, heat, during",6
+r2817,538,2,"VOMITING, food, hot food, after",1
+r2818,538,2,"VOMITING, food, intermittents, in",3
+r2819,538,2,"VOMITING, food, lying, while",1
+r2820,538,3,"VOMITING, food, lying, while, on the back",1
+r2821,538,2,"VOMITING, food, mucus, then",5
+r2822,538,2,"VOMITING, food, solid food only",3
+r2823,538,2,"VOMITING, food, sour",6
+r2824,538,2,"VOMITING, food, supper, after",1
+r2825,538,2,"VOMITING, food, undigested",15
+r2826,538,2,"VOMITING, food, eaten previous day",1
+r2827,538,2,"VOMITING, food, vexation, after",6
+r2828,538,2,"VOMITING, food, waking, on",1
+r2829,538,2,"VOMITING, food, water, then",1
+r2830,538,1,"VOMITING, frothy",32
+r2831,538,1,"VOMITING, glairy",17
+r2832,538,1,"VOMITING, greasy",7
+r2833,538,1,"VOMITING, green",65
+r2834,538,2,"VOMITING, green, evening",1
+r2835,538,2,"VOMITING, green, night",2
+r2836,538,2,"VOMITING, green, blackish",7
+r2837,538,2,"VOMITING, green, dark",5
+r2838,538,2,"VOMITING, green, fluid",12
+r2839,538,2,"VOMITING, green, yellowish",12
+r2840,538,1,"VOMITING, liquids",17
+r2841,538,2,"VOMITING, liquids, as soon as warm in stomach",2
+r2842,538,2,"VOMITING, liquids, cold water only",1
+r2843,538,1,"VOMITING, membrane",8
+r2844,538,1,"VOMITING, milk",17
+r2845,538,2,"VOMITING, milk, curdled",12
+r2846,538,1,"VOMITING, milky",5
+r2847,538,2,"VOMITING, milky, during pregnancy",1
+r2848,538,1,"VOMITING, mucus",126
+r2849,538,2,"VOMITING, mucus, morning",9
+r2850,538,3,"VOMITING, mucus, morning, after coffee",1
+r2851,538,3,"VOMITING, mucus, morning, waking, on",2
+r2852,538,2,"VOMITING, mucus, forenoon",2
+r2853,539,3,"VOMITING, mucus, forenoon, 10 a.m.",1
+r2854,539,2,"VOMITING, mucus, afternoon",3
+r2855,539,2,"VOMITING, mucus, evening",5
+r2856,539,3,"VOMITING, mucus, evening, coffee, after",1
+r2857,539,3,"VOMITING, mucus, evening, 6 p.m.",1
+r2858,539,2,"VOMITING, mucus, night",4
+r2859,539,2,"VOMITING, mucus, blood",11
+r2860,539,2,"VOMITING, mucus, chill, before",1
+r2861,539,2,"VOMITING, mucus, coffee, after",3
+r2862,539,2,"VOMITING, mucus, cough, from",9
+o60063,539,2,"VOMITING, mucus, diarrhœa, during",1
+r2864,539,2,"VOMITING, mucus, drinking, after",1
+r2865,539,2,"VOMITING, mucus, eating, after",3
+r2866,539,2,"VOMITING, mucus, heat, during",1
+r2867,539,2,"VOMITING, mucus, jelly, like",4
+r2868,539,2,"VOMITING, mucus, pregnancy, in",1
+r2869,539,2,"VOMITING, mucus, rinsing mouth, when",1
+r2870,539,2,"VOMITING, mucus, stool, on going to",1
+r2871,539,2,"VOMITING, mucus, waking, on",1
+r2872,539,1,"VOMITING, offensive smelling",31
+r2873,539,2,"VOMITING, offensive smelling, morning",1
+r2874,539,2,"VOMITING, offensive smelling, purulent",3
+r2875,539,1,"VOMITING, rice water",4
+r2876,539,1,"VOMITING, salty",7
+r2877,539,1,"VOMITING, solids, only",3
+r2878,539,1,"VOMITING, soup",1
+r2879,539,1,"VOMITING, sour",93
+r2880,539,2,"VOMITING, sour, morning",5
+r2881,539,3,"VOMITING, sour, morning, breakfast, before",1
+r2882,539,3,"VOMITING, sour, morning, stool, after",1
+r2883,539,2,"VOMITING, sour, forenoon",1
+r2884,539,2,"VOMITING, sour, afternoon",2
+r2885,539,3,"VOMITING, sour, afternoon, 4 p.m.",1
+r2886,539,2,"VOMITING, sour, evening",2
+r2887,539,2,"VOMITING, sour, night",3
+r2888,539,2,"VOMITING, sour, bitterish",4
+r2889,539,2,"VOMITING, sour, breakfast, before",1
+r2890,539,3,"VOMITING, sour, breakfast, before, after",2
+r2891,539,2,"VOMITING, sour, chill, during",2
+r2892,539,2,"VOMITING, sour, coffee, after",1
+r2893,539,2,"VOMITING, sour, coughing, while",4
+r2894,539,2,"VOMITING, sour, drinking, after",1
+r2895,539,2,"VOMITING, sour, eating, after",5
+r2896,539,2,"VOMITING, sour, epilepsy, after",1
+r2897,539,2,"VOMITING, sour, fever, during",3
+r2898,539,2,"VOMITING, sour, fluid",7
+r2899,539,2,"VOMITING, sour, headache, during",5
+r2900,539,2,"VOMITING, sour, menses, before",4
+r2901,539,3,"VOMITING, sour, menses, before, during",7
+r2902,539,2,"VOMITING, sour, motion, on",1
+r2903,539,2,"VOMITING, sour, smoking, after",1
+r2904,539,1,"VOMITING, stringy",18
+r2905,539,1,"VOMITING, sweetish",7
+r2906,539,2,"VOMITING, sweetish, mucus",3
+r2907,540,1,"VOMITING, tenacious",22
+r2908,540,1,"VOMITING, thick",6
+r2909,540,2,"VOMITING, thick, morning",1
+r2910,540,2,"VOMITING, thick, rinsing the mouth, on",1
+r2911,540,2,"VOMITING, thick, stool, on going to",1
+r2912,540,2,"VOMITING, thick, water, after a glass of",1
+r2913,540,1,"VOMITING, water drunk then food",1
+r2914,540,1,"VOMITING, water",111
+r2915,540,2,"VOMITING, water, morning",6
+r2916,540,3,"VOMITING, water, morning, waking, on",2
+r2917,540,2,"VOMITING, water, forenoon",1
+r2918,540,2,"VOMITING, water, afternoon, 4 p.m.",1
+r2919,540,2,"VOMITING, water, evening",1
+r2920,540,2,"VOMITING, water, night",5
+r2921,540,3,"VOMITING, water, night, 9 p.m. to 5 a.m.",1
+r2922,540,2,"VOMITING, water, breakfast, before",1
+r2923,540,2,"VOMITING, water, coughing, on",2
+r2924,540,2,"VOMITING, water, dinner, before",1
+r2925,540,2,"VOMITING, water, eating, on",2
+r2926,540,3,"VOMITING, water, eating, on, after",2
+r2927,540,2,"VOMITING, water, food, then",6
+r2928,540,2,"VOMITING, water, heat, during",1
+r2929,540,2,"VOMITING, water, lying on the back",1
+r2930,540,2,"VOMITING, water, menses, during",2
+r2931,540,2,"VOMITING, water, pregnancy, during",1
+r2932,540,2,"VOMITING, water, soup, after",1
+r2933,540,2,"VOMITING, water, standing, on",1
+r2934,540,2,"VOMITING, water, walking in open air",1
+r2935,540,1,"VOMITING, white",19
+r2936,540,2,"VOMITING, white, morning",2
+r2937,540,2,"VOMITING, white, noon",1
+r2938,540,2,"VOMITING, white, night",1
+r2939,540,2,"VOMITING, white, worm, sensation of",2
+r2940,540,1,"VOMITING, worms",17
+r2941,540,2,"VOMITING, worms, lumbrici",4
+r2942,540,1,"VOMITING, yellow",35
+r2943,540,2,"VOMITING, yellow, daytime",1
+r2944,540,2,"VOMITING, yellow, morning",1
+r2945,540,2,"VOMITING, yellow, night",1
+r2946,540,2,"VOMITING, yellow, headache, with",3
+r2947,540,2,"VOMITING, yellow, walking in open air, while",1
+r2948,540,0,"WATER, sensation as if full of",4
+r2949,540,0,WATERBRASH (See Eructations),0
+r2950,540,0,WEAK FEELING after stool,1
+r2951,540,0,WEIGHT (See Heaviness),0
+r2996,540,0,"WINE, unable to bear any",1

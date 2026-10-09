@@ -1,0 +1,29 @@
+{
+ "book": "kent",
+ "chapter": "stomach",
+ "source": "homeoint.org/books/kentrep1 kent0475–kent0535 (MEDI-T HTML) — kentstom.htm انڈیکس «STOMACH (p. 476-540)»",
+ "pages": "476 – 540",
+ "source_canonical": "homeoint-stomach-v1",
+ "source_rows": 2940,
+ "unique_source_paths": 2940,
+ "matched_app_records": 2931,
+ "new_source_records": 9,
+ "legacy_local_records": 282,
+ "ambiguous_app_records": 44,
+ "third_source_pdf": "Drive PDF صفحہ 1059–1193 (مطبوعہ ص 476–540) — ordered alignment: 2936/2939 مکمل مطابق، صفر drift، صفر باقیات؛ 3 فرق = صفحہ-سرحد آرٹی فیکٹ (Carb-v/Nat-c/Jug-r کے نام میں PDF صفحہ-نمبر سٹیمپ گلا — ماخذ درست)",
+ "chapter_boundaries": "STOMACH = صفحات 476–540 — kentstom.htm فہرست 65/65 صفحہ-اندراجات subsequence؛ آغاز P476 (kent0475.htm؛ PDF 1059)؛ اختتام P540 (WATERBRASH/WEIGHT/WINE آخری مینز — PDF 1193، ABDOMEN از PDF 1194)؛ P540 کی کتابی درستی kent0540.htm کے P540 سیکشن سے کراس-تصدیق (عین ایک، 2883 حروف)",
+ "documented_corrections": [
+  "7 خاندانی clamps (MEDI-T اضافی <dir>): ص484 menses-before d2→d1؛ ص486 chill-during d3→d2؛ ص501/506/510/512×2 amel. d3→d2 — سب بلا-وسط بچے، ساختی ثبوت",
+  "1 ماخذ ترمیم (کتابی ساخت): ص535 MEDI-T کی flat قطار «VOMITING, amel.» ← «VOMITING, wine, amel.» — کتاب PDF میں «wine agg. : Ant-c. / amel. : Kalm.» (MEDI-T نے wine سے جوڑ توڑ دیا)؛ o60206 سے عین-جوڑا",
+  "47 دستی جوڑے (سب J=1.00 ادویات-عین + یکطرفہ بہترین): 19 OOREP «agg.»-لاحقہ/سیگمنٹ-کٹی (while/on/before وغیرہ ہٹا کر agg. لگایا، مثلاً o59335 «PAIN, pressing, lying, on back agg.» ↔ ماخذ «PAIN, pressing, lying, while, on back»)؛ 5 وقت-فارمیٹ (مثلاً o58502 «5 p.m. to 8 p.m.» ↔ ماخذ «5 to 8 p.m.»)؛ o58512 «forenoon» ↔ ماخذ «morning» (کتابی «11 a.m.»)؛ o59389 «PAIN, pressure agg.» (مبہم سے نکلا، J=1.000)؛ o59728 «often» ↔ ماخذ «often, for» (کتابی لیبل «often, for» — PDF 1135)؛ باقی نام-مختصر سازی",
+  "44 OOREP aggregate/خالی کنٹینر مبہم → legacy: m58572 «INDURATION»، m59630 «SENSITIVENESS» (خالی m)؛ o68197+ سیریز (OOREP کے شمارشدہ unions — مثلاً r387 «DESIRES, ice» = ice + ice-cream کا union)",
+  "238 legacy مقامی قطاریں (OOREP unions + agg./amel. اسپلٹ + m-کنٹینرز) فائل میں محفوظ، ماخذی درخت سے باہر — ڈاکٹر نظرثانی کے لیے رپورٹ",
+  "1 دوہرا norm-راستہ ضم: ص489 «EMPTINESS, weak feeling…eructation, after» d1+d2 (MEDI-T صفحہ-سرحد دہرائی) — max-گریڈ ضم، ایک قطار",
+  "8 نئے hN: جڑ STOMACH + 7 کتابی قطاریں جو OOREP ایپ میں نہیں (مثلاً «PAIN, pressure» کا والد ص514، «PERSPIRATION on pit of» ص524، «DESIRES alcoholic drinks, ice» ص485)"
+ ],
+ "policy": {
+  "remedies": "r := source_remedies (ماخذ مطبوعہ کتاب = سچ؛ OOREP مجموعے ضم/legacy)",
+  "hierarchy": "runtime tree از source_parent_id (rep-chapters.js stomach بلڈر)",
+  "legacy": "فائل میں محفوظ، ماخذی درخت میں شامل نہیں — ڈاکٹر نظرثانی کے لیے رپورٹ"
+ }
+}
