@@ -1,0 +1,1053 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,693,0,GENITALIA MALE,0
+r0,693,0,ABSCESS penis,2
+r1,693,0,"ABSENT, sensation as if penis were",1
+r2,693,0,"ADHERE to scrotum, testes",1
+r3,693,0,"ASLEEP, as if",1
+r4,693,1,"ASLEEP, as if, ascending stairs, on",1
+r5,693,0,ATROPHY,5
+r6,693,1,"ATROPHY, Penis",15
+r7,693,1,"ATROPHY, Testes",16
+r8,693,2,"ATROPHY, Testes, sexual excesses, after",1
+r9,693,0,BALANITIS (See Inflammation),0
+r10,693,0,BEARING down,2
+r11,693,0,BLEEDING from prepuce,1
+o37672,693,1,"BLEEDING from prepuce, scrotum",1
+o37673,693,0,BLENNORRHŒA of glans,21
+r14,693,0,BLUE spots,1
+r15,693,0,BLUENESS glans,1
+o37676,693,1,"BLUENESS glans, Scrotum",4
+o37677,693,2,"BLUENESS glans, Scrotum, eruption, after",1
+r18,693,0,BUBBLING sensation penis,2
+h002,693,1,"BUBBLING sensation penis, erection, during",1
+o37680,693,1,"BUBBLING sensation penis, Scrotum",1
+r21,693,0,CANCER,9
+r22,693,1,"CANCER, Scrotum (epithelioma)",2
+r23,693,2,"CANCER, Scrotum (epithelioma), scirrhus",1
+r24,693,1,"CANCER, Testes",1
+r25,693,0,"COITION, aversion to",17
+r26,693,1,"COITION, aversion to, enjoyment absent",27
+o37687,693,2,"COITION, aversion to, enjoyment absent, extreme",3
+r28,693,0,COLDNESS,21
+r29,693,1,"COLDNESS, morning",1
+r30,693,1,"COLDNESS, evening",1
+r31,693,1,"COLDNESS, urination, during",1
+r32,693,1,"COLDNESS, Penis",11
+r33,693,2,"COLDNESS, Penis, glans",4
+r34,693,2,"COLDNESS, Penis, prepuce",4
+r35,693,1,"COLDNESS, Scrotum",7
+r36,693,2,"COLDNESS, Scrotum, morning, on waking",1
+r37,693,1,"COLDNESS, Testes",10
+r38,693,2,"COLDNESS, Testes, left",1
+r39,693,2,"COLDNESS, Testes, evening",2
+r40,693,2,"COLDNESS, Testes, night",2
+r41,693,0,CONDYLOMATA,26
+r42,693,1,"CONDYLOMATA, anus, and",1
+r43,693,1,"CONDYLOMATA, bleed easily",7
+r44,693,1,"CONDYLOMATA, fetid, bleeding when touched",3
+r45,693,1,"CONDYLOMATA, hot",1
+r46,693,1,"CONDYLOMATA, itching",5
+r47,694,1,"CONDYLOMATA, sensitive",1
+r48,694,1,"CONDYLOMATA, smelling like stale cheese",4
+r49,694,1,"CONDYLOMATA, soft",1
+r50,694,1,"CONDYLOMATA, sticking pain",1
+r51,694,1,"CONDYLOMATA, Penis",21
+r52,694,2,"CONDYLOMATA, Penis, bleeding",4
+r53,694,2,"CONDYLOMATA, Penis, burning",7
+r54,694,2,"CONDYLOMATA, Penis, butternut-shaped hard growth on the dorsum of the penis",1
+r55,694,2,"CONDYLOMATA, Penis, cauliflower, like",2
+r56,694,2,"CONDYLOMATA, Penis, fan shaped",2
+r57,694,2,"CONDYLOMATA, Penis, itching",2
+r58,694,2,"CONDYLOMATA, Penis, oozing",6
+r59,694,3,"CONDYLOMATA, Penis, oozing, offensive",1
+r60,694,2,"CONDYLOMATA, Penis, soreness",5
+r61,694,3,"CONDYLOMATA, Penis, soreness, and itching",2
+r62,694,2,"CONDYLOMATA, Penis, glans",17
+r63,694,2,"CONDYLOMATA, Penis, prepuce",15
+r64,694,3,"CONDYLOMATA, Penis, prepuce, edge of, itching and burning",1
+r65,694,3,"CONDYLOMATA, Penis, prepuce, frænum",1
+r66,694,1,"CONDYLOMATA, Scrotum",4
+r67,694,0,CONGESTION scrotum,1
+r68,694,0,"CONSTRICTION, prepuce",5
+r69,694,1,"CONSTRICTION, prepuce, Glans, behind",3
+r70,694,2,"CONSTRICTION, prepuce, Glans, behind, coition, after",1
+r71,694,0,CONSTRINGING sensation,4
+r72,694,0,CONTRACTION scrotum,8
+r73,694,0,CRAB-LICE,2
+r74,694,0,"CRACKS, gland",4
+r75,694,1,"CRACKS, gland, prepuce",3
+r76,694,0,CRAWLING (See Formication),0
+r77,694,0,DRAWING scrotum,2
+r78,694,0,DRYNESS glans,2
+r79,694,0,ELEPHANTIASIS scrotum,1
+r80,694,0,EMPYOCELE,9
+r81,694,0,ENLARGED spermatic cord,2
+o37741,694,1,"ENLARGED spermatic cord, Testes",4
+o37744,694,2,"ENLARGED spermatic cord, Testes, right",2
+o37742,694,2,"ENLARGED spermatic cord, Testes, left",2
+o37743,694,3,"ENLARGED spermatic cord, Testes, left, for two years",1
+o37745,694,2,"ENLARGED spermatic cord, Testes, walking, while",1
+r87,694,0,"ERECTIONS, troublesome",65
+r88,694,1,"ERECTIONS, troublesome, daytime",7
+r89,694,1,"ERECTIONS, troublesome, morning",50
+r90,694,2,"ERECTIONS, troublesome, morning, only",2
+r91,694,2,"ERECTIONS, troublesome, morning, standing, while",1
+r92,694,2,"ERECTIONS, troublesome, morning, waking, on",7
+r93,694,1,"ERECTIONS, troublesome, forenoon",5
+r94,694,1,"ERECTIONS, troublesome, noon, after a nap",1
+r96,695,1,"ERECTIONS, troublesome, afternoon",5
+r97,695,2,"ERECTIONS, troublesome, afternoon, sitting, while",1
+r98,695,2,"ERECTIONS, troublesome, afternoon, 2 p.m.",1
+r99,695,1,"ERECTIONS, troublesome, evening",7
+r100,695,2,"ERECTIONS, troublesome, evening, shivering, with, with great desire",1
+r101,695,1,"ERECTIONS, troublesome, night",50
+r102,695,2,"ERECTIONS, troublesome, night, bed, when becoming warm in",1
+r103,695,2,"ERECTIONS, troublesome, night, urinating, after",1
+r104,695,2,"ERECTIONS, troublesome, night, 2 a.m.",1
+r105,695,1,"ERECTIONS, troublesome, child, in a",4
+r106,695,1,"ERECTIONS, troublesome, coition, after",14
+r107,695,1,"ERECTIONS, troublesome, continued",31
+r108,695,2,"ERECTIONS, troublesome, continued, morning",1
+r109,695,2,"ERECTIONS, troublesome, continued, night",6
+r110,695,1,"ERECTIONS, troublesome, coughing, when",2
+r111,695,1,"ERECTIONS, troublesome, delayed",13
+r112,695,1,"ERECTIONS, troublesome, easy, too",10
+r113,695,1,"ERECTIONS, troublesome, emission, after",9
+r114,695,1,"ERECTIONS, troublesome, excessive",10
+r115,695,2,"ERECTIONS, troublesome, excessive, lascivious thoughts, during",2
+r116,695,1,"ERECTIONS, troublesome, frequent",40
+r117,695,2,"ERECTIONS, troublesome, frequent, eating, after",1
+r118,695,2,"ERECTIONS, troublesome, frequent, old man, in an",1
+r119,695,1,"ERECTIONS, troublesome, impetuous",1
+r120,695,1,"ERECTIONS, troublesome, incomplete",46
+r121,695,2,"ERECTIONS, troublesome, incomplete, morning",1
+r122,695,2,"ERECTIONS, troublesome, incomplete, forenoon",1
+r123,695,2,"ERECTIONS, troublesome, incomplete, coition, during",10
+r124,695,2,"ERECTIONS, troublesome, incomplete, penis becomes relaxed",3
+r125,695,1,"ERECTIONS, troublesome, lying, while",1
+r126,695,2,"ERECTIONS, troublesome, lying, while, on the back",1
+r127,695,1,"ERECTIONS, troublesome, painful (See Chordee, Urethra)",57
+r128,695,2,"ERECTIONS, troublesome, painful (See Chordee, Urethra), morning",7
+r129,695,2,"ERECTIONS, troublesome, painful (See Chordee, Urethra), evening",2
+r130,695,2,"ERECTIONS, troublesome, painful (See Chordee, Urethra), night",9
+r131,695,3,"ERECTIONS, troublesome, painful (See Chordee, Urethra), night, coition, during",1
+r132,695,4,"ERECTIONS, troublesome, painful (See Chordee, Urethra), night, coition, during, after",3
+r133,695,3,"ERECTIONS, troublesome, painful (See Chordee, Urethra), night, emission, after",1
+r134,695,3,"ERECTIONS, troublesome, painful (See Chordee, Urethra), night, voluptuous dream, during",1
+r135,695,1,"ERECTIONS, troublesome, swelling of prepuce, from",1
+r136,695,1,"ERECTIONS, troublesome, riding, while",4
+r137,695,2,"ERECTIONS, troublesome, riding, while, with impotence at all other times",1
+r138,696,1,"ERECTIONS, troublesome, seldom",4
+r139,696,1,"ERECTIONS, troublesome, sexual desire, without",40
+r140,696,2,"ERECTIONS, troublesome, sexual desire, without, morning",6
+r141,696,1,"ERECTIONS, troublesome, short",15
+r142,696,1,"ERECTIONS, troublesome, sleep, during",7
+r143,696,2,"ERECTIONS, troublesome, sleep, during, with impotence when awake",1
+r144,696,1,"ERECTIONS, troublesome, slow (See Delayed)",0
+r145,696,1,"ERECTIONS, troublesome, stool, during",4
+r146,696,1,"ERECTIONS, troublesome, strong",21
+r147,696,2,"ERECTIONS, troublesome, strong, pain in abdomen, with",1
+r148,696,1,"ERECTIONS, troublesome, supper, during",1
+r149,696,1,"ERECTIONS, troublesome, urinating, after",6
+r150,696,1,"ERECTIONS, troublesome, violent",46
+r151,696,2,"ERECTIONS, troublesome, violent, daytime",1
+r152,696,2,"ERECTIONS, troublesome, violent, morning",6
+r153,696,2,"ERECTIONS, troublesome, violent, evening",2
+r154,696,1,"ERECTIONS, troublesome, wanting (impotency)",94
+r155,696,2,"ERECTIONS, troublesome, wanting (impotency), morning",2
+r156,696,2,"ERECTIONS, troublesome, wanting (impotency), evening and night",3
+r157,696,2,"ERECTIONS, troublesome, wanting (impotency), awake, when",1
+r158,696,2,"ERECTIONS, troublesome, wanting (impotency), chronic",1
+r159,696,2,"ERECTIONS, troublesome, wanting (impotency), cold, from a",1
+r160,696,2,"ERECTIONS, troublesome, wanting (impotency), continence, from",2
+r161,696,2,"ERECTIONS, troublesome, wanting (impotency), desire, with (See Sexual Passion)",0
+o37817,696,2,"ERECTIONS, troublesome, wanting (impotency), gonorrhœa, after",7
+r163,696,2,"ERECTIONS, troublesome, wanting (impotency), penis relaxed when excited",1
+o37820,696,3,"ERECTIONS, troublesome, wanting (impotency), penis relaxed when excited, small and cold",6
+r165,696,2,"ERECTIONS, troublesome, wanting (impotency), stultified by sudden laxness of penis",1
+r166,696,2,"ERECTIONS, troublesome, wanting (impotency), syphilis, from",1
+r167,696,0,ERUPTIONS,37
+r168,696,1,"ERUPTIONS, blotches",7
+r169,696,1,"ERUPTIONS, boils on pubes",1
+r170,696,1,"ERUPTIONS, burning",7
+r171,696,1,"ERUPTIONS, copper colored",1
+r172,696,1,"ERUPTIONS, crusts",4
+r173,696,1,"ERUPTIONS, dry",2
+r174,696,2,"ERUPTIONS, dry, scaly",3
+r175,696,1,"ERUPTIONS, eczema",14
+r176,696,1,"ERUPTIONS, elevated",2
+r177,697,1,"ERUPTIONS, erosion in spots",1
+r178,697,1,"ERUPTIONS, hard",2
+r179,697,1,"ERUPTIONS, herpetic",14
+r180,697,1,"ERUPTIONS, between thighs",2
+r181,697,1,"ERUPTIONS, itching",18
+r182,697,2,"ERUPTIONS, itching, moist spots, on",1
+r183,697,1,"ERUPTIONS, miliary",5
+r184,697,1,"ERUPTIONS, moist",11
+r185,697,1,"ERUPTIONS, pimples",12
+r186,697,1,"ERUPTIONS, pustules",4
+r187,697,2,"ERUPTIONS, pustules, red",1
+r188,697,1,"ERUPTIONS, rash",3
+r189,697,1,"ERUPTIONS, red",9
+r190,697,1,"ERUPTIONS, syphilitic",3
+r191,697,1,"ERUPTIONS, urticaria",4
+r192,697,1,"ERUPTIONS, vesicular",14
+r193,697,1,"ERUPTIONS, hairy parts, on",1
+r194,697,1,"ERUPTIONS, Penis",7
+r195,697,2,"ERUPTIONS, Penis, copper-colored",1
+r196,697,2,"ERUPTIONS, Penis, erythematous",2
+r197,697,2,"ERUPTIONS, Penis, nodules, hard, painful, suppurating",1
+r198,697,2,"ERUPTIONS, Penis, pimples",7
+r199,697,3,"ERUPTIONS, Penis, pimples, itching",1
+r200,697,2,"ERUPTIONS, Penis, pustules",5
+r201,697,2,"ERUPTIONS, Penis, red rash",3
+r202,697,2,"ERUPTIONS, Penis, scabs",2
+r203,697,2,"ERUPTIONS, Penis, vesicles",16
+r204,697,3,"ERUPTIONS, Penis, vesicles, burning",2
+r205,697,3,"ERUPTIONS, Penis, vesicles, itching",4
+r206,697,3,"ERUPTIONS, Penis, vesicles, ulcers, becoming",4
+r207,697,4,"ERUPTIONS, Penis, vesicles, ulcers, becoming, at meatus",2
+r208,697,3,"ERUPTIONS, Penis, vesicles, white",1
+r209,697,2,"ERUPTIONS, Penis, glans",17
+r210,697,3,"ERUPTIONS, Penis, glans, pimples",4
+r211,697,3,"ERUPTIONS, Penis, glans, shining red points",1
+r212,697,3,"ERUPTIONS, Penis, glans, vesicles",7
+r213,697,2,"ERUPTIONS, Penis, prepuce",19
+r214,697,3,"ERUPTIONS, Penis, prepuce, blotches",1
+r215,697,3,"ERUPTIONS, Penis, prepuce, burning",2
+r216,697,3,"ERUPTIONS, Penis, prepuce, herpetic",15
+r217,697,3,"ERUPTIONS, Penis, prepuce, pimples",3
+r218,697,3,"ERUPTIONS, Penis, prepuce, vesicles",6
+r219,697,3,"ERUPTIONS, Penis, prepuce, under part",7
+r220,697,1,"ERUPTIONS, Scrotum",14
+r221,697,2,"ERUPTIONS, Scrotum, blotches",1
+r222,697,2,"ERUPTIONS, Scrotum, crusts",2
+r223,697,2,"ERUPTIONS, Scrotum, desquamative",3
+r224,697,2,"ERUPTIONS, Scrotum, dry",3
+r225,697,2,"ERUPTIONS, Scrotum, eczema",1
+r226,697,3,"ERUPTIONS, Scrotum, eczema, rubrum",1
+r227,697,2,"ERUPTIONS, Scrotum, herpetic",10
+r228,697,3,"ERUPTIONS, Scrotum, herpetic, between, and thighs",3
+r229,697,2,"ERUPTIONS, Scrotum, itching",8
+r230,697,3,"ERUPTIONS, Scrotum, itching, moist spots",1
+r231,697,3,"ERUPTIONS, Scrotum, itching, night",2
+r232,698,2,"ERUPTIONS, Scrotum, moist",8
+r233,698,3,"ERUPTIONS, Scrotum, moist, between, and thigh",4
+r234,698,2,"ERUPTIONS, Scrotum, pimples",6
+r235,698,3,"ERUPTIONS, Scrotum, pimples, between, and thigh",1
+r236,698,2,"ERUPTIONS, Scrotum, psoriasis",3
+r237,698,2,"ERUPTIONS, Scrotum, pustules",9
+r238,698,2,"ERUPTIONS, Scrotum, rash",3
+r239,698,2,"ERUPTIONS, Scrotum, red",2
+r240,698,2,"ERUPTIONS, Scrotum, rhagades",1
+r241,698,2,"ERUPTIONS, Scrotum, scaly",2
+r242,698,2,"ERUPTIONS, Scrotum, scurfs, cracked, dry and red",1
+r243,698,2,"ERUPTIONS, Scrotum, tubercles",1
+r244,698,2,"ERUPTIONS, Scrotum, vesicles",9
+r245,698,3,"ERUPTIONS, Scrotum, vesicles, painful",2
+r246,698,3,"ERUPTIONS, Scrotum, vesicles, yellowish",2
+r247,698,3,"ERUPTIONS, Scrotum, vesicles, raphe, along",1
+r248,698,2,"ERUPTIONS, Scrotum, thighs, between",5
+r249,698,0,EXCITEMENT (See Sexual Passion increased),0
+r250,698,0,EXCORIATION,5
+r251,698,1,"EXCORIATION, Penis",3
+r252,698,2,"EXCORIATION, Penis, glans",10
+r253,698,2,"EXCORIATION, Penis, prepuce",11
+r254,698,3,"EXCORIATION, Penis, prepuce, easy",1
+r255,698,3,"EXCORIATION, Penis, prepuce, margin, on the",6
+r256,698,1,"EXCORIATION, Scrotum",8
+r257,698,2,"EXCORIATION, Scrotum, between, and thighs",13
+r258,698,2,"EXCORIATION, Scrotum, sides, of",3
+r259,698,0,"EXCRESCENCES, testes",1
+r260,698,0,FIRMNESS increased of testes,1
+r261,698,0,"FISTULOUS openings, scrotum",3
+r262,698,0,FLACCIDITY,21
+r263,698,1,"FLACCIDITY, Penis",20
+r264,698,0,FORMICATION (See Tingling),6
+r265,698,1,"FORMICATION (See Tingling), emission, after",1
+r266,698,1,"FORMICATION (See Tingling), Penis",8
+r267,698,2,"FORMICATION (See Tingling), Penis, frænum",1
+r268,698,2,"FORMICATION (See Tingling), Penis, glans",5
+r269,698,3,"FORMICATION (See Tingling), Penis, glans, after urination",1
+r270,698,1,"FORMICATION (See Tingling), Scrotum",14
+r271,698,2,"FORMICATION (See Tingling), Scrotum, evening in bed",1
+r272,698,1,"FORMICATION (See Tingling), Testes",9
+r273,698,0,FRETTING sensation (corrosion) testes,2
+r274,698,0,"FULLNESS, sense of, spermatic cords",1
+r275,698,0,GANGRENE,5
+r276,698,1,"GANGRENE, Penis",6
+r277,698,2,"GANGRENE, Penis, paraphimosis, from",7
+r278,698,2,"GANGRENE, Penis, threatening",1
+r279,698,1,"GANGRENE, Scrotum",1
+r280,698,0,GURGLING testes 5 p.m. while sitting,1
+r281,698,0,HÆMATOCELE,3
+r282,698,0,"HAIR, falling off",9
+o37937,698,1,"HAIR, falling off, offensive sweat, from",1
+r284,698,0,HANDLES,7
+r285,698,1,"HANDLES, child with spasms",1
+r286,699,0,HANGING down testes (See Relaxed),0
+r287,699,0,HEAT,8
+r288,699,1,"HEAT, night",1
+r289,699,1,"HEAT, Penis",14
+r290,699,2,"HEAT, Penis, glans",1
+r291,699,2,"HEAT, Penis, prepuce",3
+r292,699,1,"HEAT, Scrotum",5
+r293,699,2,"HEAT, Scrotum, sides, in",1
+r294,699,2,"HEAT, Scrotum, spots, in",1
+r295,699,1,"HEAT, Spermatic cord",2
+r296,699,1,"HEAT, Testes",11
+r297,699,0,HEAVINESS,14
+r298,699,1,"HEAVINESS, urination, during",1
+r299,699,0,HYDROCELE,30
+r300,699,1,"HYDROCELE, left side",2
+r301,699,1,"HYDROCELE, boys, of",11
+r302,699,2,"HYDROCELE, boys, of, congenital",1
+r303,699,1,"HYDROCELE, bruise, caused by a",1
+o37957,699,1,"HYDROCELE, gonorrhœal orchitis, after",1
+r305,699,1,"HYDROCELE, herpetic eruptions, with",1
+r306,699,1,"HYDROCELE, suppressed eruption, after",3
+r307,699,0,IMPOTENCY (See Erections),0
+r308,699,0,"INDURATION, penis",1
+r309,699,1,"INDURATION, penis, in an old man",1
+r310,699,1,"INDURATION, penis, prepuce",4
+r311,699,1,"INDURATION, penis, Scrotum",2
+r312,699,1,"INDURATION, penis, Spermatic cord",2
+r313,699,1,"INDURATION, penis, Testes",46
+r314,699,2,"INDURATION, penis, Testes, right",12
+r315,699,2,"INDURATION, penis, Testes, left",6
+r316,699,2,"INDURATION, penis, Testes, chronic",3
+o37969,699,2,"INDURATION, penis, Testes, gonorrhœa, after",6
+r318,699,2,"INDURATION, penis, Testes, epididymis",7
+r319,699,0,INFLAMMATION,23
+r320,699,1,"INFLAMMATION, lymphatic glands",1
+r321,699,1,"INFLAMMATION, Penis",17
+r322,699,2,"INFLAMMATION, Penis, warmth of bed agg.",1
+r323,699,2,"INFLAMMATION, Penis, frænum",3
+r324,699,2,"INFLAMMATION, Penis, glans",44
+r325,699,2,"INFLAMMATION, Penis, prepuce",24
+r326,699,3,"INFLAMMATION, Penis, prepuce, erysipelatous",5
+r327,699,3,"INFLAMMATION, Penis, prepuce, inner surface",2
+r328,699,1,"INFLAMMATION, Scrotum",11
+r329,699,2,"INFLAMMATION, Scrotum, erysipelatous",14
+r330,699,1,"INFLAMMATION, Spermatic cords",11
+r331,700,1,"INFLAMMATION, Testes",40
+r332,700,2,"INFLAMMATION, Testes, right",5
+r333,700,2,"INFLAMMATION, Testes, left",5
+r334,700,2,"INFLAMMATION, Testes, night",1
+r335,700,2,"INFLAMMATION, Testes, chronic",3
+r336,700,2,"INFLAMMATION, Testes, contusion, from",6
+o37989,700,2,"INFLAMMATION, Testes, gonorrhœa, from suppressed",25
+r338,700,2,"INFLAMMATION, Testes, warmth of bed agg.",1
+r339,700,2,"INFLAMMATION, Testes, extending right to left",1
+r340,700,2,"INFLAMMATION, Testes, epididymis",15
+r341,700,0,ITCHING,55
+r342,700,1,"ITCHING, morning, on waking",1
+r343,700,2,"ITCHING, morning, on waking, in a red raw spot",1
+r344,700,1,"ITCHING, night",2
+r345,700,2,"ITCHING, night, bed, in",2
+r346,700,1,"ITCHING, all over, especially on genitals, after emission",1
+r347,700,1,"ITCHING, burning and",2
+r348,700,1,"ITCHING, hairy parts",2
+r349,700,1,"ITCHING, hot applications amel.",1
+r350,700,1,"ITCHING, painful",1
+r381,700,1,"ITCHING, scratching",2
+r352,700,2,"ITCHING, scratching, amel.",1
+r353,700,1,"ITCHING, spots, in",1
+r354,700,1,"ITCHING, stitching, as from vermin",1
+r355,700,1,"ITCHING, urination, during",2
+r356,700,1,"ITCHING, voluptuous",3
+r357,700,1,"ITCHING, Penis",58
+r358,700,2,"ITCHING, Penis, evening, in bed",6
+r359,700,2,"ITCHING, Penis, alternating with stitching in anus",1
+r360,700,2,"ITCHING, Penis, coition, during",1
+r361,700,2,"ITCHING, Penis, rubbing agg.",1
+r362,700,2,"ITCHING, Penis, voluptuous",4
+r363,700,3,"ITCHING, Penis, voluptuous, increasing the excitement during coition",1
+r364,700,2,"ITCHING, Penis, frænum",3
+r365,700,2,"ITCHING, Penis, glans",47
+r366,700,2,"ITCHING, Penis, prepuce",37
+r367,700,3,"ITCHING, Penis, prepuce, stool, after",1
+r368,700,3,"ITCHING, Penis, prepuce, raphe",1
+r369,700,3,"ITCHING, Penis, prepuce, underside",8
+r370,700,2,"ITCHING, Penis, root of",2
+r371,701,1,"ITCHING, Scrotum",79
+o38027,701,2,"ITCHING, Scrotum, morning",4
+r373,701,2,"ITCHING, Scrotum, noon",2
+r374,701,2,"ITCHING, Scrotum, afternoon",1
+r375,701,2,"ITCHING, Scrotum, evening",3
+r376,701,3,"ITCHING, Scrotum, evening, bed, in",1
+r377,701,2,"ITCHING, Scrotum, night",5
+r378,701,3,"ITCHING, Scrotum, morning, after scratching",1
+r379,701,2,"ITCHING, Scrotum, corrosion, painful",1
+r380,701,2,"ITCHING, Scrotum, friction amel.",4
+o38031,701,2,"ITCHING, Scrotum, scratching agg.",1
+o38032,701,3,"ITCHING, Scrotum, scratching agg., amel.",4
+o38033,701,3,"ITCHING, Scrotum, scratching agg., not relieved by",3
+r384,701,2,"ITCHING, Scrotum, spots, in",1
+r385,701,2,"ITCHING, Scrotum, voluptuous",8
+r386,701,3,"ITCHING, Scrotum, voluptuous, rubbing agg.",1
+r387,701,3,"ITCHING, Scrotum, voluptuous, sexual excesses, after",1
+r388,701,2,"ITCHING, Scrotum, walking agg.",1
+r389,701,2,"ITCHING, Scrotum, warm, when, agg.",1
+r390,701,2,"ITCHING, Scrotum, extending to perineum",2
+r391,701,2,"ITCHING, Scrotum, sides of",6
+r392,701,2,"ITCHING, Scrotum, Spermatic cords",2
+r393,701,2,"ITCHING, Scrotum, Thighs, between",3
+r394,701,3,"ITCHING, Scrotum, Thighs, between, and scrotum",2
+r395,701,0,JERKING in penis,5
+r396,701,1,"JERKING in penis, sleep, during",1
+r397,701,1,"JERKING in penis, glans",1
+r398,701,0,"MASTURBATION, disposition",26
+r399,701,1,"MASTURBATION, disposition, sexual excesses, after",1
+r400,701,1,"MASTURBATION, disposition, sleep, during",4
+r401,701,1,"MASTURBATION, disposition, solitude, seeks",2
+r402,701,0,METASTASIS (See Swelling),3
+r403,701,0,"MOISTURE, scrotum",8
+r404,701,1,"MOISTURE, scrotum, acrid",2
+r405,701,1,"MOISTURE, scrotum, purulent",1
+r406,701,1,"MOISTURE, scrotum, serum, running with",5
+r407,701,1,"MOISTURE, scrotum, between, and thighs",10
+r408,701,0,"MOTION in, sensation as if, in testes",3
+r409,701,0,"NODULES, hard, brown on scrotum",1
+o38063,701,1,"NODULES, hard, brown on scrotum, testes",1
+r411,701,0,NUMBNESS,5
+r412,701,1,"NUMBNESS, Penis",2
+r413,701,2,"NUMBNESS, Penis, morning erections, with violent",1
+r414,701,2,"NUMBNESS, Penis, glans and prepuce",1
+r415,701,1,"NUMBNESS, Testes",3
+r416,701,0,"ODOR, stinking (See Perspiration)",3
+r417,701,0,PAIN,9
+r418,701,1,"PAIN, Penis",28
+r419,701,2,"PAIN, Penis, cough, during",1
+r420,701,2,"PAIN, Penis, motion agg.",1
+r421,701,2,"PAIN, Penis, spasmodic",1
+r422,701,2,"PAIN, Penis, stool, during",1
+r423,701,2,"PAIN, Penis, swelled prepuce, from",1
+r424,701,2,"PAIN, Penis, touch, on",1
+r425,701,2,"PAIN, Penis, urination, during",5
+r426,702,2,"PAIN, Penis, walking, when",4
+r427,702,2,"PAIN, Penis, glans",23
+r428,702,3,"PAIN, Penis, glans, urging to urinate, on",6
+r429,702,3,"PAIN, Penis, glans, urination, before",2
+r430,702,4,"PAIN, Penis, glans, urination, before, during",7
+r431,702,4,"PAIN, Penis, glans, urination, before, after",3
+r432,702,2,"PAIN, Penis, prepuce",8
+r433,702,3,"PAIN, Penis, prepuce, urination, during",1
+r434,702,2,"PAIN, Penis, root",4
+r435,702,2,"PAIN, Penis, tip",6
+r436,702,3,"PAIN, Penis, tip, urination, at beginning",1
+r437,702,1,"PAIN, Spermatic cords",39
+r438,702,2,"PAIN, Spermatic cords, right",5
+r439,702,2,"PAIN, Spermatic cords, left",5
+r440,702,3,"PAIN, Spermatic cords, left, then right",1
+r441,702,3,"PAIN, Spermatic cords, left, sitting and standing",1
+r442,702,3,"PAIN, Spermatic cords, left, urination, after",1
+r443,702,2,"PAIN, Spermatic cords, morning",2
+r444,702,2,"PAIN, Spermatic cords, coition, after",2
+r445,702,2,"PAIN, Spermatic cords, cough, during",1
+r446,702,2,"PAIN, Spermatic cords, emission, after",1
+r447,702,2,"PAIN, Spermatic cords, erection, after",3
+r448,702,2,"PAIN, Spermatic cords, exertion, after",2
+r449,702,2,"PAIN, Spermatic cords, motion agg.",1
+r450,702,2,"PAIN, Spermatic cords, sitting, while",1
+r451,702,2,"PAIN, Spermatic cords, stool, during",2
+r452,702,2,"PAIN, Spermatic cords, urination, during",6
+r453,702,2,"PAIN, Spermatic cords, wine, after",1
+r454,702,2,"PAIN, Spermatic cords, extending down",1
+o38315,702,3,"PAIN, Spermatic cords, extending down, into epididymis",2
+o38316,702,4,"PAIN, Spermatic cords, extending down, into epididymis, testes",10
+o38317,702,3,"PAIN, Spermatic cords, extending down, upward",1
+r458,702,1,"PAIN, Testes",66
+r459,702,2,"PAIN, Testes, right",17
+r460,702,3,"PAIN, Testes, right, urination, after, amel.",1
+r461,702,3,"PAIN, Testes, right, to left",1
+r462,702,2,"PAIN, Testes, left",11
+r463,702,2,"PAIN, Testes, morning",4
+r464,702,2,"PAIN, Testes, noon",2
+r465,702,2,"PAIN, Testes, afternoon",2
+r466,702,3,"PAIN, Testes, afternoon, 2 p.m.",1
+r467,702,2,"PAIN, Testes, evening",5
+r468,702,3,"PAIN, Testes, evening, bed, in",1
+r469,702,3,"PAIN, Testes, evening, urination, before",1
+r470,702,2,"PAIN, Testes, night",2
+r471,702,2,"PAIN, Testes, coughing, on",4
+r472,702,2,"PAIN, Testes, emission, during",1
+h003,702,2,"PAIN, Testes, after",3
+r474,702,2,"PAIN, Testes, erections, after",3
+r475,702,2,"PAIN, Testes, lying agg.",1
+r476,702,2,"PAIN, Testes, motion agg.",5
+o38417,702,3,"PAIN, Testes, motion agg., amel.",3
+r478,702,2,"PAIN, Testes, paroxysmal",1
+r479,702,2,"PAIN, Testes, pressure of clothing agg.",1
+r480,702,2,"PAIN, Testes, rising, after",1
+r481,703,2,"PAIN, Testes, sexual excitement, after",4
+r482,703,2,"PAIN, Testes, sickening as from a blow",1
+r483,703,2,"PAIN, Testes, sitting, while",2
+r484,703,2,"PAIN, Testes, standing agg.",1
+r485,703,2,"PAIN, Testes, stepping heavily",2
+r486,703,2,"PAIN, Testes, stool, during",2
+r487,703,2,"PAIN, Testes, touch, on",4
+r488,703,2,"PAIN, Testes, urination, during",1
+r489,703,2,"PAIN, Testes, walking, while",10
+r490,703,2,"PAIN, Testes, wine agg.",1
+r491,703,2,"PAIN, Testes, extending through abdomen",1
+o38411,703,3,"PAIN, Testes, extending through abdomen, to abdomen",1
+o38409,703,3,"PAIN, Testes, extending through abdomen, into spermatic cord",4
+o38410,703,4,"PAIN, Testes, extending through abdomen, into spermatic cord, suddenly shifting to bowels causing nausea",1
+o38412,703,3,"PAIN, Testes, extending through abdomen, to stomach",1
+r496,703,1,"PAIN, aching",3
+r497,703,2,"PAIN, aching, glans penis after urination",1
+r498,703,2,"PAIN, aching, sides of scrotum",2
+r499,703,2,"PAIN, aching, Spermatic cords",8
+r500,703,3,"PAIN, aching, Spermatic cords, morning",1
+r501,703,3,"PAIN, aching, Spermatic cords, erections, after, without coition",3
+r502,703,3,"PAIN, aching, Spermatic cords, urination, during",1
+r503,703,3,"PAIN, aching, Spermatic cords, extending to testes",1
+r504,703,2,"PAIN, aching, Testes",23
+r505,703,3,"PAIN, aching, Testes, right",5
+r506,703,3,"PAIN, aching, Testes, left",5
+r507,703,3,"PAIN, aching, Testes, morning",1
+r508,703,3,"PAIN, aching, Testes, noon",2
+r509,703,3,"PAIN, aching, Testes, evening",1
+r510,703,3,"PAIN, aching, Testes, emission, after",1
+r511,703,3,"PAIN, aching, Testes, sexual excitement, from",2
+r512,703,3,"PAIN, aching, Testes, walking, while",3
+r513,703,1,"PAIN, biting",7
+r514,703,2,"PAIN, biting, penis",6
+r515,703,3,"PAIN, biting, penis, glans",1
+r516,703,3,"PAIN, biting, penis, prepuce",4
+r517,703,4,"PAIN, biting, penis, prepuce, urination, after",4
+r518,703,2,"PAIN, biting, Scrotum",2
+r519,703,1,"PAIN, boring, testes",2
+r520,703,1,"PAIN, burning",17
+r521,703,2,"PAIN, burning, night",1
+r522,703,2,"PAIN, burning, coition, during",1
+r523,703,2,"PAIN, burning, urination, before",2
+r524,703,3,"PAIN, burning, urination, before, during",12
+r525,703,3,"PAIN, burning, urination, before, after",4
+r526,703,2,"PAIN, burning, walking, after",1
+r527,703,2,"PAIN, burning, Penis",22
+r528,703,3,"PAIN, burning, Penis, morning, in bed",1
+r529,703,3,"PAIN, burning, Penis, evening after coition",1
+r530,703,3,"PAIN, burning, Penis, coition, during",4
+r531,703,3,"PAIN, burning, Penis, erection, during",1
+r532,703,3,"PAIN, burning, Penis, scratching, after",1
+r533,703,3,"PAIN, burning, Penis, walking, while",1
+r534,703,3,"PAIN, burning, Penis, glans",21
+r535,703,4,"PAIN, burning, Penis, glans, ejaculation, during",1
+r536,703,4,"PAIN, burning, Penis, glans, itching",1
+r537,703,4,"PAIN, burning, Penis, glans, urination, before",3
+r538,703,5,"PAIN, burning, Penis, glans, urination, before, on beginning to urinate",1
+r539,703,5,"PAIN, burning, Penis, glans, urination, before, during",4
+r540,704,4,"PAIN, burning, Penis, glans, urination, after",4
+r541,704,4,"PAIN, burning, Penis, glans, behind, during urination",1
+r542,704,4,"PAIN, burning, Penis, glans, dragging, and in vesiculæ seminales to glans",1
+r543,704,3,"PAIN, burning, Penis, prepuce",15
+r544,704,4,"PAIN, burning, Penis, prepuce, coition, after",1
+r545,704,4,"PAIN, burning, Penis, prepuce, urination, after",19
+r546,704,3,"PAIN, burning, Penis, root of",3
+r547,704,2,"PAIN, burning, Scrotum",15
+r548,704,3,"PAIN, burning, Scrotum, itching",1
+r549,704,3,"PAIN, burning, Scrotum, rubbing, after",3
+r550,704,3,"PAIN, burning, Scrotum, scratching, after",1
+r551,704,3,"PAIN, burning, Scrotum, between, and thighs",1
+r552,704,3,"PAIN, burning, Scrotum, sides of",3
+r553,704,2,"PAIN, burning, Spermatic cords",6
+r554,704,3,"PAIN, burning, Spermatic cords, right",1
+r555,704,3,"PAIN, burning, Spermatic cords, left",1
+r556,704,3,"PAIN, burning, Spermatic cords, walking, while",1
+r557,704,2,"PAIN, burning, Testes",12
+r558,704,3,"PAIN, burning, Testes, swelling, without",1
+r559,704,1,"PAIN, compressing testes",7
+r560,704,2,"PAIN, compressing testes, right",2
+r561,704,1,"PAIN, constricting",1
+r562,704,2,"PAIN, constricting, root of penis morning on waking",1
+r563,704,2,"PAIN, constricting, Spermatic cord",3
+r564,704,2,"PAIN, constricting, standing, while",1
+r565,704,2,"PAIN, constricting, walking, while",1
+r566,704,2,"PAIN, constricting, Testes",8
+r567,704,1,"PAIN, contracting, spermatic cord",4
+r568,704,2,"PAIN, contracting, spermatic cord, Testes",6
+r569,704,1,"PAIN, cramping, spermatic cord",3
+r570,704,2,"PAIN, cramping, spermatic cord, extending to testes",1
+r571,704,2,"PAIN, cramping, spermatic cord, from rectum to testes",1
+r572,704,2,"PAIN, cramping, spermatic cord, Testes",13
+r573,704,3,"PAIN, cramping, spermatic cord, Testes, right",1
+r574,704,3,"PAIN, cramping, spermatic cord, Testes, afternoon",1
+r575,704,3,"PAIN, cramping, spermatic cord, Testes, evening",1
+r576,704,3,"PAIN, cramping, spermatic cord, Testes, emission, after",1
+r577,704,3,"PAIN, cramping, spermatic cord, Testes, erections, after",1
+r578,704,3,"PAIN, cramping, spermatic cord, Testes, rest, during",1
+r579,704,3,"PAIN, cramping, spermatic cord, Testes, extending from rectum to",1
+r580,704,1,"PAIN, crushed testes",7
+r581,704,2,"PAIN, crushed testes, right, while walking",1
+r582,704,2,"PAIN, crushed testes, jar, from a",1
+r583,704,1,"PAIN, cutting",2
+r584,704,2,"PAIN, cutting, urinate, when beginning to",5
+r585,704,2,"PAIN, cutting, Penis",12
+r586,704,3,"PAIN, cutting, Penis, burning cutting",1
+r587,704,3,"PAIN, cutting, Penis, glans",4
+r588,704,4,"PAIN, cutting, Penis, glans, urination, before",1
+r589,704,5,"PAIN, cutting, Penis, glans, urination, before, during",2
+r590,704,5,"PAIN, cutting, Penis, glans, urination, before, after",1
+r591,704,3,"PAIN, cutting, Penis, prepuce, urination, after",4
+r592,704,3,"PAIN, cutting, Penis, tip",1
+r593,704,2,"PAIN, cutting, Scrotum",1
+r594,704,2,"PAIN, cutting, Spermatic cord",2
+r595,704,2,"PAIN, cutting, Testes",11
+r596,704,3,"PAIN, cutting, Testes, night in bed",1
+r597,704,3,"PAIN, cutting, Testes, coition, during",1
+r598,705,1,"PAIN, darting (See Stitching)",0
+r599,705,1,"PAIN, dragging, penis, at root of",1
+r600,705,2,"PAIN, dragging, penis, at root of, burning from vesiculæ seminales to glans",1
+o38175,705,2,"PAIN, dragging, penis, at root of, Spermatic cords",7
+o38176,705,2,"PAIN, dragging, penis, at root of, Testes",7
+o38177,705,3,"PAIN, dragging, penis, at root of, Testes, afternoon, extending to groins",1
+o38178,705,3,"PAIN, dragging, penis, at root of, Testes, emissions, after",1
+r605,705,1,"PAIN, drawing, penis",20
+r606,705,2,"PAIN, drawing, penis, afternoon",1
+r607,705,2,"PAIN, drawing, penis, evening",1
+r608,705,2,"PAIN, drawing, penis, glans",9
+r609,705,2,"PAIN, drawing, penis, prepuce",1
+r610,705,2,"PAIN, drawing, penis, root",2
+r611,705,2,"PAIN, drawing, penis, Spermatic cords",50
+r612,705,3,"PAIN, drawing, penis, Spermatic cords, right",2
+r613,705,3,"PAIN, drawing, penis, Spermatic cords, left",3
+r614,705,3,"PAIN, drawing, penis, Spermatic cords, morning",1
+r615,705,3,"PAIN, drawing, penis, Spermatic cords, 4 p.m.",1
+r616,705,3,"PAIN, drawing, penis, Spermatic cords, evening",1
+r617,705,3,"PAIN, drawing, penis, Spermatic cords, motion amel.",2
+r618,705,3,"PAIN, drawing, penis, Spermatic cords, paroxysmal",1
+r619,705,3,"PAIN, drawing, penis, Spermatic cords, sitting",1
+r620,705,3,"PAIN, drawing, penis, Spermatic cords, spasmodic",1
+r621,705,3,"PAIN, drawing, penis, Spermatic cords, standing, while",1
+r622,705,3,"PAIN, drawing, penis, Spermatic cords, upward",2
+r623,705,3,"PAIN, drawing, penis, Spermatic cords, urination during",5
+o38201,705,4,"PAIN, drawing, penis, Spermatic cords, urination during, and after",1
+r625,705,3,"PAIN, drawing, penis, Spermatic cords, walking, while",2
+r626,705,3,"PAIN, drawing, penis, Spermatic cords, extending into abdomen during urination",1
+o38189,705,4,"PAIN, drawing, penis, Spermatic cords, extending into abdomen during urination, into abdominal ring",2
+o38190,705,5,"PAIN, drawing, penis, Spermatic cords, extending into abdomen during urination, into abdominal ring, testes",4
+r629,705,2,"PAIN, drawing, penis, Testes",58
+r630,705,3,"PAIN, drawing, penis, Testes, right",5
+r631,705,3,"PAIN, drawing, penis, Testes, left",10
+r632,705,4,"PAIN, drawing, penis, Testes, left, then right",1
+r633,705,3,"PAIN, drawing, penis, Testes, morning",2
+r634,705,3,"PAIN, drawing, penis, Testes, evening",2
+r635,705,3,"PAIN, drawing, penis, Testes, motion amel.",1
+r636,705,3,"PAIN, drawing, penis, Testes, paroxysmal",1
+r637,705,3,"PAIN, drawing, penis, Testes, sitting, while",2
+r638,705,3,"PAIN, drawing, penis, Testes, urination, during, agg.",1
+r639,705,3,"PAIN, drawing, penis, Testes, walking amel.",1
+r640,705,3,"PAIN, drawing, penis, Testes, extending to abdomen",3
+o38206,705,4,"PAIN, drawing, penis, Testes, extending to abdomen, hip",1
+o38207,705,4,"PAIN, drawing, penis, Testes, extending to abdomen, inguinal ring",2
+o38208,705,4,"PAIN, drawing, penis, Testes, extending to abdomen, spermatic cord",6
+o38209,705,4,"PAIN, drawing, penis, Testes, extending to abdomen, thighs",2
+r645,705,1,"PAIN, gnawing, testes",2
+r646,705,1,"PAIN, grinding, shooting, spermatic cord, morning",1
+r647,705,1,"PAIN, jerking, spermatic cord",4
+r648,705,1,"PAIN, lancinating (See Cutting)",0
+r649,705,1,"PAIN, pinching, penis",5
+r650,705,2,"PAIN, pinching, penis, glans",3
+r651,705,2,"PAIN, pinching, penis, prepuce",1
+r653,706,2,"PAIN, pinching, penis, Scrotum",2
+r654,706,2,"PAIN, pinching, penis, Testes",7
+r655,706,3,"PAIN, pinching, penis, Testes, afternoon",1
+r656,706,3,"PAIN, pinching, penis, Testes, urinating, while",1
+r657,706,1,"PAIN, pressing",9
+r658,706,2,"PAIN, pressing, alternating with contraction of anus",1
+r659,706,2,"PAIN, pressing, cramp-like, morning in bed",1
+r660,706,2,"PAIN, pressing, stool, before",1
+r661,706,3,"PAIN, pressing, stool, before, during",1
+r662,706,2,"PAIN, pressing, downwards",4
+r663,706,2,"PAIN, pressing, outwards, morning in bed",1
+r664,706,2,"PAIN, pressing, Penis, urination, before",1
+o38253,706,3,"PAIN, pressing, Penis, urination, before, glans",4
+r666,706,2,"PAIN, pressing, Spermatic cords",11
+r667,706,3,"PAIN, pressing, Spermatic cords, downward",2
+r668,706,2,"PAIN, pressing, Testes",30
+r669,706,3,"PAIN, pressing, Testes, right",4
+r670,706,3,"PAIN, pressing, Testes, left",3
+r671,706,3,"PAIN, pressing, Testes, noon",1
+r672,706,3,"PAIN, pressing, Testes, standing, while",2
+r673,706,3,"PAIN, pressing, Testes, touch agg.",1
+r674,706,3,"PAIN, pressing, Testes, walking agg.",2
+r675,706,3,"PAIN, pressing, Testes, extending from lumbar region on coughing",1
+r676,706,1,"PAIN, pricking",1
+r677,706,1,"PAIN, shooting (See Stitching)",0
+r678,706,1,"PAIN, smarting, penis",5
+r679,706,2,"PAIN, smarting, penis, end of",1
+r680,706,2,"PAIN, smarting, penis, glans",3
+r681,706,2,"PAIN, smarting, penis, prepuce",5
+r682,706,2,"PAIN, smarting, penis, under side",1
+r683,706,2,"PAIN, smarting, penis, Scrotum",3
+r684,706,3,"PAIN, smarting, penis, Scrotum, between, and thighs",2
+r685,706,1,"PAIN, sore, bruised",11
+r686,706,2,"PAIN, sore, bruised, smarting, and, as from salt after urinating",1
+r687,706,2,"PAIN, sore, bruised, urination, during",1
+r688,706,2,"PAIN, sore, bruised, Penis",15
+r689,706,3,"PAIN, sore, bruised, Penis, glans",9
+r690,706,4,"PAIN, sore, bruised, Penis, glans, urination, during",2
+r691,706,3,"PAIN, sore, bruised, Penis, prepuce",5
+r692,706,4,"PAIN, sore, bruised, Penis, prepuce, evening",1
+r693,706,4,"PAIN, sore, bruised, Penis, prepuce, walking, while",1
+r694,706,4,"PAIN, sore, bruised, Penis, prepuce, margin",3
+r695,706,2,"PAIN, sore, bruised, Scrotum",10
+r696,706,3,"PAIN, sore, bruised, Scrotum, oozing fluid",2
+r697,706,3,"PAIN, sore, bruised, Scrotum, perspiring, after",1
+r698,706,3,"PAIN, sore, bruised, Scrotum, spots, in",1
+r699,706,3,"PAIN, sore, bruised, Scrotum, thighs, between",2
+o38284,706,4,"PAIN, sore, bruised, Scrotum, thighs, between, and thigh",10
+r701,706,3,"PAIN, sore, bruised, Scrotum, sides of",3
+r702,706,2,"PAIN, sore, bruised, Spermatic cords",5
+r703,706,3,"PAIN, sore, bruised, Spermatic cords, right",1
+r704,706,3,"PAIN, sore, bruised, Spermatic cords, touch, on",5
+r708,706,2,"PAIN, sore, bruised, Testes",53
+r706,706,3,"PAIN, sore, bruised, Testes, right",8
+r709,707,3,"PAIN, sore, bruised, Testes, left",6
+r710,707,3,"PAIN, sore, bruised, Testes, morning",1
+r711,707,3,"PAIN, sore, bruised, Testes, afternoon",1
+r712,707,3,"PAIN, sore, bruised, Testes, evening",2
+r713,707,4,"PAIN, sore, bruised, Testes, evening, in bed",1
+h004,707,4,"PAIN, sore, bruised, Testes, evening, 6 to 11 p.m.",1
+r715,707,3,"PAIN, sore, bruised, Testes, sitting, while",1
+r716,707,3,"PAIN, sore, bruised, Testes, walking, while",4
+r717,707,3,"PAIN, sore, bruised, Testes, wine",1
+r718,707,3,"PAIN, sore, bruised, Testes, extending up, spermatic cord",4
+o38300,707,4,"PAIN, sore, bruised, Testes, extending up, spermatic cord, left",1
+r720,707,1,"PAIN, squeezing, testes",2
+r721,707,1,"PAIN, sticking",9
+r722,707,1,"PAIN, stitching",8
+r723,707,2,"PAIN, stitching, lancinating",1
+r724,707,2,"PAIN, stitching, Penis",55
+r725,707,3,"PAIN, stitching, Penis, coughing",1
+r726,707,3,"PAIN, stitching, Penis, erection, during",1
+r727,707,3,"PAIN, stitching, Penis, itching stitches",1
+r728,707,3,"PAIN, stitching, Penis, sitting and walking",1
+r729,707,3,"PAIN, stitching, Penis, urination, during",3
+r730,707,4,"PAIN, stitching, Penis, urination, during, after, spasms of urethra and tenesmus of rectum",1
+r731,707,3,"PAIN, stitching, Penis, extending to anus",1
+o38337,707,4,"PAIN, stitching, Penis, extending to anus, backward",1
+o38338,707,4,"PAIN, stitching, Penis, extending to anus, forward",2
+o38339,707,4,"PAIN, stitching, Penis, extending to anus, glans",3
+o38340,707,4,"PAIN, stitching, Penis, extending to anus, testes",2
+r736,707,3,"PAIN, stitching, Penis, glans",32
+r737,707,4,"PAIN, stitching, Penis, glans, pressing on it, when",1
+r738,707,4,"PAIN, stitching, Penis, glans, urination, before",1
+r739,707,5,"PAIN, stitching, Penis, glans, urination, before, during",3
+r740,707,5,"PAIN, stitching, Penis, glans, urination, before, after",1
+r741,707,3,"PAIN, stitching, Penis, prepuce",9
+r742,707,4,"PAIN, stitching, Penis, prepuce, urination, after",4
+r743,707,3,"PAIN, stitching, Penis, root",2
+r744,707,3,"PAIN, stitching, Penis, tip",6
+r745,707,2,"PAIN, stitching, Scrotum",13
+r746,707,2,"PAIN, stitching, Spermatic cords",26
+r747,707,3,"PAIN, stitching, Spermatic cords, left, then right",2
+r748,707,3,"PAIN, stitching, Spermatic cords, evening",1
+r749,707,3,"PAIN, stitching, Spermatic cords, walking, while",2
+r750,707,3,"PAIN, stitching, Spermatic cords, extending to abdomen",2
+o38358,707,4,"PAIN, stitching, Spermatic cords, extending to abdomen, chest",1
+o38359,707,4,"PAIN, stitching, Spermatic cords, extending to abdomen, downward",2
+o38360,707,4,"PAIN, stitching, Spermatic cords, extending to abdomen, penis",1
+o38361,707,4,"PAIN, stitching, Spermatic cords, extending to abdomen, upward",2
+r755,707,2,"PAIN, stitching, Testes",32
+r756,707,3,"PAIN, stitching, Testes, right",7
+r757,707,3,"PAIN, stitching, Testes, left",7
+r758,708,3,"PAIN, stitching, Testes, evening",3
+r759,708,3,"PAIN, stitching, Testes, night",1
+r760,708,3,"PAIN, stitching, Testes, rest, during",2
+r761,708,3,"PAIN, stitching, Testes, sitting, while",1
+r762,708,3,"PAIN, stitching, Testes, urination, during",1
+h005,708,3,"PAIN, stitching, Testes, walking, while",1
+h006,708,4,"PAIN, stitching, Testes, walking, while, amel.",1
+r765,708,3,"PAIN, stitching, Testes, extending to spermatic cord",4
+o38367,708,4,"PAIN, stitching, Testes, extending to spermatic cord, stomach",1
+r767,708,1,"PAIN, tearing, penis",14
+r768,708,2,"PAIN, tearing, penis, glans",12
+r769,708,3,"PAIN, tearing, penis, glans, urination, before",1
+r770,708,4,"PAIN, tearing, penis, glans, urination, before, during",3
+r771,708,5,"PAIN, tearing, penis, glans, urination, before, during, to root of penis",1
+r772,708,2,"PAIN, tearing, penis, prepuce",2
+r773,708,2,"PAIN, tearing, penis, root, walking agg.",2
+r774,708,3,"PAIN, tearing, penis, root, walking agg., leaning against small of back while standing amel.",1
+r775,708,3,"PAIN, tearing, penis, root, walking agg., to glans, after urination",1
+r776,708,2,"PAIN, tearing, penis, tip",1
+r777,708,2,"PAIN, tearing, penis, Spermatic cords",15
+r778,708,3,"PAIN, tearing, penis, Spermatic cords, right, 4 p.m.",1
+r779,708,3,"PAIN, tearing, penis, Spermatic cords, left",1
+r780,708,3,"PAIN, tearing, penis, Spermatic cords, evening",1
+r781,708,4,"PAIN, tearing, penis, Spermatic cords, evening, in bed",1
+r782,708,3,"PAIN, tearing, penis, Spermatic cords, downward",2
+r783,708,3,"PAIN, tearing, penis, Spermatic cords, rest, during",1
+r784,708,3,"PAIN, tearing, penis, Spermatic cords, upward in left",1
+r785,708,3,"PAIN, tearing, penis, Spermatic cords, walking, while",1
+r786,708,2,"PAIN, tearing, penis, Testes",13
+r787,708,3,"PAIN, tearing, penis, Testes, right",1
+r788,708,4,"PAIN, tearing, penis, Testes, right, extending to abdomen",1
+r789,708,1,"PAIN, twinging, testes",1
+r790,708,0,PERSPIRATION,40
+r791,708,1,"PERSPIRATION, morning",1
+r792,708,1,"PERSPIRATION, evening",1
+r793,708,1,"PERSPIRATION, night",1
+r794,708,1,"PERSPIRATION, cold",1
+r795,708,1,"PERSPIRATION, offensive",10
+r796,708,1,"PERSPIRATION, pungent",1
+r797,708,1,"PERSPIRATION, sweetish",1
+r798,708,1,"PERSPIRATION, Penis",3
+r799,708,1,"PERSPIRATION, Scrotum",39
+r800,708,2,"PERSPIRATION, Scrotum, morning",2
+r801,708,2,"PERSPIRATION, Scrotum, evening",2
+r802,708,2,"PERSPIRATION, Scrotum, night",2
+r803,708,2,"PERSPIRATION, Scrotum, one side of",1
+r804,708,2,"PERSPIRATION, Scrotum, strong smelling",1
+r805,708,2,"PERSPIRATION, Scrotum, sweetish smelling",1
+r806,708,2,"PERSPIRATION, Scrotum, thighs, between",1
+r807,708,0,PHIMOSIS,22
+r808,708,1,"PHIMOSIS, suppuration, with",5
+r809,708,1,"PHIMOSIS, Paraphimosis",11
+r810,708,2,"PHIMOSIS, Paraphimosis, extensive swelling of glans",1
+r811,708,1,"PHIMOSIS, gangrene, threatening",5
+h007,708,0,PRICKLING (See Tingling),0
+r812,709,0,pulsation,1
+r813,709,1,"pulsation, coition, after",1
+r814,709,1,"pulsation, Penis",6
+r815,709,2,"pulsation, Penis, left side",1
+r816,709,2,"pulsation, Penis, glans",3
+r817,709,3,"pulsation, Penis, glans, urination, during",1
+r818,709,2,"pulsation, Penis, root",1
+r819,709,1,"pulsation, Scrotum",2
+r820,709,2,"pulsation, Scrotum, coition, after",1
+r821,709,1,"pulsation, Spermatic cords",2
+r822,709,2,"pulsation, Spermatic cords, walking, while",1
+r823,709,0,"REDNESS, glans",11
+r824,709,1,"REDNESS, glans, prepuce",13
+r825,709,2,"REDNESS, glans, prepuce, spots",1
+r826,709,1,"REDNESS, glans, Scrotum",12
+r827,709,2,"REDNESS, glans, Scrotum, bluish",1
+r828,709,2,"REDNESS, glans, Scrotum, spots, in",1
+r829,709,2,"REDNESS, glans, Scrotum, sides of",3
+r830,709,2,"REDNESS, glans, Scrotum, thighs, between",1
+o38477,709,3,"REDNESS, glans, Scrotum, thighs, between, and",4
+r832,709,0,"RELAXED, Scrotum",51
+r833,709,1,"RELAXED, Scrotum, evening in bed",1
+r834,709,0,"RETRACTION, penis",7
+r835,709,1,"RETRACTION, penis, prepuce",9
+r836,709,2,"RETRACTION, penis, prepuce, night",1
+r837,709,2,"RETRACTION, penis, prepuce, coition, after",1
+r838,709,1,"RETRACTION, penis, Scrotum",2
+r839,709,1,"RETRACTION, penis, Testes",27
+r840,709,2,"RETRACTION, penis, Testes, right",2
+r841,709,2,"RETRACTION, penis, Testes, left",4
+r842,709,2,"RETRACTION, penis, Testes, walking, while",1
+r843,709,0,SARCOCELE,3
+r844,709,0,SCIRRHUS (See Cancer),0
+r845,709,0,SCURF on inside of prepuce,1
+r846,709,0,"SCURFY spots, red, on corona",2
+r847,709,0,SEMEN dribbling,2
+r848,709,1,"SEMEN dribbling, sleep, in",2
+r849,709,0,"SEMINAL discharge, bloody",8
+r850,709,1,"SEMINAL discharge, bloody, cold, during coition",1
+r851,709,1,"SEMINAL discharge, bloody, copious",18
+r852,709,2,"SEMINAL discharge, bloody, copious, night",5
+r853,709,2,"SEMINAL discharge, bloody, copious, coition, after",1
+r854,709,2,"SEMINAL discharge, bloody, copious, dreams, with",3
+r855,709,1,"SEMINAL discharge, bloody, difficult",4
+r856,709,1,"SEMINAL discharge, bloody, failing during coition",18
+r857,709,2,"SEMINAL discharge, bloody, failing during coition, though the orgasm is present",2
+r858,709,1,"SEMINAL discharge, bloody, incomplete",11
+r859,709,1,"SEMINAL discharge, bloody, larger and continues longer",1
+r860,709,1,"SEMINAL discharge, bloody, late, too",13
+r861,709,2,"SEMINAL discharge, bloody, late, too, the orgasm subsides several times before it leads to ejaculation",1
+r862,709,2,"SEMINAL discharge, bloody, late, too, some time after the orgasm",1
+r863,709,1,"SEMINAL discharge, bloody, painful",19
+r865,710,1,"SEMINAL discharge, bloody, quick, too",27
+r866,710,2,"SEMINAL discharge, bloody, quick, too, erection, shortly after an",2
+r867,710,2,"SEMINAL discharge, bloody, quick, too, intromission, before",1
+r868,710,0,SEMINAL emissions (nightly),136
+r869,710,1,"SEMINAL emissions (nightly), daytime",6
+r870,710,1,"SEMINAL emissions (nightly), morning",8
+r871,710,2,"SEMINAL emissions (nightly), morning, in bed, penis relaxed",1
+r872,710,2,"SEMINAL emissions (nightly), morning, stool, during",1
+r873,710,2,"SEMINAL emissions (nightly), morning, during pressing at",1
+r874,710,1,"SEMINAL emissions (nightly), forenoon, sitting, while",1
+r875,710,1,"SEMINAL emissions (nightly), afternoon, sleep, during",5
+r876,710,1,"SEMINAL emissions (nightly), night, every",4
+r877,710,1,"SEMINAL emissions (nightly), ameliorated, from",9
+r878,710,1,"SEMINAL emissions (nightly), back, while lying on",3
+r879,710,1,"SEMINAL emissions (nightly), caresses, during",10
+r880,710,1,"SEMINAL emissions (nightly), coition, after",15
+r881,710,1,"SEMINAL emissions (nightly), colic, during",1
+o38521,710,1,"SEMINAL emissions (nightly), diarrhœa, during",1
+r883,710,1,"SEMINAL emissions (nightly), dreams, without",33
+r884,710,1,"SEMINAL emissions (nightly), erections, without",30
+r885,710,1,"SEMINAL emissions (nightly), excitement of fancy, without",2
+r886,710,1,"SEMINAL emissions (nightly), frequent",35
+r887,710,2,"SEMINAL emissions (nightly), frequent, in an old man",3
+r888,710,2,"SEMINAL emissions (nightly), frequent, leaning the back against anything",1
+r889,710,1,"SEMINAL emissions (nightly), onanism, after",14
+r890,710,1,"SEMINAL emissions (nightly), spasms, with",3
+r891,710,1,"SEMINAL emissions (nightly), stool, during",18
+r892,710,2,"SEMINAL emissions (nightly), stool, during, difficult, during",11
+r893,710,1,"SEMINAL emissions (nightly), unconscious",12
+r894,710,1,"SEMINAL emissions (nightly), urinating, after",2
+r895,710,1,"SEMINAL emissions (nightly), waking, on",3
+r896,710,1,"SEMINAL emissions (nightly), woman, while frolicking with a",3
+r897,710,2,"SEMINAL emissions (nightly), woman, while frolicking with a, when in the presence of a",2
+r898,711,0,SENSITIVENESS,4
+r899,711,1,"SENSITIVENESS, a little suffering unbearable",1
+r900,711,1,"SENSITIVENESS, Penis",6
+r901,711,2,"SENSITIVENESS, Penis, glans",3
+r902,711,3,"SENSITIVENESS, Penis, glans, coition, after",1
+r903,711,2,"SENSITIVENESS, Penis, prepuce",3
+r904,711,1,"SENSITIVENESS, Scrotum",6
+r905,711,0,SEXUAL excesses (See Generalities),0
+r906,711,0,SEXUAL PASSION diminished,52
+o38551,711,1,"SEXUAL PASSION diminished, increased",119
+o38560,711,2,"SEXUAL PASSION diminished, increased, morning",2
+o38552,711,2,"SEXUAL PASSION diminished, increased, attempt to satisfy, it, by every, until it drives him to onanism, and madness",1
+o38554,711,2,"SEXUAL PASSION diminished, increased, emission, after an",10
+o38561,711,2,"SEXUAL PASSION diminished, increased, old man, in an",3
+o38562,711,2,"SEXUAL PASSION diminished, increased, paralytic diseases",1
+o38553,711,2,"SEXUAL PASSION diminished, increased, eating, after",2
+o38555,711,2,"SEXUAL PASSION diminished, increased, erection, without",44
+o38556,711,2,"SEXUAL PASSION diminished, increased, excessive",28
+o38557,711,3,"SEXUAL PASSION diminished, increased, excessive, complaints, from",1
+o38558,711,2,"SEXUAL PASSION diminished, increased, excitement of, easy",11
+o38559,711,3,"SEXUAL PASSION diminished, increased, excitement of, easy, with discharge of prostatic fluid",1
+o38563,711,2,"SEXUAL PASSION diminished, increased, sleep, after",1
+o38564,711,1,"SEXUAL PASSION diminished, suppressing the, complaints from",13
+o38565,711,1,"SEXUAL PASSION diminished, violent",30
+o38566,711,2,"SEXUAL PASSION diminished, violent, sexual mania",2
+o38567,711,2,"SEXUAL PASSION diminished, violent, trembling, with",3
+o38568,711,1,"SEXUAL PASSION diminished, wanting",52
+o38569,711,2,"SEXUAL PASSION diminished, wanting, fleshy people, in",1
+r926,711,0,SHINING scrotum,2
+r927,711,0,SHIVERING,3
+r928,711,0,SHRIVELLED,5
+r929,711,1,"SHRIVELLED, Scrotum",7
+r930,711,1,"SHRIVELLED, Spermatic cord",1
+r931,712,0,SMEGMA increased,6
+r932,712,0,SOFTENING of testes,1
+m38582,712,0,SPOTS on penis,1
+r934,712,1,"SPOTS on penis, granular",2
+r935,712,1,"SPOTS on penis, red",13
+r936,712,1,"SPOTS on penis, glans",11
+r937,712,1,"SPOTS on penis, prepuce",4
+o38582,712,1,"SPOTS on penis, Scrotum",2
+o38583,712,2,"SPOTS on penis, Scrotum, white",2
+r940,712,0,"SUPPURATION, prepuce, under the",11
+o38585,712,1,"SUPPURATION, prepuce, under the, Testes",1
+r942,712,0,SWELLING,15
+r943,712,1,"SWELLING, dropsical",4
+r944,712,1,"SWELLING, painful",4
+r945,712,1,"SWELLING, Penis",38
+r946,712,2,"SWELLING, Penis, bluish-red",2
+r947,712,2,"SWELLING, Penis, hard",6
+r948,712,2,"SWELLING, Penis, hot",4
+o38596,712,2,"SWELLING, Penis, œdematous",19
+r950,712,2,"SWELLING, Penis, painful",17
+r951,712,2,"SWELLING, Penis, glans",16
+r952,712,3,"SWELLING, Penis, glans, one side of",1
+r953,712,2,"SWELLING, Penis, lymphatics",2
+r954,712,2,"SWELLING, Penis, prepuce",32
+r955,712,3,"SWELLING, Penis, prepuce, on frænum",1
+r956,712,1,"SWELLING, Scrotum",33
+o38601,712,2,"SWELLING, Scrotum, gonorrhœa, with chronic",1
+r958,712,2,"SWELLING, Scrotum, inflammatory",3
+o38603,712,2,"SWELLING, Scrotum, œdematous",19
+r960,712,2,"SWELLING, Scrotum, painless",1
+r961,712,2,"SWELLING, Scrotum, sides of",4
+r962,712,1,"SWELLING, Spermatic cords",14
+r963,712,2,"SWELLING, Spermatic cords, right",2
+r964,712,2,"SWELLING, Spermatic cords, left",1
+r965,712,2,"SWELLING, Spermatic cords, sexual excitement, after",1
+r966,712,2,"SWELLING, Spermatic cords, walking agg.",1
+r967,712,1,"SWELLING, Testes",79
+r968,712,2,"SWELLING, Testes, right",11
+r969,712,2,"SWELLING, Testes, left",11
+r970,712,3,"SWELLING, Testes, left, hard, painless",1
+r971,713,2,"SWELLING, Testes, mumps, from",11
+h008,713,2,"SWELLING, Testes, suppressed gonorrhœa, from (See Inflammation)",0
+r973,713,2,"SWELLING, Testes, thickening of epididymis, with",3
+r974,713,2,"SWELLING, Testes, unrequited sexual passion",1
+r975,713,0,TENSION,3
+r976,713,1,"TENSION, touched by clothing, when",1
+r977,713,1,"TENSION, Penis",8
+r978,713,1,"TENSION, Scrotum",3
+r979,713,1,"TENSION, Spermatic cords",10
+r980,713,1,"TENSION, Testes",3
+r981,713,0,"THICKENING, prepuce",2
+r982,713,1,"THICKENING, prepuce, Scrotum",2
+r983,713,1,"THICKENING, prepuce, Spermatic cords",6
+r984,713,2,"THICKENING, prepuce, Spermatic cords, extending into abdomen",1
+r985,713,0,THRILL prolonged,1
+r986,713,0,"TICKLING, coition, during, obliging withdrawal",1
+o38630,713,1,"TICKLING, coition, during, obliging withdrawal, glans",1
+r988,713,0,"TIED with a cord, sensation as if penis",1
+r989,713,0,TINGLING (See Formication),5
+r990,713,1,"TINGLING (See Formication), Penis",12
+r991,713,2,"TINGLING (See Formication), Penis, glans",18
+r992,713,2,"TINGLING (See Formication), Penis, prepuce",5
+r993,713,2,"TINGLING (See Formication), Penis, root",1
+r994,713,1,"TINGLING (See Formication), Scrotum",7
+r995,713,1,"TINGLING (See Formication), Testes",8
+r996,713,0,TUBERCLES,2
+r997,713,1,"TUBERCLES, Penis",2
+r998,713,2,"TUBERCLES, Penis, glans",1
+r999,713,1,"TUBERCLES, Spermatic cord",18
+r1000,713,1,"TUBERCLES, Testes",27
+r1001,713,0,"TUMOR, indolent, testes",1
+r1002,713,0,"TWITCHING, penis",17
+r1003,713,1,"TWITCHING, penis, glans",1
+r1004,713,1,"TWITCHING, penis, root",1
+r1005,713,1,"TWITCHING, penis, burning seminal vesicles to glans penis",1
+r1006,713,1,"TWITCHING, penis, Scrotum",1
+r1007,713,1,"TWITCHING, penis, Spermatic cords",1
+r1008,713,1,"TWITCHING, penis, Testes",3
+r1009,713,0,ULCERS,7
+r1010,713,1,"ULCERS, burning",2
+r1011,713,1,"ULCERS, deep",1
+r1012,713,1,"ULCERS, gangrenous",1
+r1013,713,1,"ULCERS, spreading",2
+r1014,713,1,"ULCERS, groin, from incised bubos",2
+r1015,713,1,"ULCERS, Penis",30
+r1016,713,2,"ULCERS, Penis, bleeding",5
+r1017,713,2,"ULCERS, Penis, chancres",34
+r1018,713,3,"ULCERS, Penis, chancres, burning",1
+r1019,714,3,"ULCERS, Penis, chancres, elevated margins",7
+r1020,714,3,"ULCERS, Penis, chancres, phagedenic",8
+r1021,714,2,"ULCERS, Penis, cheesy base",2
+r1022,714,2,"ULCERS, Penis, deep",6
+r1023,714,2,"ULCERS, Penis, elevated",3
+r1024,714,3,"ULCERS, Penis, elevated, lead-colored, sensitive edges",2
+r1025,714,2,"ULCERS, Penis, flat",4
+r1026,714,2,"ULCERS, Penis, painful",2
+r1027,714,2,"ULCERS, Penis, hard",9
+r1028,714,3,"ULCERS, Penis, hard, edges",1
+r1029,714,2,"ULCERS, Penis, indolent",2
+r1030,714,2,"ULCERS, Penis, itching",7
+r1031,714,2,"ULCERS, Penis, lardaceous base",5
+r1032,714,2,"ULCERS, Penis, mercurio-syphilitic",9
+r1033,714,2,"ULCERS, Penis, offensive",3
+r1034,714,2,"ULCERS, Penis, painless",4
+r1035,714,2,"ULCERS, Penis, ragged edges",1
+r1036,714,2,"ULCERS, Penis, recurrent",1
+r1037,714,2,"ULCERS, Penis, red",2
+r1038,714,2,"ULCERS, Penis, serpiginous",1
+r1039,714,2,"ULCERS, Penis, sore",1
+r1040,714,2,"ULCERS, Penis, splinters, sticking pains as from",4
+r1041,714,2,"ULCERS, Penis, frænum, destroying",1
+r1042,714,2,"ULCERS, Penis, glans",19
+r1043,714,2,"ULCERS, Penis, prepuce",23
+r1044,714,3,"ULCERS, Penis, prepuce, under surface of",1
+r1045,714,2,"ULCERS, Penis, tip",3
+r1046,714,1,"ULCERS, Scrotum",7
+r1047,714,2,"ULCERS, Scrotum, sides of",1
+r1048,714,0,VARICOCELE,24
+r1049,714,1,"VARICOCELE, following a strain",1
+r1050,714,0,VOLUPTUOUS sensation caused by scratching,1
+r1051,714,0,"WEAKNESS, coition, after",1
+o38697,714,1,"WEAKNESS, coition, after, urination, after, as if he would have an emission",1
+o38695,714,1,"WEAKNESS, coition, after, sensation of",2
+o38696,714,2,"WEAKNESS, coition, after, sensation of, stool, after",2

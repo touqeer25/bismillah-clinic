@@ -113,8 +113,8 @@ if (fs.existsSync(csvPath)) {
 // 7) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const swf = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=186/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v174)');
-assert(/CACHE_NAME='bhc-clinic-v186'/.test(swf), 'خدمت کار نسخہ 174');
+assert(/rep-chapters\.js\?v=187/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v174)');
+assert(/CACHE_NAME='bhc-clinic-v187'/.test(swf), 'خدمت کار نسخہ 174');
 assert(/v174: منہ باب/.test(code), 'rep-chapters.js میں منہ بلڈر درج');
 
 console.log('منہ باب: ماخذی درخت 1516 قطاریں (صفحات 397–430)، جڑ MOUTH، ادویات ماخذی، اردو 100%، پرانی قطاریں محفوظ — کامیاب');

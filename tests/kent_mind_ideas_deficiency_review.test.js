@@ -94,11 +94,11 @@ const index=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
 const urJs=fs.readFileSync(path.join(ROOT,'js/18-rubrics-ur.js'),'utf8');
 const sw=fs.readFileSync(path.join(ROOT,'service-worker.js'),'utf8');
 const sharedTest=fs.readFileSync(path.join(ROOT,'tests/rubrics_ur_v107.test.js'),'utf8');
-assert(/kent-tree-fix\.js\?v=186/.test(index));
-assert(/rep-chapters\.js\?v=186/.test(index));
-assert(/18-rubrics-ur\.js\?v=178/.test(index));
-assert(/REP_RUBUR_V\s*=\s*'178'/.test(urJs));
-assert(/CACHE_NAME='bhc-clinic-v186'/.test(sw));
-assert(sharedTest.includes("REP_RUBUR_V = '178'")&&sharedTest.includes('bhc-clinic-v186'));
+assert(/kent-tree-fix\.js\?v=187/.test(index));
+assert(/rep-chapters\.js\?v=187/.test(index));
+assert(/18-rubrics-ur\.js\?v=179/.test(index));
+assert(/REP_RUBUR_V\s*=\s*'179'/.test(urJs));
+assert(/CACHE_NAME='bhc-clinic-v187'/.test(sw));
+assert(sharedTest.includes("REP_RUBUR_V = '179'")&&sharedTest.includes('bhc-clinic-v187'));
 
 console.log('ذہنی باب کی کمیِ خیالات والی الگ شاخ، 3 اردو عبارتیں، دوائیں، والدین، تلاش اور نسخہ کامیاب');

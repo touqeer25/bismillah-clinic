@@ -551,6 +551,83 @@ function _repBuildKentUrineSourceTree(data){
     return root;
 }
 
+// 🔑 v187: تناسلی اعضاء (مرد) باب کی ماخذی قطاریں (صفحات 693–714) — homeoint.org
+// (parse_genm_source.py + crosswalk_genm.py + overlay_genm.py)؛ پرانی مقامی قطاریں
+// فائل میں محفوظ مگر ماخذی درخت سے باہر۔ باب حد: GENITALIA MALE = 693–714 (MEDI-T انتساب —
+// kentgenm.htm فہرست 23/23 صفحہ-اندراجات: 693(جڑ)/694..714)؛ آغاز kent0690.htm کے NAME="P693"
+// nav-اینکر سے (GENITALIA MALE سرخی nav کے اندر)؛ اختتام kent0710 کے اندر GENITALIA FEMALE
+// سرخی (NAME="FEMALE" اینکر) سے پہلے — آخری ربرک WEAKNESS, coition, after, sensation of,
+// stool, after {calc-p, calc}۔ سرحدی ڈپ صفحات (p695/p700/p705/p710) پچھلی فائل میں اصل،
+// اگلی میں ڈپ (skip_until) — چاروں text-identical تصدیق شدہ (verify_genm_dups.py)۔
+// فائل-دم artifact (kent0710 دم FEMALE اینکر پیراگراف کٹ → EOF "GENITALIA" bare) حذف —
+// دستاویزی؛ باقی 4 فائلوں کے دم FOOT kentgenm کٹ سے صاف۔ 10 clamps (سب کتابی یتیم-
+// indentation — کتاب خود d0→d2/d1→d3 جمپ چھاپتی ہے، MEDI-T HTML وفادار؛ x-coords
+// genm_clamp_xcoords.json میں دستاویزی)۔ 2 کتابی دہرائی جوڑیاں merge (union ادویات):
+// ITCHING,Scrotum,morning (p701) + ULCERS,Penis,painful (p714) — PDF متن سے تصدیق۔
+// 2 دستی J=1.00 جوڑے (o37937 ہجے falling-of→falling-off؛ r381 OOREP لیبل scratching-agg
+// غلط — ادویات {iris,tril} کتابی scratching کے عین)۔ 8 نئے hN (جڑ سمیت) + 74 legacy
+// (15 مبہم OOREP برتن/یونین سمیت: SEXUAL passion 159-یونین، PAIN …extending 6 vessels،
+// SPOTS on penis 15-یونین)۔ PDF alignment: 1047/1053 حرف-بہ-حرف عین مطابق + 6 PDF-طرفہ
+// آرٹی فاکٹ قطاریں (4 فولیو-گلا mur1511ac/ol1515an/nit1537ac/merc1538c + 1 لیبل-ریپ گلا
+// attempt-to-satisfy)، صفر فرق/drift/دونوں-طرفہ باقیات (verify_pdf_genm.py — کتابی ص
+// 693-714، PDF index 1528–1578)۔
+var _REP_KENT_GENM_SOURCE_MARKER='homeoint-genm-v1';
+var _REP_KENT_GENM_PAGES={first:693,last:714}, _REP_KENT_GENM_COUNT=1052;
+function _repKentGenmSourceEntries(data){
+    return Object.keys(data||{}).map(function(rid){return {rid:String(rid),rec:data[rid]};})
+        .filter(function(e){return e.rec&&e.rec.source_canonical===_REP_KENT_GENM_SOURCE_MARKER;});
+}
+function _repHasKentGenmSourceData(data){
+    return _repKentGenmSourceEntries(data).length===_REP_KENT_GENM_COUNT;
+}
+function _repBuildKentGenmSourceTree(data){
+    var entries=_repKentGenmSourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    if(entries.length!==_REP_KENT_GENM_COUNT) throw new Error('Expected '+_REP_KENT_GENM_COUNT+' Kent GENITALIA MALE source rows; found '+entries.length);
+    entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
+    var byRid=Object.create(null);
+    entries.forEach(function(e,index){
+        var rec=e.rec, order=Number(rec.source_order), parentId=rec.source_parent_id;
+        if(order!==index) throw new Error('Invalid Kent GENITALIA MALE source order at '+e.rid+': '+order);
+        var page=Number(rec.source_page), depth=Number(rec.source_depth), label=String(rec.source_label||'');
+        if(page<693||page>714) throw new Error('Kent GENITALIA MALE source row outside pages 693–714: '+e.rid);
+        if(!label) throw new Error('Empty Kent GENITALIA MALE source label at '+e.rid);
+        var labels=Array.isArray(rec.source_path_labels)?rec.source_path_labels.map(String):[];
+        if(!labels.length||labels[labels.length-1]!==label||depth!==labels.length-1)
+            throw new Error('Kent GENITALIA MALE source path/depth mismatch at '+e.rid);
+        var sourcePath=String(rec.source_path||'');
+        if(sourcePath!==labels.join(', ')) throw new Error('Kent GENITALIA MALE source full path mismatch at '+e.rid);
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent GENITALIA MALE source parent '+parentId+' for '+e.rid);
+        if(parentId!==null && Number(parent.sourceOrder)>=index)
+            throw new Error('Kent GENITALIA MALE source parent must precede child at '+e.rid);
+        var parentPath=parent===root?'':String(parent.pathTitle||'');
+        var expectedPath=parentPath?parentPath+', '+label:label;
+        if(expectedPath!==sourcePath) throw new Error('Kent GENITALIA MALE source parent link/path mismatch at '+e.rid);
+        if(parent.children[label]) throw new Error('Duplicate Kent GENITALIA MALE sibling label '+label+' at '+e.rid);
+        var remedies=rec.r;
+        if(!remedies||typeof remedies!=='object'||Array.isArray(remedies))
+            throw new Error('Missing Kent GENITALIA MALE remedies at '+e.rid);
+        Object.keys(remedies).forEach(function(code){
+            var grade=Number(remedies[code]);
+            if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
+                throw new Error('Invalid Kent GENITALIA MALE medicine grade at '+e.rid+': '+code);
+        });
+        var node={
+            name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
+            children:{},order:[],remedies:remedies,count:1,hasRubric:true,
+            path:sourcePath,pathTitle:sourcePath,displayPathTitle:sourcePath,
+            translationTitle:String(rec.translation_title||sourcePath),
+            oorep_id:rec.oorep_id||null,rid:e.rid,sourceCanonical:true,
+            display:rec.display&&typeof rec.display==='object'&&!Array.isArray(rec.display)?rec.display:null
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        parent.count=(parent.count||0)+1;
+        byRid[e.rid]=node;
+    });
+    return root;
+}
+
 // 🔑 v167: سر باب (صفحات 107–234) کا ماخذی درخت — homeoint.org MEDI-T صفحات سے خود مختار پارس
 // (parse_head_source.py + crosswalk_head.py + overlay_head.py)؛ پرانی مقامی قطاریں فائل میں محفوظ
 // مگر ماخذی درخت سے باہر۔ ہر ماخذی قطار پر source_parent_id + source_order + source_page موجود۔
@@ -2024,6 +2101,10 @@ function buildRubricTree(data){
     if(repCurrentBook === 'kent' && repCurrentChapter === 'urine' && _repHasKentUrineSourceData(data)){
         return _repBuildKentUrineSourceTree(data);
     }
+    // 🔑 v187: تناسلی اعضاء (مرد) باب کی ماخذی قطاریں (صفحات 693–714) — وہی طرز جو پیشاب (URINE) باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'genitalia_male' && _repHasKentGenmSourceData(data)){
+        return _repBuildKentGenmSourceTree(data);
+    }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest
     // already-existing rubric prefix, not by every comma.
@@ -2341,6 +2422,10 @@ function buildRubricTree(data){
     // 🔑 v186: پیشاب (URINE) باب کی ماخذی قطاریں (صفحات 680–692) — وہی طرز جو پیشاب کی نالی باب میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'urine' && _repHasKentUrineSourceData(data)){
         return _repBuildKentUrineSourceTree(data);
+    }
+    // 🔑 v187: تناسلی اعضاء (مرد) باب کی ماخذی قطاریں (صفحات 693–714) — وہی طرز جو پیشاب (URINE) باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'genitalia_male' && _repHasKentGenmSourceData(data)){
+        return _repBuildKentGenmSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest

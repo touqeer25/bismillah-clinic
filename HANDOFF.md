@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 186 · **اصل مخزن:**
+**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 187 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -2261,3 +2261,34 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 1. ڈاکٹر پیشاب-کی-نالی-تین-کالم.csv کی تصدیق (544 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (29 اندراجات — خاص طور پر phantom-سیگمنٹ نوٹ اور 9 مبہم برتن)
 2. اگلا باب: کتابی ترتیب کے مطابق — **URINE (MEDI-T ص 681 سے، kent0680 NAME="URINE" اینکر + kent0685/kent0690 وغیرہ؛ kenturor نہیں — URINE کا انڈیکس الگ)**
 3. Vercel پش (v185 کے بعد)
+
+## مکمل شدہ پڑتال — تناسلی اعضاء (مرد) GENITALIA MALE باب: ماخذی درخت + ادویات + اردو (نسخہ 187)
+
+### 25.1 باب حد اور مآخذ
+- **GENITALIA MALE = MEDI-T صفحات 693–714** (22 صفحات — kentgenm.htm انڈیکس کے **23/23 صفحہ-اندراجات**: 693(جڑ)/694..714)
+- ماخذ فائلیں (5): kent0690 (**NAME="P693" nav-اینکر سے** — GENITALIA MALE سرخی nav کے اندر؛ کٹی ہوئی nav-قطار after_anchor سے skip) — p693+694+695 · kent0695 (P695 ڈپ skip_until P696) — p696..700 · kent0700 (P700 ڈپ skip_until P701) — p701..705 · kent0705 (P705 ڈپ skip_until P706) — p706..710 · kent0710 (P710 ڈپ skip_until P711) — p711..714 (**GENITALIA FEMALE سرخی NAME="FEMALE" اینکر پر کٹ**)
+- **سرحدی ڈپ صفحات چاروں text-identical تصدیق شدہ** (verify_genm_dups.py — صرف اندرونی <a NAME> ٹیگز کا فرق): p695/p700/p705/p710 — پچھلی فائل میں اصل، اگلی میں ڈپ
+- پہلا مین ABSCESS penis {bov, hippoz} (p693)؛ آخری ربرک WEAKNESS, coition, after, sensation of, stool, after {calc-p:2, calc:2} (p714)؛ نوٹ: «CONDYLOMATA, itching» مرد باب کی جائز p693 قطار ہے (خاتون باب کی پہلی قطار سے مختلف)
+- **فائل-دم artifact 1 (حذف، دستاویزی):** kent0710 دم FEMALE اینکر پیراگراف کٹ → EOF-flush «GENITALIA» bare؛ باقی 4 فائلوں کے دم FOOT kentgenm کٹ سے صاف
+
+### 25.2 پارس + تیسرا ماخذ (Drive PDF) تصدیق
+- **1052 منفرد قطاریں** (جڑ GENITALIA MALE + 1051؛ 2 کتابی دہرائیاں merge کے بعد) — 100 جڑ-بچے (جڑ + 99 مین)، ماخذی گہرائی 5 تک (d5: 8 قطاریں — کتابی @236.7 x-coord ثابت)
+- **10 clamps (سب کتابی یتیم-indentation):** کتاب خود d0→d2/d1→d3 جمپ چھاپتی ہے، MEDI-T HTML وفادار — x-coords دستاویزی (genm_clamp_xcoords.json): BUBBLING erection-during @128.7، INDURATION جوڑی @128.7، extending-to-testes @164.7، burning-vesiculæ @164.7، afternoon @164.7، end-of @164.7، tearing-glans @164.7 (+urination,before @200.7 — کتابی سیڑھی)، RETRACTION-prepuce @128.7، SPOTS-granular @128.7، TWITCHING-glans @92.7 (کتابی سطح ہی درست) — خاندانی shift سے درخت درست
+- **2 کتابی دہرائی merge (union ادویات):** «ITCHING, Scrotum, morning» (p701: coc-c + carb-ac/cocc/gran — کرونولوجیکل + الفبائی ترتیب، PDF L548/L554) + «ULCERS, Penis, painful» (p714: cor-r + cor-r-g2/sil-g2) — صفر ادویہ نقصان
+- GENITALIA MALE = PDF index 1528–1578 (کتابی ص 693–714)؛ **1047/1053 حرف-بہ-حرف عین + 6 PDF-طرفہ آرٹی فاکٹ قطاریں (4 فولیو-گلا mur1511ac/ol1515an/nit1537ac/merc1538c + 1 لیبل-ریپ گلا واقعہ attempt-to-satisfy p711)، صفر drift، صفر دونوں-طرفہ باقیات**
+
+### 25.3 کراس واک + اوورلے + اردو
+- کراس واک: 1052 ماخذ ↔ 1118 ایپ — **1044 جُڑے** (1042 لالچی subsequence میچر + **2 دستی J=1.00**: o37937 ہجے falling-of→falling-off sulph 3=3؛ r381 OOREP لیبل scratching-agg غلط — ادویات {iris,tril} کتابی scratching p700 کے عین)، 15 مبہم (o66704 «SEXUAL passion» 159-یونین؛ 6× PAIN…extending کٹے راستے؛ r933 «SPOTS on penis» 15-یونین؛ r372؛ o38402؛ o66660؛ o66670؛ 3 خالی m)، 8 ماخذ-اکیلے نئے hN (جڑ + BUBBLING erection-during + PAIN Testes after + PAIN sore 6-11 + PAIN stitching walking ×2 + PRICKLING See-ref + SWELLING See-ref)
+- اوورلے: genitalia_male.json **1126 = 1052 ماخذی (MARK=homeoint-genm-v1) + 74 legacy** (15 مبہم/خاص + 18 خالی m-کنٹینر + 41 مجموعے/برتن)؛ مانی فیسٹ homeoint_genm_source_manifest.json
+- اردو: **1044 پرانی کلیدوں سے منتقل + جڑ «تناسلی اعضاء (مرد) — تناسلی اعضاء (مرد)» + 7 خود-بنے (ہاتھ سے لکھے، meta.auto=7) + 251 راستہ-بڑھنے والوں کی top-down ہم آہنگی + 7 دستی صفائی** = **1052/1052 فعال 100%**؛ 393 غیر-درخت پرانی کلیدیں محفوظ (فائل 1445)؛ REP_RUBUR_V 179
+
+### 25.4 کوڈ، رپورٹیں، ٹیسٹ
+- کوڈ: rep-chapters.js v187 (_repBuildKentGenmSourceTree + دونوں ڈسپیچ سائٹس — Pages 693–714/Count 1052 سخت جائزے) · KENT_TREE_FIX genitalia_male.h 74 legacy ids (g/p صاف — فائل v147 قاعدہ برقرار) · _index 1126/name «GENITALIA MALE» · master sync (**minified** 21.4 MiB، round-trip تصدیق) · CACHE v187 · ٹیبز/صفحہ ٹیگ v187 · 18-rubrics-ur v179 · mind sidecar rebuild (4358)
+- رپورٹیں: kent_sources/reports/ تناسلی-مرد-تین-کالم.csv (1044) · تناسلی-مرد-ہیرارکی-تصدیق.csv (1054) · تناسلی-مرد-تمام-اندراجات.csv (1052) · تناسلی-مرد-پرانی-قطاریں.csv (74 = 15 مبہم/خاص + 18 خالی + 41 مجموعے) · تناسلی-مرد-پڑتال.xlsx · تناسلی-مرد-اصلاحات-کا-خلاصہ.md (+ download کاپیاں)
+- **تصدیق-ضروری CSV:** download/kent-confirmation-needed.csv — GENITALIA MALE کے 18 اندراجات (باب-حد 2، ڈپ صفحات 1، artifact 1، clamps 1 جامع، کتابی دہرائیاں 2، دستی جوڑے 2، مبہم 4، نئے hN 1، PDF آرٹی فاکٹ 1، اردو 3) — کل 198
+- ٹیسٹ: نئی kent_genm_homeoint_source.test.js (درخت 1052، جڑ-بچے 100، ماخذی گہرائی 5 [d5: 8 قطاریں]، ABSCESS پہلا/ASLEEP-Form/ERECTIONS troublesome 65+daytime-ترتیب/BUBBLING clamp/INDURATION خاندانی/ITCHING-morning union/ULCERS-painful union/INFLAMMATION Testes/ITCHING-scratching دستی/PAIN-Testes-after hN/PRICKLING+SWELLING See-ref/attempt-to-satisfy لیبل-ریپ/d5 قطار/WEAKNESS آخری/FEMALE-لیک نہیں، اردو «تناسلی اعضاء (مرد) — » 100%، مانی فیسٹ، _index، tree-fix r933) — **مکمل سوئٹ 64/64 + jsdom 5/5 (smoke سمیت)**؛ Q9 کل 67,466→**67,429** (genm 1052 فعال 100%)؛ G7 4601→**4597**
+
+### 25.5 اگلے قدم
+1. ڈاکٹر تناسلی-مرد-تین-کالم.csv کی تصدیق (1044 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (18 اندراجات — خاص طور پر 10 clamps اور 2 کتابی دہرائی merge)
+2. اگلا باب: کتابی ترتیب کے مطابق — **GENITALIA FEMALE (MEDI-T ص 715 سے، kent0710 کے FEMALE اینکر + kent0715/kent0720 وغیرہ؛ انڈیکس kentgenf.htm — kentrep1/ راستہ)**
+3. Vercel پش (v187 کے بعد)

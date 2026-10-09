@@ -1,0 +1,20 @@
+{
+ "book": "kent",
+ "chapter": "genitalia_male",
+ "source": "homeoint.org/books/kentrep1 kent0690+kent0695+kent0700+kent0705+kent0710 (MEDI-T HTML)",
+ "pages": "693 – 714 (MEDI-T انتساب)",
+ "source_canonical": "homeoint-genm-v1",
+ "source_rows": 1052,
+ "unique_source_paths": 1052,
+ "matched_app_records": 1044,
+ "new_source_records": 8,
+ "legacy_local_records": 74,
+ "ambiguous_app_records": 15,
+ "pdf_verification": "1047/1053 حرف-بہ-حرف + 6 PDF-طرفہ artifacts (4 folio-glues mur1511ac/ol1515an/nit1537ac/merc1538c + 1 label-wrap attempt-to-satisfy) — صفر homeoint-طرفہ فرق/drift/باقیات (genm_pdf_verify.json)",
+ "chapter_boundaries": "آغاز kent0690 NAME=\"P693\" nav-اینکر (GENITALIA MALE سرخی nav کے اندر)؛ اختتام kent0710 NAME=\"FEMALE\" اینکر (GENITALIA FEMALE سرخی) سے پہلے — آخری ربرک WEAKNESS, coition, after, sensation of, stool, after {calc-p, calc}",
+ "file_tail_artifacts": "kent0710 دم FEMALE اینکر پیراگراف کٹ → EOF \"GENITALIA\" bare artifact حذف؛ باقی 4 فائلوں کے دم FOOT kentgenm کٹ سے صاف",
+ "dup_pages": "p695/p700/p705/p710 سرحدی صفحات — پچھلی فائل میں اصل، اگلی میں ڈپ (skip_until)؛ چاروں text-identical تصدیق شدہ (verify_genm_dups.py)",
+ "clamps": "10 (سب کتابی یتیم-indentation — کتاب خود d0→d2/d1→d3 جمپ چھاپتی ہے، MEDI-T HTML وفادار؛ x-coords: idx20 @128.7، idx309 @128.7+، idx571 @164.7، idx601 @164.7، idx607 @164.7، idx679 @164.7، idx766 @164.7، idx834 @128.7، idx932 @128.7، idx1001 @92.7 — genm_clamp_xcoords.json؛ idx1001 کتابی سطح ہی درست)",
+ "book_duplicates": "2 کتابی دہرائی جوڑیاں merge (union ادویات): ITCHING,Scrotum,morning (p701 coc-c + carb-ac/cocc/gran — کرونولوجیکل + الفبائی) + ULCERS,Penis,painful (p714 cor-r + cor-r-g2/sil-g2) — PDF متن سے تصدیق",
+ "manual_pairs": "2 دستی J=1.00 (o37937 ایپ ہجہ falling-of ← کتابی falling-off؛ r381 OOREP لیبل scratching-agg غلط — ادویات {iris,tril} کتابی scratching کے عین)"
+}
