@@ -112,12 +112,12 @@ const urJs=fs.readFileSync(path.join(ROOT,'js/18-rubrics-ur.js'),'utf8');
 const sw=fs.readFileSync(path.join(ROOT,'service-worker.js'),'utf8');
 const repertoryJs=fs.readFileSync(path.join(ROOT,'js/repertory/rep-chapters.js'),'utf8');
 const sharedTest=fs.readFileSync(path.join(ROOT,'tests/rubrics_ur_v107.test.js'),'utf8');
-assert(/js\/18-rubrics-ur\.js\?v=172/.test(index),'صفحے میں اردو مواد کا نیا نسخہ');
-assert(/rep-chapters\.js\?v=180/.test(index),'صفحے میں چکر درخت کا نسخہ (v153)');
-assert(/REP_RUBUR_V\s*=\s*'172'/.test(urJs),'اردو مواد کا نسخہ 166');
-assert(/CACHE_NAME='bhc-clinic-v180'/.test(sw),'خدمت کار کا نیا محفوظ نسخہ');
+assert(/js\/18-rubrics-ur\.js\?v=173/.test(index),'صفحے میں اردو مواد کا نیا نسخہ');
+assert(/rep-chapters\.js\?v=181/.test(index),'صفحے میں چکر درخت کا نسخہ (v153)');
+assert(/REP_RUBUR_V\s*=\s*'173'/.test(urJs),'اردو مواد کا نسخہ 166');
+assert(/CACHE_NAME='bhc-clinic-v181'/.test(sw),'خدمت کار کا نیا محفوظ نسخہ');
 assert(/v147: چکر باب/.test(repertoryJs),'چکر درخت کی تبدیلی درج ہو');
-assert(sharedTest.includes("REP_RUBUR_V = '172'")&&sharedTest.includes('bhc-clinic-v180')&&sharedTest.includes('18-rubrics-ur.js?v=172'),'وسیع آزمائش کے نسخہ جاتی نشان تازہ ہوں');
+assert(sharedTest.includes("REP_RUBUR_V = '173'")&&sharedTest.includes('bhc-clinic-v181')&&sharedTest.includes('18-rubrics-ur.js?v=173'),'وسیع آزمائش کے نسخہ جاتی نشان تازہ ہوں');
 assert(/16\\d/.test(sharedTest),'مشترک آزمائش کی محفوظ نسخہ جانچ 16x کو قبول کرے');
 
 console.log('چکر باب کی ماخذی درخت، 430 ترجمہ ربط، دوا، نمونہ جاتی دکھائی، 112 درستیوں، باب کی جڑ کی بحالی، اور نسخہ جاتی آزمائشیں کامیاب');

@@ -1,0 +1,236 @@
+﻿شناخت,پرانا راستہ (ایپ),نیا راستہ (مطبوعہ کتاب),اردو جملہ,ادویات پرانی,ادویات ماخذی,فرق
+o60219,"ACRID, corrosive, excoriating","ACRID, corrosive, excoriating",پاخانہ — تیز و تند، چھال دینے والا، جلن پیدا کرنے والا,56,56,یکساں
+o60220,ALBUMINOUS,ALBUMINOUS (See Mucous),پاخانہ — البومن والا,7,7,یکساں
+o60221,"ALBUMINOUS, coagulated","ALBUMINOUS (See Mucous), coagulated",پاخانہ — البومن والا، جما ہوا,2,2,یکساں
+o60223,"BALLS, like, black","BALLS, like (See Sheep Dung), black",پاخانہ — گیندوں جیسا، سیاہ,6,6,یکساں
+o60224,"BALLS, like, brown","BALLS, like (See Sheep Dung), brown",پاخانہ — گیندوں جیسا، بھورا,1,1,یکساں
+o60225,"BALLS, like, light colored","BALLS, like (See Sheep Dung), light colored",پاخانہ — گیندوں جیسا، ہلکے رنگ کا,1,1,یکساں
+o60226,BILIOUS,BILIOUS,پاخانہ — صفراوی,54,54,یکساں
+o60227,"BILIOUS, daytime and from warm drinks agg.","BILIOUS, daytime and from warm drinks agg.",پاخانہ — صفراوی، دن کے وقت اور گرم مشروبات سے بگاڑ,1,1,یکساں
+o60229,"BLACK, fecal","BLACK, fecal",پاخانہ — سیاہ، پاخانے جیسا,10,10,یکساں
+o60232,"BLOODY, menses, during","BLOODY, menses, during",پاخانہ — خون آلود، حیض کے دوران,2,2,یکساں
+o60233,"BLOODY, streaks, in","BLOODY, streaks, in",پاخانہ — خون آلود، دھاریوں کی صورت میں,20,20,یکساں
+r0,"BLOODY, charred straw, like","BLOODY, charred straw, like",پاخانہ — خون آلود، جلی ہوئی بھوسے جیسا,1,1,یکساں
+r10,CHANGEABLE,CHANGEABLE,پاخانہ — بدلتا ہوا,9,9,یکساں
+r12,"CHOPPED, beets","CHOPPED, beets",پاخانہ — کٹے ہوئے ٹکڑے، چقندر جیسے,1,1,یکساں
+r124,"MUSHY, brown","MUSHY, brown",پاخانہ — گداز، بھورا,1,1,یکساں
+r125,"MUSHY, yellow","MUSHY, yellow",پاخانہ — گداز، زرد,13,13,یکساں
+r126,"MUSHY, white","MUSHY, white",پاخانہ — گداز، سفید,5,5,یکساں
+r127,NARROW (See Long),NARROW (See Long),پاخانہ — پتلا,0,0,یکساں
+r128,"ODOR, acid (See Sour)","ODOR, acid (See Sour)",پاخانہ — بدبو، تیزابی,0,0,یکساں
+r13,"CHOPPED, eggs","CHOPPED, eggs",پاخانہ — کٹے ہوئے ٹکڑے، انڈوں جیسے,6,6,یکساں
+r133,"ODOR, acid (See Sour), carrion-like (See Putrid)","ODOR, acid (See Sour), carrion-like (See Putrid)",پاخانہ — بدبو، تیزابی، سڑے گوشت جیسی,0,0,یکساں
+r14,"CHOPPED, spinach","CHOPPED, spinach",پاخانہ — کٹے ہوئے ٹکڑے، پالک جیسے,4,4,یکساں
+r145,"PASTY, papescent","PASTY, papescent",پاخانہ — گارے جیسا، دلیے جیسا,139,139,یکساں
+r146,PURULENT,PURULENT,پاخانہ — پیپ والا,28,28,یکساں
+r147,REDDISH (See Bloody),REDDISH (See Bloody),پاخانہ — سرخی مائل,7,7,یکساں
+r148,SCANTY,SCANTY,پاخانہ — تھوڑا,136,136,یکساں
+r149,"SCRAPINGS of intestines, like","SCRAPINGS of intestines, like",پاخانہ — آنتوں کی کھرچن جیسا,13,13,یکساں
+r15,CLAY-COLORED (See Light-colored),CLAY-COLORED (See Light-colored),پاخانہ — چکنی مٹی جیسے رنگ کا,25,25,یکساں
+r151,"SHEEP dung, like","SHEEP dung, like (See Balls)",پاخانہ — بھیڑ کی مینگنی جیسا,42,42,یکساں
+r152,SHINING (See Fatty),SHINING (See Fatty),پاخانہ — چمکدار,0,0,یکساں
+r153,SHOOTING out,SHOOTING out,پاخانہ — زور سے نکلنا,40,40,یکساں
+r154,"SHOOTING out, all at once in a somewhat prolonged effort","SHOOTING out, all at once in a somewhat prolonged effort",پاخانہ — زور سے نکلنا، ایک ہی بار، کچھ دیر کی کوشش سے,1,1,یکساں
+r155,"SHOOTING out, in a torrent","SHOOTING out, in a torrent",پاخانہ — زور سے نکلنا، زور کے ساتھ,1,1,یکساں
+r156,SLATE-COLORED,SLATE-COLORED,پاخانہ — سلیٹ جیسے رنگ کا,2,2,یکساں
+r157,SMALL (See Long and Narrow),SMALL (See Long and Narrow),پاخانہ — چھوٹا,66,66,یکساں
+r158,SPUTTERING,SPUTTERING,پاخانہ — چھڑکاؤ کے ساتھ,3,3,یکساں
+r159,STRINGY,STRINGY,پاخانہ — تار دار,7,7,یکساں
+r16,CLAY-LIKE,CLAY-LIKE,پاخانہ — چکنی مٹی جیسا,8,8,یکساں
+r160,SUDDEN (See Urging),SUDDEN (See Urging),پاخانہ — اچانک,0,0,یکساں
+r161,TARRY-LOOKING,TARRY-LOOKING,پاخانہ — تارکول جیسا,4,4,یکساں
+r162,TENACIOUS,TENACIOUS,پاخانہ — چپچپا,26,26,یکساں
+r164,"THIN, liquid, black","THIN, liquid, black",پاخانہ — پتلا، مائع، سیاہ,13,13,یکساں
+r165,"THIN, liquid, brown","THIN, liquid, brown",پاخانہ — پتلا، مائع، بھورا,15,15,یکساں
+r166,"THIN, liquid, dark","THIN, liquid, dark",پاخانہ — پتلا، مائع، گہرا,5,5,یکساں
+r167,"THIN, liquid, fecal","THIN, liquid, fecal",پاخانہ — پتلا، مائع، پاخانے جیسا,50,50,یکساں
+r168,"THIN, liquid, followed by hard","THIN, liquid, followed by hard",پاخانہ — پتلا، مائع، جس کے بعد سخت,18,18,یکساں
+r169,"THIN, liquid, formed then thin","THIN, liquid, formed then thin",پاخانہ — پتلا، مائع، پہلے بنا ہوا پھر پتلا,10,10,یکساں
+r17,"COFFEE grounds, like","COFFEE grounds, like",پاخانہ — کافی کی تلچھٹ جیسا,7,7,یکساں
+r170,"THIN, liquid, green","THIN, liquid, green",پاخانہ — پتلا، مائع، سبز,10,10,یکساں
+r171,"THIN, liquid, liver-colored","THIN, liquid, liver-colored",پاخانہ — پتلا، مائع، جگر جیسے رنگ کا,1,1,یکساں
+r172,"THIN, liquid, lumpy and liquid","THIN, liquid, lumpy and liquid",پاخانہ — پتلا، مائع، ڈھیلے دار اور مائع,16,16,یکساں
+r173,"THIN, liquid, pouring out","THIN, liquid, pouring out",پاخانہ — پتلا، مائع، بہتا ہوا,21,21,یکساں
+r174,"THIN, liquid, red","THIN, liquid, red",پاخانہ — پتلا، مائع، سرخ,2,2,یکساں
+r175,"THIN, liquid, yellow","THIN, liquid, yellow",پاخانہ — پتلا، مائع، زرد,24,24,یکساں
+r176,TOUGH,TOUGH,پاخانہ — سخت لچکدار,11,11,یکساں
+r177,UNDIGESTED (See Lienteric),UNDIGESTED (See Lienteric),پاخانہ — غیر ہضم,0,0,یکساں
+r179,"WATERY, morning","WATERY, morning",پاخانہ — پانی جیسا، صبح,29,29,یکساں
+r18,COLD,COLD,پاخانہ — ٹھنڈا,1,1,یکساں
+r180,"WATERY, afternoon","WATERY, afternoon",پاخانہ — پانی جیسا، سہ پہر,1,1,یکساں
+r181,"WATERY, night","WATERY, night",پاخانہ — پانی جیسا، رات,15,15,یکساں
+r182,"WATERY, black","WATERY, black",پاخانہ — پانی جیسا، سیاہ,21,21,یکساں
+r183,"WATERY, bloody","WATERY, bloody",پاخانہ — پانی جیسا، خون آلود,11,11,یکساں
+r184,"WATERY, bloody, meat washings, like","WATERY, bloody, meat washings, like",پاخانہ — پانی جیسا، خون آلود، گوشت دھونے کے پانی جیسا,3,3,یکساں
+r185,"WATERY, brown","WATERY, brown",پاخانہ — پانی جیسا، بھورا,26,26,یکساں
+r186,"WATERY, clay-colored","WATERY, clay-colored",پاخانہ — پانی جیسا، چکنی مٹی جیسے رنگ کا,2,2,یکساں
+r187,"WATERY, clear","WATERY, clear",پاخانہ — پانی جیسا، صاف,6,6,یکساں
+r188,"WATERY, dirty","WATERY, dirty",پاخانہ — پانی جیسا، میلا,2,2,یکساں
+r189,"WATERY, flakes, with","WATERY, flakes, with",پاخانہ — پانی جیسا، چھلکوں کے ساتھ,3,3,یکساں
+r19,COLORLESS (See White),COLORLESS (See White),پاخانہ — بے رنگ,0,0,یکساں
+r190,"WATERY, frothy","WATERY, frothy",پاخانہ — پانی جیسا، جھاگ دار,7,7,یکساں
+r191,"WATERY, gelatinous on standing","WATERY, gelatinous on standing",پاخانہ — پانی جیسا، کھڑا رہنے پر جیلی جیسا,1,1,یکساں
+r193,"WATERY, green, scum, with","WATERY, green, scum, with",پاخانہ — پانی جیسا، سبز، جھاگ کے ساتھ,2,2,یکساں
+r194,"WATERY, prune juice, like","WATERY, prune juice, like",پاخانہ — پانی جیسا، آلو بخارے کے رس جیسا,2,2,یکساں
+r195,"WATERY, rice water, like","WATERY, rice water, like",پاخانہ — پانی جیسا، چاول کے پانی جیسا,21,21,یکساں
+r196,"WATERY, white","WATERY, white",پاخانہ — پانی جیسا، سفید,18,18,یکساں
+r197,"WATERY, yellow","WATERY, yellow",پاخانہ — پانی جیسا، زرد,50,50,یکساں
+r199,"WHITE, chalk, like","WHITE, chalk, like",پاخانہ — سفید، چاک جیسا,14,14,یکساں
+r20,CONSTANT discharge,CONSTANT discharge,پاخانہ — مسلسل اخراج,5,5,یکساں
+r200,"WHITE, fecal","WHITE, fecal",پاخانہ — سفید، پاخانے جیسا,17,17,یکساں
+r201,"WHITE, fecal, alternating with black","WHITE, fecal, alternating with black",پاخانہ — سفید، پاخانے جیسا، سیاہ کے ساتھ باری باری,1,1,یکساں
+r202,"WHITE, grains or particles","WHITE, grains or particles",پاخانہ — سفید، دانے یا ذرات,4,4,یکساں
+r203,"WHITE, gray, streaked with blood","WHITE, gray, streaked with blood",پاخانہ — سفید، سرمئی، خون کی دھاریوں کے ساتھ,1,1,یکساں
+r204,"WHITE, grayish white","WHITE, grayish white",پاخانہ — سفید، سرمئی سفید,3,3,یکساں
+r205,"WHITE, greenish white","WHITE, greenish white",پاخانہ — سفید، سبزی مائل سفید,1,1,یکساں
+r206,"WHITE, hard","WHITE, hard",پاخانہ — سفید، سخت,9,9,یکساں
+r207,"WHITE, jelly-like","WHITE, jelly-like",پاخانہ — سفید، جیلی جیسا,1,1,یکساں
+r208,"WHITE, masses like tallow","WHITE, masses like tallow",پاخانہ — سفید، چربی جیسے گالے,3,3,یکساں
+r209,"WHITE, milk like, chyle like","WHITE, milk like, chyle like",پاخانہ — سفید، دودھ جیسا، کائل جیسا,32,32,یکساں
+r210,"WHITE, shreddy particles","WHITE, shreddy particles",پاخانہ — سفید، دھاگے دار ذرات,1,1,یکساں
+r212,"YELLOW, bright","YELLOW, bright",پاخانہ — زرد، چمکدار,2,2,یکساں
+r213,"YELLOW, brownish","YELLOW, brownish",پاخانہ — زرد، بھورے مائل,6,6,یکساں
+r214,"YELLOW, fecal","YELLOW, fecal",پاخانہ — زرد، پاخانے جیسا,43,43,یکساں
+r215,"YELLOW, fecal, painless immediately after eating","YELLOW, fecal, painless immediately after eating",پاخانہ — زرد، پاخانے جیسا، کھانے کے فوراً بعد بے درد,1,1,یکساں
+r216,"YELLOW, granular","YELLOW, granular",پاخانہ — زرد، دانے دار,1,1,یکساں
+r217,"YELLOW, green on standing, turning","YELLOW, green on standing, turning",پاخانہ — زرد، کھڑا رہنے پر سبز ہو جائے,2,2,یکساں
+r218,"YELLOW, greenish","YELLOW, greenish",پاخانہ — زرد، سبزی مائل,20,20,یکساں
+r219,"YELLOW, hard","YELLOW, hard",پاخانہ — زرد، سخت,1,1,یکساں
+r22,"COPIOUS, night","COPIOUS, night",پاخانہ — زیادہ مقدار میں، رات کو,9,9,یکساں
+r221,"YELLOW, orange, like pulp of","YELLOW, orange, like pulp of",پاخانہ — زرد، نارنجی، اُس کے گودے جیسا,1,1,یکساں
+r222,"YELLOW, saffron, like","YELLOW, saffron, like",پاخانہ — زرد، زعفران جیسا,4,4,یکساں
+r223,"YELLOW, salmon","YELLOW, salmon",پاخانہ — زرد، سالمن جیسا,1,1,یکساں
+r224,"YELLOW, whitish","YELLOW, whitish",پاخانہ — زرد، سفیدی مائل,12,12,یکساں
+r23,"COPIOUS, which does not exhaust","COPIOUS, which does not exhaust",پاخانہ — زیادہ مقدار میں، جو کمزور نہ کرے,1,1,یکساں
+r24,CREAM-COLORED,CREAM-COLORED,پاخانہ — بالائی جیسے رنگ کا,6,6,یکساں
+r25,CRUMBLING,CRUMBLING,پاخانہ — بھربھرا,32,32,یکساں
+r27,"CURDLED, milk, like, forcibly expelled","CURDLED, milk, like, forcibly expelled",پاخانہ — پھٹا ہوا، دودھ جیسا، زور سے خارج ہو,2,2,یکساں
+r29,"DARK, fecal","DARK, fecal",پاخانہ — گہرا، پاخانے جیسا,10,10,یکساں
+r30,DIFFICULT (See Constipation),DIFFICULT (See Constipation),پاخانہ — مشکل,0,0,یکساں
+r31,"DOG'S, like a","DOG's, like a",پاخانہ — کتے کے پاخانے جیسا,3,3,یکساں
+r32,DRY,DRY,پاخانہ — خشک,63,63,یکساں
+r33,"DRY, sand, like","DRY, sand, like",پاخانہ — خشک، ریت جیسا,1,1,یکساں
+r34,FALLING out,FALLING out,پاخانہ — خود بخود نکل جانا,1,1,یکساں
+r36,"FATTY, greasy, oily-looking fecal","FATTY, greasy, oily-looking fecal",پاخانہ — چکنائی والا، چکنا، روغنی پاخانہ,4,4,یکساں
+r37,FERMENTED,FERMENTED,پاخانہ — خمیری,8,8,یکساں
+r38,FILAMENTS like hair in faeces,FILAMENTS like hair in fæces,پاخانہ — پاخانے میں بال جیسے تار,1,1,یکساں
+r40,FLAT,FLAT,پاخانہ — چپٹا,4,4,یکساں
+r41,FLOCCULI,FLOCCULI,پاخانہ — چھوٹے گالے,3,3,یکساں
+r42,"FORCIBLE, sudden, gushing","FORCIBLE, sudden, gushing",پاخانہ — زوردار، اچانک، فوارے کی طرح,58,58,یکساں
+r43,FREQUENT,FREQUENT,پاخانہ — بار بار,100,100,یکساں
+r44,FROG spawn (See Green),FROG spawn (See Green),پاخانہ — مینڈک کے انڈے جیسا,0,0,یکساں
+r45,FROTHY,FROTHY,پاخانہ — جھاگ دار,49,49,یکساں
+r46,GELATINOUS (See Mucus),GELATINOUS (See Mucus),پاخانہ — جیلی جیسا,0,0,یکساں
+r47,GRAY,GRAY,پاخانہ — سرمئی,34,34,یکساں
+r48,"GRAY, whitish, in part","GRAY, whitish, in part",پاخانہ — سرمئی، سفیدی مائل، کچھ حصے میں,3,3,یکساں
+r49,GREASY (See Fatty),GREASY (See Fatty),پاخانہ — چکنا,0,0,یکساں
+r5,"BLUISH, clay-like","BLUISH, clay-like",پاخانہ — نیلگوں مائل، چکنی مٹی جیسا,1,1,یکساں
+r51,"GREEN, blackish","GREEN, blackish",پاخانہ — سبز، سیاہی مائل,6,6,یکساں
+r52,"GREEN, brownish","GREEN, brownish",پاخانہ — سبز، بھورے مائل,9,9,یکساں
+r53,"GREEN, fecal","GREEN, fecal",پاخانہ — سبز، پاخانے جیسا,4,4,یکساں
+r54,"GREEN, hard","GREEN, hard",پاخانہ — سبز، سخت,3,3,یکساں
+r55,"GREEN, mucus (See Mucus)","GREEN, mucus (See Mucus)",پاخانہ — سبز، بلغم والا,0,0,یکساں
+r56,"GREEN, olive green","GREEN, olive green",پاخانہ — سبز، زیتونی سبز,4,4,یکساں
+r57,"GREEN, scum on a frog-pond, like","GREEN, scum on a frog-pond, like",پاخانہ — سبز، مینڈک کے تالاب کی جھاگ جیسا,4,4,یکساں
+r58,"GREEN, spinach in flatus, like","GREEN, spinach in flatus, like",پاخانہ — سبز، ریاح کے ساتھ پالک جیسا,1,1,یکساں
+r59,GUSHING (See Forcible),GUSHING (See Forcible),پاخانہ — فوارے کی طرح,0,0,یکساں
+r6,"BLUISH, green on standing, changes to","BLUISH, green on standing, changes to",پاخانہ — نیلگوں مائل، کھڑا رہنے پر سبز ہو جاتا ہے,1,1,یکساں
+r61,"HARD, alternating hard and soft","HARD, alternating hard and soft",پاخانہ — سخت اور نرم باری باری,7,7,یکساں
+r62,"HARD, burnt, as if","HARD, burnt, as if",پاخانہ — سخت، جیسے جل گیا ہو,4,4,یکساں
+r63,"HARD, first, then fluid","HARD, first, then fluid",پاخانہ — سخت، پہلے سخت، پھر پتلا,14,14,یکساں
+r66,"HARD, menses, during","HARD, menses, during",پاخانہ — سخت، حیض کے دوران,8,8,یکساں
+r67,"HARD, tough and greasy","HARD, tough and greasy",پاخانہ — سخت اور چکنا,1,1,یکساں
+r68,HOT,HOT,پاخانہ — گرم,16,16,یکساں
+r69,INSUFFICIENT (See Constipation),INSUFFICIENT (See Constipation),پاخانہ — ناکافی,0,0,یکساں
+r7,BROWN,BROWN,پاخانہ — بھورا,79,79,یکساں
+r70,JELLY-LIKE (See Mucous Stools),JELLY-LIKE (See Mucous Stools),پاخانہ — جیلی جیسا,0,0,یکساں
+r71,"KNOTTY, nodular, lumpy","KNOTTY, nodular, lumpy",پاخانہ — گٹھلی دار، گرہ دار، ڈھیلے دار,85,85,ماخذی مطابق کیے
+r72,"KNOTTY, nodular, lumpy, first, then soft","KNOTTY, nodular, lumpy, first, then soft",پاخانہ — گٹھلی دار، گرہ دار، ڈھیلے دار، پہلے، پھر نرم,1,1,یکساں
+r73,"KNOTTY, nodular, lumpy, green","KNOTTY, nodular, lumpy, green",پاخانہ — گٹھلی دار، گرہ دار، ڈھیلے دار، سبز,2,2,یکساں
+r74,"KNOTTY, nodular, lumpy, liquid, and (See Lumpy)","KNOTTY, nodular, lumpy, liquid, and (See Lumpy)",پاخانہ — گٹھلی دار، گرہ دار، ڈھیلے دار، مائع اور,0,0,یکساں
+r75,"KNOTTY, nodular, lumpy, mucus, covered with","KNOTTY, nodular, lumpy, mucus, covered with",پاخانہ — گٹھلی دار، گرہ دار، ڈھیلے دار، بلغم سے ڈھکا,8,8,یکساں
+r76,"KNOTTY, nodular, lumpy, united by threads of mucus","KNOTTY, nodular, lumpy, united by threads of mucus",پاخانہ — گٹھلی دار، گرہ دار، ڈھیلے دار، بلغم کے تاروں سے جڑے,1,1,یکساں
+r77,LARGE,LARGE,پاخانہ — بڑا,72,72,یکساں
+r78,LIENTERIC,LIENTERIC,پاخانہ — ہضم نہ ہوا (لینٹیرک),85,85,یکساں
+r79,"LIENTERIC, morning","LIENTERIC, morning",پاخانہ — ہضم نہ ہوا، صبح,2,2,یکساں
+r8,"BROWN, fecal","BROWN, fecal",پاخانہ — بھورا، پاخانے جیسا,23,23,یکساں
+r80,"LIENTERIC, night","LIENTERIC, night",پاخانہ — ہضم نہ ہوا، رات,8,8,یکساں
+r81,"LIENTERIC, food of the previous day","LIENTERIC, food of the previous day",پاخانہ — ہضم نہ ہوا، پچھلے دن کا کھانا,1,1,یکساں
+r82,"LIENTERIC, fruit, after","LIENTERIC, fruit, after",پاخانہ — ہضم نہ ہوا، پھل کے بعد,1,1,یکساں
+r83,"LIENTERIC, hard","LIENTERIC, hard",پاخانہ — ہضم نہ ہوا، سخت,1,1,یکساں
+r84,"LIENTERIC, milk, after","LIENTERIC, milk, after",پاخانہ — ہضم نہ ہوا، دودھ کے بعد,2,2,یکساں
+r85,LIGHT-COLORED,LIGHT-COLORED,پاخانہ — ہلکے رنگ کا,55,55,یکساں
+r86,LIQUID (See Thin),LIQUID (See Thin),پاخانہ — مائع,0,0,یکساں
+r87,"LONG, narrow","LONG, narrow (See Small)",پاخانہ — لمبا، پتلا,12,12,یکساں
+r88,"LUMPS, like chalk","LUMPS, like chalk (See White)",پاخانہ — ڈھیلے، چاک جیسے,8,8,یکساں
+r89,LUMPY and liquid (See Knotty),LUMPY and liquid (See Knotty),پاخانہ — ڈھیلے دار اور مائع,18,18,یکساں
+r9,CHALKY (See White),CHALKY (See White),پاخانہ — چاک جیسا,0,0,یکساں
+r90,"MEAL-LIKE sediment, with","MEAL-LIKE sediment, with",پاخانہ — آٹے جیسی تلچھٹ کے ساتھ,4,4,یکساں
+r91,MEMBRANOUS,MEMBRANOUS,پاخانہ — جھلی والا,18,18,یکساں
+r92,"MUCOUS, slimy","MUCOUS, slimy",پاخانہ — بلغم والا، لزج,105,105,یکساں
+r262,SOFT,SOFT,پاخانہ — نرم,203,203,ماخذی مطابق کیے
+o60228,BLACK,BLACK,پاخانہ — سیاہ,97,96,ماخذی مطابق کیے
+o60230,BLOODY,BLOODY,پاخانہ — خون آلود,137,134,ماخذی مطابق کیے
+r21,COPIOUS,COPIOUS,پاخانہ — زیادہ مقدار میں,121,120,ماخذی مطابق کیے
+r60,HARD,HARD,پاخانہ — سخت,168,164,ماخذی مطابق کیے
+r192,"WATERY, green","WATERY, green",پاخانہ — پانی جیسا، سبز,41,40,ماخذی مطابق کیے
+r123,MUSHY,MUSHY,پاخانہ — گداز (نرم پتلا),28,27,ماخذی مطابق کیے
+r50,GREEN,GREEN,پاخانہ — سبز,92,90,ماخذی مطابق کیے
+r28,DARK,DARK,پاخانہ — گہرا,41,39,ماخذی مطابق کیے
+r109,"MUCOUS, jelly-like, frog-spawn, like","MUCOUS, slimy, jelly-like, frog-spawn, like",پاخانہ — بلغم والا، جیلی جیسا، مینڈک کے انڈوں جیسا,1,1,یکساں
+r130,"ODOR, brown paper, burning, like","ODOR, acid (See Sour), brown paper, burning, like",پاخانہ — بدبو، جلاتے ہوئے بھورے کاغذ جیسی,1,1,یکساں
+r134,"ODOR, cheese, rotten, like","ODOR, acid (See Sour), cheese, rotten, like",پاخانہ — بدبو، سڑی پنیر جیسی,3,3,یکساں
+o60363,"SCRAPINGS, of meat, like","SCRAPINGS of intestines, like, of meat, like",پاخانہ — گوشت کی کھرچن جیسی,1,1,یکساں
+r103,"MUCOUS, dark, like frothy molasses","MUCOUS, slimy, dark, like frothy molasses",پاخانہ — بلغم والا، گہرا، جھاگ دار گڑ جیسا,1,1,یکساں
+r119,"MUCOUS, white, masses","MUCOUS, slimy, white, masses",پاخانہ — بلغم والا، سفید، گالے,1,1,یکساں
+r120,"MUCOUS, white, like little pieces of popped corn","MUCOUS, slimy, white, like little pieces of popped corn",پاخانہ — بلغم والا، سفید، بھنے مکئی کے چھوٹے ٹکڑوں جیسا,1,1,یکساں
+r121,"MUCOUS, white, milk white","MUCOUS, slimy, white, milk white",پاخانہ — بلغم والا، سفید، دودھ جیسا سفید,1,1,یکساں
+r136,"ODOR, eggs, like rotten","ODOR, acid (See Sour), eggs, like rotten",پاخانہ — بدبو، سڑے انڈوں جیسی,13,13,یکساں
+r139,"ODOR, offensive, night only","ODOR, acid (See Sour), offensive, night only",پاخانہ — بدبو، ناخوشگوار، صرف رات کو,1,1,یکساں
+r143,"ODOR, urine, like","ODOR, acid (See Sour), urine, like",پاخانہ — بدبو، پیشاب جیسی,1,1,یکساں
+r64,"HARD, first, then pastry","HARD, first, then fluid, then pastry",پاخانہ — سخت، پہلے سخت، پھر پیسٹری جیسا,2,2,یکساں
+r65,"HARD, first, then soft","HARD, first, then fluid, then soft",پاخانہ — سخت، پہلے سخت، پھر نرم,5,5,یکساں
+r144,ODORLESS,ODORLESS,پاخانہ — بے بو,18,18,ماخذی مطابق کیے
+r26,CURDLED,CURDLED,پاخانہ — پھٹا ہوا (دہی جیسا),22,20,ماخذی مطابق کیے
+o60222,"BALLS, like","BALLS, like (See Sheep Dung)",پاخانہ — گیندوں جیسا,31,28,ماخذی مطابق کیے
+r220,"YELLOW, orange","YELLOW, orange",پاخانہ — زرد، نارنجی,10,9,ماخذی مطابق کیے
+r178,WATERY,WATERY,پاخانہ — پانی جیسا,188,169,ماخذی مطابق کیے
+r211,YELLOW,YELLOW,پاخانہ — زرد,134,120,ماخذی مطابق کیے
+r100,"MUCOUS, covered with mucus","MUCOUS, slimy, covered with mucus",پاخانہ — بلغم والا، بلغم سے ڈھکا,11,11,یکساں
+r101,"MUCOUS, cream-colored","MUCOUS, slimy, cream-colored",پاخانہ — بلغم والا، بالائی جیسے رنگ کا,1,1,یکساں
+r102,"MUCOUS, dark","MUCOUS, slimy, dark",پاخانہ — بلغم والا، گہرا,7,7,یکساں
+r104,"MUCOUS, fetid","MUCOUS, slimy, fetid",پاخانہ — بلغم والا، بدبودار,4,4,یکساں
+r105,"MUCOUS, granular","MUCOUS, slimy, granular",پاخانہ — بلغم والا، دانے دار,2,2,یکساں
+r108,"MUCOUS, jelly-like","MUCOUS, slimy, jelly-like",پاخانہ — بلغم والا، جیلی جیسا,23,23,یکساں
+r110,"MUCOUS, liquid","MUCOUS, slimy, liquid",پاخانہ — بلغم والا، مائع,2,2,یکساں
+r111,"MUCOUS, lumpy mucus","MUCOUS, slimy, lumpy mucus",پاخانہ — بلغم والا، ڈھیلے دار بلغم,3,3,یکساں
+r112,"MUCOUS, red","MUCOUS, slimy, red",پاخانہ — بلغم والا، سرخ,10,10,یکساں
+r113,"MUCOUS, shaggy masses","MUCOUS, slimy, shaggy masses",پاخانہ — بلغم والا، جھالر دار گالے,4,4,یکساں
+r114,"MUCOUS, shreddy","MUCOUS, slimy, shreddy",پاخانہ — بلغم والا، دھاگے دار,1,1,یکساں
+r115,"MUCOUS, tenacious","MUCOUS, slimy, tenacious",پاخانہ — بلغم والا، چپچپا,6,6,یکساں
+r116,"MUCOUS, transparent","MUCOUS, slimy, transparent",پاخانہ — بلغم والا، شفاف,12,12,یکساں
+r117,"MUCOUS, watery","MUCOUS, slimy, watery",پاخانہ — بلغم والا، پانی جیسا,4,4,یکساں
+r122,"MUCOUS, yellow","MUCOUS, slimy, yellow",پاخانہ — بلغم والا، زرد,22,22,یکساں
+r129,"ODOR, brassy","ODOR, acid (See Sour), brassy",پاخانہ — بدبو، پیتل جیسی,1,1,یکساں
+r131,"ODOR, burnt meat","ODOR, acid (See Sour), burnt meat",پاخانہ — بدبو، جلا ہوا گوشت جیسی,1,1,یکساں
+r132,"ODOR, cadaveric","ODOR, acid (See Sour), cadaveric",پاخانہ — بدبو، لاش جیسی,14,14,یکساں
+r135,"ODOR, coppery","ODOR, acid (See Sour), coppery",پاخانہ — بدبو، تانبے جیسی,1,1,یکساں
+r137,"ODOR, musty","ODOR, acid (See Sour), musty",پاخانہ — بدبو، پھپھوندی جیسی,2,2,یکساں
+r138,"ODOR, offensive","ODOR, acid (See Sour), offensive",پاخانہ — بدبو، ناخوشگوار,136,136,یکساں
+r140,"ODOR, putrid","ODOR, acid (See Sour), putrid",پاخانہ — بدبو، سڑی ہوئی,38,38,یکساں
+r141,"ODOR, sour","ODOR, acid (See Sour), sour",پاخانہ — بدبو، کھٹی,34,34,یکساں
+r93,"MUCOUS, black","MUCOUS, slimy, black",پاخانہ — بلغم والا، سیاہ,3,3,یکساں
+r94,"MUCOUS, bloody","MUCOUS, slimy, bloody",پاخانہ — بلغم والا، خون آلود,68,68,یکساں
+r95,"MUCOUS, boiled starch","MUCOUS, slimy, boiled starch",پاخانہ — بلغم والا، ابلی ہوئی نشاستے جیسا,2,2,یکساں
+r96,"MUCOUS, brown","MUCOUS, slimy, brown",پاخانہ — بلغم والا، بھورا,8,8,یکساں
+r97,"MUCOUS, cheesy","MUCOUS, slimy, cheesy",پاخانہ — بلغم والا، پنیر جیسا,1,1,یکساں
+r98,"MUCOUS, chopped eggs and spinach","MUCOUS, slimy, chopped eggs and spinach",پاخانہ — بلغم والا، کٹے انڈے اور پالک جیسا,1,1,یکساں
+r99,"MUCOUS, colorless","MUCOUS, slimy, colorless (See Transparent)",پاخانہ — بلغم والا، بے رنگ,1,1,یکساں
+r39,FLAKY,FLAKY,پاخانہ — پرت دار,14,14,ماخذی مطابق کیے
+r35,"FATTY, greasy","FATTY, greasy",پاخانہ — چکنائی والا، چکنا,8,7,ماخذی مطابق کیے
+r106,"MUCOUS, green","MUCOUS, slimy, green",پاخانہ — بلغم والا، سبز,59,59,ماخذی مطابق کیے
+r118,"MUCOUS, white","MUCOUS, slimy, white",پاخانہ — بلغم والا، سفید,29,28,ماخذی مطابق کیے
+r198,WHITE,WHITE,پاخانہ — سفید,103,87,ماخذی مطابق کیے
+r163,"THIN, liquid","THIN, liquid",پاخانہ — پتلا، مائع,146,115,ماخذی مطابق کیے
+r4,BLUISH,BLUISH,پاخانہ — نیلگوں مائل,4,3,ماخذی مطابق کیے
+r11,CHOPPED,CHOPPED,پاخانہ — کٹے ہوئے ٹکڑے,14,8,ماخذی مطابق کیے

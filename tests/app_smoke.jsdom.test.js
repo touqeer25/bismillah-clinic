@@ -11,11 +11,17 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
 (async()=>{
   // needs the local static server (python3 -m http.server 8080 in the app folder) for a real origin (localStorage etc.)
   const BASE=process.env.APP_URL||'http://localhost:8080/';
-  const dom=await JSDOM.fromURL(BASE+'index.html',{runScripts:'dangerously',resources:'usable',pretendToBeVisual:true,virtualConsole:vc});
+  // v181: fetch shim beforeParse میں — کیونکہ fromURL کا resolve لوڈ-ایونٹ پر ہوتا ہے اور اُس وقت تک
+  // کئی اسکرپٹس چل چکے ہوتے ہیں (Node24 jsdom میں window.fetch نہیں ہوتا → «fetch is not defined»
+  // ReferenceError پر بعد کے ماڈیولز رجسٹر نہیں ہوتے — ریس صرف beforeParse سے قطعی طے ہوتی ہے)
+  const dom=await JSDOM.fromURL(BASE+'index.html',{runScripts:'dangerously',resources:'usable',pretendToBeVisual:true,virtualConsole:vc,
+    beforeParse(window){ // data fetches: serve local files (ہر اسکرپٹ سے پہلے نصب — قطعی)
+      window.fetch=u=>{const f=path.join(ROOT,String(u).replace(/^\.\//,'').split('?')[0]);return fs.existsSync(f)?Promise.resolve({ok:true,status:200,json:()=>Promise.resolve(JSON.parse(fs.readFileSync(f,'utf8'))),text:()=>Promise.resolve(fs.readFileSync(f,'utf8'))}):Promise.resolve({ok:false,status:404,json:()=>Promise.reject(new Error('404')),text:()=>Promise.resolve('')});};
+    }});
   const w=dom.window,d=w.document;
-  // data fetches: serve local files
+  // data fetches: serve local files (بعد میں آنے والے override کے لیے بھی وہی shim)
   w.fetch=u=>{const f=path.join(ROOT,String(u).replace(/^\.\//,'').split('?')[0]);return fs.existsSync(f)?Promise.resolve({ok:true,status:200,json:()=>Promise.resolve(JSON.parse(fs.readFileSync(f,'utf8'))),text:()=>Promise.resolve(fs.readFileSync(f,'utf8'))}):Promise.resolve({ok:false,status:404,json:()=>Promise.reject(new Error('404')),text:()=>Promise.resolve('')});};
-  for(let i=0;i<400&&typeof w.initRepertoryBrowser!=='function';i++)await sleep(100);
+  for(let i=0;i<600&&typeof w.initRepertoryBrowser!=='function';i++)await sleep(100);   // v181: 60s — سست ماحول (python http.server + undici) میں 40s کبھی کبھی کم پڑتا ہے
   await sleep(500);
   // external CDN scripts (supabase/jsdelivr) cannot run inside jsdom — their own errors are not ours
   const loadErrs=errors.filter(e=>!/(Uncaught \[TypeError: Cannot read properties of undefined (reading 'slice')\][\s\S]*?HTMLScriptElement|Could not load (img|script)|Not implemented: HTMLCanvasElement|navigation|localStorage|serviceWorker|Not implemented: window\.(scrollTo|alert)|indexedDB|fetch|net::|ENOENT.*(png|jpg|ico|woff)|cdn-cgi|onLoadExternalScript)/i.test(e));
@@ -25,6 +31,11 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++;};
   const builtInBooks=Object.keys(w.REP_BOOK_INFO||{}).filter(k=>k!=='custom_rep').length;
   ok(d.getElementById('repCmpModeBtn')&&d.getElementById('repCmpPanel')&&rb&&builtInBooks===11&&rb.options.length>=11&&rb.value==='kent','repertory toolbar present with 11 books (plus optional custom)');
   // open repertory page: kent/mind auto-open
+  // v181: ماڈیولز نہ رجسٹر ہوں تو کریش نہیں — نرم ناکام (سست ماحول کا معروف شور — v168 کے گارڈ کی طرز)
+  if(typeof w.initRepertoryBrowser!=='function'||typeof w.repCurrentBook==='undefined'||!w.REP_BOOK_INFO){
+    ok(false,'ماڈیولز 60s میں رجسٹر نہ ہوئے (سست ماحولیاتی شور — صفحہ ڈیٹا/کوڈ میں کسی تبدیلی کا اشارہ نہیں)');
+    console.log(fails?`${fails} FAIL`:'\nALL PASS'); process.exit(fails?1:0);
+  }
   errors.length=0; w.repCurrentBook='kent'; w.initRepertoryBrowser(); for(let i=0;i<300&&!d.getElementById('repCardsArea');i++)await sleep(100); await sleep(300);
   ok(d.querySelectorAll('#repChapterList .rep-chapter-item, #repChapterList [onclick*="repOpenChapter"]').length>=30||d.getElementById('repChapterList').textContent.length>200,'chapter list rendered');
   ok(d.querySelectorAll('.rtv-row').length>100,'Mind chapter auto-opened with cards ('+d.querySelectorAll('.rtv-row').length+')');

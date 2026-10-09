@@ -1,0 +1,239 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,635,0,STOOL,0
+o60219,635,0,"ACRID, corrosive, excoriating",56
+o60220,635,0,ALBUMINOUS (See Mucous),7
+o60221,635,1,"ALBUMINOUS (See Mucous), coagulated",2
+h002,635,0,ASH-COLORED (See Gray),0
+o60222,635,0,"BALLS, like (See Sheep Dung)",28
+o60223,635,1,"BALLS, like (See Sheep Dung), black",6
+o60224,635,1,"BALLS, like (See Sheep Dung), brown",1
+o60225,635,1,"BALLS, like (See Sheep Dung), light colored",1
+o60226,635,0,BILIOUS,54
+o60227,635,1,"BILIOUS, daytime and from warm drinks agg.",1
+o60228,635,0,BLACK,96
+o60229,635,1,"BLACK, fecal",10
+o60230,635,0,BLOODY,134
+r0,636,1,"BLOODY, charred straw, like",1
+o60232,636,1,"BLOODY, menses, during",2
+o60233,636,1,"BLOODY, streaks, in",20
+r4,636,0,BLUISH,3
+r5,636,1,"BLUISH, clay-like",1
+r6,636,1,"BLUISH, green on standing, changes to",1
+r7,636,0,BROWN,79
+r8,636,1,"BROWN, fecal",23
+r9,636,0,CHALKY (See White),0
+r10,636,0,CHANGEABLE,9
+r11,636,0,CHOPPED,8
+r12,636,1,"CHOPPED, beets",1
+r13,636,1,"CHOPPED, eggs",6
+r14,636,1,"CHOPPED, spinach",4
+r15,636,0,CLAY-COLORED (See Light-colored),25
+r16,636,0,CLAY-LIKE,8
+r17,636,0,"COFFEE grounds, like",7
+r18,636,0,COLD,1
+r19,636,0,COLORLESS (See White),0
+r20,636,0,CONSTANT discharge,5
+r21,636,0,COPIOUS,120
+r22,636,1,"COPIOUS, night",9
+r23,636,1,"COPIOUS, which does not exhaust",1
+r24,636,0,CREAM-COLORED,6
+r25,636,0,CRUMBLING,32
+r26,636,0,CURDLED,20
+r27,636,1,"CURDLED, milk, like, forcibly expelled",2
+r28,637,0,DARK,39
+r29,637,1,"DARK, fecal",10
+r30,637,0,DIFFICULT (See Constipation),0
+r31,637,0,"DOG's, like a",3
+r32,637,0,DRY,63
+r33,637,1,"DRY, sand, like",1
+r34,637,0,FALLING out,1
+r35,637,0,"FATTY, greasy",7
+r36,637,1,"FATTY, greasy, oily-looking fecal",4
+r37,637,0,FERMENTED,8
+r38,637,0,FILAMENTS like hair in fæces,1
+r39,637,0,FLAKY,14
+r40,637,0,FLAT,4
+r41,637,0,FLOCCULI,3
+r42,637,0,"FORCIBLE, sudden, gushing",58
+r43,637,0,FREQUENT,100
+r44,637,0,FROG spawn (See Green),0
+r45,637,0,FROTHY,49
+r46,637,0,GELATINOUS (See Mucus),0
+r47,637,0,GRAY,34
+r48,637,1,"GRAY, whitish, in part",3
+r49,637,0,GREASY (See Fatty),0
+r50,637,0,GREEN,90
+r51,637,1,"GREEN, blackish",6
+r52,637,1,"GREEN, brownish",9
+r53,638,1,"GREEN, fecal",4
+r54,638,1,"GREEN, hard",3
+r55,638,1,"GREEN, mucus (See Mucus)",0
+r56,638,1,"GREEN, olive green",4
+r57,638,1,"GREEN, scum on a frog-pond, like",4
+r58,638,1,"GREEN, spinach in flatus, like",1
+r59,638,0,GUSHING (See Forcible),0
+r60,638,0,HARD,164
+r61,638,1,"HARD, alternating hard and soft",7
+r62,638,1,"HARD, burnt, as if",4
+r63,638,1,"HARD, first, then fluid",14
+r64,638,2,"HARD, first, then fluid, then pastry",2
+r65,638,2,"HARD, first, then fluid, then soft",5
+r66,638,1,"HARD, menses, during",8
+r67,638,1,"HARD, tough and greasy",1
+r68,638,0,HOT,16
+r69,638,0,INSUFFICIENT (See Constipation),0
+r70,638,0,JELLY-LIKE (See Mucous Stools),0
+r71,638,0,"KNOTTY, nodular, lumpy",85
+r72,638,1,"KNOTTY, nodular, lumpy, first, then soft",1
+r73,638,1,"KNOTTY, nodular, lumpy, green",2
+r74,638,1,"KNOTTY, nodular, lumpy, liquid, and (See Lumpy)",0
+r75,638,1,"KNOTTY, nodular, lumpy, mucus, covered with",8
+r76,638,1,"KNOTTY, nodular, lumpy, united by threads of mucus",1
+r77,638,0,LARGE,72
+r78,638,0,LIENTERIC,85
+r79,639,1,"LIENTERIC, morning",2
+r80,639,1,"LIENTERIC, night",8
+r81,639,1,"LIENTERIC, food of the previous day",1
+r82,639,1,"LIENTERIC, fruit, after",1
+r83,639,1,"LIENTERIC, hard",1
+r84,639,1,"LIENTERIC, milk, after",2
+r85,639,0,LIGHT-COLORED,55
+r86,639,0,LIQUID (See Thin),0
+r87,639,0,"LONG, narrow (See Small)",12
+r88,639,0,"LUMPS, like chalk (See White)",8
+r89,639,0,LUMPY and liquid (See Knotty),18
+r90,639,0,"MEAL-LIKE sediment, with",4
+r91,639,0,MEMBRANOUS,18
+r92,639,0,"MUCOUS, slimy",105
+r93,639,1,"MUCOUS, slimy, black",3
+r94,639,1,"MUCOUS, slimy, bloody",68
+r95,639,1,"MUCOUS, slimy, boiled starch",2
+r96,639,1,"MUCOUS, slimy, brown",8
+r97,639,1,"MUCOUS, slimy, cheesy",1
+r98,639,1,"MUCOUS, slimy, chopped eggs and spinach",1
+r99,639,1,"MUCOUS, slimy, colorless (See Transparent)",1
+r100,639,1,"MUCOUS, slimy, covered with mucus",11
+r101,639,1,"MUCOUS, slimy, cream-colored",1
+r102,639,1,"MUCOUS, slimy, dark",7
+r103,639,2,"MUCOUS, slimy, dark, like frothy molasses",1
+r104,639,1,"MUCOUS, slimy, fetid",4
+r105,639,1,"MUCOUS, slimy, granular",2
+r106,639,1,"MUCOUS, slimy, green",59
+r108,640,1,"MUCOUS, slimy, jelly-like",23
+r109,640,2,"MUCOUS, slimy, jelly-like, frog-spawn, like",1
+r110,640,1,"MUCOUS, slimy, liquid",2
+r111,640,1,"MUCOUS, slimy, lumpy mucus",3
+r112,640,1,"MUCOUS, slimy, red",10
+r113,640,1,"MUCOUS, slimy, shaggy masses",4
+r114,640,1,"MUCOUS, slimy, shreddy",1
+r115,640,1,"MUCOUS, slimy, tenacious",6
+r116,640,1,"MUCOUS, slimy, transparent",12
+r117,640,1,"MUCOUS, slimy, watery",4
+r118,640,1,"MUCOUS, slimy, white",28
+r119,640,2,"MUCOUS, slimy, white, masses",1
+r120,640,2,"MUCOUS, slimy, white, like little pieces of popped corn",1
+r121,640,2,"MUCOUS, slimy, white, milk white",1
+r122,640,1,"MUCOUS, slimy, yellow",22
+r123,640,0,MUSHY,27
+r124,640,1,"MUSHY, brown",1
+r125,640,1,"MUSHY, yellow",13
+r126,640,1,"MUSHY, white",5
+r127,640,0,NARROW (See Long),0
+r128,640,0,"ODOR, acid (See Sour)",0
+r129,640,1,"ODOR, acid (See Sour), brassy",1
+r130,640,1,"ODOR, acid (See Sour), brown paper, burning, like",1
+r131,640,1,"ODOR, acid (See Sour), burnt meat",1
+r132,640,1,"ODOR, acid (See Sour), cadaveric",14
+r133,640,1,"ODOR, acid (See Sour), carrion-like (See Putrid)",0
+r134,640,1,"ODOR, acid (See Sour), cheese, rotten, like",3
+r135,640,1,"ODOR, acid (See Sour), coppery",1
+r136,640,1,"ODOR, acid (See Sour), eggs, like rotten",13
+r137,640,1,"ODOR, acid (See Sour), musty",2
+r138,640,1,"ODOR, acid (See Sour), offensive",136
+r139,640,2,"ODOR, acid (See Sour), offensive, night only",1
+r140,640,1,"ODOR, acid (See Sour), putrid",38
+r141,640,1,"ODOR, acid (See Sour), sour",34
+r143,641,1,"ODOR, acid (See Sour), urine, like",1
+r144,641,0,ODORLESS,18
+r145,641,0,"PASTY, papescent",139
+r146,641,0,PURULENT,28
+r147,641,0,REDDISH (See Bloody),7
+r148,641,0,SCANTY,136
+r149,641,0,"SCRAPINGS of intestines, like",13
+o60363,641,1,"SCRAPINGS of intestines, like, of meat, like",1
+r151,641,0,"SHEEP dung, like (See Balls)",42
+r152,641,0,SHINING (See Fatty),0
+r153,641,0,SHOOTING out,40
+r154,641,1,"SHOOTING out, all at once in a somewhat prolonged effort",1
+r155,641,1,"SHOOTING out, in a torrent",1
+r156,641,0,SLATE-COLORED,2
+r157,641,0,SMALL (See Long and Narrow),66
+r262,641,0,SOFT,203
+r158,642,0,SPUTTERING,3
+r159,642,0,STRINGY,7
+r160,642,0,SUDDEN (See Urging),0
+r161,642,0,TARRY-LOOKING,4
+r162,642,0,TENACIOUS,26
+r163,642,0,"THIN, liquid",115
+r164,642,1,"THIN, liquid, black",13
+r165,642,1,"THIN, liquid, brown",15
+r166,642,1,"THIN, liquid, dark",5
+r167,642,1,"THIN, liquid, fecal",50
+r168,642,1,"THIN, liquid, followed by hard",18
+r169,642,1,"THIN, liquid, formed then thin",10
+r170,642,1,"THIN, liquid, green",10
+r171,642,1,"THIN, liquid, liver-colored",1
+r172,642,1,"THIN, liquid, lumpy and liquid",16
+r173,642,1,"THIN, liquid, pouring out",21
+r174,642,1,"THIN, liquid, red",2
+r175,642,1,"THIN, liquid, yellow",24
+r176,642,0,TOUGH,11
+h003,642,0,TRANSPARENT (See Mucous),0
+r177,643,0,UNDIGESTED (See Lienteric),0
+r178,643,0,WATERY,169
+r179,643,1,"WATERY, morning",29
+r180,643,1,"WATERY, afternoon",1
+r181,643,1,"WATERY, night",15
+r182,643,1,"WATERY, black",21
+r183,643,1,"WATERY, bloody",11
+r184,643,2,"WATERY, bloody, meat washings, like",3
+r185,643,1,"WATERY, brown",26
+r186,643,1,"WATERY, clay-colored",2
+r187,643,1,"WATERY, clear",6
+r188,643,1,"WATERY, dirty",2
+r189,643,1,"WATERY, flakes, with",3
+r190,643,1,"WATERY, frothy",7
+r191,643,1,"WATERY, gelatinous on standing",1
+r192,643,1,"WATERY, green",40
+r193,643,2,"WATERY, green, scum, with",2
+r194,643,1,"WATERY, prune juice, like",2
+r195,643,1,"WATERY, rice water, like",21
+r196,643,1,"WATERY, white",18
+r197,643,1,"WATERY, yellow",50
+r198,643,0,WHITE,87
+r199,644,1,"WHITE, chalk, like",14
+r200,644,1,"WHITE, fecal",17
+r201,644,2,"WHITE, fecal, alternating with black",1
+r202,644,1,"WHITE, grains or particles",4
+r203,644,1,"WHITE, gray, streaked with blood",1
+r204,644,1,"WHITE, grayish white",3
+r205,644,1,"WHITE, greenish white",1
+r206,644,1,"WHITE, hard",9
+r207,644,1,"WHITE, jelly-like",1
+r208,644,1,"WHITE, masses like tallow",3
+r209,644,1,"WHITE, milk like, chyle like",32
+r210,644,1,"WHITE, shreddy particles",1
+r211,644,0,YELLOW,120
+r212,644,1,"YELLOW, bright",2
+r213,644,1,"YELLOW, brownish",6
+r214,644,1,"YELLOW, fecal",43
+r215,644,2,"YELLOW, fecal, painless immediately after eating",1
+r216,644,1,"YELLOW, granular",1
+r217,644,1,"YELLOW, green on standing, turning",2
+r218,644,1,"YELLOW, greenish",20
+r219,644,1,"YELLOW, hard",1
+r220,644,1,"YELLOW, orange",9
+r221,644,2,"YELLOW, orange, like pulp of",1
+r222,644,1,"YELLOW, saffron, like",4
+r223,644,1,"YELLOW, salmon",1
+r224,644,1,"YELLOW, whitish",12

@@ -1,0 +1,28 @@
+{
+ "book": "kent",
+ "chapter": "stool",
+ "source": "homeoint.org/books/kentrep1 kent0635–kent0640 (MEDI-T HTML) — kentstoo.htm انڈیکس «p. 635 – p. 644»",
+ "pages": "635 – 644 (MEDI-T انتساب)",
+ "source_canonical": "homeoint-stool-v1",
+ "source_rows": 238,
+ "unique_source_paths": 238,
+ "matched_app_records": 235,
+ "new_source_records": 3,
+ "legacy_local_records": 21,
+ "ambiguous_app_records": 0,
+ "third_source_pdf": "Drive PDF صفحہ 1407–1423 (مطبوعہ-ایڈیشن folio 1372–1388 = کتابی ص 636–645) — ordered alignment: 237/237 مکمل (236 عین + 1 دستاویزی فرق)، صفر drift، صفر دونوں-طرفہ باقیات؛ 1 فرق PDF-نکالنے کا آرٹی فاکٹ (ماخذ درست): صفحہ-نمبر-گلا — folio 1376 کا نمبر ادویہ کے ساتھ گلا: aur-mn.→aurm1376n (PDF 1411 «HARD»)؛ کتاب: STOOL سرخی folio 1372 (PDF 1407) کی سطرِ اول — MEDI-T صفحہ-انتساب (635–644) کتاب سے ایک آگے ہے (کتابی STOOL = 636–645، BLADDER کتابی ص 646 — MEDI-T کا اپنا فوٹر «BLADDER p. 646» بھی یہی کہتا ہے)؛ MEDI-T انتساب برقرار (kentstoo انڈیکس کے مطابق 10/10 صفحہ-اندراجات subsequence)",
+ "chapter_boundaries": "STOOL = صفحات 635–644 (MEDI-T انتساب) — kentstoo.htm فہرست 10/10 صفحہ-اندراجات؛ آغاز NAME=\"STOOL\" اینکر (kent0635.htm کا P635 سیکشن کا آخر — RECTUM دم v180 میں کٹ چکا)؛ اختتام P644 (YELLOW, whitish آخری — PDF 1423/folio 1388)؛ P645 اینکر = URINARY ORGANS منتقلی + BLADDER سرخی (kent0640.htm کے P645 سیکشن — کٹ)؛ ⚠ باب-حد: ایپ کے stool.json میں 2 BLADDER-آغاز ریکارڈ (r226 «AIR passes (See Gas)»، r230 «BAND (See Constriction)») — کتاب میں BLADDER کے پہلے ربرکس (PDF 1424+)، ایپ کا bladder.json پہلے سے رکھتا ہے (r1/r5) — ماخذی درخت سے باہر (legacy) — مطبوعہ کتاب + MEDI-T انڈیکس (STOOL اختتام p.644) + ایپ bladder باب تینوں باب-حد YELLOW whitish پر رکھتے ہیں",
+ "documented_corrections": [
+  "صفر خاندانی clamps درکار — MEDI-T کا <dir> ڈھانچہ اس باب میں بالکل صاف (85 مین d0 + 140 ذیلی d1 + 13 گہری d2، کوئی دوہرا <dir> نہیں)",
+  "صفر صفحہ-مارکر قطاریں (2-پیراگراف skip نے سب سنبھال لیا)",
+  "1 PDF آرٹی فاکٹ دستاویزی: folio-glue aur-mn.→aurm1376n (PDF 1411) — ماخذ درست",
+  "باب-حد: 2 BLADDER-آغاز ریکارڈ (r226/r230) stool باب سے ماخذی درخت کے باہر — bladder.json (r1/r5) پہلے سے مکمل — تفصیل chapter_boundaries",
+  "21 legacy: 16 خالی m-کنٹینر (ACRID، BALLS، COFFEE grounds، DOG'S، FATTY، FORCIBLE، KNOTTY، LONG، LUMPS، MEAL-LIKE sediment، PASTY، SCRAPINGS×2، SHEEP dung، THIN — بے-ادویہ OOREP برتن) + 4 OOREP مجموعے (r107 «MUCOUS» 147 unions — کتابی مین «MUCOUS, slimy» 105؛ r142 «ODOR» 162 — کتابی «ODOR, acid (See Sour)»/ODORLESS؛ o68449 «HARD, first» 21 — کتابی «HARD» میں نہیں؛ o60389 «WATERY, Stool, watery» 169 — «Stool» سیگمنٹ OOREP راستہ-آرٹی فاکٹ، کتابی «WATERY» 169 عین matched o-ریکارڈ سے) + r226/r230 باب-حد — سب رپورٹ میں ڈاکٹر نظرثانی کے لیے",
+  "3 نئے hN: جڑ STOOL + 2 خالی کراس-ریفرنس مین «ASH-COLORED (See Gray)»/«TRANSPARENT (See Mucous)» (کتابی قطاریں جو OOREP ایپ میں نہیں)"
+ ],
+ "policy": {
+  "remedies": "r := source_remedies (ماخذ مطبوعہ کتاب = سچ؛ OOREP مجموعے ضم/legacy)",
+  "hierarchy": "runtime tree از source_parent_id (rep-chapters.js stool بلڈر)",
+  "legacy": "فائل میں محفوظ، ماخذی درخت میں شامل نہیں — ڈاکٹر نظرثانی کے لیے رپورٹ"
+ }
+}

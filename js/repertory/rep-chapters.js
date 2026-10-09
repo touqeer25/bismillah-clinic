@@ -1366,6 +1366,68 @@ function _repBuildKentRectumSourceTree(data){
     });
     return root;
 }
+// 🔑 v181: سٹول (STOOL) باب کی ماخذی قطاریں (صفحات 635–644) — homeoint.org
+// (parse_stool_source.py + crosswalk_stool.py + overlay_stool.py)؛ پرانی مقامی قطاریں فائل میں محفوظ
+// مگر ماخذی درخت سے باہر۔ باب حد: STOOL = 635–644 (MEDI-T انتساب — kentstoo.htm فہرست 10/10 صفحہ-اندراجات؛
+// آغاز NAME="STOOL" اینکر — kent0635.htm کے P635 سیکشن کا آخر؛ اختتام P644 — kent0640.htm کے P645 سیکشن
+// (URINARY ORGANS منتقلی + BLADDER) کٹ)۔ مطبوعہ کتاب (PDF) STOOL سرخی folio 1372 = کتابی ص 636 پر —
+// MEDI-T انتساب کتاب سے ایک آگے، برقرار (manifest)۔ PDF alignment: 237/237 (1 folio-glue آرٹی فاکٹ aurm1376n)۔
+var _REP_KENT_STOOL_SOURCE_MARKER='homeoint-stool-v1';
+var _REP_KENT_STOOL_PAGES={first:635,last:644}, _REP_KENT_STOOL_COUNT=238;
+function _repKentStoolSourceEntries(data){
+    return Object.keys(data||{}).map(function(rid){return {rid:String(rid),rec:data[rid]};})
+        .filter(function(e){return e.rec&&e.rec.source_canonical===_REP_KENT_STOOL_SOURCE_MARKER;});
+}
+function _repHasKentStoolSourceData(data){
+    return _repKentStoolSourceEntries(data).length===_REP_KENT_STOOL_COUNT;
+}
+function _repBuildKentStoolSourceTree(data){
+    var entries=_repKentStoolSourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    if(entries.length!==_REP_KENT_STOOL_COUNT) throw new Error('Expected '+_REP_KENT_STOOL_COUNT+' Kent STOOL source rows; found '+entries.length);
+    entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
+    var byRid=Object.create(null);
+    entries.forEach(function(e,index){
+        var rec=e.rec, order=Number(rec.source_order), parentId=rec.source_parent_id;
+        if(order!==index) throw new Error('Invalid Kent STOOL source order at '+e.rid+': '+order);
+        var page=Number(rec.source_page), depth=Number(rec.source_depth), label=String(rec.source_label||'');
+        if(page<635||page>644) throw new Error('Kent STOOL source row outside pages 635–644: '+e.rid);
+        if(!label) throw new Error('Empty Kent STOOL source label at '+e.rid);
+        var labels=Array.isArray(rec.source_path_labels)?rec.source_path_labels.map(String):[];
+        if(!labels.length||labels[labels.length-1]!==label||depth!==labels.length-1)
+            throw new Error('Kent STOOL source path/depth mismatch at '+e.rid);
+        var sourcePath=String(rec.source_path||'');
+        if(sourcePath!==labels.join(', ')) throw new Error('Kent STOOL source full path mismatch at '+e.rid);
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent STOOL source parent '+parentId+' for '+e.rid);
+        if(parentId!==null && Number(parent.sourceOrder)>=index)
+            throw new Error('Kent STOOL source parent must precede child at '+e.rid);
+        var parentPath=parent===root?'':String(parent.pathTitle||'');
+        var expectedPath=parentPath?parentPath+', '+label:label;
+        if(expectedPath!==sourcePath) throw new Error('Kent STOOL source parent link/path mismatch at '+e.rid);
+        if(parent.children[label]) throw new Error('Duplicate Kent STOOL sibling label '+label+' at '+e.rid);
+        var remedies=rec.r;
+        if(!remedies||typeof remedies!=='object'||Array.isArray(remedies))
+            throw new Error('Missing Kent STOOL remedies at '+e.rid);
+        Object.keys(remedies).forEach(function(code){
+            var grade=Number(remedies[code]);
+            if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
+                throw new Error('Invalid Kent STOOL medicine grade at '+e.rid+': '+code);
+        });
+        var node={
+            name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
+            children:{},order:[],remedies:remedies,count:1,hasRubric:true,
+            path:sourcePath,pathTitle:sourcePath,displayPathTitle:sourcePath,
+            translationTitle:String(rec.translation_title||sourcePath),
+            oorep_id:rec.oorep_id||null,rid:e.rid,sourceCanonical:true,
+            display:rec.display&&typeof rec.display==='object'&&!Array.isArray(rec.display)?rec.display:null
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        parent.count=(parent.count||0)+1;
+        byRid[e.rid]=node;
+    });
+    return root;
+}
 // ============================================================
 // 🔑 v143: کینٹ کا درخت کتاب کی اصل ساخت پر — homeoint.org + True-Original PDF سے موازنہ
 // مسئلہ: OOREP مرج کے بعد کئی کتابی مین ربرکس (مثلاً «ANGER, irascibility»)
@@ -1593,6 +1655,10 @@ function buildRubricTree(data){
     // 🔑 v180: مستقیم باب کی ماخذی قطاریں (صفحات 606–635) — وہی طرز جو شکم باب میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'rectum' && _repHasKentRectumSourceData(data)){
         return _repBuildKentRectumSourceTree(data);
+    }
+    // 🔑 v181: سٹول باب کی ماخذی قطاریں (صفحات 635–644) — وہی طرز جو مستقیم باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'stool' && _repHasKentStoolSourceData(data)){
+        return _repBuildKentStoolSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest
@@ -1887,6 +1953,10 @@ function buildRubricTree(data){
     // 🔑 v180: مستقیم باب کی ماخذی قطاریں (صفحات 606–635) — وہی طرز جو شکم باب میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'rectum' && _repHasKentRectumSourceData(data)){
         return _repBuildKentRectumSourceTree(data);
+    }
+    // 🔑 v181: سٹول باب کی ماخذی قطاریں (صفحات 635–644) — وہی طرز جو مستقیم باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'stool' && _repHasKentStoolSourceData(data)){
+        return _repBuildKentStoolSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest
