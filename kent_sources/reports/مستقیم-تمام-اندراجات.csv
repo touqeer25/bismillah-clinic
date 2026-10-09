@@ -1,0 +1,1201 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,606,0,RECTUM,0
+r0,606,0,ABSCESS,7
+r1,606,1,"ABSCESS, just below the coccyx",1
+r2,606,1,"ABSCESS, perineum",3
+r3,606,0,APHTHOUS condition of anus,10
+r4,606,0,"BALL in rectum, sensation of (See Lump)",0
+r5,606,0,BLACK,1
+r6,606,0,BOILS in anus,4
+o53424,606,1,"BOILS in anus, near anus",1
+r8,606,0,CANCER,4
+r9,606,0,"CATARRH of the rectum (See Mucus, Moisture)",3
+r10,606,0,CAULIFLOWER excrescence,1
+r11,606,0,CHILLINESS in rectum before stool,1
+r12,606,0,CHOLERA,25
+r13,606,1,"CHOLERA, infantum",45
+r14,606,1,"CHOLERA, morbus",26
+r15,606,0,COLDNESS in anus,5
+r16,606,1,"COLDNESS in anus, afternoon",1
+r17,606,1,"COLDNESS in anus, drops, cold",1
+r18,606,1,"COLDNESS in anus, flatus and stool, during",1
+r19,606,1,"COLDNESS in anus, waking, after",2
+r20,606,1,"COLDNESS in anus, walking in open air, after",1
+r21,606,0,CONDYLOMATA,21
+r22,606,1,"CONDYLOMATA, copious bleeding",1
+r23,606,1,"CONDYLOMATA, extremely sensitive",1
+r24,606,1,"CONDYLOMATA, flat",3
+r25,606,1,"CONDYLOMATA, sore",2
+r26,606,0,CONSTIPATION (See Inactivity),213
+r27,607,1,"CONSTIPATION (See Inactivity), alternate days, agg.",2
+o53445,607,1,"CONSTIPATION (See Inactivity), alternating with diarrhœa",81
+o53446,607,2,"CONSTIPATION (See Inactivity), alternating with diarrhœa, aged people, in",5
+r30,607,1,"CONSTIPATION (See Inactivity), coffee, after",1
+r31,607,1,"CONSTIPATION (See Inactivity), constant desire",13
+r32,607,1,"CONSTIPATION (See Inactivity), difficult stool (See Inactivity)",115
+r33,607,2,"CONSTIPATION (See Inactivity), difficult stool (See Inactivity), natural stool",3
+r34,607,2,"CONSTIPATION (See Inactivity), difficult stool (See Inactivity), soft stool",42
+r35,607,2,"CONSTIPATION (See Inactivity), difficult stool (See Inactivity), stool recedes",12
+r36,607,2,"CONSTIPATION (See Inactivity), difficult stool (See Inactivity), urinating, can pass stool only when",2
+r37,607,1,"CONSTIPATION (See Inactivity), drugs, after abuse of",11
+r38,607,1,"CONSTIPATION (See Inactivity), dryness of rectum, from",1
+r39,607,1,"CONSTIPATION (See Inactivity), fruitless urging, with (See Ineffectual)",0
+r40,607,1,"CONSTIPATION (See Inactivity), hard stool, from (See Stool)",0
+r41,607,1,"CONSTIPATION (See Inactivity), home, when away from",1
+r42,607,1,"CONSTIPATION (See Inactivity), ineffectual urging and straining",159
+r43,607,2,"CONSTIPATION (See Inactivity), ineffectual urging and straining, evening",1
+r44,607,2,"CONSTIPATION (See Inactivity), ineffectual urging and straining, menses, during",2
+r45,607,1,"CONSTIPATION (See Inactivity), insufficient, incomplete, unsatisfactory stools",61
+r46,608,1,"CONSTIPATION (See Inactivity), lean far back to pass a stool, must",1
+r47,608,1,"CONSTIPATION (See Inactivity), menses, before",12
+o53464,608,2,"CONSTIPATION (See Inactivity), menses, before, during",24
+r49,608,2,"CONSTIPATION (See Inactivity), menses, before, after",3
+r50,608,2,"CONSTIPATION (See Inactivity), menses, before, instead of",1
+r51,608,2,"CONSTIPATION (See Inactivity), menses, before, suppressed, during",2
+r52,608,1,"CONSTIPATION (See Inactivity), old people",16
+r53,608,1,"CONSTIPATION (See Inactivity), painful",3
+r54,608,1,"CONSTIPATION (See Inactivity), periodic",1
+r55,608,2,"CONSTIPATION (See Inactivity), periodic, every three weeks",1
+r56,608,1,"CONSTIPATION (See Inactivity), portal stasis, from",4
+r57,608,1,"CONSTIPATION (See Inactivity), pregnancy, during",21
+r58,608,1,"CONSTIPATION (See Inactivity), seashore, at",1
+r59,608,1,"CONSTIPATION (See Inactivity), sedentary habits, from",10
+r60,608,1,"CONSTIPATION (See Inactivity), standing, passes stool easier when",1
+r61,608,1,"CONSTIPATION (See Inactivity), stool remains long in the rectum with no urging (See Inactivity)",8
+o53478,608,2,"CONSTIPATION (See Inactivity), stool remains long in the rectum with no urging (See Inactivity), with general amel.",1
+o53477,608,2,"CONSTIPATION (See Inactivity), stool remains long in the rectum with no urging (See Inactivity), with awful anxiety",1
+r64,608,1,"CONSTIPATION (See Inactivity), travelling while",4
+r65,608,1,"CONSTIPATION (See Inactivity), unable to pass the stool in presence of nurse",1
+r66,608,1,"CONSTIPATION (See Inactivity), vexation after",3
+r67,608,1,"CONSTIPATION (See Inactivity), wine, after",1
+r68,608,0,"CONSTRICTION, contraction, closure, etc.",78
+o53499,608,1,"CONSTRICTION, contraction, closure, etc., morning",1
+o53500,608,2,"CONSTRICTION, contraction, closure, etc., morning, rising, after",1
+o53495,608,1,"CONSTRICTION, contraction, closure, etc., forenoon",1
+o53483,608,1,"CONSTRICTION, contraction, closure, etc., afternoon",2
+o53488,608,1,"CONSTRICTION, contraction, closure, etc., evening",1
+o53489,608,2,"CONSTRICTION, contraction, closure, etc., evening, walking, while",1
+o53502,608,1,"CONSTRICTION, contraction, closure, etc., night",1
+o53484,608,1,"CONSTRICTION, contraction, closure, etc., alternating with itching",1
+o53485,608,1,"CONSTRICTION, contraction, closure, etc., breakfast, after",1
+o53486,608,1,"CONSTRICTION, contraction, closure, etc., coition, during",1
+o53494,608,1,"CONSTRICTION, contraction, closure, etc., flatus, passing",1
+o53496,608,1,"CONSTRICTION, contraction, closure, etc., lying amel.",1
+o53497,608,1,"CONSTRICTION, contraction, closure, etc., menses, during",2
+o53498,608,1,"CONSTRICTION, contraction, closure, etc., mental exertion, after",1
+o53501,608,1,"CONSTRICTION, contraction, closure, etc., motion amel.",1
+o53503,608,1,"CONSTRICTION, contraction, closure, etc., painful",15
+o53504,608,1,"CONSTRICTION, contraction, closure, etc., prolapsed anus",2
+h002,608,1,"CONSTRICTION, contraction, closure, etc., sitting, while",2
+o53505,608,2,"CONSTRICTION, contraction, closure, etc., sitting, while, amel.",1
+o53506,608,2,"CONSTRICTION, contraction, closure, etc., sitting, while, rising, from",1
+o53508,608,1,"CONSTRICTION, contraction, closure, etc., spasmodic",15
+o53509,608,1,"CONSTRICTION, contraction, closure, etc., standing agg.",1
+r92,609,1,"CONSTRICTION, contraction, closure, etc., stool, before",7
+r93,609,2,"CONSTRICTION, contraction, closure, etc., stool, before, during",18
+r94,609,2,"CONSTRICTION, contraction, closure, etc., stool, before, after",19
+r95,609,2,"CONSTRICTION, contraction, closure, etc., stool, before, preventing",8
+r96,609,2,"CONSTRICTION, contraction, closure, etc., stool, before, urging to, during",1
+r97,609,1,"CONSTRICTION, contraction, closure, etc., urinating, on",2
+r98,609,2,"CONSTRICTION, contraction, closure, etc., urinating, on, at close of",1
+r99,609,1,"CONSTRICTION, contraction, closure, etc., walking, on",2
+r100,609,1,"CONSTRICTION, contraction, closure, etc., extending into rectum",1
+o53492,609,2,"CONSTRICTION, contraction, closure, etc., extending into rectum, upward",2
+o53491,609,2,"CONSTRICTION, contraction, closure, etc., extending into rectum, testes, to",2
+o53493,609,2,"CONSTRICTION, contraction, closure, etc., extending into rectum, vagina, to",1
+r104,609,0,CORD extending from anus to navel,1
+r105,609,0,CRAMP (See Constriction),0
+r106,609,1,"CRAMP (See Constriction), Perineum",2
+r107,609,0,"CRAWLING in (See Formication, Itching)",0
+o53520,609,0,DIARRHŒA,215
+o53597,609,1,"DIARRHŒA, daytime only",27
+o53598,609,2,"DIARRHŒA, daytime only, and night",3
+o53702,609,1,"DIARRHŒA, morning",109
+o53707,609,2,"DIARRHŒA, morning, afternoon, until",1
+o53708,609,2,"DIARRHŒA, morning, bed, driving out of",26
+o53709,609,2,"DIARRHŒA, morning, rising, after",22
+o53710,609,3,"DIARRHŒA, morning, rising, after, and moving about",5
+o53711,610,2,"DIARRHŒA, morning, waking with urging",10
+o53703,610,2,"DIARRHŒA, morning, 5 a.m.",2
+o53704,610,2,"DIARRHŒA, morning, 6 a.m.",7
+o53705,610,2,"DIARRHŒA, morning, 6 to 10 a.m.",1
+o53706,610,2,"DIARRHŒA, morning, 7 a.m.",1
+o53641,610,1,"DIARRHŒA, forenoon",18
+o53643,610,2,"DIARRHŒA, forenoon, 8 a.m.",1
+o53644,610,2,"DIARRHŒA, forenoon, 8 to 10 a.m.",1
+o53645,610,2,"DIARRHŒA, forenoon, 9 a.m.",1
+o53642,610,2,"DIARRHŒA, forenoon, 10 a.m. to 10 p.m.",1
+o53731,610,1,"DIARRHŒA, noon",8
+o53523,610,1,"DIARRHŒA, afternoon",35
+o53527,610,2,"DIARRHŒA, afternoon, regularly",1
+o53524,610,2,"DIARRHŒA, afternoon, 4 to 6 p.m.",2
+o53525,610,2,"DIARRHŒA, afternoon, 4 to 8 p.m.",2
+o53526,610,2,"DIARRHŒA, afternoon, 5 to 6 p.m.",1
+o53616,610,1,"DIARRHŒA, evening",50
+o53617,610,2,"DIARRHŒA, evening, cold air, in",3
+o53714,610,1,"DIARRHŒA, night",84
+o53725,610,2,"DIARRHŒA, night, lying agg.",1
+o53728,610,3,"DIARRHŒA, night, lying agg., midnight, before",4
+o53726,610,3,"DIARRHŒA, night, lying agg., after",30
+h003,610,4,"DIARRHŒA, night, lying agg., after, noon, to",2
+h004,610,2,"DIARRHŒA, night, 1 to 4 a.m.",1
+o53716,610,2,"DIARRHŒA, night, 2 a.m.",6
+h005,610,2,"DIARRHŒA, night, 2 to 3 a.m.",2
+o53718,610,2,"DIARRHŒA, night, 3 a.m.",4
+h006,610,2,"DIARRHŒA, night, 3 to 4 a.m.",3
+h007,610,2,"DIARRHŒA, night, 3 to 11 a.m.",1
+o53721,610,2,"DIARRHŒA, night, 4 a.m.",7
+h008,610,2,"DIARRHŒA, night, 4 to 6 a.m.",2
+h009,610,2,"DIARRHŒA, night, 4 to 7 a.m.",1
+h010,610,2,"DIARRHŒA, night, 5 to 6 a.m.",1
+o53521,610,1,"DIARRHŒA, acids, after",12
+o53522,610,1,"DIARRHŒA, acute diseases, after",4
+o53528,610,1,"DIARRHŒA, aged people",17
+o53529,610,2,"DIARRHŒA, aged people, prematurely, with syphilitic mercurial dyscrasia",1
+o53530,610,2,"DIARRHŒA, aged people, women",2
+o53534,610,1,"DIARRHŒA, air, in cold",2
+o53532,610,2,"DIARRHŒA, air, in cold, cold, on abdomen",1
+o53531,610,3,"DIARRHŒA, air, in cold, cold, on abdomen, currents of",4
+o53533,611,2,"DIARRHŒA, air, in cold, evening",1
+h011,611,2,"DIARRHŒA, air, in cold, open, in",5
+o53536,611,3,"DIARRHŒA, air, in cold, open, in, amel.",5
+o53537,611,1,"DIARRHŒA, alcoholic drinks, after",5
+o53538,611,1,"DIARRHŒA, aloe, after abuse of",2
+o53539,611,1,"DIARRHŒA, alone, when",1
+h012,611,1,"DIARRHŒA, alternate days, on (See Periodical)",0
+o67916,611,1,"DIARRHŒA, alternating with constipation (See Constipation)",0
+o53540,611,2,"DIARRHŒA, alternating with constipation (See Constipation), catarrh of chest, with",1
+o53541,611,2,"DIARRHŒA, alternating with constipation (See Constipation), eruptions",2
+o53542,611,2,"DIARRHŒA, alternating with constipation (See Constipation), headache",1
+o53543,611,2,"DIARRHŒA, alternating with constipation (See Constipation), rheumatism",3
+o53544,611,1,"DIARRHŒA, ameliorates all symptoms",1
+o53545,611,1,"DIARRHŒA, anger, after",11
+o53546,611,1,"DIARRHŒA, anticipation, after",3
+o53547,611,1,"DIARRHŒA, anxiety, after",4
+o53548,611,1,"DIARRHŒA, apyrexia, during",1
+o53549,611,1,"DIARRHŒA, autumn, in",10
+o53551,611,1,"DIARRHŒA, bad news, from",1
+o53550,611,1,"DIARRHŒA, bad drainage",2
+o53552,611,1,"DIARRHŒA, bathing, after",4
+o53553,611,2,"DIARRHŒA, bathing, after, cold, after",1
+o53554,611,1,"DIARRHŒA, battle, on going into",1
+o53555,611,1,"DIARRHŒA, beer, after",8
+o53556,611,1,"DIARRHŒA, bilious",23
+o53557,611,1,"DIARRHŒA, boils begin to heal, as soon as",1
+o53558,611,1,"DIARRHŒA, breakfast, after",24
+o53559,611,2,"DIARRHŒA, breakfast, after, amel.",3
+o53560,611,1,"DIARRHŒA, burns, after",1
+o53561,611,1,"DIARRHŒA, cabbage, after",3
+o53562,611,1,"DIARRHŒA, castor oil, after",1
+o53563,611,1,"DIARRHŒA, catarrh or coryza, after",1
+o53564,611,1,"DIARRHŒA, cathartics, after",5
+o53565,611,1,"DIARRHŒA, chagrin, after",5
+o53566,611,1,"DIARRHŒA, chamomile, after abuse of",2
+o53567,611,1,"DIARRHŒA, change of diet, least",2
+o53568,611,2,"DIARRHŒA, change of diet, least, weather, from",5
+o53569,611,1,"DIARRHŒA, chest, after pains in the",1
+o53570,611,1,"DIARRHŒA, children, in",47
+o53572,611,1,"DIARRHŒA, chill, during",8
+o53571,611,2,"DIARRHŒA, chill, during, after",1
+o53573,611,1,"DIARRHŒA, chocolate, after",2
+o53574,611,1,"DIARRHŒA, cholera epidemic during",5
+o53575,611,2,"DIARRHŒA, cholera epidemic during, after an attack of",1
+o53576,611,1,"DIARRHŒA, cider, after",3
+o53577,611,1,"DIARRHŒA, climaxis, during",2
+o53578,611,1,"DIARRHŒA, coffee, after",14
+o53580,611,2,"DIARRHŒA, coffee, after, smell of, after",1
+o53579,611,2,"DIARRHŒA, coffee, after, amel.",4
+o53581,611,1,"DIARRHŒA, cold applications amel.",3
+o53582,611,2,"DIARRHŒA, cold applications amel., becoming, after",5
+o53583,611,2,"DIARRHŒA, cold applications amel., drinks, after",32
+o53584,611,3,"DIARRHŒA, cold applications amel., drinks, after, amel.",1
+o53585,611,3,"DIARRHŒA, cold applications amel., drinks, after, in summer",4
+h013,612,2,"DIARRHŒA, cold applications amel., food (See Food)",0
+o53586,612,2,"DIARRHŒA, cold applications amel., nights",2
+o53587,612,2,"DIARRHŒA, cold applications amel., place amel.",1
+o53588,612,2,"DIARRHŒA, cold applications amel., taking cold, after",39
+o53589,612,3,"DIARRHŒA, cold applications amel., taking cold, after, summer, in",5
+o53590,612,2,"DIARRHŒA, cold applications amel., weather, from",10
+o53591,612,1,"DIARRHŒA, coryza, following",2
+o53592,612,1,"DIARRHŒA, cucumbers, after",1
+o53593,612,1,"DIARRHŒA, damp weather",12
+o53594,612,2,"DIARRHŒA, damp weather, amel.",2
+o53595,612,2,"DIARRHŒA, damp weather, cold weather",8
+o53596,612,1,"DIARRHŒA, darkness agg.",1
+o53599,612,1,"DIARRHŒA, debauch, after a",2
+o53600,612,1,"DIARRHŒA, dentition, during",42
+h014,612,1,"DIARRHŒA, diet, after trivial errors in (See Indiscretion)",0
+o53601,612,1,"DIARRHŒA, dinner, after",14
+o53602,612,1,"DIARRHŒA, domestic cares from",1
+h015,612,1,"DIARRHŒA, draft, after (See Air)",0
+o53603,612,1,"DIARRHŒA, drinking water, from",35
+o53604,612,2,"DIARRHŒA, drinking water, from, immediately, after",4
+o53605,612,1,"DIARRHŒA, drugging, after",1
+o53606,612,1,"DIARRHŒA, drunkards, in old",7
+o53607,612,1,"DIARRHŒA, dry weather",2
+o53610,612,1,"DIARRHŒA, eating, while",8
+o53608,612,2,"DIARRHŒA, eating, while, after",82
+o53609,612,2,"DIARRHŒA, eating, while, amel.",16
+o53611,612,1,"DIARRHŒA, effluvia, noxious, from",2
+o53612,612,1,"DIARRHŒA, eggs, after",1
+o53613,612,1,"DIARRHŒA, emaciated people, in",9
+o53614,612,1,"DIARRHŒA, eructations amel.",5
+o53615,612,1,"DIARRHŒA, eruptions, suppressed, after",8
+o53619,612,1,"DIARRHŒA, exanthemata, during",4
+o53618,612,2,"DIARRHŒA, exanthemata, during, after suppression of",4
+o53620,612,1,"DIARRHŒA, excitement",9
+o53621,612,2,"DIARRHŒA, excitement, as before theatre",1
+o53622,612,1,"DIARRHŒA, exciting news, from",1
+o53623,612,1,"DIARRHŒA, exertion, bodily, after",6
+o53624,612,1,"DIARRHŒA, fat, flabby people",1
+o53625,612,1,"DIARRHŒA, fever, hectic, during",1
+o53626,612,2,"DIARRHŒA, fever, hectic, during, intermittent, during",9
+o53627,612,2,"DIARRHŒA, fever, hectic, during, pernicious",3
+o53628,612,2,"DIARRHŒA, fever, hectic, during, puerperal",3
+o53629,613,2,"DIARRHŒA, fever, hectic, during, typhoid",21
+o53630,613,1,"DIARRHŒA, fish, after",1
+o53631,613,1,"DIARRHŒA, food, acid, amel.",1
+o53632,613,2,"DIARRHŒA, food, acid, amel., artificial, after",4
+o53633,613,2,"DIARRHŒA, food, acid, amel., change of, after",2
+o53634,613,2,"DIARRHŒA, food, acid, amel., cold agg.",17
+o53635,613,3,"DIARRHŒA, food, acid, amel., cold agg., amel.",1
+o53636,613,2,"DIARRHŒA, food, acid, amel., farinaceous, after",4
+o53637,613,2,"DIARRHŒA, food, acid, amel., fat, after",6
+o53638,613,2,"DIARRHŒA, food, acid, amel., rancid, after",2
+o53639,613,2,"DIARRHŒA, food, acid, amel., rich, after",6
+o53640,613,2,"DIARRHŒA, food, acid, amel., solid, after",4
+o53646,613,1,"DIARRHŒA, fright, after",10
+o53647,613,1,"DIARRHŒA, fruit, after",32
+o53648,613,2,"DIARRHŒA, fruit, after, sour, after",5
+o53649,613,3,"DIARRHŒA, fruit, after, sour, after, with milk, after",1
+o53650,613,2,"DIARRHŒA, fruit, after, stewed, after",1
+o53651,613,2,"DIARRHŒA, fruit, after, unripe fruit, after",4
+o53652,613,1,"DIARRHŒA, game, high after",4
+o53653,613,1,"DIARRHŒA, ginger, after",1
+o53654,613,1,"DIARRHŒA, glistening objects, looking at",1
+o53655,613,1,"DIARRHŒA, gouty subjects",2
+o53656,613,1,"DIARRHŒA, grief, after",7
+o53657,613,1,"DIARRHŒA, ground, standing on damp, after",3
+o53658,613,1,"DIARRHŒA, hair cutting, after",1
+o53659,613,1,"DIARRHŒA, heat, dry, amel.",1
+o53660,613,2,"DIARRHŒA, heat, dry, amel., external, amel.",2
+o53661,613,2,"DIARRHŒA, heat, dry, amel., moist external, amel.",1
+o53662,613,2,"DIARRHŒA, heat, dry, amel., sun",3
+o53663,613,1,"DIARRHŒA, hot weather",44
+o53664,613,1,"DIARRHŒA, hydrocephalus acutus, during",6
+o53665,613,1,"DIARRHŒA, ice cream, after",7
+o53666,613,2,"DIARRHŒA, ice cream, after, amel.",1
+o53667,613,1,"DIARRHŒA, imagination, from exalted",1
+o53668,613,1,"DIARRHŒA, indignation, from",3
+o53669,613,1,"DIARRHŒA, indiscretion in eating, after the slightest",29
+o53670,613,1,"DIARRHŒA, injuries, after",1
+o53671,613,1,"DIARRHŒA, jaundice, during",8
+o53672,613,1,"DIARRHŒA, joy, sudden, from",2
+o53673,613,1,"DIARRHŒA, lemonade, after",2
+o53674,613,1,"DIARRHŒA, light, bright, from",3
+o53675,613,1,"DIARRHŒA, loss of fluids, after",3
+o53676,613,1,"DIARRHŒA, lying agg.",3
+o53678,613,2,"DIARRHŒA, lying agg., amel.",4
+o53677,613,2,"DIARRHŒA, lying agg., abdomen, on the, amel.",6
+o53679,613,2,"DIARRHŒA, lying agg., back, on the, agg.",2
+o53680,613,3,"DIARRHŒA, lying agg., back, on the, agg., amel.",1
+o53683,613,2,"DIARRHŒA, lying agg., side, on the, agg.",2
+o53684,613,3,"DIARRHŒA, lying agg., side, on the, agg., right agg.",1
+o53685,613,4,"DIARRHŒA, lying agg., side, on the, agg., right agg., amel.",1
+o53681,613,3,"DIARRHŒA, lying agg., side, on the, agg., left, agg.",2
+o53682,613,4,"DIARRHŒA, lying agg., side, on the, agg., left, agg., amel.",1
+o53686,613,1,"DIARRHŒA, magnesia, after",4
+o53688,614,1,"DIARRHŒA, measles, during",1
+o53687,614,2,"DIARRHŒA, measles, during, after",5
+o53689,614,1,"DIARRHŒA, meat, from",4
+o53690,614,2,"DIARRHŒA, meat, from, smoked, from",1
+o53691,614,1,"DIARRHŒA, melons, from",1
+o53693,614,1,"DIARRHŒA, menses, before",13
+o53694,614,2,"DIARRHŒA, menses, before, during",41
+o53692,614,2,"DIARRHŒA, menses, before, after",7
+o53695,614,1,"DIARRHŒA, mental exertion, after",4
+o53696,614,2,"DIARRHŒA, mental exertion, after, amel.",1
+o53697,614,1,"DIARRHŒA, mercury, after abuse of",8
+o53698,614,1,"DIARRHŒA, milk, after",19
+o53699,614,2,"DIARRHŒA, milk, after, boiled, after",1
+o53700,614,2,"DIARRHŒA, milk, after, hot, amel.",2
+o53701,614,2,"DIARRHŒA, milk, after, sour, after",1
+o53712,614,1,"DIARRHŒA, motion agg.",29
+o53713,614,2,"DIARRHŒA, motion agg., amel.",9
+o53729,614,1,"DIARRHŒA, noise, from",3
+o53730,614,2,"DIARRHŒA, noise, from, sudden, from",2
+o53732,614,1,"DIARRHŒA, nursing, after",4
+o53820,614,2,"DIARRHŒA, nursing, after, women",2
+o53733,614,1,"DIARRHŒA, onions, after",4
+o53734,614,1,"DIARRHŒA, opium, after",4
+o53735,614,1,"DIARRHŒA, oranges, after",1
+o53736,614,1,"DIARRHŒA, overheated, after being",5
+o53737,614,1,"DIARRHŒA, oysters, after",5
+o53738,614,1,"DIARRHŒA, painless",91
+o53739,614,2,"DIARRHŒA, painless, night",12
+o53740,614,3,"DIARRHŒA, painless, night, only after eating in daytime",1
+o53741,614,1,"DIARRHŒA, pastry, after",8
+o53742,614,1,"DIARRHŒA, pears, after",3
+o53746,614,1,"DIARRHŒA, periodical, on alternate days",7
+o53747,614,2,"DIARRHŒA, periodical, on alternate days, same hour, at",4
+o53745,614,2,"DIARRHŒA, periodical, on alternate days, hour later each day",1
+o53743,614,2,"DIARRHŒA, periodical, on alternate days, every fourth day",1
+o53744,614,3,"DIARRHŒA, periodical, on alternate days, every fourth day, three weeks",1
+o53748,614,2,"DIARRHŒA, periodical, on alternate days, summer",1
+o53749,614,1,"DIARRHŒA, perspiration suppressed",1
+o53750,614,1,"DIARRHŒA, pork, after",4
+o53751,614,1,"DIARRHŒA, potatoes, after",4
+o53752,614,2,"DIARRHŒA, potatoes, after, sweet, after",1
+o53753,614,1,"DIARRHŒA, pregnancy, during",19
+o53754,614,1,"DIARRHŒA, quinine, after abuse of",6
+o53755,614,1,"DIARRHŒA, rhubarb, after",5
+h016,615,1,"DIARRHŒA, riding, from",4
+o53758,615,2,"DIARRHŒA, riding, from, in a train",1
+o53756,615,2,"DIARRHŒA, riding, from, amel.",1
+o53759,615,1,"DIARRHŒA, rising up agg.",5
+o53760,615,2,"DIARRHŒA, rising up agg., from bed amel.",3
+o53761,615,1,"DIARRHŒA, rubbing amel.",2
+o53762,615,1,"DIARRHŒA, salmon, after eating",1
+o53763,615,1,"DIARRHŒA, sauer kraut, after",2
+o53764,615,1,"DIARRHŒA, school girls, in",2
+o53765,615,1,"DIARRHŒA, sea bathing, from",1
+o53766,615,1,"DIARRHŒA, seashore, while at",2
+o53770,615,1,"DIARRHŒA, septic conditions, from",7
+o53771,615,1,"DIARRHŒA, shell-fish, from",1
+o53772,615,1,"DIARRHŒA, shining objects agg.",1
+o53773,615,1,"DIARRHŒA, sitting agg.",2
+o53774,615,2,"DIARRHŒA, sitting agg., amel.",1
+o53775,615,2,"DIARRHŒA, sitting agg., erect agg.",1
+h017,615,1,"DIARRHŒA, sleep, during",3
+o53776,615,2,"DIARRHŒA, sleep, during, after",5
+o53777,615,2,"DIARRHŒA, sleep, during, amel.",3
+o53779,615,1,"DIARRHŒA, small-pox, during",4
+o53780,615,1,"DIARRHŒA, smoking agg.",3
+o53781,615,1,"DIARRHŒA, soup, from",1
+o53782,615,1,"DIARRHŒA, spices, from",1
+h018,615,1,"DIARRHŒA, spirits (See Alcoholic Drinks)",0
+o53783,615,1,"DIARRHŒA, spring, in",4
+o53784,615,1,"DIARRHŒA, standing agg.",8
+o53785,615,2,"DIARRHŒA, standing agg., amel.",1
+o53786,615,1,"DIARRHŒA, strain, after a",1
+o53787,615,1,"DIARRHŒA, sugar, after",7
+o53788,615,2,"DIARRHŒA, sugar, after, maple sugar",1
+h019,615,1,"DIARRHŒA, summer (See Hot Weather)",0
+o53789,615,1,"DIARRHŒA, supper, after",4
+o53790,615,1,"DIARRHŒA, suppressed gonorrhœa, after",1
+h020,615,1,"DIARRHŒA, teething (See Dentition)",0
+o53791,615,1,"DIARRHŒA, thinking of it",1
+o53792,615,1,"DIARRHŒA, thunderstorm, before",1
+o53793,615,2,"DIARRHŒA, thunderstorm, before, during",3
+o53794,615,1,"DIARRHŒA, tobacco, from",4
+o53795,615,1,"DIARRHŒA, urinating agg.",5
+o53796,615,1,"DIARRHŒA, vaccination, after",3
+o53797,615,1,"DIARRHŒA, veal, after",1
+o53798,615,1,"DIARRHŒA, vegetables, after",14
+o53799,615,1,"DIARRHŒA, vexation, from",7
+o53800,615,1,"DIARRHŒA, vinegar, after",1
+h021,615,1,"DIARRHŒA, vomiting, with (See Vomiting)",0
+o53801,615,1,"DIARRHŒA, walking agg.",5
+o53802,615,1,"DIARRHŒA, warm application amel.",4
+o53803,615,2,"DIARRHŒA, warm application amel., drinks agg.",1
+o53804,615,2,"DIARRHŒA, warm application amel., food agg.",1
+o53805,615,2,"DIARRHŒA, warm application amel., room agg.",4
+o53806,615,1,"DIARRHŒA, warmth agg.",2
+o53807,615,2,"DIARRHŒA, warmth agg., of bed amel.",3
+o53808,615,1,"DIARRHŒA, washing the head, after",2
+o53809,615,1,"DIARRHŒA, water, hearing running, agg.",1
+o53810,615,1,"DIARRHŒA, weakness, without",4
+o53811,615,1,"DIARRHŒA, weaning, after",2
+o53812,615,1,"DIARRHŒA, wet, after getting",3
+o53813,615,2,"DIARRHŒA, wet, after getting, after getting feet",3
+o53814,615,1,"DIARRHŒA, wind, after exposure to cold",2
+o53815,615,2,"DIARRHŒA, wind, after exposure to cold, east",1
+h022,615,1,"DIARRHŒA, wine, from",3
+o53816,615,2,"DIARRHŒA, wine, from, amel.",2
+o53818,615,2,"DIARRHŒA, wine, from, sour",1
+o53819,615,1,"DIARRHŒA, winter",3
+o53821,615,1,"DIARRHŒA, wrapping up warmly amel.",1
+o53767,615,1,"DIARRHŒA, sensation as before a",26
+o53768,615,2,"DIARRHŒA, sensation as before a, smoking, while",1
+o53769,615,2,"DIARRHŒA, sensation as before a, walking, while",1
+r422,616,0,"DIFFICULT, stool (See Constipation)",0
+r423,616,0,DISTENSION,2
+r424,616,0,"DRAGGING, heaviness, weight",58
+r425,616,1,"DRAGGING, heaviness, weight, morning",1
+r426,616,2,"DRAGGING, heaviness, weight, morning, stool, after",1
+r427,616,1,"DRAGGING, heaviness, weight, afternoon",1
+r428,616,2,"DRAGGING, heaviness, weight, afternoon, dinner, after",1
+r429,616,2,"DRAGGING, heaviness, weight, afternoon, sleep, after",1
+r430,616,1,"DRAGGING, heaviness, weight, evening, during loose stool",1
+r431,616,1,"DRAGGING, heaviness, weight, menses, before",1
+r432,616,2,"DRAGGING, heaviness, weight, menses, before, during",1
+r433,616,1,"DRAGGING, heaviness, weight, standing, while",1
+r434,616,1,"DRAGGING, heaviness, weight, stool, before",2
+r435,616,2,"DRAGGING, heaviness, weight, stool, before, during",3
+h023,616,2,"DRAGGING, heaviness, weight, stool, before, after",6
+r437,616,2,"DRAGGING, heaviness, weight, stool, before, amel. after",1
+r438,616,1,"DRAGGING, heaviness, weight, Perineum",5
+r439,616,0,"DRAW in, desire to, anus",1
+r440,616,0,DRYNESS,11
+r441,616,1,"DRYNESS, sensation of",3
+r442,616,0,DYSENTERY,88
+r443,616,1,"DYSENTERY, night",3
+r444,616,1,"DYSENTERY, emaciated undersized children",1
+r445,616,0,ERUPTION about anus,26
+r446,616,1,"ERUPTION about anus, blotches",4
+r447,616,1,"ERUPTION about anus, burning",2
+r448,616,1,"ERUPTION about anus, crust",1
+r449,616,1,"ERUPTION about anus, herpetic",5
+r450,616,1,"ERUPTION about anus, itching",6
+r451,616,1,"ERUPTION about anus, pimples",8
+r452,616,1,"ERUPTION about anus, pustules",3
+r453,616,1,"ERUPTION about anus, scurfy",1
+r454,616,1,"ERUPTION about anus, stinging",1
+r455,616,1,"ERUPTION about anus, ulcerous",1
+r456,616,1,"ERUPTION about anus, vesicular",2
+r457,616,1,"ERUPTION about anus, warmth of bed agg.",1
+o53857,616,1,"ERUPTION about anus, Perineum",7
+o53858,616,2,"ERUPTION about anus, Perineum, boil",1
+o53859,616,2,"ERUPTION about anus, Perineum, dry",1
+o53860,616,2,"ERUPTION about anus, Perineum, herpes",3
+o53861,616,2,"ERUPTION about anus, Perineum, pimples",4
+r463,616,0,EXCORIATION,54
+r464,616,1,"EXCORIATION, acrid moisture, from",4
+r465,616,1,"EXCORIATION, riding on horseback",1
+o53869,616,2,"EXCORIATION, riding on horseback, in a wagon",1
+r467,617,1,"EXCORIATION, must rub anus until raw",18
+r468,617,1,"EXCORIATION, stools, from the",15
+r469,617,1,"EXCORIATION, Nates, between",13
+r470,617,2,"EXCORIATION, Nates, between, walking, from",4
+r471,617,1,"EXCORIATION, Perineum, of",19
+r472,617,0,"FECES remained in, as if",6
+r473,617,0,FISSURE,45
+r474,617,0,FISTULA,35
+r475,617,1,"FISTULA, pulsating",1
+r476,617,0,FLATUS,122
+r477,617,1,"FLATUS, daytime",5
+r478,617,1,"FLATUS, morning",13
+r479,617,2,"FLATUS, morning, stool, during",1
+r480,617,2,"FLATUS, morning, working, on",1
+r481,617,1,"FLATUS, forenoon",3
+r482,617,2,"FLATUS, forenoon, stool, before",1
+r483,617,2,"FLATUS, forenoon, 10 a.m.",1
+r484,617,1,"FLATUS, noon",2
+r485,617,1,"FLATUS, afternoon",16
+r486,617,1,"FLATUS, evening",22
+r487,617,2,"FLATUS, evening, stool, during",1
+r488,617,1,"FLATUS, night",13
+r489,617,2,"FLATUS, night, menses, before",1
+r490,617,2,"FLATUS, night, stool, during",1
+r491,617,1,"FLATUS, acids, after",1
+r492,617,1,"FLATUS, amel.",65
+r493,617,1,"FLATUS, without",1
+r494,617,1,"FLATUS, cold",1
+o53881,617,1,"FLATUS, diarrhœa, during",38
+r496,618,1,"FLATUS, difficult",12
+r497,618,1,"FLATUS, dinner, after",6
+r498,618,1,"FLATUS, eating, after",7
+r499,618,1,"FLATUS, hot",18
+r500,618,1,"FLATUS, inspiration, during",1
+r501,618,1,"FLATUS, involuntary",1
+r502,618,1,"FLATUS, loud",17
+r503,618,2,"FLATUS, loud, stool, during",4
+r504,618,3,"FLATUS, loud, stool, during, sputtering",4
+r505,618,3,"FLATUS, loud, stool, during, after",2
+r506,618,2,"FLATUS, loud, sugar, after",1
+r507,618,1,"FLATUS, menses, during",2
+r508,618,1,"FLATUS, moist",4
+r509,618,1,"FLATUS, odorless",10
+r510,618,1,"FLATUS, offensive",92
+r511,618,2,"FLATUS, offensive, ammoniacal odor",1
+r512,618,2,"FLATUS, offensive, cheese-like",1
+r513,618,2,"FLATUS, offensive, spoiled eggs",12
+r514,618,1,"FLATUS, stool, before",20
+o53914,618,2,"FLATUS, stool, before, during",38
+r516,618,2,"FLATUS, stool, before, after",3
+r517,618,2,"FLATUS, stool, before, urging for stool, but only flatus is passed",16
+r518,618,1,"FLATUS, sugar, after",1
+r519,618,0,"FOREIGN body, sensation of",5
+r520,618,0,FORMICATION in anus,59
+r521,618,1,"FORMICATION in anus, evening",5
+h024,618,1,"FORMICATION in anus, in bed",2
+r523,618,1,"FORMICATION in anus, night",1
+r524,618,1,"FORMICATION in anus, sitting, while",1
+r525,618,1,"FORMICATION in anus, stool, before",1
+h025,618,1,"FORMICATION in anus, after",4
+o53926,618,1,"FORMICATION in anus, Perineum",4
+r528,618,0,FULLNESS,28
+r529,618,1,"FULLNESS, alternating with sensation of emptiness",1
+r530,618,1,"FULLNESS, stool, after",4
+r531,618,1,"FULLNESS, walking, after",1
+r532,618,1,"FULLNESS, Perineum",6
+r533,619,0,GRUMBLING,1
+r534,619,0,GURGLING in rectum,5
+r535,619,0,HÆMORRHAGE from anus,112
+o53945,619,1,"HÆMORRHAGE from anus, morning",1
+o53946,619,2,"HÆMORRHAGE from anus, morning, stool, after",1
+o53935,619,1,"HÆMORRHAGE from anus, afternoon",1
+o53938,619,1,"HÆMORRHAGE from anus, evening, stool, during",1
+o53947,619,1,"HÆMORRHAGE from anus, night",1
+o53936,619,1,"HÆMORRHAGE from anus, black",7
+o53937,619,2,"HÆMORRHAGE from anus, black, liquid",1
+o53939,619,1,"HÆMORRHAGE from anus, exertion, after",1
+o53940,619,1,"HÆMORRHAGE from anus, flatus, during emission of",1
+o53941,619,1,"HÆMORRHAGE from anus, menses, before",1
+o53942,619,2,"HÆMORRHAGE from anus, menses, before, during",5
+o53943,619,2,"HÆMORRHAGE from anus, menses, before, scanty, during",1
+o53944,619,2,"HÆMORRHAGE from anus, menses, before, suppressed",3
+o53948,619,1,"HÆMORRHAGE from anus, periodic",2
+o53949,619,1,"HÆMORRHAGE from anus, rubbing, on",1
+o53951,619,1,"HÆMORRHAGE from anus, stool, during",24
+o53950,619,2,"HÆMORRHAGE from anus, stool, during, after",24
+o53952,619,2,"HÆMORRHAGE from anus, stool, during, from hard",5
+o53953,619,1,"HÆMORRHAGE from anus, walking, while",2
+r555,619,0,HÆMORRHOIDS,155
+r556,619,1,"HÆMORRHOIDS, morning agg.",7
+o53980,619,2,"HÆMORRHOIDS, morning agg., amel.",2
+o53981,619,2,"HÆMORRHOIDS, morning agg., bed, in, agg.",2
+o53982,619,2,"HÆMORRHOIDS, morning agg., waking him",4
+r560,619,1,"HÆMORRHOIDS, night agg.",17
+r561,619,1,"HÆMORRHOIDS, alternating with palpitation",1
+o53956,619,2,"HÆMORRHOIDS, alternating with palpitation, with lumbago",1
+r563,619,1,"HÆMORRHOIDS, beer agg.",6
+r564,619,1,"HÆMORRHOIDS, bleeding (See Hæmorrhage from anus)",0
+r565,619,1,"HÆMORRHOIDS, as soon as the rheumatism is better",1
+r566,619,1,"HÆMORRHOIDS, blind",18
+r567,620,1,"HÆMORRHOIDS, bluish",13
+r568,620,1,"HÆMORRHOIDS, children, in",1
+r569,620,1,"HÆMORRHOIDS, chronic",21
+r570,620,1,"HÆMORRHOIDS, cold amel.",2
+r571,620,1,"HÆMORRHOIDS, congested",25
+r572,620,1,"HÆMORRHOIDS, drunkards, in",4
+r573,620,1,"HÆMORRHOIDS, excitement",6
+r574,620,1,"HÆMORRHOIDS, external",76
+r575,620,1,"HÆMORRHOIDS, flatus, protrude when passing",2
+r576,620,1,"HÆMORRHOIDS, hard",8
+r577,620,1,"HÆMORRHOIDS, inflamed (See Congested)",0
+r578,620,1,"HÆMORRHOIDS, internal",34
+r579,620,1,"HÆMORRHOIDS, itching (See Itching)",0
+r580,620,1,"HÆMORRHOIDS, large",44
+r581,620,1,"HÆMORRHOIDS, menses, before",3
+r582,620,2,"HÆMORRHOIDS, menses, before, during, agg.",14
+r583,620,2,"HÆMORRHOIDS, menses, before, after, agg.",1
+r584,620,2,"HÆMORRHOIDS, menses, before, suppressed, during",2
+r585,620,1,"HÆMORRHOIDS, mental exertion",2
+r586,620,1,"HÆMORRHOIDS, mercury, after abuse of",2
+r587,620,1,"HÆMORRHOIDS, milk agg.",1
+r588,620,1,"HÆMORRHOIDS, motion agg.",7
+r589,620,1,"HÆMORRHOIDS, offensive (fetid)",3
+r590,620,1,"HÆMORRHOIDS, parturition agg.",8
+r591,620,1,"HÆMORRHOIDS, pendulous",1
+r592,620,1,"HÆMORRHOIDS, pregnancy, during",11
+r593,620,1,"HÆMORRHOIDS, purgations, after",2
+r594,620,1,"HÆMORRHOIDS, rheumatism abates, after",1
+r595,620,1,"HÆMORRHOIDS, riding amel.",1
+r596,620,1,"HÆMORRHOIDS, standing agg.",4
+r597,620,1,"HÆMORRHOIDS, stool, preventing",6
+r598,620,2,"HÆMORRHOIDS, stool, preventing, protrude during",17
+r599,620,1,"HÆMORRHOIDS, strangulated",10
+r600,620,1,"HÆMORRHOIDS, suppressed",9
+r601,620,1,"HÆMORRHOIDS, suppurating",6
+r602,620,1,"HÆMORRHOIDS, thinking of them agg.",1
+r603,620,1,"HÆMORRHOIDS, touch agg.",24
+r604,621,1,"HÆMORRHOIDS, ulcerating",11
+r605,621,1,"HÆMORRHOIDS, urination, protrude during",8
+r606,621,2,"HÆMORRHOIDS, urination, protrude during, after agg.",1
+r607,621,1,"HÆMORRHOIDS, walking agg.",22
+o54004,621,2,"HÆMORRHOIDS, walking agg., amel.",1
+r609,621,1,"HÆMORRHOIDS, warmth, external, amel.",2
+o54006,621,2,"HÆMORRHOIDS, warmth, external, amel., warm weather agg.",1
+o54007,621,3,"HÆMORRHOIDS, warmth, external, amel., warm weather agg., amel.",1
+r612,621,1,"HÆMORRHOIDS, wiping after stool agg.",6
+r613,621,0,HEAT,26
+r614,621,1,"HEAT, morning",1
+r615,621,2,"HEAT, morning, rising, on",1
+r616,621,1,"HEAT, noon",1
+r617,621,1,"HEAT, afternoon",1
+r618,621,1,"HEAT, stool, during",5
+r619,621,2,"HEAT, stool, during, after",5
+r620,621,1,"HEAT, urination, after",1
+r621,621,1,"HEAT, Perineum",2
+r622,621,0,HEAVINESS (See Dragging),0
+r623,621,0,INACTIVITY of rectum,113
+r624,621,0,INEFFECTUAL urging (See Constipation),0
+r625,621,0,INFLAMMATION,10
+r626,621,0,INSENSIBILITY (See Unnoticed),2
+r627,621,0,INVOLUNTARY stool,92
+r628,621,1,"INVOLUNTARY stool, morning",1
+r629,621,1,"INVOLUNTARY stool, night",10
+r630,621,2,"INVOLUNTARY stool, night, bed, in",3
+r631,621,2,"INVOLUNTARY stool, night, stool hard",2
+r632,621,2,"INVOLUNTARY stool, night, and after eating in daytime",1
+r633,621,1,"INVOLUNTARY stool, bending over, on",1
+r634,621,1,"INVOLUNTARY stool, convulsion, during",2
+r635,621,1,"INVOLUNTARY stool, coughing or sneezing, on",9
+r636,621,1,"INVOLUNTARY stool, eating, while",1
+r637,621,2,"INVOLUNTARY stool, eating, while, after",2
+r638,621,1,"INVOLUNTARY stool, excitement, from",1
+r639,621,1,"INVOLUNTARY stool, flatus, on passing",26
+r640,621,1,"INVOLUNTARY stool, formed stool",3
+r641,621,1,"INVOLUNTARY stool, fright, after",3
+r642,621,1,"INVOLUNTARY stool, grief, from",1
+r643,622,1,"INVOLUNTARY stool, hard stools",3
+r644,622,1,"INVOLUNTARY stool, labor, after",1
+r645,622,1,"INVOLUNTARY stool, laughing, on",1
+r646,622,1,"INVOLUNTARY stool, lumps of",2
+r647,622,1,"INVOLUNTARY stool, motion, on",4
+r648,622,1,"INVOLUNTARY stool, paralysis, from",6
+r649,622,1,"INVOLUNTARY stool, sleep, during",28
+r650,622,1,"INVOLUNTARY stool, sneezing, on (See Coughing)",1
+r651,622,1,"INVOLUNTARY stool, standing, on",3
+r652,622,1,"INVOLUNTARY stool, stooping, on",1
+r653,622,1,"INVOLUNTARY stool, urination, during",13
+r654,622,2,"INVOLUNTARY stool, urination, during, and stool",35
+o54048,622,3,"INVOLUNTARY stool, urination, during, and stool, and stool, when not straining; voluntary defecation impossible",1
+r656,622,1,"INVOLUNTARY stool, vomiting, during",2
+r657,622,1,"INVOLUNTARY stool, walking, on",1
+r658,622,0,ITCHING,153
+r659,622,1,"ITCHING, daytime",1
+r660,622,1,"ITCHING, morning",8
+r661,622,2,"ITCHING, morning, bed, in",1
+r662,622,1,"ITCHING, forenoon",3
+r663,622,1,"ITCHING, evening",17
+r664,622,2,"ITCHING, evening, bed, in",11
+r665,622,1,"ITCHING, night",17
+r666,622,2,"ITCHING, night, midnight, before",1
+r667,622,1,"ITCHING, alternating with ear",1
+r668,622,1,"ITCHING, ascarides, from",10
+r669,622,1,"ITCHING, burning",19
+r670,622,1,"ITCHING, coition, after",1
+r671,622,1,"ITCHING, cold bathing amel.",3
+r672,622,1,"ITCHING, dinner, after",1
+r673,622,1,"ITCHING, discharge of moisture, after",1
+r674,622,1,"ITCHING, menses, during",1
+r675,622,1,"ITCHING, pain, ending in",1
+r676,622,1,"ITCHING, riding, while",1
+r677,622,1,"ITCHING, rubbing agg.",2
+r678,622,1,"ITCHING, scratching agg.",26
+r679,622,1,"ITCHING, sitting, while",2
+r680,622,1,"ITCHING, sleep, on going to",1
+r681,622,2,"ITCHING, sleep, on going to, after",1
+r682,623,1,"ITCHING, stool, before",2
+r696,623,2,"ITCHING, stool, before, during",9
+o67971,623,2,"ITCHING, stool, before, after",32
+r685,623,3,"ITCHING, stool, before, after, amel.",1
+r686,623,1,"ITCHING, stooping, on",1
+r687,623,1,"ITCHING, voluptuous",15
+r688,623,1,"ITCHING, walking, while",7
+r689,623,2,"ITCHING, walking, while, in open air",2
+r690,623,1,"ITCHING, warm bed, in",10
+r691,623,1,"ITCHING, extending into urethra during stool",1
+r692,623,1,"ITCHING, around anus",14
+r693,623,2,"ITCHING, around anus, warmth of bed",1
+r694,623,1,"ITCHING, perineum",25
+h026,623,2,"ITCHING, scratching agg., after, pain",1
+h027,623,1,"ITCHING, stool, during",1
+h028,623,1,"ITCHING, touched, when",1
+r698,623,0,"LUMP, sensation of (See Weight)",20
+r699,623,1,"LUMP, sensation of (See Weight), menses, during",1
+r700,623,1,"LUMP, sensation of (See Weight), sitting agg.",4
+r701,623,1,"LUMP, sensation of (See Weight), standing agg.",1
+r702,623,1,"LUMP, sensation of (See Weight), stool, not amel. by",1
+r703,623,2,"LUMP, sensation of (See Weight), stool, not amel. by, before",1
+r704,623,1,"LUMP, sensation of (See Weight), Perineum",2
+r705,623,0,MOISTURE,75
+r706,623,1,"MOISTURE, evening",2
+r707,623,1,"MOISTURE, night",2
+r708,623,1,"MOISTURE, acrid",5
+r709,623,1,"MOISTURE, bloody",5
+r710,623,1,"MOISTURE, flatus, from",4
+r711,623,1,"MOISTURE, glutinous",2
+r712,623,1,"MOISTURE, herring brine, smelling like",2
+r713,623,1,"MOISTURE, menses, during",1
+r714,623,1,"MOISTURE, musty odor",1
+r715,623,1,"MOISTURE, scratching",15
+r716,623,1,"MOISTURE, stool, before",1
+r717,623,2,"MOISTURE, stool, before, after",6
+r718,623,1,"MOISTURE, Perineum",2
+r719,623,2,"MOISTURE, Perineum, night",1
+r720,623,0,NUMBNESS of anus,3
+r721,623,0,OPEN anus (See Relaxed),4
+r722,623,1,"OPEN anus (See Relaxed), sensation of",6
+r723,623,2,"OPEN anus (See Relaxed), sensation of, stool, after",2
+r724,623,0,PAIN,116
+r725,624,1,"PAIN, morning",4
+r726,624,2,"PAIN, morning, stool, during",1
+r727,624,3,"PAIN, morning, stool, during, after",1
+r728,624,2,"PAIN, morning, 7 a.m.",1
+r729,624,1,"PAIN, forenoon",3
+r730,624,2,"PAIN, forenoon, 10 a.m., sitting, while",1
+r731,624,1,"PAIN, afternoon",3
+r732,624,1,"PAIN, evening",6
+r733,624,2,"PAIN, evening, lying, while",1
+r734,624,1,"PAIN, night",3
+r735,624,2,"PAIN, night, midnight",1
+r736,624,2,"PAIN, night, 4 a.m.",1
+r737,624,1,"PAIN, coition, after",1
+r738,624,1,"PAIN, continuous",11
+r739,624,1,"PAIN, convulsive",4
+r740,624,1,"PAIN, cough, from",2
+r741,624,1,"PAIN, eating, after",2
+r742,624,1,"PAIN, flatus, on passing",2
+r743,624,1,"PAIN, kneeling amel.",1
+r744,624,1,"PAIN, lying agg.",4
+o54235,624,2,"PAIN, lying agg., on abdomen amel.",1
+h029,624,3,"PAIN, lying agg., on abdomen amel., back",1
+o54237,624,4,"PAIN, lying agg., on abdomen amel., back, amel.",3
+r748,624,1,"PAIN, menses, before",2
+r749,624,2,"PAIN, menses, before, during",4
+r750,624,1,"PAIN, mental exertion, after",2
+r751,624,1,"PAIN, motion agg.",2
+r752,624,1,"PAIN, periodical, every day",1
+h030,624,1,"PAIN, pressing upon umbilicus",1
+r754,624,1,"PAIN, pulsating",1
+o54286,624,1,"PAIN, sitting, while",25
+r756,624,2,"PAIN, sitting, while, amel.",3
+r757,624,1,"PAIN, sleep, during",1
+r758,624,1,"PAIN, standing agg.",4
+r759,624,1,"PAIN, stool, before",17
+o54376,624,2,"PAIN, stool, before, during",92
+o54373,624,2,"PAIN, stool, before, after",72
+r762,624,3,"PAIN, stool, before, after, amel.",26
+r763,624,2,"PAIN, stool, before, straining at, after",8
+r764,624,1,"PAIN, urination, during",1
+r765,625,1,"PAIN, walking, while",8
+r766,625,1,"PAIN, warm bathing agg.",1
+o54438,625,2,"PAIN, warm bathing agg., amel.",4
+r768,625,1,"PAIN, extending to abdomen",3
+o54215,625,2,"PAIN, extending to abdomen, genitals",3
+o54216,625,3,"PAIN, extending to abdomen, genitals, before stool",1
+o54217,625,2,"PAIN, extending to abdomen, umbilicus",1
+o54218,625,2,"PAIN, extending to abdomen, urethra, through",1
+o54219,625,2,"PAIN, extending to abdomen, vulva",1
+r774,625,1,"PAIN, Perineum",21
+r775,625,2,"PAIN, Perineum, urging to urinate",3
+r776,625,1,"PAIN, biting",25
+r777,625,1,"PAIN, burning",156
+r778,625,2,"PAIN, burning, daytime, walking, while",1
+r779,625,2,"PAIN, burning, morning",9
+r780,625,3,"PAIN, burning, morning, bed, in",1
+r781,625,2,"PAIN, burning, noon",1
+r782,625,2,"PAIN, burning, afternoon",3
+r783,625,3,"PAIN, burning, afternoon, sleeping, after",1
+r784,625,3,"PAIN, burning, afternoon, 2 p.m.",1
+r785,625,2,"PAIN, burning, evening",9
+r786,625,2,"PAIN, burning, night",9
+r787,625,3,"PAIN, burning, night, midnight, before",1
+r788,625,3,"PAIN, burning, night, stool, after",1
+r789,625,2,"PAIN, burning, cold application amel.",5
+r790,625,2,"PAIN, burning, constant",3
+o54133,625,2,"PAIN, burning, diarrhœa, during",31
+o54132,625,3,"PAIN, burning, diarrhœa, during, after",7
+r793,625,2,"PAIN, burning, dysentery, in",7
+r794,625,2,"PAIN, burning, exercise, after",1
+r795,625,2,"PAIN, burning, fissure, in",1
+r796,625,2,"PAIN, burning, flatus, after",17
+r797,625,2,"PAIN, burning, heat agg.",1
+o54140,625,3,"PAIN, burning, heat agg., amel.",1
+r799,625,2,"PAIN, burning, lying, while",1
+r800,625,2,"PAIN, burning, menses, during",3
+r801,625,3,"PAIN, burning, menses, during, after",1
+r802,625,2,"PAIN, burning, moving, after",2
+r803,625,2,"PAIN, burning, paroxysmal",2
+r804,625,2,"PAIN, burning, pregnancy, during",1
+r805,625,2,"PAIN, burning, pressure amel.",1
+r806,626,2,"PAIN, burning, prolapsed, in the",1
+r807,626,2,"PAIN, burning, rhagades",1
+r808,626,2,"PAIN, burning, rubbing, after",3
+r809,626,2,"PAIN, burning, sitting, while",3
+r810,626,2,"PAIN, burning, standing, while",2
+r811,626,2,"PAIN, burning, stool, before",10
+r812,626,3,"PAIN, burning, stool, before, during",89
+o54161,626,3,"PAIN, burning, stool, before, after",109
+r814,626,4,"PAIN, burning, stool, before, after, amel.",1
+r815,626,3,"PAIN, burning, stool, before, after a hard",23
+r816,626,2,"PAIN, burning, tickling",1
+r817,626,2,"PAIN, burning, urination, after",1
+r818,626,2,"PAIN, burning, vexation agg.",2
+r819,626,2,"PAIN, burning, walking, while",5
+r820,626,2,"PAIN, burning, Perineum",7
+r821,626,3,"PAIN, burning, Perineum, coition, after",1
+r822,626,1,"PAIN, clawing squeezing, as from a claw in anus",4
+o54170,626,2,"PAIN, clawing squeezing, as from a claw in anus, stool, during",3
+r824,626,1,"PAIN, cutting",44
+r825,626,2,"PAIN, cutting, morning",2
+r826,626,3,"PAIN, cutting, morning, bed, in",1
+r827,626,3,"PAIN, cutting, morning, rising, after",1
+r828,626,3,"PAIN, cutting, morning, forenoon, walking, while",1
+r829,626,2,"PAIN, cutting, afternoon",2
+r830,626,2,"PAIN, cutting, evening",2
+r831,626,2,"PAIN, cutting, night",1
+r832,626,3,"PAIN, cutting, night, 10 p.m.",1
+o54178,626,2,"PAIN, cutting, diarrhœa, during",1
+r834,626,2,"PAIN, cutting, dysentery, in",1
+r835,626,2,"PAIN, cutting, sitting",1
+r836,626,2,"PAIN, cutting, standing agg.",1
+r837,626,2,"PAIN, cutting, stool, before",4
+r838,626,3,"PAIN, cutting, stool, before, during",26
+r839,626,3,"PAIN, cutting, stool, before, after",13
+r840,626,2,"PAIN, cutting, walking, while",3
+r841,626,2,"PAIN, cutting, extending up rectum",3
+r842,627,2,"PAIN, cutting, Perineum",6
+r843,627,3,"PAIN, cutting, Perineum, morning",1
+r844,627,3,"PAIN, cutting, Perineum, evening",1
+r845,627,1,"PAIN, drawing",17
+r846,627,2,"PAIN, drawing, coition, after",1
+r847,627,2,"PAIN, drawing, downwards",1
+r848,627,2,"PAIN, drawing, sitting, while",2
+r849,627,2,"PAIN, drawing, walking, while",1
+r850,627,2,"PAIN, drawing, extending into abdomen",2
+o54201,627,3,"PAIN, drawing, extending into abdomen, through genitals",2
+o54202,627,4,"PAIN, drawing, extending into abdomen, through genitals, before stool",1
+o54203,627,3,"PAIN, drawing, extending into abdomen, to umbilicus",1
+o54204,627,3,"PAIN, drawing, extending into abdomen, upwards",3
+o54205,627,3,"PAIN, drawing, extending into abdomen, urethra, through",1
+r856,627,2,"PAIN, drawing, Perineum (See Prostate Gland)",5
+r857,627,3,"PAIN, drawing, Perineum (See Prostate Gland), sitting, while",1
+r858,627,3,"PAIN, drawing, Perineum (See Prostate Gland), walking, while",1
+r859,627,1,"PAIN, gnawing",6
+r860,627,1,"PAIN, griping",10
+r861,627,2,"PAIN, griping, forenoon",1
+r862,627,2,"PAIN, griping, afternoon",1
+r863,627,2,"PAIN, griping, evening",1
+r864,627,2,"PAIN, griping, driving, while",1
+r865,627,2,"PAIN, griping, sitting",2
+r866,627,2,"PAIN, griping, stool, when not at",1
+r867,627,3,"PAIN, griping, stool, when not at, amel.",1
+r868,627,2,"PAIN, griping, extending to abdomen",1
+r869,627,1,"PAIN, lancinating (See Cutting)",0
+r870,627,1,"PAIN, pinching",4
+h031,627,2,"PAIN, pinching, Perineum, in",1
+r872,627,1,"PAIN, pressing (pressure)",92
+r873,627,2,"PAIN, pressing (pressure), morning",1
+r874,627,2,"PAIN, pressing (pressure), forenoon",1
+r875,627,2,"PAIN, pressing (pressure), noon",2
+r876,627,2,"PAIN, pressing (pressure), afternoon",3
+r877,627,3,"PAIN, pressing (pressure), afternoon, sleep, during",1
+r878,627,2,"PAIN, pressing (pressure), evening",2
+r879,627,3,"PAIN, pressing (pressure), evening, bed, in",1
+r880,627,2,"PAIN, pressing (pressure), night",1
+o54258,627,2,"PAIN, pressing (pressure), diarrhœa would come on, as if",2
+o54259,627,3,"PAIN, pressing (pressure), diarrhœa would come on, as if, as in a",2
+r883,627,2,"PAIN, pressing (pressure), downward, outward, etc.",28
+r884,627,2,"PAIN, pressing (pressure), fæces were lodged in rectum, as if",1
+r885,627,2,"PAIN, pressing (pressure), flatus, during",1
+r886,627,2,"PAIN, pressing (pressure), lying, while",1
+r887,627,2,"PAIN, pressing (pressure), menses, before",2
+r888,627,3,"PAIN, pressing (pressure), menses, before, during",1
+r889,627,2,"PAIN, pressing (pressure), mental exertion",1
+r890,627,2,"PAIN, pressing (pressure), motion agg.",1
+r891,627,2,"PAIN, pressing (pressure), sitting, while",7
+r892,627,2,"PAIN, pressing (pressure), standing, while",2
+r893,627,2,"PAIN, pressing (pressure), stool, before",8
+r894,627,3,"PAIN, pressing (pressure), stool, before, during",12
+r897,628,3,"PAIN, pressing (pressure), stool, before, after",17
+r898,628,3,"PAIN, pressing (pressure), stool, before, not for",3
+r899,628,2,"PAIN, pressing (pressure), walking",3
+r900,628,2,"PAIN, pressing (pressure), Perineum (See Prostate Gland)",5
+r901,628,1,"PAIN, rasping",4
+r902,628,1,"PAIN, scraping",7
+r903,628,1,"PAIN, shooting (See Stitching)",0
+r904,628,1,"PAIN, smarting (See Burning)",0
+r905,628,1,"PAIN, soreness",89
+r906,628,2,"PAIN, soreness, morning",2
+r907,628,2,"PAIN, soreness, evening",5
+r908,628,2,"PAIN, soreness, night",2
+r909,628,2,"PAIN, soreness, lying on back",1
+r910,628,2,"PAIN, soreness, menses, during",2
+r911,628,2,"PAIN, soreness, moving, after",2
+r912,628,2,"PAIN, soreness, sitting, while",9
+r913,628,2,"PAIN, soreness, stool, during",13
+r914,628,3,"PAIN, soreness, stool, during, hard, during",2
+r915,628,3,"PAIN, soreness, stool, during, after",34
+o54298,628,3,"PAIN, soreness, stool, during, diarrhœic, after",4
+r917,628,2,"PAIN, soreness, walking, while",6
+r918,628,2,"PAIN, soreness, Perineum",2
+r919,628,1,"PAIN, splinter, like a",11
+r920,628,1,"PAIN, sticking",32
+r921,628,2,"PAIN, sticking, stool, during",2
+r922,628,3,"PAIN, sticking, stool, during, after",2
+r923,628,2,"PAIN, sticking, Perineum",8
+r924,628,1,"PAIN, stinging",18
+r925,628,2,"PAIN, stinging, night, lying",2
+r926,628,2,"PAIN, stinging, menses, during",1
+r927,628,2,"PAIN, stinging, stool, during",13
+r928,628,3,"PAIN, stinging, stool, during, after",7
+r929,628,2,"PAIN, stinging, walking, while",1
+r930,628,1,"PAIN, stitching",121
+r931,629,2,"PAIN, stitching, morning",3
+r932,629,3,"PAIN, stitching, morning, waking, after",1
+r933,629,2,"PAIN, stitching, forenoon",1
+r934,629,2,"PAIN, stitching, afternoon",5
+r935,629,2,"PAIN, stitching, evening",13
+r936,629,3,"PAIN, stitching, evening, bed, in",1
+r937,629,2,"PAIN, stitching, night",3
+r938,629,3,"PAIN, stitching, night, midnight",1
+r939,629,2,"PAIN, stitching, alternating with burning in prepuce",1
+o54317,629,3,"PAIN, stitching, alternating with burning in prepuce, with itching in glans penis",1
+r941,629,2,"PAIN, stitching, coition, during",1
+r942,629,2,"PAIN, stitching, coughing, on",3
+r943,629,2,"PAIN, stitching, dinner, after",1
+r944,629,2,"PAIN, stitching, eating, before",1
+r945,629,3,"PAIN, stitching, eating, before, after",1
+r946,629,2,"PAIN, stitching, erect, when body is",1
+h032,629,2,"PAIN, stitching, flatus, on passing",2
+r948,629,3,"PAIN, stitching, flatus, on passing, amel.",2
+r949,629,2,"PAIN, stitching, itching",5
+r950,629,2,"PAIN, stitching, lying, while",2
+r951,629,2,"PAIN, stitching, menses, during",3
+r952,629,2,"PAIN, stitching, mental exertion, after",1
+r953,629,2,"PAIN, stitching, periodical",2
+r954,629,2,"PAIN, stitching, pregnancy, during",1
+r955,629,2,"PAIN, stitching, sitting, while",8
+r956,629,2,"PAIN, stitching, sneezing, when",1
+r957,629,2,"PAIN, stitching, standing, while",2
+r958,629,2,"PAIN, stitching, stool, before",9
+r959,629,3,"PAIN, stitching, stool, before, during",25
+r960,629,3,"PAIN, stitching, stool, before, hard, during",4
+r961,629,3,"PAIN, stitching, stool, before, after",20
+r962,629,3,"PAIN, stitching, stool, before, difficult stool, after",3
+r963,629,2,"PAIN, stitching, urination, during",2
+r964,629,2,"PAIN, stitching, walking, while",10
+r965,629,3,"PAIN, stitching, walking, while, after",1
+r966,629,3,"PAIN, stitching, walking, while, in open air amel.",1
+r967,629,2,"PAIN, stitching, extending to abdomen",3
+o54327,629,3,"PAIN, stitching, extending to abdomen, back",1
+o54328,629,3,"PAIN, stitching, extending to abdomen, bladder",2
+o54329,629,3,"PAIN, stitching, extending to abdomen, downwards and outwards",2
+o54330,629,3,"PAIN, stitching, extending to abdomen, genitals, to, while walking",1
+o54331,629,3,"PAIN, stitching, extending to abdomen, ilium and glans penis",2
+o54332,629,3,"PAIN, stitching, extending to abdomen, inguinal region, left",2
+o54333,629,3,"PAIN, stitching, extending to abdomen, inner side of thigh",1
+o54334,629,3,"PAIN, stitching, extending to abdomen, loins",1
+o54335,629,3,"PAIN, stitching, extending to abdomen, outward",2
+o54336,629,3,"PAIN, stitching, extending to abdomen, penis",1
+o54338,629,4,"PAIN, stitching, extending to abdomen, penis, pudendum, during menses",1
+h033,629,4,"PAIN, stitching, extending to abdomen, penis, after stool",1
+o54339,629,3,"PAIN, stitching, extending to abdomen, root of penis",1
+o54340,629,3,"PAIN, stitching, extending to abdomen, upward",9
+o54341,629,4,"PAIN, stitching, extending to abdomen, upward, stool, after",3
+o54342,629,3,"PAIN, stitching, extending to abdomen, urethra",3
+r984,629,2,"PAIN, stitching, Perineum",16
+r985,629,3,"PAIN, stitching, Perineum, evening",2
+r986,629,3,"PAIN, stitching, Perineum, extending to anus",1
+o54357,629,4,"PAIN, stitching, Perineum, extending to anus, penis",1
+o54358,629,4,"PAIN, stitching, Perineum, extending to anus, uterus",1
+r989,629,1,"PAIN, tearing",33
+r990,630,2,"PAIN, tearing, morning",1
+r991,630,2,"PAIN, tearing, evening",1
+r992,630,2,"PAIN, tearing, after hard stool",1
+r993,630,2,"PAIN, tearing, bed, in",1
+r994,630,2,"PAIN, tearing, bending forward amel.",1
+r995,630,2,"PAIN, tearing, coughing, on",1
+r996,630,2,"PAIN, tearing, dinner, after",1
+r997,630,2,"PAIN, tearing, lying on back amel.",1
+r998,630,2,"PAIN, tearing, moving, on",1
+r999,630,2,"PAIN, tearing, sitting, while",1
+r1000,630,2,"PAIN, tearing, stool, during",12
+r1001,630,3,"PAIN, tearing, stool, during, after",6
+r1002,630,2,"PAIN, tearing, twitching",1
+r1003,630,2,"PAIN, tearing, urinating, while",1
+r1004,630,2,"PAIN, tearing, extending into abdomen",1
+r1005,630,3,"PAIN, tearing, extending into abdomen, during stool",1
+h034,630,2,"PAIN, tearing, upward",2
+r1007,630,2,"PAIN, tearing, Perineum",2
+r1008,630,1,"PAIN, tenesmus",152
+r1009,630,2,"PAIN, tenesmus, morning",2
+r1010,630,3,"PAIN, tenesmus, morning, rising, after",1
+r1011,630,2,"PAIN, tenesmus, evening",2
+r1012,630,2,"PAIN, tenesmus, night",3
+r1013,630,2,"PAIN, tenesmus, bladder, and",5
+r1014,630,2,"PAIN, tenesmus, coffee, after",1
+r1015,630,2,"PAIN, tenesmus, constipation, during",5
+o54402,630,2,"PAIN, tenesmus, diarrhœa, before",1
+o54403,630,3,"PAIN, tenesmus, diarrhœa, before, during",26
+o54401,630,3,"PAIN, tenesmus, diarrhœa, before, after",10
+r1019,630,2,"PAIN, tenesmus, dinner, after",2
+r1020,630,2,"PAIN, tenesmus, dysentery, during",17
+r1021,630,2,"PAIN, tenesmus, eating",2
+r1022,630,2,"PAIN, tenesmus, flatus, on attempting to suppress",1
+r1023,630,2,"PAIN, tenesmus, hard stool, with",1
+r1024,630,2,"PAIN, tenesmus, menses, before",1
+r1025,630,3,"PAIN, tenesmus, menses, before, during",2
+r1026,630,2,"PAIN, tenesmus, milk, after",1
+r1027,630,2,"PAIN, tenesmus, sitting, while",2
+r1028,630,2,"PAIN, tenesmus, stool, before",23
+r1029,630,3,"PAIN, tenesmus, stool, before, during",107
+o54420,631,3,"PAIN, tenesmus, stool, before, after",72
+r1032,631,4,"PAIN, tenesmus, stool, before, after, amel.",28
+r1033,631,2,"PAIN, tenesmus, urination, during",4
+h035,631,2,"PAIN, tenesmus, after",2
+r1035,631,2,"PAIN, tenesmus, walking, while",1
+r1036,631,2,"PAIN, tenesmus, warmth amel.",2
+r1037,631,2,"PAIN, tenesmus, water, on hearing running",1
+r1038,631,2,"PAIN, tenesmus, extending to bladder",5
+o54409,631,3,"PAIN, tenesmus, extending to bladder, perineum",1
+o54410,631,3,"PAIN, tenesmus, extending to bladder, urethra",1
+r1041,631,1,"PAIN, twinging",7
+r1042,631,2,"PAIN, twinging, exercise, after",1
+r1043,631,2,"PAIN, twinging, flatus amel.",1
+r1044,631,2,"PAIN, twinging, stool, during",1
+r1045,631,3,"PAIN, twinging, stool, during, after",2
+r1046,631,2,"PAIN, twinging, writhing in anus",1
+r1047,631,0,PARALYSIS (See Inactivity),43
+r1048,631,1,"PARALYSIS (See Inactivity), sensation of",6
+r1049,631,0,PERSPIRATION about the anus and perineum,10
+r1050,631,1,"PERSPIRATION about the anus and perineum, morning",1
+r1051,631,1,"PERSPIRATION about the anus and perineum, night",1
+r1052,631,0,"PLUG were pressing out, sensation as if",7
+o54445,631,1,"PLUG were pressing out, sensation as if, sensation of, wedged between pubis and coccyx",1
+r1054,631,0,POLYPI,10
+r1055,631,0,PRICKLING,8
+r1056,631,1,"PRICKLING, stool, during",1
+r1057,631,2,"PRICKLING, stool, during, after",1
+r1058,631,0,PROLAPSUS,74
+r1059,631,1,"PROLAPSUS, morning",1
+r1060,631,1,"PROLAPSUS, forenoon",1
+r1061,631,1,"PROLAPSUS, evening",1
+r1062,631,1,"PROLAPSUS, night",1
+r1063,631,1,"PROLAPSUS, children",4
+r1064,631,1,"PROLAPSUS, convulsive",1
+o54453,631,1,"PROLAPSUS, diarrhœa, during",7
+r1066,631,1,"PROLAPSUS, flatus, when passing",1
+r1067,631,1,"PROLAPSUS, hæmorrhage of rectum, after",1
+r1068,632,1,"PROLAPSUS, kneeling",1
+r1069,632,1,"PROLAPSUS, menses, during",2
+r1070,632,1,"PROLAPSUS, mental excitement, from",1
+r1071,632,1,"PROLAPSUS, painful",2
+r1072,632,1,"PROLAPSUS, parturition, after",2
+r1073,632,1,"PROLAPSUS, sitting agg.",1
+r1074,632,1,"PROLAPSUS, smoking agg.",1
+r1075,632,1,"PROLAPSUS, sneezing, after",1
+r1076,632,1,"PROLAPSUS, standing",1
+r1077,632,1,"PROLAPSUS, stool, before",2
+r1078,632,2,"PROLAPSUS, stool, before, during",29
+r1079,632,2,"PROLAPSUS, stool, before, after",28
+r1080,632,1,"PROLAPSUS, stooping, on",1
+r1081,632,1,"PROLAPSUS, straining, without",2
+r1082,632,1,"PROLAPSUS, urination, during",2
+r1083,632,2,"PROLAPSUS, urination, during, difficult",1
+r1084,632,1,"PROLAPSUS, vomiting, when",2
+r1085,632,1,"PROLAPSUS, sensation of",4
+r1086,632,0,PULSATION,22
+r1087,632,1,"PULSATION, evening",1
+r1088,632,2,"PULSATION, evening, sitting, amel. in bed",1
+r1089,632,1,"PULSATION, menses, during",2
+r1090,632,1,"PULSATION, sitting, while",2
+r1091,632,1,"PULSATION, small hammers, like",1
+r1092,632,1,"PULSATION, stool, during",1
+r1093,632,2,"PULSATION, stool, during, after",10
+r1094,632,1,"PULSATION, Perineum",3
+r1095,632,0,"RECEDES, stool (See Constipation)",0
+r1096,632,0,REDNESS of anus,8
+r1097,632,0,RELAXED anus,13
+r1098,632,1,"RELAXED anus, sensation of, after stool",2
+r1099,632,0,RETRACTION,7
+r1100,632,1,"RETRACTION, painful",1
+r1101,632,1,"RETRACTION, stool, after",1
+r1102,632,0,SENSITIVE,21
+r1103,632,0,"SHOCK, electric-like",2
+r1104,632,1,"SHOCK, electric-like, stool, before",1
+r1105,632,0,"SLIP back, stools (See Constipation)",0
+r1106,632,0,SLOW action of rectum (See Inactivity),0
+r1107,632,0,SPASMS in,4
+r1108,632,1,"SPASMS in, coition, during",1
+r1109,632,1,"SPASMS in, walking",1
+r1110,632,1,"SPASMS in, with urging to urinate",1
+r1111,632,0,STRAINING (See Tenesmus),0
+r1112,632,0,STRICTURE,30
+r1113,632,0,SWELLING of anus,23
+r1114,632,1,"SWELLING of anus, black",2
+r1115,632,1,"SWELLING of anus, menses, during",1
+r1116,632,1,"SWELLING of anus, sensation of",7
+o54505,632,1,"SWELLING of anus, Raphe of perineum",1
+r1118,632,0,TENESMUS (See Pain),0
+r1119,632,0,TENSION,10
+r1120,632,1,"TENSION, convulsive",1
+r1121,632,1,"TENSION, stool, after",2
+r1122,632,1,"TENSION, Perineum",1
+h036,632,0,TICKLING (See Itching),0
+r1123,633,0,TINGLING,5
+r1124,633,1,"TINGLING, evening",1
+r1125,633,1,"TINGLING, stool, during",1
+r1126,633,0,TREMBLING in anus,1
+r1127,633,0,TUBERCLE on Perineum,1
+r1128,633,0,TWITCHING,12
+r1129,633,1,"TWITCHING, afternoon",1
+r1130,633,1,"TWITCHING, bed, in",1
+r1131,633,0,ULCERATION,19
+r1132,633,0,UNNOTICED stool,16
+r1133,633,1,"UNNOTICED stool, hard stool",2
+r1134,633,1,"UNNOTICED stool, thin watery, passes while urinating",1
+r1135,633,0,"URGING, desire (See Tenesmus)",173
+r1136,633,1,"URGING, desire (See Tenesmus), evening in sleep",1
+r1137,633,1,"URGING, desire (See Tenesmus), night",11
+r1138,633,2,"URGING, desire (See Tenesmus), night, menses, before",1
+r1139,633,2,"URGING, desire (See Tenesmus), night, waking, on",2
+r1140,633,2,"URGING, desire (See Tenesmus), night, 11 p.m.",4
+r1141,633,2,"URGING, desire (See Tenesmus), night, midnight",2
+r1142,633,1,"URGING, desire (See Tenesmus), absent in company (See Inactivity)",1
+r1143,633,1,"URGING, desire (See Tenesmus), anxious",4
+r1144,633,1,"URGING, desire (See Tenesmus), breakfast, during",1
+o54524,633,2,"URGING, desire (See Tenesmus), breakfast, during, after",2
+r1146,633,1,"URGING, desire (See Tenesmus), clothing, on tightening",1
+r1147,633,1,"URGING, desire (See Tenesmus), coffee, after",1
+r1148,633,1,"URGING, desire (See Tenesmus), coition, after",1
+r1149,633,1,"URGING, desire (See Tenesmus), colic, during",3
+r1150,633,1,"URGING, desire (See Tenesmus), constant",35
+r1151,633,1,"URGING, desire (See Tenesmus), dinner, during",1
+o54532,633,2,"URGING, desire (See Tenesmus), dinner, during, after",13
+r1153,633,1,"URGING, desire (See Tenesmus), eating, after (See Diarrhœa)",14
+r1154,633,1,"URGING, desire (See Tenesmus), effort, great desire passes away with",1
+r1155,633,1,"URGING, desire (See Tenesmus), eructation, on each",1
+r1156,633,1,"URGING, desire (See Tenesmus), exciting news, after",1
+h037,633,1,"URGING, desire (See Tenesmus), flatus, when passing",3
+o54539,633,2,"URGING, desire (See Tenesmus), flatus, when passing, passing, amel.",6
+r1159,633,1,"URGING, desire (See Tenesmus), frequent",47
+r1160,633,1,"URGING, desire (See Tenesmus), fright, from",1
+r1161,633,1,"URGING, desire (See Tenesmus), hang down, letting feet",1
+r1163,634,1,"URGING, desire (See Tenesmus), labour pain, with every",2
+r1164,634,1,"URGING, desire (See Tenesmus), lying, while (See Diarrhœa)",0
+r1165,634,1,"URGING, desire (See Tenesmus), menses, before",1
+r1166,634,2,"URGING, desire (See Tenesmus), menses, before, during",2
+r1167,634,1,"URGING, desire (See Tenesmus), motion, on",5
+r1168,634,1,"URGING, desire (See Tenesmus), rising, on",1
+r1169,634,1,"URGING, desire (See Tenesmus), sitting, on",1
+r1170,634,1,"URGING, desire (See Tenesmus), smoking, while",2
+r1171,634,1,"URGING, desire (See Tenesmus), standing, while",3
+r1172,634,1,"URGING, desire (See Tenesmus), startled, when",1
+r1173,634,1,"URGING, desire (See Tenesmus), stool, before",18
+r1174,634,2,"URGING, desire (See Tenesmus), stool, before, during",59
+r1175,634,2,"URGING, desire (See Tenesmus), stool, before, after",50
+r1176,634,1,"URGING, desire (See Tenesmus), not for stool, but",1
+r1177,634,1,"URGING, desire (See Tenesmus), rising from",2
+o54555,634,2,"URGING, desire (See Tenesmus), rising from, after, amel.",28
+r1179,634,1,"URGING, desire (See Tenesmus), sudden",40
+r1180,634,2,"URGING, desire (See Tenesmus), sudden, after",1
+r1181,634,2,"URGING, desire (See Tenesmus), sudden, morning",2
+r1182,634,2,"URGING, desire (See Tenesmus), sudden, evening",1
+r1183,634,2,"URGING, desire (See Tenesmus), sudden, night",1
+r1184,634,1,"URGING, desire (See Tenesmus), supper, after",3
+r1185,634,1,"URGING, desire (See Tenesmus), thinking about it, on",2
+r1186,634,1,"URGING, desire (See Tenesmus), tormenting, but not for stool",1
+o68018,634,1,"URGING, desire (See Tenesmus), urination, during",18
+r1188,634,2,"URGING, desire (See Tenesmus), urination, during, amel.",1
+r1189,634,2,"URGING, desire (See Tenesmus), urination, during, after",1
+r1190,634,1,"URGING, desire (See Tenesmus), urine is discharged, but only",1
+r1191,634,1,"URGING, desire (See Tenesmus), vertigo, during",1
+r1192,634,1,"URGING, desire (See Tenesmus), walking, while",5
+r1193,634,1,"URGING, desire (See Tenesmus), water on hearing running",1
+r1194,634,0,WARTS (See Condylomata),0
+r1195,634,0,"WEAKNESS, weak feeling",11
+r1196,634,1,"WEAKNESS, weak feeling, stool, before",1
+o54579,634,2,"WEAKNESS, weak feeling, stool, before, after",2
+r1198,634,1,"WEAKNESS, weak feeling, urination, during",1
+r1199,634,0,"WEIGHT, and a feeling as if a plug were wedged between the pubis and coccyx (See Lump, Dragging)",7
+r1200,634,1,"WEIGHT, and a feeling as if a plug were wedged between the pubis and coccyx (See Lump, Dragging), Perineum",6
+r1201,634,0,"WORM, sensation of (See Crawling)",0
+r1202,634,1,"WORM, sensation of (See Crawling), complaints",32
+r1203,634,1,"WORM, sensation of (See Crawling), ascarides",45
+r1205,635,1,"WORM, sensation of (See Crawling), lumbricoides",32
+r1206,635,1,"WORM, sensation of (See Crawling), tæniæ",29

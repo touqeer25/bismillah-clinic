@@ -128,8 +128,8 @@ if (fs.existsSync(csvPath)) {
 // 7) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const swf = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=179/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v175)');
-assert(/CACHE_NAME='bhc-clinic-v179'/.test(swf), 'خدمت کار نسخہ 176');
+assert(/rep-chapters\.js\?v=180/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v175)');
+assert(/CACHE_NAME='bhc-clinic-v180'/.test(swf), 'خدمت کار نسخہ 176');
 assert(/v175: دانت باب/.test(code), 'rep-chapters.js میں دانت بلڈر درج');
 
 console.log('دنت باب: ماخذی درخت 767 قطاریں (صفحات 430 نصف – 447)، جڑ TEETH، ادویات ماخذی، اردو 100%، پرانی قطاریں محفوظ — کامیاب');

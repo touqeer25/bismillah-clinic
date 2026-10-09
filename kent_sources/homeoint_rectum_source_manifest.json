@@ -1,0 +1,29 @@
+{
+ "book": "kent",
+ "chapter": "rectum",
+ "source": "homeoint.org/books/kentrep1 kent0605–kent0630 (MEDI-T HTML) — kentrect.htm انڈیکس «RECTUM (p. 606-635)»",
+ "pages": "606 – 635",
+ "source_canonical": "homeoint-rectum-v1",
+ "source_rows": 1200,
+ "unique_source_paths": 1200,
+ "matched_app_records": 1163,
+ "new_source_records": 37,
+ "legacy_local_records": 169,
+ "ambiguous_app_records": 22,
+ "third_source_pdf": "Drive PDF صفحہ 1343–1406 (مطبوعہ-ایڈیشن صفحات 1308–1371 = کتابی ص 606–635) — ordered alignment: 1203/1203 مکمل (1194 عین + 9 دستاویزی فرق)، صفر drift-بقیات، صفر دونوں-طرفہ باقیات؛ 9 فرق سب PDF-نکالنے کے آرٹی فاکٹ (ماخذ درست): (1-7) صفحہ-نمبر-گلا — ایڈیشن کا صفحہ-نمبر PDF متن میں ادویہ کے ساتھ گلا: nux-m.→nux1309m (ایڈیشن ص1309)؛ carb-v.→carb1333v (ص1333)؛ carb-ac.→carb1334ac (ص1334)؛ mag-s.→mag1349s (ص1349)؛ carb-v.→carb1351v (ص1351)؛ ph-ac.→ph1357ac (ص1357)؛ merc-d.→merc1368d (ص1368)؛ (8-9) آخری صفحہ (ایڈیشن ص1371) لائن-ٹوٹ جوڑا — «WEIGHT, and a feeling as if a plug…(See Lump, Dragging)» کا لیبل PDF میں ٹوٹا، اگلی قطار «WEAKNESS, weak feeling, urination, during» کے ریکارڈ میں وزن-ادویات گلیں (ماخذ دونوں قطاریں عین)",
+ "chapter_boundaries": "RECTUM = صفحات 606–635 — kentrect.htm فہرست 30/30 صفحہ-اندراجات؛ آغاز P606 (kent0605.htm؛ PDF 1343 = ABSCESS)؛ اختتام P635 (WORM tæniæ آخری — PDF 1406؛ STOOL از PDF 1407)؛ P635 کی کتابی درستی kent0635.htm کے P635 سیکشن سے کراس-تصدیق (عین ایک، 3952 حروف)؛ انڈیکس-تصدیق 30/30 (See-چھوٹ subsequence)؛ ⚠ باب-حد مستثنیٰ: MEDI-T کی P635 صفحہ-فائل میں کتابی p636 (STOOL کا پہلا صفحہ) کا بھی مواد تھا — 13 قطاریں (ACRID corrosive excoriating، ALBUMINOUS+coagulated، ASH-COLORED (See Gray)، BALLS like Sheep Dung ×4، BILIOUS ×2، BLACK+fecal، BLOODY) مستثنیٰ: مطبوعہ کتاب (PDF 1407 STOOL سرخی)، MEDI-T کا اپنا انڈیکس (آخری اندراج «Rectum, worm, lumbricoides» p635) اور ایپ کا STOOL باب (ACRID آغاز — یہ ربرکس پہلے سے موجود) تینوں باب-حد worm/tæniæ پر رکھتے ہیں — تفصیل rectum_boundary_exclusion.json",
+ "documented_corrections": [
+  "3 خاندانی clamps (MEDI-T اضافی <dir>): ص616 blotches (prev ERUPTION about anus)؛ ص618 evening (prev FORMICATION in anus)؛ ص632 black (prev SWELLING of anus) — سب ساختی ثبوت (بلا-وسط بچے/والد پہلے سے موجود)",
+  "13 STOOL-صفحہ قطاریں مستثنیٰ (باب-حد) — ملاحظہ chapter_boundaries؛ حذف شدہ ریکارڈز rectum_boundary_exclusion.json میں محفوظ",
+  "22 OOREP aggregate/کنٹینر مبہم → legacy: 4 m-کنٹینر (m53424 BOILS، m53857 ERUPTION، m53926 FORMICATION، m54505 SWELLING — بے-ادویہ) + 18 مجموعے (o67959 HAEMORRHAGE 124 unions ↔ کتابی «HÆMORRHAGE from anus» 112 نئے hN آئی؛ o67921 DIARRHOEA cold 61؛ o67927 food 33؛ o67988 PAIN sitting 27؛ o68016 URGING rising 30 وغیرہ) — OOREP کے شمارشدہ unions کتابی اکیلی قطار سے ادویات میں مختلف",
+  "169 legacy مقامی قطاریں (OOREP unions + agg./amel. اسپلٹ + m-کنٹینرز) فائل میں محفوظ، ماخذی درخت سے باہر — ڈاکٹر نظرثانی کے لیے رپورٹ",
+  "9 فال بیک جوڑے (J≥0.9 بڑی فہرستیں) — رپورٹ میں درج",
+  "4 دوہرے norm-راستے ضم (raw-key اسکیم — refs محفوظ): «BLACK» ص606+ص635-سے-پہلے؛ «ITCHING, forenoon/night/scratching agg./walking, while» دہرائی گئی قطاریں — max-گریڈ ضم",
+  "37 نئے hN: جڑ RECTUM + کتابی قطاریں جو OOREP ایپ میں نہیں — خاص طور پر «DIARRHŒA, night, 1-2/2-3/3-4/4-6/4-7/5-6 a.m.» وقت-وندکیاں، «HÆMORRHAGE from anus» (112 ادویات)، «CONSTRICTION, contraction, closure, etc., sitting, while» جیسی بے-ادویہ/See-ref کتابی قطاریں"
+ ],
+ "policy": {
+  "remedies": "r := source_remedies (ماخذ مطبوعہ کتاب = سچ؛ OOREP مجموعے ضم/legacy)",
+  "hierarchy": "runtime tree از source_parent_id (rep-chapters.js rectum بلڈر)",
+  "legacy": "فائل میں محفوظ، ماخذی درخت میں شامل نہیں — ڈاکٹر نظرثانی کے لیے رپورٹ"
+ }
+}
