@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 185 · **اصل مخزن:**
+**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 186 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -2203,6 +2203,35 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 1. ڈاکٹر پروسٹیٹ-تین-کالم.csv کی تصدیق (91 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (16 اندراجات — خاص طور پر o67899 «EMISSION» 63-ادویہ برتن اور 19 ہم آہنگ شدہ اردو جملے)
 2. اگلا باب: کتابی ترتیب کے مطابق — **URETHRA (MEDI-T ص 669 سے، kent0665 P669 مارکر + kent0670/kent0675)** — پھر URINE
 3. Vercel پش (v184 کے بعد)
+
+## مکمل شدہ پڑتال — پیشاب (URINE) باب: ماخذی درخت + ادویات + اردو (نسخہ 186)
+
+### 24.1 باب حد اور مآخذ
+- **URINE = MEDI-T صفحات 680–692** (13 صفحات — kenturin.htm انڈیکس کے **13/13 صفحہ-اندراجات**: 680(سرخی)/681/682/683/684/685/686/687/688/689/690/691/692)
+- ماخذ فائلیں: kent0680 (**NAME="URINE" باب-سرخی اینکر سے** — اس سے پہلے پورا P680 nav-ڈپ URETHRA مواد، کٹ) + kent0685 (P685 ڈپ skip_until P686) + kent0690 (P690 سے، **GENITALIA MALE سرخی NAME="P693" اینکر پر کٹ**) — kent0685 کا P685 = kent0680 کا P685 عین مطابق ڈپ؛ kent0685 کا P690 = kent0690 کا P690 عین مطابق ڈپ (اصل kent0690 سے)
+- p680 دم کے URINE ربرکس: ACRID (61 ادویہ) + ذیلی menses,during + ALBUMINOUS مین (109) — پھر P681؛ آخری مین YEAST-LIKE {caust:2, raph:2} (p692 — GENITALIA MALE سے پہلے)
+- **فائل-دم artifacts 2 (حذف، دستاویزی):** kent0680 دم p686 nav-بلاک سرخی-دہرائی («COPIOUS, amenorrhœa, with») — اصل قطار (7) kent0685 P686 میں؛ kent0685 دم P690 nav-پیراگراف کٹ → EOF-flush «URINE» bare artifact — اصل P690 مواد kent0690 سے
+
+### 24.2 پارس + تیسرا ماخذ (Drive PDF) تصدیق
+- **390 منفرد قطاریں** (جڑ URINE + 389) — **1 clamp (کتابی یتیم-indentation):** idx68 p683 «ink, like» خام d2→d1 — کتاب میں @128.7 (d2 فاصلہ) مگر d1 والدین موجود نہیں؛ تمام بھائی رنگ @92.7 d1 — **PDF x-coord ثابت**؛ صفر دوہرے راستے
+- **سمٹے ہوئے OOREP/انڈیکس راستے (urethra کے phantom کا الٹ):** kenturin انڈیکس/OOREP نے سیگمنٹ چھوڑے تھے — «COLOR, pale, fever, during» ← کتابی «COLOR, black, pale, fever, during» (pale @92.7 d1)؛ «COLOR, yellow, dark» ← کتابی «COLOR, black, yellow, light, dark»؛ «SPECIFIC gravity, decreased» ← کتابی «SPECIFIC gravity increased, decreased» (decreased @92.7 increased کے تحت — کتابی عین)؛ «ODOR, …» ← کتابی «ODOR offensive, …» — **PDF x-coords سے ثابت** کہ ماخذ درخت کتاب کی عین indentation ہے؛ 73 منقولہ اردو جملے نئے راستوں پر top-down دوبارہ اخذ
+- URINE = PDF index 1504–1527 (کتابی ص 680 دم–692)؛ **383/389 حرف-بہ-حرف عین + 6 PDF-طرفہ آرٹی فاکٹ قطاریں (2 فولیو-گلا kali1470ar/fl1478ac + 4 لیبل-ریپ گلا 2 جوڑے)، صفر drift، صفر دونوں-طرفہ باقیات**
+
+### 24.3 کراس واک + اوورلے + اردو
+- کراس واک: 390 ماخذ ↔ 408 ایپ — **386 جُڑے** (subsequence لفظی-پیشوند میچر)، 2 مبہم (m63034 «SPECIFIC gravity» برتن؛ r236 «ODOR» 155-یونین)، 4 ماخذ-اکیلے نئے hN (جڑ URINE + CONSTITUENTS diminution [OOREP ہجہ «diminition» غلط] + MILKY during + MILKY during,after)
+- اوورلے: urine.json **412 = 390 ماخذی (MARK=homeoint-urine-v1) + 22 legacy** (2 مبہم + 5 خالی m-کنٹینر + 15 مجموعے/برتن: COLOR 258، ODOR 155، WATERY 95، COLOR yellow 67، CUTICLE 47… — کتابی خاندان درخت پر)؛ مانی فیسٹ homeoint_urine_source_manifest.json
+- اردو: **386 پرانی کلیدوں سے منتقل + جڑ «پیشاب — پیشاب» + 3 خود-بنے (ہاتھ سے لکھے، meta.auto=3) + 73 راستہ-بڑھنے والوں کی top-down ہم آہنگی** (مثلاً «رنگ، بھورا، شاہ بلوط جیسا» ← «رنگ، سیاہ، بھورا، شاہ بلوط جیسا») = **390/390 فعال 100%**؛ 130 غیر-درخت پرانی کلیدیں محفوظ (فائل 520)؛ REP_RUBUR_V 178
+
+### 24.4 کوڈ، رپورٹیں، ٹیسٹ
+- کوڈ: rep-chapters.js v186 (_repBuildKentUrineSourceTree + دونوں ڈسپیچ سائٹس — Pages 680–692/Count 390 سخت جائزے) · KENT_TREE_FIX urine.h 22 legacy ids (g/p صاف — پرانا v143 دور کا g/p ماخذی درخت آنے پر متروک) · _index 412 · master sync (**minified** 21.1 MiB، round-trip تصدیق) · CACHE v186 · ٹیبز/صفحہ ٹیگ v186 · 18-rubrics-ur v178 · mind sidecar rebuild (4358)
+- رپورٹیں: kent_sources/reports/ پیشاب-تین-کالم.csv (386) · پیشاب-ہیرارکی-تصدیق.csv (390) · پیشاب-تمام-اندراجات.csv (390) · پیشاب-پرانی-قطاریں.csv (22 = 2 مبہم + 5 خالی + 15 مجموعے) · پیشاب-پڑتال.xlsx · پیشاب-اصلاحات-کا-خلاصہ.md (+ download کاپیاں)
+- **تصدیق-ضروری CSV:** download/kent-confirmation-needed.csv — پیشاب کے 16 اندراجات (باب-حد 2، ڈپ پالیسی 1، artifacts 2، clamp 1، سمٹے راستے 1، مبہم 2، نئے hN 1، ادویات-فرق 3، PDF آرٹی فاکٹ 1، اردو ہم آہنگی 1، خود-بنے 1) — کل 180
+- ٹیسٹ: نئی kent_urine_homeoint_source.test.js (درخت 390، جڑ-بچے 41، ماخذی گہرائی 3 [d3: 10 قطاریں]، ACRID 61/ALBUMINOUS 109+diphtheria 11/BURNING 156+acid-1/COLOR,black 22/ink,like 2/pale-fever-during 2/yellow-light-dark 13/COPIOUS 230+amenorrhœa 7/SPECIFIC 39+21/MILKY-during 2/YEAST-LIKE آخری {caust:2,raph:2}/WATERY-inodorous Dros./BRICK-DUST See-ref، باب-حد، اردو «پیشاب — » 100%، مانی فیسٹ، _index) — **مکمل سوئٹ 63/63 + jsdom 5/5 (smoke 2/2)**؛ Q9 کل 67,479→**67,466**؛ G7 4602→**4601**
+
+### 24.5 اگلے قدم
+1. ڈاکٹر پیشاب-تین-کالم.csv کی تصدیق (386 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (16 اندراجات — خاص طور پر سمٹے ہوئے راستے نوٹ اور ink,like clamp)
+2. اگلا باب: کتابی ترتیب کے مطابق — **GENITALIA MALE (MEDI-T ص 693 سے، kent0690 کے GENITALIA سرخی اینکر + kent0695/kent0700 وغیرہ؛ انڈیکس kentgenm.htm)**
+3. Vercel پش (v186 کے بعد)
 
 ## مکمل شدہ پڑتال — پیشاب کی نالی (URETHRA) باب: ماخذی درخت + ادویات + اردو (نسخہ 185)
 

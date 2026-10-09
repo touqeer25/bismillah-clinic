@@ -1,0 +1,391 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,680,0,URINE,0
+o62668,680,0,ACRID,61
+o62669,680,1,"ACRID, menses, during",3
+o62670,680,0,ALBUMINOUS,109
+o62671,680,1,"ALBUMINOUS, alcohol, after abuse of",16
+o62672,680,1,"ALBUMINOUS, amaurosis",11
+o62673,680,1,"ALBUMINOUS, chronic",6
+o62674,680,1,"ALBUMINOUS, cold and dampness, from exposure to",8
+r0,681,1,"ALBUMINOUS, diphtheria, after",11
+o62676,681,1,"ALBUMINOUS, heart disease, consecutive to",21
+o62677,681,1,"ALBUMINOUS, insanity, during",1
+o62678,681,1,"ALBUMINOUS, menses, during",1
+o62679,681,1,"ALBUMINOUS, pregnancy",40
+o62680,681,2,"ALBUMINOUS, pregnancy, during and after delivery",3
+o62681,681,1,"ALBUMINOUS, scarlet fever, after",34
+o62682,681,1,"ALBUMINOUS, syphilitics, in",9
+r9,681,0,ALKALINE,21
+r10,681,0,ALTERNATION of copious and scanty urine,4
+r11,681,0,"BILE, containing",20
+r12,681,0,BLOODY,98
+r13,681,1,"BLOODY, night",1
+r14,681,1,"BLOODY, chronic",1
+r15,681,1,"BLOODY, clots",13
+r16,681,1,"BLOODY, putrid, decomposed blood, of",1
+r17,681,1,"BLOODY, dysentery, in",3
+r18,681,1,"BLOODY, excitement, after",2
+r19,681,1,"BLOODY, first part",1
+o62692,681,1,"BLOODY, hæmorrhoidal flow or menses, after sudden stopping of",1
+r21,681,1,"BLOODY, last part",10
+r22,681,2,"BLOODY, last part, mixed with blood and pus",1
+r23,681,2,"BLOODY, last part, violent pain in the bladder, with",2
+r24,681,1,"BLOODY, menses, suppressed, from",6
+r25,681,1,"BLOODY, sexual excesses, after",1
+r26,681,1,"BLOODY, urination, after, blood flows from urethra",6
+r27,681,1,"BLOODY, water-like",1
+r28,681,0,BRICK-DUST (See Sediment),0
+r29,681,0,BURNING (includes Hot),156
+r30,682,1,"BURNING (includes Hot), acid, as from",1
+r31,682,1,"BURNING (includes Hot), menses, before",4
+r32,682,2,"BURNING (includes Hot), menses, before, during",2
+r33,682,0,"CASTS, containing",8
+r34,682,1,"CASTS, containing, blood",2
+r35,682,1,"CASTS, containing, epithelial",13
+r36,682,1,"CASTS, containing, fat drops, with",3
+r37,682,1,"CASTS, containing, fibrous",6
+r38,682,1,"CASTS, containing, granular",10
+r39,682,1,"CASTS, containing, hyaline",5
+r40,682,1,"CASTS, containing, mucous",3
+r41,682,1,"CASTS, containing, pale",1
+r42,682,1,"CASTS, containing, tubes, of",12
+r43,682,1,"CASTS, containing, waxy",3
+r44,682,1,"CASTS, containing, yellowish",1
+r45,682,0,CLOUDY,139
+r46,682,1,"CLOUDY, morning",5
+r47,682,2,"CLOUDY, morning, standing on",3
+r48,682,1,"CLOUDY, night",4
+r49,682,1,"CLOUDY, chalk had been stirred into it, as if",3
+r50,682,1,"CLOUDY, fever, with",12
+r51,682,1,"CLOUDY, gray clouds",1
+r52,682,1,"CLOUDY, passed, when",23
+r53,682,1,"CLOUDY, passing, soon after",12
+r54,682,1,"CLOUDY, perspiration, with",12
+r55,682,2,"CLOUDY, perspiration, with, reddish clouds",1
+r56,682,1,"CLOUDY, standing, on",81
+r57,682,1,"CLOUDY, white clouds",7
+r58,682,2,"CLOUDY, white clouds, turbid, which becomes more so as the emission continues so that the last drops look like flocks",3
+r59,683,0,COLD,2
+r60,683,0,"COLOR, black",22
+r61,683,1,"COLOR, black, ink, like",2
+r62,683,1,"COLOR, black, blackish",1
+r63,683,1,"COLOR, black, bluish",1
+r64,683,2,"COLOR, black, bluish, containing indican",1
+r65,683,1,"COLOR, black, brown",61
+r66,683,2,"COLOR, black, brown, beer, like",10
+r67,683,2,"COLOR, black, brown, chestnut",1
+r68,683,2,"COLOR, black, brown, cow-dung with water, like",1
+r69,683,2,"COLOR, black, brown, dark",39
+r70,683,3,"COLOR, black, brown, dark, prune juice, like, or prune colored",1
+r71,683,2,"COLOR, black, brown, fever, during",12
+r72,683,2,"COLOR, black, brown, menses, during",2
+r73,683,2,"COLOR, black, brown, perspiration, during",19
+r74,683,2,"COLOR, black, brown, reddish",13
+r75,683,2,"COLOR, black, brown, yellowish",3
+r76,683,1,"COLOR, black, clay",11
+r77,683,2,"COLOR, black, clay, shaking, on",1
+r78,683,2,"COLOR, black, clay, standing, on",3
+r79,683,1,"COLOR, black, coffee, like",8
+r80,683,2,"COLOR, black, coffee, like, from admixture with blood",1
+r81,683,1,"COLOR, black, dark",152
+r82,683,2,"COLOR, black, dark, morning",4
+r83,683,2,"COLOR, black, dark, evening",3
+r84,683,2,"COLOR, black, dark, menses, during",2
+r85,683,1,"COLOR, black, greenish",41
+r86,683,2,"COLOR, black, greenish, black",1
+r87,683,2,"COLOR, black, greenish, dark",4
+r88,683,2,"COLOR, black, greenish, light",2
+r89,683,1,"COLOR, black, mahogany",3
+r90,683,1,"COLOR, black, milky (See Milky)",0
+r91,683,1,"COLOR, black, ochre (See Yellow)",0
+r92,683,1,"COLOR, black, olive-hue, milky",1
+r95,683,1,"COLOR, black, pale",142
+r96,684,2,"COLOR, black, pale, fever, during",2
+r97,684,2,"COLOR, black, pale, perspiration, during",11
+r98,684,1,"COLOR, black, red",125
+r99,684,2,"COLOR, black, red, evening",1
+r100,684,2,"COLOR, black, red, blood-red",19
+r101,684,2,"COLOR, black, red, bright red",2
+r102,684,2,"COLOR, black, red, brownish-red",13
+r103,684,2,"COLOR, black, red, clear and",2
+r104,684,2,"COLOR, black, red, dark-red",43
+r105,684,3,"COLOR, black, red, dark-red, night",1
+r106,684,2,"COLOR, black, red, deep-red",10
+r107,684,2,"COLOR, black, red, fever, with",1
+r108,684,2,"COLOR, black, red, fiery red",8
+r109,684,2,"COLOR, black, red, perspiration, with",1
+r110,684,2,"COLOR, black, red, reddish-yellow",2
+r111,684,1,"COLOR, black, sherry",3
+r112,684,1,"COLOR, black, smoke-color",4
+r113,684,1,"COLOR, black, violet",4
+r114,684,1,"COLOR, black, white",33
+r115,684,2,"COLOR, black, white, morning",1
+r116,684,2,"COLOR, black, white, chalk, as if mixed with",3
+r117,684,2,"COLOR, black, white, jelly-like",2
+r118,684,2,"COLOR, black, white, standing, on",1
+r119,684,1,"COLOR, black, yellow, light",45
+r120,684,2,"COLOR, black, yellow, light, thick and turbid like rotten eggs",1
+r122,685,2,"COLOR, black, yellow, light, dark",13
+r123,685,2,"COLOR, black, yellow, light, lemon",12
+r124,685,2,"COLOR, black, yellow, light, orange",13
+r125,685,2,"COLOR, black, yellow, light, saffron",4
+r126,685,0,COLORLESS,52
+r127,685,1,"COLORLESS, menses, during",3
+h002,685,0,"CONSTITUENTS, where there is diminution of, there is increase of stools",1
+r129,685,0,COPIOUS (increased),230
+r130,685,1,"COPIOUS (increased), daytime",4
+r131,685,1,"COPIOUS (increased), morning",16
+r132,685,2,"COPIOUS (increased), morning, 6 a.m.",1
+r133,685,1,"COPIOUS (increased), forenoon",3
+r134,685,1,"COPIOUS (increased), noon",1
+r135,685,1,"COPIOUS (increased), afternoon",14
+r136,685,2,"COPIOUS (increased), afternoon, siesta, after",1
+r137,685,1,"COPIOUS (increased), evening",15
+r138,685,2,"COPIOUS (increased), evening, 7 p.m.",2
+r139,685,2,"COPIOUS (increased), evening, 8 p.m.",1
+r140,685,2,"COPIOUS (increased), evening, 10 p.m.",1
+r141,685,1,"COPIOUS (increased), night",68
+r142,685,2,"COPIOUS (increased), night, lying, while",1
+r143,685,2,"COPIOUS (increased), night, menses, before",3
+r144,685,3,"COPIOUS (increased), night, menses, before, during",1
+r145,685,2,"COPIOUS (increased), night, stool, during",2
+r146,685,2,"COPIOUS (increased), night, midnight",2
+r147,685,3,"COPIOUS (increased), night, midnight, after",4
+r148,685,2,"COPIOUS (increased), night, 4 a.m.",1
+r149,685,2,"COPIOUS (increased), night, 5 a.m.",2
+o62800,686,1,"COPIOUS (increased), amenorrhœa, with",7
+r152,686,1,"COPIOUS (increased), apyrexia, during",8
+r153,686,1,"COPIOUS (increased), chill, during",1
+r154,686,1,"COPIOUS (increased), coffee, after",2
+r155,686,1,"COPIOUS (increased), coryza, with",3
+r156,686,1,"COPIOUS (increased), delirium, after",1
+r157,686,1,"COPIOUS (increased), drunk, more than is",11
+r158,686,1,"COPIOUS (increased), eating, after",1
+r159,686,1,"COPIOUS (increased), epilepsy, after",1
+r160,686,1,"COPIOUS (increased), exhaustion, attended with",10
+r161,686,2,"COPIOUS (increased), exhaustion, attended with, and much thirst",1
+r162,686,1,"COPIOUS (increased), fever, during",16
+r163,686,1,"COPIOUS (increased), headache, with",28
+r164,686,2,"COPIOUS (increased), headache, with, after",2
+r165,686,2,"COPIOUS (increased), headache, with, followed by copious limpid urine and vomiting",1
+r166,686,1,"COPIOUS (increased), hunger and thirst, with",1
+r167,686,1,"COPIOUS (increased), menses, before",2
+r168,686,2,"COPIOUS (increased), menses, before, during",9
+r169,686,1,"COPIOUS (increased), nervous women",1
+r170,686,1,"COPIOUS (increased), pain in back, which amel.",2
+r171,686,1,"COPIOUS (increased), perspiration, with",22
+r172,686,1,"COPIOUS (increased), vomiting, with",3
+r173,686,0,"CUTICLE, forming on the surface of the (includes Fatty)",43
+r174,686,1,"CUTICLE, forming on the surface of the (includes Fatty), iridescent",22
+r175,686,2,"CUTICLE, forming on the surface of the (includes Fatty), iridescent, bluish",1
+r176,686,1,"CUTICLE, forming on the surface of the (includes Fatty), whitish",5
+r177,686,2,"CUTICLE, forming on the surface of the (includes Fatty), whitish, morning",1
+r178,686,0,"FLAKY, flocculent (See Sediment)",0
+r179,686,0,FROTHY,32
+r180,686,1,"FROTHY, morning",3
+r181,686,1,"FROTHY, afternoon",1
+r182,686,1,"FROTHY, night",1
+r183,686,1,"FROTHY, greenish-yellow",1
+r184,686,1,"FROTHY, violet ring",1
+r185,686,0,"GELATINOUS, lumpy on standing",4
+r186,686,0,"INDICAN, containing",2
+r187,686,0,INVOLUNTARY (See Urination),0
+r188,686,0,LIMPID,17
+r189,686,0,MILKY,47
+r190,686,1,"MILKY, morning",2
+r191,686,1,"MILKY, afternoon",1
+r192,686,1,"MILKY, chalk had been stirred in it, as if",3
+r193,686,1,"MILKY, cheesy milk had been stirred in, as if",2
+r194,687,1,"MILKY, curdled-like",2
+r195,687,1,"MILKY, emotion after every, as if stirred up with chalk",1
+r196,687,1,"MILKY, flour, as if mixed with",1
+r197,687,1,"MILKY, hydrocephalus in, very little but frequent discharges of milky urine with unconsciousness and delirium",1
+r198,687,1,"MILKY, menses, before",1
+h003,687,1,"MILKY, during",2
+h004,687,2,"MILKY, during, after",1
+r201,687,1,"MILKY, passed, when",1
+r202,687,1,"MILKY, perspiration, during",1
+r203,687,1,"MILKY, standing, on",3
+r204,687,1,"MILKY, turbid, and",11
+r205,687,1,"MILKY, urination, at close of",4
+r206,687,0,MUCUS in (See Sediment),0
+r207,687,0,MUDDY,10
+r208,687,0,NEUTRAL,11
+r209,687,0,ODORLESS,9
+r210,687,0,ODOR offensive,90
+o62874,687,1,"ODOR offensive, acrid, pungent",21
+o62875,687,2,"ODOR offensive, acrid, pungent, fever, during",9
+o62876,687,2,"ODOR offensive, acrid, pungent, menses, during",2
+o62877,687,2,"ODOR offensive, acrid, pungent, perspiration, during",9
+o62878,687,2,"ODOR offensive, acrid, pungent, sweaty feet, like",1
+o62879,687,1,"ODOR offensive, ammoniacal",40
+o62880,687,2,"ODOR offensive, ammoniacal, infants",1
+o62881,687,1,"ODOR offensive, aromatic",3
+o62882,687,1,"ODOR offensive, burnt horn",1
+o62883,687,1,"ODOR offensive, cat's urine",4
+o62884,687,1,"ODOR offensive, changeable",1
+o62885,687,1,"ODOR offensive, coffee",1
+o62886,687,1,"ODOR offensive, eggs, spoiled, like",1
+o62888,687,1,"ODOR offensive, fishy",3
+o62887,687,1,"ODOR offensive, fish-brine",1
+o62889,687,1,"ODOR offensive, horse's urine, like",5
+o62890,687,1,"ODOR offensive, mouldy",4
+o62891,687,1,"ODOR offensive, musk",1
+o62892,687,1,"ODOR offensive, nutmeg",1
+o62893,687,1,"ODOR offensive, onions",3
+o62894,687,1,"ODOR offensive, putrid",18
+o62895,687,2,"ODOR offensive, putrid, evening",1
+o62896,687,2,"ODOR offensive, putrid, fever, during",1
+o62897,687,1,"ODOR offensive, sourish",10
+r237,687,1,"ODOR offensive, strong",53
+r238,688,2,"ODOR offensive, strong, intensely urinous",1
+r239,688,2,"ODOR offensive, strong, menses, before",1
+r240,688,3,"ODOR offensive, strong, menses, before, during",1
+r241,688,1,"ODOR offensive, sweetish",9
+r242,688,1,"ODOR offensive, tobacco, like",1
+r243,688,1,"ODOR offensive, violets, like",10
+r244,688,2,"ODOR offensive, violets, like, evening",1
+r245,688,0,POLYPOUS formation in,1
+r246,688,0,PURULENT (See Sediment),0
+r247,688,0,SCANTY,214
+r248,688,1,"SCANTY, daytime",3
+r249,688,1,"SCANTY, morning",9
+r250,688,1,"SCANTY, afternoon",4
+r251,688,1,"SCANTY, evening",6
+r252,688,1,"SCANTY, night",6
+r253,688,1,"SCANTY, alternating with copious flow",4
+o62911,688,1,"SCANTY, amenorrhœa, with",10
+r255,688,1,"SCANTY, brain affection, with",6
+r256,688,1,"SCANTY, fever, during",14
+r257,688,1,"SCANTY, headache, during, copious after",2
+r258,688,1,"SCANTY, menses, before",2
+r259,688,2,"SCANTY, menses, before, during",1
+r260,688,1,"SCANTY, nervous women",1
+r261,688,1,"SCANTY, perspiration, during",26
+r262,688,0,SEDIMENT,77
+r263,688,1,"SEDIMENT, adherent",22
+r264,688,1,"SEDIMENT, albuminous",3
+r265,688,1,"SEDIMENT, amorphous",3
+r266,688,1,"SEDIMENT, black",1
+r267,688,1,"SEDIMENT, bloody",24
+r268,689,1,"SEDIMENT, bluish",2
+r269,689,1,"SEDIMENT, bran-like",4
+r270,689,1,"SEDIMENT, bright",1
+r271,689,1,"SEDIMENT, brown",10
+r272,689,2,"SEDIMENT, brown, dark",4
+r273,689,2,"SEDIMENT, brown, dirty",1
+r274,689,2,"SEDIMENT, brown, light",2
+r275,689,2,"SEDIMENT, brown, pinkish",1
+r276,689,2,"SEDIMENT, brown, reddish",1
+r277,689,1,"SEDIMENT, brown and white",1
+r278,689,1,"SEDIMENT, burnt, as if",1
+r279,689,1,"SEDIMENT, chalk (like flour)",16
+r280,689,1,"SEDIMENT, cheesy",5
+r281,689,1,"SEDIMENT, chocolate-colored",1
+r282,689,1,"SEDIMENT, circles",3
+r283,689,1,"SEDIMENT, clay-colored",15
+r284,689,2,"SEDIMENT, clay-colored, adhesive",1
+r285,689,3,"SEDIMENT, clay-colored, adhesive, menses, during, hard to wash off",1
+r286,689,1,"SEDIMENT, clots, yellow-red",1
+r287,689,1,"SEDIMENT, cloudy",31
+r288,689,1,"SEDIMENT, coffee grounds, like",5
+r289,689,1,"SEDIMENT, copious",27
+r290,689,1,"SEDIMENT, crusty",5
+r291,689,1,"SEDIMENT, crystals",5
+r292,689,1,"SEDIMENT, dark",4
+r293,689,1,"SEDIMENT, dirty",2
+r294,689,1,"SEDIMENT, earthy",2
+r295,689,1,"SEDIMENT, fine deposit",1
+r296,689,1,"SEDIMENT, flocculent",53
+r297,689,2,"SEDIMENT, flocculent, white",1
+r298,689,3,"SEDIMENT, flocculent, white, standing, on",1
+r299,689,1,"SEDIMENT, gelatinous",12
+r300,689,1,"SEDIMENT, granular",3
+r301,689,1,"SEDIMENT, gray",11
+r302,689,2,"SEDIMENT, gray, brownish-gray",1
+r303,689,2,"SEDIMENT, gray, whitish-gray",4
+r304,689,1,"SEDIMENT, loose",3
+r305,689,1,"SEDIMENT, mealy",18
+r306,689,1,"SEDIMENT, milky",8
+r307,689,1,"SEDIMENT, mucous",83
+r308,689,2,"SEDIMENT, mucous, menses, before",1
+r309,689,2,"SEDIMENT, mucous, milky white",1
+r310,689,2,"SEDIMENT, mucous, standing, after",1
+r311,689,2,"SEDIMENT, mucous, tenacious",7
+r312,690,2,"SEDIMENT, mucous, thick, ropy, bloody mucous, great quantity of",2
+r313,690,1,"SEDIMENT, offensive",2
+r314,690,1,"SEDIMENT, orange-colored",1
+r315,690,1,"SEDIMENT, oxalate of lime",13
+r316,690,1,"SEDIMENT, pasty",2
+r317,690,1,"SEDIMENT, phosphates",23
+r318,690,1,"SEDIMENT, pink",9
+r319,690,1,"SEDIMENT, purple",5
+r320,690,1,"SEDIMENT, purulent (See Bladder, Catarrh and Inflammation)",41
+r321,690,1,"SEDIMENT, red",84
+r322,690,2,"SEDIMENT, red, hard to wash off",9
+r323,690,2,"SEDIMENT, red, blood-color",2
+r324,690,2,"SEDIMENT, red, brick-color",5
+r325,690,2,"SEDIMENT, red, bright",5
+r326,690,2,"SEDIMENT, red, brownish",1
+r327,690,2,"SEDIMENT, red, circles, in",1
+r328,690,2,"SEDIMENT, red, dark",3
+r329,690,2,"SEDIMENT, red, dirty",2
+r330,690,2,"SEDIMENT, red, filaments, fibres",1
+r331,690,2,"SEDIMENT, red, flocculent or powdery",2
+r332,690,2,"SEDIMENT, red, grainy",1
+r333,690,2,"SEDIMENT, red, mahogany-colored",3
+r334,690,2,"SEDIMENT, red, white",1
+r335,690,1,"SEDIMENT, renal calculi",17
+r336,690,1,"SEDIMENT, rings",3
+r337,690,1,"SEDIMENT, ropy",6
+r338,690,1,"SEDIMENT, sand",44
+r339,690,2,"SEDIMENT, sand, adherent",1
+r340,690,2,"SEDIMENT, sand, bright colored in concentric layers",1
+r341,690,2,"SEDIMENT, sand, gravel (small calculi)",15
+r342,690,2,"SEDIMENT, sand, gray",1
+r343,690,2,"SEDIMENT, sand, pale",1
+r344,690,2,"SEDIMENT, sand, red (brick-dust)",77
+r345,690,3,"SEDIMENT, sand, red (brick-dust), fever, during",2
+r346,690,2,"SEDIMENT, sand, white",3
+r347,690,3,"SEDIMENT, sand, white, precipitated by heat",1
+r348,690,2,"SEDIMENT, sand, yellow",5
+r349,690,3,"SEDIMENT, sand, yellow, yellowish-red crystals",4
+r350,691,1,"SEDIMENT, straw colored",1
+r351,691,1,"SEDIMENT, sugar, like a conglomerate of candied",1
+r352,691,1,"SEDIMENT, thick",25
+r353,691,2,"SEDIMENT, thick, standing over night, after",2
+r354,691,1,"SEDIMENT, thready",3
+r355,691,1,"SEDIMENT, translucent",2
+r356,691,1,"SEDIMENT, violet colored",4
+r357,691,1,"SEDIMENT, white",71
+r358,691,2,"SEDIMENT, white, adhesive",2
+r359,691,2,"SEDIMENT, white, cloudy",8
+r360,691,2,"SEDIMENT, white, fever, during",2
+r361,691,2,"SEDIMENT, white, filmy; very hard to wash off",1
+r362,691,2,"SEDIMENT, white, pearly",1
+r363,691,2,"SEDIMENT, white, snow-white",1
+r364,691,2,"SEDIMENT, white, yellowish (See Yellow)",0
+r365,691,1,"SEDIMENT, yeast-like",4
+r366,691,1,"SEDIMENT, yellow",23
+r367,691,2,"SEDIMENT, yellow, adhesive",1
+r368,691,2,"SEDIMENT, yellow, dirty",3
+r369,691,2,"SEDIMENT, yellow, grayish",1
+r370,691,2,"SEDIMENT, yellow, pasty",1
+r371,691,2,"SEDIMENT, yellow, reddish",9
+r372,691,2,"SEDIMENT, yellow, sand (See Sand)",0
+r373,691,2,"SEDIMENT, yellow, white",8
+r374,691,0,SPECIFIC gravity increased,39
+o63034,691,1,"SPECIFIC gravity increased, decreased",21
+r376,691,0,SUGAR,63
+r377,691,0,THICK,57
+r378,691,1,"THICK, standing, on",11
+r379,691,0,TURBID (See Cloudy),0
+r380,691,0,VISCID,12
+r389,691,0,"WATERY, clear as water",95
+r382,692,1,"WATERY, clear as water, inodorous, with fetid mucous stool",1
+r383,692,1,"WATERY, clear as water, in typhus",1
+r384,692,0,WHEY-LIKE,6
+r385,692,1,"WHEY-LIKE, in morning",1
+r386,692,1,"WHEY-LIKE, menses, before",1
+r387,692,1,"WHEY-LIKE, after standing",1
+r390,692,0,YEAST-LIKE,2

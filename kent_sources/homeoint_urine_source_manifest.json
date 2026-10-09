@@ -1,0 +1,18 @@
+{
+ "book": "kent",
+ "chapter": "urine",
+ "source": "homeoint.org/books/kentrep1 kent0680+kent0685+kent0690 (MEDI-T HTML)",
+ "pages": "680 – 692 (MEDI-T انتساب)",
+ "source_canonical": "homeoint-urine-v1",
+ "source_rows": 390,
+ "unique_source_paths": 390,
+ "matched_app_records": 386,
+ "new_source_records": 4,
+ "legacy_local_records": 22,
+ "ambiguous_app_records": 2,
+ "pdf_verification": "554/554 حرف-بہ-حرف، صفر فرق/drift/باقیات (urine_pdf_verify.json)",
+ "chapter_boundaries": "آغاز kent0665 NAME=\"P669\" اینکر (URINE nav-مارکر کے اندر)؛ اختتام kent0675 کے اندر URINE باب سرخی <b><p>URINE</p> سے پہلے (kent0675 میں p680 کا پورا URINE مواد ہے — kent0680 کی ضرورت نہیں)",
+ "file_tail_artifacts": "kent0680 دم p686 nav-بلاک سرخی-دہرائی (COPIOUS, amenorrhœa, with) + kent0685 دم P690 nav-پیراگراف کٹ (URINE bare) — دونوں حذف (اصل قطاریں اپنی جگہ موجود)",
+ "clamps": "1 (idx68 p683 ink,like d2→d1 — کتابی یتیم-indentation: @128.7 d2 مگر d1 والدین موجود نہیں — تمام بھائی رنگ @92.7 d1 — PDF x-coord ثابت)",
+ "phantom_note": "OOREP/kenturin انڈیکس راستے سمٹے ہوئے (COLOR,pale,fever,during ← کتابی COLOR,black,pale,fever,during؛ SPECIFIC gravity,decreased ← کتابی SPECIFIC gravity increased,decreased) — PDF x-coords سے ثابت کہ ماخذ درخت کتاب کی عین indentation ہے؛ متعلق OOREP یونین (ODOR 155، SPECIFIC gravity برتن) legacy محفوظ"
+}

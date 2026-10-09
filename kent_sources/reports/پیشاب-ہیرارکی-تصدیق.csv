@@ -1,0 +1,391 @@
+﻿صفحہ,گہرائی,مکمل راستہ (مطبوعہ کتاب),ادویات (گریڈ)
+680,0,URINE,
+680,0,ACRID,"ail(1), alum(1), alumn(1), ant-t(1), arn(3), asaf(1), astac(1), atro(1), aur-m(1), benz-ac(3), bor(2), brach(1), calc(2), cann-s(2), canth(1), caps(1), carb-s(1), card-m(2), caust(2), chel(2), clem(2), coc-c(2), colch(1), cupr(2), cycl(2), dig(1), dulc(2), fl-ac(2), graph(2), hep(3), ign(1), iod(2), kali-bi(2), kali-c(2), kreos(2), laur(3), lith(2), merc(3), merc-c(3), nat-m(2), nat-s(2), nit-ac(2), par(1), petr(1), phos(2), plan(2), prun-s(1), puls(1), rhus-t(1), sabin(1), sars(2), senec(1), seneg(2), sep(2), stann(1), staph(2), sulph(3), tell(1), thuj(2), uran(2), verat(1)"
+680,1,"ACRID, menses, during","alum(2), apis(1), nat-m(1)"
+680,0,ALBUMINOUS,"acon(1), all-c(1), all-s(1), alum(1), am-caust(1), ant-t(2), apis(3), apoc(1), arg-m(1), arg-n(2), ars(3), ars-i(2), aur(2), aur-m(3), aur-m-n(2), bism(1), brach(2), calc(2), calc-ar(3), cann-s(2), canth(2), carb-ac(2), carb-s(2), carb-v(2), caul(1), chel(1), chim(2), chin(2), chin-a(2), chlol(1), cinnb(1), coc-c(1), coch(1), colch(2), cop(1), crot-c(2), crot-h(2), cupr(2), cupr-s(1), dig(2), dulc(2), eup-pur(1), ferr(2), ferr-ar(2), ferr-i(2), ferr-p(1), gels(2), glon(3), hell(3), helon(2), hep(2), hippoz(2), iod(2), kali-bi(2), kali-c(2), kali-chl(2), kali-i(2), kali-n(1), kali-p(1), kali-s(1), kalm(2), lac-d(3), lach(2), lec(1), lith(1), lyc(3), lycps(1), mag-m(1), med(1), merc(2), merc-c(3), merc-cy(2), merc-i-r(2), mez(1), morph(1), mur-ac(1), myric(1), nat-a(3), nat-c(3), nat-m(2), nat-p(3), nat-s(2), nit-ac(2), ol-j(1), op(1), osm(1), petr(2), ph-ac(3), phos(2), phyt(2), pic-ac(2), plb(3), polyg-h(1), puls(1), pyrog(2), rhus-t(3), sabin(2), sal-ac(1), sars(1), sec(1), sul-ac(1), sulph(2), tab(1), tarent(1), tax(1), ter(3), tub(1), uran(2), zinc(1)"
+680,1,"ALBUMINOUS, alcohol, after abuse of","ars(3), aur(1), bell(1), berb(2), calc-ar(2), carb-v(3), chin(2), crot-t(2), cupr(1), ferr(1), lach(2), led(1), merc(1), nat-c(2), nux-v(2), sulph(1)"
+680,1,"ALBUMINOUS, amaurosis","apis(2), ars(2), cann-i(1), colch(1), gels(2), hep(2), kalm(1), merc-c(2), ph-ac(1), phos(1), plb(1)"
+680,1,"ALBUMINOUS, chronic","atro(2), cedr(2), glon(1), helon(1), petr(2), plb(2)"
+680,1,"ALBUMINOUS, cold and dampness, from exposure to","calc(2), colch(2), dulc(2), kali-c(1), merc-c(1), nux-v(1), rhus-t(2), sep(1)"
+681,1,"ALBUMINOUS, diphtheria, after","apis(2), ars(2), carb-ac(2), hell(1), hep(1), kali-chl(1), lach(1), lyc(1), merc-c(2), merc-cy(1), phyt(1)"
+681,1,"ALBUMINOUS, heart disease, consecutive to","apis(2), ars(1), ars-i(1), aur(2), calc-ar(3), coc-c(1), colch(2), crot-h(2), cupr(2), dig(2), glon(1), kali-bi(1), kali-p(1), kalm(2), lach(2), lyc(1), lycps(2), petr(1), ph-ac(1), ter(2), uran(1)"
+681,1,"ALBUMINOUS, insanity, during",phyt(1)
+681,1,"ALBUMINOUS, menses, during",helon(1)
+681,1,"ALBUMINOUS, pregnancy","apis(3), apoc(1), ars(2), ars-i(1), aur-m(2), benz-ac(1), berb(1), bry(1), cact(1), calc-ar(2), canth(2), chin(2), cinnb(1), colch(2), crot-h(1), dig(1), dulc(1), ferr(1), gels(2), hell(1), helon(2), kali-ar(2), kali-br(1), kali-c(2), kali-chl(2), kalm(1), lach(2), led(1), lyc(2), merc(2), merc-c(3), nat-m(2), ph-ac(2), phos(1), rhus-t(1), senec(1), sep(1), sulph(1), ter(2), uran(1)"
+681,2,"ALBUMINOUS, pregnancy, during and after delivery","merc-c(2), ph-ac(1), pyrog(2)"
+681,1,"ALBUMINOUS, scarlet fever, after","apis(3), ars(2), asc-t(1), aur-m(2), bell(1), bry(1), canth(2), carb-ac(1), coch(1), colch(2), con(2), cop(1), crot-h(1), dig(1), dulc(1), glon(2), hell(2), helon(1), hep(2), kali-c(1), kali-chl(2), kali-s(2), lach(2), lyc(3), merc-c(2), nat-s(3), phos(2), phyt(1), rhus-t(1), sec(2), senec(1), stram(2), ter(2), uran(1)"
+681,1,"ALBUMINOUS, syphilitics, in","aur(2), aur-i(1), aur-m(3), aur-m-n(2), kali-bi(1), kali-i(1), merc-c(2), nit-ac(1), sars(1)"
+681,0,ALKALINE,"am-c(1), am-caust(1), bapt(3), benz-ac(2), canth(2), carb-ac(3), chin-s(1), chlor(1), cina(1), ferr(2), fl-ac(2), hyos(2), kali-bi(2), kali-c(2), kreos(1), morph(1), nat-m(2), plb(1), stram(1), uran(1), xan(1)"
+681,0,ALTERNATION of copious and scanty urine,"berb(2), dig(1), gels(1), sang(1)"
+681,0,"BILE, containing","acon(2), card-m(2), chel(2), chion(3), con(2), crot-h(2), cupr-s(1), kali-i(1), mag-m(2), merc(2), myric(2), nat-s(2), nit-ac(2), osm(1), phos(1), sang(2), sep(2), sulph(1), uran(1), valer(1)"
+681,0,BLOODY,"acon(2), aloe(1), alumn(1), ambr(1), ant-c(1), ant-t(2), apis(3), arg-n(3), arn(3), ars(3), aspar(1), aur(2), bell(1), benz-ac(1), berb(1), both(3), cact(3), calc(3), camph(2), cann-s(3), canth(3), caps(2), carb-s(1), carb-v(2), caust(2), chim(2), chin(1), chin-a(2), chin-s(1), cimic(1), coc-c(3), colch(2), coloc(1), con(2), cop(2), crot-c(1), crot-h(3), cub(1), cupr(1), cupr-s(1), dulc(1), equis(1), erig(2), ferr(1), ferr-ar(2), ferr-m(1), ferr-p(1), ham(3), hell(2), hep(1), hyper(2), ip(3), jatr(1), kali-ar(2), kali-chl(2), kali-i(1), kali-n(1), kalm(1), kreos(2), lach(2), lyc(2), merc(2), merc-c(3), mez(2), mill(3), murx(1), nat-m(2), nit-ac(2), nux-v(2), op(2), ox-ac(1), pall(1), pareir(1), petr(1), ph-ac(2), phos(3), plb(2), psor(1), puls(3), rhod(1), rhus-a(2), rhus-t(2), sabad(1), sabin(2), sars(2), sec(3), senec(2), sep(2), squil(3), sul-ac(2), sulph(2), tab(1), tarent(1), ter(3), thuj(1), uva(1), vesp(1), zinc(2)"
+681,1,"BLOODY, night",caust(2)
+681,1,"BLOODY, chronic",erig(2)
+681,1,"BLOODY, clots","alumn(3), apis(1), ars(1), cact(2), canth(1), chim(2), colch(1), ip(2), lyc(2), mill(2), ph-ac(2), plat(2), puls(1)"
+681,1,"BLOODY, putrid, decomposed blood, of",colch(1)
+681,1,"BLOODY, dysentery, in","cop(1), ip(2), merc-c(2)"
+681,1,"BLOODY, excitement, after","petr(1), phos(1)"
+681,1,"BLOODY, first part",con(1)
+681,1,"BLOODY, hæmorrhoidal flow or menses, after sudden stopping of",nux-v(2)
+681,1,"BLOODY, last part","ant-t(2), canth(1), ferr-p(1), hep(3), lyc(1), mez(2), puls(2), sars(2), thuj(1), zinc(1)"
+681,2,"BLOODY, last part, mixed with blood and pus",sars(2)
+681,2,"BLOODY, last part, violent pain in the bladder, with","ant-t(1), sars(2)"
+681,1,"BLOODY, menses, suppressed, from","laur(1), lyc(1), mez(1), mill(1), nux-v(1), senec(1)"
+681,1,"BLOODY, sexual excesses, after",phos(2)
+681,1,"BLOODY, urination, after, blood flows from urethra","hep(3), mez(1), puls(1), sars(1), sulph(1), thuj(2)"
+681,1,"BLOODY, water-like",pall(1)
+681,0,BRICK-DUST (See Sediment),
+681,0,BURNING (includes Hot),"acon(2), aesc(2), agar(1), agn(1), all-c(1), aloe(3), alum(1), alumn(1), am-c(1), am-m(1), ambr(2), ang(1), ant-c(2), ant-t(2), apis(3), apoc(1), arg-m(1), arg-n(2), arn(1), ars(3), asaf(2), asc-c(1), aspar(1), aur(1), aur-m(1), bapt(1), bar-c(1), bar-m(1), bell(3), benz-ac(2), berb(2), bor(3), bov(1), bry(2), cact(1), calad(1), calc(1), calc-p(2), camph(3), cann-i(3), cann-s(3), canth(3), caps(2), carb-an(1), carb-s(1), carb-v(1), caust(1), cham(2), chel(2), chim(2), chin(1), chin-a(1), chin-s(1), cimic(1), clem(2), cob(1), coc-c(1), colch(2), coloc(1), con(2), conv(1), cop(2), cor-r(1), crot-t(1), cub(3), cupr(1), cur(1), dig(2), dulc(1), equis(1), ery-a(1), eug(1), eup-pur(2), ferr(2), ferr-ar(1), ferr-p(1), fl-ac(2), glon(1), grat(1), helon(1), hep(3), hydr-ac(1), ign(1), indg(1), ip(2), kali-ar(2), kali-bi(1), kali-c(2), kali-i(2), kali-n(2), kali-p(1), kali-s(1), kalm(1), kreos(1), lach(2), lact(1), laur(1), lil-t(2), lyc(2), mag-c(1), merc(3), merc-c(3), mez(2), mur-ac(1), mygal(1), nat-a(3), nat-c(3), nat-m(1), nat-p(1), nat-s(3), nicc(1), nit-ac(3), nux-m(1), nux-v(3), olnd(1), op(1), ox-ac(1), par(1), pareir(1), petr(1), petros(2), ph-ac(2), phos(1), pic-ac(1), plb(1), prun-s(1), psor(1), puls(2), ran-s(1), rhod(1), rhus-r(2), rhus-t(2), sabad(1), sabin(2), sang(1), sars(2), sec(1), senec(1), seneg(1), sep(1), sil(1), spig(1), squil(1), staph(2), stram(1), sul-ac(1), sulph(3), tab(1), tarent(2), ter(2), thuj(3), uva(3), verat(1), vesp(1), viol-t(1), zinc(1)"
+682,1,"BURNING (includes Hot), acid, as from",ox-ac(1)
+682,1,"BURNING (includes Hot), menses, before","apis(1), canth(2), verat(1), zinc(1)"
+682,2,"BURNING (includes Hot), menses, before, during","nux-v(1), zinc(1)"
+682,0,"CASTS, containing","apis(2), kali-chl(1), nat-a(1), phos(1), plb(1), puls-n(1), sul-ac(1), uran(1)"
+682,1,"CASTS, containing, blood","plb(2), ter(2)"
+682,1,"CASTS, containing, epithelial","ant-t(1), apis(2), arg-n(1), ars(3), bell(1), brach(1), canth(1), carb-ac(1), lycps(1), merc-c(3), phos(2), plb(2), sul-ac(1)"
+682,1,"CASTS, containing, fat drops, with","merc-c(2), ph-ac(1), phos(3)"
+682,1,"CASTS, containing, fibrous","cann-s(1), cimic(1), kalm(2), ph-ac(1), phos(1), sul-ac(1)"
+682,1,"CASTS, containing, granular","canth(1), carb-ac(1), coc-c(1), merc-c(2), nat-h(1), petr(2), phos(1), pic-ac(1), plb(2), sul-ac(1)"
+682,1,"CASTS, containing, hyaline","brach(1), carb-ac(1), petr(2), phos(2), plb(2)"
+682,1,"CASTS, containing, mucous","brach(1), cann-s(1), cimic(1)"
+682,1,"CASTS, containing, pale",sul-ac(1)
+682,1,"CASTS, containing, tubes, of","ant-c(1), apis(3), bism(1), canth(2), cimic(2), hep(2), merc-c(2), phos(1), pic-ac(1), plb(2), sulph(1), ter(2)"
+682,1,"CASTS, containing, waxy","brach(1), morph(1), phos(2)"
+682,1,"CASTS, containing, yellowish",sul-ac(1)
+682,0,CLOUDY,"acet-ac(1), acon(2), aesc(2), agar(1), agn(1), aloe(1), alum(1), alumn(1), am-c(1), am-m(1), ambr(2), anac(2), ant-c(2), ant-t(2), apis(3), apoc(1), arg-m(1), arn(2), ars(2), ars-i(1), aspar(1), aur(2), aur-m(1), bell(2), benz-ac(1), berb(3), bov(1), brom(1), bry(3), cact(2), calad(1), calc(2), calc-f(1), camph(1), cann-s(2), canth(3), carb-an(1), carb-s(3), carb-v(3), card-m(2), caust(2), cham(3), chel(3), chin(3), chin-a(1), chin-s(2), cina(3), cinnb(1), clem(1), coc-c(1), coca(1), colch(2), coloc(2), com(1), con(3), cop(1), crot-h(1), crot-t(1), cupr(2), cur(1), cycl(1), daph(2), dig(2), dulc(2), elaps(1), ferr(1), ferr-ar(1), gels(2), graph(3), grat(2), hep(2), hydr-ac(1), hyos(1), hyper(1), ign(1), indg(1), iod(1), ip(2), kali-a(1), kali-ar(1), kali-bi(1), kali-c(2), kali-chl(1), kali-i(1), kali-n(2), kali-p(2), kali-s(1), kreos(1), lac-c(2), lach(2), laur(1), lith(1), lyc(2), lyss(1), mag-c(1), mag-m(2), merc(3), merc-c(2), mez(1), myric(3), nat-c(1), nat-m(2), nat-p(1), nit-ac(2), nux-v(2), olnd(1), op(2), pall(1), par(1), petr(2), ph-ac(3), phos(3), plat(1), plb(2), psor(2), puls(2), raph(1), rat(1), rhod(1), rhus-t(1), rumx(1), sabad(3), sabin(1), sarr(1), sars(2), sec(1), seneg(2), sep(3), sil(1), stram(1), sul-ac(1), sulph(3), thuj(2), uva(1), valer(1), verat(1), viol-t(1), zinc(1), zing(1)"
+682,1,"CLOUDY, morning","berb(1), cann-s(1), chel(1), meph(1), zinc(1)"
+682,2,"CLOUDY, morning, standing on","chel(1), chin-a(1), dig(1)"
+682,1,"CLOUDY, night","alum(1), kali-bi(1), phos(1), sulph(1)"
+682,1,"CLOUDY, chalk had been stirred into it, as if","alum(1), ph-ac(2), sulph(2)"
+682,1,"CLOUDY, fever, with","ars(1), bell(1), berb(1), bry(1), lyc(1), ph-ac(1), phos(2), puls(1), rhus-t(1), sabad(1), sars(1), sep(1)"
+682,1,"CLOUDY, gray clouds",lyc(1)
+682,1,"CLOUDY, passed, when","ambr(2), anac(1), ars(2), aspar(1), canth(3), carb-an(1), chel(3), colch(1), dulc(1), hep(2), hyos(1), merc(2), mur-ac(1), nat-a(1), rhus-t(2), sabin(1), sant(1), sars(2), sep(2), sulph(1), ter(3), verat(1), zinc(1)"
+682,1,"CLOUDY, passing, soon after","ang(1), aspar(1), bar-c(1), berb(3), cham(2), chel(3), coloc(1), lyc(2), nat-c(1), rhus-t(1), seneg(1), sil(1)"
+682,1,"CLOUDY, perspiration, with","chin(1), cina(1), con(1), dulc(1), ign(1), ip(3), merc(3), phos(3), puls(1), rhus-t(1), sabad(1), sep(1)"
+682,2,"CLOUDY, perspiration, with, reddish clouds",kali-n(1)
+682,1,"CLOUDY, standing, on","acet-ac(1), agar(1), aloe(1), alum(1), alumn(1), am-c(1), am-m(1), ambr(1), ang(1), ant-t(1), apis(2), arg-n(1), arn(1), ars(2), aur(1), bar-c(1), bell(3), berb(2), bov(1), brom(1), bry(3), calc(2), carb-s(2), caust(2), cham(3), chel(3), chin(3), chin-s(2), cimic(1), cina(2), coc-c(1), coloc(2), con(2), crot-t(1), cupr(2), dig(2), dulc(2), equis(1), ery-a(1), ferr(1), ferr-ar(1), ferr-p(1), graph(3), grat(2), hep(2), kali-n(1), kreos(1), lach(1), laur(2), lob(1), lyc(3), mag-m(1), manc(1), mang(1), meph(2), merc(2), mez(2), nat-c(1), nit-ac(2), ol-an(1), olnd(1), par(2), petr(2), ph-ac(3), phos(1), plat(2), rat(1), rhus-t(2), sabad(1), sang(1), sars(2), seneg(2), sep(1), squil(1), sul-ac(1), sulph(2), ter(3), thuj(2), valer(2), verat(1), zinc(2)"
+682,1,"CLOUDY, white clouds","cina(1), mur-ac(1), nat-m(1), ph-ac(1), plat(1), rhus-t(1), sars(2)"
+682,2,"CLOUDY, white clouds, turbid, which becomes more so as the emission continues so that the last drops look like flocks","rhus-t(1), sars(2), sep(2)"
+683,0,COLD,"agar(1), nit-ac(2)"
+683,0,"COLOR, black","ang(1), ars(2), ars-h(2), canth(2), carb-ac(3), chion(1), cina(1), colch(3), dig(2), erig(1), hell(2), kali-ar(1), kali-c(2), kali-chl(2), lach(3), merc-c(1), nat-m(2), pareir(2), phos(2), sec(1), ter(3), verat(1)"
+683,1,"COLOR, black, ink, like","arn(1), colch(3)"
+683,1,"COLOR, black, blackish",kali-c(1)
+683,1,"COLOR, black, bluish",nit-ac(1)
+683,2,"COLOR, black, bluish, containing indican",pic-ac(1)
+683,1,"COLOR, black, brown","acon(2), alum(1), alumn(1), ambr(2), ant-c(1), apis(1), arn(3), ars(3), asaf(2), bar-c(1), bell(1), benz-ac(3), brom(1), bry(3), bufo(1), calc(1), camph(1), carb-ac(2), card-m(2), chel(3), cimx(2), coc-c(1), colch(2), coloc(1), con(2), cupr(1), dig(2), dros(1), graph(1), hell(2), hep(1), ip(1), kali-bi(1), kali-i(1), kreos(2), lach(1), lact(1), lil-t(1), lyc(1), manc(2), merc(1), merc-c(3), myric(2), nat-m(1), nit-ac(2), olnd(1), op(1), petr(1), phos(2), plb(1), prun-s(1), puls(2), sec(2), sep(1), squil(1), stram(1), sul-ac(1), sulph(1), tarent(1), valer(1), zinc(1)"
+683,2,"COLOR, black, brown, beer, like","aspar(2), benz-ac(2), bry(2), chel(3), coloc(2), hyper(2), phos(1), puls(1), stry(1), sulph(3)"
+683,2,"COLOR, black, brown, chestnut",kreos(2)
+683,2,"COLOR, black, brown, cow-dung with water, like",ars(3)
+683,2,"COLOR, black, brown, dark","acon(1), aesc(1), all-c(1), all-s(2), ambr(2), ant-t(1), arn(2), ars(2), asaf(1), bar-c(2), calc(2), camph(1), carb-ac(2), caust(2), chel(3), colch(2), dig(2), eup-pur(2), graph(2), jatr(1), lach(2), lept(2), lyc(2), merc(2), nit-ac(1), op(2), osm(1), petr(1), phos(1), plb(2), podo(2), psor(2), puls(1), sec(2), sep(3), sulph(1), tab(1), valer(1), zing(1)"
+683,3,"COLOR, black, brown, dark, prune juice, like, or prune colored",sec(1)
+683,2,"COLOR, black, brown, fever, during","acon(2), arn(1), bell(2), bry(1), carb-v(1), ip(1), lyc(1), nux-v(2), puls(1), rhus-t(1), sep(3), verat(3)"
+683,2,"COLOR, black, brown, menses, during","eupi(1), nat-m(1)"
+683,2,"COLOR, black, brown, perspiration, during","acon(1), ant-t(1), arn(1), ars(3), bell(1), bry(1), calc(2), canth(1), carb-v(1), hep(1), ip(1), merc(2), puls(1), sel(2), sep(3), staph(1), sulph(2), thuj(1), verat(2)"
+683,2,"COLOR, black, brown, reddish","ant-c(1), bell(1), benz-ac(3), canth(2), chel(3), dig(1), iod(1), lyc(1), nat-a(1), phos(1), plb(1), sep(1), verat(1)"
+683,2,"COLOR, black, brown, yellowish","ambr(2), dig(2), lyss(1)"
+683,1,"COLOR, black, clay","agar(1), anac(1), berb(1), cor-r(1), laur(1), nat-m(1), sabad(1), sars(1), sep(3), sul-ac(1), zinc(1)"
+683,2,"COLOR, black, clay, shaking, on",anac(1)
+683,2,"COLOR, black, clay, standing, on","cham(1), ferr-ma(1), laur(1)"
+683,1,"COLOR, black, coffee, like","apis(1), berb(1), cob(1), kali-n(1), lac-c(1), lach(2), nat-m(2), phyt(1)"
+683,2,"COLOR, black, coffee, like, from admixture with blood",kali-n(1)
+683,1,"COLOR, black, dark","acon(3), aesc(2), agar(1), agn(1), all-s(1), aloe(1), alum(1), am-caust(1), anag(1), ang(1), ant-c(2), ant-t(3), apis(3), apoc(1), arg-n(1), arn(2), ars(2), ars-i(2), asaf(1), asc-t(1), bapt(1), bell(3), benz-ac(3), berb(1), bov(1), brach(1), brom(1), bry(3), calc(3), calc-f(1), calc-p(2), cann-i(1), canth(2), caps(1), carb-ac(2), carb-s(1), carb-v(2), card-m(1), cedr(1), chel(3), chim(1), chin(2), chin-a(2), chin-s(1), cic(1), cimic(1), clem(1), cob(1), coc-c(1), colch(3), con(1), conv(1), cop(1), crot-h(3), crot-t(1), cupr(1), cur(1), cycl(1), dig(2), echi(1), elat(2), equis(3), erig(1), ery-a(1), eug(1), eup-per(2), ferr(1), ferr-ar(1), ferr-i(1), ferr-p(1), gels(1), glon(1), graph(1), hell(3), hep(2), hydr(2), hyos(1), hyper(1), iod(2), ip(2), iris(1), jab(2), kali-ar(1), kali-bi(1), kali-c(1), kali-i(2), kali-n(1), kali-p(1), lac-d(2), lach(3), lact-ac(3), lil-t(2), lith(2), lyc(2), merc(3), merc-c(3), merc-i-f(2), merc-i-r(2), mez(1), mill(1), mur-ac(2), myric(2), nat-a(2), nat-c(2), nat-m(2), nat-p(1), nat-s(1), nit-ac(1), nux-m(2), nux-v(2), op(1), pall(1), par(1), petr(1), ph-ac(1), phos(2), pic-ac(1), plb(3), podo(2), ptel(2), puls(2), rhus-t(2), sabad(1), sabin(1), samb(1), sang(1), sars(1), sec(2), sel(3), senec(1), seneg(1), sep(3), spig(1), stann(1), staph(2), stram(1), stront(1), sul-ac(1), sulph(2), tab(1), tarax(1), tell(1), ter(3), thuj(1), uran(1), valer(1), verat(3), verat-v(2), vip(1), xan(1), zinc(1), zing(1)"
+683,2,"COLOR, black, dark, morning","chel(3), mez(1), sang(1), seneg(1)"
+683,2,"COLOR, black, dark, evening","ruta(1), sang(1), thuj(1)"
+683,2,"COLOR, black, dark, menses, during","nat-m(1), sars(1)"
+683,1,"COLOR, black, greenish","apis(1), ars(2), aur(2), bapt(1), bell(1), berb(1), bov(1), calc(1), camph(3), carb-ac(2), chel(2), chim(2), chin(2), chin-a(2), chin-s(1), cina(2), colch(2), cop(2), crot-h(1), dig(1), iod(2), kali-ar(1), kali-c(2), mag-c(2), mag-s(1), mang(1), merc(1), merc-c(3), nat-m(1), nit-ac(2), ol-an(1), phel(1), phos(1), rheum(2), rhod(2), ruta(2), seneg(1), sul-ac(1), sulph(1), uran(1), verat(2)"
+683,2,"COLOR, black, greenish, black",kali-chl(1)
+683,2,"COLOR, black, greenish, dark","anac(1), carb-ac(2), nat-m(1), sant(2)"
+683,2,"COLOR, black, greenish, light","bapt(1), cina(1)"
+683,1,"COLOR, black, mahogany","aesc(1), eup-per(2), plb(1)"
+683,1,"COLOR, black, milky (See Milky)",
+683,1,"COLOR, black, ochre (See Yellow)",
+683,1,"COLOR, black, olive-hue, milky",pic-ac(1)
+683,1,"COLOR, black, pale","acet-ac(1), acon(1), aeth(1), agar(2), alum(2), am-c(2), ambr(1), anac(1), ang(2), ant-c(1), anthr(1), apis(1), apoc(1), arg-m(2), arg-n(1), arn(2), ars(2), arum-t(2), asaf(1), atro(1), aur(1), bell(2), berb(2), brach(1), bry(2), bufo(1), calad(1), calc(1), calc-f(2), camph(1), cann-i(2), canth(1), caps(1), carb-ac(1), carb-s(1), carb-v(2), caul(2), cedr(1), cham(2), chel(2), chin(2), chin-a(1), chin-s(1), cimic(1), cina(1), clem(2), cob(1), coc-c(1), cocc(1), coff(1), colch(2), coloc(2), con(3), cop(1), crot-t(1), cycl(1), dig(1), dulc(1), echi(1), equis(1), erig(1), eup-pur(1), euphr(1), ferr(1), ferr-i(1), ferr-p(1), fl-ac(1), gels(1), glon(1), ham(1), hell(1), helon(1), hep(2), hydr(1), hyos(1), ign(2), iod(1), kali-ar(1), kali-c(1), kali-i(1), kali-n(3), kreos(2), lac-d(2), lach(1), lact-ac(1), laur(1), led(3), lil-t(1), lyc(2), mag-c(2), mag-m(1), mag-s(1), merc(1), merc-c(3), mez(1), mosch(1), mur-ac(2), nat-a(1), nat-c(1), nat-m(3), nat-p(1), nat-s(2), nit-ac(2), nux-m(1), nux-v(2), ol-an(1), olnd(1), op(1), ox-ac(1), par(1), ph-ac(3), phel(1), phos(2), phyt(1), pic-ac(1), plan(2), plat(1), plb(1), puls(2), raph(1), rheum(1), rhod(2), rhus-t(2), sars(3), sec(1), seneg(2), sep(1), squil(1), staph(2), stram(2), stront(2), sul-ac(1), sulph(1), tab(1), tarax(1), ter(1), teucr(1), thuj(1), verat(1), vinc(1), zinc(1), zing(1)"
+684,2,"COLOR, black, pale, fever, during","cedr(1), cham(1)"
+684,2,"COLOR, black, pale, perspiration, during","arn(1), bell(2), chin(1), con(1), ign(1), ph-ac(3), phos(1), puls(1), rhus-t(1), stram(1), thuj(1)"
+684,1,"COLOR, black, red","acon(2), aesc(2), aeth(1), agar(1), agn(1), all-c(2), aloe(1), alum(2), alumn(1), am-m(1), ant-c(2), ant-t(2), apis(2), arg-n(2), arn(2), ars(1), ars-i(1), asc-t(1), aur(1), bad(1), bapt(2), bell(2), benz-ac(3), berb(2), bov(2), bry(3), bufo(2), cact(2), calad(1), calc(1), camph(2), cann-i(1), cann-s(1), canth(3), caps(1), carb-ac(1), carb-an(2), carb-s(1), carb-v(2), caust(1), cedr(1), chel(2), clem(1), coc-c(1), cocc(1), coff(1), colch(2), con(1), cop(2), crot-h(2), crot-t(1), cupr(1), cycl(1), daph(1), dig(1), dulc(2), elaps(1), equis(1), ferr(1), ferr-ar(1), ferr-p(1), grat(2), hep(2), iod(2), ip(1), iris(1), kali-ar(1), kali-bi(2), kali-c(2), kali-i(1), kali-n(1), kali-s(1), kreos(1), lach(1), lachn(1), laur(1), led(1), lept(2), lil-t(1), lith(2), lob(1), lyc(2), merc(2), merc-c(1), merc-i-f(1), merc-i-r(1), mez(1), mur-ac(2), nat-m(1), nat-p(1), nux-v(2), op(2), par(1), petr(1), phos(1), phyt(1), pic-ac(1), plat(2), plb(1), podo(1), puls(1), rheum(1), rhus-r(1), rhus-t(2), sabin(1), sang(1), sars(2), sel(2), senec(1), seneg(1), sep(3), sil(2), squil(1), staph(1), stram(3), sul-ac(1), sulph(2), sumb(1), tab(1), tax(1), ter(2), thuj(1), tub(1), verat(1), zinc(1)"
+684,2,"COLOR, black, red, evening",sel(3)
+684,2,"COLOR, black, red, blood-red","aesc(1), apis(1), bell(1), berb(2), calc(2), carb-v(2), cham(2), coff(1), crot-h(2), crot-t(1), ferr(1), hell(2), hep(2), kali-i(2), merc(1), petr(1), pic-ac(1), rhus-t(1), sep(2)"
+684,2,"COLOR, black, red, bright red","am-m(1), bov(1)"
+684,2,"COLOR, black, red, brownish-red","ant-c(2), ant-t(2), apis(1), apoc(1), chel(2), coc-c(1), hep(2), lact-ac(2), merc(1), plb(1), puls(1), rhod(1), sulph(1)"
+684,2,"COLOR, black, red, clear and","acon(2), chel(1)"
+684,2,"COLOR, black, red, dark-red","aesc(1), aloe(1), ant-c(1), ant-t(1), arg-n(2), bapt(2), benz-ac(2), carb-v(2), cedr(1), clem(1), cob(1), cop(2), crot-h(2), cupr(2), ferr(2), grat(1), hep(2), ip(1), lob(2), lyc(2), merc(2), merc-i-f(1), merc-i-r(1), nat-s(1), op(1), pareir(2), phos(1), phyt(1), plan(2), plb(1), polyg-h(1), puls(1), rheum(1), sec(1), sep(3), squil(2), staph(1), sul-ac(1), tab(1), tarent(1), tell(1), thuj(1), valer(1)"
+684,3,"COLOR, black, red, dark-red, night",mosch(1)
+684,2,"COLOR, black, red, deep-red","ant-c(1), ant-t(1), carb-v(1), cupr(1), hep(1), lob(1), merc(2), phyt(1), rhus-r(2), sul-ac(1)"
+684,2,"COLOR, black, red, fever, with",nux-v(2)
+684,2,"COLOR, black, red, fiery red","ars(1), bell(1), camph(1), chin(1), crot-t(1), merc(1), plb(1), sel(1)"
+684,2,"COLOR, black, red, perspiration, with",cedr(1)
+684,2,"COLOR, black, red, reddish-yellow","acon(1), daph(1)"
+684,1,"COLOR, black, sherry","apoc(1), squil(1), sulph(1)"
+684,1,"COLOR, black, smoke-color","carb-ac(1), crot-h(1), nat-h(1), ter(3)"
+684,1,"COLOR, black, violet","apis(1), indg(1), mur-ac(2), nux-m(1)"
+684,1,"COLOR, black, white","all-s(2), alum(1), alumn(1), am-c(1), ambr(1), ang(1), arn(1), bapt(1), bell(1), berb(1), bry(1), cann-s(1), canth(1), caust(2), cham(1), chel(2), chin(2), cina(1), coloc(2), con(1), cycl(1), dulc(2), ferr(1), lact-ac(1), lyc(1), merc(1), nat-m(1), phos(1), plan(1), rhus-t(2), sec(1), spong(2), sulph(2)"
+684,2,"COLOR, black, white, morning",lact-ac(1)
+684,2,"COLOR, black, white, chalk, as if mixed with","merc(1), ph-ac(2), phos(3)"
+684,2,"COLOR, black, white, jelly-like","cina(1), coloc(2)"
+684,2,"COLOR, black, white, standing, on",nit-ac(1)
+684,1,"COLOR, black, yellow, light","acon(1), agar(2), aloe(2), am-m(2), ang(1), ant-c(2), apis(1), apoc(1), ars(1), aur(3), bar-m(1), bell(2), berb(1), bufo(1), cact(1), camph(1), cann-s(2), carb-an(1), carb-v(1), cham(2), chel(1), chin(1), colch(1), crot-t(2), daph(2), hydr-ac(1), hyos(2), iod(1), jatr(1), kali-bi(1), kali-n(1), kalm(1), lach(3), lact(2), laur(1), led(1), mag-m(1), nat-c(2), nit-ac(1), plb(1), raph(1), samb(1), sep(3), verat(1), zinc(1)"
+684,2,"COLOR, black, yellow, light, thick and turbid like rotten eggs",daph(1)
+685,2,"COLOR, black, yellow, light, dark","aesc(2), agar(1), arg-n(2), ars(2), berb(1), cedr(2), chel(3), con(2), hep(2), kali-c(2), nat-c(2), sang(2), staph(1)"
+685,2,"COLOR, black, yellow, light, lemon","agar(1), ambr(1), bell(1), chel(2), coc-c(1), eupi(1), ign(1), nat-c(1), op(1), sant(1), tab(1), zinc(1)"
+685,2,"COLOR, black, yellow, light, orange","am-m(1), ang(1), carb-an(1), cina(2), crot-t(1), cupr-ar(1), lyc(1), phos(1), plan(1), plb(1), sant(1), seneg(1), zinc(1)"
+685,2,"COLOR, black, yellow, light, saffron","aloe(1), cina(2), kali-p(1), sant(1)"
+685,0,COLORLESS,"agar(2), alum(1), anac(1), ang(1), apis(1), apoc(2), bar-c(1), bell(1), berb(1), camph(1), cann-i(3), carb-ac(1), caust(2), cham(2), coc-c(1), coff(2), con(1), crot-h(1), dig(2), ferr(2), gels(3), hyos(1), kali-n(1), kreos(2), laur(1), lil-t(1), lith(1), lycps(2), mag-p(2), med(1), mosch(1), murx(2), nat-a(1), nat-m(3), nux-v(2), ph-ac(2), phos(2), plan(2), puls(2), rhus-t(1), rumx(1), sang(2), sarr(1), sars(2), sep(3), sil(2), squil(1), stram(1), sulph(2), ust(1), verat(1), zinc(1)"
+685,1,"COLORLESS, menses, during","cham(2), ph-ac(1), vib(1)"
+685,0,"CONSTITUENTS, where there is diminution of, there is increase of stools",colch(1)
+685,0,COPIOUS (increased),"acet-ac(3), acon(2), aesc(2), aeth(2), agar(2), agn(1), all-c(1), all-s(1), aloe(3), alum(2), alumn(1), am-c(1), am-m(2), ambr(2), anac(1), ang(1), ant-c(2), ant-t(1), anthr(2), apis(2), apoc(2), arg-m(3), arg-n(3), arn(1), ars(2), ars-i(1), arum-t(2), aspar(3), aster(1), atro(1), aur(2), aur-m(2), aur-m-n(2), bar-c(2), bar-m(1), bell(2), benz-ac(1), berb(1), bism(2), bov(1), brach(1), brom(1), bry(1), bufo(1), cact(2), cahin(2), calc(2), calc-f(1), calc-p(2), camph(2), cann-i(3), cann-s(1), canth(2), caps(1), carb-ac(1), carb-an(2), carb-s(1), chel(2), chim(2), chin(2), chin-a(1), chin-s(1), chlol(2), cic(1), cimic(2), cina(2), cinnb(1), clem(2), cob(1), coc-c(1), cocc(1), coff(2), colch(2), coloc(2), con(2), conv(1), cop(1), crot-c(2), crot-h(2), crot-t(1), cub(1), cupr(2), cur(1), cycl(2), daph(2), dig(2), dros(1), dulc(1), echi(2), elaps(1), elat(1), equis(2), erig(1), ery-a(1), eup-per(1), eup-pur(2), euphr(1), eupi(1), fago(1), ferr(2), ferr-ar(1), ferr-i(1), ferr-ma(1), ferr-p(1), fl-ac(2), form(1), gamb(1), gels(3), gins(1), glon(1), gnaph(1), graph(1), grat(1), guai(1), ham(1), hell(1), helon(2), hep(1), hyos(1), ign(2), iod(2), iris(2), jatr(1), kali-ar(1), kali-c(2), kali-chl(1), kali-i(2), kali-n(2), kali-p(2), kali-s(2), kalm(2), kreos(3), lac-c(3), lach(2), lact(1), laur(1), lec(2), led(3), lil-t(2), lith(2), lob(1), lyc(2), lycps(2), lyss(1), mag-c(2), mag-p(1), mag-s(2), mang(1), meli(2), merc(3), merc-c(2), merc-i-f(1), merc-i-r(2), mez(1), morph(1), mosch(3), mur-ac(3), murx(2), mygal(1), nat-a(2), nat-c(3), nat-p(2), nat-s(3), nicc(1), nit-ac(1), nux-m(1), nux-v(2), ol-an(2), olnd(1), op(1), ox-ac(2), pall(1), par(1), petr(1), petros(2), ph-ac(3), phos(2), phyt(2), pic-ac(1), plan(2), plb(2), podo(2), prun-s(2), psor(1), puls(3), raph(2), rat(1), rhod(2), rhus-r(3), rhus-t(3), rumx(1), ruta(1), sabad(1), sabin(2), samb(1), sang(1), sarr(1), sars(2), sec(1), sel(1), senec(2), seneg(2), sil(1), spig(3), spong(1), squil(3), stann(1), staph(2), stram(1), stront(1), sul-ac(1), sulph(3), tab(1), tarax(2), tarent(2), tax(1), ter(2), teucr(2), ther(2), thuj(2), tril(1), uran(3), valer(1), verat(2), verat-v(1), verb(3), viol-t(2), vip(1), zinc(1), zing(1)"
+685,1,"COPIOUS (increased), daytime","cina(1), ham(1), pic-ac(1), sulph(2)"
+685,1,"COPIOUS (increased), morning","am-m(1), ambr(1), bar-ac(1), cahin(1), carb-an(1), equis(1), laur(1), lyc(1), mag-s(1), merc(1), mez(2), nat-c(1), nat-p(2), op(2), sars(2), sul-ac(1)"
+685,2,"COPIOUS (increased), morning, 6 a.m.",nat-a(1)
+685,1,"COPIOUS (increased), forenoon","arg-n(1), lyc(1), mez(2)"
+685,1,"COPIOUS (increased), noon",op(1)
+685,1,"COPIOUS (increased), afternoon","all-c(2), aloe(1), alum(1), am-c(1), bor(1), bov(1), dig(1), laur(1), nat-m(1), nat-p(1), nicc(1), op(1), rumx(1), thuj(1)"
+685,2,"COPIOUS (increased), afternoon, siesta, after",cycl(1)
+685,1,"COPIOUS (increased), evening","am-c(1), coloc(1), fl-ac(1), helon(1), kali-chl(1), laur(1), lyc(3), lyss(1), op(1), ox-ac(1), pall(1), sang(1), sulph(1), thuj(1), zinc(1)"
+685,2,"COPIOUS (increased), evening, 7 p.m.","cic(1), pic-ac(1)"
+685,2,"COPIOUS (increased), evening, 8 p.m.",cic(1)
+685,2,"COPIOUS (increased), evening, 10 p.m.",phos(1)
+685,1,"COPIOUS (increased), night","agar(1), aloe(1), am-c(1), am-m(2), ant-c(2), ant-t(1), apis(2), arg-m(2), arg-n(1), ars(1), bapt(2), bar-c(1), bell(2), bov(1), bry(1), cact(2), calc-f(3), carb-ac(2), carb-an(2), caust(1), chin(1), chin-a(1), chlol(1), coloc(1), cop(1), cupr(1), cycl(1), dig(2), euphr(1), gels(2), hyper(1), kali-chl(1), kali-n(1), kali-p(1), kreos(2), lac-c(2), led(2), lith(2), lyc(3), mag-c(1), mag-p(1), med(2), merc(2), mez(1), murx(2), nat-a(1), nat-c(1), nat-m(2), nat-p(1), nat-s(2), nicc(1), op(1), petr(1), ph-ac(2), phyt(1), plan(1), prun-s(1), rhus-r(1), ruta(1), sang(2), sars(2), sil(2), spig(3), stram(2), sulph(3), ther(1), thuj(2), uran(3)"
+685,2,"COPIOUS (increased), night, lying, while",bell(1)
+685,2,"COPIOUS (increased), night, menses, before","am-m(1), cann-s(1), hyos(1)"
+685,3,"COPIOUS (increased), night, menses, before, during",ph-ac(1)
+685,2,"COPIOUS (increased), night, stool, during","am-c(1), sulph(1)"
+685,2,"COPIOUS (increased), night, midnight","coff(1), op(1)"
+685,3,"COPIOUS (increased), night, midnight, after","carb-ac(1), ox-ac(1), plb(1), sulph(3)"
+685,2,"COPIOUS (increased), night, 4 a.m.",plb(1)
+685,2,"COPIOUS (increased), night, 5 a.m.","carb-ac(1), ox-ac(1)"
+686,1,"COPIOUS (increased), amenorrhœa, with","alum(1), am-c(1), caul(1), cham(2), gels(1), nat-m(1), sulph(1)"
+686,1,"COPIOUS (increased), apyrexia, during","ars(1), calc(1), chin(1), ferr(1), graph(1), nux-v(1), samb(1), valer(1)"
+686,1,"COPIOUS (increased), chill, during",lec(1)
+686,1,"COPIOUS (increased), coffee, after","cahin(1), olnd(1)"
+686,1,"COPIOUS (increased), coryza, with","all-c(2), calc(1), verat(1)"
+686,1,"COPIOUS (increased), delirium, after",stram(2)
+686,1,"COPIOUS (increased), drunk, more than is","ambr(1), aur(1), aur-m-n(1), bell(2), coloc(2), kali-i(1), lach(1), merc(2), nux-v(2), ph-ac(1), raph(1)"
+686,1,"COPIOUS (increased), eating, after",puls(1)
+686,1,"COPIOUS (increased), epilepsy, after",cupr(2)
+686,1,"COPIOUS (increased), exhaustion, attended with","acet-ac(1), benz-ac(1), calc-p(2), carb-ac(1), chin-s(1), cimic(2), dig(1), ferr(1), lyc(1), med(1)"
+686,2,"COPIOUS (increased), exhaustion, attended with, and much thirst",chin-s(1)
+686,1,"COPIOUS (increased), fever, during","ant-c(1), arg-m(1), ars(1), aur-m-n(2), cedr(1), cham(2), colch(2), dulc(1), eup-pur(2), lyc(2), med(1), mur-ac(1), ph-ac(1), phos(2), squil(1), stram(3)"
+686,1,"COPIOUS (increased), headache, with","acon(1), bell(2), bov(1), canth(2), chin-s(2), cinnb(2), coloc(1), cupr(1), eug(1), ferr-p(1), gels(2), glon(2), ign(2), iris(1), kalm(1), lac-c(1), lac-d(3), lil-t(2), mosch(2), ol-an(2), sang(1), sel(2), sep(1), sil(1), uran(1), verat(2), vib(1), vip(1)"
+686,2,"COPIOUS (increased), headache, with, after","asc-c(1), iris(2)"
+686,2,"COPIOUS (increased), headache, with, followed by copious limpid urine and vomiting",iris(1)
+686,1,"COPIOUS (increased), hunger and thirst, with",verat(1)
+686,1,"COPIOUS (increased), menses, before","cinnb(1), hyos(1)"
+686,2,"COPIOUS (increased), menses, before, during","canth(1), cham(2), hyos(2), kali-bi(1), lac-c(1), ph-ac(3), phyt(2), sulph(1), vib(1)"
+686,1,"COPIOUS (increased), nervous women",ign(2)
+686,1,"COPIOUS (increased), pain in back, which amel.","lyc(3), med(2)"
+686,1,"COPIOUS (increased), perspiration, with","acon(3), ant-c(1), bell(1), cham(1), dulc(3), ign(1), lach(1), lyc(1), mag-c(1), mur-ac(2), nat-c(1), nat-m(1), ph-ac(2), phos(3), rhus-t(3), samb(1), seneg(1), spig(1), squil(1), stann(1), stram(1), thuj(1)"
+686,1,"COPIOUS (increased), vomiting, with","acon(1), lach(1), verat(1)"
+686,0,"CUTICLE, forming on the surface of the (includes Fatty)","agar(1), all-c(2), alum(1), alumn(2), arg-n(1), bell(1), calad(1), calc(2), canth(1), chin(1), chin-s(1), cob(1), com(1), crot-t(1), dulc(2), graph(2), hep(2), iod(1), kali-ar(1), kali-bi(1), lact-ac(1), laur(1), lyc(2), med(2), merc-c(1), op(1), par(3), petr(2), ph-ac(1), phos(2), plb(1), psor(2), rumx(1), sars(2), sep(3), sin-a(1), sul-ac(1), sulph(2), sumb(2), thuj(1), verat(1), verat-v(1), zinc(1)"
+686,1,"CUTICLE, forming on the surface of the (includes Fatty), iridescent","agar(1), all-c(3), alumn(1), bapt(1), bell(1), canth(1), chin(1), coca(1), cycl(2), graph(2), hep(2), iod(2), op(1), par(3), petr(2), phos(3), puls(2), sars(2), sep(1), sin-a(1), sulph(2), thuj(1)"
+686,2,"CUTICLE, forming on the surface of the (includes Fatty), iridescent, bluish",alumn(1)
+686,1,"CUTICLE, forming on the surface of the (includes Fatty), whitish","arg-n(1), kali-bi(1), merc-c(1), plb(1), sep(1)"
+686,2,"CUTICLE, forming on the surface of the (includes Fatty), whitish, morning",arg-n(1)
+686,0,"FLAKY, flocculent (See Sediment)",
+686,0,FROTHY,"acon(1), all-c(3), apis(2), arn(1), ars(1), carb-v(1), chel(3), chin(2), chin-s(1), clem(1), con(1), cop(1), crot-t(1), cub(1), glon(1), iris(1), jatr(1), kali-c(1), lach(3), laur(1), lith(1), lyc(3), myric(1), nat-m(1), nat-s(2), op(1), pareir(2), phos(2), sel(3), seneg(3), spong(3), thuj(1)"
+686,1,"FROTHY, morning","ars-h(1), crot-t(1), hyper(1)"
+686,1,"FROTHY, afternoon",chel(1)
+686,1,"FROTHY, night",crot-t(1)
+686,1,"FROTHY, greenish-yellow",phos(1)
+686,1,"FROTHY, violet ring",puls(1)
+686,0,"GELATINOUS, lumpy on standing","cina(1), coloc(2), crot-h(1), ph-ac(1)"
+686,0,"INDICAN, containing","nit-ac(1), pic-ac(1)"
+686,0,INVOLUNTARY (See Urination),
+686,0,LIMPID,"bell(1), carb-ac(1), chim(1), cina(1), coc-c(1), dig(1), dulc(1), elat(1), eup-per(1), gels(3), hydr(1), iris(1), kali-i(1), merc(1), plan(1), sarr(1), thuj(1)"
+686,0,MILKY,"agar(2), alum(2), apis(3), arn(1), aur(3), aur-m(2), berb(1), bov(1), caj(1), calc(2), cann-s(1), caps(1), carb-v(2), card-m(1), caust(1), chin-s(1), cina(2), clem(1), coloc(2), con(1), cop(1), cycl(1), dulc(2), ferr(2), ferr-i(2), gels(1), hep(3), iod(2), kali-bi(1), lil-t(2), lyc(3), merc(1), merc-c(1), mur-ac(2), nat-m(1), nit-ac(2), nux-v(1), petros(1), ph-ac(3), phos(2), plb(1), rhus-t(1), sep(2), stann(1), still(1), sulph(2), uran(2)"
+686,1,"MILKY, morning","lil-t(1), nat-m(1)"
+686,1,"MILKY, afternoon",agar(3)
+686,1,"MILKY, chalk had been stirred in it, as if","alum(1), ph-ac(2), sulph(1)"
+686,1,"MILKY, cheesy milk had been stirred in, as if","alumn(1), ph-ac(2)"
+687,1,"MILKY, curdled-like","ph-ac(3), phos(1)"
+687,1,"MILKY, emotion after every, as if stirred up with chalk",ph-ac(2)
+687,1,"MILKY, flour, as if mixed with",ph-ac(2)
+687,1,"MILKY, hydrocephalus in, very little but frequent discharges of milky urine with unconsciousness and delirium",apis(3)
+687,1,"MILKY, menses, before",ph-ac(2)
+687,1,"MILKY, during","berb(1), nat-m(1)"
+687,2,"MILKY, during, after",nat-m(2)
+687,1,"MILKY, passed, when",mur-ac(1)
+687,1,"MILKY, perspiration, during",phos(1)
+687,1,"MILKY, standing, on","cina(2), ph-ac(2), stann(1)"
+687,1,"MILKY, turbid, and","bry(1), calc(1), cann-s(1), chin(1), cina(2), con(1), cycl(1), dulc(1), hep(2), psor(1), rhus-t(1)"
+687,1,"MILKY, urination, at close of","carb-v(2), coff(1), rhus-t(1), sep(2)"
+687,0,MUCUS in (See Sediment),
+687,0,MUDDY,"aesc(2), hyper(1), kali-c(2), lyc(1), nat-m(2), pall(1), rhus-t(2), sabad(1), uva(1), zinc(1)"
+687,0,NEUTRAL,"arn(1), bapt(1), canth(1), dig(1), eup-per(1), helon(1), hyos(1), kali-c(1), lept(1), phos(1), plb(1)"
+687,0,ODORLESS,"bell(1), camph(1), cedr(2), chlol(1), coc-c(1), dros(1), kali-cy(1), senec(1), spong(2)"
+687,0,ODOR offensive,"agar(1), aloe(1), ambr(1), ant-t(1), apis(3), arg-m(2), arn(3), ars(2), ars-i(1), asaf(1), asar(2), aspar(2), aur(2), aur-m(1), bapt(3), bar-m(2), benz-ac(3), bor(2), bufo(1), calad(2), calc(3), camph(1), carb-ac(2), carb-an(2), carb-s(2), carb-v(3), caust(2), chim(2), chin(1), chin-a(1), clem(1), colch(1), coloc(1), cupr(1), daph(1), dig(1), dros(1), dulc(3), fl-ac(1), graph(2), guai(2), hell(1), hep(1), hydr(1), hyper(1), ind(2), iod(1), iris(1), kali-ar(1), kali-bi(1), kali-br(1), kali-c(2), kali-i(2), kali-p(2), kali-s(2), kreos(2), lach(1), lyc(2), med(1), meph(2), merc(2), murx(2), nat-a(2), nat-c(2), nat-m(1), nat-p(1), nat-s(1), nit-ac(3), nux-v(2), op(1), petr(2), ph-ac(2), phos(2), plb(1), puls(2), pyrog(1), rhod(2), sal-ac(1), sec(1), sep(3), stann(1), sulph(3), tab(1), tarent(1), ter(2), tril(1), uran(1), vario(1), verat-v(2), viol-t(3)"
+687,1,"ODOR offensive, acrid, pungent","am-c(1), asaf(2), bor(3), calc(2), calc-f(1), camph(1), cann-s(1), caust(1), clem(1), cob(2), fl-ac(2), graph(1), hep(1), lyc(2), merc(1), nit-ac(1), par(1), rhod(1), rhus-t(2), stram(1), thuj(1)"
+687,2,"ODOR offensive, acrid, pungent, fever, during","arg-m(1), kreos(1), lyc(2), merc(2), ph-ac(2), rhus-t(1), squil(1), staph(1), sulph(1)"
+687,2,"ODOR offensive, acrid, pungent, menses, during","nit-ac(2), sep(1)"
+687,2,"ODOR offensive, acrid, pungent, perspiration, during","ars(1), carb-v(1), dulc(1), nit-ac(1), ph-ac(1), puls(1), sep(2), thuj(1), viol-t(1)"
+687,2,"ODOR offensive, acrid, pungent, sweaty feet, like",sulph(1)
+687,1,"ODOR offensive, ammoniacal","aloe(1), am-caust(1), am-m(1), asaf(3), aur(2), bell(1), bor(1), brom(1), bufo(1), cahin(1), calc(1), carb-ac(1), carb-v(2), chel(1), chin-s(1), coc-c(1), dig(1), dulc(2), equis(1), ferr(2), ferr-p(1), graph(1), iod(3), kreos(1), lach(2), lyc(1), merc(2), mosch(3), nit-ac(2), pareir(1), petr(2), phos(2), puls(1), rhod(1), sil(1), stront(1), sumb(1), tab(1), tub(2), viol-t(1)"
+687,2,"ODOR offensive, ammoniacal, infants",iod(2)
+687,1,"ODOR offensive, aromatic","benz-ac(1), carb-ac(1), eup-pur(1)"
+687,1,"ODOR offensive, burnt horn",arum-m(1)
+687,1,"ODOR offensive, cat's urine","aspar(1), caj(1), vib(1), viol-t(2)"
+687,1,"ODOR offensive, changeable",benz-ac(2)
+687,1,"ODOR offensive, coffee",berb(1)
+687,1,"ODOR offensive, eggs, spoiled, like",daph(2)
+687,1,"ODOR offensive, fishy","astac(1), ol-an(1), uran(1)"
+687,1,"ODOR offensive, fish-brine",bufo(1)
+687,1,"ODOR offensive, horse's urine, like","absin(1), benz-ac(2), nat-c(2), nit-ac(3), phos(1)"
+687,1,"ODOR offensive, mouldy","am-m(1), camph(1), phys(1), sulph(1)"
+687,1,"ODOR offensive, musk",oci(1)
+687,1,"ODOR offensive, nutmeg",nux-m(1)
+687,1,"ODOR offensive, onions","cupr-ar(1), gamb(1), phos(1)"
+687,1,"ODOR offensive, putrid","aloe(1), ars(1), aur(1), aur-m(2), bar-m(1), benz-ac(2), calad(2), calc(3), carb-an(1), carb-v(1), coc-c(1), coloc(1), daph(1), hell(1), hydr(1), nat-c(1), ph-ac(2), sep(2)"
+687,2,"ODOR offensive, putrid, evening",calad(2)
+687,2,"ODOR offensive, putrid, fever, during",ph-ac(1)
+687,1,"ODOR offensive, sourish","ambr(2), benz-ac(1), calc(2), chel(1), graph(2), hep(1), merc(2), nat-c(2), petr(1), sep(3)"
+687,1,"ODOR offensive, strong","aesc(1), aloe(1), am-m(1), ant-t(2), arg-n(1), asaf(3), aspar(2), aur(2), benz-ac(3), bufo(1), calad(1), calc(2), calc-f(1), calc-p(1), carb-ac(1), carb-v(2), chel(1), chin-s(3), cob(1), conv(1), dig(1), dros(1), dulc(2), ferr(2), fl-ac(2), hydr(1), iod(3), iris(1), kali-bi(1), kreos(1), lach(2), lil-t(1), lyc(2), med(1), merc(2), merc-c(1), mez(1), mosch(3), nat-m(1), nit-ac(3), nux-m(1), petr(2), phos(2), pic-ac(1), sep(2), stram(1), sulph(2), sumb(2), thuj(2), tub(1), valer(1), zinc(1), zing(1)"
+688,2,"ODOR offensive, strong, intensely urinous",benz-ac(3)
+688,2,"ODOR offensive, strong, menses, before",merc(1)
+688,3,"ODOR offensive, strong, menses, before, during",nit-ac(2)
+688,1,"ODOR offensive, sweetish","aeth(1), arg-m(2), arg-n(1), ferr-i(1), hyper(2), kali-a(1), lact(2), nux-m(2), ter(2)"
+688,1,"ODOR offensive, tobacco, like",nit-ac(1)
+688,1,"ODOR offensive, violets, like","clem(1), cop(1), cub(1), inul(1), lact(1), nux-m(1), osm(1), phos(1), sel(1), ter(1)"
+688,2,"ODOR offensive, violets, like, evening",osm(1)
+688,0,POLYPOUS formation in,calc(1)
+688,0,PURULENT (See Sediment),
+688,0,SCANTY,"abrot(1), acon(2), aesc(2), agar(2), ail(2), all-s(1), aloe(2), alum(1), alumn(1), am-c(1), am-m(1), ambr(1), anac(1), ang(1), ant-c(1), ant-t(2), anthr(1), apis(3), apoc(2), arg-n(2), arn(2), ars(3), ars-i(2), arum-t(3), asaf(1), asc-c(1), aspar(2), aur(2), aur-m(2), bapt(2), bell(2), benz-ac(1), berb(2), bov(1), brom(1), bry(2), bufo(1), cact(1), calad(1), calc(1), calc-ar(1), calc-f(1), camph(2), cann-i(1), cann-s(1), canth(3), caps(1), carb-ac(2), carb-an(1), carb-s(3), carb-v(1), card-m(2), cast(1), caust(2), cedr(1), cham(2), chel(1), chim(1), chin(2), chin-a(2), chin-s(2), cic(1), cimic(1), cimx(1), cina(1), clem(2), cob(2), coc-c(1), cocc(1), coff(1), colch(3), coloc(1), con(3), cop(1), corn(2), croc(2), crot-h(2), cupr(2), cupr-s(1), cur(1), cycl(2), dig(3), dros(2), dulc(2), echi(1), elat(1), equis(3), erig(1), ery-a(1), eug(1), eup-per(1), eup-pur(2), eupho(1), eupi(1), ferr(2), ferr-ar(2), ferr-i(1), ferr-p(1), fl-ac(2), graph(3), grat(3), guai(1), ham(2), hell(3), helon(1), hep(2), hydr(1), hyos(2), hyper(1), ign(1), indg(1), iod(1), ip(2), iris(1), jatr(1), kali-ar(2), kali-bi(2), kali-br(2), kali-c(2), kali-chl(2), kali-i(1), kali-n(3), kali-p(1), kali-s(2), kreos(2), lac-c(3), lac-d(1), lach(2), lact(1), lact-ac(3), laur(2), lec(1), led(2), lept(1), lil-t(3), lith(2), lob(1), lyc(2), lyss(1), mag-m(2), mag-s(1), meny(2), merc(3), merc-c(3), merc-d(3), mez(2), morph(1), mur-ac(1), naja(2), nat-a(2), nat-c(2), nat-m(1), nat-p(1), nat-s(3), nicc(1), nit-ac(3), nux-m(2), nux-v(3), olnd(1), op(3), osm(1), ox-ac(1), pall(1), par(1), pareir(2), petr(2), ph-ac(1), phos(2), phyt(2), pic-ac(2), plb(3), podo(2), prun-s(1), psor(2), puls(2), pyrog(1), rat(2), rhod(1), rhus-r(1), rhus-t(2), ruta(3), sabad(1), sabin(1), sacc(1), sang(1), sarr(1), sars(3), sec(1), sel(3), seneg(2), sep(3), sil(1), spong(1), squil(2), stann(1), staph(3), stram(2), stront(1), sul-ac(1), sulph(3), sumb(2), syph(2), tab(1), tarax(1), tell(1), ter(3), ther(1), thuj(1), tub(1), verat(2), verat-v(1), verb(2), xan(1), zinc(1)"
+688,1,"SCANTY, daytime","aesc(1), lyc(2), ther(1)"
+688,1,"SCANTY, morning","ars-h(1), coff(1), dig(1), fl-ac(1), mez(1), ox-ac(1), sang(1), sul-ac(1), zinc(1)"
+688,1,"SCANTY, afternoon","hell(1), rumx(1), sumb(1), thuj(2)"
+688,1,"SCANTY, evening","arg-n(1), ferr-i(1), fl-ac(1), mag-c(1), nat-m(1), zinc(1)"
+688,1,"SCANTY, night","ant-c(1), carb-an(1), cic(1), coc-c(1), lyc(1), morph(2)"
+688,1,"SCANTY, alternating with copious flow","berb(1), dig(2), gels(1), sang(1)"
+688,1,"SCANTY, amenorrhœa, with","acon(1), apis(1), chin(1), cocc(1), ham(1), hell(1), laur(1), lil-t(1), nux-m(1), xan(1)"
+688,1,"SCANTY, brain affection, with","apis(2), bell(1), bry(1), cupr(2), squil(1), stram(1)"
+688,1,"SCANTY, fever, during","apis(2), ars(1), cann-s(1), canth(1), cocc(1), colch(1), eup-pur(1), lyc(1), nat-m(1), nit-ac(1), nux-v(1), op(1), puls(2), staph(1)"
+688,1,"SCANTY, headache, during, copious after","asc-c(1), sang(1)"
+688,1,"SCANTY, menses, before","apis(2), sil(1)"
+688,2,"SCANTY, menses, before, during",nat-m(1)
+688,1,"SCANTY, nervous women",agar(2)
+688,1,"SCANTY, perspiration, during","ant-t(1), apis(1), arn(1), bell(1), bry(1), calc(3), canth(2), carb-v(1), caust(1), cedr(1), chin(1), dig(1), dulc(1), graph(2), hell(3), hep(1), hyos(1), merc(2), nit-ac(1), nux-v(2), op(3), puls(1), rhus-t(1), staph(2), sulph(3), verat(1)"
+688,0,SEDIMENT,"acon(2), aesc(1), agar(1), alum(1), am-caust(1), am-m(1), ambr(1), ant-c(1), ant-t(1), apis(1), arn(1), ars(2), benz-ac(2), berb(2), bry(1), calad(1), calc(1), canth(3), carb-s(1), carb-v(1), caust(1), cedr(1), cham(1), chim(2), chin(1), chin-a(1), chin-s(1), cimx(1), cina(1), coloc(3), con(1), cop(2), cupr(1), dig(1), dulc(1), ferr(1), ferr-p(1), graph(1), ip(1), kali-ar(2), kali-c(1), kali-i(1), kali-n(1), kali-p(2), kali-s(1), laur(1), led(1), lyc(3), mang(2), merc(3), mez(2), naja(2), nat-a(1), nat-m(1), nit-ac(2), nux-m(1), op(1), par(1), petr(2), phos(2), pic-ac(3), plb(1), puls(3), rhus-t(1), sal-ac(1), sars(3), sep(3), sil(2), spong(1), staph(2), sul-ac(2), sulph(2), tarent(2), ter(1), thuj(1), valer(3), zinc(3)"
+688,1,"SEDIMENT, adherent","brom(1), chin-s(2), cimx(2), coc-c(1), coca(1), coloc(2), cupr(2), daph(2), ferr(2), lac-c(2), nat-c(1), nat-m(1), nit-ac(1), petr(2), phos(1), phyt(1), plat(1), puls(2), pyrog(1), sep(3), stann(1), sumb(1)"
+688,1,"SEDIMENT, albuminous","apoc(1), merc-c(1), oci(1)"
+688,1,"SEDIMENT, amorphous","ang(1), hydrang(2), iod(1)"
+688,1,"SEDIMENT, black",ter(1)
+688,1,"SEDIMENT, bloody","acon(2), ant-t(1), apis(1), calc(1), cann-s(1), canth(3), carb-v(2), cham(1), chim(3), coloc(1), con(1), crot-h(1), dulc(2), hell(1), lyc(1), mez(1), ph-ac(3), phos(1), puls(3), sep(3), sul-ac(1), sulph(1), ter(2), uva(1)"
+689,1,"SEDIMENT, bluish","pic-ac(1), prun-s(1)"
+689,1,"SEDIMENT, bran-like","aloe(1), ambr(1), berb(1), cedr(1)"
+689,1,"SEDIMENT, bright",nit-ac(1)
+689,1,"SEDIMENT, brown","ambr(3), apis(2), arn(2), chin-s(1), crot-t(1), dig(1), lach(2), lob(1), thuj(1), valer(1)"
+689,2,"SEDIMENT, brown, dark","aesc(2), all-s(2), plb(1), spig(1)"
+689,2,"SEDIMENT, brown, dirty",acon(1)
+689,2,"SEDIMENT, brown, light","coloc(2), puls(1)"
+689,2,"SEDIMENT, brown, pinkish",myric(1)
+689,2,"SEDIMENT, brown, reddish",lith(1)
+689,1,"SEDIMENT, brown and white",coloc(1)
+689,1,"SEDIMENT, burnt, as if",sep(1)
+689,1,"SEDIMENT, chalk (like flour)","alum(1), anan(1), ant-t(1), bufo(1), calc(1), chel(1), eup-per(1), graph(1), led(1), merc(2), nat-m(1), ph-ac(2), phos(1), phyt(1), ruta(1), sulph(1)"
+689,1,"SEDIMENT, cheesy","alumn(1), ph-ac(2), phos(3), sars(2), sec(2)"
+689,1,"SEDIMENT, chocolate-colored",chin-s(1)
+689,1,"SEDIMENT, circles","chin-s(1), lac-c(1), sulph(1)"
+689,1,"SEDIMENT, clay-colored","alum(1), alumn(1), am-c(2), am-m(2), anac(2), berb(3), chin-s(1), cor-r(1), mang(1), phos(1), sars(2), sep(2), sulph(2), thuj(1), zinc(3)"
+689,2,"SEDIMENT, clay-colored, adhesive",sep(2)
+689,3,"SEDIMENT, clay-colored, adhesive, menses, during, hard to wash off",sep(2)
+689,1,"SEDIMENT, clots, yellow-red",cob(1)
+689,1,"SEDIMENT, cloudy","alum(1), alumn(1), am-m(1), ambr(1), anac(1), berb(3), bry(1), carb-v(1), caust(1), cham(1), chin(1), crot-t(1), elaps(1), hydr-ac(1), kali-n(2), lach(1), laur(1), mag-m(1), merc(1), olnd(1), par(1), petr(1), ph-ac(2), phos(1), plat(1), rat(1), seneg(2), sumb(1), thuj(2), valer(1), zinc(1)"
+689,1,"SEDIMENT, coffee grounds, like","ambr(2), apis(3), hell(3), lach(2), ter(2)"
+689,1,"SEDIMENT, copious","agar(1), all-s(1), am-c(1), arn(1), ars(2), bell(1), berb(3), calc(1), carb-an(1), cham(1), chim(2), chin(1), coloc(2), con(1), cop(2), crot-t(1), cycl(1), kali-ar(1), kali-bi(1), kali-c(1), laur(1), lyc(1), phos(2), puls(2), sal-ac(1), tarent(2), thuj(1)"
+689,1,"SEDIMENT, crusty","caust(1), nat-c(2), phos(2), sars(2), sep(2)"
+689,1,"SEDIMENT, crystals","arg-n(1), coloc(1), crot-t(1), ferr-m(1), lyc(2)"
+689,1,"SEDIMENT, dark","crot-h(2), iod(1), phos(1), puls(1)"
+689,1,"SEDIMENT, dirty","anac(1), chin(1)"
+689,1,"SEDIMENT, earthy","mang(1), sul-ac(1)"
+689,1,"SEDIMENT, fine deposit",sep(1)
+689,1,"SEDIMENT, flocculent","acon(1), agar(1), alum(2), ambr(1), aspar(1), benz-ac(2), berb(3), brom(1), calc(1), calc-p(1), cann-s(2), canth(3), cham(2), chel(2), chin(1), cina(1), clem(2), cob(1), coc-c(1), coca(1), coloc(1), crot-t(1), cycl(1), ery-a(1), eup-pur(1), grat(1), hell(1), hep(2), iod(1), kali-c(1), kali-i(1), kali-n(1), kali-p(1), laur(1), lith(1), merc(1), merc-c(1), mez(3), nit-ac(1), petr(2), ph-ac(2), phos(2), plb(2), rhus-t(1), rumx(1), sars(3), seneg(1), squil(1), sumb(1), thuj(1), uran(1), valer(1), zinc(1)"
+689,2,"SEDIMENT, flocculent, white",phos(1)
+689,3,"SEDIMENT, flocculent, white, standing, on",zinc(1)
+689,1,"SEDIMENT, gelatinous","berb(3), calad(1), chim(2), coc-c(1), coca(2), coloc(3), crot-h(1), dulc(2), hydr(1), pareir(2), ph-ac(1), puls(2)"
+689,1,"SEDIMENT, granular","aloe(1), berb(1), chin-s(1)"
+689,1,"SEDIMENT, gray","agar(1), ant-t(1), con(2), hyos(1), kali-i(1), led(1), mang(1), ph-ac(1), phos(2), puls(1), spong(1)"
+689,2,"SEDIMENT, gray, brownish-gray",chin(1)
+689,2,"SEDIMENT, gray, whitish-gray","berb(3), hyos(1), merc-c(1), spong(1)"
+689,1,"SEDIMENT, loose","alum(1), carb-an(1), chin(2)"
+689,1,"SEDIMENT, mealy","agar(2), berb(3), calc(2), canth(2), cedr(2), chin(2), chin-s(1), cor-r(1), graph(2), hyos(2), kali-c(1), merc(1), nat-m(2), ph-ac(1), sep(2), sulph(1), valer(1), zinc(1)"
+689,1,"SEDIMENT, milky","ant-t(1), coloc(1), ferr-i(1), lyc(1), ox-ac(1), ph-ac(2), phos(1), sec(1)"
+689,1,"SEDIMENT, mucous","aesc(1), aloe(2), alumn(2), ant-c(2), apoc(1), arg-n(2), ars(1), asc-t(1), aur(2), bar-c(1), bell(1), benz-ac(3), berb(3), brach(1), brom(1), bry(1), calc(1), camph(1), cann-i(1), canth(2), carb-s(1), carb-v(2), caust(1), chel(2), chim(3), chin-s(1), cimic(2), clem(2), coc-c(2), colch(2), coloc(2), con(1), cop(1), crot-t(1), dig(1), dulc(2), equis(3), eup-pur(1), ferr(2), ferr-ar(1), ferr-p(1), glon(2), hydr(2), hyos(1), indg(1), kali-ar(1), kali-bi(2), kali-c(2), kali-chl(2), kali-n(1), kali-p(1), lach(2), lith(1), lyc(1), merc(2), merc-c(3), naja(1), nat-a(1), nat-c(2), nat-m(3), nat-p(1), nat-s(2), nit-ac(2), nux-v(2), op(1), pareir(3), petr(2), ph-ac(1), phos(1), puls(3), sars(3), seneg(1), sep(3), sul-ac(1), sulph(1), tab(1), ter(2), thuj(2), til(2), uran(1), uva(2), valer(1), verat(1)"
+689,2,"SEDIMENT, mucous, menses, before",lach(2)
+689,2,"SEDIMENT, mucous, milky white",kali-chl(2)
+689,2,"SEDIMENT, mucous, standing, after",crot-t(1)
+689,2,"SEDIMENT, mucous, tenacious","caust(1), coloc(2), con(1), nat-c(1), nux-v(2), puls(2), sil(1)"
+690,2,"SEDIMENT, mucous, thick, ropy, bloody mucous, great quantity of","chim(3), dulc(2)"
+690,1,"SEDIMENT, offensive","cupr(1), lyc(1)"
+690,1,"SEDIMENT, orange-colored",chin-s(1)
+690,1,"SEDIMENT, oxalate of lime","brach(1), caust(2), coca(1), kali-s(2), lyc(1), lycps(1), nat-p(2), nit-ac(3), ox-ac(1), plb(1), rhus-t(1), ter(2), zinc(1)"
+690,1,"SEDIMENT, pasty","ars(1), sep(3)"
+690,1,"SEDIMENT, phosphates","agar(1), aspar(1), benz-ac(2), brach(1), canth(1), chel(1), chin-s(1), colch(1), ferr-m(2), kali-br(1), kalm(1), lec(1), mag-p(1), med(1), nat-a(1), ph-ac(3), phos(2), pic-ac(1), ptel(2), raph(2), sarr(2), stann(2), ter(1)"
+690,1,"SEDIMENT, pink","berb(2), bry(3), chin(2), lith(1), lob(1), rheum(1), rhus-r(1), sep(2), sumb(2)"
+690,1,"SEDIMENT, purple","ant-c(1), bov(1), fl-ac(2), mang(1), ptel(1)"
+690,1,"SEDIMENT, purulent (See Bladder, Catarrh and Inflammation)","arn(3), ars(2), aspar(1), benz-ac(2), calc(1), cann-s(2), canth(3), carb-ac(1), carb-s(1), carb-v(1), cham(1), chim(1), clem(3), con(2), daph(2), dulc(2), eup-pur(1), ham(1), hep(1), ip(1), kali-ar(1), kali-bi(1), kali-c(1), kali-s(2), lyc(2), merc(2), nat-s(2), nit-ac(2), nux-v(2), petr(1), puls(2), sabad(1), sabin(1), sal-ac(1), sars(2), sep(1), sil(2), staph(1), sulph(2), uran(1), uva(3)"
+690,1,"SEDIMENT, red","acon(2), agar(1), alum(2), am-c(1), ant-c(2), apis(2), arg-n(2), arn(2), ars(1), ars-h(1), aspar(1), astac(1), bell(2), berb(2), brom(1), cact(1), camph(1), canth(3), carb-v(1), cham(1), chel(2), chin(2), chin-a(1), chin-s(2), cimx(1), cob(1), coc-c(1), coch(1), coloc(2), cop(2), cupr(1), daph(2), dulc(1), elaps(2), graph(2), hydr-ac(1), iod(1), ip(1), kali-ar(1), kali-c(1), kali-p(1), kali-s(1), kreos(1), lac-c(2), lach(2), lact-ac(1), laur(2), led(1), lil-t(1), lith(2), lob(2), lyc(1), lyss(1), mag-s(1), mez(2), naja(1), nat-m(3), nat-s(1), nit-ac(2), nux-v(2), op(1), pall(1), par(1), petr(2), ph-ac(1), phos(1), plat(1), psor(2), ptel(1), puls(3), sang(1), sec(2), sel(1), seneg(1), sep(3), sil(1), squil(1), stann(1), sul-ac(1), sulph(1), ter(2), thuj(1), valer(3), verat-v(1)"
+690,2,"SEDIMENT, red, hard to wash off","aspar(1), brom(1), cimx(2), cupr(2), daph(2), lac-c(2), phyt(2), pyrog(1), sep(3)"
+690,2,"SEDIMENT, red, blood-color","am-c(1), sep(1)"
+690,2,"SEDIMENT, red, brick-color","merc-c(1), nat-s(1), petr(1), phos(1), puls(1)"
+690,2,"SEDIMENT, red, bright","berb(3), lyc(2), nit-ac(1), osm(1), phos(1)"
+690,2,"SEDIMENT, red, brownish",sul-ac(1)
+690,2,"SEDIMENT, red, circles, in",lac-c(1)
+690,2,"SEDIMENT, red, dark","chin(1), dor(1), phyt(1)"
+690,2,"SEDIMENT, red, dirty","berb(2), dor(1)"
+690,2,"SEDIMENT, red, filaments, fibres",ant-t(1)
+690,2,"SEDIMENT, red, flocculent or powdery","agar(1), cob(1)"
+690,2,"SEDIMENT, red, grainy",sel(1)
+690,2,"SEDIMENT, red, mahogany-colored","chin(1), laur(1), phyt(1)"
+690,2,"SEDIMENT, red, white",ter(1)
+690,1,"SEDIMENT, renal calculi","bell(1), benz-ac(3), berb(2), calc(3), canth(2), coc-c(1), coloc(1), equis(1), hydrang(1), lith(3), lyc(3), mill(1), oci(1), pareir(3), phos(2), sars(3), sil(2)"
+690,1,"SEDIMENT, rings","apis(1), lac-c(2), pyrog(1)"
+690,1,"SEDIMENT, ropy","chim(2), coloc(1), hydr(2), kali-bi(2), lyc(2), ph-ac(2)"
+690,1,"SEDIMENT, sand","all-c(1), am-c(3), ambr(1), ant-c(2), arn(1), ars(1), arund(1), aspar(1), aur(1), aur-m(1), bell(1), benz-ac(3), calc(2), canth(1), carb-v(1), chel(2), chin(1), chin-a(1), chin-s(2), eup-pur(1), ferr-m(1), kali-p(1), lach(2), led(3), lyc(3), meny(1), merc(1), nat-m(2), nat-s(2), nit-ac(2), nux-m(1), nux-v(1), phos(3), puls(2), raph(1), ruta(2), sars(3), sec(2), sel(3), sil(3), tarent(1), thuj(1), tub(2), zinc(3)"
+690,2,"SEDIMENT, sand, adherent",puls(2)
+690,2,"SEDIMENT, sand, bright colored in concentric layers",chin-s(1)
+690,2,"SEDIMENT, sand, gravel (small calculi)","arg-n(1), aspar(1), berb(2), calc(2), carb-v(1), coc-c(1), coloc(1), con(1), kali-i(1), lyc(3), nit-ac(1), nux-m(1), sars(3), sep(3), zinc(1)"
+690,2,"SEDIMENT, sand, gray",phos(1)
+690,2,"SEDIMENT, sand, pale",sars(2)
+690,2,"SEDIMENT, sand, red (brick-dust)","acon(1), agar(1), all-c(1), alum(1), am-c(2), am-caust(1), ant-t(1), apis(1), arg-n(1), arn(3), ars(3), arund(3), aspar(2), aur-m(1), bapt(1), bell(1), benz-ac(2), berb(2), bry(1), cact(2), camph(2), carb-v(2), caust(2), chel(1), chim(2), chin(1), chin-a(1), chin-s(2), cimic(2), cob(1), coc-c(1), coloc(2), con(1), cop(2), dig(3), elaps(2), glon(2), grat(1), hyos(2), ip(2), kali-c(2), kali-n(1), lach(2), led(2), lob(3), lyc(3), meph(2), merc-c(3), mez(2), nat-m(2), nat-s(2), nit-ac(1), nux-m(1), nux-v(2), oci(2), op(2), ox-ac(1), pall(1), pareir(3), petr(2), phos(3), pic-ac(1), plan(3), psor(2), puls(1), pyrog(1), rumx(1), sel(3), senec(3), sep(3), sil(1), sumb(1), tarent(3), ter(1), thuj(1), valer(1), zinc(1)"
+690,3,"SEDIMENT, sand, red (brick-dust), fever, during","lyc(2), phos(1)"
+690,2,"SEDIMENT, sand, white","am-c(2), nat-a(1), phos(1)"
+690,3,"SEDIMENT, sand, white, precipitated by heat",nat-a(1)
+690,2,"SEDIMENT, sand, yellow","chin-s(1), cimic(1), sant(1), sil(3), thuj(1)"
+690,3,"SEDIMENT, sand, yellow, yellowish-red crystals","berb(1), chel(1), chin-s(1), lyc(2)"
+691,1,"SEDIMENT, straw colored",chin-s(2)
+691,1,"SEDIMENT, sugar, like a conglomerate of candied",chin-s(1)
+691,1,"SEDIMENT, thick","aesc(1), alum(2), apoc(1), bell(1), berb(3), camph(2), coloc(2), cop(2), dig(1), ferr-i(1), hydr-ac(1), lach(1), laur(1), lob(1), merc(1), ph-ac(1), phos(1), psor(1), sabad(1), sec(1), spong(2), sulph(1), sumb(2), ter(1), valer(1)"
+691,2,"SEDIMENT, thick, standing over night, after","bry(1), crot-t(1)"
+691,1,"SEDIMENT, thready","cann-s(1), coc-c(1), nit-ac(1)"
+691,1,"SEDIMENT, translucent","berb(2), coloc(2)"
+691,1,"SEDIMENT, violet colored","bov(1), fl-ac(1), mang(2), puls(1)"
+691,1,"SEDIMENT, white","acon(1), aesc(1), aeth(1), agar(1), aloe(1), alum(2), alumn(1), am-c(1), aspar(1), bar-m(1), bell(1), benz-ac(2), berb(3), brach(1), brom(1), bry(1), calc(2), camph(1), canth(2), caps(1), carb-s(1), carb-v(1), chin(2), chin-s(1), coc-c(1), colch(1), coloc(2), con(1), conv(1), crot-t(1), dig(1), dulc(1), eup-per(1), eup-pur(1), eupho(1), ferr(1), ferr-i(1), fl-ac(1), graph(3), hep(2), ign(1), kali-bi(1), kreos(3), laur(1), lil-t(1), lyss(1), mag-c(1), murx(1), nat-m(1), nat-s(2), nit-ac(2), olnd(2), ox-ac(1), petr(2), ph-ac(2), phos(3), phyt(1), plan(1), rhus-t(3), sars(3), sec(1), seneg(1), sep(3), spig(1), spong(1), sul-ac(1), sulph(2), sumb(1), ter(1), valer(2), zinc(1)"
+691,2,"SEDIMENT, white, adhesive","brom(1), sep(3)"
+691,2,"SEDIMENT, white, cloudy","aspar(1), benz-ac(1), con(1), ph-ac(1), phos(1), plat(1), rhus-t(1), sumb(1)"
+691,2,"SEDIMENT, white, fever, during","phos(1), sep(1)"
+691,2,"SEDIMENT, white, filmy; very hard to wash off",sep(3)
+691,2,"SEDIMENT, white, pearly",kali-bi(1)
+691,2,"SEDIMENT, white, snow-white",rhus-t(1)
+691,2,"SEDIMENT, white, yellowish (See Yellow)",
+691,1,"SEDIMENT, yeast-like","caust(1), mag-m(1), mosch(1), raph(1)"
+691,1,"SEDIMENT, yellow","aesc(1), aloe(2), bar-c(2), bufo(1), cham(2), chin(2), chin-s(1), cob(1), coca(1), cupr(2), daph(1), kali-chl(2), kali-i(2), kali-n(1), lyc(2), nat-s(2), phos(3), sep(3), sil(1), spong(1), sul-ac(1), ter(1), zinc(1)"
+691,2,"SEDIMENT, yellow, adhesive",ferr(2)
+691,2,"SEDIMENT, yellow, dirty","chin(1), nux-v(1), raph(2)"
+691,2,"SEDIMENT, yellow, grayish",chel(1)
+691,2,"SEDIMENT, yellow, pasty",sep(3)
+691,2,"SEDIMENT, yellow, reddish","all-c(1), chel(1), chin(1), chin-s(1), cob(1), coca(1), crot-h(2), nat-s(2), sep(2)"
+691,2,"SEDIMENT, yellow, sand (See Sand)",
+691,2,"SEDIMENT, yellow, white","carb-an(2), chin-s(1), coca(1), lyss(1), nat-s(1), phos(1), raph(1), ter(1)"
+691,0,SPECIFIC gravity increased,"apoc(1), arn(3), aur-m(1), benz-ac(2), calc(1), calc-p(2), canth(1), chim(1), coc-c(1), colch(3), coloc(1), dig(1), elat(1), eup-pur(2), ferr(2), ferr-p(1), helon(2), iod(1), kali-a(2), kali-p(2), merc(2), morph(1), mur-ac(1), nat-a(1), nat-s(2), nit-ac(1), onos(1), ph-ac(1), phos(2), phyt(2), puls(2), sarr(1), senec(1), sep(1), sul-ac(1), tab(1), tell(1), uran(1), zinc(1)"
+691,1,"SPECIFIC gravity increased, decreased","apoc(1), brach(1), chlf(1), cimic(1), coff(1), colch(1), dig(1), equis(1), helon(1), kali-ar(1), merc(1), merc-c(2), morph(1), murx(1), nat-a(1), nat-m(1), phos(2), plb(3), sulph(1), uran(1), verat-v(1)"
+691,0,SUGAR,"acet-ac(2), all-s(1), alumn(1), am-c(1), aml-n(1), arg-m(2), ars(2), benz-ac(2), bov(3), calc(2), calc-p(2), camph(1), carb-ac(2), carb-v(2), chel(2), chin(2), chin-a(1), coff(1), colch(2), conv(1), cupr(1), cur(2), elaps(2), ferr-m(2), helon(3), hep(2), iris(2), kali-chl(2), kali-n(1), kali-p(2), kreos(2), lac-d(2), lach(2), lact-ac(2), lec(2), lith(1), lyc(3), lycps(2), lyss(1), mag-s(1), med(2), morph(1), mosch(1), nat-s(2), nit-ac(2), op(1), petr(1), ph-ac(3), phos(3), pic-ac(2), plb(3), podo(2), rat(2), sal-ac(1), sec(1), sil(2), sul-ac(2), sulph(2), tarent(3), ter(3), thuj(2), uran(3), zinc(1)"
+691,0,THICK,"acon(1), am-caust(1), apis(2), apoc(1), arn(2), ars(2), aster(1), aur(1), aur-m(1), bell(1), benz-ac(2), berb(1), bufo(1), camph(1), canth(1), carb-v(2), caust(1), chim(2), cina(1), clem(1), coc-c(1), con(2), cop(2), crot-t(1), cur(1), daph(2), dig(2), dulc(1), elaps(1), hep(2), iod(2), ip(2), iris(1), lac-d(2), laur(1), lil-t(1), merc(2), merc-c(3), merc-i-r(2), mosch(1), nux-v(3), ph-ac(2), phos(2), plb(1), psor(2), raph(1), rheum(1), rhus-t(1), sabad(2), seneg(1), sep(3), stram(1), sul-ac(1), sulph(1), verat(1), vesp(1), zing(1)"
+691,1,"THICK, standing, on","alum(2), berb(2), bry(2), cham(2), cina(2), coloc(3), hep(2), merc(2), sulph(1), ter(1), thuj(1)"
+691,0,TURBID (See Cloudy),
+691,0,VISCID,"arg-n(1), aster(1), canth(1), coloc(3), cop(1), cupr(1), cur(1), dulc(1), kreos(1), nat-s(2), ph-ac(1), sep(2)"
+691,0,"WATERY, clear as water","acet-ac(2), acon(1), aeth(1), agar(1), alum(1), alumn(1), anac(1), ant-c(1), ant-t(1), anthr(1), arn(1), ars(1), arum-m(1), aster(1), aur(1), bapt(1), bar-c(1), bar-m(2), bell(1), berb(1), bism(2), bry(1), calc(1), calc-f(1), calc-p(1), cann-s(1), canth(1), caust(2), cedr(1), cham(1), chin(1), chin-a(1), chin-s(1), cimic(2), cinnb(1), coc-c(1), cocc(2), colch(1), coloc(2), cycl(1), dig(2), dros(1), euphr(1), fl-ac(2), gels(3), grat(1), hell(1), hipp(1), hydr-ac(1), hyos(1), ign(3), iod(1), kali-a(1), kali-ar(1), kali-bi(1), kali-i(1), kali-p(1), lact(1), laur(1), lyc(2), lycps(2), mag-c(2), med(1), meph(1), merc(1), mez(1), mosch(2), mur-ac(3), murx(1), nat-m(2), nat-s(2), nux-m(1), nux-v(1), op(1), ph-ac(2), phos(2), plat(1), plb(1), puls(2), rhus-t(1), sang(1), sec(2), sep(3), spig(1), squil(3), stann(1), staph(2), stram(1), sul-ac(1), sulph(1), tab(1), ter(2), teucr(2), thuj(2), zinc(1)"
+692,1,"WATERY, clear as water, inodorous, with fetid mucous stool",dros(1)
+692,1,"WATERY, clear as water, in typhus",mur-ac(3)
+692,0,WHEY-LIKE,"agar(1), arg-m(2), hyos(1), nat-s(1), op(1), ph-ac(2)"
+692,1,"WHEY-LIKE, in morning",cann-s(1)
+692,1,"WHEY-LIKE, menses, before",ph-ac(1)
+692,1,"WHEY-LIKE, after standing",agar(1)
+692,0,YEAST-LIKE,"caust(2), raph(2)"

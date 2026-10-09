@@ -477,6 +477,79 @@ function _repBuildKentVertigoSourceTree(data){
     });
     return root;
 }
+// 🔑 v186: پیشاب (URINE) باب کی ماخذی قطاریں (صفحات 680–692) — homeoint.org
+// (parse_urine_source.py + crosswalk_urine.py + overlay_urine.py)؛ پرانی مقامی قطاریں
+// فائل میں محفوظ مگر ماخذی درخت سے باہر۔ باب حد: URINE = 680–692 (MEDI-T انتساب — kenturin.htm
+// فہرست 13/13 صفحہ-اندراجات: 680(سرخی)/681..692)؛ آغاز kent0680.htm کے NAME="URINE" باب-سرخی
+// اینکر سے (اُس سے پہلے پورا P680 nav-ڈپ URETHRA مواد ہے — کٹ)؛ اختتام kent0690 کے اندر
+// GENITALIA MALE باب سرخی (NAME="P693" اینکر) سے پہلے — آخری ربرک YEAST-LIKE {caust, raph}؛
+// kent0685 کا P690 سیکشن = kent0690 کا P690 عین مطابق ڈپ (اصل kent0690 سے لیا)۔
+// فائل-دم artifacts (kent0680 دم p686 nav-بلاک COPIOUS سرخی-دہرائی + kent0685 دم P690
+// nav-پیراگراف کٹ URINE bare) حذف — دستاویزی۔ 1 clamp (idx68 p683 ink,like d2→d1 —
+// کتابی یتیم-indentation: کتاب میں @128.7 d2 مگر d1 والدین موجود نہیں، تمام بھائی رنگ
+// @92.7 d1 — PDF x-coord ثابت)۔ OOREP/kenturin انڈیکس راستے سمٹے ہوئے (COLOR,pale,fever,during
+// ← کتابی COLOR,black,pale,fever,during؛ SPECIFIC gravity,decreased ← کتابی SPECIFIC gravity
+// increased,decreased) — PDF x-coords سے ثابت کہ ماخذ درخت کتاب کی عین indentation ہے؛
+// متعلق OOREP یونین (ODOR 155، SPECIFIC gravity برتن) legacy محفوظ — 22 legacy + 2 مبہم۔
+// PDF alignment: 383/389 حرف-بہ-حرف عین مطابق + 6 PDF-طرفہ آرٹی فاکٹ قطاریں (2 فولیو-گلا
+// kali1470ar/fl1478ac + 4 لیبل-ریپ گلا 2 جوڑے)، صفر فرق/drift/دونوں-طرفہ باقیات
+// (verify_pdf_urine.py — کتابی ص 680-692، PDF index 1504–1527)۔
+var _REP_KENT_URINE_SOURCE_MARKER='homeoint-urine-v1';
+var _REP_KENT_URINE_PAGES={first:680,last:692}, _REP_KENT_URINE_COUNT=390;
+function _repKentUrineSourceEntries(data){
+    return Object.keys(data||{}).map(function(rid){return {rid:String(rid),rec:data[rid]};})
+        .filter(function(e){return e.rec&&e.rec.source_canonical===_REP_KENT_URINE_SOURCE_MARKER;});
+}
+function _repHasKentUrineSourceData(data){
+    return _repKentUrineSourceEntries(data).length===_REP_KENT_URINE_COUNT;
+}
+function _repBuildKentUrineSourceTree(data){
+    var entries=_repKentUrineSourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    if(entries.length!==_REP_KENT_URINE_COUNT) throw new Error('Expected '+_REP_KENT_URINE_COUNT+' Kent URINE source rows; found '+entries.length);
+    entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
+    var byRid=Object.create(null);
+    entries.forEach(function(e,index){
+        var rec=e.rec, order=Number(rec.source_order), parentId=rec.source_parent_id;
+        if(order!==index) throw new Error('Invalid Kent URINE source order at '+e.rid+': '+order);
+        var page=Number(rec.source_page), depth=Number(rec.source_depth), label=String(rec.source_label||'');
+        if(page<680||page>692) throw new Error('Kent URINE source row outside pages 680–692: '+e.rid);
+        if(!label) throw new Error('Empty Kent URINE source label at '+e.rid);
+        var labels=Array.isArray(rec.source_path_labels)?rec.source_path_labels.map(String):[];
+        if(!labels.length||labels[labels.length-1]!==label||depth!==labels.length-1)
+            throw new Error('Kent URINE source path/depth mismatch at '+e.rid);
+        var sourcePath=String(rec.source_path||'');
+        if(sourcePath!==labels.join(', ')) throw new Error('Kent URINE source full path mismatch at '+e.rid);
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent URINE source parent '+parentId+' for '+e.rid);
+        if(parentId!==null && Number(parent.sourceOrder)>=index)
+            throw new Error('Kent URINE source parent must precede child at '+e.rid);
+        var parentPath=parent===root?'':String(parent.pathTitle||'');
+        var expectedPath=parentPath?parentPath+', '+label:label;
+        if(expectedPath!==sourcePath) throw new Error('Kent URINE source parent link/path mismatch at '+e.rid);
+        if(parent.children[label]) throw new Error('Duplicate Kent URINE sibling label '+label+' at '+e.rid);
+        var remedies=rec.r;
+        if(!remedies||typeof remedies!=='object'||Array.isArray(remedies))
+            throw new Error('Missing Kent URINE remedies at '+e.rid);
+        Object.keys(remedies).forEach(function(code){
+            var grade=Number(remedies[code]);
+            if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
+                throw new Error('Invalid Kent URINE medicine grade at '+e.rid+': '+code);
+        });
+        var node={
+            name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
+            children:{},order:[],remedies:remedies,count:1,hasRubric:true,
+            path:sourcePath,pathTitle:sourcePath,displayPathTitle:sourcePath,
+            translationTitle:String(rec.translation_title||sourcePath),
+            oorep_id:rec.oorep_id||null,rid:e.rid,sourceCanonical:true,
+            display:rec.display&&typeof rec.display==='object'&&!Array.isArray(rec.display)?rec.display:null
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        parent.count=(parent.count||0)+1;
+        byRid[e.rid]=node;
+    });
+    return root;
+}
 
 // 🔑 v167: سر باب (صفحات 107–234) کا ماخذی درخت — homeoint.org MEDI-T صفحات سے خود مختار پارس
 // (parse_head_source.py + crosswalk_head.py + overlay_head.py)؛ پرانی مقامی قطاریں فائل میں محفوظ
@@ -1947,6 +2020,10 @@ function buildRubricTree(data){
     if(repCurrentBook === 'kent' && repCurrentChapter === 'urethra' && _repHasKentUrethraSourceData(data)){
         return _repBuildKentUrethraSourceTree(data);
     }
+    // 🔑 v186: پیشاب (URINE) باب کی ماخذی قطاریں (صفحات 680–692) — وہی طرز جو پیشاب کی نالی باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'urine' && _repHasKentUrineSourceData(data)){
+        return _repBuildKentUrineSourceTree(data);
+    }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest
     // already-existing rubric prefix, not by every comma.
@@ -2260,6 +2337,10 @@ function buildRubricTree(data){
     // 🔑 v185: پیشاب کی نالی باب کی ماخذی قطاریں (صفحات 669–680) — وہی طرز جو پروسٹیٹ غدود باب میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'urethra' && _repHasKentUrethraSourceData(data)){
         return _repBuildKentUrethraSourceTree(data);
+    }
+    // 🔑 v186: پیشاب (URINE) باب کی ماخذی قطاریں (صفحات 680–692) — وہی طرز جو پیشاب کی نالی باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'urine' && _repHasKentUrineSourceData(data)){
+        return _repBuildKentUrineSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest

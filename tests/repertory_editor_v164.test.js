@@ -103,7 +103,7 @@ pass(/data-rpe-weight/.test(tree) && /data-rpe-size/.test(tree), 'درخت می�
 pass(/display:rub\.display/.test(search) && /repSearchDisplayStyleAttrs/.test(search), 'تلاش کے نتائج میں ظاہری انداز دکھتا ہے');
 pass(/repDetailStyleAttrs\(node\)/.test(detail), 'ربرک کی تفصیل میں ظاہری انداز دکھتا ہے');
 pass(/repXrefUrHtml/.test(read('js/18-rubrics-ur.js')) && /_xref_ur\.json/.test(read('js/18-rubrics-ur.js')) && /rep-xref-ur/.test(read('css/rubric-ur.css')), 'تازہ مخزن کا اردو حوالہ جاتی اشارہ اور اس کا انداز برقرار ہے');
-pass(/REP_RUBUR_V = '177'/.test(read('js/18-rubrics-ur.js')) && /REP_DATA_V='v=19'/.test(read('js/repertory/rep-books.js')), 'تازہ مخزن کے اردو اور بابی مواد کے نسخے برقرار ہیں');
+pass(/REP_RUBUR_V = '178'/.test(read('js/18-rubrics-ur.js')) && /REP_DATA_V='v=19'/.test(read('js/repertory/rep-books.js')), 'تازہ مخزن کے اردو اور بابی مواد کے نسخے برقرار ہیں');
 
 // بدلی فائلوں کے نسخے، خدمت کار اثاثے اور آزمائشی پن ایک دوسرے سے ملتے ہیں
 const html = read('index.html');
@@ -112,19 +112,19 @@ const oldTest = read('tests/rubrics_ur_v107.test.js');
 for (const [file, version] of [
   ['repertory-editor.css',166],
   ['rubric-ur.css',103],
-  ['repertory-tabs.css',185],
+  ['repertory-tabs.css',186],
   ['rep-editor.js',166],
-  ['18-rubrics-ur.js',177],
+  ['18-rubrics-ur.js',178],
   ['rep-books.js',81],
-  ['rep-tabs.js',185],
-  ['rep-chapters.js',185],
+  ['rep-tabs.js',186],
+  ['rep-chapters.js',186],
   ['rep-tree.js',149],
   ['rep-search.js',153],
   ['rep-rubric-detail.js',105]
 ]) pass(new RegExp(file.replace(/[.*+?^${}()|[\\]\\]/g,'\\$&')+'\\?v='+version).test(html), file+' کا نسخہ');
-pass(/CACHE_NAME='bhc-clinic-v185'/.test(worker), 'خدمت کار کا نسخہ 164');
+pass(/CACHE_NAME='bhc-clinic-v186'/.test(worker), 'خدمت کار کا نسخہ 164');
 pass(worker.includes("'./css/repertory-editor.css'") && worker.includes("'./js/repertory/rep-editor.js'"), 'ترمیم کار کے دونوں اثاثے خدمت کار میں');
-pass(/rep-chapters\\\.js\\\?v=185/.test(oldTest) && /rep-tree\\\.js\\\?v=149/.test(oldTest) && /rep-search\\\.js\\\?v=153/.test(oldTest) && /rep-rubric-detail\\\.js\\\?v=105/.test(oldTest), 'پرانے آزمائشی مجموعے کے نسخہ پن تازہ ہیں');
-pass(oldTest.includes("CACHE_NAME='bhc-clinic-v185'") && oldTest.includes('rubric-ur\\.css\\?v=103') && oldTest.includes('repertory-tabs\\.css\\?v=185') && oldTest.includes('repertory-editor\\.css\\?v=166') && oldTest.includes('18-rubrics-ur\\.js\\?v=177') && oldTest.includes('rep-books\\.js\\?v=81') && oldTest.includes('rep-tabs\\.js\\?v=185') && oldTest.includes('rep-editor\\.js\\?v=166'), 'اردو آزمائش میں تازہ مخزن اور موجودہ اطلاق کے نسخہ پن تازہ ہیں');
+pass(/rep-chapters\\\.js\\\?v=186/.test(oldTest) && /rep-tree\\\.js\\\?v=149/.test(oldTest) && /rep-search\\\.js\\\?v=153/.test(oldTest) && /rep-rubric-detail\\\.js\\\?v=105/.test(oldTest), 'پرانے آزمائشی مجموعے کے نسخہ پن تازہ ہیں');
+pass(oldTest.includes("CACHE_NAME='bhc-clinic-v186'") && oldTest.includes('rubric-ur\\.css\\?v=103') && oldTest.includes('repertory-tabs\\.css\\?v=186') && oldTest.includes('repertory-editor\\.css\\?v=166') && oldTest.includes('18-rubrics-ur\\.js\\?v=178') && oldTest.includes('rep-books\\.js\\?v=81') && oldTest.includes('rep-tabs\\.js\\?v=186') && oldTest.includes('rep-editor\\.js\\?v=166'), 'اردو آزمائش میں تازہ مخزن اور موجودہ اطلاق کے نسخہ پن تازہ ہیں');
 
 console.log('ریپرٹری ترمیم کار کی مخصوص جانچ کامیاب');
