@@ -100,8 +100,8 @@ assert.strictEqual(manifest.legacy_local_records, 21);
 // 7) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const swf = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=183/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v181)');
-assert(/CACHE_NAME='bhc-clinic-v183'/.test(swf), 'خدمت کار نسخہ 181');
+assert(/rep-chapters\.js\?v=184/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v181)');
+assert(/CACHE_NAME='bhc-clinic-v184'/.test(swf), 'خدمت کار نسخہ 181');
 assert(/v181: سٹول باب/.test(code), 'rep-chapters.js میں سٹول بلڈر درج');
 
 console.log('سٹول باب: ماخذی درخت 238 قطاریں (صفحات 635–644)، جڑ STOOL، ادویات ماخذی، اردو 100%، پرانی قطاریں محفوظ — کامیاب');

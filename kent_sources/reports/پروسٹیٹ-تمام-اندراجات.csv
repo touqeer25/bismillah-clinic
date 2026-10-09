@@ -1,0 +1,93 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,667,0,PROSTATE GLAND,0
+o53327,667,0,"BALL, sensation of sitting on a",4
+o53328,667,0,EMISSION prostatic fluid,47
+o53329,667,1,"EMISSION prostatic fluid, dribbling",2
+o53330,667,1,"EMISSION prostatic fluid, easily discharged, so that even an emission of flatus causes",1
+o53331,667,1,"EMISSION prostatic fluid, emotion, with every",5
+o53332,667,1,"EMISSION prostatic fluid, erections, during",3
+o53333,667,2,"EMISSION prostatic fluid, erections, during, without",11
+o53334,667,1,"EMISSION prostatic fluid, flatus, while passing",2
+o53335,667,1,"EMISSION prostatic fluid, fondling women, while",2
+o53336,667,1,"EMISSION prostatic fluid, lascivious thoughts, during",7
+o53337,667,1,"EMISSION prostatic fluid, sitting, while",1
+o53341,667,1,"EMISSION prostatic fluid, stool, with",32
+o53339,667,2,"EMISSION prostatic fluid, stool, with, difficult, with",20
+o53340,667,2,"EMISSION prostatic fluid, stool, with, soft, with",2
+o53338,667,2,"EMISSION prostatic fluid, stool, with, after",17
+o53342,667,1,"EMISSION prostatic fluid, talking to a young lady, while",2
+o53343,667,1,"EMISSION prostatic fluid, thinking of it",1
+o53345,667,1,"EMISSION prostatic fluid, urination, before",1
+o53346,667,2,"EMISSION prostatic fluid, urination, before, during",6
+o53344,667,2,"EMISSION prostatic fluid, urination, before, after",15
+o53347,667,1,"EMISSION prostatic fluid, walking, while",3
+o53348,667,0,ENLARGEMENT,47
+o53349,667,1,"ENLARGEMENT, dribbling urine after stool and urine",1
+o53350,667,1,"ENLARGEMENT, senile",11
+o53351,667,1,"ENLARGEMENT, sensation of",7
+o53352,667,0,FESTERING sensation,1
+o53353,667,0,FULLNESS,6
+o53354,667,0,GURGLING sensation,1
+o53355,667,0,HARDNESS,8
+o53356,667,1,"HARDNESS, without enlargement",1
+o53357,667,0,HEAT,2
+o53358,667,0,HEAVINESS,8
+o53359,667,1,"HEAVINESS, lascivious thoughts, during",1
+o53360,667,0,INDURATION,10
+r0,668,0,INFLAMMATION,45
+o53362,668,1,"INFLAMMATION, suppressed gonorrhœa, from",14
+r2,668,0,IRRITATION in,3
+r3,668,0,JERKING in region of,1
+r4,668,0,"ONANISM, complaints after",1
+r5,668,0,PAIN,39
+r6,668,1,"PAIN, blowing nose, on",1
+r7,668,1,"PAIN, cancer, in",1
+r8,668,1,"PAIN, coition, after",5
+r9,668,1,"PAIN, erection, during",1
+o53380,668,1,"PAIN, gonorrhœa, during",2
+r11,668,1,"PAIN, jarring agg.",1
+r12,668,1,"PAIN, riding agg.",1
+r13,668,1,"PAIN, sitting, while",4
+r14,668,1,"PAIN, standing",1
+r15,668,1,"PAIN, stool, urging to",2
+r16,668,2,"PAIN, stool, urging to, after",1
+r17,668,1,"PAIN, urination, during",4
+r18,668,2,"PAIN, urination, during, at close of",1
+r19,668,2,"PAIN, urination, during, after",2
+r20,668,1,"PAIN, urinate, urging to",2
+r21,668,1,"PAIN, walking agg.",4
+o53410,668,2,"PAIN, walking agg., amel.",1
+r23,668,1,"PAIN, aching",1
+r24,668,2,"PAIN, aching, bladder, and, deep in pelvis, morning and forenoon after coition",1
+r25,668,2,"PAIN, aching, sitting and walking, while",1
+r26,668,1,"PAIN, biting",2
+r27,668,1,"PAIN, burning",5
+r28,668,1,"PAIN, constrictive",4
+r29,668,1,"PAIN, dragging",2
+r30,668,1,"PAIN, drawing",4
+r31,668,2,"PAIN, drawing, sitting or walking",1
+r32,668,1,"PAIN, pressing",20
+r33,668,2,"PAIN, pressing, coition, during",1
+r34,668,2,"PAIN, pressing, erection, at beginning of",1
+r35,668,2,"PAIN, pressing, nose, on blowing",1
+r36,668,2,"PAIN, pressing, standing",1
+r37,668,2,"PAIN, pressing, urination, during",1
+r38,668,3,"PAIN, pressing, urination, during, after",2
+r39,668,2,"PAIN, pressing, walking, while",3
+r40,668,1,"PAIN, pulsating",2
+r41,668,2,"PAIN, pulsating, region of",1
+r42,668,3,"PAIN, pulsating, region of, straining to urinate, while",1
+r43,668,1,"PAIN, shooting (See Stitching)",0
+r44,668,1,"PAIN, soreness",5
+r45,668,1,"PAIN, sticking",1
+r46,668,1,"PAIN, stitching",9
+r47,668,2,"PAIN, stitching, afternoon",2
+r48,668,2,"PAIN, stitching, urination, during",8
+r49,668,2,"PAIN, stitching, walking agg.",1
+r50,668,2,"PAIN, stitching, extending to genitals",1
+r51,668,0,"QUIVERING, nervous",1
+r52,668,0,SUPPURATION,2
+r53,668,0,SWELLING,19
+r54,668,0,TENSION,3
+r55,668,0,TWITCHING,1
+r56,668,0,UNEASINESS,1

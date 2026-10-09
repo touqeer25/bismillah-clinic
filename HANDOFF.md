@@ -2174,3 +2174,32 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 1. ڈاکٹر گردے-تین-کالم.csv کی تصدیق (230 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (35 اندراجات — خاص طور پر 15 اردو خود-بنے اور 7 مبہم OOREP برتن)
 2. اگلا باب: کتابی ترتیب کے مطابق — **URINARY ORGANS: PROSTATE GLAND (MEDI-T ص 667 سے)** — kenturor.htm انڈیکس؛ ماخذ فائلیں kent0665 (P667 سیکشن NAME="PROSTATE" اینکر سے) + kent0670 — urethra/urine اس کے بعد (p668–p679 تک URINARY ORGANS کا اختتام)
 3. Vercel پش (v183 کے بعد)
+
+## مکمل شدہ پڑتال — پروسٹیٹ غدود (PROSTATE GLAND) باب: ماخذی درخت + ادویات + اردو (نسخہ 184)
+
+### 22.1 باب حد اور ماخذ
+- **حد:** PROSTATE GLAND = MEDI-T صفحات **667–668** (kenturor.htm انڈیکس **2/2** صفحہ-اندراجات: «Prostate gland (p. 667)» + «Prostate gland, inflammation (p. 668)»)
+- **آغاز:** kent0665.htm کے `NAME="PROSTATE"` اینکر — گردے باب (v183) کا اختتامی اینکر وہی تھا؛ اینکر پیراگراف درمیان سے کٹا جاتا ہے (کٹ اینکر پر) — پہلی کپچر قطار bare `<p>PROSTATE GLAND</p>` دہرائی سرخی؛ پہلی اصل قطار «BALL, sensation of sitting on a» (4 ادویہ، p667)
+- **اختتام:** اُسی فائل میں URETHRA سیکشن-مارکر `<p><a HREF="...kenturet.htm">URETHRA</a>` سے پہلے کٹ — **یہ اینکر نہیں، nav-مارکر ہے** (اس کے اندر `P669` اینکر ہے جو کٹ کے ساتھ جاتا ہے)؛ آخری ربرک «UNEASINESS» (1 ادویہ Ptel.، p668) — URETHRA باب p669 سے (اگلا کام)
+- kent0670/kent0675 احتیاطاً fetch کیں مگر PROSTATE مواد صرف kent0665 میں نکلا (خودبخود اختتام)
+
+### 22.2 پارس + تیسرا ماخذ (Drive PDF) تصدیق
+- **92 منفرد قطاریں** (جڑ PROSTATE GLAND + 91) — **صفر clamp (صاف <dir> ساخت)، صفر کتابی دہرائی، صفر صفحہ-مارکر، صفر دوہرے راستے** — اب تک کا سب سے صاف باب
+- PROSTATE = PDF صفحہ 1473–1477 (0-بنیاد index 1472–1476 = کتابی ص 667–668)؛ **91/91 حرف-بہ-حرف عین مطابق — صفر ادویہ-فرق، صفر drift، صفر دونوں-طرفہ باقیات، صفر آرٹی فاکٹ**
+
+### 22.3 کراس واک + اوورلے + اردو
+- کراس واک: 92 ماخذ ↔ 101 ایپ — **91 جُڑے**، 1 مبہم OOREP برتن (**o67899 «EMISSION» 63 ادویہ** — کتابی مین «EMISSION prostatic fluid» 47 درخت پر + 17 ذیلیاں مکمل ادویات کے ساتھ)، 1 ماخذ-اکیلا نئی **h001 (جڑ PROSTATE GLAND)**، 10 ایپ-اکیلے legacy
+- اوورلے: prostate_gland.json **102 = 92 ماخذی (MARK=homeoint-prostate-v1) + 10 legacy** (1 مبہم + 3 خالی m-کنٹینر BALL/ONANISM/QUIVERING + 6 مجموعے/کٹے راستے: EMISSION erections 14/stool 39/urination 17، PAIN urination 6/pressing-urination 2/stool 3)؛ مانی فیسٹ homeoint_prostate_source_manifest.json
+- **گریڈ درستیاں (کتابی سچ):** HEAVINESS میں graphites 2→1؛ PAIN, pressing میں Puls. 3→2 (MEDI-T فارمیٹنگ)؛ ادویات-فرق 9 — سب OOREP مجموعوں سے کتابی عین (PAIN 57→39، ENLARGEMENT 51→47، INFLAMMATION 47→45، PAIN, stitching 16→9 وغیرہ — اضافی OOREP ادویہ legacy برتنوں میں محفوظ)
+- اردو: **91 پرانی کلیدوں سے منتقل + جڑ «پروسٹیٹ غدود — پروسٹیٹ غدود» = 92/92 فعال 100%**؛ صفر خود-بنے؛ **19 EMISSION-خاندان جملے والد «پروسٹیٹ سیال کا اخراج» سے ہم آہنگ** («منی کا اخراج» سے — دستاویزی، قابلِ واپسی)؛ REP_RUBUR_V 176
+
+### 22.4 کوڈ، رپورٹیں، ٹیسٹ
+- کوڈ: rep-chapters.js v184 (_repBuildKentProstateSourceTree + دونوں ڈسپیچ سائٹس — Pages 667–668/Count 92 سخت جائزے) · KENT_TREE_FIX prostate_gland.h 10 legacy ids (o67899 مبہم سمیت) g/p صاف · _index 102 · master sync (**minified** 20.7 MiB، round-trip تصدیق) · CACHE v184 · ٹیبز/صفحہ ٹیگ v184 · 18-rubrics-ur v176 · mind sidecar rebuild
+- رپورٹیں: kent_sources/reports/ پروسٹیٹ-تین-کالم.csv (91) · پروسٹیٹ-ہیرارکی-تصدیق.csv (92) · پروسٹیٹ-تمام-اندراجات.csv (92) · پروسٹیٹ-پرانی-قطاریں.csv (10) · پروسٹیٹ-پڑتال.xlsx · پروسٹیٹ-اصلاحات-کا-خلاصہ.md (+ download کاپیاں)
+- **تصدیق-ضروری CSV:** download/kent-confirmation-needed.csv — پروسٹیٹ کے 16 اندراجات (باب-حد 2، مبہم 1، نئی جڑ 1، ادویات-فرق 9، اردو ہم آہنگی 1، گریڈ 2) — کل 135
+- ٹیسٹ: نئی kent_prostate_homeoint_source.test.js (درخت 92، جڑ-بچے 22، گہرائی 4، BALL 4/EMISSION 47/erections 3+without 11/stool 32+difficult 20+after 17/INFLAMMATION 45/PAIN 39، گہری d3 «PAIN, pressing, urination, during, after»، UNEASINESS آخری، باب-حد، اردو «پروسٹیٹ غدود — » 100% + ہم آہنگی، مانی فیسٹ، _index) — **مکمل سوئٹ 61/61 پاس + app_smoke (jsdom: /tmp/jsd + /tmp/jsd2 دوبارہ تعینات، static8080 ہارنس)**
+
+### 22.5 اگلے قدم
+1. ڈاکٹر پروسٹیٹ-تین-کالم.csv کی تصدیق (91 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (16 اندراجات — خاص طور پر o67899 «EMISSION» 63-ادویہ برتن اور 19 ہم آہنگ شدہ اردو جملے)
+2. اگلا باب: کتابی ترتیب کے مطابق — **URETHRA (MEDI-T ص 669 سے، kent0665 P669 مارکر + kent0670/kent0675)** — پھر URINE
+3. Vercel پش (v184 کے بعد)
