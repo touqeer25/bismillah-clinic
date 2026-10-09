@@ -1,0 +1,18 @@
+{
+ "book": "kent",
+ "chapter": "urethra",
+ "source": "homeoint.org/books/kentrep1 kent0665+kent0670+kent0675 (MEDI-T HTML)",
+ "pages": "669 – 680 (MEDI-T انتساب)",
+ "source_canonical": "homeoint-urethra-v1",
+ "source_rows": 555,
+ "unique_source_paths": 555,
+ "matched_app_records": 544,
+ "new_source_records": 11,
+ "legacy_local_records": 67,
+ "ambiguous_app_records": 9,
+ "pdf_verification": "554/554 حرف-بہ-حرف، صفر فرق/drift/باقیات (urethra_pdf_verify.json)",
+ "chapter_boundaries": "آغاز kent0665 NAME=\"P669\" اینکر (URETHRA nav-مارکر کے اندر)؛ اختتام kent0675 کے اندر URINE باب سرخی <b><p>URINE</p> سے پہلے (kent0675 میں p680 کا پورا URETHRA مواد ہے — kent0680 کی ضرورت نہیں)",
+ "file_tail_artifacts": "kent0665 دم p671 nav-بلاک سرخی-دہرائی + kent0670 دم p676 nav-بلاک سرخی-دہرائی — دونوں حذف (اصل قطاریں اپنی جگہ موجود)",
+ "clamps": "3 (idx252 p674 waking,on d4→d3؛ idx351 p676 to-anus d4→d3؛ idx447 p678 urging,when d4→d3)",
+ "phantom_note": "OOREP/kenturor راستوں میں phantom سیگمنٹ (DISCHARGE,acrid کٹا؛ urination گھسا) — PDF x-coords (folio 1444/1455/1456/1457/1458) سے ثابت کہ ماخذ درخت کتاب کی عین indentation ہے"
+}

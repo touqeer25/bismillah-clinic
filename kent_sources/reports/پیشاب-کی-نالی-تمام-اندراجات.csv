@@ -1,0 +1,556 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,669,0,URETHRA,0
+r0,669,0,AGGLUTINATION of meatus,16
+r1,669,1,"AGGLUTINATION of meatus, morning",4
+r2,669,0,AIR passes from the female urethra during urination,1
+r3,669,0,"BALL rolling through, sensation of",1
+r4,669,0,BUBBLING while sitting,1
+r5,669,0,CHORDEE,36
+r6,669,1,"CHORDEE, burning in urethra, with",1
+r7,669,1,"CHORDEE, extreme sensitiveness of urethra",1
+r8,669,0,CLOGGED by pieces of coagulated mucus,5
+r9,669,0,COLDNESS,1
+r10,669,1,"COLDNESS, painful shoots, during",1
+r11,669,0,CONSTRICTION,3
+r12,669,1,"CONSTRICTION, convulsive",1
+r13,669,1,"CONSTRICTION, smarting",1
+r14,669,1,"CONSTRICTION, urination, during",12
+r15,669,2,"CONSTRICTION, urination, during, after",1
+r16,669,1,"CONSTRICTION, extending to bladder",3
+o62139,669,2,"CONSTRICTION, extending to bladder, backward, while reflecting",1
+r18,669,0,CONTRACTION,16
+r19,669,1,"CONTRACTION, morning",1
+r20,669,2,"CONTRACTION, morning, erection, during",1
+r21,669,1,"CONTRACTION, internally",1
+r22,669,1,"CONTRACTION, stool and urination, before",1
+o62150,669,1,"CONTRACTION, suppressed gonorrhœa",1
+r24,669,1,"CONTRACTION, urging to urinate, with",1
+r25,669,1,"CONTRACTION, urination, during",4
+r26,669,2,"CONTRACTION, urination, during, after",1
+r27,669,1,"CONTRACTION, extending backward on urination",1
+r28,669,1,"CONTRACTION, meatus",2
+r29,669,0,CRACKS in meatus,5
+r30,669,0,CRAMP,3
+r31,669,0,CRAWLING,15
+r32,669,1,"CRAWLING, sticking",1
+r33,669,1,"CRAWLING, urinating, when not",1
+r34,669,1,"CRAWLING, urinating, during",3
+h002,669,2,"CRAWLING, urinating, during, after",2
+r36,669,1,"CRAWLING, fossa navicularis",1
+r37,669,1,"CRAWLING, meatus",4
+r38,669,0,"DISCHARGE, acrid",9
+r39,669,1,"DISCHARGE, acrid, albuminous",3
+r40,669,1,"DISCHARGE, acrid, bloody",21
+o62166,669,2,"DISCHARGE, acrid, bloody, chronic diarrhœa, in",1
+r42,669,2,"DISCHARGE, acrid, bloody, urethra painful to touch",1
+r43,669,1,"DISCHARGE, acrid, cheesy",1
+r44,669,1,"DISCHARGE, acrid, clear",13
+r45,669,1,"DISCHARGE, acrid, colorless",4
+r46,669,1,"DISCHARGE, acrid, copious (See Profuse)",0
+r47,669,1,"DISCHARGE, acrid, cream like",1
+r48,669,1,"DISCHARGE, acrid, fetid",9
+r49,669,1,"DISCHARGE, acrid, flocculent, urination, after",1
+r52,669,1,"DISCHARGE, acrid, gleety",70
+r53,670,2,"DISCHARGE, acrid, gleety, morning",4
+r54,670,2,"DISCHARGE, acrid, gleety, night",2
+r55,670,2,"DISCHARGE, acrid, gleety, impotency, with",1
+r56,670,2,"DISCHARGE, acrid, gleety, painless",22
+r57,670,2,"DISCHARGE, acrid, gleety, protracted",1
+r58,670,1,"DISCHARGE, acrid, gluey",1
+o62181,670,1,"DISCHARGE, acrid, gonorrhœal",77
+o62184,670,2,"DISCHARGE, acrid, gonorrhœal, night",3
+o62185,670,2,"DISCHARGE, acrid, gonorrhœal, only",1
+o62182,670,2,"DISCHARGE, acrid, gonorrhœal, chronic",29
+o62183,670,2,"DISCHARGE, acrid, gonorrhœal, increase after having decreased",5
+o62186,670,2,"DISCHARGE, acrid, gonorrhœal, syphilitics, in",4
+r65,670,1,"DISCHARGE, acrid, gray",1
+r66,670,1,"DISCHARGE, acrid, greenish",14
+r67,670,2,"DISCHARGE, acrid, greenish, night",2
+r68,670,2,"DISCHARGE, acrid, greenish, chronic",4
+r69,670,2,"DISCHARGE, acrid, greenish, thick",3
+r70,670,2,"DISCHARGE, acrid, greenish, yellow",19
+r71,670,3,"DISCHARGE, acrid, greenish, yellow, thick, with priapism",3
+r72,670,1,"DISCHARGE, acrid, jelly-like",1
+r73,670,1,"DISCHARGE, acrid, milky",13
+r74,670,2,"DISCHARGE, acrid, milky, pasty",1
+r75,670,2,"DISCHARGE, acrid, milky, sticky",2
+r76,670,3,"DISCHARGE, acrid, milky, sticky, urination, before",1
+r77,670,2,"DISCHARGE, acrid, milky, stool, after",1
+r78,670,2,"DISCHARGE, acrid, milky, urination, after",6
+r79,670,1,"DISCHARGE, acrid, mucous",47
+r80,670,2,"DISCHARGE, acrid, mucous, evening, chill, after a",1
+o62204,670,3,"DISCHARGE, acrid, mucous, evening, chill, after a, urination, after",4
+r82,670,2,"DISCHARGE, acrid, mucous, bloody",3
+r83,670,2,"DISCHARGE, acrid, mucous, gelatinous, urination, after",1
+r84,670,2,"DISCHARGE, acrid, mucous, glutinous",2
+r85,670,2,"DISCHARGE, acrid, mucous, milky white",1
+r86,670,2,"DISCHARGE, acrid, mucous, relaxation of genitals, during",1
+r87,670,2,"DISCHARGE, acrid, mucous, viscid, purulent, urination, after",1
+r88,670,1,"DISCHARGE, acrid, profuse",17
+r89,670,1,"DISCHARGE, acrid, purulent",39
+r90,671,2,"DISCHARGE, acrid, purulent, drop of pus before urinating",1
+r91,671,1,"DISCHARGE, acrid, semen, like",1
+r92,671,1,"DISCHARGE, acrid, slimy",13
+r93,671,1,"DISCHARGE, acrid, spotting linen",1
+r94,671,1,"DISCHARGE, acrid, stringy",1
+r95,671,1,"DISCHARGE, acrid, thick",21
+r96,671,1,"DISCHARGE, acrid, thin",9
+r97,671,2,"DISCHARGE, acrid, thin, gleety, with formication over body",1
+r98,671,1,"DISCHARGE, acrid, transparent",4
+r99,671,1,"DISCHARGE, acrid, viscid",9
+r100,671,1,"DISCHARGE, acrid, watery",17
+r101,671,2,"DISCHARGE, acrid, watery, meatus glued up in morning with a watery drop",1
+r102,671,2,"DISCHARGE, acrid, watery, moving about, on",1
+r103,671,2,"DISCHARGE, acrid, watery, nitrate of silver, after injections of",1
+r104,671,2,"DISCHARGE, acrid, watery, painless",1
+r105,671,1,"DISCHARGE, acrid, white",29
+r106,671,2,"DISCHARGE, acrid, white, morning, prostatic discharge evening",1
+r107,671,2,"DISCHARGE, acrid, white, chronic",14
+r108,671,3,"DISCHARGE, acrid, white, chronic, anæmic subjects, in",1
+r109,671,3,"DISCHARGE, acrid, white, chronic, impotence, with",3
+r110,671,4,"DISCHARGE, acrid, white, chronic, impotence, with, and fetid urine",1
+r111,671,3,"DISCHARGE, acrid, white, chronic, nitrate of silver, after injection of",1
+r112,671,3,"DISCHARGE, acrid, white, chronic, urination, after",4
+r113,671,1,"DISCHARGE, acrid, yellow",39
+r114,671,2,"DISCHARGE, acrid, yellow, morning, drop",2
+r115,671,2,"DISCHARGE, acrid, yellow, evening",1
+r116,671,2,"DISCHARGE, acrid, yellow, night",2
+r117,671,2,"DISCHARGE, acrid, yellow, chronic",14
+r118,671,2,"DISCHARGE, acrid, yellow, spots on linen",3
+r119,671,1,"DISCHARGE, acrid, yellowish-white",2
+r120,671,2,"DISCHARGE, acrid, yellowish-white, painless",1
+r121,671,0,"DROPPING from, sensation of",4
+r122,671,1,"DROPPING from, sensation of, urination, after",1
+r123,671,2,"DROPPING from, sensation of, urination, after, burning drops run along, after",2
+r124,671,0,DROP remains (See Sensation),0
+r125,671,0,"DRYNESS, sensation of",2
+r126,671,0,EXCRESCENCES,1
+r127,671,0,FUNGOID growth,5
+r128,671,0,"GNAWING, when not urinating",1
+h003,671,0,GONORRHŒA suppressed (See Regions),0
+r130,671,0,HARDNESS,3
+r131,671,1,"HARDNESS, meatus, of",1
+r132,671,0,HARD node,2
+r133,671,0,HEAT,9
+r134,671,1,"HEAT, emission of semen, during",1
+r135,671,1,"HEAT, voluptuous",1
+r136,671,0,HÆMORRHAGE,61
+r137,671,1,"HÆMORRHAGE, burning, with",12
+r138,672,1,"HÆMORRHAGE, coition, during",1
+r139,672,1,"HÆMORRHAGE, constipation, with",1
+r140,672,1,"HÆMORRHAGE, cut, from a, hæmorrhagic diathesis",1
+r141,672,1,"HÆMORRHAGE, erection, during",1
+r142,672,1,"HÆMORRHAGE, first part of urine, with",1
+r143,672,1,"HÆMORRHAGE, menses, suppressed",1
+r144,672,1,"HÆMORRHAGE, painful",2
+r145,672,1,"HÆMORRHAGE, painless",5
+r146,672,1,"HÆMORRHAGE, pains in kidneys and bladder, with",2
+o62261,672,2,"HÆMORRHAGE, pains in kidneys and bladder, with, stomach, and vomiting",1
+r148,672,1,"HÆMORRHAGE, paralysis of legs, with",1
+r149,672,1,"HÆMORRHAGE, pure blood",6
+r150,672,2,"HÆMORRHAGE, pure blood, clotted",5
+r151,672,2,"HÆMORRHAGE, pure blood, urinating, when not",1
+r152,672,1,"HÆMORRHAGE, stool, during",2
+o62267,672,1,"HÆMORRHAGE, suppressed gonorrhœa, after",1
+r154,672,1,"HÆMORRHAGE, urination, after",7
+r155,672,1,"HÆMORRHAGE, vicarious",2
+r156,672,0,"INDURATION, chronic",4
+r157,672,0,INFLAMMATION,26
+o62278,672,1,"INFLAMMATION, burning, shooting pain and increased gonorrhœa, with",2
+r159,672,1,"INFLAMMATION, meatus",23
+r160,672,0,IRRITATION,12
+r161,672,1,"IRRITATION, meatus",1
+r162,672,0,ITCHING,55
+r163,672,1,"ITCHING, morning",1
+r164,672,1,"ITCHING, afternoon",1
+r165,672,1,"ITCHING, evening",2
+r166,672,1,"ITCHING, desire to urinate, with",1
+r167,672,1,"ITCHING, erections, during",2
+r168,672,1,"ITCHING, gleet, with",4
+o62296,672,1,"ITCHING, gonorrhœa, with",4
+o62295,672,2,"ITCHING, gonorrhœa, with, following",1
+r171,672,1,"ITCHING, preceding discharge of pus",1
+r172,672,1,"ITCHING, urination, before",4
+r173,672,2,"ITCHING, urination, before, during",16
+r174,672,2,"ITCHING, urination, before, after",12
+r175,672,1,"ITCHING, voluptuous",5
+r176,672,1,"ITCHING, female",3
+r177,672,1,"ITCHING, anterior part",10
+r178,672,2,"ITCHING, anterior part, urination, when not",3
+r179,672,1,"ITCHING, fossa navicularis",10
+r180,672,2,"ITCHING, fossa navicularis, shooting, and, evening",1
+r181,672,2,"ITCHING, fossa navicularis, urination, after",1
+r182,672,2,"ITCHING, fossa navicularis, voluptuous",2
+r183,672,1,"ITCHING, meatus",27
+r184,672,2,"ITCHING, meatus, evening",2
+r185,672,2,"ITCHING, meatus, coition, after",1
+r186,672,2,"ITCHING, meatus, touched, when",1
+r187,672,2,"ITCHING, meatus, urging to urinate, as if",1
+r188,672,3,"ITCHING, meatus, urging to urinate, as if, constant",1
+r189,672,2,"ITCHING, meatus, urging, during",2
+r190,672,3,"ITCHING, meatus, urging, during, after",4
+r191,673,2,"ITCHING, meatus, voluptuous",3
+r192,673,2,"ITCHING, meatus, walking",1
+r193,673,0,JERKING,13
+r194,673,1,"JERKING, standing, while",1
+r195,673,1,"JERKING, urination, after",1
+r196,673,1,"JERKING, voluptuous formication in fossa navicularis",1
+r197,673,0,KNOTTY sensation,4
+r198,673,0,"MOISTURE, meatus",2
+r199,673,1,"MOISTURE, meatus, glutinous",1
+r200,673,1,"MOISTURE, meatus, yellow stain, causing a",1
+r201,673,0,"MUCUS, clogged up with coagulated",4
+r202,673,0,"NARROWNESS, sensation of (See Swelling)",5
+r203,673,0,"NODE, hard (See Hard)",0
+r204,673,0,"NUMBNESS (See Sensation, absent)",7
+r205,673,1,"NUMBNESS (See Sensation, absent), uneasy feeling",1
+r206,673,0,PAIN,23
+r207,673,1,"PAIN, daytime",1
+r208,673,1,"PAIN, evening",2
+r209,673,1,"PAIN, emissions, from",3
+r210,673,2,"PAIN, emissions, from, morning, on waking",1
+r211,673,1,"PAIN, erections, during",1
+r212,673,2,"PAIN, erections, during, after",1
+r213,673,1,"PAIN, paroxysmal",4
+r214,673,1,"PAIN, standing, while",1
+r215,673,1,"PAIN, stool, before",1
+r216,673,1,"PAIN, urging to urinate, on",4
+r217,673,1,"PAIN, urinating, when not",6
+r218,673,1,"PAIN, urination, during",31
+r219,673,2,"PAIN, urination, during, urging to stool, with",10
+r234,673,2,"PAIN, urination, during, after",9
+r221,673,2,"PAIN, urination, during, at close of",10
+r222,673,1,"PAIN, waking, on",3
+r223,673,1,"PAIN, wet, after getting",1
+r224,673,1,"PAIN, anterior part when not urinating",2
+r305,673,2,"PAIN, anterior part when not urinating, urination, during",3
+r472,673,3,"PAIN, anterior part when not urinating, urination, during, after",2
+r227,673,1,"PAIN, fossa navicularis, urination, before",1
+r228,673,1,"PAIN, meatus",11
+r229,673,2,"PAIN, meatus, after urinating",3
+r230,673,2,"PAIN, meatus, woman, in a",2
+r231,673,2,"PAIN, meatus, extending backward",1
+r232,673,1,"PAIN, aching",6
+r233,673,1,"PAIN, nephritic colic, with",1
+h004,673,1,"PAIN, urination, after",3
+r235,673,1,"PAIN, meatus, urinating, when not",2
+o62485,673,2,"PAIN, meatus, urinating, when not, urination, during",1
+o62484,673,3,"PAIN, meatus, urinating, when not, urination, during, after",1
+r238,673,1,"PAIN, acute, urination, during",1
+r239,673,1,"PAIN, agonizing, from clots of blood passing",1
+r240,673,1,"PAIN, biting",13
+r241,673,2,"PAIN, biting, morning",1
+r242,673,2,"PAIN, biting, evening, burning",1
+r243,673,2,"PAIN, biting, itching, and, before urination",2
+r244,673,2,"PAIN, biting, urinating, when not",3
+r245,673,2,"PAIN, biting, urination, during",19
+r248,673,3,"PAIN, biting, urination, during, after",9
+r249,674,4,"PAIN, biting, urination, during, after, as if a drop were forcing its way out",1
+r250,674,2,"PAIN, biting, extending backward",1
+r251,674,2,"PAIN, biting, anterior part",3
+r252,674,3,"PAIN, biting, anterior part, rest agg., walking amel.",1
+r253,674,2,"PAIN, biting, fossa navicularis",1
+r254,674,2,"PAIN, biting, meatus, morning",2
+r255,674,3,"PAIN, biting, meatus, morning, waking, on",1
+r256,674,3,"PAIN, biting, meatus, morning, evening",3
+r257,674,3,"PAIN, biting, meatus, morning, urination, during",4
+o62342,674,4,"PAIN, biting, meatus, morning, urination, during, after",2
+o62343,674,5,"PAIN, biting, meatus, morning, urination, during, after, sticking",1
+r260,674,2,"PAIN, biting, posterior part",2
+r261,674,1,"PAIN, burning",124
+r262,674,2,"PAIN, burning, morning, erections after",1
+h005,674,2,"PAIN, burning, urination, during",7
+r264,674,2,"PAIN, burning, waking, on after emission",1
+r265,674,2,"PAIN, burning, evening",7
+r266,674,3,"PAIN, burning, evening, as if a drop of acrid urine would pass",1
+r267,674,2,"PAIN, burning, night",5
+r268,674,2,"PAIN, burning, at all times",2
+r269,674,2,"PAIN, burning, coition, during",8
+r270,674,3,"PAIN, burning, coition, during, after",6
+r271,674,4,"PAIN, burning, coition, during, after, urination, during",1
+r272,674,2,"PAIN, burning, discharged, when semen is",17
+r273,674,2,"PAIN, burning, discharge of thin liquid after urination, from",1
+r274,674,2,"PAIN, burning, discharge of semen in coitus, in stricture, during",1
+r275,674,2,"PAIN, burning, drops of urine passing, as if",2
+r276,674,2,"PAIN, burning, emission, during",7
+r277,674,3,"PAIN, burning, emission, during, after",9
+r278,674,2,"PAIN, burning, erections, during",10
+r279,674,3,"PAIN, burning, erections, during, ceases during coition",1
+r280,674,2,"PAIN, burning, exercise, during",1
+r281,674,2,"PAIN, burning, menses, before (See Urine, Burning)",0
+r282,674,3,"PAIN, burning, menses, before (See Urine, Burning), during",1
+r283,674,2,"PAIN, burning, rising, after",1
+o62396,674,2,"PAIN, burning, shooting and increased gonorrhœa",2
+r285,674,2,"PAIN, burning, sitting, while",2
+r286,674,2,"PAIN, burning, stool, during",1
+r287,674,3,"PAIN, burning, stool, during, after",1
+r288,674,2,"PAIN, burning, stream is interrupted, when",1
+r289,674,2,"PAIN, burning, touching, on",3
+r290,674,2,"PAIN, burning, urging to urinate",9
+r291,674,3,"PAIN, burning, urging to urinate, when effort is made to pass urine",2
+r292,674,2,"PAIN, burning, urinating, when not",17
+r293,674,2,"PAIN, burning, urination, before",29
+r295,675,3,"PAIN, burning, urination, before, beginning to urinate, when",8
+r263,675,3,"PAIN, burning, urination, before, during",140
+r296,675,3,"PAIN, burning, urination, before, after",65
+r297,675,3,"PAIN, burning, urination, before, amel.",3
+r298,675,3,"PAIN, burning, urination, before, close, at",5
+r299,675,3,"PAIN, burning, urination, before, constriction, and, extending to bladder",1
+r300,675,3,"PAIN, burning, urination, before, last drops cause violent burning",11
+r301,675,2,"PAIN, burning, walking, while",1
+r302,675,2,"PAIN, burning, anterior part",8
+r303,675,3,"PAIN, burning, anterior part, emission, after an",2
+r304,675,3,"PAIN, burning, anterior part, urinating, when not",9
+o62356,675,3,"PAIN, burning, anterior part, urination, during",20
+r306,675,4,"PAIN, burning, anterior part, urination, during, after",6
+r307,675,2,"PAIN, burning, fossa navicularis",4
+r308,675,3,"PAIN, burning, fossa navicularis, burning drops",1
+r309,675,3,"PAIN, burning, fossa navicularis, urination, before",1
+r310,675,4,"PAIN, burning, fossa navicularis, urination, before, during",5
+r311,675,2,"PAIN, burning, glandular portion, urination, during",6
+o62376,675,3,"PAIN, burning, glandular portion, urination, during, and for long time after",3
+r313,675,2,"PAIN, burning, meatus",46
+r314,675,3,"PAIN, burning, meatus, night",2
+r315,675,3,"PAIN, burning, meatus, coition, after",2
+r316,675,3,"PAIN, burning, meatus, most violent",1
+r317,675,3,"PAIN, burning, meatus, quiet, when",2
+r318,675,3,"PAIN, burning, meatus, sitting, while",1
+r319,675,3,"PAIN, burning, meatus, urination, before",1
+o62387,675,3,"PAIN, burning, meatus, during",22
+r322,676,4,"PAIN, burning, meatus, during, after",13
+r323,676,3,"PAIN, burning, meatus, walking, while",1
+r324,676,3,"PAIN, burning, meatus, extending backward",1
+r325,676,2,"PAIN, burning, posterior part",4
+r326,676,3,"PAIN, burning, posterior part, emission, after",1
+r327,676,3,"PAIN, burning, posterior part, urination, during",1
+r328,676,1,"PAIN, contracting",6
+r329,676,1,"PAIN, cutting",44
+r330,676,2,"PAIN, cutting, morning",3
+r331,676,2,"PAIN, cutting, forenoon",1
+r332,676,2,"PAIN, cutting, evening, lying down, after",2
+r333,676,2,"PAIN, cutting, midnight",1
+r334,676,2,"PAIN, cutting, biting, and, growing towards end of urination, even to last drop",1
+r335,676,2,"PAIN, cutting, emission, during",2
+r336,676,2,"PAIN, cutting, flatus, while passing",2
+r337,676,2,"PAIN, cutting, ineffectual urging, with",1
+r338,676,2,"PAIN, cutting, menses, before, when urinating",1
+r339,676,2,"PAIN, cutting, motion, on",1
+r340,676,2,"PAIN, cutting, paroxysmal",2
+r341,676,2,"PAIN, cutting, pressing glans penis amel.",1
+r342,676,2,"PAIN, cutting, stool, before",2
+r343,676,3,"PAIN, cutting, stool, before, during",2
+r344,676,3,"PAIN, cutting, stool, before, after",1
+r345,676,2,"PAIN, cutting, urinating, when not",9
+o62448,676,3,"PAIN, cutting, urinating, when not, urination, before",7
+h006,676,3,"PAIN, cutting, urinating, when not, beginning to urinate, on",4
+h007,676,3,"PAIN, cutting, urinating, when not, during",41
+h008,676,4,"PAIN, cutting, urinating, when not, during, pressure in rectum, with",1
+h009,676,4,"PAIN, cutting, urinating, when not, during, stool, and",1
+h010,676,3,"PAIN, cutting, urinating, when not, after",14
+o62450,676,3,"PAIN, cutting, urinating, when not, close of urination, at",10
+r353,676,2,"PAIN, cutting, walking, while",1
+r354,676,2,"PAIN, cutting, extending backward",2
+r355,676,3,"PAIN, cutting, extending backward, to anus when passing last drops",2
+o62427,676,3,"PAIN, cutting, extending backward, from within outward",1
+r357,676,2,"PAIN, cutting, anterior part",7
+r358,676,3,"PAIN, cutting, anterior part, urination, during",5
+r359,676,4,"PAIN, cutting, anterior part, urination, during, after",3
+r360,676,5,"PAIN, cutting, anterior part, urination, during, after, and lancinating",1
+r361,676,2,"PAIN, cutting, fossa navicularis, urination, after",2
+r362,676,2,"PAIN, cutting, meatus",10
+r363,676,3,"PAIN, cutting, meatus, sitting, while",1
+r364,676,3,"PAIN, cutting, meatus, urination, during",4
+r365,676,4,"PAIN, cutting, meatus, urination, during, after",4
+r366,676,4,"PAIN, cutting, meatus, urination, during, at the close",3
+r367,676,1,"PAIN, darting (See Stitching)",0
+r368,676,1,"PAIN, dragging",8
+r369,676,2,"PAIN, dragging, extending into bladder after urination",1
+r370,676,2,"PAIN, dragging, as far as the tip, in evening, during urination",1
+r371,677,1,"PAIN, drawing",28
+r372,677,2,"PAIN, drawing, morning, urinating, after",1
+o62471,677,3,"PAIN, drawing, morning, urinating, after, waking, on",2
+r374,677,2,"PAIN, drawing, evening, urination, after",1
+r375,677,2,"PAIN, drawing, walking, while",1
+r376,677,3,"PAIN, drawing, walking, while, in open air, on",1
+r377,677,2,"PAIN, drawing, extending to anus",1
+o62465,677,3,"PAIN, drawing, extending to anus, from anus through urethra",1
+o62466,677,4,"PAIN, drawing, extending to anus, from anus through urethra, perinæum into urethra",1
+r380,677,2,"PAIN, drawing, anterior part",5
+r381,677,3,"PAIN, drawing, anterior part, evening, urination, after",1
+r382,677,3,"PAIN, drawing, anterior part, urinating, when not",3
+r383,677,2,"PAIN, drawing, fossa navicularis",2
+r384,677,2,"PAIN, drawing, meatus",3
+r385,677,3,"PAIN, drawing, meatus, evening, urination during",1
+r386,677,1,"PAIN, pinching",5
+r387,677,2,"PAIN, pinching, urinating, when not",1
+r388,677,2,"PAIN, pinching, urination, before",1
+r389,677,2,"PAIN, pinching, meatus",2
+r390,677,1,"PAIN, pressing",16
+r391,677,2,"PAIN, pressing, evening, urination during",1
+r392,677,2,"PAIN, pressing, urination, after",3
+r393,677,3,"PAIN, pressing, urination, after, between the acts of",1
+r394,677,2,"PAIN, pressing, voluptuous, extending to anus",1
+r395,677,2,"PAIN, pressing, meatus",3
+r396,677,3,"PAIN, pressing, meatus, when not urinating",1
+r397,677,1,"PAIN, pricking, urination, before",1
+o62500,677,2,"PAIN, pricking, urination, before, meatus",4
+r399,677,1,"PAIN, pulsating, urinating, when not",1
+r400,677,1,"PAIN, rasping, urination, during",6
+r401,677,1,"PAIN, scalding (See Burning)",0
+r402,677,1,"PAIN, shooting (See Stitching)",0
+r403,677,1,"PAIN, smarting (See Burning)",0
+r404,677,1,"PAIN, soreness",27
+r405,677,2,"PAIN, soreness, erection, during",1
+r406,677,2,"PAIN, soreness, urinating, when not",2
+r407,677,2,"PAIN, soreness, urination, during",19
+r408,677,3,"PAIN, soreness, urination, during, after",3
+r409,677,2,"PAIN, soreness, fossa navicularis",1
+r410,677,2,"PAIN, soreness, meatus",10
+r411,677,3,"PAIN, soreness, meatus, coition, after",2
+r412,677,1,"PAIN, sticking, urinating, when",8
+r413,677,1,"PAIN, stinging",7
+r414,677,1,"PAIN, stitching",73
+r415,677,2,"PAIN, stitching, morning",3
+r416,677,2,"PAIN, stitching, forenoon",1
+r417,677,2,"PAIN, stitching, afternoon",1
+r418,677,2,"PAIN, stitching, evening",6
+r419,677,2,"PAIN, stitching, night, erections, during",1
+r420,677,2,"PAIN, stitching, burning",5
+r421,677,3,"PAIN, stitching, burning, urination, during",1
+r422,677,2,"PAIN, stitching, coition, after",2
+r423,677,2,"PAIN, stitching, cutting",3
+r424,677,3,"PAIN, stitching, cutting, ineffectual desire to urinate, with",1
+r425,677,3,"PAIN, stitching, cutting, twitching, when not urinating",1
+r426,678,2,"PAIN, stitching, drawing, when not urinating",1
+r427,678,2,"PAIN, stitching, dull",2
+r428,678,3,"PAIN, stitching, dull, shooting, on quiet emission of flatus",1
+r429,678,3,"PAIN, stitching, dull, urinating, when not",1
+o62530,678,2,"PAIN, stitching, erections",4
+r431,678,2,"PAIN, stitching, fine",4
+r432,678,3,"PAIN, stitching, fine, meatus",1
+r433,678,2,"PAIN, stitching, flatus, when passing",1
+r434,678,2,"PAIN, stitching, itching, with, when not urinating",1
+r435,678,2,"PAIN, stitching, motion, on",2
+r436,678,2,"PAIN, stitching, rigors, with",1
+r437,678,2,"PAIN, stitching, sitting",2
+r438,678,3,"PAIN, stitching, sitting, passing flatus, while",1
+r439,678,2,"PAIN, stitching, splinter-like",3
+r440,678,2,"PAIN, stitching, standing, on",2
+r441,678,2,"PAIN, stitching, stinging, coition, during",1
+o62566,678,3,"PAIN, stitching, stinging, coition, during, gonorrhœa, with",2
+r443,678,2,"PAIN, stitching, stool, during",4
+r444,678,2,"PAIN, stitching, sudden, sitting agg.",1
+r445,678,2,"PAIN, stitching, synchronous with pulse",2
+r446,678,2,"PAIN, stitching, tickling",1
+r447,678,2,"PAIN, stitching, twinging like lightening, from before backward",2
+r448,678,2,"PAIN, stitching, urging, with",9
+r449,678,2,"PAIN, stitching, urinating, when not",18
+r450,678,2,"PAIN, stitching, urination, before",7
+r451,678,3,"PAIN, stitching, urination, before, urging, when",1
+o62579,678,3,"PAIN, stitching, urination, before, during",20
+r453,678,3,"PAIN, stitching, urination, before, after",13
+r454,678,4,"PAIN, stitching, urination, before, after, and after coition",1
+r455,678,3,"PAIN, stitching, urination, before, close of",1
+r456,678,2,"PAIN, stitching, walking, while",4
+r457,678,3,"PAIN, stitching, walking, while, open air, in",2
+r458,678,2,"PAIN, stitching, extending towards abdomen, evening",1
+o62533,678,3,"PAIN, stitching, extending towards abdomen, evening, anus",3
+o62534,678,4,"PAIN, stitching, extending towards abdomen, evening, anus, morning, urinating, after",1
+o62535,678,3,"PAIN, stitching, extending towards abdomen, evening, backward",10
+o62536,678,3,"PAIN, stitching, extending towards abdomen, evening, bladder",1
+o62537,678,3,"PAIN, stitching, extending towards abdomen, evening, forward",13
+o62538,678,4,"PAIN, stitching, extending towards abdomen, evening, forward, urinating, when not, urinating amel.",1
+o62539,678,4,"PAIN, stitching, extending towards abdomen, evening, forward, urination, after",1
+o62540,678,3,"PAIN, stitching, extending towards abdomen, evening, glans",4
+o62541,678,3,"PAIN, stitching, extending towards abdomen, evening, hypogastrium",2
+o62542,678,3,"PAIN, stitching, extending towards abdomen, evening, meatus",3
+o62543,678,4,"PAIN, stitching, extending towards abdomen, evening, meatus, from root of penis after urination",1
+r470,678,2,"PAIN, stitching, anterior part",22
+r471,678,3,"PAIN, stitching, anterior part, urinating, when not",6
+o62519,678,3,"PAIN, stitching, anterior part, urination, after",1
+r473,678,2,"PAIN, stitching, fossa navicularis",12
+r474,678,3,"PAIN, stitching, fossa navicularis, urination, on",1
+r475,678,2,"PAIN, stitching, meatus",33
+r476,678,3,"PAIN, stitching, meatus, evening",2
+r477,678,3,"PAIN, stitching, meatus, night",1
+r478,678,3,"PAIN, stitching, meatus, copious urine, with",1
+r479,678,3,"PAIN, stitching, meatus, urinating, when not",4
+r480,678,3,"PAIN, stitching, meatus, urination, after",2
+r481,679,1,"PAIN, tearing",22
+r482,679,2,"PAIN, tearing, morning, after urination",1
+r483,679,2,"PAIN, tearing, afternoon, when seated",2
+r484,679,2,"PAIN, tearing, erection, during",4
+r485,679,2,"PAIN, tearing, goes through the body, when urinating, that",1
+r486,679,2,"PAIN, tearing, shooting, and, ascending through hypogastrium when walking in open air",1
+r487,679,2,"PAIN, tearing, urinating, when not",7
+r488,679,2,"PAIN, tearing, urination, during",7
+r489,679,3,"PAIN, tearing, urination, during, after",3
+r490,679,4,"PAIN, tearing, urination, during, after, from root of penis to glans",1
+r491,679,2,"PAIN, tearing, walking in open air",1
+r492,679,2,"PAIN, tearing, zig-zags",2
+r493,679,3,"PAIN, tearing, zig-zags, toward hypogastrium, when walking in open air",1
+r494,679,2,"PAIN, tearing, extending forward",1
+r495,679,2,"PAIN, tearing, anterior part",6
+h011,679,3,"PAIN, tearing, anterior part, urinating, when",1
+r497,679,4,"PAIN, tearing, anterior part, urinating, when, when not",2
+r498,679,2,"PAIN, tearing, meatus",4
+r499,679,3,"PAIN, tearing, meatus, female",1
+r500,679,1,"PAIN, twinging",7
+r501,679,2,"PAIN, twinging, standing",1
+r502,679,2,"PAIN, twinging, extending from behind forward",1
+r503,679,2,"PAIN, twinging, meatus",2
+r504,679,3,"PAIN, twinging, meatus, during a bath",1
+r505,679,1,"PAIN, ulcerative, ulceration, as from sub-cutaneous",4
+o62609,679,2,"PAIN, ulcerative, ulceration, as from sub-cutaneous, urination, during",1
+o62608,679,3,"PAIN, ulcerative, ulceration, as from sub-cutaneous, urination, during, between acts of",2
+r508,679,0,POUTING meatus (See Swelling),0
+r509,679,0,PULSATION,9
+r510,679,1,"PULSATION, fossa navicularis, stitching and beating",1
+r511,679,0,"REDNESS, meatus",12
+r512,679,1,"REDNESS, meatus, spots",1
+r513,679,0,"SENSATION absent, when urinating",16
+o62623,679,1,"SENSATION absent, when urinating, cold drop of urine, passing, as if",1
+o62624,679,1,"SENSATION absent, when urinating, constricted, as if",2
+o62625,679,1,"SENSATION absent, when urinating, drops, passed, as if a few",2
+o62626,679,1,"SENSATION absent, when urinating, narrow, as if too",4
+o62627,679,1,"SENSATION absent, when urinating, stone in, as of a",1
+o62628,679,1,"SENSATION absent, when urinating, urine were cold, as if",1
+o62629,679,2,"SENSATION absent, when urinating, urine were cold, as if, remained in, after urinating as if some",20
+o62630,679,3,"SENSATION absent, when urinating, urine were cold, as if, remained in, after urinating as if some, fossa navicularis, in, after urination, as if",3
+r522,679,0,SPASM,2
+r523,679,1,"SPASM, with fissure of rectum",1
+r524,679,0,STRICTURE,33
+r525,679,1,"STRICTURE, spasmodic",22
+r526,679,2,"STRICTURE, spasmodic, morning",1
+r527,679,1,"STRICTURE, sensation, of",5
+r528,679,0,SWELLING,15
+r529,679,1,"SWELLING, sensation, of",7
+r530,679,1,"SWELLING, anterior part",1
+r531,679,1,"SWELLING, orifice",12
+r532,680,1,"SWELLING, region of neck of bladder",1
+r533,680,0,TENSION,2
+r534,680,1,"TENSION, erections, during",2
+r535,680,0,TICKLING (See Itching),0
+r536,680,0,TINGLING,6
+r537,680,1,"TINGLING, sitting",1
+r538,680,1,"TINGLING, urination, during",1
+r539,680,1,"TINGLING, frænum, culmination at",1
+r540,680,1,"TINGLING, meatus",8
+r541,680,0,TUMOR,1
+r542,680,0,TWITCHING,12
+r543,680,1,"TWITCHING, burning seminal vesicles to glans penis",1
+r544,680,1,"TWITCHING, ejaculation of semen, as if",1
+r545,680,1,"TWITCHING, urinating, when not",1
+r546,680,1,"TWITCHING, anterior part",1
+r547,680,0,ULCERATION,2
+r548,680,1,"ULCERATION, chancres",2
+r549,680,1,"ULCERATION, meatus",5
+r550,680,2,"ULCERATION, meatus, sticking, with",1
+r551,680,2,"ULCERATION, meatus, urine retained, with sensation as if",1
+r552,680,0,"URINE, still flowing sensation of",2
+r553,680,1,"URINE, still flowing sensation of, stops at fossa navicularis",2
+r554,680,0,"VESICLES, meatus",1
+r555,680,1,"VESICLES, meatus, forming ulcers",1
+r556,680,0,VOLUPTUOUS sensation,4
+r557,680,1,"VOLUPTUOUS sensation, urination, during",2
+r558,680,2,"VOLUPTUOUS sensation, urination, during, after",1

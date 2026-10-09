@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 9 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 183 · **اصل مخزن:**
+**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 185 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -2203,3 +2203,32 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 1. ڈاکٹر پروسٹیٹ-تین-کالم.csv کی تصدیق (91 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (16 اندراجات — خاص طور پر o67899 «EMISSION» 63-ادویہ برتن اور 19 ہم آہنگ شدہ اردو جملے)
 2. اگلا باب: کتابی ترتیب کے مطابق — **URETHRA (MEDI-T ص 669 سے، kent0665 P669 مارکر + kent0670/kent0675)** — پھر URINE
 3. Vercel پش (v184 کے بعد)
+
+## مکمل شدہ پڑتال — پیشاب کی نالی (URETHRA) باب: ماخذی درخت + ادویات + اردو (نسخہ 185)
+
+### 23.1 باب حد اور مآخذ
+- **URETHRA = MEDI-T صفحات 669–680** (12 صفحات — kenturor.htm انڈیکس کے **8/8 صفحہ-اندراجات**: 669/670/671/672/673/676/677/679/680 — p671/674/675/678 انڈیکس میں نہیں، صرف تسلسل)
+- ماخذ فائلیں: kent0665 (NAME="P669" اینکر — **URETHRA nav-مارکر کے اندر**، پروسٹیٹ باب کی کٹ یہیں ختم ہوئی تھی) + kent0670 (P670 ڈپ skip_until P671) + kent0675 (P675 ڈپ skip_until P676) — **kent0675 کے اندر URINE باب کی سرخی <b><p>URINE</p> پر کٹ**؛ kent0675 میں p680 کا پورا URETHRA مواد ہے (region-of-neck + TENSION…VOLUPTUOUS) اس لئے **kent0680 کی URETHRA کے لیے کوئی ضرورت نہیں**
+- جڑ: MEDI-T دہرائی — <p>URETHRA</p> (skip) + ---------- (skip) + <p>URETHRA</p> (جڑ d0) — پہلی مین قطار «AGGLUTINATION of meatus» (16 ادویہ)
+- **فائل-دم artifacts 2 (حذف، دستاویزی):** kent0665 دم p671 nav-بلاک سرخی-دہرائی («DISCHARGE, purulent, drop of pus…») — اصل قطاریں purulent (40، p670) اسی فائل میں + drop-of-pus (1، p671) kent0670 میں؛ kent0670 دم p676 nav-بلاک سرخی-دہرائی («PAIN, burning, meatus, urination, after») — اصل after قطار (13) kent0675 P676 میں
+
+### 23.2 پارس + تیسرا ماخذ (Drive PDF) تصدیق
+- **555 منفرد قطاریں** (جڑ URETHRA + 554) — **3 خاندانی clamps** (idx252 p674 waking,on d4→d3 · idx351 p676 to-anus d4→d3 · idx447 p678 urging,when d4→d3)؛ صفر کتابی دہرائی، صفر دوہرے راستے
+- **phantom-سیگمنٹ دریافت (اہم):** OOREP/kenturor راستوں میں «DISCHARGE, acrid» کا acrid کٹا تھا (gleety/purulent وغیرہ اصل میں اس کی d1 ذیلیاں) اور کئی جگہ «urination» فالتو گھسا تھا — **PDF x-coordinates (folio 1444/1455/1456/1457/1458) سے ثابت** کہ ماخذ درخت کتاب کی عین indentation ہے (DISCHARGE,acrid @56.6=d0 ← albuminous/gleety @92.7=d1؛ meatus @128.7=d2 ← urination,before/during @164.7=d3 ← after @200.7=d4)
+- URETHRA = PDF index 1477–1503 (کتابی ص 669–680)؛ **554/554 حرف-بہ-حرف عین مطابق — صفر ادویہ-فرق، صفر drift، صفر دونوں-طرفہ باقیات — اب تک کا سب سے صاف باب**
+
+### 23.3 کراس واک + اوورلے + اردو
+- کراس واک: 555 ماخذ ↔ 611 ایپ — **544 جُڑے** (541 لالچی + 3 فال بیک)، 9 مبہم OOREP برتن/مجموعے (o62447/o62451 «PAIN, cutting, urination» 14/41 — کتابی عین «urinating, when not» راستے درخت پر؛ o68621 «PAIN, urination» 54 — کتابی خاندان 31+10+9+10+3؛ r206 «PAIN» 242 — کتابی عین 23؛ r51 «DISCHARGE» 132 — کتابی ساخت میں bare DISCHARGE قطار ہی نہیں وغیرہ)، 11 ماخذ-اکیلے نئے hN (جڑ URETHRA + crawling/gonorrhœa-suppressed/pain-burning-urination-during(7)/pain-cutting-urinating-when-not خاندان 5/pain-tearing-when/pain-urination-after)
+- اوورلے: urethra.json **622 = 555 ماخذی (MARK=homeoint-urethra-v1) + 67 legacy** (9 مبہم + 12 خالی m-کنٹینر + 46 مجموعے/phantom-راستے)؛ مانی فیسٹ homeoint_urethra_source_manifest.json
+- اردو: **544 پرانی کلیدوں سے منتقل + جڑ «پیشاب کی نالی — پیشاب کی نالی» + 10 خود-بنے (ہاتھ سے لکھے، meta.auto=10) + 161 راستہ-بڑھنے والوں کی top-down ہم آہنگی** (نئے کتابی راستوں پر — مثلاً «اخراج، خون آلود» ← «اخراج، تیز و تند، خونی») = **555/555 فعال 100%**؛ 256 غیر-درخت پرانی کلیدیں محفوظ (فائل 811)؛ REP_RUBUR_V 177
+
+### 23.4 کوڈ، رپورٹیں، ٹیسٹ
+- کوڈ: rep-chapters.js v185 (_repBuildKentUrethraSourceTree + دونوں ڈسپیچ سائٹس — Pages 669–680/Count 555 سخت جائزے) · KENT_TREE_FIX urethra.h 67 legacy ids (g/p صاف) · _index 622 · master sync (**minified** 20.9 MiB، round-trip تصدیق) · CACHE v185 · ٹیبز/صفحہ ٹیگ v185 · 18-rubrics-ur v177 · mind sidecar rebuild (4358)
+- رپورٹیں: kent_sources/reports/ پیشاب-کی-نالی-تین-کالم.csv (544) · پیشاب-کی-نالی-ہیرارکی-تصدیق.csv (555) · پیشاب-کی-نالی-تمام-اندراجات.csv (555) · پیشاب-کی-نالی-پرانی-قطاریں.csv (67 = 9 مبہم + 12 خالی + 46 مجموعے) · پیشاب-کی-نالی-پڑتال.xlsx · پیشاب-کی-نالی-اصلاحات-کا-خلاصہ.md (+ download کاپیاں)
+- **تصدیق-ضروری CSV:** download/kent-confirmation-needed.csv — پیشاب کی نالی کے 29 اندراجات (باب-حد 2، artifacts 2، clamps 1، phantom 1، مبہم 9، نئے hN 11، ادویات-فرق 8، اردو ہم آہنگی 1، خود-بنے 1) — کل 164
+- ٹیسٹ: نئی kent_urethra_homeoint_source.test.js (درخت 555، جڑ-بچے 53، ماخذی گہرائی 5، AGGLUTINATION 16/DISCHARGE-acrid 9/gleety 70/morning 4/gonorrhœal 77/PAIN 23/PAIN-burning 124/urination-before 29/before-during 140/ITCHING 55، d5 2 قطاریں، VOLUPTUOUS آخری + after:Thuj.، TICKLING See-ref، URINE-still-flowing URETHRA قطار، باب-حد، اردو «پیشاب کی نالی — » 100%، مانی فیسٹ، _index) — **مکمل سوئٹ ذیل میں**؛ Q9 کل 67,522→**67,479**؛ G7 4602 غیر تبدیل
+
+### 23.5 اگلے قدم
+1. ڈاکٹر پیشاب-کی-نالی-تین-کالم.csv کی تصدیق (544 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (29 اندراجات — خاص طور پر phantom-سیگمنٹ نوٹ اور 9 مبہم برتن)
+2. اگلا باب: کتابی ترتیب کے مطابق — **URINE (MEDI-T ص 681 سے، kent0680 NAME="URINE" اینکر + kent0685/kent0690 وغیرہ؛ kenturor نہیں — URINE کا انڈیکس الگ)**
+3. Vercel پش (v185 کے بعد)

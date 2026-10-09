@@ -1628,6 +1628,77 @@ function _repBuildKentProstateSourceTree(data){
     });
     return root;
 }
+// 🔑 v185: پیشاب کی نالی (URETHRA) باب کی ماخذی قطاریں (صفحات 669–680) — homeoint.org
+// (parse_urethra_source.py + crosswalk_urethra.py + overlay_urethra.py)؛ پرانی مقامی قطاریں
+// فائل میں محفوظ مگر ماخذی درخت سے باہر۔ باب حد: URETHRA = 669–680 (MEDI-T انتساب — kenturor.htm
+// فہرست 8/8 صفحہ-اندراجات: 669/670/671/672/673/676/677/679/680)؛ آغاز kent0665.htm کے
+// NAME="P669" اینکر سے (URETHRA nav-مارکر کے اندر — پروسٹیٹ باب کا اختتامی مارکر وہی تھا)؛
+// اختتام kent0675 کے اندر URINE باب کی سرخی <b><p>URINE</p> (بغیر اینکر) سے پہلے —
+// kent0675 میں p680 کا پورا URETHRA مواد ہے (region-of-neck + TENSION…VOLUPTUOUS، آخری ذیلی
+// after : Thuj.)، اس لئے kent0680 کی URETHRA کے لیے کوئی ضرورت نہیں (پورا p680 dup ہے)۔
+// فائل-دم artifacts (p671/p676 nav-بلاک سرخی-دہرائی قطاریں) حذف — دستاویزی۔
+// 3 clamps (idx252 p674 waking,on d4→d3؛ idx351 p676 to-anus d4→d3؛ idx447 p678 urging,when d4→d3) — دستاویزی۔
+// OOREP/kenturor راستوں کے phantom-سیگمنٹ (DISCHARGE,acrid کٹا؛ urination گھسا) — PDF x-coords
+// (folio 1444/1455/1456/1457/1458) سے ثابت کہ ماخذ درخت کتاب کی عین indentation ہے؛
+// متعلق OOREP برتن/یونین (PAIN 242→کتابی 23، DISCHARGE 132، PAIN burning urination 158 وغیرہ)
+// legacy محفوظ — 58 legacy + 9 مبہم۔
+// PDF alignment: 554/554 حرف-بہ-حرف عین مطابق، صفر فرق/drift/باقیات (verify_pdf_urethra.py — کتابی ص 669-680)۔
+var _REP_KENT_URETHRA_SOURCE_MARKER='homeoint-urethra-v1';
+var _REP_KENT_URETHRA_PAGES={first:669,last:680}, _REP_KENT_URETHRA_COUNT=555;
+function _repKentUrethraSourceEntries(data){
+    return Object.keys(data||{}).map(function(rid){return {rid:String(rid),rec:data[rid]};})
+        .filter(function(e){return e.rec&&e.rec.source_canonical===_REP_KENT_URETHRA_SOURCE_MARKER;});
+}
+function _repHasKentUrethraSourceData(data){
+    return _repKentUrethraSourceEntries(data).length===_REP_KENT_URETHRA_COUNT;
+}
+function _repBuildKentUrethraSourceTree(data){
+    var entries=_repKentUrethraSourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    if(entries.length!==_REP_KENT_URETHRA_COUNT) throw new Error('Expected '+_REP_KENT_URETHRA_COUNT+' Kent URETHRA source rows; found '+entries.length);
+    entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
+    var byRid=Object.create(null);
+    entries.forEach(function(e,index){
+        var rec=e.rec, order=Number(rec.source_order), parentId=rec.source_parent_id;
+        if(order!==index) throw new Error('Invalid Kent URETHRA source order at '+e.rid+': '+order);
+        var page=Number(rec.source_page), depth=Number(rec.source_depth), label=String(rec.source_label||'');
+        if(page<669||page>680) throw new Error('Kent URETHRA source row outside pages 669–680: '+e.rid);
+        if(!label) throw new Error('Empty Kent URETHRA source label at '+e.rid);
+        var labels=Array.isArray(rec.source_path_labels)?rec.source_path_labels.map(String):[];
+        if(!labels.length||labels[labels.length-1]!==label||depth!==labels.length-1)
+            throw new Error('Kent URETHRA source path/depth mismatch at '+e.rid);
+        var sourcePath=String(rec.source_path||'');
+        if(sourcePath!==labels.join(', ')) throw new Error('Kent URETHRA source full path mismatch at '+e.rid);
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent URETHRA source parent '+parentId+' for '+e.rid);
+        if(parentId!==null && Number(parent.sourceOrder)>=index)
+            throw new Error('Kent URETHRA source parent must precede child at '+e.rid);
+        var parentPath=parent===root?'':String(parent.pathTitle||'');
+        var expectedPath=parentPath?parentPath+', '+label:label;
+        if(expectedPath!==sourcePath) throw new Error('Kent URETHRA source parent link/path mismatch at '+e.rid);
+        if(parent.children[label]) throw new Error('Duplicate Kent URETHRA sibling label '+label+' at '+e.rid);
+        var remedies=rec.r;
+        if(!remedies||typeof remedies!=='object'||Array.isArray(remedies))
+            throw new Error('Missing Kent URETHRA remedies at '+e.rid);
+        Object.keys(remedies).forEach(function(code){
+            var grade=Number(remedies[code]);
+            if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
+                throw new Error('Invalid Kent URETHRA medicine grade at '+e.rid+': '+code);
+        });
+        var node={
+            name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
+            children:{},order:[],remedies:remedies,count:1,hasRubric:true,
+            path:sourcePath,pathTitle:sourcePath,displayPathTitle:sourcePath,
+            translationTitle:String(rec.translation_title||sourcePath),
+            oorep_id:rec.oorep_id||null,rid:e.rid,sourceCanonical:true,
+            display:rec.display&&typeof rec.display==='object'&&!Array.isArray(rec.display)?rec.display:null
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        parent.count=(parent.count||0)+1;
+        byRid[e.rid]=node;
+    });
+    return root;
+}
 // ============================================================
 // 🔑 v143: کینٹ کا درخت کتاب کی اصل ساخت پر — homeoint.org + True-Original PDF سے موازنہ
 // مسئلہ: OOREP مرج کے بعد کئی کتابی مین ربرکس (مثلاً «ANGER, irascibility»)
@@ -1871,6 +1942,10 @@ function buildRubricTree(data){
     // 🔑 v184: پروسٹیٹ غدود باب کی ماخذی قطاریں (صفحات 667–668) — وہی طرز جو گردے باب میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'prostate_gland' && _repHasKentProstateSourceData(data)){
         return _repBuildKentProstateSourceTree(data);
+    }
+    // 🔑 v185: پیشاب کی نالی باب کی ماخذی قطاریں (صفحات 669–680) — وہی طرز جو پروسٹیٹ غدود باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'urethra' && _repHasKentUrethraSourceData(data)){
+        return _repBuildKentUrethraSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest
@@ -2181,6 +2256,10 @@ function buildRubricTree(data){
     // 🔑 v184: پروسٹیٹ غدود باب کی ماخذی قطاریں (صفحات 667–668) — وہی طرز جو گردے باب میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'prostate_gland' && _repHasKentProstateSourceData(data)){
         return _repBuildKentProstateSourceTree(data);
+    }
+    // 🔑 v185: پیشاب کی نالی باب کی ماخذی قطاریں (صفحات 669–680) — وہی طرز جو پروسٹیٹ غدود باب میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'urethra' && _repHasKentUrethraSourceData(data)){
+        return _repBuildKentUrethraSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest
