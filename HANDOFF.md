@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 9 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 180 · **اصل مخزن:**
+**آخری تجدید:** 9 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 182 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -2110,3 +2110,36 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 1. ڈاکٹر سٹول-تین-کالم.csv کی تصدیق (235 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (18 اندراجات — خاص طور پر 2 اردو خود-بنے اور 4 OOREP مجموعے)
 2. اگلا باب: کتابی ترتیب کے مطابق اگلا غیر-ماخذی باب — **URINARY ORGANS: BLADDER (کتابی ص 645/646 سے)** — kenturor.htm انڈیکس؛ PDF تیسرا ماخذ PDF 1424 سے
 3. Vercel پش (v181 کے بعد)
+
+## مکمل شدہ پڑتال — مثانہ (BLADDER) باب: ماخذی درخت + ادویات + اردو (نسخہ 182)
+
+**اجازت:** 9 اکتوبر 2026 · صارف کی ہدایت: «BLADDER کریں»؛ ماخذ homeoint.org کے مطبوعہ صفحات 645–662 (MEDI-T انتساب — kenturor.htm انڈیکس Bladder کے 18/18 صفحہ-اندراجات)
+
+### 20.1 باب حد اور ماخذ
+- **BLADDER = صفحات 645–662 (MEDI-T انتساب)** — kenturor.htm فہرست **18/18 صفحہ-اندراجات subsequence** (p645 Urinary organs/Bladder … p662 Bladder urination unsatisfactory)؛ 4 ماخذ فائلیں: kent0645 (NAME="BLADDER" اینکر سے — URINARY ORGANS سرخیاں اینکر سے پہلے کٹ) + kent0650 (P650 ڈپ skip، P651–P655) + kent0655 (P655 ڈپ skip، P656–P660) + kent0660 (P660 ڈپ skip، P661–P662)
+- **اختام: سیکشن کے بیچ میں اینکر** — kent0660 کے P662 سیکشن کے اندر NAME="KIDNEYS" اینکر؛ آخری ربرک «WORM in, sensation of : Bell., sep.» (p662)؛ ⚠ FOOT-truncation گارڈ: kent0660 کا آخری nav-مارک (P662 سیکشن-ناو) آخری صفحہ-اینکر سے پہلے ہے — بلا گارڈ کٹ P662 کا اصل مواد ضائع کر دیتی
+- مطبوعہ کتاب (PDF): URINARY ORGANS/BLADDER سرخی folio 1389 (PDF 1424) = **کتابی ص 646** — کتابی BLADDER = 646–663، KIDNEYS کتابی ص 663 (PDF 1461)؛ MEDI-T انتساب کتاب سے ایک آگے — برقرار (homeoint انڈیکس خود «p. 645»)
+- 715 خام → **711 منفرد** (جڑ BLADDER + 710؛ 4 کتابی دہرائیں merge — نیچے)؛ 60 جڑ-بچے (جڑ + 59 مین)، گہرائی 5؛ **2 خاندانی clamp** (MEDI-T دوہرے <dir>): «amel.» p654 (d4→d3)، «morning» p656 (d2→d1) — دونوں PDF folio 1410/1412 سے حرف-بہ-حرف تصدیق
+- باب-حد تسلسل: v181 میں stool سے باہر رکھے گئے 2 BLADDER-آغاز ربرکس (AIR passes/BAND) اب ماخذی درخت کا آغاز — stool کے r226/r230 legacy بند
+
+### 20.2 تیسرا ماخذ (Drive PDF) تصدیق
+- BLADDER = PDF صفحہ 1424–1460 (37 صفحات، folio 1389+، ~2.05:1 تناسب)؛ **ordered alignment: 714/714 مکمل احاطہ، صفر دونوں-طرفہ باقیات**
+- 660 قطاریں عین مطابق؛ 51 قطاریں میں PDF-نکالنے کے آرٹی فاکٹ — **سب PDF-طرفہ (ماخذ ہر جگہ درست)**: 30 صفحہ-سرخی گلا (running header «URINARY ORGANS / BLANDDER» آخری ادویہ سے گلا: chel.→chel.urinaryorgans/blandder) + فولیو-نمبر گلا crot1416t (PDF 1451) + 20 لائن-ریپ گلا (اگلی ربرک کا لیبل ادویہ کے ساتھ گلا — 6 لیبل-فرق دراڑیں دوبارہ سیدھ)؛ 4 drift واقعات (لیبل-برابر، فوراً بازیافت)
+
+### 20.3 کراس واک + اوورلے + اردو
+- کراس واک: 711 ماخذ ↔ 781 ایپ — **685 جُڑے** (679 لالچی + 6 ادویہ-فال بیک)، 10 مبہم، 26 ماخذ-اکیلے، 96 ایپ-اکیلے
+- **4 کتابی دہرائیں (raw merge):** «URINATION, dribbling (by drops), involuntary» + 3 ذیلیاں — کتاب p656 (37 ادویہ) اور p659 (129) دونوں جگہ چھپی — merge union (گرےڈ max، کوئی ادویہ ضائع نہیں) — درخت میں دوہرا sibling لیبل نہیں رہ سکتا؛ involuntary = 137 ادویہ + 41 ذیلیاں
+- اوورلے: bladder.json **807 = 711 ماخذی (MARK=homeoint-bladder-v1) + 96 legacy** (10 مبہم OOREP برتن — r289 «RETENTION» 130/r380 «URGING» 241 unions، کتابی مین ماخذی درخت پر + 15 خالی کنٹینر + 71 مجموعے/کٹے راستے)؛ 26 نئے hN (جڑ BLADDER + PAIN urination after + RETENTION/URGING کے 6 وقت-درجہ + «busily occupied…must run and pass a little urine» ذیلی-درخت 12 + dysuria/involuntary کے 5 گہرے وقت-درجہ + hydrant/weakly children)؛ مانی فیسٹ homeoint_bladder_source_manifest.json
+- اردو: **685 منتقل + جڑ «مثانہ — مثانہ» + 25 خود-بنا = 711/711 فعال (meta.auto = 25)** · 508 غیر-درخت پرانی محفوظ (فائل 1,219) · REP_RUBUR_V 174
+
+### 20.4 کوڈ، رپورٹیں، ٹیسٹ
+- کوڈ: rep-chapters.js v182 (_repBuildKentBladderSourceTree + دونوں ڈسپیچ سائٹس — Pages 645–662/Count 711 سخت جائزے) · KENT_TREE_FIX bladder.h 17→96 (سب legacy) g/p صاف · _index 807 · master sync (**minified** 20.6 MiB، round-trip تصدیق) · mind side-car rebuild · CACHE v182 · ٹیبز v182 · 18-rubrics-ur v174
+- رپورٹیں: kent_sources/reports/ مثانہ-تین-کالم.csv (685) · مثانہ-ہیرارکی-تصدیق.csv (715 خام) · مثانہ-تمام-اندراجات.csv (711) · مثانہ-پرانی-قطاریں.csv (96) · مثانہ-پڑتال.xlsx · مثانہ-اصلاحات-کا-خلاصہ.md (+ download کاپیاں)
+- **تصدیق-ضروری CSV:** download/kent-confirmation-needed.csv — مثانہ کے 49 اندراجات (باب-حد 2، مبہم OOREP 10، نئے hN 26، نمائندہ ادویہ-فرق 8، کتابی دہرائی 1، PDF آرٹی فاکٹ 1، خاندانی clamp 1)
+- ٹیسٹ: نئی kent_bladder_homeoint_source.test.js (درخت 711، جڑ 60، گہرائی 5، CALCULI 35/URGING 152/involuntary 137+41، دونوں clamps، باب-حد، r===source_remedies، اردو «مثانہ — » 100%، مانی فیسٹ) + تمام پرانے پنز v182/174 پر — مکمل سوئٹ **59/59 پاس** (jsdom smoke 4/4 لگاتار)
+- کوریج: bladder 711/711 = 100% · کل 67,544/67,544 = 100% (G7 مین ربرک 4600)
+
+### 20.5 اگلے قدم
+1. ڈاکٹر مثانہ-تین-کالم.csv کی تصدیق (685 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (49 اندراجات — خاص طور پر 25 اردو خود-بنے اور 10 مبہم OOREP برتن)
+2. اگلا باب: کتابی ترتیب کے مطابق — **URINARY ORGANS: KIDNEYS (MEDI-T ص 662 سے — کتابی ص 663، PDF 1461 سے)** — kenturor.htm انڈیکس میں Kidneys کے 6 صفحہ-اندراجات (p662–p667)؛ ماخذ فائلیں kent0660 (P662 سیکشن KIDNEYS اینکر سے) + kent0665 + kent0670 — scripts/stool_pages میں پہلے سے موجود
+3. Vercel پش (v182 کے بعد)

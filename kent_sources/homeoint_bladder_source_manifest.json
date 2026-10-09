@@ -1,0 +1,30 @@
+{
+ "book": "kent",
+ "chapter": "bladder",
+ "source": "homeoint.org/books/kentrep1 kent0645–kent0660 (MEDI-T HTML) — kenturor.htm انڈیکس «URINARY ORGANS (p. 645-680)» میں Bladder کے 18/18 صفحہ-اندراجات (p645–p662) subsequence",
+ "pages": "645 – 662 (MEDI-T انتساب)",
+ "source_canonical": "homeoint-bladder-v1",
+ "source_rows": 711,
+ "unique_source_paths": 711,
+ "matched_app_records": 685,
+ "new_source_records": 26,
+ "legacy_local_records": 96,
+ "ambiguous_app_records": 10,
+ "third_source_pdf": "Drive PDF صفحہ 1424–1460 (مطبوعہ-ایڈیشن folio 1389+ = کتابی ص 646–663، ~2.05:1 تناسب) — ordered alignment: 714/714 مکمل احاطہ، صفر دونوں-طرفہ باقیات؛ 660 قطاریں عین مطابق، 51 قطاریں میں PDF-نکالنے کے آرٹی فاکٹ (سب PDF-طرفہ — ماخذ ہر جگہ درست): 30 صفحہ-سرخی گلا (running header «URINARY ORGANS / BLANDDER» آخری ادویہ سے گلا: chel.→chel.urinaryorgans/blandder) + فولیو-نمبر گلا crot1416t (Crot-t.، PDF 1451) + 20 لائن-ریپ گلا (اگلی ربرک کا لیبل ادویہ کے ساتھ گلا — مثلاً menses-during کا canth.notadropflows…؛ 6 لیبل-فرق دراڑیں دوبارہ سیدھ ہو کر 0 باقیات)؛ 4 drift واقعات (لیبل-برابر، فوراً بازیافت)؛ کتاب: URINARY ORGANS/BLADDER سرخی folio 1389 (PDF 1424) = کتابی ص 646 — MEDI-T انتساب کتاب سے ایک آگے (MEDI-T کا اپنا P645 اینکر کے ساتھ سرخی) — kenturor انڈیکس کے مطابق برقرار؛ KIDNEYS سرخی folio 1426 (PDF 1461)",
+ "chapter_boundaries": "BLADDER = صفحات 645–662 (MEDI-T انتساب) — kenturor.htm فہرست 18/18 صفحہ-اندراجات (p645 Urinary organs/Bladder … p662 Bladder urination unsatisfactory)؛ آغاز NAME=\"BLADDER\" اینکر (kent0645.htm — URINARY ORGANS سرخیاں + صفحہ-اینکر اس سے پہلے کٹ)؛ اختتام kent0660.htm کے P662 سیکشن کے اندر NAME=\"KIDNEYS\" اینکر — آخری ربرک «WORM in, sensation of : Bell., sep.» (p662)؛ ⚠ FOOT-truncation گارڈ: kent0660 میں آخری nav-مارک (P662 کی سیکشن-ناو @16664) آخری صفحہ-اینکر (@16741) سے پہلے ہے — کاٹنے سے P662 مواد ضائع ہوتا، اس لیے truncation صرف bottom-footer صورت میں؛ پہلے 4 ربرکس (AIR passes (See Gas)، APPREHENSION in region of، BALL in sensation of + ذیلی، BAND (See Constriction)) ایپ کے bladder.json (r1/r2/r3/r4/r5) میں پہلے سے مکمل — v181 میں stool باب سے باب-حد کے طور پر باہر رکھے گئے تھے، اب ماخذی درخت کا آغاز؛ KIDNEYS باب (MEDI-T p662 سے — کتابی ص 663) اگلا باب — ایپ کا kidneys.json الگ",
+ "documented_corrections": [
+  "2 خاندانی clamps (MEDI-T دوہرے <dir> — دونوں PDF سے تصدیق شدہ): idx437 «amel.» raw d4→d3 (p654 — «on back» کی ذیلی، کتاب folio 1410)؛ idx485 «morning» raw d2→d1 (p656 — URINATION dribbling main کی ذیلی، کتاب folio 1412)",
+  "4 کتابی دہرائیں (raw merge): «URINATION, dribbling (by drops), involuntary» + 3 ذیلیاں (boys/delayed/menses) — کتاب میں p656 (37 ادویہ) اور p659 (129 ادویہ) دونوں جگہ چھپی — merge union (سب ادویات محفوظ، گریڈ max) — درخت میں دوہرا sibling لیبل نہیں رہ سکتا",
+  "صفر صفحہ-مارکر قطاریں (2-پیراگراف skip نے سب سنبھال لیا)",
+  "51 PDF آرٹی فاکٹ قطاریں دستاویزی (30 سرخی-گلا + فولیو-گلا crot1416t + 20 لائن-ریپ گلا) — سب PDF-طرفہ، ماخذ درست — تفصیل third_source_pdf",
+  "10 مبہم (ambiguous) OOREP برتن legacy میں: r289 «RETENTION» (130 unions — کتابی مین «RETENTION of urine (See Urination Retarded)» 115 ماخذی درخت پر)؛ r380 «URGING» (241 — کتابی مین «URGING to urinate (morbid desire)» 152)؛ r504/r507/r509 «dribbling (by drops), involuntary» خاندان کے اضافی OOREP برتن (r606/r631/r640 جیت گئے)؛ o64853/o64861 «PAIN, extending» کٹی OOREP لیبلز؛ o64877 «afternoon» برتن؛ o7449/r625 «weakly children/boys» کٹے راستے",
+  "26 نئے hN: جڑ BLADDER + «PAIN, urination, after» + RETENTION/URGING کے 6 وقت-درجہ (3 to 6 a.m.، 8 to 9 a.m.، 12 and 3 a.m.…) + «busily occupied, when, must run and pass a little urine» ذیلی-درخت کی 12 قطاریں + dysuria/involuntary کے 5 گہرے وقت-درجہ + «water running from a hydrant» + «weakly children, in» (کتابی قطاریں جو OOREP ایپ میں نہیں)",
+  "باب-حد تسلسل: v181 کے stool اختتام (P644 YELLOW whitish) کے بعد kent0640 کا P645 سیکشن (URINARY ORGANS منتقلی) kent0645 کے سر سے منفرد ہے — کبھی نہیں پڑا گیا؛ AIR passes/BAND اب bladder ماخذی درخت میں (stool کے r226/r230 legacy بند)",
+  "96 legacy: 10 مبہم OOREP مجموعے/کٹے راستے + 86 بے-جوڑ پرانی مقامی قطاریں (خالی m-کنٹینر، OOREP راستہ-آرٹی فاکٹ وغیرہ) — سب رپورٹ میں ڈاکٹر نظرثانی کے لیے"
+ ],
+ "policy": {
+  "remedies": "r := source_remedies (ماخذ مطبوعہ کتاب = سچ؛ OOREP مجموعے ضم/legacy)",
+  "hierarchy": "runtime tree از source_parent_id (rep-chapters.js bladder بلڈر)",
+  "legacy": "فائل میں محفوظ، ماخذی درخت میں شامل نہیں — ڈاکٹر نظرثانی کے لیے رپورٹ"
+ }
+}

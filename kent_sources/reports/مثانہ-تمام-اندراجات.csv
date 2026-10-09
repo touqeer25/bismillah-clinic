@@ -1,0 +1,712 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,645,0,BLADDER,0
+r1,645,0,AIR passes (See Gas),0
+r2,645,0,APPREHENSION in region of,1
+r3,645,0,"BALL in, sensation of",3
+r4,645,1,"BALL in, sensation of, forced from behind neck of, sensation of",1
+r5,645,0,BAND (See Constriction),0
+r6,645,0,CALCULI,35
+r7,645,1,"CALCULI, after operation for",8
+r8,645,0,CARTILAGINOUS induration,1
+r9,645,0,"CATARRH muco-pus (See Urine, Sediment Purulent)",57
+o6815,645,1,"CATARRH muco-pus (See Urine, Sediment Purulent), gonorrhœa, from suppressed",6
+r11,645,1,"CATARRH muco-pus (See Urine, Sediment Purulent), hæmorrhoidal subjects, in",1
+r12,645,1,"CATARRH muco-pus (See Urine, Sediment Purulent), old people, in",4
+r13,645,0,"CHILLS spread from the neck of the bladder, after urinating",1
+r14,645,0,COLD sensation in,1
+r15,645,1,"COLD sensation in, alternating with heat",1
+r16,645,0,CONSTRICTION,17
+r17,645,1,"CONSTRICTION, afternoon",1
+r18,645,1,"CONSTRICTION, urination, before",1
+r19,645,2,"CONSTRICTION, urination, before, during",5
+r20,645,2,"CONSTRICTION, urination, before, after",2
+r21,645,1,"CONSTRICTION, neck",16
+r22,645,2,"CONSTRICTION, neck, morning",1
+r23,645,2,"CONSTRICTION, neck, urination, during",4
+r24,645,3,"CONSTRICTION, neck, urination, during, after",4
+r25,645,0,"CONTRACTION, sensation of",12
+r26,645,0,CRAMP in,14
+r27,645,1,"CRAMP in, night",1
+r28,645,1,"CRAMP in, causing him to bend double",1
+r29,645,1,"CRAMP in, urination, during",1
+r30,645,2,"CRAMP in, urination, during, after",2
+r31,645,0,"CRAWLING, urination, after",1
+r32,645,0,"DROPS came out of, sensation as if, rest agg.",1
+r33,645,0,"EMPTINESS, sensation of",4
+r34,645,0,"FALLS to side lain on, sensation as if",2
+r35,645,0,"FULLNESS, sensation of",41
+r36,645,1,"FULLNESS, sensation of, urination, after",14
+r0,646,1,"FULLNESS, sensation of, without desire to urinate",11
+r39,646,0,FUNGOID growths,1
+r40,646,0,GANGRENE,1
+r41,646,0,GAS passes from,1
+r42,646,0,HEAT in,4
+r43,646,0,HEAVINESS,8
+r44,646,0,"HÆMORRHAGE (See Urine, Bloody)",7
+r45,646,0,HÆMORRHOIDS of,10
+r46,646,1,"HÆMORRHOIDS of, bleeding",9
+r47,646,0,INACTIVITY of,4
+r48,646,0,INFLAMMATION,71
+r49,646,1,"INFLAMMATION, cold, from taking",2
+r50,646,1,"INFLAMMATION, injuries, after",2
+r51,646,1,"INFLAMMATION, pus like discharge after lithotomy, with",1
+r52,646,1,"INFLAMMATION, scarlatina, after",1
+r53,646,1,"INFLAMMATION, suppression of menses or hæmorrhoidal flow, after",1
+r54,646,1,"INFLAMMATION, violent pain and almost clear blood, with",1
+r55,646,1,"INFLAMMATION, Neck",15
+r56,646,0,INSENSIBILITY,1
+r57,646,0,INVOLUNTARY (See Urination),0
+r58,646,0,IRRITABLE (See Urging to urinate),0
+r59,646,0,"ITCHING in region of bladder with urging to urinate, agg. night",1
+o6862,646,1,"ITCHING in region of bladder with urging to urinate, agg. night, neck, morning, in bed",1
+r61,646,0,"JAR, sensitive to",1
+r62,646,0,MOTION in,5
+r63,646,0,"NUMBNESS (See Fullness, Urging Absent)",0
+r64,646,0,"OBSTRUCTION, sensation of, neck, urinating, while",1
+r65,646,0,PAIN,81
+r66,646,1,"PAIN, morning",4
+r67,646,1,"PAIN, evening",5
+h002,646,1,"PAIN, urination, after",1
+r69,646,1,"PAIN, night",4
+r70,646,1,"PAIN, coition, after",1
+r71,646,1,"PAIN, cold, from taking",2
+r72,646,1,"PAIN, coughing, when",1
+r73,646,1,"PAIN, desire be postponed, if",9
+r74,646,1,"PAIN, distension, as from",1
+r75,646,1,"PAIN, drinking agg.",1
+r76,646,1,"PAIN, jarring",1
+r77,646,1,"PAIN, lithotomy, after",1
+r78,646,1,"PAIN, lying on abdomen amel.",1
+r79,646,1,"PAIN, menses, during",1
+r80,646,1,"PAIN, moving, on",1
+r81,646,2,"PAIN, moving, on, up and down at every step after urinating",1
+r82,646,1,"PAIN, paroxysmal",4
+r83,646,1,"PAIN, pulsating",1
+r84,646,1,"PAIN, retarding urination",1
+r85,646,1,"PAIN, riding in a carriage",1
+r86,647,1,"PAIN, sitting, while",1
+r87,647,1,"PAIN, standing agg.",1
+r88,647,1,"PAIN, turning over in bed, as if bladder would fall to side lain on",1
+r89,647,1,"PAIN, urging to urinate, during",12
+r90,647,1,"PAIN, urinating, before",8
+r91,647,2,"PAIN, urinating, before, beginning",10
+r92,647,3,"PAIN, urinating, before, beginning, when urine starts he is amel.",1
+r93,647,2,"PAIN, urinating, before, during",13
+r94,647,3,"PAIN, urinating, before, during, after a few drops pass",6
+r95,647,2,"PAIN, urinating, before, after",3
+r96,647,1,"PAIN, walking, on",2
+r97,647,1,"PAIN, extending to kidney",3
+o6943,647,2,"PAIN, extending to kidney, spermatic cords",2
+o6944,647,2,"PAIN, extending to kidney, thighs",1
+o6945,647,2,"PAIN, extending to kidney, uterus",2
+r101,647,1,"PAIN, neck",34
+r102,647,2,"PAIN, neck, evening",1
+r103,647,2,"PAIN, neck, attempting to urinate, on",1
+r104,647,2,"PAIN, neck, beginning to urinate, on",1
+r105,647,2,"PAIN, neck, close of urination",8
+r106,647,2,"PAIN, neck, urging to urinate, on",9
+r107,647,2,"PAIN, neck, urination, before",3
+r108,647,3,"PAIN, neck, urination, before, after",12
+r109,647,4,"PAIN, neck, urination, before, after, when last drops are voided",2
+r110,647,2,"PAIN, neck, walking, while",1
+r111,647,1,"PAIN, aching",26
+r112,647,2,"PAIN, aching, coition, after",1
+r113,647,2,"PAIN, aching, lying, while",1
+r114,647,2,"PAIN, aching, menses, during",1
+r115,647,2,"PAIN, aching, urination, before",4
+r116,647,3,"PAIN, aching, urination, before, during",2
+r117,647,3,"PAIN, aching, urination, before, after",6
+r118,647,2,"PAIN, aching, neck",7
+r119,647,3,"PAIN, aching, neck, 11 a.m.",1
+r120,647,3,"PAIN, aching, neck, 3 p.m.",1
+r121,647,3,"PAIN, aching, neck, urination, after",4
+r122,647,1,"PAIN, boring, region of",1
+r123,647,1,"PAIN, burning",42
+r124,647,2,"PAIN, burning, morning",2
+r125,647,3,"PAIN, burning, morning, 10 a.m.",1
+r126,647,2,"PAIN, burning, evening",3
+r127,647,2,"PAIN, burning, night",1
+r128,647,2,"PAIN, burning, lying, while",1
+r129,647,2,"PAIN, burning, menses, during",1
+r130,647,2,"PAIN, burning, standing agg.",1
+r131,647,2,"PAIN, burning, urination, before",19
+r132,647,3,"PAIN, burning, urination, before, during",12
+r133,647,3,"PAIN, burning, urination, before, after",10
+r134,647,2,"PAIN, burning, walking in open air amel.",1
+r135,648,2,"PAIN, burning, neck",17
+r136,648,3,"PAIN, burning, neck, lying bent up amel.",1
+r137,648,3,"PAIN, burning, neck, urination, during",15
+r138,648,4,"PAIN, burning, neck, urination, during, after",5
+r139,648,3,"PAIN, burning, neck, urinating, when not",3
+r140,648,3,"PAIN, burning, neck, extending through urethra",1
+r141,648,1,"PAIN, clawing",3
+r142,648,1,"PAIN, constricting",16
+r143,648,2,"PAIN, constricting, neck",7
+r144,648,3,"PAIN, constricting, neck, beginning to urinate, on",1
+r145,648,3,"PAIN, constricting, neck, urination, after",1
+r146,648,1,"PAIN, cutting",16
+r147,648,2,"PAIN, cutting, standing",1
+r148,648,2,"PAIN, cutting, urination, before",9
+r149,648,3,"PAIN, cutting, urination, before, during",9
+r150,648,3,"PAIN, cutting, urination, before, after",7
+r151,648,3,"PAIN, cutting, urination, before, close of, at the",4
+r152,648,2,"PAIN, cutting, walking agg.",2
+r153,648,2,"PAIN, cutting, open air, in, amel., rest agg.",1
+r154,648,2,"PAIN, cutting, extending to urethra",1
+r155,648,2,"PAIN, cutting, neck",14
+r156,648,3,"PAIN, cutting, neck, morning, in bed",1
+r157,648,3,"PAIN, cutting, neck, urination, before",2
+r158,648,4,"PAIN, cutting, neck, urination, before, beginning to urinate, on",2
+r159,648,4,"PAIN, cutting, neck, urination, before, during",3
+r160,648,4,"PAIN, cutting, neck, urination, before, close of, at the",3
+r161,648,3,"PAIN, cutting, neck, walking in open air, while",2
+r162,648,3,"PAIN, cutting, neck, extending through urethra",1
+r163,648,1,"PAIN, dragging",10
+r164,648,2,"PAIN, dragging, morning",2
+r165,648,2,"PAIN, dragging, night, lying down, while",1
+r166,648,2,"PAIN, dragging, hold urine, on attempting to",2
+r167,648,2,"PAIN, dragging, lying, horse-back riding amel.",1
+r168,648,2,"PAIN, dragging, siesta, after",1
+r169,648,2,"PAIN, dragging, suppression of urine, with",1
+r170,648,2,"PAIN, dragging, urination, during",5
+r171,648,3,"PAIN, dragging, urination, during, after",4
+r172,648,1,"PAIN, drawing",7
+r173,648,2,"PAIN, drawing, riding in a carriage, while",1
+r174,648,2,"PAIN, drawing, sitting, while",1
+r175,648,2,"PAIN, drawing, upward",2
+r176,648,2,"PAIN, drawing, urination, during",4
+r177,648,2,"PAIN, drawing, neck",6
+r178,648,1,"PAIN, lancinating (See Stitching)",0
+r179,648,1,"PAIN, pinching",4
+r180,648,2,"PAIN, pinching, lying, while, with stitching",1
+r181,648,1,"PAIN, pressing, pressure in",82
+r182,648,2,"PAIN, pressing, pressure in, morning",2
+r183,648,3,"PAIN, pressing, pressure in, morning, 10 a.m.",1
+r184,648,2,"PAIN, pressing, pressure in, evening",2
+r185,648,2,"PAIN, pressing, pressure in, night",6
+r186,648,2,"PAIN, pressing, pressure in, coughing, when",4
+r187,648,2,"PAIN, pressing, pressure in, ineffectual desire for stool, with",1
+r189,649,2,"PAIN, pressing, pressure in, lying, while",1
+r190,649,2,"PAIN, pressing, pressure in, motion agg.",1
+r191,649,2,"PAIN, pressing, pressure in, retention, with",4
+r192,649,2,"PAIN, pressing, pressure in, riding horseback amel.",1
+r193,649,2,"PAIN, pressing, pressure in, sitting cross-legged (compelled) amel.",2
+o6987,649,3,"PAIN, pressing, pressure in, sitting cross-legged (compelled) amel., amel.",3
+r195,649,2,"PAIN, pressing, pressure in, stool, before",2
+r196,649,2,"PAIN, pressing, pressure in, urination, before",16
+r197,649,3,"PAIN, pressing, pressure in, urination, before, during",19
+r198,649,3,"PAIN, pressing, pressure in, urination, before, after",17
+r199,649,4,"PAIN, pressing, pressure in, urination, before, after, deep in, left side",1
+r200,649,2,"PAIN, pressing, pressure in, walking, while",5
+r201,649,2,"PAIN, pressing, pressure in, neck",11
+r202,649,3,"PAIN, pressing, pressure in, neck, hold the urine, on attempting to",1
+r203,649,3,"PAIN, pressing, pressure in, neck, sitting agg.",1
+r204,649,3,"PAIN, pressing, pressure in, neck, stitches, with, walking agg., sitting amel.",2
+r205,649,3,"PAIN, pressing, pressure in, neck, urination, before",7
+r206,649,4,"PAIN, pressing, pressure in, neck, urination, before, during",4
+r207,649,4,"PAIN, pressing, pressure in, neck, urination, before, after",3
+r208,649,3,"PAIN, pressing, pressure in, neck, walking in open air, while",4
+r209,649,1,"PAIN, shooting (See Stitching)",0
+r210,649,1,"PAIN, smarting",5
+r211,649,2,"PAIN, smarting, standing agg.",1
+r212,649,2,"PAIN, smarting, walking, while",1
+r213,649,2,"PAIN, smarting, extending to meatus",1
+r214,649,1,"PAIN, sore, tender",32
+r215,649,2,"PAIN, sore, tender, motion agg.",3
+r216,649,2,"PAIN, sore, tender, urination, during, agg.",2
+o7006,649,3,"PAIN, sore, tender, urination, during, agg., after amel.",1
+r218,649,2,"PAIN, sore, tender, neck",6
+r219,649,3,"PAIN, sore, tender, neck, urination, after",1
+r220,649,1,"PAIN, spasmodic",11
+r221,649,2,"PAIN, spasmodic, morning",1
+r222,649,2,"PAIN, spasmodic, night",1
+r223,649,2,"PAIN, spasmodic, extending to chest",1
+r224,649,2,"PAIN, spasmodic, neck",2
+r225,649,3,"PAIN, spasmodic, neck, closure, at",8
+r226,649,3,"PAIN, spasmodic, neck, extending to thighs after micturition",1
+r227,649,1,"PAIN, stabbing, region of",1
+r228,649,1,"PAIN, stitching, stinging",23
+r229,649,2,"PAIN, stitching, stinging, alternating between bladder and rectum",1
+r230,649,2,"PAIN, stitching, stinging, cough, during",1
+r231,649,2,"PAIN, stitching, stinging, dinner, after",1
+r232,649,2,"PAIN, stitching, stinging, lying, while",1
+r233,649,2,"PAIN, stitching, stinging, respiration, during",1
+r234,649,2,"PAIN, stitching, stinging, sitting amel.",1
+r235,649,2,"PAIN, stitching, stinging, stool, during",1
+r236,649,2,"PAIN, stitching, stinging, urging to urinate, when",2
+r237,649,3,"PAIN, stitching, stinging, urging to urinate, when, ineffectual urging",1
+r238,649,2,"PAIN, stitching, stinging, urination, before",5
+r239,649,3,"PAIN, stitching, stinging, urination, before, beginning to urinate, on",1
+r240,649,3,"PAIN, stitching, stinging, urination, before, during",3
+r241,649,3,"PAIN, stitching, stinging, urination, before, after",1
+r242,649,2,"PAIN, stitching, stinging, walking, while",2
+r244,650,2,"PAIN, stitching, stinging, extending from kidney to bladder (See Kidneys)",0
+o7021,650,3,"PAIN, stitching, stinging, extending from kidney to bladder (See Kidneys), to kidneys",2
+o7022,650,3,"PAIN, stitching, stinging, extending from kidney to bladder (See Kidneys), to urethra",6
+o7024,650,2,"PAIN, stitching, stinging, neck",21
+o7033,650,3,"PAIN, stitching, stinging, neck, morning",1
+o7025,650,3,"PAIN, stitching, stinging, neck, afternoon",1
+o7029,650,3,"PAIN, stitching, stinging, neck, evening",1
+o7026,650,3,"PAIN, stitching, stinging, neck, anus, and",1
+o7027,650,3,"PAIN, stitching, stinging, neck, coughing, when",1
+o7028,650,3,"PAIN, stitching, stinging, neck, desire be delayed, if",1
+o7031,650,3,"PAIN, stitching, stinging, neck, ineffectual effort to urinate, after",1
+o7032,650,3,"PAIN, stitching, stinging, neck, lying on face amel.",1
+o7034,650,3,"PAIN, stitching, stinging, neck, sitting, amel.",1
+o7036,650,3,"PAIN, stitching, stinging, neck, urination, before",3
+o7037,650,4,"PAIN, stitching, stinging, neck, urination, before, during",2
+o7035,650,4,"PAIN, stitching, stinging, neck, urination, before, after",3
+o7038,650,3,"PAIN, stitching, stinging, neck, urination, when not",1
+o7030,650,3,"PAIN, stitching, stinging, neck, extending to end of penis",2
+r262,650,1,"PAIN, tearing",3
+r263,650,2,"PAIN, tearing, neck",3
+r264,650,3,"PAIN, tearing, neck, pressing during urination, when",1
+r265,650,3,"PAIN, tearing, neck, urination, during",2
+r266,650,1,"PAIN, twisting, neck",1
+r267,650,1,"PAIN, twinging",1
+r268,650,1,"PAIN, twitching",2
+r269,650,0,PARALYSIS,47
+r270,650,1,"PARALYSIS, daytime",1
+r271,650,1,"PARALYSIS, forcible retention seems to paralyze the bladder",8
+r272,650,1,"PARALYSIS, hysterical subjects, in",1
+r273,650,1,"PARALYSIS, old people, in",9
+r274,650,1,"PARALYSIS, over-distension, after",10
+r275,650,1,"PARALYSIS, parturition, after, no desire",9
+r276,650,0,PARALYTIC weakness,4
+r277,650,1,"PARALYTIC weakness, sphincter",10
+r278,650,1,"PARALYTIC weakness, sensation of, evening, so that he fears he will wet the bed",1
+o7074,650,2,"PARALYTIC weakness, sensation of, evening, so that he fears he will wet the bed, neck",8
+r280,650,0,POLYPI,11
+r281,650,0,PULSATION,3
+r282,650,1,"PULSATION, urination, before",1
+r283,650,0,RETENTION of urine (See Urination Retarded),115
+o7095,650,1,"RETENTION of urine (See Urination Retarded), evening",1
+h003,650,1,"RETENTION of urine (See Urination Retarded), night, 3 to 6 a.m.",1
+o7080,650,1,"RETENTION of urine (See Urination Retarded), air, from exposure to cold",1
+o7081,650,1,"RETENTION of urine (See Urination Retarded), beer, after",1
+o7082,650,1,"RETENTION of urine (See Urination Retarded), children, in",14
+o7083,651,2,"RETENTION of urine (See Urination Retarded), children, in, every, time child catches cold",5
+r292,651,1,"RETENTION of urine (See Urination Retarded), chill, in",8
+o7085,651,2,"RETENTION of urine (See Urination Retarded), chill, in, cholera, in",5
+o7086,651,2,"RETENTION of urine (See Urination Retarded), chill, in, chronic",2
+o7087,651,2,"RETENTION of urine (See Urination Retarded), chill, in, clots in the bladder, from",2
+o7088,651,3,"RETENTION of urine (See Urination Retarded), chill, in, clots in the bladder, from, in the vagina, from",1
+o7089,651,2,"RETENTION of urine (See Urination Retarded), chill, in, cold, from catching",6
+o7090,651,3,"RETENTION of urine (See Urination Retarded), chill, in, cold, from catching, standing on cold pavement",1
+r299,651,1,"RETENTION of urine (See Urination Retarded), colic",4
+r300,651,1,"RETENTION of urine (See Urination Retarded), confinement, after",18
+r301,651,1,"RETENTION of urine (See Urination Retarded), dribbling, with (See Urination, Dribbling)",0
+r302,651,1,"RETENTION of urine (See Urination Retarded), dysentery",2
+r303,651,1,"RETENTION of urine (See Urination Retarded), enlarged prostate, from",17
+r304,651,1,"RETENTION of urine (See Urination Retarded), exertion, after",3
+r305,651,1,"RETENTION of urine (See Urination Retarded), fright, after",2
+r306,651,1,"RETENTION of urine (See Urination Retarded), hysteria, in",1
+r307,651,1,"RETENTION of urine (See Urination Retarded), locomotor ataxia",1
+r308,651,1,"RETENTION of urine (See Urination Retarded), menses, during",2
+r309,651,1,"RETENTION of urine (See Urination Retarded), new-born infants, in",11
+r310,651,2,"RETENTION of urine (See Urination Retarded), new-born infants, in, after passion of the nurse",1
+r311,651,1,"RETENTION of urine (See Urination Retarded), old men",1
+r312,651,1,"RETENTION of urine (See Urination Retarded), over-distension, after (See Paralysis)",0
+r313,651,1,"RETENTION of urine (See Urination Retarded), painful",24
+r314,651,2,"RETENTION of urine (See Urination Retarded), painful, urging, with, while lying on the back",1
+r315,651,1,"RETENTION of urine (See Urination Retarded), sensation as if urine retained by contraction of sphincter",1
+r316,651,1,"RETENTION of urine (See Urination Retarded), sitting bent backwards amel.",1
+r317,651,1,"RETENTION of urine (See Urination Retarded), unable to pass urine in presence of company",1
+r318,651,1,"RETENTION of urine (See Urination Retarded), urine passed by drops (See Urination, Dribbling)",0
+r319,651,1,"RETENTION of urine (See Urination Retarded), wet, after getting feet",2
+r320,651,0,RHEUMATIC affections,3
+r321,651,0,SENSATION absent (See Urging Absent),0
+r322,651,0,"SHOCKS, electric, extending to right thigh",1
+r323,651,0,SPASM,32
+r324,651,1,"SPASM, urination, before",2
+r325,651,2,"SPASM, urination, before, during",5
+r326,651,2,"SPASM, urination, before, after",3
+r327,651,1,"SPASM, neck",12
+r328,651,2,"SPASM, neck, night",1
+r329,651,2,"SPASM, neck, sexual excesses, after",1
+r330,651,2,"SPASM, neck, spasmodic stricture",2
+r331,651,0,SPASMODIC action of,2
+r332,651,0,"STONE in, sensation",1
+r333,651,0,SUPPURATION (See Urine),3
+r334,651,0,SWOLLEN,13
+r335,651,1,"SWOLLEN, region of neck",1
+r336,651,0,TENESMUS,83
+r337,651,1,"TENESMUS, morning",2
+r338,651,2,"TENESMUS, morning, 4 a.m.",1
+r339,651,1,"TENESMUS, forenoon",2
+r340,651,1,"TENESMUS, evening, walking in open air",1
+r341,652,1,"TENESMUS, night",3
+r342,652,2,"TENESMUS, night, lying down agg.",1
+r343,652,1,"TENESMUS, icy cold feet, with",1
+r344,652,1,"TENESMUS, menses, during",1
+r345,652,1,"TENESMUS, sitting, while",1
+r346,652,1,"TENESMUS, stool, during",7
+r347,652,2,"TENESMUS, stool, during, after",1
+r348,652,1,"TENESMUS, urging to stool, with (See Urging Painful)",0
+r349,652,1,"TENESMUS, urination, after",2
+r350,652,1,"TENESMUS, vomiting, purging and micturition",1
+r351,652,0,TENSION,5
+r352,652,0,THICKENING of walls of,2
+r353,652,0,TUMORS,1
+r354,652,0,TWISTING sensation,2
+r355,652,0,"TWITCHING, neck during urination",1
+r356,652,0,ULCERATION,6
+r357,652,1,"ULCERATION, calculi, caused by",1
+r358,652,1,"ULCERATION, symptoms of",1
+r359,652,0,URGING to urinate (morbid desire),152
+o7171,652,1,"URGING to urinate (morbid desire), daytime",4
+r471,652,1,"URGING to urinate (morbid desire), morning",12
+o7225,652,2,"URGING to urinate (morbid desire), morning, rising, on",4
+o7226,652,2,"URGING to urinate (morbid desire), morning, waking, on",6
+o7223,652,2,"URGING to urinate (morbid desire), morning, 8 a.m.",1
+h004,652,2,"URGING to urinate (morbid desire), morning, 8 to 9 a.m.",1
+o7178,652,1,"URGING to urinate (morbid desire), forenoon",2
+o7179,652,2,"URGING to urinate (morbid desire), forenoon, 10 a.m.",2
+r409,652,1,"URGING to urinate (morbid desire), afternoon",13
+r410,652,1,"URGING to urinate (morbid desire), evening",16
+o7176,652,2,"URGING to urinate (morbid desire), evening, lying, while",1
+r381,652,1,"URGING to urinate (morbid desire), night",73
+o7235,652,2,"URGING to urinate (morbid desire), night, day, and",17
+o7234,652,2,"URGING to urinate (morbid desire), night, coition, after",1
+o7237,652,2,"URGING to urinate (morbid desire), night, waking, on",9
+o7236,652,2,"URGING to urinate (morbid desire), night, midnight",3
+h005,652,2,"URGING to urinate (morbid desire), night, 12 and 3 a.m., between",1
+o7230,652,2,"URGING to urinate (morbid desire), night, 2 a.m.",5
+o7232,652,2,"URGING to urinate (morbid desire), night, 3-30 a.m.",1
+o7231,652,2,"URGING to urinate (morbid desire), night, 3 a.m.",2
+r382,653,2,"URGING to urinate (morbid desire), night, 4 a.m.",1
+r383,653,1,"URGING to urinate (morbid desire), abdomen, on touching",1
+r384,653,1,"URGING to urinate (morbid desire), absent",15
+r385,653,2,"URGING to urinate (morbid desire), absent, distended bladder, with",12
+r386,653,3,"URGING to urinate (morbid desire), absent, distended bladder, with, urine flows freely",1
+r387,653,1,"URGING to urinate (morbid desire), anxious",11
+r388,653,2,"URGING to urinate (morbid desire), anxious, urinate, on beginning to",1
+r389,653,1,"URGING to urinate (morbid desire), apyrexia",8
+r390,653,1,"URGING to urinate (morbid desire), chill, during",11
+r391,653,1,"URGING to urinate (morbid desire), coffee, after",3
+r392,653,1,"URGING to urinate (morbid desire), constant",100
+r393,653,2,"URGING to urinate (morbid desire), constant, daytime",1
+r394,653,2,"URGING to urinate (morbid desire), constant, evening, while lying",1
+r395,653,2,"URGING to urinate (morbid desire), constant, night",6
+r396,653,3,"URGING to urinate (morbid desire), constant, night, erections, with",2
+r397,653,3,"URGING to urinate (morbid desire), constant, night, every other",1
+r398,653,2,"URGING to urinate (morbid desire), constant, bladder, distended, with passing only a few drops",1
+r399,653,2,"URGING to urinate (morbid desire), constant, cold, from becoming",2
+r400,653,2,"URGING to urinate (morbid desire), constant, pain in liver, chest and kidneys, with",1
+r401,653,2,"URGING to urinate (morbid desire), constant, prolapsus of uterus, during",3
+r402,653,2,"URGING to urinate (morbid desire), constant, running water, at sight of",1
+r403,653,2,"URGING to urinate (morbid desire), constant, sitting, while",2
+r404,653,1,"URGING to urinate (morbid desire), dragging down in pelvis, with",3
+r405,653,1,"URGING to urinate (morbid desire), drinking, after",1
+r406,653,1,"URGING to urinate (morbid desire), erections, with",5
+r407,653,1,"URGING to urinate (morbid desire), fever, during",22
+r408,653,1,"URGING to urinate (morbid desire), frequent (See Urination, Frequent)",176
+o7181,653,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), afternoon",2
+o7185,653,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), evening",8
+r411,653,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), night and day",10
+r412,653,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), cold, from taking",5
+r414,654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), cutting pain from umbilical to ovarian region",1
+r415,654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), desire increases as the quantity of urine diminishes",1
+r416,654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), flatus, when passing",1
+r417,654,3,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), flatus, when passing, with, upward and downward",1
+r418,654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), infant scream before the urine passes",5
+r419,654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), loss of tone of sphincter, from",2
+r420,654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), menses, before",10
+r421,654,3,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), menses, before, during",2
+r422,654,3,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), menses, before, after",2
+r423,654,3,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), menses, before, suppressed, with",9
+r424,654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), motion, the slightest, agg.",1
+r425,654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), prolapsus, with",5
+r426,654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), urinate immediately, if he does not, a feeling as if urine passed involuntarily, which is not so",1
+r427,654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), without passing any, then while sitting involuntary flow",1
+r428,654,1,"URGING to urinate (morbid desire), ineffectual",97
+r429,654,2,"URGING to urinate (morbid desire), ineffectual, night",3
+r430,654,2,"URGING to urinate (morbid desire), ineffectual, but as soon as he ceases to strain stool and urine pass involuntarily",1
+r431,654,2,"URGING to urinate (morbid desire), ineffectual, children",5
+r432,654,2,"URGING to urinate (morbid desire), ineffectual, chill, during",7
+r433,654,2,"URGING to urinate (morbid desire), ineffectual, cramps in rectum, with",1
+o7204,654,2,"URGING to urinate (morbid desire), ineffectual, diarrhœa, with",1
+r435,654,2,"URGING to urinate (morbid desire), ineffectual, fever, during",9
+r436,654,2,"URGING to urinate (morbid desire), ineffectual, headache, with",1
+r437,654,2,"URGING to urinate (morbid desire), ineffectual, menses, during agg.",1
+r438,654,2,"URGING to urinate (morbid desire), ineffectual, perspiration, during",10
+r439,654,2,"URGING to urinate (morbid desire), ineffectual, standing, while, then while sitting urine flows involuntarily",1
+r440,654,2,"URGING to urinate (morbid desire), ineffectual, stool, with urging to",6
+r441,654,1,"URGING to urinate (morbid desire), irresistible (See Sudden)",0
+r442,654,1,"URGING to urinate (morbid desire), lifting, after",1
+r443,654,1,"URGING to urinate (morbid desire), lying",3
+h006,654,2,"URGING to urinate (morbid desire), lying, on back",2
+r445,654,3,"URGING to urinate (morbid desire), lying, on back, amel.",1
+o7216,654,3,"URGING to urinate (morbid desire), lying, on back, right side",2
+r447,654,1,"URGING to urinate (morbid desire), married women, newly (See Urination, Dysuria)",1
+r448,654,1,"URGING to urinate (morbid desire), menses, before",12
+r449,654,2,"URGING to urinate (morbid desire), menses, before, during",14
+r450,654,2,"URGING to urinate (morbid desire), menses, before, after",2
+r451,654,1,"URGING to urinate (morbid desire), mental exertion",2
+r452,654,1,"URGING to urinate (morbid desire), motion, from",2
+r453,654,1,"URGING to urinate (morbid desire), old women",1
+r454,654,1,"URGING to urinate (morbid desire), only a few drops pass until the next stool, when it flows freely",2
+r455,654,1,"URGING to urinate (morbid desire), painful",36
+r456,654,2,"URGING to urinate (morbid desire), painful, child cries",5
+r457,655,2,"URGING to urinate (morbid desire), painful, child jumps up and down with pain, if cannot be gratified",1
+r458,655,2,"URGING to urinate (morbid desire), painful, children grasp the genitals and cry out",2
+r459,655,2,"URGING to urinate (morbid desire), painful, disappears when menstrual flow starts",1
+r460,655,2,"URGING to urinate (morbid desire), painful, urging to stool, with",16
+r461,655,1,"URGING to urinate (morbid desire), perspiration, during",22
+r462,655,1,"URGING to urinate (morbid desire), pregnancy, during",3
+r463,655,1,"URGING to urinate (morbid desire), pressure in rectum, with",1
+r464,655,1,"URGING to urinate (morbid desire), riding horseback amel.",1
+r465,655,1,"URGING to urinate (morbid desire), shuddering, with",1
+h007,655,1,"URGING to urinate (morbid desire), sitting, while",4
+r467,655,2,"URGING to urinate (morbid desire), sitting, while, amel.",1
+r468,655,1,"URGING to urinate (morbid desire), standing",3
+r469,655,1,"URGING to urinate (morbid desire), stool, after",3
+r470,655,1,"URGING to urinate (morbid desire), sudden",42
+o7261,655,2,"URGING to urinate (morbid desire), sudden, morning",1
+h008,655,2,"URGING to urinate (morbid desire), sudden, waking, on",2
+r473,655,2,"URGING to urinate (morbid desire), sudden, night",2
+r474,655,2,"URGING to urinate (morbid desire), sudden, child wakes but cannot get out of bed soon enough",1
+r475,655,2,"URGING to urinate (morbid desire), sudden, attended to, if the desire be not, feels as if urine has escaped, which is not so",1
+r476,655,2,"URGING to urinate (morbid desire), sudden, busily occupied, when, she has to run and pass a few drops of urine",2
+r477,655,2,"URGING to urinate (morbid desire), sudden, hasten to urinate, must, or urinate will escape",36
+r478,655,2,"URGING to urinate (morbid desire), sudden, menses, during",2
+r479,655,2,"URGING to urinate (morbid desire), sudden, running water, on seeing",4
+r480,655,2,"URGING to urinate (morbid desire), sudden, sticking forward in urethra, with",1
+r481,655,2,"URGING to urinate (morbid desire), sudden, urine seems to pass into glands, and then return and cause pain in urethra",1
+r482,655,1,"URGING to urinate (morbid desire), thinking of it, when",2
+r483,655,1,"URGING to urinate (morbid desire), thirst, with",5
+r484,655,1,"URGING to urinate (morbid desire), urination, after",43
+r485,655,1,"URGING to urinate (morbid desire), violent",20
+r486,655,2,"URGING to urinate (morbid desire), violent, night",2
+r487,655,2,"URGING to urinate (morbid desire), violent, menses, during",7
+r488,655,2,"URGING to urinate (morbid desire), violent, urination, after",1
+r489,655,2,"URGING to urinate (morbid desire), violent, walking, while",14
+r490,655,2,"URGING to urinate (morbid desire), violent, water, hearing, running or putting hands in",5
+o7275,655,3,"URGING to urinate (morbid desire), violent, water, hearing, running or putting hands in, pouring out liquid",1
+r493,655,0,"URINATION, dribbling (by drops)",89
+r494,656,1,"URINATION, dribbling (by drops), morning",1
+r495,656,1,"URINATION, dribbling (by drops), afternoon, rising from seat, on",1
+o7278,656,2,"URINATION, dribbling (by drops), afternoon, rising from seat, on, 4 p.m.",1
+r497,656,1,"URINATION, dribbling (by drops), evening",2
+r498,656,2,"URINATION, dribbling (by drops), evening, lying, while",1
+r499,656,1,"URINATION, dribbling (by drops), night",3
+r500,656,2,"URINATION, dribbling (by drops), night, drops flow from urethra, coloring shirt red",1
+r501,656,2,"URINATION, dribbling (by drops), night, beginning to urinate, on",2
+r502,656,2,"URINATION, dribbling (by drops), night, then free with stool",2
+r503,656,1,"URINATION, dribbling (by drops), enlarged prostate, with",15
+r606,656,1,"URINATION, dribbling (by drops), involuntary",137
+r505,656,2,"URINATION, dribbling (by drops), involuntary, day and night",7
+r506,656,2,"URINATION, dribbling (by drops), involuntary, boys, in",1
+r631,656,2,"URINATION, dribbling (by drops), involuntary, delayed, if",7
+r508,656,2,"URINATION, dribbling (by drops), involuntary, labour, after",1
+r640,656,2,"URINATION, dribbling (by drops), involuntary, menses, during",5
+r510,656,2,"URINATION, dribbling (by drops), involuntary, not a drop flows on making the greatest effort, but bladder distended, no pain",1
+r511,656,2,"URINATION, dribbling (by drops), involuntary, stool, after",1
+r512,656,1,"URINATION, dribbling (by drops), labor, after",1
+r513,656,1,"URINATION, dribbling (by drops), perpendicularly, urine drops out",1
+r514,656,1,"URINATION, dribbling (by drops), retention, with",16
+r515,656,1,"URINATION, dribbling (by drops), rising from a seat, when",1
+r516,656,1,"URINATION, dribbling (by drops), sitting, while",2
+r517,656,2,"URINATION, dribbling (by drops), sitting, while, when standing urine passes freely",1
+r518,656,1,"URINATION, dribbling (by drops), stitching in glans penis, with",2
+r519,656,1,"URINATION, dribbling (by drops), stool, after",8
+r520,656,1,"URINATION, dribbling (by drops), urination, after",39
+o7304,656,2,"URINATION, dribbling (by drops), urination, after, pressure in rectum, with",1
+r522,656,1,"URINATION, dribbling (by drops), walking, while (See Involuntary)",0
+r523,656,1,"URINATION, dribbling (by drops), dysuria",119
+r524,656,2,"URINATION, dribbling (by drops), dysuria, morning",2
+r525,656,3,"URINATION, dribbling (by drops), dysuria, morning, old men, in",2
+r526,656,2,"URINATION, dribbling (by drops), dysuria, afternoon, walking amel.",1
+r527,656,2,"URINATION, dribbling (by drops), dysuria, night",2
+h009,656,3,"URINATION, dribbling (by drops), dysuria, night, midnight, after, 3 to 5 a.m.",1
+r529,656,2,"URINATION, dribbling (by drops), dysuria, aching in back, with",1
+r530,656,2,"URINATION, dribbling (by drops), dysuria, alternating, with enuresis",1
+r531,656,2,"URINATION, dribbling (by drops), dysuria, apyrexia, during",4
+r532,656,2,"URINATION, dribbling (by drops), dysuria, chill, during",9
+o7312,656,2,"URINATION, dribbling (by drops), dysuria, dysmenorrhœa, during",1
+r534,656,2,"URINATION, dribbling (by drops), dysuria, fever, during",10
+r535,656,2,"URINATION, dribbling (by drops), dysuria, married women, newly",3
+r536,656,2,"URINATION, dribbling (by drops), dysuria, menses, suppressed and drawing pains in abdomen, with",1
+h010,657,2,"URINATION, dribbling (by drops), dysuria, pain in the sphincter vesicæ, with hyperæsthesia of the skin down the course of the left sciatic nerve, pain in the left popliteus and hell, with coldness creeping over the whole course of the nerve, especially in the hell",1
+r538,657,2,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts",5
+o7322,657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, close of urination",1
+r540,657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, coldness, numbness and twitching down left leg, with",1
+r541,657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, dances around the room in agony, so that he",4
+r542,657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, dinner and supper, after",1
+r543,657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, effort to urinate agg.",1
+r544,657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, spasm of the bladder, from",1
+r545,657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, spasmodic closure of the sphincter while finishing",1
+r546,657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, thinking of it agg.",2
+r547,657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, urination, after, agg.",1
+r548,657,2,"URINATION, dribbling (by drops), dysuria, perspiration, during",9
+r549,657,2,"URINATION, dribbling (by drops), dysuria, sleep, after",1
+r550,657,2,"URINATION, dribbling (by drops), dysuria, tenesmus of rectum, with, evening",1
+r551,657,3,"URINATION, dribbling (by drops), dysuria, tenesmus of rectum, with, evening, and spasm of urethra",1
+r552,657,2,"URINATION, dribbling (by drops), dysuria, urging to stool, with (See Urging, Painful)",0
+r553,657,1,"URINATION, dribbling (by drops), feeble stream (slow)",67
+r554,657,2,"URINATION, dribbling (by drops), feeble stream (slow), morning on waking",4
+r555,657,2,"URINATION, dribbling (by drops), feeble stream (slow), night",2
+r556,657,2,"URINATION, dribbling (by drops), feeble stream (slow), difficulty of breathing and heart symptoms, with",1
+r557,657,2,"URINATION, dribbling (by drops), feeble stream (slow), pain in the bladder, with violent",1
+r558,657,2,"URINATION, dribbling (by drops), feeble stream (slow), retention, from long",5
+r559,657,2,"URINATION, dribbling (by drops), feeble stream (slow), rising, after",4
+r560,657,2,"URINATION, dribbling (by drops), feeble stream (slow), sleep, after",1
+r561,657,2,"URINATION, dribbling (by drops), feeble stream (slow), slow after stool, only dribbling",1
+r562,657,1,"URINATION, dribbling (by drops), forcible stream",14
+r563,657,1,"URINATION, dribbling (by drops), forked stream",12
+r564,657,1,"URINATION, dribbling (by drops), frequent",182
+r565,657,2,"URINATION, dribbling (by drops), frequent, daytime",7
+r566,657,3,"URINATION, dribbling (by drops), frequent, daytime, and night",16
+r567,657,2,"URINATION, dribbling (by drops), frequent, morning",14
+h011,658,2,"URINATION, dribbling (by drops), frequent, rising, after",2
+r569,658,2,"URINATION, dribbling (by drops), frequent, forenoon",6
+r570,658,2,"URINATION, dribbling (by drops), frequent, afternoon",7
+r571,658,2,"URINATION, dribbling (by drops), frequent, evening",14
+r572,658,2,"URINATION, dribbling (by drops), frequent, night",116
+r573,658,3,"URINATION, dribbling (by drops), frequent, night, cries before urine passes",1
+r574,658,3,"URINATION, dribbling (by drops), frequent, night, pregnancy, during",1
+r575,658,3,"URINATION, dribbling (by drops), frequent, night, seldom during the day",2
+h012,658,1,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine",2
+o7349,658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, chill, during",10
+h013,658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, coffee, after",4
+h014,658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, dinner after",2
+h015,658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, emission of water-colored urine in small quantity",1
+h016,658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, every other day",1
+h017,658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, exertion, after",1
+h018,658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, exposure to cold and wet",7
+h019,658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, fever, during",9
+h020,658,3,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, fever, during, drinking, after",2
+h021,658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, headache, with",5
+o7363,658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, menses, before",12
+o7364,658,3,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, menses, before, during",13
+h022,658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, old people",1
+h023,658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, pain in face, with",1
+o7373,658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, perspiration, during",22
+r592,658,1,"URINATION, dribbling (by drops), hasty (See Urging, sudden)",0
+r593,658,1,"URINATION, dribbling (by drops), incomplete (See Unsatisfactory)",28
+r594,658,2,"URINATION, dribbling (by drops), incomplete (See Unsatisfactory), bladder full, urging to urinate but scanty urine",1
+r595,658,2,"URINATION, dribbling (by drops), incomplete (See Unsatisfactory), obliged to urinate five or six times before the bladder is empty",1
+r596,658,1,"URINATION, dribbling (by drops), interrupted (intermittent)",39
+r597,658,2,"URINATION, dribbling (by drops), interrupted (intermittent), evening",1
+r598,658,2,"URINATION, dribbling (by drops), interrupted (intermittent), coition, after",1
+r599,658,2,"URINATION, dribbling (by drops), interrupted (intermittent), painful erections, with",1
+r600,658,2,"URINATION, dribbling (by drops), interrupted (intermittent), spurts, in swelled prostate with each spurt cutting pain",1
+r601,658,2,"URINATION, dribbling (by drops), interrupted (intermittent), stream, after which the urine flows out drop by drop",2
+r602,658,2,"URINATION, dribbling (by drops), interrupted (intermittent), urine flows better when standing",1
+o7384,658,3,"URINATION, dribbling (by drops), interrupted (intermittent), urine flows better when standing, so thick, with cheesy masses like curdled milk",1
+r605,659,2,"URINATION, dribbling (by drops), interrupted (intermittent), violent contraction in region of bladder, by",1
+r607,659,2,"URINATION, dribbling (by drops), involuntary, daytime",6
+r608,659,3,"URINATION, dribbling (by drops), involuntary, daytime, and night",12
+r609,659,3,"URINATION, dribbling (by drops), involuntary, daytime, sleep, during",1
+r610,659,3,"URINATION, dribbling (by drops), involuntary, daytime, walking, while",2
+r611,659,2,"URINATION, dribbling (by drops), involuntary, morning",5
+r612,659,3,"URINATION, dribbling (by drops), involuntary, morning, toward",2
+r613,659,2,"URINATION, dribbling (by drops), involuntary, forenoon",1
+r614,659,2,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed)",96
+r615,659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), morning, toward",4
+r616,659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), midnight to morning",1
+h024,659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), after, 5 a.m.",1
+r618,659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), difficult to waken the child",2
+r619,659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), dreaming of urinating, while",7
+r620,659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), first sleep",6
+r621,659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), spasmodic enuresis",17
+r622,659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), tangible cause except habit, when there is no",1
+r623,659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), weakly children, in",1
+r624,659,2,"URINATION, dribbling (by drops), involuntary, blowing the nose, when",4
+r626,659,2,"URINATION, dribbling (by drops), involuntary, chill, before",1
+r627,659,3,"URINATION, dribbling (by drops), involuntary, chill, before, during",5
+r628,659,2,"URINATION, dribbling (by drops), involuntary, cold, becoming",4
+r629,659,2,"URINATION, dribbling (by drops), involuntary, convulsions, during",11
+r630,659,2,"URINATION, dribbling (by drops), involuntary, cough, during",43
+r632,659,2,"URINATION, dribbling (by drops), involuntary, desire is resisted, if",8
+r633,659,2,"URINATION, dribbling (by drops), involuntary, effort, during no urine flows",1
+r634,659,2,"URINATION, dribbling (by drops), involuntary, exertion, during",6
+r635,660,2,"URINATION, dribbling (by drops), involuntary, flatus, expelling, when",2
+r636,660,2,"URINATION, dribbling (by drops), involuntary, labor, after",2
+r637,660,2,"URINATION, dribbling (by drops), involuntary, laughing",6
+r638,660,2,"URINATION, dribbling (by drops), involuntary, lying, while",1
+r639,660,2,"URINATION, dribbling (by drops), involuntary, mania, during",1
+o7412,660,2,"URINATION, dribbling (by drops), involuntary, motion, during",8
+r642,660,3,"URINATION, dribbling (by drops), involuntary, motion, during, amel.",1
+r643,660,2,"URINATION, dribbling (by drops), involuntary, noise, sudden",3
+r644,660,2,"URINATION, dribbling (by drops), involuntary, old people, in",13
+o7425,660,3,"URINATION, dribbling (by drops), involuntary, old people, in, men with enlarged prostate",10
+r646,660,2,"URINATION, dribbling (by drops), involuntary, pregnancy, during",11
+r647,660,2,"URINATION, dribbling (by drops), involuntary, putting hands in cold water",1
+r648,660,2,"URINATION, dribbling (by drops), involuntary, retain, great pain on attempting to",1
+r649,660,2,"URINATION, dribbling (by drops), involuntary, riding, while",1
+r650,660,2,"URINATION, dribbling (by drops), involuntary, rising from a seat, when",2
+r651,660,2,"URINATION, dribbling (by drops), involuntary, running, while",3
+r652,660,2,"URINATION, dribbling (by drops), involuntary, sitting, while",6
+r653,660,3,"URINATION, dribbling (by drops), involuntary, sitting, while, retention while standing",1
+r654,660,3,"URINATION, dribbling (by drops), involuntary, sitting, while, she must swing her foot constantly or the urine will escape",1
+r655,660,2,"URINATION, dribbling (by drops), involuntary, sneezing, when",12
+r656,660,2,"URINATION, dribbling (by drops), involuntary, standing, while",8
+r657,660,2,"URINATION, dribbling (by drops), involuntary, stool, straining at, while",2
+o7437,660,3,"URINATION, dribbling (by drops), involuntary, stool, straining at, while, after",36
+o7438,660,3,"URINATION, dribbling (by drops), involuntary, stool, straining at, while, dysenteric, each",1
+o7439,660,3,"URINATION, dribbling (by drops), involuntary, stool, straining at, while, fully conscious, while, supposing it to be flatus",1
+o7441,660,3,"URINATION, dribbling (by drops), involuntary, stool, straining at, while, straining, when not; voluntary defecation impossible",1
+r662,660,2,"URINATION, dribbling (by drops), involuntary, thirst and fear, with",1
+r663,660,2,"URINATION, dribbling (by drops), involuntary, typhoid fever",19
+r664,660,2,"URINATION, dribbling (by drops), involuntary, urination, after (See Dribbling)",7
+o64887,660,2,"URINATION, dribbling (by drops), involuntary, walking, while",26
+r666,660,3,"URINATION, dribbling (by drops), involuntary, walking, while, amel.",1
+r667,660,3,"URINATION, dribbling (by drops), involuntary, walking, while, yet on attempting to, when standing still, nothing passed",1
+h025,660,1,"URINATION, dribbling (by drops), water running from a hydrant, on seeing",2
+h026,660,1,"URINATION, dribbling (by drops), weakly children, in",1
+r670,660,1,"URINATION, dribbling (by drops), paroxysmal",4
+r671,660,1,"URINATION, dribbling (by drops), residuary (See Dribbling, Urination, After)",0
+r672,660,1,"URINATION, dribbling (by drops), retarded, must wait for urine to start",54
+r673,660,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, alone, can only pass urine when",1
+r674,660,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, great straining, after, a few drops of urine pass, which are followed by a full stream, with pain; after this sometimes dribbling urine",1
+r675,660,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, knees, on the, pressing head against floor, can pass urine only when",1
+r677,661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, listening to music, can pass urine only when",1
+o7455,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, listening to music, can pass urine only when, water running, can pass urine only when",3
+o7456,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, listening to music, can pass urine only when, whistling, can pass urine only when",2
+r680,661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, long while, and then only a little urine passes",1
+r681,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, long while, and then only a little urine passes, especially if others are near him",1
+r682,661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, pain, by, in the fundus of bladder",1
+r683,661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin",28
+r684,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, morning",5
+r685,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, continue to, must, if he stops to breathe the urine ceases to flow until he strains again",2
+o7463,661,4,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, continue to, must, if he stops to breathe the urine ceases to flow until he strains again, must, to pass the last part",1
+r687,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, frequent pressing to urinate, with, with small discharges",1
+r688,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, so hard, must, to start the urine that anus protrudes",1
+r689,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, long pressing, after, urine passes guttatim",2
+r690,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, long time, must, which is painful",1
+r691,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, painful and frequent urination with disposition to sit and strain a long time, after which few drops pass",1
+r692,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, pressure, the more, the less it flows",1
+r693,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, stand and press a long time, must, before urine will start",1
+r694,661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, sitting, can only pass urine while",1
+r695,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, sitting, can only pass urine while, bent backward, can only pass urine while",1
+o7473,661,4,"URINATION, dribbling (by drops), retarded, must wait for urine to start, sitting, can only pass urine while, bent backward, can only pass urine while, forward",2
+r697,661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, spasm of sphincter, on account of",1
+r698,661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, standing, can only pass urine while",2
+r699,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, standing, can only pass urine while, with feet wide apart and body inclined forward, can only pass urine while",1
+r700,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, standing, can only pass urine while, flows better, while",1
+r701,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, standing, can only pass urine while, flows involuntarily while sitting",1
+r702,661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, standing, can only pass urine while, urine will not flow, while, but passes involuntarily while walking",1
+r703,661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, stool, while pressing at, can pass urine only",7
+r704,661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, urging to urinate, with, but can pass no urine until an enormous clot of black blood has passed from the vagina",1
+r705,661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, urination, before, a cutting with ineffectual straining, that stops the flow",1
+r706,661,1,"URINATION, dribbling (by drops), seldom",51
+r707,661,2,"URINATION, dribbling (by drops), seldom, daytime",1
+r708,661,1,"URINATION, dribbling (by drops), slow (See Feeble",2
+r709,661,1,"URINATION, dribbling (by drops), small stream (See Thin)",0
+r710,661,1,"URINATION, dribbling (by drops), spurting stream",5
+r711,661,2,"URINATION, dribbling (by drops), spurting stream, coughing, when",2
+r712,661,2,"URINATION, dribbling (by drops), spurting stream, urination, after",1
+r713,661,1,"URINATION, dribbling (by drops), thin stream",28
+r714,661,1,"URINATION, dribbling (by drops), unconscious, urethra insensible",16
+r715,661,2,"URINATION, dribbling (by drops), unconscious, urethra insensible, mania in",1
+r716,661,3,"URINATION, dribbling (by drops), unconscious, urethra insensible, mania in, urine and stool",6
+r717,661,1,"URINATION, dribbling (by drops), unsatisfactory (See Incomplete and Fullness, Urination, After)",56
+r719,662,2,"URINATION, dribbling (by drops), unsatisfactory (See Incomplete and Fullness, Urination, After), bladder were not emptied, as if, with dribbling",1
+r720,662,2,"URINATION, dribbling (by drops), unsatisfactory (See Incomplete and Fullness, Urination, After), feeling as if urine remained in urethra",17
+r721,662,0,WEAKNESS,38
+r722,662,1,"WEAKNESS, evening",1
+r723,662,1,"WEAKNESS, old people",2
+r724,662,1,"WEAKNESS, parturition, after",1
+r725,662,1,"WEAKNESS, sphincter",10
+r750,662,0,"WORM in, sensation of",2

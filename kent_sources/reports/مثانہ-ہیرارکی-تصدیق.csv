@@ -1,0 +1,716 @@
+﻿صفحہ,گہرائی,مکمل راستہ (مطبوعہ کتاب),ادویات (گریڈ)
+645,0,BLADDER,
+645,0,AIR passes (See Gas),
+645,0,APPREHENSION in region of,merc-c(1)
+645,0,"BALL in, sensation of","crot-h(1), lach(2), naja(1)"
+645,1,"BALL in, sensation of, forced from behind neck of, sensation of",kali-br(1)
+645,0,BAND (See Constriction),
+645,0,CALCULI,"ant-c(1), arg-n(1), benz-ac(3), berb(3), cact(1), calc(3), canth(3), card-m(1), chin(2), coc-c(2), colch(1), eup-per(2), lach(2), lith(2), lyc(3), mez(1), mill(2), naja(1), nat-m(1), nat-s(1), nit-ac(2), nux-m(2), nux-v(2), pareir(2), petr(2), phos(2), puls(2), raph(2), ruta(2), sars(3), sep(3), sil(2), tarent(1), thuj(1), zinc(1)"
+645,1,"CALCULI, after operation for","arn(2), calen(2), cham(1), chin(1), cupr(1), nux-v(1), staph(3), verat(1)"
+645,0,CARTILAGINOUS induration,pareir(1)
+645,0,"CATARRH muco-pus (See Urine, Sediment Purulent)","alumn(1), ant-c(2), apis(2), aspar(1), benz-ac(3), calc(2), calc-s(1), cann-s(1), canth(2), carb-ac(1), carb-s(2), carb-v(2), caust(2), chim(2), chin-s(1), coff(1), coll(1), coloc(3), con(2), cop(2), cub(1), dulc(3), equis(2), erig(1), eucal(1), eup-pur(2), ferr(2), gels(2), ham(1), hydr(2), indg(1), kali-c(1), kali-chl(2), kali-p(1), kali-s(1), lach(2), lyc(3), med(1), mill(1), nat-m(1), nux-v(3), pareir(1), petr(2), ph-ac(2), phos(2), plb(1), pop-t(1), puls(3), rhod(1), rhus-t(1), sars(2), senec(2), seneg(2), sil(2), sulph(3), ter(2), uva(3)"
+645,1,"CATARRH muco-pus (See Urine, Sediment Purulent), gonorrhœa, from suppressed","benz-ac(1), cub(1), med(2), puls(2), sil(1), thuj(2)"
+645,1,"CATARRH muco-pus (See Urine, Sediment Purulent), hæmorrhoidal subjects, in",coll(1)
+645,1,"CATARRH muco-pus (See Urine, Sediment Purulent), old people, in","alumn(2), carb-v(2), sulph(1), ter(2)"
+645,0,"CHILLS spread from the neck of the bladder, after urinating",sars(2)
+645,0,COLD sensation in,lyss(1)
+645,1,"COLD sensation in, alternating with heat",coc-c(1)
+645,0,CONSTRICTION,"alum(1), berb(2), cact(2), caps(1), caust(1), chel(1), cocc(1), cub(1), dig(1), hydrc(1), lyc(1), petr(1), ph-ac(1), puls(2), sars(2), thuj(1), verat(1)"
+645,1,"CONSTRICTION, afternoon",chel(2)
+645,1,"CONSTRICTION, urination, before",chel(2)
+645,2,"CONSTRICTION, urination, before, during","berb(1), bry(1), dig(1), petr(1), thuj(1)"
+645,2,"CONSTRICTION, urination, before, after","cub(1), nat-m(2)"
+645,1,"CONSTRICTION, neck","ant-c(1), cact(2), canth(1), caps(1), colch(1), con(1), elaps(1), kali-i(1), mag-p(1), op(2), paeon(1), petr(1), phos(1), plb(1), ruta(2), sulph(1)"
+645,2,"CONSTRICTION, neck, morning",caps(1)
+645,2,"CONSTRICTION, neck, urination, during","colch(1), kali-i(1), petr(1), polyg-h(1)"
+645,3,"CONSTRICTION, neck, urination, during, after","bry(1), cann-s(2), cub(1), sulph(1)"
+645,0,"CONTRACTION, sensation of","ant-c(1), berb(2), carb-s(1), coc-c(1), hyos(1), kali-i(1), lyc(2), mez(2), op(1), petr(1), ruta(1), verat(1)"
+645,0,CRAMP in,"berb(2), caps(2), carb-s(1), carb-v(2), coc-c(1), mag-p(1), nux-v(2), ph-ac(1), plb(1), prun-s(1), ruta(1), sars(2), sep(1), zinc(1)"
+645,1,"CRAMP in, night",prun-s(1)
+645,1,"CRAMP in, causing him to bend double",prun-s(1)
+645,1,"CRAMP in, urination, during",carb-s(1)
+645,2,"CRAMP in, urination, during, after","caust(1), nat-m(2)"
+645,0,"CRAWLING, urination, after",lyc(2)
+645,0,"DROPS came out of, sensation as if, rest agg.",sep(1)
+645,0,"EMPTINESS, sensation of","colch(1), dig(1), stram(2), sumb(1)"
+645,0,"FALLS to side lain on, sensation as if","puls(1), sep(2)"
+645,0,"FULLNESS, sensation of","abrot(1), all-c(1), apis(2), arg-n(2), arn(2), ars(2), bell(1), calad(2), chim(2), coc-c(1), conv(1), cub(1), dig(3), equis(3), eup-pur(1), gels(1), guai(1), hell(2), hep(1), kali-i(2), lact-ac(1), lyc(1), lycps(1), med(1), merc(1), merc-c(1), nux-v(2), op(2), ox-ac(1), pall(1), petr(1), phys(1), plb(1), puls(2), ruta(2), sep(2), staph(2), stram(2), sulph(2), thuj(1), zinc(2)"
+645,1,"FULLNESS, sensation of, urination, after","alumn(1), calc(1), con(1), conv(1), dig(3), eup-pur(2), gnaph(1), lac-c(1), lycps(2), merc(1), ruta(2), sars(1), staph(1), sulph(1)"
+646,1,"FULLNESS, sensation of, without desire to urinate","ars(3), calad(1), caust(3), fl-ac(1), hell(1), op(2), pall(1), phos(2), stann(1), stram(2), verat(1)"
+646,0,FUNGOID growths,calc(2)
+646,0,GANGRENE,canth(1)
+646,0,GAS passes from,sars(1)
+646,0,HEAT in,"all-c(2), canth(1), puls(2), senec(2)"
+646,0,HEAVINESS,"cann-s(1), canth(2), coc-c(1), dig(1), kali-i(1), lyc(2), nat-m(2), sep(2)"
+646,0,"HÆMORRHAGE (See Urine, Bloody)","crot-h(1), erig(2), ferr-p(2), ham(2), lyc(1), phos(2), sec(2)"
+646,0,HÆMORRHOIDS of,"acon(1), ant-c(1), bor(1), canth(2), carb-v(1), eupho(1), ham(2), nux-v(2), puls(2), sulph(1)"
+646,1,"HÆMORRHOIDS of, bleeding","ars(1), calc(3), carb-v(1), ferr(1), ham(2), lyc(1), merc(1), nit-ac(2), nux-v(1)"
+646,0,INACTIVITY of,"ars(1), caust(3), op(2), plb(1)"
+646,0,INFLAMMATION,"acon(3), all-c(1), am-c(1), ant-t(2), apis(3), arg-n(2), arn(2), ars(2), aspar(1), bar-m(2), bell(3), berb(2), cact(1), calad(2), calc(2), camph(1), cann-i(2), cann-s(1), canth(3), caps(2), carb-ac(1), caust(2), chim(2), chin-s(2), colch(1), coloc(1), con(2), cop(2), cub(2), dig(2), dulc(2), equis(3), ery-a(2), eup-per(2), ferr-p(1), gels(2), hell(2), hydr(2), hyos(2), kali-ar(1), kali-bi(1), kali-c(1), kali-chl(1), lach(3), lil-t(1), lith(1), lyc(3), med(2), merc(2), merc-c(2), nit-ac(2), nux-v(2), pareir(1), petr(1), ph-ac(1), pop-t(1), prun-s(1), puls(3), rhus-t(2), sabin(2), sars(3), senec(1), seneg(1), sep(3), squil(1), stram(1), sulph(2), tarent(1), ter(3), thuj(1), verat-v(1)"
+646,1,"INFLAMMATION, cold, from taking","dulc(3), sulph(2)"
+646,1,"INFLAMMATION, injuries, after","arn(2), staph(2)"
+646,1,"INFLAMMATION, pus like discharge after lithotomy, with",mill(1)
+646,1,"INFLAMMATION, scarlatina, after",canth(2)
+646,1,"INFLAMMATION, suppression of menses or hæmorrhoidal flow, after",nux-v(2)
+646,1,"INFLAMMATION, violent pain and almost clear blood, with",nit-ac(2)
+646,1,"INFLAMMATION, Neck","apis(2), aspar(1), caps(2), chim(2), clem(2), cop(2), dig(2), elat(1), hyos(1), merc-c(2), merc-i-r(2), nux-v(2), petros(2), puls(2), senec(2)"
+646,0,INSENSIBILITY,ham(1)
+646,0,INVOLUNTARY (See Urination),
+646,0,IRRITABLE (See Urging to urinate),
+646,0,"ITCHING in region of bladder with urging to urinate, agg. night",sep(2)
+646,1,"ITCHING in region of bladder with urging to urinate, agg. night, neck, morning, in bed",nux-v(2)
+646,0,"JAR, sensitive to",bell(2)
+646,0,MOTION in,"alum(1), bell(1), lach(1), ruta(1), sep(1)"
+646,0,"NUMBNESS (See Fullness, Urging Absent)",
+646,0,"OBSTRUCTION, sensation of, neck, urinating, while",sulph(1)
+646,0,PAIN,"acon(1), aeth(1), agn(1), all-c(1), alumn(1), ambr(1), ant-t(1), aphis(1), apis(2), arn(1), ars(1), bell(3), benz-ac(1), berb(2), brach(1), brom(1), cact(2), calad(1), calc(1), calc-f(1), calc-p(2), cann-i(1), cann-s(1), canth(3), caps(2), carb-an(1), carb-s(2), carb-v(2), caul(1), caust(2), chel(2), clem(2), coc-c(1), con(2), cop(1), der(1), dirc(1), equis(3), eup-pur(2), ferr(2), ferr-ar(1), ferr-p(1), fl-ac(2), indg(1), ip(1), kali-bi(1), kali-br(1), lil-t(1), lith(2), lyc(2), merc(1), morph(1), nat-a(1), nux-m(1), nux-v(1), pall(1), pareir(1), ph-ac(1), phos(1), phyt(1), pic-ac(1), plb(2), polyg-h(1), prun-s(1), ptel(1), puls(2), rhod(1), rhus-t(1), ruta(1), sabin(1), sang(1), sars(2), sep(1), sul-ac(1), sul-i(1), sulph(1), tarent(1), ter(1), thuj(1), verat(1), zinc(2)"
+646,1,"PAIN, morning","alumn(1), cop(1), morph(1), sin-n(1)"
+646,1,"PAIN, evening","ip(1), morph(1), pall(1), pic-ac(1), uva(1)"
+646,1,"PAIN, urination, after",sep(1)
+646,1,"PAIN, night","bell(1), carb-an(1), lyc(1), prun-s(1)"
+646,1,"PAIN, coition, after",all-c(2)
+646,1,"PAIN, cold, from taking","dulc(2), eup-pur(2)"
+646,1,"PAIN, coughing, when",caps(1)
+646,1,"PAIN, desire be postponed, if","lac-c(1), lact-ac(2), phos(1), prun-s(1), puls(2), ruta(1), sep(1), sul-ac(2), tub(1)"
+646,1,"PAIN, distension, as from",anth(1)
+646,1,"PAIN, drinking agg.",canth(2)
+646,1,"PAIN, jarring",bell(3)
+646,1,"PAIN, lithotomy, after",staph(3)
+646,1,"PAIN, lying on abdomen amel.",chel(1)
+646,1,"PAIN, menses, during",sep(3)
+646,1,"PAIN, moving, on",berb(3)
+646,2,"PAIN, moving, on, up and down at every step after urinating",ruta(1)
+646,1,"PAIN, paroxysmal","caul(2), chel(1), cop(2), puls(3)"
+646,1,"PAIN, pulsating",dig(2)
+646,1,"PAIN, retarding urination",phos(1)
+646,1,"PAIN, riding in a carriage",agar(1)
+647,1,"PAIN, sitting, while",card-m(1)
+647,1,"PAIN, standing agg.",puls(1)
+647,1,"PAIN, turning over in bed, as if bladder would fall to side lain on",puls(1)
+647,1,"PAIN, urging to urinate, during","berb(1), calc-p(1), eup-pur(1), hell(1), nux-v(2), phyt(2), puls(1), rhod(1), rhus-t(1), ruta(1), sul-ac(1), zinc(1)"
+647,1,"PAIN, urinating, before","berb(1), fl-ac(2), lith(2), manc(1), nux-v(2), pall(1), phyt(2), prun-s(1)"
+647,2,"PAIN, urinating, before, beginning","acon(1), apis(2), ars(2), cann-s(1), canth(3), caust(2), clem(3), cop(1), manc(1), merc(3)"
+647,3,"PAIN, urinating, before, beginning, when urine starts he is amel.",prun-s(1)
+647,2,"PAIN, urinating, before, during","ant-t(1), brach(1), calc(1), calc-p(1), carb-v(1), dig(1), fl-ac(1), indg(1), lil-t(1), manc(2), phyt(2), puls(2), rhus-a(1)"
+647,3,"PAIN, urinating, before, during, after a few drops pass","berb(1), calc-p(1), canth(3), caust(2), fl-ac(1), lith(1)"
+647,2,"PAIN, urinating, before, after","brach(2), lith(1), sep(1)"
+647,1,"PAIN, walking, on","acon(1), puls(2)"
+647,1,"PAIN, extending to kidney","aesc(2), apis(1), canth(2)"
+647,2,"PAIN, extending to kidney, spermatic cords","anth(1), lith(1)"
+647,2,"PAIN, extending to kidney, thighs",puls(2)
+647,2,"PAIN, extending to kidney, uterus","merl(1), tarent(1)"
+647,1,"PAIN, neck","acon(1), alum(1), ant-ox(1), apis(1), arn(1), bell(3), berb(2), brach(1), cact(1), calc-p(2), cann-s(2), canth(2), cham(1), con(1), cop(2), dig(2), ferr-p(2), guai(1), hyos(1), lith(1), lyc(1), lyss(1), mez(1), nux-v(2), op(1), pic-ac(1), puls(1), ruta(1), sars(1), sep(1), spong(1), sulph(1), ter(1), zinc(2)"
+647,2,"PAIN, neck, evening",lyss(1)
+647,2,"PAIN, neck, attempting to urinate, on",cop(2)
+647,2,"PAIN, neck, beginning to urinate, on",clem(2)
+647,2,"PAIN, neck, close of urination","cann-s(2), caust(1), con(1), dig(1), med(1), puls(2), ruta(1), sars(2)"
+647,2,"PAIN, neck, urging to urinate, on","anth(1), bell(1), berb(1), calc-p(2), canth(1), dig(1), ferr-p(1), sep(1), spong(1)"
+647,2,"PAIN, neck, urination, before","canth(1), lith(2), nux-v(1)"
+647,3,"PAIN, neck, urination, before, after","apis(2), apoc(1), cann-s(1), con(1), fl-ac(1), nux-v(1), petr(1), puls(2), ruta(1), sars(1), sep(1), stann(1)"
+647,4,"PAIN, neck, urination, before, after, when last drops are voided","med(1), sars(1)"
+647,2,"PAIN, neck, walking, while",ign(1)
+647,1,"PAIN, aching","all-c(2), arn(1), bell(1), berb(2), calc-p(1), caps(3), carb-s(2), carb-v(1), chel(1), cop(1), crot-t(1), equis(2), erig(1), eup-pur(2), fl-ac(2), hell(2), lach(1), lyc(1), nux-v(2), pall(1), phos(1), pop-t(1), puls(2), sabin(1), sep(2), sulph(1)"
+647,2,"PAIN, aching, coition, after",all-c(1)
+647,2,"PAIN, aching, lying, while",nux-v(2)
+647,2,"PAIN, aching, menses, during",sep(1)
+647,2,"PAIN, aching, urination, before","berb(1), fl-ac(2), nux-v(2), pall(1)"
+647,3,"PAIN, aching, urination, before, during","carb-v(1), fl-ac(1)"
+647,3,"PAIN, aching, urination, before, after","berb(1), calc-p(1), canth(3), conv(1), fl-ac(2), lith(1)"
+647,2,"PAIN, aching, neck","acon(1), calc-p(1), con(1), cop(1), puls(1), sep(1), sulph(1)"
+647,3,"PAIN, aching, neck, 11 a.m.",sulph(1)
+647,3,"PAIN, aching, neck, 3 p.m.",sulph(1)
+647,3,"PAIN, aching, neck, urination, after","apoc(1), fl-ac(1), sep(2), stann(1)"
+647,1,"PAIN, boring, region of",thuj(1)
+647,1,"PAIN, burning","acon(2), all-c(2), apis(2), ars(2), bell(1), berb(3), camph(1), cann-i(1), canth(3), caps(3), card-m(1), cham(1), chel(1), chim(1), clem(1), coff(1), colch(1), coloc(1), cop(1), eup-pur(2), fl-ac(1), hydrang(1), indg(1), lach(1), lyc(1), lyss(1), nit-ac(1), nux-v(1), petr(1), phos(1), pip-n(1), prun-s(2), puls(2), rheum(1), rhus-t(1), sabin(1), sep(2), sil(1), staph(1), ter(3), thuj(1), uva(1)"
+647,2,"PAIN, burning, morning","berb(1), nux-v(2)"
+647,3,"PAIN, burning, morning, 10 a.m.",all-c(1)
+647,2,"PAIN, burning, evening","lyss(1), nux-v(1), puls(1)"
+647,2,"PAIN, burning, night",bell(1)
+647,2,"PAIN, burning, lying, while",fl-ac(1)
+647,2,"PAIN, burning, menses, during",sep(1)
+647,2,"PAIN, burning, standing agg.",eup-pur(2)
+647,2,"PAIN, burning, urination, before","apis(2), berb(2), bor(1), bry(1), calc(1), cann-i(1), canth(2), caps(2), chel(1), clem(1), colch(1), fl-ac(2), lach(1), nat-c(1), rheum(1), rhod(1), seneg(1), thuj(1), zinc(1)"
+647,3,"PAIN, burning, urination, before, during","aloe(1), canth(2), caps(1), cham(1), eup-pur(1), kali-bi(1), lyc(1), nux-v(1), phos(1), prun-s(1), rheum(1), ter(2)"
+647,3,"PAIN, burning, urination, before, after","alum(1), apis(1), berb(2), calc-p(1), canth(1), fl-ac(2), lyc(2), sep(1), sil(1), thuj(1)"
+647,2,"PAIN, burning, walking in open air amel.",ter(3)
+648,2,"PAIN, burning, neck","acon(1), berb(2), canth(3), cham(2), con(1), cop(2), elat(2), ign(1), mit(1), nux-v(2), op(1), petr(1), ph-ac(1), plb(1), prun-s(2), puls(2), staph(2)"
+648,3,"PAIN, burning, neck, lying bent up amel.",staph(1)
+648,3,"PAIN, burning, neck, urination, during","acon(1), aloe(2), apis(2), berb(1), canth(3), cham(2), cop(2), nux-v(3), petr(1), ph-ac(1), prun-s(1), puls(1), ran-b(2), sul-ac(1), thuj(1)"
+648,4,"PAIN, burning, neck, urination, during, after","apis(2), canth(1), merc(1), puls(2), sars(2)"
+648,3,"PAIN, burning, neck, urinating, when not","acon(1), berb(1), canth(1)"
+648,3,"PAIN, burning, neck, extending through urethra",canth(3)
+648,1,"PAIN, clawing","led(1), mez(1), valer(1)"
+648,1,"PAIN, constricting","berb(2), calad(1), calc-p(1), coc-c(1), con(1), lach(1), led(2), lyc(1), mez(2), nit-ac(1), ph-ac(1), plb(1), prun-s(1), sars(2), valer(1), zinc(1)"
+648,2,"PAIN, constricting, neck","ant-c(1), carb-s(1), coc-c(1), lyc(2), mez(2), op(1), petr(1)"
+648,3,"PAIN, constricting, neck, beginning to urinate, on",kali-i(1)
+648,3,"PAIN, constricting, neck, urination, after",sulph(1)
+648,1,"PAIN, cutting","aeth(2), am-c(1), berb(2), canth(2), caps(1), coc-c(1), coloc(2), eup-pur(1), kali-c(2), lach(1), lyc(2), mang(1), nux-v(1), puls(2), ter(3), thuj(1)"
+648,2,"PAIN, cutting, standing",mang(1)
+648,2,"PAIN, cutting, urination, before","bry(1), calc-p(1), dig(1), mag-p(1), manc(2), ph-ac(1), phyt(1), sulph(1), thuj(1)"
+648,3,"PAIN, cutting, urination, before, during","calc(1), canth(1), eup-pur(1), kali-c(1), nat-c(2), polyg-h(1), sec(1), ter(2), thuj(1)"
+648,3,"PAIN, cutting, urination, before, after","calc-p(1), canth(2), cub(1), nat-c(1), petr(1), phos(1), polyg-h(1)"
+648,3,"PAIN, cutting, urination, before, close of, at the","nat-c(1), petr(1), sars(1), thuj(1)"
+648,2,"PAIN, cutting, walking agg.","mang(1), thuj(1)"
+648,2,"PAIN, cutting, open air, in, amel., rest agg.",ter(3)
+648,2,"PAIN, cutting, extending to urethra",berb(2)
+648,2,"PAIN, cutting, neck","berb(1), canth(3), caps(1), con(2), kali-c(2), lach(1), lyc(1), mez(1), nux-v(1), op(1), petr(1), polyg-h(1), puls(1), ter(1)"
+648,3,"PAIN, cutting, neck, morning, in bed",caps(1)
+648,3,"PAIN, cutting, neck, urination, before","canth(2), ph-ac(1)"
+648,4,"PAIN, cutting, neck, urination, before, beginning to urinate, on","manc(1), petr(1)"
+648,4,"PAIN, cutting, neck, urination, before, during","canth(1), kali-c(1), polyg-h(1)"
+648,4,"PAIN, cutting, neck, urination, before, close of, at the","petr(1), sars(1), sulph(1)"
+648,3,"PAIN, cutting, neck, walking in open air, while","mez(1), thuj(1)"
+648,3,"PAIN, cutting, neck, extending through urethra",canth(3)
+648,1,"PAIN, dragging","canth(2), chel(2), cop(1), dig(1), fl-ac(1), lact(1), lyc(2), mosch(1), psor(1), sep(1)"
+648,2,"PAIN, dragging, morning","sep(1), sulph(1)"
+648,2,"PAIN, dragging, night, lying down, while",lyc(2)
+648,2,"PAIN, dragging, hold urine, on attempting to","calc-p(1), lac-c(1)"
+648,2,"PAIN, dragging, lying, horse-back riding amel.",lyc(2)
+648,2,"PAIN, dragging, siesta, after",cycl(1)
+648,2,"PAIN, dragging, suppression of urine, with",hyos(1)
+648,2,"PAIN, dragging, urination, during","arg-n(1), cycl(1), op(1), rheum(1), ruta(1)"
+648,3,"PAIN, dragging, urination, during, after","arund(1), bry(1), ruta(1), sulph(1)"
+648,1,"PAIN, drawing","aphis(1), berb(2), calad(1), card-m(1), coc-c(1), dig(1), rhod(1)"
+648,2,"PAIN, drawing, riding in a carriage, while",agar(1)
+648,2,"PAIN, drawing, sitting, while",card-m(1)
+648,2,"PAIN, drawing, upward","calc-p(1), phyt(2)"
+648,2,"PAIN, drawing, urination, during","calc-p(1), dig(1), phyt(1), rhus-a(1)"
+648,2,"PAIN, drawing, neck","alum(1), berb(1), cop(1), jatr(1), mez(1), rhod(1)"
+648,1,"PAIN, lancinating (See Stitching)",
+648,1,"PAIN, pinching","am-m(1), berb(2), lyc(1), sep(1)"
+648,2,"PAIN, pinching, lying, while, with stitching",am-m(1)
+648,1,"PAIN, pressing, pressure in","acon(3), all-c(1), alum(1), am-c(1), am-m(1), ant-t(1), aphis(1), apis(3), arn(1), aur(2), bell(1), berb(1), bor(1), brach(1), calc(2), calc-p(2), camph(2), cann-s(1), canth(2), caps(1), carb-an(1), carb-s(1), carb-v(2), card-m(2), chel(1), chim(2), chin-a(1), coc-c(1), coff(1), colch(1), coloc(2), con(2), cop(1), cub(1), cycl(1), dig(1), dulc(2), equis(2), eup-pur(2), fl-ac(1), graph(1), hep(1), hyos(1), ign(1), kali-c(2), kali-p(1), kali-s(1), kreos(1), lach(1), lachn(1), lact(1), laur(1), lil-t(3), lyc(3), med(1), merc-i-r(1), mosch(1), nat-c(1), nat-m(2), nat-p(1), nux-v(3), ol-an(1), pall(1), petr(1), ph-ac(2), pop-t(1), puls(2), raph(1), rhus-t(1), ruta(2), sars(2), sep(3), sil(1), spig(1), squil(1), staph(2), sulph(2), tarent(1), thuj(1), til(1), verat(1), zinc(1)"
+648,2,"PAIN, pressing, pressure in, morning","puls(1), sep(2)"
+648,3,"PAIN, pressing, pressure in, morning, 10 a.m.",all-c(1)
+648,2,"PAIN, pressing, pressure in, evening","puls(1), sep(2)"
+648,2,"PAIN, pressing, pressure in, night","bell(2), carb-an(1), fl-ac(1), kreos(1), lyc(2), sulph(1)"
+648,2,"PAIN, pressing, pressure in, coughing, when","caps(1), colch(1), ip(1), kreos(1)"
+648,2,"PAIN, pressing, pressure in, ineffectual desire for stool, with",aphis(1)
+649,2,"PAIN, pressing, pressure in, lying, while",lyc(2)
+649,2,"PAIN, pressing, pressure in, motion agg.",nux-v(1)
+649,2,"PAIN, pressing, pressure in, retention, with","aur(1), bor(2), hyos(2), sars(2)"
+649,2,"PAIN, pressing, pressure in, riding horseback amel.",lyc(1)
+649,2,"PAIN, pressing, pressure in, sitting cross-legged (compelled) amel.","sep(1), zinc(1)"
+649,3,"PAIN, pressing, pressure in, sitting cross-legged (compelled) amel., amel.","bry(1), con(1), ign(1)"
+649,2,"PAIN, pressing, pressure in, stool, before","carb-v(2), nat-m(2)"
+649,2,"PAIN, pressing, pressure in, urination, before","ang(1), arn(1), calc-p(1), chim(1), chin(2), con(1), graph(1), kali-s(2), nat-p(1), nux-v(2), petr(1), phyt(1), puls(2), ruta(1), sep(2), spig(1)"
+649,3,"PAIN, pressing, pressure in, urination, before, during","asar(1), berb(1), calc-p(1), camph(2), chim(2), dig(1), dulc(1), hep(2), hyos(1), lach(2), lachn(1), lact(1), nat-c(1), nat-m(2), nux-v(3), op(1), ph-ac(1), sil(2), verat(1)"
+649,3,"PAIN, pressing, pressure in, urination, before, after","asar(1), berb(1), brach(1), calc-p(2), camph(2), canth(1), chin(1), dig(2), dulc(1), equis(3), lac-c(1), lith(1), merc(1), nat-m(1), ruta(1), sep(1), sulph(1)"
+649,4,"PAIN, pressing, pressure in, urination, before, after, deep in, left side",calc-p(1)
+649,2,"PAIN, pressing, pressure in, walking, while","bry(1), con(1), ign(1), phos(1), puls(1)"
+649,2,"PAIN, pressing, pressure in, neck","alum(1), apis(1), brach(1), canth(2), carl(1), coc-c(1), jatr(1), nux-v(2), sul-ac(1), ter(1), thuj(1)"
+649,3,"PAIN, pressing, pressure in, neck, hold the urine, on attempting to",lact-ac(1)
+649,3,"PAIN, pressing, pressure in, neck, sitting agg.",ter(1)
+649,3,"PAIN, pressing, pressure in, neck, stitches, with, walking agg., sitting amel.","con(1), ign(1)"
+649,3,"PAIN, pressing, pressure in, neck, urination, before","apis(1), arn(1), calc-p(1), chim(1), nux-v(2), phyt(2), puls(2)"
+649,4,"PAIN, pressing, pressure in, neck, urination, before, during","ign(1), rhus-a(1), stann(1), thuj(1)"
+649,4,"PAIN, pressing, pressure in, neck, urination, before, after","con(1), nat-m(1), ruta(1)"
+649,3,"PAIN, pressing, pressure in, neck, walking in open air, while","con(1), ign(1), nux-v(1), puls(1)"
+649,1,"PAIN, shooting (See Stitching)",
+649,1,"PAIN, smarting","apis(1), berb(1), canth(2), eup-pur(1), phos(1)"
+649,2,"PAIN, smarting, standing agg.",eup-pur(2)
+649,2,"PAIN, smarting, walking, while",phos(1)
+649,2,"PAIN, smarting, extending to meatus",chim(2)
+649,1,"PAIN, sore, tender","acon(1), all-c(2), arn(1), ars(2), bell(2), benz-ac(2), berb(1), brach(1), calad(2), calc-p(2), cann-s(1), canth(3), carb-v(2), chim(2), coff(1), dirc(1), equis(3), eup-pur(1), lact-ac(1), lith(2), lycps(1), merc(2), nat-a(1), puls(2), sars(2), sec(2), sep(2), squil(1), sulph(1), ter(3), thuj(1), uran(1)"
+649,2,"PAIN, sore, tender, motion agg.","bell(2), berb(1), canth(2)"
+649,2,"PAIN, sore, tender, urination, during, agg.","nat-a(1), puls(1)"
+649,3,"PAIN, sore, tender, urination, during, agg., after amel.",nat-a(1)
+649,2,"PAIN, sore, tender, neck","atro(2), brach(1), calc-p(2), carb-v(2), nux-v(2), puls(2)"
+649,3,"PAIN, sore, tender, neck, urination, after",calc-p(1)
+649,1,"PAIN, spasmodic","alum(1), berb(2), canth(2), caps(1), caul(2), chel(2), coc-c(1), cop(1), ph-ac(1), prun-s(1), ter(1)"
+649,2,"PAIN, spasmodic, morning",cop(2)
+649,2,"PAIN, spasmodic, night",prun-s(1)
+649,2,"PAIN, spasmodic, extending to chest",alum(1)
+649,2,"PAIN, spasmodic, neck","jatr(1), phos(1)"
+649,3,"PAIN, spasmodic, neck, closure, at","cann-s(1), caust(1), con(1), dig(1), med(1), puls(2), ruta(1), sars(2)"
+649,3,"PAIN, spasmodic, neck, extending to thighs after micturition",puls(2)
+649,1,"PAIN, stabbing, region of",chel(2)
+649,1,"PAIN, stitching, stinging","acon(1), ant-t(1), aur(1), berb(2), calad(1), canth(1), carb-s(1), chel(2), clem(2), coc-c(1), coloc(1), con(2), kali-c(2), kali-p(1), kali-s(1), lith(2), lyc(2), nat-m(2), pall(1), rhus-t(1), sabad(1), sulph(2), thuj(1)"
+649,2,"PAIN, stitching, stinging, alternating between bladder and rectum",coloc(1)
+649,2,"PAIN, stitching, stinging, cough, during",caps(2)
+649,2,"PAIN, stitching, stinging, dinner, after",nux-v(1)
+649,2,"PAIN, stitching, stinging, lying, while",am-m(1)
+649,2,"PAIN, stitching, stinging, respiration, during",aur(1)
+649,2,"PAIN, stitching, stinging, sitting amel.",con(1)
+649,2,"PAIN, stitching, stinging, stool, during",gamb(1)
+649,2,"PAIN, stitching, stinging, urging to urinate, when","canth(1), rhus-t(1)"
+649,3,"PAIN, stitching, stinging, urging to urinate, when, ineffectual urging",guai(2)
+649,2,"PAIN, stitching, stinging, urination, before","apis(1), lith(2), manc(2), puls(1), sep(1)"
+649,3,"PAIN, stitching, stinging, urination, before, beginning to urinate, on",manc(2)
+649,3,"PAIN, stitching, stinging, urination, before, during","carb-s(1), nat-m(2), sep(1)"
+649,3,"PAIN, stitching, stinging, urination, before, after",bufo(1)
+649,2,"PAIN, stitching, stinging, walking, while","con(1), nat-m(1)"
+650,2,"PAIN, stitching, stinging, extending from kidney to bladder (See Kidneys)",
+650,3,"PAIN, stitching, stinging, extending from kidney to bladder (See Kidneys), to kidneys","coc-c(1), oci(1)"
+650,3,"PAIN, stitching, stinging, extending from kidney to bladder (See Kidneys), to urethra","berb(1), carb-s(1), cycl(1), dig(1), phos(1), thuj(1)"
+650,2,"PAIN, stitching, stinging, neck","acon(1), ant-t(1), bell(2), berb(1), calc-p(2), canth(2), caps(1), carb-s(2), cham(2), chel(1), con(1), dig(1), guai(2), jatr(1), lith(2), lyc(2), op(2), puls(2), stry(2), sulph(1), thuj(2)"
+650,3,"PAIN, stitching, stinging, neck, morning",sulph(1)
+650,3,"PAIN, stitching, stinging, neck, afternoon",sulph(1)
+650,3,"PAIN, stitching, stinging, neck, evening",phos(1)
+650,3,"PAIN, stitching, stinging, neck, anus, and",lyc(1)
+650,3,"PAIN, stitching, stinging, neck, coughing, when",caps(2)
+650,3,"PAIN, stitching, stinging, neck, desire be delayed, if",prun-s(1)
+650,3,"PAIN, stitching, stinging, neck, ineffectual effort to urinate, after",guai(2)
+650,3,"PAIN, stitching, stinging, neck, lying on face amel.",chel(1)
+650,3,"PAIN, stitching, stinging, neck, sitting, amel.",con(2)
+650,3,"PAIN, stitching, stinging, neck, urination, before","apis(1), canth(2), dig(1)"
+650,4,"PAIN, stitching, stinging, neck, urination, before, during","carb-s(1), sulph(1)"
+650,4,"PAIN, stitching, stinging, neck, urination, before, after","con(1), dig(1), guai(1)"
+650,3,"PAIN, stitching, stinging, neck, urination, when not",cham(2)
+650,3,"PAIN, stitching, stinging, neck, extending to end of penis","dig(1), stry(1)"
+650,1,"PAIN, tearing","berb(1), bry(1), kali-c(2)"
+650,2,"PAIN, tearing, neck","canth(1), kali-c(2), nux-v(2)"
+650,3,"PAIN, tearing, neck, pressing during urination, when",kali-c(2)
+650,3,"PAIN, tearing, neck, urination, during","kali-c(1), nux-v(2)"
+650,1,"PAIN, twisting, neck",coc-c(1)
+650,1,"PAIN, twinging",ter(1)
+650,1,"PAIN, twitching","agar(1), lith(1)"
+650,0,PARALYSIS,"acon(1), agar(1), alum(2), arg-n(1), arn(2), ars(3), aur(1), bell(2), cact(2), camph(2), cann-s(2), canth(2), carb-an(2), carb-s(1), carb-v(1), caust(3), cic(2), cupr(2), dulc(3), form(1), gels(3), hell(1), helon(1), hyos(2), kali-p(1), lach(2), laur(2), mag-m(1), merc(2), mur-ac(1), nat-p(1), nux-v(3), op(3), phos(1), plb(2), psor(1), puls(2), rhus-t(2), sec(2), sil(2), staph(1), stram(2), stry(2), sulph(2), tab(1), thuj(1), zinc(3)"
+650,1,"PARALYSIS, daytime",thuj(1)
+650,1,"PARALYSIS, forcible retention seems to paralyze the bladder","ars(2), canth(2), caust(3), gels(2), hell(1), hyos(1), rhus-t(2), ruta(2)"
+650,1,"PARALYSIS, hysterical subjects, in",zinc(3)
+650,1,"PARALYSIS, old people, in","ars(3), cann-s(2), cic(2), con(1), equis(2), gels(2), kali-p(1), sec(2), thuj(1)"
+650,1,"PARALYSIS, over-distension, after","ars(1), canth(2), caust(3), hell(1), hyos(1), nux-v(2), rhus-t(2), ruta(2), stry(1), sulph(2)"
+650,1,"PARALYSIS, parturition, after, no desire","ars(3), canth(1), caust(3), ferr(1), hyos(2), kreos(1), nux-v(1), phos(1), zinc(1)"
+650,0,PARALYTIC weakness,"cod(1), morph(2), op(1), sulph(3)"
+650,1,"PARALYTIC weakness, sphincter","agar(1), apoc(1), bell(2), canth(1), gels(2), jug-r(1), phos(2), plan(1), puls(1), tab(2)"
+650,1,"PARALYTIC weakness, sensation of, evening, so that he fears he will wet the bed",alum(1)
+650,2,"PARALYTIC weakness, sensation of, evening, so that he fears he will wet the bed, neck","agar(1), atro(1), bar-c(1), cadm(1), canth(1), cub(1), op(1), stram(1)"
+650,0,POLYPI,"ant-c(1), calc(3), con(1), graph(1), lyc(1), merc(1), phos(1), puls(1), sil(1), teucr(3), thuj(1)"
+650,0,PULSATION,"berb(1), canth(1), dig(2)"
+650,1,"PULSATION, urination, before",dig(2)
+650,0,RETENTION of urine (See Urination Retarded),"acon(3), aesc(1), agar(1), all-c(1), alum(1), am-c(3), ant-t(1), ap-g(1), apis(3), apoc(2), arg-m(1), arn(3), ars(3), ars-i(2), aspar(1), atro(1), aur(1), bar-c(2), bar-m(1), bell(3), bism(1), bor(2), bufo(1), cact(2), calc(2), calc-s(1), camph(2), cann-i(2), cann-s(2), canth(3), caps(2), carb-s(1), card-m(1), caust(3), chel(1), chim(2), chin(1), chin-a(1), cic(2), cimic(1), cinnb(1), clem(2), coc-c(1), coch(1), colch(2), coloc(2), con(3), cop(1), crot-h(2), cupr(2), dig(2), dios(1), dulc(2), elaps(1), eupho(2), gels(3), graph(1), hell(2), helon(1), hep(2), hyos(2), hyper(1), ign(1), iod(2), ip(2), iris(1), kali-ar(1), kali-chl(2), kali-i(1), kreos(1), laur(2), led(1), lyc(3), mag-p(2), mag-s(1), merc(1), merc-c(1), merc-cy(1), mez(1), morph(1), mur-ac(1), nit-ac(2), nux-m(1), nux-v(3), op(3), ox-ac(1), pareir(3), petr(1), ph-ac(1), phos(1), phyt(2), plb(2), polyg-h(2), prun-s(2), puls(2), ran-s(1), rhus-t(2), ruta(1), sabin(2), sars(2), sec(2), sep(1), sil(1), stann(1), staph(2), stram(2), sul-ac(1), sulph(2), tarent(3), ter(3), thuj(2), tub(1), urt-u(1), verat(2), zinc(2)"
+650,1,"RETENTION of urine (See Urination Retarded), evening",bor(1)
+650,1,"RETENTION of urine (See Urination Retarded), night, 3 to 6 a.m.",pareir(1)
+650,1,"RETENTION of urine (See Urination Retarded), air, from exposure to cold",caust(2)
+650,1,"RETENTION of urine (See Urination Retarded), beer, after",nux-v(2)
+650,1,"RETENTION of urine (See Urination Retarded), children, in","acon(2), apis(3), art-v(2), bell(1), benz-ac(2), calc(1), caust(2), cop(2), dulc(2), eup-pur(1), ferr-p(1), gels(2), ip(1), op(2)"
+651,2,"RETENTION of urine (See Urination Retarded), children, in, every, time child catches cold","acon(3), cop(1), dulc(2), puls(1), sulph(1)"
+651,1,"RETENTION of urine (See Urination Retarded), chill, in","apis(1), arn(1), canth(1), hyos(1), lyc(1), op(1), puls(1), stram(1)"
+651,2,"RETENTION of urine (See Urination Retarded), chill, in, cholera, in","camph(2), canth(2), lach(1), op(1), verat(3)"
+651,2,"RETENTION of urine (See Urination Retarded), chill, in, chronic","calc(2), iod(2)"
+651,2,"RETENTION of urine (See Urination Retarded), chill, in, clots in the bladder, from","cact(1), caust(1)"
+651,3,"RETENTION of urine (See Urination Retarded), chill, in, clots in the bladder, from, in the vagina, from",coc-c(1)
+651,2,"RETENTION of urine (See Urination Retarded), chill, in, cold, from catching","acon(2), caust(2), cop(2), dulc(2), puls(2), sulph(1)"
+651,3,"RETENTION of urine (See Urination Retarded), chill, in, cold, from catching, standing on cold pavement",calc(2)
+651,1,"RETENTION of urine (See Urination Retarded), colic","arn(1), coloc(2), plb(3), thuj(1)"
+651,1,"RETENTION of urine (See Urination Retarded), confinement, after","arn(2), ars(3), bell(2), canth(1), caust(3), equis(2), hyos(2), ign(1), lyc(1), nux-v(2), op(2), puls(2), rhus-t(1), sec(1), sep(1), stann(1), staph(2), stram(1)"
+651,1,"RETENTION of urine (See Urination Retarded), dribbling, with (See Urination, Dribbling)",
+651,1,"RETENTION of urine (See Urination Retarded), dysentery","ars(3), merc(1)"
+651,1,"RETENTION of urine (See Urination Retarded), enlarged prostate, from","apis(2), bell(1), benz-ac(1), cact(2), canth(1), chim(2), con(1), dig(3), ferr(1), hyos(1), kali-i(1), merc-d(1), pareir(1), puls(2), sep(1), staph(3), stram(1)"
+651,1,"RETENTION of urine (See Urination Retarded), exertion, after","arn(3), caps(3), rhus-t(3)"
+651,1,"RETENTION of urine (See Urination Retarded), fright, after","acon(1), op(3)"
+651,1,"RETENTION of urine (See Urination Retarded), hysteria, in",zinc(3)
+651,1,"RETENTION of urine (See Urination Retarded), locomotor ataxia",arg-n(2)
+651,1,"RETENTION of urine (See Urination Retarded), menses, during","ham(1), kali-bi(1)"
+651,1,"RETENTION of urine (See Urination Retarded), new-born infants, in","acon(3), apis(2), ars(2), benz-ac(1), camph(2), canth(2), caust(2), erig(1), hyos(1), lyc(2), puls(1)"
+651,2,"RETENTION of urine (See Urination Retarded), new-born infants, in, after passion of the nurse",op(2)
+651,1,"RETENTION of urine (See Urination Retarded), old men",sol-v(2)
+651,1,"RETENTION of urine (See Urination Retarded), over-distension, after (See Paralysis)",
+651,1,"RETENTION of urine (See Urination Retarded), painful","acon(1), arn(2), ars(1), aur(2), bell(1), bor(1), calc-p(1), canth(3), caps(1), caust(3), cop(1), crot-h(1), cupr(1), dulc(2), lyc(2), nit-ac(2), nux-v(3), op(2), pareir(2), puls(2), sabin(1), sars(2), sul-ac(1), ter(2)"
+651,2,"RETENTION of urine (See Urination Retarded), painful, urging, with, while lying on the back",puls(2)
+651,1,"RETENTION of urine (See Urination Retarded), sensation as if urine retained by contraction of sphincter",sulph(1)
+651,1,"RETENTION of urine (See Urination Retarded), sitting bent backwards amel.",zinc(2)
+651,1,"RETENTION of urine (See Urination Retarded), unable to pass urine in presence of company",nat-m(3)
+651,1,"RETENTION of urine (See Urination Retarded), urine passed by drops (See Urination, Dribbling)",
+651,1,"RETENTION of urine (See Urination Retarded), wet, after getting feet","all-c(2), rhus-t(2)"
+651,0,RHEUMATIC affections,"clem(1), dulc(1), merl(1)"
+651,0,SENSATION absent (See Urging Absent),
+651,0,"SHOCKS, electric, extending to right thigh",fl-ac(1)
+651,0,SPASM,"ant-t(2), asaf(1), bell(2), berb(1), calad(1), calc(2), canth(2), caps(2), caul(1), chim(1), chin(1), coc-c(2), cop(2), dig(1), eup-pur(1), gels(2), guar(1), hell(1), hydr(1), ip(2), nux-v(2), op(1), ph-ac(2), prun-s(2), puls(2), sars(2), sep(2), tarent(1), ter(1), uva(1), vib(2), zinc(1)"
+651,1,"SPASM, urination, before","manc(1), uva(1)"
+651,2,"SPASM, urination, before, during","asaf(2), cann-s(1), carb-s(1), colch(1), op(1)"
+651,2,"SPASM, urination, before, after","asaf(1), prun-s(2), puls(1)"
+651,1,"SPASM, neck","arg-n(1), arn(3), cact(1), cann-s(1), colch(2), cop(1), hyos(1), kali-br(1), mag-p(1), prun-s(2), puls(1), ruta(1)"
+651,2,"SPASM, neck, night",prun-s(1)
+651,2,"SPASM, neck, sexual excesses, after",nux-v(2)
+651,2,"SPASM, neck, spasmodic stricture","mag-p(1), ruta(1)"
+651,0,SPASMODIC action of,"calc-p(1), tarent(1)"
+651,0,"STONE in, sensation",puls(1)
+651,0,SUPPURATION (See Urine),"canth(2), sars(1), ter(1)"
+651,0,SWOLLEN,"apoc(1), atro(1), bell(1), chlor(1), dig(1), kali-bi(1), kali-i(2), merc-c(1), op(1), ox-ac(1), petr(1), plb(1), tarent(1)"
+651,1,"SWOLLEN, region of neck",puls(2)
+651,0,TENESMUS,"acon(2), agar(3), alum(2), am-c(1), am-m(1), anac(1), ang(2), ant-c(2), apis(2), arn(2), ars(3), aur-m(1), bell(2), calc(1), camph(1), cann-s(2), canth(3), caps(2), carb-s(1), caust(1), chim(2), clem(2), coc-c(2), colch(1), coloc(2), cop(1), crot-h(1), cub(1), cupr(2), dig(3), elaps(1), eug(1), ferr(1), ferr-ar(1), ferr-i(1), ferr-p(1), gels(2), hyos(1), ip(2), lach(2), lil-t(3), lith(2), lyc(2), med(2), merc(2), merc-c(3), mez(2), morph(1), mur-ac(2), nat-c(1), nit-ac(2), nux-m(2), nux-v(3), ol-an(1), op(1), pareir(3), phos(1), phys(1), plan(1), plb(3), podo(2), polyg-h(1), pop-t(1), prun-s(3), psor(1), puls(3), rheum(1), rhus-t(2), sabad(1), sabin(1), sars(2), senec(2), sep(1), sil(2), squil(1), tarent(1), tax(1), ter(3), thuj(3), ust(1), uva(1), verat(1), viol-t(1)"
+651,1,"TENESMUS, morning","par(1), senec(2)"
+651,2,"TENESMUS, morning, 4 a.m.",am-m(1)
+651,1,"TENESMUS, forenoon","agar(1), phos(1)"
+651,1,"TENESMUS, evening, walking in open air",lith(2)
+652,1,"TENESMUS, night","ant-c(1), lith(1), merc(2)"
+652,2,"TENESMUS, night, lying down agg.",lyc(1)
+652,1,"TENESMUS, icy cold feet, with",elaps(2)
+652,1,"TENESMUS, menses, during",tarent(3)
+652,1,"TENESMUS, sitting, while",ter(1)
+652,1,"TENESMUS, stool, during","alum(2), caps(3), lil-t(1), merc(2), nux-v(3), rhus-t(2), staph(2)"
+652,2,"TENESMUS, stool, during, after",canth(1)
+652,1,"TENESMUS, urging to stool, with (See Urging Painful)",
+652,1,"TENESMUS, urination, after","ferr(1), squil(1)"
+652,1,"TENESMUS, vomiting, purging and micturition",crot-h(3)
+652,0,TENSION,"acon(3), ant-t(1), coc-c(1), eup-pur(1), nux-v(1)"
+652,0,THICKENING of walls of,"dulc(1), pareir(1)"
+652,0,TUMORS,calc(2)
+652,0,TWISTING sensation,"agar(1), bell(1)"
+652,0,"TWITCHING, neck during urination",op(1)
+652,0,ULCERATION,"all-s(1), canth(1), eup-pur(2), merc-c(2), merc-i-r(1), ran-b(1)"
+652,1,"ULCERATION, calculi, caused by",all-s(1)
+652,1,"ULCERATION, symptoms of",hydr(2)
+652,0,URGING to urinate (morbid desire),"acon(2), aesc(1), agar(1), aloe(1), alum(1), alumn(2), am-c(2), am-m(1), anac(1), ant-c(1), ant-t(2), apis(3), arg-m(1), arg-n(3), arn(2), ars(1), ars-i(1), aspar(1), aur-m(2), bar-c(2), bar-m(1), bell(3), benz-ac(2), berb(3), bor(1), bov(1), bry(3), cact(2), calc(2), camph(3), cann-i(3), cann-s(3), canth(3), caps(2), carb-an(1), carb-s(1), carb-v(1), card-m(2), cast(1), caust(3), cham(2), chel(1), chim(3), chin(2), chin-a(1), chin-s(1), cimic(1), cina(1), clem(2), coc-c(2), coch(1), coff(1), colch(2), coloc(2), con(2), cop(2), croc(1), crot-t(1), cub(2), cupr(1), cycl(1), dig(2), dros(2), dulc(2), equis(1), ery-a(1), eup-pur(2), eupho(1), ferr(2), ferr-p(1), graph(2), guai(2), ham(1), hell(2), hep(1), hydr(1), hyos(2), ign(2), iod(1), ip(2), kali-ar(1), kali-bi(2), kali-c(3), kali-chl(2), kali-i(1), kali-n(2), kali-p(1), kali-s(1), kreos(2), lach(1), laur(1), led(1), lil-t(3), lyc(2), lyss(2), mag-c(1), mag-m(1), mang(1), meny(1), meph(1), merc(2), merc-c(3), mez(1), mit(1), morph(1), mur-ac(2), nat-c(1), nat-m(3), nat-p(1), nat-s(1), nit-ac(2), nux-v(3), olnd(1), par(1), petr(1), ph-ac(3), phos(2), plan(2), plb(1), podo(2), prun-s(1), puls(3), rhus-t(2), ruta(1), sabad(1), sabin(3), samb(1), sarr(1), sars(3), sec(2), sel(1), senec(2), seneg(2), sep(3), sil(1), spig(2), spong(1), squil(3), stann(1), staph(3), stram(1), stront(1), sulph(3), tarax(1), thuj(3), valer(1), verat(1), verb(1), vesp(2), vib(1), viol-t(2), zinc(2)"
+652,1,"URGING to urinate (morbid desire), daytime","ferr-p(1), kali-bi(1), led(1), mang(2)"
+652,1,"URGING to urinate (morbid desire), morning","alum(2), am-m(1), ambr(1), berb(1), cocc(1), coff(1), graph(1), lil-t(1), ruta(1), senec(1), sep(2), sulph(3)"
+652,2,"URGING to urinate (morbid desire), morning, rising, on","berb(1), mez(1), plan(1), sulph(3)"
+652,2,"URGING to urinate (morbid desire), morning, waking, on","apoc(1), chin-a(1), hep(1), merc(1), mez(1), sars(2)"
+652,2,"URGING to urinate (morbid desire), morning, 8 a.m.",puls(1)
+652,2,"URGING to urinate (morbid desire), morning, 8 to 9 a.m.",ferr(1)
+652,1,"URGING to urinate (morbid desire), forenoon","aloe(1), mez(1)"
+652,2,"URGING to urinate (morbid desire), forenoon, 10 a.m.","am-m(1), equis(2)"
+652,1,"URGING to urinate (morbid desire), afternoon","bell(1), chin-s(1), cic(1), equis(1), ferr(1), hyper(1), indg(1), lil-t(1), merc(1), nux-v(2), petr(1), sabad(1), sulph(2)"
+652,1,"URGING to urinate (morbid desire), evening","aloe(1), alum(1), am-c(1), bell(2), coloc(2), guar(1), kreos(1), lyc(2), nat-m(1), nux-m(1), puls(2), sabad(2), sep(2), sulph(2), thuj(1), zinc(2)"
+652,2,"URGING to urinate (morbid desire), evening, lying, while",lyc(1)
+652,1,"URGING to urinate (morbid desire), night","agar(1), alum(2), am-c(1), anac(1), ant-t(1), apis(1), arn(2), ars(2), ars-i(2), aur-m(2), bell(2), bor(2), bry(1), calc(2), carb-s(1), carb-v(1), caust(1), chim(1), cina(1), clem(1), con(2), croc(1), cupr(1), dig(3), equis(1), ery-a(2), euphr(1), graph(2), hep(1), hyper(1), iod(1), kali-ar(1), kali-bi(2), kali-c(1), kali-p(1), kali-s(1), kreos(2), lach(2), lyc(3), mag-c(1), mag-m(2), med(1), meph(1), merc(2), mez(1), mur-ac(1), nat-a(1), nat-c(1), nat-m(2), nat-p(1), nicc(1), nit-ac(2), nux-m(1), nux-v(2), petr(1), ph-ac(1), phos(2), puls(1), rhus-t(2), sabin(1), samb(2), sec(1), sep(1), sil(3), spig(1), squil(1), stram(1), sul-ac(1), sulph(3), syph(1), tab(1), thuj(2), zinc(1)"
+652,2,"URGING to urinate (morbid desire), night, day, and","apis(2), arg-m(1), cact(1), carb-v(2), cast(1), kali-c(1), kali-i(1), mag-c(1), mag-m(1), merc(1), nat-c(1), nat-m(1), rhus-t(2), sars(1), sil(1), sulph(1), thuj(1)"
+652,2,"URGING to urinate (morbid desire), night, coition, after",nat-p(2)
+652,2,"URGING to urinate (morbid desire), night, waking, on","ant-t(1), caust(1), dig(1), eupho(1), hep(1), mag-m(1), murx(1), sil(1), staph(1)"
+652,2,"URGING to urinate (morbid desire), night, midnight","ant-t(1), nat-c(1), sulph(1)"
+652,2,"URGING to urinate (morbid desire), night, 12 and 3 a.m., between",acon(1)
+652,2,"URGING to urinate (morbid desire), night, 2 a.m.","anth(1), con(1), hyper(1), puls(1), uran(1)"
+652,2,"URGING to urinate (morbid desire), night, 3-30 a.m.",canth(1)
+652,2,"URGING to urinate (morbid desire), night, 3 a.m.","dig(2), sarr(1)"
+653,2,"URGING to urinate (morbid desire), night, 4 a.m.",merc(1)
+653,1,"URGING to urinate (morbid desire), abdomen, on touching",acon(1)
+653,1,"URGING to urinate (morbid desire), absent","ars(3), bell(1), calad(1), caust(3), ferr(1), hell(1), hyos(2), lac-c(2), op(1), ox-ac(2), pall(1), phos(2), plb(2), stann(1), verat(1)"
+653,2,"URGING to urinate (morbid desire), absent, distended bladder, with","ars(3), calad(2), caust(3), fl-ac(1), hell(1), hyos(2), op(1), pall(1), phos(2), plb(2), stann(1), verat(1)"
+653,3,"URGING to urinate (morbid desire), absent, distended bladder, with, urine flows freely",phos(1)
+653,1,"URGING to urinate (morbid desire), anxious","acon(3), ars(2), carb-v(3), cham(2), cur(1), dig(3), graph(1), ph-ac(1), phyt(1), sep(1), til(1)"
+653,2,"URGING to urinate (morbid desire), anxious, urinate, on beginning to",acon(3)
+653,1,"URGING to urinate (morbid desire), apyrexia","ant-t(1), dros(1), hell(1), hyos(1), lyc(1), ph-ac(1), phos(1), thuj(1)"
+653,1,"URGING to urinate (morbid desire), chill, during","ant-t(2), bry(1), chin(1), dulc(1), lyc(1), meph(1), nux-v(1), ph-ac(1), phos(1), puls(1), sulph(1)"
+653,1,"URGING to urinate (morbid desire), coffee, after","cahin(1), cob(1), ign(1)"
+653,1,"URGING to urinate (morbid desire), constant","acon(2), agar(1), all-s(1), am-c(1), am-m(1), anac(1), ant-c(1), apis(3), apoc(1), aran(1), arn(2), ars(1), ars-i(1), asar(1), aur(1), aur-m(2), bar-c(1), bar-m(1), bell(2), berb(2), brach(1), brom(1), cact(2), cahin(1), calc(1), cann-i(1), canth(3), carb-s(1), caust(2), chel(1), chim(2), coc-c(1), colch(2), con(3), cop(2), crot-t(1), cycl(2), dig(3), dios(2), dulc(2), equis(3), ery-a(3), eup-pur(1), ferr(2), ferr-ar(1), ferr-p(1), graph(1), guai(2), ham(1), hell(2), hep(1), ign(1), iod(1), kali-ar(1), kali-bi(2), kali-c(2), kali-p(1), kali-s(1), lac-c(3), lil-t(3), lyc(2), lyss(1), merc(3), merc-c(3), merc-i-r(1), mill(1), morph(1), mur-ac(1), nat-a(1), nat-c(1), nat-m(1), nat-p(1), nux-m(2), nux-v(2), pareir(3), petr(1), ph-ac(1), phos(1), prun-s(2), puls(2), rumx(1), ruta(1), sabad(1), sang(1), sec(1), sep(2), sil(2), squil(2), staph(2), stry(3), sul-ac(1), sulph(3), sumb(1), tab(1), tarent(1), thuj(2), valer(1), verat(1), viol-t(1), zinc(1)"
+653,2,"URGING to urinate (morbid desire), constant, daytime",kali-bi(1)
+653,2,"URGING to urinate (morbid desire), constant, evening, while lying",lyc(1)
+653,2,"URGING to urinate (morbid desire), constant, night","apis(2), dig(3), ery-a(2), lil-t(2), merc(2), thuj(1)"
+653,3,"URGING to urinate (morbid desire), constant, night, erections, with","mosch(1), rhus-t(2)"
+653,3,"URGING to urinate (morbid desire), constant, night, every other",bar-c(1)
+653,2,"URGING to urinate (morbid desire), constant, bladder, distended, with passing only a few drops",all-s(1)
+653,2,"URGING to urinate (morbid desire), constant, cold, from becoming","dulc(2), lyc(1)"
+653,2,"URGING to urinate (morbid desire), constant, pain in liver, chest and kidneys, with",ferr(2)
+653,2,"URGING to urinate (morbid desire), constant, prolapsus of uterus, during","lil-t(3), sep(3), uva(1)"
+653,2,"URGING to urinate (morbid desire), constant, running water, at sight of",lyss(1)
+653,2,"URGING to urinate (morbid desire), constant, sitting, while","caps(1), chim(1)"
+653,1,"URGING to urinate (morbid desire), dragging down in pelvis, with","lac-c(1), lil-t(2), sep(3)"
+653,1,"URGING to urinate (morbid desire), drinking, after",podo(1)
+653,1,"URGING to urinate (morbid desire), erections, with","hep(1), kali-p(1), mosch(1), rhus-t(2), sil(1)"
+653,1,"URGING to urinate (morbid desire), fever, during","acon(1), ant-t(2), apis(3), bell(2), bry(1), canth(1), caust(1), dulc(1), graph(1), hell(1), hyos(1), kali-c(1), lyc(1), nux-v(1), ph-ac(1), puls(2), rhus-t(1), sabin(1), sars(1), squil(1), staph(1), sulph(1)"
+653,1,"URGING to urinate (morbid desire), frequent (See Urination, Frequent)","acon(2), act-sp(1), aesc(2), aeth(1), agar(1), aloe(2), alum(2), alumn(1), am-c(1), am-m(1), anac(1), ang(1), ant-c(1), ant-t(2), apis(3), aran(1), arg-m(3), arg-n(2), arn(3), ars(1), ars-i(2), aspar(2), aur-m(2), bar-c(3), bar-m(3), bell(3), benz-ac(2), berb(2), bor(2), bov(2), bry(2), cact(2), calc(2), calc-p(2), cann-s(2), canth(3), caps(2), carb-an(2), carb-s(1), carb-v(2), caust(3), cedr(1), cham(2), chel(2), chim(3), chin(2), chin-a(1), chin-s(1), chlol(2), cic(1), cimic(2), cina(2), clem(2), cob(1), coc-c(3), cocc(2), coff(1), coloc(3), con(2), conv(1), cop(2), corn(1), cub(2), cupr(2), cur(1), cycl(2), daph(1), dig(3), dios(2), dros(2), dulc(1), echi(1), equis(2), erig(1), ery-a(2), eup-pur(2), eupho(1), euphr(1), ferr-p(1), fl-ac(2), gels(2), guai(2), guare(2), ham(1), hell(3), hep(2), hyos(2), ign(2), indg(2), iod(1), kali-ar(1), kali-bi(1), kali-c(2), kali-i(2), kali-n(3), kali-p(2), kali-s(1), kalm(1), kreos(3), lac-c(3), lac-d(1), lach(2), lact-ac(3), led(2), lil-t(3), lith(2), lyc(3), mag-m(2), mang(2), meny(2), meph(1), merc(3), merc-c(3), merc-i-r(2), mez(1), morph(1), mur-ac(2), murx(1), nat-a(1), nat-c(2), nat-m(3), nat-p(1), nit-ac(2), nux-m(1), nux-v(3), ol-an(1), olnd(2), ox-ac(1), pall(1), par(1), pareir(2), petr(2), petros(2), ph-ac(2), phos(2), plb(1), podo(1), prun-s(1), psor(2), puls(3), raph(1), rat(1), rhod(1), rhus-r(2), rhus-t(3), rumx(2), ruta(1), sabad(2), sabin(2), samb(2), sars(2), sel(2), sep(2), sil(1), spig(2), spong(2), squil(3), stann(2), staph(3), stram(1), sul-ac(1), sulph(3), sumb(1), syph(1), tab(1), tarax(2), ter(2), thuj(3), tril(2), uva(2), verat(1), verb(1), vesp(2), viol-t(1), zinc(1), zing(1)"
+653,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), afternoon","aloe(1), equis(1)"
+653,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), evening","guare(1), kreos(1), lyc(2), sabad(1), sep(1), sulph(2), thuj(2), zinc(1)"
+653,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), night and day","aloe(1), apis(1), aur-m(2), chim(1), ery-a(2), lyc(2), mag-m(1), nit-ac(1), rhus-t(2), senec(1)"
+653,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), cold, from taking","dulc(2), eup-pur(2), ip(2), lyc(2), puls(1)"
+654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), cutting pain from umbilical to ovarian region",coloc(1)
+654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), desire increases as the quantity of urine diminishes",equis(2)
+654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), flatus, when passing",puls(2)
+654,3,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), flatus, when passing, with, upward and downward",cycl(1)
+654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), infant scream before the urine passes","bor(2), lach(1), lyc(2), nux-v(1), sars(2)"
+654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), loss of tone of sphincter, from","apoc(1), jug-r(1)"
+654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), menses, before","alum(2), apis(1), asar(1), kali-c(1), kali-i(3), nux-v(1), phos(1), puls(2), sars(2), sulph(2)"
+654,3,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), menses, before, during","calc(1), nux-m(1)"
+654,3,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), menses, before, after","cham(1), puls(1)"
+654,3,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), menses, before, suppressed, with","canth(2), cham(1), dig(2), dros(1), gels(2), ign(1), nat-m(1), puls(3), sulph(1)"
+654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), motion, the slightest, agg.",berb(2)
+654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), prolapsus, with","alum(1), aur(1), lac-c(1), lil-t(3), sep(3)"
+654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), urinate immediately, if he does not, a feeling as if urine passed involuntarily, which is not so",bry(1)
+654,2,"URGING to urinate (morbid desire), frequent (See Urination, Frequent), without passing any, then while sitting involuntary flow",caust(2)
+654,1,"URGING to urinate (morbid desire), ineffectual","acon(2), alum(1), am-m(1), apis(2), apoc(3), aran(1), arg-n(1), arn(3), ars(3), atro(1), aur(1), bar-m(1), bell(2), bor(2), cact(2), calc(2), camph(2), cann-i(2), canth(3), caps(2), carb-ac(1), carb-an(2), carb-s(1), caust(3), cedr(1), cham(2), chel(1), chim(3), chin(2), chin-a(1), cimx(2), clem(2), coc-c(1), coff(1), colch(1), coloc(2), con(2), cop(2), cupr(2), cycl(2), dig(3), dol(1), dulc(1), eup-pur(3), ferr-i(1), gels(1), graph(1), guai(2), hell(3), hep(1), hyos(3), ip(2), kali-ar(2), kali-c(2), kali-p(2), kali-s(1), kreos(1), lach(2), laur(2), lyc(2), merc(1), merc-c(1), morph(1), mur-ac(1), myric(1), nat-m(1), nit-ac(3), nux-v(3), op(3), pareir(2), petr(1), petros(2), ph-ac(3), phel(1), phos(3), plb(2), podo(1), prun-s(1), puls(3), rhus-t(1), ruta(1), sabin(1), samb(2), sars(3), sec(1), senec(1), sep(2), sil(1), squil(1), staph(1), stram(3), sulph(1), sumb(1), tarent(1), thuj(1), verat(1), zinc(1)"
+654,2,"URGING to urinate (morbid desire), ineffectual, night","coc-c(1), nat-m(2), sep(1)"
+654,2,"URGING to urinate (morbid desire), ineffectual, but as soon as he ceases to strain stool and urine pass involuntarily",arg-n(2)
+654,2,"URGING to urinate (morbid desire), ineffectual, children","acon(3), apis(2), camph(1), eup-pur(1), lyc(2)"
+654,2,"URGING to urinate (morbid desire), ineffectual, chill, during","arn(1), ars(1), canth(1), nux-v(1), phos(1), puls(1), sulph(1)"
+654,2,"URGING to urinate (morbid desire), ineffectual, cramps in rectum, with",caust(2)
+654,2,"URGING to urinate (morbid desire), ineffectual, diarrhœa, with",cupr(1)
+654,2,"URGING to urinate (morbid desire), ineffectual, fever, during","ars(1), canth(1), dig(1), hyos(1), nux-v(1), puls(2), rat(1), sars(1), sulph(1)"
+654,2,"URGING to urinate (morbid desire), ineffectual, headache, with",con(3)
+654,2,"URGING to urinate (morbid desire), ineffectual, menses, during agg.",aur(2)
+654,2,"URGING to urinate (morbid desire), ineffectual, perspiration, during","ars(3), camph(1), canth(2), caust(1), dig(1), dulc(1), hyos(1), nux-v(2), puls(2), sulph(1)"
+654,2,"URGING to urinate (morbid desire), ineffectual, standing, while, then while sitting urine flows involuntarily",caust(2)
+654,2,"URGING to urinate (morbid desire), ineffectual, stool, with urging to","alum(1), canth(2), dig(2), nat-m(1), nux-v(2), sumb(1)"
+654,1,"URGING to urinate (morbid desire), irresistible (See Sudden)",
+654,1,"URGING to urinate (morbid desire), lifting, after",bry(2)
+654,1,"URGING to urinate (morbid desire), lying","ham(1), lyc(1), nux-v(1)"
+654,2,"URGING to urinate (morbid desire), lying, on back","prun-s(1), puls(2)"
+654,3,"URGING to urinate (morbid desire), lying, on back, amel.",dig(1)
+654,3,"URGING to urinate (morbid desire), lying, on back, right side","phos(1), prun-s(1)"
+654,1,"URGING to urinate (morbid desire), married women, newly (See Urination, Dysuria)",staph(3)
+654,1,"URGING to urinate (morbid desire), menses, before","alum(1), apis(1), asar(1), canth(1), kali-c(1), kali-i(3), lac-c(1), nux-v(1), phos(1), puls(2), sars(1), sulph(2)"
+654,2,"URGING to urinate (morbid desire), menses, before, during","alum(1), ant-t(1), apis(1), calc(1), cham(1), chin(1), kali-i(1), nux-m(1), nux-v(1), phos(1), puls(1), rat(1), sars(2), sep(1)"
+654,2,"URGING to urinate (morbid desire), menses, before, after","cham(1), puls(1)"
+654,1,"URGING to urinate (morbid desire), mental exertion","calc(1), kali-c(1)"
+654,1,"URGING to urinate (morbid desire), motion, from","berb(1), bry(1)"
+654,1,"URGING to urinate (morbid desire), old women",cop(1)
+654,1,"URGING to urinate (morbid desire), only a few drops pass until the next stool, when it flows freely","all-s(1), am-m(1)"
+654,1,"URGING to urinate (morbid desire), painful","acon(3), agar(2), alumn(1), ant-t(1), anth(1), apis(2), berb(1), bov(1), cann-s(2), canth(3), carb-an(2), carb-s(1), chim(2), con(1), dig(2), eup-pur(2), graph(1), hell(1), kali-i(1), lac-c(2), laur(1), lil-t(2), lyc(2), nux-v(3), pareir(3), phyt(2), prun-s(2), puls(2), raph(1), rhus-a(2), rhus-r(1), sec(1), sulph(2), thuj(1), uva(2), verat(1)"
+654,2,"URGING to urinate (morbid desire), painful, child cries","bor(3), lach(1), lyc(3), nux-v(1), sars(3)"
+655,2,"URGING to urinate (morbid desire), painful, child jumps up and down with pain, if cannot be gratified",petros(2)
+655,2,"URGING to urinate (morbid desire), painful, children grasp the genitals and cry out","acon(3), merc(1)"
+655,2,"URGING to urinate (morbid desire), painful, disappears when menstrual flow starts",kali-i(2)
+655,2,"URGING to urinate (morbid desire), painful, urging to stool, with","aloe(1), alum(2), aphis(2), canth(1), cic(1), cub(1), cupr-ar(1), cycl(1), dig(2), kreos(1), nat-m(1), nux-v(3), prun-s(2), rhus-t(2), staph(2), sumb(1)"
+655,1,"URGING to urinate (morbid desire), perspiration, during","ant-t(2), apis(1), arn(1), bry(3), canth(1), caust(2), dulc(1), graph(1), hell(1), hyos(1), lyc(1), merc(3), mur-ac(1), nux-v(2), ph-ac(2), phos(1), puls(1), rhus-t(1), squil(1), staph(1), sulph(1), thuj(3)"
+655,1,"URGING to urinate (morbid desire), pregnancy, during","acon(1), puls(2), sulph(1)"
+655,1,"URGING to urinate (morbid desire), pressure in rectum, with",nat-n(1)
+655,1,"URGING to urinate (morbid desire), riding horseback amel.",lyc(1)
+655,1,"URGING to urinate (morbid desire), shuddering, with",hyper(1)
+655,1,"URGING to urinate (morbid desire), sitting, while","caps(1), caust(1), chim(1), phos(1)"
+655,2,"URGING to urinate (morbid desire), sitting, while, amel.",canth(1)
+655,1,"URGING to urinate (morbid desire), standing","canth(1), cop(1), phos(1)"
+655,1,"URGING to urinate (morbid desire), stool, after","abrot(1), carb-an(1), cic(2)"
+655,1,"URGING to urinate (morbid desire), sudden","agar(1), aloe(2), ambr(1), arg-n(2), bar-c(2), bor(2), bov(1), bry(2), calc(2), cann-s(2), canth(1), carb-an(1), carb-s(1), caust(1), chel(1), coc-c(1), ferr(2), ferr-p(2), graph(1), ign(2), kali-br(1), kreos(3), lil-t(2), merc(2), nat-c(1), nat-m(2), nit-ac(2), ox-ac(1), petr(1), petros(3), ph-ac(3), phos(2), prun-s(2), puls(2), rhus-t(2), rumx(2), ruta(2), sep(3), spong(1), squil(2), sulph(3), thuj(2)"
+655,2,"URGING to urinate (morbid desire), sudden, morning",phos(1)
+655,2,"URGING to urinate (morbid desire), sudden, waking, on","hep(1), sulph(1)"
+655,2,"URGING to urinate (morbid desire), sudden, night","caust(1), sulph(2)"
+655,2,"URGING to urinate (morbid desire), sudden, child wakes but cannot get out of bed soon enough",kreos(1)
+655,2,"URGING to urinate (morbid desire), sudden, attended to, if the desire be not, feels as if urine has escaped, which is not so",bry(2)
+655,2,"URGING to urinate (morbid desire), sudden, busily occupied, when, she has to run and pass a few drops of urine","calc(2), kali-c(2)"
+655,2,"URGING to urinate (morbid desire), sudden, hasten to urinate, must, or urinate will escape","agar(2), aloe(1), ant-c(1), arg-n(2), arn(3), ars(1), bar-c(1), bell(1), bor(1), brom(1), bry(2), camph(2), canth(3), cic(1), clem(3), coc-c(2), dulc(1), ferr-p(2), hyos(2), kali-br(1), kreos(3), merc(2), nux-v(3), petros(2), phos(2), plan(1), plb(1), puls(3), sep(3), squil(2), staph(1), stram(2), sulph(3), thuj(2), verat(1), zinc(1)"
+655,2,"URGING to urinate (morbid desire), sudden, menses, during","bor(1), nat-m(1)"
+655,2,"URGING to urinate (morbid desire), sudden, running water, on seeing","canth(2), kreos(1), lyss(3), sulph(1)"
+655,2,"URGING to urinate (morbid desire), sudden, sticking forward in urethra, with",nat-c(1)
+655,2,"URGING to urinate (morbid desire), sudden, urine seems to pass into glands, and then return and cause pain in urethra",prun-s(2)
+655,1,"URGING to urinate (morbid desire), thinking of it, when","hell(1), ox-ac(2)"
+655,1,"URGING to urinate (morbid desire), thirst, with","ant-t(1), cast(1), caust(1), ph-ac(1), verat(1)"
+655,1,"URGING to urinate (morbid desire), urination, after","am-m(1), anac(1), ang(1), apis(1), aur(1), bar-c(1), berb(2), bov(2), bry(1), cact(1), calc(2), cann-i(2), carb-an(1), caust(1), chim(2), con(1), cop(1), crot-t(1), dig(1), equis(2), graph(1), guai(2), hep(2), iod(1), lac-c(1), lach(1), laur(1), merc(1), nat-c(1), pareir(1), phos(1), puls(2), ruta(2), sabad(1), sabin(1), seneg(2), stann(2), staph(2), sumb(1), thuj(1), verat(1), viol-t(1), zinc(1)"
+655,1,"URGING to urinate (morbid desire), violent","acon(2), ant-c(1), arg-n(1), arn(2), bar-m(1), berb(1), bor(1), canth(2), dig(3), kreos(1), led(1), merc(1), nat-m(2), petros(2), phos(1), phyt(1), sabin(2), sep(1), squil(2), sulph(1)"
+655,2,"URGING to urinate (morbid desire), violent, night","bor(1), sulph(2)"
+655,2,"URGING to urinate (morbid desire), violent, menses, during","ant-t(1), chin(1), kali-i(1), nux-v(1), rat(1), sars(1), sep(2)"
+655,2,"URGING to urinate (morbid desire), violent, urination, after",berb(1)
+655,2,"URGING to urinate (morbid desire), violent, walking, while","alum(2), bry(1), calc(1), canth(2), caust(1), ferr(1), lith(1), nat-m(1), nat-s(1), phos(2), puls(1), ruta(1), sep(2), zinc(1)"
+655,2,"URGING to urinate (morbid desire), violent, water, hearing, running or putting hands in","asim(1), canth(1), kreos(1), lyss(3), sulph(1)"
+655,3,"URGING to urinate (morbid desire), violent, water, hearing, running or putting hands in, pouring out liquid",ham(1)
+655,0,"URINATION, dribbling (by drops)","agar(2), all-c(2), all-s(1), am-m(1), anan(1), ang(1), ant-c(1), ant-t(1), apis(1), arg-n(2), arn(2), ars(1), ars-i(1), atro(1), aur(1), bell(2), bov(1), brom(1), bry(1), cact(2), camph(2), cann-s(2), canth(3), caps(1), carb-s(1), caust(2), chel(1), chim(1), cic(1), clem(3), coff(1), colch(1), con(2), cop(2), dig(2), dros(2), dulc(2), equis(1), ery-a(2), eupho(1), gamb(1), gels(2), graph(1), ham(1), hell(1), hyos(2), iod(1), kali-ar(1), kali-c(1), kali-chl(2), kali-p(1), kali-s(1), lac-d(2), lach(1), lil-t(3), lyc(2), mag-m(2), mag-s(1), merc(3), merc-c(3), nat-m(1), nux-m(2), nux-v(3), ox-ac(1), pareir(2), petr(1), ph-ac(1), phos(1), pic-ac(1), plb(3), polyg-h(1), prun-s(1), puls(3), rhus-t(2), sabin(2), sars(2), sec(1), sil(1), spig(1), staph(2), stram(2), sulph(3), tab(1), tarent(1), ter(3), thuj(1), verb(2), vip(1), zinc(1)"
+656,1,"URINATION, dribbling (by drops), morning",coff(1)
+656,1,"URINATION, dribbling (by drops), afternoon, rising from seat, on",spig(1)
+656,2,"URINATION, dribbling (by drops), afternoon, rising from seat, on, 4 p.m.",lyc(3)
+656,1,"URINATION, dribbling (by drops), evening","lyc(1), zinc(1)"
+656,2,"URINATION, dribbling (by drops), evening, lying, while",lyc(1)
+656,1,"URINATION, dribbling (by drops), night","caust(1), lyc(1), ox-ac(1)"
+656,2,"URINATION, dribbling (by drops), night, drops flow from urethra, coloring shirt red",lachn(1)
+656,2,"URINATION, dribbling (by drops), night, beginning to urinate, on","kali-n(1), sulph(1)"
+656,2,"URINATION, dribbling (by drops), night, then free with stool","all-s(1), am-m(1)"
+656,1,"URINATION, dribbling (by drops), enlarged prostate, with","aloe(2), arn(1), bar-c(1), bell(1), cop(1), dig(2), mur-ac(1), nux-v(2), pareir(1), petr(1), puls(2), sabad(1), sel(1), sep(1), staph(2)"
+656,1,"URINATION, dribbling (by drops), involuntary","agar(2), all-c(2), arg-n(2), arn(3), ars(2), ars-i(1), bell(2), brom(1), bry(1), camph(2), canth(3), caust(3), chin-a(1), clem(3), coc-c(1), dig(2), dulc(2), gels(2), hyos(2), iod(1), jug-r(1), mur-ac(2), nux-v(2), petr(2), plat(1), puls(2), rhus-t(2), sant(1), sel(2), spig(2), staph(2), stram(2), sulph(2), tab(2), thuj(1), verb(2), zinc(1)"
+656,2,"URINATION, dribbling (by drops), involuntary, day and night","arg-n(2), ars(1), gels(1), iod(1), nux-v(2), petr(1), verb(2)"
+656,2,"URINATION, dribbling (by drops), involuntary, boys, in",rhus-t(2)
+656,2,"URINATION, dribbling (by drops), involuntary, delayed, if",plan(1)
+656,2,"URINATION, dribbling (by drops), involuntary, labour, after",arn(2)
+656,2,"URINATION, dribbling (by drops), involuntary, menses, during","cact(1), canth(2)"
+656,2,"URINATION, dribbling (by drops), involuntary, not a drop flows on making the greatest effort, but bladder distended, no pain",gels(1)
+656,2,"URINATION, dribbling (by drops), involuntary, stool, after",chin-a(1)
+656,1,"URINATION, dribbling (by drops), labor, after",arn(2)
+656,1,"URINATION, dribbling (by drops), perpendicularly, urine drops out",hep(3)
+656,1,"URINATION, dribbling (by drops), retention, with","acon(1), arg-n(1), arn(1), bell(1), canth(1), caust(3), chim(1), ery-a(1), gels(2), nux-v(3), op(1), pareir(2), sabin(1), sep(1), staph(1), sulph(1)"
+656,1,"URINATION, dribbling (by drops), rising from a seat, when",spig(1)
+656,1,"URINATION, dribbling (by drops), sitting, while","puls(2), sars(2)"
+656,2,"URINATION, dribbling (by drops), sitting, while, when standing urine passes freely",sars(2)
+656,1,"URINATION, dribbling (by drops), stitching in glans penis, with","pareir(1), thuj(1)"
+656,1,"URINATION, dribbling (by drops), stool, after","caust(1), kali-br(1), laur(1), nat-m(1), petr(1), sel(2), stram(1), sumb(1)"
+656,1,"URINATION, dribbling (by drops), urination, after","agar(1), ant-c(1), apoc(1), arg-n(1), bar-c(1), brom(1), bry(1), calc(1), cann-i(3), cann-s(1), caust(2), chin-s(2), clem(3), con(2), dig(1), graph(2), helon(2), hep(3), kali-c(2), kali-p(1), lach(2), lyc(1), nat-c(1), nat-m(2), petr(2), petros(2), phos(1), pic-ac(1), psor(1), ran-s(1), rhod(1), sel(2), sep(2), sil(1), staph(2), stram(1), thuj(2), verb(1), zing(1)"
+656,2,"URINATION, dribbling (by drops), urination, after, pressure in rectum, with",nat-m(1)
+656,1,"URINATION, dribbling (by drops), walking, while (See Involuntary)",
+656,1,"URINATION, dribbling (by drops), dysuria","acon(3), aesc(1), aeth(1), agar(2), all-c(2), all-s(1), aloe(1), alum(2), ang(1), ant-c(1), ant-t(1), apis(2), apoc(2), arg-n(3), arn(2), ars(3), atro(1), aur(1), aur-m(1), bar-c(1), bar-m(1), bell(3), berb(2), cact(1), calc(1), calc-p(2), camph(2), cann-s(3), canth(3), caps(2), carb-s(1), caul(1), chel(1), chim(2), cic(1), clem(2), coc-c(2), coff(1), colch(1), coloc(2), con(2), cop(3), corn(1), cub(1), cupr(2), dig(3), dor(2), dros(1), dulc(2), equis(1), eup-pur(2), gels(2), hell(2), hep(2), hydr(2), hyos(2), ind(1), jatr(1), kali-ar(2), kali-c(2), kali-chl(1), kali-n(1), kali-p(1), kali-s(1), kreos(2), lac-c(2), laur(2), lil-t(3), lith(2), lyc(3), mag-m(1), meph(1), merc(2), merc-c(3), mit(1), morph(1), nat-a(1), nat-c(1), nat-m(2), nat-p(1), nit-ac(2), nux-m(1), nux-v(3), op(3), pareir(3), petr(1), petros(3), ph-ac(1), phos(1), plat(1), plb(3), podo(1), polyg-h(2), psor(1), puls(3), ran-b(1), rheum(2), rhus-a(2), rhus-t(2), sabin(2), sang(1), sars(1), sec(1), sel(1), senec(2), sep(2), spig(1), stann(1), staph(1), stram(1), sulph(3), sumb(1), tab(1), tarent(2), ter(3), thuj(2), uva(2), verat(2), zinc(1)"
+656,2,"URINATION, dribbling (by drops), dysuria, morning","corn(1), sep(2)"
+656,3,"URINATION, dribbling (by drops), dysuria, morning, old men, in","benz-ac(2), corn(2)"
+656,2,"URINATION, dribbling (by drops), dysuria, afternoon, walking amel.",lith(1)
+656,2,"URINATION, dribbling (by drops), dysuria, night","cic(2), merc(2)"
+656,3,"URINATION, dribbling (by drops), dysuria, night, midnight, after, 3 to 5 a.m.",pareir(1)
+656,2,"URINATION, dribbling (by drops), dysuria, aching in back, with",vesp(1)
+656,2,"URINATION, dribbling (by drops), dysuria, alternating, with enuresis",gels(2)
+656,2,"URINATION, dribbling (by drops), dysuria, apyrexia, during","caps(1), caust(1), dig(1), staph(1)"
+656,2,"URINATION, dribbling (by drops), dysuria, chill, during","canth(1), cham(2), lyc(1), merc(1), nux-v(1), ph-ac(1), puls(1), sulph(1), thuj(1)"
+656,2,"URINATION, dribbling (by drops), dysuria, dysmenorrhœa, during",senec(1)
+656,2,"URINATION, dribbling (by drops), dysuria, fever, during","ant-c(1), cann-s(1), canth(1), cham(2), colch(1), dulc(1), nit-ac(1), nux-v(1), staph(1), sulph(1)"
+656,2,"URINATION, dribbling (by drops), dysuria, married women, newly","cann-s(1), ery-a(1), staph(3)"
+656,2,"URINATION, dribbling (by drops), dysuria, menses, suppressed and drawing pains in abdomen, with",puls(2)
+657,2,"URINATION, dribbling (by drops), dysuria, pain in the sphincter vesicæ, with hyperæsthesia of the skin down the course of the left sciatic nerve, pain in the left popliteus and hell, with coldness creeping over the whole course of the nerve, especially in the hell",agar(2)
+657,2,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts","bor(3), lach(1), lyc(2), nux-v(2), sars(3)"
+657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, close of urination",sars(1)
+657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, coldness, numbness and twitching down left leg, with",agar(1)
+657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, dances around the room in agony, so that he","apis(3), cann-s(2), canth(3), petros(2)"
+657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, dinner and supper, after",nux-m(1)
+657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, effort to urinate agg.",plb(1)
+657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, spasm of the bladder, from",colch(1)
+657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, spasmodic closure of the sphincter while finishing",cann-s(2)
+657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, thinking of it agg.","hell(2), nux-v(1)"
+657,3,"URINATION, dribbling (by drops), dysuria, painful, child cries before urine starts, urination, after, agg.",equis(3)
+657,2,"URINATION, dribbling (by drops), dysuria, perspiration, during","canth(3), cham(3), hep(1), lyc(1), merc(2), nit-ac(1), puls(1), sulph(1), thuj(2)"
+657,2,"URINATION, dribbling (by drops), dysuria, sleep, after",op(1)
+657,2,"URINATION, dribbling (by drops), dysuria, tenesmus of rectum, with, evening",ferr(1)
+657,3,"URINATION, dribbling (by drops), dysuria, tenesmus of rectum, with, evening, and spasm of urethra",prun-s(2)
+657,2,"URINATION, dribbling (by drops), dysuria, urging to stool, with (See Urging, Painful)",
+657,1,"URINATION, dribbling (by drops), feeble stream (slow)","agar(1), alum(3), alumn(1), am-m(1), apis(2), apoc(1), arg-n(3), arn(3), atro(1), bell(2), berb(2), calc-p(2), camph(2), cann-i(1), carb-s(1), carb-v(1), caust(2), cham(1), chim(1), chin(1), chin-s(1), clem(3), coc-c(1), cop(1), dig(2), gels(2), graph(1), hell(3), hep(3), hipp(1), hura(1), kali-bi(2), kali-c(2), kali-n(1), kali-p(2), kreos(1), laur(2), lyc(1), med(2), merc(3), merc-c(3), mur-ac(3), nat-m(1), nit-ac(2), olnd(1), op(3), petr(2), ph-ac(2), plat(1), plb(1), prun-s(2), psor(1), puls(1), raph(1), rhus-t(2), sars(3), sec(1), sel(1), sep(2), sil(1), spong(1), staph(1), stram(2), sulph(3), syph(1), thuj(1), zinc(1)"
+657,2,"URINATION, dribbling (by drops), feeble stream (slow), morning on waking","alum(3), arn(1), hep(1), sep(2)"
+657,2,"URINATION, dribbling (by drops), feeble stream (slow), night","kali-c(1), sulph(2)"
+657,2,"URINATION, dribbling (by drops), feeble stream (slow), difficulty of breathing and heart symptoms, with",laur(3)
+657,2,"URINATION, dribbling (by drops), feeble stream (slow), pain in the bladder, with violent",calc-p(1)
+657,2,"URINATION, dribbling (by drops), feeble stream (slow), retention, from long","calc-p(1), caust(2), rhus-t(1), ruta(1), sulph(1)"
+657,2,"URINATION, dribbling (by drops), feeble stream (slow), rising, after","merc-ac(1), mez(1), sal-ac(1), sulph(2)"
+657,2,"URINATION, dribbling (by drops), feeble stream (slow), sleep, after",op(1)
+657,2,"URINATION, dribbling (by drops), feeble stream (slow), slow after stool, only dribbling",sel(1)
+657,1,"URINATION, dribbling (by drops), forcible stream","agn(1), ant-c(1), carb-an(1), chel(1), cic(2), coc-c(1), cycl(1), nux-v(2), op(1), prun-s(1), spig(1), staph(1), sulph(1), verat-v(1)"
+657,1,"URINATION, dribbling (by drops), forked stream","arg-n(1), cann-s(2), canth(2), caust(2), chim(1), clem(1), merc(2), merc-c(3), petr(1), prun-s(1), rhus-t(2), thuj(3)"
+657,1,"URINATION, dribbling (by drops), frequent","abies-n(1), acon(1), aesc(2), aeth(1), agar(1), all-c(2), alum(2), alumn(2), am-c(3), am-m(1), anac(1), ang(1), ant-c(2), ant-t(1), apis(3), arg-m(3), arg-n(3), arn(1), ars(1), ars-i(1), arum-t(1), asc-t(1), aspar(1), aur(1), bar-c(3), bar-m(2), bell(2), benz-ac(1), bism(2), bor(2), bov(1), brom(1), bry(2), bufo(1), cact(2), calc(3), calc-ar(3), camph(2), cann-i(2), cann-s(2), canth(3), caps(2), carb-ac(2), carb-an(1), carb-s(1), carb-v(2), casc(1), cast(3), caust(3), cedr(1), chel(1), chim(2), chin(1), chlol(1), cic(2), cimic(1), cina(2), cinnb(1), clem(2), cob(1), coc-c(1), cocc(1), coff(2), colch(2), coloc(2), con(1), cop(1), crot-c(1), crot-h(1), crot-t(1), cupr(2), cur(1), cycl(2), daph(2), dig(2), dros(1), dulc(1), equis(1), ery-a(2), eup-pur(2), euphr(3), ferr(2), ferr-i(1), ferr-p(2), fl-ac(2), gels(3), glon(1), graph(3), grat(1), guai(1), ham(1), hell(1), hydr(1), hyos(2), ign(3), indg(1), iod(2), ip(2), iris(1), jatr(1), kali-bi(2), kali-c(2), kali-chl(1), kali-i(1), kali-p(1), kali-s(1), kalm(2), kreos(1), lac-c(1), lac-d(2), lach(3), lact(1), lact-ac(3), laur(1), led(2), lil-t(2), lith(2), lyc(3), lyss(1), mag-c(2), mag-m(1), mag-p(2), med(1), meli(1), meph(1), merc(3), merc-c(3), mez(2), mur-ac(2), murx(2), nat-a(1), nat-c(2), nat-m(2), nat-p(1), nat-s(2), nicc(1), nit-ac(1), nux-v(3), olnd(2), op(2), ox-ac(1), pall(1), par(1), pareir(1), petr(2), ph-ac(2), phos(1), plan(2), plat(1), plb(1), podo(2), psor(2), puls(3), rhus-r(3), rhus-t(2), ruta(1), sabin(2), sang(2), sars(2), sec(2), sel(2), seneg(2), sep(2), sil(1), spig(2), spong(1), squil(3), stann(2), staph(3), sul-ac(1), sul-i(1), sulph(3), tab(1), ter(2), thuj(2), uva(2), valer(2), verat(1), vesp(1), vib(1), viol-t(2), zinc(1)"
+657,2,"URINATION, dribbling (by drops), frequent, daytime","ham(1), mag-m(2), nat-m(1), psor(2), rhus-t(3), staph(1), uran(1)"
+657,3,"URINATION, dribbling (by drops), frequent, daytime, and night","alum(2), apis(1), cahin(1), calc(2), canth(2), caust(2), colch(2), lact-ac(1), mag-m(1), merc(3), nat-a(1), nat-m(2), nux-j(1), plan(2), rhus-t(2), sars(1)"
+657,2,"URINATION, dribbling (by drops), frequent, morning","am-m(1), ambr(1), bar-ac(1), bell(1), calc-p(1), caust(1), coca(1), con(1), kreos(1), mez(2), phos(2), pic-ac(1), sil(1), sul-i(2)"
+658,2,"URINATION, dribbling (by drops), frequent, rising, after","ambr(1), phos(1)"
+658,2,"URINATION, dribbling (by drops), frequent, forenoon","ant-t(1), arg-n(1), kreos(2), lyc(1), nat-m(1), sulph(1)"
+658,2,"URINATION, dribbling (by drops), frequent, afternoon","alumn(1), bov(1), chlol(1), coc-c(1), petr(1), sep(1), sulph(1)"
+658,2,"URINATION, dribbling (by drops), frequent, evening","alum(1), calc-p(1), cann-i(1), cic(1), euphr(1), ferr-i(1), grat(1), kreos(1), lyc(1), ox-ac(1), sabad(1), sep(1), sulph(1), zinc(1)"
+658,2,"URINATION, dribbling (by drops), frequent, night","agn(1), ail(1), aloe(1), alum(2), alumn(2), am-c(2), am-m(2), ambr(1), anac(2), ant-c(1), anth(1), apis(2), arg-m(2), arg-n(1), arn(1), ars(1), ars-i(1), atro(1), bar-c(3), bar-m(2), bell(3), bor(3), bry(1), bufo(1), cact(2), calc(3), calc-f(2), cann-i(1), canth(2), carb-ac(2), carb-an(3), carb-s(2), carb-v(1), caust(2), chin(1), chlol(1), cinnb(1), clem(1), cob(1), coca(1), coff(1), coloc(1), con(2), cop(1), cupr(2), cycl(2), daph(1), dig(1), dros(1), equis(2), eug(2), fl-ac(1), glon(2), graph(2), hell(1), hep(1), hyos(2), iod(1), kali-ar(1), kali-bi(2), kali-c(2), kali-p(1), kali-s(1), kreos(3), lac-c(2), lach(2), lil-t(1), lith(2), lyc(3), mag-c(1), mag-m(1), mag-p(1), med(3), meph(2), merc(3), mur-ac(1), murx(3), nat-a(1), nat-c(2), nat-m(2), nat-p(2), nat-s(2), nicc(1), nit-ac(2), nux-v(2), op(1), petr(1), ph-ac(2), phos(1), plan(1), plb(1), podo(2), prun-s(1), psor(1), puls(2), ran-b(1), rhus-t(2), rumx(2), ruta(1), sang(2), sars(2), sel(1), senec(2), sep(3), sil(2), spig(1), squil(2), stann(1), stram(2), sulph(3), tab(1), ter(3), ther(1), thuj(2), uran(2), zinc(1)"
+658,3,"URINATION, dribbling (by drops), frequent, night, cries before urine passes",bor(2)
+658,3,"URINATION, dribbling (by drops), frequent, night, pregnancy, during",podo(1)
+658,3,"URINATION, dribbling (by drops), frequent, night, seldom during the day","bor(2), ther(2)"
+658,1,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine","calc(1), kali-c(1)"
+658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, chill, during","ars(3), canth(1), hyper(1), lec(1), meph(1), merc(3), petros(1), ph-ac(1), phos(1), sulph(1)"
+658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, coffee, after","cahin(1), cob(1), ign(1), olnd(1)"
+658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, dinner after","cycl(1), nat-m(1)"
+658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, emission of water-colored urine in small quantity",dig(2)
+658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, every other day",bar-c(1)
+658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, exertion, after",aeth(1)
+658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, exposure to cold and wet","alum(1), calc(2), calc-p(1), cop(1), puls(3), sars(3), sulph(1)"
+658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, fever, during","arg-m(1), bell(1), kreos(2), lyc(1), merc(1), ph-ac(1), rhus-t(1), staph(1), stram(1)"
+658,3,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, fever, during, drinking, after","cimx(1), eup-pur(1)"
+658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, headache, with","bell(2), gels(3), lac-d(2), verat(2), vib(1)"
+658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, menses, before","alum(2), apis(2), asar(1), canth(1), dig(1), kali-c(1), kali-i(1), nux-v(1), phos(1), puls(1), sarr(2), sulph(2)"
+658,3,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, menses, before, during","alum(1), alumn(1), apis(1), aur(1), canth(1), caust(1), kali-i(2), nux-v(1), plat(1), puls(1), sars(2), sulph(1), vib(1)"
+658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, old people",bar-c(2)
+658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, pain in face, with",calc(2)
+658,2,"URINATION, dribbling (by drops), busily occupied, when, must run and pass a little urine, perspiration, during","ant-c(1), bar-c(1), bar-m(1), calc(3), caust(1), ign(1), kali-c(1), lach(1), lyc(3), merc(2), mur-ac(1), nat-c(1), nat-n(1), nat-p(1), ph-ac(2), phos(2), rhus-t(3), sel(2), squil(1), staph(1), sulph(3), thuj(1)"
+658,1,"URINATION, dribbling (by drops), hasty (See Urging, sudden)",
+658,1,"URINATION, dribbling (by drops), incomplete (See Unsatisfactory)","am-m(1), berb(2), bry(1), calc(2), cann-i(1), carl(1), caust(2), clem(3), cub(1), gels(2), helon(2), hep(3), kali-c(1), kali-chl(1), lac-c(1), lach(3), lyc(2), mag-m(3), nat-c(2), nat-p(2), nux-v(1), petr(1), phos(1), sel(3), sil(1), staph(2), stram(1), thuj(1)"
+658,2,"URINATION, dribbling (by drops), incomplete (See Unsatisfactory), bladder full, urging to urinate but scanty urine",abrot(1)
+658,2,"URINATION, dribbling (by drops), incomplete (See Unsatisfactory), obliged to urinate five or six times before the bladder is empty",thuj(2)
+658,1,"URINATION, dribbling (by drops), interrupted (intermittent)","agar(2), aloe(1), ammc(1), ant-c(1), ant-t(1), arg-n(1), bell(1), bov(1), cann-i(1), cann-s(1), caps(1), carb-an(2), caust(2), chin-s(1), clem(3), con(3), dulc(2), gamb(1), gels(2), graph(2), iod(2), kali-c(2), kali-p(1), led(2), lyc(2), mag-s(1), med(1), meph(1), op(2), pareir(1), ph-ac(2), phos(1), puls(2), rhus-t(1), sars(1), sulph(2), thuj(2), vesp(1), zinc(1)"
+658,2,"URINATION, dribbling (by drops), interrupted (intermittent), evening",caust(2)
+658,2,"URINATION, dribbling (by drops), interrupted (intermittent), coition, after",ph-ac(2)
+658,2,"URINATION, dribbling (by drops), interrupted (intermittent), painful erections, with",ant-c(2)
+658,2,"URINATION, dribbling (by drops), interrupted (intermittent), spurts, in swelled prostate with each spurt cutting pain",puls(3)
+658,2,"URINATION, dribbling (by drops), interrupted (intermittent), stream, after which the urine flows out drop by drop","mag-s(1), rheum(1)"
+658,2,"URINATION, dribbling (by drops), interrupted (intermittent), urine flows better when standing",con(2)
+658,3,"URINATION, dribbling (by drops), interrupted (intermittent), urine flows better when standing, so thick, with cheesy masses like curdled milk",ph-ac(3)
+659,2,"URINATION, dribbling (by drops), interrupted (intermittent), violent contraction in region of bladder, by",petr(1)
+659,1,"URINATION, dribbling (by drops), involuntary","acet-ac(1), acon(2), ail(3), alum(2), alumn(1), am-c(1), anac(1), anan(1), ant-c(1), apis(3), arg-n(3), arn(2), ars(3), ars-i(3), atro(1), aur-m(1), bar-ac(2), bar-c(2), bar-m(1), bell(3), bry(2), bufo(2), cact(1), calc(1), calc-p(2), camph(2), cann-i(1), canth(2), carb-an(1), carb-s(1), carb-v(2), caust(3), cedr(2), cham(1), chin(2), chin-a(1), chlol(1), cic(2), cimx(2), cina(2), colch(2), con(2), crot-h(1), cupr(1), dig(2), dros(1), dulc(3), echi(2), equis(2), eup-pur(2), ferr(1), ferr-ar(1), ferr-i(1), ferr-p(2), fl-ac(2), gels(2), graph(1), guare(2), hell(2), hep(2), hydr(2), hydr-ac(2), hyos(2), ign(2), iod(2), kali-ar(1), kali-br(1), kali-p(2), kreos(2), lac-d(1), lach(2), laur(2), led(1), lyc(3), mag-c(1), mag-m(1), merc(2), merc-c(1), mill(1), mosch(2), mur-ac(2), nat-a(2), nat-c(2), nat-m(3), nat-p(1), nit-ac(2), nux-m(3), nux-v(2), ol-j(1), olnd(2), op(2), ox-ac(1), petr(2), ph-ac(2), phos(3), phys(1), pic-ac(1), plan(2), plb(1), podo(2), psor(3), puls(3), rat(1), rhus-t(3), rumx(1), ruta(2), sang(1), sanic(2), sec(2), sel(2), seneg(2), sep(3), sil(1), spig(2), spong(2), squil(2), staph(3), stram(2), sulph(2), tab(1), tarent(1), ter(2), thuj(2), ust(1), verat(2), verb(2), vesp(1), vib(1), zinc(1)"
+659,2,"URINATION, dribbling (by drops), involuntary, daytime","arg-n(2), bell(2), ferr(2), ferr-p(2), fl-ac(3), thuj(1)"
+659,3,"URINATION, dribbling (by drops), involuntary, daytime, and night","arg-n(2), ars(3), bell(1), caust(3), gels(2), hyos(2), iod(1), nux-v(2), petr(1), rhus-a(2), ruta(1), verb(2)"
+659,3,"URINATION, dribbling (by drops), involuntary, daytime, sleep, during",bell(2)
+659,3,"URINATION, dribbling (by drops), involuntary, daytime, walking, while","ferr(1), thuj(1)"
+659,2,"URINATION, dribbling (by drops), involuntary, morning","am-c(1), cina(1), phos(1), phys(1), til(1)"
+659,3,"URINATION, dribbling (by drops), involuntary, morning, toward","am-c(1), chlol(1)"
+659,2,"URINATION, dribbling (by drops), involuntary, forenoon",phys(1)
+659,2,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed)","acon(1), aeth(2), am-c(2), anac(1), anan(1), apis(3), apoc(2), arg-m(2), arg-n(3), arn(3), ars(3), aur(2), aur-m(1), aur-s(1), bar-c(1), bar-m(1), bell(3), benz-ac(3), bry(1), cact(1), calc(2), canth(1), carb-s(2), carb-v(2), caust(3), cham(2), chin(1), chlol(2), cimx(1), cina(1), coca(1), con(1), crot-c(2), cub(1), cupr(1), dulc(1), equis(3), eup-pur(2), ferr(3), ferr-ar(2), ferr-i(1), ferr-p(1), fl-ac(2), graph(3), hep(2), hyos(1), ign(1), kali-c(1), kali-p(2), kreos(3), lac-c(3), lac-d(1), lyc(1), mag-c(1), mag-m(2), mag-p(3), mag-s(1), med(2), merc(2), mur-ac(1), nat-a(2), nat-c(2), nat-m(3), nat-p(2), nit-ac(3), nux-v(1), op(2), ox-ac(1), petr(2), ph-ac(1), phos(2), plan(2), podo(2), psor(2), puls(3), rhus-t(3), ruta(2), sanic(2), sars(2), seneg(2), sep(3), sil(3), spig(1), squil(1), staph(1), stram(2), sulph(3), tab(1), ter(1), thuj(2), tub(2), uran(2), verat(1), verb(2), viol-t(2), zinc(1)"
+659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), morning, toward","am-c(1), cact(1), chlol(1), zinc(1)"
+659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), midnight to morning",plan(1)
+659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), after, 5 a.m.",cact(1)
+659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), difficult to waken the child","bell(2), kreos(3)"
+659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), dreaming of urinating, while","kreos(2), lac-c(1), lyc(1), merc-i-f(1), seneg(2), sep(2), sulph(1)"
+659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), first sleep","benz-ac(1), caust(3), cina(1), kreos(2), ph-ac(2), sep(3)"
+659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), spasmodic enuresis","arg-m(3), bell(1), canth(1), caps(1), cast(1), cina(1), coloc(1), gels(2), hyos(1), ign(1), lach(1), lyc(1), nux-v(2), op(1), puls(1), rhus-t(1), verat(1)"
+659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), tangible cause except habit, when there is no",equis(3)
+659,3,"URINATION, dribbling (by drops), involuntary, night (incontinence in bed), weakly children, in",chin(2)
+659,2,"URINATION, dribbling (by drops), involuntary, blowing the nose, when","caust(3), nat-m(1), puls(1), zinc(1)"
+659,2,"URINATION, dribbling (by drops), involuntary, boys, in",rhus-t(2)
+659,2,"URINATION, dribbling (by drops), involuntary, chill, before",gels(2)
+659,3,"URINATION, dribbling (by drops), involuntary, chill, before, during","caust(1), dulc(1), puls(1), rhus-t(1), sulph(1)"
+659,2,"URINATION, dribbling (by drops), involuntary, cold, becoming","bell(1), caust(3), dulc(2), rhus-t(2)"
+659,2,"URINATION, dribbling (by drops), involuntary, convulsions, during","art-v(1), bufo(3), caust(2), cocc(1), cupr(1), hyos(3), nux-v(1), oena(2), plb(2), stry(1), zinc(2)"
+659,2,"URINATION, dribbling (by drops), involuntary, cough, during","alum(2), anan(1), ant-c(2), apis(3), bell(2), bry(2), caps(2), carb-an(1), caust(3), cench(2), colch(2), dulc(1), ferr(1), ferr-p(2), hyos(1), ign(1), kreos(2), lach(1), laur(1), lyc(2), mag-c(1), murx(1), nat-m(3), nit-ac(1), nux-v(2), ph-ac(2), phos(3), psor(1), puls(3), rhod(1), rhus-t(1), rumx(2), seneg(1), sep(2), spong(2), squil(3), staph(1), sulph(1), tarent(1), thuj(2), verat(2), vib(1), zinc(2)"
+659,2,"URINATION, dribbling (by drops), involuntary, delayed, if","lach(2), phos(1), plan(1), sep(2), squil(1), sulph(1), thuj(1)"
+659,2,"URINATION, dribbling (by drops), involuntary, desire is resisted, if","calc(1), merc(1), nat-m(1), puls(2), sep(1), squil(1), sulph(2), thuj(2)"
+659,2,"URINATION, dribbling (by drops), involuntary, effort, during no urine flows",gels(2)
+659,2,"URINATION, dribbling (by drops), involuntary, exertion, during","bry(2), caust(1), nux-v(2), ph-ac(1), rhus-t(1), tarent(1)"
+660,2,"URINATION, dribbling (by drops), involuntary, flatus, expelling, when","puls(2), sulph(1)"
+660,2,"URINATION, dribbling (by drops), involuntary, labor, after","arn(2), ars(3)"
+660,2,"URINATION, dribbling (by drops), involuntary, laughing","caust(3), nat-m(2), nux-v(2), puls(2), sep(3), tarent(1)"
+660,2,"URINATION, dribbling (by drops), involuntary, lying, while",kreos(1)
+660,2,"URINATION, dribbling (by drops), involuntary, mania, during",cupr(2)
+660,2,"URINATION, dribbling (by drops), involuntary, menses, during","cact(1), calc(1), canth(2), hell(1), hyos(2)"
+660,2,"URINATION, dribbling (by drops), involuntary, motion, during","bell(2), bry(2), calc(1), ph-ac(2), phos(2), ruta(1), staph(1), tarent(1)"
+660,3,"URINATION, dribbling (by drops), involuntary, motion, during, amel.",rhus-t(2)
+660,2,"URINATION, dribbling (by drops), involuntary, noise, sudden","caust(1), puls(1), sep(1)"
+660,2,"URINATION, dribbling (by drops), involuntary, old people, in","all-c(2), aloe(1), apis(1), ars(2), aur-m(2), cann-s(1), cic(2), gels(1), iod(2), kali-p(1), phos(1), sec(2), thuj(2)"
+660,3,"URINATION, dribbling (by drops), involuntary, old people, in, men with enlarged prostate","all-s(2), aloe(2), cic(2), dig(1), iod(2), kali-p(1), nux-v(1), pareir(2), sec(2), thuj(2)"
+660,2,"URINATION, dribbling (by drops), involuntary, pregnancy, during","ars(3), bell(1), canth(1), caust(1), clem(1), kreos(1), nat-m(2), podo(1), puls(3), sep(2), syph(2)"
+660,2,"URINATION, dribbling (by drops), involuntary, putting hands in cold water",kreos(2)
+660,2,"URINATION, dribbling (by drops), involuntary, retain, great pain on attempting to",uran(1)
+660,2,"URINATION, dribbling (by drops), involuntary, riding, while",thuj(1)
+660,2,"URINATION, dribbling (by drops), involuntary, rising from a seat, when","mag-c(2), spig(1)"
+660,2,"URINATION, dribbling (by drops), involuntary, running, while","arn(2), bry(2), lac-d(2)"
+660,2,"URINATION, dribbling (by drops), involuntary, sitting, while","caust(2), nat-m(2), puls(3), rhus-t(2), sars(2), stram(1)"
+660,3,"URINATION, dribbling (by drops), involuntary, sitting, while, retention while standing",caust(2)
+660,3,"URINATION, dribbling (by drops), involuntary, sitting, while, she must swing her foot constantly or the urine will escape",zinc(1)
+660,2,"URINATION, dribbling (by drops), involuntary, sneezing, when","alet(1), caust(3), colch(1), lac-c(2), nat-m(2), nux-v(2), petr(1), ph-ac(2), phos(1), puls(2), sep(1), zinc(1)"
+660,2,"URINATION, dribbling (by drops), involuntary, standing, while","bell(1), caust(1), ferr(1), lyc(1), nat-m(2), puls(2), rhus-t(2), sep(1)"
+660,2,"URINATION, dribbling (by drops), involuntary, stool, straining at, while","alum(2), lil-t(2)"
+660,3,"URINATION, dribbling (by drops), involuntary, stool, straining at, while, after","acon(1), apis(1), arg-n(2), ars(2), atro(1), aur(1), bar-c(1), bell(1), bry(1), calc(1), camph(1), carb-v(1), caust(1), chin(1), chin-a(1), cina(1), colch(1), con(1), dig(1), hyos(2), kali-br(1), laur(2), mosch(1), mur-ac(3), nat-m(1), petr(1), ph-ac(2), phos(2), puls(1), rhus-t(1), sec(1), sel(2), stram(1), sulph(1), verat(1), zinc(2)"
+660,3,"URINATION, dribbling (by drops), involuntary, stool, straining at, while, dysenteric, each",alum(1)
+660,3,"URINATION, dribbling (by drops), involuntary, stool, straining at, while, fully conscious, while, supposing it to be flatus",ars(2)
+660,3,"URINATION, dribbling (by drops), involuntary, stool, straining at, while, straining, when not; voluntary defecation impossible",arg-n(1)
+660,2,"URINATION, dribbling (by drops), involuntary, thirst and fear, with",acon(3)
+660,2,"URINATION, dribbling (by drops), involuntary, typhoid fever","arg-n(2), arn(1), ars(2), colch(2), hell(2), hyos(3), lach(2), lyc(2), mosch(2), mur-ac(2), op(1), ph-ac(2), phos(2), psor(1), rhus-t(2), stram(2), sulph(1), verat(2), verat-v(2)"
+660,2,"URINATION, dribbling (by drops), involuntary, urination, after (See Dribbling)","agar(1), cann-i(1), clem(3), helon(1), sel(2), sil(1), staph(2)"
+660,2,"URINATION, dribbling (by drops), involuntary, walking, while","alet(1), alum-sil(1), anan(1), arg-n(2), arn(1), bell(1), bry(2), calc(2), caust(2), ferr(3), ferr-p(1), kali-s(1), lac-d(2), mag-c(2), mag-m(1), nat-m(3), ph-ac(2), phos(1), puls(3), ruta(1), sel(2), sep(1), stram(1), tarent(1), thuj(1), zinc(2)"
+660,3,"URINATION, dribbling (by drops), involuntary, walking, while, amel.",rhus-t(2)
+660,3,"URINATION, dribbling (by drops), involuntary, walking, while, yet on attempting to, when standing still, nothing passed",mag-m(1)
+660,1,"URINATION, dribbling (by drops), water running from a hydrant, on seeing","lyss(2), sulph(1)"
+660,1,"URINATION, dribbling (by drops), weakly children, in",chin(2)
+660,1,"URINATION, dribbling (by drops), paroxysmal","chel(1), cycl(1), merc-i-f(1), nux-v(1)"
+660,1,"URINATION, dribbling (by drops), residuary (See Dribbling, Urination, After)",
+660,1,"URINATION, dribbling (by drops), retarded, must wait for urine to start","agar(1), alum(2), alumn(1), am-m(1), apis(2), aran(1), arg-n(1), arn(3), bell(2), cact(2), cann-i(2), canth(1), caust(3), chel(1), clem(2), coc-c(1), cop(3), dig(2), eucal(1), hep(3), hydr-ac(1), ip(1), kali-br(1), kali-c(2), kali-n(2), laur(1), lyc(3), med(1), mur-ac(2), nat-c(1), nat-m(2), nat-p(1), nit-ac(2), nux-v(1), op(2), par(1), pareir(2), petr(2), prun-s(2), puls(1), raph(2), rhus-t(3), sars(2), sec(1), sel(2), sep(3), sil(2), staph(1), stram(2), sulph(1), tax(1), ter(1), thuj(2), zinc(2)"
+660,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, alone, can only pass urine when",nat-m(2)
+660,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, great straining, after, a few drops of urine pass, which are followed by a full stream, with pain; after this sometimes dribbling urine",clem(1)
+660,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, knees, on the, pressing head against floor, can pass urine only when",pareir(1)
+661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, listening to music, can pass urine only when",tarent(2)
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, listening to music, can pass urine only when, water running, can pass urine only when","lyss(1), tarent(1), zinc(1)"
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, listening to music, can pass urine only when, whistling, can pass urine only when","cycl(1), tarent(1)"
+661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, long while, and then only a little urine passes",caust(1)
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, long while, and then only a little urine passes, especially if others are near him",nat-m(2)
+661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, pain, by, in the fundus of bladder",phos(1)
+661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin","abies-n(1), agar(1), alum(3), apis(2), arn(2), bell(2), cact(2), caust(3), coc-c(2), hep(3), kali-c(2), laur(2), mag-m(3), mur-ac(3), nat-c(1), nat-p(1), nit-ac(2), op(3), plb(1), prun-s(2), raph(1), rheum(1), rhus-t(2), sars(1), sec(1), stram(1), tax(1), thuj(1)"
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, morning","alum(3), arn(2), hep(3), op(3), sep(2)"
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, continue to, must, if he stops to breathe the urine ceases to flow until he strains again","nat-p(1), stram(2)"
+661,4,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, continue to, must, if he stops to breathe the urine ceases to flow until he strains again, must, to pass the last part",rheum(1)
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, frequent pressing to urinate, with, with small discharges",thuj(1)
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, so hard, must, to start the urine that anus protrudes",mur-ac(3)
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, long pressing, after, urine passes guttatim","bell(1), plb(1)"
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, long time, must, which is painful",laur(2)
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, painful and frequent urination with disposition to sit and strain a long time, after which few drops pass",abies-n(1)
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, pressure, the more, the less it flows",kali-c(2)
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, press, must, a long time before he can begin, stand and press a long time, must, before urine will start",nit-ac(1)
+661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, sitting, can only pass urine while",zinc(3)
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, sitting, can only pass urine while, bent backward, can only pass urine while",zinc(1)
+661,4,"URINATION, dribbling (by drops), retarded, must wait for urine to start, sitting, can only pass urine while, bent backward, can only pass urine while, forward","pareir(1), sulph(1)"
+661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, spasm of sphincter, on account of",op(3)
+661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, standing, can only pass urine while","hyper(1), sars(3)"
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, standing, can only pass urine while, with feet wide apart and body inclined forward, can only pass urine while",chim(2)
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, standing, can only pass urine while, flows better, while",con(1)
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, standing, can only pass urine while, flows involuntarily while sitting",caust(2)
+661,3,"URINATION, dribbling (by drops), retarded, must wait for urine to start, standing, can only pass urine while, urine will not flow, while, but passes involuntarily while walking",mag-m(1)
+661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, stool, while pressing at, can pass urine only","aloe(1), alum(2), am-m(1), laur(1), nat-p(1), sel(1), stram(1)"
+661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, urging to urinate, with, but can pass no urine until an enormous clot of black blood has passed from the vagina",coc-c(2)
+661,2,"URINATION, dribbling (by drops), retarded, must wait for urine to start, urination, before, a cutting with ineffectual straining, that stops the flow",ph-ac(1)
+661,1,"URINATION, dribbling (by drops), seldom","acon(1), agar(1), aloe(1), alumn(1), arg-n(2), arn(2), ars(1), aur(2), bar-c(1), bell(1), bry(1), camph(1), canth(3), carb-v(1), cast(1), chel(1), coc-c(1), cupr(1), cycl(2), dig(1), grat(1), hep(2), hyos(1), iris(1), kali-c(1), lac-c(1), laur(2), lyc(2), mag-m(1), merc-c(1), mez(1), nat-s(1), nicc(1), nit-ac(1), nux-v(2), op(2), plb(2), prun-s(1), psor(1), puls(2), ruta(2), sars(1), sec(1), stann(1), staph(1), stram(2), stront(1), sul-ac(1), syph(2), thuj(1), zinc(1)"
+661,2,"URINATION, dribbling (by drops), seldom, daytime",lyc(2)
+661,1,"URINATION, dribbling (by drops), slow (See Feeble","retarded)(1), thin stream(1)"
+661,1,"URINATION, dribbling (by drops), small stream (See Thin)",
+661,1,"URINATION, dribbling (by drops), spurting stream","calc-p(1), cic(1), helon(1), puls(1), spig(1)"
+661,2,"URINATION, dribbling (by drops), spurting stream, coughing, when","kreos(1), staph(1)"
+661,2,"URINATION, dribbling (by drops), spurting stream, urination, after",helon(1)
+661,1,"URINATION, dribbling (by drops), thin stream","agar(1), apis(1), bell(1), camph(2), canth(2), chim(1), chin(1), clem(3), cop(3), eup-pur(1), gins(1), graph(2), gymn(1), hell(1), merc(2), nit-ac(2), petr(2), prun-s(1), puls(2), samb(1), sars(2), spong(2), staph(2), stram(1), sulph(2), tax(1), thuj(2), zinc(2)"
+661,1,"URINATION, dribbling (by drops), unconscious, urethra insensible","ail(1), apis(2), apoc(1), arg-n(3), caust(3), cedr(1), chlol(1), cupr(2), grat(1), hell(1), kali-br(1), mag-m(3), mag-s(1), merc(1), nux-v(1), sars(2)"
+661,2,"URINATION, dribbling (by drops), unconscious, urethra insensible, mania in",cupr(3)
+661,3,"URINATION, dribbling (by drops), unconscious, urethra insensible, mania in, urine and stool","arn(1), bell(1), mur-ac(2), psor(1), rhus-t(2), sulph(1)"
+661,1,"URINATION, dribbling (by drops), unsatisfactory (See Incomplete and Fullness, Urination, After)","alum(2), arg-n(2), arn(1), ars(3), aspar(1), aur(1), bell(1), berb(2), brach(1), bry(1), cact(1), calc(2), camph(1), canth(1), caust(3), cic(2), clem(1), cocc(1), colch(1), con(1), cub(2), gels(2), gins(1), hep(3), hyos(2), kali-ar(1), kali-c(2), kali-p(1), lach(1), laur(2), lyc(1), mag-m(2), merc(1), nat-a(1), nat-c(1), nat-p(1), nux-v(2), op(1), petr(1), ph-ac(2), phos(1), plb(1), puls(1), rhod(1), rhus-t(1), ruta(1), sars(2), sec(1), sel(2), sil(1), stann(1), staph(2), stram(1), sulph(2), thuj(2), verat(1)"
+662,2,"URINATION, dribbling (by drops), unsatisfactory (See Incomplete and Fullness, Urination, After), bladder were not emptied, as if, with dribbling",staph(2)
+662,2,"URINATION, dribbling (by drops), unsatisfactory (See Incomplete and Fullness, Urination, After), feeling as if urine remained in urethra","agar(1), all-c(1), alum(1), ambr(1), arg-n(2), aspar(1), cedr(1), clem(1), dig(1), ery-a(1), kali-bi(2), petr(1), rhus-t(1), sel(2), sep(2), tell(1), thuj(2)"
+662,0,WEAKNESS,"all-c(2), alum(2), alumn(2), ars(2), aur(1), aur-m(1), camph(2), canth(2), carl(1), caust(3), cham(2), equis(2), gels(1), hell(1), hep(3), hyos(2), ipom(1), kali-c(1), laur(1), mag-m(3), mill(1), mur-ac(3), nat-p(1), op(3), pall(1), ph-ac(2), phyt(1), plb(1), rheum(1), rhus-t(2), sel(1), sil(2), stann(1), stram(1), ter(1), thuj(1), vib(1), zinc(1)"
+662,1,"WEAKNESS, evening",alum(2)
+662,1,"WEAKNESS, old people","ars(1), gels(1)"
+662,1,"WEAKNESS, parturition, after",ars(3)
+662,1,"WEAKNESS, sphincter","agar(1), alumn(1), apoc(1), bell(1), caust(2), jug-r(1), pall(1), sil(1), squil(1), zinc(1)"
+662,0,"WORM in, sensation of","bell(1), sep(1)"

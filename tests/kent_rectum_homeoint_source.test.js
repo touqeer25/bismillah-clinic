@@ -108,8 +108,8 @@ if (fs.existsSync(csvPath)) {
 // 7) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const swf = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=181/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v180)');
-assert(/CACHE_NAME='bhc-clinic-v181'/.test(swf), 'خدمت کار نسخہ 180');
+assert(/rep-chapters\.js\?v=182/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v180)');
+assert(/CACHE_NAME='bhc-clinic-v182'/.test(swf), 'خدمت کار نسخہ 180');
 assert(/v180: مستقیم باب/.test(code), 'rep-chapters.js میں مستقیم بلڈر درج');
 
 console.log('مستقیم باب: ماخذی درخت 1200 قطاریں (صفحات 606–635)، جڑ RECTUM، ادویات ماخذی، اردو 100%، پرانی قطاریں محفوظ، STOOL-حد کٹ — کامیاب');
