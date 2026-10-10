@@ -1,0 +1,669 @@
+﻿صفحہ,گہرائی,مکمل راستہ (مطبوعہ کتاب),ادویات (گریڈ)
+746,0,LARYNX AND TRACHEA,
+746,0,"ANÆSTHESIA, larynx",kali-br(1)
+746,0,"CANCER, larynx","ars(1), nit-ac(1), phos(1), sang(1), thuj(1)"
+746,0,CATARRH,"acon(1), all-s(2), alum(1), am-c(2), am-m(2), ant-t(3), arn(1), ars(3), bad(2), bar-c(2), bar-m(1), bell(1), brom(2), calc(3), calc-p(2), calc-s(3), camph(1), cann-s(1), canth(1), carb-an(1), carb-s(2), carb-v(3), caust(2), cham(2), chin(2), chin-a(1), coc-c(2), coff(2), colch(2), con(1), crot-t(1), dros(1), dulc(2), ferr(1), ferr-ar(1), ferr-p(2), gels(1), graph(1), hep(2), hippoz(2), hydr(2), hyos(1), ign(1), ip(1), kali-ar(3), kali-bi(3), kali-br(2), kali-c(3), kali-p(1), kali-s(2), kreos(1), lob(1), lyc(2), mang(3), meph(1), merc(3), nat-a(2), nat-m(2), nux-m(3), nux-v(3), ph-ac(2), phel(1), phos(2), rhod(2), rumx(2), sang(3), seneg(3), sil(2), spig(1), spong(2), stann(3), sulph(3), verat(1), verb(1)"
+746,1,"CATARRH, morning",nux-v(1)
+746,1,"CATARRH, evening",carb-an(1)
+746,1,"CATARRH, night","carb-an(1), carb-v(1), spig(1)"
+746,1,"CATARRH, alternating with uterine complaints",arg-n(2)
+746,1,"CATARRH, change of weather, before",kali-bi(2)
+746,1,"CATARRH, damp weather","calc(2), dulc(1), kali-bi(2)"
+746,1,"CATARRH, measles, after",carb-v(2)
+746,1,"CATARRH, old people, in","ammc(2), ant-t(2), ars(2), bar-c(3), hydr(2), seneg(3)"
+746,1,"CATARRH, sudden",ars(3)
+746,1,"CATARRH, Larynx","aesc(1), alumn(2), arg-n(2), brom(2), calc(3), calc-p(3), calc-s(3), caust(2), cham(2), chin-a(1), coc-c(3), con(2), croc(1), ferr-ar(1), ham(2), hep(2), iod(1), kali-s(2), mang(1), merc(1), nat-m(2), osm(1), ph-ac(2), phos(1), rumx(3), sang(3), seneg(2), sil(2), spong(2), sulph(3), tarent(2)"
+746,1,"CATARRH, Trachea","ammc(2), ars(2), bar-c(2), calc(1), cann-s(1), chin(1), chin-a(1), ferr-ar(1), kali-bi(2), merc(1), nux-m(1), ph-ac(2), rumx(3), sang(3), seneg(3)"
+746,0,"CLOSED, nearly",calc-f(1)
+746,0,"COATED, seems (See Velvety)",
+746,0,"COLD, sensation on breathing","arn(1), brom(3), camph(1), chin(1), cist(2), cor-r(1), iod(1), lith(1), rhus-t(2), sulph(1)"
+746,1,"COLD, sensation on breathing, inspiration cold, expiration hot",sulph(2)
+746,1,"COLD, sensation on breathing, shaving amel.",brom(2)
+746,0,"CONDYLOMATA, larynx (See Polypi)","arg-n(2), calc(1), hep(1), merc-c(2), nit-ac(2), thuj(2)"
+746,0,CONSTRICTION,"alumn(1), asar(1), bell(3), calad(2), camph(1), canth(1), cham(2), cocc(2), coloc(1), dros(1), hell(2), ign(1), ip(2), lach(1), laur(1), mang(3), meny(1), mosch(2), nux-m(2), nux-v(2), ol-an(1), ox-ac(1), ph-ac(1), phos(2), plb(2), poth(1), puls(2), rhus-t(1), sars(2), sil(1), spong(2), verat(1)"
+746,1,"CONSTRICTION, night","phos(2), puls(1), rhus-t(1)"
+746,1,"CONSTRICTION, lying, on","kali-bi(2), puls(1)"
+746,1,"CONSTRICTION, waking, on",rhus-t(1)
+746,1,"CONSTRICTION, Larynx","acon(3), agar(2), all-c(2), alum(2), alumn(2), am-c(1), ant-c(2), ant-t(1), arg-m(1), ars(2), asar(1), asc-t(1), bar-c(1), bell(3), brom(2), bufo(1), calad(1), calc(2), camph(1), carb-an(2), carb-s(1), caust(1), cedr(2), cham(2), chel(2), chlor(2), coc-c(1), cocc(2), coff(1), coloc(1), cor-r(2), crot-c(2), cupr(2), dios(1), dros(2), eug(1), euphr(1), ferr(1), gels(2), glon(2), hell(1), hep(1), hyos(2), ign(2), iod(3), ip(2), kali-c(2), kali-i(1), kali-n(1), lach(2), laur(1), lob(2), lycps(1), manc(1), mang(3), med(1), meny(1), mez(1), mosch(2), naja(1), nat-a(1), nat-m(2), nit-ac(1), nux-v(2), oena(1), ol-an(1), ox-ac(1), ph-ac(1), phos(3), phyt(2), plat(1), plb(2), puls(2), sang(1), seneg(2), sil(2), spong(2), still(1), stram(2), sul-ac(1), sulph(2), tarent(2), thuj(1), verat(2), zinc(2)"
+746,2,"CONSTRICTION, Larynx, evening","brom(1), hep(1), kali-c(1), lycps(1), nux-v(1), ol-an(1)"
+746,3,"CONSTRICTION, Larynx, evening, in, bed","ferr(1), naja(1)"
+746,3,"CONSTRICTION, Larynx, evening, on falling asleep","kali-c(2), spong(2), sulph(2)"
+746,2,"CONSTRICTION, Larynx, night",phos(2)
+746,3,"CONSTRICTION, Larynx, night, before midnight",spong(2)
+746,2,"CONSTRICTION, Larynx, air, open, in","hep(2), kali-c(1)"
+746,3,"CONSTRICTION, Larynx, air, open, in, amel.",coloc(1)
+747,2,"CONSTRICTION, Larynx, anger, after",sulph(1)
+747,2,"CONSTRICTION, Larynx, cough, during (See Cough Choking)","agar(2), ars(2), bell(2), chel(2), cor-r(3), cupr(3), dros(3), euphr(1), hyos(3), ign(1), ip(2), puls(2), stram(1), sulph(2), verat(1)"
+747,3,"CONSTRICTION, Larynx, cough, during (See Cough Choking), amel.",asar(1)
+747,2,"CONSTRICTION, Larynx, crumb, sensation of","coc-c(2), lach(1)"
+747,2,"CONSTRICTION, Larynx, drinking, after",ars(2)
+747,2,"CONSTRICTION, Larynx, eating, after",puls(2)
+747,2,"CONSTRICTION, Larynx, inhaling, on",hep(2)
+747,2,"CONSTRICTION, Larynx, scratching, auditory canal, from","agar(1), carb-s(2), kali-c(1), lach(1), mang(1), psor(1), sil(2), sulph(2), tarent(2)"
+747,2,"CONSTRICTION, Larynx, singing agg.",agar(2)
+747,2,"CONSTRICTION, Larynx, sitting, while",spong(2)
+747,2,"CONSTRICTION, Larynx, sleep, during","agar(2), cench(2), coff(2), crot-h(2), kali-c(2), kali-i(2), lach(3), naja(2), nit-ac(1), nux-v(3), sep(2), sil(2), spong(3), sulph(2), valer(2)"
+747,3,"CONSTRICTION, Larynx, sleep, during, lying on either side","kali-c(2), spong(2)"
+747,3,"CONSTRICTION, Larynx, sleep, during, on falling asleep","agar(2), arg-n(2), kali-c(3), lach(3), phos(2), spong(2), sulph(2), valer(2)"
+747,3,"CONSTRICTION, Larynx, sleep, during, on falling asleep while lying on either side","arg-n(2), kali-c(2), spong(2)"
+747,2,"CONSTRICTION, Larynx, swallowing, on",dig(2)
+747,2,"CONSTRICTION, Larynx, talking, while","dros(2), mang(2)"
+747,2,"CONSTRICTION, Larynx, touch, from",bell(1)
+747,2,"CONSTRICTION, Larynx, waking, on","lach(2), manc(1), phos(2), thuj(1)"
+747,2,"CONSTRICTION, Larynx, walking amel.",dros(3)
+747,1,"CONSTRICTION, Throat-pit","apis(2), brom(3), ign(2), rhus-t(1), staph(2), valer(1), zinc(1)"
+747,2,"CONSTRICTION, Throat-pit, anger open",staph(2)
+747,2,"CONSTRICTION, Throat-pit, eating amel.",rhus-t(1)
+747,2,"CONSTRICTION, Throat-pit, sleep, on going to",valer(1)
+747,2,"CONSTRICTION, Throat-pit, swallowing, when",staph(1)
+747,1,"CONSTRICTION, Trachea","alum(1), ars(3), bell(1), brom(2), calad(2), canth(1), cham(2), chel(1), cocc(1), hydr-ac(1), ign(1), ip(1), lach(2), laur(1), mag-c(1), mosch(1), phos(2), puls(2), sars(1), spong(2), stann(1), verat(1)"
+747,2,"CONSTRICTION, Trachea, evening, lying down, on",ars(2)
+747,0,"CRAWLING, larynx","am-m(1), ant-t(1), arn(1), bov(1), bry(1), calc-s(1), caps(2), carb-v(2), caust(2), colch(1), con(3), dros(2), graph(1), iod(1), kali-c(3), kreos(1), lach(2), laur(1), led(1), lyc(1), mag-m(1), nat-m(3), nit-ac(1), prun-s(1), psor(2), rhus-t(1), sabin(2), sang(1), sep(1), stann(1), stram(1), stront(1), sulph(1), thuj(2), zinc(1)"
+747,1,"CRAWLING, larynx, morning",iod(1)
+747,1,"CRAWLING, larynx, evening",carb-v(1)
+747,2,"CRAWLING, larynx, evening, lying, after",caps(1)
+747,1,"CRAWLING, larynx, night",lyc(1)
+747,1,"CRAWLING, larynx, cough, from",kreos(1)
+747,1,"CRAWLING, larynx, eating, after",nit-ac(1)
+747,1,"CRAWLING, larynx, sitting, while",psor(2)
+747,1,"CRAWLING, larynx, swallowing, when",staph(1)
+747,1,"CRAWLING, larynx, Trachea","anac(1), arn(1), caps(2), colch(1), lach(2), led(1), lyc(1), mag-m(1), nit-ac(1), nux-m(1), ruta(1), seneg(2), spong(1), stann(1)"
+747,2,"CRAWLING, larynx, Trachea, evening, lying down, after",caps(1)
+747,2,"CRAWLING, larynx, Trachea, cough, from","colch(1), mag-m(1)"
+747,0,CROUP,"acon(3), all-c(1), alumn(1), anac(1), ant-t(2), ars(2), ars-i(2), arum-t(1), asaf(1), bell(2), brom(3), calc(2), calc-s(3), canth(2), carb-ac(2), carb-v(2), caust(1), cham(2), chin(1), chlor(2), cupr(2), dros(1), gels(1), hep(3), iod(2), kali-bi(3), kali-chl(2), kali-p(2), kaol(1), lach(2), lact-ac(1), lob(2), lyc(1), naja(1), nat-m(2), nit-ac(2), phos(3), samb(2), sang(2), spong(3), still(2)"
+747,1,"CROUP, night, after",spong(3)
+747,2,"CROUP, night, after, before midnight",spong(3)
+747,1,"CROUP, eating, after",anac(1)
+747,1,"CROUP, exposure to cold dry air, after","acon(3), hep(3), kali-bi(1)"
+747,1,"CROUP, gangrenous",ars(2)
+747,1,"CROUP, heated, from being",brom(3)
+747,1,"CROUP, lying agg.",hep(2)
+747,1,"CROUP, membranous","alumn(1), am-c(1), ant-t(1), apis(2), arum-t(2), brom(3), carb-ac(2), caust(1), hep(2), iod(2), kali-bi(3), kali-br(2), kali-chl(2), kali-ma(1), lac-c(2), lach(2), merc-cy(2), merc-i-f(2), naja(2), nit-ac(2), phos(3), sang(2), spong(1)"
+747,1,"CROUP, paroxysmal","hep(2), kali-br(2)"
+747,1,"CROUP, recurrent","calc(2), calc-s(3), hep(3)"
+747,1,"CROUP, sequelæ","calc(2), carb-v(2)"
+747,1,"CROUP, sleep, after, agg.","lach(3), spong(2)"
+747,1,"CROUP, whooping cough during",brom(3)
+748,1,"CROUP, extending to trachea","iod(2), kali-bi(3), kali-chl(2), phos(2)"
+748,2,"CROUP, extending to trachea, fauces",brom(3)
+748,0,"CRUMB, sensation of, in larynx","bry(2), coc-c(1), lach(3), pall(1), plb(1)"
+748,0,"DOWNY, feeling (See Velvety)",
+748,0,DRYNESS,"agar(1), alum(1), ant-c(1), ars(2), calc-s(1), carb-v(1), caust(1), chin(1), coloc(2), dros(1), ferr(1), gels(1), hyos(1), kali-ar(2), kali-bi(1), kali-chl(1), lact(1), laur(1), lob(1), nat-c(1), nat-m(1), nicc(1), par(1), rhod(1), sep(1), stann(1), ter(1), teucr(1)"
+748,1,"DRYNESS, Larynx","acon(2), aesc(1), agar(1), all-s(1), alum(2), am-c(1), am-m(1), ant-t(1), apis(1), ars(2), ars-i(1), atro(1), bell(3), bry(2), calc(2), calc-ar(1), calc-f(1), carb-an(1), carb-v(2), card-m(1), carl(1), caust(2), cist(1), clem(2), coc-c(1), colch(1), con(3), cop(2), crot-h(2), cycl(1), dros(2), ferr-p(1), fl-ac(1), gels(1), hep(1), hura(1), hydr-ac(1), hyos(1), iod(1), ip(1), kali-bi(2), kali-c(2), kali-chl(1), kali-s(2), kalm(1), lach(3), lachn(1), lact-ac(1), laur(1), lyc(2), mag-m(2), mang(2), med(1), merc(2), merc-c(1), mez(2), nat-a(1), nat-c(1), nat-m(2), nicc(1), nux-m(1), nux-v(2), op(1), osm(1), par(2), petr(1), phos(2), phyt(2), plan(1), puls(2), rhus-t(2), rhus-v(1), sabad(1), sang(2), seneg(3), sep(2), spong(3), stann(1), stict(2), still(1), stram(1), sul-ac(1), sulph(3), tep(1), ter(1), thuj(1), verat(1), verat-v(1), verb(1), zinc(2)"
+748,2,"DRYNESS, Larynx, morning","iod(1), nux-v(2), phyt(1), seneg(1), sep(1), zinc(2)"
+748,3,"DRYNESS, Larynx, morning, waking","nat-m(1), par(2), sars(1)"
+748,3,"DRYNESS, Larynx, morning, 5 a.m.",kali-c(1)
+748,2,"DRYNESS, Larynx, forenoon",seneg(1)
+748,2,"DRYNESS, Larynx, evening","carb-v(1), phyt(1), rhus-t(2), zinc(1)"
+748,2,"DRYNESS, Larynx, night","bell(2), carb-v(1), hep(1), kali-c(1), lach(1), nat-m(1), phos(2), sulph(2)"
+748,3,"DRYNESS, Larynx, night, 2 to 3 p.m.",kali-c(2)
+748,2,"DRYNESS, Larynx, air, open, in","mang(2), nat-c(1)"
+748,2,"DRYNESS, Larynx, aversion to drink",bell(3)
+748,2,"DRYNESS, Larynx, coughing, on","bell(1), osm(1), polyg-h(1)"
+748,2,"DRYNESS, Larynx, hawking, from",spong(2)
+748,3,"DRYNESS, Larynx, hawking, from, constant, with",am-m(1)
+748,2,"DRYNESS, Larynx, heat, during","ars(2), hep(1), nux-v(1), petr(2), phos(1)"
+748,2,"DRYNESS, Larynx, spot","cimic(1), cist(2), con(3), crot-h(1)"
+748,2,"DRYNESS, Larynx, waking, on","am-c(1), cist(2), hep(1), kali-c(1), lach(1), nat-m(1), phos(1)"
+748,2,"DRYNESS, Larynx, winter, in",mez(1)
+748,1,"DRYNESS, Epiglottis","lach(1), wye(1)"
+748,1,"DRYNESS, Trachea","acon(3), ars(2), ars-i(2), brom(1), calc-ar(1), carb-an(1), carb-v(2), clem(1), cycl(1), dros(1), fl-ac(1), iod(2), laur(1), lyc(2), merc(2), mez(1), nat-m(1), petr(1), phos(1), puls(2), rhus-t(1), sep(1), spong(2), stann(1), tarent(1), verb(1)"
+748,2,"DRYNESS, Trachea, morning","phyt(1), rhod(1)"
+748,3,"DRYNESS, Trachea, morning, waking, on",par(2)
+748,2,"DRYNESS, Trachea, close room","clem(1), puls(2)"
+748,0,"DUST, as from","agar(2), alumn(2), am-c(2), ars(3), aur-m(1), bell(2), brom(2), calc(2), calc-s(1), chel(2), chin(2), cina(1), coc-c(2), crot-c(1), cycl(1), dros(3), glon(1), hep(2), ign(2), iod(1), ip(2), lyc(3), meph(1), nat-a(1), nat-m(2), ph-ac(1), pic-ac(1), poth(1), puls(3), sulph(3), teucr(1)"
+748,0,FISSURES in larynx,bufo(1)
+748,0,"FLAPPING sensation, larynx",lach(2)
+748,0,"FLESH hanging in larynx, sensation of",phos(2)
+748,0,FOOD drops into larynx,"acon(1), cann-s(1), gels(1), kali-bi(1), kali-c(2), lach(2), meph(2), nat-m(2)"
+748,0,"FOREIGN substance, sensation, larynx","agar(2), arg-m(2), bell(3), brom(1), bry(2), calc-f(2), coc-c(2), dros(2), hep(2), lach(2), lob(1), med(1), nat-m(2), phos(2), ptel(1), rumx(1), sang(2), sil(2), tarent(1), thuj(2)"
+748,1,"FOREIGN substance, sensation, larynx, morning",caust(1)
+748,1,"FOREIGN substance, sensation, larynx, behind larynx",coc-c(2)
+748,1,"FOREIGN substance, sensation, larynx, Trachea","hyos(1), kali-c(2), sang(2), sin-n(1)"
+748,0,FOREIGN substances drop into larynx when drinking or talking,meph(2)
+748,0,"FULLNESS, larynx","cob(1), naja(1)"
+748,1,"FULLNESS, larynx, morning",cob(1)
+748,1,"FULLNESS, larynx, evening",naja(1)
+748,0,GRASPED (See Constriction),
+748,0,"HAIR, in trachea, sensation of","naja(1), sil(1)"
+748,0,"HEAT, larynx","all-s(1), alumn(1), anan(1), apoc(1), carb-s(1), iod(3), kali-bi(1), mag-m(1), naja(1), phyt(1)"
+748,1,"HEAT, larynx, Trachea","cahin(1), chel(1), petr(1), phyt(1)"
+748,0,HEMMING (See Scraping),
+748,0,HOARSENESS (See Voice),
+748,0,"INFLAMMATION, larynx","acon(3), aesc(2), all-c(3), ant-c(2), ant-t(2), apis(2), arg-m(2), arg-n(3), ars(2), ars-i(1), aur-m(1), bell(3), brom(2), bry(1), bufo(2), calad(1), calc(2), calc-s(1), carb-ac(1), carb-an(1), carb-s(1), carb-v(2), caust(2), cham(2), chel(2), chlor(2), crot-c(2), crot-h(2), dros(3), dulc(2), ferr-p(1), gels(3), guai(1), hep(3), hydr-ac(1), iod(2), ip(2), kali-bi(3), kali-i(1), lach(2), mang(2), merc(2), merc-i-r(1), naja(2), nat-m(2), nit-ac(2), nux-v(2), ph-ac(1), phos(3), puls(2), rhus-t(2), rumx(3), sang(2), sel(1), seneg(1), spong(2), still(2), sulph(2), tab(1)"
+749,1,"INFLAMMATION, larynx, evening agg.","cedr(2), kali-bi(1), rhus-t(2)"
+749,1,"INFLAMMATION, larynx, damp weather",kali-bi(2)
+749,1,"INFLAMMATION, larynx, gangrenous","ars(2), bell(2), lach(2), phos(2)"
+749,1,"INFLAMMATION, larynx, heated, from getting","brom(3), puls(3)"
+749,1,"INFLAMMATION, larynx, recurrent","brom(2), calc(2)"
+749,1,"INFLAMMATION, larynx, singers, in","ant-c(2), arg-m(2), arg-n(3), mang(2)"
+749,1,"INFLAMMATION, larynx, speakers, in","arum-t(3), carb-v(2), still(2)"
+749,1,"INFLAMMATION, larynx, suppressed urticaria",ars(2)
+749,1,"INFLAMMATION, larynx, syphilitic","hep(2), iod(2), merc(2), merc-i-r(2), nat-ac(2), still(2)"
+749,1,"INFLAMMATION, larynx, Trachea","acon(2), ant-t(2), ars(1), ars-i(1), bell(2), brom(2), bry(1), canth(1), carb-v(2), cham(1), chin(1), dig(1), dros(1), dulc(2), hep(2), iod(2), ip(1), kali-bi(2), lob(1), mang(2), nat-m(2), nux-v(1), puls(2), rumx(2), samb(2), sang(2), spong(2), verat(1)"
+749,0,INSENSIBILITY of larynx,kali-bi(2)
+749,0,IRRITATION in air passages,"acon(3), agar(2), agn(1), all-s(1), aloe(1), alum(2), am-br(1), am-c(1), am-m(1), aml-n(1), anac(2), ant-t(1), aspar(1), bar-c(1), cahin(1), calc(2), carb-ac(1), carb-s(2), carb-v(2), caust(2), cham(3), chin-s(1), chlor(2), clem(1), coc-c(1), coff(1), colch(1), coll(1), con(2), crot-t(1), dios(1), gels(2), hyos(1), iod(3), kali-bi(3), kali-c(2), kali-i(1), lach(3), lob(1), lyc(1), mag-s(1), merc-i-r(1), mez(1), mosch(2), mur-ac(1), nat-a(1), nat-s(1), nux-v(3), osm(1), ox-ac(1), ph-ac(2), phos(3), plan(1), psor(1), puls(2), raph(1), sep(3), stann(2), sul-ac(1), sulph(2)"
+749,1,"IRRITATION in air passages, morning, rising after","alum(1), alumn(1)"
+749,1,"IRRITATION in air passages, afternoon",bapt(1)
+749,1,"IRRITATION in air passages, evening","chel(1), cimic(1), dios(1), sulph(1)"
+749,2,"IRRITATION in air passages, evening, bed, in","agn(1), am-c(1), coff(1), hyos(1), kali-c(1)"
+749,2,"IRRITATION in air passages, evening, 7-30 p.m.",cimic(1)
+749,1,"IRRITATION in air passages, night, on waking",thuj(1)
+749,1,"IRRITATION in air passages, cold air","acon(1), all-c(1), ars(2), bell(2), brom(1), bry(1), calc-p(1), carb-v(2), caust(1), cimic(1), cupr(1), fl-ac(1), hep(3), ip(1), kali-bi(2), kali-c(1), kali-p(1), lach(2), mang(2), naja(1), nux-v(1), osm(1), ox-ac(1), phos(3), rumx(3), sil(2), spong(1), sulph(1)"
+749,1,"IRRITATION in air passages, heated, when",apis(2)
+749,1,"IRRITATION in air passages, increases the more one coughs","cist(1), ign(3), raph(1), squil(1), teucr(1)"
+749,1,"IRRITATION in air passages, Larynx","acet-ac(1), acon(3), aesc(2), agar(3), alum(2), alumn(2), am-c(1), am-m(1), ambr(1), anac(1), anan(1), ant-c(1), ant-t(1), aphis(2), apis(1), arg-m(3), arg-n(3), arn(2), ars(1), bar-c(1), bar-m(1), bell(3), bov(1), brom(2), bry(3), calad(1), calc(2), calc-p(2), camph(1), canth(1), caps(1), carb-ac(1), carb-an(2), carb-s(2), carb-v(3), card-m(1), carl(2), caust(3), cham(2), chel(1), chin(1), chlor(2), cimic(1), cina(1), cist(2), coc-c(3), coca(1), cocc(2), coff(1), colch(1), coloc(1), com(3), con(2), cop(1), cor-r(2), crot-c(3), crot-h(2), crot-t(1), cupr(2), dig(1), dios(1), dros(3), echi(1), euphr(2), ferr(1), ferr-i(1), fl-ac(1), form(1), gels(2), guai(1), guare(1), ham(2), hep(3), hydr-ac(1), hyos(2), hyper(1), ign(3), iod(3), ip(2), kali-bi(3), kali-c(3), kali-chl(3), kali-i(1), kali-p(2), kali-s(2), lac-c(1), lach(3), lachn(1), lact-ac(1), laur(1), lith(1), lob(2), lyc(3), mag-c(1), mag-m(1), manc(1), mang(3), meny(1), merc(2), merc-c(1), mez(1), mur-ac(1), myric(1), naja(3), nat-c(1), nat-m(3), nat-p(1), nicc(1), nit-ac(1), nux-m(1), nux-v(2), olnd(1), osm(1), ph-ac(2), phos(3), phyt(2), plan(1), puls(3), rhus-t(2), rumx(2), sabad(1), sabin(1), sang(3), seneg(2), sep(2), sil(2), spong(3), squil(2), stann(2), staph(2), stront(1), sul-i(2), sulph(2), sumb(1), tab(1), tarax(1), tarent(2), teucr(1), thuj(2), trom(1), verat(1), verb(1), zinc(2)"
+749,2,"IRRITATION in air passages, Larynx, morning, on waking","kali-bi(1), naja(1)"
+749,3,"IRRITATION in air passages, Larynx, morning, on waking, in bed",caust(2)
+749,2,"IRRITATION in air passages, Larynx, afternoon","coca(1), ferr-i(1), phos(1)"
+749,3,"IRRITATION in air passages, Larynx, afternoon, 2 p.m.",coca(1)
+749,2,"IRRITATION in air passages, Larynx, evening, bed, in","coc-c(1), cocc(1), hyos(2)"
+749,3,"IRRITATION in air passages, Larynx, evening, bed, in, lying, while",ign(2)
+749,2,"IRRITATION in air passages, Larynx, night","ambr(1), kali-c(2)"
+749,3,"IRRITATION in air passages, Larynx, night, before midnight","acon(2), spong(2)"
+749,2,"IRRITATION in air passages, Larynx, cold air","acon(3), ars(2), bell(3), calc-p(1), carb-v(3), cimic(1), crot-h(1), fl-ac(1), hep(2), ip(1), kali-bi(2), mang(1), naja(2), nux-m(2), nux-v(1), osm(1), ox-ac(1), phos(3), rumx(3), sil(1), spong(1), sulph(1)"
+749,2,"IRRITATION in air passages, Larynx, damp weather","kali-bi(2), rhus-t(2)"
+749,2,"IRRITATION in air passages, Larynx, eating, after","nit-ac(1), rumx(2), staph(2)"
+749,2,"IRRITATION in air passages, Larynx, heated, from becoming","ant-c(1), brom(2), carb-v(2), puls(2)"
+750,2,"IRRITATION in air passages, Larynx, heat, during",hep(1)
+750,2,"IRRITATION in air passages, Larynx, lying on either side, on going to sleep","kali-c(2), spong(2)"
+750,2,"IRRITATION in air passages, Larynx, recurrent","calc(2), carb-v(3)"
+750,2,"IRRITATION in air passages, Larynx, sleep, during","lach(3), phos(2), spong(2)"
+750,2,"IRRITATION in air passages, Larynx, suppressing the cough amel.",hyos(2)
+750,2,"IRRITATION in air passages, Larynx, swallowing, empty","lyc(1), nat-m(2), op(1)"
+750,2,"IRRITATION in air passages, Larynx, talking","alumn(2), arg-m(3), bell(2), caust(2), dros(3), hep(2), kali-bi(2), mang(2), nat-m(2), phos(3), rhus-t(2), seneg(2), spong(2), sulph(2)"
+750,2,"IRRITATION in air passages, Larynx, warm damp weather",iod(2)
+750,2,"IRRITATION in air passages, Larynx, warm room",iod(1)
+750,2,"IRRITATION in air passages, Larynx, upper part",spong(2)
+750,1,"IRRITATION in air passages, Throat-pit","apis(2), bell(1), card-m(1), cham(2), croc(1), hyos(2), ign(3), iod(1), kreos(1), lac-c(1), mang(1), ph-ac(1), rhus-r(1), rumx(3), sang(3), sil(2), squil(2)"
+750,1,"IRRITATION in air passages, Trachea","acet-ac(1), acon(1), agar(1), alum(1), ang(1), ant-t(1), arg-m(2), arg-n(2), arn(2), ars(3), asaf(1), bar-c(1), bar-m(1), bell(1), bov(1), bry(2), calc(2), cann-s(1), carb-an(1), carb-s(1), carb-v(3), caust(2), cham(2), chin(1), cina(1), coc-c(2), cocc(1), colch(1), coloc(1), con(1), cor-r(2), croc(1), dig(1), dros(3), eupho(1), ferr(1), ferr-i(1), graph(2), grat(1), hep(1), hydr-ac(1), hyos(1), ign(1), iod(2), ip(3), kali-bi(3), kali-c(3), kali-i(2), kali-n(1), kali-p(2), laur(1), led(1), lyc(3), mag-c(1), mang(2), merc-sul(2), mez(1), mur-ac(1), naja(1), nat-a(1), nat-m(2), nicc(1), nit-ac(2), nux-m(1), nux-v(3), petr(2), phos(3), plat(1), prun-s(1), psor(1), puls(2), rhod(1), rhus-t(2), rumx(2), sabin(1), sang(3), seneg(1), sep(3), sil(3), spig(1), squil(3), stann(3), staph(1), stict(2), stront(1), sulph(3), teucr(1), thuj(2), trif-p(1), verat(1), zinc(1)"
+750,0,"ITCHING, larynx (See Tickling)","am-c(1), ambr(1), ant-t(1), arg-n(2), bell(1), cact(1), calc(2), calc-f(1), carb-v(1), cist(1), colch(1), con(1), dig(1), fl-ac(1), lach(1), laur(1), lyc(1), mang(1), nux-v(2), puls(2), sil(1)"
+750,1,"ITCHING, larynx (See Tickling), night",cist(2)
+750,1,"ITCHING, larynx (See Tickling), Trachea","agar(2), ambr(2), cham(1), cist(2), colch(1), con(1), kali-bi(1), laur(1), nux-v(2), phos(1), puls(3)"
+750,0,LARYNGISMUS stridulus,"agar(2), ant-c(2), ars(2), ars-i(1), arum-d(1), asaf(2), bell(3), brom(2), chel(2), chlor(2), coff(2), cor-r(2), crot-h(1), cupr(2), dig(1), gels(3), guai(1), guare(1), hydr-ac(1), ign(3), iod(2), ip(2), kali-br(1), lach(2), lact-ac(1), laur(1), mag-p(2), mang(2), meph(2), mosch(3), naja(1), ol-an(1), op(2), phos(2), phyt(1), plat(1), plb(1), samb(2), sang(1), sars(1), sil(2), spong(2), stram(1), sulph(1), tab(2), tarent(2), verat(2)"
+750,1,"LARYNGISMUS stridulus, daily",chel(1)
+750,1,"LARYNGISMUS stridulus, night",sumb(2)
+750,2,"LARYNGISMUS stridulus, night, midnight, waking out of sound sleep",samb(2)
+750,3,"LARYNGISMUS stridulus, night, midnight, waking out of sound sleep, to 7 a.m.",chlor(2)
+750,1,"LARYNGISMUS stridulus, alternating with contraction of fingers and toes",asaf(1)
+750,1,"LARYNGISMUS stridulus, cough, before the",ip(2)
+750,1,"LARYNGISMUS stridulus, expiration, on","chel(2), chlor(2)"
+750,1,"LARYNGISMUS stridulus, sleep, during","chlor(2), lach(2), lact-ac(1), spong(1), sulph(2), thuj(1)"
+750,2,"LARYNGISMUS stridulus, sleep, during, on falling asleep",phos(2)
+750,1,"LARYNGISMUS stridulus, swallowing","cupr(2), merc-c(1)"
+750,1,"LARYNGISMUS stridulus, warm room",iod(2)
+750,0,"LEAF closing up trachea, like a",mang(1)
+750,0,LIQUIDS pass into larynx,"acon(2), anan(1), lach(2), meph(2)"
+750,0,"LUMP in larynx, sensation","coc-c(2), kali-c(2), lob(2), med(2), nat-m(2)"
+750,1,"LUMP in larynx, sensation, behind larynx that compels swallowing","coc-c(2), lach(2), ust(1)"
+750,1,"LUMP in larynx, sensation, throat-pit","lach(3), lob(2)"
+750,0,MEMBRANE (See Croup),bufo(1)
+750,1,"MEMBRANE (See Croup), seems to move about in larynx",kali-c(2)
+750,1,"MEMBRANE (See Croup), sensation of (See Foreign Body, Velvety)",
+750,0,MOVEMENT up and down larynx,"lyc(1), op(1), sul-ac(1)"
+750,0,MUCUS in the air passages,"acon(1), aeth(1), alum(2), am-c(1), ambr(2), ang(1), ant-t(1), arg-m(2), arg-n(2), arn(1), ars(2), arum-t(1), aur(3), bar-c(3), bell(1), bov(1), brom(2), bry(1), calc(1), calc-s(3), camph(2), cann-s(1), caps(1), carb-s(1), carb-v(1), caust(3), cham(1), chin(1), cina(1), coc-c(2), cocc(1), croc(1), crot-t(1), cupr(2), dig(1), dulc(2), euphr(2), ferr(2), ferr-ar(1), ferr-p(1), hep(2), hyos(3), iod(3), kali-ar(1), kali-bi(3), kali-c(2), kali-p(1), kali-s(1), kreos(1), lach(1), laur(1), lyc(3), mag-m(1), mang(2), med(1), nat-m(3), nux-v(2), olnd(1), osm(1), ox-ac(1), par(1), phel(1), plb(1), puls(2), rumx(2), samb(1), seneg(3), sil(2), spong(2), stann(2), staph(1), sul-ac(1), sulph(2)"
+750,1,"MUCUS in the air passages, consistency (See Expectoration)",
+751,1,"MUCUS in the air passages, Larynx","acon(1), aesc(2), all-c(2), alum(1), alumn(2), am-br(1), am-c(1), am-m(1), ambr(2), amyg(1), anan(1), ant-t(3), arg-m(2), arg-n(3), ars(2), ars-i(1), arum-t(2), asaf(1), asar(1), aur(2), bar-c(2), bell(1), brom(3), bufo(1), calc(1), calc-p(2), camph(2), canth(2), carb-an(1), carb-v(2), caust(2), cham(2), chin(1), chin-s(1), cina(1), cist(1), coc-c(3), cocc(1), con(2), crot-t(2), dig(1), dros(2), echi(1), euphr(2), ferr(2), ferr-ar(1), ferr-i(1), ferr-p(1), form(2), graph(2), grat(1), hep(2), hydr-ac(1), hyos(3), iod(3), iris(1), kali-bi(3), kali-c(3), kali-chl(2), kali-i(1), kali-n(1), kali-p(2), kali-s(2), kreos(1), lach(2), lact-ac(1), laur(1), lyc(3), mang(2), merc(2), mill(1), naja(2), nat-a(1), nat-m(3), nat-s(1), nux-v(2), ol-j(2), olnd(2), osm(1), par(2), ph-ac(2), phel(1), phos(3), psor(1), puls(2), rumx(3), samb(3), sang(2), sel(2), seneg(2), sep(1), sil(2), stann(2), staph(2), sulph(2), tarent(1), thuj(2), verb(1), zinc(2)"
+751,2,"MUCUS in the air passages, Larynx, morning","alumn(2), am-m(1), dig(1), kali-bi(2), mang(2), nat-m(3), nux-v(2), ol-j(2), olnd(2), par(1), sel(2), seneg(2), sil(2), sulph(2), tarent(1), thuj(1)"
+751,3,"MUCUS in the air passages, Larynx, morning, rising, after","cina(2), olnd(2), sil(1)"
+751,3,"MUCUS in the air passages, Larynx, morning, waking, on","sars(1), sulph(1)"
+751,2,"MUCUS in the air passages, Larynx, evening","carb-v(2), crot-t(1), puls(2), rumx(2), tarent(1), zinc(2)"
+751,2,"MUCUS in the air passages, Larynx, night","puls(2), rumx(2), thuj(1)"
+751,3,"MUCUS in the air passages, Larynx, night, speaking, on",ox-ac(1)
+751,2,"MUCUS in the air passages, Larynx, blood-streaked","am-c(1), anan(1), sol-n(1)"
+751,2,"MUCUS in the air passages, Larynx, blue","kali-bi(2), nat-a(1)"
+751,2,"MUCUS in the air passages, Larynx, cold air, in","rumx(2), seneg(2)"
+751,2,"MUCUS in the air passages, Larynx, cough, after each paroxysmal","agar(2), coc-c(3), kali-bi(1), nat-m(2), seneg(2), sulph(1)"
+751,2,"MUCUS in the air passages, Larynx, copious","alumn(1), anan(1), carb-v(2), coc-c(2), nat-m(2), rumx(3), seneg(2)"
+751,2,"MUCUS in the air passages, Larynx, eating, after","bell(1), caust(1), graph(1), hep(1), kali-bi(1), lyc(2), nat-s(2), nux-m(1), ol-an(1), olnd(2), ph-ac(1), phos(1), puls(1), sanic(1), sil(2), thuj(1)"
+751,2,"MUCUS in the air passages, Larynx, ejected with difficulty","alum(1), alumn(1), aur(2), bar-c(1), bov(1), calc(2), canth(2), carl(1), caust(2), cham(2), cina(1), cocc(1), crot-t(1), form(2), kali-bi(2), kali-c(2), lyc(2), mang(2), mosch(1), naja(1), nat-a(1), nat-m(2), nux-v(2), par(2), rumx(1), sars(1), seneg(2), sep(1), sil(2), staph(1), sulph(2), tarent(2)"
+751,2,"MUCUS in the air passages, Larynx, green","hep(2), par(1)"
+751,2,"MUCUS in the air passages, Larynx, laughing","arg-m(2), kali-bi(1)"
+751,2,"MUCUS in the air passages, Larynx, overheated, from being",brom(2)
+751,2,"MUCUS in the air passages, Larynx, rattling",sul-ac(1)
+751,3,"MUCUS in the air passages, Larynx, rattling, evening",crot-t(1)
+751,2,"MUCUS in the air passages, Larynx, saltish",am-c(2)
+751,2,"MUCUS in the air passages, Larynx, stooping, comes up when",arg-m(2)
+751,2,"MUCUS in the air passages, Larynx, talking, from",kali-bi(1)
+751,1,"MUCUS in the air passages, Trachea","aeth(1), agn(1), am-c(2), ambr(1), ammc(2), ang(2), ant-t(3), arg-m(2), ars(2), ars-i(1), arum-t(3), asaf(1), aur(2), bar-c(3), bell(1), bov(1), bry(2), cahin(1), calc(3), camph(2), cann-s(2), caps(1), carl(1), caust(1), cham(2), chin(1), cina(2), coc-c(1), cocc(1), crot-t(1), cupr(1), dig(1), dros(1), dulc(2), euphr(1), ferr(1), ferr-ar(1), ferr-i(1), ferr-p(1), gels(1), hep(3), hyos(2), iod(2), iris(1), kali-bi(3), kali-s(1), kreos(1), lach(1), laur(1), lyc(3), mag-m(1), merc(2), merc-sul(1), naja(1), nat-m(2), nat-s(2), nux-v(2), olnd(2), osm(1), ox-ac(1), par(2), ph-ac(2), phel(1), phos(3), plb(1), puls(2), rumx(2), samb(2), sang(3), senec(1), seneg(2), sil(2), squil(3), stann(3), staph(1), sulph(2), teucr(1), thuj(1)"
+751,2,"MUCUS in the air passages, Trachea, morning","cann-s(2), caust(1), olnd(1)"
+751,2,"MUCUS in the air passages, Trachea, forenoon",stann(3)
+751,2,"MUCUS in the air passages, Trachea, evening","crot-t(1), puls(2)"
+751,2,"MUCUS in the air passages, Trachea, night","puls(2), thuj(1)"
+751,2,"MUCUS in the air passages, Trachea, ascending and descending","coc-c(2), lach(2)"
+751,2,"MUCUS in the air passages, Trachea, ejected with difficulty","cann-s(2), caust(2)"
+751,0,NECROSIS of cartilages of larynx,"calc(2), crot-h(1), kali-bi(2)"
+751,0,ŒDEMA glottidis,"apis(3), ars(1), arum-t(1), bell(1), chin(1), crot-h(2), hippoz(1), ign(1), iod(1), kali-i(3), lach(2), merc(1), sang(2), staph(1), stram(2)"
+751,1,"ŒDEMA glottidis, vocal cords",lach(3)
+751,0,"PAIN, larynx","acon(2), all-c(3), am-c(1), ambr(1), ant-t(1), arg-m(1), arum-t(2), asc-t(1), bell(3), brom(2), bry(1), calad(1), calc(2), canth(1), carb-an(1), carb-s(1), carb-v(2), caust(1), chel(2), chin-s(1), cist(2), cob(1), coc-c(1), colch(1), crot-c(1), crot-t(1), cycl(1), der(1), dirc(1), dros(1), euphr(1), ferr(1), ferr-i(1), fl-ac(1), gels(1), graph(1), grat(1), hep(2), hura(1), iod(2), ip(1), kali-bi(2), kali-c(1), kali-chl(1), kali-ma(1), kali-n(1), lach(3), lyc(1), mang(1), nat-m(1), nit-ac(1), nux-v(2), osm(1), phos(3), rhus-v(1), rumx(2), ruta(1), sabad(1), sarr(1), sars(1), sep(1), spong(1), stann(1), stram(1), sul-ac(1), sulph(1), tab(1), tarax(1), tep(1), thuj(1)"
+751,1,"PAIN, larynx, morning","nux-v(2), sep(1)"
+751,2,"PAIN, larynx, morning, waking, on",kali-bi(1)
+751,1,"PAIN, larynx, evening","nux-v(2), spong(1)"
+752,1,"PAIN, larynx, bending head backward","bell(2), bry(1), lach(3), rumx(2), sil(1)"
+752,1,"PAIN, larynx, blowing nose, on",caust(1)
+752,1,"PAIN, larynx, cold air","hep(3), sil(2)"
+752,2,"PAIN, larynx, cold air, drinks","calc(1), hep(2)"
+752,1,"PAIN, larynx, coughing, on","acon(2), all-c(3), arg-m(1), bell(3), bor(1), brom(2), bry(2), calc(2), carb-v(2), caust(2), chel(2), chin(1), coc-c(1), dros(1), hep(2), iod(1), kali-bi(2), kali-c(2), lach(2), med(1), nat-m(1), osm(2), phos(2), puls(2), rumx(1), sars(1), spong(2), stann(2)"
+752,2,"PAIN, larynx, coughing, on, grasps the larynx","acon(3), all-c(3), ant-t(1), bell(2), dros(2), hep(3), iod(1), lach(1), phos(2)"
+752,2,"PAIN, larynx, coughing, on, torn loose, as if something were being","all-c(3), calc(2)"
+752,1,"PAIN, larynx, draft of air",arg-m(1)
+752,1,"PAIN, larynx, eating, while",rumx(1)
+752,1,"PAIN, larynx, heat, during","bell(1), hep(1), iod(2), mosch(1), nux-v(3), phos(2), puls(3)"
+752,1,"PAIN, larynx, lifting a weight",sil(1)
+752,1,"PAIN, larynx, motion, on","bell(2), spong(1)"
+752,1,"PAIN, larynx, moving head, on",hura(1)
+752,1,"PAIN, larynx, pressure, on","ars(2), card-m(1), hep(2), phos(3)"
+752,1,"PAIN, larynx, reading, after","euphr(1), nit-ac(1), spong(2), stann(1)"
+752,1,"PAIN, larynx, respiration agg.","bell(2), carb-v(2), hep(2), kali-n(1)"
+752,1,"PAIN, larynx, singing, when","acon(2), spong(3)"
+752,1,"PAIN, larynx, sneezing, on","aphis(1), bor(1), phos(1)"
+752,1,"PAIN, larynx, speaking, on","acon(2), coc-c(1), phos(3)"
+752,1,"PAIN, larynx, spot, in a small","hep(2), lach(2)"
+752,1,"PAIN, larynx, swallowing, on","bapt(1), bell(2), calc(1), card-m(1), chel(1), hep(1), ign(1), kali-bi(1), kali-cy(1), kali-ma(1), lyc(1), merc-c(2), phos(1), spong(3), sul-ac(2)"
+752,2,"PAIN, larynx, swallowing, on, as if food passed over sore spot",kali-bi(2)
+752,1,"PAIN, larynx, talking, while","acon(2), am-c(1), apis(1), arg-m(1), bapt(1), bell(2), bry(1), carb-v(1), card-m(1), coc-c(1), hep(2), kali-bi(1), merc-cy(1), nicc(3), nit-ac(1), osm(1), phos(3), rumx(1), sang(1), spong(3), sul-ac(1), sulph(1)"
+752,1,"PAIN, larynx, tobacco smoking, from",bry(1)
+752,1,"PAIN, larynx, touch, on","ant-t(2), bell(2), brom(1), caust(1), crot-h(1), hep(1), lach(3), phos(3), spong(3)"
+752,1,"PAIN, larynx, turning neck, on","bell(2), bry(2), lach(1), spong(1)"
+752,1,"PAIN, larynx, extending to teeth",crot-h(1)
+752,2,"PAIN, larynx, extending to teeth, to abdomen",crot-c(1)
+752,1,"PAIN, larynx, Throat-pit",lach(2)
+752,2,"PAIN, larynx, Throat-pit, extending to root of tongue and into hyoid bone",lach(2)
+752,1,"PAIN, larynx, Trachea","acon(2), aesc(1), arg-m(1), bry(3), calad(1), cist(2), hep(1), ip(1), lach(1), mez(1), sars(1), spong(1), stann(1), thuj(1)"
+752,2,"PAIN, larynx, Trachea, morning",mez(1)
+752,2,"PAIN, larynx, Trachea, coughing, on","bell(1), bry(3), camph(1), caust(3), chel(2), chin(2), cor-r(1), ign(1), kali-bi(3), kali-i(2), kali-n(1), kreos(2), laur(1), nat-m(1), nux-v(2), osm(1), ox-ac(1), ph-ac(1), phos(3), phyt(2), psor(1), puls(2), rumx(2), sang(2), spong(1), staph(1), sulph(2), thuj(1)"
+752,3,"PAIN, larynx, Trachea, coughing, on, in a streak down",caust(3)
+752,2,"PAIN, larynx, Trachea, inspiration, on","bry(2), caps(1), caust(2), chel(2), hep(2), kali-c(2), laur(1), lyc(1), manc(2), nat-m(1), psor(1)"
+752,2,"PAIN, larynx, Trachea, talking, on",bry(1)
+752,1,"PAIN, larynx, boring, larynx",coc-c(1)
+752,1,"PAIN, larynx, burning","am-m(2), ant-c(1), ars(2), bar-c(1), canth(1), carb-v(2), caust(1), cham(1), cina(1), cycl(1), ferr-ar(1), gels(1), graph(1), hydr-ac(1), iod(1), lach(1), lact(1), lob(2), lyc(1), mag-m(1), merc(1), merc-c(1), mez(1), myric(1), par(1), phos(1), puls(2), rumx(2), seneg(2), sep(1), spong(2), staph(1), sulph(1), ter(1), zinc(1)"
+752,2,"PAIN, larynx, burning, night",puls(2)
+752,2,"PAIN, larynx, burning, cough, during","ant-c(1), carb-v(1), caust(2), cina(1), iod(1), lach(1), mag-m(1), pyrog(1), spong(3), sulph(1), zinc(1)"
+752,2,"PAIN, larynx, burning, cold air amel.",puls(2)
+752,2,"PAIN, larynx, burning, lying, while","puls(2), seneg(1)"
+752,2,"PAIN, larynx, burning, Larynx","acon(3), aesc(2), alumn(2), am-m(2), aphis(1), apis(1), arg-n(2), ars(2), ars-i(1), bell(2), bov(1), brom(1), bufo(1), calc-p(2), canth(2), carb-s(1), carb-v(2), caust(2), cham(2), chel(1), clem(2), coc-c(1), cur(1), elaps(1), ferr(1), ferr-i(1), ferr-p(1), gels(2), graph(2), hydr-ac(2), iod(2), ip(1), kali-bi(2), kali-i(2), kali-n(1), lact-ac(1), lob(2), mag-s(1), merc(2), mez(2), myric(1), nat-a(2), nit-ac(3), oena(1), par(2), ph-ac(2), phos(2), phyt(1), puls(2), pyrog(1), rhus-t(2), rumx(2), seneg(3), spong(2), stict(2), tab(1), tarent(2), thuj(1), urt-u(1)"
+752,3,"PAIN, larynx, burning, Larynx, afternoon",am-m(1)
+752,3,"PAIN, larynx, burning, Larynx, night",puls(2)
+752,3,"PAIN, larynx, burning, Larynx, coryza, during","am-m(1), seneg(2)"
+752,3,"PAIN, larynx, burning, Larynx, cough, during","ars(1), bell(1), bufo(1), carb-v(1), caust(2), cham(1), chel(2), coc-c(1), dros(2), gels(2), iod(1), mag-m(1), phos(1), pyrog(1), rumx(1), seneg(2)"
+753,3,"PAIN, larynx, burning, Larynx, deep inspiration",rumx(2)
+753,3,"PAIN, larynx, burning, Larynx, scraping, when","canth(2), kali-bi(2)"
+753,3,"PAIN, larynx, burning, Larynx, talking, after","ferr(2), kali-bi(2)"
+753,3,"PAIN, larynx, burning, Larynx, extending to abdomen",ambr(1)
+753,4,"PAIN, larynx, burning, Larynx, extending to abdomen, to nostrils",kali-bi(2)
+753,3,"PAIN, larynx, burning, Larynx, epiglottis",wye(1)
+753,2,"PAIN, larynx, burning, Throat-pit",ars(1)
+753,2,"PAIN, larynx, burning, Trachea","acon(2), ant-t(2), ars(1), ars-i(1), asaf(2), bov(1), carb-v(2), caust(2), cham(2), clem(1), coc-c(2), dros(2), eupho(1), gels(1), iod(2), kali-bi(2), kali-n(1), lach(2), mag-s(1), mang(1), merc-c(2), mez(1), myric(1), ph-ac(1), phos(2), phyt(1), sang(2), seneg(2), spong(2), sulph(1), tep(1), thuj(1), zinc(1)"
+753,3,"PAIN, larynx, burning, Trachea, 6 to 8 p.m.",thuj(1)
+753,3,"PAIN, larynx, burning, Trachea, cough, with","caust(2), ferr(2), gels(1), mag-s(1), phyt(1), spong(3)"
+753,3,"PAIN, larynx, burning, Trachea, motion, on",seneg(1)
+753,1,"PAIN, larynx, bursting",kali-ar(1)
+753,1,"PAIN, larynx, compressed, as if",acon(1)
+753,1,"PAIN, larynx, contractive","brom(1), dros(1), ign(1), iod(2), ox-ac(1), ph-ac(1), spong(1), staph(1), stram(1), sul-ac(1), tab(1), thuj(1), verat(1)"
+753,2,"PAIN, larynx, contractive, speaking, when",dros(1)
+753,1,"PAIN, larynx, cutting, larynx","all-c(1), arg-m(2), canth(1), kali-n(1), manc(1)"
+753,2,"PAIN, larynx, cutting, larynx, coughing on","all-c(3), staph(2), sulph(1)"
+753,2,"PAIN, larynx, cutting, larynx, swallowing, on",merc-cy(1)
+753,1,"PAIN, larynx, lancinating, trachea",iod(2)
+753,1,"PAIN, larynx, nail, as if a, in larynx",spong(1)
+753,1,"PAIN, larynx, piercing larynx","brom(1), cham(1), kali-c(1), nit-ac(1), phos(1)"
+753,2,"PAIN, larynx, piercing larynx, Trachea","kali-c(1), nit-ac(1)"
+753,1,"PAIN, larynx, pressing, larynx","acon(1), agar(1), anac(1), caust(2), chel(3), euphr(1), iod(2), kali-bi(1), sep(1), thuj(1)"
+753,2,"PAIN, larynx, pressing, larynx, morning",sep(1)
+753,2,"PAIN, larynx, pressing, larynx, blowing the nose, on",caust(2)
+753,2,"PAIN, larynx, pressing, larynx, supper, after",hep(2)
+753,2,"PAIN, larynx, pressing, larynx, swallowing agg.","chel(2), lyc(1)"
+753,2,"PAIN, larynx, pressing, larynx, talking agg.",kali-bi(2)
+753,1,"PAIN, larynx, rawness in air passages","acon(2), agar(2), am-c(1), ambr(1), anac(1), ant-c(1), arg-m(3), arn(1), calc(1), calc-s(1), carb-v(2), caust(2), coc-c(2), coff(1), ferr-p(1), grat(1), kali-ar(1), kali-c(1), kreos(1), laur(1), mag-c(1), mez(2), nat-m(2), nux-m(1), petr(1), phos(3), ruta(1), sep(1), sil(1), stann(1)"
+753,2,"PAIN, larynx, rawness in air passages, coughing, from","coc-c(2), phos(1), stann(1)"
+753,2,"PAIN, larynx, rawness in air passages, Larynx","acon(2), aesc(2), agar(2), all-c(2), all-s(2), alum(2), alumn(2), am-c(1), ambr(2), anac(1), anan(1), apis(1), arg-m(3), arg-n(3), ars(3), ars-i(1), asar(1), bell(2), bov(1), brom(3), bry(2), bufo(1), calc(2), cann-s(2), carb-an(2), carb-s(1), carb-v(2), carl(1), caust(2), cham(3), chin(1), chin-a(1), chlor(2), cist(2), coc-c(2), coff(2), dulc(1), gels(1), graph(1), hydr(2), hydrang(1), iod(2), kali-bi(2), kali-c(1), kali-i(3), kali-ma(1), kali-n(1), kali-s(2), kreos(1), lach(3), lact(1), lact-ac(1), laur(1), lec(1), lyc(1), mag-m(1), mang(2), med(1), merc(2), naja(3), nat-m(2), nux-v(3), ol-an(1), osm(1), ox-ac(1), ph-ac(2), phel(1), phos(3), puls(2), rhus-t(2), rumx(3), samb(2), sang(2), sars(1), seneg(2), sep(2), sil(2), stann(2), staph(2), stront(1), sulph(3), tarent(2), zinc(2)"
+753,3,"PAIN, larynx, rawness in air passages, Larynx, morning","calc(1), carb-an(2), carl(1), caust(2), cob(1), iod(2), rhus-t(2), sil(2), stann(2), sulph(3), zinc(1)"
+753,4,"PAIN, larynx, rawness in air passages, Larynx, morning, waking, on",rhus-t(1)
+753,3,"PAIN, larynx, rawness in air passages, Larynx, evening","carb-v(2), phos(3)"
+753,3,"PAIN, larynx, rawness in air passages, Larynx, night",anac(1)
+753,3,"PAIN, larynx, rawness in air passages, Larynx, cold air","acon(3), calc-p(1), carb-v(2), nat-m(2), nux-v(2), phos(2), rumx(3), sil(1), sulph(2), tub(2)"
+753,3,"PAIN, larynx, rawness in air passages, Larynx, coughing, from","all-c(2), arg-m(3), arg-n(2), ars(2), bell(2), brom(3), bry(1), bufo(1), carb-v(1), caust(3), cham(1), chlor(1), iod(1), kali-c(2), mag-m(1), naja(2), nux-v(3), osm(1), phos(1), puls(3), rumx(2), seneg(2), sep(1), spong(1), sulph(3), ziz(1)"
+753,3,"PAIN, larynx, rawness in air passages, Larynx, inspiration, during","acon(3), brom(1), hep(3), hipp(1), phos(3), rumx(2), sil(1)"
+753,3,"PAIN, larynx, rawness in air passages, Larynx, scraping, from","agar(1), cann-s(2), carb-v(2), rumx(2)"
+753,3,"PAIN, larynx, rawness in air passages, Larynx, singing, when","arg-m(1), dros(1), stann(2)"
+753,3,"PAIN, larynx, rawness in air passages, Larynx, smoking, from",osm(1)
+753,3,"PAIN, larynx, rawness in air passages, Larynx, swallowing, on",calc(1)
+753,3,"PAIN, larynx, rawness in air passages, Larynx, talking, from","alumn(2), arg-m(3), arg-n(2), ars(2), calc(2), carl(1), coc-c(1), kali-bi(2), nat-m(2), rumx(2), stann(2), staph(2), tarent(3)"
+754,3,"PAIN, larynx, rawness in air passages, Larynx, waking, on",alum(1)
+754,2,"PAIN, larynx, rawness in air passages, Throat-pit",arg-m(1)
+754,2,"PAIN, larynx, rawness in air passages, Trachea (See Chest)","acon(2), agar(2), ambr(2), anac(2), arg-m(3), arg-n(1), arn(1), calc(2), calc-s(2), carb-an(2), carb-s(2), carb-v(2), caust(3), coc-c(2), coff(1), dig(1), fl-ac(1), graph(1), iod(2), ip(2), kreos(1), lact(1), laur(1), lyc(3), mang(2), mez(2), nat-c(1), nat-m(2), nit-ac(1), nux-v(3), osm(1), par(1), petr(2), phos(3), psor(1), puls(2), rumx(3), sang(2), sars(2), seneg(2), stann(3), staph(1), stram(2), stront(1), sulph(2), zinc(1)"
+754,3,"PAIN, larynx, rawness in air passages, Trachea (See Chest), morning",carb-an(2)
+754,3,"PAIN, larynx, rawness in air passages, Trachea (See Chest), night","calc(1), sulph(1)"
+754,3,"PAIN, larynx, rawness in air passages, Trachea (See Chest), coughing, when","arg-m(2), arg-n(1), arn(1), calc(2), carb-v(2), caust(2), gels(2), graph(2), laur(1), naja(1), nat-c(1), nux-v(1), phos(3), rumx(2), stann(1), staph(2), sulph(2)"
+754,4,"PAIN, larynx, rawness in air passages, Trachea (See Chest), coughing, when, from","carb-an(1), laur(1), naja(1), staph(2)"
+754,3,"PAIN, larynx, rawness in air passages, Trachea (See Chest), inspiration, on",carb-v(1)
+754,3,"PAIN, larynx, rawness in air passages, Trachea (See Chest), swallowing",puls(1)
+754,3,"PAIN, larynx, rawness in air passages, Trachea (See Chest), talking",arg-m(3)
+754,1,"PAIN, larynx, shooting (See Stitching)",
+754,1,"PAIN, larynx, soreness","alum(1), am-m(1), ambr(1), arg-m(2), ars(1), ars-i(1), bar-c(1), bell(2), bov(1), brom(1), bry(2), calc(1), calc-s(2), carb-s(3), carb-v(3), caust(2), chin(1), cina(1), graph(1), hep(1), ign(1), iod(1), kali-ar(1), kali-p(1), lach(1), lyc(1), mag-m(1), merc(1), nat-c(1), nux-m(1), nux-v(2), phos(3), rumx(1), ruta(1), seneg(1), sep(1), sil(1), spig(1), spong(1), stann(3), sulph(3)"
+754,2,"PAIN, larynx, soreness, Larynx","acon(3), all-s(1), alum(1), ambr(2), ant-c(1), aphis(1), apis(1), arg-m(3), arg-n(2), ars(2), ars-i(1), bapt(1), bar-c(1), bell(3), brom(2), bry(1), calad(1), calc-s(2), cann-s(2), carb-an(1), carb-s(3), carb-v(2), cast(1), caust(2), chin(2), chin-a(1), cic(1), con(2), cop(1), crot-h(1), dros(3), fl-ac(1), graph(2), hep(2), ign(2), iod(1), kali-bi(2), kali-c(1), kali-i(2), kali-s(2), lac-c(1), lach(3), mag-m(1), med(2), mez(2), nat-a(1), nat-m(2), nicc(2), nux-m(2), osm(1), ox-ac(1), phos(3), rumx(2), ruta(2), sang(1), sep(2), sil(2), spong(3), stann(3), still(2), sul-ac(1), sulph(3), teucr(1), zinc(1)"
+754,3,"PAIN, larynx, soreness, Larynx, morning","arg-n(2), chin-s(1)"
+754,4,"PAIN, larynx, soreness, Larynx, morning, waking, on",kali-bi(1)
+754,3,"PAIN, larynx, soreness, Larynx, evening","kali-bi(1), phos(2)"
+754,3,"PAIN, larynx, soreness, Larynx, breathing, on",sil(1)
+754,3,"PAIN, larynx, soreness, Larynx, coughing, on","ambr(1), arg-m(3), bell(3), brom(2), caps(2), carb-an(1), carb-v(2), caust(2), chin(1), dros(2), fl-ac(1), ign(1), kali-c(1), kali-i(1), nat-m(1), nux-m(2), phos(3), puls(2), rumx(1), sep(1), stann(2)"
+754,3,"PAIN, larynx, soreness, Larynx, inspiration, on",dros(1)
+754,3,"PAIN, larynx, soreness, Larynx, singers","alum(1), arg-n(2), arn(1), arum-t(3), caps(1), cupr(1), ferr-p(1), lach(2), rhus-t(2), stann(2), zinc(1)"
+754,3,"PAIN, larynx, soreness, Larynx, swallowing, on","bell(3), calc(1), chin-s(1), dros(3), fl-ac(1), gels(1), mag-m(1), spong(3)"
+754,3,"PAIN, larynx, soreness, Larynx, touch","acon(3), alum(1), apis(1), bapt(1), bar-c(1), bell(3), brom(1), bry(1), caust(2), chin-s(1), cic(1), con(2), crot-h(2), graph(2), hep(1), lac-c(1), lach(3), mez(1), nicc(2), phos(3), rumx(1), spong(3), sul-ac(2), sulph(1), teucr(1), zinc(1)"
+754,3,"PAIN, larynx, soreness, Larynx, turning the head, on","carb-v(2), lach(1), spong(2)"
+754,2,"PAIN, larynx, soreness, Throat-pit","apis(2), arg-n(2)"
+754,2,"PAIN, larynx, soreness, Trachea","ambr(2), ant-c(1), apis(1), bell(2), brom(1), bry(2), carb-an(1), carb-s(1), carb-v(1), caust(2), cham(1), chin(2), hep(2), kali-c(1), lyc(1), nat-c(1), nat-m(2), nat-p(1), nux-v(1), phos(2), rumx(3), sep(1), sil(2), stann(1), sulph(1), zinc(1)"
+754,3,"PAIN, larynx, soreness, Trachea, coughing, on","am-c(1), arg-n(2), bry(3), caust(3), chel(1), cina(1), iod(1), iris(1), kali-i(1), nux-v(1), osm(1), psor(1), rumx(2), sep(1), stann(3), sulph(1)"
+754,1,"PAIN, larynx, stinging, larynx","alumn(2), am-c(1), bufo(1), canth(1), cham(1), dirc(1), iod(2), nit-ac(3), seneg(2)"
+754,1,"PAIN, larynx, stitching, larynx","acon(1), ang(1), aphis(1), arg-m(2), asar(1), bar-c(1), bell(1), bor(1), brom(2), bufo(1), calc(1), canth(1), caps(1), caust(1), cham(1), chel(2), chin(1), cist(2), cob(2), coc-c(1), croc(1), cur(1), dig(1), dirc(1), dros(1), hep(1), hydr-ac(1), hyos(1), indg(2), iod(2), kali-c(2), kali-s(2), laur(1), led(1), mang(2), merc-c(1), mur-ac(2), naja(1), nit-ac(2), olnd(1), ox-ac(1), phos(2), sars(1), seneg(1), stann(1), sul-ac(1), thuj(2), til(2), zinc(1)"
+754,2,"PAIN, larynx, stitching, larynx, evening",indg(1)
+754,2,"PAIN, larynx, stitching, larynx, night, cough, during",phos(1)
+754,2,"PAIN, larynx, stitching, larynx, air, open, in",ox-ac(1)
+754,2,"PAIN, larynx, stitching, larynx, cough, during","aloe(1), bufo(1), dros(1), kali-c(1), mur-ac(1), phos(2), sulph(1)"
+754,2,"PAIN, larynx, stitching, larynx, excitement, from",cist(2)
+754,2,"PAIN, larynx, stitching, larynx, forced inspiration, on",hep(1)
+754,2,"PAIN, larynx, stitching, larynx, supper, after",hep(2)
+755,2,"PAIN, larynx, stitching, larynx, swallowing, when","brom(2), mang(3)"
+755,2,"PAIN, larynx, stitching, larynx, walking in open air, while",ox-ac(1)
+755,2,"PAIN, larynx, stitching, larynx, extending to ear","arg-m(1), nat-m(1)"
+755,3,"PAIN, larynx, stitching, larynx, extending to ear, swallowing, when",mang(3)
+755,2,"PAIN, larynx, stitching, larynx, pharynx, to",dros(1)
+755,2,"PAIN, larynx, stitching, larynx, vertex",arg-m(1)
+755,2,"PAIN, larynx, stitching, larynx, Trachea","arg-m(2), bell(1), canth(1), lach(1), stann(3), thuj(1)"
+755,3,"PAIN, larynx, stitching, larynx, Trachea, night",canth(1)
+755,3,"PAIN, larynx, stitching, larynx, Trachea, breathing, on",thuj(1)
+755,3,"PAIN, larynx, stitching, larynx, Trachea, exertion, slightest, on",manc(1)
+755,1,"PAIN, larynx, tearing, larynx","anan(1), bell(1), bor(1), ign(1), lact-ac(1), seneg(1)"
+755,2,"PAIN, larynx, tearing, larynx, evening",bor(1)
+755,2,"PAIN, larynx, tearing, larynx, coughing, on","all-c(3), bell(2), bor(1), calc(2), cist(2), med(1), phos(2), staph(2)"
+755,2,"PAIN, larynx, tearing, larynx, swallowing agg.",ign(1)
+755,0,"PARALYSIS, larynx","alum(2), am-c(1), caust(3), cina(2), crot-h(2), gels(2), lach(3), naja(2), phos(2), plb(2), stram(2)"
+755,1,"PARALYSIS, larynx, epiglottis","acon(1), gels(1)"
+755,0,"PHTHISIS, larynx","agar(2), anan(1), ant-c(1), arg-m(2), ars(1), ars-i(1), bufo(1), calc(2), carb-an(2), carb-s(2), carb-v(2), caust(2), dros(2), elaps(1), hep(2), iod(2), kali-bi(2), kali-i(2), kreos(1), lach(2), led(1), mang(3), merc(1), merc-i-r(2), nit-ac(2), phos(2), sel(2), seneg(2), sil(2), spong(3), stann(3), sulph(1), tub(1)"
+755,1,"PHTHISIS, larynx, short hacking cough and loss of voice",stann(3)
+755,1,"PHTHISIS, larynx, singers and public speakers","ant-c(2), arg-m(2)"
+755,1,"PHTHISIS, larynx, Trachea","ars(2), calc(2), carb-an(2), carb-v(2), caust(1), chin(1), coloc(1), con(1), dros(2), hep(1), iod(1), kali-n(1), lyc(1), mang(1), nit-ac(1), seneg(1), spong(1), stann(2)"
+755,0,"PLUG, larynx","ant-c(2), arg-m(1), bell(1), calc(2), dros(1), hep(2), kali-c(1), lach(2), lob(2), sep(1), spong(3), sulph(1)"
+755,1,"PLUG, larynx, Trachea",lach(2)
+755,0,"POLYPI, larynx (See Condylomata)","arg-n(2), berb(1), calc(1), hep(1), kali-br(1), nit-ac(1), sang(2), thuj(2)"
+755,1,"POLYPI, larynx (See Condylomata), vocal cords","berb(1), thuj(2)"
+755,0,PRESSURE in throat-pit,"aesc(1), anac(1), brom(3), caust(2), cic(1), graph(1), lach(3), lob(2), phos(1), rumx(2), sarr(1)"
+755,1,"PRESSURE in throat-pit, anger, after",staph(1)
+755,1,"PRESSURE in throat-pit, inspiration, on",caust(1)
+755,1,"PRESSURE in throat-pit, swallowing agg.",staph(1)
+755,0,PRICKLING in larynx,calc(2)
+755,0,"PULSATING, larynx",all-c(2)
+755,0,"RATTLING, larynx","am-c(1), ant-t(2), arg-n(2), brom(3), carb-s(1), con(2), crot-t(1), ferr-p(1), kali-bi(1), spong(1), sul-ac(1)"
+755,1,"RATTLING, larynx, Trachea (See Respiration)","acon(1), am-c(1), ant-t(3), bar-c(1), bell(1), carb-ac(1), carb-an(1), carb-v(1), caust(1), cham(1), euphr(1), ferr-p(1), hep(3), hyos(1), ip(3), kali-c(1), kali-s(2), laur(2), merc(1), nat-m(1), nit-ac(1), oena(1), op(1), ox-ac(1), petr(1), puls(1), samb(1), sep(2), sil(1), squil(1), sul-ac(1), sulph(1)"
+755,0,"REMOVED, as if larynx",spong(1)
+755,0,ROUGHNESS,"agar(2), am-c(1), ambr(1), anac(1), ant-c(1), apis(1), ars(1), ars-i(1), bor(1), bov(1), brom(1), calc(2), canth(1), caps(1), carb-an(2), carb-v(3), caust(2), chin(1), cimic(1), cist(1), coc-c(1), coff(1), colch(1), cur(1), dig(1), dros(1), ferr(2), ferr-ar(1), gels(1), graph(1), hep(2), hipp(1), hydr-ac(1), iod(1), kali-ar(1), kali-bi(2), kali-c(1), kali-i(1), kali-n(1), kreos(1), lach(1), lact(1), laur(2), lyc(1), mag-m(1), mang(2), meny(1), merc(1), merc-sul(1), mur-ac(1), nat-c(1), nit-ac(1), nux-m(1), ol-an(1), ox-ac(1), ph-ac(2), phel(1), phos(2), plb(1), prun-s(1), puls(1), rhod(1), rhus-t(1), sabad(1), sang(1), seneg(2), sep(1), sil(2), stann(2), stront(1), sul-ac(2), sulph(2), verat(1), zinc(1)"
+755,1,"ROUGHNESS, morning","calc(1), carb-an(2), zinc(1)"
+755,1,"ROUGHNESS, evening",cimic(1)
+755,1,"ROUGHNESS, eating, after","anac(1), zinc(1)"
+755,1,"ROUGHNESS, walking in open air, after",sil(2)
+755,1,"ROUGHNESS, Larynx","alum(2), alumn(1), apis(1), calc(1), carb-an(2), carb-v(3), cast(1), caust(2), cimic(1), con(1), dros(1), ferr(2), ferr-p(1), graph(1), hep(2), kali-c(2), kali-i(1), kreos(1), lach(2), laur(1), mag-m(1), mag-s(1), mang(3), merc(1), nat-a(1), nat-s(1), nicc(1), nux-v(3), ol-an(1), phos(2), plb(1), puls(2), rhod(1), rhus-t(3), sabad(1), sars(1), seneg(2), sep(2), sil(2), spong(3), stann(2), sul-ac(1), sulph(2), tarent(1), tep(1)"
+755,2,"ROUGHNESS, Larynx, morning","calc(2), coff(1), kali-bi(1)"
+755,2,"ROUGHNESS, Larynx, coughing, from","bar-c(1), carb-an(1), carb-v(2), caust(2), dig(1), hep(2), kali-c(3), kreos(1), mang(2), nux-v(2), phos(2), sabad(1), seneg(2), spong(1)"
+755,3,"ROUGHNESS, Larynx, coughing, from, amel.","nicc(1), stann(1)"
+755,2,"ROUGHNESS, Larynx, talking, after","coc-c(1), lyc(1), staph(1)"
+756,1,"ROUGHNESS, Trachea","apis(1), bar-c(1), carb-an(1), dig(1), dros(1), hep(1), kali-c(1), kreos(1), laur(1), phos(1), phyt(1), rhus-t(1), sabad(1), sep(1), spong(1), tarent(1), verb(1)"
+756,0,"SCRAPING, clearing larynx","aesc(2), agar(2), all-s(1), aloe(1), alum(1), alumn(2), am-c(2), am-m(1), ambr(2), anac(1), ant-t(3), aphis(1), apis(2), arg-m(2), arg-n(3), ars(2), aur-m-n(1), bar-c(1), bell(3), bor(1), bov(1), brom(3), bry(2), cahin(1), calc(2), calc-f(2), calc-p(2), calc-s(2), camph(1), cann-s(2), carb-s(2), carb-v(2), card-m(1), carl(2), caust(3), cham(3), chel(1), chin-s(1), chlor(2), cimic(1), coc-c(2), cocc(1), colch(1), con(2), crot-t(1), cycl(2), dig(2), dros(2), echi(2), euphr(3), ferr(1), fl-ac(2), graph(1), grat(1), hep(2), hydr(1), hydr-ac(1), iod(2), ip(1), kali-ar(2), kali-bi(1), kali-c(2), kali-i(2), kali-p(2), kali-s(2), kalm(1), kreos(2), lach(2), laur(1), led(1), lob(1), lyc(2), mag-c(1), mag-m(1), mang(2), merc(2), mur-ac(1), naja(2), nat-a(1), nat-c(1), nat-m(2), nat-s(1), nit-ac(1), nux-m(1), nux-v(3), op(1), paeon(1), par(2), petr(1), ph-ac(2), phos(3), phyt(1), plat(1), prun-s(1), puls(3), rhus-t(3), rumx(3), sabad(2), sang(2), sanic(1), sel(2), seneg(2), sep(2), sil(2), spong(2), stann(2), sulph(3), syph(1), tarent(2), thuj(1), zinc(2)"
+756,1,"SCRAPING, clearing larynx, daytime","caust(2), con(1), stann(2)"
+756,1,"SCRAPING, clearing larynx, morning","cann-s(2), caust(3), chin-s(1), cina(2), kali-bi(1), nat-m(1), op(2), sel(2), stann(2), tarent(2)"
+756,1,"SCRAPING, clearing larynx, evening","arg-m(2), brom(3), carb-v(2), caust(3), chel(1), cimic(1), coc-c(2), con(2), lyc(2), nat-a(1), rumx(2), stann(1), tarent(2), zinc(2)"
+756,2,"SCRAPING, clearing larynx, evening, 7 p.m.","bry(1), grat(1)"
+756,1,"SCRAPING, clearing larynx, night","ant-t(3), cycl(2), mag-c(1), merc(2), rumx(2)"
+756,1,"SCRAPING, clearing larynx, eating, after","bell(1), carb-v(1), graph(2), hep(1), kali-bi(2), kali-s(1), lyc(2), nat-s(2), nit-ac(1), nux-m(1), phos(1), plat(1), puls(1), sanic(1), sil(2), thuj(1)"
+756,1,"SCRAPING, clearing larynx, ice cream, after",thuj(1)
+756,1,"SCRAPING, clearing larynx, incessant",phos(2)
+756,1,"SCRAPING, clearing larynx, lying amel.",nat-c(1)
+756,1,"SCRAPING, clearing larynx, reading aloud, from",arg-m(2)
+756,1,"SCRAPING, clearing larynx, talking, from","mang(2), stann(2)"
+756,1,"SCRAPING, clearing larynx, wind, from",kali-c(1)
+756,0,"SCRATCHING, larynx","acon(1), alum(1), alumn(1), am-c(1), anan(1), ant-c(1), arg-n(1), bov(1), calc(1), carb-v(1), cist(1), gamb(1), graph(2), ign(1), kali-c(1), kali-n(1), laur(2), lyc(1), mag-c(1), mag-m(1), nat-m(1), nit-ac(1), nux-v(1), phos(1), psor(1), seneg(2), verat(1), zinc(1)"
+756,1,"SCRATCHING, larynx, 2 a.m.; wakens him",lyc(1)
+756,1,"SCRATCHING, larynx, when singing",agar(1)
+756,0,SENSITIVE larynx,"acon(2), bell(3), calad(2), carb-s(1), caust(2), cedr(1), cor-r(1), fl-ac(1), graph(2), hep(1), lac-c(1), lach(3), naja(3), phos(2), spong(2), sul-ac(1), sulph(1)"
+756,1,"SENSITIVE larynx, morning",kali-bi(1)
+756,1,"SENSITIVE larynx, cold air, to","acon(3), ars(2), bell(2), calc-p(1), carb-v(2), carl(1), cimic(1), crot-h(1), fl-ac(1), hep(3), ip(1), mang(2), naja(2), nux-m(1), nux-v(1), osm(1), ox-ac(1), phos(2), rumx(3), sil(1), spong(1), stann(1), sulph(1)"
+756,1,"SENSITIVE larynx, pressure, to","ars(2), phos(3)"
+756,1,"SENSITIVE larynx, sound of the piano, to",calc(3)
+756,1,"SENSITIVE larynx, touch, to","acon(3), caust(2), con(2), crot-h(1), graph(2), hep(2), lach(3), naja(2), phos(3), spong(3)"
+756,1,"SENSITIVE larynx, Trachea, cold air, to",rumx(2)
+756,2,"SENSITIVE larynx, Trachea, cold air, to, touch, to",hep(2)
+756,0,SHOCKS in larynx on waking,manc(1)
+756,1,"SHOCKS in larynx on waking, Trachea","bry(1), cina(1), spong(1)"
+756,2,"SHOCKS in larynx on waking, Trachea, in sleep",spong(1)
+756,0,"SKIN, sensation of, larynx","alum(2), alumn(2), caust(1), kali-c(1), lach(2), phos(2), thuj(2)"
+756,0,"SMOKE, sensation of, larynx","ars(3), bar-c(3), brom(2)"
+756,1,"SMOKE, sensation of, larynx, sleep, before",ars(2)
+756,0,SPASMS of glottis (See Laryngismus),
+756,0,"STOPPAGE, sensation of","rhus-t(1), spong(1), verb(1)"
+756,0,"SULPHUR vapor, as from","am-c(1), aml-n(1), ars(3), asaf(1), brom(2), bry(2), calc(1), carb-v(2), chin(2), croc(1), ign(3), ip(1), kali-chl(1), lach(2), lyc(3), mosch(1), par(1), puls(3)"
+756,1,"SULPHUR vapor, as from, cough, during","brom(1), lyc(1), puls(2)"
+756,0,SUPPORTS larynx on coughing,"acon(2), all-c(3), ant-t(1), bell(2), dros(2), hep(2), iod(1), lach(1)"
+756,0,SWOLLEN larynx,"anan(1), arn(1), bell(3), calad(1), chel(1), coc-c(1), hep(2), iod(2), kali-i(1), lac-c(1), lach(2), ox-ac(1), spong(1), sulph(1)"
+756,1,"SWOLLEN larynx, evening",coc-c(1)
+756,1,"SWOLLEN larynx, sensation of","carb-v(1), chel(2), hydr-ac(1), ip(1), kali-bi(2), lach(2), laur(1), ox-ac(1), sang(1), sulph(1)"
+757,1,"SWOLLEN larynx, Throat-pit",lach(2)
+757,0,"TENSION, larynx","chin(1), cocc(2), iod(2), kali-n(1), lach(1), manc(1), mez(1), naja(1)"
+757,1,"TENSION, larynx, evening",naja(1)
+757,1,"TENSION, larynx, bed, in",naja(1)
+757,1,"TENSION, larynx, menses, during",cop(1)
+757,0,THINGS go down the wrong way (See Food),
+757,0,TICKLING in the air passages,"acet-ac(1), acon(3), alum(2), alumn(2), am-c(1), am-m(1), ambr(2), anac(1), ang(1), ant-t(1), arg-m(2), arg-n(1), arn(2), ars(1), arum-t(1), asaf(2), atro(1), aur-m(1), bar-c(1), bell(1), bov(1), brom(2), bry(2), cahin(1), calc(2), calc-f(3), calc-p(1), canth(1), carb-an(2), carb-s(1), carb-v(2), caust(2), cham(3), chin(1), cimic(1), cina(1), coc-c(2), coca(2), cocc(1), colch(1), coloc(1), con(3), cupr(2), dig(1), dros(2), euphr(2), ferr(2), ferr-i(1), ham(1), hep(1), hyos(3), ign(1), inul(1), iod(2), ip(3), iris(1), kali-bi(2), kali-c(3), kali-ma(1), kali-n(1), kali-s(1), lach(3), lact(1), laur(1), led(1), lyc(3), mag-c(1), mag-m(1), merc(2), mur-ac(1), naja(2), nat-c(1), nat-m(3), nat-p(1), nit-ac(1), nux-v(3), ol-an(1), ol-j(1), olnd(1), op(1), petr(1), ph-ac(2), phos(2), prun-s(1), puls(2), rhus-t(2), rumx(1), sabad(1), sabin(2), sang(3), sars(1), seneg(2), sep(3), sil(2), spong(2), squil(2), stann(2), staph(3), sulph(1), tab(2), teucr(1), thuj(1), verat(1), zinc(1)"
+757,1,"TICKLING in the air passages, daytime","coloc(1), euphr(2), lyc(1), nat-m(1), staph(1)"
+757,2,"TICKLING in the air passages, daytime, and night",nat-m(1)
+757,1,"TICKLING in the air passages, morning","alumn(2), cahin(1), carb-v(2), coloc(1), iod(3), lyc(1), nat-m(1), op(2), thuj(1)"
+757,2,"TICKLING in the air passages, morning, rising, after","alumn(1), arn(2)"
+757,2,"TICKLING in the air passages, morning, waking, after",carb-v(2)
+757,1,"TICKLING in the air passages, forenoon",calc-f(1)
+757,1,"TICKLING in the air passages, afternoon",naja(1)
+757,2,"TICKLING in the air passages, afternoon, 2 p.m.","arg-n(1), coc-c(3)"
+757,2,"TICKLING in the air passages, afternoon, 3 p.m.","hep(1), naja(1)"
+757,2,"TICKLING in the air passages, afternoon, 3 to 4 p.m.",calc-f(1)
+757,1,"TICKLING in the air passages, evening","alumn(1), bell(2), bry(1), calc-p(1), caps(2), carb-v(2), chin(1), chin-s(1), cimic(1), coloc(1), graph(1), lyc(3), merc(1), nat-m(1), rhus-t(1), sulph(1)"
+757,2,"TICKLING in the air passages, evening, bed, in","bell(2), calc-p(1), caps(2), graph(1), sang(3)"
+757,2,"TICKLING in the air passages, evening, falling, asleep, before",merc(1)
+757,2,"TICKLING in the air passages, evening, going to sleep, on","carb-v(2), lyc(1)"
+757,2,"TICKLING in the air passages, evening, midnight, until",rhus-t(1)
+757,2,"TICKLING in the air passages, evening, 6 p.m., expectoration of mucus, amel.",sulph(1)
+757,1,"TICKLING in the air passages, night","am-c(1), arg-n(1), asaf(2), bry(2), calc(2), coc-c(1), coloc(2), cycl(2), dros(2), kali-bi(1), kali-c(1), lyc(1), mag-m(1), myric(1), nat-m(1), rhus-t(1), rumx(1), sanic(1), zinc(1)"
+757,2,"TICKLING in the air passages, night, midnight, after",chin-s(1)
+757,2,"TICKLING in the air passages, night, 11-30 p.m.",coc-c(3)
+757,2,"TICKLING in the air passages, night, 2 a.m.",nat-m(1)
+757,2,"TICKLING in the air passages, night, 3 a.m.","am-c(2), bufo(2), cahin(1)"
+757,1,"TICKLING in the air passages, air, in open","lach(2), ox-ac(1), phos(3)"
+757,2,"TICKLING in the air passages, air, in open, draft of",merc(1)
+757,1,"TICKLING in the air passages, blood, taste of, with",ham(1)
+757,1,"TICKLING in the air passages, inspiring, on","brom(1), hipp(1)"
+757,1,"TICKLING in the air passages, lying, while","hyos(3), lac-c(1), ph-ac(1), seneg(1)"
+757,2,"TICKLING in the air passages, lying, while, on left side",phos(2)
+757,2,"TICKLING in the air passages, lying, while, amel.","euphr(2), mang(3)"
+757,1,"TICKLING in the air passages, smoking, from","atro(1), coloc(1)"
+757,1,"TICKLING in the air passages, talking, on","alum(2), alumn(2), atro(1), hep(2), kali-bi(2), lac-c(1), phos(2)"
+757,1,"TICKLING in the air passages, tobacco",acon(1)
+757,1,"TICKLING in the air passages, waking, on","carb-v(1), ham(1)"
+757,1,"TICKLING in the air passages, walking in open air",ox-ac(2)
+757,1,"TICKLING in the air passages, warm room","all-c(1), ambr(1), arn(2), brom(2), bry(2), dig(1), dros(3), iod(3), ip(2), lyc(2), mez(1), nat-c(2), puls(3), seneg(1), spong(1), sulph(1)"
+757,1,"TICKLING in the air passages, Larynx, in","acon(2), aesc(2), aeth(1), agar(2), all-c(3), alum(2), alumn(2), am-br(1), am-c(2), am-m(2), ambr(2), anac(1), ang(1), ant-t(1), aphis(1), apis(1), arg-m(2), arg-n(2), arn(2), ars(3), asaf(1), aspar(1), aur-m(1), aur-m-n(1), bad(2), bapt(1), bar-c(1), bell(3), bor(1), bov(1), brom(2), bry(2), bufo(1), cact(1), cadm(1), calc(2), calc-ar(1), calc-f(2), calc-p(2), caps(2), carb-ac(2), carb-an(2), carb-s(2), carb-v(2), carl(2), caust(2), cham(2), chel(2), chin-s(1), chlor(1), cimic(2), cina(1), cinnb(1), cist(2), clem(1), coc-c(3), coca(1), cocc(2), colch(1), coloc(1), com(1), con(3), cop(1), crot-c(2), crot-h(2), cupr(2), cycl(2), daph(1), dig(1), dios(1), dros(3), dulc(2), eupho(1), euphr(2), ferr(1), ferr-i(2), fl-ac(1), glon(1), graph(1), gymn(1), hep(3), hipp(1), hyos(1), ind(1), inul(1), iod(3), ip(3), iris(2), kali-bi(2), kali-c(3), kali-i(2), kali-n(1), kali-p(2), kalm(1), kreos(1), lac-c(1), lach(3), lact(1), laur(1), led(1), lob(1), lyc(3), mag-c(2), mag-m(1), mang(1), merc(2), merc-c(1), mez(1), mur-ac(1), naja(2), nat-c(1), nat-m(3), nat-p(1), nat-s(1), nicc(1), nit-ac(2), nux-v(3), oena(1), ol-an(1), olnd(1), onos(1), op(3), ox-ac(1), par(1), ph-ac(2), phos(3), phys(1), phyt(1), plan(1), prun-s(2), psor(2), puls(3), rhod(1), rhus-t(2), rumx(3), sabin(2), sang(3), sars(2), seneg(2), sep(2), sil(2), sol-n(1), sol-t-ae(1), spira(1), spong(3), squil(2), stann(2), staph(3), stict(2), sulph(2), sumb(1), tab(1), tarax(1), tarent(2), tell(1), thuj(1), uva(1), vinc(2), zinc(1), zing(1)"
+758,2,"TICKLING in the air passages, Larynx, in, daytime only",nat-m(1)
+758,2,"TICKLING in the air passages, Larynx, in, eating amel.",carb-an(1)
+758,2,"TICKLING in the air passages, Larynx, in, fever, during",cimx(2)
+758,2,"TICKLING in the air passages, Larynx, in, lying amel.","euphr(2), mang(2)"
+758,1,"TICKLING in the air passages, Throat-pit, in, from","apis(3), aspar(1), bell(1), cann-s(1), caust(1), cham(3), cinnb(1), cocc(1), coloc(1), con(2), crot-h(1), ign(1), iod(2), kreos(1), lac-c(1), lach(1), lith(1), mag-m(1), nat-c(1), nat-m(1), ph-ac(1), phos(1), puls(2), rhus-r(1), rumx(3), sang(3), sil(2), squil(1), tarax(1)"
+758,1,"TICKLING in the air passages, Trachea, in","acon(2), aesc(2), agar(2), ail(1), am-m(1), anac(1), ang(1), ant-t(1), arn(2), ars(1), arum-t(1), asaf(1), aur-m(1), bar-c(1), bell(1), bov(1), brom(1), bry(1), calc(2), caps(2), carb-ac(1), carb-an(1), carb-s(2), carb-v(2), casc(1), caust(1), cham(2), chin(1), chin-s(1), cina(1), cist(1), coc-c(1), coloc(1), com(1), con(2), cop(1), dig(1), dulc(1), euphr(2), eupi(1), ferr(2), ferr-i(1), gymn(1), hyos(1), indg(1), iod(3), ir-f(1), iris(1), kali-bi(2), kali-c(3), kali-p(1), kalm(2), kreos(1), lac-c(1), lach(1), lact(1), laur(1), mag-c(1), mag-m(1), med(2), mez(1), nat-a(1), nat-m(1), nat-s(1), nicc(1), nit-ac(1), nux-v(2), ol-an(1), osm(1), ox-ac(1), petr(1), ph-ac(3), phos(2), plat(1), prun-s(1), psor(2), puls(3), rhod(1), rhus-r(1), rhus-t(3), rumx(3), sabin(1), sang(3), sanic(1), seneg(2), sep(2), sil(1), spig(1), spong(2), squil(1), stann(3), staph(1), stict(2), still(2), sulph(1), tarent(1), teucr(1), thuj(1), verat(1), zinc(1)"
+758,0,TIGHTNESS (See Constriction of Chest),"bar-c(1), carb-v(1), cocc(2), graph(1), kali-bi(1), nat-m(1), teucr(1), verat(1), verb(1)"
+758,1,"TIGHTNESS (See Constriction of Chest), Larynx (See Tension)",
+758,0,"TINGLING, larynx","agar(2), caps(2), iod(2), mag-m(2), sep(1)"
+758,0,"ULCERATION, larynx","bufo(1), calc(2), carb-v(2), caust(2), cinnb(2), crot-h(1), hippoz(2), kali-bi(1), nit-ac(2), phos(2), spong(2), syph(2)"
+758,0,VELVETY sensation (downy),"brom(1), calc(1), chen-a(1), cina(1), dros(2), hep(2), ph-ac(2), phos(3), sulph(1)"
+758,0,"VOICE, barking","bell(1), brom(1), dros(1), nit-ac(1), spong(1), stann(1), stram(1)"
+758,1,"VOICE, barking, bass","carb-s(1), dros(3), laur(1), mag-s(1), sumb(1)"
+758,1,"VOICE, barking, bleating",nux-m(1)
+758,1,"VOICE, barking, broken","camph(1), iod(1), merc(1), plb(1), tab(1)"
+758,2,"VOICE, barking, broken, attempting to sing high, when",phos(1)
+758,1,"VOICE, barking, changeable","alumn(1), arg-m(2), ars(2), arum-t(3), rumx(1)"
+758,1,"VOICE, barking, changed","bell(1), carb-s(1), chlf(1), lyc(1), merc(1), murx(1), nat-m(1), tab(1)"
+758,1,"VOICE, barking, cracked","dros(1), spong(2)"
+758,2,"VOICE, barking, cracked, evening",spong(2)
+758,2,"VOICE, barking, cracked, singing, when",graph(2)
+758,1,"VOICE, barking, croaking","acon(1), lact-ac(1), stram(3), sul-ac(1)"
+758,1,"VOICE, barking, croupy","acon(2), ail(2), hep(1), spong(1), sul-ac(1)"
+758,1,"VOICE, barking, crowing (See Rough under Respiration)","acon(2), ars(1), chin(1), cina(1), samb(1), spong(3)"
+758,1,"VOICE, barking, deep","am-caust(1), ambr(1), anac(1), ant-c(1), arn(1), arum-t(2), aur-m(1), bar-c(1), brom(2), carb-v(3), chin(2), chin-s(1), coc-c(1), colch(2), dig(1), dros(3), hep(1), iod(1), lact-ac(1), laur(1), mag-m(1), mag-s(1), nux-v(1), op(1), par(1), phos(2), samb(1), spong(1), stann(2), sulph(1), verat(1), verb(2)"
+758,2,"VOICE, barking, deep, eating, after",anac(1)
+758,2,"VOICE, barking, deep, moist cold air, in",sulph(1)
+758,2,"VOICE, barking, deep, open air",coc-c(1)
+758,1,"VOICE, barking, finer than usual",stram(2)
+758,1,"VOICE, barking, gutteral","ars(1), gels(1)"
+758,1,"VOICE, barking, higher","acon(1), alumn(1), ars(1), bry(1), cann-i(1), cupr(1), dros(1), rumx(2), stram(3)"
+758,2,"VOICE, barking, higher, hawking, after",stann(1)
+758,1,"VOICE, barking, hissing","bell(1), nux-v(2), phos(2)"
+758,1,"VOICE, barking, hoarseness","acet-ac(1), acon(3), aesc(2), agar(1), all-c(3), aloe(1), alum(2), alumn(1), am-c(2), am-m(2), ambr(2), anac(1), anan(1), ang(1), ant-c(2), ant-t(2), apis(2), arg-m(3), arg-n(3), arn(1), ars(2), ars-i(1), ars-m(1), arum-m(1), arum-t(3), asaf(1), asim(2), atro(1), aur(1), aur-m(1), aur-s(1), bad(1), bapt(1), bar-c(2), bar-m(1), bell(3), benz-ac(1), berb(1), bov(1), brom(3), bry(3), bufo(1), cact(2), cahin(1), caj(1), calc(3), calc-f(1), calc-p(2), calc-s(2), camph(2), cann-i(1), canth(2), caps(3), carb-an(2), carb-s(2), carb-v(3), carl(2), cast(1), caust(3), cham(3), chel(2), chin(2), chin-a(1), chin-s(1), chlor(2), cic(1), cimic(1), cina(1), cinnb(1), clem(1), coc-c(2), coca(1), coff(2), colch(2), coll(2), con(2), cop(1), crot-c(2), crot-h(2), crot-t(2), cub(1), cupr(2), der(1), dig(2), dros(3), dulc(2), elaps(1), eup-per(1), euphr(2), ferr(2), ferr-ar(1), ferr-i(2), ferr-p(1), gels(2), gins(1), graph(2), grat(1), ham(2), hep(3), hippoz(2), hydr(1), hydr-ac(1), hyos(2), hyper(1), inul(1), iod(3), iris(1), kali-ar(1), kali-bi(3), kali-c(2), kali-chl(2), kali-i(2), kali-n(1), kali-p(2), kali-s(2), kreos(1), lach(3), lact(1), lact-ac(2), laur(2), led(1), lob(1), lyc(2), mag-c(1), mag-m(2), mag-s(1), mang(3), med(2), meny(1), meph(1), merc(3), merc-c(2), merc-i-f(1), merc-i-r(2), merc-sul(1), merl(1), mez(2), mur-ac(2), murx(1), naja(2), nat-a(1), nat-c(2), nat-m(3), nat-p(1), nat-s(1), nicc(1), nit-ac(2), nux-m(2), nux-v(2), oena(1), ol-an(1), op(2), osm(2), ox-ac(1), par(2), petr(2), ph-ac(2), phel(1), phos(3), phyt(2), pic-ac(1), plan(1), plat(1), plb(1), prun-s(1), psor(1), ptel(1), puls(2), raph(1), rhod(2), rhus-t(2), rhus-v(2), rumx(2), sabad(1), samb(2), sang(2), sarr(1), sars(1), sec(1), sel(3), senec(1), seneg(2), sep(2), sil(2), sol-n(1), spig(2), spong(3), stann(3), staph(2), still(2), stram(3), stront(1), stry(1), sul-ac(2), sulph(2), sumb(1), tab(1), tarax(1), tell(3), tep(1), thea(1), thuj(2), til(1), trom(1), verat(2), verb(1), vesp(1), vinc(1), xan(1), zinc(2), zing(1)"
+759,2,"VOICE, barking, hoarseness, daytime","acon(2), ars(2), tarent(1)"
+759,2,"VOICE, barking, hoarseness, morning","acon(2), alum(1), ant-t(1), apis(2), arn(1), arund(1), asim(1), benz-ac(1), bov(2), calc(3), calc-p(3), carb-an(2), carb-s(1), carb-v(1), cast(1), caust(3), cinnb(1), coc-c(1), coca(1), coff(2), colch(1), cop(1), cupr(1), dig(2), dios(1), euphr(2), iod(2), kali-bi(2), kreos(1), lach(1), lyc(1), mag-m(1), mang(2), naja(1), nat-m(2), nicc(1), nit-ac(2), nux-v(1), phos(3), plan(1), sil(2), sulph(3), thuj(1), upa(1)"
+759,3,"VOICE, barking, hoarseness, morning, menses, during",cop(1)
+759,3,"VOICE, barking, hoarseness, morning, rising, after","carb-an(2), ham(2), ind(1), mag-m(1), plan(1)"
+759,3,"VOICE, barking, hoarseness, morning, waking, on","aloe(1), coff(2), dig(1), ham(2), par(2), sars(1)"
+759,2,"VOICE, barking, hoarseness, forenoon","mag-c(1), sumb(1)"
+759,2,"VOICE, barking, hoarseness, noon",carb-s(1)
+759,2,"VOICE, barking, hoarseness, afternoon","alum(1), am-m(2), brom(1), coc-c(1), petr(1), sulph(1)"
+759,3,"VOICE, barking, hoarseness, afternoon, 4 p.m.",chin(1)
+759,3,"VOICE, barking, hoarseness, afternoon, 5 p.m.",chel(1)
+759,2,"VOICE, barking, hoarseness, evening","alum(1), arg-m(1), brom(1), calc-p(1), calc-s(1), carb-an(2), carb-s(2), carb-v(3), caust(3), cimic(1), cinnb(1), coc-c(1), coloc(1), crot-t(1), graph(2), kali-bi(2), lach(1), lact(1), mag-c(1), mang(2), nicc(1), phos(3), raph(1), rumx(2), sep(1), sulph(2), thuj(1)"
+759,3,"VOICE, barking, hoarseness, evening, bed, in",nux-v(1)
+759,3,"VOICE, barking, hoarseness, evening, reading, after","calc-f(1), cupr(1)"
+759,3,"VOICE, barking, hoarseness, evening, sunset, after",stram(1)
+759,2,"VOICE, barking, hoarseness, night","alum(1), arg-n(1), calc(1), calc-f(1), calc-s(1), carb-an(1), cimic(1), lyc(1), naja(1), spig(1), sumb(1)"
+759,2,"VOICE, barking, hoarseness, air, cold","cupr(2), hep(2), nux-m(2), thuj(1)"
+759,3,"VOICE, barking, hoarseness, air, cold, dry",cupr(2)
+759,3,"VOICE, barking, hoarseness, air, cold, draft of",merc(1)
+759,3,"VOICE, barking, hoarseness, air, cold, open, in","bry(1), mang(3), nux-m(2)"
+759,4,"VOICE, barking, hoarseness, air, cold, open, in, amel.",calc-s(1)
+759,2,"VOICE, barking, hoarseness, annually at same time",nicc(1)
+759,2,"VOICE, barking, hoarseness, calling aloud, when",am-c(1)
+759,2,"VOICE, barking, hoarseness, children, in",cham(1)
+759,2,"VOICE, barking, hoarseness, chill, during",hep(1)
+759,2,"VOICE, barking, hoarseness, cold bath, after",ant-c(2)
+759,2,"VOICE, barking, hoarseness, cold, damp weather","carb-v(2), dulc(2), mang(2), rumx(2), sil(2), sulph(1)"
+759,2,"VOICE, barking, hoarseness, coryza, during","acon(1), alum(1), am-m(1), ars(2), ars-m(1), bar-c(1), benz-ac(2), bry(2), calc(1), carb-s(1), carb-v(3), caust(3), cham(1), dig(2), dulc(1), eup-per(1), ferr-p(1), graph(1), hep(1), kali-bi(2), kali-c(1), kalm(2), mag-m(2), mag-s(1), mang(3), merc(3), merc-i-r(2), nat-a(1), nat-c(2), nat-m(1), nit-ac(2), petr(2), phel(1), phos(3), puls(1), ran-b(2), rumx(2), sep(2), spig(2), spong(2), sul-ac(1), sulph(1), tell(2), thuj(1), zinc(1)"
+759,2,"VOICE, barking, hoarseness, cough, during (See Cough)",
+759,3,"VOICE, barking, hoarseness, cough, during (See Cough), amel.",stann(2)
+759,2,"VOICE, barking, hoarseness, croup, after","carb-v(2), lyc(2)"
+759,2,"VOICE, barking, hoarseness, crying, when",bell(3)
+759,2,"VOICE, barking, hoarseness, damp weather, in","carb-s(1), carb-v(2), chlor(1), kali-bi(2), sulph(1)"
+759,2,"VOICE, barking, hoarseness, dinner, after amel.",mag-c(1)
+759,2,"VOICE, barking, hoarseness, eating, after",anac(1)
+759,2,"VOICE, barking, hoarseness, heat, during","hep(2), puls(2), sep(1), sulph(1)"
+759,2,"VOICE, barking, hoarseness, laughing, when",calc-f(1)
+759,2,"VOICE, barking, hoarseness, measles, after","bry(2), carb-v(2), dros(2), sulph(1)"
+759,2,"VOICE, barking, hoarseness, menses, before","graph(1), mang(1), syph(1)"
+759,3,"VOICE, barking, hoarseness, menses, before, during","calc(1), graph(2), spong(1)"
+759,2,"VOICE, barking, hoarseness, mucus in larynx","aphis(1), bar-c(2), calc-p(2), camph(1), caust(2), cham(2), chin(1), kali-bi(2), kali-s(1), mang(2), phos(2), psor(2), rumx(2), samb(3), sel(3), stann(2), staph(2), stram(1), zinc(1)"
+760,2,"VOICE, barking, hoarseness, overheated, from being","ant-c(2), brom(2), haem(1)"
+760,2,"VOICE, barking, hoarseness, overuse of the voice","acon(1), alum(1), arg-m(2), arn(2), arum-t(3), caps(3), caust(3), coll(1), ferr-p(1), kali-p(2), mang(2), nat-m(2), phos(2), rhus-t(3), sel(2), seneg(1), still(2)"
+760,2,"VOICE, barking, hoarseness, painful","arg-m(2), bell(3), brom(2), iod(2), kali-bi(2), kali-br(1), phos(3), stann(2)"
+760,2,"VOICE, barking, hoarseness, painless","ant-c(2), calc(3), calc-sil(2), carb-v(3), caust(2), dig(2), par(2), phos(2)"
+760,2,"VOICE, barking, hoarseness, paroxysmal","gels(2), par(1)"
+760,2,"VOICE, barking, hoarseness, periodical","nux-v(2), par(1)"
+760,2,"VOICE, barking, hoarseness, reading aloud, while","calc-f(2), cupr(1), med(1), naja(1), seneg(1), verb(2)"
+760,2,"VOICE, barking, hoarseness, riding in open air",osm(1)
+760,2,"VOICE, barking, hoarseness, rising, after","cimic(1), ham(1), iod(1), plan(1), sol-t-ae(1), sumb(1)"
+760,3,"VOICE, barking, hoarseness, rising, after, from bed amel.",nux-v(1)
+760,2,"VOICE, barking, hoarseness, singing, from","agar(3), alum(1), arg-m(2), arg-n(2), arn(1), arum-t(3), bry(2), caust(2), mang(2), nat-m(2), nit-ac(2), osm(1), sel(3), sep(1), stann(2)"
+760,3,"VOICE, barking, hoarseness, singing, from, amel.",rhus-t(1)
+760,2,"VOICE, barking, hoarseness, speech, preventing","caust(2), cupr(1), mag-m(2), par(1), phos(3)"
+760,2,"VOICE, barking, hoarseness, spring, in",all-c(1)
+760,2,"VOICE, barking, hoarseness, straining, from (See Overuse)",
+760,2,"VOICE, barking, hoarseness, sudden","abrot(1), bell(2), carb-v(1), mag-m(1), seneg(1), sep(1), spong(2)"
+760,2,"VOICE, barking, hoarseness, talking, from","alum(2), alumn(1), am-c(1), ant-t(1), arg-m(3), arg-n(3), arn(1), arum-t(3), calc(2), caps(3), carb-v(2), caust(3), coc-c(2), ferr(2), kali-bi(2), lach(1), mang(2), morph(1), naja(1), nat-m(2), nit-ac(2), ph-ac(2), phos(2), psor(1), rhus-t(3), sel(1), stann(2), staph(1), stram(1)"
+760,3,"VOICE, barking, hoarseness, talking, from, awhile, improves after","coc-c(1), rhus-t(2)"
+760,2,"VOICE, barking, hoarseness, waking, on","aloe(1), coff(1), dig(1), iod(1), par(2), plan(1), sars(1), sol-t-ae(1), tarent(1)"
+760,2,"VOICE, barking, hoarseness, walking in open air","bry(1), calc(1), calc-p(1), nux-m(2), osm(1)"
+760,3,"VOICE, barking, hoarseness, walking in open air, amel.",alum(1)
+760,3,"VOICE, barking, hoarseness, walking in open air, against the wind","nicc(2), nux-m(3)"
+760,2,"VOICE, barking, hoarseness, warm room","alum(1), bry(1), iod(1), kali-s(2), puls(2)"
+760,3,"VOICE, barking, hoarseness, warm room, going into open air from warm room",coc-c(2)
+760,3,"VOICE, barking, hoarseness, warm room, wet weather agg.",carb-v(2)
+760,2,"VOICE, barking, hoarseness, wet, after getting","merc-i-r(1), rhus-t(2)"
+760,1,"VOICE, barking, hollow","acon(2), alum(1), ant-c(1), ant-t(2), ars(2), arum-t(2), bar-c(1), bell(1), cahin(2), camph(1), canth(1), carb-v(1), caust(2), cham(1), chin(1), colch(1), crot-t(1), dig(1), dros(3), hep(1), ign(1), ip(2), kali-bi(2), kreos(1), lach(1), led(2), lyc(1), mag-s(1), op(1), phos(1), plb(1), puls(1), samb(2), sec(2), spong(3), stann(2), staph(1), thuj(2), verat(3), verb(1)"
+760,1,"VOICE, barking, husky","acon(2), aloe(1), alum(1), am-m(2), aur(1), bar-c(2), bar-m(1), bell(1), brom(2), calc(1), calc-sil(2), camph(1), caust(2), chin(2), coc-c(2), croc(1), dros(3), echi(1), graph(1), hyos(2), kali-n(2), lac-c(2), lyc(2), mang(1), merc(1), merc-i-r(1), nat-m(1), nat-s(1), onos(1), phos(3), rumx(1), sabad(1), sel(2), sil(1), spong(2), stann(2), sulph(2)"
+760,2,"VOICE, barking, husky, morning",sil(2)
+760,2,"VOICE, barking, husky, waking, on",alum(1)
+760,2,"VOICE, barking, husky, open air, in",coc-c(1)
+760,1,"VOICE, barking, indistinct","am-caust(1), brom(3)"
+760,1,"VOICE, barking, inflexible",stram(3)
+760,1,"VOICE, barking, interrupted","alum(2), ars(2), cic(1), dros(1), euphr(1), mag-c(1), spong(2)"
+760,1,"VOICE, barking, lost","acon(2), ail(1), alum(2), alumn(3), am-c(1), am-caust(3), am-m(1), anan(1), ant-c(3), ant-t(2), arg-m(3), arg-n(3), ars(2), ars-i(1), arum-t(2), arund(1), bapt(2), bar-c(2), bell(2), brom(3), bry(1), cahin(1), calad(1), calc-ar(1), camph(1), cann-i(1), canth(1), carb-ac(2), carb-an(1), carb-s(2), carb-v(3), caust(3), cedr(1), chin-s(1), chlor(2), cina(2), con(1), crot-c(2), crot-t(1), cupr(2), dig(1), dros(2), elaps(1), ferr(2), ferr-ar(1), ferr-i(1), ferr-p(2), gels(2), graph(1), hep(2), hyos(2), ign(2), iod(1), kali-ar(2), kali-bi(2), kali-c(2), kali-i(2), kali-n(1), kali-p(2), kali-s(1), lach(2), lact-ac(2), merc(2), merc-c(2), merc-i-f(2), naja(2), nat-a(1), nat-c(1), nat-m(2), nat-p(1), nicc(1), nit-ac(2), nux-m(2), nux-v(2), ol-an(1), ox-ac(1), paeon(1), par(1), phos(3), phyt(2), plat(1), plb(1), puls(2), pyrus(1), rhus-t(2), rumx(2), sang(2), sel(2), seneg(2), sep(1), spong(2), stann(2), stram(3), stry(1), sul-ac(1), sulph(2), tarent(1), ter(1), verat(2), vesp(1), vip(1), zinc-m(1)"
+760,2,"VOICE, barking, lost, morning","alum(1), brom(2), carb-v(2), caust(2), dig(1)"
+760,3,"VOICE, barking, lost, morning, walking, on",ail(2)
+760,2,"VOICE, barking, lost, evening","brom(1), carb-v(3), phos(2)"
+761,2,"VOICE, barking, lost, night","carb-an(2), carb-v(2)"
+761,2,"VOICE, barking, lost, air, damp",chlor(2)
+761,3,"VOICE, barking, lost, air, damp, cold","carb-v(1), rumx(2), sulph(1)"
+761,2,"VOICE, barking, lost, anger, after",staph(1)
+761,2,"VOICE, barking, lost, cold, exposure to","caust(2), rumx(2)"
+761,2,"VOICE, barking, lost, damp weather",chlor(1)
+761,2,"VOICE, barking, lost, drinking cold water when overheated",crot-t(2)
+761,2,"VOICE, barking, lost, epilepsy, before",calc-ar(1)
+761,2,"VOICE, barking, lost, exertion, on",carb-v(3)
+761,2,"VOICE, barking, lost, fright, from","acon(2), gels(2), op(2)"
+761,2,"VOICE, barking, lost, heated, from being","ant-c(2), haem(1)"
+761,2,"VOICE, barking, lost, hysterical","hyos(2), ign(2), nux-m(2), plat(1), sep(1)"
+761,2,"VOICE, barking, lost, intermittent in singers",cupr(1)
+761,2,"VOICE, barking, lost, menses, during",gels(2)
+761,2,"VOICE, barking, lost, momentarily","alum(1), dros(1), spong(1)"
+761,2,"VOICE, barking, lost, motion, on",ant-c(1)
+761,2,"VOICE, barking, lost, mucus in larynx, from",bar-c(2)
+761,2,"VOICE, barking, lost, overuse of","caust(2), merc(2), seneg(2)"
+761,2,"VOICE, barking, lost, painless",phos(2)
+761,2,"VOICE, barking, lost, paralysis, from","caust(3), gels(2), lach(2), merc(1), plb(2)"
+761,2,"VOICE, barking, lost, periodic",gels(1)
+761,2,"VOICE, barking, lost, prolonged talking, from",phos(2)
+761,2,"VOICE, barking, lost, reading, while",plb(1)
+761,2,"VOICE, barking, lost, singers","arg-n(3), caust(3)"
+761,2,"VOICE, barking, lost, sudden","alum(1), bell(2), caust(3)"
+761,2,"VOICE, barking, lost, walking, on","nux-m(1), ptel(1)"
+761,2,"VOICE, barking, lost, warm air amel.",seneg(1)
+761,3,"VOICE, barking, lost, warm air amel., room, in","ant-c(2), puls(1)"
+761,2,"VOICE, barking, lost, wind, after exposure to northwest",arum-t(2)
+761,1,"VOICE, barking, loud","bell(1), cann-i(1), lach(1), mosch(1), sulph(1)"
+761,1,"VOICE, barking, low","alumn(1), am-caust(1), ang(1), ant-c(1), arn(2), ars(2), cact(2), calc(2), cann-i(1), canth(2), cham(1), chin(1), crot-t(1), hep(1), ign(2), lyc(1), osm(1), ox-ac(1), puls(1), sec(1), spong(2), staph(1), sul-ac(1), tab(1), verat(1)"
+761,1,"VOICE, barking, muffled","gels(1), lach(1), lyc(1), rumx(1), sul-ac(1), sumb(1)"
+761,1,"VOICE, barking, nasal","all-c(1), alum(1), aur(1), bell(1), bov(1), bry(1), caust(2), ferr(1), fl-ac(2), gels(1), iod(2), kali-bi(3), kali-i(2), kali-n(1), lac-c(2), lach(2), lyc(1), mag-m(1), mag-s(1), manc(2), merc(1), nat-c(1), nat-m(1), ph-ac(1), phos(2), plb(1), rumx(1), sang(1), sep(1), sin-n(1), spong(1), staph(2), sulph(1), sumb(1), thuj(1)"
+761,2,"VOICE, barking, nasal, morning","bov(1), sulph(1)"
+761,2,"VOICE, barking, nasal, evening","sep(1), sumb(1)"
+761,2,"VOICE, barking, nasal, catarrhal","kali-i(1), ph-ac(1)"
+761,1,"VOICE, barking, piping","bell(1), spong(2)"
+761,1,"VOICE, barking, powerful",hydr-ac(1)
+761,1,"VOICE, barking, rough","acon(1), all-s(2), alum(2), am-c(1), ambr(1), ant-c(1), apis(1), ars(1), ars-i(1), bar-c(2), bell(3), brom(2), bry(2), cahin(1), calc(2), calc-ar(1), canth(1), carb-s(2), carb-v(3), caust(2), cham(2), chin(2), chin-a(1), coc-c(2), coff(2), crot-t(1), cupr(1), cycl(1), dig(1), dros(1), graph(2), hep(1), hyos(3), iod(2), kali-ar(1), kali-bi(3), kali-c(1), kali-n(1), mag-m(1), mag-s(1), mang(2), meny(2), merc(2), merc-c(1), merc-i-r(1), mez(1), nat-m(1), nit-ac(1), nux-v(2), op(1), ox-ac(1), phos(3), plb(1), prun-s(1), puls(3), seneg(2), sil(2), spong(2), stram(1), sulph(2), sumb(1), thuj(1), zinc(2)"
+761,2,"VOICE, barking, rough, morning","calc(2), coc-c(1), coff(1), mang(2)"
+761,2,"VOICE, barking, rough, forenoon",sulph(1)
+761,2,"VOICE, barking, rough, afternoon","alum(1), coc-c(1)"
+761,2,"VOICE, barking, rough, evening","alum(1), coloc(1), kali-bi(1), sulph(1)"
+761,2,"VOICE, barking, rough, air, on going into open",mang(3)
+761,3,"VOICE, barking, rough, air, on going into open, draft of, agg.",merc(2)
+761,2,"VOICE, barking, rough, bed, before going to",ox-ac(1)
+761,2,"VOICE, barking, rough, smoking amel.",mang(2)
+761,2,"VOICE, barking, rough, talking, from","am-c(1), coc-c(2)"
+761,1,"VOICE, barking, shrieking","alum(1), arum-t(3), cupr(1), stram(2)"
+761,1,"VOICE, barking, squeaking","ars(1), lact-ac(1), stram(3)"
+761,1,"VOICE, barking, toneless","agn(1), ambr(1), calad(2), carb-an(1), chin(1), dros(3), hep(1), nat-c(1), rhod(1), samb(1), spong(1), stram(3), thuj(1)"
+761,1,"VOICE, barking, tremulous","acon(1), agar(1), ars(2), camph(2), canth(1), cocc(2), cupr(1), gels(1), ign(2), iod(1), kali-i(1), laur(1), merc(3), mez(1), nux-m(2), op(1), phos(2), psor(1)"
+761,1,"VOICE, barking, weak","abrot(1), absin(1), acon(1), am-caust(1), ant-c(2), ant-t(3), arg-n(2), ars(1), ars-i(1), bar-c(1), bar-m(1), bell(2), brom(2), calc(2), calc-s(2), camph(2), canth(3), carb-v(2), caust(2), cham(2), chin(2), clem(1), coc-c(1), coll(2), crot-h(2), cupr(1), cycl(2), daph(1), dig(1), ferr(2), ferr-p(2), gels(2), hep(3), ign(2), iod(1), kali-i(1), lach(1), laur(1), lyc(2), naja(2), nat-a(1), nat-c(1), nat-m(2), nit-ac(1), nux-v(2), op(1), osm(1), ox-ac(1), par(1), petr(1), ph-ac(2), phos(2), plb(1), prun-s(1), psor(1), puls(2), rhus-t(2), sec(2), spong(2), stann(3), staph(2), stram(2), stry(1), sul-ac(1), sulph(2), tab(1), thuj(1), verat(3), zinc(1)"
+762,2,"VOICE, barking, weak, evening in bed",phos(1)
+762,2,"VOICE, barking, weak, anger, after",staph(2)
+762,2,"VOICE, barking, weak, heat, during",hep(2)
+762,2,"VOICE, barking, weak, menses, during",plb(1)
+762,2,"VOICE, barking, weak, talking, after","coc-c(2), ph-ac(2), stann(3), sul-ac(1), sulph(2)"
+762,1,"VOICE, barking, whining","alum(2), ambr(1), bor(1), carb-an(1), cina(2), ip(1), nux-v(1), plb(1), squil(1), stram(1)"
+762,2,"VOICE, barking, whining, morning",bor(2)
+762,2,"VOICE, barking, whining, menses, after",stram(1)
+762,2,"VOICE, barking, whining, sleep, in",verat(1)
+762,1,"VOICE, barking, whispering","am-caust(1), ars(1), calc(2), camph(1), ferr(2), iod(1), merc(2), nit-ac(1), phyt(1), rumx(1), stram(1), sul-ac(1), tab(1), zinc-m(1)"
+762,0,WHISTLING,"acon(1), ars(1), bell(1), brom(1), calc(2), cham(2), chin(1), hep(1), kreos(1), laur(1), sabad(1)"
+762,1,"WHISTLING, evening",calc(2)
+762,1,"WHISTLING, after lying down",calc(2)
+762,1,"WHISTLING, lying on left side",arg-n(1)

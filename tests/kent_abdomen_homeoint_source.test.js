@@ -116,8 +116,8 @@ if (fs.existsSync(csvPath)) {
 // 7) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const swf = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=188/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v179)');
-assert(/CACHE_NAME='bhc-clinic-v188'/.test(swf), 'خدمت کار نسخہ 179');
+assert(/rep-chapters\.js\?v=189/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v179)');
+assert(/CACHE_NAME='bhc-clinic-v189'/.test(swf), 'خدمت کار نسخہ 179');
 assert(/v179: شکم باب/.test(code), 'rep-chapters.js میں شکم بلڈر درج');
 
 console.log('شکم باب: ماخذی درخت 3269 قطاریں (صفحات 541–605)، جڑ ABDOMEN، ادویات ماخذی، اردو 100%، پرانی قطاریں محفوظ — کامیاب');

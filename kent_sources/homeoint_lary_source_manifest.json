@@ -1,0 +1,21 @@
+{
+ "book": "kent",
+ "chapter": "larynx_and_trachea",
+ "source": "homeoint.org/books/kentrep+kentrep2 kent0745+kent0750+kent0755+kent0760 (MEDI-T HTML)",
+ "pages": "746 – 762 (MEDI-T انتساب)",
+ "source_canonical": "homeoint-lary-v1",
+ "source_rows": 668,
+ "unique_source_paths": 668,
+ "matched_app_records": 667,
+ "new_source_records": 1,
+ "legacy_local_records": 72,
+ "ambiguous_app_records": 10,
+ "pdf_verification": "665/667 حرف-بہ-حرف + 2 PDF-طرفہ artifacts (فولیو-گلا ferr-ar folio1642 + ox-ac folio1648 — صفحہ-اختتام ہائیفن-ورپ ادویہ + folio نمبر درمیان) — صفر drift/دونوں-طرفہ باقیات (lary_pdf_verify.json)",
+ "chapter_boundaries": "آغاز kent0745 NAME=\"P746\" اینکر (LARYNX AND TRACHEA سرخی nav — nav-text para + separator after_anchor slot-1/2، جڑ d0 slot-3؛ p746: جڑ + ANÆSTHESIA larynx {Kali-br.} + CANCER + CATARRH)؛ اختتام kent0760 کے اندر NAME=\"RESPIRATION\" سرخی اینکر (آخری ربرک WHISTLING, lying on left side {arg-n} p762)؛ kent0765 استعمال نہیں (p763+ RESPIRATION مواد)",
+ "dup_pages": "p750/p755/p760 سرحدی صفحات — پچھلی فائل میں اصل، اگلی میں ڈپ (skip_until)؛ تینوں text-identical تصدیق شدہ (verify_lary_dups.py — فرق صرف nav link-text)",
+ "clamps": "11 (9 کتابی یتیم-indentation: x = خام سطح — idx60 CRAWLING-morning @128.7، idx118 FOREIGN-morning @128.7، idx132 INFLAMMATION-evening-agg @128.7، idx237 PAIN-morning @128.7، idx358 stitching-evening @164.7، idx382 PHTHISIS-short-hacking @128.7، idx445 SWOLLEN-evening @128.7، idx454 TICKLING-daytime @128.7، idx583 VOICE-walking-amel @200.7؛ + 2 MEDI-T اضافی <dir>: x = fixed سطح — idx368 swallowing-when @164.7، idx426 SENSITIVE-morning @92.7 — lary_clamp_xcoords.json)",
+ "book_duplicates": "کوئی نہیں (دوہرے راستے = 0 — parser تصدیق)",
+ "manual_matches": "9 دستی J=1.00 (OOREP لیبل-فرق، ادویات عین): وقت-فارمیٹ o45443/o45589/o45788 (2 p.m. to 3 p.m. ← 2 to 3 p.m. طرز)، agg.-لاحقہ o45364/o45804/o45859/o45910، extending-سیگمنٹ o45689/o45690، barking/cold-حذف o45859",
+ "page_headers": "17/17 MEDI-T صفحہ-سرخی paras (مثلاً «MUCUS, larynx» p751، «VOICE, weak, evening in bed» p762) آرٹیفیکٹ — after_anchor سے skip — ہر صفحے کی پہلی قطار کے والد-سیاق سے مطابق (parse_lary_source.py)",
+ "parser_fix": "MEDI-T unclosed <p> گلو (‏<p>MAIN : rem<dir>‏ / ‏<p>----------<dir>‏) — ‏<p>‎ پر flush + para_depth پیراگراف-آغاز پر capture (genf v188 فکس — برقرار)؛ P746 P-اینکر آغاز (after_anchor slot-1/2: nav-text + separator)؛ اختتام RESPIRATION non-P-اینکر end_spec"
+}

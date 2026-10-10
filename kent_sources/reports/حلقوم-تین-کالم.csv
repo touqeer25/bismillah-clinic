@@ -1,0 +1,668 @@
+﻿شناخت,پرانا راستہ (ایپ),نیا راستہ (مطبوعہ کتاب),اردو جملہ,ادویات پرانی,ادویات ماخذی,فرق
+o45415,"CROUP, extending, fauces","CROUP, extending to trachea, fauces",حلقوم — خناق (کروپ)، پھیلتا ہوا، گلے کے اندرونی منہ تک,1,1,یکساں
+o45490,"IRRITATION, larynx, afternoon","IRRITATION in air passages, Larynx, afternoon",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، سہ پہر,3,3,یکساں
+o45491,"IRRITATION, larynx, afternoon, 2 p.m.","IRRITATION in air passages, Larynx, afternoon, 2 p.m.",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، سہ پہر، دوپہر 2 بجے,1,1,یکساں
+o45492,"IRRITATION, larynx, cold air","IRRITATION in air passages, Larynx, cold air",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، ٹھنڈی ہوا میں,22,22,یکساں
+o45493,"IRRITATION, larynx, damp weather","IRRITATION in air passages, Larynx, damp weather",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، گیلے موسم میں,2,2,یکساں
+o45494,"IRRITATION, larynx, eating, after","IRRITATION in air passages, Larynx, eating, after",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، کھانے کے بعد,3,3,یکساں
+o45495,"IRRITATION, larynx, evening, bed, in","IRRITATION in air passages, Larynx, evening, bed, in",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، شام، بستر میں,3,3,یکساں
+o45498,"IRRITATION, larynx, heated, from becoming","IRRITATION in air passages, Larynx, heated, from becoming",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، گرم ہونے سے,4,4,یکساں
+o45501,"IRRITATION, larynx, morning, on waking","IRRITATION in air passages, Larynx, morning, on waking",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، صبح، جاگنے پر,2,2,یکساں
+o45503,"IRRITATION, larynx, night, before midnight","IRRITATION in air passages, Larynx, night, before midnight",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، رات، آدھی رات سے پہلے,2,2,یکساں
+o45568,OEDEMA glottidis,ŒDEMA glottidis,حلقوم — گلٹس کا ورم (سانس کی نالی کے منہ کی سوجن),15,15,یکساں
+o45569,"OEDEMA, vocal cords","ŒDEMA glottidis, vocal cords",حلقوم — پانی بھری سوجن (ورم)، آواز کی ڈوریاں (ووکل کورڈز),1,1,یکساں
+o45604,"PAIN, larynx, cold, drinks","PAIN, larynx, cold air, drinks",حلقوم — درد، حلقوم، ٹھنڈا پینے سے,2,2,یکساں
+o45612,"PAIN, larynx, extending, to abdomen","PAIN, larynx, extending to teeth, to abdomen",حلقوم — درد، حلقوم، پیٹ تک پھیلتا ہوا,1,1,یکساں
+o45764,"SENSITIVE, trachea, cold air, to","SENSITIVE larynx, Trachea, cold air, to",حلقوم — حساس، سانس کی نالی، ٹھنڈی ہوا سے,1,1,یکساں
+o45767,"SHOCKS in, trachea","SHOCKS in larynx on waking, Trachea",حلقوم — جھٹکے، سانس کی نالی,3,3,یکساں
+o45768,"SHOCKS in, trachea, in sleep","SHOCKS in larynx on waking, Trachea, in sleep",حلقوم — جھٹکے، سانس کی نالی، نیند میں,1,1,یکساں
+o45822,"TICKLING, larynx, in","TICKLING in the air passages, Larynx, in",حلقوم — گدگدی، حلقوم، اندر,160,160,یکساں
+r0,"ANAESTHESIA, larynx","ANÆSTHESIA, larynx",حلقوم — بے حسی، حلقوم,1,1,یکساں
+r1,"CANCER, larynx","CANCER, larynx",حلقوم — سرطان (کینسر)، حلقوم,5,5,یکساں
+r10,"CATARRH, old people, in","CATARRH, old people, in",حلقوم — نزلہ (کیٹار)، بوڑھے لوگوں میں,6,6,یکساں
+r100,"DRYNESS, larynx, hawking, from","DRYNESS, Larynx, hawking, from",حلقوم — خشکی، حلقوم، کھنکارنے پر، کھنکارنے سے,1,1,یکساں
+r102,"DRYNESS, larynx, heat, during","DRYNESS, Larynx, heat, during",حلقوم — خشکی، حلقوم، گرمی کے دوران,5,5,یکساں
+r103,"DRYNESS, larynx, spot","DRYNESS, Larynx, spot",حلقوم — خشکی، حلقوم، ایک جگہ (دھبے) میں,4,4,یکساں
+r104,"DRYNESS, larynx, waking, on","DRYNESS, Larynx, waking, on",حلقوم — خشکی، حلقوم، جاگنے پر,7,7,یکساں
+r105,"DRYNESS, larynx, winter, in","DRYNESS, Larynx, winter, in",حلقوم — خشکی، حلقوم، سردیوں میں,1,1,یکساں
+r106,"DRYNESS, epiglottis","DRYNESS, Epiglottis",حلقوم — خشکی، کنٹھ (ایپیگلوٹس),2,2,یکساں
+r109,"DRYNESS, trachea, morning, waking, on","DRYNESS, Trachea, morning, waking, on",حلقوم — خشکی، سانس کی نالی، صبح، جاگنے پر,1,1,یکساں
+r11,"CATARRH, sudden","CATARRH, sudden",حلقوم — نزلہ (کیٹار)، اچانک,1,1,یکساں
+r110,"DRYNESS, trachea, close room","DRYNESS, Trachea, close room",حلقوم — خشکی، سانس کی نالی، بند کمرے میں,2,2,یکساں
+r111,"DUST, as from","DUST, as from",حلقوم — دھول، جیسے دھول ہو,31,31,یکساں
+r112,FISSURES in larynx,FISSURES in larynx,حلقوم — حلقوم میں دراڑیں,1,1,یکساں
+r113,"FLAPPING sensation, larynx","FLAPPING sensation, larynx",حلقوم — پھڑپھڑاہٹ کا احساس، حلقوم,1,1,یکساں
+r114,"FLESH hanging in larynx, sensation of","FLESH hanging in larynx, sensation of",حلقوم — حلقوم میں گوشت لٹکنا، کا احساس,1,1,یکساں
+r115,FOOD drops into larynx,FOOD drops into larynx,حلقوم — کھانا حلقوم میں چلا جائے,8,8,یکساں
+r117,"FOREIGN substance, sensation, larynx, morning","FOREIGN substance, sensation, larynx, morning",حلقوم — بیرونی چیز (اجنبی شے)، احساس، حلقوم، صبح,1,1,یکساں
+r118,"FOREIGN substance, sensation, larynx, behind larynx","FOREIGN substance, sensation, larynx, behind larynx",حلقوم — بیرونی چیز (اجنبی شے)، احساس، حلقوم کے پیچھے,1,1,یکساں
+r12,"CATARRH, larynx","CATARRH, Larynx",حلقوم — نزلہ (کیٹار)، حلقوم,31,31,یکساں
+r120,FOREIGN substances drop into larynx when drinking or talking,FOREIGN substances drop into larynx when drinking or talking,حلقوم — پیتے یا بولتے وقت کھانا حلقوم میں چلا جائے,1,1,یکساں
+r121,"FULLNESS, larynx","FULLNESS, larynx",حلقوم — بھراؤ (بھرا بھرا لگنا)، حلقوم,2,2,یکساں
+r122,"FULLNESS, larynx, morning","FULLNESS, larynx, morning",حلقوم — بھراؤ (بھرا بھرا لگنا)، حلقوم، صبح,1,1,یکساں
+r123,"FULLNESS, larynx, evening","FULLNESS, larynx, evening",حلقوم — بھراؤ (بھرا بھرا لگنا)، حلقوم، شام,1,1,یکساں
+r124,GRASPED (See Constriction),GRASPED (See Constriction),حلقوم — جکڑا ہوا,0,0,یکساں
+r125,"HAIR, in trachea, sensation of","HAIR, in trachea, sensation of",حلقوم — بال، سانس کی نالی میں، احساس,2,2,یکساں
+r126,"HEAT, larynx","HEAT, larynx",حلقوم — گرمی، حلقوم,10,10,یکساں
+r128,HEMMING (See Scraping),HEMMING (See Scraping),حلقوم — ہم ہم کرنا (گلا صاف کرنا),0,0,یکساں
+r129,HOARSENESS (See Voice),HOARSENESS (See Voice),حلقوم — آواز بیٹھنا,0,0,یکساں
+r13,"CATARRH, trachea","CATARRH, Trachea",حلقوم — نزلہ (کیٹار)، سانس کی نالی,15,15,یکساں
+r132,"INFLAMMATION, larynx, evening agg.","INFLAMMATION, larynx, evening agg.",حلقوم — سوزش، حلقوم، شام بگاڑ,3,3,یکساں
+r133,"INFLAMMATION, larynx, damp weather","INFLAMMATION, larynx, damp weather",حلقوم — سوزش، حلقوم، گیلے موسم میں,1,1,یکساں
+r134,"INFLAMMATION, larynx, gangrenous","INFLAMMATION, larynx, gangrenous",حلقوم — سوزش، حلقوم، گلنے والی (گینگرین),4,4,یکساں
+r135,"INFLAMMATION, larynx, heated, from getting","INFLAMMATION, larynx, heated, from getting",حلقوم — سوزش، حلقوم، گرم ہونے سے,2,2,یکساں
+r136,"INFLAMMATION, larynx, recurrent","INFLAMMATION, larynx, recurrent",حلقوم — سوزش، حلقوم، بار بار ہونے والی,2,2,یکساں
+r137,"INFLAMMATION, larynx, singers, in","INFLAMMATION, larynx, singers, in",حلقوم — سوزش، حلقوم، گلوکاروں میں,4,4,یکساں
+r138,"INFLAMMATION, larynx, speakers, in","INFLAMMATION, larynx, speakers, in",حلقوم — سوزش، حلقوم، خطیبوں (بولنے والوں) میں,3,3,یکساں
+r139,"INFLAMMATION, larynx, suppressed urticaria","INFLAMMATION, larynx, suppressed urticaria",حلقوم — سوزش، حلقوم، دبائی ہوئی پِتّی کے بعد,1,1,یکساں
+r14,"CLOSED, nearly","CLOSED, nearly",حلقوم — بند، تقریباً,1,1,یکساں
+r140,"INFLAMMATION, larynx, syphilitic","INFLAMMATION, larynx, syphilitic",حلقوم — سوزش، حلقوم، آتشکی (سفلیس) کی,6,6,یکساں
+r142,INSENSIBILITY of larynx,INSENSIBILITY of larynx,حلقوم — حلقوم کی بے حسی,1,1,یکساں
+r144,"IRRITATION in air passages, morning, rising after","IRRITATION in air passages, morning, rising after",حلقوم — سانس کی نالیوں میں خراش، صبح، اٹھنے کے بعد,2,2,یکساں
+r145,"IRRITATION in air passages, afternoon","IRRITATION in air passages, afternoon",حلقوم — سانس کی نالیوں میں خراش، سہ پہر,1,1,یکساں
+r147,"IRRITATION in air passages, evening, bed, in","IRRITATION in air passages, evening, bed, in",حلقوم — سانس کی نالیوں میں خراش، شام، بستر میں,5,5,یکساں
+r148,"IRRITATION in air passages, evening, 7-30 p.m.","IRRITATION in air passages, evening, 7-30 p.m.",حلقوم — سانس کی نالیوں میں خراش، شام، 7.30 بجے,1,1,یکساں
+r149,"IRRITATION in air passages, night, on waking","IRRITATION in air passages, night, on waking",حلقوم — سانس کی نالیوں میں خراش، رات، جاگنے پر,1,1,یکساں
+r15,"COATED, seems (See Velvety)","COATED, seems (See Velvety)",حلقوم — جیسے تہہ جمی ہو,0,0,یکساں
+r150,"IRRITATION in air passages, cold air","IRRITATION in air passages, cold air",حلقوم — سانس کی نالیوں میں خراش، ٹھنڈی ہوا میں,28,28,یکساں
+r151,"IRRITATION in air passages, heated, when","IRRITATION in air passages, heated, when",حلقوم — سانس کی نالیوں میں خراش، گرم ہونے پر,1,1,یکساں
+r152,"IRRITATION in air passages, increases the more one coughs","IRRITATION in air passages, increases the more one coughs",حلقوم — سانس کی نالیوں میں خراش، جتنا کھانسنے میں زیادہ بگاڑ,5,5,یکساں
+r16,"COLD, sensation on breathing","COLD, sensation on breathing",حلقوم — ٹھنڈک، سانس لیتے وقت احساس,10,10,گریڈ کتابی مطابق کیے
+r168,"IRRITATION, larynx, heat, during","IRRITATION in air passages, Larynx, heat, during",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، گرمی کے دوران,1,1,یکساں
+r169,"IRRITATION, larynx, lying on either side, on going to sleep","IRRITATION in air passages, Larynx, lying on either side, on going to sleep",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، کسی بھی کروٹ سوتے وقت,2,2,یکساں
+r17,"COLD, sensation on breathing, inspiration cold, expiration hot","COLD, sensation on breathing, inspiration cold, expiration hot",حلقوم — ٹھنڈک، سانس لیتے وقت احساس، اندر لیتے وقت ٹھنڈی، چھوڑتے وقت گرم,1,1,یکساں
+r170,"IRRITATION, larynx, recurrent","IRRITATION in air passages, Larynx, recurrent",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، بار بار,2,2,یکساں
+r171,"IRRITATION, larynx, sleep, during","IRRITATION in air passages, Larynx, sleep, during",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، نیند کے دوران,3,3,یکساں
+r172,"IRRITATION, larynx, suppressing the cough amel.","IRRITATION in air passages, Larynx, suppressing the cough amel.",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، کھانسی روکنے سے آرام,1,1,یکساں
+r173,"IRRITATION, larynx, swallowing, empty","IRRITATION in air passages, Larynx, swallowing, empty",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، خالی نگلتے وقت,3,3,یکساں
+r174,"IRRITATION, larynx, talking","IRRITATION in air passages, Larynx, talking",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، بولنے پر,14,14,یکساں
+r175,"IRRITATION, larynx, warm damp weather","IRRITATION in air passages, Larynx, warm damp weather",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، گرم گیلے موسم میں,1,1,یکساں
+r176,"IRRITATION, larynx, warm room","IRRITATION in air passages, Larynx, warm room",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، گرم کمرے میں,1,1,یکساں
+r177,"IRRITATION, larynx, upper part","IRRITATION in air passages, Larynx, upper part",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، اوپری حصے میں,1,1,یکساں
+r178,"IRRITATION, throat-pit","IRRITATION in air passages, Throat-pit",حلقوم — خراش (چڑچڑاہٹ)، گلے کا گڑھا,17,17,یکساں
+r179,"IRRITATION, trachea","IRRITATION in air passages, Trachea",حلقوم — خراش (چڑچڑاہٹ)، سانس کی نالی,91,91,یکساں
+r18,"COLD, sensation on breathing, shaving amel.","COLD, sensation on breathing, shaving amel.",حلقوم — ٹھنڈک، سانس لیتے وقت احساس، منڈوانے سے آرام,1,1,یکساں
+r180,"ITCHING, larynx","ITCHING, larynx (See Tickling)",حلقوم — خارش، حلقوم,21,21,گریڈ کتابی مطابق کیے
+r181,"ITCHING, larynx, night","ITCHING, larynx (See Tickling), night",حلقوم — خارش، حلقوم، رات,1,1,یکساں
+r184,"LARYNGISMUS stridulus, daily","LARYNGISMUS stridulus, daily",حلقوم — حلقوم کا تشنج (لیرنگزمِس اسٹریڈولس)، روزانہ,1,1,یکساں
+r186,"LARYNGISMUS stridulus, night, midnight, waking out of sound sleep","LARYNGISMUS stridulus, night, midnight, waking out of sound sleep",حلقوم — حلقوم کا تشنج (لیرنگزمِس اسٹریڈولس)، رات، آدھی رات، گہری نیند سے جاگنے پر,1,1,یکساں
+r188,"LARYNGISMUS stridulus, alternating with contraction of fingers and toes","LARYNGISMUS stridulus, alternating with contraction of fingers and toes",حلقوم — حلقوم کا تشنج (لیرنگزمِس اسٹریڈولس)، انگلیوں اور پیروں کے سکڑاؤ کے ساتھ باری باری,1,1,یکساں
+r189,"LARYNGISMUS stridulus, cough, before the","LARYNGISMUS stridulus, cough, before the",حلقوم — حلقوم کا تشنج (لیرنگزمِس اسٹریڈولس)، کھانسی سے پہلے,1,1,یکساں
+r19,"CONDYLOMATA, larynx","CONDYLOMATA, larynx (See Polypi)",حلقوم — مسے (کنڈائلوما)، حلقوم,6,6,یکساں
+r190,"LARYNGISMUS stridulus, expiration, on","LARYNGISMUS stridulus, expiration, on",حلقوم — حلقوم کا تشنج (لیرنگزمِس اسٹریڈولس)، سانس چھوڑتے وقت,2,2,یکساں
+r191,"LARYNGISMUS stridulus, sleep, during","LARYNGISMUS stridulus, sleep, during",حلقوم — حلقوم کا تشنج (لیرنگزمِس اسٹریڈولس)، نیند کے دوران,6,6,یکساں
+r193,"LARYNGISMUS stridulus, swallowing","LARYNGISMUS stridulus, swallowing",حلقوم — حلقوم کا تشنج (لیرنگزمِس اسٹریڈولس)، نگلتے وقت,2,2,یکساں
+r194,"LARYNGISMUS stridulus, warm room","LARYNGISMUS stridulus, warm room",حلقوم — حلقوم کا تشنج (لیرنگزمِس اسٹریڈولس)، گرم کمرے میں,1,1,یکساں
+r195,"LEAF closing up trachea, like a","LEAF closing up trachea, like a",حلقوم — جیسے پتہ سانس کی نالی کو بند کر دے، ایک پتے کی طرح,1,1,یکساں
+r196,LIQUIDS pass into larynx,LIQUIDS pass into larynx,حلقوم — مائعات حلقوم میں چلے جائیں,4,4,یکساں
+r197,"LUMP in larynx, sensation","LUMP in larynx, sensation",حلقوم — حلقوم میں گٹھلی، احساس,5,5,یکساں
+r201,"MEMBRANE (See Croup), seems to move about in larynx","MEMBRANE (See Croup), seems to move about in larynx",حلقوم — جھلی، جیسے حلقوم میں ہلتی ہو,1,1,یکساں
+r202,"MEMBRANE (See Croup), sensation of (See Foreign Body, Velvety)","MEMBRANE (See Croup), sensation of (See Foreign Body, Velvety)",حلقوم — جھلی، احساس (بیرونی چیز یا مخملی),0,0,یکساں
+r203,MOVEMENT up and down larynx,MOVEMENT up and down larynx,حلقوم — حلقوم کا اوپر نیچے حرکت کرنا,3,3,یکساں
+r204,MUCUS in the air passages,MUCUS in the air passages,حلقوم — سانس کی نالیوں میں بلغم,73,73,یکساں
+r205,"MUCUS in the air passages, consistency (See Expectoration)","MUCUS in the air passages, consistency (See Expectoration)",حلقوم — سانس کی نالیوں میں بلغم، کیفیت (بلغم کی),0,0,یکساں
+r209,"MUCUS, larynx, morning, rising, after","MUCUS in the air passages, Larynx, morning, rising, after",حلقوم — بلغم، حلقوم، صبح، اٹھنے کے بعد,3,3,یکساں
+r21,"CONSTRICTION, night","CONSTRICTION, night",حلقوم — جکڑن، رات,3,3,یکساں
+r210,"MUCUS, larynx, morning, waking, on","MUCUS in the air passages, Larynx, morning, waking, on",حلقوم — بلغم، حلقوم، صبح، جاگنے پر,2,2,یکساں
+r211,"MUCUS, larynx, evening","MUCUS in the air passages, Larynx, evening",حلقوم — بلغم، حلقوم، شام,6,6,یکساں
+r213,"MUCUS, larynx, night, speaking, on","MUCUS in the air passages, Larynx, night, speaking, on",حلقوم — بلغم، حلقوم، رات، بولنے پر,1,1,یکساں
+r214,"MUCUS, larynx, blood-streaked","MUCUS in the air passages, Larynx, blood-streaked",حلقوم — بلغم، حلقوم، خون کی لکیروں والا,3,3,یکساں
+r215,"MUCUS, larynx, blue","MUCUS in the air passages, Larynx, blue",حلقوم — بلغم، حلقوم، نیلا,2,2,یکساں
+r216,"MUCUS, larynx, cold air, in","MUCUS in the air passages, Larynx, cold air, in",حلقوم — بلغم، حلقوم، ٹھنڈی ہوا میں,2,2,یکساں
+r217,"MUCUS, larynx, cough, after each paroxysmal","MUCUS in the air passages, Larynx, cough, after each paroxysmal",حلقوم — بلغم، حلقوم، ہر دورے کی کھانسی کے بعد,6,6,یکساں
+r218,"MUCUS, larynx, copious","MUCUS in the air passages, Larynx, copious",حلقوم — بلغم، حلقوم، زیادہ مقدار میں,7,7,یکساں
+r219,"MUCUS, larynx, eating, after","MUCUS in the air passages, Larynx, eating, after",حلقوم — بلغم، حلقوم، کھانے کے بعد,16,16,یکساں
+r22,"CONSTRICTION, lying, on","CONSTRICTION, lying, on",حلقوم — جکڑن، لیٹنے پر,2,2,یکساں
+r220,"MUCUS, larynx, ejected with difficulty","MUCUS in the air passages, Larynx, ejected with difficulty",حلقوم — بلغم، حلقوم، مشکل سے نکلے,32,32,یکساں
+r221,"MUCUS, larynx, green","MUCUS in the air passages, Larynx, green",حلقوم — بلغم، حلقوم، سبز,2,2,یکساں
+r222,"MUCUS, larynx, laughing","MUCUS in the air passages, Larynx, laughing",حلقوم — بلغم، حلقوم، ہنسنے پر,2,2,یکساں
+r223,"MUCUS, larynx, overheated, from being","MUCUS in the air passages, Larynx, overheated, from being",حلقوم — بلغم، حلقوم، گرم ہونے سے,1,1,یکساں
+r225,"MUCUS, larynx, rattling, evening","MUCUS in the air passages, Larynx, rattling, evening",حلقوم — بلغم، حلقوم، کھڑکھڑاہٹ کے ساتھ، شام,1,1,یکساں
+r226,"MUCUS, larynx, saltish","MUCUS in the air passages, Larynx, saltish",حلقوم — بلغم، حلقوم، نمکین,1,1,یکساں
+r227,"MUCUS, larynx, stooping, comes up when","MUCUS in the air passages, Larynx, stooping, comes up when",حلقوم — بلغم، حلقوم، جھکنے پر اوپر آئے,1,1,یکساں
+r228,"MUCUS, larynx, talking, from","MUCUS in the air passages, Larynx, talking, from",حلقوم — بلغم، حلقوم، بولنے سے,1,1,یکساں
+r229,"MUCUS, trachea","MUCUS in the air passages, Trachea",حلقوم — بلغم، سانس کی نالی,78,78,گریڈ کتابی مطابق کیے
+r23,"CONSTRICTION, waking, on","CONSTRICTION, waking, on",حلقوم — جکڑن، جاگنے پر,1,1,یکساں
+r230,"MUCUS, trachea, morning","MUCUS in the air passages, Trachea, morning",حلقوم — بلغم، سانس کی نالی، صبح,3,3,یکساں
+r231,"MUCUS, trachea, forenoon","MUCUS in the air passages, Trachea, forenoon",حلقوم — بلغم، سانس کی نالی، دوپہر سے پہلے,1,1,یکساں
+r232,"MUCUS, trachea, evening","MUCUS in the air passages, Trachea, evening",حلقوم — بلغم، سانس کی نالی، شام,2,2,یکساں
+r233,"MUCUS, trachea, night","MUCUS in the air passages, Trachea, night",حلقوم — بلغم، سانس کی نالی، رات,2,2,یکساں
+r234,"MUCUS, trachea, ascending and descending","MUCUS in the air passages, Trachea, ascending and descending",حلقوم — بلغم، سانس کی نالی، چڑھتے اور اترتے وقت,2,2,یکساں
+r235,"MUCUS, trachea, ejected with difficulty","MUCUS in the air passages, Trachea, ejected with difficulty",حلقوم — بلغم، سانس کی نالی، مشکل سے نکلے,2,2,یکساں
+r236,NECROSIS of cartilages of larynx,NECROSIS of cartilages of larynx,حلقوم — حلقوم کے کارٹلیج (نرم ہڈیوں) کا گل جانا,3,3,یکساں
+r241,"PAIN, larynx, morning, waking, on","PAIN, larynx, morning, waking, on",حلقوم — درد، حلقوم، صبح، جاگنے پر,1,1,یکساں
+r242,"PAIN, larynx, evening","PAIN, larynx, evening",حلقوم — درد، حلقوم، شام,2,2,یکساں
+r244,"PAIN, larynx, bending head backward","PAIN, larynx, bending head backward",حلقوم — درد، حلقوم، سر پیچھے جھکانے پر,5,5,یکساں
+r245,"PAIN, larynx, blowing nose, on","PAIN, larynx, blowing nose, on",حلقوم — درد، حلقوم، ناک سنکنے پر,1,1,یکساں
+r246,"PAIN, larynx, cold air","PAIN, larynx, cold air",حلقوم — درد، حلقوم، ٹھنڈی ہوا میں,2,2,یکساں
+r249,"PAIN, larynx, coughing, on, grasps the larynx","PAIN, larynx, coughing, on, grasps the larynx",حلقوم — درد، حلقوم، کھانسے پر، حلقوم کو پکڑ لے,9,9,یکساں
+r250,"PAIN, larynx, coughing, on, torn loose, as if something were being","PAIN, larynx, coughing, on, torn loose, as if something were being",حلقوم — درد، حلقوم، کھانسے پر جیسے کوئی چیز چھٹ گئی ہو,2,2,یکساں
+r251,"PAIN, larynx, draft of air","PAIN, larynx, draft of air",حلقوم — درد، حلقوم، ہوا کے جھونکے سے,1,1,یکساں
+r252,"PAIN, larynx, eating, while","PAIN, larynx, eating, while",حلقوم — درد، حلقوم، کھاتے ہوئے,1,1,یکساں
+r253,"PAIN, larynx, heat, during","PAIN, larynx, heat, during",حلقوم — درد، حلقوم، گرمی کے دوران,7,7,یکساں
+r254,"PAIN, larynx, lifting a weight","PAIN, larynx, lifting a weight",حلقوم — درد، حلقوم، وزن اٹھانے پر,1,1,یکساں
+r255,"PAIN, larynx, motion, on","PAIN, larynx, motion, on",حلقوم — درد، حلقوم، حرکت پر,2,2,یکساں
+r256,"PAIN, larynx, moving head, on","PAIN, larynx, moving head, on",حلقوم — درد، حلقوم، سر ہلانے پر,1,1,یکساں
+r257,"PAIN, larynx, pressure, on","PAIN, larynx, pressure, on",حلقوم — درد، حلقوم، دبانے پر,4,4,یکساں
+r258,"PAIN, larynx, reading, after","PAIN, larynx, reading, after",حلقوم — درد، حلقوم، پڑھنے کے بعد,4,4,یکساں
+r259,"PAIN, larynx, respiration agg.","PAIN, larynx, respiration agg.",حلقوم — درد، حلقوم، سانس لینے سے بگاڑ,4,4,یکساں
+r26,"CONSTRICTION, larynx, evening, in, bed","CONSTRICTION, Larynx, evening, in, bed",حلقوم — جکڑن، حلقوم، شام، بستر میں,2,2,یکساں
+r260,"PAIN, larynx, singing, when","PAIN, larynx, singing, when",حلقوم — درد، حلقوم، گاتے وقت,2,2,یکساں
+r261,"PAIN, larynx, sneezing, on","PAIN, larynx, sneezing, on",حلقوم — درد، حلقوم، چھینک پر,3,3,یکساں
+r262,"PAIN, larynx, speaking, on","PAIN, larynx, speaking, on",حلقوم — درد، حلقوم، بولنے پر,3,3,یکساں
+r263,"PAIN, larynx, spot, in a small","PAIN, larynx, spot, in a small",حلقوم — درد، حلقوم، ایک چھوٹی سی جگہ میں,2,2,یکساں
+r264,"PAIN, larynx, swallowing, on","PAIN, larynx, swallowing, on",حلقوم — درد، حلقوم، نگلتے وقت,15,15,گریڈ کتابی مطابق کیے
+r265,"PAIN, larynx, swallowing, on, as if food passed over sore spot","PAIN, larynx, swallowing, on, as if food passed over sore spot",حلقوم — درد، حلقوم، نگلتے وقت، جیسے کھانا چھلے ہوئے حصے پر سے گزرے,1,1,یکساں
+r266,"PAIN, larynx, talking, while","PAIN, larynx, talking, while",حلقوم — درد، حلقوم، بولتے ہوئے,22,22,یکساں
+r267,"PAIN, larynx, tobacco smoking, from","PAIN, larynx, tobacco smoking, from",حلقوم — درد، حلقوم، تمباکو پینے سے,1,1,یکساں
+r268,"PAIN, larynx, touch, on","PAIN, larynx, touch, on",حلقوم — درد، حلقوم، چھونے پر,9,9,یکساں
+r269,"PAIN, larynx, turning neck, on","PAIN, larynx, turning neck, on",حلقوم — درد، حلقوم، گردن موڑنے پر,4,4,یکساں
+r27,"CONSTRICTION, larynx, evening, on falling asleep","CONSTRICTION, Larynx, evening, on falling asleep",حلقوم — جکڑن، حلقوم، شام، سوتے وقت,3,3,یکساں
+r270,"PAIN, larynx, extending to teeth","PAIN, larynx, extending to teeth",حلقوم — درد، حلقوم، دانت تک پھیلتا ہوا,1,1,یکساں
+r29,"CONSTRICTION, larynx, night, before midnight","CONSTRICTION, Larynx, night, before midnight",حلقوم — جکڑن، حلقوم، رات، آدھی رات سے پہلے,1,1,یکساں
+r3,"CATARRH, morning","CATARRH, morning",حلقوم — نزلہ (کیٹار)، صبح,1,1,یکساں
+r32,"CONSTRICTION, larynx, anger, after","CONSTRICTION, Larynx, anger, after",حلقوم — جکڑن، حلقوم، غصے کے بعد,1,1,یکساں
+r35,"CONSTRICTION, larynx, crumb, sensation of","CONSTRICTION, Larynx, crumb, sensation of",حلقوم — جکڑن، حلقوم، جیسے چورا ہو,2,2,یکساں
+r36,"CONSTRICTION, larynx, drinking, after","CONSTRICTION, Larynx, drinking, after",حلقوم — جکڑن، حلقوم، پینے کے بعد,1,1,یکساں
+r37,"CONSTRICTION, larynx, eating, after","CONSTRICTION, Larynx, eating, after",حلقوم — جکڑن، حلقوم، کھانے کے بعد,1,1,یکساں
+r38,"CONSTRICTION, larynx, inhaling, on","CONSTRICTION, Larynx, inhaling, on",حلقوم — جکڑن، حلقوم، سانس اندر لیتے وقت,1,1,یکساں
+r386,"PARALYSIS, larynx","PARALYSIS, larynx",حلقوم — فالج، حلقوم,11,11,یکساں
+r388,"PHTHISIS, larynx","PHTHISIS, larynx",حلقوم — دق (ٹی بی)، حلقوم,33,33,گریڈ کتابی مطابق کیے
+r389,"PHTHISIS, larynx, short hacking cough and loss of voice","PHTHISIS, larynx, short hacking cough and loss of voice",حلقوم — دق (ٹی بی)، حلقوم، تھوڑی تھوڑی کاٹنے والی کھانسی اور آواز کا چلا جانا,1,1,یکساں
+r39,"CONSTRICTION, larynx, scratching, auditory canal, from","CONSTRICTION, Larynx, scratching, auditory canal, from",حلقوم — جکڑن، حلقوم، کان کی نالی کھرچنے سے,9,9,یکساں
+r390,"PHTHISIS, larynx, singers and public speakers","PHTHISIS, larynx, singers and public speakers",حلقوم — دق (ٹی بی)، حلقوم، گلوکاروں اور خطیبوں میں,2,2,یکساں
+r392,"PLUG, larynx","PLUG, larynx",حلقوم — پلگ (رکاوٹ)، حلقوم,12,12,یکساں
+r394,"POLYPI, larynx","POLYPI, larynx (See Condylomata)",حلقوم — پولیپ، حلقوم,8,8,یکساں
+r397,"PRESSURE in throat-pit, anger, after","PRESSURE in throat-pit, anger, after",حلقوم — گلے کے گڑھے میں دباؤ، غصے کے بعد,1,1,یکساں
+r398,"PRESSURE in throat-pit, inspiration, on","PRESSURE in throat-pit, inspiration, on",حلقوم — گلے کے گڑھے میں دباؤ، سانس اندر لیتے وقت,1,1,یکساں
+r399,"PRESSURE in throat-pit, swallowing agg.","PRESSURE in throat-pit, swallowing agg.",حلقوم — گلے کے گڑھے میں دباؤ، نگلنے سے بگاڑ,1,1,یکساں
+r4,"CATARRH, evening","CATARRH, evening",حلقوم — نزلہ (کیٹار)، شام,1,1,یکساں
+r40,"CONSTRICTION, larynx, singing agg.","CONSTRICTION, Larynx, singing agg.",حلقوم — جکڑن، حلقوم، گانے سے بگاڑ,1,1,یکساں
+r400,PRICKLING in larynx,PRICKLING in larynx,حلقوم — حلقوم میں چبھن,1,1,یکساں
+r401,"PULSATING, larynx","PULSATING, larynx",حلقوم — دھڑکن دار، حلقوم,1,1,یکساں
+r402,"RATTLING, larynx","RATTLING, larynx",حلقوم — کھڑکھڑاہٹ، حلقوم,11,11,یکساں
+r404,"REMOVED, as if larynx","REMOVED, as if larynx",حلقوم — جیسے حلقوم نکال دیا گیا ہو,1,1,یکساں
+r406,"ROUGHNESS, morning","ROUGHNESS, morning",حلقوم — کھردرا پن، صبح,3,3,یکساں
+r407,"ROUGHNESS, evening","ROUGHNESS, evening",حلقوم — کھردرا پن، شام,1,1,یکساں
+r408,"ROUGHNESS, eating, after","ROUGHNESS, eating, after",حلقوم — کھردرا پن، کھانے کے بعد,2,2,یکساں
+r409,"ROUGHNESS, walking in open air, after","ROUGHNESS, walking in open air, after",حلقوم — کھردرا پن، کھلی ہوا میں چلنے کے بعد,1,1,یکساں
+r41,"CONSTRICTION, larynx, sitting, while","CONSTRICTION, Larynx, sitting, while",حلقوم — جکڑن، حلقوم، بیٹھے ہوئے,1,1,یکساں
+r411,"ROUGHNESS, larynx, morning","ROUGHNESS, Larynx, morning",حلقوم — کھردرا پن، حلقوم، صبح,3,3,یکساں
+r414,"ROUGHNESS, larynx, talking, after","ROUGHNESS, Larynx, talking, after",حلقوم — کھردرا پن، حلقوم، بولنے کے بعد,3,3,یکساں
+r415,"ROUGHNESS, trachea","ROUGHNESS, Trachea",حلقوم — کھردرا پن، سانس کی نالی,17,17,یکساں
+r417,"SCRAPING, clearing larynx, daytime","SCRAPING, clearing larynx, daytime",حلقوم — کھرچنے کا احساس، حلقوم صاف کرنا، دن کے وقت,3,3,یکساں
+r418,"SCRAPING, clearing larynx, morning","SCRAPING, clearing larynx, morning",حلقوم — کھرچنے کا احساس، حلقوم صاف کرنا، صبح,10,10,یکساں
+r42,"CONSTRICTION, larynx, sleep, during","CONSTRICTION, Larynx, sleep, during",حلقوم — جکڑن، حلقوم، نیند کے دوران,15,15,یکساں
+r420,"SCRAPING, clearing larynx, evening, 7 p.m.","SCRAPING, clearing larynx, evening, 7 p.m.",حلقوم — کھرچنے کا احساس، حلقوم صاف کرنا، شام، 7 بجے,2,2,یکساں
+r421,"SCRAPING, clearing larynx, night","SCRAPING, clearing larynx, night",حلقوم — کھرچنے کا احساس، حلقوم صاف کرنا، رات,5,5,یکساں
+r422,"SCRAPING, clearing larynx, eating, after","SCRAPING, clearing larynx, eating, after",حلقوم — کھرچنے کا احساس، حلقوم صاف کرنا، کھانے کے بعد,16,16,یکساں
+r423,"SCRAPING, clearing larynx, ice cream, after","SCRAPING, clearing larynx, ice cream, after",حلقوم — کھرچنے کا احساس، حلقوم صاف کرنا، آئس کریم کے بعد,1,1,یکساں
+r424,"SCRAPING, clearing larynx, incessant","SCRAPING, clearing larynx, incessant",حلقوم — کھرچنے کا احساس، حلقوم صاف کرنا، مسلسل,1,1,یکساں
+r425,"SCRAPING, clearing larynx, lying amel.","SCRAPING, clearing larynx, lying amel.",حلقوم — کھرچنے کا احساس، حلقوم صاف کرنا، لیٹنے سے آرام,1,1,یکساں
+r426,"SCRAPING, clearing larynx, reading aloud, from","SCRAPING, clearing larynx, reading aloud, from",حلقوم — کھرچنے کا احساس، حلقوم صاف کرنا، بلند آواز میں پڑھنے سے,1,1,یکساں
+r427,"SCRAPING, clearing larynx, talking, from","SCRAPING, clearing larynx, talking, from",حلقوم — کھرچنے کا احساس، حلقوم صاف کرنا، بولنے سے,2,2,یکساں
+r428,"SCRAPING, clearing larynx, wind, from","SCRAPING, clearing larynx, wind, from",حلقوم — کھرچنے کا احساس، حلقوم صاف کرنا، ہوا سے,1,1,یکساں
+r430,"SCRATCHING, larynx, 2 a.m.; wakens him","SCRATCHING, larynx, 2 a.m.; wakens him",حلقوم — کھرچنے جیسا احساس، حلقوم، رات 2 بجے؛ نیند سے جگا دے,1,1,یکساں
+r431,"SCRATCHING, larynx, when singing","SCRATCHING, larynx, when singing",حلقوم — کھرچنے جیسا احساس، حلقوم، گاتے وقت,1,1,یکساں
+r433,"SENSITIVE larynx, morning","SENSITIVE larynx, morning",حلقوم — حساس حلقوم، صبح,1,1,یکساں
+r434,"SENSITIVE larynx, cold air, to","SENSITIVE larynx, cold air, to",حلقوم — حساس حلقوم، ٹھنڈی ہوا سے,23,23,یکساں
+r435,"SENSITIVE larynx, pressure, to","SENSITIVE larynx, pressure, to",حلقوم — حساس حلقوم، دبانے سے,2,2,یکساں
+r436,"SENSITIVE larynx, sound of the piano, to","SENSITIVE larynx, sound of the piano, to",حلقوم — حساس حلقوم، پیانو کی آواز سے,1,1,یکساں
+r437,"SENSITIVE larynx, touch, to","SENSITIVE larynx, touch, to",حلقوم — حساس حلقوم، چھونے سے,10,10,یکساں
+r440,SHOCKS in larynx on waking,SHOCKS in larynx on waking,حلقوم — جاگنے پر حلقوم میں جھٹکے,1,1,یکساں
+r443,"SKIN, sensation of, larynx","SKIN, sensation of, larynx",حلقوم — چمڑے کا احساس، حلقوم,7,7,یکساں
+r444,"SMOKE, sensation of, larynx","SMOKE, sensation of, larynx",حلقوم — دھواں، احساس، حلقوم,3,3,یکساں
+r445,"SMOKE, sensation of, larynx, sleep, before","SMOKE, sensation of, larynx, sleep, before",حلقوم — دھواں، احساس، حلقوم، نیند سے پہلے,1,1,یکساں
+r446,SPASMS of glottis (See Laryngismus),SPASMS of glottis (See Laryngismus),حلقوم — گلٹس کا تشنج (لیرنگزمِس),0,0,یکساں
+r447,"STOPPAGE, sensation of","STOPPAGE, sensation of",حلقوم — رُک جانا، احساس,3,3,یکساں
+r448,"SULPHUR vapor, as from","SULPHUR vapor, as from",حلقوم — گندھک کی بھاپ کا احساس، جیسے ہو,18,18,یکساں
+r449,"SULPHUR vapor, as from, cough, during","SULPHUR vapor, as from, cough, during",حلقوم — گندھک کی بھاپ کا احساس، جیسے ہو، کھانسی کے دوران,3,3,یکساں
+r450,SUPPORTS larynx on coughing,SUPPORTS larynx on coughing,حلقوم — کھانستے وقت حلقوم کو سہارا دے,8,8,یکساں
+r452,"SWOLLEN larynx, evening","SWOLLEN larynx, evening",حلقوم — حلقوم کی سوجن، شام,1,1,یکساں
+r453,"SWOLLEN larynx, sensation of","SWOLLEN larynx, sensation of",حلقوم — حلقوم میں سوجن کا احساس,10,10,یکساں
+r455,"SWOLLEN, throat-pit","SWOLLEN larynx, Throat-pit",حلقوم — سوجن، گلے کا گڑھا,1,1,یکساں
+r457,"TENSION, larynx, evening","TENSION, larynx, evening",حلقوم — تناؤ، حلقوم، شام,1,1,یکساں
+r458,"TENSION, larynx, bed, in","TENSION, larynx, bed, in",حلقوم — تناؤ، حلقوم، بستر میں,1,1,یکساں
+r459,"TENSION, larynx, menses, during","TENSION, larynx, menses, during",حلقوم — تناؤ، حلقوم، حیض کے دوران,1,1,یکساں
+r46,"CONSTRICTION, larynx, swallowing, on","CONSTRICTION, Larynx, swallowing, on",حلقوم — جکڑن، حلقوم، نگلتے وقت,1,1,یکساں
+r460,THINGS go down the wrong way (See Food),THINGS go down the wrong way (See Food),حلقوم — چیزیں غلط راستے میں چلی جائیں (کھانا وغیرہ),0,0,یکساں
+r462,"TICKLING in the air passages, daytime","TICKLING in the air passages, daytime",حلقوم — سانس کی نالیوں میں گدگدی، دن کے وقت,5,5,یکساں
+r463,"TICKLING in the air passages, daytime, and night","TICKLING in the air passages, daytime, and night",حلقوم — سانس کی نالیوں میں گدگدی، دن کے وقت، دن اور رات,1,1,یکساں
+r465,"TICKLING in the air passages, morning, rising, after","TICKLING in the air passages, morning, rising, after",حلقوم — سانس کی نالیوں میں گدگدی، صبح، اٹھنے کے بعد,2,2,یکساں
+r466,"TICKLING in the air passages, morning, waking, after","TICKLING in the air passages, morning, waking, after",حلقوم — سانس کی نالیوں میں گدگدی، صبح، جاگنے کے بعد,1,1,یکساں
+r467,"TICKLING in the air passages, forenoon","TICKLING in the air passages, forenoon",حلقوم — سانس کی نالیوں میں گدگدی، دوپہر سے پہلے,1,1,یکساں
+r469,"TICKLING in the air passages, afternoon, 2 p.m.","TICKLING in the air passages, afternoon, 2 p.m.",حلقوم — سانس کی نالیوں میں گدگدی، سہ پہر، دوپہر 2 بجے,2,2,یکساں
+r47,"CONSTRICTION, larynx, talking, while","CONSTRICTION, Larynx, talking, while",حلقوم — جکڑن، حلقوم، بولتے ہوئے,2,2,یکساں
+r473,"TICKLING in the air passages, evening, bed, in","TICKLING in the air passages, evening, bed, in",حلقوم — سانس کی نالیوں میں گدگدی، شام، بستر میں,5,5,یکساں
+r474,"TICKLING in the air passages, evening, falling, asleep, before","TICKLING in the air passages, evening, falling, asleep, before",حلقوم — سانس کی نالیوں میں گدگدی، شام، سونے سے پہلے,1,1,یکساں
+r475,"TICKLING in the air passages, evening, going to sleep, on","TICKLING in the air passages, evening, going to sleep, on",حلقوم — سانس کی نالیوں میں گدگدی، شام، سوتے وقت,2,2,یکساں
+r476,"TICKLING in the air passages, evening, midnight, until","TICKLING in the air passages, evening, midnight, until",حلقوم — سانس کی نالیوں میں گدگدی، شام، آدھی رات تک,1,1,یکساں
+r477,"TICKLING in the air passages, evening, 6 p.m., expectoration of mucus, amel.","TICKLING in the air passages, evening, 6 p.m., expectoration of mucus, amel.",حلقوم — سانس کی نالیوں میں گدگدی، شام 6 بجے، بلغم نکلنے سے آرام,1,1,یکساں
+r479,"TICKLING in the air passages, night, midnight, after","TICKLING in the air passages, night, midnight, after",حلقوم — سانس کی نالیوں میں گدگدی، رات، آدھی رات کے بعد,1,1,یکساں
+r48,"CONSTRICTION, larynx, touch, from","CONSTRICTION, Larynx, touch, from",حلقوم — جکڑن، حلقوم، چھونے سے,1,1,یکساں
+r480,"TICKLING in the air passages, night, 11-30 p.m.","TICKLING in the air passages, night, 11-30 p.m.",حلقوم — سانس کی نالیوں میں گدگدی، رات، 11.30 بجے,1,1,یکساں
+r481,"TICKLING in the air passages, night, 2 a.m.","TICKLING in the air passages, night, 2 a.m.",حلقوم — سانس کی نالیوں میں گدگدی، رات، 2 بجے,1,1,یکساں
+r482,"TICKLING in the air passages, night, 3 a.m.","TICKLING in the air passages, night, 3 a.m.",حلقوم — سانس کی نالیوں میں گدگدی، رات، 3 بجے,3,3,یکساں
+r483,"TICKLING in the air passages, air, in open","TICKLING in the air passages, air, in open",حلقوم — سانس کی نالیوں میں گدگدی، ہوا، کھلی ہوا میں,3,3,یکساں
+r485,"TICKLING in the air passages, blood, taste of, with","TICKLING in the air passages, blood, taste of, with",حلقوم — سانس کی نالیوں میں گدگدی، خون کے ذائقے کے ساتھ,1,1,یکساں
+r486,"TICKLING in the air passages, inspiring, on","TICKLING in the air passages, inspiring, on",حلقوم — سانس کی نالیوں میں گدگدی، سانس اندر لیتے وقت,2,2,یکساں
+r49,"CONSTRICTION, larynx, waking, on","CONSTRICTION, Larynx, waking, on",حلقوم — جکڑن، حلقوم، جاگنے پر,4,4,یکساں
+r490,"TICKLING in the air passages, smoking, from","TICKLING in the air passages, smoking, from",حلقوم — سانس کی نالیوں میں گدگدی، تمباکو پینے سے,2,2,یکساں
+r491,"TICKLING in the air passages, talking, on","TICKLING in the air passages, talking, on",حلقوم — سانس کی نالیوں میں گدگدی، بولنے پر,7,7,یکساں
+r492,"TICKLING in the air passages, tobacco","TICKLING in the air passages, tobacco",حلقوم — سانس کی نالیوں میں گدگدی، تمباکو,1,1,یکساں
+r493,"TICKLING in the air passages, waking, on","TICKLING in the air passages, waking, on",حلقوم — سانس کی نالیوں میں گدگدی، جاگنے پر,2,2,یکساں
+r494,"TICKLING in the air passages, walking in open air","TICKLING in the air passages, walking in open air",حلقوم — سانس کی نالیوں میں گدگدی، کھلی ہوا میں چلتے ہوئے,1,1,یکساں
+r495,"TICKLING in the air passages, warm room","TICKLING in the air passages, warm room",حلقوم — سانس کی نالیوں میں گدگدی، گرم کمرے میں,16,16,یکساں
+r5,"CATARRH, night","CATARRH, night",حلقوم — نزلہ (کیٹار)، رات,3,3,یکساں
+r50,"CONSTRICTION, larynx, walking amel.","CONSTRICTION, Larynx, walking amel.",حلقوم — جکڑن، حلقوم، چلنے سے آرام,1,1,یکساں
+r503,"TICKLING, throat-pit, in, from","TICKLING in the air passages, Throat-pit, in, from",حلقوم — گدگدی، گلے کے گڑھے میں، اُس سے,29,29,یکساں
+r504,"TICKLING, trachea, in","TICKLING in the air passages, Trachea, in",حلقوم — گدگدی، سانس کی نالی میں,100,100,یکساں
+r505,TIGHTNESS (See Constriction of Chest),TIGHTNESS (See Constriction of Chest),حلقوم — تنگی (جکڑن),9,9,یکساں
+r506,"TIGHTNESS (See Constriction of Chest), Larynx (See Tension)","TIGHTNESS (See Constriction of Chest), Larynx (See Tension)",حلقوم — تنگی (جکڑن)، حلقوم,0,0,یکساں
+r507,"TINGLING, larynx","TINGLING, larynx",حلقوم — جھنجھناہٹ (سنسناہٹ)، حلقوم,5,5,یکساں
+r508,"ULCERATION, larynx","ULCERATION, larynx",حلقوم — ناسور (زخم)، حلقوم,12,12,یکساں
+r509,VELVETY sensation (downy),VELVETY sensation (downy),حلقوم — مخملی پن کا احساس (روئیں دار),9,9,یکساں
+r51,"CONSTRICTION, throat-pit","CONSTRICTION, Throat-pit",حلقوم — جکڑن، گلے کا گڑھا,7,7,یکساں
+r510,"VOICE, barking","VOICE, barking",حلقوم — آواز، بھونکنے جیسی,7,7,یکساں
+r52,"CONSTRICTION, throat-pit, anger open","CONSTRICTION, Throat-pit, anger open",حلقوم — جکڑن، گلے کا گڑھا، غصے کے بعد,1,1,یکساں
+r53,"CONSTRICTION, throat-pit, eating amel.","CONSTRICTION, Throat-pit, eating amel.",حلقوم — جکڑن، گلے کا گڑھا، کھانے سے آرام,1,1,یکساں
+r54,"CONSTRICTION, throat-pit, sleep, on going to","CONSTRICTION, Throat-pit, sleep, on going to",حلقوم — جکڑن، گلے کا گڑھا، سوتے وقت,1,1,یکساں
+r55,"CONSTRICTION, throat-pit, swallowing, when","CONSTRICTION, Throat-pit, swallowing, when",حلقوم — جکڑن، گلے کا گڑھا، نگلتے وقت,1,1,یکساں
+r56,"CONSTRICTION, trachea","CONSTRICTION, Trachea",حلقوم — جکڑن، سانس کی نالی,22,22,یکساں
+r57,"CONSTRICTION, trachea, evening, lying down, on","CONSTRICTION, Trachea, evening, lying down, on",حلقوم — جکڑن، سانس کی نالی، شام، لیٹنے پر,1,1,یکساں
+r59,"CRAWLING, larynx, morning","CRAWLING, larynx, morning",حلقوم — رینگنے کا احساس، حلقوم، صبح,1,1,یکساں
+r6,"CATARRH, alternating with uterine complaints","CATARRH, alternating with uterine complaints",حلقوم — نزلہ (کیٹار)، رحم کی شکایات کے ساتھ باری باری,1,1,یکساں
+r61,"CRAWLING, larynx, evening, lying, after","CRAWLING, larynx, evening, lying, after",حلقوم — رینگنے کا احساس، حلقوم، شام، لیٹنے کے بعد,1,1,یکساں
+r62,"CRAWLING, larynx, night","CRAWLING, larynx, night",حلقوم — رینگنے کا احساس، حلقوم، رات,1,1,یکساں
+r63,"CRAWLING, larynx, cough, from","CRAWLING, larynx, cough, from",حلقوم — رینگنے کا احساس، حلقوم، کھانسی سے,1,1,یکساں
+r64,"CRAWLING, larynx, eating, after","CRAWLING, larynx, eating, after",حلقوم — رینگنے کا احساس، حلقوم، کھانے کے بعد,1,1,یکساں
+r65,"CRAWLING, larynx, sitting, while","CRAWLING, larynx, sitting, while",حلقوم — رینگنے کا احساس، حلقوم، بیٹھے ہوئے,1,1,یکساں
+r66,"CRAWLING, larynx, swallowing, when","CRAWLING, larynx, swallowing, when",حلقوم — رینگنے کا احساس، حلقوم، نگلتے وقت,1,1,یکساں
+r677,"WHISTLING, evening","WHISTLING, evening",حلقوم — سیٹی جیسی آواز، شام,1,1,یکساں
+r678,"WHISTLING, after lying down","WHISTLING, after lying down",حلقوم — سیٹی جیسی آواز، لیٹنے کے بعد,1,1,یکساں
+r679,"WHISTLING, lying on left side","WHISTLING, lying on left side",حلقوم — سیٹی جیسی آواز، بائیں کروٹ لیٹنے پر,1,1,یکساں
+r7,"CATARRH, change of weather, before","CATARRH, change of weather, before",حلقوم — نزلہ (کیٹار)، موسم بدلنے سے پہلے,1,1,یکساں
+r71,"CROUP, night, after","CROUP, night, after",حلقوم — خناق (کروپ)، رات، آدھی رات کے بعد,1,1,یکساں
+r73,"CROUP, eating, after","CROUP, eating, after",حلقوم — خناق (کروپ)، کھانے کے بعد,1,1,یکساں
+r74,"CROUP, exposure to cold dry air, after","CROUP, exposure to cold dry air, after",حلقوم — خناق (کروپ)، ٹھنڈی خشک ہوا میں رہنے کے بعد,3,3,یکساں
+r75,"CROUP, gangrenous","CROUP, gangrenous",حلقوم — خناق (کروپ)، گلنے والا (گینگرین),1,1,یکساں
+r76,"CROUP, heated, from being","CROUP, heated, from being",حلقوم — خناق (کروپ)، گرم ہونے سے,1,1,یکساں
+r77,"CROUP, lying agg.","CROUP, lying agg.",حلقوم — خناق (کروپ)، لیٹنے سے بگاڑ,1,1,یکساں
+r78,"CROUP, membranous","CROUP, membranous",حلقوم — خناق (کروپ)، جھلی والا,23,23,یکساں
+r79,"CROUP, paroxysmal","CROUP, paroxysmal",حلقوم — خناق (کروپ)، دوروں کی شکل میں,2,2,یکساں
+r8,"CATARRH, damp weather","CATARRH, damp weather",حلقوم — نزلہ (کیٹار)، گیلے موسم میں,3,3,یکساں
+r80,"CROUP, recurrent","CROUP, recurrent",حلقوم — خناق (کروپ)، بار بار ہونے والا,3,3,یکساں
+r81,"CROUP, sequelae","CROUP, sequelæ",حلقوم — خناق (کروپ)، بعد کے اثرات (نتیجے),2,2,یکساں
+r82,"CROUP, sleep, after, agg.","CROUP, sleep, after, agg.",حلقوم — خناق (کروپ)، نیند کے بعد بگاڑ,2,2,یکساں
+r83,"CROUP, whooping cough during","CROUP, whooping cough during",حلقوم — خناق (کروپ)، کالی کھانسی کے دوران,1,1,یکساں
+r84,"CROUP, extending to trachea","CROUP, extending to trachea",حلقوم — خناق (کروپ)، سانس کی نالی تک پھیلتا ہوا,4,4,یکساں
+r86,"CRUMB, sensation of, in larynx","CRUMB, sensation of, in larynx",حلقوم — چورا (روٹی کا ذرہ)، احساس، حلقوم میں,5,5,یکساں
+r87,"DOWNY, feeling (See Velvety)","DOWNY, feeling (See Velvety)",حلقوم — مخملی پن کا احساس (روئیں دار),0,0,یکساں
+r9,"CATARRH, measles, after","CATARRH, measles, after",حلقوم — نزلہ (کیٹار)، خسرہ کے بعد,1,1,یکساں
+r91,"DRYNESS, larynx, morning, waking","DRYNESS, Larynx, morning, waking",حلقوم — خشکی، حلقوم، صبح، جاگنے پر,3,3,یکساں
+r92,"DRYNESS, larynx, morning, 5 a.m.","DRYNESS, Larynx, morning, 5 a.m.",حلقوم — خشکی، حلقوم، صبح، 5 بجے,1,1,یکساں
+r93,"DRYNESS, larynx, forenoon","DRYNESS, Larynx, forenoon",حلقوم — خشکی، حلقوم، دوپہر سے پہلے,1,1,یکساں
+r94,"DRYNESS, larynx, evening","DRYNESS, Larynx, evening",حلقوم — خشکی، حلقوم، شام,4,4,یکساں
+r95,"DRYNESS, larynx, night","DRYNESS, Larynx, night",حلقوم — خشکی، حلقوم، رات,8,8,گریڈ کتابی مطابق کیے
+r97,"DRYNESS, larynx, air, open, in","DRYNESS, Larynx, air, open, in",حلقوم — خشکی، حلقوم، کھلی ہوا میں,2,2,یکساں
+r98,"DRYNESS, larynx, aversion to drink","DRYNESS, Larynx, aversion to drink",حلقوم — خشکی، حلقوم، پینے سے بیزاری,1,1,یکساں
+r99,"DRYNESS, larynx, coughing, on","DRYNESS, Larynx, coughing, on",حلقوم — خشکی، حلقوم، کھانسے پر,3,3,یکساں
+r416,"SCRAPING, clearing larynx","SCRAPING, clearing larynx",حلقوم — کھرچنے کا احساس، حلقوم صاف کرنا,112,111,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r167,"IRRITATION, larynx","IRRITATION in air passages, Larynx",حلقوم — خراش (چڑچڑاہٹ)، حلقوم,145,143,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r58,"CRAWLING, larynx","CRAWLING, larynx",حلقوم — رینگنے کا احساس، حلقوم,36,35,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r89,"DRYNESS, larynx","DRYNESS, Larynx",حلقوم — خشکی، حلقوم,93,90,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r248,"PAIN, larynx, coughing, on","PAIN, larynx, coughing, on",حلقوم — درد، حلقوم، کھانسے پر,29,28,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r429,"SCRATCHING, larynx","SCRATCHING, larynx",حلقوم — کھرچنے جیسا احساس، حلقوم,29,28,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o45649,"PAIN, rawness, larynx, morning, waking, on","PAIN, larynx, rawness in air passages, Larynx, morning, waking, on",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، حنجرہ، صبح، جاگنا,1,1,یکساں
+r116,"FOREIGN substance, sensation, larynx","FOREIGN substance, sensation, larynx",حلقوم — بیرونی چیز (اجنبی شے)، احساس، حلقوم,21,20,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r350,"PAIN, soreness, larynx, morning, waking, on","PAIN, larynx, soreness, Larynx, morning, waking, on",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف)، حنجرہ، صبح، جاگنا,1,1,یکساں
+r365,"PAIN, stitching, larynx, night, cough, during","PAIN, larynx, stitching, larynx, night, cough, during",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، رات کھانسی,1,1,یکساں
+r366,"PAIN, stitching, larynx, air, open, in","PAIN, larynx, stitching, larynx, air, open, in",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، ہوا کھلی (ہوا),1,1,یکساں
+r375,"PAIN, stitching, larynx, extending to ear, swallowing, when","PAIN, larynx, stitching, larynx, extending to ear, swallowing, when",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، پھیلاؤ (درد کہاں تک) کان، نگلنا,1,1,یکساں
+r131,"INFLAMMATION, larynx","INFLAMMATION, larynx",حلقوم — سوزش، حلقوم,62,59,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o45581,"PAIN, burning, larynx, extending, to nostrils","PAIN, larynx, burning, Larynx, extending to abdomen, to nostrils",حلقوم — درد، حلقوم، جلن، حنجرہ، پھیلاؤ (درد کہاں تک) پیٹ، نتھنے,1,1,یکساں
+o45645,"PAIN, rawness, larynx, coughing, from","PAIN, larynx, rawness in air passages, Larynx, coughing, from",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، حنجرہ، کھانسی,26,26,یکساں
+o45647,"PAIN, rawness, larynx, inspiration, during","PAIN, larynx, rawness in air passages, Larynx, inspiration, during",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، حنجرہ، سانس اندر لینا,7,7,یکساں
+o45651,"PAIN, rawness, larynx, scraping, from","PAIN, larynx, rawness in air passages, Larynx, scraping, from",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، حنجرہ، کھرچنے جیسا,4,4,یکساں
+o45652,"PAIN, rawness, larynx, singing, when","PAIN, larynx, rawness in air passages, Larynx, singing, when",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، حنجرہ، گانا (گنگنانا),3,3,یکساں
+o45653,"PAIN, rawness, larynx, smoking, from","PAIN, larynx, rawness in air passages, Larynx, smoking, from",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، حنجرہ، تمباکو نوشی,1,1,یکساں
+o45654,"PAIN, rawness, larynx, swallowing, on","PAIN, larynx, rawness in air passages, Larynx, swallowing, on",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، حنجرہ، نگلنا,1,1,یکساں
+o45655,"PAIN, rawness, larynx, talking, from","PAIN, larynx, rawness in air passages, Larynx, talking, from",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، حنجرہ، بات کرنا,13,13,یکساں
+o45886,"VOICE, hoarseness, morning, menses, during","VOICE, barking, hoarseness, morning, menses, during",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، صبح، حیض,1,1,یکساں
+o45956,"VOICE, lost, warm, room, in","VOICE, barking, lost, warm air amel., room, in",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، گرم ہوا آرام (amel.) — جس سے بہتر ہو، کمرہ,2,2,یکساں
+r101,"DRYNESS, larynx, hawking, constant, with","DRYNESS, Larynx, hawking, from, constant, with",حلقوم — خشکی، حلقوم، کھنکارنے پر، کھنکارنے سے، مسلسل کے ساتھ,1,1,یکساں
+r277,"PAIN, trachea, coughing, on, in a streak down","PAIN, larynx, Trachea, coughing, on, in a streak down",حلقوم — درد، حلقوم، سنسنی کی نالی، کھانسی، دھار (لکیر) نیچے کی طرف,1,1,یکساں
+r289,"PAIN, burning, larynx, coryza, during","PAIN, larynx, burning, Larynx, coryza, during",حلقوم — درد، حلقوم، جلن، حنجرہ، نزلہ,2,2,یکساں
+r290,"PAIN, burning, larynx, cough, during","PAIN, larynx, burning, Larynx, cough, during",حلقوم — درد، حلقوم، جلن، حنجرہ، کھانسی,16,16,یکساں
+r292,"PAIN, burning, larynx, scraping, when","PAIN, larynx, burning, Larynx, scraping, when",حلقوم — درد، حلقوم، جلن، حنجرہ، کھرچنے جیسا,2,2,یکساں
+r293,"PAIN, burning, larynx, talking, after","PAIN, larynx, burning, Larynx, talking, after",حلقوم — درد، حلقوم، جلن، حنجرہ، بات کرنا,2,2,یکساں
+r300,"PAIN, burning, trachea, cough, with","PAIN, larynx, burning, Trachea, cough, with",حلقوم — درد، حلقوم، جلن، سنسنی کی نالی، کھانسی کے ساتھ,6,6,یکساں
+r301,"PAIN, burning, trachea, motion, on","PAIN, larynx, burning, Trachea, motion, on",حلقوم — درد، حلقوم، جلن، سنسنی کی نالی، حرکت,1,1,یکساں
+r308,"PAIN, cutting, larynx, swallowing, on","PAIN, larynx, cutting, larynx, swallowing, on",حلقوم — درد، حلقوم، کٹنے جیسی حنجرہ، نگلنا,1,1,یکساں
+r31,"CONSTRICTION, larynx, air, open, amel.","CONSTRICTION, Larynx, air, open, in, amel.",حلقوم — جکڑن، حلقوم، کھلی ہوا میں، بگاڑ، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r315,"PAIN, pressing, larynx, blowing the nose, on","PAIN, larynx, pressing, larynx, blowing the nose, on",حلقوم — درد، حلقوم، دبانے والا درد حنجرہ، پھونک (دل/سینے کی آواز) ناک,1,1,یکساں
+r316,"PAIN, pressing, larynx, supper, after","PAIN, larynx, pressing, larynx, supper, after",حلقوم — درد، حلقوم، دبانے والا درد حنجرہ، رات کا کھانا,1,1,یکساں
+r336,"PAIN, rawness, larynx, waking, on","PAIN, larynx, rawness in air passages, Larynx, waking, on",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، حنجرہ، جاگنا,1,1,یکساں
+r341,"PAIN, rawness, trachea, coughing, when","PAIN, larynx, rawness in air passages, Trachea (See Chest), coughing, when",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، سنسنی کی نالی، کھانسی,17,17,یکساں
+r343,"PAIN, rawness, trachea, inspiration, on","PAIN, larynx, rawness in air passages, Trachea (See Chest), inspiration, on",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، سنسنی کی نالی، سانس اندر لینا,1,1,یکساں
+r352,"PAIN, soreness, larynx, breathing, on","PAIN, larynx, soreness, Larynx, breathing, on",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف)، حنجرہ، سانس لینا,1,1,یکساں
+r353,"PAIN, soreness, larynx, coughing, on","PAIN, larynx, soreness, Larynx, coughing, on",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف)، حنجرہ، کھانسی,21,21,یکساں
+r354,"PAIN, soreness, larynx, inspiration, on","PAIN, larynx, soreness, Larynx, inspiration, on",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف)، حنجرہ، سانس اندر لینا,1,1,یکساں
+r356,"PAIN, soreness, larynx, swallowing, on","PAIN, larynx, soreness, Larynx, swallowing, on",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف)، حنجرہ، نگلنا,8,8,یکساں
+r358,"PAIN, soreness, larynx, turning the head, on","PAIN, larynx, soreness, Larynx, turning the head, on",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف)، حنجرہ، مڑنا سر,3,3,یکساں
+r361,"PAIN, soreness, trachea, coughing, on","PAIN, larynx, soreness, Trachea, coughing, on",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف)، سنسنی کی نالی، کھانسی,16,16,یکساں
+r367,"PAIN, stitching, larynx, cough, during","PAIN, larynx, stitching, larynx, cough, during",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، کھانسی,7,7,یکساں
+r368,"PAIN, stitching, larynx, excitement, from","PAIN, larynx, stitching, larynx, excitement, from",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، جذباتی ہیجان,1,1,یکساں
+r369,"PAIN, stitching, larynx, forced inspiration, on","PAIN, larynx, stitching, larynx, forced inspiration, on",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، مجبور کیا ہوا سانس اندر لینا,1,1,یکساں
+r370,"PAIN, stitching, larynx, supper, after","PAIN, larynx, stitching, larynx, supper, after",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، رات کا کھانا,1,1,یکساں
+r372,"PAIN, stitching, larynx, swallowing, when","PAIN, larynx, stitching, larynx, swallowing, when",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، نگلنا,2,2,یکساں
+r373,"PAIN, stitching, larynx, walking in open air, while","PAIN, larynx, stitching, larynx, walking in open air, while",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، چلنا کھلی (ہوا) ہوا جب کہ / دوران,1,1,یکساں
+r384,"PAIN, tearing, larynx, coughing, on","PAIN, larynx, tearing, larynx, coughing, on",حلقوم — درد، حلقوم، پھاڑنے جیسی حنجرہ، کھانسی,8,8,یکساں
+r538,"VOICE, hoarseness, morning, rising, after","VOICE, barking, hoarseness, morning, rising, after",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، صبح، اٹھنے پر (بستر سے),5,5,یکساں
+r539,"VOICE, hoarseness, morning, waking, on","VOICE, barking, hoarseness, morning, waking, on",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، صبح، جاگنا,6,6,یکساں
+r546,"VOICE, hoarseness, evening, bed, in","VOICE, barking, hoarseness, evening, bed, in",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، شام، بستر (بستر پر/میں),1,1,یکساں
+r547,"VOICE, hoarseness, evening, reading, after","VOICE, barking, hoarseness, evening, reading, after",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، شام، پڑھنا,2,2,یکساں
+r548,"VOICE, hoarseness, evening, sunset, after","VOICE, barking, hoarseness, evening, sunset, after",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، شام، غروبِ آفتاب,1,1,یکساں
+r611,"VOICE, lost, morning, walking, on","VOICE, barking, lost, morning, walking, on",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، صبح، چلنا,1,1,یکساں
+r68,"CRAWLING, trachea, evening, lying down, after","CRAWLING, larynx, Trachea, evening, lying down, after",حلقوم — رینگنے کا احساس، حلقوم، سنسنی کی نالی، شام لیٹنا نیچے کی طرف,1,1,یکساں
+r472,"TICKLING in the air passages, evening","TICKLING in the air passages, evening",حلقوم — سانس کی نالیوں میں گدگدی، شام,17,16,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r183,LARYNGISMUS stridulus,LARYNGISMUS stridulus,حلقوم — حلقوم کا تشنج (لیرنگزمِس اسٹریڈولس),50,47,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o45500,"IRRITATION, larynx, morning, in bed","IRRITATION in air passages, Larynx, morning, on waking, in bed",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، صبح، جاگنے پر، بستر (بستر پر/میں),1,1,یکساں
+o45644,"PAIN, rawness, larynx, cold air","PAIN, larynx, rawness in air passages, Larynx, cold air",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، حنجرہ، سردی ہوا,10,10,یکساں
+o45646,"PAIN, rawness, larynx, evening","PAIN, larynx, rawness in air passages, Larynx, evening",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، حنجرہ، شام,2,2,یکساں
+o45648,"PAIN, rawness, larynx, morning","PAIN, larynx, rawness in air passages, Larynx, morning",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، حنجرہ، صبح,11,11,یکساں
+o45650,"PAIN, rawness, larynx, night","PAIN, larynx, rawness in air passages, Larynx, night",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، حنجرہ، رات,1,1,یکساں
+o45912,"VOICE, hoarseness, walking, against the wind","VOICE, barking, hoarseness, walking in open air, against the wind",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، چلنا کھلی (ہوا) ہوا، سے لگا کر / سہارے تیز ہوا,2,2,یکساں
+o45915,"VOICE, hoarseness, warm, wet weather agg.","VOICE, barking, hoarseness, warm room, wet weather agg.",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، گرم کمرہ، گیلا موسم بگاڑ (agg.) — جس سے بگڑتا ہو,1,1,یکساں
+r187,"LARYNGISMUS stridulus, night, midnight, to 7 a.m.","LARYNGISMUS stridulus, night, midnight, waking out of sound sleep, to 7 a.m.",حلقوم — حلقوم کا تشنج (لیرنگزمِس اسٹریڈولس)، رات، آدھی رات، گہری نیند سے جاگنے پر، 7,1,1,یکساں
+r276,"PAIN, trachea, coughing, on","PAIN, larynx, Trachea, coughing, on",حلقوم — درد، حلقوم، سنسنی کی نالی، کھانسی,28,28,یکساں
+r278,"PAIN, trachea, inspiration, on","PAIN, larynx, Trachea, inspiration, on",حلقوم — درد، حلقوم، سنسنی کی نالی، سانس اندر لینا,11,11,یکساں
+r279,"PAIN, trachea, talking, on","PAIN, larynx, Trachea, talking, on",حلقوم — درد، حلقوم، سنسنی کی نالی، بات کرنا,1,1,یکساں
+r283,"PAIN, burning, cough, during","PAIN, larynx, burning, cough, during",حلقوم — درد، حلقوم، جلن، کھانسی,11,11,یکساں
+r285,"PAIN, burning, lying, while","PAIN, larynx, burning, lying, while",حلقوم — درد، حلقوم، جلن، لیٹنا جب کہ / دوران,2,2,یکساں
+r287,"PAIN, burning, larynx, afternoon","PAIN, larynx, burning, Larynx, afternoon",حلقوم — درد، حلقوم، جلن، حنجرہ، سہ پہر,1,1,یکساں
+r288,"PAIN, burning, larynx, night","PAIN, larynx, burning, Larynx, night",حلقوم — درد، حلقوم، جلن، حنجرہ، رات,1,1,یکساں
+r291,"PAIN, burning, larynx, deep inspiration","PAIN, larynx, burning, Larynx, deep inspiration",حلقوم — درد، حلقوم، جلن، حنجرہ، گہری سانس اندر لینا,1,1,یکساں
+r294,"PAIN, burning, larynx, extending to abdomen","PAIN, larynx, burning, Larynx, extending to abdomen",حلقوم — درد، حلقوم، جلن، حنجرہ، پھیلاؤ (درد کہاں تک) پیٹ,1,1,یکساں
+r296,"PAIN, burning, larynx, epiglottis","PAIN, larynx, burning, Larynx, epiglottis",حلقوم — درد، حلقوم، جلن، حنجرہ، حلق کا ڈھانچہ (ایپی گلوٹس),1,1,یکساں
+r305,"PAIN, contractive, speaking, when","PAIN, larynx, contractive, speaking, when",حلقوم — درد، حلقوم، سکڑنے والا، بولنے سے,1,1,یکساں
+r307,"PAIN, cutting, larynx, coughing on","PAIN, larynx, cutting, larynx, coughing on",حلقوم — درد، حلقوم، کٹنے جیسی حنجرہ، کھانسی,3,3,یکساں
+r310,"PAIN, nail, as if a, in larynx","PAIN, larynx, nail, as if a, in larynx",حلقوم — درد، حلقوم، ناخن حنجرہ,1,1,یکساں
+r314,"PAIN, pressing, larynx, morning","PAIN, larynx, pressing, larynx, morning",حلقوم — درد، حلقوم، دبانے والا درد حنجرہ، صبح,1,1,یکساں
+r317,"PAIN, pressing, larynx, swallowing agg.","PAIN, larynx, pressing, larynx, swallowing agg.",حلقوم — درد، حلقوم، دبانے والا درد حنجرہ، نگلنا بگاڑ (agg.) — جس سے بگڑتا ہو,2,2,یکساں
+r318,"PAIN, pressing, larynx, talking agg.","PAIN, larynx, pressing, larynx, talking agg.",حلقوم — درد، حلقوم، دبانے والا درد حنجرہ، بات کرنا بگاڑ (agg.) — جس سے بگڑتا ہو,1,1,یکساں
+r320,"PAIN, rawness in air passages, coughing, from","PAIN, larynx, rawness in air passages, coughing, from",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، کھانسی,3,3,یکساں
+r339,"PAIN, rawness, trachea, morning","PAIN, larynx, rawness in air passages, Trachea (See Chest), morning",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، سنسنی کی نالی، صبح,1,1,یکساں
+r34,"CONSTRICTION, larynx, cough, amel.","CONSTRICTION, Larynx, cough, during (See Cough Choking), amel.",حلقوم — جکڑن، حلقوم، کھانسی، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r340,"PAIN, rawness, trachea, night","PAIN, larynx, rawness in air passages, Trachea (See Chest), night",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، سنسنی کی نالی، رات,2,2,یکساں
+r344,"PAIN, rawness, trachea, swallowing","PAIN, larynx, rawness in air passages, Trachea (See Chest), swallowing",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، سنسنی کی نالی، نگلنا,1,1,یکساں
+r345,"PAIN, rawness, trachea, talking","PAIN, larynx, rawness in air passages, Trachea (See Chest), talking",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، سنسنی کی نالی، بات کرنا,1,1,یکساں
+r351,"PAIN, soreness, larynx, evening","PAIN, larynx, soreness, Larynx, evening",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف)، حنجرہ، شام,2,2,یکساں
+r355,"PAIN, soreness, larynx, singers","PAIN, larynx, soreness, Larynx, singers",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف)، حنجرہ، گانے والے (گلوکار),11,11,یکساں
+r357,"PAIN, soreness, larynx, touch","PAIN, larynx, soreness, Larynx, touch",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف)، حنجرہ، لمس,26,26,یکساں
+r364,"PAIN, stitching, larynx, evening","PAIN, larynx, stitching, larynx, evening",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، شام,1,1,یکساں
+r383,"PAIN, tearing, larynx, evening","PAIN, larynx, tearing, larynx, evening",حلقوم — درد، حلقوم، پھاڑنے جیسی حنجرہ، شام,1,1,یکساں
+r385,"PAIN, tearing, larynx, swallowing agg.","PAIN, larynx, tearing, larynx, swallowing agg.",حلقوم — درد، حلقوم، پھاڑنے جیسی حنجرہ، نگلنا بگاڑ (agg.) — جس سے بگڑتا ہو,1,1,یکساں
+r413,"ROUGHNESS, larynx, coughing, amel.","ROUGHNESS, Larynx, coughing, from, amel.",حلقوم — کھردرا پن، حلقوم، کھانسے سے بگاڑ، آرام (amel.) — جس سے بہتر ہو,2,2,یکساں
+r43,"CONSTRICTION, larynx, sleep, lying on either side","CONSTRICTION, Larynx, sleep, during, lying on either side",حلقوم — جکڑن، حلقوم، نیند کے دوران، لیٹنا یا طرف,2,2,یکساں
+r44,"CONSTRICTION, larynx, sleep, on falling asleep","CONSTRICTION, Larynx, sleep, during, on falling asleep",حلقوم — جکڑن، حلقوم، نیند کے دوران، گرنا (بالوں کا گرنا بھی) سن ہو جانا / سو جانا,8,8,یکساں
+r45,"CONSTRICTION, larynx, sleep, on falling asleep while lying on either side","CONSTRICTION, Larynx, sleep, during, on falling asleep while lying on either side",حلقوم — جکڑن، حلقوم، نیند کے دوران، گرنا (بالوں کا گرنا بھی) سن ہو جانا / سو جانا جب کہ / دوران لیٹنا یا طرف,3,3,یکساں
+r501,"TICKLING, larynx, fever, during","TICKLING in the air passages, Larynx, in, fever, during",حلقوم — گدگدی، حلقوم، اندر، بخار,1,1,یکساں
+r514,"VOICE, broken, attempting to sing high, when","VOICE, barking, broken, attempting to sing high, when",حلقوم — آواز، بھونکنے جیسی، ٹوٹا ہوا (خراب)، کوشش کرنے پر گانا اونچا/بہت زیادہ,1,1,یکساں
+r519,"VOICE, cracked, singing, when","VOICE, barking, cracked, singing, when",حلقوم — آواز، بھونکنے جیسی، دراڑ والا، گانا (گنگنانا),1,1,یکساں
+r524,"VOICE, deep, eating, after","VOICE, barking, deep, eating, after",حلقوم — آواز، بھونکنے جیسی، گہری، کھاتے ہوئے,1,1,یکساں
+r525,"VOICE, deep, moist cold air, in","VOICE, barking, deep, moist cold air, in",حلقوم — آواز، بھونکنے جیسی، گہری، نم سردی ہوا,1,1,یکساں
+r530,"VOICE, higher, hawking, after","VOICE, barking, higher, hawking, after",حلقوم — آواز، بھونکنے جیسی، اونچا (بلند)، حلق صاف کرنا (بلغم نکالنا),1,1,یکساں
+r543,"VOICE, hoarseness, afternoon, 4 p.m.","VOICE, barking, hoarseness, afternoon, 4 p.m.",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، سہ پہر، 4,1,1,یکساں
+r544,"VOICE, hoarseness, afternoon, 5 p.m.","VOICE, barking, hoarseness, afternoon, 5 p.m.",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، سہ پہر، 5,1,1,یکساں
+r550,"VOICE, hoarseness, air, cold","VOICE, barking, hoarseness, air, cold",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، ہوا سردی,4,4,یکساں
+r556,"VOICE, hoarseness, calling aloud, when","VOICE, barking, hoarseness, calling aloud, when",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، پکارنا (کسی کا پکارنا) بلند آواز میں پڑھنا,1,1,یکساں
+r557,"VOICE, hoarseness, children, in","VOICE, barking, hoarseness, children, in",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، بچے,1,1,یکساں
+r558,"VOICE, hoarseness, chill, during","VOICE, barking, hoarseness, chill, during",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، سردی لگنا,1,1,یکساں
+r559,"VOICE, hoarseness, cold bath, after","VOICE, barking, hoarseness, cold bath, after",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، سردی غسل (نہانے سے),1,1,یکساں
+r560,"VOICE, hoarseness, cold, damp weather","VOICE, barking, hoarseness, cold, damp weather",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، سردی نم موسم,6,6,یکساں
+r561,"VOICE, hoarseness, coryza, during","VOICE, barking, hoarseness, coryza, during",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، نزلہ,45,45,یکساں
+r562,"VOICE, hoarseness, cough, during (See Cough)","VOICE, barking, hoarseness, cough, during (See Cough)",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، کھانسی,0,0,یکساں
+r564,"VOICE, hoarseness, croup, after","VOICE, barking, hoarseness, croup, after",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، کروف (بھونکی کھانسی),2,2,یکساں
+r565,"VOICE, hoarseness, crying, when","VOICE, barking, hoarseness, crying, when",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، رونا,1,1,یکساں
+r566,"VOICE, hoarseness, damp weather, in","VOICE, barking, hoarseness, damp weather, in",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، نم موسم,5,5,یکساں
+r567,"VOICE, hoarseness, dinner, after amel.","VOICE, barking, hoarseness, dinner, after amel.",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، دوپہر کا کھانا آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r568,"VOICE, hoarseness, eating, after","VOICE, barking, hoarseness, eating, after",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، کھاتے ہوئے,1,1,یکساں
+r569,"VOICE, hoarseness, heat, during","VOICE, barking, hoarseness, heat, during",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، گرمی,4,4,یکساں
+r570,"VOICE, hoarseness, laughing, when","VOICE, barking, hoarseness, laughing, when",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، ہنسنا,1,1,یکساں
+r571,"VOICE, hoarseness, measles, after","VOICE, barking, hoarseness, measles, after",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، خسرہ,4,4,یکساں
+r572,"VOICE, hoarseness, menses, before","VOICE, barking, hoarseness, menses, before",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، حیض,3,3,یکساں
+r575,"VOICE, hoarseness, overheated, from being","VOICE, barking, hoarseness, overheated, from being",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، حد سے گرم ہوتے ہوئے,3,3,یکساں
+r581,"VOICE, hoarseness, reading aloud, while","VOICE, barking, hoarseness, reading aloud, while",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، پڑھنا بلند آواز میں پڑھنا جب کہ / دوران,6,6,یکساں
+r583,"VOICE, hoarseness, rising, after","VOICE, barking, hoarseness, rising, after",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، اٹھنے پر (بستر سے),6,6,یکساں
+r587,"VOICE, hoarseness, speech, preventing","VOICE, barking, hoarseness, speech, preventing",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، بولنا روکنا (نیند/کام سے),5,5,یکساں
+r588,"VOICE, hoarseness, spring, in","VOICE, barking, hoarseness, spring, in",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، بہار کا موسم,1,1,یکساں
+r589,"VOICE, hoarseness, straining, from (See Overuse)","VOICE, barking, hoarseness, straining, from (See Overuse)",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، زور لگانا (دباؤ),0,0,یکساں
+r591,"VOICE, hoarseness, talking, from","VOICE, barking, hoarseness, talking, from",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، بات کرنا,29,29,یکساں
+r593,"VOICE, hoarseness, waking, on","VOICE, barking, hoarseness, waking, on",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، جاگنا,9,9,یکساں
+r595,"VOICE, hoarseness, walking in open air, amel.","VOICE, barking, hoarseness, walking in open air, amel.",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، چلنا کھلی (ہوا) ہوا، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r598,"VOICE, hoarseness, warm room, going into open air from warm room","VOICE, barking, hoarseness, warm room, going into open air from warm room",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، گرم کمرہ، جانا میں (اندر) کھلی (ہوا) ہوا گرم کمرہ,1,1,یکساں
+r600,"VOICE, hoarseness, wet, after getting","VOICE, barking, hoarseness, wet, after getting",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، گیلا حاصل کرنا,2,2,یکساں
+r604,"VOICE, husky, waking, on","VOICE, barking, husky, waking, on",حلقوم — آواز، بھونکنے جیسی، بھرگیلا (بھاری آواز)، جاگنا,1,1,یکساں
+r605,"VOICE, husky, open air, in","VOICE, barking, husky, open air, in",حلقوم — آواز، بھونکنے جیسی، بھرگیلا (بھاری آواز)، کھلی (ہوا) ہوا,1,1,یکساں
+r614,"VOICE, lost, air, damp","VOICE, barking, lost, air, damp",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، ہوا نم,1,1,یکساں
+r616,"VOICE, lost, anger, after","VOICE, barking, lost, anger, after",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، غصہ,1,1,یکساں
+r617,"VOICE, lost, cold, exposure to","VOICE, barking, lost, cold, exposure to",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، سردی کھلی ہوا/موذی چیز کی زد,2,2,یکساں
+r620,"VOICE, lost, epilepsy, before","VOICE, barking, lost, epilepsy, before",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، مرگی,1,1,یکساں
+r621,"VOICE, lost, exertion, on","VOICE, barking, lost, exertion, on",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، محنت,1,1,یکساں
+r622,"VOICE, lost, fright, from","VOICE, barking, lost, fright, from",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، دماغی صدمہ (ہیبت),3,3,یکساں
+r623,"VOICE, lost, heated, from being","VOICE, barking, lost, heated, from being",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، گرم کیا ہوا (گرم ہو جا نے سے) ہوتے ہوئے,2,2,یکساں
+r626,"VOICE, lost, menses, during","VOICE, barking, lost, menses, during",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، حیض,1,1,یکساں
+r628,"VOICE, lost, motion, on","VOICE, barking, lost, motion, on",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، حرکت,1,1,یکساں
+r629,"VOICE, lost, mucus in larynx, from","VOICE, barking, lost, mucus in larynx, from",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، بلغم حنجرہ,1,1,یکساں
+r632,"VOICE, lost, paralysis, from","VOICE, barking, lost, paralysis, from",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، فالج,5,5,یکساں
+r634,"VOICE, lost, prolonged talking, from","VOICE, barking, lost, prolonged talking, from",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، لمبا (دیر تک) بات کرنا,1,1,یکساں
+r635,"VOICE, lost, reading, while","VOICE, barking, lost, reading, while",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، پڑھنا جب کہ / دوران,1,1,یکساں
+r638,"VOICE, lost, walking, on","VOICE, barking, lost, walking, on",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، چلنا,2,2,یکساں
+r641,"VOICE, lost, wind, after exposure to northwest","VOICE, barking, lost, wind, after exposure to northwest",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، تیز ہوا کھلی ہوا/موذی چیز کی زد شمال مغرب (شمال مغرب کی طرف),1,1,یکساں
+r656,"VOICE, rough, air, on going into open","VOICE, barking, rough, air, on going into open",حلقوم — آواز، بھونکنے جیسی، کھردرا، ہوا جانا میں (اندر) کھلی (ہوا),1,1,یکساں
+r658,"VOICE, rough, bed, before going to","VOICE, barking, rough, bed, before going to",حلقوم — آواز، بھونکنے جیسی، کھردرا، بستر (بستر پر/میں) جانا,1,1,یکساں
+r660,"VOICE, rough, talking, from","VOICE, barking, rough, talking, from",حلقوم — آواز، بھونکنے جیسی، کھردرا، بات کرنا,2,2,یکساں
+r667,"VOICE, weak, anger, after","VOICE, barking, weak, anger, after",حلقوم — آواز، بھونکنے جیسی، کمزوری، غصہ,1,1,یکساں
+r668,"VOICE, weak, heat, during","VOICE, barking, weak, heat, during",حلقوم — آواز، بھونکنے جیسی، کمزوری، گرمی,1,1,یکساں
+r669,"VOICE, weak, menses, during","VOICE, barking, weak, menses, during",حلقوم — آواز، بھونکنے جیسی، کمزوری، حیض,1,1,یکساں
+r670,"VOICE, weak, talking, after","VOICE, barking, weak, talking, after",حلقوم — آواز، بھونکنے جیسی، کمزوری، بات کرنا,5,5,یکساں
+r673,"VOICE, whining, menses, after","VOICE, barking, whining, menses, after",حلقوم — آواز، بھونکنے جیسی، روتی آواز (مزاری)، حیض,1,1,یکساں
+r674,"VOICE, whining, sleep, in","VOICE, barking, whining, sleep, in",حلقوم — آواز، بھونکنے جیسی، روتی آواز (مزاری)، نیند,1,1,یکساں
+r69,"CRAWLING, trachea, cough, from","CRAWLING, larynx, Trachea, cough, from",حلقوم — رینگنے کا احساس، حلقوم، سنسنی کی نالی، کھانسی,2,2,یکساں
+r24,"CONSTRICTION, larynx","CONSTRICTION, Larynx",حلقوم — جکڑن، حلقوم,92,85,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o45634,"PAIN, piercing, trachea","PAIN, larynx, piercing larynx, Trachea",حلقوم — درد، حلقوم، بھونچنے والا (تیز چبھن) حنجرہ، سنسنی کی نالی,2,2,یکساں
+r119,"FOREIGN substance, sensation, trachea","FOREIGN substance, sensation, larynx, Trachea",حلقوم — بیرونی چیز (اجنبی شے)، احساس، حلقوم، سنسنی کی نالی,4,4,یکساں
+r192,"LARYNGISMUS stridulus, sleep, on falling asleep","LARYNGISMUS stridulus, sleep, during, on falling asleep",حلقوم — حلقوم کا تشنج (لیرنگزمِس اسٹریڈولس)، نیند کے دوران، گرنا (بالوں کا گرنا بھی) سن ہو جانا / سو جانا,1,1,یکساں
+r273,"PAIN, throat-pit, extending to root of tongue and into hyoid bone","PAIN, larynx, Throat-pit, extending to root of tongue and into hyoid bone",حلقوم — درد، حلقوم، گلا گڑھا (معدے/دل کا)، پھیلاؤ (درد کہاں تک) جڑ (ناک/دانت کی) زبان میں (اندر) زبان کی ہڈی (ہائیوائیڈ) ہڈی,1,1,یکساں
+r275,"PAIN, trachea, morning","PAIN, larynx, Trachea, morning",حلقوم — درد، حلقوم، سنسنی کی نالی، صبح,1,1,یکساں
+r280,"PAIN, boring, larynx","PAIN, larynx, boring, larynx",حلقوم — درد، حلقوم، کھودتا ہوا درد (چپے کی طرح) حنجرہ,1,1,یکساں
+r282,"PAIN, burning, night","PAIN, larynx, burning, night",حلقوم — درد، حلقوم، جلن، رات,1,1,یکساں
+r284,"PAIN, burning, cold air amel.","PAIN, larynx, burning, cold air amel.",حلقوم — درد، حلقوم، جلن، سردی ہوا آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r297,"PAIN, burning, throat-pit","PAIN, larynx, burning, Throat-pit",حلقوم — درد، حلقوم، جلن، گلا گڑھا (معدے/دل کا),1,1,یکساں
+r303,"PAIN, compressed, as if","PAIN, larynx, compressed, as if",حلقوم — درد، حلقوم، دبا ہوا,1,1,یکساں
+r309,"PAIN, lancinating, trachea","PAIN, larynx, lancinating, trachea",حلقوم — درد، حلقوم، چاقو چلنے جیسا چبھن سنسنی کی نالی,1,1,یکساں
+r337,"PAIN, rawness, throat-pit","PAIN, larynx, rawness in air passages, Throat-pit",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، گلا گڑھا (معدے/دل کا),1,1,یکساں
+r359,"PAIN, soreness, throat-pit","PAIN, larynx, soreness, Throat-pit",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف)، گلا گڑھا (معدے/دل کا),2,2,یکساں
+r362,"PAIN, stinging, larynx","PAIN, larynx, stinging, larynx",حلقوم — درد، حلقوم، ڈنک مارنے جیسا حنجرہ,9,9,یکساں
+r381,"PAIN, stitching, trachea, exertion, slightest, on","PAIN, larynx, stitching, larynx, Trachea, exertion, slightest, on",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، سنسنی کی نالی، محنت تھوڑی سی (ذرا سی),1,1,یکساں
+r484,"TICKLING in the air passages, air, draft of","TICKLING in the air passages, air, in open, draft of",حلقوم — سانس کی نالیوں میں گدگدی، ہوا، کھلی ہوا میں، ہوا کا جھونکا,1,1,یکساں
+r488,"TICKLING in the air passages, lying, on left side","TICKLING in the air passages, lying, while, on left side",حلقوم — سانس کی نالیوں میں گدگدی، لیٹے ہوئے بگاڑ، بائیں طرف,1,1,یکساں
+r489,"TICKLING in the air passages, lying, amel.","TICKLING in the air passages, lying, while, amel.",حلقوم — سانس کی نالیوں میں گدگدی، لیٹے ہوئے بگاڑ، آرام (amel.) — جس سے بہتر ہو,2,2,یکساں
+r499,"TICKLING, larynx, daytime only","TICKLING in the air passages, Larynx, in, daytime only",حلقوم — گدگدی، حلقوم، اندر، دن کے وقت صرف,1,1,یکساں
+r500,"TICKLING, larynx, eating amel.","TICKLING in the air passages, Larynx, in, eating amel.",حلقوم — گدگدی، حلقوم، اندر، کھاتے ہوئے آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r502,"TICKLING, larynx, lying amel.","TICKLING in the air passages, Larynx, in, lying amel.",حلقوم — گدگدی، حلقوم، اندر، لیٹنا آرام (amel.) — جس سے بہتر ہو,2,2,یکساں
+r518,"VOICE, cracked, evening","VOICE, barking, cracked, evening",حلقوم — آواز، بھونکنے جیسی، دراڑ والا، شام,1,1,یکساں
+r526,"VOICE, deep, open air","VOICE, barking, deep, open air",حلقوم — آواز، بھونکنے جیسی، گہری، کھلی (ہوا) ہوا,1,1,یکساں
+r535,"VOICE, hoarseness, daytime","VOICE, barking, hoarseness, daytime",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، دن کے وقت,3,3,یکساں
+r540,"VOICE, hoarseness, forenoon","VOICE, barking, hoarseness, forenoon",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، پیشین (صبح کا دوسرا پہر),2,2,یکساں
+r541,"VOICE, hoarseness, noon","VOICE, barking, hoarseness, noon",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، دوپہر,1,1,یکساں
+r549,"VOICE, hoarseness, night","VOICE, barking, hoarseness, night",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، رات,11,11,یکساں
+r554,"VOICE, hoarseness, air, open, in, amel.","VOICE, barking, hoarseness, air, cold, open, in, amel.",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، ہوا سردی، کھلی (ہوا)، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r555,"VOICE, hoarseness, annually at same time","VOICE, barking, hoarseness, annually at same time",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، سالانہ (ہر سال) ایک جیسا وقت,1,1,یکساں
+r574,"VOICE, hoarseness, mucus in larynx","VOICE, barking, hoarseness, mucus in larynx",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، بلغم حنجرہ,19,19,یکساں
+r576,"VOICE, hoarseness, overuse of the voice","VOICE, barking, hoarseness, overuse of the voice",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، حد سے زیادہ استعمال آواز,17,17,یکساں
+r577,"VOICE, hoarseness, painful","VOICE, barking, hoarseness, painful",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، درد بھرا,8,8,یکساں
+r578,"VOICE, hoarseness, painless","VOICE, barking, hoarseness, painless",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، بے درد,8,8,یکساں
+r579,"VOICE, hoarseness, paroxysmal","VOICE, barking, hoarseness, paroxysmal",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، دورے دار,2,2,یکساں
+r580,"VOICE, hoarseness, periodical","VOICE, barking, hoarseness, periodical",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، با قاعدہ وقتاً (مہینہ وار),2,2,یکساں
+r582,"VOICE, hoarseness, riding in open air","VOICE, barking, hoarseness, riding in open air",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، سواری کھلی (ہوا) ہوا,1,1,یکساں
+r590,"VOICE, hoarseness, sudden","VOICE, barking, hoarseness, sudden",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، اچانک,7,7,یکساں
+r603,"VOICE, husky, morning","VOICE, barking, husky, morning",حلقوم — آواز، بھونکنے جیسی، بھرگیلا (بھاری آواز)، صبح,1,1,یکساں
+r612,"VOICE, lost, evening","VOICE, barking, lost, evening",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، شام,3,3,یکساں
+r613,"VOICE, lost, night","VOICE, barking, lost, night",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، رات,2,2,یکساں
+r618,"VOICE, lost, damp weather","VOICE, barking, lost, damp weather",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، نم موسم,1,1,یکساں
+r619,"VOICE, lost, drinking cold water when overheated","VOICE, barking, lost, drinking cold water when overheated",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، پینا سردی پانی حد سے گرم,1,1,یکساں
+r624,"VOICE, lost, hysterical","VOICE, barking, lost, hysterical",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، عصبی دورے والی (ہسٹیریا),5,5,یکساں
+r625,"VOICE, lost, intermittent in singers","VOICE, barking, lost, intermittent in singers",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، وقفے کے ساتھ گانے والے (گلوکار),1,1,یکساں
+r627,"VOICE, lost, momentarily","VOICE, barking, lost, momentarily",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، لمحہ بھر کے لیے,3,3,یکساں
+r630,"VOICE, lost, overuse of","VOICE, barking, lost, overuse of",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، حد سے زیادہ استعمال,3,3,یکساں
+r631,"VOICE, lost, painless","VOICE, barking, lost, painless",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، بے درد,1,1,یکساں
+r633,"VOICE, lost, periodic","VOICE, barking, lost, periodic",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، وقتاً وقتاً (با قاعدہ),1,1,یکساں
+r636,"VOICE, lost, singers","VOICE, barking, lost, singers",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، گانے والے (گلوکار),2,2,یکساں
+r637,"VOICE, lost, sudden","VOICE, barking, lost, sudden",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، اچانک,3,3,یکساں
+r639,"VOICE, lost, warm air amel.","VOICE, barking, lost, warm air amel.",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، گرم ہوا آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r646,"VOICE, nasal, morning","VOICE, barking, nasal, morning",حلقوم — آواز، بھونکنے جیسی، ناک کا، صبح,2,2,یکساں
+r647,"VOICE, nasal, evening","VOICE, barking, nasal, evening",حلقوم — آواز، بھونکنے جیسی، ناک کا، شام,2,2,یکساں
+r648,"VOICE, nasal, catarrhal","VOICE, barking, nasal, catarrhal",حلقوم — آواز، بھونکنے جیسی، ناک کا، زکام والا,2,2,یکساں
+r652,"VOICE, rough, morning","VOICE, barking, rough, morning",حلقوم — آواز، بھونکنے جیسی، کھردرا، صبح,4,4,یکساں
+r653,"VOICE, rough, forenoon","VOICE, barking, rough, forenoon",حلقوم — آواز، بھونکنے جیسی، کھردرا، پیشین (صبح کا دوسرا پہر),1,1,یکساں
+r654,"VOICE, rough, afternoon","VOICE, barking, rough, afternoon",حلقوم — آواز، بھونکنے جیسی، کھردرا، سہ پہر,2,2,یکساں
+r655,"VOICE, rough, evening","VOICE, barking, rough, evening",حلقوم — آواز، بھونکنے جیسی، کھردرا، شام,4,4,یکساں
+r659,"VOICE, rough, smoking amel.","VOICE, barking, rough, smoking amel.",حلقوم — آواز، بھونکنے جیسی، کھردرا، تمباکو نوشی آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r666,"VOICE, weak, evening in bed","VOICE, barking, weak, evening in bed",حلقوم — آواز، بھونکنے جیسی، کمزوری، شام بستر (بستر پر/میں),1,1,یکساں
+r672,"VOICE, whining, morning","VOICE, barking, whining, morning",حلقوم — آواز، بھونکنے جیسی، روتی آواز (مزاری)، صبح,1,1,یکساں
+r72,"CROUP, night, before midnight","CROUP, night, after, before midnight",حلقوم — خناق (کروپ)، رات، آدھی رات کے بعد، آدھی رات,1,1,یکساں
+r396,PRESSURE in throat-pit,PRESSURE in throat-pit,حلقوم — گلے کے گڑھے میں دباؤ,12,11,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r676,WHISTLING,WHISTLING,حلقوم — سیٹی جیسی آواز,12,11,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o45496,"IRRITATION, larynx, evening, lying, while","IRRITATION in air passages, Larynx, evening, bed, in, lying, while",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، شام، بستر میں، لیٹنا جب کہ / دوران,1,1,یکساں
+r342,"PAIN, rawness, trachea, coughing, from","PAIN, larynx, rawness in air passages, Trachea (See Chest), coughing, when, from",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، سنسنی کی نالی، کھانسی، سے,4,4,یکساں
+r380,"PAIN, stitching, trachea, breathing, on","PAIN, larynx, stitching, larynx, Trachea, breathing, on",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، سنسنی کی نالی، سانس لینا,1,1,یکساں
+r592,"VOICE, hoarseness, talking, awhile, improves after","VOICE, barking, hoarseness, talking, from, awhile, improves after",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، بات کرنا، تھوڑی دیر (کچھ دیر) بہتر ہوتا ہے,2,2,یکساں
+r657,"VOICE, rough, air, draft of, agg.","VOICE, barking, rough, air, on going into open, draft of, agg.",حلقوم — آواز، بھونکنے جیسی، کھردرا، ہوا جانا میں (اندر) کھلی (ہوا)، ہوا کا جھونکا بگاڑ (agg.) — جس سے بگڑتا ہو,1,1,یکساں
+r207,"MUCUS, larynx","MUCUS in the air passages, Larynx",حلقوم — بلغم، حلقوم,110,99,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r464,"TICKLING in the air passages, morning","TICKLING in the air passages, morning",حلقوم — سانس کی نالیوں میں گدگدی، صبح,10,9,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r107,"DRYNESS, trachea","DRYNESS, Trachea",حلقوم — خشکی، سانس کی نالی,29,26,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r2,CATARRH,CATARRH,حلقوم — نزلہ (کیٹار),83,74,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o45532,"LUMP, behind larynx that compels swallowing","LUMP in larynx, sensation, behind larynx that compels swallowing",حلقوم — حلقوم میں گٹھلی، احساس، پیچھے حنجرہ کہ مجبور کرتا ہے نگلنا,3,3,یکساں
+o45533,"LUMP, throat-pit","LUMP in larynx, sensation, throat-pit",حلقوم — حلقوم میں گٹھلی، احساس، گلا گڑھا (معدے/دل کا),2,2,یکساں
+o45765,"SENSITIVE, trachea, touch, to","SENSITIVE larynx, Trachea, cold air, to, touch, to",حلقوم — حساس، سانس کی نالی، ٹھنڈی ہوا سے، لمس,1,1,یکساں
+r127,"HEAT, trachea","HEAT, larynx, Trachea",حلقوم — گرمی، حلقوم، سنسنی کی نالی,4,4,یکساں
+r141,"INFLAMMATION, trachea","INFLAMMATION, larynx, Trachea",حلقوم — سوزش، حلقوم، سنسنی کی نالی,28,28,یکساں
+r182,"ITCHING, trachea","ITCHING, larynx (See Tickling), Trachea",حلقوم — خارش، حلقوم، سنسنی کی نالی,11,11,یکساں
+r208,"MUCUS, larynx, morning","MUCUS in the air passages, Larynx, morning",حلقوم — بلغم، حلقوم، صبح,18,16,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r272,"PAIN, throat-pit","PAIN, larynx, Throat-pit",حلقوم — درد، حلقوم، گلا گڑھا (معدے/دل کا),1,1,یکساں
+r302,"PAIN, bursting","PAIN, larynx, bursting",حلقوم — درد، حلقوم، پھٹنے جیسی,1,1,یکساں
+r304,"PAIN, contractive","PAIN, larynx, contractive",حلقوم — درد، حلقوم، سکڑنے والا,13,13,یکساں
+r311,"PAIN, piercing larynx","PAIN, larynx, piercing larynx",حلقوم — درد، حلقوم، بھونچنے والا (تیز چبھن) حنجرہ,5,5,یکساں
+r319,"PAIN, rawness in air passages","PAIN, larynx, rawness in air passages",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں),30,30,یکساں
+r346,"PAIN, shooting (See Stitching)","PAIN, larynx, shooting (See Stitching)",حلقوم — درد، حلقوم، چبھڑتا ہوا (تیز چبھن),0,0,یکساں
+r379,"PAIN, stitching, trachea, night","PAIN, larynx, stitching, larynx, Trachea, night",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، سنسنی کی نالی، رات,1,1,یکساں
+r387,"PARALYSIS, epiglottis","PARALYSIS, larynx, epiglottis",حلقوم — فالج، حلقوم، حلق کا ڈھانچہ (ایپی گلوٹس),2,2,یکساں
+r391,"PHTHISIS, trachea","PHTHISIS, larynx, Trachea",حلقوم — دق (ٹی بی)، حلقوم، سنسنی کی نالی,18,18,یکساں
+r393,"PLUG, trachea","PLUG, larynx, Trachea",حلقوم — پلگ (رکاوٹ)، حلقوم، سنسنی کی نالی,1,1,یکساں
+r395,"POLYPI, vocal cords","POLYPI, larynx (See Condylomata), vocal cords",حلقوم — پولیپ، حلقوم، آواز کا (گلے کی رج) رجیں (ڈوریاں),2,2,یکساں
+r403,"RATTLING, trachea","RATTLING, larynx, Trachea (See Respiration)",حلقوم — کھڑکھڑاہٹ، حلقوم، سنسنی کی نالی,32,32,یکساں
+r456,"TENSION, larynx","TENSION, larynx",حلقوم — تناؤ، حلقوم,9,8,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r461,TICKLING in the air passages,TICKLING in the air passages,حلقوم — سانس کی نالیوں میں گدگدی,117,104,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r511,"VOICE, bass","VOICE, barking, bass",حلقوم — آواز، بھونکنے جیسی، گہری آواز (بھاری),5,5,یکساں
+r512,"VOICE, bleating","VOICE, barking, bleating",حلقوم — آواز، بھونکنے جیسی، بکری جیسی آواز,1,1,یکساں
+r515,"VOICE, changeable","VOICE, barking, changeable",حلقوم — آواز، بھونکنے جیسی، بدلتا ہوا,5,5,یکساں
+r516,"VOICE, changed","VOICE, barking, changed",حلقوم — آواز، بھونکنے جیسی، بدلا ہوا,8,8,یکساں
+r520,"VOICE, croaking","VOICE, barking, croaking",حلقوم — آواز، بھونکنے جیسی، مینڈک جیسی آواز (حلق کی),4,4,یکساں
+r521,"VOICE, croupy","VOICE, barking, croupy",حلقوم — آواز، بھونکنے جیسی، کروف والا (بھونکتی کھانسی),5,5,یکساں
+r522,"VOICE, crowing","VOICE, barking, crowing (See Rough under Respiration)",حلقوم — آواز، بھونکنے جیسی، مرغ کی آواز (سانس کی سیٹی),6,6,یکساں
+r523,"VOICE, deep","VOICE, barking, deep",حلقوم — آواز، بھونکنے جیسی، گہری,32,32,یکساں
+r527,"VOICE, finer than usual","VOICE, barking, finer than usual",حلقوم — آواز، بھونکنے جیسی، مزید باریک سے (موازنہ) معمول کا (ہمیشہ والا),1,1,یکساں
+r528,"VOICE, gutteral","VOICE, barking, gutteral",حلقوم — آواز، بھونکنے جیسی، حلق سے نکلنے والی (آواز),2,2,یکساں
+r531,"VOICE, hissing","VOICE, barking, hissing",حلقوم — آواز، بھونکنے جیسی، سانپ جیسی آواز (کانوں میں),3,3,یکساں
+r537,"VOICE, hoarseness, menses, during","VOICE, barking, hoarseness, menses, before, during",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، حیض، دوران میں,3,3,یکساں
+r551,"VOICE, hoarseness, air, dry","VOICE, barking, hoarseness, air, cold, dry",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، ہوا سردی، خشک,1,1,یکساں
+r552,"VOICE, hoarseness, air, draft of","VOICE, barking, hoarseness, air, cold, draft of",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، ہوا سردی، ہوا کا جھونکا,1,1,یکساں
+r563,"VOICE, hoarseness, cough, amel.","VOICE, barking, hoarseness, cough, during (See Cough), amel.",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، کھانسی، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r584,"VOICE, hoarseness, rising, from bed amel.","VOICE, barking, hoarseness, rising, after, from bed amel.",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، اٹھنے پر (بستر سے)، بستر (بستر پر/میں) آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r586,"VOICE, hoarseness, singing, amel.","VOICE, barking, hoarseness, singing, from, amel.",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، گانا (گنگنانا)، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r601,"VOICE, hollow","VOICE, barking, hollow",حلقوم — آواز، بھونکنے جیسی، خلا جیسا (خالی گڑھا),40,40,یکساں
+r602,"VOICE, husky","VOICE, barking, husky",حلقوم — آواز، بھونکنے جیسی، بھرگیلا (بھاری آواز),37,37,گریڈ کتابی مطابق کیے
+r606,"VOICE, indistinct","VOICE, barking, indistinct",حلقوم — آواز، بھونکنے جیسی، غیر واضح (دھندلا),2,2,یکساں
+r607,"VOICE, inflexible","VOICE, barking, inflexible",حلقوم — آواز، بھونکنے جیسی، بے لچک (سخت),1,1,یکساں
+r608,"VOICE, interrupted","VOICE, barking, interrupted",حلقوم — آواز، بھونکنے جیسی، درمیان میں ٹوٹا,7,7,یکساں
+r615,"VOICE, lost, air, cold","VOICE, barking, lost, air, damp, cold",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، ہوا نم، سردی,3,3,یکساں
+r642,"VOICE, loud","VOICE, barking, loud",حلقوم — آواز، بھونکنے جیسی، بلند (اُونچی آواز),5,5,یکساں
+r643,"VOICE, low","VOICE, barking, low",حلقوم — آواز، بھونکنے جیسی، نیچا/کم,25,25,یکساں
+r644,"VOICE, muffled","VOICE, barking, muffled",حلقوم — آواز، بھونکنے جیسی، بند (کانوں پر کپڑا),6,6,یکساں
+r645,"VOICE, nasal","VOICE, barking, nasal",حلقوم — آواز، بھونکنے جیسی، ناک کا,35,35,یکساں
+r649,"VOICE, piping","VOICE, barking, piping",حلقوم — آواز، بھونکنے جیسی، سیٹی جیسی آواز,2,2,یکساں
+r650,"VOICE, powerful","VOICE, barking, powerful",حلقوم — آواز، بھونکنے جیسی، قوی (طاقتور),1,1,یکساں
+r661,"VOICE, shrieking","VOICE, barking, shrieking",حلقوم — آواز، بھونکنے جیسی، چیخیں مارنا,4,4,یکساں
+r662,"VOICE, squeaking","VOICE, barking, squeaking",حلقوم — آواز، بھونکنے جیسی، چرچراہٹ (چوہے جیسی),3,3,یکساں
+r663,"VOICE, toneless","VOICE, barking, toneless",حلقوم — آواز، بھونکنے جیسی، بے لے (بے آواز),13,13,یکساں
+r664,"VOICE, tremulous","VOICE, barking, tremulous",حلقوم — آواز، بھونکنے جیسی، کپکپاتا ہوا (لرزتا),18,18,یکساں
+r665,"VOICE, weak","VOICE, barking, weak",حلقوم — آواز، بھونکنے جیسی، کمزوری,69,69,گریڈ کتابی مطابق کیے
+r67,"CRAWLING, trachea","CRAWLING, larynx, Trachea",حلقوم — رینگنے کا احساس، حلقوم، سنسنی کی نالی,14,14,یکساں
+r675,"VOICE, whispering","VOICE, barking, whispering",حلقوم — آواز، بھونکنے جیسی، سرگوشی (سنتا ہے/کرتا ہے),14,14,یکساں
+r298,"PAIN, burning, trachea","PAIN, larynx, burning, Trachea",حلقوم — درد، حلقوم، جلن، سنسنی کی نالی,34,33,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r338,"PAIN, rawness, trachea","PAIN, larynx, rawness in air passages, Trachea (See Chest)",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، سنسنی کی نالی,48,46,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r419,"SCRAPING, clearing larynx, evening","SCRAPING, clearing larynx, evening",حلقوم — کھرچنے کا احساس، حلقوم صاف کرنا، شام,16,14,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r651,"VOICE, rough","VOICE, barking, rough",حلقوم — آواز، بھونکنے جیسی، کھردرا,64,63,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r410,"ROUGHNESS, larynx","ROUGHNESS, Larynx",حلقوم — کھردرا پن، حلقوم,52,45,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r478,"TICKLING in the air passages, night","TICKLING in the air passages, night",حلقوم — سانس کی نالیوں میں گدگدی، رات,22,19,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r363,"PAIN, stitching, larynx","PAIN, larynx, stitching, larynx",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ,52,49,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r70,CROUP,CROUP,حلقوم — خناق (کروپ),48,41,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r286,"PAIN, burning, larynx","PAIN, larynx, burning, Larynx",حلقوم — درد، حلقوم، جلن، حنجرہ,63,59,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r609,"VOICE, lost","VOICE, barking, lost",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا),106,102,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r335,"PAIN, rawness, larynx","PAIN, larynx, rawness in air passages, Larynx",حلقوم — درد، حلقوم، کچی جلد جیسا جلن ہوا راستے (نالیاں)، حنجرہ,91,83,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r534,"VOICE, hoarseness","VOICE, barking, hoarseness",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی),227,211,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r536,"VOICE, hoarseness, morning","VOICE, barking, hoarseness, morning",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، صبح,49,44,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r405,ROUGHNESS,ROUGHNESS,حلقوم — کھردرا پن,92,74,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r671,"VOICE, whining","VOICE, barking, whining",حلقوم — آواز، بھونکنے جیسی، روتی آواز (مزاری),11,10,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r239,"PAIN, larynx","PAIN, larynx",حلقوم — درد، حلقوم,88,70,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r529,"VOICE, higher","VOICE, barking, higher",حلقوم — آواز، بھونکنے جیسی، اونچا (بلند),10,9,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r545,"VOICE, hoarseness, evening","VOICE, barking, hoarseness, evening",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، شام,31,27,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r348,"PAIN, soreness, larynx","PAIN, larynx, soreness, Larynx",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف)، حنجرہ,74,64,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r313,"PAIN, pressing, larynx","PAIN, larynx, pressing, larynx",حلقوم — درد، حلقوم، دبانے والا درد حنجرہ,12,10,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r597,"VOICE, hoarseness, warm room","VOICE, barking, hoarseness, warm room",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، گرم کمرہ,6,5,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r610,"VOICE, lost, morning","VOICE, barking, lost, morning",حلقوم — آواز، بھونکنے جیسی، کھو گیا (قوت کا)، صبح,6,5,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r212,"MUCUS, larynx, night","MUCUS in the air passages, Larynx, night",حلقوم — بلغم، حلقوم، رات,4,3,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r378,"PAIN, stitching, trachea","PAIN, larynx, stitching, larynx, Trachea",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، سنسنی کی نالی,7,6,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r513,"VOICE, broken","VOICE, barking, broken",حلقوم — آواز، بھونکنے جیسی، ٹوٹا ہوا (خراب),6,5,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r451,SWOLLEN larynx,SWOLLEN larynx,حلقوم — حلقوم کی سوجن,20,14,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r143,IRRITATION in air passages,IRRITATION in air passages,حلقوم — سانس کی نالیوں میں خراش,86,60,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r542,"VOICE, hoarseness, afternoon","VOICE, barking, hoarseness, afternoon",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، سہ پہر,8,6,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r108,"DRYNESS, trachea, morning","DRYNESS, Trachea, morning",حلقوم — خشکی، سانس کی نالی، صبح,3,2,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r240,"PAIN, larynx, morning","PAIN, larynx, morning",حلقوم — درد، حلقوم، صبح,3,2,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r470,"TICKLING in the air passages, afternoon, 3 p.m.","TICKLING in the air passages, afternoon, 3 p.m.",حلقوم — سانس کی نالیوں میں گدگدی، سہ پہر، 3 بجے,3,2,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r360,"PAIN, soreness, trachea","PAIN, larynx, soreness, Trachea",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف)، سنسنی کی نالی,35,26,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r25,"CONSTRICTION, larynx, evening","CONSTRICTION, Larynx, evening",حلقوم — جکڑن، حلقوم، شام,10,6,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r90,"DRYNESS, larynx, morning","DRYNESS, Larynx, morning",حلقوم — خشکی، حلقوم، صبح,10,6,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r349,"PAIN, soreness, larynx, morning","PAIN, larynx, soreness, Larynx, morning",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف)، حنجرہ، صبح,3,2,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r374,"PAIN, stitching, larynx, extending to ear","PAIN, larynx, stitching, larynx, extending to ear",حلقوم — درد، حلقوم، سوئی جیسی چبھن حنجرہ، پھیلاؤ (درد کہاں تک) کان,3,2,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r517,"VOICE, cracked","VOICE, barking, cracked",حلقوم — آواز، بھونکنے جیسی، دراڑ والا,3,2,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r306,"PAIN, cutting, larynx","PAIN, larynx, cutting, larynx",حلقوم — درد، حلقوم، کٹنے جیسی حنجرہ,8,5,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o45502,"IRRITATION, larynx, night","IRRITATION in air passages, Larynx, night",حلقوم — خراش (چڑچڑاہٹ)، حلقوم، رات,4,2,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r200,MEMBRANE (See Croup),MEMBRANE (See Croup),حلقوم — جھلی,2,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r224,"MUCUS, larynx, rattling","MUCUS in the air passages, Larynx, rattling",حلقوم — بلغم، حلقوم، کھڑکھڑاہٹ کے ساتھ,2,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r28,"CONSTRICTION, larynx, night","CONSTRICTION, Larynx, night",حلقوم — جکڑن، حلقوم، رات,2,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r60,"CRAWLING, larynx, evening","CRAWLING, larynx, evening",حلقوم — رینگنے کا احساس، حلقوم، شام,2,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r432,SENSITIVE larynx,SENSITIVE larynx,حلقوم — حساس حلقوم,35,17,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r146,"IRRITATION in air passages, evening","IRRITATION in air passages, evening",حلقوم — سانس کی نالیوں میں خراش، شام,9,4,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r382,"PAIN, tearing, larynx","PAIN, larynx, tearing, larynx",حلقوم — درد، حلقوم، پھاڑنے جیسی حنجرہ,12,6,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r347,"PAIN, soreness","PAIN, larynx, soreness",حلقوم — درد، حلقوم، کچا زخم (چوٹ جیسی تکلیف),91,41,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r185,"LARYNGISMUS stridulus, night","LARYNGISMUS stridulus, night",حلقوم — حلقوم کا تشنج (لیرنگزمِس اسٹریڈولس)، رات,3,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r20,CONSTRICTION,CONSTRICTION,حلقوم — جکڑن,103,32,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r281,"PAIN, burning","PAIN, larynx, burning",حلقوم — درد، حلقوم، جلن,83,35,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r88,DRYNESS,DRYNESS,حلقوم — خشکی,106,28,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r274,"PAIN, trachea","PAIN, larynx, Trachea",حلقوم — درد، حلقوم، سنسنی کی نالی,43,14,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r468,"TICKLING in the air passages, afternoon","TICKLING in the air passages, afternoon",حلقوم — سانس کی نالیوں میں گدگدی، سہ پہر,5,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o45364,"CONSTRICTION, larynx, air, open, in agg.","CONSTRICTION, Larynx, air, open, in",حلقوم — جکڑن، حلقوم، کھلی ہوا میں، بگاڑ,2,2,یکساں
+o45443,"DRYNESS, larynx, night, 2 p.m. to 3 p.m.","DRYNESS, Larynx, night, 2 to 3 p.m.",حلقوم — خشکی، حلقوم، رات، دوپہر 2 سے 3 بجے,1,1,یکساں
+o45589,"PAIN, burning, trachea, 6 p.m. to 8 p.m.","PAIN, larynx, burning, Trachea, 6 to 8 p.m.",حلقوم — درد، حلقوم، جلن، سنسنی کی نالی، 6 8,1,1,یکساں
+o45689,"PAIN, stitching, larynx, extending, pharynx, to","PAIN, larynx, stitching, larynx, pharynx, to",حلقوم — درد، چبھتا ہوا، حلقوم، پھیلتا ہوا، حلق تک,1,1,یکساں
+o45690,"PAIN, stitching, larynx, extending, vertex","PAIN, larynx, stitching, larynx, vertex",حلقوم — درد، چبھتا ہوا، حلقوم، پھیلتا ہوا، چوٹی تک,1,1,یکساں
+o45788,"TICKLING in the air passages, afternoon, 3 p.m. to 4 p.m.","TICKLING in the air passages, afternoon, 3 to 4 p.m.",حلقوم — سانس کی نالیوں میں گدگدی، سہ پہر، 3 سے 4 بجے,1,1,یکساں
+o45804,"TICKLING in the air passages, lying, while agg.","TICKLING in the air passages, lying, while",حلقوم — سانس کی نالیوں میں گدگدی، لیٹے ہوئے بگاڑ,4,4,یکساں
+o45859,"VOICE, hoarseness, air, open, in agg.","VOICE, barking, hoarseness, air, cold, open, in",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، ہوا سردی، کھلی (ہوا),3,3,یکساں
+o45910,"VOICE, hoarseness, walking in open air agg.","VOICE, barking, hoarseness, walking in open air",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، چلنا کھلی (ہوا) ہوا,5,5,یکساں
+o67291,"CONSTRICTION, larynx, cough","CONSTRICTION, Larynx, cough, during (See Cough Choking)",حلقوم — جکڑن، حلقوم، کھانسی,16,15,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o45736,"ROUGHNESS, larynx, coughing, from agg.","ROUGHNESS, Larynx, coughing, from",حلقوم — کھردرا پن، حلقوم، کھانسے سے بگاڑ,14,14,یکساں
+o67328,"VOICE, hoarseness, singing","VOICE, barking, hoarseness, singing, from",حلقوم — آواز، بھونکنے جیسی، گھرگھراہٹ (آواز کی)، گانا (گنگنانا),16,15,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)

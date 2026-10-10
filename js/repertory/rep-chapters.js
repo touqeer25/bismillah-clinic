@@ -98,7 +98,7 @@ function initRepertoryBrowser(noAutoChapter) {
             console.error('Failed to load index', e);
             // Fallback to hardcoded for kent
             if (repCurrentBook === 'kent') {
-                repChapterNames = [{"key":"mind","name":"MIND","rubrics":4212},{"key":"vertigo","name":"VERTIGO","rubrics":523},{"key":"head","name":"HEAD","rubrics":6266},{"key":"eye","name":"EYE","rubrics":1723},{"key":"vision","name":"VISION","rubrics":933},{"key":"ear","name":"EAR","rubrics":1910},{"key":"hearing","name":"HEARING","rubrics":201},{"key":"nose","name":"NOSE","rubrics":1455},{"key":"face","name":"FACE","rubrics":2053},{"key":"mouth","name":"MOUTH","rubrics":1536},{"key":"teeth","name":"TEETH","rubrics":806},{"key":"throat","name":"THROAT INTERNAL","rubrics":1042},{"key":"external_throat","name":"EXTERNAL THROAT","rubrics":305},{"key":"stomach","name":"STOMACH","rubrics":2999},{"key":"abdomen","name":"ABDOMEN","rubrics":3200},{"key":"rectum","name":"RECTUM","rubrics":1209},{"key":"stool","name":"STOOL","rubrics":283},{"key":"bladder","name":"BLADDER","rubrics":820},{"key":"kidneys","name":"KIDNEYS","rubrics":355},{"key":"prostate_gland","name":"PROSTATE GLAND","rubrics":143},{"key":"urethra","name":"URETHRA","rubrics":607},{"key":"urine","name":"URINE","rubrics":465},{"key":"genitalia_male","name":"MALE GENITALIA","rubrics":1126},{"key":"genitalia_female","name":"GENITALIA FEMALE","rubrics":1493},{"key":"larynx_and_trachea","name":"LARYNX AND TRACHEA","rubrics":796},{"key":"respiration","name":"RESPIRATION","rubrics":719},{"key":"cough","name":"COUGH","rubrics":1442},{"key":"expectoration","name":"EXPECTORATION","rubrics":414},{"key":"chest","name":"CHEST","rubrics":3165},{"key":"back","name":"BACK","rubrics":3640},{"key":"extremities","name":"EXTREMITIES","rubrics":14915},{"key":"sleep","name":"SLEEP","rubrics":1014},{"key":"chill","name":"CHILL","rubrics":736},{"key":"fever","name":"FEVER","rubrics":586},{"key":"perspiration","name":"PERSPIRATION","rubrics":413},{"key":"skin","name":"SKIN","rubrics":1164},{"key":"generalities","name":"GENERALITIES","rubrics":1898}];
+                repChapterNames = [{"key":"mind","name":"MIND","rubrics":4212},{"key":"vertigo","name":"VERTIGO","rubrics":523},{"key":"head","name":"HEAD","rubrics":6266},{"key":"eye","name":"EYE","rubrics":1723},{"key":"vision","name":"VISION","rubrics":933},{"key":"ear","name":"EAR","rubrics":1910},{"key":"hearing","name":"HEARING","rubrics":201},{"key":"nose","name":"NOSE","rubrics":1455},{"key":"face","name":"FACE","rubrics":2053},{"key":"mouth","name":"MOUTH","rubrics":1536},{"key":"teeth","name":"TEETH","rubrics":806},{"key":"throat","name":"THROAT INTERNAL","rubrics":1042},{"key":"external_throat","name":"EXTERNAL THROAT","rubrics":305},{"key":"stomach","name":"STOMACH","rubrics":2999},{"key":"abdomen","name":"ABDOMEN","rubrics":3200},{"key":"rectum","name":"RECTUM","rubrics":1209},{"key":"stool","name":"STOOL","rubrics":283},{"key":"bladder","name":"BLADDER","rubrics":820},{"key":"kidneys","name":"KIDNEYS","rubrics":355},{"key":"prostate_gland","name":"PROSTATE GLAND","rubrics":143},{"key":"urethra","name":"URETHRA","rubrics":607},{"key":"urine","name":"URINE","rubrics":465},{"key":"genitalia_male","name":"MALE GENITALIA","rubrics":1126},{"key":"genitalia_female","name":"GENITALIA FEMALE","rubrics":1493},{"key":"larynx_and_trachea","name":"LARYNX AND TRACHEA","rubrics":739},{"key":"respiration","name":"RESPIRATION","rubrics":719},{"key":"cough","name":"COUGH","rubrics":1442},{"key":"expectoration","name":"EXPECTORATION","rubrics":414},{"key":"chest","name":"CHEST","rubrics":3165},{"key":"back","name":"BACK","rubrics":3640},{"key":"extremities","name":"EXTREMITIES","rubrics":14915},{"key":"sleep","name":"SLEEP","rubrics":1014},{"key":"chill","name":"CHILL","rubrics":736},{"key":"fever","name":"FEVER","rubrics":586},{"key":"perspiration","name":"PERSPIRATION","rubrics":413},{"key":"skin","name":"SKIN","rubrics":1164},{"key":"generalities","name":"GENERALITIES","rubrics":1898}];
             } else {
                 repChapterNames = [];
             }
@@ -690,6 +690,89 @@ function _repBuildKentGenfSourceTree(data){
             var grade=Number(remedies[code]);
             if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
                 throw new Error('Invalid Kent GENITALIA FEMALE medicine grade at '+e.rid+': '+code);
+        });
+        var node={
+            name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
+            children:{},order:[],remedies:remedies,count:1,hasRubric:true,
+            path:sourcePath,pathTitle:sourcePath,displayPathTitle:sourcePath,
+            translationTitle:String(rec.translation_title||sourcePath),
+            oorep_id:rec.oorep_id||null,rid:e.rid,sourceCanonical:true,
+            display:rec.display&&typeof rec.display==='object'&&!Array.isArray(rec.display)?rec.display:null
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        parent.count=(parent.count||0)+1;
+        byRid[e.rid]=node;
+    });
+    return root;
+}
+
+// 🔑 v189: حلقوم اور سانس کی نالی باب کی ماخذی قطاریں (صفحات 746–762) — homeoint.org
+// (parse_lary_source.py + crosswalk_lary.py + overlay_lary.py)؛ پرانی مقامی قطاریں
+// فائل میں محفوظ مگر ماخذی درخت سے باہر۔ باب حد: LARYNX AND TRACHEA = 746–762 (MEDI-T انتساب —
+// kentlary.htm فہرست 17/17 صفحہ-اندراجات: 746..762)؛ آغاز kent0745.htm کے NAME="P746" اینکر سے
+// (nav-text para + separator after_anchor slot-1/2 پر skip، جڑ LARYNX AND TRACHEA d0 slot-3 سے؛
+// p746: جڑ + ANÆSTHESIA larynx Kali-br + CANCER + CATARRH)؛ اختتام kent0760 کے اندر
+// NAME="RESPIRATION" سرخی اینکر — آخری ربرک WHISTLING, lying on left side {arg-n} (p762)؛
+// kent0765 استعمال نہیں (p763+ RESPIRATION مواد)۔ سرحدی ڈپ صفحات (p750/p755/p760) پچھلی فائل
+// میں اصل، اگلی میں ڈپ (skip_until) — تینوں text-identical تصدیق شدہ (verify_lary_dups.py)۔
+// MEDI-T صفحہ-سرخی paras (مثلاً 'MUCUS, larynx' p751) آرٹیفیکٹ — after_anchor سے skip —
+// 17/17 صفحہ-سرخی سیاق پہلی قطاروں سے مطابق (parse_lary_source.py)۔ 11 clamps —
+// 9 کتابی یتیم-indentation (x = خام سطح: CRAWLING-morning @128.7، FOREIGN-morning @128.7،
+// INFLAMMATION-evening-agg @128.7، PAIN-morning @128.7، stitching-evening @164.7،
+// PHTHISIS-short-hacking @128.7، SWOLLEN-evening @128.7، TICKLING-daytime @128.7،
+// VOICE-hoarseness-walking-amel @200.7) + 2 MEDI-T اضافی <dir> (x = fixed سطح:
+// swallowing-when @164.7، SENSITIVE-morning @92.7) — lary_clamp_xcoords.json میں دستاویزی۔
+// کوئی کتابی دہرائی نہیں (دوہرے راستے = 0)۔
+// 9 دستی J=1.00 جوڑے (OOREP لیبل-فرق، ادویات عین): وقت-فارمیٹ (2 p.m. to 3 p.m. ← 2 to 3 p.m.
+// + 6-8/3-4)، agg.-لاحقہ (air-open-in agg.، lying-while agg.، walking-in-open-air agg.)،
+// extending-سیگمنٹ (PAIN stitching pharynx/vertex)، barking/cold-حذف (VOICE air-cold-open-in)۔
+// 22 نئے hN نہیں — صرف 1 نئے hN (جڑ LARYNX AND TRACHEA) + 71 legacy محفوظ
+// (10 مبہم OOREP برتن/یونین سمیت: IRRITATION 184-یونین، MUCUS 134-یونین، TICKLING 192-یونین،
+// PAIN rawness 110-یونین، 4 خالی m-برتن)۔
+// PDF alignment: 665/667 حرف-بہ-حرف عین مطابق + 2 PDF-طرفہ آرٹی فاکٹ قطاریں (فولیو-گلا
+// ferr-ar folio1642 + ox-ac folio1648)، صفر drift/دونوں-طرفہ باقیات (verify_pdf_lary.py —
+// کتابی ص 746-762، PDF index 1649–1684)۔
+var _REP_KENT_LARY_SOURCE_MARKER='homeoint-lary-v1';
+var _REP_KENT_LARY_PAGES={first:746,last:762}, _REP_KENT_LARY_COUNT=668;
+function _repKentLarySourceEntries(data){
+    return Object.keys(data||{}).map(function(rid){return {rid:String(rid),rec:data[rid]};})
+        .filter(function(e){return e.rec&&e.rec.source_canonical===_REP_KENT_LARY_SOURCE_MARKER;});
+}
+function _repHasKentLarySourceData(data){
+    return _repKentLarySourceEntries(data).length===_REP_KENT_LARY_COUNT;
+}
+function _repBuildKentLarySourceTree(data){
+    var entries=_repKentLarySourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    if(entries.length!==_REP_KENT_LARY_COUNT) throw new Error('Expected '+_REP_KENT_LARY_COUNT+' Kent LARYNX AND TRACHEA source rows; found '+entries.length);
+    entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
+    var byRid=Object.create(null);
+    entries.forEach(function(e,index){
+        var rec=e.rec, order=Number(rec.source_order), parentId=rec.source_parent_id;
+        if(order!==index) throw new Error('Invalid Kent LARYNX AND TRACHEA source order at '+e.rid+': '+order);
+        var page=Number(rec.source_page), depth=Number(rec.source_depth), label=String(rec.source_label||'');
+        if(page<746||page>762) throw new Error('Kent LARYNX AND TRACHEA source row outside pages 746–762: '+e.rid);
+        if(!label) throw new Error('Empty Kent LARYNX AND TRACHEA source label at '+e.rid);
+        var labels=Array.isArray(rec.source_path_labels)?rec.source_path_labels.map(String):[];
+        if(!labels.length||labels[labels.length-1]!==label||depth!==labels.length-1)
+            throw new Error('Kent LARYNX AND TRACHEA source path/depth mismatch at '+e.rid);
+        var sourcePath=String(rec.source_path||'');
+        if(sourcePath!==labels.join(', ')) throw new Error('Kent LARYNX AND TRACHEA source full path mismatch at '+e.rid);
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent LARYNX AND TRACHEA source parent '+parentId+' for '+e.rid);
+        if(parentId!==null && Number(parent.sourceOrder)>=index)
+            throw new Error('Kent LARYNX AND TRACHEA source parent must precede child at '+e.rid);
+        var parentPath=parent===root?'':String(parent.pathTitle||'');
+        var expectedPath=parentPath?parentPath+', '+label:label;
+        if(expectedPath!==sourcePath) throw new Error('Kent LARYNX AND TRACHEA source parent link/path mismatch at '+e.rid);
+        if(parent.children[label]) throw new Error('Duplicate Kent LARYNX AND TRACHEA sibling label '+label+' at '+e.rid);
+        var remedies=rec.r;
+        if(!remedies||typeof remedies!=='object'||Array.isArray(remedies))
+            throw new Error('Missing Kent LARYNX AND TRACHEA remedies at '+e.rid);
+        Object.keys(remedies).forEach(function(code){
+            var grade=Number(remedies[code]);
+            if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
+                throw new Error('Invalid Kent LARYNX AND TRACHEA medicine grade at '+e.rid+': '+code);
         });
         var node={
             name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
@@ -2188,6 +2271,10 @@ function buildRubricTree(data){
     if(repCurrentBook === 'kent' && repCurrentChapter === 'genitalia_female' && _repHasKentGenfSourceData(data)){
         return _repBuildKentGenfSourceTree(data);
     }
+    // 🔑 v189: حلقوم اور سانس کی نالی باب کی ماخذی قطاریں (صفحات 746–762) — وہی طرز جو تناسلی اعضاء (عورت) میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'larynx_and_trachea' && _repHasKentLarySourceData(data)){
+        return _repBuildKentLarySourceTree(data);
+    }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest
     // already-existing rubric prefix, not by every comma.
@@ -2513,6 +2600,10 @@ function buildRubricTree(data){
     // 🔑 v188: تناسلی اعضاء (عورت) باب کی ماخذی قطاریں (صفحات 714–745) — وہی طرز جو تناسلی اعضاء (مرد) میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'genitalia_female' && _repHasKentGenfSourceData(data)){
         return _repBuildKentGenfSourceTree(data);
+    }
+    // 🔑 v189: حلقوم اور سانس کی نالی باب کی ماخذی قطاریں (صفحات 746–762) — وہی طرز جو تناسلی اعضاء (عورت) میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'larynx_and_trachea' && _repHasKentLarySourceData(data)){
+        return _repBuildKentLarySourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest

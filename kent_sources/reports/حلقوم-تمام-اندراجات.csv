@@ -1,0 +1,669 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,746,0,LARYNX AND TRACHEA,0
+r0,746,0,"ANÆSTHESIA, larynx",1
+r1,746,0,"CANCER, larynx",5
+r2,746,0,CATARRH,74
+r3,746,1,"CATARRH, morning",1
+r4,746,1,"CATARRH, evening",1
+r5,746,1,"CATARRH, night",3
+r6,746,1,"CATARRH, alternating with uterine complaints",1
+r7,746,1,"CATARRH, change of weather, before",1
+r8,746,1,"CATARRH, damp weather",3
+r9,746,1,"CATARRH, measles, after",1
+r10,746,1,"CATARRH, old people, in",6
+r11,746,1,"CATARRH, sudden",1
+r12,746,1,"CATARRH, Larynx",31
+r13,746,1,"CATARRH, Trachea",15
+r14,746,0,"CLOSED, nearly",1
+r15,746,0,"COATED, seems (See Velvety)",0
+r16,746,0,"COLD, sensation on breathing",10
+r17,746,1,"COLD, sensation on breathing, inspiration cold, expiration hot",1
+r18,746,1,"COLD, sensation on breathing, shaving amel.",1
+r19,746,0,"CONDYLOMATA, larynx (See Polypi)",6
+r20,746,0,CONSTRICTION,32
+r21,746,1,"CONSTRICTION, night",3
+r22,746,1,"CONSTRICTION, lying, on",2
+r23,746,1,"CONSTRICTION, waking, on",1
+r24,746,1,"CONSTRICTION, Larynx",85
+r25,746,2,"CONSTRICTION, Larynx, evening",6
+r26,746,3,"CONSTRICTION, Larynx, evening, in, bed",2
+r27,746,3,"CONSTRICTION, Larynx, evening, on falling asleep",3
+r28,746,2,"CONSTRICTION, Larynx, night",1
+r29,746,3,"CONSTRICTION, Larynx, night, before midnight",1
+o45364,746,2,"CONSTRICTION, Larynx, air, open, in",2
+r31,746,3,"CONSTRICTION, Larynx, air, open, in, amel.",1
+r32,747,2,"CONSTRICTION, Larynx, anger, after",1
+o67291,747,2,"CONSTRICTION, Larynx, cough, during (See Cough Choking)",15
+r34,747,3,"CONSTRICTION, Larynx, cough, during (See Cough Choking), amel.",1
+r35,747,2,"CONSTRICTION, Larynx, crumb, sensation of",2
+r36,747,2,"CONSTRICTION, Larynx, drinking, after",1
+r37,747,2,"CONSTRICTION, Larynx, eating, after",1
+r38,747,2,"CONSTRICTION, Larynx, inhaling, on",1
+r39,747,2,"CONSTRICTION, Larynx, scratching, auditory canal, from",9
+r40,747,2,"CONSTRICTION, Larynx, singing agg.",1
+r41,747,2,"CONSTRICTION, Larynx, sitting, while",1
+r42,747,2,"CONSTRICTION, Larynx, sleep, during",15
+r43,747,3,"CONSTRICTION, Larynx, sleep, during, lying on either side",2
+r44,747,3,"CONSTRICTION, Larynx, sleep, during, on falling asleep",8
+r45,747,3,"CONSTRICTION, Larynx, sleep, during, on falling asleep while lying on either side",3
+r46,747,2,"CONSTRICTION, Larynx, swallowing, on",1
+r47,747,2,"CONSTRICTION, Larynx, talking, while",2
+r48,747,2,"CONSTRICTION, Larynx, touch, from",1
+r49,747,2,"CONSTRICTION, Larynx, waking, on",4
+r50,747,2,"CONSTRICTION, Larynx, walking amel.",1
+r51,747,1,"CONSTRICTION, Throat-pit",7
+r52,747,2,"CONSTRICTION, Throat-pit, anger open",1
+r53,747,2,"CONSTRICTION, Throat-pit, eating amel.",1
+r54,747,2,"CONSTRICTION, Throat-pit, sleep, on going to",1
+r55,747,2,"CONSTRICTION, Throat-pit, swallowing, when",1
+r56,747,1,"CONSTRICTION, Trachea",22
+r57,747,2,"CONSTRICTION, Trachea, evening, lying down, on",1
+r58,747,0,"CRAWLING, larynx",35
+r59,747,1,"CRAWLING, larynx, morning",1
+r60,747,1,"CRAWLING, larynx, evening",1
+r61,747,2,"CRAWLING, larynx, evening, lying, after",1
+r62,747,1,"CRAWLING, larynx, night",1
+r63,747,1,"CRAWLING, larynx, cough, from",1
+r64,747,1,"CRAWLING, larynx, eating, after",1
+r65,747,1,"CRAWLING, larynx, sitting, while",1
+r66,747,1,"CRAWLING, larynx, swallowing, when",1
+r67,747,1,"CRAWLING, larynx, Trachea",14
+r68,747,2,"CRAWLING, larynx, Trachea, evening, lying down, after",1
+r69,747,2,"CRAWLING, larynx, Trachea, cough, from",2
+r70,747,0,CROUP,41
+r71,747,1,"CROUP, night, after",1
+r72,747,2,"CROUP, night, after, before midnight",1
+r73,747,1,"CROUP, eating, after",1
+r74,747,1,"CROUP, exposure to cold dry air, after",3
+r75,747,1,"CROUP, gangrenous",1
+r76,747,1,"CROUP, heated, from being",1
+r77,747,1,"CROUP, lying agg.",1
+r78,747,1,"CROUP, membranous",23
+r79,747,1,"CROUP, paroxysmal",2
+r80,747,1,"CROUP, recurrent",3
+r81,747,1,"CROUP, sequelæ",2
+r82,747,1,"CROUP, sleep, after, agg.",2
+r83,747,1,"CROUP, whooping cough during",1
+r84,748,1,"CROUP, extending to trachea",4
+o45415,748,2,"CROUP, extending to trachea, fauces",1
+r86,748,0,"CRUMB, sensation of, in larynx",5
+r87,748,0,"DOWNY, feeling (See Velvety)",0
+r88,748,0,DRYNESS,28
+r89,748,1,"DRYNESS, Larynx",90
+r90,748,2,"DRYNESS, Larynx, morning",6
+r91,748,3,"DRYNESS, Larynx, morning, waking",3
+r92,748,3,"DRYNESS, Larynx, morning, 5 a.m.",1
+r93,748,2,"DRYNESS, Larynx, forenoon",1
+r94,748,2,"DRYNESS, Larynx, evening",4
+r95,748,2,"DRYNESS, Larynx, night",8
+o45443,748,3,"DRYNESS, Larynx, night, 2 to 3 p.m.",1
+r97,748,2,"DRYNESS, Larynx, air, open, in",2
+r98,748,2,"DRYNESS, Larynx, aversion to drink",1
+r99,748,2,"DRYNESS, Larynx, coughing, on",3
+r100,748,2,"DRYNESS, Larynx, hawking, from",1
+r101,748,3,"DRYNESS, Larynx, hawking, from, constant, with",1
+r102,748,2,"DRYNESS, Larynx, heat, during",5
+r103,748,2,"DRYNESS, Larynx, spot",4
+r104,748,2,"DRYNESS, Larynx, waking, on",7
+r105,748,2,"DRYNESS, Larynx, winter, in",1
+r106,748,1,"DRYNESS, Epiglottis",2
+r107,748,1,"DRYNESS, Trachea",26
+r108,748,2,"DRYNESS, Trachea, morning",2
+r109,748,3,"DRYNESS, Trachea, morning, waking, on",1
+r110,748,2,"DRYNESS, Trachea, close room",2
+r111,748,0,"DUST, as from",31
+r112,748,0,FISSURES in larynx,1
+r113,748,0,"FLAPPING sensation, larynx",1
+r114,748,0,"FLESH hanging in larynx, sensation of",1
+r115,748,0,FOOD drops into larynx,8
+r116,748,0,"FOREIGN substance, sensation, larynx",20
+r117,748,1,"FOREIGN substance, sensation, larynx, morning",1
+r118,748,1,"FOREIGN substance, sensation, larynx, behind larynx",1
+r119,748,1,"FOREIGN substance, sensation, larynx, Trachea",4
+r120,748,0,FOREIGN substances drop into larynx when drinking or talking,1
+r121,748,0,"FULLNESS, larynx",2
+r122,748,1,"FULLNESS, larynx, morning",1
+r123,748,1,"FULLNESS, larynx, evening",1
+r124,748,0,GRASPED (See Constriction),0
+r125,748,0,"HAIR, in trachea, sensation of",2
+r126,748,0,"HEAT, larynx",10
+r127,748,1,"HEAT, larynx, Trachea",4
+r128,748,0,HEMMING (See Scraping),0
+r129,748,0,HOARSENESS (See Voice),0
+r131,748,0,"INFLAMMATION, larynx",59
+r132,749,1,"INFLAMMATION, larynx, evening agg.",3
+r133,749,1,"INFLAMMATION, larynx, damp weather",1
+r134,749,1,"INFLAMMATION, larynx, gangrenous",4
+r135,749,1,"INFLAMMATION, larynx, heated, from getting",2
+r136,749,1,"INFLAMMATION, larynx, recurrent",2
+r137,749,1,"INFLAMMATION, larynx, singers, in",4
+r138,749,1,"INFLAMMATION, larynx, speakers, in",3
+r139,749,1,"INFLAMMATION, larynx, suppressed urticaria",1
+r140,749,1,"INFLAMMATION, larynx, syphilitic",6
+r141,749,1,"INFLAMMATION, larynx, Trachea",28
+r142,749,0,INSENSIBILITY of larynx,1
+r143,749,0,IRRITATION in air passages,60
+r144,749,1,"IRRITATION in air passages, morning, rising after",2
+r145,749,1,"IRRITATION in air passages, afternoon",1
+r146,749,1,"IRRITATION in air passages, evening",4
+r147,749,2,"IRRITATION in air passages, evening, bed, in",5
+r148,749,2,"IRRITATION in air passages, evening, 7-30 p.m.",1
+r149,749,1,"IRRITATION in air passages, night, on waking",1
+r150,749,1,"IRRITATION in air passages, cold air",28
+r151,749,1,"IRRITATION in air passages, heated, when",1
+r152,749,1,"IRRITATION in air passages, increases the more one coughs",5
+r167,749,1,"IRRITATION in air passages, Larynx",143
+o45501,749,2,"IRRITATION in air passages, Larynx, morning, on waking",2
+o45500,749,3,"IRRITATION in air passages, Larynx, morning, on waking, in bed",1
+o45490,749,2,"IRRITATION in air passages, Larynx, afternoon",3
+o45491,749,3,"IRRITATION in air passages, Larynx, afternoon, 2 p.m.",1
+o45495,749,2,"IRRITATION in air passages, Larynx, evening, bed, in",3
+o45496,749,3,"IRRITATION in air passages, Larynx, evening, bed, in, lying, while",1
+o45502,749,2,"IRRITATION in air passages, Larynx, night",2
+o45503,749,3,"IRRITATION in air passages, Larynx, night, before midnight",2
+o45492,749,2,"IRRITATION in air passages, Larynx, cold air",22
+o45493,749,2,"IRRITATION in air passages, Larynx, damp weather",2
+o45494,749,2,"IRRITATION in air passages, Larynx, eating, after",3
+o45498,749,2,"IRRITATION in air passages, Larynx, heated, from becoming",4
+r168,750,2,"IRRITATION in air passages, Larynx, heat, during",1
+r169,750,2,"IRRITATION in air passages, Larynx, lying on either side, on going to sleep",2
+r170,750,2,"IRRITATION in air passages, Larynx, recurrent",2
+r171,750,2,"IRRITATION in air passages, Larynx, sleep, during",3
+r172,750,2,"IRRITATION in air passages, Larynx, suppressing the cough amel.",1
+r173,750,2,"IRRITATION in air passages, Larynx, swallowing, empty",3
+r174,750,2,"IRRITATION in air passages, Larynx, talking",14
+r175,750,2,"IRRITATION in air passages, Larynx, warm damp weather",1
+r176,750,2,"IRRITATION in air passages, Larynx, warm room",1
+r177,750,2,"IRRITATION in air passages, Larynx, upper part",1
+r178,750,1,"IRRITATION in air passages, Throat-pit",17
+r179,750,1,"IRRITATION in air passages, Trachea",91
+r180,750,0,"ITCHING, larynx (See Tickling)",21
+r181,750,1,"ITCHING, larynx (See Tickling), night",1
+r182,750,1,"ITCHING, larynx (See Tickling), Trachea",11
+r183,750,0,LARYNGISMUS stridulus,47
+r184,750,1,"LARYNGISMUS stridulus, daily",1
+r185,750,1,"LARYNGISMUS stridulus, night",1
+r186,750,2,"LARYNGISMUS stridulus, night, midnight, waking out of sound sleep",1
+r187,750,3,"LARYNGISMUS stridulus, night, midnight, waking out of sound sleep, to 7 a.m.",1
+r188,750,1,"LARYNGISMUS stridulus, alternating with contraction of fingers and toes",1
+r189,750,1,"LARYNGISMUS stridulus, cough, before the",1
+r190,750,1,"LARYNGISMUS stridulus, expiration, on",2
+r191,750,1,"LARYNGISMUS stridulus, sleep, during",6
+r192,750,2,"LARYNGISMUS stridulus, sleep, during, on falling asleep",1
+r193,750,1,"LARYNGISMUS stridulus, swallowing",2
+r194,750,1,"LARYNGISMUS stridulus, warm room",1
+r195,750,0,"LEAF closing up trachea, like a",1
+r196,750,0,LIQUIDS pass into larynx,4
+r197,750,0,"LUMP in larynx, sensation",5
+o45532,750,1,"LUMP in larynx, sensation, behind larynx that compels swallowing",3
+o45533,750,1,"LUMP in larynx, sensation, throat-pit",2
+r200,750,0,MEMBRANE (See Croup),1
+r201,750,1,"MEMBRANE (See Croup), seems to move about in larynx",1
+r202,750,1,"MEMBRANE (See Croup), sensation of (See Foreign Body, Velvety)",0
+r203,750,0,MOVEMENT up and down larynx,3
+r204,750,0,MUCUS in the air passages,73
+r205,750,1,"MUCUS in the air passages, consistency (See Expectoration)",0
+r207,751,1,"MUCUS in the air passages, Larynx",99
+r208,751,2,"MUCUS in the air passages, Larynx, morning",16
+r209,751,3,"MUCUS in the air passages, Larynx, morning, rising, after",3
+r210,751,3,"MUCUS in the air passages, Larynx, morning, waking, on",2
+r211,751,2,"MUCUS in the air passages, Larynx, evening",6
+r212,751,2,"MUCUS in the air passages, Larynx, night",3
+r213,751,3,"MUCUS in the air passages, Larynx, night, speaking, on",1
+r214,751,2,"MUCUS in the air passages, Larynx, blood-streaked",3
+r215,751,2,"MUCUS in the air passages, Larynx, blue",2
+r216,751,2,"MUCUS in the air passages, Larynx, cold air, in",2
+r217,751,2,"MUCUS in the air passages, Larynx, cough, after each paroxysmal",6
+r218,751,2,"MUCUS in the air passages, Larynx, copious",7
+r219,751,2,"MUCUS in the air passages, Larynx, eating, after",16
+r220,751,2,"MUCUS in the air passages, Larynx, ejected with difficulty",32
+r221,751,2,"MUCUS in the air passages, Larynx, green",2
+r222,751,2,"MUCUS in the air passages, Larynx, laughing",2
+r223,751,2,"MUCUS in the air passages, Larynx, overheated, from being",1
+r224,751,2,"MUCUS in the air passages, Larynx, rattling",1
+r225,751,3,"MUCUS in the air passages, Larynx, rattling, evening",1
+r226,751,2,"MUCUS in the air passages, Larynx, saltish",1
+r227,751,2,"MUCUS in the air passages, Larynx, stooping, comes up when",1
+r228,751,2,"MUCUS in the air passages, Larynx, talking, from",1
+r229,751,1,"MUCUS in the air passages, Trachea",78
+r230,751,2,"MUCUS in the air passages, Trachea, morning",3
+r231,751,2,"MUCUS in the air passages, Trachea, forenoon",1
+r232,751,2,"MUCUS in the air passages, Trachea, evening",2
+r233,751,2,"MUCUS in the air passages, Trachea, night",2
+r234,751,2,"MUCUS in the air passages, Trachea, ascending and descending",2
+r235,751,2,"MUCUS in the air passages, Trachea, ejected with difficulty",2
+r236,751,0,NECROSIS of cartilages of larynx,3
+o45568,751,0,ŒDEMA glottidis,15
+o45569,751,1,"ŒDEMA glottidis, vocal cords",1
+r239,751,0,"PAIN, larynx",70
+r240,751,1,"PAIN, larynx, morning",2
+r241,751,2,"PAIN, larynx, morning, waking, on",1
+r242,751,1,"PAIN, larynx, evening",2
+r244,752,1,"PAIN, larynx, bending head backward",5
+r245,752,1,"PAIN, larynx, blowing nose, on",1
+r246,752,1,"PAIN, larynx, cold air",2
+o45604,752,2,"PAIN, larynx, cold air, drinks",2
+r248,752,1,"PAIN, larynx, coughing, on",28
+r249,752,2,"PAIN, larynx, coughing, on, grasps the larynx",9
+r250,752,2,"PAIN, larynx, coughing, on, torn loose, as if something were being",2
+r251,752,1,"PAIN, larynx, draft of air",1
+r252,752,1,"PAIN, larynx, eating, while",1
+r253,752,1,"PAIN, larynx, heat, during",7
+r254,752,1,"PAIN, larynx, lifting a weight",1
+r255,752,1,"PAIN, larynx, motion, on",2
+r256,752,1,"PAIN, larynx, moving head, on",1
+r257,752,1,"PAIN, larynx, pressure, on",4
+r258,752,1,"PAIN, larynx, reading, after",4
+r259,752,1,"PAIN, larynx, respiration agg.",4
+r260,752,1,"PAIN, larynx, singing, when",2
+r261,752,1,"PAIN, larynx, sneezing, on",3
+r262,752,1,"PAIN, larynx, speaking, on",3
+r263,752,1,"PAIN, larynx, spot, in a small",2
+r264,752,1,"PAIN, larynx, swallowing, on",15
+r265,752,2,"PAIN, larynx, swallowing, on, as if food passed over sore spot",1
+r266,752,1,"PAIN, larynx, talking, while",22
+r267,752,1,"PAIN, larynx, tobacco smoking, from",1
+r268,752,1,"PAIN, larynx, touch, on",9
+r269,752,1,"PAIN, larynx, turning neck, on",4
+r270,752,1,"PAIN, larynx, extending to teeth",1
+o45612,752,2,"PAIN, larynx, extending to teeth, to abdomen",1
+r272,752,1,"PAIN, larynx, Throat-pit",1
+r273,752,2,"PAIN, larynx, Throat-pit, extending to root of tongue and into hyoid bone",1
+r274,752,1,"PAIN, larynx, Trachea",14
+r275,752,2,"PAIN, larynx, Trachea, morning",1
+r276,752,2,"PAIN, larynx, Trachea, coughing, on",28
+r277,752,3,"PAIN, larynx, Trachea, coughing, on, in a streak down",1
+r278,752,2,"PAIN, larynx, Trachea, inspiration, on",11
+r279,752,2,"PAIN, larynx, Trachea, talking, on",1
+r280,752,1,"PAIN, larynx, boring, larynx",1
+r281,752,1,"PAIN, larynx, burning",35
+r282,752,2,"PAIN, larynx, burning, night",1
+r283,752,2,"PAIN, larynx, burning, cough, during",11
+r284,752,2,"PAIN, larynx, burning, cold air amel.",1
+r285,752,2,"PAIN, larynx, burning, lying, while",2
+r286,752,2,"PAIN, larynx, burning, Larynx",59
+r287,752,3,"PAIN, larynx, burning, Larynx, afternoon",1
+r288,752,3,"PAIN, larynx, burning, Larynx, night",1
+r289,752,3,"PAIN, larynx, burning, Larynx, coryza, during",2
+r290,752,3,"PAIN, larynx, burning, Larynx, cough, during",16
+r291,753,3,"PAIN, larynx, burning, Larynx, deep inspiration",1
+r292,753,3,"PAIN, larynx, burning, Larynx, scraping, when",2
+r293,753,3,"PAIN, larynx, burning, Larynx, talking, after",2
+r294,753,3,"PAIN, larynx, burning, Larynx, extending to abdomen",1
+o45581,753,4,"PAIN, larynx, burning, Larynx, extending to abdomen, to nostrils",1
+r296,753,3,"PAIN, larynx, burning, Larynx, epiglottis",1
+r297,753,2,"PAIN, larynx, burning, Throat-pit",1
+r298,753,2,"PAIN, larynx, burning, Trachea",33
+o45589,753,3,"PAIN, larynx, burning, Trachea, 6 to 8 p.m.",1
+r300,753,3,"PAIN, larynx, burning, Trachea, cough, with",6
+r301,753,3,"PAIN, larynx, burning, Trachea, motion, on",1
+r302,753,1,"PAIN, larynx, bursting",1
+r303,753,1,"PAIN, larynx, compressed, as if",1
+r304,753,1,"PAIN, larynx, contractive",13
+r305,753,2,"PAIN, larynx, contractive, speaking, when",1
+r306,753,1,"PAIN, larynx, cutting, larynx",5
+r307,753,2,"PAIN, larynx, cutting, larynx, coughing on",3
+r308,753,2,"PAIN, larynx, cutting, larynx, swallowing, on",1
+r309,753,1,"PAIN, larynx, lancinating, trachea",1
+r310,753,1,"PAIN, larynx, nail, as if a, in larynx",1
+r311,753,1,"PAIN, larynx, piercing larynx",5
+o45634,753,2,"PAIN, larynx, piercing larynx, Trachea",2
+r313,753,1,"PAIN, larynx, pressing, larynx",10
+r314,753,2,"PAIN, larynx, pressing, larynx, morning",1
+r315,753,2,"PAIN, larynx, pressing, larynx, blowing the nose, on",1
+r316,753,2,"PAIN, larynx, pressing, larynx, supper, after",1
+r317,753,2,"PAIN, larynx, pressing, larynx, swallowing agg.",2
+r318,753,2,"PAIN, larynx, pressing, larynx, talking agg.",1
+r319,753,1,"PAIN, larynx, rawness in air passages",30
+r320,753,2,"PAIN, larynx, rawness in air passages, coughing, from",3
+r335,753,2,"PAIN, larynx, rawness in air passages, Larynx",83
+o45648,753,3,"PAIN, larynx, rawness in air passages, Larynx, morning",11
+o45649,753,4,"PAIN, larynx, rawness in air passages, Larynx, morning, waking, on",1
+o45646,753,3,"PAIN, larynx, rawness in air passages, Larynx, evening",2
+o45650,753,3,"PAIN, larynx, rawness in air passages, Larynx, night",1
+o45644,753,3,"PAIN, larynx, rawness in air passages, Larynx, cold air",10
+o45645,753,3,"PAIN, larynx, rawness in air passages, Larynx, coughing, from",26
+o45647,753,3,"PAIN, larynx, rawness in air passages, Larynx, inspiration, during",7
+o45651,753,3,"PAIN, larynx, rawness in air passages, Larynx, scraping, from",4
+o45652,753,3,"PAIN, larynx, rawness in air passages, Larynx, singing, when",3
+o45653,753,3,"PAIN, larynx, rawness in air passages, Larynx, smoking, from",1
+o45654,753,3,"PAIN, larynx, rawness in air passages, Larynx, swallowing, on",1
+o45655,753,3,"PAIN, larynx, rawness in air passages, Larynx, talking, from",13
+r336,754,3,"PAIN, larynx, rawness in air passages, Larynx, waking, on",1
+r337,754,2,"PAIN, larynx, rawness in air passages, Throat-pit",1
+r338,754,2,"PAIN, larynx, rawness in air passages, Trachea (See Chest)",46
+r339,754,3,"PAIN, larynx, rawness in air passages, Trachea (See Chest), morning",1
+r340,754,3,"PAIN, larynx, rawness in air passages, Trachea (See Chest), night",2
+r341,754,3,"PAIN, larynx, rawness in air passages, Trachea (See Chest), coughing, when",17
+r342,754,4,"PAIN, larynx, rawness in air passages, Trachea (See Chest), coughing, when, from",4
+r343,754,3,"PAIN, larynx, rawness in air passages, Trachea (See Chest), inspiration, on",1
+r344,754,3,"PAIN, larynx, rawness in air passages, Trachea (See Chest), swallowing",1
+r345,754,3,"PAIN, larynx, rawness in air passages, Trachea (See Chest), talking",1
+r346,754,1,"PAIN, larynx, shooting (See Stitching)",0
+r347,754,1,"PAIN, larynx, soreness",41
+r348,754,2,"PAIN, larynx, soreness, Larynx",64
+r349,754,3,"PAIN, larynx, soreness, Larynx, morning",2
+r350,754,4,"PAIN, larynx, soreness, Larynx, morning, waking, on",1
+r351,754,3,"PAIN, larynx, soreness, Larynx, evening",2
+r352,754,3,"PAIN, larynx, soreness, Larynx, breathing, on",1
+r353,754,3,"PAIN, larynx, soreness, Larynx, coughing, on",21
+r354,754,3,"PAIN, larynx, soreness, Larynx, inspiration, on",1
+r355,754,3,"PAIN, larynx, soreness, Larynx, singers",11
+r356,754,3,"PAIN, larynx, soreness, Larynx, swallowing, on",8
+r357,754,3,"PAIN, larynx, soreness, Larynx, touch",26
+r358,754,3,"PAIN, larynx, soreness, Larynx, turning the head, on",3
+r359,754,2,"PAIN, larynx, soreness, Throat-pit",2
+r360,754,2,"PAIN, larynx, soreness, Trachea",26
+r361,754,3,"PAIN, larynx, soreness, Trachea, coughing, on",16
+r362,754,1,"PAIN, larynx, stinging, larynx",9
+r363,754,1,"PAIN, larynx, stitching, larynx",49
+r364,754,2,"PAIN, larynx, stitching, larynx, evening",1
+r365,754,2,"PAIN, larynx, stitching, larynx, night, cough, during",1
+r366,754,2,"PAIN, larynx, stitching, larynx, air, open, in",1
+r367,754,2,"PAIN, larynx, stitching, larynx, cough, during",7
+r368,754,2,"PAIN, larynx, stitching, larynx, excitement, from",1
+r369,754,2,"PAIN, larynx, stitching, larynx, forced inspiration, on",1
+r370,754,2,"PAIN, larynx, stitching, larynx, supper, after",1
+r372,755,2,"PAIN, larynx, stitching, larynx, swallowing, when",2
+r373,755,2,"PAIN, larynx, stitching, larynx, walking in open air, while",1
+r374,755,2,"PAIN, larynx, stitching, larynx, extending to ear",2
+r375,755,3,"PAIN, larynx, stitching, larynx, extending to ear, swallowing, when",1
+o45689,755,2,"PAIN, larynx, stitching, larynx, pharynx, to",1
+o45690,755,2,"PAIN, larynx, stitching, larynx, vertex",1
+r378,755,2,"PAIN, larynx, stitching, larynx, Trachea",6
+r379,755,3,"PAIN, larynx, stitching, larynx, Trachea, night",1
+r380,755,3,"PAIN, larynx, stitching, larynx, Trachea, breathing, on",1
+r381,755,3,"PAIN, larynx, stitching, larynx, Trachea, exertion, slightest, on",1
+r382,755,1,"PAIN, larynx, tearing, larynx",6
+r383,755,2,"PAIN, larynx, tearing, larynx, evening",1
+r384,755,2,"PAIN, larynx, tearing, larynx, coughing, on",8
+r385,755,2,"PAIN, larynx, tearing, larynx, swallowing agg.",1
+r386,755,0,"PARALYSIS, larynx",11
+r387,755,1,"PARALYSIS, larynx, epiglottis",2
+r388,755,0,"PHTHISIS, larynx",33
+r389,755,1,"PHTHISIS, larynx, short hacking cough and loss of voice",1
+r390,755,1,"PHTHISIS, larynx, singers and public speakers",2
+r391,755,1,"PHTHISIS, larynx, Trachea",18
+r392,755,0,"PLUG, larynx",12
+r393,755,1,"PLUG, larynx, Trachea",1
+r394,755,0,"POLYPI, larynx (See Condylomata)",8
+r395,755,1,"POLYPI, larynx (See Condylomata), vocal cords",2
+r396,755,0,PRESSURE in throat-pit,11
+r397,755,1,"PRESSURE in throat-pit, anger, after",1
+r398,755,1,"PRESSURE in throat-pit, inspiration, on",1
+r399,755,1,"PRESSURE in throat-pit, swallowing agg.",1
+r400,755,0,PRICKLING in larynx,1
+r401,755,0,"PULSATING, larynx",1
+r402,755,0,"RATTLING, larynx",11
+r403,755,1,"RATTLING, larynx, Trachea (See Respiration)",32
+r404,755,0,"REMOVED, as if larynx",1
+r405,755,0,ROUGHNESS,74
+r406,755,1,"ROUGHNESS, morning",3
+r407,755,1,"ROUGHNESS, evening",1
+r408,755,1,"ROUGHNESS, eating, after",2
+r409,755,1,"ROUGHNESS, walking in open air, after",1
+r410,755,1,"ROUGHNESS, Larynx",45
+r411,755,2,"ROUGHNESS, Larynx, morning",3
+o45736,755,2,"ROUGHNESS, Larynx, coughing, from",14
+r413,755,3,"ROUGHNESS, Larynx, coughing, from, amel.",2
+r414,755,2,"ROUGHNESS, Larynx, talking, after",3
+r415,756,1,"ROUGHNESS, Trachea",17
+r416,756,0,"SCRAPING, clearing larynx",111
+r417,756,1,"SCRAPING, clearing larynx, daytime",3
+r418,756,1,"SCRAPING, clearing larynx, morning",10
+r419,756,1,"SCRAPING, clearing larynx, evening",14
+r420,756,2,"SCRAPING, clearing larynx, evening, 7 p.m.",2
+r421,756,1,"SCRAPING, clearing larynx, night",5
+r422,756,1,"SCRAPING, clearing larynx, eating, after",16
+r423,756,1,"SCRAPING, clearing larynx, ice cream, after",1
+r424,756,1,"SCRAPING, clearing larynx, incessant",1
+r425,756,1,"SCRAPING, clearing larynx, lying amel.",1
+r426,756,1,"SCRAPING, clearing larynx, reading aloud, from",1
+r427,756,1,"SCRAPING, clearing larynx, talking, from",2
+r428,756,1,"SCRAPING, clearing larynx, wind, from",1
+r429,756,0,"SCRATCHING, larynx",28
+r430,756,1,"SCRATCHING, larynx, 2 a.m.; wakens him",1
+r431,756,1,"SCRATCHING, larynx, when singing",1
+r432,756,0,SENSITIVE larynx,17
+r433,756,1,"SENSITIVE larynx, morning",1
+r434,756,1,"SENSITIVE larynx, cold air, to",23
+r435,756,1,"SENSITIVE larynx, pressure, to",2
+r436,756,1,"SENSITIVE larynx, sound of the piano, to",1
+r437,756,1,"SENSITIVE larynx, touch, to",10
+o45764,756,1,"SENSITIVE larynx, Trachea, cold air, to",1
+o45765,756,2,"SENSITIVE larynx, Trachea, cold air, to, touch, to",1
+r440,756,0,SHOCKS in larynx on waking,1
+o45767,756,1,"SHOCKS in larynx on waking, Trachea",3
+o45768,756,2,"SHOCKS in larynx on waking, Trachea, in sleep",1
+r443,756,0,"SKIN, sensation of, larynx",7
+r444,756,0,"SMOKE, sensation of, larynx",3
+r445,756,1,"SMOKE, sensation of, larynx, sleep, before",1
+r446,756,0,SPASMS of glottis (See Laryngismus),0
+r447,756,0,"STOPPAGE, sensation of",3
+r448,756,0,"SULPHUR vapor, as from",18
+r449,756,1,"SULPHUR vapor, as from, cough, during",3
+r450,756,0,SUPPORTS larynx on coughing,8
+r451,756,0,SWOLLEN larynx,14
+r452,756,1,"SWOLLEN larynx, evening",1
+r453,756,1,"SWOLLEN larynx, sensation of",10
+r455,757,1,"SWOLLEN larynx, Throat-pit",1
+r456,757,0,"TENSION, larynx",8
+r457,757,1,"TENSION, larynx, evening",1
+r458,757,1,"TENSION, larynx, bed, in",1
+r459,757,1,"TENSION, larynx, menses, during",1
+r460,757,0,THINGS go down the wrong way (See Food),0
+r461,757,0,TICKLING in the air passages,104
+r462,757,1,"TICKLING in the air passages, daytime",5
+r463,757,2,"TICKLING in the air passages, daytime, and night",1
+r464,757,1,"TICKLING in the air passages, morning",9
+r465,757,2,"TICKLING in the air passages, morning, rising, after",2
+r466,757,2,"TICKLING in the air passages, morning, waking, after",1
+r467,757,1,"TICKLING in the air passages, forenoon",1
+r468,757,1,"TICKLING in the air passages, afternoon",1
+r469,757,2,"TICKLING in the air passages, afternoon, 2 p.m.",2
+r470,757,2,"TICKLING in the air passages, afternoon, 3 p.m.",2
+o45788,757,2,"TICKLING in the air passages, afternoon, 3 to 4 p.m.",1
+r472,757,1,"TICKLING in the air passages, evening",16
+r473,757,2,"TICKLING in the air passages, evening, bed, in",5
+r474,757,2,"TICKLING in the air passages, evening, falling, asleep, before",1
+r475,757,2,"TICKLING in the air passages, evening, going to sleep, on",2
+r476,757,2,"TICKLING in the air passages, evening, midnight, until",1
+r477,757,2,"TICKLING in the air passages, evening, 6 p.m., expectoration of mucus, amel.",1
+r478,757,1,"TICKLING in the air passages, night",19
+r479,757,2,"TICKLING in the air passages, night, midnight, after",1
+r480,757,2,"TICKLING in the air passages, night, 11-30 p.m.",1
+r481,757,2,"TICKLING in the air passages, night, 2 a.m.",1
+r482,757,2,"TICKLING in the air passages, night, 3 a.m.",3
+r483,757,1,"TICKLING in the air passages, air, in open",3
+r484,757,2,"TICKLING in the air passages, air, in open, draft of",1
+r485,757,1,"TICKLING in the air passages, blood, taste of, with",1
+r486,757,1,"TICKLING in the air passages, inspiring, on",2
+o45804,757,1,"TICKLING in the air passages, lying, while",4
+r488,757,2,"TICKLING in the air passages, lying, while, on left side",1
+r489,757,2,"TICKLING in the air passages, lying, while, amel.",2
+r490,757,1,"TICKLING in the air passages, smoking, from",2
+r491,757,1,"TICKLING in the air passages, talking, on",7
+r492,757,1,"TICKLING in the air passages, tobacco",1
+r493,757,1,"TICKLING in the air passages, waking, on",2
+r494,757,1,"TICKLING in the air passages, walking in open air",1
+r495,757,1,"TICKLING in the air passages, warm room",16
+o45822,757,1,"TICKLING in the air passages, Larynx, in",160
+r499,758,2,"TICKLING in the air passages, Larynx, in, daytime only",1
+r500,758,2,"TICKLING in the air passages, Larynx, in, eating amel.",1
+r501,758,2,"TICKLING in the air passages, Larynx, in, fever, during",1
+r502,758,2,"TICKLING in the air passages, Larynx, in, lying amel.",2
+r503,758,1,"TICKLING in the air passages, Throat-pit, in, from",29
+r504,758,1,"TICKLING in the air passages, Trachea, in",100
+r505,758,0,TIGHTNESS (See Constriction of Chest),9
+r506,758,1,"TIGHTNESS (See Constriction of Chest), Larynx (See Tension)",0
+r507,758,0,"TINGLING, larynx",5
+r508,758,0,"ULCERATION, larynx",12
+r509,758,0,VELVETY sensation (downy),9
+r510,758,0,"VOICE, barking",7
+r511,758,1,"VOICE, barking, bass",5
+r512,758,1,"VOICE, barking, bleating",1
+r513,758,1,"VOICE, barking, broken",5
+r514,758,2,"VOICE, barking, broken, attempting to sing high, when",1
+r515,758,1,"VOICE, barking, changeable",5
+r516,758,1,"VOICE, barking, changed",8
+r517,758,1,"VOICE, barking, cracked",2
+r518,758,2,"VOICE, barking, cracked, evening",1
+r519,758,2,"VOICE, barking, cracked, singing, when",1
+r520,758,1,"VOICE, barking, croaking",4
+r521,758,1,"VOICE, barking, croupy",5
+r522,758,1,"VOICE, barking, crowing (See Rough under Respiration)",6
+r523,758,1,"VOICE, barking, deep",32
+r524,758,2,"VOICE, barking, deep, eating, after",1
+r525,758,2,"VOICE, barking, deep, moist cold air, in",1
+r526,758,2,"VOICE, barking, deep, open air",1
+r527,758,1,"VOICE, barking, finer than usual",1
+r528,758,1,"VOICE, barking, gutteral",2
+r529,758,1,"VOICE, barking, higher",9
+r530,758,2,"VOICE, barking, higher, hawking, after",1
+r531,758,1,"VOICE, barking, hissing",3
+r534,758,1,"VOICE, barking, hoarseness",211
+r535,759,2,"VOICE, barking, hoarseness, daytime",3
+r536,759,2,"VOICE, barking, hoarseness, morning",44
+o45886,759,3,"VOICE, barking, hoarseness, morning, menses, during",1
+r538,759,3,"VOICE, barking, hoarseness, morning, rising, after",5
+r539,759,3,"VOICE, barking, hoarseness, morning, waking, on",6
+r540,759,2,"VOICE, barking, hoarseness, forenoon",2
+r541,759,2,"VOICE, barking, hoarseness, noon",1
+r542,759,2,"VOICE, barking, hoarseness, afternoon",6
+r543,759,3,"VOICE, barking, hoarseness, afternoon, 4 p.m.",1
+r544,759,3,"VOICE, barking, hoarseness, afternoon, 5 p.m.",1
+r545,759,2,"VOICE, barking, hoarseness, evening",27
+r546,759,3,"VOICE, barking, hoarseness, evening, bed, in",1
+r547,759,3,"VOICE, barking, hoarseness, evening, reading, after",2
+r548,759,3,"VOICE, barking, hoarseness, evening, sunset, after",1
+r549,759,2,"VOICE, barking, hoarseness, night",11
+r550,759,2,"VOICE, barking, hoarseness, air, cold",4
+r551,759,3,"VOICE, barking, hoarseness, air, cold, dry",1
+r552,759,3,"VOICE, barking, hoarseness, air, cold, draft of",1
+o45859,759,3,"VOICE, barking, hoarseness, air, cold, open, in",3
+r554,759,4,"VOICE, barking, hoarseness, air, cold, open, in, amel.",1
+r555,759,2,"VOICE, barking, hoarseness, annually at same time",1
+r556,759,2,"VOICE, barking, hoarseness, calling aloud, when",1
+r557,759,2,"VOICE, barking, hoarseness, children, in",1
+r558,759,2,"VOICE, barking, hoarseness, chill, during",1
+r559,759,2,"VOICE, barking, hoarseness, cold bath, after",1
+r560,759,2,"VOICE, barking, hoarseness, cold, damp weather",6
+r561,759,2,"VOICE, barking, hoarseness, coryza, during",45
+r562,759,2,"VOICE, barking, hoarseness, cough, during (See Cough)",0
+r563,759,3,"VOICE, barking, hoarseness, cough, during (See Cough), amel.",1
+r564,759,2,"VOICE, barking, hoarseness, croup, after",2
+r565,759,2,"VOICE, barking, hoarseness, crying, when",1
+r566,759,2,"VOICE, barking, hoarseness, damp weather, in",5
+r567,759,2,"VOICE, barking, hoarseness, dinner, after amel.",1
+r568,759,2,"VOICE, barking, hoarseness, eating, after",1
+r569,759,2,"VOICE, barking, hoarseness, heat, during",4
+r570,759,2,"VOICE, barking, hoarseness, laughing, when",1
+r571,759,2,"VOICE, barking, hoarseness, measles, after",4
+r572,759,2,"VOICE, barking, hoarseness, menses, before",3
+r537,759,3,"VOICE, barking, hoarseness, menses, before, during",3
+r574,759,2,"VOICE, barking, hoarseness, mucus in larynx",19
+r575,760,2,"VOICE, barking, hoarseness, overheated, from being",3
+r576,760,2,"VOICE, barking, hoarseness, overuse of the voice",17
+r577,760,2,"VOICE, barking, hoarseness, painful",8
+r578,760,2,"VOICE, barking, hoarseness, painless",8
+r579,760,2,"VOICE, barking, hoarseness, paroxysmal",2
+r580,760,2,"VOICE, barking, hoarseness, periodical",2
+r581,760,2,"VOICE, barking, hoarseness, reading aloud, while",6
+r582,760,2,"VOICE, barking, hoarseness, riding in open air",1
+r583,760,2,"VOICE, barking, hoarseness, rising, after",6
+r584,760,3,"VOICE, barking, hoarseness, rising, after, from bed amel.",1
+o67328,760,2,"VOICE, barking, hoarseness, singing, from",15
+r586,760,3,"VOICE, barking, hoarseness, singing, from, amel.",1
+r587,760,2,"VOICE, barking, hoarseness, speech, preventing",5
+r588,760,2,"VOICE, barking, hoarseness, spring, in",1
+r589,760,2,"VOICE, barking, hoarseness, straining, from (See Overuse)",0
+r590,760,2,"VOICE, barking, hoarseness, sudden",7
+r591,760,2,"VOICE, barking, hoarseness, talking, from",29
+r592,760,3,"VOICE, barking, hoarseness, talking, from, awhile, improves after",2
+r593,760,2,"VOICE, barking, hoarseness, waking, on",9
+o45910,760,2,"VOICE, barking, hoarseness, walking in open air",5
+r595,760,3,"VOICE, barking, hoarseness, walking in open air, amel.",1
+o45912,760,3,"VOICE, barking, hoarseness, walking in open air, against the wind",2
+r597,760,2,"VOICE, barking, hoarseness, warm room",5
+r598,760,3,"VOICE, barking, hoarseness, warm room, going into open air from warm room",1
+o45915,760,3,"VOICE, barking, hoarseness, warm room, wet weather agg.",1
+r600,760,2,"VOICE, barking, hoarseness, wet, after getting",2
+r601,760,1,"VOICE, barking, hollow",40
+r602,760,1,"VOICE, barking, husky",37
+r603,760,2,"VOICE, barking, husky, morning",1
+r604,760,2,"VOICE, barking, husky, waking, on",1
+r605,760,2,"VOICE, barking, husky, open air, in",1
+r606,760,1,"VOICE, barking, indistinct",2
+r607,760,1,"VOICE, barking, inflexible",1
+r608,760,1,"VOICE, barking, interrupted",7
+r609,760,1,"VOICE, barking, lost",102
+r610,760,2,"VOICE, barking, lost, morning",5
+r611,760,3,"VOICE, barking, lost, morning, walking, on",1
+r612,760,2,"VOICE, barking, lost, evening",3
+r613,761,2,"VOICE, barking, lost, night",2
+r614,761,2,"VOICE, barking, lost, air, damp",1
+r615,761,3,"VOICE, barking, lost, air, damp, cold",3
+r616,761,2,"VOICE, barking, lost, anger, after",1
+r617,761,2,"VOICE, barking, lost, cold, exposure to",2
+r618,761,2,"VOICE, barking, lost, damp weather",1
+r619,761,2,"VOICE, barking, lost, drinking cold water when overheated",1
+r620,761,2,"VOICE, barking, lost, epilepsy, before",1
+r621,761,2,"VOICE, barking, lost, exertion, on",1
+r622,761,2,"VOICE, barking, lost, fright, from",3
+r623,761,2,"VOICE, barking, lost, heated, from being",2
+r624,761,2,"VOICE, barking, lost, hysterical",5
+r625,761,2,"VOICE, barking, lost, intermittent in singers",1
+r626,761,2,"VOICE, barking, lost, menses, during",1
+r627,761,2,"VOICE, barking, lost, momentarily",3
+r628,761,2,"VOICE, barking, lost, motion, on",1
+r629,761,2,"VOICE, barking, lost, mucus in larynx, from",1
+r630,761,2,"VOICE, barking, lost, overuse of",3
+r631,761,2,"VOICE, barking, lost, painless",1
+r632,761,2,"VOICE, barking, lost, paralysis, from",5
+r633,761,2,"VOICE, barking, lost, periodic",1
+r634,761,2,"VOICE, barking, lost, prolonged talking, from",1
+r635,761,2,"VOICE, barking, lost, reading, while",1
+r636,761,2,"VOICE, barking, lost, singers",2
+r637,761,2,"VOICE, barking, lost, sudden",3
+r638,761,2,"VOICE, barking, lost, walking, on",2
+r639,761,2,"VOICE, barking, lost, warm air amel.",1
+o45956,761,3,"VOICE, barking, lost, warm air amel., room, in",2
+r641,761,2,"VOICE, barking, lost, wind, after exposure to northwest",1
+r642,761,1,"VOICE, barking, loud",5
+r643,761,1,"VOICE, barking, low",25
+r644,761,1,"VOICE, barking, muffled",6
+r645,761,1,"VOICE, barking, nasal",35
+r646,761,2,"VOICE, barking, nasal, morning",2
+r647,761,2,"VOICE, barking, nasal, evening",2
+r648,761,2,"VOICE, barking, nasal, catarrhal",2
+r649,761,1,"VOICE, barking, piping",2
+r650,761,1,"VOICE, barking, powerful",1
+r651,761,1,"VOICE, barking, rough",63
+r652,761,2,"VOICE, barking, rough, morning",4
+r653,761,2,"VOICE, barking, rough, forenoon",1
+r654,761,2,"VOICE, barking, rough, afternoon",2
+r655,761,2,"VOICE, barking, rough, evening",4
+r656,761,2,"VOICE, barking, rough, air, on going into open",1
+r657,761,3,"VOICE, barking, rough, air, on going into open, draft of, agg.",1
+r658,761,2,"VOICE, barking, rough, bed, before going to",1
+r659,761,2,"VOICE, barking, rough, smoking amel.",1
+r660,761,2,"VOICE, barking, rough, talking, from",2
+r661,761,1,"VOICE, barking, shrieking",4
+r662,761,1,"VOICE, barking, squeaking",3
+r663,761,1,"VOICE, barking, toneless",13
+r664,761,1,"VOICE, barking, tremulous",18
+r665,761,1,"VOICE, barking, weak",69
+r666,762,2,"VOICE, barking, weak, evening in bed",1
+r667,762,2,"VOICE, barking, weak, anger, after",1
+r668,762,2,"VOICE, barking, weak, heat, during",1
+r669,762,2,"VOICE, barking, weak, menses, during",1
+r670,762,2,"VOICE, barking, weak, talking, after",5
+r671,762,1,"VOICE, barking, whining",10
+r672,762,2,"VOICE, barking, whining, morning",1
+r673,762,2,"VOICE, barking, whining, menses, after",1
+r674,762,2,"VOICE, barking, whining, sleep, in",1
+r675,762,1,"VOICE, barking, whispering",14
+r676,762,0,WHISTLING,11
+r677,762,1,"WHISTLING, evening",1
+r678,762,1,"WHISTLING, after lying down",1
+r679,762,1,"WHISTLING, lying on left side",1

@@ -132,8 +132,8 @@ assert.ok(pg && pg.rubrics === 412, '_index.json: urine 412');
 // 8) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const swf = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=188/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v186)');
-assert(/CACHE_NAME='bhc-clinic-v188'/.test(swf), 'خدمت کار نسخہ 186');
+assert(/rep-chapters\.js\?v=189/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v186)');
+assert(/CACHE_NAME='bhc-clinic-v189'/.test(swf), 'خدمت کار نسخہ 186');
 assert(/v186: پیشاب \(URINE\) باب/.test(code), 'rep-chapters.js میں URINE بلڈر درج');
 
 console.log('kent_urine_homeoint_source.test.js — تمام تصدیقیں پاس (390 ماخذی قطاریں، 412 کل، اردو 100%)');

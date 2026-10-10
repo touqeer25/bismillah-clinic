@@ -1,0 +1,72 @@
+﻿شناخت,پرانا راستہ,ادویات,نوٹ
+m45342,ANAESTHESIA,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45343,CANCER,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45356,CLOSED,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45357,COLD,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45360,CONDYLOMATA,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+o67290,"CONSTRICTION, larynx, air, open",3,"OOREP کٹا راستہ «CONSTRICTION, larynx, air, open» (3) — کتابی پورا راستہ «CONSTRICTION, Larynx, air, open, in» (دستی o45364: OOREP agg.-لاحقہ، hep/kali-c عین) ماخذی درخت پر (p746)"
+o45367,"CONSTRICTION, larynx, cough, during agg.",15,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+o67292,"CONSTRICTION, larynx, sleep",17,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+o67293,CRAWLING,41,"OOREP یونین «CRAWLING» (41) — کتابی مین «CRAWLING, larynx» (p747) + morning/evening/night ذیلیاں (clamp idx60 @128.7 کتابی یتیم) ماخذی درخت پر"
+o67294,"CROUP, night",1,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+m45427,CRUMB,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+o67295,"DRYNESS, larynx, hawking",2,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+m45451,DUST,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45453,FLAPPING sensation,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45454,FLESH hanging in larynx,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45456,FOREIGN substance,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+o67296,"FOREIGN substance, sensation",24,"OOREP یونین «FOREIGN substance, sensation» (24) — کتابی مین «FOREIGN substance, sensation, larynx» (p748 — clamp idx118 morning @128.7) ماخذی درخت پر"
+m45461,FULLNESS,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45464,HAIR,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+o67297,HEAT,13,"OOREP یونین «HEAT» (13) — کتابی مین «HEAT, larynx» + Trachea ذیلی (p748) ماخذی درخت پر"
+r130,INFLAMMATION,68,"OOREP یونین «INFLAMMATION» (68) — کتابی مین «INFLAMMATION, larynx» (p749 — clamp idx132 evening-agg @128.7) ماخذی درخت پر"
+r166,IRRITATION,184,OOREP بڑا یونین «IRRITATION» (184) — کتابی مین «IRRITATION in air passages» (p750) + Larynx/cold air ذیلیاں مکمل ادویات ماخذی درخت پر — PDF 665/667 حرف-بہ-حرف
+o67299,"IRRITATION, larynx, evening",4,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+o67300,"IRRITATION, larynx, morning",3,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+o67302,ITCHING,25,"OOREP یونین «ITCHING» (25) — کتابی مین «ITCHING, larynx (See Tickling)» (p757) ماخذی درخت پر"
+o67303,"LARYNGISMUS stridulus, night, midnight",2,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+o67304,"LARYNGISMUS stridulus, sleep",7,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+m45529,LEAF closing up trachea,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45531,LUMP in larynx,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+o67305,LUMP,7,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+r206,MUCUS,134,"OOREP بڑا یونین «MUCUS» (134) — کتابی مین «MUCUS in the air passages» (p750) + Larynx 99/Trachea ذیلیاں مکمل ادویات ماخذی درخت پر (MEDI-T صفحہ-سرخی «MUCUS, larynx» p751 آرٹیفیکٹ skip)"
+m45569,OEDEMA,0,OOREP خالی m-کنٹینر «OEDEMA» — کتابی عین «ŒDEMA glottidis» مین (p761) ماخذی درخت پر
+r243,PAIN,194,"OOREP بڑا یونین «PAIN» (194) — کتابی مین «PAIN, larynx» (p751) + burning/stitching/tearing ذیلی خاندان ماخذی درخت پر"
+r334,"PAIN, rawness",110,"OOREP بڑا یونین «PAIN, rawness» (110) — کتابی مین «PAIN, larynx, rawness in air passages» (p754) + Trachea (See Chest)/morning/night/coughing ذیلیاں ماخذی درخت پر"
+o67309,"PAIN, rawness, trachea, coughing",18,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+r371,"PAIN, stitching",54,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+o67310,"PAIN, stitching, larynx, extending",4,"OOREP کٹا راستہ «PAIN, stitching, larynx, extending» (4) — کتابی پورے extending راستے ماخذی درخت پر: extending to ear (p755) + pharynx, to (دستی o45689 — OOREP نے extending ڈالا تھا) + vertex (دستی o45690)"
+o67312,PARALYSIS,12,"OOREP یونین «PARALYSIS» (12) — کتابی مین «PARALYSIS, larynx» + epiglottis ذیلی (p761) ماخذی درخت پر"
+o67313,PHTHISIS,38,"OOREP یونین «PHTHISIS» (38) — کتابی مین «PHTHISIS, larynx» (p755) + short hacking cough ذیلی (clamp idx382 @128.7) ماخذی درخت پر"
+o67314,PLUG,12,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+o67315,POLYPI,8,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+m45727,PULSATING,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+o67316,RATTLING,39,"OOREP یونین «RATTLING» (39) — کتابی مین «RATTLING, larynx» (p758) ماخذی درخت پر"
+m45730,REMOVED,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+o67317,"ROUGHNESS, larynx, coughing",16,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+m45742,SCRAPING,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45755,SCRATCHING,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45764,SENSITIVE,0,OOREP خالی m-کنٹینر «SENSITIVE» — کتابی عین «SENSITIVE larynx» مین + morning/cold air ذیلیاں (p756 — clamp idx426) ماخذی درخت پر
+o67318,"SENSITIVE, trachea",2,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+m45767,SHOCKS in,0,OOREP خالی m-کنٹینر «SHOCKS in» — کتابی عین «SHOCKS in larynx on waking» مین (p756) ماخذی درخت پر
+m45769,SKIN,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45770,SMOKE,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45772,STOPPAGE,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45773,SULPHUR vapor,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+r454,SWOLLEN,0,OOREP خالی m-کنٹینر «SWOLLEN» — کتابی عین «SWOLLEN larynx» مین + evening/Throat-pit/SKIN ذیلیاں (p756 — clamp idx445) ماخذی درخت پر
+m45780,TENSION,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+o67319,"TICKLING in the air passages, air",4,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+o67320,"TICKLING in the air passages, lying",7,"OOREP کٹا راستہ «TICKLING in the air passages, lying» (7) — کتابی پورا راستہ «TICKLING in the air passages, lying, while» (+ amel.) ماخذی درخت پر (p757 — دستی o45804: OOREP agg.-لاحقہ)"
+r497,TICKLING,192,"OOREP بڑا یونین «TICKLING» (192) — کتابی مین «TICKLING in the air passages» (p757) + Larynx, in/afternoon/lying ذیلیاں مکمل ادویات ماخذی درخت پر"
+r498,"TICKLING, larynx",161,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+m45827,TINGLING,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+m45828,ULCERATION,0,OOREP خالی m-کنٹینر — بے-ادویہ برتن، ماخذی درخت سے باہر، فائل میں محفوظ
+r533,VOICE,257,"OOREP بڑا یونین «VOICE» (257) — کتابی مین «VOICE, barking» (p759) + hoarseness/lost/rough/weak ذیلی خاندان مکمل ادویات ماخذی درخت پر"
+o67324,"VOICE, hoarseness, air",8,"OOREP کٹا راستہ «VOICE, hoarseness, air» (8) — کتابی پورا راستہ «VOICE, barking, hoarseness, air, cold, open, in» (دستی o45859) ماخذی درخت پر (p759)"
+o67325,"VOICE, hoarseness, air, open",4,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+o67326,"VOICE, hoarseness, menses",5,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+o67327,"VOICE, hoarseness, rising",7,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+o45903,"VOICE, hoarseness, singing, from agg.",15,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+o67329,"VOICE, hoarseness, talking",29,"OOREP کٹا راستہ «VOICE, hoarseness, talking» (29) — کتابی پورا راستہ «VOICE, barking, hoarseness, talking, from» + awhile improves ذیلی ماخذی درخت پر (p760)"
+o67330,"VOICE, lost, air",4,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)
+o67331,"VOICE, rough, air",2,OOREP مجموعہ/برتن — کتابی راستے ماخذی درخت پر (تین-کالم.csv میں جوڑے دیکھیں)

@@ -134,8 +134,8 @@ assert.ok(pg && pg.rubrics === 1126 && pg.name === 'GENITALIA MALE', '_index.jso
 // 8) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const swf = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=188/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v187)');
-assert(/CACHE_NAME='bhc-clinic-v188'/.test(swf), 'خدمت کار نسخہ 187');
+assert(/rep-chapters\.js\?v=189/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v187)');
+assert(/CACHE_NAME='bhc-clinic-v189'/.test(swf), 'خدمت کار نسخہ 187');
 assert(/v187: تناسلی اعضاء \(مرد\) باب/.test(code), 'rep-chapters.js میں GENITALIA MALE بلڈر درج');
 // kent-tree-fix: genitalia_male.h = 74 legacy ids (تمام پرانی مقامی قطاریں — urine/urethra قاعدہ)
 const tf = fs.readFileSync(path.join(ROOT, 'js/repertory/kent-tree-fix.js'), 'utf8');
