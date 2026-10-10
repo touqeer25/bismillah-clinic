@@ -1,0 +1,340 @@
+﻿شناخت,پرانا راستہ (ایپ),نیا راستہ (مطبوعہ کتاب),اردو جملہ,ادویات پرانی,ادویات ماخذی,فرق
+o14568,"AIR, cold, amel.","AIR agg., cold, amel.",بلغم — ٹھنڈی ہوا سے آرام,1,1,یکساں
+o14569,"AIR, cold, wind","AIR agg., cold, wind",بلغم — ٹھنڈی ہوا چلے,1,1,یکساں
+o14571,"AIR, open, amel.","AIR agg., open, amel.",بلغم — کھلی ہوا میں آرام,2,2,یکساں
+o14572,"AIR, open, walking, in","AIR agg., open, walking, in",بلغم — کھلی ہوا میں چلتے ہوئے,3,3,یکساں
+o14766,"ODOR, burnt","ODOR of an old catarrh, burnt",بلغم — بو، جلی ہوئی,8,8,یکساں
+o14767,"ODOR, fetid","ODOR of an old catarrh, fetid",بلغم — بو، سڑی,26,26,یکساں
+o14768,"ODOR, garlic, like","ODOR of an old catarrh, garlic, like",بلغم — بو، لہسن جیسی,1,1,یکساں
+o14769,"ODOR, milky","ODOR of an old catarrh, milky",بلغم — بو، دودھ جیسی,5,5,یکساں
+o14770,"ODOR, musty","ODOR of an old catarrh, musty",بلغم — بو، پھپھوندی جیسی,2,2,یکساں
+o14771,"ODOR, offensive","ODOR of an old catarrh, offensive",بلغم — بو، بدبودار,67,67,یکساں
+o14772,"ODOR, sour","ODOR of an old catarrh, sour",بلغم — بو، کھٹی,8,8,یکساں
+o14773,"ODOR, sweetish","ODOR of an old catarrh, sweetish",بلغم — بو، میٹھی سی,1,1,یکساں
+o14774,"ODOR, violets, of","ODOR of an old catarrh, violets, of",بلغم — بو، بنفشے کی,2,2,یکساں
+r0,DAYTIME only,DAYTIME only,بلغم — صرف دن کے وقت,61,61,یکساں
+r10,FORENOON,FORENOON,بلغم — دوپہر سے پہلے,11,11,یکساں
+r100,"BROWNISH, lumps","BROWNISH, lumps",بلغم — بھوراہٹ مائل، لوتھڑے,2,2,یکساں
+r101,"BROWNISH, yellow","BROWNISH, yellow",بلغم — بھوراہٹ مائل، زرد,1,1,یکساں
+r102,"BURNED, when dry on the floor, looks as if","BURNED, when dry on the floor, looks as if",بلغم — جلا ہوا، فرش پر سوکھ کر جیسا لگے,1,1,یکساں
+r103,CALCAREOUS tubercles,CALCAREOUS tubercles,بلغم — چونے جیسے گلٹیاں,1,1,یکساں
+r104,CASTS (See Membrane),CASTS (See Membrane),بلغم — قالب (سڑنا),0,0,یکساں
+r105,"CHEESE, like","CHEESE, like",بلغم — پنیر جیسا,6,6,یکساں
+r106,COLD (See Cool),COLD (See Cool),بلغم — ٹھنڈا,0,0,یکساں
+r107,"CONSTANT, almost day and evening","CONSTANT, almost day and evening",بلغم — مسلسل، تقریباً دن اور شام,2,2,یکساں
+r108,COOL (cold),COOL (cold),بلغم — ٹھنڈا (سرد),12,12,یکساں
+r11,"FORENOON, 10 a.m.","FORENOON, 10 a.m.",بلغم — دوپہر سے پہلے، 10 بجے,1,1,یکساں
+r110,"COPIOUS, daytime","COPIOUS, daytime",بلغم — زیادہ مقدار میں، دن کے وقت,2,2,یکساں
+r111,"COPIOUS, morning","COPIOUS, morning",بلغم — زیادہ مقدار میں، صبح,17,17,یکساں
+r112,"COPIOUS, morning, 9 a.m.","COPIOUS, morning, 9 a.m.",بلغم — زیادہ مقدار میں، صبح، 9 بجے,1,1,یکساں
+r113,"COPIOUS, evening","COPIOUS, evening",بلغم — زیادہ مقدار میں، شام,2,2,یکساں
+r114,"COPIOUS, evening, lying down, on","COPIOUS, evening, lying down, on",بلغم — زیادہ مقدار میں، شام، لیٹنے پر,1,1,یکساں
+r115,"COPIOUS, night","COPIOUS, night",بلغم — زیادہ مقدار میں، رات,2,2,یکساں
+r116,"COPIOUS, meals, after","COPIOUS, meals, after",بلغم — زیادہ مقدار میں، کھانے کے بعد,1,1,یکساں
+r117,"COPIOUS, mouthful at a time","COPIOUS, mouthful at a time",بلغم — زیادہ مقدار میں، ایک ایک بھر منہ,4,4,یکساں
+r118,"COPIOUS, moving, while","COPIOUS, moving, while",بلغم — زیادہ مقدار میں، چلتے پھرتے,1,1,یکساں
+r119,"COPIOUS, old people","COPIOUS, old people",بلغم — زیادہ مقدار میں، بوڑھے لوگوں میں,5,5,یکساں
+r12,NOON,NOON,بلغم — دوپہر,3,3,یکساں
+r120,"COPIOUS, paroxysmal cough, after each","COPIOUS, paroxysmal cough, after each",بلغم — زیادہ مقدار میں، ہر دورے کی کھانسی کے بعد,7,7,یکساں
+r121,"COPIOUS, warm room","COPIOUS, warm room",بلغم — زیادہ مقدار میں، گرم کمرے میں,1,1,یکساں
+r122,CORROSIVE,CORROSIVE,بلغم — کھا جانے والا,1,1,یکساں
+r123,"CREAM-LIKE, yellowish-white","CREAM-LIKE, yellowish-white",بلغم — بالائی جیسا، زردی مائل سفید,1,1,یکساں
+r124,CRUMBLY,CRUMBLY,بلغم — بھربھرا,1,1,یکساں
+r125,DARK,DARK,بلغم — گہرا,9,9,یکساں
+r126,DIFFICULT,DIFFICULT,بلغم — مشکل,95,95,گریڈ کتابی مطابق کیے
+r127,"DIFFICULT, afternoon","DIFFICULT, afternoon",بلغم — مشکل، سہ پہر,2,2,یکساں
+r128,"DIFFICULT, 2 a.m.","DIFFICULT, 2 a.m.",بلغم — مشکل، رات 2 بجے,1,1,یکساں
+r129,"DIFFICULT, adhering to throat, teeth and lips","DIFFICULT, adhering to throat, teeth and lips",بلغم — مشکل، گلے، دانتوں اور ہونٹوں سے چپک جائے,1,1,یکساں
+r130,"DIFFICULT, aged people","DIFFICULT, aged people",بلغم — مشکل، بوڑھے لوگوں میں,1,1,یکساں
+r131,"DIFFICULT, swallow, must (See Swallow)","DIFFICULT, swallow, must (See Swallow)",بلغم — مشکل، نگلنا پڑے,0,0,یکساں
+r132,"DIFFICULT, tongue, can raise sputa only on to, whence it must be removed by wiping","DIFFICULT, tongue, can raise sputa only on to, whence it must be removed by wiping",بلغم — مشکل، زبان پر لائے، پھر پونچھ کر ہٹانا پڑے,1,1,یکساں
+r133,"DINNER, after","DINNER, after",بلغم — دوپہر کا کھانا، دوپہر کے کھانے کے بعد,1,1,یکساں
+r134,DIRTY-LOOKING,DIRTY-LOOKING,بلغم — میلا دکھنے والا,1,1,یکساں
+r135,DRINKING amel.,DRINKING amel.,بلغم — پینے سے آرام,1,1,یکساں
+r136,"DUST, as if mixed with","DUST, as if mixed with",بلغم — دھول، جیسے دھول ملی ہو,1,1,یکساں
+r137,EASY (See Hawked up),EASY (See Hawked up),بلغم — آسانی سے,34,34,یکساں
+r138,"EASY (See Hawked up), daytime","EASY (See Hawked up), daytime",بلغم — آسانی سے، دن کے وقت,6,6,یکساں
+r139,"EASY (See Hawked up), morning","EASY (See Hawked up), morning",بلغم — آسانی سے، صبح,2,2,یکساں
+r14,AFTERNOON,AFTERNOON,بلغم — سہ پہر,19,19,یکساں
+r140,"EASY (See Hawked up), evening","EASY (See Hawked up), evening",بلغم — آسانی سے، شام,2,2,یکساں
+r141,"EASY (See Hawked up), night","EASY (See Hawked up), night",بلغم — آسانی سے، رات,1,1,یکساں
+r142,"EASY (See Hawked up), motion, on","EASY (See Hawked up), motion, on",بلغم — آسانی سے، حرکت پر,1,1,یکساں
+r143,"EASY (See Hawked up), waking, on","EASY (See Hawked up), waking, on",بلغم — آسانی سے، جاگنے پر,1,1,یکساں
+r144,EASIER after each cough (See Side),EASIER after each cough (See Side),بلغم — ہر کھانسی کے بعد آسانی,1,1,یکساں
+r145,"EATING, after","EATING, after",بلغم — کھانے کے بعد,8,8,یکساں
+r146,EPITHELIUM exfoliated,EPITHELIUM exfoliated,بلغم — اوپری جلد کے ذرے (ایپی تھیلیم) نکلنا,1,1,یکساں
+r147,FLAKES,FLAKES,بلغم — پرتیں,2,2,یکساں
+r148,FLIES forcibly out of mouth,FLIES forcibly out of mouth,بلغم — زور سے منہ سے اُڑ کر نکلے,3,3,یکساں
+r15,"AFTERNOON, 4 p.m.","AFTERNOON, 4 p.m.",بلغم — سہ پہر، 4 بجے,1,1,یکساں
+r150,FROTHY,FROTHY,بلغم — جھاگ دار,53,53,یکساں
+r151,"FROTHY, morning","FROTHY, morning",بلغم — جھاگ دار، صبح,4,4,یکساں
+r152,"FROTHY, morning, 8 a.m.","FROTHY, morning, 8 a.m.",بلغم — جھاگ دار، صبح، 8 بجے,1,1,یکساں
+r153,"FROTHY, morning, 9 a.m.","FROTHY, morning, 9 a.m.",بلغم — جھاگ دار، صبح، 9 بجے,1,1,یکساں
+r154,"FROTHY, containing blood and mucus","FROTHY, containing blood and mucus",بلغم — جھاگ دار، خون اور بلغم کے ساتھ,1,1,یکساں
+r155,GELATINOUS,GELATINOUS (Comp. Viscid),بلغم — جیلی جیسی,21,21,یکساں
+r156,GLAIRY,GLAIRY,بلغم — انڈے کی سفیدی جیسی,4,4,یکساں
+r158,GLUTINOUS (See Viscid),GLUTINOUS (See Viscid),بلغم — لسی جیسا,0,0,یکساں
+r159,GRANULAR,GRANULAR,بلغم — ذروں والا,16,16,یکساں
+r16,"AFTERNOON, 5 p.m.","AFTERNOON, 5 p.m.",بلغم — سہ پہر، 5 بجے,3,3,یکساں
+r160,"GRANULAR, morning 3 to 4 a.m. or 4 to 11 p.m.","GRANULAR, morning 3 to 4 a.m. or 4 to 11 p.m.",بلغم — ذروں والا، صبح 3 سے 4 بجے یا شام 4 سے 11 بجے,1,1,یکساں
+r161,"GRANULAR, offensive","GRANULAR, offensive",بلغم — ذروں والا، بدبودار,1,1,یکساں
+r162,"GRANULAR, sneezing, while","GRANULAR, sneezing, while",بلغم — ذروں والا، چھینکتے وقت,1,1,یکساں
+r163,GREENISH,GREENISH,بلغم — سبزی مائل,79,79,گریڈ کتابی مطابق کیے
+r164,"GREENISH, morning","GREENISH, morning",بلغم — سبزی مائل، صبح,11,11,یکساں
+r165,"GREENISH, morning, waking, on","GREENISH, morning, waking, on",بلغم — سبزی مائل، صبح، جاگنے پر,2,2,یکساں
+r167,"GREENISH, evening, lying down, while","GREENISH, evening, lying down, while",بلغم — سبزی مائل، شام، لیٹتے ہوئے,1,1,یکساں
+r168,HARD,HARD,بلغم — سخت,27,27,یکساں
+r170,"HAWKED up, mucus, morning","HAWKED up, mucus, morning",بلغم — کھنکار کر، بلغم، صبح,3,3,یکساں
+r172,"HAWKED up, mucus, bloody, water","HAWKED up, mucus, bloody, water",بلغم — کھنکار کر، بلغم، خون آلود، پانی کی صورت میں,1,1,یکساں
+r173,"HOUSE, in the","HOUSE, in the",بلغم — گھر میں,1,1,یکساں
+r174,"IMPOSSIBLE (See Swallow, Difficult)","IMPOSSIBLE (See Swallow, Difficult)",بلغم — ناممکن,0,0,یکساں
+r175,INFREQUENT,INFREQUENT,بلغم — کبھی کبھار,6,6,یکساں
+r176,JELLY-LIKE (See Gelatinous),JELLY-LIKE (See Gelatinous),بلغم — جیلی,0,0,یکساں
+r177,LEMON-COLORED (See Yellow),LEMON-COLORED (See Yellow),بلغم — لیموں جیسا,0,0,یکساں
+r178,"LIQUIDS, contact of, at back part of mouth, from","LIQUIDS, contact of, at back part of mouth, from",بلغم — مائعات، منہ کے پچھلے حصے میں لگنے سے,1,1,یکساں
+r179,LIVER-COLORED,LIVER-COLORED,بلغم — جگر جیسا رنگ,1,1,یکساں
+r18,"EVENING, bed, in","EVENING, bed, in",بلغم — شام، بستر میں,3,3,یکساں
+r181,"LUMPY, morning","LUMPY, morning",بلغم — لوتھڑوں والا، صبح,5,5,یکساں
+r182,"LUMPY, morning, 9 a.m.","LUMPY, morning, 9 a.m.",بلغم — لوتھڑوں والا، صبح، 9 بجے,1,1,یکساں
+r183,"LUMPY, evening","LUMPY, evening",بلغم — لوتھڑوں والا، شام,1,1,یکساں
+r184,"LUMPY, lump, like core of boil","LUMPY, lump, like core of boil",بلغم — لوتھڑوں والا، لوتھڑا، جیسے پھوڑے کی گانٹھ,1,1,یکساں
+r185,"LUMPY, smoke-colored lumps, streaked with blood","LUMPY, smoke-colored lumps, streaked with blood",بلغم — لوتھڑوں والا، دھوئیں جیسے لوتھڑے، خون کی لکیروں کے ساتھ,1,1,یکساں
+r186,"MASSES, in","MASSES, in",بلغم — گاڑھے ٹکڑے، جمع ہو کر,4,4,یکساں
+r187,MEMBRANOUS,MEMBRANOUS,بلغم — جھلی والا,6,6,یکساں
+r188,MILKY,MILKY,بلغم — دودھ جیسا,13,13,یکساں
+r19,"EVENING, bed, in, getting warm","EVENING, bed, in, getting warm",بلغم — شام، بستر میں، گرم ہوتے ہی,1,1,یکساں
+r190,"MUCOUS, daytime","MUCOUS, daytime",بلغم — بلغم والا، دن کے وقت,5,5,یکساں
+r192,"MUCOUS, morning, bed, in","MUCOUS, morning, bed, in",بلغم — بلغم والا، صبح، بستر میں,1,1,یکساں
+r193,"MUCOUS, morning, rising, after","MUCOUS, morning, rising, after",بلغم — بلغم والا، صبح، اٹھنے کے بعد,3,3,یکساں
+r194,"MUCOUS, morning, waking, after","MUCOUS, morning, waking, after",بلغم — بلغم والا، صبح، جاگنے کے بعد,2,2,یکساں
+r196,"MUCOUS, morning, 8-30 a.m.","MUCOUS, morning, 8-30 a.m.",بلغم — بلغم والا، صبح، 8.30 بجے,1,1,یکساں
+r197,"MUCOUS, morning, 9 a.m.","MUCOUS, morning, 9 a.m.",بلغم — بلغم والا، صبح، 9 بجے,2,2,یکساں
+r198,"MUCOUS, forenoon","MUCOUS, forenoon",بلغم — بلغم والا، دوپہر سے پہلے,8,8,یکساں
+r199,"MUCOUS, forenoon, 10 a.m.","MUCOUS, forenoon, 10 a.m.",بلغم — بلغم والا، دوپہر سے پہلے، 10 بجے,1,1,یکساں
+r2,"MORNING, bath, after","MORNING, bath, after",بلغم — صبح، غسل کے بعد,1,1,یکساں
+r20,"EVENING, lying down, after","EVENING, lying down, after",بلغم — شام، لیٹنے کے بعد,3,3,یکساں
+r200,"MUCOUS, afternoon","MUCOUS, afternoon",بلغم — بلغم والا، سہ پہر,5,5,یکساں
+r201,"MUCOUS, afternoon, 5 p.m.","MUCOUS, afternoon, 5 p.m.",بلغم — بلغم والا، سہ پہر، 5 بجے,3,3,یکساں
+r202,"MUCOUS, evening","MUCOUS, evening",بلغم — بلغم والا، شام,9,9,یکساں
+r203,"MUCOUS, night","MUCOUS, night",بلغم — بلغم والا، رات,10,10,یکساں
+r204,"MUCOUS, night, after 2 a.m.","MUCOUS, night, after 2 a.m.",بلغم — بلغم والا، رات 2 بجے کے بعد,1,1,یکساں
+r205,"MUCOUS, night, 3 a.m.","MUCOUS, night, 3 a.m.",بلغم — بلغم والا، رات 3 بجے,1,1,یکساں
+r206,"MUCOUS, aged people","MUCOUS, aged people",بلغم — بلغم والا، بوڑھے لوگوں میں,1,1,یکساں
+r207,"MUCOUS, bloody","MUCOUS, bloody",بلغم — بلغم والا، خون آلود,64,64,یکساں
+r208,"MUCOUS, cold weather","MUCOUS, cold weather",بلغم — بلغم والا، ٹھنڈے موسم میں,1,1,یکساں
+r209,"MUDDY-LIKE, pus, flies like batter","MUDDY-LIKE, pus, flies like batter",بلغم — گدلے جیسا، پیپ، گھول کی طرح اُڑے,1,1,یکساں
+r21,NIGHT,NIGHT,بلغم — رات,36,36,گریڈ کتابی مطابق کیے
+r210,ODOR of an old catarrh,ODOR of an old catarrh,بلغم — پرانا زکام جیسی بو,7,7,یکساں
+r22,"NIGHT, bed, in","NIGHT, bed, in",بلغم — رات، بستر میں,1,1,یکساں
+r220,OLEAGINOUS,OLEAGINOUS,بلغم — تیل جیسا,1,1,یکساں
+r221,OPAQUE,OPAQUE,بلغم — دھندلا (غیر شفاف),2,2,یکساں
+r222,PAINFUL,PAINFUL,بلغم — دردناک,4,4,یکساں
+r223,"PAINFUL, as if from heart","PAINFUL, as if from heart",بلغم — دردناک، جیسے دل سے آ رہا ہو,1,1,یکساں
+r224,PALE,PALE,بلغم — ہلکا,2,2,یکساں
+r225,PASTY,PASTY,بلغم — لیسدار,1,1,یکساں
+r226,PHOSPHORESCENT,PHOSPHORESCENT,بلغم — چمکدار (روشنی دینے والا),1,1,یکساں
+r227,"PIECES, in","PIECES, in",بلغم — ٹکڑوں میں,4,4,یکساں
+r228,PROFUSE (See Copious),PROFUSE (See Copious),بلغم — بہت زیادہ,0,0,یکساں
+r229,PRUNE juice,PRUNE juice,بلغم — آلوچے کے رس جیسا,1,1,یکساں
+r23,"NIGHT, midnight, before, on getting into bed","NIGHT, midnight, before, on getting into bed",بلغم — رات، آدھی رات سے پہلے، بستر میں جاتے ہی,1,1,یکساں
+r230,REDDISH (See Bloody),REDDISH (See Bloody),بلغم — سرخی مائل,0,0,یکساں
+r231,ROPY,ROPY (Comp. Stringy),بلغم — رسی جیسا,15,15,یکساں
+r232,RUSTY,RUSTY,بلغم — زنگ آلود,11,11,یکساں
+r233,SALIVA-LIKE,SALIVA-LIKE,بلغم — لعاب جیسا,7,7,یکساں
+r234,SCABS coughed up every few weeks,SCABS coughed up every few weeks,بلغم — ہر چند ہفتوں بعد کھانسی سے پرت نکلے,1,1,یکساں
+r235,SCANTY,SCANTY,بلغم — تھوڑا,32,32,یکساں
+r236,"SEA-BATHING, after","SEA-BATHING, after",بلغم — سمندری غسل کے بعد,1,1,یکساں
+r237,"SIDE, is easier after turning from left to right","SIDE, is easier after turning from left to right",بلغم — پہلو، بائیں سے دائیں کروٹ بدلنے پر آسان ہو,7,7,یکساں
+r238,"SIT up, must, at night to raise","SIT up, must, at night to raise",بلغم — اٹھ کر بیٹھنا، رات کو اٹھ کر بیٹھنا پڑے تاکہ نکال سکے,1,1,یکساں
+r239,"SITTING up, in bed, on","SITTING up, in bed, on",بلغم — اٹھ کر بیٹھنا، بستر میں اٹھ کر بیٹھنے پر,1,1,یکساں
+r240,"SKIN, like dead","SKIN, like dead",بلغم — چمڑا، جیسے مردہ ہو,1,1,یکساں
+r242,SLIMY (See Mucous),SLIMY (See Mucous),بلغم — لزج (چپچپا),0,0,یکساں
+r243,SOAP-LIKE,SOAP-LIKE,بلغم — صابن جیسا,2,2,یکساں
+r244,"SOAP-SUDS, like","SOAP-SUDS, like (See Frothy)",بلغم — صابن کے جھاگ جیسا,2,2,یکساں
+r245,"STARCH, like","STARCH, like",بلغم — نشاستے جیسا,11,11,یکساں
+r246,STICKY (See Viscid),STICKY (See Viscid),بلغم — چپکنے والا,0,0,یکساں
+r247,STRINGY (See Viscid),STRINGY (See Viscid),بلغم — تار والا,27,27,یکساں
+r248,"SWALLOW, must, what has been loosened","SWALLOW, must, what has been loosened",بلغم — نگلنا، جو ڈھیلا ہو چکا ہو، نگلنا پڑے,27,27,یکساں
+r249,SYRUP-LIKE,SYRUP-LIKE,بلغم — شربت جیسا,1,1,یکساں
+r25,ACRID,ACRID,بلغم — تیزابی (کھا جانے والا),31,31,یکساں
+r250,"TASTE of almonds, like","TASTE of almonds, like",بلغم — بادام جیسا,2,2,یکساں
+r26,AIR agg.,AIR agg.,بلغم — ہوا سے بگاڑ,7,7,یکساں
+r299,TENACIOUS (See Viscid),TENACIOUS (See Viscid),بلغم — لزج,0,0,یکساں
+r3,"MORNING, bed, in","MORNING, bed, in",بلغم — صبح، بستر میں,2,2,یکساں
+r300,THICK,THICK,بلغم — گاڑھا,76,76,گریڈ کتابی مطابق کیے
+r301,"THICK, morning","THICK, morning",بلغم — گاڑھا، صبح,9,9,یکساں
+r302,"THICK, morning, rising, after","THICK, morning, rising, after",بلغم — گاڑھا، صبح، اٹھنے کے بعد,3,3,یکساں
+r303,"THICK, morning, waking, after","THICK, morning, waking, after",بلغم — گاڑھا، صبح، جاگنے کے بعد,1,1,یکساں
+r304,"THICK, afternoon","THICK, afternoon",بلغم — گاڑھا، سہ پہر,1,1,یکساں
+r305,"THICK, evening","THICK, evening",بلغم — گاڑھا، شام,2,2,یکساں
+r306,"THICK, night","THICK, night",بلغم — گاڑھا، رات,3,3,یکساں
+r307,THIN (See Watery),THIN (See Watery),بلغم — پتلا,12,12,یکساں
+r309,"TOUGH, morning","TOUGH, morning",بلغم — سخت لچکدار، صبح,8,8,یکساں
+r310,"TOUGH, morning, bed, in","TOUGH, morning, bed, in",بلغم — سخت لچکدار، صبح، بستر میں,1,1,یکساں
+r311,"TOUGH, morning, 9 a.m.","TOUGH, morning, 9 a.m.",بلغم — سخت لچکدار، صبح، 9 بجے,1,1,یکساں
+r312,TRANSPARENT,TRANSPARENT,بلغم — شفاف,34,34,یکساں
+r313,TUBERCLES,TUBERCLES,بلغم — گلٹیاں,5,5,یکساں
+r314,"TUBERCLES, brown","TUBERCLES, brown",بلغم — گلٹیاں، بھوری,1,1,یکساں
+r315,"TUBERCLES, offensive","TUBERCLES, offensive",بلغم — گلٹیاں، بدبودار,3,3,یکساں
+r316,TURNING on side (See Side),TURNING on side (See Side),بلغم — کروٹ بدلنے پر,0,0,یکساں
+r317,VISCID,VISCID,بلغم — چپچپا,127,127,یکساں
+r318,"WALKING, while","WALKING, while",بلغم — چلنا، چلتے ہوئے,5,5,یکساں
+r320,WATERY,WATERY,بلغم — پانی جیسا,43,43,یکساں
+r322,"WHITE, daytime","WHITE, daytime",بلغم — سفید، دن کے وقت,2,2,یکساں
+r323,"WHITE, morning","WHITE, morning",بلغم — سفید، صبح,8,8,یکساں
+r324,"WHITE, evening","WHITE, evening",بلغم — سفید، شام,3,3,یکساں
+r325,"WHITE, eating, after","WHITE, eating, after",بلغم — سفید، کھانے کے بعد,1,1,یکساں
+r326,"WHITE, albuminous","WHITE, albuminous",بلغم — سفیدی والا,36,36,یکساں
+r327,"WHITE, opaque","WHITE, opaque",بلغم — سفید، دھندلا,1,1,یکساں
+r328,YELLOW,YELLOW,بلغم — زرد,136,136,یکساں
+r329,"YELLOW, morning","YELLOW, morning",بلغم — زرد، صبح,15,15,یکساں
+r33,ALBUMINOUS (See White),ALBUMINOUS (See White),بلغم — سفیدی والا (البومنی),0,0,یکساں
+r330,"YELLOW, morning, waking, on","YELLOW, morning, waking, on",بلغم — زرد، صبح، جاگنے پر,1,1,یکساں
+r332,"YELLOW, forenoon","YELLOW, forenoon",بلغم — زرد، دوپہر سے پہلے,1,1,یکساں
+r333,"YELLOW, afternoon","YELLOW, afternoon",بلغم — زرد، سہ پہر,2,2,یکساں
+r335,"YELLOW, night","YELLOW, night",بلغم — زرد، رات,1,1,یکساں
+r336,"YELLOW, lemon colored","YELLOW, lemon colored",بلغم — زرد، لیموں رنگ,4,4,یکساں
+r337,"YELLOW, orange colored","YELLOW, orange colored",بلغم — زرد، نارنجی رنگ,3,3,یکساں
+r338,"BALL, feels like a round, and rushes into mouth","BALL, feels like a round, and rushes into mouth",بلغم — گیند، جیسے گول گیند محسوس ہو اور منہ میں آ جائے,1,1,یکساں
+r339,GRAYISH,GRAYISH,بلغم — خاکی (سرمئی),45,45,یکساں
+r34,ASH-COLORED spots,ASH-COLORED spots,بلغم — راکھ جیسے رنگ کے دھبے,1,1,یکساں
+r340,PURULENT,PURULENT,بلغم — پیپ والا,100,100,یکساں
+r35,"BALLS, in shape of","BALLS, in shape of",بلغم — گیندیاں، شکل میں,10,10,یکساں
+r38,"BATTER, breaks and flies like thin","BATTER, breaks and flies like thin",بلغم — گھول (گاڑھا آمیزہ)، پتلا ہو کر ٹوٹ کر اُڑے,1,1,یکساں
+r39,"BED, in","BED, in",بلغم — بستر میں,5,5,یکساں
+r4,"MORNING, rising, on","MORNING, rising, on",بلغم — صبح، اٹھنے پر، اٹھتے ہی,4,4,یکساں
+r41,"BILIOUS, like bile","BILIOUS, like bile",بلغم — صفراوی، صفرا جیسا,4,4,یکساں
+r42,BLACKISH,BLACKISH,بلغم — کالاہٹ مائل,13,13,یکساں
+r43,"BLACKISH, blackish grains, with","BLACKISH, blackish grains, with",بلغم — کالاہٹ مائل، کالے ذروں کے ساتھ,1,1,یکساں
+r44,"BLACKISH, lumps in centre","BLACKISH, lumps in centre",بلغم — کالاہٹ مائل، درمیان میں لوتھڑے,2,2,یکساں
+r45,"BLACKISH, yellow","BLACKISH, yellow",بلغم — کالاہٹ مائل، زرد,1,1,یکساں
+r46,"BLOODY, spitting of blood","BLOODY, spitting of blood (See Chest Hæmorrhage)",بلغم — خون آلود، خون تھوکنے کے ساتھ,153,153,یکساں
+r6,"MORNING, waking, after","MORNING, waking, after",بلغم — صبح، جاگنے کے بعد,7,7,یکساں
+r8,"MORNING, 8-30 a.m.","MORNING, 8-30 a.m.",بلغم — صبح، 8.30 بجے,1,1,یکساں
+r9,"MORNING, 9 a.m.","MORNING, 9 a.m.",بلغم — صبح، 9 بجے,2,2,یکساں
+r94,BLUE and white alternately,BLUE and white alternately,بلغم — نیلا اور سفید باری باری,1,1,یکساں
+r96,"BLUISH, gray","BLUISH, gray",بلغم — نیلاہٹ مائل، سرمئی,1,1,یکساں
+r97,"BREAKFAST, after","BREAKFAST, after",بلغم — ناشتے کے بعد,1,1,یکساں
+r98,BRICK-DUST color (See Rusty),BRICK-DUST color (See Rusty),بلغم — اینٹ کی دھول جیسا رنگ,3,3,یکساں
+r99,BROWNISH,BROWNISH,بلغم — بھوراہٹ مائل,12,12,یکساں
+r308,TOUGH,TOUGH,بلغم — سخت لچکدار,70,69,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r17,EVENING,EVENING,بلغم — شام,59,58,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r1,MORNING,MORNING,بلغم — صبح,106,104,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r180,LUMPY,LUMPY,بلغم — لوتھڑوں والا,49,48,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r109,COPIOUS,COPIOUS,بلغم — زیادہ مقدار میں,99,96,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r321,WHITE,WHITE,بلغم — سفید,94,91,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r189,MUCOUS,MUCOUS,بلغم — بلغم والا,202,193,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o14577,"BALLS, little, bitter, green","BALLS, in shape of, little albuminous, bitter, green",بلغم — گیندیاں، شکل میں، چھوٹی، کڑوی، سبز,1,1,یکساں
+r283,"TASTE, putrid, meat, like","TASTE of almonds, like, putrid, meat, like",بلغم — بادام جیسا، سڑا ہوا (پُٹری)، گوشت جیسا,11,11,یکساں
+r48,"BLOODY, morning, bed, in","BLOODY, spitting of blood (See Chest Hæmorrhage), morning, bed, in",بلغم — خون آلود، خون تھوکنے کے ساتھ، صبح، بستر میں,2,2,یکساں
+r49,"BLOODY, morning, coughing, on","BLOODY, spitting of blood (See Chest Hæmorrhage), morning, coughing, on",بلغم — خون آلود، خون تھوکنے کے ساتھ، صبح، کھانسے پر,2,2,یکساں
+r50,"BLOODY, morning, lying down, while","BLOODY, spitting of blood (See Chest Hæmorrhage), morning, lying down, while",بلغم — خون آلود، خون تھوکنے کے ساتھ، صبح، لیٹتے ہوئے,1,1,یکساں
+r51,"BLOODY, morning, menses, during","BLOODY, spitting of blood (See Chest Hæmorrhage), morning, menses, during",بلغم — خون آلود، خون تھوکنے کے ساتھ، صبح، حیض کے دوران,1,1,یکساں
+r52,"BLOODY, morning, rising, on","BLOODY, spitting of blood (See Chest Hæmorrhage), morning, rising, on",بلغم — خون آلود، خون تھوکنے کے ساتھ، صبح، اٹھتے ہی,2,2,یکساں
+r60,"BLOODY, evening, coughing, when","BLOODY, spitting of blood (See Chest Hæmorrhage), evening, coughing, when",بلغم — خون آلود، خون تھوکنے کے ساتھ، شام، کھانسے پر,1,1,یکساں
+r61,"BLOODY, evening, lying down, after","BLOODY, spitting of blood (See Chest Hæmorrhage), evening, lying down, after",بلغم — خون آلود، خون تھوکنے کے ساتھ، شام، لیٹنے کے بعد,1,1,یکساں
+r169,"HAWKED up, mucus","HAWKED up, mucus",بلغم — کھنکار کر، بلغم,58,54,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r149,FREQUENT,FREQUENT,بلغم — بار بار,20,20,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o14806,"TASTE, boiled cabbage, like","TASTE of almonds, like, boiled cabbage, like",بلغم — بادام جیسا، ابلا ہوا (ابلا گوشت) گوبھی (گوبھی کھانا) جیسا,1,1,یکساں
+o14808,"TASTE, catarrh, of an old","TASTE of almonds, like, catarrh, of an old",بلغم — بادام جیسا، زکام (نالیوں کا بلغم) پرانا / بوڑھا,9,9,یکساں
+o14809,"TASTE, chalk, like","TASTE of almonds, like, chalk, like",بلغم — بادام جیسا، چاک (چاک جیسا ذائقہ/سفیدی) جیسا,2,2,یکساں
+o14810,"TASTE, cheese, like old","TASTE of almonds, like, cheese, like old",بلغم — بادام جیسا، پنیر جیسا پرانا / بوڑھا,6,6,یکساں
+o14812,"TASTE, clay, like","TASTE of almonds, like, clay, like",بلغم — بادام جیسا، مٹی (مٹی جیسا ذائقہ) جیسا,4,4,یکساں
+o14813,"TASTE, copper, like","TASTE of almonds, like, copper, like",بلغم — بادام جیسا، تانبا (دھات کا ذائقہ/چھونا) جیسا,4,4,یکساں
+o14815,"TASTE, eggs, like bad","TASTE of almonds, like, eggs, like bad",بلغم — بادام جیسا، انڈے جیسا برا/خراب,15,15,یکساں
+o14816,"TASTE, eggs, like yolk of","TASTE of almonds, like, eggs, like yolk of",بلغم — بادام جیسا، انڈے جیسا انڈے کی زردی,7,7,یکساں
+o14817,"TASTE, fish, like","TASTE of almonds, like, fish, like",بلغم — بادام جیسا، مچھلی جیسا,1,1,یکساں
+r270,"TASTE, herring, like","TASTE of almonds, like, herring, like",بلغم — بادام جیسا، ہیرنگ مچھلی جیسا,2,2,یکساں
+r271,"TASTE, leather, like that of russian","TASTE of almonds, like, leather, like that of russian",بلغم — بادام جیسا، چمڑا (چمڑے جیسا سخت) جیسا کہ روسی (روس کا),1,1,یکساں
+r272,"TASTE, meal, like","TASTE of almonds, like, meal, like",بلغم — بادام جیسا، کھانا (کھانے کے بعد) جیسا,1,1,یکساں
+r273,"TASTE, meat broth, like","TASTE of almonds, like, meat broth, like",بلغم — بادام جیسا، گوشت یخنی (شوربا) جیسا,1,1,یکساں
+r278,"TASTE, onion, like","TASTE of almonds, like, onion, like",بلغم — بادام جیسا، پیاز جیسا,6,6,یکساں
+r279,"TASTE, oranges, like","TASTE of almonds, like, oranges, like",بلغم — بادام جیسا، سنترے جیسا,1,1,یکساں
+r280,"TASTE, peach kernels, like","TASTE of almonds, like, peach kernels, like",بلغم — بادام جیسا، آڑو گریاں (میوے کی) جیسا,1,1,یکساں
+r281,"TASTE, pepper, like","TASTE of almonds, like, pepper, like",بلغم — بادام جیسا، کالی مرچ جیسا,5,5,یکساں
+r285,"TASTE, raw peas, like","TASTE of almonds, like, raw peas, like",بلغم — بادام جیسا، کچی جلد جیسا مٹر جیسا,2,2,یکساں
+r287,"TASTE, salty, morning","TASTE of almonds, like, salty, morning",بلغم — بادام جیسا، نمکین، صبح,1,1,یکساں
+r288,"TASTE, sea-weed, like","TASTE of almonds, like, sea-weed, like",بلغم — بادام جیسا، سمنڈ (سمنڈ سے دور/سمنڈ کی ہوا) جڑی بوٹی (پرالہ) جیسا,1,1,یکساں
+r292,"TASTE, sulphur, like","TASTE of almonds, like, sulphur, like",بلغم — بادام جیسا، گندھک (سلفر کا علاج/بو) جیسا,6,6,یکساں
+r294,"TASTE, tar, like","TASTE of almonds, like, tar, like",بلغم — بادام جیسا، قطران (تار کی بو) جیسا,1,1,یکساں
+r295,"TASTE, tobacco juice, like","TASTE of almonds, like, tobacco juice, like",بلغم — بادام جیسا، تمباکو رس (پھلوں کا) جیسا,1,1,یکساں
+r296,"TASTE, urine, like","TASTE of almonds, like, urine, like",بلغم — بادام جیسا، پیشاب جیسا,3,3,یکساں
+r297,"TASTE, wine, like","TASTE of almonds, like, wine, like",بلغم — بادام جیسا، شراب جیسا,2,2,یکساں
+r298,"TASTE, wood, like","TASTE of almonds, like, wood, like",بلغم — بادام جیسا، لکڑی (لکڑی کی بو/چوٹ) جیسا,4,4,یکساں
+r40,"BED, sitting up in, on","BED, in, sitting up in, on",بلغم — بستر میں، اٹھ کر بیٹھنے پر,1,1,یکساں
+r5,"MORNING, rising, after","MORNING, rising, on, after",بلغم — صبح، اٹھنے پر، اٹھتے ہی، بعد میں,6,6,یکساں
+r55,"BLOODY, afternoon, 1 p.m.","BLOODY, spitting of blood (See Chest Hæmorrhage), afternoon, 1 p.m.",بلغم — خون آلود، خون تھوکنے کے ساتھ، سہ پہر، 1 بجے,1,1,یکساں
+r56,"BLOODY, afternoon, 2 p.m.","BLOODY, spitting of blood (See Chest Hæmorrhage), afternoon, 2 p.m.",بلغم — خون آلود، خون تھوکنے کے ساتھ، سہ پہر، 2 بجے,1,1,یکساں
+r57,"BLOODY, afternoon, 4 p.m.","BLOODY, spitting of blood (See Chest Hæmorrhage), afternoon, 4 p.m.",بلغم — خون آلود، خون تھوکنے کے ساتھ، سہ پہر، 4 بجے,1,1,یکساں
+r58,"BLOODY, afternoon, 5 p.m.","BLOODY, spitting of blood (See Chest Hæmorrhage), afternoon, 5 p.m.",بلغم — خون آلود، خون تھوکنے کے ساتھ، سہ پہر، 5 بجے,1,1,یکساں
+r68,"BLOODY, clearing the throat, when","BLOODY, spitting of blood (See Chest Hæmorrhage), clearing the throat, when",بلغم — خون آلود، خون تھوکنے کے ساتھ، گلا صاف کرتے وقت,1,1,یکساں
+r70,"BLOODY, drinking, after","BLOODY, spitting of blood (See Chest Hæmorrhage), drinking, after",بلغم — خون آلود، خون تھوکنے کے ساتھ، پینے کے بعد,1,1,یکساں
+r71,"BLOODY, eating, after","BLOODY, spitting of blood (See Chest Hæmorrhage), eating, after",بلغم — خون آلود، خون تھوکنے کے ساتھ، کھانے کے بعد,1,1,یکساں
+r72,"BLOODY, erection, after a violent","BLOODY, spitting of blood (See Chest Hæmorrhage), erection, after a violent",بلغم — خون آلود، خون تھوکنے کے ساتھ، شدید انتشار کے بعد,1,1,یکساں
+r73,"BLOODY, exertion, after","BLOODY, spitting of blood (See Chest Hæmorrhage), exertion, after",بلغم — خون آلود، خون تھوکنے کے ساتھ، محنت کے بعد,2,2,یکساں
+r74,"BLOODY, fall, after a","BLOODY, spitting of blood (See Chest Hæmorrhage), fall, after a",بلغم — خون آلود، خون تھوکنے کے ساتھ، گرنے کے بعد,2,2,یکساں
+r75,"BLOODY, hawking, on","BLOODY, spitting of blood (See Chest Hæmorrhage), hawking, on",بلغم — خون آلود، خون تھوکنے کے ساتھ، کھنکارنے پر,5,5,یکساں
+r77,"BLOODY, lactation, during","BLOODY, spitting of blood (See Chest Hæmorrhage), lactation, during",بلغم — خون آلود، خون تھوکنے کے ساتھ، دودھ پلانے کے دوران,1,1,یکساں
+r78,"BLOODY, menses, before","BLOODY, spitting of blood (See Chest Hæmorrhage), menses, before",بلغم — خون آلود، خون تھوکنے کے ساتھ، حیض سے پہلے,1,1,یکساں
+r83,"BLOODY, respiration, from violent effort at","BLOODY, spitting of blood (See Chest Hæmorrhage), respiration, from violent effort at",بلغم — خون آلود، خون تھوکنے کے ساتھ، زور سے سانس لینے سے,1,1,یکساں
+r86,"BLOODY, talking, after","BLOODY, spitting of blood (See Chest Hæmorrhage), talking, after",بلغم — خون آلود، خون تھوکنے کے ساتھ، بولنے کے بعد,1,1,یکساں
+r89,"BLOODY, threads of blood, mixed with white sputa","BLOODY, spitting of blood (See Chest Hæmorrhage), threads of blood, mixed with white sputa",بلغم — خون آلود، خون تھوکنے کے ساتھ، خون کے تار، سفید بلغم کے ساتھ ملے ہوئے,1,1,یکساں
+r92,"BLOODY, walking, while","BLOODY, spitting of blood (See Chest Hæmorrhage), walking, while",بلغم — خون آلود، خون تھوکنے کے ساتھ، چلتے ہوئے,4,4,یکساں
+r93,"BLOODY, working, while","BLOODY, spitting of blood (See Chest Hæmorrhage), working, while",بلغم — خون آلود، خون تھوکنے کے ساتھ، کام کرتے ہوئے,1,1,یکساں
+o14803,"TASTE, bad","TASTE of almonds, like, bad",بلغم — بادام جیسا، برا/خراب,5,5,یکساں
+o14804,"TASTE, bilious","TASTE of almonds, like, bilious",بلغم — بادام جیسا، صفراوی,1,1,یکساں
+o14805,"TASTE, bitter","TASTE of almonds, like, bitter",بلغم — بادام جیسا، کڑوا,32,32,یکساں
+o14807,"TASTE, burnt","TASTE of almonds, like, burnt",بلغم — بادام جیسا، جلا ہوا,9,9,یکساں
+o14814,"TASTE, earthy","TASTE of almonds, like, earthy",بلغم — بادام جیسا، مٹی جیسا (ذائقہ),12,12,یکساں
+o14818,"TASTE, flat","TASTE of almonds, like, flat",بلغم — بادام جیسا، سپٹ (بے ذائقہ/پھولاؤ),45,45,یکساں
+o14819,"TASTE, greasy","TASTE of almonds, like, greasy",بلغم — بادام جیسا، چکنا,18,18,یکساں
+r269,"TASTE, herbaceous","TASTE of almonds, like, herbaceous",بلغم — بادام جیسا، جڑی بوٹی جیسا,8,8,یکساں
+r274,"TASTE, metallic","TASTE of almonds, like, metallic",بلغم — بادام جیسا، دھاتی (دھات جیسا ذائقہ),22,22,یکساں
+r275,"TASTE, milky","TASTE of almonds, like, milky",بلغم — بادام جیسا، دودھ جیسا,1,1,یکساں
+r276,"TASTE, musty","TASTE of almonds, like, musty",بلغم — بادام جیسا، باسی (بوس مائل),8,8,یکساں
+r277,"TASTE, nauseous","TASTE of almonds, like, nauseous",بلغم — بادام جیسا، جی متلی والا,37,37,یکساں
+r282,"TASTE, putrid","TASTE of almonds, like, putrid",بلغم — بادام جیسا، سڑا ہوا (پُٹری),54,54,یکساں
+r284,"TASTE, rancid","TASTE of almonds, like, rancid",بلغم — بادام جیسا، باسِ زدہ (خستہ چکنائی),16,16,یکساں
+r286,"TASTE, salty","TASTE of almonds, like, salty",بلغم — بادام جیسا، نمکین,68,68,یکساں
+r289,"TASTE, smoky","TASTE of almonds, like, smoky",بلغم — بادام جیسا، دھوئیں جیسا,5,5,یکساں
+r290,"TASTE, soapy","TASTE of almonds, like, soapy",بلغم — بادام جیسا، صابن جیسا (چکنا),4,4,یکساں
+r291,"TASTE, sour","TASTE of almonds, like, sour",بلغم — بادام جیسا، کھٹا,52,52,یکساں
+r293,"TASTE, sweetish","TASTE of almonds, like, sweetish",بلغم — بادام جیسا، میٹھا سا,60,60,یکساں
+r319,"WALKING, after","WALKING, while, after",بلغم — چلنا، چلتے ہوئے، بعد میں,1,1,یکساں
+r36,"BALLS, little albuminous","BALLS, in shape of, little albuminous",بلغم — گیندیاں، شکل میں، چھوٹی البومنی,1,1,یکساں
+r53,"BLOODY, noon","BLOODY, spitting of blood (See Chest Hæmorrhage), noon",بلغم — خون آلود، خون تھوکنے کے ساتھ، دوپہر,1,1,یکساں
+r54,"BLOODY, afternoon","BLOODY, spitting of blood (See Chest Hæmorrhage), afternoon",بلغم — خون آلود، خون تھوکنے کے ساتھ، سہ پہر,7,7,یکساں
+r59,"BLOODY, evening","BLOODY, spitting of blood (See Chest Hæmorrhage), evening",بلغم — خون آلود، خون تھوکنے کے ساتھ، شام,3,3,یکساں
+r62,"BLOODY, night","BLOODY, spitting of blood (See Chest Hæmorrhage), night",بلغم — خون آلود، خون تھوکنے کے ساتھ، رات,7,7,یکساں
+r63,"BLOODY, acrid","BLOODY, spitting of blood (See Chest Hæmorrhage), acrid",بلغم — خون آلود، خون تھوکنے کے ساتھ، کھا جانے والا,12,12,یکساں
+r64,"BLOODY, black","BLOODY, spitting of blood (See Chest Hæmorrhage), black",بلغم — خون آلود، خون تھوکنے کے ساتھ، کالا,15,15,یکساں
+r65,"BLOODY, bright-red","BLOODY, spitting of blood (See Chest Hæmorrhage), bright-red",بلغم — خون آلود، خون تھوکنے کے ساتھ، شوخ سرخ,38,38,یکساں
+r66,"BLOODY, brown","BLOODY, spitting of blood (See Chest Hæmorrhage), brown",بلغم — خون آلود، خون تھوکنے کے ساتھ، بھورا,7,7,یکساں
+r67,"BLOODY, chronic","BLOODY, spitting of blood (See Chest Hæmorrhage), chronic",بلغم — خون آلود، خون تھوکنے کے ساتھ، پرانا (دائمی),1,1,یکساں
+r69,"BLOODY, dark","BLOODY, spitting of blood (See Chest Hæmorrhage), dark",بلغم — خون آلود، خون تھوکنے کے ساتھ، گہرا,50,50,یکساں
+r80,"BLOODY, menses, suppressed, during","BLOODY, spitting of blood (See Chest Hæmorrhage), menses, before, suppressed, during",بلغم — خون آلود، خون تھوکنے کے ساتھ، حیض سے پہلے، بند ہونے پر، دوران میں,9,9,یکساں
+r81,"BLOODY, pale","BLOODY, spitting of blood (See Chest Hæmorrhage), pale",بلغم — خون آلود، خون تھوکنے کے ساتھ، ہلکا (پھیکا),37,37,یکساں
+r82,"BLOODY, purulent","BLOODY, spitting of blood (See Chest Hæmorrhage), purulent",بلغم — خون آلود، خون تھوکنے کے ساتھ، پیپ والا,3,3,یکساں
+r84,"BLOODY, streaked","BLOODY, spitting of blood (See Chest Hæmorrhage), streaked",بلغم — خون آلود، خون تھوکنے کے ساتھ، لکیروں والا,65,65,یکساں
+r85,"BLOODY, stringy","BLOODY, spitting of blood (See Chest Hæmorrhage), stringy",بلغم — خون آلود، خون تھوکنے کے ساتھ، تار تار,1,1,یکساں
+r87,"BLOODY, thick","BLOODY, spitting of blood (See Chest Hæmorrhage), thick",بلغم — خون آلود، خون تھوکنے کے ساتھ، گاڑھا,1,1,یکساں
+r88,"BLOODY, thin","BLOODY, spitting of blood (See Chest Hæmorrhage), thin",بلغم — خون آلود، خون تھوکنے کے ساتھ، پتلا,3,3,یکساں
+r90,"BLOODY, uncoagulated","BLOODY, spitting of blood (See Chest Hæmorrhage), uncoagulated",بلغم — خون آلود، خون تھوکنے کے ساتھ، بغیر جما ہوا,10,10,یکساں
+r91,"BLOODY, viscid","BLOODY, spitting of blood (See Chest Hæmorrhage), viscid",بلغم — خون آلود، خون تھوکنے کے ساتھ، چپچپا,4,4,یکساں
+o14761,"NIGHT, midnight, after","NIGHT, midnight, before, on getting into bed, after",بلغم — رات، آدھی رات سے پہلے، بستر میں جاتے ہی، بعد میں,1,1,یکساں
+o14811,"TASTE, cheese, putrid cheese","TASTE of almonds, like, cheese, like old, putrid cheese",بلغم — بادام جیسا، پنیر جیسا پرانا / بوڑھا، سڑا ہوا (پُٹری) پنیر,4,4,یکساں
+r79,"BLOODY, menses, during","BLOODY, spitting of blood (See Chest Hæmorrhage), menses, before, during",بلغم — خون آلود، خون تھوکنے کے ساتھ، حیض سے پہلے، دوران میں,5,5,یکساں
+r191,"MUCOUS, morning","MUCOUS, morning",بلغم — بلغم والا، صبح,37,31,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r171,"HAWKED up, mucus, bloody","HAWKED up, mucus, bloody",بلغم — کھنکار کر، بلغم، خون آلود,6,5,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r95,BLUISH,BLUISH,بلغم — نیلاہٹ مائل,6,5,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r157,GLOBULAR,GLOBULAR,بلغم — گول ذروں والا,9,9,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r47,"BLOODY, morning","BLOODY, spitting of blood (See Chest Hæmorrhage), morning",بلغم — خون آلود، خون تھوکنے کے ساتھ، صبح,23,21,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o65414,"AIR, open","AIR agg., open",بلغم — کھلی ہوا,9,7,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o65413,"AIR, cold","AIR agg., cold",بلغم — ٹھنڈی ہوا,4,2,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o14730,"MORNING, 8 a.m. to 9 a.m.","MORNING, 8 to 9 a.m.",بلغم — صبح، 8 سے 9 بجے,1,1,یکساں
+o14764,"NOON, 12 p.m. to 3 p.m.","NOON, 12 to 3 p.m.",بلغم — دوپہر، 12 سے 3 بجے,1,1,یکساں
+o14709,"GREENISH, morning, 7 a.m. to 10 a.m.","GREENISH, morning, 7 to 10 a.m.",بلغم — سبزی مائل، صبح 7 سے 10 بجے,1,1,یکساں
+o14749,"MUCOUS, morning, 8 a.m. to 9 a.m.","MUCOUS, morning, 8 to 9 a.m.",بلغم — بلغم والا، صبح، 8 سے 9 بجے,1,1,یکساں
+o14883,"YELLOW, morning, 7 a.m. to 10 a.m.","YELLOW, morning, 7 to 10 a.m.",بلغم — زرد، صبح 7 سے 10 بجے,1,1,یکساں
+o14879,"YELLOW, afternoon, 12 a.m. to 3 p.m.","YELLOW, afternoon, 12 to 3 p.m.",بلغم — زرد، سہ پہر 12 سے 3 بجے,1,1,یکساں
+o14795,SLATE-COLORED,SLATE colored,بلغم — سلیٹی رنگ,2,2,یکساں

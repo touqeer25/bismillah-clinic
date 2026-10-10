@@ -1,0 +1,22 @@
+{
+ "book": "kent",
+ "chapter": "expectoration",
+ "source": "homeoint.org/books/kentrep+kentrep2 kent0810+kent0815+kent0820 (MEDI-T HTML)",
+ "pages": "812 – 821 (MEDI-T انتساب)",
+ "source_canonical": "homeoint-expectoration-v1",
+ "source_rows": 340,
+ "unique_source_paths": 340,
+ "matched_app_records": 339,
+ "new_source_records": 1,
+ "legacy_local_records": 40,
+ "ambiguous_app_records": 2,
+ "pdf_verification": "339/339 حرف-بہ-حرف عین مطابق — صفر ادویہ-فرق، صفر drift، صفر دونوں-طرفہ باقیات (verify_pdf_expectoration.py — کتابی ص 812-821، PDF index 1794–1812) — اب تک کا صاف ترین باب",
+ "chapter_boundaries": "آغاز kent0810 کے اندر NAME=\"P812\" EXPECTORATION P-اینکر (nav para کے اندر — after_anchor slot-1 nav-text para + slot-2 سرخ EXPECTORATION para پر skip، separator JUNK، جڑ EXPECTORATION d0 slot-4 سے — سرخی para <a NAME=\"expectoration\">؛ p812: جڑ + DAYTIME only {61} + MORNING {104} — MORNING کی ذیلیاں p812 ہی پر)؛ اختتام kent0820 کے اندر NAME=\"P822\" CHEST P-اینکر (آخری ربرک orange colored {Kali-c., phos., puls.} YELLOW ذیلی p821)؛ FOOT regex میں kentches.htm شامل",
+ "dup_pages": "p815/p820 سرحدی صفحات — پچھلی فائل میں اصل، اگلی میں ڈپ (skip_until)؛ دونوں text-identical تصدیق شدہ (verify_expectoration_dups.py — فرق صرف nav link-text)",
+ "clamps": "کوئی نہیں (صفر clamps — خاندانی shift = 0، مکمل صاف گہرائی ماڈل d0/d1/d2)",
+ "book_duplicates": "کوئی نہیں (دوہرے راستے = 0 — parser تصدیق)",
+ "manual_matches": "7 دستی J=1.00 (وقت-فارمیٹ 6: OOREP 8 a.m. to 9 a.m. ← کتابی 8 to 9 a.m. طرز — MORNING/NOON/GREENISH/MUCOUS/YELLOW-morning/YELLOW-afternoon؛ ہائیفن-کیس 1: OOREP SLATE-COLORED ← کتابی SLATE colored — PDF حرف-بہ-حرف کتاب کی تصدیق) — سب جوڑوں پر ادویات عین برابر",
+ "page_headers": "10/10 MEDI-T صفحہ-سرخی paras (p812 سرخی = جڑ EXPECTORATION دہرائی + p813 BALLS in shape of / p814 BLOODY lactation / p815 COPIOUS paroxysmal cough / p816 GREENISH / p817 MUCOUS daytime / p818 REDDISH / p819 TASTE herbaceous / p820 THICK morning / p821 WHITE albuminous) آرٹیفیکٹ — after_anchor سے skip — ہر صفحے کی پہلی قطار کے والد-سیاق سے مطابق (parse_expectoration_source.py)",
+ "parser_fix": "MEDI-T unclosed <p> گلو (‏<p>MAIN : rem<dir>‏ / ‏<p>----------<dir>‏) — ‏<p>‎ پر flush + para_depth پیراگراف-آغاز پر capture (genf v188 فکس — برقرار)؛ EXPECTORATION P-اینکر آغاز (P812 nav-para — 4 slots: nav + سرخ EXPECTORATION + sep + جڑ سرخی-para)؛ اختتام P822 P-اینکر end_spec + FOOT کٹ (kentches.htm)",
+ "vessels": "OOREP برتن legacy (12 + 2 مبہم): r76 BLOODY 173-یونین، r268 TASTE 148-یونین، o65421 ODOR 79-یونین (مبہم)، o65412 AIR 11-یونین (مبہم)، o65424 TASTE-eggs 18-یونین، o65418 BLOODY-menses 13-یونین، o65419 MORNING-rising 9-یونین، o65415 BALLS 10 (ٹرنک — r35 لے چکا)، o65423 TASTE-cheese 7-یونین، o14570 AIR-open-agg 7 (جڑواں o65414 لے چکا)، o65416 BED 5 (ٹرنک — r39 لے چکا)، o65425 WALKING 6-یونین، o14567 AIR-cold-agg 3 (جزوی یونین — calc-s کے بغیر) + 26 خالی m-برتن — کل 40 legacy محفوظ، ادویات نقصان صفر"
+}

@@ -118,8 +118,8 @@ assert.ok(pg && pg.rubrics === 622, '_index.json: urethra 622');
 // 8) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const swf = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=191/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v185)');
-assert(/CACHE_NAME='bhc-clinic-v191'/.test(swf), 'خدمت کار نسخہ 185');
+assert(/rep-chapters\.js\?v=192/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v185)');
+assert(/CACHE_NAME='bhc-clinic-v192'/.test(swf), 'خدمت کار نسخہ 185');
 assert(/v185: پیشاب کی نالی باب/.test(code), 'rep-chapters.js میں URETHRA بلڈر درج');
 
 console.log('kent_urethra_homeoint_source.test.js — تمام تصدیقیں پاس (555 ماخذی قطاریں، 622 کل، اردو 100%)');

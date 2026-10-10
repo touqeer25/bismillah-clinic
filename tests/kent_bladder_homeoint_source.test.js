@@ -104,8 +104,8 @@ assert.strictEqual(manifest.ambiguous_app_records, 10);
 // 7) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const swf = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=191/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v182)');
-assert(/CACHE_NAME='bhc-clinic-v191'/.test(swf), 'خدمت کار نسخہ 182');
+assert(/rep-chapters\.js\?v=192/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v182)');
+assert(/CACHE_NAME='bhc-clinic-v192'/.test(swf), 'خدمت کار نسخہ 182');
 assert(/v182: مثانہ باب/.test(code), 'rep-chapters.js میں مثانہ بلڈر درج');
 
 console.log('مثانہ باب: ماخذی درخت 711 قطاریں (صفحات 645–662)، جڑ BLADDER، ادویات ماخذی، اردو 100%، پرانی قطاریں محفوظ — کامیاب');

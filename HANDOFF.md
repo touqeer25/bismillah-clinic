@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 191 · **اصل مخزن:**
+**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 192 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -2379,6 +2379,44 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 - **رپورٹیں (make_cough_reports.py):** کھانسی-تین-کالم.csv (1449) · ہیرارکی-تصدیق.csv (1455) · تمام-اندراجات.csv (1455) · پرانی-قطاریں.csv (241 = 17 مبہم/خاص + 126 خالی + 98 مجموعے/برتن) · پڑتال.xlsx · اصلاحات-کا-خلاصہ.md — repo/kent_sources/reports + download
 - **تصدیق-ضروری CSV:** append_cough_confirmations.py — 13 اندراجات (باب-حد 2، ڈپ 1، صفحہ-سرخی 1، clamps 1 جامع، دہرائی-صفر 1، PDF artifacts 1، دستی 1 جامع، مبہم 2، نئے hN 1، اردو 2) — کل 252
 - HANDOFF.md سرورق نسخہ 191 + §29
+
+## بلغم (EXPECTORATION) باب: ماخذی درخت + ادویات + اردو (نسخہ 192)
+
+**اجازت:** 10 اکتوبر 2026 · worklog کے مطابق اگلا باب عین یہی تھا؛ ماخذ homeoint.org MEDI-T صفحات 812–821 (3 فائلیں kent0810/kent0815/kent0820 — انڈیکس kentexpe.htm کے 11 صفحہ-اندراجات = جڑ صفحہ p812 + P813..P821)
+
+### 30.1 باب کی حد + ماخذی پارس — 340 منفرد قطاریں (صفر clamps، صفر دہرائی)
+- آغاز kent0810 کے **NAME="P812" EXPECTORATION P-اینکر** سے (nav para کے اندر — after_anchor slot-1 nav-text para + slot-2 سرخ «EXPECTORATION» عنوان-دہرائی para skip، separator JUNK، جڑ EXPECTORATION d0 slot-4 سے — سرخی para `<a NAME="expectoration">`)؛ p812: جڑ + DAYTIME only {61} + MORNING {104}
+- اختتام kent0820 کے **NAME="P822" CHEST P-اینکر** پر — آخری ربرک orange colored {Kali-c., phos., puls.} (YELLOW ذیلی، p821)؛ FOOT regex میں kentches.htm شامل (فائل-دم کٹ)
+- سرحدی ڈپ صفحات p815/p820 — دونوں text-identical (verify_expectoration_dups.py)
+- پارس: 340 قطاریں (165+163+12)؛ گہرائی分布 115 d0 / 176 d1 / 49 d2 — **صفر clamps (خاندانی shift = 0) اور صفر کتابی دہرائی — اب تک کا واحد باب جس میں دونوں صفر ہوں**
+- 10/10 MEDI-T صفحہ-سرخی paras آرٹیفیکٹ skip (p812 سرخ عنوان-دہرائی سمیت) — ہر صفحے کی پہلی قطار کے والد-سیاق سے مطابق
+- خاص ساخت: «BLOODY, spitting of blood (See Chest Hæmorrhage)» خود d0 مین (153 ادویہ)؛ «TASTE of almonds, like» مین (48 ذیلیاں)؛ ODOR of an old catarrh (9 خاندان) — کتابی ٹائپوگرافی عین
+
+### 30.2 تیسرا ماخذ (PDF) — 339/339 مکمل (اب تک کا صاف ترین باب)
+- verify_pdf_expectoration.py (PDF index 1794–1812 = کتابی ص 812–821): **339/339 ریکارڈ حرف-بہ-حرف عین — صفر ادویہ-فرق، صفر drift، صفر دونوں-طرفہ باقیات** (کوئی لیبل-ورپ نہیں، کوئی فولیو-گلا نہیں — پچھلا بہترین URETHRA 554/554)
+
+### 30.3 کراس واک + اوورلے — 339 جُڑے (332 لالچی + 7 دستی J=1.00)
+- دستی جوڑے (7): وقت-فارمیٹ 6 (OOREP «8 a.m. to 9 a.m.» ← کتابی «8 to 9 a.m.» — o14730/o14764/o14709/o14749/o14883/o14879) + ہائیفن-کیس 1 (o14795 SLATE-COLORED ← کتابی SLATE colored — PDF حرف-بہ-حرف)
+- 1 نیا hN (جڑ EXPECTORATION) + 40 legacy محفوظ (12 OOREP برتن/یونین: r76 BLOODY 173-یونین، r268 TASTE 148-یونین، o65421 ODOR 79-یونین، o65412 AIR 11-یونین (مبہم) وغیرہ + 26 خالی m-برتن) — ادویات نقصان صفر (سب یونین کتابی مینز/ذیلیوں پر عین تصدیق شدہ)
+- اوورلے (backup expectoration_json_backup_v192.json): expectoration.json 380 = 340 ماخذی (homeoint-expectoration-v1) + 40 legacy؛ مانی فیسٹ 9-فیلڈ
+
+### 30.4 اردو — 340/340 = 100%
+- 339 پرانے جملے منتقل (7 دستی سمیت) + جڑ «بلغم — بلغم» + صفر auto (meta.auto=[])
+- 99 راستہ-بڑھنے والوں کی top-down ہم آہنگی: BLOODY/BALLS/BED خاندان (49) پرانے جملے سے سیگمنٹ-دارج («خون تھوکنے کے ساتھ»/«شکل میں» — پرانے انداز 100%) + TASTE خاندان (49) والد-ہم آہنگ refix («بادام جیسا») + 2 menses استثنا ہاتھ-لکھے
+- 3 ہم جنس لگاتار سیگمنٹ سکڑے؛ 163 پرانی non-tree کلیدیں محفوظ (فائل 503)؛ جڑ-پیشوند 100%؛ لاطینی صفر (سب سے صاف باب)
+
+### 30.5 کوڈ + ٹیسٹ
+- rep-chapters.js v192 (builder + دونوں dispatch + fallback 414→380)؛ kent-tree-fix expectoration.h 40 legacy ids (v147 قاعدہ — پرانا 31-id بدلا)؛ _index 380/EXPECTORATION؛ master sync minified 22.9 MiB (round-trip)؛ mind sidecar (4358)؛ CACHE v192؛ پنز: index.html 4×?v=192 + 18-rubrics-ur ?v=184 + REP_RUBUR_V 184
+- ٹیسٹ: نئی kent_expectoration_homeoint_source.test.js (درخت 340، جڑ پہلی، DAYTIME only 61/MORNING 104/BLOODY-spitting 153، صفر-clamps ساخت چیک، دستی o14730/o14795/o14879، برتن r76/r268/o65421/o65412، YELLOW orange colored آخری، CHEST/COUGH-لیک نہیں، 3 See-refs، اردو 100%)؛ v107 H5/H6 (348/116 → 340/115 — جڑ EXPECTORATION پہلی، YELLOW آخری)/G7 4556→4555/Q9 67149→67141/L-H11+P1+Q1 پنز؛ 26 ٹیسٹ فائلوں کے پنز (191→192، 183→184) + editor v163/v164 پن-ٹیبل → **مکمل سوئٹ 69/69 پاس + jsdom 5/5** (tree_view_integrity 1,463,549 چیکز)
+- رپورٹیں (make_expectoration_reports.py): بلغم-تین-کالم.csv (339) · ہیرارکی-تصدیق.csv (340) · تمام-اندراجات.csv (340) · پرانی-قطاریں.csv (40 = 2 مبہم + 26 خالی + 12 مجموعے/برتن) · بلغم-پڑتال.xlsx · بلغم-اصلاحات-کا-خلاصہ.md — repo/kent_sources/reports + download
+- تصدیق-ضروری CSV: append_expectoration_confirmations.py — 12 اندراجات (باب-حد 2، ڈپ 1، صفحہ-سرخی 1، clamps 1 جامع، دہرائی-صفر 1، PDF 1، دستی 1 جامع، مبہم 1، نئے hN 1، اردو 2) — کل 263
+
+### 30.6 اگلے قدم
+1. ڈاکٹر بلغم-تین-کالم.csv کی تصدیق (339 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (12 نئے اندراجات — خاص طور پر 7 دستی جوڑے: وقت-فارمیٹ 6 + SLATE-COLORED ہائیفن-کیس — اور BLOODY-spitting بطور d0 مین کی کتابی ساخت)
+2. اگلا باب: کتابی ترتیب کے مطابق — **CHEST (MEDI-T ص 822 سے، kent0820 کا P822 اینکر + P823/P824 اسی فائل میں + kent0825 وغیرہ kentrep2/؛ انڈیکس kentches.htm — 3433 ربرک کا بڑا باب)**
+3. Vercel پش (v192 کے بعد)
+
+---
 
 ### 29.2 اگلے قدم
 1. ڈاکٹر کھانسی-تین-کالم.csv کی تصدیق (1449 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (13 نئے اندراجات — خاص طور پر 8 clamps کی x-coord نوعیت، 71 دستی جوڑے — خاص طور پر measles→menses لیبل-خرابیاں — اور PDF کے 10 لیبل-ورپ جوڑے)

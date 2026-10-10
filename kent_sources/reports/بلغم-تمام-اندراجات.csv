@@ -1,0 +1,341 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,812,0,EXPECTORATION,0
+r0,812,0,DAYTIME only,61
+r1,812,0,MORNING,104
+r2,812,1,"MORNING, bath, after",1
+r3,812,1,"MORNING, bed, in",2
+r4,812,1,"MORNING, rising, on",4
+r5,812,2,"MORNING, rising, on, after",6
+r6,812,1,"MORNING, waking, after",7
+o14730,812,1,"MORNING, 8 to 9 a.m.",1
+r8,812,1,"MORNING, 8-30 a.m.",1
+r9,812,1,"MORNING, 9 a.m.",2
+r10,812,0,FORENOON,11
+r11,812,1,"FORENOON, 10 a.m.",1
+r12,812,0,NOON,3
+o14764,812,1,"NOON, 12 to 3 p.m.",1
+r14,812,0,AFTERNOON,19
+r15,812,1,"AFTERNOON, 4 p.m.",1
+r16,812,1,"AFTERNOON, 5 p.m.",3
+r17,812,0,EVENING,58
+r18,812,1,"EVENING, bed, in",3
+r19,812,2,"EVENING, bed, in, getting warm",1
+r20,812,1,"EVENING, lying down, after",3
+r21,812,0,NIGHT,36
+r22,812,1,"NIGHT, bed, in",1
+r23,812,1,"NIGHT, midnight, before, on getting into bed",1
+o14761,812,2,"NIGHT, midnight, before, on getting into bed, after",1
+r25,812,0,ACRID,31
+r26,812,0,AIR agg.,7
+o65413,812,1,"AIR agg., cold",2
+o14568,812,2,"AIR agg., cold, amel.",1
+o14569,812,2,"AIR agg., cold, wind",1
+o65414,812,1,"AIR agg., open",7
+o14571,812,2,"AIR agg., open, amel.",2
+o14572,812,2,"AIR agg., open, walking, in",3
+r33,812,0,ALBUMINOUS (See White),0
+r34,812,0,ASH-COLORED spots,1
+r338,812,0,"BALL, feels like a round, and rushes into mouth",1
+r35,813,0,"BALLS, in shape of",10
+r36,813,1,"BALLS, in shape of, little albuminous",1
+o14577,813,2,"BALLS, in shape of, little albuminous, bitter, green",1
+r38,813,0,"BATTER, breaks and flies like thin",1
+r39,813,0,"BED, in",5
+r40,813,1,"BED, in, sitting up in, on",1
+r41,813,0,"BILIOUS, like bile",4
+r42,813,0,BLACKISH,13
+r43,813,1,"BLACKISH, blackish grains, with",1
+r44,813,1,"BLACKISH, lumps in centre",2
+r45,813,1,"BLACKISH, yellow",1
+r46,813,0,"BLOODY, spitting of blood (See Chest Hæmorrhage)",153
+r47,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), morning",21
+r48,813,2,"BLOODY, spitting of blood (See Chest Hæmorrhage), morning, bed, in",2
+r49,813,2,"BLOODY, spitting of blood (See Chest Hæmorrhage), morning, coughing, on",2
+r50,813,2,"BLOODY, spitting of blood (See Chest Hæmorrhage), morning, lying down, while",1
+r51,813,2,"BLOODY, spitting of blood (See Chest Hæmorrhage), morning, menses, during",1
+r52,813,2,"BLOODY, spitting of blood (See Chest Hæmorrhage), morning, rising, on",2
+r53,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), noon",1
+r54,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), afternoon",7
+r55,813,2,"BLOODY, spitting of blood (See Chest Hæmorrhage), afternoon, 1 p.m.",1
+r56,813,2,"BLOODY, spitting of blood (See Chest Hæmorrhage), afternoon, 2 p.m.",1
+r57,813,2,"BLOODY, spitting of blood (See Chest Hæmorrhage), afternoon, 4 p.m.",1
+r58,813,2,"BLOODY, spitting of blood (See Chest Hæmorrhage), afternoon, 5 p.m.",1
+r59,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), evening",3
+r60,813,2,"BLOODY, spitting of blood (See Chest Hæmorrhage), evening, coughing, when",1
+r61,813,2,"BLOODY, spitting of blood (See Chest Hæmorrhage), evening, lying down, after",1
+r62,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), night",7
+r63,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), acrid",12
+r64,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), black",15
+r65,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), bright-red",38
+r66,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), brown",7
+r67,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), chronic",1
+r68,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), clearing the throat, when",1
+r69,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), dark",50
+r70,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), drinking, after",1
+r71,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), eating, after",1
+r72,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), erection, after a violent",1
+r73,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), exertion, after",2
+r74,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), fall, after a",2
+r75,813,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), hawking, on",5
+r77,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), lactation, during",1
+r78,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), menses, before",1
+r79,814,2,"BLOODY, spitting of blood (See Chest Hæmorrhage), menses, before, during",5
+r80,814,2,"BLOODY, spitting of blood (See Chest Hæmorrhage), menses, before, suppressed, during",9
+r81,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), pale",37
+r82,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), purulent",3
+r83,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), respiration, from violent effort at",1
+r84,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), streaked",65
+r85,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), stringy",1
+r86,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), talking, after",1
+r87,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), thick",1
+r88,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), thin",3
+r89,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), threads of blood, mixed with white sputa",1
+r90,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), uncoagulated",10
+r91,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), viscid",4
+r92,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), walking, while",4
+r93,814,1,"BLOODY, spitting of blood (See Chest Hæmorrhage), working, while",1
+r94,814,0,BLUE and white alternately,1
+r95,814,0,BLUISH,5
+r96,814,1,"BLUISH, gray",1
+r97,814,0,"BREAKFAST, after",1
+r98,814,0,BRICK-DUST color (See Rusty),3
+r99,814,0,BROWNISH,12
+r100,814,1,"BROWNISH, lumps",2
+r101,814,1,"BROWNISH, yellow",1
+r102,814,0,"BURNED, when dry on the floor, looks as if",1
+r103,814,0,CALCAREOUS tubercles,1
+r104,814,0,CASTS (See Membrane),0
+r105,814,0,"CHEESE, like",6
+r106,814,0,COLD (See Cool),0
+r107,814,0,"CONSTANT, almost day and evening",2
+r108,814,0,COOL (cold),12
+r109,814,0,COPIOUS,96
+r110,814,1,"COPIOUS, daytime",2
+r111,814,1,"COPIOUS, morning",17
+r112,814,2,"COPIOUS, morning, 9 a.m.",1
+r113,814,1,"COPIOUS, evening",2
+r114,814,2,"COPIOUS, evening, lying down, on",1
+r115,814,1,"COPIOUS, night",2
+r116,814,1,"COPIOUS, meals, after",1
+r117,814,1,"COPIOUS, mouthful at a time",4
+r118,814,1,"COPIOUS, moving, while",1
+r119,814,1,"COPIOUS, old people",5
+r120,815,1,"COPIOUS, paroxysmal cough, after each",7
+r121,815,1,"COPIOUS, warm room",1
+r122,815,0,CORROSIVE,1
+r123,815,0,"CREAM-LIKE, yellowish-white",1
+r124,815,0,CRUMBLY,1
+r125,815,0,DARK,9
+r126,815,0,DIFFICULT,95
+r127,815,1,"DIFFICULT, afternoon",2
+r128,815,1,"DIFFICULT, 2 a.m.",1
+r129,815,1,"DIFFICULT, adhering to throat, teeth and lips",1
+r130,815,1,"DIFFICULT, aged people",1
+r131,815,1,"DIFFICULT, swallow, must (See Swallow)",0
+r132,815,1,"DIFFICULT, tongue, can raise sputa only on to, whence it must be removed by wiping",1
+r133,815,0,"DINNER, after",1
+r134,815,0,DIRTY-LOOKING,1
+r135,815,0,DRINKING amel.,1
+r136,815,0,"DUST, as if mixed with",1
+r137,815,0,EASY (See Hawked up),34
+r138,815,1,"EASY (See Hawked up), daytime",6
+r139,815,1,"EASY (See Hawked up), morning",2
+r140,815,1,"EASY (See Hawked up), evening",2
+r141,815,1,"EASY (See Hawked up), night",1
+r142,815,1,"EASY (See Hawked up), motion, on",1
+r143,815,1,"EASY (See Hawked up), waking, on",1
+r144,815,0,EASIER after each cough (See Side),1
+r145,815,0,"EATING, after",8
+r146,815,0,EPITHELIUM exfoliated,1
+r147,815,0,FLAKES,2
+r148,815,0,FLIES forcibly out of mouth,3
+r149,815,0,FREQUENT,20
+r150,815,0,FROTHY,53
+r151,815,1,"FROTHY, morning",4
+r152,815,2,"FROTHY, morning, 8 a.m.",1
+r153,815,2,"FROTHY, morning, 9 a.m.",1
+r154,815,1,"FROTHY, containing blood and mucus",1
+r155,815,0,GELATINOUS (Comp. Viscid),21
+r156,815,0,GLAIRY,4
+r157,815,0,GLOBULAR,9
+r158,815,0,GLUTINOUS (See Viscid),0
+r159,815,0,GRANULAR,16
+r160,815,1,"GRANULAR, morning 3 to 4 a.m. or 4 to 11 p.m.",1
+r161,815,1,"GRANULAR, offensive",1
+r162,815,1,"GRANULAR, sneezing, while",1
+r339,815,0,GRAYISH,45
+r163,816,0,GREENISH,79
+r164,816,1,"GREENISH, morning",11
+r165,816,2,"GREENISH, morning, waking, on",2
+o14709,816,2,"GREENISH, morning, 7 to 10 a.m.",1
+r167,816,1,"GREENISH, evening, lying down, while",1
+r168,816,0,HARD,27
+r169,816,0,"HAWKED up, mucus",54
+r170,816,1,"HAWKED up, mucus, morning",3
+r171,816,1,"HAWKED up, mucus, bloody",5
+r172,816,2,"HAWKED up, mucus, bloody, water",1
+r173,816,0,"HOUSE, in the",1
+r174,816,0,"IMPOSSIBLE (See Swallow, Difficult)",0
+r175,816,0,INFREQUENT,6
+r176,816,0,JELLY-LIKE (See Gelatinous),0
+r177,816,0,LEMON-COLORED (See Yellow),0
+r178,816,0,"LIQUIDS, contact of, at back part of mouth, from",1
+r179,816,0,LIVER-COLORED,1
+r180,816,0,LUMPY,48
+r181,816,1,"LUMPY, morning",5
+r182,816,2,"LUMPY, morning, 9 a.m.",1
+r183,816,1,"LUMPY, evening",1
+r184,816,1,"LUMPY, lump, like core of boil",1
+r185,816,1,"LUMPY, smoke-colored lumps, streaked with blood",1
+r186,816,0,"MASSES, in",4
+r187,816,0,MEMBRANOUS,6
+r188,816,0,MILKY,13
+r189,816,0,MUCOUS,193
+r190,817,1,"MUCOUS, daytime",5
+r191,817,1,"MUCOUS, morning",31
+r192,817,2,"MUCOUS, morning, bed, in",1
+r193,817,2,"MUCOUS, morning, rising, after",3
+r194,817,2,"MUCOUS, morning, waking, after",2
+o14749,817,2,"MUCOUS, morning, 8 to 9 a.m.",1
+r196,817,2,"MUCOUS, morning, 8-30 a.m.",1
+r197,817,2,"MUCOUS, morning, 9 a.m.",2
+r198,817,1,"MUCOUS, forenoon",8
+r199,817,2,"MUCOUS, forenoon, 10 a.m.",1
+r200,817,1,"MUCOUS, afternoon",5
+r201,817,2,"MUCOUS, afternoon, 5 p.m.",3
+r202,817,1,"MUCOUS, evening",9
+r203,817,1,"MUCOUS, night",10
+r204,817,2,"MUCOUS, night, after 2 a.m.",1
+r205,817,2,"MUCOUS, night, 3 a.m.",1
+r206,817,1,"MUCOUS, aged people",1
+r207,817,1,"MUCOUS, bloody",64
+r208,817,1,"MUCOUS, cold weather",1
+r209,817,0,"MUDDY-LIKE, pus, flies like batter",1
+r210,817,0,ODOR of an old catarrh,7
+o14766,817,1,"ODOR of an old catarrh, burnt",8
+o14767,817,1,"ODOR of an old catarrh, fetid",26
+o14768,817,1,"ODOR of an old catarrh, garlic, like",1
+o14769,817,1,"ODOR of an old catarrh, milky",5
+o14770,817,1,"ODOR of an old catarrh, musty",2
+o14771,817,1,"ODOR of an old catarrh, offensive",67
+o14772,817,1,"ODOR of an old catarrh, sour",8
+o14773,817,1,"ODOR of an old catarrh, sweetish",1
+o14774,817,1,"ODOR of an old catarrh, violets, of",2
+r220,817,0,OLEAGINOUS,1
+r221,817,0,OPAQUE,2
+r222,817,0,PAINFUL,4
+r223,817,1,"PAINFUL, as if from heart",1
+r224,817,0,PALE,2
+r225,817,0,PASTY,1
+r226,817,0,PHOSPHORESCENT,1
+r227,817,0,"PIECES, in",4
+r228,817,0,PROFUSE (See Copious),0
+r229,817,0,PRUNE juice,1
+r340,817,0,PURULENT,100
+r230,818,0,REDDISH (See Bloody),0
+r231,818,0,ROPY (Comp. Stringy),15
+r232,818,0,RUSTY,11
+r233,818,0,SALIVA-LIKE,7
+r234,818,0,SCABS coughed up every few weeks,1
+r235,818,0,SCANTY,32
+r236,818,0,"SEA-BATHING, after",1
+r237,818,0,"SIDE, is easier after turning from left to right",7
+r238,818,0,"SIT up, must, at night to raise",1
+r239,818,0,"SITTING up, in bed, on",1
+r240,818,0,"SKIN, like dead",1
+o14795,818,0,SLATE colored,2
+r242,818,0,SLIMY (See Mucous),0
+r243,818,0,SOAP-LIKE,2
+r244,818,0,"SOAP-SUDS, like (See Frothy)",2
+r245,818,0,"STARCH, like",11
+r246,818,0,STICKY (See Viscid),0
+r247,818,0,STRINGY (See Viscid),27
+r248,818,0,"SWALLOW, must, what has been loosened",27
+r249,818,0,SYRUP-LIKE,1
+r250,818,0,"TASTE of almonds, like",2
+o14803,818,1,"TASTE of almonds, like, bad",5
+o14804,818,1,"TASTE of almonds, like, bilious",1
+o14805,818,1,"TASTE of almonds, like, bitter",32
+o14806,818,1,"TASTE of almonds, like, boiled cabbage, like",1
+o14807,818,1,"TASTE of almonds, like, burnt",9
+o14808,818,1,"TASTE of almonds, like, catarrh, of an old",9
+o14809,818,1,"TASTE of almonds, like, chalk, like",2
+o14810,818,1,"TASTE of almonds, like, cheese, like old",6
+o14811,818,2,"TASTE of almonds, like, cheese, like old, putrid cheese",4
+o14812,818,1,"TASTE of almonds, like, clay, like",4
+o14813,818,1,"TASTE of almonds, like, copper, like",4
+o14814,818,1,"TASTE of almonds, like, earthy",12
+o14815,818,1,"TASTE of almonds, like, eggs, like bad",15
+o14816,818,1,"TASTE of almonds, like, eggs, like yolk of",7
+o14817,818,1,"TASTE of almonds, like, fish, like",1
+o14818,818,1,"TASTE of almonds, like, flat",45
+o14819,818,1,"TASTE of almonds, like, greasy",18
+r269,819,1,"TASTE of almonds, like, herbaceous",8
+r270,819,1,"TASTE of almonds, like, herring, like",2
+r271,819,1,"TASTE of almonds, like, leather, like that of russian",1
+r272,819,1,"TASTE of almonds, like, meal, like",1
+r273,819,1,"TASTE of almonds, like, meat broth, like",1
+r274,819,1,"TASTE of almonds, like, metallic",22
+r275,819,1,"TASTE of almonds, like, milky",1
+r276,819,1,"TASTE of almonds, like, musty",8
+r277,819,1,"TASTE of almonds, like, nauseous",37
+r278,819,1,"TASTE of almonds, like, onion, like",6
+r279,819,1,"TASTE of almonds, like, oranges, like",1
+r280,819,1,"TASTE of almonds, like, peach kernels, like",1
+r281,819,1,"TASTE of almonds, like, pepper, like",5
+r282,819,1,"TASTE of almonds, like, putrid",54
+r283,819,2,"TASTE of almonds, like, putrid, meat, like",11
+r284,819,1,"TASTE of almonds, like, rancid",16
+r285,819,1,"TASTE of almonds, like, raw peas, like",2
+r286,819,1,"TASTE of almonds, like, salty",68
+r287,819,2,"TASTE of almonds, like, salty, morning",1
+r288,819,1,"TASTE of almonds, like, sea-weed, like",1
+r289,819,1,"TASTE of almonds, like, smoky",5
+r290,819,1,"TASTE of almonds, like, soapy",4
+r291,819,1,"TASTE of almonds, like, sour",52
+r292,819,1,"TASTE of almonds, like, sulphur, like",6
+r293,819,1,"TASTE of almonds, like, sweetish",60
+r294,819,1,"TASTE of almonds, like, tar, like",1
+r295,819,1,"TASTE of almonds, like, tobacco juice, like",1
+r296,819,1,"TASTE of almonds, like, urine, like",3
+r297,819,1,"TASTE of almonds, like, wine, like",2
+r298,819,1,"TASTE of almonds, like, wood, like",4
+r299,819,0,TENACIOUS (See Viscid),0
+r300,819,0,THICK,76
+r301,820,1,"THICK, morning",9
+r302,820,2,"THICK, morning, rising, after",3
+r303,820,2,"THICK, morning, waking, after",1
+r304,820,1,"THICK, afternoon",1
+r305,820,1,"THICK, evening",2
+r306,820,1,"THICK, night",3
+r307,820,0,THIN (See Watery),12
+r308,820,0,TOUGH,69
+r309,820,1,"TOUGH, morning",8
+r310,820,2,"TOUGH, morning, bed, in",1
+r311,820,2,"TOUGH, morning, 9 a.m.",1
+r312,820,0,TRANSPARENT,34
+r313,820,0,TUBERCLES,5
+r314,820,1,"TUBERCLES, brown",1
+r315,820,1,"TUBERCLES, offensive",3
+r316,820,0,TURNING on side (See Side),0
+r317,820,0,VISCID,127
+r318,820,0,"WALKING, while",5
+r319,820,1,"WALKING, while, after",1
+r320,820,0,WATERY,43
+r321,820,0,WHITE,91
+r322,820,1,"WHITE, daytime",2
+r323,820,1,"WHITE, morning",8
+r324,820,1,"WHITE, evening",3
+r325,820,1,"WHITE, eating, after",1
+r326,821,1,"WHITE, albuminous",36
+r327,821,1,"WHITE, opaque",1
+r328,821,0,YELLOW,136
+r329,821,1,"YELLOW, morning",15
+r330,821,2,"YELLOW, morning, waking, on",1
+o14883,821,2,"YELLOW, morning, 7 to 10 a.m.",1
+r332,821,1,"YELLOW, forenoon",1
+r333,821,1,"YELLOW, afternoon",2
+o14879,821,2,"YELLOW, afternoon, 12 to 3 p.m.",1
+r335,821,1,"YELLOW, night",1
+r336,821,1,"YELLOW, lemon colored",4
+r337,821,1,"YELLOW, orange colored",3
