@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 193 · **اصل مخزن:**
+**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 194 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -7,6 +7,45 @@ https://bismillah-clinic.vercel.app
 ```
 
 > نئی نشست میں سب سے پہلے نیچے کے تازہ کام، باقی مسائل اور اگلے قدم دیکھیں۔ پرانے حصے تاریخی ریکارڈ ہیں
+
+## پیٹھ (BACK) باب: ماخذی درخت + ادویات + اردو (نسخہ 194)
+
+**اجازت:** 10 اکتوبر 2026 · worklog کے مطابق اگلا باب عین یہی تھا؛ ماخذ homeoint.org MEDI-T صفحات 884–951 (68 صفحات؛ 15 فائلیں kent0880..kent0950 — انڈیکس kentback.htm کے 68 صفحہ-اندراجات = جڑ صفحہ p884 + P885..P951)
+
+### 32.1 باب کی حد + ماخذی پارس — 3580 منفرد قطاریں (19 clamps، 11 کتابی دہرائیاں)
+- آغاز kent0880 کے **NAME="P884" BACK P-اینکر** سے (nav para کے اندر — after_anchor slot-1 nav-text para + slot-2 سرخ «BACK» عنوان-دہرائی para skip، separator JUNK، جڑ BACK d0 slot-4 سے)؛ p884: جڑ + ABSCESS {10 ادویہ، ذیلیاں Cervical 8/Lumbar 1/psoas 7}
+- اختتام kent0950 کے **NAME="P952" EXTREMITIES P-اینکر** پر — آخری ربرک WIND, as if blowing between shoulders, Lumbar region {Sumb.} (p951)؛ FOOT regex میں kentextr.htm شامل؛ kent0955 استعمال نہیں
+- سرحدی ڈپ صفحات p885/890/895/900/905/910/915/920/925/930/935/940/945/950 — 13/14 text-identical (verify_back_dups.py)؛ p950 پر MEDI-T ٹائپو: kent0945 کاپی «steaming» (پارز نے یہی لیا — کتاب PDF2103 حرف-سطح) بمقابلہ kent0950 ڈپ «streaming»
+- پارس: 3591 قطاریں (100+283+226+215+252+243+268+269+312+301+264+284+299+259+16)؛ گہرائی分布 (خام) 83 d0 / 454 d1 / 1066 d2 / 1185 d3 / 543 d4 / 226 d5 / 34 d6 — d6 تک: اب تک کا سب سے گہرا باب
+- **19 clamps سب کتابی یتیم-indentation** (x = خام سطح — back_clamp_xcoords.json): idx155 p887 @128.7 (d2→d1) · idx566 p894 @164.7 · idx583 p895 @164.7 · idx996 p904 @272.7 (d6→d5 — سب سے گہرا) · idx1078 p906 @200.7 · idx1197 p908 @200.7 · idx1287 p910 @200.7 · idx1532 p915 @200.7 · idx1572 p915 @236.7 · idx1855 p920 @236.7 · idx1926 p922 @164.7 · idx1976 p922 @164.7 · idx2012 p923 @236.7 · idx2076 p924 @236.7 (صفحہ-حد: prev PDF2041 — دستی) · idx2596 p933 @236.7 · idx2780 p936 @200.7 · idx2895 p938 @236.7 · idx3329 p946 @128.7 · idx3410 p948 @128.7 (صفحہ-حد: prev PDF2097 — دستی) — کوئی MEDI-T اضافی <dir> نہیں
+- **68/68 MEDI-T صفحہ-سرخی paras** آرٹیفیکٹ skip — ہر صفحے کی پہلی قطار کے والد-سیاق سے مطابق
+- **11 کتابی دہرائی جوڑیاں union** — سب PDF دو-پرنٹ ثابت: ERUPTIONS-Cervical p887 29+4=30 (پانچ اور Cervical-kاپیاں acne/boils/carbuncle/herpes/pimples ذیلیاں — الگ راستے)؛ PAIN-compressing-Lumbar p922 5+8=13؛ compressing Cervical/cervical 2+2=4 (کتاب خود lowercase — PDF2036)؛ digging-Lumbar p924 3+2=5؛ digging Cervical/cervical 2+5=7 (PDF2041)؛ sore-Cervical p932+935 58+24؛ sore-Dorsal 9+34؛ sore-Lumbar 95+16؛ sore-Sacral 66+11 (PDF2062-2068)؛ sore-Sacral-menses-before 1+1 (عین Spong.2)؛ stitching-respiration-on p938 5+2=7 (PDF2075)
+- **خاص ساخت:** «PAIN, amel.» کتاب کا اپنا d1 مین (p899 — PDF1984 x=92.7؛ OOREP نے walking میں جوڑا تھا)؛ «WEAKNESS (tired feeling, in spine)» d0 اپنا مین (p950 — OOREP r3542 «WEAKNESS» 144-یونین برتن مسترد)؛ «dislocated, as if» کتاب میں صرف Coccyx کا 2-ادویہ ربرک (PDF2013) — OOREP کا dislocated-خاندان کتابی digging-خاندان سے J=1.00
+
+### 32.2 تیسرا ماخذ (PDF) — 3581/3590 + 4 artifacts + 1 See-ref گلو (صفر homeoint-اضافی)
+- verify_pdf_back.py (PDF index 1952–2105 = کتابی ص 884–951): **3581/3590 حرف-بہ-حرف عین + 3 لیبل-ورپ جوڑے** (کتاب ربرک دو سطروں پر چھاپتی ہے — homeoint مکمل ربرک رکھتا ہے): «crest of right…, extending to thigh» p908 · «extending downward, agg. throwing shoulders…» p928 · «left and spine, amel. by pressure…» p933 + **1 فولیو-گلا** (berb.1918back p895) + **1 See-ref گلو** («DRAWING backward of muscles of neck (See…)» DISLOCATION کی ادویات میں — صفر ادویہ نقصان) — **صفر homeoint-اضافی rows** (پہلا باب: کوئی lifting-طرز استثنا نہیں)، صفر drift، صفر دونوں-طرفہ باقیات
+
+### 32.3 کراس واک + اوورلے — 3574 جُڑے (3434 لالچی + 105 دستی J=1.00 + 35 فال بیک)
+- دستی جوڑے (105): وقت-فارمیٹ 5 (OOREP «7 p.m. to 8 p.m.» ← کتابی «7 to 8 p.m.») + agg-لاحقہ ~70 (genm-r381 اصول) + OOREP walking-amel گروپ 5 (کتاب PAIN, amel. اپنا مین) + OOREP dislocated-والد 8 (کتاب digging) + cut-path/inserted ~10؛ 3 تصادم فیصلے (o6356/o3602/o5790 جُڑے — o64806/o64573/o64833 برتن)
+- 6 نئے hN (جڑ BACK + compressing-lumbar-evening + digging-sacrum + drawing-dorsal-scapulae-between-walking-while + stitching-shooting-cervical-extending-ear-right + WEAKNESS (tired feeling, in spine)) + 314 legacy محفوظ (133 مبہم برتن + 16 خالی m + r2791 217-یونین + r642 107 + r3542 144 وغیرہ) — ادویات نقصان صفر
+- اوورلے (backup back_json_backup_v194.json — اسکرپٹ کے اندر): back.json 3894 = 3580 ماخذی (homeoint-back-v1) + 314 legacy؛ مانی فیسٹ 9-فیلڈ؛ **کیس-مختلف دہرائی canonicalization** (Cervical/cervical → پہلی شکل، اولاد سمیت — بلڈر duplicate-sibling جائزہ)
+- kent-tree-fix.js: back.h 23→314 legacy ids + پرانے g/p (89 گروپ + 22 promotions) صاف
+
+### 32.4 اردو — 3580/3580 = 100%
+- 3574 پرانے جملے منتقل + جڑ «پیٹھ — پیٹھ» + 5 خود-بنے + 1464 راستہ-بڑھنے والوں کی top-down ہم آہنگی (معیار: پرانی کلید ≠ runtime کلید — ligature-normalized)
+- **empirical-override جدول (نئی تکنیک):** lumbar region→«کمر کا حصہ» · cervical region→«گردن کا حصہ» · dorsal region→«پیٹھ کا اوپری حصہ» · sacral region→«تعلق کی ہڈی کا علاقہ» · sacrum→«تعلق کی ہڈی» · coccyx→«دم کی ہڈی» · scapulæ→«کندھے کی ہڈیاں» · between→«درمیان» · in bed→«بستر میں» — پرانی فائل کے غالب فارم (word-level «کمر علاقہ» ٹکراؤ ختم)؛ WEAKNESS-خاندان HAND_PARENT («پیٹھ — کمزوری» سے بچوں کی اخذ)
+- 18 ہاتھ-لکھے (3 when-ذیلیاں «…تے وقت» + 5 auto-ہم آہنگی + 10 worse/better گلوسری-لاطینی صفائی)؛ صفر ہم جنس لگاتار سیگمنٹ؛ جڑ-پیشوند «پیٹھ — » 100%؛ لاطینی صفر (amel./agg. سواء)؛ صفر ہندسہ-اکیلا دم؛ 2092 پرانی non-tree کلیدیں محفوظ (فائل 5672)
+
+### 32.5 کوڈ + ٹیسٹ
+- rep-chapters.js v194 (_repBuildKentBackSourceTree + دونوں dispatch سائٹس + fallback 3640→3894)؛ _index 3894/BACK (دونوں انڈیکس)؛ master sync minified 25.1 MiB (round-trip)؛ mind sidecar + kent_search_paths/mind.json rebuild؛ CACHE v194؛ پنز: index.html 4×?v=194 + 18-rubrics-ur ?v=186 + REP_RUBUR_V 186
+- ٹیسٹ: نئی kent_back_homeoint_source.test.js (درخت 3580، جڑ پہلی، ABSCESS-Cervical 8/psoas 7، clamps idx155/idx996، WEAKNESS-d0-70، unions 30/13/4/1/7، دستی o3572/o3893/o4550/o6410، برتن r2791/r642/r3542/o64646/o4556 + تصادم-ہار o64806/o64573، WIND آخری، EXTREMITIES-لیک نہیں، See-ref، اردو 100% — repRubKey نقل، مانی فیسٹ، _index، tree-fix 314)؛ v107 G7 4544→**4540**/Q9 66906→**66621** (back 3580 فعال 100%)/J1-J7 سیکشن ماخذی درخت (3580/83 مین، جڑ BACK پہلی، WEAKNESS-parenthetical، PAIN-amel.)/G6/F6/L-H11/P1/P4/Q1/Q4 پنز؛ 25 ٹیسٹ فائلوں کے پنز (193→194، 185→186) + editor v163/v164 پن-ٹیبلز → **مکمل سوئٹ 76/76 پاس + jsdom** (static8080 ہارنس؛ app_smoke + extraction_v687 + mind/editor سب پاس)
+- رپورٹیں (make_back_reports.py): پیٹھ-تین-کالم.csv (3574) · پیٹھ-ہیرارکی-تصدیق.csv (3591) · پیٹھ-تمام-اندراجات.csv (3580) · پیٹھ-پرانی-قطاریں.csv (314 = 14 خاص + 16 خالی + 284 مجموعے/برتن) · پیٹھ-پڑتال.xlsx · پیٹھ-اصلاحات-کا-خلاصہ.md — repo/kent_sources/reports + download
+- تصدیق-ضروری CSV: append_back_confirmations.py — 14 اندراجات (باب-حد 2، ڈپ 1، صفحہ-سرخی 1، clamps 1 جامع، دہرائی 1 جامع، OOREP-گروپ مستردی 2، PDF 1، دستی 1 جامع، مبہم 1، نئے hN 1، اردو 2) — کل 292
+
+### 32.6 اگلے قدم
+1. ڈاکٹر پیٹھ-تین-کالم.csv کی تصدیق (3574 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (14 نئے اندراجات — خاص طور پر 105 دستی جوڑے، 11 کتابی دہرائیاں، 19 clamps، OOREP walking-amel/dislocated-گروپ مستردی، WEAKNESS-d0، اور steaming/streaming ٹائپو)
+2. اگلا باب: کتابی ترتیب کے مطابق — **EXTREMITIES (متعلقات) (MEDI-T ص 952 سے، kent0950 کا P952 اینکر + kent0955 وغیرہ kentrep2/؛ انڈیکس kentextr.htm — 14915 ربرک کا سب سے بڑا باب)**
+3. Vercel پش (v194 کے بعد)
 
 ## سینہ (CHEST) باب: ماخذی درخت + ادویات + اردو (نسخہ 193)
 

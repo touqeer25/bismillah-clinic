@@ -116,8 +116,8 @@ if (fs.existsSync(csvPath)) {
 // 7) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const sw = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=193/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v172)');
-assert(/CACHE_NAME='bhc-clinic-v193'/.test(sw), 'خدمت کار نسخہ 172');
+assert(/rep-chapters\.js\?v=194/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v172)');
+assert(/CACHE_NAME='bhc-clinic-v194'/.test(sw), 'خدمت کار نسخہ 172');
 assert(/v172: ناک باب/.test(code), 'rep-chapters.js میں ناک بلڈر درج');
 
 console.log('ناک باب: ماخذی درخت 1428 قطاریں (صفحات 324–354)، جڑ NOSE، ادویات ماخذی، اردو 100%، پرانی قطاریں محفوظ — کامیاب');

@@ -1,0 +1,22 @@
+{
+ "book": "kent",
+ "chapter": "back",
+ "source": "homeoint.org/books/kentrep+kentrep2 kent0880..kent0950 (MEDI-T HTML) — 15 فائلیں",
+ "pages": "884 – 951 (MEDI-T انتساب) — 68 صفحات",
+ "source_canonical": "homeoint-back-v1",
+ "source_rows": 3580,
+ "unique_source_paths": 3580,
+ "matched_app_records": 3574,
+ "new_source_records": 6,
+ "legacy_local_records": 320,
+ "ambiguous_app_records": 133,
+ "pdf_verification": "3581/3590 حرف-بہ-حرف عین مطابق + 4 PDF-طرفہ artifacts (3 لیبل-ورپ جوڑے: ilium-crest-of-right p908، drawing-spine-extending-downward p928، sore-dorsal-left-and-spine p933 — کتاب ربرک دو سطروں پر چھاپتی ہے، homeoint مکمل ربرک رکھتا ہے؛ 1 فولیو-گلا berb.1918back p895) + 1 See-ref گلو (DRAWING backward of muscles of neck (See…) — DISLOCATION کی ادویات میں جُڑا، صفر ادویہ نقصان) — صفر homeoint-اضافی، صفر دونوں-طرفہ باقیات (verify_pdf_back.py — کتابی ص 884-951، PDF index 1952-2105)",
+ "chapter_boundaries": "آغاز kent0880 کے اندر NAME=\"P884\" BACK P-اینکر (nav para کے اندر — after_anchor slot-1 nav-text para + slot-2 BACK عنوان-دہرائی para skip، separator JUNK، جڑ BACK d0 slot-4؛ p884: جڑ + ABSCESS {10 ادویہ، ذیلیاں Cervical/Lumbar/psoas})؛ اختتام kent0950 کے اندر NAME=\"P952\" EXTREMITIES P-اینکر (آخری ربرک WIND-lumbar-region {sumb.} p951؛ kent0955 استعمال نہیں)؛ FOOT regex میں kentextr.htm شامل",
+ "dup_pages": "13/14 سرحدی صفحات p885/890/895/900/905/910/915/920/925/930/935/940/945/950 — پچھلی فائل میں اصل، اگلی میں ڈپ (skip_until)؛ p950 پر ایک لفظی فرق: kent0945 کاپی \"steaming\" (پارز نے یہی لیا) بمقابلہ kent0950 ڈپ \"streaming\" (MEDI-T ٹائپو) — کتاب \"steaming\" (PDF2103 حرف-سطح) — پارز کتاب-سچ (verify_back_dups.py — فرق صرف nav link-text + یہ 1 ٹائپو)",
+ "clamps": "19 clamps سب کتابی یتیم-indentation (x = خام سطح — back_clamp_xcoords.json): idx155 p887 rising-from-stooping @128.7 (d2→d1)، idx566 p894 amel. @164.7 (d3→d2)، idx583 p895 amel. @164.7 (d3→d2)، idx996 p904 amel. @272.7 (d6→d5 — سب سے گہرا clamp)، idx1078 p906 amel. @200.7 (d4→d3)، idx1197 p908 around @200.7 (d4→d3)، idx1287 p910 amel. @200.7 (d4→d3)، idx1532 p915 difficult @200.7 (d4→d3)، idx1572 p915 morning @236.7 (d5→d4)، idx1855 p920 1-p.m. @236.7 (d5→d4)، idx1926 p922 walking-amel. @164.7 (d3→d2)، idx1976 p922 on-motion @164.7 (d3→d2)، idx2012 p923 while-sitting @236.7 (d5→d4)، idx2076 p924 as-if-would-come-on @236.7 (d5→d4 — صفحہ-حد prev PDF2041؛ دستی)، idx2596 p933 left-and-spine @236.7 (d5→d4)، idx2780 p936 on-every-step @200.7 (d4→d3)، idx2895 p938 morning @236.7 (d5→d4)، idx3329 p946 evening @128.7 (d2→d1)، idx3410 p948 glands-of-nape @128.7 (d2→d1 — صفحہ-حد prev PDF2097؛ دستی) — کوئی MEDI-T اضافی <dir> نہیں",
+ "book_duplicates": "11 کتابی دہرائی جوڑیاں merge (union ادویات) — سب PDF دو-پرنٹ ثابت: ERUPTIONS-Cervical p887 29+4 (پانچ Cervical-kاپیاں: acne/boils/carbuncle/herpes/pimples ذیلیاں الگ راستے)؛ PAIN-compressing-Lumbar p922 5+8؛ compressing Cervical/cervical p922 2+2 (کتاب خود lowercase)؛ digging-Lumbar p924 3+2؛ digging Cervical/cervical p924 2+5 (کتاب lowercase)؛ sore-Cervical p932+935 58+24؛ sore-Dorsal p933+935 9+34؛ sore-Lumbar p933+935 95+16؛ sore-Sacral p934+935 66+11؛ sore-Sacral-menses-before p934+935 1+1؛ stitching-respiration-on p938 5+2 (PDF2075 دو پرنٹس)",
+ "manual_matches": "105 دستی J=1.00 (وقت-فارمیٹ 5: OOREP 7 p.m. to 8 p.m. ← کتابی 7 to 8 p.m. طرز؛ agg-لاحقہ ~70: genm-r381 اصول؛ OOREP cut-path/inserted ~10؛ OOREP walking-amel گروپ 5: کتاب PAIN amel. اپنا d1 مین — PDF1984 x=92.7 ثابت؛ OOREP dislocated-والد 8: کتاب digging — PDF2013 ثابت صرف Coccyx-2-ادویہ dislocated؛ tearing-standing تصادم: o6356 جُڑا، o64806 برتن؛ heat-flushes-stool: o3602 جُڑا (during-گم اصول)، o64573 برتن؛ o64833 single-remedy اتفاق خارج) — سب جوڑوں پر ادویات عین برابر",
+ "page_headers": "68/68 MEDI-T صفحہ-سرخی paras آرٹیفیکٹ — after_anchor سے skip — ہر صفحے کی پہلی قطار کے والد-سیاق سے مطابق (parse_back_source.py)",
+ "parser_fix": "MEDI-T unclosed <p> گلو فکس + para_depth capture (genf v188 — برقرار)؛ BACK P-اینکر آغاز (P884 nav-para — 4 slots)؛ اختتام P952 EXTREMITIES P-اینکر end_spec + FOOT کٹ (kentextr.htm)",
+ "vessels": "OOREP برتن legacy (133 مبہم + 181 اضافی): خالی m-برتن، کٹ-راستہ یونین (PAIN-walking 85، PAIN-motion 107، PAIN-sitting 99، PAIN-stitching 217، COLDNESS-extending 80، r3542 WEAKNESS 144-یونین، o64646 dislocated-والد 12، o4556 digging-sacrum 3-یونین {agar,calc-p,nux-v} — کتاب صرف {agar,nux-v}، calc-p ذیلی o4557 میں محفوظ) + 3 تصادم-ہار (o64573/o64806/o64833) — کل 314 legacy محفوظ، ادویات نقصان صفر"
+}
