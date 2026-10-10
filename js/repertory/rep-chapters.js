@@ -98,7 +98,7 @@ function initRepertoryBrowser(noAutoChapter) {
             console.error('Failed to load index', e);
             // Fallback to hardcoded for kent
             if (repCurrentBook === 'kent') {
-                repChapterNames = [{"key":"mind","name":"MIND","rubrics":4212},{"key":"vertigo","name":"VERTIGO","rubrics":523},{"key":"head","name":"HEAD","rubrics":6266},{"key":"eye","name":"EYE","rubrics":1723},{"key":"vision","name":"VISION","rubrics":933},{"key":"ear","name":"EAR","rubrics":1910},{"key":"hearing","name":"HEARING","rubrics":201},{"key":"nose","name":"NOSE","rubrics":1455},{"key":"face","name":"FACE","rubrics":2053},{"key":"mouth","name":"MOUTH","rubrics":1536},{"key":"teeth","name":"TEETH","rubrics":806},{"key":"throat","name":"THROAT INTERNAL","rubrics":1042},{"key":"external_throat","name":"EXTERNAL THROAT","rubrics":305},{"key":"stomach","name":"STOMACH","rubrics":2999},{"key":"abdomen","name":"ABDOMEN","rubrics":3200},{"key":"rectum","name":"RECTUM","rubrics":1209},{"key":"stool","name":"STOOL","rubrics":283},{"key":"bladder","name":"BLADDER","rubrics":820},{"key":"kidneys","name":"KIDNEYS","rubrics":355},{"key":"prostate_gland","name":"PROSTATE GLAND","rubrics":143},{"key":"urethra","name":"URETHRA","rubrics":607},{"key":"urine","name":"URINE","rubrics":465},{"key":"genitalia_male","name":"MALE GENITALIA","rubrics":1126},{"key":"genitalia_female","name":"FEMALE GENITALIA","rubrics":1400},{"key":"larynx_and_trachea","name":"LARYNX AND TRACHEA","rubrics":796},{"key":"respiration","name":"RESPIRATION","rubrics":719},{"key":"cough","name":"COUGH","rubrics":1442},{"key":"expectoration","name":"EXPECTORATION","rubrics":414},{"key":"chest","name":"CHEST","rubrics":3165},{"key":"back","name":"BACK","rubrics":3640},{"key":"extremities","name":"EXTREMITIES","rubrics":14915},{"key":"sleep","name":"SLEEP","rubrics":1014},{"key":"chill","name":"CHILL","rubrics":736},{"key":"fever","name":"FEVER","rubrics":586},{"key":"perspiration","name":"PERSPIRATION","rubrics":413},{"key":"skin","name":"SKIN","rubrics":1164},{"key":"generalities","name":"GENERALITIES","rubrics":1898}];
+                repChapterNames = [{"key":"mind","name":"MIND","rubrics":4212},{"key":"vertigo","name":"VERTIGO","rubrics":523},{"key":"head","name":"HEAD","rubrics":6266},{"key":"eye","name":"EYE","rubrics":1723},{"key":"vision","name":"VISION","rubrics":933},{"key":"ear","name":"EAR","rubrics":1910},{"key":"hearing","name":"HEARING","rubrics":201},{"key":"nose","name":"NOSE","rubrics":1455},{"key":"face","name":"FACE","rubrics":2053},{"key":"mouth","name":"MOUTH","rubrics":1536},{"key":"teeth","name":"TEETH","rubrics":806},{"key":"throat","name":"THROAT INTERNAL","rubrics":1042},{"key":"external_throat","name":"EXTERNAL THROAT","rubrics":305},{"key":"stomach","name":"STOMACH","rubrics":2999},{"key":"abdomen","name":"ABDOMEN","rubrics":3200},{"key":"rectum","name":"RECTUM","rubrics":1209},{"key":"stool","name":"STOOL","rubrics":283},{"key":"bladder","name":"BLADDER","rubrics":820},{"key":"kidneys","name":"KIDNEYS","rubrics":355},{"key":"prostate_gland","name":"PROSTATE GLAND","rubrics":143},{"key":"urethra","name":"URETHRA","rubrics":607},{"key":"urine","name":"URINE","rubrics":465},{"key":"genitalia_male","name":"MALE GENITALIA","rubrics":1126},{"key":"genitalia_female","name":"GENITALIA FEMALE","rubrics":1493},{"key":"larynx_and_trachea","name":"LARYNX AND TRACHEA","rubrics":796},{"key":"respiration","name":"RESPIRATION","rubrics":719},{"key":"cough","name":"COUGH","rubrics":1442},{"key":"expectoration","name":"EXPECTORATION","rubrics":414},{"key":"chest","name":"CHEST","rubrics":3165},{"key":"back","name":"BACK","rubrics":3640},{"key":"extremities","name":"EXTREMITIES","rubrics":14915},{"key":"sleep","name":"SLEEP","rubrics":1014},{"key":"chill","name":"CHILL","rubrics":736},{"key":"fever","name":"FEVER","rubrics":586},{"key":"perspiration","name":"PERSPIRATION","rubrics":413},{"key":"skin","name":"SKIN","rubrics":1164},{"key":"generalities","name":"GENERALITIES","rubrics":1898}];
             } else {
                 repChapterNames = [];
             }
@@ -611,6 +611,85 @@ function _repBuildKentGenmSourceTree(data){
             var grade=Number(remedies[code]);
             if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
                 throw new Error('Invalid Kent GENITALIA MALE medicine grade at '+e.rid+': '+code);
+        });
+        var node={
+            name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
+            children:{},order:[],remedies:remedies,count:1,hasRubric:true,
+            path:sourcePath,pathTitle:sourcePath,displayPathTitle:sourcePath,
+            translationTitle:String(rec.translation_title||sourcePath),
+            oorep_id:rec.oorep_id||null,rid:e.rid,sourceCanonical:true,
+            display:rec.display&&typeof rec.display==='object'&&!Array.isArray(rec.display)?rec.display:null
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        parent.count=(parent.count||0)+1;
+        byRid[e.rid]=node;
+    });
+    return root;
+}
+
+// 🔑 v188: تناسلی اعضاء (عورت) باب کی ماخذی قطاریں (صفحات 714–745) — homeoint.org
+// (parse_genf_source.py + crosswalk_genf.py + overlay_genf.py)؛ پرانی مقامی قطاریں
+// فائل میں محفوظ مگر ماخذی درخت سے باہر۔ باب حد: GENITALIA FEMALE = 714–745 (MEDI-T انتساب —
+// kentgenf.htm فہرست 32/32 صفحہ-اندراجات: 714(جڑ)/715..745)؛ آغاز kent0710.htm کے NAME="FEMALE"
+// اینکر سے (GENITALIA FEMALE سرخی — p714: جڑ + ABORTION + 3 subs)؛ اختتام kent0740 کے اندر
+// p745 مکمل — آخری ربرک WEAKNESS, sensation of, in region of uterus during passage of stool
+// and urine {calc-p} — LARYNX AND TRACHEA (P746 اینکر) سے پہلے؛ kent0745 استعمال نہیں
+// (p745 ڈپ + LARYNX مواد)۔ سرحدی ڈپ صفحات (p715/p720/p725/p730/p735/p740/p745) پچھلی فائل
+// میں اصل، اگلی میں ڈپ (skip_until) — ساتوں text-identical تصدیق شدہ (verify_genf_dups.py)۔
+// پارسر فکس: MEDI-T unclosed <p> گلو (‏<p>MAIN : rem<dir>‏ / ‏<p>----------<dir>‏) — ‏<p>‎ پر
+// flush + para_depth پیراگراف-آغاز پر capture (60 قطاریں بازیافت)؛ p714 انتساب FEMALE اینکر
+// (غیر-P) سے init_page=714۔ 6 clamps (سب کتابی یتیم-indentation یا MEDI-T اضافی <dir> —
+// x-coords genf_clamp_xcoords.json میں دستاویزی: idx36 menses-after @128.7 یتیم، idx87 morning
+// @128.7 DESIRE-diminished، idx121 right=left @128.7، idx172 standing=walking @128.7،
+// idx650 amel. @236.7 یتیم، idx1257 morning=afternoon @128.7)۔ 1 کتابی دہرائی جوڑی merge
+// (union ادویات): PAIN,Ovaries,extending-to-abdomen (p732+p733) — PDF متن سے تصدیق۔
+// 22 نئے hN (جڑ سمیت) + 135 legacy (24 مبہم OOREP برتن/یونین سمیت: CANCER 54-یونین،
+// PAIN uterus menses 55-یونین، MENSES 262-یونین، DESIRE 98-یونین، PAIN …extending برتن)۔
+// PDF alignment: 1349/1358 حرف-بہ-حرف عین مطابق + 9 PDF-طرفہ آرٹی فاکٹ قطاریں (7 فولیو-گلا
+// merc1559c/coc1566c/merc1567c/rhus1575t/kali1603c/merci1613r + 1 لیبل-ریپ :agar + 1
+// gushing-swallow)، صفر فرق/drift/دونوں-طرفہ باقیات (verify_pdf_genf.py — کتابی ص 714-745،
+// PDF index 1579–1648)۔
+var _REP_KENT_GENF_SOURCE_MARKER='homeoint-genf-v1';
+var _REP_KENT_GENF_PAGES={first:714,last:745}, _REP_KENT_GENF_COUNT=1358;
+function _repKentGenfSourceEntries(data){
+    return Object.keys(data||{}).map(function(rid){return {rid:String(rid),rec:data[rid]};})
+        .filter(function(e){return e.rec&&e.rec.source_canonical===_REP_KENT_GENF_SOURCE_MARKER;});
+}
+function _repHasKentGenfSourceData(data){
+    return _repKentGenfSourceEntries(data).length===_REP_KENT_GENF_COUNT;
+}
+function _repBuildKentGenfSourceTree(data){
+    var entries=_repKentGenfSourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    if(entries.length!==_REP_KENT_GENF_COUNT) throw new Error('Expected '+_REP_KENT_GENF_COUNT+' Kent GENITALIA FEMALE source rows; found '+entries.length);
+    entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
+    var byRid=Object.create(null);
+    entries.forEach(function(e,index){
+        var rec=e.rec, order=Number(rec.source_order), parentId=rec.source_parent_id;
+        if(order!==index) throw new Error('Invalid Kent GENITALIA FEMALE source order at '+e.rid+': '+order);
+        var page=Number(rec.source_page), depth=Number(rec.source_depth), label=String(rec.source_label||'');
+        if(page<714||page>745) throw new Error('Kent GENITALIA FEMALE source row outside pages 714–745: '+e.rid);
+        if(!label) throw new Error('Empty Kent GENITALIA FEMALE source label at '+e.rid);
+        var labels=Array.isArray(rec.source_path_labels)?rec.source_path_labels.map(String):[];
+        if(!labels.length||labels[labels.length-1]!==label||depth!==labels.length-1)
+            throw new Error('Kent GENITALIA FEMALE source path/depth mismatch at '+e.rid);
+        var sourcePath=String(rec.source_path||'');
+        if(sourcePath!==labels.join(', ')) throw new Error('Kent GENITALIA FEMALE source full path mismatch at '+e.rid);
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent GENITALIA FEMALE source parent '+parentId+' for '+e.rid);
+        if(parentId!==null && Number(parent.sourceOrder)>=index)
+            throw new Error('Kent GENITALIA FEMALE source parent must precede child at '+e.rid);
+        var parentPath=parent===root?'':String(parent.pathTitle||'');
+        var expectedPath=parentPath?parentPath+', '+label:label;
+        if(expectedPath!==sourcePath) throw new Error('Kent GENITALIA FEMALE source parent link/path mismatch at '+e.rid);
+        if(parent.children[label]) throw new Error('Duplicate Kent GENITALIA FEMALE sibling label '+label+' at '+e.rid);
+        var remedies=rec.r;
+        if(!remedies||typeof remedies!=='object'||Array.isArray(remedies))
+            throw new Error('Missing Kent GENITALIA FEMALE remedies at '+e.rid);
+        Object.keys(remedies).forEach(function(code){
+            var grade=Number(remedies[code]);
+            if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
+                throw new Error('Invalid Kent GENITALIA FEMALE medicine grade at '+e.rid+': '+code);
         });
         var node={
             name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
@@ -2105,6 +2184,10 @@ function buildRubricTree(data){
     if(repCurrentBook === 'kent' && repCurrentChapter === 'genitalia_male' && _repHasKentGenmSourceData(data)){
         return _repBuildKentGenmSourceTree(data);
     }
+    // 🔑 v188: تناسلی اعضاء (عورت) باب کی ماخذی قطاریں (صفحات 714–745) — وہی طرز جو تناسلی اعضاء (مرد) میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'genitalia_female' && _repHasKentGenfSourceData(data)){
+        return _repBuildKentGenfSourceTree(data);
+    }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest
     // already-existing rubric prefix, not by every comma.
@@ -2426,6 +2509,10 @@ function buildRubricTree(data){
     // 🔑 v187: تناسلی اعضاء (مرد) باب کی ماخذی قطاریں (صفحات 693–714) — وہی طرز جو پیشاب (URINE) باب میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'genitalia_male' && _repHasKentGenmSourceData(data)){
         return _repBuildKentGenmSourceTree(data);
+    }
+    // 🔑 v188: تناسلی اعضاء (عورت) باب کی ماخذی قطاریں (صفحات 714–745) — وہی طرز جو تناسلی اعضاء (مرد) میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'genitalia_female' && _repHasKentGenfSourceData(data)){
+        return _repBuildKentGenfSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest

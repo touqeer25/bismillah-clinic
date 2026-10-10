@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 187 · **اصل مخزن:**
+**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 188 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -2292,3 +2292,26 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 1. ڈاکٹر تناسلی-مرد-تین-کالم.csv کی تصدیق (1044 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (18 اندراجات — خاص طور پر 10 clamps اور 2 کتابی دہرائی merge)
 2. اگلا باب: کتابی ترتیب کے مطابق — **GENITALIA FEMALE (MEDI-T ص 715 سے، kent0710 کے FEMALE اینکر + kent0715/kent0720 وغیرہ؛ انڈیکس kentgenf.htm — kentrep1/ راستہ)**
 3. Vercel پش (v187 کے بعد)
+
+## مکمل شدہ پڑتال — تناسلی اعضاء (عورت) GENITALIA FEMALE باب: ماخذی درخت + ادویات + اردو (نسخہ 188)
+
+### 26.1 کیا کیا گیا (10 اکتوبر 2026)
+- **ماخذ:** homeoint.org MEDI-T صفحات 714–745 — kentgenf.htm انڈیکس کے **32/32 صفحہ-اندراجات** (714 جڑ/715..745)؛ فائلیں: kent0710 (FEMALE اینکر سے) + kent0715-0740؛ **نوٹ: kent0725-0745 books/kentrep2/ میں ہیں** (kentrep1 نہیں) — kentgenf hrefs سے تصدیق
+- **پارسر فکس (نئی دریافت):** female فائلوں میں MEDI-T unclosed `<p>` گلو (`<p>MAIN : rem<dir>` / `<p>----------<dir>`) — پرانا flush منطق 60 قطاریں ضائع کر رہا تھا (ہر skip-سرحد صفحے کی پہلی اصل قطار بھی)؛ فکس: `<p>` پر پچھلا پیراگراف flush + `para_depth` پیراگراف-آغاز پر capture — genm فائلوں میں یہ گلو نہیں تھا
+- **ماخذی درخت:** 1358 منفرد قطاریں (جڑ + 1357) — overlay: 1336 جُڑے + 22 نئے hN + 135 legacy محفوظ = 1493 کل
+- **6 clamps** (سب x-coord ثابت genf_clamp_xcoords.json): idx36 @128.7 یتیم، idx87 @128.7 (DESIRE diminished glued — OOREP بھی یہی)، idx121/172/1257 (clamp x = بھائی x)، idx650 @236.7 یتیم
+- **1 کتابی دہرائی:** PAIN,Ovaries,extending-to-abdomen (p732+p733) union merge
+- **PDF تصدیق:** 1349/1358 حرف-بہ-حرف (99.3%) + 9 PDF-طرفہ artifacts (7 فولیو-گلا merc1559c/coc1566c/merc1567c/rhus1575t/kali1603c/merci1613r + 1 لیبل-ریپ :agar + 1 gushing-swallow) + 1 drift — صفر homeoint-طرفہ فرق (genf_pdf_verify.json)
+- **باب-حد:** آغاز kent0710 NAME="FEMALE" اینکر (p714: جڑ + ABORTION + 3 subs؛ init_page=714)؛ اختتام kent0740 میں p745 مکمل (آخری ربرک WEAKNESS, sensation of, in region of uterus during passage of stool and urine {calc-p}) — LARYNX AND TRACHEA (P746) سے پہلے؛ kent0745 استعمال نہیں (p745 ڈپ + LARYNX مواد)
+- **7/7 سرحدی ڈپ صفحات** text-identical (verify_genf_dups.py — p715/720/725/730/735/740/745)
+- **اردو:** 1358/1358 فعال (1336 منتقل + 21 ہاتھ سے meta.auto=21 + 344 top-down ہم آہنگی)؛ جڑ «تناسلی اعضاء (عورت) — »؛ 684 غیر-درخت پرانی محفوظ؛ لاطینی صرف agg./amel.
+- **کوڈ:** rep-chapters.js v188 (_repBuildKentGenfSourceTree + dispatch؛ fallback نام GENITALIA FEMALE/1493)؛ kent-tree-fix v147 قاعدہ (genitalia_female.h = 135 legacy؛ g/p صاف)؛ _index 1493/name «GENITALIA FEMALE»؛ master sync minified 21.9 MiB (round-trip)؛ mind sidecar rebuild (4358)؛ CACHE v188؛ پنز: index.html 4×?v=187→188 + 18-rubrics-ur ?v=179→180 + REP_RUBUR_V 180
+- **ٹیسٹ:** نئی kent_genf_homeoint_source.test.js (درخت 1358، ABORTION 76-ادویہ پہلا مین، fright-from/itching گلو-بازیافت، DESIRE diminished 27، ENLARGED right/left بھائی، MENSES daytime-only 6، union، d4 amel. clamp، PROLAPSUS 91، WEAKNESS آخری، LARYNX/MALE لیک نہیں، اردو 100%، مانی فیسٹ، _index)؛ v107 F8 (1458→1358/96 مین)/F9 (کتابی ترتیب نئے راستوں پر)/G7 4597→4588/Q9 67429→67329؛ 26 ٹیسٹ فائلوں کے پنز (187→188، 179→180)؛ editor v163/v164 پن-ٹیبل → **مکمل سوئٹ 65/65 پاس + jsdom 5/5** (tree_view_integrity 1,464,489 چیک سمیت)
+- **رپورٹیں (make_genf_reports.py):** تناسلی-عورت-تین-کالم.csv (1336) · ہیرارکی-تصدیق.csv (1359) · تمام-اندراجات.csv (1358) · پرانی-قطاریں.csv (135 = 24 مبہم + 17 خالی + 94 مجموعے) · پڑتال.xlsx · اصلاحات-کا-خلاصہ.md — repo/kent_sources/reports + download
+- **تصدیق-ضروری CSV:** append_genf_confirmations.py — 15 اندراجات (باب-حد 2، ڈپ 1، راستے 1، پارسر فکس 1، clamps 1 جامع، دہرائی 1، PDF artifacts 1، مبہم 4، نئے hN 1، اردو 2) — کل 213
+- HANDOFF.md سرورق نسخہ 188 + §26
+
+### 26.2 اگلے قدم
+1. ڈاکٹر تناسلی-عورت-تین-کالم.csv کی تصدیق (1336 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (15 نئے اندراجات — خاص طور پر پارسر فکس اور 6 clamps)
+2. اگلا باب: کتابی ترتیب کے مطابق — **LARYNX AND TRACHEA (MEDI-T ص 746 سے، kent0745 کا P746 اینکر + kent0750/kent0755 وغیرہ kentrep2/ راستہ؛ انڈیکس kentlary.htm)**
+3. Vercel پش (v188 کے بعد)

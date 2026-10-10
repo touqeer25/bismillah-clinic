@@ -122,8 +122,8 @@ if (fs.existsSync(csvPath)) {
 // 7) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const swf = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=187/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v178)');
-assert(/CACHE_NAME='bhc-clinic-v187'/.test(swf), 'خدمت کار نسخہ 178');
+assert(/rep-chapters\.js\?v=188/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v178)');
+assert(/CACHE_NAME='bhc-clinic-v188'/.test(swf), 'خدمت کار نسخہ 178');
 assert(/v178: معدہ باب/.test(code), 'rep-chapters.js میں معدہ بلڈر درج');
 
 console.log('معدہ باب: ماخذی درخت 2940 قطاریں (صفحات 476–540)، جڑ STOMACH، ادویات ماخذی، اردو 100%، پرانی قطاریں محفوظ — کامیاب');

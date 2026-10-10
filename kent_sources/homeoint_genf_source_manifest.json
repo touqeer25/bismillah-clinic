@@ -1,0 +1,19 @@
+{
+ "book": "kent",
+ "chapter": "genitalia_female",
+ "source": "homeoint.org/books/kentrep1+kentrep2 kent0710+kent0715+kent0720+kent0725+kent0730+kent0735+kent0740 (MEDI-T HTML)",
+ "pages": "714 – 745 (MEDI-T انتساب)",
+ "source_canonical": "homeoint-genf-v1",
+ "source_rows": 1358,
+ "unique_source_paths": 1358,
+ "matched_app_records": 1336,
+ "new_source_records": 22,
+ "legacy_local_records": 135,
+ "ambiguous_app_records": 24,
+ "pdf_verification": "1349/1358 حرف-بہ-حرف + 9 PDF-طرفہ artifacts (7 فولیو-گلا merc1559c/coc1566c/merc1567c/rhus1575t/kali1603c/merci1613r + 1 لیبل-ریپ :agar + 1 gushing-swallow) + 1 drift (gushing کا نتیجہ) — صفر homeoint-طرفہ فرق/drift/باقیات (genf_pdf_verify.json)",
+ "chapter_boundaries": "آغاز kent0710 NAME=\"FEMALE\" اینکر (GENITALIA FEMALE سرخی — p714: جڑ + ABORTION + 3 subs)؛ اختتام kent0740 میں p745 مکمل (آخری ربرک WEAKNESS, sensation of, in region of uterus during passage of stool and urine {calc-p}) — LARYNX AND TRACHEA (P746) سے پہلے؛ kent0745 استعمال نہیں (p745 ڈپ + LARYNX مواد)",
+ "dup_pages": "p715/p720/p725/p730/p735/p740/p745 سرحدی صفحات — پچھلی فائل میں اصل، اگلی میں ڈپ (skip_until)؛ ساتوں text-identical تصدیق شدہ (verify_genf_dups.py — فرق صرف nav link-text)",
+ "clamps": "6 (سب کتابی یتیم-indentation یا MEDI-T اضافی <dir> — x-coords: idx36 menses-after @128.7 یتیم، idx87 morning @128.7 (DESIRE diminished — app-legacy مطابق glued لیبل)، idx121 right @128.7=left، idx172 standing-agg @128.7=walking-agg، idx650 amel. @236.7 یتیم (back-amel @200.7)، idx1257 morning @128.7=afternoon — genf_clamp_xcoords.json)",
+ "book_duplicates": "1 کتابی دہرائی جوڑی merge (union ادویات): PAIN,Ovaries,extending-to-abdomen (p732+p733) — PDF متن سے تصدیق",
+ "parser_fix": "MEDI-T unclosed <p> گلو (‏<p>MAIN : rem<dir>‏ / ‏<p>----------<dir>‏) — ‏<p>‎ پر flush + para_depth پیراگراف-آغاز پر capture (60 قطاریں بازیافت؛ skip-سرحد پر پہلی قطار محفوظ)؛ p714 انتساب FEMALE اینکر (غیر-P) سے init_page=714"
+}
