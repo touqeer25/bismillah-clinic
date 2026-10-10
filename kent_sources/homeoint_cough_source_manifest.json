@@ -1,0 +1,21 @@
+{
+ "book": "kent",
+ "chapter": "cough",
+ "source": "homeoint.org/books/kentrep+kentrep2 kent0775+kent0780+kent0785+kent0790+kent0795+kent0800+kent0805+kent0810 (MEDI-T HTML)",
+ "pages": "778 – 811 (MEDI-T انتساب)",
+ "source_canonical": "homeoint-cough-v1",
+ "source_rows": 1455,
+ "unique_source_paths": 1455,
+ "matched_app_records": 1449,
+ "new_source_records": 6,
+ "legacy_local_records": 241,
+ "ambiguous_app_records": 30,
+ "pdf_verification": "1428/1454 حرف-بہ-حرف + 25 PDF-طرفہ artifacts 15 واقعات میں (10 لیبل-ورپ جوڑے — PDF wrapped اگلا لیبل پچھلے ریکارڈ کی ادویات میں گلا: raph.11a.m/apis.about/staph.withsopor/med.first/cina.spasmodic/stram.frightensthem/verb.crowing/crott.face/tarax.sensation/lactac.springsup + 4 فولیو-گلا rhus1696t/ph1705ac/carb1718s/rhus1735t + 1 لیبل-ورپ جذب OVERPOWERING→OVERHEATING p798 — colon اپنی سطر پر، drift 1 قطار) — صفر homeoint-طرفہ فرق/دونوں-طرفہ باقیات (cough_pdf_verify.json)",
+ "chapter_boundaries": "آغاز kent0775 کے اندر NAME=\"P778\" COUGH P-اینکر (nav para کے اندر — after_anchor slot-1 nav-text para + slot-2 سرخ COUGH para پر skip، separator JUNK، جڑ COUGH d0 slot-4 سے؛ p778: جڑ + DAYTIME {69} + ذیلیاں + MORNING {main} — MORNING کی ذیلیاں p779 پر)؛ اختتام kent0810 کے اندر NAME=\"P812\" EXPECTORATION P-اینکر (آخری ربرک and coughing consecutively {Ant-t., nat-m.} YAWNING ذیلی p811)؛ kent0815 استعمال نہیں",
+ "dup_pages": "p780/p785/p790/p795/p800/p805/p810 سرحدی صفحات — پچھلی فائل میں اصل، اگلی میں ڈپ (skip_until)؛ ساتوں text-identical تصدیق شدہ (verify_cough_dups.py — فرق صرف nav link-text)",
+ "clamps": "8 کتابی یتیم-indentation: x = خام سطح — idx111 before p781 @164.7 (raw d3→d2)، idx190 forward agg. p783 @128.7 (d2→d1)، idx433 loose after eating p788 @164.7 (d3→d2)، idx597 amel. p792 @164.7 (d3→d2)، idx730 extending through trachea p795 @128.7 (d2→d1)، idx810 daytime p797 @128.7 (d2→d1)، idx816 daytime p797 @128.7 (d2→d1)، idx1079 wakens p803 @200.7 (d4→d3) — سب cough_clamp_xcoords.json",
+ "book_duplicates": "کوئی نہیں (دوہرے راستے = 0 — parser تصدیق)",
+ "manual_matches": "71 دستی J=1.00 (وقت-فارمیٹ 48: OOREP 6 a.m. to 7 a.m. ← کتابی 6 to 7 a.m. طرز؛ agg.-لاحقہ 19 genm r381 اصول؛ OOREP لیبل-خرابیاں 4: measles→menses ×2، from cold→open air، اضافی سیاق morning/night ×2 — PDF حرف-بہ-حرف کتاب کی تصدیق) — سب جوڑوں پر ادویات عین برابر",
+ "page_headers": "33/33 MEDI-T صفحہ-سرخی paras (مثلاً «MORNING, 6 a.m.» p779، «EVENING, bed, in» p780، «WHOOPING, daytime» p811) آرٹیفیکٹ — after_anchor سے skip — ہر صفحے کی پہلی قطار کے والد-سیاق سے مطابق (parse_cough_source.py)؛ p778 slot-2 سرخ COUGH para (باب-عنوان دہرائی) skip",
+ "parser_fix": "MEDI-T unclosed <p> گلو (‏<p>MAIN : rem<dir>‏ / ‏<p>----------<dir>‏) — ‏<p>‎ پر flush + para_depth پیراگراف-آغاز پر capture (genf v188 فکس — برقرار)؛ COUGH P-اینکر آغاز (P778 nav-para — 4 slots: nav + سرخ COUGH + sep + جڑ)؛ اختتام P812 P-اینکر end_spec"
+}

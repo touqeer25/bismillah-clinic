@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 190 · **اصل مخزن:**
+**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 191 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -2361,3 +2361,26 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 1. ڈاکٹر حلقوم-تین-کالم.csv کی تصدیق (667 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (13 نئے اندراجات — خاص طور پر 11 clamps کی x-coord نوعیت اور 9 دستی جوڑے)
 2. اگلا باب: کتابی ترتیب کے مطابق — **RESPIRATION (MEDI-T ص 763 سے، kent0760 کا RESPIRATION اینکر + P763/P764 اسی فائل میں + kent0765/0770 وغیرہ kentrep2/؛ انڈیکس kentresp.htm)**
 3. Vercel پش (v189 کے بعد)
+
+## مکمل شدہ پڑتال — کھانسی COUGH باب: ماخذی درخت + ادویات + اردو (نسخہ 191)
+
+### 29.1 کیا کیا گیا (10 اکتوبر 2026)
+- **ماخذ:** homeoint.org MEDI-T صفحات 778–811 — kentcoug.htm انڈیکس کے **35 rubric اندراجات** (جڑ صفحہ p778 + P779..P811 — ہر صفحے کا پہلا ربرک)؛ فائلیں: kent0775 (P778 اینکر سے) + kent0780/0785/0790/0795/0800/0805/0810 (سب kentrep2/)؛ kent0815 استعمال نہیں
+- **ماخذی درخت:** 1455 منفرد قطاریں (جڑ + 1454) — overlay: 1449 جُڑے (1371 لالچی + **71 دستی J=1.00** + 7 فال بیک) + 6 نئے hN (جڑ COUGH + AFTERNOON 1 p.m. + IRRITATION in air passages, from + 3 See-ref: COAL/HARASSING/SHATTERING) + 241 legacy محفوظ = 1696 کل؛ کوئی کتابی دہرائی نہیں (دوہرے راستے = 0)
+- **دستی جوڑے (71 — OOREP لیبل-فرق، ادویات عین):** وقت-فارمیٹ 48 («6 a.m. to 7 a.m.» ← «6 to 7 a.m.» طرز — باب کا سب سے بڑا وقت-خاندان)، agg.-لاحقہ 19 (genm r381 اصول)، OOREP لیبل-خرابیاں 4 (**measles→menses ×2** — o11611/o11612؛ **from cold→open air** — o11543؛ PDF حرف-بہ-حرف کتاب کی تصدیق)، اضافی سیاق 2 (o12494 morning، o12587 night)؛ MULTI والدینی حل 7 جوڑے (EVENING⟷WHOOPING 6-to-10، NIGHT⟷STICKING 1-to-4، MORNING 7-to-10⟷8-to-9 وغیرہ)
+- **8 clamps** (سب x-coord ثابت cough_clamp_xcoords.json — سب **کتابی یتیم-indentation**، x = خام سطح): idx111 p781 «before» @164.7 (d3→d2) · idx190 p783 @128.7 · idx433 p788 @164.7 · idx597 p792 @164.7 · idx730 p795 @128.7 · idx810/816 p797 @128.7 · idx1079 p803 «wakens» @200.7 (d4→d3) — کوئی MEDI-T اضافی <dir> مثال نہیں
+- **PDF تصدیق:** 1428/1454 حرف-بہ-حرف (98.2%) + 25 PDF-طرفہ آرٹیفیکٹ قطاریں **15 واقعات** میں (10 لیبل-ورپ جوڑے — PDF wrapped اگلا لیبل پچھلے ریکارڈ کی ادویات میں: raph.11a.m/apis.about/staph.withsopor/med.first/cina.spasmodic/stram.frightensthem/verb.crowing/crott.face/tarax.sensation/lactac.springsup + 4 فولیو-گلا rhus1696t/ph1705ac/carb1718s/rhus1735t + 1 لیبل-ورپ جذب OVERPOWERING→OVERHEATING p798 — colon اپنی سطر پر، drift 1 قطار) — صفر homeoint-طرفہ فرق، صفر دونوں-طرفہ باقیات (cough_pdf_verify.json)
+- **MEDI-T صفحہ-سرخی paras (33/33 آرٹیفیکٹ):** ہر P-اینکر کے بعد والد-سیاق para («MORNING, 6 a.m.» p779، «EVENING, bed, in» p780، «WHOOPING, daytime» p811) — کتاب میں نہیں؛ after_anchor skip + 33/33 سیاق تصدیق؛ p778 کی slot-2 سرخ «COUGH» عنوان-دہرائی بھی skip
+- **باب-حد:** آغاز kent0775 کے اندر NAME="P778" COUGH P-اینکر (nav para کے اندر — after_anchor slot-1 nav + slot-2 سرخ COUGH، separator JUNK، جڑ slot-4؛ p778: جڑ + DAYTIME {69} + ذیلیاں + MORNING {147})؛ اختتام kent0810 کے اندر NAME="P812" EXPECTORATION P-اینکر (آخری ربرک and coughing consecutively {Ant-t., nat-m.} — YAWNING ذیلی p811)؛ یاد رہے «EXPECTORATION amel.» جائز COUGH ربرک (p790)
+- **7/7 سرحدی ڈپ صفحات** text-identical (verify_cough_dups.py — p780/785/790/795/800/805/810)
+- **اردو:** 1455/1455 فعال (1449 منتقل — 71 دستی جوڑوں سمیت + جڑ «کھانسی — کھانسی» + 5 auto + **230 top-down دوبارہ اخذ** — وقت-فارمیٹ «3 سے 4 بجے» اصول + سیاق بحالی «آدھی رات» + **15 ہاتھ-لکھے** — 12 وقت-فارمیٹ پرانی روایت «2 بجے اور 2.30 بجے»/«10.30 بجے»/«رات 4 بجے تک» + IRRITATION-والد «اُس سے» + AFTERNOON 1 p.m.)؛ 620 غیر-درخت پرانی محفوظ (فائل 2075)؛ لاطینی صرف amel./agg. (47)؛ صفر ہندسہ-اکیلا دم
+- **کوڈ:** rep-chapters.js v191 (_repBuildKentCoughSourceTree + dispatch؛ fallback 1442→1696)؛ kent-tree-fix v147 قاعدہ (cough.h = 241 legacy؛ g/p صاف)؛ _index 1696/name «COUGH»؛ master sync minified 22.8 MiB (round-trip)؛ mind sidecar rebuild (4358)؛ CACHE v191؛ پنز: index.html 4×?v=190→191 + 18-rubrics-ur ?v=182→183 + REP_RUBUR_V 183
+- **ٹیسٹ:** نئی kent_cough_homeoint_source.test.js (درخت 1455، جڑ پہلی، DAYTIME 69/MORNING 147/NIGHT 162، clamps idx111/idx1079 ساخت-جائزہ، دستی o12086/o11611/o11543/o12377، MULTI o11693⟷o12671، IRRITATION 60 جڑ-مین، YAWNING آخری، EXPECTORATION-لیک نہیں، 3 See-ref hN، اردو 100%، مانی فیسٹ، _index، tree-fix 241)؛ v107 H7/H8 (maخذی درخت + کتابی ترتیب YAWNING آخری مین)/H9/H10 (کھانسی بھی amel./agg. سواء)/G7 4582→4556/Q9 67236→67149/P4/Q4 + 26 ٹیسٹ فائلوں کے پنز (190→191، 182→183، CACHE v191) + editor v163/v164 پن-ٹیبل → **مکمل سوئٹ 68/68 پاس + jsdom 5/5** (tree_view_integrity 1,463,589 چیک)
+- **رپورٹیں (make_cough_reports.py):** کھانسی-تین-کالم.csv (1449) · ہیرارکی-تصدیق.csv (1455) · تمام-اندراجات.csv (1455) · پرانی-قطاریں.csv (241 = 17 مبہم/خاص + 126 خالی + 98 مجموعے/برتن) · پڑتال.xlsx · اصلاحات-کا-خلاصہ.md — repo/kent_sources/reports + download
+- **تصدیق-ضروری CSV:** append_cough_confirmations.py — 13 اندراجات (باب-حد 2، ڈپ 1، صفحہ-سرخی 1، clamps 1 جامع، دہرائی-صفر 1، PDF artifacts 1، دستی 1 جامع، مبہم 2، نئے hN 1، اردو 2) — کل 252
+- HANDOFF.md سرورق نسخہ 191 + §29
+
+### 29.2 اگلے قدم
+1. ڈاکٹر کھانسی-تین-کالم.csv کی تصدیق (1449 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (13 نئے اندراجات — خاص طور پر 8 clamps کی x-coord نوعیت، 71 دستی جوڑے — خاص طور پر measles→menses لیبل-خرابیاں — اور PDF کے 10 لیبل-ورپ جوڑے)
+2. اگلا باب: کتابی ترتیب کے مطابق — **EXPECTORATION (MEDI-T ص 812 سے، kent0810 کا P812 اینکر + P813/P814/P815 اسی فائل میں + kent0815 وغیرہ kentrep2/؛ انڈیکس kentexpe.htm — 348 ربرک کا چھوٹا باب)**
+3. Vercel پش (v191 کے بعد)

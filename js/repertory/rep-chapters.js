@@ -98,7 +98,7 @@ function initRepertoryBrowser(noAutoChapter) {
             console.error('Failed to load index', e);
             // Fallback to hardcoded for kent
             if (repCurrentBook === 'kent') {
-                repChapterNames = [{"key":"mind","name":"MIND","rubrics":4212},{"key":"vertigo","name":"VERTIGO","rubrics":523},{"key":"head","name":"HEAD","rubrics":6266},{"key":"eye","name":"EYE","rubrics":1723},{"key":"vision","name":"VISION","rubrics":933},{"key":"ear","name":"EAR","rubrics":1910},{"key":"hearing","name":"HEARING","rubrics":201},{"key":"nose","name":"NOSE","rubrics":1455},{"key":"face","name":"FACE","rubrics":2053},{"key":"mouth","name":"MOUTH","rubrics":1536},{"key":"teeth","name":"TEETH","rubrics":806},{"key":"throat","name":"THROAT INTERNAL","rubrics":1042},{"key":"external_throat","name":"EXTERNAL THROAT","rubrics":305},{"key":"stomach","name":"STOMACH","rubrics":2999},{"key":"abdomen","name":"ABDOMEN","rubrics":3200},{"key":"rectum","name":"RECTUM","rubrics":1209},{"key":"stool","name":"STOOL","rubrics":283},{"key":"bladder","name":"BLADDER","rubrics":820},{"key":"kidneys","name":"KIDNEYS","rubrics":355},{"key":"prostate_gland","name":"PROSTATE GLAND","rubrics":143},{"key":"urethra","name":"URETHRA","rubrics":607},{"key":"urine","name":"URINE","rubrics":465},{"key":"genitalia_male","name":"MALE GENITALIA","rubrics":1126},{"key":"genitalia_female","name":"GENITALIA FEMALE","rubrics":1493},{"key":"larynx_and_trachea","name":"LARYNX AND TRACHEA","rubrics":739},{"key":"respiration","name":"RESPIRATION","rubrics":784},{"key":"cough","name":"COUGH","rubrics":1442},{"key":"expectoration","name":"EXPECTORATION","rubrics":414},{"key":"chest","name":"CHEST","rubrics":3165},{"key":"back","name":"BACK","rubrics":3640},{"key":"extremities","name":"EXTREMITIES","rubrics":14915},{"key":"sleep","name":"SLEEP","rubrics":1014},{"key":"chill","name":"CHILL","rubrics":736},{"key":"fever","name":"FEVER","rubrics":586},{"key":"perspiration","name":"PERSPIRATION","rubrics":413},{"key":"skin","name":"SKIN","rubrics":1164},{"key":"generalities","name":"GENERALITIES","rubrics":1898}];
+                repChapterNames = [{"key":"mind","name":"MIND","rubrics":4212},{"key":"vertigo","name":"VERTIGO","rubrics":523},{"key":"head","name":"HEAD","rubrics":6266},{"key":"eye","name":"EYE","rubrics":1723},{"key":"vision","name":"VISION","rubrics":933},{"key":"ear","name":"EAR","rubrics":1910},{"key":"hearing","name":"HEARING","rubrics":201},{"key":"nose","name":"NOSE","rubrics":1455},{"key":"face","name":"FACE","rubrics":2053},{"key":"mouth","name":"MOUTH","rubrics":1536},{"key":"teeth","name":"TEETH","rubrics":806},{"key":"throat","name":"THROAT INTERNAL","rubrics":1042},{"key":"external_throat","name":"EXTERNAL THROAT","rubrics":305},{"key":"stomach","name":"STOMACH","rubrics":2999},{"key":"abdomen","name":"ABDOMEN","rubrics":3200},{"key":"rectum","name":"RECTUM","rubrics":1209},{"key":"stool","name":"STOOL","rubrics":283},{"key":"bladder","name":"BLADDER","rubrics":820},{"key":"kidneys","name":"KIDNEYS","rubrics":355},{"key":"prostate_gland","name":"PROSTATE GLAND","rubrics":143},{"key":"urethra","name":"URETHRA","rubrics":607},{"key":"urine","name":"URINE","rubrics":465},{"key":"genitalia_male","name":"MALE GENITALIA","rubrics":1126},{"key":"genitalia_female","name":"GENITALIA FEMALE","rubrics":1493},{"key":"larynx_and_trachea","name":"LARYNX AND TRACHEA","rubrics":739},{"key":"respiration","name":"RESPIRATION","rubrics":784},{"key":"cough","name":"COUGH","rubrics":1696},{"key":"expectoration","name":"EXPECTORATION","rubrics":414},{"key":"chest","name":"CHEST","rubrics":3165},{"key":"back","name":"BACK","rubrics":3640},{"key":"extremities","name":"EXTREMITIES","rubrics":14915},{"key":"sleep","name":"SLEEP","rubrics":1014},{"key":"chill","name":"CHILL","rubrics":736},{"key":"fever","name":"FEVER","rubrics":586},{"key":"perspiration","name":"PERSPIRATION","rubrics":413},{"key":"skin","name":"SKIN","rubrics":1164},{"key":"generalities","name":"GENERALITIES","rubrics":1898}];
             } else {
                 repChapterNames = [];
             }
@@ -853,6 +853,93 @@ function _repBuildKentRespSourceTree(data){
             var grade=Number(remedies[code]);
             if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
                 throw new Error('Invalid Kent RESPIRATION medicine grade at '+e.rid+': '+code);
+        });
+        var node={
+            name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
+            children:{},order:[],remedies:remedies,count:1,hasRubric:true,
+            path:sourcePath,pathTitle:sourcePath,displayPathTitle:sourcePath,
+            translationTitle:String(rec.translation_title||sourcePath),
+            oorep_id:rec.oorep_id||null,rid:e.rid,sourceCanonical:true,
+            display:rec.display&&typeof rec.display==='object'&&!Array.isArray(rec.display)?rec.display:null
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        parent.count=(parent.count||0)+1;
+        byRid[e.rid]=node;
+    });
+    return root;
+}
+
+// 🔑 v191: کھانسی باب کی ماخذی قطاریں (صفحات 778–811) — homeoint.org
+// (parse_cough_source.py + crosswalk_cough.py + overlay_cough.py)؛ پرانی مقامی قطاریں
+// فائل میں محفوظ مگر ماخذی درخت سے باہر۔ باب حد: COUGH = 778–811 (MEDI-T انتساب —
+// kentcoug.htm فہرست 35 rubric اندراجات: جڑ صفحہ p778 + P779..P811)؛ آغاز kent0775.htm کے
+// NAME="P778" COUGH P-اینکر سے (nav para کے اندر — after_anchor slot-1 nav-text para +
+// slot-2 سرخ COUGH para پر skip، separator JUNK، جڑ COUGH d0 slot-4 سے؛ p778: جڑ +
+// DAYTIME {69} + ذیلیاں + MORNING — MORNING کی ذیلیاں p779 پر)؛ اختتام kent0810 کے اندر
+// NAME="P812" EXPECTORATION P-اینکر — آخری ربرک and coughing consecutively {Ant-t., nat-m.}
+// (YAWNING ذیلی، p811)؛ kent0815 استعمال نہیں۔ سرحدی ڈپ صفحات (p780/p785/p790/p795/p800/
+// p805/p810) پچھلی فائل میں اصل، اگلی میں ڈپ (skip_until) — ساتوں text-identical تصدیق شدہ
+// (verify_cough_dups.py)۔ MEDI-T صفحہ-سرخی paras (مثلاً 'MORNING, 6 a.m.' p779،
+// 'EVENING, bed, in' p780، 'WHOOPING, daytime' p811) آرٹیفیکٹ — after_anchor سے skip —
+// 33/33 صفحہ-سرخی سیاق پہلی قطاروں سے مطابق (parse_cough_source.py)۔ 8 clamps — سب کتابی
+// یتیم-indentation (x = خام سطح: before p781 @164.7 raw d3→d2، forward agg. p783 @128.7
+// d2→d1، loose after eating p788 @164.7 d3→d2، amel. p792 @164.7 d3→d2، extending through
+// trachea p795 @128.7 d2→d1، daytime p797 ×2 @128.7 d2→d1، wakens p803 @200.7 d4→d3) —
+// cough_clamp_xcoords.json میں دستاویزی۔ کوئی کتابی دہرائی نہیں (دوہرے راستے = 0)۔ 71 دستی
+// J=1.00 جوڑے (وقت-فارمیٹ 48: OOREP '6 a.m. to 7 a.m.' ← کتابی '6 to 7 a.m.' طرز؛
+// agg.-لاحقہ 19 genm r381 اصول؛ OOREP لیبل-خرابیاں 4: measles→menses ×2، from cold→open
+// air، اضافی سیاق morning/night ×2 — PDF حرف-بہ-حرف کتاب کی تصدیق)۔ 6 نئے hN (جڑ COUGH +
+// AFTERNOON 1 p.m. + IRRITATION in air passages 60-ادویہ + 3 See-ref: COAL/HARASSING/
+// SHATTERING) + 241 legacy محفوظ (30 مبہم OOREP برتن/یونین سمیت: IRRITATION 189-یونین،
+// LYING 137-یونین، COLD 64-یونین، MOTION 78-یونین، MORNING agg. 155-یونین وغیرہ)۔
+// PDF alignment: 1428/1454 حرف-بہ-حرف عین مطابق + 25 PDF-طرفہ آرٹی فاکٹ قطاریں 15 واقعات
+// میں (10 لیبل-ورپ جوڑے — PDF wrapped اگلا لیبل پچھلے ریکارڈ کی ادویات میں گلا: raph.11a.m/
+// apis.about/staph.withsopor/med.first/cina.spasmodic/stram.frightensthem/verb.crowing/
+// crott.face/tarax.sensation/lactac.springsup + 4 فولیو-گلا rhus1696t/ph1705ac/carb1718s/
+// rhus1735t + 1 لیبل-ورپ جذب OVERPOWERING→OVERHEATING p798 — colon اپنی سطر پر، drift 1
+// قطار)، صفر homeoint-طرفہ فرق/دونوں-طرفہ باقیات (verify_pdf_cough.py — کتابی ص 778-811،
+// PDF index 1720–1793)۔
+var _REP_KENT_COUGH_SOURCE_MARKER='homeoint-cough-v1';
+var _REP_KENT_COUGH_PAGES={first:778,last:811}, _REP_KENT_COUGH_COUNT=1455;
+function _repKentCoughSourceEntries(data){
+    return Object.keys(data||{}).map(function(rid){return {rid:String(rid),rec:data[rid]};})
+        .filter(function(e){return e.rec&&e.rec.source_canonical===_REP_KENT_COUGH_SOURCE_MARKER;});
+}
+function _repHasKentCoughSourceData(data){
+    return _repKentCoughSourceEntries(data).length===_REP_KENT_COUGH_COUNT;
+}
+function _repBuildKentCoughSourceTree(data){
+    var entries=_repKentCoughSourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    if(entries.length!==_REP_KENT_COUGH_COUNT) throw new Error('Expected '+_REP_KENT_COUGH_COUNT+' Kent COUGH source rows; found '+entries.length);
+    entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
+    var byRid=Object.create(null);
+    entries.forEach(function(e,index){
+        var rec=e.rec, order=Number(rec.source_order), parentId=rec.source_parent_id;
+        if(order!==index) throw new Error('Invalid Kent COUGH source order at '+e.rid+': '+order);
+        var page=Number(rec.source_page), depth=Number(rec.source_depth), label=String(rec.source_label||'');
+        if(page<778||page>811) throw new Error('Kent COUGH source row outside pages 778–811: '+e.rid);
+        if(!label) throw new Error('Empty Kent COUGH source label at '+e.rid);
+        var labels=Array.isArray(rec.source_path_labels)?rec.source_path_labels.map(String):[];
+        if(!labels.length||labels[labels.length-1]!==label||depth!==labels.length-1)
+            throw new Error('Kent COUGH source path/depth mismatch at '+e.rid);
+        var sourcePath=String(rec.source_path||'');
+        if(sourcePath!==labels.join(', ')) throw new Error('Kent COUGH source full path mismatch at '+e.rid);
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent COUGH source parent '+parentId+' for '+e.rid);
+        if(parentId!==null && Number(parent.sourceOrder)>=index)
+            throw new Error('Kent COUGH source parent must precede child at '+e.rid);
+        var parentPath=parent===root?'':String(parent.pathTitle||'');
+        var expectedPath=parentPath?parentPath+', '+label:label;
+        if(expectedPath!==sourcePath) throw new Error('Kent COUGH source parent link/path mismatch at '+e.rid);
+        if(parent.children[label]) throw new Error('Duplicate Kent COUGH sibling label '+label+' at '+e.rid);
+        var remedies=rec.r;
+        if(!remedies||typeof remedies!=='object'||Array.isArray(remedies))
+            throw new Error('Missing Kent COUGH remedies at '+e.rid);
+        Object.keys(remedies).forEach(function(code){
+            var grade=Number(remedies[code]);
+            if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
+                throw new Error('Invalid Kent COUGH medicine grade at '+e.rid+': '+code);
         });
         var node={
             name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
@@ -2359,6 +2446,10 @@ function buildRubricTree(data){
     if(repCurrentBook === 'kent' && repCurrentChapter === 'respiration' && _repHasKentRespSourceData(data)){
         return _repBuildKentRespSourceTree(data);
     }
+    // 🔑 v191: کھانسی باب کی ماخذی قطاریں (صفحات 778–811) — وہی طرز جو سانس میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'cough' && _repHasKentCoughSourceData(data)){
+        return _repBuildKentCoughSourceTree(data);
+    }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest
     // already-existing rubric prefix, not by every comma.
@@ -2692,6 +2783,10 @@ function buildRubricTree(data){
     // 🔑 v190: سانس باب کی ماخذی قطاریں (صفحات 762–777) — وہی طرز جو حلقوم میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'respiration' && _repHasKentRespSourceData(data)){
         return _repBuildKentRespSourceTree(data);
+    }
+    // 🔑 v191: کھانسی باب کی ماخذی قطاریں (صفحات 778–811) — وہی طرز جو سانس میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'cough' && _repHasKentCoughSourceData(data)){
+        return _repBuildKentCoughSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest

@@ -1,0 +1,1456 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,778,0,COUGH,0
+r0,778,0,DAYTIME,69
+r1,778,1,"DAYTIME, amel.",12
+r2,778,1,"DAYTIME, day, every other, violent coughs",3
+o11489,778,2,"DAYTIME, day, every other, violent coughs, every third",2
+r4,778,1,"DAYTIME, expectoration copious, greenish, salty, agg. morning",1
+r5,778,1,"DAYTIME, hour, at the same",2
+r6,778,1,"DAYTIME, menses, before",1
+r7,778,1,"DAYTIME, night, and",31
+r8,778,2,"DAYTIME, night, and, expectoration, with",2
+r9,778,2,"DAYTIME, night, and, which makes boy quite breathless",1
+r10,778,1,"DAYTIME, only",27
+o11498,778,2,"DAYTIME, only, long, lasting spells, dry, short, violent, with much dyspnœa",1
+r12,778,2,"DAYTIME, only, or cough which wakens at night",1
+o11500,778,3,"DAYTIME, only, or cough which wakens at night, morning after rising, and evening after lying down",1
+o11501,778,3,"DAYTIME, only, or cough which wakens at night, only at night",1
+r15,778,2,"DAYTIME, only, morning on rising, continuing until lying down again",1
+r16,778,1,"DAYTIME, 6 a.m. to 6 p.m.",1
+r17,778,0,MORNING,147
+r18,778,1,"MORNING, amel.",3
+r19,778,1,"MORNING, bath, after",1
+r20,778,1,"MORNING, bed, in",10
+r21,778,1,"MORNING, daybreak amel.",1
+r22,778,1,"MORNING, dressing, while",1
+r23,778,1,"MORNING, night, and",1
+r24,778,1,"MORNING, rising, after",45
+r25,778,1,"MORNING, sleep, on going to",1
+r26,778,1,"MORNING, waking, on",23
+r27,779,1,"MORNING, 6 a.m.",4
+o12044,779,1,"MORNING, 6 to 7 a.m.",4
+r29,779,1,"MORNING, 6 a.m. to 6 p.m.",1
+o12045,779,1,"MORNING, 6 to 8 or 9 a.m.",1
+r31,779,1,"MORNING, 7 a.m.",2
+o12047,779,1,"MORNING, 7 to 10 a.m.",1
+r33,779,1,"MORNING, 8 a.m.",3
+o12049,779,1,"MORNING, 8 to 9 a.m.",1
+r35,779,1,"MORNING, 9 a.m. until",1
+r36,779,1,"MORNING, 9 a.m.",2
+r37,779,0,FORENOON,31
+r38,779,1,"FORENOON, waking",2
+r39,779,2,"FORENOON, waking, after",1
+o11767,779,1,"FORENOON, 9 to 10 a.m.",1
+o11768,779,1,"FORENOON, 9 to 12 a.m.",1
+o11769,779,1,"FORENOON, 9 to 5 or 6 p.m.",1
+r43,779,1,"FORENOON, 10 a.m.; from rawness, in air passages while lying",1
+o11762,779,1,"FORENOON, 10 to 12 a.m.",2
+r45,779,1,"FORENOON, 11 a.m.",2
+r46,779,1,"FORENOON, 11 a.m., rush of blood to chest, from",1
+r47,779,1,"FORENOON, 11 a.m.; dry cough from tickling behind upper half of sternum, while sitting bent forward",1
+r48,779,0,NOON,9
+r49,779,1,"NOON, lying down, amel.",1
+r50,779,1,"NOON, sleep, in",1
+r51,779,0,AFTERNOON,51
+r52,779,1,"AFTERNOON, bath, after",1
+r53,779,1,"AFTERNOON, evening, until",1
+r54,779,1,"AFTERNOON, midnight, until",2
+r55,779,1,"AFTERNOON, 1 p.m. to 1 a.m.",1
+h002,779,1,"AFTERNOON, 1 p.m.",1
+r57,779,1,"AFTERNOON, 1-30 p.m.",1
+o11318,779,1,"AFTERNOON, 1 to 2 p.m.",1
+r59,779,1,"AFTERNOON, 2 p.m.",4
+r60,779,1,"AFTERNOON, 3 p.m.",5
+o11323,779,1,"AFTERNOON, 3 to 4 p.m.",2
+o11324,779,1,"AFTERNOON, 3 to 5 p.m.",1
+o11322,779,1,"AFTERNOON, 3 to 10 p.m.",1
+r64,779,1,"AFTERNOON, 4 p.m.",5
+o11326,779,1,"AFTERNOON, 4 to 6 p.m.",1
+o11327,779,1,"AFTERNOON, 4 to 8 p.m.",2
+o11328,779,1,"AFTERNOON, 4 until bedtime",1
+r68,779,1,"AFTERNOON, 4 p.m. until morning",1
+r69,779,1,"AFTERNOON, 5 p.m.",4
+o11331,779,1,"AFTERNOON, 5 to 9 p.m.",1
+r71,779,0,EVENING,153
+r72,780,1,"EVENING, bed, in",66
+r73,780,2,"EVENING, bed, in, menses, before",1
+r74,780,1,"EVENING, going out, on",1
+r75,780,1,"EVENING, midnight, until",23
+r76,780,2,"EVENING, midnight, until, after",1
+r77,780,1,"EVENING, sleep, after going to",4
+r78,780,2,"EVENING, sleep, after going to, on going to",4
+r79,780,1,"EVENING, sunset to sunrise",1
+r80,780,1,"EVENING, 6 p.m.",8
+r81,780,1,"EVENING, 6-15 p.m.",1
+r82,780,1,"EVENING, 6-30 p.m.",1
+o11694,780,1,"EVENING, 6 to 7 p.m.",1
+o11693,780,1,"EVENING, 6 to 10 p.m.",1
+r85,780,1,"EVENING, 7 p.m.",7
+o11698,780,2,"EVENING, 7 p.m., after",2
+o11699,780,1,"EVENING, 7 or 8 p.m.",1
+r88,780,1,"EVENING, 7 p.m. to 1 a.m.",1
+o11701,780,1,"EVENING, 7 to 8 p.m.",1
+r90,780,1,"EVENING, 7-30 p.m.",2
+r91,780,1,"EVENING, 8 p.m.",3
+r92,780,1,"EVENING, 8-30 p.m.",1
+o11705,780,1,"EVENING, 8 to 9 p.m.",1
+o11704,780,1,"EVENING, 8 to 11 p.m.",1
+r95,780,1,"EVENING, 9 p.m.",4
+o11708,780,2,"EVENING, 9 p.m., to 4 a.m.",1
+r97,780,2,"EVENING, 9 p.m., about, with fever, followed by burning heat of head, cramps in legs and feet, hands and arms and rapid pulse",1
+r98,780,2,"EVENING, 9 p.m., till morning",1
+r99,780,0,NIGHT,162
+r100,780,1,"NIGHT, only",2
+r101,780,1,"NIGHT, perspiration, with",10
+r102,780,1,"NIGHT, rising, after",1
+r103,780,1,"NIGHT, waking from the cough",24
+o12121,780,2,"NIGHT, waking from the cough, 1 a.m.",1
+o12122,780,2,"NIGHT, waking from the cough, 2 a.m.",4
+o12123,780,2,"NIGHT, waking from the cough, 3 a.m.",1
+o12124,780,2,"NIGHT, waking from the cough, 4 a.m.",1
+r108,780,2,"NIGHT, waking from the cough, 4 a.m., until",3
+r109,780,1,"NIGHT, midnight",35
+r110,781,2,"NIGHT, midnight, before",46
+r111,781,2,"NIGHT, midnight, 10 p.m.",3
+o12086,781,3,"NIGHT, midnight, 10 p.m., to 1 p.m.",5
+r113,781,2,"NIGHT, midnight, 10-30 p.m.",2
+r114,781,2,"NIGHT, midnight, 11 p.m.",8
+r115,781,2,"NIGHT, midnight, 11 p.m. to 3 a.m.",1
+r116,781,2,"NIGHT, midnight, 11 p.m. to 12 p.m.",1
+o12089,781,3,"NIGHT, midnight, 11 p.m. to 12 p.m., to 1 a.m.",1
+r118,781,2,"NIGHT, midnight, 11-30 p.m.",1
+r119,781,2,"NIGHT, midnight, after",42
+r120,781,3,"NIGHT, midnight, after, amel.",2
+r121,781,4,"NIGHT, midnight, after, amel., 3 a.m.",1
+r122,781,3,"NIGHT, midnight, after, daybreak, until",1
+r123,781,3,"NIGHT, midnight, after, morning, until",3
+r124,781,3,"NIGHT, midnight, after, 2 a.m., until",1
+r125,781,3,"NIGHT, midnight, after, 3 a.m., until",1
+r126,781,3,"NIGHT, midnight, after, 4 a.m., until",1
+r104,781,3,"NIGHT, midnight, after, 1 a.m.",2
+o12083,781,3,"NIGHT, midnight, after, 1 to 2 a.m.",2
+o12084,781,3,"NIGHT, midnight, after, 1 to 4 a.m.",1
+r105,781,3,"NIGHT, midnight, after, 2 a.m.",18
+o12094,781,3,"NIGHT, midnight, after, 2 and 2-30 a.m.",1
+o12095,781,3,"NIGHT, midnight, after, 2 or 3 a.m.",4
+o12096,781,3,"NIGHT, midnight, after, 2 to 3 a.m.",2
+o12097,781,3,"NIGHT, midnight, after, 2 to 3-30 a.m.",1
+o12098,781,3,"NIGHT, midnight, after, 2 to 4 a.m.",1
+o12099,781,3,"NIGHT, midnight, after, 2 to 5 a.m.",1
+r106,781,3,"NIGHT, midnight, after, 3 a.m.",16
+o12101,781,3,"NIGHT, midnight, after, 3 to 4 a.m.",7
+r107,781,3,"NIGHT, midnight, after, 4 a.m.",11
+o12103,781,3,"NIGHT, midnight, after, 5 a.m.",4
+o12106,781,3,"NIGHT, midnight, after, 5-30 a.m.",1
+o12105,781,3,"NIGHT, midnight, after, 5 to 6 a.m.",1
+o12104,781,3,"NIGHT, midnight, after, 5 to 12 a.m.",1
+r144,781,0,ACIDS agg.,10
+r145,781,0,"ACRID fluid through posterior nares, sensation of, from",1
+r146,781,0,"AGITATION, from",1
+r147,781,0,"AIR, close, agg.",2
+r155,781,1,"AIR, close, agg., cold",78
+o11338,781,2,"AIR, close, agg., cold, amel.",3
+o11339,781,2,"AIR, close, agg., cold, walking in",10
+r152,782,1,"AIR, close, agg., damp cold",24
+r153,782,1,"AIR, close, agg., draft of",7
+r154,782,1,"AIR, close, agg., dry",2
+o11343,782,2,"AIR, close, agg., dry, cold",11
+r156,782,1,"AIR, close, agg., night",8
+r157,782,1,"AIR, close, agg., open",46
+r158,782,2,"AIR, close, agg., open, amel. (See Warm Room)",27
+r159,782,2,"AIR, close, agg., open, walking in",26
+r160,782,0,ALCOHOL (See Spirits),0
+r161,782,0,"ANGER, from",16
+r162,782,0,"ARMS becoming cold (See Cold, also Uncovering)",0
+r163,782,0,ASCENDING stairs,20
+r164,782,0,ASTHMATIC,102
+r165,782,0,AUTUMN,6
+r166,782,1,"AUTUMN, and spring",3
+r167,782,0,BARKING,34
+r168,782,1,"BARKING, day and night",1
+r169,782,1,"BARKING, morning",2
+r170,782,1,"BARKING, evening",1
+r171,782,1,"BARKING, night",2
+r172,782,2,"BARKING, night, 11 p.m., wakens suddenly, face fiery red, crying",1
+r173,782,1,"BARKING, deep breath, after",1
+r174,782,1,"BARKING, dog, like a",2
+r175,782,1,"BARKING, drinking cold water, amel.",1
+r176,782,1,"BARKING, loud",6
+r177,782,1,"BARKING, sleep, during",3
+r178,782,0,BATHING agg.,18
+o11366,782,1,"BATHING agg., cold",2
+o11365,782,1,"BATHING agg., chest, in cold water amel.",1
+r181,782,0,"BED, in (See Lying)",0
+o11367,782,1,"BED, in (See Lying), changing position",3
+r183,782,2,"BED, in (See Lying), changing position, amel.",2
+r184,782,1,"BED, in (See Lying), rising from, on (See Rising)",0
+r185,782,1,"BED, in (See Lying), warm, on becoming, in, agg. or excites",13
+o11369,782,2,"BED, in (See Lying), warm, on becoming, in, agg. or excites, amel.",2
+o11370,782,2,"BED, in (See Lying), warm, on becoming, in, agg. or excites, evening",1
+r188,783,0,BEER agg.,4
+r189,783,0,BENDING head backward agg. (See Stooping),9
+o11374,783,1,"BENDING head backward agg. (See Stooping), forward agg.",2
+o11375,783,2,"BENDING head backward agg. (See Stooping), forward agg., amel.",2
+o11376,783,1,"BENDING head backward agg. (See Stooping), forced to bend double",2
+r193,783,0,"BLOOD, determination of, to chest, from",1
+o11378,783,1,"BLOOD, determination of, to chest, from, rush of, to chest, 11 a.m.",1
+r195,783,0,BRANDY,1
+r196,783,0,BREAD,1
+r197,783,1,"BREAD, black",1
+r198,783,0,"BREAKFAST, before",5
+r199,783,1,"BREAKFAST, before, during",3
+r200,783,1,"BREAKFAST, before, after, amel.",7
+r201,783,0,"BREATH, holding",2
+r202,783,1,"BREATH, holding, want of (See Breathing)",0
+r203,783,0,BREATHING,12
+r204,783,1,"BREATHING, deep",68
+r205,783,2,"BREATHING, deep, amel.",3
+r206,783,2,"BREATHING, deep, morning, after lying down",1
+r207,783,1,"BREATHING, deficient, being",20
+r208,783,2,"BREATHING, deficient, being, night",1
+r209,783,1,"BREATHING, irregular, from",1
+r210,783,0,BRIGHT objects,1
+r211,783,0,BRONCHIAL (See Irritation),0
+r212,783,0,BRUSHING teeth,2
+r213,783,0,"BURNING, chest, in",8
+o11397,783,1,"BURNING, chest, in, larynx",19
+o11398,783,1,"BURNING, chest, in, throat-pit, from",1
+o11396,783,1,"BURNING, chest, in, in trachea, from",3
+r217,783,0,"CARBON, as from vapor of",2
+r218,783,0,"CELLARS, air of",4
+r219,783,0,CHAGRIN and trouble,2
+r220,783,0,CHICKEN-POX after,1
+r221,783,0,"CHILL, before",6
+r222,783,1,"CHILL, before, during",41
+r223,783,1,"CHILL, before, after",5
+r224,783,0,CHOKING (See Suffocative),23
+r225,783,1,"CHOKING (See Suffocative), morning, rising, after",1
+r226,783,1,"CHOKING (See Suffocative), evening",1
+r227,783,1,"CHOKING (See Suffocative), night",4
+r228,783,2,"CHOKING (See Suffocative), night, midnight, about",2
+r229,783,1,"CHOKING (See Suffocative), inspiration, from",1
+r230,783,1,"CHOKING (See Suffocative), sleep, as soon as one falls into a sound",2
+r231,783,2,"CHOKING (See Suffocative), sleep, as soon as one falls into a sound, when lying on side",1
+r232,783,0,CHOKING sensation; fauces from to bifurcation of bronchia,1
+r233,783,0,"CHURCH, air of, agg. (See Cellars)",0
+r234,783,0,CLEANING the teeth (See Brushing),0
+r235,783,0,"CLOCK, like tick of, in its regularity",1
+r236,783,0,CLOSING eyes at night excites cough,1
+r237,783,0,"CLOTHING, tight, agg.",1
+h003,783,0,COAL (See Carbon),0
+r238,784,0,COFFEE agg.,7
+o11419,784,1,"COFFEE agg., odor of",1
+r240,784,0,"COITION, after",1
+r241,784,0,COLD air (See Air),0
+o11421,784,1,"COLD air (See Air), becoming, on",33
+o11422,784,2,"COLD air (See Air), becoming, on, arm or hand",10
+o11423,784,2,"COLD air (See Air), becoming, on, feet",4
+o11424,784,2,"COLD air (See Air), becoming, on, single part",4
+r246,784,1,"COLD air (See Air), damp air (See Air)",0
+o65209,784,1,"COLD air (See Air), drinks",26
+o11427,784,2,"COLD air (See Air), drinks, milk",1
+o11426,784,2,"COLD air (See Air), drinks, amel.",17
+r250,784,1,"COLD air (See Air), dry air (See Air)",0
+o11428,784,1,"COLD air (See Air), food",11
+o11429,784,1,"COLD air (See Air), going from warm, to",8
+o11430,784,1,"COLD air (See Air), standing, cold water, in",1
+r254,784,1,"COLD air (See Air), warm room, going from, to, or vice versa (See Warm Room)",0
+o11431,784,1,"COLD air (See Air), wind on chest",2
+r256,784,0,COMPANY,2
+r257,784,0,CONCUSSIVE (See Racking),0
+r258,784,0,"CONSCIOUSNESS, loss of, with",3
+r259,784,0,CONSOLATION agg.,1
+r260,784,0,CONSTANT,82
+r261,784,1,"CONSTANT, day and night",6
+o11437,784,2,"CONSTANT, day and night, or night",1
+r263,784,1,"CONSTANT, morning",2
+r264,784,1,"CONSTANT, evening",4
+r265,784,1,"CONSTANT, night",9
+r266,784,2,"CONSTANT, night, lying down",2
+r267,784,2,"CONSTANT, night, sleep, on falling to",1
+r268,784,2,"CONSTANT, night, waking",1
+r269,784,1,"CONSTANT, lying agg., sitting up amel.",6
+o11440,784,2,"CONSTANT, lying agg., sitting up amel., amel.",1
+r271,784,1,"CONSTANT, vomiting amel.",1
+r272,784,0,"CONSTRICTION, larynx",39
+r273,784,1,"CONSTRICTION, larynx, night, during sleep",5
+r274,784,1,"CONSTRICTION, larynx, in first sleep, while lying on the side",3
+r275,784,1,"CONSTRICTION, larynx, eating",1
+r276,784,1,"CONSTRICTION, larynx, sleep, on going to",6
+r277,784,1,"CONSTRICTION, larynx, chest",8
+r278,784,1,"CONSTRICTION, larynx, trachea, from",3
+r279,784,0,CONTINUED coughing agg. (See Coughing),0
+r280,784,0,CONTINUOUS (See Constant),0
+r1447,784,0,"CONVULSIONS, with",15
+r281,785,0,CONVULSIVE (See Spasmodic),0
+r282,785,0,COUGHING agg.,8
+r283,785,0,"COVERING (See Cold air, and Uncovering)",0
+r284,785,0,"CRAMPS in chest, from",1
+r285,785,0,"CRAWLING, sensation of",10
+r286,785,1,"CRAWLING, sensation of, evening, bed, in",1
+r287,785,1,"CRAWLING, sensation of, night",1
+r288,785,2,"CRAWLING, sensation of, night, midnight, before",1
+r289,785,1,"CRAWLING, sensation of, air passages, in",1
+r290,785,1,"CRAWLING, sensation of, bronchia",2
+r291,785,1,"CRAWLING, sensation of, chest",7
+r292,785,1,"CRAWLING, sensation of, larynx",26
+r293,785,1,"CRAWLING, sensation of, throat-pit",4
+r294,785,1,"CRAWLING, sensation of, trachea, in",7
+r295,785,0,CROAKING,6
+r296,785,1,"CROAKING, daytime",1
+r297,785,0,CROUPY,40
+r298,785,1,"CROUPY, morning",1
+r299,785,1,"CROUPY, evening",1
+r300,785,1,"CROUPY, night",6
+r301,785,2,"CROUPY, night, midnight, after, agg.",1
+r302,785,1,"CROUPY, eating, after",1
+r303,785,1,"CROUPY, expiration, on",1
+r304,785,1,"CROUPY, waking, only after",1
+r305,785,1,"CROUPY, winter, alternating with sciatica in summer",1
+o11478,785,1,"CROUPY, with sopor, stertorous breathing and wheezing, with open mouth and head thrown back; the child starts up, kicks about, is on point of suffocating, turns black and blue in face, after which cough with rattling breathing sets in again, suffocations and paralysis, of lungs appear unavoidable",1
+r307,785,0,CROWING (See Croupy),0
+r308,785,0,"CRUMB, feeling as of a, in larynx, from",5
+r309,785,0,CRYING agg.,16
+r310,785,0,"CUTTING, stinging, in larynx, from",2
+o11481,785,1,"CUTTING, stinging, in larynx, from, in thyroid gland",1
+r312,785,0,DAMP room agg. (See Cellars),1
+r313,785,0,"DANCING, after",1
+r314,785,0,"DEBAUCH, after",2
+r315,785,0,DEEP,45
+r316,785,1,"DEEP, morning",2
+r317,785,1,"DEEP, afternoon and evening",1
+r318,785,1,"DEEP, evening",2
+r319,785,1,"DEEP, midnight, after",1
+r320,785,1,"DEEP, inspiration, on",2
+r321,785,2,"DEEP, inspiration, on, deep amel.",1
+r322,785,1,"DEEP, lying amel.",3
+r323,785,0,"DEEP enough, sensation as though he could not cough, to start mucus",8
+r324,785,0,DEEP-SOUNDING,5
+r325,785,1,"DEEP-SOUNDING, night",1
+r326,785,0,"DENTITION, during",8
+r327,785,0,"DESCENDING, on",1
+o11516,785,0,DIARRHŒA amel.,1
+r328,786,0,DIFFICULT,8
+r329,786,0,"DINNER, before",1
+r330,786,1,"DINNER, before, after",23
+r331,786,2,"DINNER, before, after, sleeping, when",2
+r332,786,0,DISTRACTING,1
+r333,786,1,"DISTRACTING, day and night",1
+r334,786,0,DISTRESSING,16
+r335,786,1,"DISTRESSING, daytime",1
+r336,786,1,"DISTRESSING, morning and evening, on going to sleep",5
+r337,786,0,"DOWN, sensation of, in throat-pit, from",4
+r338,786,0,DRAFT of air (See Air),0
+r339,786,0,"DRINKING, after",44
+r340,786,1,"DRINKING, after, amel.",9
+r341,786,1,"DRINKING, after, acids (See Acids)",0
+r342,786,1,"DRINKING, after, brandy (See Brandy)",0
+r343,786,1,"DRINKING, after, beer (See Beer)",0
+r344,786,1,"DRINKING, after, cold fluids (See Cold)",0
+r345,786,1,"DRINKING, after, hurriedly",1
+r346,786,1,"DRINKING, after, milk (See Milk)",0
+r347,786,0,"DRUNKARDS, of",4
+r348,786,0,DRY,253
+r349,786,1,"DRY, daytime",19
+r350,786,2,"DRY, daytime, lying down amel.",1
+r351,786,2,"DRY, daytime, menses, before",1
+r352,786,2,"DRY, daytime, night, and",18
+r353,786,2,"DRY, daytime, loose at night",3
+r354,786,1,"DRY, morning",52
+r355,787,2,"DRY, morning, early",14
+r356,787,2,"DRY, morning, loose in afternoon",1
+o11616,787,3,"DRY, morning, loose in afternoon, evening",9
+r358,787,2,"DRY, morning, menses, before",2
+r359,787,3,"DRY, morning, menses, before, suppressed",1
+r360,787,2,"DRY, morning, rising, after",13
+r361,787,2,"DRY, morning, waking, on",4
+r362,787,1,"DRY, forenoon",7
+r363,787,2,"DRY, forenoon, 11 a.m.",1
+r364,787,1,"DRY, noon",3
+r365,787,1,"DRY, afternoon",14
+r366,787,2,"DRY, afternoon, entering warm room",2
+r367,787,2,"DRY, afternoon, walking, while",1
+r368,787,2,"DRY, afternoon, 1 p.m.",1
+r369,787,2,"DRY, afternoon, 3 p.m.",1
+r370,787,2,"DRY, afternoon, 4 p.m.",2
+r371,787,2,"DRY, afternoon, 5 p.m.",2
+r372,787,1,"DRY, evening",82
+r373,787,2,"DRY, evening, entering warm room",2
+r374,787,2,"DRY, evening, inspiration agg.",1
+r375,787,2,"DRY, evening, loose in morning",41
+o11579,787,2,"DRY, evening, lying down",18
+r377,787,3,"DRY, evening, lying down, amel.",2
+r378,787,2,"DRY, evening, midnight, until",5
+r379,787,2,"DRY, evening, night, and can neither sleep nor lie down",1
+r380,787,2,"DRY, evening, sleep, on going to",2
+r381,787,2,"DRY, evening, smoking, from",1
+r382,787,2,"DRY, evening, 6 p.m.",3
+r383,787,2,"DRY, evening, 7 p.m.",2
+r384,787,1,"DRY, night",90
+r385,787,2,"DRY, night, falling asleep, on",1
+r386,787,2,"DRY, night, first, followed by profuse salty expectoration with pain as if something were torn loose from larynx",1
+r387,787,2,"DRY, night, inspiration agg.",1
+r388,787,2,"DRY, night, loose by day",29
+r389,787,2,"DRY, night, lying agg.",9
+o11629,787,3,"DRY, night, lying agg., on right side only, while",1
+r391,788,2,"DRY, night, motion agg.",2
+r392,788,2,"DRY, night, sitting up amel.",3
+r393,788,2,"DRY, night, smoking amel.",1
+r394,788,2,"DRY, night, sunset to sunrise",1
+r395,788,2,"DRY, night, waking from sleep",4
+r396,788,2,"DRY, night, midnight",5
+r397,788,3,"DRY, night, midnight, daybreak, until",1
+r398,788,3,"DRY, night, midnight, lying on back",1
+o11642,788,4,"DRY, night, midnight, lying on back, on side amel.",1
+r400,788,3,"DRY, night, midnight, before",7
+r401,788,4,"DRY, night, midnight, before, sleep, during",2
+r402,788,4,"DRY, night, midnight, before, 10-30 p.m.",1
+r403,788,3,"DRY, night, midnight, after",7
+r404,788,4,"DRY, night, midnight, after, loose",1
+o11632,788,4,"DRY, night, midnight, after, 1 to 2 a.m.",1
+r406,788,4,"DRY, night, midnight, after, 2 a.m.",3
+r407,788,4,"DRY, night, midnight, after, 3 a.m.",3
+r408,788,4,"DRY, night, midnight, after, 4 a.m., until",1
+r409,788,1,"DRY, air, from cold",4
+r410,788,2,"DRY, air, from cold, dry cold air",1
+r411,788,2,"DRY, air, from cold, open air",5
+r412,788,3,"DRY, air, from cold, open air, amel.",2
+o11543,788,2,"DRY, air, from cold, going from warm room to",2
+r414,788,1,"DRY, blood, with discharge of",1
+r415,788,2,"DRY, blood, with discharge of, ends in raising black blood",1
+r416,788,1,"DRY, breath, sudden loss of, with",1
+r417,788,1,"DRY, chill, before",4
+r418,788,2,"DRY, chill, before, during",2
+r419,788,2,"DRY, chill, before, after",2
+r420,788,1,"DRY, chronic dry cough in pining boys",1
+o11551,788,2,"DRY, chronic dry cough in pining boys, in scrofulous children",1
+r422,788,1,"DRY, constant, almost",4
+r423,788,1,"DRY, constriction, throat from",1
+r424,788,1,"DRY, coryza, during",7
+r425,788,2,"DRY, coryza, during, evening",1
+r426,788,1,"DRY, damp weather",1
+o11562,788,1,"DRY, dinner, after",5
+r428,788,2,"DRY, dinner, after, amel.",1
+r429,788,1,"DRY, drinking, after",6
+r430,788,2,"DRY, drinking, after, loose after eating",2
+r431,788,2,"DRY, drinking, after, amel.",8
+r432,788,2,"DRY, drinking, after, cold drinks, from",1
+o11568,788,1,"DRY, dyspnœa, as from, day and night",1
+o65224,788,1,"DRY, eating, from",10
+r435,788,2,"DRY, eating, from, night",1
+r436,788,2,"DRY, eating, from, amel.",1
+r437,788,1,"DRY, emaciated boys, in",1
+r438,788,1,"DRY, exertion, violent, from",1
+r439,788,1,"DRY, expectoration, morning, only in",28
+o11586,788,2,"DRY, expectoration, morning, only in, hawking, later copious green sputum",1
+r441,788,1,"DRY, expiration, after every, with flush of heat and sweat",1
+r442,788,1,"DRY, fever, during",50
+r443,788,2,"DRY, fever, during, intermittent, before",3
+r444,788,1,"DRY, flatus, discharge up and down, amel. must sit up also",1
+o11594,788,1,"DRY, gonorrhœa suppressed, after",2
+r446,788,1,"DRY, inspiration, on",8
+r447,788,2,"DRY, inspiration, on, deep",8
+r448,788,2,"DRY, inspiration, on, sleep, in",1
+r449,789,1,"DRY, irritation in larynx",14
+o11606,789,1,"DRY, lying, while",18
+r451,789,2,"DRY, lying, while, amel.",4
+r452,789,2,"DRY, lying, while, back, on",6
+r453,789,3,"DRY, lying, while, back, on, midnight",1
+r454,789,3,"DRY, lying, while, back, on, amel.",1
+r455,789,2,"DRY, lying, while, side, on, amel.",1
+o11605,789,3,"DRY, lying, while, side, on, amel., right, agg.",5
+o11603,789,3,"DRY, lying, while, side, on, amel., left, agg.",8
+r458,789,1,"DRY, measles, after",4
+o11608,789,2,"DRY, measles, after, menses, before",6
+o11609,789,3,"DRY, measles, after, menses, before, morning",1
+o11610,789,2,"DRY, measles, after, during",8
+o11611,789,3,"DRY, measles, after, during, profuse sweat, with",1
+o11612,789,2,"DRY, measles, after, suppressed, from",1
+o11622,789,1,"DRY, motion, on",3
+r465,789,2,"DRY, motion, on, amel.",2
+r466,789,1,"DRY, reading aloud",3
+r467,789,1,"DRY, rising, on",1
+r468,789,1,"DRY, room, heat of, agg.",2
+r469,789,1,"DRY, scraping in larynx, from",25
+o11654,789,1,"DRY, sitting, while",4
+r471,789,2,"DRY, sitting, while, amel.",3
+r472,789,1,"DRY, sleep, during",6
+r473,789,2,"DRY, sleep, during, after every",1
+r474,789,2,"DRY, sleep, during, disturbing",15
+r475,789,1,"DRY, smoke, from inhaling",1
+r476,789,1,"DRY, smoking, from",8
+r477,789,1,"DRY, sneezing, and",1
+r478,789,1,"DRY, spasmodic, exhausting especially in children, agg. night lying down and going to cold room to sleep",1
+r479,789,1,"DRY, stomach, as if from",2
+r480,789,1,"DRY, talking, on",11
+r481,789,1,"DRY, temperature, from change of",1
+r482,789,1,"DRY, tickling in larynx, from",52
+r483,789,1,"DRY, waking, on",14
+r484,789,1,"DRY, walking",4
+r485,789,2,"DRY, walking, sharp, cold air, from",1
+r486,789,1,"DRY, warm room, on entering a",3
+r487,789,0,"DRYNESS air passages, from",5
+r488,789,1,"DRYNESS air passages, from, chest",7
+r489,789,1,"DRYNESS air passages, from, fauces",3
+r490,789,1,"DRYNESS air passages, from, larynx",37
+r491,789,2,"DRYNESS air passages, from, larynx, morning",1
+r492,789,2,"DRYNESS air passages, from, larynx, dry spot",3
+r493,789,1,"DRYNESS air passages, from, in trachea, from",5
+r494,790,0,"DUST, as from",30
+r495,790,1,"DUST, as from, in throat-pit",1
+o11679,790,2,"DUST, as from, in throat-pit, trachea",1
+o65236,790,0,"EATING, from",72
+r498,790,1,"EATING, from, until he vomits",1
+r499,790,1,"EATING, from, amel.",12
+r500,790,1,"EATING, from, hastily agg.",1
+r501,790,1,"EATING, from, highly-seasoned food agg.",1
+r502,790,1,"EATING, from, warm food (See Warm)",0
+r503,790,0,"ELONGATED uvula, as from (See Tickling)",6
+r504,790,1,"ELONGATED uvula, as from (See Tickling), morning",1
+r505,790,0,ERUCTATIONS excite,5
+o11688,790,1,"ERUCTATIONS excite, amel.",1
+r507,790,0,"ERUPTIONS, alternating with",5
+r508,790,1,"ERUPTIONS, alternating with, suppressed, from",1
+r509,790,0,EXCITEMENT,20
+r510,790,0,EXERTION,30
+r511,790,1,"EXERTION, violent",6
+r512,790,1,"EXERTION, mental",9
+r513,790,0,EXHAUSTING,74
+r514,790,1,"EXHAUSTING, daytime",1
+r515,790,1,"EXHAUSTING, morning",4
+r516,790,2,"EXHAUSTING, morning, going to sleep, on",1
+r517,790,2,"EXHAUSTING, morning, waking, after",2
+r518,790,1,"EXHAUSTING, noon",1
+r519,790,1,"EXHAUSTING, evening",7
+r520,790,2,"EXHAUSTING, evening, going to sleep, on",1
+r521,790,1,"EXHAUSTING, night",5
+r522,790,2,"EXHAUSTING, night, bed, in",2
+r523,790,2,"EXHAUSTING, night, sitting up amel.",1
+r524,790,2,"EXHAUSTING, night, sleep, disturbing",1
+r525,790,0,EXPECTORATION amel.,24
+r526,790,0,EXPIRATION,13
+r527,790,0,EXPLOSIVE,4
+r528,790,1,"EXPLOSIVE, evening",1
+r529,790,1,"EXPLOSIVE, escape of fetid, pungent air, with",1
+r530,790,0,FASTING,2
+r531,790,0,FAT food,1
+r532,790,0,FATIGUING (See Exhausting),0
+r1449,790,0,"FEARS to, and seems to avoid it as long as possible, children with bronchial catarrh",1
+r533,791,0,"FEATHER, as from (See Dust, Tickling)",0
+r534,791,1,"FEATHER, as from (See Dust, Tickling), sensation of, or awn of barley in trachea",1
+r535,791,0,"FEVER, during",79
+r536,791,1,"FEVER, during, intermittent, before, in spells",3
+o11745,791,2,"FEVER, during, intermittent, before, in spells, after",1
+o11747,791,2,"FEVER, during, intermittent, before, in spells, suppressed, from",1
+r539,791,1,"FEVER, during, remittent, during",1
+r540,791,1,"FEVER, during, scarlet, after",3
+r541,791,0,"FILLING up, sensation as of, in throat, from",3
+r542,791,0,"FIRE, look into",2
+r543,791,0,"FISH, from eating",1
+r544,791,0,"FLATUS, passing, amel.",1
+r545,791,0,"FLUIDS, loss of animal, from",5
+r546,791,0,FOG agg.,1
+r547,791,0,FORCIBLE,8
+r548,791,1,"FORCIBLE, evening and night",1
+r549,791,0,"FOREIGN body, sensation as of, in larynx",12
+r550,791,1,"FOREIGN body, sensation as of, in larynx, awn of barley swaying in larynx",1
+o11760,791,1,"FOREIGN body, sensation as of, in larynx, sensation of, in trachea, from",4
+r552,791,0,FRETTING (See Vexation),1
+r553,791,0,"FRIGHT, from",6
+r554,791,0,"FRIGHTENS them, weak, nervous children arouse with a dry, spasmodic cough, which causes them to cry out in terror",1
+r555,791,0,FROSTY weather amel.,1
+r556,791,0,FRUIT agg.,2
+r557,791,0,FULLNESS of chest,2
+r558,791,1,"FULLNESS of chest, morning",2
+r559,791,0,"GAGGING (See Gagging, under Stomach)",0
+r560,791,0,GASTRIC,7
+o11780,791,0,"GONORRHŒA, suppressed, after",4
+r562,791,0,"GOUT, before an attack of",1
+r563,791,0,GRASPING throat during,8
+o11783,791,1,"GRASPING throat during, larynx involuntarily, at every cough, feels as though larynx would be torn",1
+r565,791,0,"GREASE, sensation as if throat irritated by smoke of rancid",1
+r566,791,0,GRIEF,5
+r567,791,0,HACKING,148
+r568,791,1,"HACKING, daytime",5
+r569,791,1,"HACKING, morning",20
+r570,792,2,"HACKING, morning, mucus, from",1
+r571,792,2,"HACKING, morning, rising, after",11
+r572,792,2,"HACKING, morning, talking, from",1
+r573,792,2,"HACKING, morning, waking, on",2
+r574,792,1,"HACKING, forenoon",1
+r575,792,1,"HACKING, noon",2
+r576,792,1,"HACKING, afternoon",6
+r577,792,2,"HACKING, afternoon, 2 p.m.",1
+r578,792,2,"HACKING, afternoon, 3 p.m.",1
+o11790,792,2,"HACKING, afternoon, 3 to 4 p.m.",3
+r580,792,1,"HACKING, evening",29
+r581,792,2,"HACKING, evening, bed, in",8
+r582,792,2,"HACKING, evening, lying down, after",9
+o11807,792,3,"HACKING, evening, lying down, after, amel.",1
+r584,792,2,"HACKING, evening, smoking, from",1
+r585,792,2,"HACKING, evening, warm room",1
+r586,792,2,"HACKING, evening, 6 p.m.",1
+r587,792,2,"HACKING, evening, 7 p.m.",1
+r588,792,1,"HACKING, night",12
+r589,792,2,"HACKING, night, and day",1
+r590,792,2,"HACKING, night, smothered feeling",1
+r591,792,2,"HACKING, night, midnight, wakening",1
+o11792,792,1,"HACKING, air, open",2
+r593,792,2,"HACKING, air, open, amel.",1
+r594,792,2,"HACKING, air, open, cold agg.",2
+r595,792,1,"HACKING, chill, during",1
+r596,792,1,"HACKING, crawling in the larynx, from",6
+r597,792,1,"HACKING, deep inspiration",1
+r598,792,1,"HACKING, dinner, after",3
+r599,792,1,"HACKING, dryness in larynx, from",11
+r600,792,1,"HACKING, eating, while",2
+r601,792,2,"HACKING, eating, while, after",2
+r602,792,1,"HACKING, heat agg.",1
+r603,792,1,"HACKING, irritation in larynx, from",6
+r604,792,1,"HACKING, lying down, while",17
+r605,792,1,"HACKING, menses, at beginning of",1
+r606,792,1,"HACKING, motion",2
+r607,792,1,"HACKING, rawness in larynx, from",13
+o11828,792,1,"HACKING, rising, on",1
+r609,792,2,"HACKING, rising, on, amel.",1
+r610,792,1,"HACKING, sleep, when going to",9
+r611,792,1,"HACKING, smoking, from",8
+r612,792,1,"HACKING, tickling in larynx, from",42
+r613,792,1,"HACKING, waking, on",3
+r614,792,1,"HACKING, walking fast",1
+o11834,792,2,"HACKING, walking fast, open air, in",1
+r616,792,0,"HÆMORRHOIDS, after the appearance of",3
+r617,792,0,"HAIR, sensation of, in trachea",1
+r618,792,0,"HANDS, must hold chest with both, while",12
+o11838,792,1,"HANDS, must hold chest with both, while, holding pit of stomach amel.",2
+o11839,792,2,"HANDS, must hold chest with both, while, holding pit of stomach amel., abdomen amel.",1
+h004,792,0,HARASSING (See Teasing),0
+r621,793,0,HARD,45
+r622,793,1,"HARD, evening",3
+r623,793,1,"HARD, night",3
+r624,793,2,"HARD, night, 1 a.m., after",1
+r625,793,1,"HARD, smoking, while",2
+r626,793,1,"HARD, spells of, not ceasing until masses of offensive sputa are raised",1
+r627,793,0,HAWKING,1
+r628,793,1,"HAWKING, agg.",1
+r629,793,0,"HEARTBURN, from",1
+r630,793,0,"HEART affections, with",4
+r631,793,0,"HEAT, after",1
+r632,793,1,"HEAT, after, sensation of, bronchia",2
+r633,793,1,"HEAT, after, chest",1
+r634,793,0,"HEATED, on becoming",18
+r635,793,0,HECTIC,6
+r636,793,1,"HECTIC, suppressed intermittent, after",1
+r637,793,0,HISSING,2
+r638,793,1,"HISSING, hoarseness, with, raises hand to larynx, which is sensitive to touch",1
+r639,793,0,HOARSE,63
+r640,793,1,"HOARSE, morning",3
+r641,793,1,"HOARSE, evening",2
+r642,793,2,"HOARSE, evening, until midnight",1
+r643,793,1,"HOARSE, night",3
+r644,793,2,"HOARSE, night, midnight",1
+r645,793,3,"HOARSE, night, midnight, before, barking; 11 p.m.",1
+r646,793,3,"HOARSE, night, midnight, after",2
+o11865,793,4,"HOARSE, night, midnight, after, barking 2 to 5 a.m.",1
+r648,793,0,"HOLD, cough obliges him to, himself inwardly",1
+r649,793,0,HOLDS chest with hands (See Hands),0
+r650,793,0,HOLLOW,48
+r651,793,1,"HOLLOW, daytime",1
+r652,793,1,"HOLLOW, morning",4
+r653,793,2,"HOLLOW, morning, bed, in",1
+r654,793,2,"HOLLOW, morning, rising, after",1
+r655,793,2,"HOLLOW, morning, waking, on",1
+r656,793,1,"HOLLOW, noon, toward",1
+r657,793,1,"HOLLOW, evening",4
+r658,793,2,"HOLLOW, evening, lying down, after",1
+r659,793,2,"HOLLOW, evening, midnight, until",2
+r660,793,1,"HOLLOW, night",8
+r661,793,1,"HOLLOW, breathing deep amel.",1
+r662,793,1,"HOLLOW, sitting up amel.",5
+r663,793,1,"HOLLOW, stooping agg.",1
+r664,793,0,"HUNGER, violent, with",2
+o11882,793,1,"HUNGER, violent, with, from",2
+r666,793,0,"HYSTERICAL attack of, followed by crying, night",1
+o11885,793,1,"HYSTERICAL attack of, followed by crying, night, women",7
+r668,793,0,"ICE CREAM, at first amel., then agg.",1
+r1450,793,0,"ICY cold air, in air passages, sensation of, from",1
+r669,794,0,INABILITY to,5
+r670,794,1,"INABILITY to, pain, from",1
+r671,794,2,"INABILITY to, pain, from, in side, from",1
+r672,794,2,"INABILITY to, pain, from, amel. by pressure of hand on pit of stomach",1
+r673,794,0,INCESSANT (See Constant),0
+r674,794,0,INSPIRATION,38
+r675,794,1,"INSPIRATION, crowing, violent, spasmodic cough, commencing with gasping for breath, and continuing with repeated crowing inspirations till face becomes black or purple and patient exhausted, agg. night and after a meal",1
+r676,794,1,"INSPIRATION, deep (See Breathing)",0
+r677,794,0,"INTERMITTING 6 a.m., drinking cold water amel.",1
+r678,794,0,INTERRUPTED,5
+r679,794,1,"INTERRUPTED, evening, smoking, from",1
+r680,794,1,"INTERRUPTED, dinner, after",1
+r681,794,1,"INTERRUPTED, infiltration of lower chest, from",1
+r682,794,0,"IRREPRESSIBLE, sudden, violent, in evening, while sitting",1
+r683,794,0,"IRRESISTIBLE, short, hawking",1
+r684,794,0,IRRITABLE,18
+r685,794,1,"IRRITABLE, morning, rising, after",1
+r686,794,1,"IRRITABLE, night",2
+r687,794,0,"IRRITATING things, such as salt, wine, pepper, vinegar, immediately start cough",1
+h005,794,0,"IRRITATION in air passages, from",60
+r689,794,1,"IRRITATION in air passages, from, morning, rising after",1
+r690,794,1,"IRRITATION in air passages, from, afternoon",1
+r691,794,1,"IRRITATION in air passages, from, evening",4
+r692,794,2,"IRRITATION in air passages, from, evening, bed, in",4
+r693,794,2,"IRRITATION in air passages, from, evening, 7-30 p.m.",1
+r694,794,1,"IRRITATION in air passages, from, night, on waking",1
+r695,794,1,"IRRITATION in air passages, from, increases the more one coughs",7
+r696,794,1,"IRRITATION in air passages, from, bronchia",20
+r697,794,2,"IRRITATION in air passages, from, bronchia, right",1
+r698,794,2,"IRRITATION in air passages, from, bronchia, bifurcation of",5
+r699,794,1,"IRRITATION in air passages, from, cardiac region",1
+r700,794,1,"IRRITATION in air passages, from, chest, in",45
+r701,794,2,"IRRITATION in air passages, from, chest, in, lower",1
+r702,794,2,"IRRITATION in air passages, from, chest, in, upper",5
+r703,794,1,"IRRITATION in air passages, from, epigastrium, in, from",19
+r704,794,1,"IRRITATION in air passages, from, fauces",5
+r705,794,1,"IRRITATION in air passages, from, larynx in, from",133
+o11928,795,2,"IRRITATION in air passages, from, larynx in, from, morning",1
+o11921,795,2,"IRRITATION in air passages, from, larynx in, from, afternoon",3
+o11922,795,3,"IRRITATION in air passages, from, larynx in, from, afternoon, 2 p.m.",1
+o11925,795,2,"IRRITATION in air passages, from, larynx in, from, evening, bed, in",2
+o11926,795,3,"IRRITATION in air passages, from, larynx in, from, evening, bed, in, lying while",1
+o11927,795,2,"IRRITATION in air passages, from, larynx in, from, midnight, before",1
+o11923,795,2,"IRRITATION in air passages, from, larynx in, from, as if some fluid had gone the wrong way",1
+o11924,795,2,"IRRITATION in air passages, from, larynx in, from, eating, while",1
+o11929,795,2,"IRRITATION in air passages, from, larynx in, from, sleep, in first, when lying on side",2
+o11931,795,1,"IRRITATION in air passages, from, lungs, in, from",3
+o11932,795,2,"IRRITATION in air passages, from, lungs, in, from, right",2
+o11930,795,2,"IRRITATION in air passages, from, lungs, in, from, 8 p.m.",1
+o11935,795,1,"IRRITATION in air passages, from, throat-pit, in, from",18
+o11936,795,1,"IRRITATION in air passages, from, thyroid gland, in region of",1
+o11937,795,1,"IRRITATION in air passages, from, trachea, in, from",94
+r720,795,1,"IRRITATION in air passages, from, uvula elongated (See Elongated)",0
+r721,795,0,"ITCH, suppressed, after",1
+r722,795,0,ITCHING in chest,19
+r723,795,1,"ITCHING in chest, extending through trachea to tip of nose",1
+o11941,795,1,"ITCHING in chest, in larynx",15
+o11942,795,1,"ITCHING in chest, trachea, from",6
+r726,795,0,KNEELING with face toward pillow amel.,1
+r727,795,0,"LABOR, following difficult, or abortion, with backache and sweat",1
+r728,795,0,"LACTATION, during",1
+r729,795,0,LAUGHING,27
+r730,795,0,"LIE down, could not, sat bent forward",1
+r731,795,0,LIFTING heavy weight,1
+r732,795,0,"LIQUIDS touching back part of mouth, from",1
+o11950,795,1,"LIQUIDS touching back part of mouth, from, swallowing, night",1
+r734,795,0,LOOSE,99
+r735,795,1,"LOOSE, daytime (See Expectoration) (See Dry Cough)",0
+r736,795,2,"LOOSE, daytime (See Expectoration) (See Dry Cough), dry at night (See Dry Cough)",4
+r737,795,2,"LOOSE, daytime (See Expectoration) (See Dry Cough), night, and",2
+r738,796,1,"LOOSE, morning",32
+r739,796,2,"LOOSE, morning, tight, afternoon",1
+r740,796,1,"LOOSE, forenoon",1
+r741,796,1,"LOOSE, afternoon",1
+r742,796,2,"LOOSE, afternoon, dry in morning",1
+r743,796,1,"LOOSE, evening",3
+r744,796,2,"LOOSE, evening, dry in morning",1
+r745,796,2,"LOOSE, evening, 7 p.m.",1
+r746,796,1,"LOOSE, night",8
+r747,796,2,"LOOSE, night, less free during day",1
+r748,796,2,"LOOSE, night, lying",1
+r749,796,2,"LOOSE, night, midnight",2
+r750,796,3,"LOOSE, night, midnight, after",2
+r751,796,3,"LOOSE, night, midnight, sitting up, amel.",1
+r752,796,1,"LOOSE, apyrexia, during",1
+r753,796,1,"LOOSE, breakfast, after",1
+r754,796,1,"LOOSE, drinking cold water amel.",1
+r755,796,1,"LOOSE, eating, after",7
+r756,796,2,"LOOSE, eating, after, dry after drinking",2
+r757,796,1,"LOOSE, expectoration, without",14
+r758,796,2,"LOOSE, expectoration, without, exercise and warm room agg.",1
+r759,796,1,"LOOSE, fever, during",35
+r760,796,1,"LOOSE, skin hanging in throat, sensation of, from",1
+r761,796,1,"LOOSE, tickling deep in chest, from",1
+r762,796,0,"LUMP in throat, from",4
+r763,796,0,LYING agg.,100
+o11990,796,1,"LYING agg., daytime amel.",3
+o12007,796,1,"LYING agg., noon amel.",1
+o11981,796,1,"LYING agg., afternoon",2
+o11982,796,2,"LYING agg., afternoon, 2 p.m.",1
+o11983,796,2,"LYING agg., afternoon, 3 p.m.",1
+o65261,796,1,"LYING agg., evening",33
+o11992,796,2,"LYING agg., evening, amel.",1
+o11993,796,2,"LYING agg., evening, must sit up",5
+o12000,796,1,"LYING agg., night",33
+o12001,796,2,"LYING agg., night, as soon as head touches pillow",3
+o12005,796,2,"LYING agg., night, sleep amel.",2
+o12006,796,2,"LYING agg., night, waking, on",1
+o12004,796,2,"LYING agg., night, midnight, wakens him",1
+o12003,796,3,"LYING agg., night, midnight, wakens him, before",2
+o12002,796,3,"LYING agg., night, midnight, wakens him, after",1
+r789,796,1,"LYING agg., amel.",20
+r781,797,1,"LYING agg., abdomen, on, amel.",12
+r782,797,1,"LYING agg., back, on",17
+r783,797,2,"LYING agg., back, on, amel.",4
+r784,797,2,"LYING agg., back, on, better than either side, though worse lying on left side",1
+r785,797,1,"LYING agg., bed, agg.",60
+r786,797,2,"LYING agg., bed, agg., must sit up, or sleep in chair from sense of suffocation",1
+o11994,797,1,"LYING agg., face, great rattling of mucus, which appears to be low down in chest, while cough does not seem to reach there, only to throat-pit, consequently hard cough does not reach phlegm unless he lie on his face when he brings up a greenish-yellow or a pale greenish-yellow gelatinous mucus without taste",1
+r788,797,1,"LYING agg., first lying down, on",11
+o11996,797,1,"LYING agg., hands and knees on, amel.",1
+r790,797,1,"LYING agg., head, low, with",10
+o11998,797,2,"LYING agg., head, low, with, raised, amel.",4
+r792,797,1,"LYING agg., long in one position (or sitting) agg.",2
+r793,797,1,"LYING agg., only on lying",1
+r794,797,1,"LYING agg., only when lying down; was obliged to sit up and cough it out, then had rest",1
+r795,797,1,"LYING agg., side",16
+r796,797,2,"LYING agg., side, right",15
+r797,797,3,"LYING agg., side, right, night",1
+r798,797,2,"LYING agg., side, left",21
+r799,797,3,"LYING agg., side, left, turning to right side amel.",7
+r800,797,2,"LYING agg., side, painful, agg.",1
+r801,797,1,"LYING agg., stomach, on, amel. (See Abdomen)",0
+r802,797,0,"MANUAL labor, from (See Exertion)",2
+r803,797,0,"MEASLES, during",5
+r804,797,1,"MEASLES, during, daytime",1
+r805,797,1,"MEASLES, during, eruption develops, which amel.",1
+r806,797,1,"MEASLES, during, after",28
+r807,797,0,"MEAT, after",1
+r808,797,0,"MEDITATION, from (See Exertion)",0
+r809,797,0,"MENSES, before",7
+r810,797,1,"MENSES, before, daytime",3
+r811,797,1,"MENSES, before, morning",2
+r812,797,2,"MENSES, before, morning, early",1
+r813,797,1,"MENSES, before, evening",2
+r814,797,2,"MENSES, before, evening, bed, in, sitting up amel.",1
+r815,797,1,"MENSES, before, hysterical",1
+r816,797,1,"MENSES, before, beginning of, at",1
+r817,797,1,"MENSES, before, during",23
+r818,797,2,"MENSES, before, during, morning",1
+r819,797,2,"MENSES, before, during, evening, every",1
+r820,797,2,"MENSES, before, during, coryza, with",2
+r821,797,2,"MENSES, before, during, hysterical",2
+r822,797,2,"MENSES, before, during, roughness in throat, from",1
+r823,797,1,"MENSES, before, suppressed, from",2
+r824,798,0,METALLIC,7
+r825,798,0,"METASTATIC, with the sound of croup",1
+r826,798,0,MILK agg.,8
+r827,798,0,"MINUTE guns, short, hacking cough, like",1
+r828,798,0,MOIST (See Loose),0
+r829,798,0,MORTIFICATION (See Chagrin),0
+r830,798,0,MOTION agg.,55
+o12062,798,1,"MOTION agg., 1 p.m.",1
+o12063,798,1,"MOTION agg., 4 p.m.",2
+o12067,798,1,"MOTION agg., rapid",2
+o12064,798,1,"MOTION agg., amel.",29
+o12065,798,1,"MOTION agg., arms, of, agg.",8
+o12066,798,1,"MOTION agg., chest, of, agg.",14
+r837,798,0,"MOVE, on beginning to",3
+r838,798,0,"MUCUS, chest, in",26
+r839,798,1,"MUCUS, chest, in, upper, in agg.",1
+o12071,798,1,"MUCUS, chest, in, larynx",39
+o12072,798,1,"MUCUS, chest, in, trachea",16
+o12073,798,2,"MUCUS, chest, in, trachea, ascending or descending, as from",1
+o12074,798,2,"MUCUS, chest, in, trachea, sensation of, in, from",2
+r844,798,0,MUSIC agg.,6
+r845,798,0,NERVOUS,18
+r846,798,1,"NERVOUS, evening, sunset to sunrise; peculiar to women",1
+r847,798,1,"NERVOUS, all night",1
+r848,798,1,"NERVOUS, anyone enters the room, when (See Strangers)",1
+r849,798,1,"NERVOUS, lying, while",1
+r850,798,0,NOISE agg.,2
+r851,798,0,"ODORS, strong",2
+r852,798,0,OLD people,16
+r853,798,1,"OLD people, morning, chronic",1
+r854,798,1,"OLD people, night",1
+r855,798,1,"OLD people, winter",2
+r856,798,0,"OPPRESSION, epigastrium",1
+r857,798,0,OPPRESSIVE,2
+r858,798,0,OVERHEATING (See Heated),0
+r859,798,0,"OVERPOWERING, as if larynx were tickled by a feather in evening before sleep",1
+r860,798,0,"PAIN, larynx, in, from",16
+o12139,798,1,"PAIN, larynx, in, from, trachea, in, from",13
+r862,798,0,PAINFUL,26
+r863,798,1,"PAINFUL, evening, in bed",1
+r864,798,1,"PAINFUL, night",2
+r865,798,1,"PAINFUL, midnight, waking before",1
+r866,798,0,PANTING,6
+r867,799,1,"PANTING, audible rumbling in chest from above downward",1
+r868,799,1,"PANTING, preventing sleep",1
+r869,799,0,PAROXYSMAL,108
+o12168,799,1,"PAROXYSMAL, daytime",5
+r871,799,2,"PAROXYSMAL, daytime, amel.",4
+r872,799,1,"PAROXYSMAL, morning",26
+r873,799,2,"PAROXYSMAL, morning, bed, in",3
+r874,799,2,"PAROXYSMAL, morning, eating amel.",1
+r875,799,2,"PAROXYSMAL, morning, rising, after",2
+r876,799,2,"PAROXYSMAL, morning, waking, after",4
+r877,799,1,"PAROXYSMAL, forenoon",6
+r878,799,1,"PAROXYSMAL, noon until midnight",1
+r879,799,1,"PAROXYSMAL, afternoon",13
+r880,799,2,"PAROXYSMAL, afternoon, 1-30 p.m.",1
+r881,799,2,"PAROXYSMAL, afternoon, 2 p.m.",1
+r882,799,2,"PAROXYSMAL, afternoon, 4 p.m.",2
+r883,799,2,"PAROXYSMAL, afternoon, 5 p.m.",1
+o12153,799,2,"PAROXYSMAL, afternoon, 5 to 9 p.m.",1
+r885,799,1,"PAROXYSMAL, evening",39
+r886,799,2,"PAROXYSMAL, evening, bed, in",2
+r887,799,2,"PAROXYSMAL, evening, cool wind, in",1
+r888,799,2,"PAROXYSMAL, evening, lying down, after",1
+r889,799,2,"PAROXYSMAL, evening, 6-15 p.m.",1
+r890,799,2,"PAROXYSMAL, evening, 7 p.m.",1
+r891,799,2,"PAROXYSMAL, evening, till midnight",13
+r892,799,1,"PAROXYSMAL, night",48
+r893,799,2,"PAROXYSMAL, night, bed, before going to",1
+r894,799,2,"PAROXYSMAL, night, becoming warm, in",2
+r895,799,2,"PAROXYSMAL, night, every other, on falling asleep",1
+r896,799,2,"PAROXYSMAL, night, midnight",6
+r897,799,3,"PAROXYSMAL, night, midnight, before",13
+r898,799,4,"PAROXYSMAL, night, midnight, before, on falling asleep on either side",1
+r899,799,4,"PAROXYSMAL, night, midnight, before, swallowing mucus amel.",1
+r900,799,4,"PAROXYSMAL, night, midnight, before, 11 p.m.",6
+o12196,799,5,"PAROXYSMAL, night, midnight, before, 11 p.m., lying down, after",1
+o12197,799,5,"PAROXYSMAL, night, midnight, before, 11 p.m., sleep, after",2
+r903,799,4,"PAROXYSMAL, night, midnight, before, 11-30 p.m.",1
+r904,799,3,"PAROXYSMAL, night, midnight, after",7
+r905,799,4,"PAROXYSMAL, night, midnight, after, 2 a.m.",1
+o12193,799,4,"PAROXYSMAL, night, midnight, after, 2 and 3-30 a.m.",1
+r907,800,1,"PAROXYSMAL, attacks follow one another quickly",11
+o12155,800,2,"PAROXYSMAL, attacks follow one another quickly, first the strongest, following ones weaker and weaker",1
+r909,800,1,"PAROXYSMAL, bread or cake, from eating",1
+r910,800,1,"PAROXYSMAL, breath, gasping for, commences with",2
+r911,800,1,"PAROXYSMAL, change of temperature",1
+r912,800,1,"PAROXYSMAL, chill, after",1
+r913,800,1,"PAROXYSMAL, consisting of few coughs",3
+o12161,800,2,"PAROXYSMAL, consisting of few coughs, long coughs",5
+o12162,800,2,"PAROXYSMAL, consisting of few coughs, short coughs",14
+o12163,800,2,"PAROXYSMAL, consisting of few coughs, three coughs",4
+o12164,800,2,"PAROXYSMAL, consisting of few coughs, two coughs",11
+o12165,800,3,"PAROXYSMAL, consisting of few coughs, two coughs, in quick succession",1
+r919,800,1,"PAROXYSMAL, convulses while body in sudden paroxysms",1
+r920,800,1,"PAROXYSMAL, crawling in larynx, from",1
+r921,800,1,"PAROXYSMAL, dinner, after",3
+r922,800,1,"PAROXYSMAL, followed by copious mucus",9
+r923,800,1,"PAROXYSMAL, hard spells of coughing, not ceasing until masses of offensive sputa are raised",1
+r924,800,1,"PAROXYSMAL, rinsing mouth with cold water, amel.",1
+r925,800,1,"PAROXYSMAL, sitting up amel.",1
+r926,800,1,"PAROXYSMAL, smoking, while",1
+r927,800,1,"PAROXYSMAL, sneezing, with",3
+r928,800,1,"PAROXYSMAL, stomach, lying hand on pit of, amel.",1
+r929,800,1,"PAROXYSMAL, suffocation, suddenly on swallowing",1
+r930,800,1,"PAROXYSMAL, sun, walking in hot",1
+r931,800,1,"PAROXYSMAL, uninterrupted paroxysms",1
+r932,800,1,"PAROXYSMAL, walking in cool wind",1
+r933,800,0,"PARTURITION, after",1
+r934,800,0,"PEPPER, from",2
+r935,800,0,PERIODIC,13
+r936,800,1,"PERIODIC, daytime",1
+r937,800,1,"PERIODIC, morning",1
+r938,800,1,"PERIODIC, evening, sunset to sunrise",1
+r939,800,1,"PERIODIC, night",3
+r940,800,2,"PERIODIC, night, every other",1
+o12223,800,3,"PERIODIC, night, every other, fourth",1
+r942,800,2,"PERIODIC, night, midnight",1
+r943,800,3,"PERIODIC, night, midnight, after",2
+r944,800,4,"PERIODIC, night, midnight, after, every half hour",1
+r945,800,2,"PERIODIC, night, 2 a.m.",1
+r946,800,1,"PERIODIC, day, every other",4
+r947,800,1,"PERIODIC, hour, same, every day",2
+o12217,800,2,"PERIODIC, hour, same, every day, every three hours",2
+r949,800,1,"PERIODIC, speaking or smoking, from",1
+r950,800,0,PERSISTENT,20
+r951,800,1,"PERSISTENT, midnight, lying on back, agg.; lying on side, amel.",1
+r952,800,0,"PERSONS, other coming into room, agg. (See Strangers)",1
+o12230,800,1,"PERSONS, other coming into room, agg. (See Strangers), approaching or passing, agg.",1
+o12231,800,1,"PERSONS, other coming into room, agg. (See Strangers), many are present, where, agg.",1
+r955,800,0,"PIANO, when playing",6
+r956,800,1,"PIANO, when playing, every note she struck seemed to vibrate in her larynx",1
+r957,800,0,"PLEURISY, in",6
+r958,800,0,"PLUG, sensation of a, in larynx, from",1
+o12236,800,1,"PLUG, sensation of a, in larynx, from, sensation as of a, moving up and down in trachea, from",1
+r960,800,0,POTATOES agg.,1
+r961,800,0,"PREGNANCY, during",11
+r962,800,1,"PREGNANCY, during, night",1
+r963,800,0,"PRESSING pain in larynx, from",1
+r964,800,0,"PRESSURE, chest, in",2
+o12246,800,1,"PRESSURE, chest, in, on the goitre, from",1
+r967,801,1,"PRESSURE, chest, in, on larynx, from",9
+r968,801,2,"PRESSURE, chest, in, on larynx, from, sensation between pressure and roughness, which gradually becomes a tickling from",1
+o12247,801,2,"PRESSURE, chest, in, on larynx, from, trachea, from",4
+r970,801,1,"PRESSURE, chest, in, in stomach",1
+r971,801,1,"PRESSURE, chest, in, throat-pit, on",1
+r972,801,0,"PRICKLING in trachea, from",1
+r973,801,0,PROSTRATION with (See Exhausting),0
+r974,801,0,"PUTTING out the tongue, from",1
+r975,801,0,RACKING,92
+r976,801,1,"RACKING, morning",2
+r977,801,2,"RACKING, morning, waking, on",1
+r978,801,1,"RACKING, 3 p.m.",1
+r979,801,1,"RACKING, evening",10
+r980,801,2,"RACKING, evening, 10 p.m.",1
+r981,801,2,"RACKING, evening, till midnight",4
+r982,801,1,"RACKING, night",10
+r983,801,2,"RACKING, night, midnight, after",1
+r984,801,1,"RACKING, deep inspiration, on",1
+r985,801,1,"RACKING, drinking water amel.",1
+r986,801,1,"RACKING, sitting up amel.",3
+r987,801,0,"RAISED, child must be, gets blue in face, cannot exhale",1
+r988,801,0,"RAISING the arms, agg.",4
+r989,801,0,"RAPID, until patient falls back as limber as a rag",1
+r990,801,0,RASPING,3
+r991,801,0,RATTLING,73
+r992,801,1,"RATTLING, daytime",2
+r993,801,1,"RATTLING, morning",4
+r994,801,1,"RATTLING, evening",2
+r995,801,1,"RATTLING, night",2
+r996,801,1,"RATTLING, eating, while",1
+r997,801,2,"RATTLING, eating, while, after",1
+r998,801,1,"RATTLING, hoarseness, with",1
+r999,801,2,"RATTLING, hoarseness, with, without",1
+r1000,801,1,"RATTLING, old people",4
+r1001,801,1,"RATTLING, open air amel.",2
+r1002,801,1,"RATTLING, spells in",1
+r1003,801,1,"RATTLING, wheezing or whistling with cough, while lying on back, or on either side",1
+r1004,801,0,RAWNESS in larynx excites,19
+r1005,801,0,READING aloud agg.,12
+o12283,801,1,"READING aloud agg., evening",1
+r1007,801,0,"RE-ECHO, seems to, in stomach",1
+r1008,801,0,"REMITTENT fever, during",1
+r1009,801,0,RESONANT,1
+r1010,801,0,RETCHING (See Retching under Stomach),0
+r1011,801,0,RIDING,3
+r1451,801,0,RINGING (clear),11
+r1012,802,0,RINSING mouth agg.,1
+o65280,802,0,"RISING, on",46
+r1014,802,1,"RISING, on, amel.",3
+r1015,802,1,"RISING, on, bed, from",24
+r1016,802,1,"RISING, on, before",2
+r1017,802,1,"RISING, on, stooping, from",1
+r1018,802,0,"ROOM, in",12
+r1019,802,0,ROUGH,24
+r1020,802,1,"ROUGH, night",3
+r1021,802,2,"ROUGH, night, midnight",1
+r1022,802,0,ROUGHNESS in larynx causes cough,35
+o12299,802,1,"ROUGHNESS in larynx causes cough, trachea, in, from",6
+r1024,802,0,RUNNING agg.,7
+r1025,802,0,SALT food,3
+r1026,802,1,"SALT food, and pepper in larynx, as if from",1
+r1027,802,0,"SCARLATINA, following",3
+r1028,802,0,"SCIATICA, alternating with, in summer",1
+r1029,802,0,SCRAPING,32
+r1030,802,1,"SCRAPING, evening",2
+r1031,802,2,"SCRAPING, evening, lying down, after",1
+r1032,802,1,"SCRAPING, night",4
+r1033,802,2,"SCRAPING, night, waking, on",1
+r1034,802,1,"SCRAPING, chest, in",9
+r1035,802,2,"SCRAPING, chest, in, upper, in",1
+r1036,802,1,"SCRAPING, fauces",1
+r1037,802,1,"SCRAPING, larynx, from",64
+r1038,802,1,"SCRAPING, pharynx, in",3
+r1039,802,1,"SCRAPING, trachea, in, from",5
+r1040,802,0,SCRATCHING,2
+r1041,802,1,"SCRATCHING, larynx, in",21
+r1042,802,1,"SCRATCHING, trachea, in, from",6
+r1043,802,0,SCREAMING (See Crying),0
+r1044,802,0,"SCREECHING shrill, in painless paroxysmal",1
+r1045,802,0,"SEA wind, from",2
+r1046,802,0,"SERIES, in",2
+o12322,802,1,"SERIES, in, 10 to 11 a.m.",1
+r1048,802,0,SEVERE (See Violent),0
+r1049,802,0,SHAKING (See Racking),0
+r1050,802,0,SHARP,3
+r1051,802,1,"SHARP, eating, after",1
+h006,802,0,SHATTERING (See Racking),0
+r1052,803,0,SHORT,136
+r1053,803,1,"SHORT, daytime",4
+r1054,803,2,"SHORT, daytime, and night",1
+r1055,803,1,"SHORT, morning",9
+r1056,803,2,"SHORT, morning, rising, after",2
+r1057,803,2,"SHORT, morning, tea drinking, after",1
+r1058,803,2,"SHORT, morning, waking, on",1
+r1059,803,1,"SHORT, forenoon",4
+r1060,803,2,"SHORT, forenoon, 11 a.m.",1
+r1061,803,1,"SHORT, afternoon",4
+r1062,803,2,"SHORT, afternoon, 2 p.m.",1
+r1063,803,2,"SHORT, afternoon, 5 p.m.",1
+r1064,803,1,"SHORT, evening",13
+r1065,803,2,"SHORT, evening, bed, in",2
+r1066,803,2,"SHORT, evening, sleeping, while",1
+r1067,803,2,"SHORT, evening, smoking agg.",1
+r1068,803,2,"SHORT, evening, undressing, on",1
+r1069,803,1,"SHORT, night",5
+r1070,803,2,"SHORT, night, bed, in",2
+r1071,803,2,"SHORT, night, midnight, before",1
+r1072,803,3,"SHORT, night, midnight, before, wakens",1
+r1073,803,3,"SHORT, night, midnight, before, 11 p.m.",1
+r1074,803,3,"SHORT, night, midnight, before, after",2
+r1075,803,1,"SHORT, air, open agg.",3
+r1076,803,1,"SHORT, breathing, deep",1
+r1077,803,1,"SHORT, deep cough, alternating with",1
+r1078,803,1,"SHORT, dinner, after",1
+r1079,803,1,"SHORT, eating, after",3
+r1080,803,1,"SHORT, frequent",1
+r1081,803,1,"SHORT, inspiration agg.",1
+r1082,803,1,"SHORT, irritation in larynx, from",3
+r1083,803,1,"SHORT, lying, after eating",2
+r1084,803,1,"SHORT, moving, when",1
+r1085,803,1,"SHORT, siesta, after",1
+r1086,803,1,"SHORT, sitting up amel.",3
+r1087,803,1,"SHORT, smoking, when",2
+r1088,803,1,"SHORT, swallowing, from",1
+r1089,803,1,"SHORT, talking, while",1
+r1090,803,1,"SHORT, tickling in larynx, from",11
+r1091,803,1,"SHORT, walking fast",1
+o12365,803,2,"SHORT, walking fast, open air, in",1
+r1093,803,0,SHRILL,3
+r1094,803,1,"SHRILL, waking, on",1
+r1095,803,0,SIBILANT,3
+r1096,803,1,"SIBILANT, and dry, like a saw driven through a pine board",1
+r1097,803,0,SINGING agg.,14
+o12371,803,1,"SINGING agg., raising the voice, from",1
+r1099,803,0,"SIT UP, must",31
+r1100,803,1,"SIT UP, must, as soon as cough commences",9
+r1101,803,1,"SIT UP, must, and cough it out, when had rest",1
+r1452,803,0,"SITTING, while",24
+r1103,804,1,"SITTING, while, bent agg.",3
+o12376,804,2,"SITTING, while, bent agg., amel.",1
+o12377,804,1,"SITTING, while, erect",3
+r1106,804,2,"SITTING, while, erect, amel.",1
+r1107,804,1,"SITTING, while, long agg.",2
+o12382,804,1,"SITTING, while, still, while",2
+r1109,804,2,"SITTING, while, still, while, afternoon",1
+r1110,804,2,"SITTING, while, still, while, amel.",1
+r1111,804,1,"SITTING, while, up amel. (See Lying)",0
+r1112,804,0,"SLEEP, before",4
+r1113,804,1,"SLEEP, before, during",34
+r1114,804,1,"SLEEP, before, after",10
+r1115,804,1,"SLEEP, before, disturbing",16
+r1116,804,1,"SLEEP, before, falls asleep during dry cough",1
+r1117,804,1,"SLEEP, before, going to, on",18
+r1118,804,2,"SLEEP, before, going to, on, lying on side, when",5
+r1119,804,2,"SLEEP, before, going to, on, one hour after",3
+r1120,804,1,"SLEEP, before, preventing",16
+r1121,804,1,"SLEEP, before, starting in, on",3
+r1122,804,1,"SLEEP, before, wakens from",44
+r1123,804,0,SMARTING (See Burning),0
+r1124,804,0,SMOKE of all kinds agg.,2
+o12396,804,1,"SMOKE of all kinds agg., sensation of, in trachea, from",3
+r1126,804,0,SMOKING agg.,35
+o12399,804,1,"SMOKING agg., evening",3
+o12400,804,1,"SMOKING agg., night amel.",1
+o12398,804,1,"SMOKING agg., dinner, after, on",6
+r1130,804,0,SMOTHERED,1
+r1131,804,0,"SMOTHERING in throat, from (See Constriction)",1
+r1132,804,0,"SNEEZING, ends in",12
+o12405,804,1,"SNEEZING, ends in, from",1
+r1134,804,1,"SNEEZING, ends in, amel.",1
+r1135,804,1,"SNEEZING, ends in, with",30
+r1136,804,0,"SNORING, with",10
+r1137,804,0,"SNOWFALL, exposure to, in children, from",1
+r1138,804,0,SONOROUS (See Deep Sounding),1
+r1139,804,0,SOUNDLESS (See Toneless),0
+r1140,804,0,SOUR food,7
+r1141,804,0,SPASM (See Convulsions),0
+r1142,804,0,SPASMODIC (See Paroxysmal),126
+o12418,805,1,"SPASMODIC (See Paroxysmal), daytime, only",2
+r1144,805,2,"SPASMODIC (See Paroxysmal), daytime, only, amel.",5
+r1145,805,1,"SPASMODIC (See Paroxysmal), morning",19
+r1146,805,2,"SPASMODIC (See Paroxysmal), morning, bed",1
+r1147,805,2,"SPASMODIC (See Paroxysmal), morning, eating amel.",2
+r1148,805,2,"SPASMODIC (See Paroxysmal), morning, rising, after",1
+r1149,805,2,"SPASMODIC (See Paroxysmal), morning, waking",2
+r1150,805,1,"SPASMODIC (See Paroxysmal), forenoon",4
+r1151,805,1,"SPASMODIC (See Paroxysmal), noon, until midnight",1
+r1152,805,1,"SPASMODIC (See Paroxysmal), afternoon",7
+r1153,805,1,"SPASMODIC (See Paroxysmal), evening",32
+r1154,805,2,"SPASMODIC (See Paroxysmal), evening, midnight, until",12
+r1155,805,3,"SPASMODIC (See Paroxysmal), evening, midnight, until, after",2
+r1156,805,1,"SPASMODIC (See Paroxysmal), night",39
+r1157,805,2,"SPASMODIC (See Paroxysmal), night, waking, on",1
+r1158,805,2,"SPASMODIC (See Paroxysmal), night, midnight",3
+r1159,805,3,"SPASMODIC (See Paroxysmal), night, midnight, afternoon, until",2
+r1160,805,3,"SPASMODIC (See Paroxysmal), night, midnight, before",4
+r1161,805,4,"SPASMODIC (See Paroxysmal), night, midnight, before, 10-30 p.m.",2
+r1162,805,3,"SPASMODIC (See Paroxysmal), night, midnight, after",5
+r1163,805,2,"SPASMODIC (See Paroxysmal), night, sunset to sunrise",1
+r1164,805,1,"SPASMODIC (See Paroxysmal), aged people",2
+r1165,805,1,"SPASMODIC (See Paroxysmal), autumn",1
+r1166,805,1,"SPASMODIC (See Paroxysmal), change of temperature",1
+r1167,805,1,"SPASMODIC (See Paroxysmal), cold drink amel.",1
+r1168,805,1,"SPASMODIC (See Paroxysmal), deep inspiration amel.",1
+r1169,805,1,"SPASMODIC (See Paroxysmal), drinking, after",2
+r1170,805,1,"SPASMODIC (See Paroxysmal), eating, after",4
+r1171,805,2,"SPASMODIC (See Paroxysmal), eating, after, amel.",1
+r1172,805,1,"SPASMODIC (See Paroxysmal), lying agg.",6
+r1173,805,1,"SPASMODIC (See Paroxysmal), smoking agg.",1
+o12443,805,2,"SPASMODIC (See Paroxysmal), smoking agg., amel.",1
+r1175,805,1,"SPASMODIC (See Paroxysmal), summer heat amel.",1
+r1176,805,1,"SPASMODIC (See Paroxysmal), swallowing liquids agg.",1
+r1177,805,1,"SPASMODIC (See Paroxysmal), talking, after",1
+r1178,805,1,"SPASMODIC (See Paroxysmal), vomiting, with",5
+r1179,805,1,"SPASMODIC (See Paroxysmal), waking, on",1
+r1180,805,1,"SPASMODIC (See Paroxysmal), whooping cough, after",1
+r1181,805,1,"SPASMODIC (See Paroxysmal), winter",2
+r1182,805,1,"SPASMODIC (See Paroxysmal), women, peculiar to",4
+r1183,805,0,SPEAKING (See Talking),0
+r1184,805,0,"SPIRITS, drinking",9
+r1185,805,0,"SPLENIC troubles, from",1
+r1186,805,0,SPLITTING,1
+r1187,805,1,"SPLITTING, night",1
+r1188,805,0,"SPOKEN to, on being",1
+r1189,805,0,"SPOT in larynx, as if from dry",3
+r1190,805,0,"SPRING, in the",6
+r1191,805,1,"SPRING, in the, and autumn",3
+r1453,805,0,"SPRINGS up, child, and clings to those around; calls for help in a hoarse voice, bends backward and grasps at larynx",1
+o65290,806,0,STANDING agg.,11
+o12462,806,1,"STANDING agg., amel.",1
+o12463,806,1,"STANDING agg., erect, while",3
+o12464,806,1,"STANDING agg., sitting, after, and vice versa",1
+o12465,806,1,"STANDING agg., still, during a walk",1
+r1197,806,0,STERTOROUS,1
+r1198,806,1,"STERTOROUS, night",1
+r1199,806,0,"STICKING, chest, in",1
+o12469,806,1,"STICKING, chest, in, in larynx, from",5
+o12470,806,2,"STICKING, chest, in, in larynx, from, 1 to 4 a.m.",1
+r1202,806,0,STIMULANTS (See Spirits),0
+r1203,806,0,"STINGING in larynx, or burning tickling, from",3
+r1204,806,0,"STITCHING, chest, in",4
+o12473,806,1,"STITCHING, chest, in, epigastric region",1
+o12474,806,1,"STITCHING, chest, in, in larynx, from",13
+o12475,806,2,"STITCHING, chest, in, in larynx, from, evening",1
+o12476,806,1,"STITCHING, chest, in, in trachea, from",3
+r1209,806,0,"STOMACH, seems to come from the",11
+r1210,806,1,"STOMACH, seems to come from the, turned inside out, feeling as if",3
+r1211,806,0,"STOOLS, frequent, amel.",1
+r1212,806,0,STOOPING,19
+r1213,806,0,"STORM, before",1
+r1214,806,1,"STORM, before, thunder, before",2
+r1215,806,0,STRAINING,16
+r1216,806,0,"STRANGERS, child coughs at sight of",4
+r1217,806,0,STRANGLING (See Choking),0
+r1218,806,0,STRETCHING out the arms,1
+o12486,806,1,"STRETCHING out the arms, followed by",1
+r1220,806,0,"STUDENTS, of",1
+r1221,806,0,SUDDEN,14
+r1222,806,1,"SUDDEN, daytime",2
+r1223,806,2,"SUDDEN, daytime, morning",2
+o12494,806,1,"SUDDEN, rising, on",1
+r1225,806,1,"SUDDEN, forenoon",1
+r1226,806,1,"SUDDEN, evening",3
+r1227,806,2,"SUDDEN, evening, while sitting",1
+r1228,806,1,"SUDDEN, night",1
+r1229,806,0,SUFFOCATIVE,80
+r1230,806,1,"SUFFOCATIVE, daytime",1
+r1231,806,1,"SUFFOCATIVE, morning",1
+r1232,806,2,"SUFFOCATIVE, morning, lying down, while",1
+r1233,806,2,"SUFFOCATIVE, morning, rising, after",1
+r1234,806,2,"SUFFOCATIVE, morning, 5 a.m.",1
+r1235,806,1,"SUFFOCATIVE, noon",1
+r1236,806,1,"SUFFOCATIVE, evening",6
+r1237,806,2,"SUFFOCATIVE, evening, bed, in",1
+r1238,806,2,"SUFFOCATIVE, evening, 6 p.m.",1
+r1239,806,2,"SUFFOCATIVE, evening, 7 p.m.",1
+r1240,806,1,"SUFFOCATIVE, night",16
+r1241,806,2,"SUFFOCATIVE, night, midnight",4
+r1242,806,3,"SUFFOCATIVE, night, midnight, after",3
+o12511,806,2,"SUFFOCATIVE, night, 2 and 4 a.m.",1
+r1244,806,2,"SUFFOCATIVE, night, 5 a.m.",1
+r1245,806,1,"SUFFOCATIVE, child becomes stiff and blue in face",2
+r1246,806,1,"SUFFOCATIVE, eating and drinking, after",1
+r1247,807,1,"SUFFOCATIVE, inspiration, from",1
+r1248,807,1,"SUFFOCATIVE, lying, while",1
+r1249,807,1,"SUFFOCATIVE, sleep, during",3
+r1250,807,1,"SUFFOCATIVE, swallowing, on",1
+r1251,807,1,"SUFFOCATIVE, walking",1
+r1252,807,0,SUGAR agg.,1
+o12520,807,1,"SUGAR agg., amel.",1
+o12521,807,1,"SUGAR agg., dissolving in larynx, as if was",1
+r1255,807,0,"SULPHUR fumes or vapour, sensation of agg.",18
+r1256,807,0,SUN agg.,2
+r1257,807,0,"SUPPER, during",1
+r1258,807,1,"SUPPER, during, after",1
+r1259,807,0,"SUPPORT, must (See Hands)",0
+r1260,807,0,"SURPRISE, happy agg.",2
+r1261,807,0,SWALLOWING agg.,12
+o12528,807,1,"SWALLOWING agg., amel.",3
+o12529,807,1,"SWALLOWING agg., empty",4
+o12530,807,2,"SWALLOWING agg., empty, amel.",1
+r1265,807,0,SWEETMEATS agg.,3
+r1266,807,0,"SWOLLEN, larynx, from",1
+o12532,807,1,"SWOLLEN, larynx, from, feeling in larynx, from",2
+r1268,807,0,SYMPATHETIC,4
+r1269,807,1,"SYMPATHETIC, night",1
+r1270,807,0,TALKING,78
+r1271,807,1,"TALKING, evening",1
+r1272,807,1,"TALKING, night",1
+r1273,807,1,"TALKING, loud",6
+r1274,807,1,"TALKING, inability to speak, with",9
+r1275,807,0,"TALL, slender, tuberculous subjects, in",1
+r1276,807,0,TEA agg.,2
+o12543,807,1,"TEA agg., hot, agg.",1
+r1278,807,0,TEARING,7
+r1279,807,1,"TEARING, night",2
+r1280,807,1,"TEARING, menses, during",1
+r1281,807,1,"TEARING, sensation, cardiac region",1
+r1282,807,0,TEASING (See Tormenting),0
+r1283,807,0,TEDIOUS,2
+r1284,807,0,"TENSION, chest, in",2
+r1285,807,0,THINKING of it agg. (See Meditating),3
+r1286,807,0,THREE coughs in succession,4
+r1287,807,0,THUNDER (See Storm),0
+r1288,807,0,TICKLING,106
+r1289,807,1,"TICKLING, daytime",3
+r1290,807,2,"TICKLING, daytime, and night",1
+r1291,807,1,"TICKLING, morning",8
+r1292,807,2,"TICKLING, morning, rising, after",2
+r1293,807,2,"TICKLING, morning, walking, after",1
+r1294,808,1,"TICKLING, afternoon, 3 p.m.",1
+r1295,808,1,"TICKLING, evening",12
+r1296,808,2,"TICKLING, evening, bed, in",1
+r1297,808,2,"TICKLING, evening, falling asleep, before",1
+r1298,808,2,"TICKLING, evening, going to sleep, on",1
+r1299,808,2,"TICKLING, evening, midnight, until",1
+r1300,808,2,"TICKLING, evening, 6 p.m., expectoration of mucus, amel.",1
+r1301,808,1,"TICKLING, night",15
+o12587,808,1,"TICKLING, 3 a.m.",1
+r1303,808,1,"TICKLING, air, in open",3
+r1304,808,1,"TICKLING, smoking, from",2
+r1305,808,1,"TICKLING, talking, on",3
+r1306,808,1,"TICKLING, waking, on",2
+r1307,808,1,"TICKLING, bronchia",16
+r1308,808,2,"TICKLING, bronchia, bifurcation",2
+r1309,808,1,"TICKLING, chest",42
+r1310,808,2,"TICKLING, chest, upper, in",3
+r1311,808,1,"TICKLING, epigastrium, from",13
+r1312,808,1,"TICKLING, fauces",5
+r1313,808,1,"TICKLING, larynx, in, from",152
+r1314,808,2,"TICKLING, larynx, in, from, morning, rising, after",3
+r1315,808,2,"TICKLING, larynx, in, from, afternoon",3
+r1316,808,3,"TICKLING, larynx, in, from, afternoon, 2 p.m.",2
+r1317,808,2,"TICKLING, larynx, in, from, evening",6
+r1318,808,2,"TICKLING, larynx, in, from, night",1
+r1319,808,3,"TICKLING, larynx, in, from, night, 11-30 p.m.",1
+o12581,808,3,"TICKLING, larynx, in, from, night, 3 to 4 a.m.",1
+r1321,808,2,"TICKLING, larynx, in, from, down, as from",3
+r1322,808,2,"TICKLING, larynx, in, from, lying, while",1
+r1323,808,2,"TICKLING, larynx, in, from, small spot in, agg.",3
+r1324,808,2,"TICKLING, larynx, in, from, extending to chest",1
+o12576,808,3,"TICKLING, larynx, in, from, extending to chest, to midsternum",1
+r1326,808,1,"TICKLING, pharynx, in",12
+r1327,808,2,"TICKLING, pharynx, in, night",3
+r1328,808,1,"TICKLING, præcordial region",2
+r1329,808,1,"TICKLING, stomach, in, from (See Epigastrium)",0
+r1330,808,1,"TICKLING, throat (See Larynx)",0
+r1331,808,1,"TICKLING, throat-pit, in, from",27
+r1332,808,1,"TICKLING, tonsils, below",1
+r1333,809,1,"TICKLING, trachea, in, from",95
+r1334,809,0,TIGHT,18
+r1335,809,1,"TIGHT, daytime",1
+r1336,809,1,"TIGHT, evening",1
+r1337,809,0,"TIGHTNESS, chest (See Constriction)",0
+r1338,809,0,"TINGLING, chest",2
+r1339,809,1,"TINGLING, chest, larynx, from",5
+r1340,809,1,"TINGLING, chest, trachea, from",1
+r1341,809,0,TITILLATING (See Tickling),4
+r1342,809,0,TONELESS,4
+r1343,809,0,TORMENTING,65
+r1344,809,0,"TOUCHING the canal of ear, on",10
+o12606,809,1,"TOUCHING the canal of ear, on, larynx lightly agg.",7
+r1346,809,0,TRUMPET-TONED,1
+r1347,809,0,"TUBE, sounds as if he coughed in a",1
+r1348,809,0,TURNING from left to right side amel.,6
+o12610,809,1,"TURNING from left to right side amel., in bed agg.",1
+o12611,809,1,"TURNING from left to right side amel., on side agg.",1
+o12612,809,1,"TURNING from left to right side amel., the head agg.",1
+r1352,809,0,TWO coughs in a paroxysm (See Paroxysmal),0
+r1353,809,0,UNCOVERING agg. (See Cold),8
+o12614,809,1,"UNCOVERING agg. (See Cold), feet or head",1
+o12615,809,1,"UNCOVERING agg. (See Cold), hands",4
+r1356,809,0,UNINTERRUPTED (See Constant),0
+r1357,809,0,"VACCINATION, after",1
+r1358,809,0,"VARIOLA, during",1
+r1359,809,1,"VARIOLA, during, after",1
+r1360,809,0,"VAULTS, air of (See Cellars)",0
+r1361,809,0,"VEXATION, after",15
+r1362,809,0,"VINEGAR, after",4
+r1363,809,0,VIOLENT,100
+r1364,809,1,"VIOLENT, daytime",2
+r1365,809,1,"VIOLENT, morning",5
+r1366,809,2,"VIOLENT, morning, early, in bed",3
+r1367,809,2,"VIOLENT, morning, rising, before",1
+r1368,809,2,"VIOLENT, morning, waking, on",2
+r1369,809,1,"VIOLENT, noon",1
+r1370,810,1,"VIOLENT, afternoon",2
+r1371,810,1,"VIOLENT, evening",9
+r1372,810,2,"VIOLENT, evening, lying, after",3
+r1373,810,1,"VIOLENT, night",8
+r1374,810,2,"VIOLENT, night, 3 a.m.",2
+r1375,810,1,"VIOLENT, dinner, after",2
+r1376,810,1,"VIOLENT, laughing",1
+r1377,810,1,"VIOLENT, sitting or lying, while, not during motion",1
+r1378,810,1,"VIOLENT, sleep, in",4
+r1379,810,1,"VIOLENT, spasmodic perking of head forward and knees upward",1
+r1380,810,1,"VIOLENT, talking, from",1
+r1381,810,1,"VIOLENT, uninterrupted until relieved by vomiting",1
+r1382,810,1,"VIOLENT, waking, on",4
+r1383,810,1,"VIOLENT, yawning, on",1
+r1384,810,0,"VIOLIN, playing on (See Music)",1
+r1385,810,0,WAKENS (See Sleep),0
+r1386,810,0,"WAKING, on",51
+r1387,810,0,WALKING,22
+r1388,810,1,"WALKING, amel.",5
+r1389,810,1,"WALKING, fast",10
+r1390,810,0,"WARM, on becoming",5
+r1391,810,1,"WARM, on becoming, in bed (See Bed)",0
+r1392,810,1,"WARM, on becoming, warming abdomen amel.",1
+o12647,810,1,"WARM, on becoming, fluids",9
+r1394,810,2,"WARM, on becoming, fluids, amel.",10
+o12649,810,1,"WARM, on becoming, food",6
+r1396,810,2,"WARM, on becoming, food, amel.",1
+r1397,810,1,"WARM, on becoming, room",36
+r1398,810,2,"WARM, on becoming, room, entering, from open air",23
+r1399,810,2,"WARM, on becoming, room, going from, to cold air, or vice versa, agg.",10
+r1400,810,1,"WARM, on becoming, stove",1
+r1401,810,0,WATER (See Drinking),0
+r1402,810,0,"WEATHER, change of",10
+r1403,810,1,"WEATHER, change of, damp",14
+r1404,810,1,"WEATHER, change of, hot",1
+r1405,810,1,"WEATHER, change of, stormy",6
+r1406,810,1,"WEATHER, change of, warm, wet",1
+r1407,810,1,"WEATHER, change of, wet, cold (See Air)",0
+r1408,810,0,"WEEPING, with (See Crying)",0
+r1409,810,0,"WET, getting",10
+r1410,810,0,WHEEZING (See Asthmatic),0
+r1411,810,0,"WHINING, during",3
+r1412,810,0,"WHISPERING sounds, has a",1
+r1413,810,0,WHISTLING,17
+r1414,810,0,WHOOPING,112
+r1415,811,1,"WHOOPING, daytime",3
+r1416,811,1,"WHOOPING, morning",4
+r1417,811,1,"WHOOPING, forenoon",1
+r1418,811,1,"WHOOPING, afternoon",3
+r1419,811,2,"WHOOPING, afternoon, midnight, until",1
+r1420,811,1,"WHOOPING, evening",23
+o12671,811,2,"WHOOPING, evening, 6 to 10 p.m.",1
+r1422,811,2,"WHOOPING, evening, midnight, until",10
+r1423,811,2,"WHOOPING, evening, night, and",2
+r1424,811,1,"WHOOPING, night",34
+r1425,811,2,"WHOOPING, night, midnight, before",3
+r1426,811,3,"WHOOPING, night, midnight, before, after",8
+r1427,811,2,"WHOOPING, night, 2 a.m.",1
+r1428,811,2,"WHOOPING, night, 3 a.m.",1
+r1429,811,0,"WIND, in the",13
+r1430,811,1,"WIND, in the, cold, in the",4
+o12681,811,2,"WIND, in the, cold, in the, dry, in the",4
+r1432,811,1,"WIND, in the, east, in the",7
+r1433,811,1,"WIND, in the, north, in the",6
+r1434,811,1,"WIND, in the, sea, in the",1
+r1435,811,1,"WIND, in the, sharp, in",1
+r1436,811,1,"WIND, in the, south, in the",1
+r1437,811,1,"WIND, in the, west, in the",1
+r1438,811,0,WINE,11
+r1439,811,1,"WINE, amel.",1
+r1440,811,0,WINTER,12
+r1441,811,1,"WINTER, alternating with sciatica in summer",1
+r1442,811,1,"WINTER, old people",2
+r1443,811,0,"WORM, sensation as if a, crawled up from pit of stomach in throat, from",1
+r1444,811,0,WRITING,1
+r1445,811,0,YAWNING,7
+r1446,811,1,"YAWNING, and coughing consecutively",2
