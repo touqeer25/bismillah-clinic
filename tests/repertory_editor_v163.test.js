@@ -79,13 +79,13 @@ const oldTest = read('tests/rubrics_ur_v107.test.js');
 for (const [file, version] of [
   ['repertory-editor.css',166],
   ['rep-editor.js',166],
-  ['rep-chapters.js',192],
+  ['rep-chapters.js',193],
   ['rep-tree.js',149],
   ['rep-search.js',153],
   ['rep-rubric-detail.js',105]
 ]) pass(new RegExp(file.replace(/[.*+?^${}()|[\\]\\]/g,'\\$&')+'\\?v='+version).test(html), file+' کا نسخہ');
-pass(/CACHE_NAME='bhc-clinic-v192'/.test(worker), 'خدمت کار کا نسخہ 163');
+pass(/CACHE_NAME='bhc-clinic-v193'/.test(worker), 'خدمت کار کا نسخہ 163');
 pass(worker.includes("'./css/repertory-editor.css'") && worker.includes("'./js/repertory/rep-editor.js'"), 'ترمیم کار کے دونوں اثاثے خدمت کار میں');
-pass(/rep-chapters\\\.js\\\?v=192/.test(oldTest) && /rep-tree\\\.js\\\?v=149/.test(oldTest) && /rep-search\\\.js\\\?v=153/.test(oldTest) && /rep-rubric-detail\\\.js\\\?v=105/.test(oldTest), 'پرانے آزمائشی مجموعے کے نسخہ پن تازہ ہیں');
+pass(/rep-chapters\\\.js\\\?v=193/.test(oldTest) && /rep-tree\\\.js\\\?v=149/.test(oldTest) && /rep-search\\\.js\\\?v=153/.test(oldTest) && /rep-rubric-detail\\\.js\\\?v=105/.test(oldTest), 'پرانے آزمائشی مجموعے کے نسخہ پن تازہ ہیں');
 
 console.log('ریپرٹری ترمیم کار کی مخصوص جانچ کامیاب');

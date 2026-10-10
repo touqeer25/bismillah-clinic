@@ -119,8 +119,8 @@ assert.ok(pg && pg.rubrics === 102, '_index.json: prostate_gland 102');
 // 8) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const swf = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=192/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v184)');
-assert(/CACHE_NAME='bhc-clinic-v192'/.test(swf), 'خدمت کار نسخہ 184');
+assert(/rep-chapters\.js\?v=193/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v184)');
+assert(/CACHE_NAME='bhc-clinic-v193'/.test(swf), 'خدمت کار نسخہ 184');
 assert(/v184: پروسٹیٹ غدود باب/.test(code), 'rep-chapters.js میں پروسٹیٹ بلڈر درج');
 
 console.log('kent_prostate_homeoint_source.test.js — تمام تصدیقیں پاس (92 ماخذی قطاریں، 102 کل، اردو 100%)');

@@ -1,0 +1,3158 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,822,0,CHEST,0
+r0,822,0,ABSCESS,0
+r1,822,1,"ABSCESS, Axilla",28
+r2,822,1,"ABSCESS, Lungs",21
+r3,822,2,"ABSCESS, Lungs, left",1
+r4,822,1,"ABSCESS, Mammæ",18
+r5,822,2,"ABSCESS, Mammæ, threatening, on old cicatrices",2
+r6,822,2,"ABSCESS, Mammæ, nipples",4
+r7,822,0,"ADHESION, sensation of",26
+r8,822,1,"ADHESION, sensation of, of the pericardium",1
+r9,822,0,AFFECTIONS of the cartilages,1
+o7513,822,1,"AFFECTIONS of the cartilages, Heart",37
+o7514,822,2,"AFFECTIONS of the cartilages, Heart, overlifting",1
+r12,822,0,"AIR, sensitive to",1
+r13,822,1,"AIR, sensitive to, streaming from nipples, sensation of",1
+r14,822,1,"AIR, sensitive to, Mammæ sensitive to cold",1
+r15,822,0,ALIVE (moving) sensation of,2
+r16,822,1,"ALIVE (moving) sensation of, evening",1
+r17,822,2,"ALIVE (moving) sensation of, evening, eating, after",1
+r18,822,1,"ALIVE (moving) sensation of, Heart",1
+r19,822,0,ALTERNATING with eye symptoms,1
+o7523,822,1,"ALTERNATING with eye symptoms, diarrhœa and bronchitis",1
+o7524,822,1,"ALTERNATING with eye symptoms, rectal symptoms",3
+o7525,822,1,"ALTERNATING with eye symptoms, skin symptoms",1
+r23,822,0,ANEURISM of the heart,2
+o7527,822,1,"ANEURISM of the heart, large arteries",7
+r25,822,0,ANGINA pectoris,53
+r26,822,0,"ANXIETY, in",106
+r27,822,1,"ANXIETY, in, morning",4
+o7580,822,2,"ANXIETY, in, morning, 4 or 5 a.m.",1
+r29,822,1,"ANXIETY, in, forenoon",1
+r31,823,1,"ANXIETY, in, evening",9
+r32,823,2,"ANXIETY, in, evening, amel.",1
+r33,823,2,"ANXIETY, in, evening, bed, in",2
+r34,823,2,"ANXIETY, in, evening, undressing",1
+r35,823,1,"ANXIETY, in, night",7
+r36,823,2,"ANXIETY, in, night, 2 a.m.",1
+r37,823,1,"ANXIETY, in, air, open, driving him into",1
+r38,823,1,"ANXIETY, in, ascending steps",1
+r39,823,1,"ANXIETY, in, bending forward amel.",1
+r40,823,1,"ANXIETY, in, breakfast, after",1
+r41,823,1,"ANXIETY, in, coughing, on",1
+r42,823,1,"ANXIETY, in, eating, after",2
+r43,823,1,"ANXIETY, in, excitement agg.",1
+r44,823,1,"ANXIETY, in, exertion, from",1
+r45,823,1,"ANXIETY, in, inspiration deep, after",2
+r46,823,1,"ANXIETY, in, lying, while",3
+r47,823,2,"ANXIETY, in, lying, while, on back, while",1
+r48,823,2,"ANXIETY, in, lying, while, on left side, while",1
+r49,823,1,"ANXIETY, in, motion amel.",1
+r50,823,1,"ANXIETY, in, playing piano, while",1
+r51,823,1,"ANXIETY, in, pressing on left side agg.",1
+r52,823,1,"ANXIETY, in, sitting, while",2
+r53,823,2,"ANXIETY, in, sitting, while, bent, while",1
+r54,823,1,"ANXIETY, in, standing, while",1
+r55,823,1,"ANXIETY, in, stool, after",2
+r56,823,1,"ANXIETY, in, straightening up amel.",1
+r57,823,1,"ANXIETY, in, walking, while",1
+r58,823,1,"ANXIETY, in, Heart, region of",109
+r59,823,2,"ANXIETY, in, Heart, region of, morning",2
+r60,823,3,"ANXIETY, in, Heart, region of, morning, rising, after, amel.",1
+r61,823,3,"ANXIETY, in, Heart, region of, morning, 2 a.m.",1
+o7555,823,3,"ANXIETY, in, Heart, region of, morning, 4 to 5 a.m.",1
+r63,823,2,"ANXIETY, in, Heart, region of, afternoon",2
+r64,823,2,"ANXIETY, in, Heart, region of, evening",3
+r65,823,2,"ANXIETY, in, Heart, region of, night",6
+r66,823,3,"ANXIETY, in, Heart, region of, night, in bed",3
+r67,823,3,"ANXIETY, in, Heart, region of, night, during nausea",1
+r68,823,3,"ANXIETY, in, Heart, region of, night, 11 p.m., after lying down",1
+r69,823,3,"ANXIETY, in, Heart, region of, night, 4 a.m.",1
+r70,823,2,"ANXIETY, in, Heart, region of, dinner, after",2
+r71,823,3,"ANXIETY, in, Heart, region of, dinner, after, when leaning back in chair",1
+r72,823,2,"ANXIETY, in, Heart, region of, epilepsy, with",1
+r73,823,2,"ANXIETY, in, Heart, region of, exertion, after",1
+r74,823,2,"ANXIETY, in, Heart, region of, expectoration, copious, amel.",1
+r75,823,2,"ANXIETY, in, Heart, region of, headache, before",1
+r76,823,2,"ANXIETY, in, Heart, region of, lying on left side agg.",5
+r77,823,2,"ANXIETY, in, Heart, region of, menses, during",1
+r78,823,2,"ANXIETY, in, Heart, region of, moving about agg.",1
+o7558,823,3,"ANXIETY, in, Heart, region of, moving about agg., amel.",3
+r80,823,2,"ANXIETY, in, Heart, region of, paroxysmal",4
+r81,823,2,"ANXIETY, in, Heart, region of, rising and walking amel.",1
+r82,823,2,"ANXIETY, in, Heart, region of, sight of decisive colors",1
+r83,823,2,"ANXIETY, in, Heart, region of, sitting, while",3
+r84,823,2,"ANXIETY, in, Heart, region of, stretching out body after physical exertion",1
+r85,823,2,"ANXIETY, in, Heart, region of, supper, after",1
+r86,823,2,"ANXIETY, in, Heart, region of, thinking of it agg.",2
+r87,823,2,"ANXIETY, in, Heart, region of, vexation, after",1
+r88,823,2,"ANXIETY, in, Heart, region of, walking amel.",2
+o7573,823,3,"ANXIETY, in, Heart, region of, walking amel., in open air",2
+r3166,823,0,"APHTHÆ of nipples, bleeding",1
+r90,824,0,APPREHENSION,3
+r91,824,1,"APPREHENSION, Heart, region of",8
+r92,824,0,ATELECTASIS,2
+r93,824,0,"ATROPHY, mammæ",16
+r94,824,1,"ATROPHY, mammæ, of nipples",2
+r95,824,0,"BALL, mammæ, sensation of, under left",1
+r96,824,0,BAND (See Constriction),0
+r97,824,0,"BAR of iron around, sensation of",1
+o7600,824,1,"BAR of iron around, sensation of, across the centre of chest",1
+r99,824,0,BLEEDING nipples,5
+r100,824,0,BOILS (See Eruption),0
+r101,824,0,BUBBLE starts from heart and passes through the arteries,1
+r102,824,0,BUBBLING (See Orgasm),0
+r103,824,1,"BUBBLING (See Orgasm), Axilla",1
+r104,824,0,"CANCER, axilla",1
+r105,824,1,"CANCER, axilla, Clavicles, fungus hæmatodes",1
+r106,824,1,"CANCER, axilla, Mammæ",51
+r107,824,2,"CANCER, axilla, Mammæ, nightly pains",1
+r108,824,2,"CANCER, axilla, Mammæ, cicatrices, in old",1
+r109,824,2,"CANCER, axilla, Mammæ, contusion, from",2
+r110,824,2,"CANCER, axilla, Mammæ, epithelioma",20
+r111,824,1,"CANCER, axilla, Sternum",1
+r112,824,0,CAPILLARY network,1
+r113,824,0,CARIES clavicles,1
+o7614,824,1,"CARIES clavicles, Sternum",1
+r115,824,0,CATARRH,67
+o7616,824,1,"CATARRH, alternating with diarrhœa",1
+r117,824,1,"CATARRH, old people",8
+r118,824,0,"CEASE, sensation as if heart would",4
+o7620,824,1,"CEASE, sensation as if heart would, had ceased",16
+o7621,824,1,"CEASE, sensation as if heart would, after dinner",1
+o7622,824,1,"CEASE, sensation as if heart would, pregnancy, during",1
+r122,824,1,"CEASE, sensation as if heart would, fears unless constantly on the move the heart will cease",1
+r123,824,0,CHILL begins in chest (See Chill),0
+r124,824,0,CHILLINESS in,6
+r125,824,1,"CHILLINESS in, left side",2
+r126,824,1,"CHILLINESS in, evening",1
+r127,824,1,"CHILLINESS in, stool, after",1
+r128,824,1,"CHILLINESS in, walking in open air",2
+r129,824,1,"CHILLINESS in, Mammæ, shivering in",3
+r130,824,0,"CICATRICES, old, in mammæ",3
+o7630,824,1,"CICATRICES, old, in mammæ, suppurating",1
+r132,824,0,CLAWING sensation in chest,2
+r133,824,0,CLOTHING agg.,15
+r134,824,0,CLUCKING sound,3
+r135,824,0,"COATED, sensation as if",4
+r136,824,0,COLDNESS,40
+r137,825,1,"COLDNESS, right",2
+r138,825,1,"COLDNESS, air, cold breathing",3
+r139,825,1,"COLDNESS, chill, during",1
+r140,825,1,"COLDNESS, drinking, after",1
+r141,825,1,"COLDNESS, expectoration, after",1
+r142,825,1,"COLDNESS, external",1
+r143,825,1,"COLDNESS, internal",3
+r144,825,2,"COLDNESS, internal, as if ice water were rising and descending through a cylindrical tube",1
+r145,825,1,"COLDNESS, pain, at seat of",1
+r146,825,1,"COLDNESS, respiration, on",7
+r147,825,1,"COLDNESS, walking in open air",1
+r148,825,1,"COLDNESS, warmth of bed amel.",1
+r149,825,1,"COLDNESS, wind, from wind on the chest",3
+r150,825,1,"COLDNESS, wrap up the chest, must",3
+r151,825,1,"COLDNESS, Anterior part, cold water, sensation of running down the chest, when drinking",1
+o7637,825,2,"COLDNESS, Anterior part, cold water, sensation of running down the chest, when drinking, below the clavicle, sensation of, cold water running to the toes",1
+r153,825,1,"COLDNESS, Axilla",2
+r154,825,1,"COLDNESS, Mammæ",5
+r155,825,2,"COLDNESS, Mammæ, nipple",1
+r156,825,2,"COLDNESS, Mammæ, region of",1
+r157,825,1,"COLDNESS, Middle of",1
+r158,825,1,"COLDNESS, Sides",1
+r159,825,2,"COLDNESS, Sides, right",3
+r160,825,2,"COLDNESS, Sides, left",3
+r161,825,3,"COLDNESS, Sides, left, as if a lump of ice in",1
+r162,825,1,"COLDNESS, Sternum",4
+r163,825,1,"COLDNESS, Heart, region of",11
+r164,825,2,"COLDNESS, Heart, region of, mental exertion, during",1
+r165,825,2,"COLDNESS, Heart, region of, icy coldness during chill",6
+r166,825,0,CONGESTION (hyperæmia of chest),61
+r167,825,1,"CONGESTION (hyperæmia of chest), morning",2
+r168,825,1,"CONGESTION (hyperæmia of chest), afternoon",1
+r169,825,1,"CONGESTION (hyperæmia of chest), night",2
+r170,825,1,"CONGESTION (hyperæmia of chest), alternating with congestion of head",1
+r171,825,1,"CONGESTION (hyperæmia of chest), climaxis, at",2
+r172,825,1,"CONGESTION (hyperæmia of chest), desire to urinate, if not obeyed",1
+r173,825,1,"CONGESTION (hyperæmia of chest), excitement",1
+r174,825,1,"CONGESTION (hyperæmia of chest), exertion, after",1
+r175,825,1,"CONGESTION (hyperæmia of chest), exposure to cold air",2
+r176,825,1,"CONGESTION (hyperæmia of chest), lying down impossible",1
+r177,825,1,"CONGESTION (hyperæmia of chest), menses, delayed",3
+r178,825,2,"CONGESTION (hyperæmia of chest), menses, delayed, before",1
+r179,825,2,"CONGESTION (hyperæmia of chest), menses, delayed, during",1
+r180,825,1,"CONGESTION (hyperæmia of chest), motion, after",1
+r181,825,1,"CONGESTION (hyperæmia of chest), pregnancy, during",3
+r182,825,1,"CONGESTION (hyperæmia of chest), sea bathing",1
+r183,825,1,"CONGESTION (hyperæmia of chest), sensation as of blood stopping",2
+r184,825,1,"CONGESTION (hyperæmia of chest), sleep, during",2
+r185,825,1,"CONGESTION (hyperæmia of chest), uterine hæmorrhage, after",3
+r186,825,1,"CONGESTION (hyperæmia of chest), waking, on",1
+r187,825,1,"CONGESTION (hyperæmia of chest), walking in open air",2
+r188,825,1,"CONGESTION (hyperæmia of chest), weakness and nausea",1
+r189,825,1,"CONGESTION (hyperæmia of chest), writing after",1
+r190,825,1,"CONGESTION (hyperæmia of chest), Heart",9
+r191,825,2,"CONGESTION (hyperæmia of chest), Heart, night",1
+r192,825,2,"CONGESTION (hyperæmia of chest), Heart, convulsions, in",1
+r193,825,2,"CONGESTION (hyperæmia of chest), Heart, menses, after",1
+r194,825,2,"CONGESTION (hyperæmia of chest), Heart, walking rapidly",1
+r195,826,0,"CONSTRICTION, tension, tightness",187
+o7720,826,1,"CONSTRICTION, tension, tightness, daytime",2
+o7766,826,1,"CONSTRICTION, tension, tightness, morning",10
+o7767,826,2,"CONSTRICTION, tension, tightness, morning, fasting",1
+o7768,826,2,"CONSTRICTION, tension, tightness, morning, waking, on",1
+o7773,826,1,"CONSTRICTION, tension, tightness, noon",1
+o7694,826,1,"CONSTRICTION, tension, tightness, afternoon",7
+o7726,826,1,"CONSTRICTION, tension, tightness, evening",13
+o7727,826,2,"CONSTRICTION, tension, tightness, evening, in bed",3
+o7771,826,1,"CONSTRICTION, tension, tightness, night",15
+o7772,826,2,"CONSTRICTION, tension, tightness, night, bed, in",2
+o7695,826,1,"CONSTRICTION, tension, tightness, alternating with sudden expansion",1
+o7696,826,2,"CONSTRICTION, tension, tightness, alternating with sudden expansion, pain in abdomen",1
+o7697,826,1,"CONSTRICTION, tension, tightness, anger, from",1
+o7698,826,1,"CONSTRICTION, tension, tightness, armor, as if from an",2
+o7699,826,1,"CONSTRICTION, tension, tightness, arms, from bringing, together in front",1
+o7700,826,1,"CONSTRICTION, tension, tightness, ascending",6
+o7701,826,1,"CONSTRICTION, tension, tightness, asthmatic",7
+o7702,826,1,"CONSTRICTION, tension, tightness, band, as from",14
+o7703,826,2,"CONSTRICTION, tension, tightness, band, as from, lower part of chest",3
+o7704,826,1,"CONSTRICTION, tension, tightness, bending backwards",1
+o7705,826,2,"CONSTRICTION, tension, tightness, bending backwards, amel.",1
+o7706,826,2,"CONSTRICTION, tension, tightness, bending backwards, forward",1
+o7707,826,1,"CONSTRICTION, tension, tightness, breakfast, after",2
+o7708,826,1,"CONSTRICTION, tension, tightness, chill, during",5
+o7709,826,1,"CONSTRICTION, tension, tightness, coat of mail, as from",1
+o7710,826,1,"CONSTRICTION, tension, tightness, coition, after",1
+o7711,826,1,"CONSTRICTION, tension, tightness, cold air, from",3
+o7713,826,2,"CONSTRICTION, tension, tightness, cold air, from, becoming",2
+o7712,826,2,"CONSTRICTION, tension, tightness, cold air, from, bathing",1
+o7714,826,1,"CONSTRICTION, tension, tightness, convulsive",3
+o7715,826,1,"CONSTRICTION, tension, tightness, cough, during",15
+o7716,826,2,"CONSTRICTION, tension, tightness, cough, during, inclination to, from",1
+o7717,826,2,"CONSTRICTION, tension, tightness, cough, during, spasmodic, during",1
+o7718,826,2,"CONSTRICTION, tension, tightness, cough, during, whooping, during",3
+o7719,826,1,"CONSTRICTION, tension, tightness, covering of bed agg.",1
+o7721,826,1,"CONSTRICTION, tension, tightness, dinner, after",3
+o7722,826,1,"CONSTRICTION, tension, tightness, drawing shoulders back amel.",1
+o7723,826,1,"CONSTRICTION, tension, tightness, drinking, after",1
+o7724,826,1,"CONSTRICTION, tension, tightness, eating, after",6
+o7725,826,2,"CONSTRICTION, tension, tightness, eating, after, amel.",1
+o7728,826,1,"CONSTRICTION, tension, tightness, exertion, from",7
+o7729,826,1,"CONSTRICTION, tension, tightness, expectoration amel.",2
+o7730,826,1,"CONSTRICTION, tension, tightness, expiring, during",4
+r240,827,1,"CONSTRICTION, tension, tightness, falling asleep, when",3
+r241,827,1,"CONSTRICTION, tension, tightness, flatulence, from",3
+r242,827,1,"CONSTRICTION, tension, tightness, hydrothorax, in",8
+r243,827,1,"CONSTRICTION, tension, tightness, inspiration, during",11
+o7757,827,1,"CONSTRICTION, tension, tightness, lying, while",4
+r245,827,2,"CONSTRICTION, tension, tightness, lying, while, amel.",1
+r246,827,2,"CONSTRICTION, tension, tightness, lying, while, head high amel.",1
+r247,827,2,"CONSTRICTION, tension, tightness, lying, while, on right, agg.",1
+o7755,827,3,"CONSTRICTION, tension, tightness, lying, while, on right, agg., left",1
+r249,827,2,"CONSTRICTION, tension, tightness, lying, while, quiet agg.",1
+o7753,827,1,"CONSTRICTION, tension, tightness, manual labor, from",1
+r251,827,1,"CONSTRICTION, tension, tightness, menses, before",1
+r252,827,2,"CONSTRICTION, tension, tightness, menses, before, during",1
+r253,827,1,"CONSTRICTION, tension, tightness, motion agg.",9
+o7770,827,2,"CONSTRICTION, tension, tightness, motion agg., amel.",1
+r255,827,1,"CONSTRICTION, tension, tightness, painful",2
+r256,827,1,"CONSTRICTION, tension, tightness, perspiration amel.",1
+o64914,827,1,"CONSTRICTION, tension, tightness, respiration, during deep",26
+r258,827,2,"CONSTRICTION, tension, tightness, respiration, during deep, amel.",1
+o7786,827,1,"CONSTRICTION, tension, tightness, sitting, while",4
+r260,827,2,"CONSTRICTION, tension, tightness, sitting, while, amel.",1
+o7784,827,2,"CONSTRICTION, tension, tightness, sitting, while, bent",1
+r262,827,3,"CONSTRICTION, tension, tightness, sitting, while, bent, amel.",1
+r263,827,1,"CONSTRICTION, tension, tightness, spasmodic",25
+o7789,827,1,"CONSTRICTION, tension, tightness, standing, while",1
+r265,827,2,"CONSTRICTION, tension, tightness, standing, while, amel.",1
+r266,827,1,"CONSTRICTION, tension, tightness, stool, during",1
+r267,827,1,"CONSTRICTION, tension, tightness, stooping",5
+o7796,827,1,"CONSTRICTION, tension, tightness, straightening up",1
+r269,827,2,"CONSTRICTION, tension, tightness, straightening up, amel.",1
+r270,827,1,"CONSTRICTION, tension, tightness, stretching",1
+r271,827,1,"CONSTRICTION, tension, tightness, sulphur, as from",1
+r272,827,1,"CONSTRICTION, tension, tightness, supper, after, agg.",1
+r273,827,1,"CONSTRICTION, tension, tightness, suppressed foot-sweat, after",1
+r274,827,1,"CONSTRICTION, tension, tightness, swallowing",1
+r275,827,1,"CONSTRICTION, tension, tightness, talking, after",1
+r276,827,2,"CONSTRICTION, tension, tightness, talking, after, preventing",1
+r277,827,1,"CONSTRICTION, tension, tightness, touch agg.",2
+r278,827,1,"CONSTRICTION, tension, tightness, vomiting, before",1
+r279,827,2,"CONSTRICTION, tension, tightness, vomiting, before, after",1
+r280,827,1,"CONSTRICTION, tension, tightness, waking, on",7
+r281,827,2,"CONSTRICTION, tension, tightness, waking, on, after",2
+o7816,827,1,"CONSTRICTION, tension, tightness, walking, while",14
+r283,827,2,"CONSTRICTION, tension, tightness, walking, while, amel.",1
+r284,827,2,"CONSTRICTION, tension, tightness, walking, while, rapid",1
+o7813,827,2,"CONSTRICTION, tension, tightness, walking, while, in open air",3
+r286,827,3,"CONSTRICTION, tension, tightness, walking, while, in open air, amel.",4
+r287,827,1,"CONSTRICTION, tension, tightness, warmth of bed amel.",1
+r288,827,1,"CONSTRICTION, tension, tightness, weeping amel.",1
+r289,827,1,"CONSTRICTION, tension, tightness, Lower part",18
+r290,827,2,"CONSTRICTION, tension, tightness, Lower part, lying on the right side agg.",1
+r291,827,1,"CONSTRICTION, tension, tightness, Lungs, as with a wire",1
+r292,827,1,"CONSTRICTION, tension, tightness, Mammæ, sensation of",4
+r293,827,2,"CONSTRICTION, tension, tightness, Mammæ, sensation of, left, when child nurses from right",1
+r294,827,2,"CONSTRICTION, tension, tightness, Mammæ, sensation of, deep inspiration",1
+r295,827,1,"CONSTRICTION, tension, tightness, Middle",2
+r296,827,2,"CONSTRICTION, tension, tightness, Middle, evening, 6 p.m.",1
+r297,827,2,"CONSTRICTION, tension, tightness, Middle, string, as from a",1
+r298,827,1,"CONSTRICTION, tension, tightness, Sides",15
+r299,827,2,"CONSTRICTION, tension, tightness, Sides, right",2
+r300,827,2,"CONSTRICTION, tension, tightness, Sides, lying down agg.",2
+r301,827,2,"CONSTRICTION, tension, tightness, Sides, one-sided",2
+r302,827,2,"CONSTRICTION, tension, tightness, Sides, sitting, while",1
+r303,828,1,"CONSTRICTION, tension, tightness, Sternum",10
+r304,828,2,"CONSTRICTION, tension, tightness, Sternum, coughing, on",1
+r305,828,2,"CONSTRICTION, tension, tightness, Sternum, eating, while",1
+r306,828,2,"CONSTRICTION, tension, tightness, Sternum, motion, on",2
+r307,828,1,"CONSTRICTION, tension, tightness, Upper part",3
+r308,828,1,"CONSTRICTION, tension, tightness, Heart",63
+r309,828,2,"CONSTRICTION, tension, tightness, Heart, night",1
+r310,828,2,"CONSTRICTION, tension, tightness, Heart, bending chest forward amel.",2
+r311,828,2,"CONSTRICTION, tension, tightness, Heart, drinking water amel.",1
+r312,828,2,"CONSTRICTION, tension, tightness, Heart, eating agg.",1
+r313,828,2,"CONSTRICTION, tension, tightness, Heart, epilepsy, before",2
+r314,828,2,"CONSTRICTION, tension, tightness, Heart, exertion",2
+r315,828,2,"CONSTRICTION, tension, tightness, Heart, grasping sensation",10
+o7741,828,3,"CONSTRICTION, tension, tightness, Heart, grasping sensation, and on right side",1
+r317,828,2,"CONSTRICTION, tension, tightness, Heart, grief, after",1
+r318,828,2,"CONSTRICTION, tension, tightness, Heart, urging to stool, with",1
+r319,828,2,"CONSTRICTION, tension, tightness, Heart, walk erect, inability to",1
+r320,828,2,"CONSTRICTION, tension, tightness, Heart, extending to back",1
+r321,828,0,CONVULSIONS,19
+r322,828,1,"CONVULSIONS, night",2
+r323,828,2,"CONVULSIONS, night, on waking",1
+r324,828,0,CRACKS of nipples,15
+r325,828,1,"CRACKS of nipples, painful",2
+r326,828,0,CRACKING in sternum on bending chest backwards,1
+o7823,828,1,"CRACKING in sternum on bending chest backwards, on motion",2
+o7824,828,1,"CRACKING in sternum on bending chest backwards, Heart, in region of",1
+r329,828,0,CRAMP (See Spasms),31
+r330,828,1,"CRAMP (See Spasms), evening, while riding",1
+r331,828,2,"CRAMP (See Spasms), evening, while riding, in a warm room",1
+r332,828,1,"CRAMP (See Spasms), night, 1-30 a.m.",1
+r333,828,1,"CRAMP (See Spasms), air, open",1
+r334,828,1,"CRAMP (See Spasms), coughing, on",2
+r335,828,1,"CRAMP (See Spasms), eating, after",1
+r336,828,2,"CRAMP (See Spasms), eating, after, pork",1
+r337,828,1,"CRAMP (See Spasms), eructations",1
+r338,828,1,"CRAMP (See Spasms), exertion, after",1
+r339,828,1,"CRAMP (See Spasms), lying down amel.",1
+r340,828,1,"CRAMP (See Spasms), menses, during",1
+r341,828,1,"CRAMP (See Spasms), motion agg.",2
+r342,828,1,"CRAMP (See Spasms), walking",1
+r343,828,1,"CRAMP (See Spasms), warm room, in",1
+r344,828,1,"CRAMP (See Spasms), Axilla",3
+r345,828,1,"CRAMP (See Spasms), Heart",13
+r346,828,2,"CRAMP (See Spasms), Heart, from soft music",1
+r347,828,1,"CRAMP (See Spasms), Lungs, in",2
+r348,828,2,"CRAMP (See Spasms), Lungs, in, drinking cold water",1
+r349,828,2,"CRAMP (See Spasms), Lungs, in, waking, after",1
+r350,828,1,"CRAMP (See Spasms), Mammæ, gradually increasing and decreasing in",1
+r351,828,0,CRAWLING (See Formication),0
+r352,828,0,"CROUP, cardiac",1
+r353,828,0,CYANOSIS,7
+r354,828,1,"CYANOSIS, region of clavicle",1
+r355,828,0,DEFORMED nipples,1
+r3167,828,0,DILATATION of heart,24
+r356,829,0,DISCHARGE from nipple,3
+r357,829,1,"DISCHARGE from nipple, bloody water",2
+r358,829,0,"DISCOLORATION, blueness clavicle, near",4
+o7857,829,1,"DISCOLORATION, blueness clavicle, near, copper colored",1
+o7858,829,1,"DISCOLORATION, blueness clavicle, near, livid",2
+o7867,829,1,"DISCOLORATION, blueness clavicle, near, Redness",18
+o7868,829,2,"DISCOLORATION, blueness clavicle, near, Redness, blotches",3
+o7869,829,2,"DISCOLORATION, blueness clavicle, near, Redness, coppery",1
+o7870,829,2,"DISCOLORATION, blueness clavicle, near, Redness, erythematous",1
+o7871,829,2,"DISCOLORATION, blueness clavicle, near, Redness, spots",15
+o7872,829,1,"DISCOLORATION, blueness clavicle, near, Spots",24
+o7873,829,2,"DISCOLORATION, blueness clavicle, near, Spots, black, mottled",1
+o7874,829,2,"DISCOLORATION, blueness clavicle, near, Spots, brown",8
+o7875,829,3,"DISCOLORATION, blueness clavicle, near, Spots, brown, itching",3
+o7876,829,3,"DISCOLORATION, blueness clavicle, near, Spots, brown, on mammæ",5
+o7877,829,2,"DISCOLORATION, blueness clavicle, near, Spots, dark",1
+o7878,829,2,"DISCOLORATION, blueness clavicle, near, Spots, ecchymoses",3
+o7879,829,2,"DISCOLORATION, blueness clavicle, near, Spots, freckles",1
+o7880,829,2,"DISCOLORATION, blueness clavicle, near, Spots, liver",1
+o7882,829,2,"DISCOLORATION, blueness clavicle, near, Spots, yellow",2
+o7883,829,3,"DISCOLORATION, blueness clavicle, near, Spots, yellow, become dark",1
+o7884,829,3,"DISCOLORATION, blueness clavicle, near, Spots, yellow, itching in the evening",1
+o7881,829,2,"DISCOLORATION, blueness clavicle, near, Spots, mottled",4
+o7860,829,1,"DISCOLORATION, blueness clavicle, near, Mammæ, bluish red",2
+o7859,829,1,"DISCOLORATION, blueness clavicle, near, blueness of ulcerated",2
+o7864,829,1,"DISCOLORATION, blueness clavicle, near, streaks",4
+o7862,829,1,"DISCOLORATION, blueness clavicle, near, nipples",5
+h002,829,1,"DISCOLORATION, blueness clavicle, near, yellow",2
+o7866,829,2,"DISCOLORATION, blueness clavicle, near, yellow, spots",9
+r385,829,0,DISTENSION,8
+r386,829,1,"DISTENSION, convulsions, during",1
+r387,829,1,"DISTENSION, Mammæ",2
+r388,829,1,"DISTENSION, sensation, of",11
+r389,829,2,"DISTENSION, sensation, of, breathing, on",1
+r390,829,2,"DISTENSION, sensation, of, cough, from",1
+r391,829,0,"DRAWN toward back, feels",2
+o7891,829,1,"DRAWN toward back, feels, downwards, the heart",1
+r393,829,0,DROPS (See Falling),0
+r394,829,0,DROPSY,49
+r395,829,1,"DROPSY, asthma, with",1
+r396,829,1,"DROPSY, disease, with organic",2
+r397,829,1,"DROPSY, side, can lie only on affected",1
+r398,829,1,"DROPSY, can lie only on right side with head low",1
+r399,829,1,"DROPSY, Pericardium",9
+r400,829,0,DRYNESS,8
+r401,829,1,"DRYNESS, Axilla",1
+r402,829,1,"DRYNESS, Nipples",1
+r403,829,0,EBULLITION (See Orgasms),0
+r404,829,0,EMACIATION,1
+r405,829,1,"EMACIATION, Clavicles, about the",2
+r406,829,1,"EMACIATION, Mammæ",2
+r407,829,0,EMPHYSEMA,30
+r3168,829,0,"EMPTINESS, sensation of",25
+o7915,830,1,"EMPTINESS, sensation of, night",1
+o7908,830,1,"EMPTINESS, sensation of, cough, during",3
+o7907,830,2,"EMPTINESS, sensation of, cough, during, after",6
+o7909,830,1,"EMPTINESS, sensation of, eating, after",1
+o7910,830,1,"EMPTINESS, sensation of, expectoration, after",3
+o7911,830,1,"EMPTINESS, sensation of, faint, feeling",1
+o7916,830,1,"EMPTINESS, sensation of, sing, on beginning to",1
+o7914,830,1,"EMPTINESS, sensation of, Mammæ, after child nurses",1
+o7917,830,1,"EMPTINESS, sensation of, Sternum, behind",1
+o7912,830,1,"EMPTINESS, sensation of, Heart",3
+o7913,830,2,"EMPTINESS, sensation of, Heart, region of",4
+r420,830,0,EMPYEMA,24
+r421,830,0,ENLARGEMENT (See Hypertrophy),0
+r422,830,0,ERUPTIONS,72
+r423,830,1,"ERUPTIONS, blotches",2
+r424,830,1,"ERUPTIONS, blood blisters",1
+r425,830,1,"ERUPTIONS, boils",9
+r426,830,1,"ERUPTIONS, burning",5
+r427,830,1,"ERUPTIONS, crusts",6
+r428,830,1,"ERUPTIONS, desquamating",3
+r429,830,1,"ERUPTIONS, dry",5
+r430,830,1,"ERUPTIONS, eczema",11
+r431,830,1,"ERUPTIONS, herpes",8
+r432,830,2,"ERUPTIONS, herpes, zona",4
+r433,830,1,"ERUPTIONS, itching",6
+r434,830,1,"ERUPTIONS, miliary",2
+r435,830,1,"ERUPTIONS, nodules",6
+r436,830,1,"ERUPTIONS, pimples",42
+r437,830,2,"ERUPTIONS, pimples, acne",1
+r438,830,2,"ERUPTIONS, pimples, angry",1
+r439,830,2,"ERUPTIONS, pimples, bleed easily",1
+r440,830,2,"ERUPTIONS, pimples, burning",3
+r441,830,2,"ERUPTIONS, pimples, elevated",1
+r442,830,2,"ERUPTIONS, pimples, flattening",1
+r443,830,2,"ERUPTIONS, pimples, hard",2
+r444,830,3,"ERUPTIONS, pimples, hard, under the skin",1
+r445,830,2,"ERUPTIONS, pimples, indolent",1
+r446,830,2,"ERUPTIONS, pimples, itching",6
+r447,830,2,"ERUPTIONS, pimples, painful",1
+r448,830,2,"ERUPTIONS, pimples, pointed with whitish semi-transparent vesicles, on",1
+r449,830,2,"ERUPTIONS, pimples, red",11
+r450,830,3,"ERUPTIONS, pimples, red, evening",1
+r451,830,3,"ERUPTIONS, pimples, red, like lichen simplex",1
+r452,830,2,"ERUPTIONS, pimples, white",1
+r453,830,3,"ERUPTIONS, pimples, white, red areola, with",1
+r454,830,1,"ERUPTIONS, pustules",26
+r455,830,1,"ERUPTIONS, rash",20
+r456,830,2,"ERUPTIONS, rash, alternating with asthma",1
+r457,830,2,"ERUPTIONS, rash, itching",3
+r458,830,2,"ERUPTIONS, rash, red",8
+r459,831,3,"ERUPTIONS, rash, red, itching rash over region of liver",1
+r460,831,2,"ERUPTIONS, rash, warmth agg.",1
+r461,831,2,"ERUPTIONS, rash, whitish in typhus",2
+r462,831,1,"ERUPTIONS, red",5
+r463,831,2,"ERUPTIONS, red, coppery",2
+r464,831,2,"ERUPTIONS, red, spots (See Discoloration)",0
+r465,831,1,"ERUPTIONS, roseola after abuse of mercury",1
+r466,831,1,"ERUPTIONS, spring, every",1
+r467,831,1,"ERUPTIONS, tubercles",4
+r468,831,1,"ERUPTIONS, urticaria",5
+r469,831,1,"ERUPTIONS, vesicles",15
+r470,831,2,"ERUPTIONS, vesicles, burning",1
+r471,831,1,"ERUPTIONS, yellow, scaly, itching spots",1
+r472,831,1,"ERUPTIONS, Axilla",15
+r473,831,2,"ERUPTIONS, Axilla, boils",12
+r474,831,3,"ERUPTIONS, Axilla, boils, right",1
+r475,831,3,"ERUPTIONS, Axilla, boils, left",4
+r476,831,3,"ERUPTIONS, Axilla, boils, painful, small",1
+r477,831,3,"ERUPTIONS, Axilla, boils, recurrent",1
+r478,831,2,"ERUPTIONS, Axilla, burning",1
+r479,831,2,"ERUPTIONS, Axilla, cracks",1
+r480,831,2,"ERUPTIONS, Axilla, crusts",3
+r481,831,2,"ERUPTIONS, Axilla, dry",1
+r482,831,2,"ERUPTIONS, Axilla, eczema",7
+r483,831,2,"ERUPTIONS, Axilla, herpes",8
+r484,831,2,"ERUPTIONS, Axilla, itching",3
+r485,831,2,"ERUPTIONS, Axilla, moist",6
+r486,831,2,"ERUPTIONS, Axilla, painful",1
+r487,831,2,"ERUPTIONS, Axilla, pimples",2
+r488,831,2,"ERUPTIONS, Axilla, pustules",2
+r489,831,2,"ERUPTIONS, Axilla, rash",2
+r490,831,2,"ERUPTIONS, Axilla, scabs (See Crusts)",0
+r491,831,2,"ERUPTIONS, Axilla, scaly",1
+r492,831,2,"ERUPTIONS, Axilla, tubercles",2
+r493,831,1,"ERUPTIONS, Mammæ",10
+r494,831,2,"ERUPTIONS, Mammæ, boils",3
+r495,831,2,"ERUPTIONS, Mammæ, burning",4
+r496,831,3,"ERUPTIONS, Mammæ, burning, scratching, after",1
+r497,831,2,"ERUPTIONS, Mammæ, eczema",1
+r498,831,2,"ERUPTIONS, Mammæ, furfuraceous, between mammæ",1
+r499,831,2,"ERUPTIONS, Mammæ, herpes",8
+r500,831,2,"ERUPTIONS, Mammæ, itching",3
+r501,831,3,"ERUPTIONS, Mammæ, itching, heat, from",1
+r502,831,2,"ERUPTIONS, Mammæ, mealy",1
+r503,831,2,"ERUPTIONS, Mammæ, miliary",3
+r504,831,2,"ERUPTIONS, Mammæ, painful",1
+r505,831,3,"ERUPTIONS, Mammæ, painful, to touch",2
+r506,831,2,"ERUPTIONS, Mammæ, pimples, stinging",1
+r507,831,2,"ERUPTIONS, Mammæ, pustules",2
+r508,831,2,"ERUPTIONS, Mammæ, red",1
+r509,831,2,"ERUPTIONS, Mammæ, squamous",3
+r510,831,2,"ERUPTIONS, Mammæ, stinging",1
+r511,831,2,"ERUPTIONS, Mammæ, vesicles",1
+r512,831,2,"ERUPTIONS, Mammæ, nipples",5
+r513,831,3,"ERUPTIONS, Mammæ, nipples, eczema",1
+r514,831,3,"ERUPTIONS, Mammæ, nipples, herpes",1
+r515,831,3,"ERUPTIONS, Mammæ, nipples, mealy",1
+r516,831,3,"ERUPTIONS, Mammæ, nipples, moist, itching",1
+r517,831,3,"ERUPTIONS, Mammæ, nipples, pimples",1
+r518,831,3,"ERUPTIONS, Mammæ, nipples, scaly",1
+r519,831,3,"ERUPTIONS, Mammæ, nipples, scurfy",2
+r520,831,3,"ERUPTIONS, Mammæ, nipples, vesicles",1
+r521,831,0,ERYSIPELAS of mammæ,14
+r522,831,0,"EXCORIATION, axilla",10
+r523,831,1,"EXCORIATION, axilla, Nipples",28
+r524,832,0,EXOSTOSES on ribs,1
+r525,832,0,EXPAND (See Respiration),0
+r526,832,0,EXUDATION in valves of heart,1
+r527,832,0,FAINT feeling about heart (See Weakness),0
+r528,832,0,"FALLING, sensation of something, forward in chest when turning in bed",2
+o8022,832,1,"FALLING, sensation of something, forward in chest when turning in bed, drops were falling from the heart",1
+o8023,832,2,"FALLING, sensation of something, forward in chest when turning in bed, drops were falling from the heart, in the chest",1
+r531,832,0,FAT about the heart with nervous irritability,1
+r532,832,0,FATTY degeneration of heart,17
+r533,832,0,FISTULOUS openings in mammæ,6
+o8027,832,1,"FISTULOUS openings in mammæ, Axillæ, in",2
+r535,832,0,FLABBY mammæ,4
+r536,832,1,"FLABBY mammæ, except during menses",1
+r537,832,0,"FLUCTUATION, feeling of",1
+r538,832,0,FLUTTERING (See Trembling),57
+r539,832,1,"FLUTTERING (See Trembling), morning",2
+r540,832,1,"FLUTTERING (See Trembling), afternoon, during headache",2
+r541,832,2,"FLUTTERING (See Trembling), afternoon, during headache, after quick exertion",1
+r542,832,1,"FLUTTERING (See Trembling), evening",1
+r543,832,1,"FLUTTERING (See Trembling), night",1
+r544,832,2,"FLUTTERING (See Trembling), night, wakens her",1
+r545,832,1,"FLUTTERING (See Trembling), air, open, amel.",2
+r546,832,1,"FLUTTERING (See Trembling), alternating with soreness",1
+r547,832,1,"FLUTTERING (See Trembling), ascending steps",2
+r548,832,1,"FLUTTERING (See Trembling), dinner, after",1
+r549,832,1,"FLUTTERING (See Trembling), excitement, after slight",3
+r550,832,1,"FLUTTERING (See Trembling), faintness, after",9
+r551,832,1,"FLUTTERING (See Trembling), lying, while",1
+r552,832,2,"FLUTTERING (See Trembling), lying, while, on left side",5
+r553,832,2,"FLUTTERING (See Trembling), lying, while, on right side",1
+r554,832,1,"FLUTTERING (See Trembling), menses, after",1
+r555,832,1,"FLUTTERING (See Trembling), raising arms, on",2
+r556,832,1,"FLUTTERING (See Trembling), rest, during",1
+r557,832,1,"FLUTTERING (See Trembling), sitting",1
+r558,832,1,"FLUTTERING (See Trembling), thinking of it",1
+r559,832,1,"FLUTTERING (See Trembling), waking, on",2
+r560,832,1,"FLUTTERING (See Trembling), writing, while",1
+r561,832,0,FORMICATION,17
+r562,832,1,"FORMICATION, entering house, on",1
+r563,832,1,"FORMICATION, warm food",1
+o8061,832,2,"FORMICATION, warm food, room",1
+r565,832,1,"FORMICATION, Axilla, in",2
+r566,832,1,"FORMICATION, Clavicle, region of",3
+r567,832,1,"FORMICATION, Mammæ, in",4
+r568,832,1,"FORMICATION, Sternum",1
+r569,832,0,FULLNESS,77
+r570,832,1,"FULLNESS, morning",3
+r571,832,2,"FULLNESS, morning, smoking, after",1
+r572,832,1,"FULLNESS, forenoon, walking, while",1
+o8076,832,2,"FULLNESS, forenoon, walking, while, writing, while",1
+r574,833,1,"FULLNESS, afternoon",2
+r575,833,1,"FULLNESS, evening",5
+r576,833,2,"FULLNESS, evening, in bed",2
+r577,833,2,"FULLNESS, evening, eating, after",1
+r578,833,2,"FULLNESS, evening, 5 p.m.",1
+r579,833,1,"FULLNESS, air, open",1
+r580,833,1,"FULLNESS, ascending",1
+r581,833,1,"FULLNESS, coffee, after",1
+r582,833,1,"FULLNESS, desire to urinate be delayed, if",1
+r583,833,1,"FULLNESS, eating, after",3
+r584,833,1,"FULLNESS, exertion, during",1
+r585,833,1,"FULLNESS, expectoration amel.",1
+r586,833,1,"FULLNESS, inspiration, deep",3
+r587,833,1,"FULLNESS, menses, before",2
+r588,833,1,"FULLNESS, sitting",1
+r589,833,1,"FULLNESS, waking",2
+r590,833,1,"FULLNESS, walking",1
+r591,833,1,"FULLNESS, Mammæ",16
+r592,833,2,"FULLNESS, Mammæ, menses, during",1
+r593,833,2,"FULLNESS, Mammæ, sensation of",2
+r594,833,1,"FULLNESS, Heart",21
+r595,833,2,"FULLNESS, Heart, evening",1
+r596,833,2,"FULLNESS, Heart, night",1
+r597,833,2,"FULLNESS, Heart, while lying on left side",1
+r598,833,2,"FULLNESS, Heart, ascending stairs",2
+r599,833,2,"FULLNESS, Heart, menses, during",1
+r600,833,0,GALACTORRHŒA (See Milk),0
+r601,833,0,GANGRENE of lungs,15
+r602,833,0,GOUTY heart,11
+r603,833,0,GRASPING (See Constriction),0
+r604,833,0,"GURGLING, breathing when",3
+r605,833,1,"GURGLING, breathing when, Mammæ, in",1
+r606,833,1,"GURGLING, breathing when, Side, right",1
+r607,833,1,"GURGLING, breathing when, Heart",3
+r608,833,2,"GURGLING, breathing when, Heart, when lying",1
+r609,833,0,HÆMORRHAGE (See Expectoration),106
+r610,833,1,"HÆMORRHAGE (See Expectoration), coagulated",35
+r611,833,2,"HÆMORRHAGE (See Expectoration), coagulated, black",1
+r612,833,2,"HÆMORRHAGE (See Expectoration), coagulated, brown",2
+r613,833,2,"HÆMORRHAGE (See Expectoration), coagulated, dark",5
+r614,833,1,"HÆMORRHAGE (See Expectoration), alternating with rheumatism",1
+r615,833,1,"HÆMORRHAGE (See Expectoration), anger, from",1
+r616,833,1,"HÆMORRHAGE (See Expectoration), drunkards, in",4
+r617,833,1,"HÆMORRHAGE (See Expectoration), exertion, after",8
+r618,833,1,"HÆMORRHAGE (See Expectoration), frothy, foaming",12
+r619,833,1,"HÆMORRHAGE (See Expectoration), hæmorrhoidal flow, after suppression of",7
+r620,833,1,"HÆMORRHAGE (See Expectoration), hot blood",4
+r621,833,1,"HÆMORRHAGE (See Expectoration), lying-in women, in",8
+r622,833,1,"HÆMORRHAGE (See Expectoration), menses, before",1
+r625,834,2,"HÆMORRHAGE (See Expectoration), menses, before, after suppression of",17
+r626,834,1,"HÆMORRHAGE (See Expectoration), nursing mothers",1
+r627,834,1,"HÆMORRHAGE (See Expectoration), pneumonia, results of",2
+r628,834,1,"HÆMORRHAGE (See Expectoration), walking slowly amel.",1
+r629,834,1,"HÆMORRHAGE (See Expectoration), whiskey, after",2
+r630,834,1,"HÆMORRHAGE (See Expectoration), wine, after",1
+r631,834,0,"HARD body, the heart",1
+r632,834,0,"HARDNESS, mammæ (See Induration)",0
+r633,834,0,HEAT,93
+r634,834,1,"HEAT, left, on walking in sun, right cold",1
+r635,834,1,"HEAT, morning, waking, on",3
+r636,834,1,"HEAT, afternoon, walking, while",1
+o8122,834,2,"HEAT, afternoon, walking, while, 1 p.m. on ascending a hill",1
+o8123,834,2,"HEAT, afternoon, walking, while, 1 to 3 p.m.",1
+o8124,834,2,"HEAT, afternoon, walking, while, 2 p.m.",1
+o8125,834,2,"HEAT, afternoon, walking, while, 2-30 p.m.",1
+r641,834,1,"HEAT, evening",1
+r642,834,1,"HEAT, night",2
+r643,834,1,"HEAT, alternate with pain on internal surface of thigh",1
+r644,834,1,"HEAT, bed, in",1
+r645,834,1,"HEAT, burning",4
+r646,834,1,"HEAT, desire to urinate be delayed, if",1
+r647,834,1,"HEAT, eating, after",2
+r648,834,1,"HEAT, excited talking, on",1
+r649,834,1,"HEAT, expectoration amel.",1
+r650,834,1,"HEAT, external",3
+r651,834,1,"HEAT, flushes (See Congestion)",21
+r652,834,2,"HEAT, flushes (See Congestion), rising to face",1
+o8139,834,3,"HEAT, flushes (See Congestion), rising to face, to head",1
+r654,834,1,"HEAT, glowing",3
+r655,834,1,"HEAT, motion, on",1
+r656,834,1,"HEAT, rising from stooping, on",1
+r657,834,1,"HEAT, rising up",3
+r658,834,1,"HEAT, siesta, after",1
+r659,834,1,"HEAT, sleep, during",1
+r660,834,1,"HEAT, smoking, on",1
+r661,834,1,"HEAT, walking",1
+r662,834,2,"HEAT, walking, in open air",1
+r663,834,2,"HEAT, walking, in the sun",1
+r664,834,1,"HEAT, water, as if hot, poured into lungs",2
+o8159,834,2,"HEAT, water, as if hot, poured into lungs, as if hot, poured into abdomen from chest before stool",1
+r666,834,1,"HEAT, Axilla",1
+r667,834,1,"HEAT, Heart, in region of",12
+r668,834,2,"HEAT, Heart, in region of, evening",1
+r669,834,2,"HEAT, Heart, in region of, flushes of",12
+r670,834,2,"HEAT, Heart, in region of, extending over body",2
+o8144,834,2,"HEAT, Heart, in region of, to head",1
+r672,834,1,"HEAT, Sternum",1
+r673,834,0,HEAVINESS (See Oppression),0
+r674,834,0,HEPATIZATION of lungs,23
+r675,834,1,"HEPATIZATION of lungs, right",3
+r676,834,2,"HEPATIZATION of lungs, right, upper right half",1
+r677,834,1,"HEPATIZATION of lungs, left",5
+r678,834,1,"HEPATIZATION of lungs, lying on right side agg.",2
+o8164,834,2,"HEPATIZATION of lungs, lying on right side agg., amel.",1
+o8166,834,2,"HEPATIZATION of lungs, lying on right side agg., left side agg.",1
+o8165,834,2,"HEPATIZATION of lungs, lying on right side agg., back agg.",1
+r682,835,0,"HOLD chest with hand during cough, must (See Cough)",0
+r683,835,0,HOLLOW (See Emptiness),0
+r684,835,0,HYDROTHORAX (See Dropsy),0
+r685,835,0,HYPERTROPHY of heart,34
+r686,835,1,"HYPERTROPHY of heart, numbness and tingling of left arm and fingers, with",2
+r687,835,1,"HYPERTROPHY of heart, over-exertion, from",4
+o8172,835,1,"HYPERTROPHY of heart, Mammæ",3
+r689,835,0,IMMOVABLE,1
+r690,835,0,INDURATION axillary glands,9
+o8175,835,1,"INDURATION axillary glands, Mammæ (See Lumps, Nodules)",39
+o8183,835,2,"INDURATION axillary glands, Mammæ (See Lumps, Nodules), right",4
+o8179,835,2,"INDURATION axillary glands, Mammæ (See Lumps, Nodules), left",1
+o8176,835,2,"INDURATION axillary glands, Mammæ (See Lumps, Nodules), abscess, after",2
+o8177,835,2,"INDURATION axillary glands, Mammæ (See Lumps, Nodules), cicatrices, in",1
+o8178,835,2,"INDURATION axillary glands, Mammæ (See Lumps, Nodules), contusion, after",2
+o8180,835,2,"INDURATION axillary glands, Mammæ (See Lumps, Nodules), menses, before",3
+o8181,835,3,"INDURATION axillary glands, Mammæ (See Lumps, Nodules), menses, before, during",2
+o8182,835,2,"INDURATION axillary glands, Mammæ (See Lumps, Nodules), nipples",5
+r717,835,0,INFLAMMATION bronchial tubes (bronchitis),85
+o8185,835,1,"INFLAMMATION bronchial tubes (bronchitis), aged people",8
+o8186,835,1,"INFLAMMATION bronchial tubes (bronchitis), alternates with diarrhœa",1
+o8188,835,1,"INFLAMMATION bronchial tubes (bronchitis), children",3
+o8187,835,1,"INFLAMMATION bronchial tubes (bronchitis), Axilla, glands",3
+o8189,835,1,"INFLAMMATION bronchial tubes (bronchitis), Diaphragm",10
+o8190,835,1,"INFLAMMATION bronchial tubes (bronchitis), Heart",26
+o8191,835,2,"INFLAMMATION bronchial tubes (bronchitis), Heart, bright's disease, with",9
+o8192,835,2,"INFLAMMATION bronchial tubes (bronchitis), Heart, compelled to lie on the back with head raised",1
+o8197,835,2,"INFLAMMATION bronchial tubes (bronchitis), Heart, lying on side impossible",1
+o8193,835,2,"INFLAMMATION bronchial tubes (bronchitis), Heart, endocardium",35
+o8194,835,3,"INFLAMMATION bronchial tubes (bronchitis), Heart, endocardium, pain and great anxiety",2
+o8195,835,3,"INFLAMMATION bronchial tubes (bronchitis), Heart, endocardium, rheumatic",15
+o8196,835,3,"INFLAMMATION bronchial tubes (bronchitis), Heart, endocardium, scanty menses, with",1
+o8198,835,2,"INFLAMMATION bronchial tubes (bronchitis), Heart, pericardium",29
+o8199,835,3,"INFLAMMATION bronchial tubes (bronchitis), Heart, pericardium, lying amel.",1
+r718,835,1,"INFLAMMATION bronchial tubes (bronchitis), Lungs",93
+r719,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, right",14
+r720,836,3,"INFLAMMATION bronchial tubes (bronchitis), Lungs, right, lower lobe",3
+r721,836,3,"INFLAMMATION bronchial tubes (bronchitis), Lungs, right, upper lobe",2
+r722,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, left",8
+r723,836,3,"INFLAMMATION bronchial tubes (bronchitis), Lungs, left, lower lobe",3
+r724,836,3,"INFLAMMATION bronchial tubes (bronchitis), Lungs, left, upper",1
+r725,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, abuse of aconite, after",2
+r726,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, aged persons",9
+r727,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, drunkards",4
+r728,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, hæmorrhages, after",2
+r729,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, infants",12
+r730,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, lie on the back, must",3
+r731,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, lying on back, with head, thrown back",1
+o8211,836,3,"INFLAMMATION bronchial tubes (bronchitis), Lungs, lying on back, with head, thrown back, on back amel.",3
+o8212,836,4,"INFLAMMATION bronchial tubes (bronchitis), Lungs, lying on back, with head, thrown back, on back amel., right side agg.",1
+r734,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, measles, after",1
+r735,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, menses, suppressed",1
+r736,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, neglected",7
+r737,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, pleura-pneumonia",17
+r738,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, sycotic pneumonia",1
+r739,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, typhoid",13
+r740,836,2,"INFLAMMATION bronchial tubes (bronchitis), Lungs, weakness, from loss of fluids",1
+r741,836,1,"INFLAMMATION bronchial tubes (bronchitis), Mammæ",31
+r742,836,2,"INFLAMMATION bronchial tubes (bronchitis), Mammæ, bruises, from",1
+r743,836,2,"INFLAMMATION bronchial tubes (bronchitis), Mammæ, chronic",1
+r744,836,2,"INFLAMMATION bronchial tubes (bronchitis), Mammæ, nipples",8
+r745,836,1,"INFLAMMATION bronchial tubes (bronchitis), Pleura",53
+r746,836,2,"INFLAMMATION bronchial tubes (bronchitis), Pleura, right",2
+r747,836,2,"INFLAMMATION bronchial tubes (bronchitis), Pleura, left",1
+r748,836,2,"INFLAMMATION bronchial tubes (bronchitis), Pleura, neglected",17
+r749,836,2,"INFLAMMATION bronchial tubes (bronchitis), Pleura, old people",1
+r750,836,2,"INFLAMMATION bronchial tubes (bronchitis), Pleura, phthisical patients, in",3
+r751,836,2,"INFLAMMATION bronchial tubes (bronchitis), Pleura, rheumatic",7
+r752,836,0,"INSENSIBILITY, nipples",1
+r753,836,0,ITCHING,60
+r754,836,1,"ITCHING, morning",1
+r755,836,2,"ITCHING, morning, bed, in",1
+r756,836,1,"ITCHING, afternoon",1
+r757,836,1,"ITCHING, evening",5
+r758,836,2,"ITCHING, evening, walking, while",1
+r759,836,2,"ITCHING, evening, warm in bed, on becoming",2
+r760,836,1,"ITCHING, night",1
+r761,836,1,"ITCHING, biting",2
+r762,836,2,"ITCHING, biting, cold agg.",1
+r763,837,1,"ITCHING, fleas, as from",4
+r764,837,1,"ITCHING, scratching agg.",1
+o8257,837,2,"ITCHING, scratching agg., amel.",1
+o8258,837,2,"ITCHING, scratching agg., returns after",5
+r767,837,1,"ITCHING, spots, in",2
+r768,837,1,"ITCHING, sticking",2
+r769,837,1,"ITCHING, tingling and",1
+r770,837,1,"ITCHING, warm, when",2
+r771,837,1,"ITCHING, Axilla",34
+r772,837,2,"ITCHING, Axilla, morning",1
+r773,837,2,"ITCHING, Axilla, when body becomes heated",2
+r774,837,2,"ITCHING, Axilla, menses, before",1
+r775,837,2,"ITCHING, Axilla, perspiration agg.",1
+r776,837,1,"ITCHING, Clavicle, region of",1
+r777,837,2,"ITCHING, Clavicle, region of, scratching amel.",1
+r778,837,1,"ITCHING, Mammæ",36
+r779,837,2,"ITCHING, Mammæ, between",1
+r780,837,2,"ITCHING, Mammæ, nipples",15
+r781,837,0,JERKS (See Shocks),10
+r782,837,1,"JERKS (See Shocks), breathing, when",1
+r783,837,1,"JERKS (See Shocks), moving the arm",1
+r784,837,1,"JERKS (See Shocks), Mammæ",1
+r785,837,1,"JERKS (See Shocks), Heart",8
+r786,837,2,"JERKS (See Shocks), Heart, evening",1
+r787,837,0,LARGE (See Fullness),0
+r788,837,0,"LIVING, sensation of something (See Alive)",0
+r789,837,0,"LUMPS, sensation of (See Nodules)",3
+r790,837,1,"LUMPS, sensation of (See Nodules), between mammæ",1
+r791,837,1,"LUMPS, sensation of (See Nodules), mid-sternum",2
+r792,837,1,"LUMPS, sensation of (See Nodules), under sternum",1
+r793,837,0,MILK absent,30
+o7503,837,1,"MILK absent, bad",15
+o8274,837,1,"MILK absent, bitter",1
+o8275,837,1,"MILK absent, blood, with",7
+o8276,837,1,"MILK absent, bloody",3
+o8277,837,1,"MILK absent, cheesy",3
+o8278,837,1,"MILK absent, child refuses mother's, milk",7
+o8279,837,1,"MILK absent, disappearing",38
+o8280,837,2,"MILK absent, disappearing, brain troubles, with",1
+o8281,837,2,"MILK absent, disappearing, cold, after taking",2
+o8282,837,2,"MILK absent, disappearing, excitement, after",1
+o8283,837,1,"MILK absent, flowing",23
+o8284,837,1,"MILK absent, increased",15
+o8285,837,1,"MILK absent, menses, before",2
+o8286,837,2,"MILK absent, menses, before, during",3
+o8287,837,2,"MILK absent, menses, before, suppressed",8
+o8288,837,1,"MILK absent, metastasis",1
+o8289,837,1,"MILK absent, non-pregnant women",12
+o8290,837,2,"MILK absent, non-pregnant women, at puberty",1
+r813,838,1,"MILK absent, stringy",4
+r814,838,1,"MILK absent, suppressed",22
+r815,838,2,"MILK absent, suppressed, anger, from",1
+r816,838,1,"MILK absent, thick and tastes bad",4
+r817,838,1,"MILK absent, thin",10
+r818,838,2,"MILK absent, thin, and blue",5
+r819,838,2,"MILK absent, thin, and salty",1
+r820,838,2,"MILK absent, thin, and watery",6
+r821,838,3,"MILK absent, thin, and watery, long after weaning",1
+r822,838,1,"MILK absent, weaning, after",2
+r823,838,1,"MILK absent, yellow",2
+r824,838,0,MOISTURE from humor in axilla,2
+r825,838,0,MURMURS,58
+r826,838,0,"NODULES, sensitive",3
+r827,838,1,"NODULES, sensitive, Axilla, in",1
+r828,838,1,"NODULES, sensitive, Mammæ, in",28
+o8311,838,2,"NODULES, sensitive, Mammæ, in, right",1
+o8307,838,2,"NODULES, sensitive, Mammæ, in, left",3
+o8305,838,2,"NODULES, sensitive, Mammæ, in, dry black points at tip",1
+o8308,838,2,"NODULES, sensitive, Mammæ, in, menses, during",1
+o8309,838,2,"NODULES, sensitive, Mammæ, in, pregnancy, during",1
+o8310,838,2,"NODULES, sensitive, Mammæ, in, purple",1
+r835,838,0,NUMBNESS,7
+r836,838,1,"NUMBNESS, Clavicles",1
+r837,838,1,"NUMBNESS, Sides, right",1
+r838,838,2,"NUMBNESS, Sides, right, left",3
+r839,838,1,"NUMBNESS, Mammæ",1
+r840,838,2,"NUMBNESS, Mammæ, nipples",1
+o8319,838,0,"ŒDEMA, pulmonary",29
+o8320,838,1,"ŒDEMA, pulmonary, drunkards, in",1
+r843,838,0,OPPRESSION,224
+r844,839,1,"OPPRESSION, morning",25
+r845,839,2,"OPPRESSION, morning, rising, on",4
+r846,839,1,"OPPRESSION, forenoon",4
+r847,839,2,"OPPRESSION, forenoon, 9 a.m. until 3 p.m.",1
+o8369,839,2,"OPPRESSION, forenoon, 10 or 11 a.m.",1
+r849,839,2,"OPPRESSION, forenoon, talking",2
+r850,839,1,"OPPRESSION, afternoon",12
+r851,839,2,"OPPRESSION, afternoon, sleep, after",1
+r852,839,2,"OPPRESSION, afternoon, 2 p.m.",2
+r853,839,2,"OPPRESSION, afternoon, 3 p.m.",1
+r854,839,2,"OPPRESSION, afternoon, 4 p.m.",1
+r855,839,2,"OPPRESSION, afternoon, 5 p.m.",1
+r856,839,2,"OPPRESSION, afternoon, 6 p.m.",1
+r857,839,1,"OPPRESSION, evening",28
+r858,839,2,"OPPRESSION, evening, bed, in",6
+r859,839,2,"OPPRESSION, evening, sunset, after",1
+r860,839,2,"OPPRESSION, evening, 9 p.m.",1
+r861,839,1,"OPPRESSION, night",26
+r862,839,2,"OPPRESSION, night, bed, in",2
+r863,839,2,"OPPRESSION, night, chill, during",1
+r864,839,2,"OPPRESSION, night, dreaming",1
+r865,839,2,"OPPRESSION, night, falling asleep",1
+r866,839,2,"OPPRESSION, night, midnight",2
+r867,839,3,"OPPRESSION, night, midnight, waking, on",2
+r868,839,3,"OPPRESSION, night, midnight, before",2
+r869,839,2,"OPPRESSION, night, 2 a.m.",3
+r870,839,2,"OPPRESSION, night, 3 a.m.",3
+r871,839,2,"OPPRESSION, night, 4 a.m.",2
+o8330,839,1,"OPPRESSION, air, in open",5
+r873,839,2,"OPPRESSION, air, in open, amel.",5
+r874,839,2,"OPPRESSION, air, in open, cold, after, sitting in",1
+r875,839,1,"OPPRESSION, alternating with headaches",1
+o8333,839,2,"OPPRESSION, alternating with headaches, with palpitation after eating",1
+o8334,839,3,"OPPRESSION, alternating with headaches, with palpitation after eating, urticaria",1
+r878,839,1,"OPPRESSION, anger, after",1
+r879,839,1,"OPPRESSION, ascending",18
+r880,839,1,"OPPRESSION, bed, in",3
+r881,839,1,"OPPRESSION, bending backward amel.",1
+o8339,839,2,"OPPRESSION, bending backward amel., arm backward",1
+o8340,839,2,"OPPRESSION, bending backward amel., forward amel.",1
+o8341,839,3,"OPPRESSION, bending backward amel., forward amel., head forward agg.",1
+r885,839,1,"OPPRESSION, changes to cold, when weather changes",1
+r886,839,1,"OPPRESSION, chill, during",15
+r887,839,1,"OPPRESSION, clothing agg.",10
+r888,839,1,"OPPRESSION, conversation, from",1
+r889,839,1,"OPPRESSION, coryza, with",4
+r890,839,1,"OPPRESSION, coughing, when",16
+r891,839,2,"OPPRESSION, coughing, when, after",2
+r892,839,1,"OPPRESSION, damp weather",3
+r893,839,1,"OPPRESSION, dancing amel.",1
+r894,839,1,"OPPRESSION, dinner, after",3
+r895,839,1,"OPPRESSION, drawing shoulders back amel.",1
+r896,839,1,"OPPRESSION, drinking",2
+r897,839,1,"OPPRESSION, eating, after",27
+r898,839,2,"OPPRESSION, eating, after, amel.",1
+r899,839,1,"OPPRESSION, erect, after rising, on sitting bent",1
+r900,839,1,"OPPRESSION, eructations amel.",6
+r901,839,1,"OPPRESSION, expectoration amel.",3
+o8365,839,1,"OPPRESSION, expiration, during",3
+r903,839,2,"OPPRESSION, expiration, during, amel.",1
+r904,840,1,"OPPRESSION, fever, during",14
+r905,840,1,"OPPRESSION, flatus passing amel.",2
+r906,840,1,"OPPRESSION, hang down, unless his legs",1
+o8393,840,1,"OPPRESSION, inspiration, on",9
+r908,840,2,"OPPRESSION, inspiration, on, amel.",3
+r909,840,1,"OPPRESSION, labor, during",1
+r910,840,1,"OPPRESSION, laughing",1
+o8402,840,1,"OPPRESSION, lying, while",16
+r912,840,2,"OPPRESSION, lying, while, amel.",3
+r913,840,2,"OPPRESSION, lying, while, back, on",3
+r914,840,2,"OPPRESSION, lying, while, left side, on",4
+r915,840,2,"OPPRESSION, lying, while, right side",1
+r916,840,2,"OPPRESSION, lying, while, affected side, on",1
+r917,840,2,"OPPRESSION, lying, while, head low, with",2
+r918,840,1,"OPPRESSION, menses, before",2
+r919,840,2,"OPPRESSION, menses, before, appearance of, on",1
+o8410,840,1,"OPPRESSION, motion, on",8
+r921,840,2,"OPPRESSION, motion, on, amel.",1
+r922,840,2,"OPPRESSION, motion, on, fast",3
+r923,840,2,"OPPRESSION, motion, on, arm, of",1
+r924,840,1,"OPPRESSION, perspiration, during",2
+r925,840,1,"OPPRESSION, pressure of hand amel.",1
+r926,840,1,"OPPRESSION, raising arms agg.",1
+r927,840,1,"OPPRESSION, reclining, when",1
+o8428,840,1,"OPPRESSION, respiration, on",8
+r929,840,2,"OPPRESSION, respiration, on, amel.",2
+r930,840,2,"OPPRESSION, respiration, on, deep",3
+r931,840,1,"OPPRESSION, rising, after",1
+r932,840,2,"OPPRESSION, rising, after, amel.",2
+r933,840,2,"OPPRESSION, rising, after, from bed and walking about amel.",1
+r934,840,1,"OPPRESSION, sitting",13
+r935,840,2,"OPPRESSION, sitting, amel.",1
+r936,840,2,"OPPRESSION, sitting, motion, after",1
+r937,840,2,"OPPRESSION, sitting, stooped",2
+r938,840,1,"OPPRESSION, sleep, before",1
+r939,840,2,"OPPRESSION, sleep, before, during",4
+r940,840,2,"OPPRESSION, sleep, before, falling asleep, on (See Respiration)",1
+r941,840,1,"OPPRESSION, smoking",1
+r942,840,1,"OPPRESSION, sneezing",2
+r943,840,1,"OPPRESSION, standing",4
+r944,840,2,"OPPRESSION, standing, lower part of chest",1
+r945,840,1,"OPPRESSION, stool, after",3
+r946,840,1,"OPPRESSION, stooping, when",4
+r947,840,1,"OPPRESSION, stormy weather",1
+r948,840,1,"OPPRESSION, talking, while",4
+r949,840,2,"OPPRESSION, talking, while, continued, from",1
+r950,840,1,"OPPRESSION, thinking of it agg.",1
+r951,840,1,"OPPRESSION, turning in bed agg.",1
+r952,840,1,"OPPRESSION, vomiting green amel.",1
+r953,840,1,"OPPRESSION, waking, on",17
+o8465,840,1,"OPPRESSION, walking, while",29
+r955,840,2,"OPPRESSION, walking, while, amel.",2
+r956,840,2,"OPPRESSION, walking, while, in cool air (See Air)",2
+o8463,840,2,"OPPRESSION, walking, while, in open air, while",5
+o8462,840,3,"OPPRESSION, walking, while, in open air, while, amel.",3
+r959,840,2,"OPPRESSION, walking, while, after",3
+r960,840,2,"OPPRESSION, walking, while, quickly",5
+r961,840,1,"OPPRESSION, warm room",5
+r962,840,1,"OPPRESSION, weather changes to cold",1
+r963,840,1,"OPPRESSION, wine amel.",1
+r964,840,1,"OPPRESSION, writing, while",1
+r965,840,1,"OPPRESSION, yawning agg.",1
+o8471,840,2,"OPPRESSION, yawning agg., amel.",1
+r967,841,1,"OPPRESSION, Diaphragm, in region of",1
+r968,841,1,"OPPRESSION, Sides",4
+r969,841,2,"OPPRESSION, Sides, right",4
+r970,841,2,"OPPRESSION, Sides, left",4
+r971,841,2,"OPPRESSION, Sides, evening, while lying",1
+r972,841,1,"OPPRESSION, Sternum",6
+r973,841,2,"OPPRESSION, Sternum, night",1
+r974,841,2,"OPPRESSION, Sternum, eating, after",2
+r975,841,1,"OPPRESSION, Heart",82
+r976,841,2,"OPPRESSION, Heart, morning",3
+r977,841,2,"OPPRESSION, Heart, afternoon",1
+r978,841,2,"OPPRESSION, Heart, evening",5
+r979,841,2,"OPPRESSION, Heart, night",3
+r980,841,2,"OPPRESSION, Heart, ascending stairs",2
+r981,841,2,"OPPRESSION, Heart, drawn downwards",1
+r982,841,2,"OPPRESSION, Heart, eating, after",1
+r983,841,2,"OPPRESSION, Heart, exertion on, least",3
+r984,841,2,"OPPRESSION, Heart, lying amel.",2
+r985,841,2,"OPPRESSION, Heart, lying with head low",2
+o8382,841,3,"OPPRESSION, Heart, lying with head low, on left side",4
+r987,841,2,"OPPRESSION, Heart, melancholy",2
+r988,841,2,"OPPRESSION, Heart, motion, on",3
+r989,841,2,"OPPRESSION, Heart, respiration, deep",3
+r990,841,2,"OPPRESSION, Heart, sitting",2
+r991,841,2,"OPPRESSION, Heart, standing",1
+r992,841,2,"OPPRESSION, Heart, thinking of it agg.",1
+r993,841,2,"OPPRESSION, Heart, walking amel.",1
+r994,841,0,ORGASM of blood (See Heat flushes),34
+r995,841,1,"ORGASM of blood (See Heat flushes), morning",1
+r996,841,1,"ORGASM of blood (See Heat flushes), evening",2
+r997,841,1,"ORGASM of blood (See Heat flushes), exertion, least",1
+r998,841,1,"ORGASM of blood (See Heat flushes), menses, during",1
+r999,841,1,"ORGASM of blood (See Heat flushes), motion, on",1
+r1000,841,0,PAIN,168
+r1001,841,1,"PAIN, morning",26
+r1002,841,2,"PAIN, morning, bed, in",7
+r1003,841,1,"PAIN, forenoon",7
+r1004,842,2,"PAIN, forenoon, 9 a.m. agg.",1
+r1005,842,2,"PAIN, forenoon, 10 a.m.",2
+r1006,842,2,"PAIN, forenoon, 11 a.m.",1
+r1007,842,1,"PAIN, noon",2
+r1008,842,1,"PAIN, afternoon",19
+r1009,842,2,"PAIN, afternoon, 1 p.m.",1
+r1010,842,2,"PAIN, afternoon, 2 p.m.",4
+r1011,842,2,"PAIN, afternoon, 3 p.m.",3
+r1012,842,2,"PAIN, afternoon, 4 p.m.",1
+o8570,842,2,"PAIN, afternoon, 4 to 5 p.m. right side",1
+r1014,842,2,"PAIN, afternoon, 6 p.m. lasting all evening",1
+r1015,842,1,"PAIN, evening",36
+r1016,842,2,"PAIN, evening, bed, in",7
+r1017,842,2,"PAIN, evening, 6 p.m.",1
+r1018,842,3,"PAIN, evening, 6 p.m., lasting until retiring",1
+r1019,842,2,"PAIN, evening, 7 p.m.",2
+r1020,842,2,"PAIN, evening, 8 p.m.",2
+r1021,842,2,"PAIN, evening, 9 p.m.",1
+r1022,842,1,"PAIN, night",22
+r1023,842,2,"PAIN, night, falling asleep, on",1
+r1024,842,2,"PAIN, night, going into open air",1
+r1025,842,2,"PAIN, night, midnight, after",1
+r1026,842,2,"PAIN, night, 4 a.m.",1
+r1027,842,1,"PAIN, air, open air amel.",1
+r1028,842,1,"PAIN, alternating with pain in abdomen",2
+o8574,842,2,"PAIN, alternating with pain in abdomen, in stomach",1
+r1030,842,1,"PAIN, arms near chest agg.",1
+o8576,842,2,"PAIN, arms near chest agg., amel.",1
+r1032,842,1,"PAIN, ascending",10
+r1033,842,1,"PAIN, bending backward",1
+o8591,842,2,"PAIN, bending backward, forward",6
+o8592,842,3,"PAIN, bending backward, forward, amel.",4
+o8593,842,2,"PAIN, bending backward, sideways agg.",1
+o8594,842,3,"PAIN, bending backward, sideways agg., right",1
+r1038,842,1,"PAIN, blowing nose",1
+r1039,842,1,"PAIN, breath, at every",1
+r1040,842,1,"PAIN, carrying a load, from",1
+r1041,842,1,"PAIN, chill, before",2
+r1042,842,2,"PAIN, chill, before, during",10
+r1043,842,1,"PAIN, chilliness, during",2
+r1044,842,1,"PAIN, cold air",1
+r1045,842,1,"PAIN, cough, during",105
+r1046,842,1,"PAIN, damp weather",5
+r1047,842,1,"PAIN, desire to urinate be delayed, if",1
+r1048,842,1,"PAIN, dinner, after",10
+r1049,842,1,"PAIN, drawing on boots",1
+o8915,842,2,"PAIN, drawing on boots, shoulders back amel.",1
+r1051,842,1,"PAIN, drinking cold water, after",5
+r1052,843,1,"PAIN, eating, while",3
+r1053,843,2,"PAIN, eating, while, after",18
+r1054,843,3,"PAIN, eating, while, after, amel.",2
+o8945,843,1,"PAIN, eructation, from",3
+r1056,843,2,"PAIN, eructation, from, amel.",3
+r1057,843,1,"PAIN, excitement agg.",2
+r1058,843,1,"PAIN, exertion",7
+r1059,843,2,"PAIN, exertion, arms, with",3
+r1060,843,2,"PAIN, exertion, mental",2
+r1061,843,1,"PAIN, expectoration amel.",3
+r1062,843,1,"PAIN, expiration, on",7
+r1063,843,1,"PAIN, fasting, from",1
+r1064,843,1,"PAIN, hawking, during",2
+r1065,843,2,"PAIN, hawking, during, after",1
+r1066,843,1,"PAIN, heat, during",10
+r1067,843,1,"PAIN, herpes zoster, after",2
+r1068,843,1,"PAIN, hiccoughing",2
+r1069,843,1,"PAIN, inflammation of lungs, after",6
+o9083,843,1,"PAIN, inspiration, during",88
+r1071,843,2,"PAIN, inspiration, during, amel.",1
+r1072,843,1,"PAIN, laughing",5
+r1073,843,1,"PAIN, lifting",5
+o9127,843,1,"PAIN, lying, while",11
+r1075,843,2,"PAIN, lying, while, amel.",2
+r1076,843,2,"PAIN, lying, while, abdomen on, amel.",1
+o9116,843,2,"PAIN, lying, while, back, on",2
+r1078,843,3,"PAIN, lying, while, back, on, amel.",2
+o9115,843,3,"PAIN, lying, while, back, on, can lie only on",3
+o9121,843,2,"PAIN, lying, while, side, on",3
+o9119,843,3,"PAIN, lying, while, side, on, amel.",1
+o9118,843,3,"PAIN, lying, while, side, on, affected",4
+o9122,843,3,"PAIN, lying, while, side, on, painful",5
+o9123,843,4,"PAIN, lying, while, side, on, painful, amel.",5
+o9126,843,3,"PAIN, lying, while, side, on, sound",3
+o9120,843,3,"PAIN, lying, while, side, on, left",8
+o9124,843,3,"PAIN, lying, while, side, on, right",6
+o9125,843,4,"PAIN, lying, while, side, on, right, can lie only on",3
+r1089,843,1,"PAIN, menses, before",1
+r1090,843,2,"PAIN, menses, before, during",3
+r1091,843,1,"PAIN, motion agg.",42
+o9191,843,2,"PAIN, motion agg., amel.",4
+o9192,843,2,"PAIN, motion agg., of the arms",6
+o9193,843,3,"PAIN, motion agg., of the arms, head",1
+r1095,843,1,"PAIN, palpitation, during",3
+r1096,843,1,"PAIN, paroxysmal",7
+r1097,843,1,"PAIN, pressure agg.",8
+r1307,843,2,"PAIN, pressure agg., amel.",13
+o9320,843,2,"PAIN, pressure agg., of clothing agg.",2
+r1100,844,1,"PAIN, pulsating",4
+r1101,844,1,"PAIN, raising of arm",9
+r1102,844,1,"PAIN, reading, while",1
+r1103,844,1,"PAIN, respiration",49
+o9348,844,2,"PAIN, respiration, deep",58
+r1105,844,3,"PAIN, respiration, deep, amel.",3
+r1106,844,2,"PAIN, respiration, menses, before",1
+r1107,844,2,"PAIN, respiration, sitting, while",1
+r1108,844,1,"PAIN, rheumatic",32
+r1109,844,1,"PAIN, riding in a carriage",2
+o9354,844,2,"PAIN, riding in a carriage, on horseback",2
+r1111,844,1,"PAIN, rising on",4
+o9356,844,2,"PAIN, rising on, after",2
+o9357,844,3,"PAIN, rising on, after, sitting",3
+o9358,844,3,"PAIN, rising on, after, stooping",2
+o9359,844,4,"PAIN, rising on, after, stooping, amel.",1
+o9360,844,2,"PAIN, rising on, up in bed, on",3
+r1117,844,1,"PAIN, rubbing amel.",2
+r1118,844,1,"PAIN, singing agg.",1
+r1119,844,1,"PAIN, sitting",22
+r1120,844,2,"PAIN, sitting, amel.",3
+r1121,844,2,"PAIN, sitting, bent",2
+r1122,844,1,"PAIN, sleep, before going to sleep",2
+r1123,844,2,"PAIN, sleep, before going to sleep, during",1
+r1124,844,1,"PAIN, smoking",1
+r1125,844,1,"PAIN, sneezing",13
+r1126,844,1,"PAIN, splinter, as if",1
+o9573,844,1,"PAIN, standing",9
+r1128,844,2,"PAIN, standing, amel.",2
+r1129,844,1,"PAIN, stool, after",1
+r1130,844,1,"PAIN, stooping",14
+r1131,844,1,"PAIN, straightening up",3
+o10099,844,1,"PAIN, stretching the arm",1
+r1133,844,2,"PAIN, stretching the arm, amel.",1
+r1134,844,1,"PAIN, swallowing",3
+r1135,844,1,"PAIN, talking, while",9
+r1136,844,2,"PAIN, talking, while, excitement of",2
+r1137,844,1,"PAIN, throat, clearing",1
+r1138,844,1,"PAIN, touched, when",3
+r1139,844,1,"PAIN, turning",2
+r1140,844,2,"PAIN, turning, in bed",2
+r1141,844,1,"PAIN, undulating",3
+r1142,844,1,"PAIN, vexation, from",1
+r1143,844,1,"PAIN, waking, on",6
+o10174,844,1,"PAIN, walking, while",38
+r1145,844,2,"PAIN, walking, while, amel.",6
+r1146,844,2,"PAIN, walking, while, dressing and",1
+r1148,845,2,"PAIN, walking, while, in open air",5
+r1149,845,2,"PAIN, walking, while, rapid",5
+r1150,845,2,"PAIN, walking, while, slowly amel.",1
+r1151,845,1,"PAIN, wandering",9
+r1152,845,1,"PAIN, warm, on getting warm in bed",1
+r1153,845,1,"PAIN, warm, room agg.",2
+r1154,845,1,"PAIN, warmth amel.",3
+r1155,845,1,"PAIN, weather changing",1
+r1156,845,1,"PAIN, wine, after",1
+r1157,845,1,"PAIN, winter, returning every",2
+r1158,845,1,"PAIN, writing, while",2
+r1159,845,1,"PAIN, yawning",6
+r1160,845,1,"PAIN, Axilla",27
+r1161,845,2,"PAIN, Axilla, right to left",1
+r1162,845,2,"PAIN, Axilla, menses, before",1
+r1163,845,2,"PAIN, Axilla, glands",7
+r1164,845,2,"PAIN, Axilla, region of",3
+r1165,845,3,"PAIN, Axilla, region of, morning",1
+r1166,845,4,"PAIN, Axilla, region of, morning, motion agg.",1
+r1167,845,3,"PAIN, Axilla, region of, intermittent",1
+r1168,845,3,"PAIN, Axilla, region of, pulsating",1
+r1169,845,3,"PAIN, Axilla, region of, extending to pectoral muscles",1
+o8583,845,4,"PAIN, Axilla, region of, extending to pectoral muscles, down arms",2
+o8584,845,4,"PAIN, Axilla, region of, extending to pectoral muscles, to little finger",1
+r1172,845,1,"PAIN, Clavicle",26
+r1173,845,2,"PAIN, Clavicle, coughing, on",1
+r1174,845,2,"PAIN, Clavicle, inhalation",4
+r1175,845,2,"PAIN, Clavicle, rheumatic",2
+r1176,845,2,"PAIN, Clavicle, sitting",1
+r1177,845,2,"PAIN, Clavicle, waking, on",2
+r1178,845,2,"PAIN, Clavicle, extending to wrist",1
+r1179,845,2,"PAIN, Clavicle, below",16
+r1180,845,3,"PAIN, Clavicle, below, right",1
+r1181,845,3,"PAIN, Clavicle, below, left",2
+r1182,845,3,"PAIN, Clavicle, below, morning",1
+r1183,845,4,"PAIN, Clavicle, below, morning, on waking",1
+r1184,845,3,"PAIN, Clavicle, below, extending to scapula during inspiration",1
+r1185,845,2,"PAIN, Clavicle, region of",9
+r1186,845,3,"PAIN, Clavicle, region of, on coughing",1
+r1187,845,1,"PAIN, Diaphragm, region of",2
+r1188,845,2,"PAIN, Diaphragm, region of, forenoon",1
+r1189,845,2,"PAIN, Diaphragm, region of, inspiration",1
+r1190,845,1,"PAIN, Middle",15
+r1191,845,2,"PAIN, Middle, afternoon",1
+r1192,845,2,"PAIN, Middle, evening",1
+r1193,845,2,"PAIN, Middle, cough, after",1
+o9177,845,2,"PAIN, Middle, eating",1
+o9180,845,2,"PAIN, Middle, inspiration",1
+r1196,845,3,"PAIN, Middle, inspiration, deep",1
+r1197,845,2,"PAIN, Middle, motion",3
+r1198,845,2,"PAIN, Middle, pressure of hand amel.",2
+r1199,845,2,"PAIN, Middle, raising the arms",1
+r1200,845,2,"PAIN, Middle, sitting",1
+r1201,845,2,"PAIN, Middle, walking in open air",1
+r1202,845,2,"PAIN, Middle, writing",1
+r1203,845,2,"PAIN, Middle, extending to shoulder",1
+r1204,845,1,"PAIN, Mammæ",50
+r1205,845,2,"PAIN, Mammæ, right",4
+r1206,846,2,"PAIN, Mammæ, left",6
+r1207,846,3,"PAIN, Mammæ, left, cough, during",1
+r1208,846,2,"PAIN, Mammæ, morning",1
+r1209,846,2,"PAIN, Mammæ, afternoon",1
+r1210,846,2,"PAIN, Mammæ, evening",2
+r1211,846,2,"PAIN, Mammæ, chill, after",1
+r1212,846,2,"PAIN, Mammæ, cough, during",1
+r1213,846,2,"PAIN, Mammæ, descending, on",8
+r1214,846,2,"PAIN, Mammæ, empty, soon as",1
+r1215,846,2,"PAIN, Mammæ, lying, while",1
+r1216,846,2,"PAIN, Mammæ, menses, before",7
+r1217,846,3,"PAIN, Mammæ, menses, before, during",7
+r1218,846,3,"PAIN, Mammæ, menses, before, suppressed during",1
+r1219,846,2,"PAIN, Mammæ, nurses, while child",3
+r1220,846,3,"PAIN, Mammæ, nurses, while child, wandering pains, while",1
+r1221,846,2,"PAIN, Mammæ, pregnancy, during",1
+r1222,846,2,"PAIN, Mammæ, pressure agg.",1
+r1223,846,2,"PAIN, Mammæ, raising arm, when",1
+r1224,846,2,"PAIN, Mammæ, step, every",1
+r1225,846,2,"PAIN, Mammæ, wandering",1
+r1226,846,2,"PAIN, Mammæ, extending to back",2
+r1227,846,2,"PAIN, Mammæ, lactiferous tubes, in, when child nurses",1
+r1228,846,2,"PAIN, Mammæ, nipples",13
+r1229,846,3,"PAIN, Mammæ, nipples, morning",1
+r1230,846,3,"PAIN, Mammæ, nipples, evening",2
+r1231,846,3,"PAIN, Mammæ, nipples, menses, after",1
+r1232,846,3,"PAIN, Mammæ, nipples, nursing, while",4
+r1233,846,3,"PAIN, Mammæ, nipples, radiating over whole body",1
+r1234,846,3,"PAIN, Mammæ, nipples, respiration, during",1
+r1235,846,3,"PAIN, Mammæ, nipples, extending to scapula",3
+r1236,846,2,"PAIN, Mammæ, opposite, in, when child nurses",1
+r1237,846,2,"PAIN, Mammæ, under",6
+r1238,846,3,"PAIN, Mammæ, under, right",2
+r1239,846,3,"PAIN, Mammæ, under, left",6
+r1240,846,3,"PAIN, Mammæ, under, climacteric, during",1
+r1241,846,3,"PAIN, Mammæ, under, cough, during",1
+r1242,846,3,"PAIN, Mammæ, under, extending to fingers",1
+r1243,846,3,"PAIN, Mammæ, under, pregnancy, during",1
+r1244,846,2,"PAIN, Mammæ, region of",6
+r1245,846,3,"PAIN, Mammæ, region of, evening",1
+r1246,846,3,"PAIN, Mammæ, region of, hawking, when",1
+r1247,846,3,"PAIN, Mammæ, region of, sitting bent, while",1
+r1248,846,1,"PAIN, Pectoral muscles",4
+r1249,846,1,"PAIN, Sides",105
+r1250,846,2,"PAIN, Sides, right",49
+r1251,846,3,"PAIN, Sides, right, apex of right lung",2
+r1252,846,3,"PAIN, Sides, right, to shoulder",1
+r1253,846,2,"PAIN, Sides, left",57
+r1254,847,3,"PAIN, Sides, left, extending to groin",1
+o9395,847,4,"PAIN, Sides, left, extending to groin, to shoulder",1
+o9396,847,5,"PAIN, Sides, left, extending to groin, to shoulder, right",2
+o9397,847,5,"PAIN, Sides, left, extending to groin, to shoulder, throat",1
+r1258,847,2,"PAIN, Sides, morning",20
+r1259,847,3,"PAIN, Sides, morning, bed, in",4
+r1260,847,2,"PAIN, Sides, forenoon",4
+r1261,847,3,"PAIN, Sides, forenoon, 11 a.m.",1
+r1262,847,2,"PAIN, Sides, noon",2
+r1263,847,2,"PAIN, Sides, afternoon",10
+r1264,847,3,"PAIN, Sides, afternoon, 1 p.m.",2
+r1265,847,3,"PAIN, Sides, afternoon, 2 p.m.",1
+r1266,847,3,"PAIN, Sides, afternoon, 3 p.m.",2
+r1267,847,3,"PAIN, Sides, afternoon, 4 p.m.",1
+r1268,847,2,"PAIN, Sides, evening",16
+r1269,847,3,"PAIN, Sides, evening, bed, in",3
+r1270,847,3,"PAIN, Sides, evening, 8 p.m.",1
+r1271,847,2,"PAIN, Sides, night",7
+r1272,847,3,"PAIN, Sides, night, 10 p.m.",1
+o9369,847,2,"PAIN, Sides, air, open air",1
+r1274,847,3,"PAIN, Sides, air, open air, amel.",1
+r1275,847,2,"PAIN, Sides, ascending steps",2
+r1276,847,2,"PAIN, Sides, bending forward",3
+o9373,847,3,"PAIN, Sides, bending forward, backward",1
+o9374,847,3,"PAIN, Sides, bending forward, to right",1
+r1279,847,2,"PAIN, Sides, blowing nose",1
+r1280,847,2,"PAIN, Sides, cough, during",30
+r1281,847,2,"PAIN, Sides, dinner, after",5
+r1282,847,2,"PAIN, Sides, eating, after",3
+r1283,847,2,"PAIN, Sides, erect, on becoming",1
+r1284,847,2,"PAIN, Sides, excitement agg.",1
+r1285,847,2,"PAIN, Sides, exertion",2
+r1286,847,3,"PAIN, Sides, exertion, of mind",1
+r1287,847,2,"PAIN, Sides, expiration, during",6
+r1288,847,2,"PAIN, Sides, heat amel.",1
+r1289,847,2,"PAIN, Sides, inspiration",44
+r1290,847,2,"PAIN, Sides, laughing",5
+r1291,847,2,"PAIN, Sides, leaning over",1
+r1292,847,2,"PAIN, Sides, lifting",4
+r1293,847,2,"PAIN, Sides, lying, while",5
+r1294,847,3,"PAIN, Sides, lying, while, on back amel.",1
+r1295,847,3,"PAIN, Sides, lying, while, in bed",2
+r1296,847,3,"PAIN, Sides, lying, while, on left side",3
+o9404,847,4,"PAIN, Sides, lying, while, on left side, right side",3
+o9402,847,4,"PAIN, Sides, lying, while, on left side, painful side agg.",4
+o9403,847,5,"PAIN, Sides, lying, while, on left side, painful side agg., amel.",3
+r1300,847,2,"PAIN, Sides, menses, before",1
+r1301,847,3,"PAIN, Sides, menses, before, during",2
+o9411,847,2,"PAIN, Sides, motion, on",19
+r1303,847,3,"PAIN, Sides, motion, on, amel.",1
+r1304,847,2,"PAIN, Sides, palpitation, during",1
+r1305,847,2,"PAIN, Sides, paroxysmal",2
+o9417,848,2,"PAIN, Sides, pressure",5
+o9418,848,3,"PAIN, Sides, pressure, amel.",4
+r1308,848,2,"PAIN, Sides, respiration",4
+r1309,848,3,"PAIN, Sides, respiration, deep",47
+r1310,848,2,"PAIN, Sides, riding on horseback",1
+o9422,848,3,"PAIN, Sides, riding on horseback, in a wagon",1
+r1312,848,2,"PAIN, Sides, rising, on",1
+r1313,848,3,"PAIN, Sides, rising, on, in bed",1
+r1314,848,3,"PAIN, Sides, rising, on, after, amel.",1
+o9427,848,4,"PAIN, Sides, rising, on, after, amel., from a seat",2
+o9428,848,4,"PAIN, Sides, rising, on, after, amel., stooping",1
+r1317,848,2,"PAIN, Sides, sitting, while",12
+o9432,848,3,"PAIN, Sides, sitting, while, bent, while",2
+o9431,848,4,"PAIN, Sides, sitting, while, bent, while, amel.",2
+r1320,848,2,"PAIN, Sides, sleep, before going to",1
+r1321,848,3,"PAIN, Sides, sleep, before going to, during",1
+r1322,848,2,"PAIN, Sides, sneezing, after",5
+r1323,848,2,"PAIN, Sides, standing",4
+r1324,848,2,"PAIN, Sides, stool, before",1
+r1325,848,2,"PAIN, Sides, stooping, when",4
+r1326,848,3,"PAIN, Sides, stooping, when, after",1
+r1327,848,2,"PAIN, Sides, talking, while",4
+r1328,848,2,"PAIN, Sides, turning to the right",1
+r1329,848,2,"PAIN, Sides, vexation",1
+r1330,848,2,"PAIN, Sides, waking, on",2
+r1147,848,2,"PAIN, Sides, walking",25
+r1332,848,3,"PAIN, Sides, walking, amel.",1
+r1333,848,2,"PAIN, Sides, warm room agg.",2
+r1334,848,2,"PAIN, Sides, wine",1
+r1335,848,2,"PAIN, Sides, writing",1
+r1336,848,2,"PAIN, Sides, yawning",1
+r1337,848,1,"PAIN, Lower",20
+r1338,848,2,"PAIN, Lower, right",5
+r1339,848,2,"PAIN, Lower, left",10
+r1340,848,3,"PAIN, Lower, left, eating amel.",1
+r1341,848,2,"PAIN, Lower, inspiration, deep",3
+r1342,848,2,"PAIN, Lower, lying amel.",1
+o9093,848,3,"PAIN, Lower, lying amel., on back amel.",1
+o9094,848,3,"PAIN, Lower, lying amel., on left side",1
+r1345,848,2,"PAIN, Lower, sitting, while",2
+r1346,848,2,"PAIN, Lower, walking",2
+r1347,848,3,"PAIN, Lower, walking, amel.",1
+r1348,848,3,"PAIN, Lower, walking, extending transversely",1
+r1349,848,1,"PAIN, Lungs",5
+r1350,848,2,"PAIN, Lungs, right",5
+r1351,848,3,"PAIN, Lungs, right, as if lobe were adhering to rib",1
+r1352,848,2,"PAIN, Lungs, left",2
+r1353,848,3,"PAIN, Lungs, left, evening, agg.",1
+r1354,848,3,"PAIN, Lungs, left, above nipple",2
+r1355,848,3,"PAIN, Lungs, left, centre of",1
+r1356,848,3,"PAIN, Lungs, left, lower part",2
+r1357,848,2,"PAIN, Lungs, apex",1
+r1358,848,3,"PAIN, Lungs, apex, right",2
+r1359,848,4,"PAIN, Lungs, apex, right, extending to base of",1
+r1360,848,3,"PAIN, Lungs, apex, left",3
+r1361,848,3,"PAIN, Lungs, apex, inspiration agg.",1
+r1362,848,1,"PAIN, Sternum",33
+r1363,849,2,"PAIN, Sternum, afternoon",2
+r1364,849,2,"PAIN, Sternum, night",1
+r1365,849,2,"PAIN, Sternum, ascending",1
+r1366,849,2,"PAIN, Sternum, convulsive",1
+r1367,849,2,"PAIN, Sternum, coughing, when",25
+r1368,849,2,"PAIN, Sternum, drinking, when",1
+r1369,849,2,"PAIN, Sternum, eating, after",3
+r1370,849,2,"PAIN, Sternum, inhalation, during",4
+r1371,849,2,"PAIN, Sternum, motion, on",2
+r1372,849,2,"PAIN, Sternum, paroxysmal",1
+r1373,849,2,"PAIN, Sternum, pressure agg.",2
+r1374,849,2,"PAIN, Sternum, raising arm",1
+r1375,849,2,"PAIN, Sternum, respiration",3
+r1376,849,3,"PAIN, Sternum, respiration, deep",4
+r1377,849,2,"PAIN, Sternum, rubbing, after",1
+r1378,849,2,"PAIN, Sternum, sitting bent",3
+r1379,849,2,"PAIN, Sternum, smoking, after",1
+r1380,849,2,"PAIN, Sternum, spots, in",2
+r1381,849,2,"PAIN, Sternum, stooping, on",2
+r1382,849,2,"PAIN, Sternum, stretching agg.",1
+r1383,849,2,"PAIN, Sternum, talking, while",1
+r1384,849,2,"PAIN, Sternum, walking, on",2
+r1385,849,2,"PAIN, Sternum, extending to back",5
+r1386,849,2,"PAIN, Sternum, behind",16
+o9580,849,2,"PAIN, Sternum, drinking",1
+o9582,849,2,"PAIN, Sternum, food had lodged, as if",2
+o9583,849,2,"PAIN, Sternum, inspiration, on",3
+o9584,849,2,"PAIN, Sternum, sitting erect amel.",1
+o9585,849,2,"PAIN, Sternum, swallowing, when",2
+o9586,849,2,"PAIN, Sternum, walking, fast",1
+r1393,849,1,"PAIN, Heart",109
+r1394,849,2,"PAIN, Heart, morning",2
+r1395,849,3,"PAIN, Heart, morning, bending over the bed, on",1
+r1396,849,3,"PAIN, Heart, morning, chocolate, after",1
+r1397,849,3,"PAIN, Heart, morning, rising, on",1
+r1398,849,3,"PAIN, Heart, morning, waking, on",1
+r1399,849,2,"PAIN, Heart, forenoon",1
+r1400,849,2,"PAIN, Heart, afternoon",1
+r1401,849,2,"PAIN, Heart, evening",4
+r1402,849,2,"PAIN, Heart, night",5
+r1403,849,3,"PAIN, Heart, night, lying down, after",1
+o9038,849,4,"PAIN, Heart, night, lying down, after, on back, when",1
+r1405,849,2,"PAIN, Heart, alternating with pain in great toe",1
+o8990,849,3,"PAIN, Heart, alternating with pain in great toe, with pain in uterus",1
+o8991,849,3,"PAIN, Heart, alternating with pain in great toe, with rheumatism",2
+r1408,849,2,"PAIN, Heart, ascending agg.",1
+r1409,849,2,"PAIN, Heart, bending forward agg.",2
+r1410,849,2,"PAIN, Heart, bladder, after pain in",1
+r1411,849,2,"PAIN, Heart, breathing almost impossible",1
+r1412,849,2,"PAIN, Heart, chill, during",1
+r1413,849,2,"PAIN, Heart, coitus, after",1
+r1414,849,2,"PAIN, Heart, coughing, on",1
+r1415,849,2,"PAIN, Heart, eating, after",6
+r1416,849,2,"PAIN, Heart, epilepsy, before",2
+r1417,850,2,"PAIN, Heart, excitement, from",2
+r1418,850,2,"PAIN, Heart, exertion",3
+r1419,850,2,"PAIN, Heart, expiration, during",1
+r1420,850,2,"PAIN, Heart, loudly spoken to, when",1
+r1421,850,2,"PAIN, Heart, lying agg.",6
+o65003,850,3,"PAIN, Heart, lying agg., on the back",2
+o9019,850,4,"PAIN, Heart, lying agg., on the back, amel.",2
+o9020,850,4,"PAIN, Heart, lying agg., on the back, left side agg.",12
+o9021,850,5,"PAIN, Heart, lying agg., on the back, left side agg., could lie only on left",2
+o9022,850,4,"PAIN, Heart, lying agg., on the back, right side",3
+o9023,850,5,"PAIN, Heart, lying agg., on the back, right side, could lie only on",2
+o9024,850,3,"PAIN, Heart, lying agg., with head low",1
+r1429,850,2,"PAIN, Heart, menses, before",4
+r1430,850,3,"PAIN, Heart, menses, before, during",5
+r1431,850,4,"PAIN, Heart, menses, before, during, painful",1
+r1432,850,3,"PAIN, Heart, menses, before, after",2
+r1433,850,2,"PAIN, Heart, moving agg.",4
+o9035,850,3,"PAIN, Heart, moving agg., amel.",1
+r1435,850,2,"PAIN, Heart, noise, from",1
+r1436,850,2,"PAIN, Heart, palpitation, during",1
+r1437,850,2,"PAIN, Heart, paroxysmal",1
+r1438,850,2,"PAIN, Heart, parturition",1
+r1439,850,2,"PAIN, Heart, pressure of hand amel.",1
+r1440,850,2,"PAIN, Heart, pulsating",12
+r1441,850,2,"PAIN, Heart, radiating",1
+r1442,850,2,"PAIN, Heart, respiration agg.",2
+r1443,850,2,"PAIN, Heart, rheumatic",33
+r1444,850,2,"PAIN, Heart, riding in a carriage",2
+r1445,850,2,"PAIN, Heart, rising from a seat",1
+o9064,850,3,"PAIN, Heart, rising from a seat, from a recumbent position",1
+r1447,850,2,"PAIN, Heart, sitting, while",1
+r1448,850,2,"PAIN, Heart, standing",1
+r1449,850,2,"PAIN, Heart, stooping, on",2
+r1450,850,2,"PAIN, Heart, touching spine",1
+r1451,850,2,"PAIN, Heart, urination, before",1
+r1452,850,3,"PAIN, Heart, urination, before, during",2
+r1453,850,3,"PAIN, Heart, urination, before, after, amel.",2
+r1454,850,2,"PAIN, Heart, waking, after",2
+o9073,850,2,"PAIN, Heart, walking",9
+r1456,850,3,"PAIN, Heart, walking, amel.",2
+r1457,850,2,"PAIN, Heart, wandering",3
+r1458,850,3,"PAIN, Heart, wandering, from joint to joint and then locates in",1
+r1459,850,2,"PAIN, Heart, yawning",1
+r1460,850,2,"PAIN, Heart, extending to left scapula",4
+o9006,850,3,"PAIN, Heart, extending to left scapula, to axilla",2
+o9007,850,3,"PAIN, Heart, extending to left scapula, to left hand",16
+o9011,850,4,"PAIN, Heart, extending to left scapula, to left hand, right arm",2
+o9012,850,4,"PAIN, Heart, extending to left scapula, to left hand, right leg",1
+o9008,850,4,"PAIN, Heart, extending to left scapula, to left hand, back",10
+o9010,850,4,"PAIN, Heart, extending to left scapula, to left hand, nape of neck and shoulder",1
+o9009,850,4,"PAIN, Heart, extending to left scapula, to left hand, left scapula",1
+o9013,850,4,"PAIN, Heart, extending to left scapula, to left hand, shoulder",1
+o9014,850,4,"PAIN, Heart, extending to left scapula, to left hand, sternum",1
+r1470,850,2,"PAIN, Heart, region of",48
+r1471,850,3,"PAIN, Heart, region of, morning",3
+r1472,850,3,"PAIN, Heart, region of, forenoon",1
+r1473,850,3,"PAIN, Heart, region of, afternoon",1
+r1474,851,3,"PAIN, Heart, region of, evening",3
+r1475,851,4,"PAIN, Heart, region of, evening, in bed",1
+r1476,851,3,"PAIN, Heart, region of, acute",6
+r1477,851,3,"PAIN, Heart, region of, drinking, after",1
+r1478,851,3,"PAIN, Heart, region of, inspiration, deep",1
+r1479,851,3,"PAIN, Heart, region of, respiration",1
+r1480,851,4,"PAIN, Heart, region of, respiration, deep",1
+r1481,851,4,"PAIN, Heart, region of, respiration, quick and difficult",1
+r1482,851,3,"PAIN, Heart, region of, waking on",1
+r1483,851,3,"PAIN, Heart, region of, extending to left arm",1
+r1484,851,1,"PAIN, aching",59
+r1485,851,2,"PAIN, aching, morning",1
+r1486,851,3,"PAIN, aching, morning, bed, in",1
+r1487,851,3,"PAIN, aching, morning, eating, after",1
+r1488,851,3,"PAIN, aching, morning, waking, on",1
+r1489,851,3,"PAIN, aching, morning, 8 a.m.",1
+r1490,851,4,"PAIN, aching, morning, 8 a.m., anterior part",1
+r1491,851,2,"PAIN, aching, forenoon",1
+r1492,851,3,"PAIN, aching, forenoon, noon, on walking",1
+r1493,851,2,"PAIN, aching, afternoon",1
+r1494,851,2,"PAIN, aching, evening",4
+r1495,851,3,"PAIN, aching, evening, deep breathing agg.",1
+r1496,851,2,"PAIN, aching, night",1
+r1497,851,3,"PAIN, aching, night, on waking",1
+r1498,851,2,"PAIN, aching, ascending agg.",1
+r1499,851,2,"PAIN, aching, breath, on holding",1
+r1500,851,2,"PAIN, aching, coughing, when",8
+r1501,851,3,"PAIN, aching, coughing, when, paroxysmal",1
+r1502,851,2,"PAIN, aching, dinner, after",1
+r1503,851,2,"PAIN, aching, eating, after",2
+r1504,851,2,"PAIN, aching, eructations amel.",1
+r1505,851,2,"PAIN, aching, expectoration",1
+r1506,851,2,"PAIN, aching, hawking, after",1
+r1507,851,2,"PAIN, aching, inspiration agg.",3
+o8508,851,3,"PAIN, aching, inspiration agg., amel.",1
+r1509,851,2,"PAIN, aching, motion agg.",4
+o8533,851,3,"PAIN, aching, motion agg., amel.",1
+o8534,851,3,"PAIN, aching, motion agg., of arms, anterior part of chest",1
+r1512,851,2,"PAIN, aching, reading, while",1
+r1513,851,2,"PAIN, aching, rising, on",3
+r1514,851,2,"PAIN, aching, sitting",2
+r1515,851,2,"PAIN, aching, standing",1
+r1516,851,2,"PAIN, aching, straight, on becoming, agg.",1
+r1517,851,2,"PAIN, aching, talking, excited",3
+r1518,851,2,"PAIN, aching, throat, clearing",1
+r1519,851,2,"PAIN, aching, touched",1
+r1520,851,2,"PAIN, aching, walking",4
+r1521,851,2,"PAIN, aching, Axilla",8
+r1522,851,2,"PAIN, aching, Clavicle",4
+r1523,851,3,"PAIN, aching, Clavicle, on inspiration",1
+o8490,851,3,"PAIN, aching, Clavicle, waking from a nightmare",1
+r1525,851,3,"PAIN, aching, Clavicle, below",6
+r1526,851,4,"PAIN, aching, Clavicle, below, inspiring agg.",2
+r1527,851,4,"PAIN, aching, Clavicle, below, respiration, during",1
+r1528,851,4,"PAIN, aching, Clavicle, below, extending to scapula, during inspiration",1
+r1529,851,2,"PAIN, aching, Costal cartilages of short ribs",1
+r1530,851,2,"PAIN, aching, Lower part",7
+r1531,851,3,"PAIN, aching, Lower part, eating, after",1
+r1532,851,3,"PAIN, aching, Lower part, inspiration",1
+r1533,851,3,"PAIN, aching, Lower part, lying, while, amel.",1
+r1534,851,3,"PAIN, aching, Lower part, sitting, while",2
+r1535,851,3,"PAIN, aching, Lower part, walking amel.",1
+r1536,851,2,"PAIN, aching, Mammæ",7
+r1537,851,3,"PAIN, aching, Mammæ, right",1
+r1538,852,3,"PAIN, aching, Mammæ, left",2
+r1539,852,3,"PAIN, aching, Mammæ, empty, when",1
+r1540,852,3,"PAIN, aching, Mammæ, under",2
+r1541,852,3,"PAIN, aching, Mammæ, region of",2
+r1542,852,3,"PAIN, aching, Mammæ, while sitting bent",1
+r1543,852,2,"PAIN, aching, Middle of",3
+r1544,852,3,"PAIN, aching, Middle of, motion amel.",1
+r1545,852,3,"PAIN, aching, Middle of, pressure, on",1
+r1546,852,3,"PAIN, aching, Middle of, extending to back",1
+r1547,852,2,"PAIN, aching, Sides",20
+r1548,852,3,"PAIN, aching, Sides, right",6
+r1549,852,3,"PAIN, aching, Sides, left",17
+r1550,852,4,"PAIN, aching, Sides, left, extending to scapula",1
+r1551,852,3,"PAIN, aching, Sides, morning",2
+r1552,852,3,"PAIN, aching, Sides, evening",1
+r1553,852,3,"PAIN, aching, Sides, night",1
+r1554,852,4,"PAIN, aching, Sides, night, in bed",1
+r1555,852,3,"PAIN, aching, Sides, ascending agg.",1
+r1556,852,3,"PAIN, aching, Sides, deep inspiration",4
+r1557,852,3,"PAIN, aching, Sides, lying, while",1
+r1558,852,4,"PAIN, aching, Sides, lying, while, on right side",1
+o8547,852,5,"PAIN, aching, Sides, lying, while, on right side, left side",1
+r1560,852,3,"PAIN, aching, Sides, turning chest",1
+r1561,852,3,"PAIN, aching, Sides, using arms",1
+r1562,852,3,"PAIN, aching, Sides, waking, on",1
+r1563,852,3,"PAIN, aching, Sides, walking",1
+r1564,852,3,"PAIN, aching, Sides, extending from left to right",2
+r1565,852,2,"PAIN, aching, Sternum",1
+r1566,852,2,"PAIN, aching, Heart",27
+r1567,852,3,"PAIN, aching, Heart, noon",1
+r1568,852,3,"PAIN, aching, Heart, evening",1
+r1569,852,4,"PAIN, aching, Heart, evening, in bed",1
+r1570,852,1,"PAIN, boring",18
+r1571,852,2,"PAIN, boring, evening",1
+r1572,852,2,"PAIN, boring, night agg.",1
+r1573,852,2,"PAIN, boring, chill, during",1
+r1574,852,2,"PAIN, boring, drawing",1
+r1575,852,2,"PAIN, boring, inspiration, during",1
+r1576,852,2,"PAIN, boring, paroxysmal, in",1
+r1577,852,2,"PAIN, boring, tension, during respiration",1
+r1578,852,2,"PAIN, boring, walking amel.",1
+r1579,852,2,"PAIN, boring, Axilla",1
+r1580,852,2,"PAIN, boring, Mammæ",3
+o8605,852,2,"PAIN, boring, extending to back",1
+o8606,852,2,"PAIN, boring, pressure agg.",1
+r1583,852,2,"PAIN, boring, Sides",5
+r1584,852,3,"PAIN, boring, Sides, right",2
+r1585,852,3,"PAIN, boring, Sides, left",2
+r1586,852,3,"PAIN, boring, Sides, evening, in bed",1
+r1587,852,4,"PAIN, boring, Sides, evening, in bed, deep breathing amel.",1
+r1588,852,4,"PAIN, boring, Sides, evening, in bed, 10 p.m. agg.",1
+r1589,852,2,"PAIN, boring, Heart",4
+r1590,852,3,"PAIN, boring, Heart, pressure amel.",1
+r1591,852,1,"PAIN, bruised (See Sore)",0
+r1592,852,1,"PAIN, burning",121
+r1593,853,2,"PAIN, burning, morning",2
+r1594,853,2,"PAIN, burning, forenoon",1
+r1595,853,2,"PAIN, burning, evening",4
+r1596,853,3,"PAIN, burning, evening, bed, in",2
+r1597,853,3,"PAIN, burning, evening, 5 p.m.",1
+r1598,853,3,"PAIN, burning, evening, 6 p.m.",1
+r1599,853,2,"PAIN, burning, night",1
+r1600,853,3,"PAIN, burning, night, midnight till morning",1
+r1601,853,2,"PAIN, burning, coughing, during",36
+r1602,853,3,"PAIN, burning, coughing, during, after",3
+r1603,853,2,"PAIN, burning, dry cough",6
+r1604,853,2,"PAIN, burning, dinner, after",1
+r1605,853,2,"PAIN, burning, expectoration amel.",1
+r1606,853,2,"PAIN, burning, external",19
+r1607,853,2,"PAIN, burning, fixed spot, in",1
+r1608,853,2,"PAIN, burning, inspiration, during",2
+r1609,853,2,"PAIN, burning, lying down, on",1
+r1610,853,2,"PAIN, burning, menses, before",1
+r1611,853,2,"PAIN, burning, motion agg.",1
+o8670,853,3,"PAIN, burning, motion agg., amel.",1
+r1613,853,2,"PAIN, burning, mouth, extending into, during coryza",1
+r1614,853,2,"PAIN, burning, respiration, on",1
+r1615,853,2,"PAIN, burning, sitting agg.",1
+r1616,853,2,"PAIN, burning, sleep, after",1
+r1617,853,2,"PAIN, burning, spots, in",5
+r1618,853,2,"PAIN, burning, walking, while",1
+r1619,853,3,"PAIN, burning, walking, while, in the open air, after",1
+r1620,853,2,"PAIN, burning, extending to face",1
+o8637,853,3,"PAIN, burning, extending to face, to throat",5
+o8638,853,3,"PAIN, burning, extending to face, upward",2
+r1623,853,2,"PAIN, burning, Anterior part",3
+r1624,853,3,"PAIN, burning, Anterior part, scratching agg.",1
+r1625,853,2,"PAIN, burning, Axilla",13
+r1626,853,3,"PAIN, burning, Axilla, right",1
+r1627,853,2,"PAIN, burning, Between the ribs",2
+r1628,853,2,"PAIN, burning, Clavicle",4
+r1629,853,3,"PAIN, burning, Clavicle, below",1
+r1630,853,2,"PAIN, burning, Costal cartilages during expiration",1
+r1631,853,2,"PAIN, burning, Lower part",2
+r1632,853,2,"PAIN, burning, Mammæ",28
+r1633,853,3,"PAIN, burning, Mammæ, left",1
+r1634,853,3,"PAIN, burning, Mammæ, menses, during",1
+r1635,853,3,"PAIN, burning, Mammæ, pregnancy, during",1
+r1636,853,3,"PAIN, burning, Mammæ, nipples",12
+r1637,853,4,"PAIN, burning, Mammæ, nipples, after nursing",2
+r1638,853,3,"PAIN, burning, Mammæ, under right",2
+o8659,853,4,"PAIN, burning, Mammæ, under right, left",2
+o8660,853,4,"PAIN, burning, Mammæ, under right, sitting, while",1
+r1641,853,2,"PAIN, burning, Middle of",15
+r1642,853,3,"PAIN, burning, Middle of, afternoon",1
+r1643,853,3,"PAIN, burning, Middle of, breakfast, after",1
+r1644,853,3,"PAIN, burning, Middle of, inspiration, during",1
+r1645,853,3,"PAIN, burning, Middle of, vexation, after",1
+r1646,853,3,"PAIN, burning, Middle of, extending to throat",1
+r1647,854,2,"PAIN, burning, Sides",8
+r1648,854,3,"PAIN, burning, Sides, right",14
+r1649,854,3,"PAIN, burning, Sides, left",21
+r1650,854,4,"PAIN, burning, Sides, left, lying on left side",1
+r1651,854,4,"PAIN, burning, Sides, left, extending down to groin",1
+r1652,854,3,"PAIN, burning, Sides, morning",1
+r1653,854,3,"PAIN, burning, Sides, afternoon",2
+r1654,854,3,"PAIN, burning, Sides, evening",1
+r1655,854,4,"PAIN, burning, Sides, evening, in bed",2
+r1656,854,3,"PAIN, burning, Sides, dinner, after",1
+r1657,854,3,"PAIN, burning, Sides, external",3
+r1658,854,4,"PAIN, burning, Sides, external, in spots",1
+r1659,854,3,"PAIN, burning, Sides, inspiration, during",2
+r1660,854,3,"PAIN, burning, Sides, lying, while",1
+r1661,854,4,"PAIN, burning, Sides, lying, while, back, on",1
+r1662,854,4,"PAIN, burning, Sides, lying, while, on right side agg.",2
+o8690,854,5,"PAIN, burning, Sides, lying, while, on right side agg., left side agg.",2
+o8691,854,6,"PAIN, burning, Sides, lying, while, on right side agg., left side agg., amel.",1
+r1665,854,3,"PAIN, burning, Sides, motion amel.",2
+r1666,854,3,"PAIN, burning, Sides, moving arm agg.",1
+r1667,854,3,"PAIN, burning, Sides, rising in bed, on",1
+r1668,854,3,"PAIN, burning, Sides, sitting, while",1
+r1669,854,3,"PAIN, burning, Sides, extending to back",1
+o8681,854,4,"PAIN, burning, Sides, extending to back, upward",1
+r1671,854,3,"PAIN, burning, Sides, short ribs",2
+r1672,854,2,"PAIN, burning, Sternum",18
+r1673,854,3,"PAIN, burning, Sternum, coughing, after",1
+r1674,854,3,"PAIN, burning, Sternum, drinking beer",1
+r1675,854,3,"PAIN, burning, Sternum, under",14
+r1676,854,4,"PAIN, burning, Sternum, under, motion",1
+r1677,854,4,"PAIN, burning, Sternum, under, lower part",1
+r1678,854,3,"PAIN, burning, Sternum, extending into shoulder during cough",1
+r1679,854,2,"PAIN, burning, Heart",13
+r1680,854,3,"PAIN, burning, Heart, noon, at",1
+r1681,854,3,"PAIN, burning, Heart, region of",15
+r1682,854,4,"PAIN, burning, Heart, region of, coughing agg.",1
+r1683,854,4,"PAIN, burning, Heart, region of, hiccoughing agg.",1
+r1684,854,4,"PAIN, burning, Heart, region of, sneezing agg.",1
+r1685,854,4,"PAIN, burning, Heart, region of, extending to left scapula",1
+r1686,854,1,"PAIN, bursting",15
+r1687,854,2,"PAIN, bursting, night",2
+r1688,854,2,"PAIN, bursting, ascending, when",1
+r1689,854,2,"PAIN, bursting, coughing, on",9
+r1690,854,2,"PAIN, bursting, expectoration",1
+r1691,854,2,"PAIN, bursting, sneezing",2
+r1692,854,2,"PAIN, bursting, heart",4
+r1693,854,3,"PAIN, bursting, heart, sensation of, at night when lying on the back amel. by sitting up",1
+r1694,854,1,"PAIN, clawing",1
+r1695,854,1,"PAIN, cold pain in chest, on coughing",1
+r1696,854,1,"PAIN, crampy",8
+r1697,854,2,"PAIN, crampy, morning, 5 a.m., with cough",1
+r1698,854,2,"PAIN, crampy, forenoon, 10 to 11 a.m.",1
+r1699,854,2,"PAIN, crampy, blowing nose, on",1
+r1700,854,2,"PAIN, crampy, cough, with",3
+r1701,854,2,"PAIN, crampy, menses, during",1
+r1702,854,2,"PAIN, crampy, sitting",1
+r1703,854,2,"PAIN, crampy, walking amel.",1
+r1704,854,2,"PAIN, crampy, Mammæ",1
+r1705,854,2,"PAIN, crampy, Sternum, eructations amel.",1
+r1706,854,2,"PAIN, crampy, Heart, in",5
+r1707,854,3,"PAIN, crampy, Heart, in, exertion",1
+r1708,854,3,"PAIN, crampy, Heart, in, raising arm",1
+r1709,855,1,"PAIN, crushing behind sternum on ascending",2
+r1710,855,1,"PAIN, cutting (sudden sharp pain)",82
+r1711,855,2,"PAIN, cutting (sudden sharp pain), morning",2
+r1712,855,3,"PAIN, cutting (sudden sharp pain), morning, on moving",1
+r1713,855,2,"PAIN, cutting (sudden sharp pain), afternoon",1
+r1714,855,2,"PAIN, cutting (sudden sharp pain), evening",7
+r1715,855,3,"PAIN, cutting (sudden sharp pain), evening, after lying down",1
+r1716,855,2,"PAIN, cutting (sudden sharp pain), night",1
+r1717,855,3,"PAIN, cutting (sudden sharp pain), night, when bending to the right",1
+o8765,855,2,"PAIN, cutting (sudden sharp pain), bending forward",1
+r1719,855,3,"PAIN, cutting (sudden sharp pain), bending forward, amel.",1
+r1720,855,2,"PAIN, cutting (sudden sharp pain), chill, before",1
+r1721,855,3,"PAIN, cutting (sudden sharp pain), chill, before, after",1
+r1722,855,2,"PAIN, cutting (sudden sharp pain), coughing",13
+r1723,855,2,"PAIN, cutting (sudden sharp pain), eating, after",2
+r1724,855,2,"PAIN, cutting (sudden sharp pain), erect, on becoming, from stooping",1
+r1725,855,2,"PAIN, cutting (sudden sharp pain), inspiration",10
+r1726,855,3,"PAIN, cutting (sudden sharp pain), inspiration, deep",4
+r1727,855,2,"PAIN, cutting (sudden sharp pain), lying on right side agg.",1
+o8799,855,3,"PAIN, cutting (sudden sharp pain), lying on right side agg., left side agg.",1
+o8800,855,3,"PAIN, cutting (sudden sharp pain), lying on right side agg., with arms close to side amel.",1
+r1730,855,2,"PAIN, cutting (sudden sharp pain), motion agg.",5
+o8817,855,3,"PAIN, cutting (sudden sharp pain), motion agg., amel.",1
+o8818,855,3,"PAIN, cutting (sudden sharp pain), motion agg., of arms",2
+r1733,855,2,"PAIN, cutting (sudden sharp pain), respiration, during",4
+r1734,855,2,"PAIN, cutting (sudden sharp pain), sitting amel.",1
+o8838,855,3,"PAIN, cutting (sudden sharp pain), sitting amel., bent",1
+r1736,855,2,"PAIN, cutting (sudden sharp pain), smoking, while",1
+r1737,855,2,"PAIN, cutting (sudden sharp pain), stooping, on",1
+r1738,855,2,"PAIN, cutting (sudden sharp pain), walking fast",1
+o8851,855,3,"PAIN, cutting (sudden sharp pain), walking fast, in open air, after",1
+r1740,855,2,"PAIN, cutting (sudden sharp pain), extending to abdomen",1
+o8781,855,3,"PAIN, cutting (sudden sharp pain), extending to abdomen, to pit of throat",1
+o8783,855,4,"PAIN, cutting (sudden sharp pain), extending to abdomen, to pit of throat, shoulders",2
+o8782,855,4,"PAIN, cutting (sudden sharp pain), extending to abdomen, to pit of throat, scapula",1
+r1744,855,2,"PAIN, cutting (sudden sharp pain), Anterior part",3
+r1745,855,3,"PAIN, cutting (sudden sharp pain), Anterior part, below clavicle",1
+r1746,855,2,"PAIN, cutting (sudden sharp pain), Axilla",4
+r1747,855,3,"PAIN, cutting (sudden sharp pain), Axilla, right",1
+r1748,855,3,"PAIN, cutting (sudden sharp pain), Axilla, across from right to left",1
+r1749,855,3,"PAIN, cutting (sudden sharp pain), Axilla, in scar of an old abscess",1
+r1750,855,2,"PAIN, cutting (sudden sharp pain), Clavicle",2
+r1751,855,3,"PAIN, cutting (sudden sharp pain), Clavicle, above",1
+r1752,855,3,"PAIN, cutting (sudden sharp pain), Clavicle, below",1
+r1753,855,4,"PAIN, cutting (sudden sharp pain), Clavicle, below, pressure amel.",1
+r1754,855,2,"PAIN, cutting (sudden sharp pain), Costal cartilages of short ribs",1
+r1755,855,3,"PAIN, cutting (sudden sharp pain), Costal cartilages of short ribs, on inspiration",1
+r1756,855,2,"PAIN, cutting (sudden sharp pain), Intercostal muscles",3
+r1757,855,2,"PAIN, cutting (sudden sharp pain), Lower part",3
+r1758,855,3,"PAIN, cutting (sudden sharp pain), Lower part, dragging feeling",1
+r1759,855,3,"PAIN, cutting (sudden sharp pain), Lower part, extending to abdomen",1
+r1760,855,2,"PAIN, cutting (sudden sharp pain), Mammæ",16
+r1761,855,3,"PAIN, cutting (sudden sharp pain), Mammæ, left",3
+r1762,855,4,"PAIN, cutting (sudden sharp pain), Mammæ, left, extending to scapula",1
+r1763,855,3,"PAIN, cutting (sudden sharp pain), Mammæ, lying on left side",1
+r1764,855,3,"PAIN, cutting (sudden sharp pain), Mammæ, nursing, while",1
+r1765,855,4,"PAIN, cutting (sudden sharp pain), Mammæ, nursing, while, extending to back",1
+r1766,855,3,"PAIN, cutting (sudden sharp pain), Mammæ, under",1
+r1767,855,4,"PAIN, cutting (sudden sharp pain), Mammæ, under, right",2
+r1768,855,4,"PAIN, cutting (sudden sharp pain), Mammæ, under, left",1
+r1769,855,3,"PAIN, cutting (sudden sharp pain), Mammæ, nipple to scapula, male",1
+o8806,855,4,"PAIN, cutting (sudden sharp pain), Mammæ, nipple to scapula, male, after menses",1
+r1772,856,2,"PAIN, cutting (sudden sharp pain), Middle amel. p.m.",1
+o8813,856,3,"PAIN, cutting (sudden sharp pain), Middle amel. p.m., extending to abdomen",2
+r1774,856,2,"PAIN, cutting (sudden sharp pain), Short ribs",1
+r1775,856,2,"PAIN, cutting (sudden sharp pain), Sides",13
+r1776,856,3,"PAIN, cutting (sudden sharp pain), Sides, right",12
+r1777,856,4,"PAIN, cutting (sudden sharp pain), Sides, right, coughing, when",2
+r1778,856,3,"PAIN, cutting (sudden sharp pain), Sides, left",21
+r1779,856,4,"PAIN, cutting (sudden sharp pain), Sides, left, coughing, when",1
+r1780,856,4,"PAIN, cutting (sudden sharp pain), Sides, left, extending to scapula",1
+r1781,856,3,"PAIN, cutting (sudden sharp pain), Sides, noon",1
+r1782,856,3,"PAIN, cutting (sudden sharp pain), Sides, bending backward",1
+r1783,856,3,"PAIN, cutting (sudden sharp pain), Sides, inspiration",2
+r1784,856,4,"PAIN, cutting (sudden sharp pain), Sides, inspiration, deep",4
+r1785,856,3,"PAIN, cutting (sudden sharp pain), Sides, side to side",1
+r1786,856,3,"PAIN, cutting (sudden sharp pain), Sides, sitting",1
+r1787,856,3,"PAIN, cutting (sudden sharp pain), Sides, standing",1
+r1788,856,3,"PAIN, cutting (sudden sharp pain), Sides, walking",1
+r1789,856,2,"PAIN, cutting (sudden sharp pain), Sternum",7
+r1790,856,3,"PAIN, cutting (sudden sharp pain), Sternum, night, on lying down",1
+r1791,856,3,"PAIN, cutting (sudden sharp pain), Sternum, emission of flatus amel.",1
+r1792,856,3,"PAIN, cutting (sudden sharp pain), Sternum, extending to spine",1
+o8845,856,4,"PAIN, cutting (sudden sharp pain), Sternum, extending to spine, to right scapula",1
+r1794,856,3,"PAIN, cutting (sudden sharp pain), Sternum, behind, cough, during",1
+o8842,856,4,"PAIN, cutting (sudden sharp pain), Sternum, behind, cough, during, swallowing",1
+r1796,856,2,"PAIN, cutting (sudden sharp pain), Upper part through apex of both lungs",2
+o8849,856,3,"PAIN, cutting (sudden sharp pain), Upper part through apex of both lungs, walking amel.",1
+r1798,856,2,"PAIN, cutting (sudden sharp pain), Heart",32
+r1799,856,3,"PAIN, cutting (sudden sharp pain), Heart, morning",1
+r1800,856,3,"PAIN, cutting (sudden sharp pain), Heart, afternoon, 4 p.m.",1
+r1801,856,3,"PAIN, cutting (sudden sharp pain), Heart, evening",1
+r1802,856,3,"PAIN, cutting (sudden sharp pain), Heart, menses, during",1
+r1803,856,3,"PAIN, cutting (sudden sharp pain), Heart, motion, on",1
+r1804,856,3,"PAIN, cutting (sudden sharp pain), Heart, region of",10
+r1805,856,4,"PAIN, cutting (sudden sharp pain), Heart, region of, interrupting breathing",3
+r1806,856,1,"PAIN, darting (See Stitching)",0
+r1807,856,1,"PAIN, digging",13
+r1808,856,2,"PAIN, digging, motion amel.",1
+r1809,856,2,"PAIN, digging, Clavicle",1
+r1810,856,2,"PAIN, digging, Sternum",1
+r1811,856,1,"PAIN, drawing",39
+r1812,856,2,"PAIN, drawing, morning, in bed",1
+r1813,856,3,"PAIN, drawing, morning, in bed, after rising agg.",1
+r1814,856,2,"PAIN, drawing, afternoon",1
+r1815,856,2,"PAIN, drawing, evening, in bed",1
+r1816,856,3,"PAIN, drawing, evening, in bed, when lying on the left side",1
+r1817,856,3,"PAIN, drawing, evening, in bed, 7 p.m. agg.",1
+r1818,856,2,"PAIN, drawing, chilliness, during",1
+r1819,856,2,"PAIN, drawing, coughing",4
+r1820,856,2,"PAIN, drawing, external",2
+r1821,856,2,"PAIN, drawing, inspiration, on",5
+r1822,856,3,"PAIN, drawing, inspiration, on, deep",1
+r1823,856,2,"PAIN, drawing, menses, during",1
+r1824,856,2,"PAIN, drawing, motion, from",2
+r1825,856,2,"PAIN, drawing, paroxysmal",2
+r1826,856,2,"PAIN, drawing, sitting, while",1
+o8935,856,2,"PAIN, drawing, standing, while",2
+r1828,856,3,"PAIN, drawing, standing, while, amel.",1
+r1829,856,2,"PAIN, drawing, walking",1
+r1830,856,3,"PAIN, drawing, walking, amel.",1
+r1831,856,3,"PAIN, drawing, walking, fast",1
+r1832,857,2,"PAIN, drawing, extending across",1
+o8892,857,3,"PAIN, drawing, extending across, to arm",2
+o8893,857,3,"PAIN, drawing, extending across, to axilla",1
+o8888,857,3,"PAIN, drawing, extending across, back and forth",1
+o8889,857,3,"PAIN, drawing, extending across, before backwards, from",1
+o8890,857,3,"PAIN, drawing, extending across, groins",1
+o8891,857,3,"PAIN, drawing, extending across, lower jaw",1
+o8894,857,3,"PAIN, drawing, extending across, umbilicus",1
+o8895,857,3,"PAIN, drawing, extending across, upward",2
+r1841,857,2,"PAIN, drawing, Anterior part",5
+r1842,857,3,"PAIN, drawing, Anterior part, midnight",1
+r1843,857,3,"PAIN, drawing, Anterior part, pectoral muscles",2
+r1844,857,2,"PAIN, drawing, Axilla",8
+r1845,857,3,"PAIN, drawing, Axilla, paralytic",1
+r1846,857,3,"PAIN, drawing, Axilla, extending to upper arm",1
+r1847,857,4,"PAIN, drawing, Axilla, extending to upper arm, on raising",2
+o8872,857,3,"PAIN, drawing, Axilla, elbow",1
+o8871,857,3,"PAIN, drawing, Axilla, down spine to lowest ribs",1
+o8873,857,3,"PAIN, drawing, Axilla, wrist",1
+r1851,857,2,"PAIN, drawing, Clavicle",3
+r1852,857,3,"PAIN, drawing, Clavicle, below",3
+r1853,857,4,"PAIN, drawing, Clavicle, below, right",1
+r1854,857,4,"PAIN, drawing, Clavicle, below, left",1
+r1855,857,3,"PAIN, drawing, Clavicle, region of",4
+r1856,857,2,"PAIN, drawing, Costal cartilages",1
+r1857,857,2,"PAIN, drawing, Diaphragm, region of",1
+r1858,857,2,"PAIN, drawing, Lower chest",4
+r1859,857,2,"PAIN, drawing, Mammæ",6
+r1860,857,3,"PAIN, drawing, Mammæ, left, when child nurses right",1
+r1861,857,3,"PAIN, drawing, Mammæ, nipples",1
+r1862,857,4,"PAIN, drawing, Mammæ, nipples, right",1
+r1863,857,4,"PAIN, drawing, Mammæ, nipples, left",4
+r1864,857,4,"PAIN, drawing, Mammæ, nipples, morning",1
+r1865,857,4,"PAIN, drawing, Mammæ, nipples, as with a string when child nurses",1
+r1866,857,4,"PAIN, drawing, Mammæ, nipples, to scapula",1
+r1867,857,2,"PAIN, drawing, Sides",12
+r1868,857,3,"PAIN, drawing, Sides, right",12
+r1869,857,4,"PAIN, drawing, Sides, right, bending to right",1
+r1870,857,3,"PAIN, drawing, Sides, left",12
+o8928,857,3,"PAIN, drawing, Sides, morning",3
+r1872,857,3,"PAIN, drawing, Sides, afternoon",1
+o8918,857,3,"PAIN, drawing, Sides, evening",1
+r1874,857,3,"PAIN, drawing, Sides, sitting",1
+r1875,857,3,"PAIN, drawing, Sides, walking",1
+r1876,857,3,"PAIN, drawing, Sides, extending to abdomen",1
+o8920,857,4,"PAIN, drawing, Sides, extending to abdomen, to axilla",2
+o8921,857,5,"PAIN, drawing, Sides, extending to abdomen, to axilla, back",2
+o8922,857,5,"PAIN, drawing, Sides, extending to abdomen, to axilla, fingers",1
+o8923,857,5,"PAIN, drawing, Sides, extending to abdomen, to axilla, neck",1
+o8924,857,5,"PAIN, drawing, Sides, extending to abdomen, to axilla, scapula",1
+o8925,857,5,"PAIN, drawing, Sides, extending to abdomen, to axilla, shoulder joint",1
+o8926,857,5,"PAIN, drawing, Sides, extending to abdomen, to axilla, submaxillary gland",1
+r1884,857,2,"PAIN, drawing, Sternum",2
+r1885,857,2,"PAIN, drawing, Heart, in the",8
+r1886,857,3,"PAIN, drawing, Heart, in the, as if heart and ovary were drawn together",1
+r1887,857,1,"PAIN, gnawing",7
+r1888,857,2,"PAIN, gnawing, Clavicle",2
+r1889,857,2,"PAIN, gnawing, Costal cartilages of short ribs",1
+r1890,857,2,"PAIN, gnawing, Sides, in",2
+r1891,857,3,"PAIN, gnawing, Sides, in, right",1
+r1892,857,3,"PAIN, gnawing, Sides, in, left",2
+r1893,857,2,"PAIN, gnawing, Sternum",1
+r1894,857,1,"PAIN, griping",13
+r1895,857,2,"PAIN, griping, right",5
+r1896,857,2,"PAIN, griping, left",3
+r1897,857,2,"PAIN, griping, afternoon",1
+r1898,857,3,"PAIN, griping, afternoon, while walking",1
+r1899,858,2,"PAIN, griping, coughing, when",1
+r1900,858,2,"PAIN, griping, inspiration agg.",2
+r1901,858,2,"PAIN, griping, lying amel.",1
+r1902,858,2,"PAIN, griping, menses, during",1
+r1903,858,2,"PAIN, griping, sitting, while",1
+r1904,858,2,"PAIN, griping, standing amel.",1
+r1905,858,2,"PAIN, griping, warm food amel.",1
+r1906,858,2,"PAIN, griping, Sternum, behind",2
+r1907,858,2,"PAIN, griping, Heart, in",1
+r1908,858,1,"PAIN, jerking",3
+r1909,858,2,"PAIN, jerking, Heart, in",4
+r1910,858,1,"PAIN, lancinating (See Cutting)",0
+r1911,858,1,"PAIN, pinching",21
+r1912,858,1,"PAIN, pressing",123
+r1913,858,2,"PAIN, pressing, morning",2
+r1914,858,3,"PAIN, pressing, morning, bed, in",5
+r1915,858,2,"PAIN, pressing, evening",1
+r1916,858,3,"PAIN, pressing, evening, bed, in",1
+r1917,858,2,"PAIN, pressing, night",4
+r1918,858,3,"PAIN, pressing, night, on falling asleep",1
+r1919,858,3,"PAIN, pressing, night, lying on back",1
+r1920,858,2,"PAIN, pressing, bending head forward agg.",1
+r1921,858,2,"PAIN, pressing, chill, after",1
+r1922,858,2,"PAIN, pressing, constant",1
+r1923,858,2,"PAIN, pressing, cough, during",20
+r1924,858,3,"PAIN, pressing, cough, during, when desiring to",1
+r1925,858,2,"PAIN, pressing, damp weather agg.",4
+r1926,858,2,"PAIN, pressing, eating, after",1
+r1927,858,2,"PAIN, pressing, expectoration amel.",1
+r1928,858,2,"PAIN, pressing, inspiration",5
+o9240,858,3,"PAIN, pressing, inspiration, deep, on",4
+r1930,858,4,"PAIN, pressing, inspiration, deep, on, amel.",1
+r1931,858,2,"PAIN, pressing, lying amel.",1
+o9243,858,3,"PAIN, pressing, lying amel., on side amel.",1
+r1933,858,2,"PAIN, pressing, menses, during",1
+r1934,858,2,"PAIN, pressing, motion amel.",1
+r1935,858,2,"PAIN, pressing, outward",5
+o9292,858,2,"PAIN, pressing, sitting",4
+r1937,858,3,"PAIN, pressing, sitting, amel.",1
+r1938,858,2,"PAIN, pressing, stooped",1
+o9294,858,2,"PAIN, pressing, standing",3
+r1940,858,3,"PAIN, pressing, standing, amel.",1
+r1941,858,2,"PAIN, pressing, stone, like a",1
+r1942,858,2,"PAIN, pressing, stooping, on",2
+r1943,858,2,"PAIN, pressing, turning",1
+o9315,858,2,"PAIN, pressing, walking",1
+r1945,858,3,"PAIN, pressing, walking, amel.",3
+r1946,858,2,"PAIN, pressing, writing, while",2
+r1947,858,2,"PAIN, pressing, Axilla, in",5
+r1948,858,3,"PAIN, pressing, Axilla, in, right",1
+r1949,858,3,"PAIN, pressing, Axilla, in, left",1
+r1950,858,2,"PAIN, pressing, Clavicle",3
+r1951,858,3,"PAIN, pressing, Clavicle, below",1
+r1952,858,2,"PAIN, pressing, Diaphragm",1
+r1953,858,2,"PAIN, pressing, Lower part",9
+r1954,859,2,"PAIN, pressing, Mammæ, in",8
+r1955,859,3,"PAIN, pressing, Mammæ, in, right",1
+r1956,859,3,"PAIN, pressing, Mammæ, in, left",1
+r1957,859,3,"PAIN, pressing, Mammæ, in, region of",2
+r1958,859,3,"PAIN, pressing, Mammæ, in, under",2
+r1959,859,3,"PAIN, pressing, Mammæ, in, nipple, behind left",1
+o9247,859,4,"PAIN, pressing, Mammæ, in, nipple, behind left, menses, after",1
+r1961,859,2,"PAIN, pressing, Middle",20
+r1962,859,3,"PAIN, pressing, Middle, afternoon",1
+r1963,859,3,"PAIN, pressing, Middle, evening",1
+r1964,859,3,"PAIN, pressing, Middle, as from a load",2
+r1965,859,3,"PAIN, pressing, Middle, sitting",1
+r1966,859,3,"PAIN, pressing, Middle, walking in open air",1
+r1967,859,2,"PAIN, pressing, Sides",22
+r1968,859,3,"PAIN, pressing, Sides, right",12
+r1969,859,4,"PAIN, pressing, Sides, right, as from a plug",1
+r1970,859,3,"PAIN, pressing, Sides, left",24
+r1971,859,3,"PAIN, pressing, Sides, morning",1
+r1972,859,4,"PAIN, pressing, Sides, morning, bed, in",2
+r1973,859,4,"PAIN, pressing, Sides, morning, rising, after",1
+r1974,859,3,"PAIN, pressing, Sides, forenoon",1
+r1975,859,3,"PAIN, pressing, Sides, evening",4
+r1976,859,4,"PAIN, pressing, Sides, evening, sitting",1
+r1977,859,4,"PAIN, pressing, Sides, evening, 8 p.m.",1
+r1978,859,3,"PAIN, pressing, Sides, night air, on going into open",1
+r1979,859,3,"PAIN, pressing, Sides, eructations amel.",2
+r1980,859,3,"PAIN, pressing, Sides, expectoration, during",1
+r1981,859,3,"PAIN, pressing, Sides, expiration, during",1
+r1982,859,3,"PAIN, pressing, Sides, inspiration, during",3
+r1983,859,3,"PAIN, pressing, Sides, lying in bed",3
+r1984,859,3,"PAIN, pressing, Sides, motion, after",2
+r1985,859,3,"PAIN, pressing, Sides, outward",2
+r1986,859,3,"PAIN, pressing, Sides, plug, as from",1
+r1987,859,3,"PAIN, pressing, Sides, respiration, deep",3
+o65037,859,3,"PAIN, pressing, Sides, sitting",2
+r1989,859,4,"PAIN, pressing, Sides, sitting, amel.",1
+r1990,859,3,"PAIN, pressing, Sides, standing, while",2
+r1991,859,3,"PAIN, pressing, Sides, stool, after, amel.",1
+o9290,859,3,"PAIN, pressing, Sides, walking",1
+r1993,859,4,"PAIN, pressing, Sides, walking, amel.",1
+r1994,859,2,"PAIN, pressing, Sternum",48
+r1995,859,3,"PAIN, pressing, Sternum, afternoon",2
+r1996,859,3,"PAIN, pressing, Sternum, eating, after",3
+r1997,859,3,"PAIN, pressing, Sternum, motion agg.",2
+r1998,859,3,"PAIN, pressing, Sternum, raising arm",1
+r1999,859,3,"PAIN, pressing, Sternum, sitting, while",1
+r2000,859,3,"PAIN, pressing, Sternum, stooping agg.",2
+r2001,859,3,"PAIN, pressing, Sternum, walking, while",1
+r2002,859,3,"PAIN, pressing, Sternum, writing, while",1
+r2003,859,3,"PAIN, pressing, Sternum, behind",9
+r2004,859,4,"PAIN, pressing, Sternum, behind, ascending, when",2
+r2005,859,4,"PAIN, pressing, Sternum, behind, coughing, after",2
+r2006,859,4,"PAIN, pressing, Sternum, behind, motion",1
+r2007,859,4,"PAIN, pressing, Sternum, behind, sitting",1
+r2008,859,5,"PAIN, pressing, Sternum, behind, sitting, erect amel.",1
+r2009,859,2,"PAIN, pressing, Heart",72
+r2010,860,3,"PAIN, pressing, Heart, morning",1
+r2011,860,3,"PAIN, pressing, Heart, forenoon",1
+r2012,860,3,"PAIN, pressing, Heart, evening",3
+r2013,860,4,"PAIN, pressing, Heart, evening, in bed",1
+r2014,860,3,"PAIN, pressing, Heart, night",3
+r2015,860,3,"PAIN, pressing, Heart, ascending stairs",2
+r2016,860,3,"PAIN, pressing, Heart, eating, after",3
+r2017,860,3,"PAIN, pressing, Heart, lying, when",1
+r2018,860,3,"PAIN, pressing, Heart, menses, during",1
+r2019,860,4,"PAIN, pressing, Heart, menses, during, instead of",1
+r2020,860,3,"PAIN, pressing, Heart, pressure of hand amel.",1
+r2021,860,3,"PAIN, pressing, Heart, standing",1
+r2022,860,3,"PAIN, pressing, Heart, urination, during",1
+r2023,860,4,"PAIN, pressing, Heart, urination, during, after, amel.",1
+o9236,860,3,"PAIN, pressing, Heart, walking",2
+r2025,860,4,"PAIN, pressing, Heart, walking, amel.",2
+r2026,860,1,"PAIN, rasping",1
+r2027,860,1,"PAIN, rawness (includes trachea and bronchia)",65
+r2028,860,2,"PAIN, rawness (includes trachea and bronchia), morning",3
+r2029,860,3,"PAIN, rawness (includes trachea and bronchia), morning, waking, on",1
+r2030,860,2,"PAIN, rawness (includes trachea and bronchia), afternoon, speaking, after",1
+r2031,860,2,"PAIN, rawness (includes trachea and bronchia), evening",3
+r2032,860,3,"PAIN, rawness (includes trachea and bronchia), evening, 8 p.m.",1
+r2033,860,2,"PAIN, rawness (includes trachea and bronchia), night",1
+r2034,860,3,"PAIN, rawness (includes trachea and bronchia), night, cough, during",5
+r2035,860,2,"PAIN, rawness (includes trachea and bronchia), cold air",2
+r2036,860,2,"PAIN, rawness (includes trachea and bronchia), coryza, during",4
+r2037,860,2,"PAIN, rawness (includes trachea and bronchia), coughing, when",46
+r2038,860,3,"PAIN, rawness (includes trachea and bronchia), coughing, when, after",11
+r2039,860,2,"PAIN, rawness (includes trachea and bronchia), dinner, after",1
+r2040,860,2,"PAIN, rawness (includes trachea and bronchia), hawking, while",1
+r2041,860,2,"PAIN, rawness (includes trachea and bronchia), inspiration, on",2
+o9337,860,2,"PAIN, rawness (includes trachea and bronchia), lying, while",1
+r2043,860,3,"PAIN, rawness (includes trachea and bronchia), lying, while, amel.",1
+r2044,860,2,"PAIN, rawness (includes trachea and bronchia), singing, when",1
+r2045,860,2,"PAIN, rawness (includes trachea and bronchia), speaking, after",2
+r2046,860,2,"PAIN, rawness (includes trachea and bronchia), temperature, after change of",1
+r2047,860,2,"PAIN, rawness (includes trachea and bronchia), walking, after",1
+r2048,860,2,"PAIN, rawness (includes trachea and bronchia), bifurcation of trachea, at, when speaking and singing",1
+r2049,860,1,"PAIN, sharp (See Cutting)",0
+r2050,860,1,"PAIN, shattering",1
+r2051,860,1,"PAIN, shooting (See Stitching)",0
+r2052,860,1,"PAIN, sore, bruised",126
+r2054,861,2,"PAIN, sore, bruised, morning",8
+r2055,861,3,"PAIN, sore, bruised, morning, eating, after",1
+r2056,861,2,"PAIN, sore, bruised, forenoon",2
+r2057,861,2,"PAIN, sore, bruised, afternoon",1
+r2058,861,2,"PAIN, sore, bruised, evening",8
+r2059,861,2,"PAIN, sore, bruised, air, open",1
+r2060,861,2,"PAIN, sore, bruised, bending forward",2
+r2061,861,2,"PAIN, sore, bruised, chill, during",1
+r2062,861,2,"PAIN, sore, bruised, coughing, from",81
+r2063,861,2,"PAIN, sore, bruised, damp weather",1
+r2064,861,2,"PAIN, sore, bruised, eructations, on",1
+r2065,861,2,"PAIN, sore, bruised, exercising",2
+r2066,861,2,"PAIN, sore, bruised, expectoration during",2
+o9484,861,2,"PAIN, sore, bruised, hawking",1
+r2068,861,2,"PAIN, sore, bruised, holds chest with hands during cough",12
+r2069,861,2,"PAIN, sore, bruised, inspiring",11
+r2070,861,3,"PAIN, sore, bruised, inspiring, deep",12
+r2071,861,2,"PAIN, sore, bruised, lying agg.",1
+o9500,861,3,"PAIN, sore, bruised, lying agg., amel.",1
+r2073,861,2,"PAIN, sore, bruised, menses, before and during",1
+o9518,861,2,"PAIN, sore, bruised, motion, on",9
+r2075,861,3,"PAIN, sore, bruised, motion, on, amel.",1
+r2076,861,3,"PAIN, sore, bruised, motion, on, arms",1
+r2077,861,2,"PAIN, sore, bruised, percussion agg.",2
+o9520,861,2,"PAIN, sore, bruised, pressing on",5
+o9521,861,3,"PAIN, sore, bruised, pressing on, amel.",5
+r2080,861,2,"PAIN, sore, bruised, respiration",6
+r2081,861,2,"PAIN, sore, bruised, riding in a carriage",1
+r2082,861,2,"PAIN, sore, bruised, sitting upright amel.",3
+r2083,861,2,"PAIN, sore, bruised, sneezing, on",4
+r2084,861,2,"PAIN, sore, bruised, stooping, on",1
+r2085,861,2,"PAIN, sore, bruised, supper, after, amel.",1
+r2086,861,2,"PAIN, sore, bruised, talking",4
+r2087,861,2,"PAIN, sore, bruised, touch",23
+r2088,861,2,"PAIN, sore, bruised, turning in bed, on",2
+r2089,861,2,"PAIN, sore, bruised, waking, on",1
+r2090,861,2,"PAIN, sore, bruised, walking in open air amel.",1
+r2091,861,2,"PAIN, sore, bruised, Anterior",4
+r2092,861,2,"PAIN, sore, bruised, Axilla",12
+r2093,861,3,"PAIN, sore, bruised, Axilla, evening",1
+r2094,861,3,"PAIN, sore, bruised, Axilla, raising arm",1
+r2095,861,2,"PAIN, sore, bruised, Clavicle",11
+r2096,861,3,"PAIN, sore, bruised, Clavicle, left, motion agg.",1
+r2097,861,3,"PAIN, sore, bruised, Clavicle, above",2
+r2098,861,3,"PAIN, sore, bruised, Clavicle, below",4
+r2099,861,2,"PAIN, sore, bruised, Costal cartilages",5
+r2100,861,3,"PAIN, sore, bruised, Costal cartilages, morning in bed",1
+r2101,861,3,"PAIN, sore, bruised, Costal cartilages, cartilages of short ribs",7
+r2102,861,3,"PAIN, sore, bruised, Costal cartilages, last true rib",2
+r2103,861,4,"PAIN, sore, bruised, Costal cartilages, last true rib, right",1
+r2104,862,2,"PAIN, sore, bruised, Lower part",2
+r2105,862,2,"PAIN, sore, bruised, Middle",1
+r2106,862,2,"PAIN, sore, bruised, Mammæ",40
+r2107,862,3,"PAIN, sore, bruised, Mammæ, menses, before",8
+r2108,862,4,"PAIN, sore, bruised, Mammæ, menses, before, during",8
+r2109,862,3,"PAIN, sore, bruised, Mammæ, pregnancy, during",1
+r2110,862,3,"PAIN, sore, bruised, Mammæ, stairs, going up and down",8
+r2111,862,3,"PAIN, sore, bruised, Mammæ, nipples",31
+r2112,862,4,"PAIN, sore, bruised, Mammæ, nipples, morning",1
+r2113,862,4,"PAIN, sore, bruised, Mammæ, nipples, menses, during",1
+r2114,862,4,"PAIN, sore, bruised, Mammæ, nipples, touch of clothing",3
+r2115,862,4,"PAIN, sore, bruised, Mammæ, nipples, weaning",1
+r2116,862,3,"PAIN, sore, bruised, Mammæ, under",3
+r2117,862,2,"PAIN, sore, bruised, Sides",21
+r2118,862,3,"PAIN, sore, bruised, Sides, right",12
+r2119,862,4,"PAIN, sore, bruised, Sides, right, breathing, when",1
+r2120,862,4,"PAIN, sore, bruised, Sides, right, last rib",1
+r2121,862,3,"PAIN, sore, bruised, Sides, left",18
+r2122,862,4,"PAIN, sore, bruised, Sides, left, then right",1
+r2123,862,4,"PAIN, sore, bruised, Sides, left, lying on painful side",1
+r2124,862,3,"PAIN, sore, bruised, Sides, morning",1
+r2125,862,3,"PAIN, sore, bruised, Sides, evening",2
+r2126,862,4,"PAIN, sore, bruised, Sides, evening, chill, during",1
+r2127,862,3,"PAIN, sore, bruised, Sides, bending, when",1
+r2128,862,3,"PAIN, sore, bruised, Sides, chill, during",1
+r2129,862,3,"PAIN, sore, bruised, Sides, inspiration, on",1
+r2130,862,3,"PAIN, sore, bruised, Sides, lying on left side",2
+r2131,862,3,"PAIN, sore, bruised, Sides, touch",12
+r2132,862,3,"PAIN, sore, bruised, Sides, turning to left",1
+r2133,862,3,"PAIN, sore, bruised, Sides, extending to shoulder",1
+r2134,862,2,"PAIN, sore, bruised, Short ribs",13
+r2135,862,3,"PAIN, sore, bruised, Short ribs, right",2
+r2136,862,3,"PAIN, sore, bruised, Short ribs, left",1
+r2137,862,3,"PAIN, sore, bruised, Short ribs, inspiration",2
+r2138,862,3,"PAIN, sore, bruised, Short ribs, motion, on",2
+r2139,862,2,"PAIN, sore, bruised, Sternum, in",18
+r2140,862,3,"PAIN, sore, bruised, Sternum, in, ascending",1
+r2141,862,3,"PAIN, sore, bruised, Sternum, in, cough, during",1
+r2142,862,3,"PAIN, sore, bruised, Sternum, in, touch, on",9
+r2143,862,3,"PAIN, sore, bruised, Sternum, in, walking, while",1
+r2144,862,3,"PAIN, sore, bruised, Sternum, in, lower part, of",2
+r2145,862,3,"PAIN, sore, bruised, Sternum, in, under",2
+r2146,862,4,"PAIN, sore, bruised, Sternum, in, under, coughing, on",8
+r2147,862,4,"PAIN, sore, bruised, Sternum, in, under, inspiration, on",1
+r2148,862,4,"PAIN, sore, bruised, Sternum, in, under, turning body",1
+r2149,862,2,"PAIN, sore, bruised, Heart",15
+r2150,862,3,"PAIN, sore, bruised, Heart, morning, in bed",1
+r2151,862,3,"PAIN, sore, bruised, Heart, forenoon",1
+r2152,862,3,"PAIN, sore, bruised, Heart, grief, after",2
+r2153,863,3,"PAIN, sore, bruised, Heart, lying on left side, while",4
+r2154,863,3,"PAIN, sore, bruised, Heart, motion agg.",2
+r2155,863,3,"PAIN, sore, bruised, Heart, stooping",1
+r2156,863,3,"PAIN, sore, bruised, Heart, strong pulsations, during",2
+r2157,863,3,"PAIN, sore, bruised, Heart, sudden",1
+r2158,863,3,"PAIN, sore, bruised, Heart, region of",11
+r2159,863,1,"PAIN, splinter in right lower ribs",1
+r2160,863,1,"PAIN, sprain, as from",4
+r2161,863,2,"PAIN, sprain, as from, deep breathing agg.",2
+r2162,863,2,"PAIN, sprain, as from, standing",1
+r2163,863,2,"PAIN, sprain, as from, Sternum, in",1
+r2164,863,2,"PAIN, sprain, as from, Heart",1
+r2165,863,1,"PAIN, squeezing, sensation",12
+r2166,863,1,"PAIN, stabbing (See Stitching)",0
+r2167,863,1,"PAIN, sticking in short ribs",1
+r2168,863,2,"PAIN, sticking in short ribs, right",1
+r2169,863,1,"PAIN, stinging",4
+r2170,863,2,"PAIN, stinging, in nipples",8
+r2171,863,2,"PAIN, stinging, in heart",1
+r2172,863,1,"PAIN, stitching",182
+r2173,863,2,"PAIN, stitching, morning",7
+r2174,863,3,"PAIN, stitching, morning, rising, on",1
+r2175,863,2,"PAIN, stitching, forenoon",1
+r2176,863,2,"PAIN, stitching, noon",1
+r2177,863,2,"PAIN, stitching, afternoon",3
+r2178,863,3,"PAIN, stitching, afternoon, 2 p.m.",1
+r2179,863,2,"PAIN, stitching, evening",8
+r2180,863,3,"PAIN, stitching, evening, bed, in",2
+r2181,863,3,"PAIN, stitching, evening, 6 p.m.",1
+r2182,863,3,"PAIN, stitching, evening, 8 p.m.",1
+r2183,863,2,"PAIN, stitching, night",12
+r2184,863,3,"PAIN, stitching, night, bed, in",1
+r2185,863,3,"PAIN, stitching, night, waking, on",1
+r2186,863,2,"PAIN, stitching, anger, after",2
+r2187,863,2,"PAIN, stitching, ascending steps",3
+r2188,863,2,"PAIN, stitching, autumn",1
+r2189,863,2,"PAIN, stitching, bending, compelling",1
+r2190,863,3,"PAIN, stitching, bending, compelling, backwards or forwards",1
+r2191,863,3,"PAIN, stitching, bending, compelling, forward amel.",2
+r2192,863,3,"PAIN, stitching, bending, compelling, sideways agg.",1
+r2193,863,2,"PAIN, stitching, burning",8
+r2194,863,2,"PAIN, stitching, change of weather",1
+r2195,863,2,"PAIN, stitching, chilliness, during",1
+r2196,863,2,"PAIN, stitching, chill, during",8
+r2197,863,2,"PAIN, stitching, cold, air",1
+r2198,864,2,"PAIN, stitching, cold, drinks",2
+r2199,864,2,"PAIN, stitching, coughing",76
+r2200,864,2,"PAIN, stitching, descending steps",1
+r2201,864,2,"PAIN, stitching, dinner, after",1
+r2202,864,2,"PAIN, stitching, eating, while",1
+r2203,864,3,"PAIN, stitching, eating, while, after",4
+r2204,864,2,"PAIN, stitching, erect, becoming, agg.",1
+r2205,864,2,"PAIN, stitching, exertion",5
+r2206,864,3,"PAIN, stitching, exertion, mental",1
+r2207,864,2,"PAIN, stitching, expiring",4
+r2208,864,2,"PAIN, stitching, face, compelling to lie on",1
+r2209,864,2,"PAIN, stitching, fever, during",4
+r2210,864,2,"PAIN, stitching, hawking, after",1
+r2211,864,2,"PAIN, stitching, hiccoughing",1
+r2212,864,2,"PAIN, stitching, inspiring",49
+r2213,864,3,"PAIN, stitching, inspiring, deep (See Respiration)",0
+r2214,864,2,"PAIN, stitching, laughing, while",3
+r2215,864,2,"PAIN, stitching, lying, while",5
+r2216,864,3,"PAIN, stitching, lying, while, back, can lie only on the",4
+r2217,864,3,"PAIN, stitching, lying, while, back agg.",2
+r2218,864,3,"PAIN, stitching, lying, while, face, on the, amel.",1
+h003,864,3,"PAIN, stitching, lying, while, side, on",1
+r2220,864,3,"PAIN, stitching, lying, while, side, on the affected",3
+o9816,864,4,"PAIN, stitching, lying, while, side, on the affected, on the painful",2
+o9817,864,5,"PAIN, stitching, lying, while, side, on the affected, on the painful, amel.",2
+o9818,864,4,"PAIN, stitching, lying, while, side, on the affected, on the sound",1
+o9820,864,5,"PAIN, stitching, lying, while, side, on the affected, on the sound, right, on the",3
+o9821,864,6,"PAIN, stitching, lying, while, side, on the affected, on the sound, right, on the, only amel.",1
+o9819,864,5,"PAIN, stitching, lying, while, side, on the affected, on the sound, left, on the",5
+r2227,864,2,"PAIN, stitching, menses, before",1
+r2228,864,3,"PAIN, stitching, menses, before, during",4
+o9903,864,2,"PAIN, stitching, motion, during",16
+r2230,864,3,"PAIN, stitching, motion, during, amel.",8
+r2231,864,3,"PAIN, stitching, motion, during, arms",3
+r2232,864,2,"PAIN, stitching, periodical",2
+o9912,864,2,"PAIN, stitching, pressure, from",1
+r2234,864,3,"PAIN, stitching, pressure, from, amel.",4
+r2235,864,2,"PAIN, stitching, raising the arms",7
+r2236,864,2,"PAIN, stitching, reading, while",1
+r2237,864,2,"PAIN, stitching, respiration",49
+r2238,864,3,"PAIN, stitching, respiration, deep",46
+r2239,864,2,"PAIN, stitching, rhythmical",2
+r2240,864,2,"PAIN, stitching, rubbing amel.",2
+r2241,864,2,"PAIN, stitching, running agg.",2
+r2242,865,2,"PAIN, stitching, singing agg.",1
+r2243,865,2,"PAIN, stitching, sitting agg.",4
+o10047,865,3,"PAIN, stitching, sitting agg., amel.",2
+o10048,865,3,"PAIN, stitching, sitting agg., crooked",3
+r2246,865,2,"PAIN, stitching, sleep, on going to",1
+r2247,865,2,"PAIN, stitching, sneezing agg.",7
+r2248,865,2,"PAIN, stitching, stooping",9
+r2249,865,2,"PAIN, stitching, talking",4
+r2250,865,2,"PAIN, stitching, touched, when",2
+r2251,865,2,"PAIN, stitching, turning, by",4
+r2252,865,2,"PAIN, stitching, walking, while",12
+r2253,865,3,"PAIN, stitching, walking, while, rapidly",3
+o10088,865,3,"PAIN, stitching, walking, while, in open air",4
+r2255,865,4,"PAIN, stitching, walking, while, in open air, amel.",2
+r2256,865,2,"PAIN, stitching, wandering",5
+r2257,865,2,"PAIN, stitching, warm, on getting warm in bed",1
+r2258,865,2,"PAIN, stitching, writing, while",3
+r2259,865,2,"PAIN, stitching, yawning",6
+r2260,865,2,"PAIN, stitching, extending to back",39
+r2261,865,3,"PAIN, stitching, extending to back, 6 p.m.",1
+o9719,865,3,"PAIN, stitching, extending to back, downward",3
+o9720,865,4,"PAIN, stitching, extending to back, downward, to lower part of abdomen",1
+o9721,865,3,"PAIN, stitching, extending to back, forward",1
+o9722,865,3,"PAIN, stitching, extending to back, inward",1
+o9723,865,4,"PAIN, stitching, extending to back, inward, during inspiration",1
+o9724,865,3,"PAIN, stitching, extending to back, left arm",1
+o9725,865,3,"PAIN, stitching, extending to back, liver",1
+o9726,865,3,"PAIN, stitching, extending to back, neck, left",1
+o9727,865,3,"PAIN, stitching, extending to back, outward",4
+o9728,865,4,"PAIN, stitching, extending to back, outward, between scapula",1
+o9729,865,3,"PAIN, stitching, extending to back, scapula",7
+o9730,865,3,"PAIN, stitching, extending to back, shoulder",4
+o9731,865,3,"PAIN, stitching, extending to back, side to side",1
+o9732,865,3,"PAIN, stitching, extending to back, stomach",2
+o9733,865,3,"PAIN, stitching, extending to back, throat",3
+o9734,865,3,"PAIN, stitching, extending to back, upwards",5
+r2278,865,2,"PAIN, stitching, Anterior part",9
+r2279,865,3,"PAIN, stitching, Anterior part, morning",1
+r2280,865,3,"PAIN, stitching, Anterior part, forenoon",1
+r2281,865,4,"PAIN, stitching, Anterior part, forenoon, during sweat",1
+r2282,865,3,"PAIN, stitching, Anterior part, afternoon",2
+r2283,865,3,"PAIN, stitching, Anterior part, evening",3
+r2284,865,4,"PAIN, stitching, Anterior part, evening, during inspiration",1
+r2285,865,3,"PAIN, stitching, Anterior part, night",1
+r2286,865,3,"PAIN, stitching, Anterior part, coughing, on",2
+r2287,865,3,"PAIN, stitching, Anterior part, deep breathing",1
+r2288,865,3,"PAIN, stitching, Anterior part, inspiration",3
+r2289,865,3,"PAIN, stitching, Anterior part, sitting amel.",1
+r2290,865,3,"PAIN, stitching, Anterior part, sneezing, on",1
+r2291,865,3,"PAIN, stitching, Anterior part, standing",1
+r2292,865,3,"PAIN, stitching, Anterior part, stooping agg.",2
+r2293,865,3,"PAIN, stitching, Anterior part, walking",1
+r2294,865,2,"PAIN, stitching, Arm, below",3
+r2295,865,3,"PAIN, stitching, Arm, below, right",1
+r2296,865,3,"PAIN, stitching, Arm, below, left",2
+r2297,865,3,"PAIN, stitching, Arm, below, evening",1
+r2298,865,3,"PAIN, stitching, Arm, below, standing",1
+r2299,865,2,"PAIN, stitching, Axilla",33
+r2300,865,3,"PAIN, stitching, Axilla, right",2
+r2301,866,3,"PAIN, stitching, Axilla, noon",1
+r2302,866,3,"PAIN, stitching, Axilla, evening",4
+r2303,866,3,"PAIN, stitching, Axilla, rest, during",1
+r2304,866,3,"PAIN, stitching, Axilla, sitting",3
+r2305,866,3,"PAIN, stitching, Axilla, extending to mammæ",1
+o9643,866,4,"PAIN, stitching, Axilla, extending to mammæ, chest",5
+r2307,866,3,"PAIN, stitching, Axilla, glands",1
+r2308,866,3,"PAIN, stitching, Axilla, region of",7
+r2309,866,4,"PAIN, stitching, Axilla, region of, right",5
+r2310,866,4,"PAIN, stitching, Axilla, region of, left",5
+r2311,866,4,"PAIN, stitching, Axilla, region of, afternoon, 3 p.m.",1
+r2312,866,4,"PAIN, stitching, Axilla, region of, coughing, on",1
+r2313,866,4,"PAIN, stitching, Axilla, region of, inspiration agg.",1
+r2314,866,4,"PAIN, stitching, Axilla, region of, intermitting",1
+r2315,866,4,"PAIN, stitching, Axilla, region of, lying on painful side",1
+r2316,866,4,"PAIN, stitching, Axilla, region of, motion, on",1
+r2317,866,4,"PAIN, stitching, Axilla, region of, pressure amel.",1
+r2318,866,4,"PAIN, stitching, Axilla, region of, sitting",1
+r2319,866,4,"PAIN, stitching, Axilla, region of, walking",1
+r2320,866,2,"PAIN, stitching, Between the ribs",5
+r2321,866,3,"PAIN, stitching, Between the ribs, right then left",1
+r2322,866,2,"PAIN, stitching, Clavicle",15
+r2323,866,3,"PAIN, stitching, Clavicle, inhaling, when",1
+r2324,866,3,"PAIN, stitching, Clavicle, intermittent",1
+r2325,866,3,"PAIN, stitching, Clavicle, moving head",1
+r2326,866,3,"PAIN, stitching, Clavicle, pulsating",1
+r2327,866,3,"PAIN, stitching, Clavicle, tearing",1
+r2328,866,3,"PAIN, stitching, Clavicle, twitching",1
+r2329,866,3,"PAIN, stitching, Clavicle, walking, while",1
+r2330,866,3,"PAIN, stitching, Clavicle, under",8
+r2331,866,4,"PAIN, stitching, Clavicle, under, right",7
+r2332,866,4,"PAIN, stitching, Clavicle, under, left",6
+r2333,866,4,"PAIN, stitching, Clavicle, under, morning",1
+r2334,866,5,"PAIN, stitching, Clavicle, under, morning, 4 a.m.",1
+r2335,866,4,"PAIN, stitching, Clavicle, under, noon",1
+r2336,866,4,"PAIN, stitching, Clavicle, under, coughing, on",1
+r2337,866,4,"PAIN, stitching, Clavicle, under, inspiration",1
+r2338,866,4,"PAIN, stitching, Clavicle, under, motion",1
+r2339,866,4,"PAIN, stitching, Clavicle, under, pressure agg.",1
+r2340,866,4,"PAIN, stitching, Clavicle, under, pulsation",1
+r2341,866,4,"PAIN, stitching, Clavicle, under, walking",1
+r2342,866,4,"PAIN, stitching, Clavicle, under, extending deeply",1
+o9687,866,5,"PAIN, stitching, Clavicle, under, extending deeply, upward",1
+o9685,866,5,"PAIN, stitching, Clavicle, under, extending deeply, to scapula",2
+o9686,866,6,"PAIN, stitching, Clavicle, under, extending deeply, to scapula, sternum",1
+r2346,866,3,"PAIN, stitching, Clavicle, region of",2
+r2347,866,4,"PAIN, stitching, Clavicle, region of, right",2
+r2348,866,4,"PAIN, stitching, Clavicle, region of, left",3
+r2349,866,5,"PAIN, stitching, Clavicle, region of, left, downward toward sternum",1
+r2350,866,2,"PAIN, stitching, Costal cartilages",1
+r2351,866,3,"PAIN, stitching, Costal cartilages, of short ribs near sternum",3
+r2352,866,2,"PAIN, stitching, Diaphragm on speaking",1
+r2353,866,2,"PAIN, stitching, Lower part",13
+r2354,866,3,"PAIN, stitching, Lower part, right",4
+r2355,866,3,"PAIN, stitching, Lower part, left",3
+r2356,866,3,"PAIN, stitching, Lower part, forenoon",1
+r2357,866,3,"PAIN, stitching, Lower part, inspiration, deep",2
+r2358,866,3,"PAIN, stitching, Lower part, respiration",2
+r2359,866,3,"PAIN, stitching, Lower part, extending to abdomen",1
+o9791,866,4,"PAIN, stitching, Lower part, extending to abdomen, to back",1
+o9792,866,5,"PAIN, stitching, Lower part, extending to abdomen, to back, shoulders",1
+r2362,866,2,"PAIN, stitching, Mammæ",53
+r2363,867,3,"PAIN, stitching, Mammæ, right",4
+r2364,867,3,"PAIN, stitching, Mammæ, left",4
+r2365,867,4,"PAIN, stitching, Mammæ, left, while child nurses right",1
+r2366,867,3,"PAIN, stitching, Mammæ, morning",3
+r2367,867,3,"PAIN, stitching, Mammæ, night",2
+r2368,867,4,"PAIN, stitching, Mammæ, night, on waking",1
+r2369,867,3,"PAIN, stitching, Mammæ, cough, during",2
+r2370,867,3,"PAIN, stitching, Mammæ, flow of milk, on",1
+r2371,867,3,"PAIN, stitching, Mammæ, inspiration, during",2
+r2372,867,3,"PAIN, stitching, Mammæ, menses, during",2
+r2373,867,4,"PAIN, stitching, Mammæ, menses, during, after",1
+r2374,867,3,"PAIN, stitching, Mammæ, nursing, while",2
+r2375,867,3,"PAIN, stitching, Mammæ, outward",1
+r2376,867,3,"PAIN, stitching, Mammæ, pressure amel.",1
+r2377,867,3,"PAIN, stitching, Mammæ, extending from left nipple downward",1
+o9826,867,4,"PAIN, stitching, Mammæ, extending from left nipple downward, to back",2
+r2379,867,3,"PAIN, stitching, Mammæ, region of",2
+r2380,867,4,"PAIN, stitching, Mammæ, region of, left",2
+r2381,867,3,"PAIN, stitching, Mammæ, under",15
+r2382,867,4,"PAIN, stitching, Mammæ, under, right",11
+r2383,867,5,"PAIN, stitching, Mammæ, under, right, during menses",1
+r2384,867,5,"PAIN, stitching, Mammæ, under, right, extending downward",1
+o9874,867,6,"PAIN, stitching, Mammæ, under, right, extending downward, to back",1
+o9875,867,6,"PAIN, stitching, Mammæ, under, right, extending downward, to scapula",1
+r2387,867,4,"PAIN, stitching, Mammæ, under, left",14
+r2388,867,5,"PAIN, stitching, Mammæ, under, left, extending upward",2
+r2389,867,4,"PAIN, stitching, Mammæ, under, morning",1
+r2390,867,5,"PAIN, stitching, Mammæ, under, morning, in bed",1
+r2391,867,5,"PAIN, stitching, Mammæ, under, morning, after rising amel.",1
+r2392,867,4,"PAIN, stitching, Mammæ, under, afternoon",1
+r2393,867,5,"PAIN, stitching, Mammæ, under, afternoon, lifting, after",1
+r2394,867,5,"PAIN, stitching, Mammæ, under, afternoon, sitting, while",1
+r2395,867,5,"PAIN, stitching, Mammæ, under, afternoon, walking amel.",1
+r2396,867,5,"PAIN, stitching, Mammæ, under, afternoon, 1 p.m., when yawning",1
+r2397,867,5,"PAIN, stitching, Mammæ, under, afternoon, 2 p.m., on expiring",1
+r2398,867,4,"PAIN, stitching, Mammæ, under, night",1
+r2399,867,4,"PAIN, stitching, Mammæ, under, coughing",1
+r2400,867,4,"PAIN, stitching, Mammæ, under, inspiring",2
+r2401,867,4,"PAIN, stitching, Mammæ, under, menses, during",2
+r2402,867,4,"PAIN, stitching, Mammæ, under, rising from a seat",1
+r2403,867,4,"PAIN, stitching, Mammæ, under, sitting",1
+r2404,867,5,"PAIN, stitching, Mammæ, under, sitting, bent",1
+r2405,867,4,"PAIN, stitching, Mammæ, under, walking",1
+r2406,867,4,"PAIN, stitching, Mammæ, under, yawning",1
+r2407,867,3,"PAIN, stitching, Mammæ, nipple",30
+r2408,867,4,"PAIN, stitching, Mammæ, nipple, right",7
+r2409,867,5,"PAIN, stitching, Mammæ, nipple, right, to left",1
+r2410,867,4,"PAIN, stitching, Mammæ, nipple, left",8
+r2411,867,5,"PAIN, stitching, Mammæ, nipple, left, extending to scapula",1
+r2412,867,4,"PAIN, stitching, Mammæ, nipple, morning",2
+r2413,867,4,"PAIN, stitching, Mammæ, nipple, inspiration, on",4
+r2414,867,4,"PAIN, stitching, Mammæ, nipple, menses, after",1
+r2415,867,4,"PAIN, stitching, Mammæ, nipple, outward",1
+r2416,867,4,"PAIN, stitching, Mammæ, nipple, sitting, while",1
+r2417,867,4,"PAIN, stitching, Mammæ, nipple, walking, while",1
+r2418,867,4,"PAIN, stitching, Mammæ, nipple, region of",1
+r2419,867,5,"PAIN, stitching, Mammæ, nipple, region of, extending to back",1
+r2420,867,2,"PAIN, stitching, Middle",24
+r2421,867,3,"PAIN, stitching, Middle, afternoon",1
+r2422,868,3,"PAIN, stitching, Middle, ascending",1
+r2423,868,3,"PAIN, stitching, Middle, bending body forward",1
+r2424,868,3,"PAIN, stitching, Middle, dinner, after",1
+r2425,868,3,"PAIN, stitching, Middle, expiration, during",1
+o9891,868,3,"PAIN, stitching, Middle, inspiration, during",3
+r2427,868,4,"PAIN, stitching, Middle, inspiration, during, amel.",1
+r2428,868,3,"PAIN, stitching, Middle, menses, during",1
+r2429,868,3,"PAIN, stitching, Middle, moving agg.",1
+r2430,868,3,"PAIN, stitching, Middle, sitting, while",2
+r2431,868,3,"PAIN, stitching, Middle, stooping, on",1
+r2432,868,3,"PAIN, stitching, Middle, stretching the body",1
+o9897,868,3,"PAIN, stitching, Middle, walking",2
+r2434,868,4,"PAIN, stitching, Middle, walking, amel.",1
+r2435,868,3,"PAIN, stitching, Middle, extending to back",1
+r2436,868,2,"PAIN, stitching, Posterior part",17
+r2437,868,3,"PAIN, stitching, Posterior part, on deep inspiration",1
+r2438,868,2,"PAIN, stitching, Lower ribs",6
+r2439,868,3,"PAIN, stitching, Lower ribs, right",6
+r2440,868,3,"PAIN, stitching, Lower ribs, left",5
+r2441,868,3,"PAIN, stitching, Lower ribs, morning",1
+r2442,868,3,"PAIN, stitching, Lower ribs, afternoon",2
+r2443,868,3,"PAIN, stitching, Lower ribs, evening",1
+r2444,868,3,"PAIN, stitching, Lower ribs, night, during inspiration",1
+r2445,868,3,"PAIN, stitching, Lower ribs, coughing, on",1
+r2446,868,3,"PAIN, stitching, Lower ribs, laughing",1
+r2447,868,3,"PAIN, stitching, Lower ribs, sitting, while",2
+r2448,868,3,"PAIN, stitching, Lower ribs, sneezing",1
+r2449,868,3,"PAIN, stitching, Lower ribs, turning, on",1
+r2450,868,3,"PAIN, stitching, Lower ribs, walking, while",1
+r2451,868,2,"PAIN, stitching, Sides",96
+r2452,868,3,"PAIN, stitching, Sides, right",75
+r2453,868,4,"PAIN, stitching, Sides, right, apex",1
+r2454,868,5,"PAIN, stitching, Sides, right, apex, to base",1
+r2455,868,4,"PAIN, stitching, Sides, right, coughing, on",4
+r2456,868,4,"PAIN, stitching, Sides, right, lower part",5
+r2457,868,4,"PAIN, stitching, Sides, right, lying on the back",1
+o10018,868,5,"PAIN, stitching, Sides, right, lying on the back, on the right side, when",3
+o10017,868,5,"PAIN, stitching, Sides, right, lying on the back, on left side",1
+r2460,868,4,"PAIN, stitching, Sides, right, pressure amel.",1
+r2461,868,4,"PAIN, stitching, Sides, right, raising arms",1
+r2462,868,4,"PAIN, stitching, Sides, right, respiration, during",9
+r2463,868,5,"PAIN, stitching, Sides, right, respiration, during, deeper respiration amel.",1
+r2464,868,4,"PAIN, stitching, Sides, right, sitting, while",1
+r2465,868,4,"PAIN, stitching, Sides, right, sneezing or yawning",1
+r2466,868,4,"PAIN, stitching, Sides, right, stooping, on",1
+r2467,868,4,"PAIN, stitching, Sides, right, extending to left",3
+o10011,868,5,"PAIN, stitching, Sides, right, extending to left, to back",6
+o10013,868,5,"PAIN, stitching, Sides, right, extending to left, to scapula",3
+o10012,868,5,"PAIN, stitching, Sides, right, extending to left, to right groin",1
+o10014,868,5,"PAIN, stitching, Sides, right, extending to left, to stomach",1
+r2472,869,3,"PAIN, stitching, Sides, left",105
+r2473,869,4,"PAIN, stitching, Sides, left, cough, during",4
+r2474,869,4,"PAIN, stitching, Sides, left, inspiration",3
+r2475,869,4,"PAIN, stitching, Sides, left, lying on left side agg.",6
+o9970,869,5,"PAIN, stitching, Sides, left, lying on left side agg., on back",1
+o9971,869,5,"PAIN, stitching, Sides, left, lying on left side agg., right side amel.",1
+r2478,869,4,"PAIN, stitching, Sides, left, motion",1
+r2479,869,4,"PAIN, stitching, Sides, left, extending to right",5
+o9960,869,5,"PAIN, stitching, Sides, left, extending to right, to right, on inspiration",1
+o9961,869,6,"PAIN, stitching, Sides, left, extending to right, to right, on inspiration, back",2
+o9962,869,6,"PAIN, stitching, Sides, left, extending to right, to right, on inspiration, groin",1
+o9963,869,6,"PAIN, stitching, Sides, left, extending to right, to right, on inspiration, hip",1
+o9964,869,6,"PAIN, stitching, Sides, left, extending to right, to right, on inspiration, scapula",4
+o9965,869,6,"PAIN, stitching, Sides, left, extending to right, to right, on inspiration, shoulder",5
+o9966,869,6,"PAIN, stitching, Sides, left, extending to right, to right, on inspiration, throat",1
+o9967,869,6,"PAIN, stitching, Sides, left, extending to right, to right, on inspiration, upward",1
+r2488,869,4,"PAIN, stitching, Sides, left, upper, when sitting bent",1
+r2489,869,3,"PAIN, stitching, Sides, morning",17
+r2490,869,3,"PAIN, stitching, Sides, forenoon",5
+r2491,869,4,"PAIN, stitching, Sides, forenoon, 11 a.m.",1
+r2492,869,3,"PAIN, stitching, Sides, noon",1
+r2493,869,3,"PAIN, stitching, Sides, afternoon",9
+r2494,869,4,"PAIN, stitching, Sides, afternoon, rising from stooping agg.",1
+r2495,869,4,"PAIN, stitching, Sides, afternoon, 1 p.m.",1
+r2496,869,4,"PAIN, stitching, Sides, afternoon, 2 p.m.",1
+r2497,869,4,"PAIN, stitching, Sides, afternoon, 3 p.m.",3
+r2498,869,3,"PAIN, stitching, Sides, evening",14
+r2499,869,4,"PAIN, stitching, Sides, evening, bed, in",3
+r2500,869,4,"PAIN, stitching, Sides, evening, entering house from open air, on",1
+r2501,869,3,"PAIN, stitching, Sides, night",8
+r2502,869,4,"PAIN, stitching, Sides, night, waking, on",1
+r2503,869,4,"PAIN, stitching, Sides, night, 4 a.m.",1
+r2504,869,3,"PAIN, stitching, Sides, ascending steps",3
+r2505,869,3,"PAIN, stitching, Sides, bending forward agg.",1
+r2506,869,3,"PAIN, stitching, Sides, cold air",1
+r2507,869,3,"PAIN, stitching, Sides, coughing",36
+r2508,869,3,"PAIN, stitching, Sides, dinner, after",4
+r2509,869,3,"PAIN, stitching, Sides, eating, after",2
+r2510,869,3,"PAIN, stitching, Sides, excitement agg.",1
+r2511,869,3,"PAIN, stitching, Sides, exertion",3
+r2512,869,3,"PAIN, stitching, Sides, of mind",1
+r2513,869,3,"PAIN, stitching, Sides, expiration",5
+r2514,869,3,"PAIN, stitching, Sides, heat amel.",1
+r2515,869,3,"PAIN, stitching, Sides, inspiration",44
+r2516,869,3,"PAIN, stitching, Sides, laughing",3
+r2518,870,3,"PAIN, stitching, Sides, lying, while",3
+r2519,870,4,"PAIN, stitching, Sides, lying, while, on back",1
+o9989,870,4,"PAIN, stitching, Sides, lying, while, right side agg.",2
+o9986,870,4,"PAIN, stitching, Sides, lying, while, left side agg.",3
+o9987,870,5,"PAIN, stitching, Sides, lying, while, left side agg., amel.",1
+o9988,870,4,"PAIN, stitching, Sides, lying, while, painful side amel.",2
+r2524,870,3,"PAIN, stitching, Sides, menses, before",1
+r2525,870,4,"PAIN, stitching, Sides, menses, before, during",4
+o9995,870,3,"PAIN, stitching, Sides, motion, during",16
+r2527,870,4,"PAIN, stitching, Sides, motion, during, amel.",4
+o10001,870,3,"PAIN, stitching, Sides, pressure",4
+r2529,870,3,"PAIN, stitching, Sides, raising arm",3
+r2530,870,3,"PAIN, stitching, Sides, respiration, deep",51
+r2531,870,3,"PAIN, stitching, Sides, riding on horseback",1
+o10005,870,4,"PAIN, stitching, Sides, riding on horseback, in a wagon",2
+r2533,870,3,"PAIN, stitching, Sides, rising from a seat",2
+o10028,870,4,"PAIN, stitching, Sides, rising from a seat, in bed",1
+o10027,870,4,"PAIN, stitching, Sides, rising from a seat, after, amel.",1
+r2536,870,3,"PAIN, stitching, Sides, scratching amel.",1
+r2537,870,3,"PAIN, stitching, Sides, screaming, from",1
+r2538,870,3,"PAIN, stitching, Sides, sitting, while",9
+r2539,870,3,"PAIN, stitching, Sides, sleep, before",1
+r2540,870,4,"PAIN, stitching, Sides, sleep, before, during",1
+r2541,870,3,"PAIN, stitching, Sides, sneezing, after",4
+r2542,870,3,"PAIN, stitching, Sides, standing, while",2
+r2543,870,3,"PAIN, stitching, Sides, stooping, on",3
+r2544,870,4,"PAIN, stitching, Sides, stooping, on, after",1
+r2545,870,3,"PAIN, stitching, Sides, talking, while",4
+r2546,870,3,"PAIN, stitching, Sides, touch agg.",1
+r2547,870,3,"PAIN, stitching, Sides, vexation agg.",1
+r2548,870,3,"PAIN, stitching, Sides, walking, while",24
+r2549,870,3,"PAIN, stitching, Sides, wine, after",1
+r2550,870,3,"PAIN, stitching, Sides, writing, while",1
+r2551,870,3,"PAIN, stitching, Sides, yawning",1
+r2552,870,3,"PAIN, stitching, Sides, extending toward arms",2
+o9940,870,4,"PAIN, stitching, Sides, extending toward arms, back, to",13
+o9941,870,5,"PAIN, stitching, Sides, extending toward arms, back, to, lying on right side amel.",1
+o9939,870,6,"PAIN, stitching, Sides, extending toward arms, back, to, lying on right side amel., on left side agg.",1
+o9942,870,4,"PAIN, stitching, Sides, extending toward arms, elbow, to",1
+o9943,870,4,"PAIN, stitching, Sides, extending toward arms, hypochondrium, to",1
+o9944,870,4,"PAIN, stitching, Sides, extending toward arms, outward",3
+o9945,870,4,"PAIN, stitching, Sides, extending toward arms, præcordial region, to",1
+o9946,870,4,"PAIN, stitching, Sides, extending toward arms, sacral region, to",1
+o9947,870,4,"PAIN, stitching, Sides, extending toward arms, scapula, to",7
+o9948,870,4,"PAIN, stitching, Sides, extending toward arms, shoulders, to",4
+o9949,870,4,"PAIN, stitching, Sides, extending toward arms, sternum",1
+o9950,870,4,"PAIN, stitching, Sides, extending toward arms, submaxillary gland, to",1
+o9951,870,4,"PAIN, stitching, Sides, extending toward arms, upwards",4
+r2566,870,3,"PAIN, stitching, Sides, lower part of",5
+r2567,870,4,"PAIN, stitching, Sides, lower part of, right",22
+r2568,870,4,"PAIN, stitching, Sides, lower part of, left",17
+r2569,870,5,"PAIN, stitching, Sides, lower part of, left, urination amel.",1
+r2570,870,4,"PAIN, stitching, Sides, lower part of, morning",1
+r2571,870,4,"PAIN, stitching, Sides, lower part of, afternoon",1
+r2572,870,4,"PAIN, stitching, Sides, lower part of, evening",2
+r2573,870,4,"PAIN, stitching, Sides, lower part of, menses, on beginning",1
+r2574,871,4,"PAIN, stitching, Sides, lower part of, motion agg.",2
+r2575,871,4,"PAIN, stitching, Sides, lower part of, walking amel.",1
+r2576,871,2,"PAIN, stitching, Sternum",65
+r2577,871,3,"PAIN, stitching, Sternum, daytime",2
+r2578,871,3,"PAIN, stitching, Sternum, morning",5
+r2579,871,3,"PAIN, stitching, Sternum, afternoon",3
+r2580,871,4,"PAIN, stitching, Sternum, afternoon, 4 p.m.",1
+r2581,871,3,"PAIN, stitching, Sternum, evening",4
+r2582,871,4,"PAIN, stitching, Sternum, evening, in bed",2
+r2583,871,4,"PAIN, stitching, Sternum, evening, on inspiration",1
+r2584,871,4,"PAIN, stitching, Sternum, evening, while sitting",1
+r2585,871,3,"PAIN, stitching, Sternum, night in bed",1
+r2586,871,3,"PAIN, stitching, Sternum, ascending a hill",2
+r2587,871,3,"PAIN, stitching, Sternum, breath, at every",2
+r2588,871,3,"PAIN, stitching, Sternum, coughing, on",8
+r2589,871,3,"PAIN, stitching, Sternum, deep breathing",15
+r2590,871,3,"PAIN, stitching, Sternum, eating, while",1
+r2591,871,3,"PAIN, stitching, Sternum, exertion",1
+r2592,871,3,"PAIN, stitching, Sternum, lifting, from",1
+o10074,871,3,"PAIN, stitching, Sternum, motion",2
+r2594,871,4,"PAIN, stitching, Sternum, motion, amel.",1
+r2595,871,3,"PAIN, stitching, Sternum, sitting, while",3
+r2596,871,4,"PAIN, stitching, Sternum, sitting, while, bent, while",1
+r2597,871,3,"PAIN, stitching, Sternum, sneezing agg.",1
+r2598,871,3,"PAIN, stitching, Sternum, standing",1
+r2599,871,3,"PAIN, stitching, Sternum, stooping",1
+r2600,871,3,"PAIN, stitching, Sternum, talking",1
+r2601,871,3,"PAIN, stitching, Sternum, walking",5
+r2602,871,3,"PAIN, stitching, Sternum, extending back, to",4
+o10066,871,4,"PAIN, stitching, Sternum, extending back, to, axilla",1
+o10067,871,4,"PAIN, stitching, Sternum, extending back, to, downwards",2
+o10068,871,4,"PAIN, stitching, Sternum, extending back, to, elbow",1
+o10069,871,4,"PAIN, stitching, Sternum, extending back, to, right scapula",1
+o10071,871,4,"PAIN, stitching, Sternum, extending back, to, upward",2
+o10070,871,4,"PAIN, stitching, Sternum, extending back, to, shoulders",1
+r2609,871,2,"PAIN, stitching, Heart",118
+r2610,871,3,"PAIN, stitching, Heart, morning, rising, after",1
+o9767,871,4,"PAIN, stitching, Heart, morning, rising, after, waking, after",1
+r2612,871,3,"PAIN, stitching, Heart, forenoon",1
+r2613,871,3,"PAIN, stitching, Heart, noon",1
+r2614,871,3,"PAIN, stitching, Heart, afternoon",1
+r2615,871,3,"PAIN, stitching, Heart, evening",5
+r2616,871,4,"PAIN, stitching, Heart, evening, sleep, on going to",1
+r2617,871,3,"PAIN, stitching, Heart, night",4
+r2618,871,3,"PAIN, stitching, Heart, bending forward while sitting",1
+r2619,871,3,"PAIN, stitching, Heart, burning",2
+r2620,871,3,"PAIN, stitching, Heart, coughing, from",3
+r2621,871,3,"PAIN, stitching, Heart, drinking, after",1
+r2622,871,3,"PAIN, stitching, Heart, eating, after",1
+r2623,871,3,"PAIN, stitching, Heart, expiration",2
+r2624,871,3,"PAIN, stitching, Heart, fainting, with",1
+r2625,872,3,"PAIN, stitching, Heart, inspiration, on",7
+r2626,872,4,"PAIN, stitching, Heart, inspiration, on, deep, agg.",9
+o9757,872,5,"PAIN, stitching, Heart, inspiration, on, deep, agg., amel.",1
+o9764,872,3,"PAIN, stitching, Heart, lying, while",2
+r2629,872,4,"PAIN, stitching, Heart, lying, while, amel.",1
+r2630,872,4,"PAIN, stitching, Heart, lying, while, on back",1
+r2631,872,4,"PAIN, stitching, Heart, lying, while, only on the right side, can lie",1
+o9763,872,5,"PAIN, stitching, Heart, lying, while, only on the right side, can lie, with the head high",1
+r2633,872,4,"PAIN, stitching, Heart, lying, while, left side",2
+r2634,872,3,"PAIN, stitching, Heart, menses, during",1
+r2635,872,3,"PAIN, stitching, Heart, motion agg.",5
+r2636,872,3,"PAIN, stitching, Heart, numbness and lameness of left arm",1
+r2637,872,3,"PAIN, stitching, Heart, periodical",1
+r2638,872,3,"PAIN, stitching, Heart, pressure of hand amel.",2
+r2639,872,3,"PAIN, stitching, Heart, reading aloud, while",2
+r2640,872,3,"PAIN, stitching, Heart, respiration, during",5
+r2641,872,3,"PAIN, stitching, Heart, ringing of a church bell",1
+r2642,872,3,"PAIN, stitching, Heart, sitting, while",1
+r2643,872,3,"PAIN, stitching, Heart, sleep, during",1
+r2644,872,3,"PAIN, stitching, Heart, sneezing",1
+r2645,872,3,"PAIN, stitching, Heart, stooping",1
+r2646,872,3,"PAIN, stitching, Heart, synchronous with beat of heart",4
+r2647,872,3,"PAIN, stitching, Heart, waking, on",1
+r2648,872,3,"PAIN, stitching, Heart, walking",4
+r2649,872,4,"PAIN, stitching, Heart, walking, amel.",2
+r2650,872,4,"PAIN, stitching, Heart, walking, in open air",1
+r2651,872,3,"PAIN, stitching, Heart, extending to back",5
+o9750,872,4,"PAIN, stitching, Heart, extending to back, to right lower lung",1
+o9751,872,5,"PAIN, stitching, Heart, extending to back, to right lower lung, scapula, left",6
+o9752,872,5,"PAIN, stitching, Heart, extending to back, to right lower lung, stomach",1
+o9753,872,5,"PAIN, stitching, Heart, extending to back, to right lower lung, within-out",1
+r2656,872,1,"PAIN, suppurative deep in chest",1
+r2657,872,1,"PAIN, tearing",43
+r2658,872,2,"PAIN, tearing, afternoon, deep inspiration, during",1
+o10107,872,3,"PAIN, tearing, afternoon, deep inspiration, during, yawning",1
+r2660,872,2,"PAIN, tearing, evening",1
+r2661,872,2,"PAIN, tearing, night",2
+r2662,872,2,"PAIN, tearing, air, open",1
+r2663,872,2,"PAIN, tearing, arm, on moving the",1
+r2664,872,3,"PAIN, tearing, arm, on moving the, raising arm toward head",1
+r2665,872,3,"PAIN, tearing, arm, on moving the, stretching the",1
+r2666,872,2,"PAIN, tearing, cough, during",12
+r2667,872,2,"PAIN, tearing, drinking, after",1
+r2668,872,2,"PAIN, tearing, externally",1
+r2669,872,2,"PAIN, tearing, inspiration, on",2
+r2670,872,2,"PAIN, tearing, lifting, on",1
+r2671,872,2,"PAIN, tearing, lying on side",1
+r2672,872,2,"PAIN, tearing, motion",2
+r2673,872,2,"PAIN, tearing, Anterior part",3
+r2674,872,3,"PAIN, tearing, Anterior part, pectoral muscles",1
+r2675,872,2,"PAIN, tearing, Axilla",14
+r2676,872,3,"PAIN, tearing, Axilla, raising the arm",1
+r2677,872,2,"PAIN, tearing, Between the ribs",1
+r2678,872,2,"PAIN, tearing, Clavicle, region of",6
+r2679,872,3,"PAIN, tearing, Clavicle, region of, fine",1
+r2680,872,3,"PAIN, tearing, Clavicle, region of, paralytic",1
+r2681,872,2,"PAIN, tearing, Costal cartilages of short ribs",2
+r2682,872,2,"PAIN, tearing, Lower ribs",2
+r2683,872,2,"PAIN, tearing, Sides",24
+r2684,873,3,"PAIN, tearing, Sides, right",10
+r2685,873,4,"PAIN, tearing, Sides, right, then left",1
+r2686,873,4,"PAIN, tearing, Sides, right, apex of lung",1
+r2687,873,3,"PAIN, tearing, Sides, left",12
+r2688,873,3,"PAIN, tearing, Sides, morning",1
+r2689,873,4,"PAIN, tearing, Sides, morning, inspiration agg.",1
+o10142,873,3,"PAIN, tearing, Sides, afternoon",1
+r2691,873,3,"PAIN, tearing, Sides, ascending stairs agg.",1
+r2692,873,3,"PAIN, tearing, Sides, blowing nose, on",1
+r2693,873,3,"PAIN, tearing, Sides, erect, on becoming",1
+r2694,873,3,"PAIN, tearing, Sides, inspiration",3
+o10150,873,3,"PAIN, tearing, Sides, motion",1
+r2696,873,3,"PAIN, tearing, Sides, respiration agg.",2
+r2697,873,3,"PAIN, tearing, Sides, sitting bent",1
+r2698,873,2,"PAIN, tearing, Sternum",8
+r2699,873,3,"PAIN, tearing, Sternum, midnight, after",1
+r2700,873,3,"PAIN, tearing, Sternum, cough, with",6
+r2701,873,2,"PAIN, tearing, Mammæ",9
+r2702,873,3,"PAIN, tearing, Mammæ, right",1
+r2703,873,3,"PAIN, tearing, Mammæ, left",3
+r2704,873,3,"PAIN, tearing, Mammæ, menses, during",1
+r2705,873,3,"PAIN, tearing, Mammæ, milk breasts, in",1
+r2706,873,3,"PAIN, tearing, Mammæ, extending to back",1
+r2707,873,2,"PAIN, tearing, Heart, region of",10
+r2708,873,3,"PAIN, tearing, Heart, region of, cough, during",1
+r2709,873,3,"PAIN, tearing, Heart, region of, extending to left arm",4
+o10128,873,4,"PAIN, tearing, Heart, region of, extending to left arm, left scapula",1
+r2711,873,1,"PAIN, ulcerative",12
+r2712,873,2,"PAIN, ulcerative, coughing, on",2
+r2713,873,2,"PAIN, ulcerative, Mammæ",1
+r2716,873,0,PALPITATION heart,203
+r2717,873,1,"PALPITATION heart, daytime",3
+r2718,873,1,"PALPITATION heart, morning",22
+r2719,873,2,"PALPITATION heart, morning, bed, in",3
+o10271,873,2,"PALPITATION heart, morning, breakfast, after",1
+r2721,873,3,"PALPITATION heart, morning, breakfast, after, amel.",1
+r2722,873,2,"PALPITATION heart, morning, waking, on",11
+r2723,873,3,"PALPITATION heart, morning, waking, on, must lie still with closed eyes",1
+r2724,873,3,"PALPITATION heart, morning, waking, on, suddenly, after",1
+r2725,873,2,"PALPITATION heart, morning, 7 a.m.",1
+r2726,873,1,"PALPITATION heart, forenoon",3
+r2727,873,2,"PALPITATION heart, forenoon, 9 a.m.",1
+r2728,874,1,"PALPITATION heart, noon",5
+r2729,874,2,"PALPITATION heart, noon, eating, before",1
+r2730,874,1,"PALPITATION heart, afternoon",13
+r2731,874,2,"PALPITATION heart, afternoon, 1 p.m.",1
+o10187,874,2,"PALPITATION heart, afternoon, 3 to 5 p.m.",1
+r2733,874,1,"PALPITATION heart, evening",32
+r2734,874,2,"PALPITATION heart, evening, bed, in",11
+r2735,874,1,"PALPITATION heart, night",44
+r2736,874,2,"PALPITATION heart, night, bed, in",9
+r2737,874,2,"PALPITATION heart, night, pressure in pit of stomach",1
+r2738,874,2,"PALPITATION heart, night, waking every half hour",1
+o10288,874,2,"PALPITATION heart, night, 11 to 3 a.m.",1
+r2740,874,2,"PALPITATION heart, night, midnight, wakes up",4
+r2741,874,3,"PALPITATION heart, night, midnight, wakes up, after",1
+o10287,874,2,"PALPITATION heart, night, 1 to 2 a.m.",1
+r2743,874,2,"PALPITATION heart, night, 2 a.m.",2
+r2744,874,2,"PALPITATION heart, night, 3 a.m.",2
+o10291,874,2,"PALPITATION heart, night, 4 to 5 a.m.",1
+r2746,874,1,"PALPITATION heart, air, open",1
+r2747,874,1,"PALPITATION heart, alternating with aphonia",1
+o10190,874,2,"PALPITATION heart, alternating with aphonia, with pain in lower limbs",1
+r2749,874,1,"PALPITATION heart, anger",4
+r2750,874,1,"PALPITATION heart, anxiety",84
+r2751,874,1,"PALPITATION heart, ascending steps",41
+r2752,874,1,"PALPITATION heart, attention is directed to anything, when",1
+r2753,874,1,"PALPITATION heart, audible",16
+r2754,874,2,"PALPITATION heart, audible, at night",3
+r2755,874,1,"PALPITATION heart, bathing agg.",1
+r2756,874,1,"PALPITATION heart, bed, on going to",3
+r2757,874,1,"PALPITATION heart, beer, after",1
+r2758,874,1,"PALPITATION heart, bending forward chest",2
+r2759,874,1,"PALPITATION heart, breath, holding",1
+r2760,874,1,"PALPITATION heart, chill, before",1
+r2761,874,2,"PALPITATION heart, chill, before, during",7
+r2762,874,1,"PALPITATION heart, chilled, from becoming",1
+r2763,874,1,"PALPITATION heart, climacteric period",3
+r2764,874,1,"PALPITATION heart, coffee, after",2
+r2765,874,1,"PALPITATION heart, coition, during",6
+r2766,874,2,"PALPITATION heart, coition, during, after",3
+r2767,874,1,"PALPITATION heart, cold bathing amel.",1
+o10210,874,2,"PALPITATION heart, cold bathing amel., washing hands in cold water",1
+r2769,874,1,"PALPITATION heart, colic, with",1
+r2770,874,1,"PALPITATION heart, company, in",1
+r2771,874,1,"PALPITATION heart, convulsions, before",2
+r2772,874,1,"PALPITATION heart, convulsive",1
+r2773,875,1,"PALPITATION heart, cough, during",10
+r2774,875,1,"PALPITATION heart, digestion, during",2
+r2775,875,1,"PALPITATION heart, dinner, after",10
+r2776,875,1,"PALPITATION heart, drawing up chest and throwing back right arm",1
+r2777,875,1,"PALPITATION heart, drinking, after",2
+r2778,875,2,"PALPITATION heart, drinking, after, cold water",1
+r2779,875,1,"PALPITATION heart, eating, after",34
+r2780,875,1,"PALPITATION heart, emissions, after",1
+r2781,875,1,"PALPITATION heart, epilepsy, before",5
+r2782,875,1,"PALPITATION heart, epistaxis, with",1
+r2783,875,1,"PALPITATION heart, eructations amel.",3
+r2784,875,1,"PALPITATION heart, exaltation, after",1
+r2785,875,1,"PALPITATION heart, excitement, after",34
+r2786,875,2,"PALPITATION heart, excitement, after, sudden",4
+r2787,875,1,"PALPITATION heart, exertion",57
+r2788,875,2,"PALPITATION heart, exertion, amel.",1
+r2789,875,2,"PALPITATION heart, exertion, dinner, after",1
+r2790,875,2,"PALPITATION heart, exertion, mental",13
+r2791,875,2,"PALPITATION heart, exertion, sudden",2
+r2792,875,2,"PALPITATION heart, exertion, unusual",3
+r2793,875,1,"PALPITATION heart, fever, during",14
+r2794,875,1,"PALPITATION heart, fright, after",10
+r2795,875,1,"PALPITATION heart, grief, from",4
+r2796,875,1,"PALPITATION heart, headache, during",6
+r2797,875,2,"PALPITATION heart, headache, during, after",1
+r2798,875,1,"PALPITATION heart, hunger, during",1
+r2799,875,1,"PALPITATION heart, hysteria, in",6
+r2800,875,1,"PALPITATION heart, inspiration, deep, during",3
+r2801,875,1,"PALPITATION heart, irregular",9
+r2802,875,1,"PALPITATION heart, joy, after",3
+r2803,875,1,"PALPITATION heart, kneeling, when",1
+r2804,875,1,"PALPITATION heart, leaning back, when",2
+o10252,875,2,"PALPITATION heart, leaning back, when, forward and resting on arms, when",1
+o10262,875,1,"PALPITATION heart, lying, while",24
+r2807,875,2,"PALPITATION heart, lying, while, amel.",6
+r2808,875,2,"PALPITATION heart, lying, while, dinner, after",2
+o10255,875,2,"PALPITATION heart, lying, while, on back",8
+r2810,875,3,"PALPITATION heart, lying, while, on back, amel.",2
+r2811,875,2,"PALPITATION heart, lying, while, one position, long",1
+r2812,875,2,"PALPITATION heart, lying, while, side",12
+r2813,875,3,"PALPITATION heart, lying, while, side, right agg.",7
+o10261,875,4,"PALPITATION heart, lying, while, side, right agg., amel.",5
+r2815,875,3,"PALPITATION heart, lying, while, side, left",33
+r2816,876,1,"PALPITATION heart, menses, before",10
+o10265,876,2,"PALPITATION heart, menses, before, during",24
+r2818,876,3,"PALPITATION heart, menses, before, during, amel.",1
+r2819,876,2,"PALPITATION heart, menses, before, after",5
+r2820,876,2,"PALPITATION heart, menses, before, suppressed",17
+r2821,876,1,"PALPITATION heart, motion",49
+r2822,876,2,"PALPITATION heart, motion, amel.",7
+r2823,876,2,"PALPITATION heart, motion, arms, of, agg.",17
+r2824,876,2,"PALPITATION heart, motion, beginning to move",1
+r2825,876,2,"PALPITATION heart, motion, compelled to move",1
+r2826,876,2,"PALPITATION heart, motion, from the first movements of the child",1
+r2827,876,2,"PALPITATION heart, motion, slightest",9
+r2828,876,2,"PALPITATION heart, motion, slow amel.",2
+r2829,876,2,"PALPITATION heart, motion, violent or quick, after",3
+r2830,876,1,"PALPITATION heart, music, when listening to",4
+r2831,876,1,"PALPITATION heart, noise, from every strange",5
+r2832,876,1,"PALPITATION heart, onanism, after",3
+r2833,876,1,"PALPITATION heart, opening eyes, on",1
+r2834,876,1,"PALPITATION heart, pains, during",11
+r2835,876,1,"PALPITATION heart, paroxysmal",8
+r2836,876,1,"PALPITATION heart, periodic",3
+r2837,876,1,"PALPITATION heart, perspiration, during",1
+r2838,876,1,"PALPITATION heart, pregnancy, during",6
+r2839,876,1,"PALPITATION heart, pressure with the hand amel.",1
+r2840,876,1,"PALPITATION heart, raising arms, on",3
+r2841,876,1,"PALPITATION heart, respiration, deep, amel.",1
+r2842,876,1,"PALPITATION heart, riding in a wagon",2
+o10311,876,2,"PALPITATION heart, riding in a wagon, amel.",2
+r2844,876,1,"PALPITATION heart, rising, on",3
+r2845,876,2,"PALPITATION heart, rising, on, from bed",5
+o10313,876,3,"PALPITATION heart, rising, on, from bed, seat",6
+r2847,876,1,"PALPITATION heart, roused, on being suddenly",1
+r2848,876,1,"PALPITATION heart, sexual excitement",1
+r2849,876,1,"PALPITATION heart, sighing amel.",1
+r2850,876,1,"PALPITATION heart, singing in church, while",1
+o10325,876,1,"PALPITATION heart, sitting, while",15
+r2852,876,2,"PALPITATION heart, sitting, while, amel.",1
+r2853,876,2,"PALPITATION heart, sitting, while, bent",4
+r2854,876,2,"PALPITATION heart, sitting, while, eating, after",1
+r2855,876,2,"PALPITATION heart, sitting, while, erect amel.",1
+r2856,876,2,"PALPITATION heart, sitting, while, up agg.",2
+o10324,876,3,"PALPITATION heart, sitting, while, up agg., amel.",3
+r2858,876,1,"PALPITATION heart, sleep, on going to",7
+r2859,876,2,"PALPITATION heart, sleep, on going to, during",13
+r2860,876,1,"PALPITATION heart, speak, unable to",1
+r2861,876,1,"PALPITATION heart, standing, while",9
+r2862,876,2,"PALPITATION heart, standing, while, a long time",1
+r2863,877,1,"PALPITATION heart, stool, during",5
+r2864,877,2,"PALPITATION heart, stool, during, after",5
+r2865,877,1,"PALPITATION heart, stooping",6
+r2866,877,1,"PALPITATION heart, sudden",3
+r2867,877,1,"PALPITATION heart, supper, after",4
+r2868,877,1,"PALPITATION heart, suppressed eruptions, after",2
+o10337,877,2,"PALPITATION heart, suppressed eruptions, after, foot sweat, after",2
+r2870,877,1,"PALPITATION heart, surprise, after",1
+r2871,877,1,"PALPITATION heart, swallowing",1
+r2872,877,1,"PALPITATION heart, talking",4
+r2873,877,1,"PALPITATION heart, thinking of it",8
+r2874,877,2,"PALPITATION heart, thinking of it, about his wrongs",1
+r2875,877,1,"PALPITATION heart, throat, extending to",3
+r2876,877,1,"PALPITATION heart, thunderstorm",2
+r2877,877,1,"PALPITATION heart, tobacco from",5
+r2878,877,1,"PALPITATION heart, tremulous",5
+r2879,877,1,"PALPITATION heart, tumultuous, violent, vehement",93
+r2880,877,1,"PALPITATION heart, turning in bed",8
+r2881,877,1,"PALPITATION heart, unrequited affections, from",4
+r2882,877,1,"PALPITATION heart, vexation, from",10
+r2883,877,1,"PALPITATION heart, visible",19
+r2884,877,1,"PALPITATION heart, waking, on",33
+r2885,877,2,"PALPITATION heart, waking, on, from lying on left side",1
+r2886,877,2,"PALPITATION heart, waking, on, menses, before",1
+r2887,877,2,"PALPITATION heart, waking, on, startled from a dream",6
+r2888,877,2,"PALPITATION heart, waking, on, suddenly",6
+r2889,877,1,"PALPITATION heart, walking",19
+r2890,877,2,"PALPITATION heart, walking, amel.",5
+r2891,877,2,"PALPITATION heart, walking, air, in open",8
+r2892,877,3,"PALPITATION heart, walking, air, in open, long distances amel.",1
+r2893,877,2,"PALPITATION heart, walking, eating, after",1
+o10362,877,2,"PALPITATION heart, walking, rapidly",13
+r2895,877,3,"PALPITATION heart, walking, rapidly, amel.",2
+o10364,877,2,"PALPITATION heart, walking, slowly",1
+r2897,877,3,"PALPITATION heart, walking, slowly, amel.",2
+r2898,877,1,"PALPITATION heart, warm bath agg.",2
+o10367,877,2,"PALPITATION heart, warm bath agg., drinks amel.",1
+o10368,877,2,"PALPITATION heart, warm bath agg., room",2
+o10369,877,2,"PALPITATION heart, warm bath agg., soup",3
+r2902,877,1,"PALPITATION heart, wine",2
+r2903,877,1,"PALPITATION heart, woman, on seeing a",1
+r2904,877,1,"PALPITATION heart, worms, from",1
+r2905,877,1,"PALPITATION heart, writing",3
+r3169,877,0,"PARALYSIS, diaphragm",8
+r2907,878,1,"PARALYSIS, diaphragm, Heart",26
+r2908,878,1,"PARALYSIS, diaphragm, Lung",22
+r2909,878,2,"PARALYSIS, diaphragm, Lung, old people",8
+r2910,878,2,"PARALYSIS, diaphragm, Lung, scarlatina, in",1
+r2911,878,2,"PARALYSIS, diaphragm, Lung, sensation of",1
+r2912,878,0,PERSPIRATION,43
+r2913,878,1,"PERSPIRATION, daytime",1
+r2914,878,1,"PERSPIRATION, morning",4
+r2915,878,2,"PERSPIRATION, morning, 4 a.m.",1
+o10410,878,2,"PERSPIRATION, morning, 5 to 6 a.m.",1
+r2917,878,1,"PERSPIRATION, forenoon",1
+r2918,878,1,"PERSPIRATION, evening, while walking",2
+o10400,878,2,"PERSPIRATION, evening, while walking, 5 to 9 p.m.",1
+r2920,878,1,"PERSPIRATION, night",10
+r2921,878,2,"PERSPIRATION, night, sleep",1
+r2922,878,2,"PERSPIRATION, night, waking, on",1
+r2923,878,2,"PERSPIRATION, night, midnight",2
+r2924,878,1,"PERSPIRATION, chilliness, during",1
+r2925,878,1,"PERSPIRATION, coition, after",1
+r2926,878,1,"PERSPIRATION, cold",10
+r2927,878,1,"PERSPIRATION, menses, during",2
+r2928,878,1,"PERSPIRATION, offensive",7
+r2929,878,1,"PERSPIRATION, oily",1
+r2930,878,1,"PERSPIRATION, red",1
+r2931,878,1,"PERSPIRATION, Axilla",48
+r2932,878,2,"PERSPIRATION, Axilla, daytime",1
+r2933,878,2,"PERSPIRATION, Axilla, evening",1
+r2934,878,2,"PERSPIRATION, Axilla, acrid",1
+r2935,878,2,"PERSPIRATION, Axilla, brown",2
+r2936,878,2,"PERSPIRATION, Axilla, coldness, during",1
+r2937,878,2,"PERSPIRATION, Axilla, cold air, in",1
+r2938,878,2,"PERSPIRATION, Axilla, copious",2
+r2939,878,2,"PERSPIRATION, Axilla, offensive",22
+r2940,878,2,"PERSPIRATION, Axilla, garlic, like",5
+r2941,878,2,"PERSPIRATION, Axilla, menses, during",2
+r2942,878,3,"PERSPIRATION, Axilla, menses, during, between",1
+r2943,878,2,"PERSPIRATION, Axilla, red",7
+r2944,878,2,"PERSPIRATION, Axilla, sour smelling",1
+r2945,878,2,"PERSPIRATION, Axilla, yellow",1
+r2946,878,1,"PERSPIRATION, Mammæ",11
+r2947,878,2,"PERSPIRATION, Mammæ, morning",4
+r2948,878,2,"PERSPIRATION, Mammæ, night",8
+r2949,878,2,"PERSPIRATION, Mammæ, between, fetid",1
+r2950,878,1,"PERSPIRATION, Sternum",1
+r2951,878,2,"PERSPIRATION, Sternum, morning",1
+r2952,878,0,PETECHIÆ,3
+r2953,878,1,"PETECHIÆ, purple",1
+r2954,878,1,"PETECHIÆ, stellated",1
+r2955,878,0,PHTHISIS pulmonalis,67
+r2956,879,1,"PHTHISIS pulmonalis, acute",23
+r2957,879,2,"PHTHISIS pulmonalis, acute, exacerbations in all stages of",1
+r2958,879,2,"PHTHISIS pulmonalis, acute, menses, suppressed, from",1
+r2959,879,1,"PHTHISIS pulmonalis, cold damp weather",1
+r2960,879,1,"PHTHISIS pulmonalis, florida",6
+r2961,879,1,"PHTHISIS pulmonalis, hæmorrhages, after",1
+r2962,879,1,"PHTHISIS pulmonalis, incipient",31
+r2963,879,1,"PHTHISIS pulmonalis, injury to the chest, after",1
+r2964,879,1,"PHTHISIS pulmonalis, last stage",20
+r2965,879,1,"PHTHISIS pulmonalis, lying on side agg.",1
+r2966,879,1,"PHTHISIS pulmonalis, miners, from coal dust",1
+r2967,879,1,"PHTHISIS pulmonalis, nursing mothers",1
+r2968,879,1,"PHTHISIS pulmonalis, old people",1
+r2969,879,1,"PHTHISIS pulmonalis, pituitous",32
+r2970,879,1,"PHTHISIS pulmonalis, purulent and ulcerative",33
+r2971,879,1,"PHTHISIS pulmonalis, sycotic",26
+r2972,879,1,"PHTHISIS pulmonalis, stone-cutters",1
+r2973,879,0,"PLUG, sensation of",2
+r2974,879,0,PULSATION,46
+r2975,879,1,"PULSATION, morning",2
+r2976,879,1,"PULSATION, evening, after lying",1
+r2977,879,1,"PULSATION, night",2
+r2978,879,2,"PULSATION, night, interrupting sleep",1
+r2979,879,2,"PULSATION, night, on waking",1
+r2980,879,1,"PULSATION, coughing, when",1
+r2981,879,1,"PULSATION, eating, after",2
+r2982,879,1,"PULSATION, lying down after eating, when",1
+r2983,879,1,"PULSATION, motion agg.",2
+r2984,879,1,"PULSATION, standing, while",1
+r2985,879,1,"PULSATION, talking, while",1
+r2986,879,1,"PULSATION, trembling",8
+r2987,879,1,"PULSATION, writing, while",1
+r2988,879,1,"PULSATION, Aorta",3
+r2989,879,1,"PULSATION, Axilla",3
+r2990,879,1,"PULSATION, Clavicle, region of",5
+r2991,879,1,"PULSATION, Costal cartilages",1
+r2992,879,1,"PULSATION, Mammæ",1
+r2993,879,1,"PULSATION, Short ribs",1
+r2994,879,1,"PULSATION, Sternum",4
+o10457,879,0,PURPURA,2
+r2996,879,0,"PURRING, feeling in region of heart",1
+r2997,879,1,"PURRING, feeling in region of heart, noise in region of heart",1
+r2998,879,0,RATTLING in (See Respiration),0
+h004,879,0,REDNESS (See Discoloration),0
+r2999,880,0,RESTLESSNESS in,4
+r3000,880,1,"RESTLESSNESS in, about the heart",3
+r3001,880,0,RETRACTION of nipples,6
+r3002,880,0,REVOLVING sensation of the heart,1
+r3003,880,0,"RIVET or bullet, feeling of, in region of mammæ",1
+r3004,880,0,"RUSH of blood (See Heart, Flushes and Orgasm)",0
+r3005,880,0,"SENSITIVE (See Pain, Sore)",7
+r3006,880,1,"SENSITIVE (See Pain, Sore), to cold air",1
+r3007,880,1,"SENSITIVE (See Pain, Sore), Axilla",2
+r3008,880,0,"SHAKING of, during cough",6
+r3009,880,0,SHOCKS (See Jerks),27
+r3010,880,1,"SHOCKS (See Jerks), cough, with",2
+r3011,880,1,"SHOCKS (See Jerks), heart beat, with the",1
+r3012,880,2,"SHOCKS (See Jerks), heart beat, with the, sleep, during",2
+r3013,880,1,"SHOCKS (See Jerks), Heart, region of the",13
+r3014,880,2,"SHOCKS (See Jerks), Heart, region of the, chill, during",2
+r3015,880,2,"SHOCKS (See Jerks), Heart, region of the, lying, while",1
+r3016,880,2,"SHOCKS (See Jerks), Heart, region of the, noise, from",2
+r3017,880,2,"SHOCKS (See Jerks), Heart, region of the, sleep, during",1
+r3018,880,2,"SHOCKS (See Jerks), Heart, region of the, extending to front of neck",1
+o10482,880,3,"SHOCKS (See Jerks), Heart, region of the, extending to front of neck, to abdomen and sacrum",1
+r3020,880,0,SHUDDERING,1
+r3021,880,1,"SHUDDERING, right",1
+r3022,880,1,"SHUDDERING, yawning",1
+r3023,880,0,SINKING sensation of heart (See Weakness),0
+r3024,880,0,"SMALL, feels too",1
+r3025,880,0,"SMOKE, as if",5
+r3026,880,0,SPASMODIC motion in,1
+r3027,880,0,SPASMS of,55
+o10493,880,1,"SPASMS of, colic, with",3
+o10494,880,1,"SPASMS of, compelling him to bend forward",2
+o10495,880,1,"SPASMS of, coughing, when",12
+o10497,880,1,"SPASMS of, exercise agg.",1
+o10501,880,1,"SPASMS of, heat and congestion, with",1
+o10502,880,1,"SPASMS of, hysteric",8
+o10503,880,1,"SPASMS of, menses, before",2
+o10504,880,2,"SPASMS of, menses, before, during",2
+o10505,880,1,"SPASMS of, respiration arresting",1
+o10506,880,1,"SPASMS of, walking agg.",1
+o10496,880,1,"SPASMS of, Diaphragm",11
+o10498,880,1,"SPASMS of, Heart",8
+o10499,880,2,"SPASMS of, Heart, chill, during",2
+o10500,880,2,"SPASMS of, Heart, lying on back agg.",1
+r3042,880,0,SPOTS (See Discoloration),0
+r3043,880,1,"SPOTS (See Discoloration), itching",3
+r3044,880,0,STAGNATION of blood,1
+r3045,880,0,STENOCARDIA,2
+r3046,880,0,STOPPED (See Ceased),0
+r3047,880,0,STRAIN of the heart from violent exertion,4
+r3048,880,0,SUPPURATION of lungs (See Abscess),0
+r3049,880,0,"SUSPENDED, heart feels from left ribs",1
+r3050,880,0,SWELLING,9
+r3051,880,1,"SWELLING, Axillary glands",42
+r3052,881,2,"SWELLING, Axillary glands, menses, before",1
+r3053,881,2,"SWELLING, Axillary glands, painless",1
+r3054,881,2,"SWELLING, Axillary glands, sensation of",1
+r3055,881,1,"SWELLING, Clavicles",1
+r3056,881,1,"SWELLING, Mammæ",44
+r3057,881,2,"SWELLING, Mammæ, cicatrices",3
+r3058,881,2,"SWELLING, Mammæ, hot",5
+r3059,881,2,"SWELLING, Mammæ, menses, before",7
+r3060,881,3,"SWELLING, Mammæ, menses, before, during",8
+r3061,881,3,"SWELLING, Mammæ, menses, before, after",1
+r3062,881,3,"SWELLING, Mammæ, menses, before, instead of",1
+r3063,881,2,"SWELLING, Mammæ, neuralgia of uterus, with each attack of",1
+r3064,881,2,"SWELLING, Mammæ, secretion of milk, with",3
+r3065,881,2,"SWELLING, Mammæ, nipples",7
+r3066,881,3,"SWELLING, Mammæ, nipples, right",2
+r3067,881,3,"SWELLING, Mammæ, nipples, morning",2
+r3068,881,1,"SWELLING, Sternum, lower part of",1
+r3069,881,0,"SWIMMING in water, as if the heart",4
+r3070,881,0,"TENDERNESS (See Pain, Sore)",0
+r3071,881,0,TENSION (See Constriction),0
+r3072,881,1,"TENSION (See Constriction), Axilla",1
+r3073,881,1,"TENSION (See Constriction), Clavicles",2
+r3074,881,2,"TENSION (See Constriction), Clavicles, left",1
+r3075,881,2,"TENSION (See Constriction), Clavicles, under",1
+r3076,881,1,"TENSION (See Constriction), Lower ribs",1
+r3077,881,0,THROBBING (See Pulsating),0
+r3078,881,0,TICKLING in,20
+r3079,881,0,TIGHTNESS (See Constriction),0
+r3080,881,0,TINGLING,11
+r3081,881,1,"TINGLING, Mammæ in",1
+r3082,881,0,TREMBLING,29
+r3083,881,1,"TREMBLING, noon, toward",1
+r3084,881,1,"TREMBLING, chilliness, with",1
+r3085,881,1,"TREMBLING, coughing, on",1
+r3086,881,1,"TREMBLING, dinner, after",1
+r3087,881,1,"TREMBLING, moving the arms, on",1
+r3088,881,1,"TREMBLING, painful",1
+r3089,881,1,"TREMBLING, weeping, as from",1
+r3090,881,1,"TREMBLING, Heart (See Fluttering)",49
+r3091,881,2,"TREMBLING, Heart (See Fluttering), evening in bed",2
+o10547,881,3,"TREMBLING, Heart (See Fluttering), evening in bed, while sitting",1
+r3093,881,2,"TREMBLING, Heart (See Fluttering), night",1
+r3094,881,3,"TREMBLING, Heart (See Fluttering), night, in bed",1
+r3095,881,2,"TREMBLING, Heart (See Fluttering), ascending steps",1
+r3096,881,2,"TREMBLING, Heart (See Fluttering), lying agg.",1
+r3097,881,2,"TREMBLING, Heart (See Fluttering), lying on left side agg.",2
+r3098,881,2,"TREMBLING, Heart (See Fluttering), menses, after",1
+r3099,881,2,"TREMBLING, Heart (See Fluttering), paroxysmal",1
+r3100,881,2,"TREMBLING, Heart (See Fluttering), pressure, on",1
+r3101,881,2,"TREMBLING, Heart (See Fluttering), sitting, while",1
+r3102,881,2,"TREMBLING, Heart (See Fluttering), waking, on",3
+r3103,881,0,"TUMORS, axilla",3
+r3104,881,1,"TUMORS, axilla, encysted",1
+r3106,882,1,"TUMORS, axilla, Mammæ",10
+r3107,882,2,"TUMORS, axilla, Mammæ, like a walnut in left male mamma",1
+r3108,882,0,"TURNING over, as if something were",5
+o10566,882,1,"TURNING over, as if something were, Heart, around, as if",3
+r3110,882,0,"TWITCHING in, muscles",11
+o10568,882,1,"TWITCHING in, muscles, Heart, region of",2
+o10569,882,1,"TWITCHING in, muscles, lying on the back",1
+r3113,882,0,ULCER,3
+r3114,882,1,"ULCER, Axilla",1
+r3115,882,1,"ULCER, Lungs",17
+r3116,882,1,"ULCER, Mammæ, schirrous, stinging, burning, odor of old cheese",1
+o10574,882,2,"ULCER, Mammæ, schirrous, stinging, burning, odor of old cheese, serpiginous",1
+r3118,882,1,"ULCER, Sternum and Clavicle, over",1
+r3119,882,0,"ULCERATION, of mammæ",6
+r3120,882,1,"ULCERATION, of mammæ, right",1
+r3121,882,1,"ULCERATION, of mammæ, nipples",6
+r3122,882,0,"UNDULATION of heart, sense of",2
+r3123,882,0,VELVETY sensation in,1
+r3124,882,0,"WARMTH, sensation of",9
+r3125,882,1,"WARMTH, sensation of, about the heart",3
+r3126,882,0,"WARTS on, sternum",1
+r3127,882,0,"WATER, drops of cold were falling from the heart, sensation as if",1
+o10584,882,1,"WATER, drops of cold were falling from the heart, sensation as if, boiling, was poured into chest, sensation as if",1
+o10587,882,1,"WATER, drops of cold were falling from the heart, sensation as if, sensation of, in",1
+o10586,882,2,"WATER, drops of cold were falling from the heart, sensation as if, sensation of, in, hot, in",3
+r3131,882,0,WEAKNESS,60
+r3132,882,1,"WEAKNESS, morning on waking",2
+o10604,882,2,"WEAKNESS, morning on waking, lasting until 3 p.m.",1
+r3134,882,1,"WEAKNESS, evening",1
+r3135,882,2,"WEAKNESS, evening, while lying",1
+r3136,882,1,"WEAKNESS, bending forward amel.",1
+r3137,882,1,"WEAKNESS, cough, from",7
+r3138,882,2,"WEAKNESS, cough, from, impeding",1
+r3139,882,2,"WEAKNESS, cough, from, menses, before",1
+r3140,882,1,"WEAKNESS, eating, while",1
+r3141,882,1,"WEAKNESS, exertion, after",2
+r3142,882,1,"WEAKNESS, expectoration, after",1
+r3143,882,1,"WEAKNESS, lying amel.",1
+o10602,882,2,"WEAKNESS, lying amel., on side",1
+r3145,882,1,"WEAKNESS, reading agg.",1
+o10606,882,2,"WEAKNESS, reading agg., aloud",2
+r3147,882,1,"WEAKNESS, respiration, deep",2
+r3148,882,1,"WEAKNESS, singing, when",2
+r3149,882,2,"WEAKNESS, singing, when, on beginning to",1
+r3150,882,1,"WEAKNESS, sitting long agg.",2
+r3151,882,1,"WEAKNESS, speech, impeding (See Voice)",8
+r3152,882,1,"WEAKNESS, talking, when",6
+r3153,882,2,"WEAKNESS, talking, when, loud",4
+r3154,882,1,"WEAKNESS, waking, on",1
+r3155,882,1,"WEAKNESS, walking",2
+r3156,882,2,"WEAKNESS, walking, amel.",1
+r3157,882,2,"WEAKNESS, walking, in open air",1
+r3158,882,2,"WEAKNESS, walking, rapid",1
+r3159,882,3,"WEAKNESS, walking, rapid, in open air",1
+r3160,883,1,"WEAKNESS, Heart, sensation of, about the",12
+r3161,883,2,"WEAKNESS, Heart, sensation of, about the, after entering cool room from a walk in hot sun",1
+r3162,883,2,"WEAKNESS, Heart, sensation of, about the, tired feeling",1
+r3163,883,0,WEIGHT (See Oppression),0
+r3164,883,1,"WEIGHT (See Oppression), weight seems to fall from pit of chest to abdomen",1
+r3165,883,0,"WHIRLING, sensation of, about heart",3
+r3170,883,0,"WINE, agg.",1

@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 192 · **اصل مخزن:**
+**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 193 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -7,6 +7,45 @@ https://bismillah-clinic.vercel.app
 ```
 
 > نئی نشست میں سب سے پہلے نیچے کے تازہ کام، باقی مسائل اور اگلے قدم دیکھیں۔ پرانے حصے تاریخی ریکارڈ ہیں
+
+## سینہ (CHEST) باب: ماخذی درخت + ادویات + اردو (نسخہ 193)
+
+**اجازت:** 10 اکتوبر 2026 · worklog کے مطابق اگلا باب عین یہی تھا؛ ماخذ homeoint.org MEDI-T صفحات 822–883 (62 صفحات — اب تک کا سب سے بڑا باب؛ 13 فائلیں kent0820..kent0880 — انڈیکس kentches.htm کے 62 صفحہ-اندراجات = جڑ صفحہ p822 + P823..P883)
+
+### 31.1 باب کی حد + ماخذی پارس — 3157 منفرد قطاریں (9 clamps، 6 کتابی دہرائیاں)
+- آغاز kent0820 کے **NAME="P822" CHEST P-اینکر** سے (nav para کے اندر — after_anchor slot-1 nav-text para + slot-2 سرخ «CHEST» عنوان-دہرائی para skip، separator JUNK، جڑ CHEST d0 slot-4 سے)؛ p822: جڑ + ABSCESS {Axilla 28/Lungs 21/Mammæ 18}
+- اختتام kent0880 کے **NAME="P884" BACK P-اینکر** پر — آخری ربرک WINE, agg. {bor.} (p883)؛ FOOT regex میں kentback.htm شامل؛ kent0885 استعمال نہیں
+- سرحدی ڈپ صفحات p825/830/835/840/845/850/855/860/865/870/875/880 — بارہوں text-identical (verify_chest_dups.py)
+- پارس: 3164 قطاریں (196+266+256+247+238+270+297+281+247+273+242+237+114)؛ گہرائی分布 (خام) 162 d0 / 810 d1 / 1120 d2 / 746 d3 / 258 d4 / 55 d5 / 13 d6
+- **9 clamps سب کتابی یتیم-indentation** (x = خام سطح — chest_clamp_xcoords.json): idx120 p824 @128.7 · idx217 p826 @164.7 · idx327 p828 @128.7 · idx680 p834 @164.7 · idx687 p835 @128.7 · idx871 p839 @164.7 · idx880 p839 @164.7 · idx2258 p865 @200.7 · idx3102 p881 @128.7 — idx680/871 کی PDF تلاش ترتیب-سیاق (prev→clamp→next) سے (عام لیبل «amel.» کے دوسرے واقعات سے بچنے کے لیے)
+- **62/62 MEDI-T صفحہ-سرخی paras** آرٹیفیکٹ skip — ہر صفحے کی پہلی قطار کے والد-سیاق سے مطابق
+- خاص ساخت: کتاب خود دہراتی ہے — DISCOLORATION خاندان میں livid دوبارہ ({Ars.} + {Plb.}) اور Redness/redness کیس-مختلف (union 18)؛ PAIN-Sternum-coughing-when (20+14=25) و extending-to-back (3+3=5) p849 پر دوہرے؛ undulating/wandering p873 میں See-ref دہرائی — سب union merge
+- **کتابی flat d2 دریافت:** PAIN-Sternum-behind خاندان (p849) اور PAIN-boring-Mammæ خاندان (p852) — کتاب سب ربرکس x=128.7 (d2) چھاپتی ہے (PDF1875/PDF1883) — OOREP کا behind/mammae-والد استنباط مسترد
+- **1 homeoint-اضافی row خارج:** «lifting» {bar-c, phos} p869 parent PAIN-stitching-Sides — مطبوعہ کتاب میں ناموجود (PDF1923 حرف-سطح: laughing کے فوراً بعد lying-while؛ دونوں extraction متفق)؛ OOREP r2517 میں موجود — legacy محفوظ
+
+### 31.2 تیسرا ماخذ (PDF) — 3160/3162 + 2 فولیو-گلا
+- verify_pdf_chest.py (PDF index 1813–1951 = کتابی ص 822–883): **3160/3162 حرف-بہ-حرف عین + 2 PDF-طرفہ فولیو-گلا** (colch.1779chest — folio 1779 + running-header؛ nat1867m — folio 1867 نام کے اندر) — صفر drift، صفر دونوں-طرفہ باقیات؛ پہلے صفحے کی 3 سرخی-سطریں پہلے کٹ (پہلا مین ABSCESS بغیر ادویات — page_hdr میکانزم سے بچنے کے لیے)
+
+### 31.3 کراس واک + اوورلے — 3153 جُڑے (3048 لالچی + 82 دستی J=1.00 + 23 فال بیک)
+- دستی جوڑے (82): وقت-فارمیٹ ~13 (OOREP «4 a.m. to 5 a.m.» ← کتابی «4 to 5 a.m.») + agg-لاحقہ ~40 (genm-r381 اصول) + cut-path/inserted-segment ~15 + OOREP mammae/behind-والد گروپ بندی 9 + PURPURA d0 (o10457) + entity GALACTORRHŒA (r600)
+- 4 نئے hN (جڑ CHEST + DISCOLORATION-blueness-clavicle-yellow + PAIN-stitching-lying-side-on + REDNESS See-ref) + 280 legacy محفوظ (93 مبہم برتن + 40 خالی m + r30 ANXIETY 152-یونین + r239 CONSTRICTION 219-یونین + r2517-lifting وغیرہ) — ادویات نقصان صفر
+- اوورلے (backup chest_json_backup_v193.json — اسکرپٹ کے اندر): chest.json 3437 = 3157 ماخذی (homeoint-chest-v1) + 280 legacy؛ مانی فیسٹ 9-فیلڈ
+
+### 31.4 اردو — 3157/3157 = 100%
+- 3152 پرانے جملے منتقل + جڑ «سینہ — سینہ» + 948 key-فرق والوں کی top-down ہم آہنگی (معیار: پرانی کلید ≠ runtime کلید — ligature-normalized؛ 250 جھوٹے æ/ae فرق خارج) + 15 ہاتھ-لکھے
+- اصول: agg.→«بگاڑ»/amel.→«آرام» پرانی روایت (صفر لاطینی — بغیر استثنا)؛ وقت «X سے Y بجے»؛ فنکشن-الفاظ FUNC پہلے («جب کہ» — 96 قطاریں بہتر)؛ d0-والد جڑ-پیشوند درست (PURPURA بگ «سینہ —،» — درست)
+- 274 ہم جنس لگاتار سیگمنٹ سکڑے؛ صفر auto (meta.auto=[])؛ 1482 پرانی non-tree کلیدیں محفوظ (فائل 4639)
+
+### 31.5 کوڈ + ٹیسٹ
+- rep-chapters.js v193 (_repBuildKentChestSourceTree + دونوں dispatch سائٹس + fallback 3165→3437)؛ kent-tree-fix chest.h 280 legacy ids (v147 قاعدہ — پرانا 41-id بدلا، g/p صاف)؛ _index 3437/CHEST (دونوں انڈیکس)؛ master sync minified 23.9 MiB (round-trip)؛ mind sidecar rebuild (4358)؛ CACHE v193؛ پنز: index.html 4×?v=193 + 18-rubrics-ur ?v=185 + REP_RUBUR_V 185
+- ٹیسٹ: نئی kent_chest_homeoint_source.test.js (درخت 3157، جڑ پہلی، ABSCESS/Axilla 28، behind-flat ساخت + بھائی union 25، PURPURA d0، کتابی دہرائی unions livid/Redness، دستی o7555/o7757/o8872، برتن r30/r239/o64924/o65050/r2517-lifting، WINE آخری، BACK-لیک نہیں، lifting-خارج، اردو 100% — repRubKey نقل، مانی فیسٹ، _index، tree-fix 280)؛ v107 I-سیکشن اپڈیٹ (3392/173 → 3157/162 — جڑ CHEST پہلی — PETECHIÆ/Sides-capital اصل شکلیں)/G7 4555→4544/Q9 67141→66906 (chest 3157 فعال 100%، coverage ٹول سے تصدیق)/L-H11+H12 پنز؛ 26 ٹیسٹ فائلوں کے پنز (192→193، 184→185) + editor v163/v164 پن-ٹیبل → **مکمل سوئٹ 70/70 پاس + jsdom 5/5** (static8080 ہارنس؛ tree_view_integrity 1,462,374 چیکز)
+- رپورٹیں (make_chest_reports.py): سینہ-تین-کالم.csv (3153) · سینہ-ہیرارکی-تصدیق.csv (3164) · سینہ-تمام-اندراجات.csv (3157) · سینہ-پرانی-قطاریں.csv (280 = 12 خاص + 40 خالی + 228 مجموعے/برتن) · سینہ-پڑتال.xlsx · سینہ-اصلاحات-کا-خلاصہ.md — repo/kent_sources/reports + download
+- تصدیق-ضروری CSV: append_chest_confirmations.py — 14 اندراجات (باب-حد 2، ڈپ 1، صفحہ-سرخی 1، clamps 1 جامع، دہرائی 1، flat-d2 2، lifting-خارج 1، PDF 1، دستی 1 جامع، مبہم 1، نئے hN 1، اردو 2) — کل 277
+
+### 31.6 اگلے قدم
+1. ڈاکٹر سینہ-تین-کالم.csv کی تصدیق (3153 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (14 نئے اندراجات — خاص طور پر 82 دستی جوڑے، کتابی flat-d2 ساخت، lifting-خارج کی تصدیق، اور 6 کتابی دہرائیاں)
+2. اگلا باب: کتابی ترتیب کے مطابق — **BACK (پیٹھ) (MEDI-T ص 884 سے، kent0880 کا P884 اینکر + kent0885 وغیرہ kentrep2/؛ انڈیکس kentback.htm)**
+3. Vercel پش (v193 کے بعد)
 
 ## مکمل شدہ پڑتال — مستقیم (RECTUM) باب: ماخذی درخت + ادویات + اردو (نسخہ 180)
 

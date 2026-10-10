@@ -1,0 +1,22 @@
+{
+ "book": "kent",
+ "chapter": "chest",
+ "source": "homeoint.org/books/kentrep+kentrep2 kent0820..kent0880 (MEDI-T HTML) — 13 فائلیں",
+ "pages": "822 – 883 (MEDI-T انتساب) — 62 صفحات، اب تک کا سب سے بڑا باب",
+ "source_canonical": "homeoint-chest-v1",
+ "source_rows": 3157,
+ "unique_source_paths": 3157,
+ "matched_app_records": 3153,
+ "new_source_records": 4,
+ "legacy_local_records": 280,
+ "ambiguous_app_records": 93,
+ "pdf_verification": "3160/3162 حرف-بہ-حرف عین مطابق + 2 PDF-طرفہ فولیو-گلا (colch.1779chest folio1779، nat1867m folio1867) — صفر drift، صفر دونوں-طرفہ باقیات (verify_pdf_chest.py — کتابی ص 822-883، PDF index 1813-1951)؛ 1 homeoint-اضافی row خارج: lifting {bar-c, phos} p869 parent PAIN-stitching-Sides — مطبوعہ کتاب میں ناموجود (PDF1923: laughing کے فوراً بعد lying-while؛ kent-full.txt + pdfplumber دونوں extraction متفق؛ OOREP r2517 میں موجود — legacy محفوظ)",
+ "chapter_boundaries": "آغاز kent0820 کے اندر NAME=\"P822\" CHEST P-اینکر (nav para کے اندر — after_anchor slot-1 nav-text para + slot-2 CHEST عنوان-دہرائی para skip، separator JUNK، جڑ CHEST d0 slot-4؛ p822: جڑ + ABSCESS {Axilla 28/Lungs 21/Mammæ 18})؛ اختتام kent0880 کے اندر NAME=\"P884\" BACK P-اینکر (آخری ربرک WINE, agg. {bor.} p883؛ kent0885 استعمال نہیں)؛ FOOT regex میں kentback.htm شامل",
+ "dup_pages": "12/12 سرحدی صفحات p825/830/835/840/845/850/855/860/865/870/875/880 — پچھلی فائل میں اصل، اگلی میں ڈپ (skip_until)؛ سب text-identical تصدیق شدہ (verify_chest_dups.py — فرق صرف nav link-text)",
+ "clamps": "9 clamps سب کتابی یتیم-indentation (x = خام سطح — chest_clamp_xcoords.json): idx120 p824 had-ceased @128.7 (d2→d1)، idx217 p826 amel. @164.7 (d3→d2)، idx327 p828 on-motion @128.7 (d2→d1)، idx680 p834 amel. @164.7 (d3→d2)، idx687 p835 numbness-tingling @128.7 (d2→d1)، idx871 p839 amel. @164.7 (d3→d2)، idx880 p839 arm-backward @164.7 (d3→d2)، idx2258 p865 6-p.m. @200.7 (d4→d3)، idx3102 p881 encysted @128.7 (d2→d1) — کوئی MEDI-T اضافی <dir> نہیں",
+ "book_duplicates": "6 کتابی دہرائی جوڑیاں merge (union ادویات): livid p829 {ars}+{plb}، Redness/redness p829 (کیس-مختلف) 14+4=18، PAIN-Sternum-coughing-when p849 20+14=25، PAIN-Sternum-extending-to-back p849 3+3=5، undulating p844+p873-See-ref، wandering p845+p873-See-ref — p849 کے پیچھے-گروپ کو کتاب flat d2 چھاپتی ہے (PDF1875 x=128.7 سب — OOREP کا behind-والد اپنا استنباط تھا)",
+ "manual_matches": "82 دستی J=1.00 (وقت-فارمیٹ ~13: OOREP 4 a.m. to 5 a.m. ← کتابی 4 to 5 a.m. طرز؛ agg-لاحقہ ~40: genm-r381 اصول؛ OOREP cut-path/inserted-segment ~15 (extending داخل، while/on گم)؛ OOREP mammae/behind-والد گروپ بندی 9 (کتاب flat d2 PDF x-coord ثابت)؛ PURPURA d0 اپنا مین (OOREP نے PULSATION میں ڈالا)؛ entity r600 GALACTORRH&#140;A ← Œ) — سب جوڑوں پر ادویات عین برابر",
+ "page_headers": "62/62 MEDI-T صفحہ-سرخی paras آرٹیفیکٹ — after_anchor سے skip — ہر صفحے کی پہلی قطار کے والد-سیاق سے مطابق (parse_chest_source.py)",
+ "parser_fix": "MEDI-T unclosed <p> گلو فکس + para_depth capture (genf v188 — برقرار)؛ CHEST P-اینکر آغاز (P822 nav-para — 4 slots)؛ اختتام P884 BACK P-اینکر end_spec + FOOT کٹ (kentback.htm)",
+ "vessels": "OOREP برتن legacy (93 مبہم + 187 اضافی): خالی m-برتن 8 (AFFECTIONS of/ANEURISM/CARIES/CRACKING ×2/FISTULOUS/HYPERTROPHY/INDURATION)، کٹ-راستہ یونین (PAIN-stitching-extending 61-یونین، PAIN-motion 49، OPPRESSION-walking 41، PAIN-lying 39، PALPITATION-waking 39 وغیرہ)، r30 ANXIETY 152-یونین، r239 CONSTRICTION 219-یونین، o64924 DISCOLORATION 63-یونین، o7867 redness 31-یونین (spots-ذیلیاں شامل) + r2517 lifting (کتاب میں ناموجود) — کل 280 legacy محفوظ، ادویات نقصان صفر"
+}

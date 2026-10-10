@@ -131,8 +131,8 @@ if (fs.existsSync(csvPath)) {
 // 7) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const swf = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=192/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v176)');
-assert(/CACHE_NAME='bhc-clinic-v192'/.test(swf), 'خدمت کار نسخہ 176');
+assert(/rep-chapters\.js\?v=193/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v176)');
+assert(/CACHE_NAME='bhc-clinic-v193'/.test(swf), 'خدمت کار نسخہ 176');
 assert(/v176: گلا باب/.test(code), 'rep-chapters.js میں گلا بلڈر درج');
 
 console.log('گلا باب: ماخذی درخت 982 قطاریں (صفحات 448–470)، جڑ THROAT، ادویات ماخذی، اردو 100%، پرانی قطاریں محفوظ — کامیاب');
