@@ -1,0 +1,699 @@
+﻿شناخت,صفحہ,گہرائی,مکمل راستہ,ادویات
+h001,762,0,RESPIRATION,0
+o54590,762,0,ABDOMINAL,12
+o54591,762,0,ACCELERATED,120
+o54602,762,1,"ACCELERATED, morning",2
+o54597,762,1,"ACCELERATED, evening",2
+o54603,762,1,"ACCELERATED, night",3
+o54592,762,1,"ACCELERATED, anxiety, during",3
+o54593,762,1,"ACCELERATED, ascending",1
+o54594,762,1,"ACCELERATED, coma, during",1
+o54595,762,1,"ACCELERATED, cough, during paroxysm of",1
+o54596,762,1,"ACCELERATED, drinking, while",1
+o54598,762,1,"ACCELERATED, exercise, during",1
+o54599,762,1,"ACCELERATED, headache, during",1
+o54600,762,1,"ACCELERATED, lying down, while",3
+o54601,762,1,"ACCELERATED, mental exertion, by",1
+o54604,762,1,"ACCELERATED, rising from sitting",1
+o54605,762,1,"ACCELERATED, sleep, during",4
+o54607,762,2,"ACCELERATED, sleep, during, on awaking from",1
+o54606,762,2,"ACCELERATED, sleep, during, going to",1
+o54608,762,1,"ACCELERATED, standing",1
+o54609,762,0,ANXIOUS,82
+o54617,763,1,"ANXIOUS, morning",1
+o54618,763,2,"ANXIOUS, morning, in bed",1
+o54610,763,1,"ANXIOUS, afternoon",1
+o54611,763,1,"ANXIOUS, evening",4
+o54612,763,2,"ANXIOUS, evening, after formication",1
+o54613,763,1,"ANXIOUS, headache, during",1
+o54615,763,1,"ANXIOUS, lying, while",2
+o54614,763,2,"ANXIOUS, lying, while, on the back",1
+o54616,763,1,"ANXIOUS, mental exertion",1
+r9,763,0,ARRESTED,70
+r10,763,1,"ARRESTED, morning",1
+r11,763,1,"ARRESTED, forenoon, stitches in side",1
+r12,763,1,"ARRESTED, afternoon",4
+r13,763,2,"ARRESTED, afternoon, 3 p.m., stitches under right scapula",1
+r14,763,2,"ARRESTED, afternoon, 4 p.m.",1
+r15,763,1,"ARRESTED, evening, griping in inguinal region",3
+r16,763,1,"ARRESTED, night",5
+r17,763,2,"ARRESTED, night, cough, during",1
+r18,763,2,"ARRESTED, night, midnight",1
+r19,763,1,"ARRESTED, air, in fresh",1
+r20,763,1,"ARRESTED, ascending steps",3
+r21,763,1,"ARRESTED, constriction of chest, during",2
+r22,763,2,"ARRESTED, constriction of chest, during, larynx (See Larynx)",0
+r23,763,1,"ARRESTED, convulsions during",6
+r24,763,1,"ARRESTED, coughing",77
+r25,763,1,"ARRESTED, drinking, from",2
+r26,763,1,"ARRESTED, fever, during",1
+o54634,763,1,"ARRESTED, lying, while",4
+r28,763,2,"ARRESTED, lying, while, amel.",1
+r29,763,2,"ARRESTED, lying, while, on the back",1
+r30,763,1,"ARRESTED, rubbing amel.",1
+r31,763,1,"ARRESTED, sitting, while",3
+r32,763,1,"ARRESTED, sleep, on going to",5
+r33,763,2,"ARRESTED, sleep, on going to, during",14
+r34,763,2,"ARRESTED, sleep, on going to, when going to sleep on the right side",1
+r35,763,1,"ARRESTED, standing still, when",1
+r36,763,2,"ARRESTED, standing still, when, in water",1
+r37,763,1,"ARRESTED, stooping",2
+r38,763,1,"ARRESTED, suddenly, in children",1
+r39,763,1,"ARRESTED, suppressed eruptions",2
+r40,763,1,"ARRESTED, talking, when",3
+r41,763,1,"ARRESTED, turning in bed",1
+r42,763,1,"ARRESTED, walking, while",10
+r43,763,2,"ARRESTED, walking, while, against the wind",2
+r44,763,0,ASPHYXIA,11
+r45,763,1,"ASPHYXIA, cholera",2
+r46,763,1,"ASPHYXIA, coal gas",2
+r47,763,1,"ASPHYXIA, lightning, after",1
+r48,763,1,"ASPHYXIA, new-born infant",8
+r49,763,0,ASTHMATIC,149
+r50,764,1,"ASTHMATIC, morning",12
+r51,764,2,"ASTHMATIC, morning, bed, in",2
+r52,764,2,"ASTHMATIC, morning, waking, on",3
+o54699,764,1,"ASTHMATIC, forenoon, 10 to 11 a.m.",1
+r54,764,1,"ASTHMATIC, noon",1
+r55,764,1,"ASTHMATIC, evening",9
+r56,764,2,"ASTHMATIC, evening, in bed",3
+r57,764,2,"ASTHMATIC, evening, after lying down",4
+r58,764,2,"ASTHMATIC, evening, 9 p.m.",1
+r59,764,1,"ASTHMATIC, night",31
+r60,764,2,"ASTHMATIC, night, 10 p.m.",1
+r61,764,2,"ASTHMATIC, night, 11 p.m. when urinating",1
+r62,764,2,"ASTHMATIC, night, 11 p.m. to 2 a.m.",1
+r63,764,2,"ASTHMATIC, night, midnight, after",8
+r64,764,3,"ASTHMATIC, night, midnight, after, must spring out of bed",3
+r65,764,2,"ASTHMATIC, night, 2 a.m.",3
+r66,764,2,"ASTHMATIC, night, 2 to 3 a.m.",2
+r67,764,2,"ASTHMATIC, night, 3 a.m.",4
+o54724,764,2,"ASTHMATIC, night, 4 to 5 a.m.",2
+r69,764,2,"ASTHMATIC, night, 5 a.m.",1
+r70,764,1,"ASTHMATIC, air, draught of, agg.",1
+o54660,764,2,"ASTHMATIC, air, draught of, agg., open air amel.",1
+r72,764,1,"ASTHMATIC, alternating with eruptions",8
+o54663,764,2,"ASTHMATIC, alternating with eruptions, headache",3
+o54662,764,2,"ASTHMATIC, alternating with eruptions, gout",3
+o54664,764,2,"ASTHMATIC, alternating with eruptions, nocturnal diarrhœa",1
+o54665,764,2,"ASTHMATIC, alternating with eruptions, urticaria",1
+r77,764,1,"ASTHMATIC, anger, after",2
+r78,764,1,"ASTHMATIC, autumn",1
+r79,764,1,"ASTHMATIC, bending head backwards amel.",3
+r80,764,1,"ASTHMATIC, change of weather",3
+r81,764,1,"ASTHMATIC, children",14
+r82,764,2,"ASTHMATIC, children, after vaccination",1
+r83,764,1,"ASTHMATIC, coition, during",2
+r84,764,2,"ASTHMATIC, coition, during, after",3
+r85,764,1,"ASTHMATIC, cold, from taking",8
+r86,764,2,"ASTHMATIC, cold, from taking, heated, when",1
+r87,764,2,"ASTHMATIC, cold, from taking, in summer",1
+r88,764,1,"ASTHMATIC, cold air agg.",3
+o54675,764,2,"ASTHMATIC, cold air agg., amel.",4
+o54676,764,2,"ASTHMATIC, cold air agg., damp weather",3
+o54680,764,2,"ASTHMATIC, cold air agg., water agg.",1
+o54681,764,3,"ASTHMATIC, cold air agg., water agg., amel.",1
+r93,764,1,"ASTHMATIC, coughing agg.",1
+r94,764,1,"ASTHMATIC, dinner, after",1
+r95,764,1,"ASTHMATIC, drunkards",1
+r96,764,1,"ASTHMATIC, dust, from inhaling",1
+r97,764,1,"ASTHMATIC, eating, after",3
+r98,764,2,"ASTHMATIC, eating, after, amel.",2
+r99,764,1,"ASTHMATIC, emotions, after",10
+r100,765,1,"ASTHMATIC, eructations amel.",2
+r101,765,1,"ASTHMATIC, eruptions, after suppressed",11
+r102,765,1,"ASTHMATIC, excitement",1
+r103,765,1,"ASTHMATIC, expectoration amel.",1
+r104,765,1,"ASTHMATIC, faceache, with, disappearance of tetter on face",1
+r105,765,1,"ASTHMATIC, flatulence, from",10
+r106,765,1,"ASTHMATIC, hay asthma",18
+r107,765,1,"ASTHMATIC, humid (See Rattling)",0
+r108,765,1,"ASTHMATIC, hysterical",8
+r109,765,1,"ASTHMATIC, heart, from fatty degeneration of",1
+r110,765,1,"ASTHMATIC, injury of spine, after",1
+r111,765,1,"ASTHMATIC, intermittent fever, with",1
+r112,765,1,"ASTHMATIC, leaning backwards",1
+r113,765,1,"ASTHMATIC, measles, after",2
+r114,765,1,"ASTHMATIC, menses, before",1
+r115,765,2,"ASTHMATIC, menses, before, during",1
+r116,765,2,"ASTHMATIC, menses, before, after suppression of",2
+r117,765,1,"ASTHMATIC, mental-exertion",1
+r118,765,1,"ASTHMATIC, mercury, after",1
+r119,765,1,"ASTHMATIC, miner's asthma, from coal dust",1
+r120,765,1,"ASTHMATIC, music agg.",1
+r121,765,1,"ASTHMATIC, old people, in",7
+r122,765,1,"ASTHMATIC, periodic",15
+r123,765,2,"ASTHMATIC, periodic, every 8 days",1
+r124,765,1,"ASTHMATIC, rash, after suppression of acute",3
+r125,765,1,"ASTHMATIC, riding agg.",1
+r126,765,1,"ASTHMATIC, rocking amel.",1
+r127,765,1,"ASTHMATIC, rose cold, following",1
+r128,765,1,"ASTHMATIC, sailors as soon as they go ashore",1
+r129,765,1,"ASTHMATIC, sleep, coming on during",11
+r130,765,1,"ASTHMATIC, spasmodic",48
+r131,765,1,"ASTHMATIC, stool amel.",1
+r132,765,1,"ASTHMATIC, sudden attacks",2
+r133,765,1,"ASTHMATIC, talking agg.",1
+o54742,765,2,"ASTHMATIC, talking agg., amel.",1
+r135,765,1,"ASTHMATIC, thunderstorm, during",3
+r136,765,1,"ASTHMATIC, urinating, while",1
+r137,765,1,"ASTHMATIC, vaccination, after",1
+r138,765,1,"ASTHMATIC, vexation, from",1
+r139,765,1,"ASTHMATIC, warm food agg.",2
+r140,765,1,"ASTHMATIC, warm room agg.",3
+r141,765,1,"ASTHMATIC, warm room from the open air",1
+r142,765,1,"ASTHMATIC, warm wet weather",2
+r143,765,1,"ASTHMATIC, wet weather, in",7
+r144,765,1,"ASTHMATIC, wind, walking against",1
+r145,765,1,"ASTHMATIC, winter attacks",3
+r146,765,0,CATCHING,18
+r147,765,1,"CATCHING, morning",1
+r148,765,1,"CATCHING, night",1
+r149,765,1,"CATCHING, bending, on",1
+r150,765,1,"CATCHING, cough",2
+r151,765,2,"CATCHING, cough, after",6
+r152,765,1,"CATCHING, dancing, after",1
+r153,765,1,"CATCHING, fever, during",1
+r154,765,1,"CATCHING, menses, before",1
+r155,765,1,"CATCHING, sleep, during",1
+r156,765,1,"CATCHING, stitching in abdomen to back",1
+o54765,765,2,"CATCHING, stitching in abdomen to back, in piles",1
+r158,766,1,"CATCHING, working",1
+r159,766,0,CONVULSIVE (See Paroxysmal),0
+r160,766,0,CROAKING,2
+r161,766,0,CROWING (See Rough),0
+r162,766,0,DEEP,96
+r163,766,1,"DEEP, evening",2
+r164,766,1,"DEEP, midnight, on waking",1
+r165,766,1,"DEEP, abdomen, from",2
+r166,766,1,"DEEP, ameliorates",23
+r167,766,1,"DEEP, chill, during",1
+r168,766,1,"DEEP, desire to breathe",59
+r169,766,2,"DEEP, desire to breathe, chill, during",1
+r170,766,2,"DEEP, desire to breathe, lying, while",1
+r171,766,1,"DEEP, dinner, before",2
+r172,766,1,"DEEP, eating, after",1
+r173,766,1,"DEEP, heart, from heaviness at",1
+r174,766,1,"DEEP, impossible",16
+r175,766,1,"DEEP, lying down, while",1
+o54781,766,2,"DEEP, lying down, while, back, on, amel.",1
+o54782,766,2,"DEEP, lying down, while, left side agg.",1
+r178,766,1,"DEEP, menses, before",1
+r179,766,1,"DEEP, running, after",1
+r180,766,1,"DEEP, sitting, while",2
+r181,766,1,"DEEP, sleep, during",1
+r182,766,1,"DEEP, slow, wheezing",1
+r183,766,1,"DEEP, writing, while",1
+r184,766,0,DIFFICULT,259
+r185,767,1,"DIFFICULT, daytime",1
+r186,767,1,"DIFFICULT, morning",26
+r187,767,2,"DIFFICULT, morning, bed, in",10
+r188,767,2,"DIFFICULT, morning, chest, from anxiety in",1
+r189,767,2,"DIFFICULT, morning, exertion, from",1
+r190,767,2,"DIFFICULT, morning, expectoration amel.",1
+r191,767,2,"DIFFICULT, morning, rising, on",2
+o54931,767,2,"DIFFICULT, morning, rising, after",4
+r193,767,3,"DIFFICULT, morning, rising, after, amel.",3
+r194,767,2,"DIFFICULT, morning, standing, while",1
+r195,767,2,"DIFFICULT, morning, waking, on",5
+r196,767,1,"DIFFICULT, forenoon",9
+r197,767,2,"DIFFICULT, forenoon, standing, while",1
+r198,767,2,"DIFFICULT, forenoon, walking",1
+r199,767,3,"DIFFICULT, forenoon, walking, in open air",1
+r200,767,2,"DIFFICULT, forenoon, writing, while",1
+r201,767,2,"DIFFICULT, forenoon, 8 a.m.",1
+r202,767,2,"DIFFICULT, forenoon, 9 a.m.",5
+r203,767,3,"DIFFICULT, forenoon, 9 a.m., after breakfast",1
+r204,767,2,"DIFFICULT, forenoon, 10 a.m.",2
+r205,767,2,"DIFFICULT, forenoon, 11 a.m.",2
+r206,767,1,"DIFFICULT, noon",2
+r207,767,1,"DIFFICULT, afternoon",16
+r208,767,2,"DIFFICULT, afternoon, 1 p.m.",2
+r209,767,2,"DIFFICULT, afternoon, 2 p.m.",1
+r210,767,2,"DIFFICULT, afternoon, 3 p.m. when running",2
+r211,767,2,"DIFFICULT, afternoon, 3-30 p.m. while sitting",1
+r212,767,2,"DIFFICULT, afternoon, 4 p.m.",1
+o54797,767,2,"DIFFICULT, afternoon, 5 to 7 p.m.",1
+r214,767,2,"DIFFICULT, afternoon, 5 p.m., sudden",1
+r215,767,2,"DIFFICULT, afternoon, 6 p.m.",1
+r216,767,2,"DIFFICULT, afternoon, 6-30 p.m.",1
+o54800,767,2,"DIFFICULT, afternoon, 6 to 9 p.m.",1
+r218,767,1,"DIFFICULT, evening",54
+r219,767,2,"DIFFICULT, evening, amel.",1
+o68047,767,2,"DIFFICULT, evening, bed, in",20
+r221,767,3,"DIFFICULT, evening, bed, in, amel.",1
+r222,767,2,"DIFFICULT, evening, 6 p.m.",2
+r223,767,2,"DIFFICULT, evening, 9 p.m.",1
+r224,767,1,"DIFFICULT, night, during",94
+o54954,767,2,"DIFFICULT, night, during, bed, in",5
+o54953,767,3,"DIFFICULT, night, during, bed, in, amel.",1
+r227,767,2,"DIFFICULT, night, during, 10 p.m.",4
+r228,767,3,"DIFFICULT, night, during, 10 p.m., to 10 a.m.",1
+r229,767,2,"DIFFICULT, night, during, 11 p.m.",3
+r230,767,3,"DIFFICULT, night, during, 11 p.m., to 3 a.m.",1
+r234,767,2,"DIFFICULT, night, during, midnight",6
+r232,767,3,"DIFFICULT, night, during, midnight, before",2
+r235,768,3,"DIFFICULT, night, during, midnight, after",7
+r236,768,4,"DIFFICULT, night, during, midnight, after, on waking",3
+r237,768,5,"DIFFICULT, night, during, midnight, after, on waking, at 1 a.m.",3
+o54942,768,2,"DIFFICULT, night, during, 1 to 2 a.m.",1
+o54943,768,2,"DIFFICULT, night, during, 1 to 4 a.m.",1
+r240,768,2,"DIFFICULT, night, during, 2 a.m.",3
+o54949,768,2,"DIFFICULT, night, during, 2 to 3 a.m.",2
+r242,768,2,"DIFFICULT, night, during, 3 a.m.",7
+r243,768,2,"DIFFICULT, night, during, 4 a.m.",2
+r244,768,2,"DIFFICULT, night, during, 5 a.m.",1
+r245,768,2,"DIFFICULT, night, during, frequent attacks until 4 a.m.",1
+o54802,768,1,"DIFFICULT, air, in cold",14
+r247,768,2,"DIFFICULT, air, in cold, amel.",12
+o54804,768,1,"DIFFICULT, in open",10
+o54805,768,2,"DIFFICULT, in open, amel.",25
+r250,768,1,"DIFFICULT, alternating with pain in hypochondria",1
+o54807,768,2,"DIFFICULT, alternating with pain in hypochondria, sopor",1
+o54808,768,2,"DIFFICULT, alternating with pain in hypochondria, urticaria",1
+o54809,768,2,"DIFFICULT, alternating with pain in hypochondria, uterine hæmorrhage",1
+r254,768,1,"DIFFICULT, anger, after",5
+r255,768,1,"DIFFICULT, ascending",76
+r256,768,1,"DIFFICULT, autumn",1
+r257,768,1,"DIFFICULT, beer, after",1
+r258,768,1,"DIFFICULT, bending arm backwards, on",1
+o54815,768,2,"DIFFICULT, bending arm backwards, on, backward",3
+o54816,768,3,"DIFFICULT, bending arm backwards, on, backward, amel.",2
+o54819,768,2,"DIFFICULT, bending arm backwards, on, head backwards",2
+o54820,768,3,"DIFFICULT, bending arm backwards, on, head backwards, must rise up and bend head backwards",1
+o54817,768,2,"DIFFICULT, bending arm backwards, on, forward",3
+o54818,768,3,"DIFFICULT, bending arm backwards, on, forward, amel.",8
+r265,768,1,"DIFFICULT, breath, on taking a deep",1
+r266,768,2,"DIFFICULT, breath, on taking a deep, as if the next would be the last",1
+r267,768,1,"DIFFICULT, change of weather",2
+r268,768,1,"DIFFICULT, children",6
+r269,768,1,"DIFFICULT, chill, during",16
+r270,768,1,"DIFFICULT, closing eyes, on",2
+r271,768,1,"DIFFICULT, coffee, from",3
+r272,768,1,"DIFFICULT, coition, during",7
+r273,768,2,"DIFFICULT, coition, during, after",2
+r274,768,2,"DIFFICULT, coition, during, toward end of",1
+r275,768,1,"DIFFICULT, cold, after taking",4
+r276,768,2,"DIFFICULT, cold, after taking, water, after drinking amel.",1
+o54833,768,3,"DIFFICULT, cold, after taking, water, after drinking amel., when heated, after",1
+r278,768,2,"DIFFICULT, cold, after taking, weather",1
+r279,768,2,"DIFFICULT, cold, after taking, wet weather",4
+r280,768,1,"DIFFICULT, constriction of larynx",8
+o54837,768,2,"DIFFICULT, constriction of larynx, trachea",1
+r282,768,1,"DIFFICULT, convulsions, during",4
+r283,768,2,"DIFFICULT, convulsions, during, tetanic",1
+r284,768,1,"DIFFICULT, cough, with",80
+r285,769,1,"DIFFICULT, covering nose or mouth",2
+r286,769,1,"DIFFICULT, crowded room",1
+r287,769,1,"DIFFICULT, dark, in the",1
+r288,769,1,"DIFFICULT, dinner, after",5
+r289,769,1,"DIFFICULT, diseased conditions of distant parts not involved in act of breathing",1
+r290,769,1,"DIFFICULT, dreams, during",1
+r291,769,2,"DIFFICULT, dreams, during, after frightful",1
+r292,769,1,"DIFFICULT, dressing, while",1
+r293,769,1,"DIFFICULT, drinking, when",10
+r294,769,2,"DIFFICULT, drinking, when, after",2
+r295,769,1,"DIFFICULT, dust, as from",12
+o54855,769,1,"DIFFICULT, eating, while",1
+r297,769,2,"DIFFICULT, eating, while, after",34
+r298,769,2,"DIFFICULT, eating, while, amel.",4
+r299,769,1,"DIFFICULT, emission, after",2
+r300,769,1,"DIFFICULT, emphysema, in",1
+r301,769,1,"DIFFICULT, eructations amel.",3
+r302,769,1,"DIFFICULT, eruptive diseases, with",1
+r303,769,1,"DIFFICULT, excitement agg.",6
+r304,769,1,"DIFFICULT, exertion, after",57
+r305,769,2,"DIFFICULT, exertion, after, with hands and arms",6
+r306,769,1,"DIFFICULT, expectoration amel.",9
+o54870,769,2,"DIFFICULT, expectoration amel., checked, after",1
+r308,769,1,"DIFFICULT, expiration",11
+r309,769,2,"DIFFICULT, expiration, cough, during",1
+r310,769,1,"DIFFICULT, fanned, wants to be",7
+r311,769,1,"DIFFICULT, flatulence, from",8
+r312,769,1,"DIFFICULT, fright, after",2
+o54886,769,1,"DIFFICULT, handkerchief, cannot bear to have, approach the mouth as it will cause dyspnœa",2
+r314,769,1,"DIFFICULT, hang down, legs, amel.",1
+r315,769,1,"DIFFICULT, heart, during pain in",10
+o54889,769,2,"DIFFICULT, heart, during pain in, complaints and urinary troubles",2
+o54890,769,3,"DIFFICULT, heart, during pain in, complaints and urinary troubles, and ovarian troubles",1
+r318,769,1,"DIFFICULT, heat, with",19
+r319,769,1,"DIFFICULT, heated, when overheated",1
+r320,769,1,"DIFFICULT, hurried, if",1
+r321,769,1,"DIFFICULT, hysterical",6
+r322,769,1,"DIFFICULT, inspiration",19
+r323,769,2,"DIFFICULT, inspiration, rapid expiration",7
+r324,769,1,"DIFFICULT, laughing",7
+r325,769,1,"DIFFICULT, liver, from stitches in",2
+r326,769,1,"DIFFICULT, lung, from heaviness in left",1
+r327,769,2,"DIFFICULT, lung, from heaviness in left, cannot expand the",1
+o54917,769,1,"DIFFICULT, lying, while",79
+r330,770,2,"DIFFICULT, lying, while, amel.",10
+r331,770,2,"DIFFICULT, lying, while, enlargement of the tonsils, from",1
+r332,770,2,"DIFFICULT, lying, while, head low, with the",14
+r333,770,2,"DIFFICULT, lying, while, on the back",18
+r334,770,3,"DIFFICULT, lying, while, on the back, amel.",6
+r335,770,3,"DIFFICULT, lying, while, on the back, arms outstretched amel.",1
+r336,770,3,"DIFFICULT, lying, while, on the back, with shoulders elevated amel.",1
+r337,770,2,"DIFFICULT, lying, while, on knees and elbows amel.",1
+o54910,770,2,"DIFFICULT, lying, while, on the side",3
+r339,770,3,"DIFFICULT, lying, while, on the side, amel.",1
+o68054,770,3,"DIFFICULT, lying, while, on the side, right side",2
+o54915,770,4,"DIFFICULT, lying, while, on the side, right side, amel.",1
+o54916,770,4,"DIFFICULT, lying, while, on the side, right side, going to sleep",1
+o54912,770,3,"DIFFICULT, lying, while, on the side, left side",15
+o54913,770,4,"DIFFICULT, lying, while, on the side, left side, amel.",1
+r345,770,2,"DIFFICULT, lying, while, impossible",30
+r346,770,1,"DIFFICULT, manual labour",6
+r347,770,1,"DIFFICULT, measles, from suppressed",3
+r348,770,1,"DIFFICULT, menorrhagia, from being suppressed",1
+r349,770,1,"DIFFICULT, menses, before",6
+r350,770,2,"DIFFICULT, menses, before, during",19
+r351,770,2,"DIFFICULT, menses, before, after",3
+r352,770,2,"DIFFICULT, menses, before, suppressed, with",2
+r353,770,1,"DIFFICULT, mental exertion",3
+r354,770,1,"DIFFICULT, mortification, after",1
+r355,770,1,"DIFFICULT, motion",40
+r356,770,2,"DIFFICULT, motion, amel.",8
+r357,770,2,"DIFFICULT, motion, of arms",5
+r358,770,2,"DIFFICULT, motion, slow motion agg.",1
+r359,770,1,"DIFFICULT, mucus in the trachea, from",12
+r360,770,1,"DIFFICULT, odor, caused by",2
+o54964,770,1,"DIFFICULT, œdema, pulmonary",3
+r362,770,1,"DIFFICULT, old people",3
+r363,770,1,"DIFFICULT, open, wants doors and windows",16
+r364,770,2,"DIFFICULT, open, wants doors and windows, must sit by the window",2
+r365,770,2,"DIFFICULT, open, wants doors and windows, mouth with inspiration",2
+r366,770,1,"DIFFICULT, pain, with every labor",1
+r367,770,1,"DIFFICULT, palpitation, during",25
+o54970,770,2,"DIFFICULT, palpitation, during, 11 to 3 a.m.",1
+r369,770,1,"DIFFICULT, periodic attacks",6
+r370,770,2,"DIFFICULT, periodic attacks, seven days",1
+r371,770,1,"DIFFICULT, perspiration",6
+r372,770,2,"DIFFICULT, perspiration, anxious face and sleeplessness",1
+r373,770,1,"DIFFICULT, pork, after",1
+r374,771,1,"DIFFICULT, pressing on spine",1
+r375,771,1,"DIFFICULT, raising arms",2
+o54980,771,1,"DIFFICULT, reading, while",1
+r377,771,2,"DIFFICULT, reading, while, amel.",1
+r378,771,1,"DIFFICULT, retraction of shoulders amel.",3
+r379,771,1,"DIFFICULT, rheumatic of heart",8
+o54985,771,1,"DIFFICULT, riding, while",1
+r381,771,2,"DIFFICULT, riding, while, amel.",1
+r382,771,2,"DIFFICULT, riding, while, on horseback agg.",1
+r383,771,1,"DIFFICULT, rising, after",1
+r384,771,2,"DIFFICULT, rising, after, on, amel.",1
+r385,771,2,"DIFFICULT, rising, after, up in bed",3
+r386,771,1,"DIFFICULT, running, after",3
+r387,771,2,"DIFFICULT, running, after, does not agg., slow motion agg.",1
+r388,771,1,"DIFFICULT, singing, when",1
+r389,771,1,"DIFFICULT, sitting",25
+r390,771,2,"DIFFICULT, sitting, bent backwards",1
+o54995,771,3,"DIFFICULT, sitting, bent backwards, forwards",3
+o54996,771,4,"DIFFICULT, sitting, bent backwards, forwards, amel.",5
+r393,771,2,"DIFFICULT, sitting, amel.",11
+r394,771,2,"DIFFICULT, sitting, half sitting amel.",1
+r395,771,2,"DIFFICULT, sitting, upright amel.",9
+r396,771,2,"DIFFICULT, sitting, with head bent forward on knees amel.",2
+r397,771,1,"DIFFICULT, sleep, during",26
+r398,771,2,"DIFFICULT, sleep, during, awakened to avoid suffocation, must be",2
+r399,771,2,"DIFFICULT, sleep, during, after",10
+r400,771,2,"DIFFICULT, sleep, during, falling asleep, when",21
+r401,771,3,"DIFFICULT, sleep, during, falling asleep, when, lying on right side",1
+r402,771,1,"DIFFICULT, smoke, as from",4
+r403,771,1,"DIFFICULT, spasms of larynx (See Larynx and Trachea)",0
+r404,771,1,"DIFFICULT, spasmodic",7
+r405,771,1,"DIFFICULT, speaking, rapidly, when",1
+r406,771,1,"DIFFICULT, stand, compelled stand erect",1
+r407,771,1,"DIFFICULT, standing",5
+r408,771,2,"DIFFICULT, standing, can only breathe when",1
+r409,771,2,"DIFFICULT, standing, in water",1
+r410,771,1,"DIFFICULT, sternum, from pressure on",7
+r411,771,2,"DIFFICULT, sternum, from pressure on, upper part of",1
+r412,771,1,"DIFFICULT, stimulants agg.",1
+r413,771,1,"DIFFICULT, stool, before",1
+o55018,771,2,"DIFFICULT, stool, before, during",3
+r415,771,2,"DIFFICULT, stool, before, after",3
+r416,771,2,"DIFFICULT, stool, before, amel.",1
+r417,771,1,"DIFFICULT, stooping, on",11
+r418,771,1,"DIFFICULT, stormy weather",3
+r419,771,1,"DIFFICULT, sudden",5
+r420,771,2,"DIFFICULT, sudden, 5 p.m.",1
+r421,771,1,"DIFFICULT, sulphur, as if he inhaled, fumes of",10
+r422,771,1,"DIFFICULT, supper, during",1
+r423,771,2,"DIFFICULT, supper, during, after",3
+r424,771,1,"DIFFICULT, suppressed eruptions, from",1
+r425,771,1,"DIFFICULT, swallowing",7
+r426,771,1,"DIFFICULT, talking, after",14
+r427,771,2,"DIFFICULT, talking, after, amel.",1
+r428,771,2,"DIFFICULT, talking, after, loud",1
+r429,772,1,"DIFFICULT, throat-pit, constriction at",1
+r430,772,2,"DIFFICULT, throat-pit, constriction at, lump in",1
+r431,772,1,"DIFFICULT, thunderstorm, before",3
+r432,772,1,"DIFFICULT, touching larynx",3
+r433,772,1,"DIFFICULT, turning in bed",3
+r434,772,2,"DIFFICULT, turning in bed, to left side disappeared on sitting up",1
+r435,772,2,"DIFFICULT, turning in bed, to right side",1
+r436,772,1,"DIFFICULT, vexation, after",2
+r437,772,1,"DIFFICULT, waking with",47
+r438,772,1,"DIFFICULT, walking",57
+r439,772,2,"DIFFICULT, walking, amel.",7
+r440,772,2,"DIFFICULT, walking, air, in the open",7
+r441,772,2,"DIFFICULT, walking, beginning to walk, on",2
+r442,772,2,"DIFFICULT, walking, on level ground but not when ascending",1
+r443,772,2,"DIFFICULT, walking, over uneven ground",1
+o55046,772,2,"DIFFICULT, walking, rapidly",15
+r445,772,3,"DIFFICULT, walking, rapidly, amel.",1
+r446,772,2,"DIFFICULT, walking, slowly, about, amel.",1
+r447,772,2,"DIFFICULT, walking, wind, against the",8
+r448,772,1,"DIFFICULT, warm bath",2
+o55051,772,2,"DIFFICULT, warm bath, clothing, from",1
+o55052,772,2,"DIFFICULT, warm bath, drinks, after",1
+o55053,772,2,"DIFFICULT, warm bath, food",1
+o55056,772,2,"DIFFICULT, warm bath, room, in a",20
+o55054,772,3,"DIFFICULT, warm bath, room, in a, becomes deathly pale and must remain quiet",1
+o55055,772,3,"DIFFICULT, warm bath, room, in a, entering warm room from open air",1
+r455,772,1,"DIFFICULT, water, when standing in",1
+r456,772,1,"DIFFICULT, weakness",2
+r457,772,2,"DIFFICULT, weakness, of respiratory organs",3
+r458,772,1,"DIFFICULT, wet weather",3
+r459,772,1,"DIFFICULT, windy weather",2
+o55063,772,1,"DIFFICULT, writing, while",2
+r461,772,2,"DIFFICULT, writing, while, amel.",1
+r462,772,1,"DIFFICULT, yawning amel.",1
+r463,772,0,FEEBLE (See Weak),0
+r464,772,0,FORCIBLE,3
+r465,772,1,"FORCIBLE, expiration",8
+r466,772,0,GASPING,47
+r467,772,1,"GASPING, morning, 5 a.m.",1
+r468,772,1,"GASPING, afternoon",1
+r469,772,1,"GASPING, night",1
+r470,772,2,"GASPING, night, 2 a.m. with cough",1
+r471,772,1,"GASPING, cough, before",4
+r472,772,2,"GASPING, cough, before, during",3
+r473,772,1,"GASPING, dozing, when",1
+r474,772,1,"GASPING, inspiration, expiration long and slow",2
+r475,772,0,GROANING (See Moaning),0
+r476,772,0,HOT breath,37
+r477,773,1,"HOT breath, morning, on waking",1
+r478,773,1,"HOT breath, afternoon",2
+r479,773,1,"HOT breath, evening",2
+r480,773,1,"HOT breath, chill, during",4
+r481,773,1,"HOT breath, cold limbs, with",1
+r482,773,1,"HOT breath, fever, during",1
+r483,773,0,HYSTERICAL (See Paroxysmal),0
+r484,773,0,"IMPEDED, obstructed",82
+r485,773,1,"IMPEDED, obstructed, morning",1
+r486,773,2,"IMPEDED, obstructed, morning, in bed",1
+r487,773,1,"IMPEDED, obstructed, forenoon",2
+r488,773,1,"IMPEDED, obstructed, noon",1
+r489,773,1,"IMPEDED, obstructed, afternoon",1
+r490,773,1,"IMPEDED, obstructed, evening",1
+r491,773,2,"IMPEDED, obstructed, evening, bed, in",1
+r492,773,2,"IMPEDED, obstructed, evening, eating, after",1
+r493,773,1,"IMPEDED, obstructed, night",4
+r494,773,2,"IMPEDED, obstructed, night, sleep, during",1
+r495,773,2,"IMPEDED, obstructed, night, midnight",1
+r496,773,1,"IMPEDED, obstructed, coffee, after",1
+r497,773,1,"IMPEDED, obstructed, constriction of chest",7
+o55086,773,2,"IMPEDED, obstructed, constriction of chest, stomach, in",1
+r499,773,1,"IMPEDED, obstructed, cough, during",9
+r500,773,1,"IMPEDED, obstructed, descending, on",1
+r501,773,1,"IMPEDED, obstructed, eating, while",1
+o55089,773,2,"IMPEDED, obstructed, eating, while, after",1
+r503,773,1,"IMPEDED, obstructed, flatulency, from",3
+o55096,773,1,"IMPEDED, obstructed, gagging in œsophagus",1
+r505,773,1,"IMPEDED, obstructed, lying, while",1
+o55097,773,2,"IMPEDED, obstructed, lying, while, on the back",3
+o55098,773,3,"IMPEDED, obstructed, lying, while, on the back, amel.",1
+o55099,773,2,"IMPEDED, obstructed, lying, while, side, left",1
+r509,773,1,"IMPEDED, obstructed, pain in the chest",13
+o55109,773,2,"IMPEDED, obstructed, pain in the chest, in diaphragm",2
+r511,773,1,"IMPEDED, obstructed, pains take away the breath",3
+r512,773,1,"IMPEDED, obstructed, raising the arm",1
+r513,773,1,"IMPEDED, obstructed, shooting in chest",3
+r514,773,1,"IMPEDED, obstructed, spasms of chest",2
+r515,773,1,"IMPEDED, obstructed, stitches in chest",13
+o55115,773,2,"IMPEDED, obstructed, stitches in chest, in heart",6
+r517,773,1,"IMPEDED, obstructed, stooping, from",2
+r518,773,1,"IMPEDED, obstructed, swallowing, on",1
+r519,773,1,"IMPEDED, obstructed, talking, while",1
+r520,773,1,"IMPEDED, obstructed, thrust in left, toward heart",1
+r521,773,0,IMPERCEPTIBLE,17
+r522,773,0,"INTERMITTENT, unequal",19
+r523,773,1,"INTERMITTENT, unequal, night",1
+r524,773,2,"INTERMITTENT, unequal, night, midnight on waking",1
+r525,773,1,"INTERMITTENT, unequal, lying down agg.",1
+r526,773,1,"INTERMITTENT, unequal, sleep, during",2
+r527,773,0,INTERRUPTED (See Arrested),0
+r528,773,1,"INTERRUPTED (See Arrested), expiration",1
+r529,773,1,"INTERRUPTED (See Arrested), inspiration",2
+r530,773,0,IRREGULAR,54
+r531,774,1,"IRREGULAR, at one time slow, at another time hurried",6
+r532,774,1,"IRREGULAR, cough, during",2
+r533,774,1,"IRREGULAR, drinking, when",1
+r534,774,1,"IRREGULAR, sleep, during",3
+r535,774,1,"IRREGULAR, standing, while",1
+r536,774,0,JERKING,10
+r537,774,1,"JERKING, inspiration",1
+r538,774,2,"JERKING, inspiration, by two distinct efforts",1
+r539,774,1,"JERKING, expiration",1
+r540,774,0,LONG (See Deep expiration),5
+r541,774,0,LOUD,50
+r542,774,1,"LOUD, forenoon",1
+r543,774,1,"LOUD, midnight, on waking",1
+r544,774,1,"LOUD, expiration",5
+r545,774,1,"LOUD, inspiration",12
+r546,774,1,"LOUD, lying on right side",1
+r547,774,1,"LOUD, paroxysms, during",1
+r548,774,1,"LOUD, sitting quiet, while",1
+r549,774,1,"LOUD, sleep, in",5
+r550,774,1,"LOUD, spasms of glottis, as from",1
+r551,774,1,"LOUD, walking",1
+r552,774,0,MOANING,26
+r553,774,0,OBSTRUCTED (See Impeded),0
+r554,774,0,OPPRESSION (See Chest),0
+r555,774,0,PAINFUL,17
+r556,774,1,"PAINFUL, morning",1
+r557,774,1,"PAINFUL, night",1
+r558,774,1,"PAINFUL, inspiration, on",1
+r559,774,0,PANTING,41
+r560,774,1,"PANTING, ascending stairs",2
+r561,774,1,"PANTING, motion, on",1
+r562,774,1,"PANTING, waking, on",1
+r563,774,0,PAROXYSMAL,32
+r564,774,1,"PAROXYSMAL, evening",1
+r565,774,1,"PAROXYSMAL, night",1
+r566,774,0,PUFFING (See Stertorous),0
+r567,774,0,QUICK (See Accelerated),0
+r568,774,1,"QUICK (See Accelerated), expiration",2
+r569,774,0,RATTLING,120
+r570,775,1,"RATTLING, morning",1
+r571,775,1,"RATTLING, evening in bed",1
+r572,775,1,"RATTLING, night and day",1
+r573,775,1,"RATTLING, midnight, before",1
+r574,775,1,"RATTLING, convulsions, during",1
+r575,775,1,"RATTLING, cough, during (See Rattling Cough)",0
+r576,775,1,"RATTLING, expiring, when",1
+r577,775,1,"RATTLING, lying agg.",2
+o55168,775,2,"RATTLING, lying agg., on back agg.",2
+r579,775,1,"RATTLING, old people",6
+r580,775,1,"RATTLING, sitting upright amel.",1
+r581,775,1,"RATTLING, sleep, during",3
+r582,775,1,"RATTLING, walking, while",1
+r583,775,2,"RATTLING, walking, while, in open air",2
+r584,775,0,ROUGH,7
+r585,775,1,"ROUGH, crowing (See Croup)",10
+r586,775,1,"ROUGH, sawing",9
+r587,775,2,"ROUGH, sawing, between coughs",1
+r588,775,0,SHORT (See Difficult),0
+r589,775,1,"SHORT (See Difficult), inspiration",1
+r590,775,0,SIGHING,68
+r591,775,1,"SIGHING, morning",1
+r592,775,1,"SIGHING, forenoon, 9-30 a.m.",1
+r593,775,1,"SIGHING, afternoon",1
+r594,775,1,"SIGHING, evening",1
+r595,775,2,"SIGHING, evening, 7 p.m.",1
+r596,775,1,"SIGHING, night",1
+r597,775,2,"SIGHING, night, 2 a.m.",1
+r598,775,1,"SIGHING, convulsions, after",1
+r599,775,1,"SIGHING, dinner, after",1
+r600,775,1,"SIGHING, eating, after",1
+r601,775,1,"SIGHING, menses, during",1
+r602,775,1,"SIGHING, sleep, during",3
+r603,775,2,"SIGHING, sleep, during, quickened on waking",1
+r604,775,1,"SIGHING, typhoid, in, sighing, jerks",1
+r605,775,1,"SIGHING, unconsciousness, during",1
+r606,775,0,SLOW,63
+r607,775,1,"SLOW, morning",2
+r608,775,1,"SLOW, evening, while lying quiet, agg.",2
+r609,775,1,"SLOW, night",2
+r610,775,1,"SLOW, alternating with short during sleep",1
+o55200,775,2,"SLOW, alternating with short during sleep, with suffocation",1
+r612,775,1,"SLOW, convulsions, during",1
+r613,775,1,"SLOW, cough, during",1
+r614,775,1,"SLOW, expiration",7
+o55205,775,1,"SLOW, during sleep",2
+r616,775,1,"SLOW, inspiration",4
+r617,775,2,"SLOW, inspiration, sleep, during",3
+r618,775,1,"SLOW, walking amel.",1
+r619,775,0,SNORING,54
+r620,776,1,"SNORING, morning, while sleeping",1
+r621,776,1,"SNORING, afternoon nap, during",1
+r622,776,1,"SNORING, evening in bed",1
+r623,776,1,"SNORING, midnight",2
+r624,776,1,"SNORING, awake, while",2
+r625,776,1,"SNORING, chill, during",3
+r626,776,1,"SNORING, delirium, after",1
+r627,776,1,"SNORING, expiring, while",5
+r628,776,1,"SNORING, heat, during",5
+r629,776,1,"SNORING, insensible, while",1
+r630,776,1,"SNORING, lying on the back, while",5
+r631,776,1,"SNORING, swoon, during",1
+r632,776,0,SOBBING,23
+r633,776,1,"SOBBING, paroxysmal",1
+r634,776,1,"SOBBING, in sleep",2
+r635,776,0,SPASMODIC (See Paroxysmal),0
+r636,776,0,STERTOROUS,50
+r637,776,1,"STERTOROUS, evening in bed",1
+r638,776,1,"STERTOROUS, convulsions, after",2
+r639,776,1,"STERTOROUS, involuntary stools and urine",1
+r640,776,1,"STERTOROUS, lying on the affected side",1
+r641,776,1,"STERTOROUS, puffing expiration, with",7
+r642,776,1,"STERTOROUS, sleep, during",4
+r643,776,1,"STERTOROUS, stupefaction and crying out as with a sharp pain",1
+r644,776,0,STRIDULOUS,17
+r645,776,1,"STRIDULOUS, evening, on falling asleep",1
+r646,776,0,SUFFOCATIVE (See Difficult),0
+r647,776,0,SUPERFICIAL,5
+r648,776,0,TREMULOUS,1
+r649,776,0,"VEHEMENT, expiration",5
+r650,776,0,WHEEZING,62
+r651,776,1,"WHEEZING, daytime",1
+r652,776,1,"WHEEZING, afternoon",1
+r653,776,1,"WHEEZING, evening",2
+r654,776,2,"WHEEZING, evening, bed, in",1
+r655,776,2,"WHEEZING, evening, lying down, on",1
+r656,776,1,"WHEEZING, night",1
+r657,776,1,"WHEEZING, midnight, after",1
+r658,776,1,"WHEEZING, expectoration, amel.",1
+r659,776,1,"WHEEZING, expiring, when",3
+r660,776,1,"WHEEZING, inspiring, while",5
+r661,776,1,"WHEEZING, sitting up, while",1
+r662,776,1,"WHEEZING, sleep, during",1
+r663,776,1,"WHEEZING, smoking on",1
+r664,776,1,"WHEEZING, warm room",1
+r665,776,0,WHISTLING,49
+r666,777,1,"WHISTLING, morning",1
+r667,777,1,"WHISTLING, evening",3
+r668,777,2,"WHISTLING, evening, after lying down",1
+r669,777,1,"WHISTLING, night, 3 a.m. in sleep",1
+r670,777,1,"WHISTLING, ascending agg.",1
+r671,777,1,"WHISTLING, cough, during",1
+r672,777,1,"WHISTLING, expiration, on",1
+r673,777,1,"WHISTLING, inspiration, during",6
+r674,777,1,"WHISTLING, lying, while",1
+r675,777,2,"WHISTLING, lying, while, on the back",1
+r676,777,2,"WHISTLING, lying, while, on left side",1
+r677,777,1,"WHISTLING, sleep in",2
+r678,777,1,"WHISTLING, waking, when",1
+r679,777,1,"WHISTLING, whooping cough, in",6

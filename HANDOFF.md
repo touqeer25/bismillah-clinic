@@ -1,5 +1,5 @@
 # حوالگی — موجودہ کام اور اگلے قدم
-**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 189 · **اصل مخزن:**
+**آخری تجدید:** 10 اکتوبر 2026 · **موجودہ اطلاقی نسخہ:** 190 · **اصل مخزن:**
 
 ```text
 https://github.com/touqeer25/bismillah-clinic
@@ -2315,6 +2315,29 @@ kent_sources/reports/واضح-اصلاحات.csv        (68 — ہر اصلاح 
 1. ڈاکٹر تناسلی-عورت-تین-کالم.csv کی تصدیق (1336 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (15 نئے اندراجات — خاص طور پر پارسر فکس اور 6 clamps)
 2. اگلا باب: کتابی ترتیب کے مطابق — **LARYNX AND TRACHEA (MEDI-T ص 746 سے، kent0745 کا P746 اینکر + kent0750/kent0755 وغیرہ kentrep2/ راستہ؛ انڈیکس kentlary.htm)**
 3. Vercel پش (v188 کے بعد)
+
+## مکمل شدہ پڑتال — سانس RESPIRATION باب: ماخذی درخت + ادویات + اردو (نسخہ 190)
+
+### 28.1 کیا کیا گیا (10 اکتوبر 2026)
+- **ماخذ:** homeoint.org MEDI-T صفحات 762–777 — kentresp.htm انڈیکس کے **15 صفحہ-اندراجات** (P763..P777 — rubric-طرز: ہر صفحے کا پہلا ربرک) + جڑ صفحہ p762؛ فائلیں: kent0760 (RESPIRATION سرخی-اینکر سے) + kent0765/0770/0775 (سب kentrep2/)؛ kent0780 استعمال نہیں
+- **ماخذی درخت:** 698 منفرد قطاریں (جڑ + 697) — overlay: 697 جُڑے (668 لالچی + **22 دستی J=1.00** + 7 فال بیک) + 1 نئے hN (جڑ) + 64 legacy محفوظ = 762 کل؛ کوئی کتابی دہرائی نہیں (دوہرے راستے = 0)
+- **دستی جوڑے (22 — OOREP لیبل-فرق، ادویات عین):** وقت-فارمیٹ 8 («10 a.m. to 11 a.m.» ← «10 to 11 a.m.» طرز)، during-سیگمنٹ 3 (OOREP نے چھوڑا)، agg.-لاحقہ 11 (genm r381 اصول — کتابی قطاریں bare)
+- **1 clamp** (x-coord ثابت resp_clamp_xcoords.json): **1 کتابی یتیم-indentation** (x = خام سطح: idx357 «amel. : Alum.» p770 @200.7، raw d4→d3) — lary کے برعکس کوئی MEDI-T اضافی <dir> مثال نہیں
+- **PDF تصدیق:** 694/696 حرف-بہ-حرف (99.7%) + 2 PDF-طرفہ artifacts (فولیو-گلا kali1662s folio1662 p767؛ لیبل-ورپ p769 — کتابی ربرک handkerchief…dyspnœa extractor میں اگلی قطار کی ادویات میں گلا — drift 1 قطار) — صفر homeoint-طرفہ فرق، صفر دونوں-طرفہ باقیات (resp_pdf_verify.json)
+- **MEDI-T صفحہ-سرخی paras (15/15 آرٹیفیکٹ):** ہر P-اینکر کے بعد والد-سیاق para («ANXIOUS, morning» p763، «ASTHMATIC, morning» p764) — کتاب میں نہیں؛ after_anchor skip + 15/15 سیاق تصدیق
+- **باب-حد:** آغاز kent0760 کے اندر NAME="RESPIRATION" سرخی اینکر (**drop_cut_para نئی میکانزم** — سرخی-para skip؛ non-P-اینکر → init_page=762؛ جڑ d0 bare-para سے؛ p762: جڑ + ABDOMINAL {12} + ACCELERATED {120} + ذیلیاں + ANXIOUS {82})؛ اختتام kent0775 کے اندر NAME="P778" COUGH P-اینکر (آخری ربرک WHISTLING, whooping cough, in {6} p777)
+- **3/3 سرحدی ڈپ صفحات** text-identical (verify_resp_dups.py — p765/770/775)
+- **اردو:** 698/698 فعال (697 منتقل — 22 دستی جوڑوں سمیت + جڑ «سانس — سانس» + 142 top-down دوبارہ اخذ — وقت-فارمیٹ «1 سے 2 بجے» اصول + 5 ہاتھ-لکھے؛ صفر auto — meta.auto=[])؛ جڑ «سانس — » (بوڑھا باب-سندہ prefix برقرار)؛ 249 غیر-درخت پرانی محفوظ (فائل 947)؛ لاطینی صرف amel./agg. (28)؛ «بگاڑ» بغیر agg.-سیگمنٹ پرانی فائل کا اپنا اصول — محفوظ منتقلی
+- **کوڈ:** rep-chapters.js v190 (_repBuildKentRespSourceTree + dispatch؛ fallback 719→762)؛ kent-tree-fix v147 قاعدہ (respiration.h = 64 legacy؛ g/p صاف)؛ _index 762/name «RESPIRATION»؛ master sync minified 22.3 MiB (round-trip)؛ mind sidecar rebuild (4358)؛ CACHE v190؛ پنز: index.html 4×?v=189→190 + 18-rubrics-ur ?v=181→182 + REP_RUBUR_V 182
+- **ٹیسٹ:** نئی kent_resp_homeoint_source.test.js (درخت 698، جڑ پہلی، ABDOMINAL پہلا مین 12، ACCELERATED 120، ANXIOUS 82، DIFFICULT 259، clamp idx357، دستی o54699/o54942/o55205/o54634، IMPEDED,obstructed 82، WHISTLING-whooping آخری، COUGH-لیک نہیں، اردو 100%، مانی فیسٹ، _index، tree-fix 64)؛ v107 H3 (758→698/51)/H10 (سانس allowAA)/G7 4581→4582/Q9 67296→67236 + 27 ٹیسٹ فائلوں کے پنز (189→190، 181→182) → **مکمل سوئٹ 67/67 پاس + jsdom 5/5** (tree_view_integrity 1,464,024 checks؛ app_smoke پہلا چکر سست-ماحول شور، دوبارہ پاس)
+- **رپورٹیں (make_resp_reports.py):** سانس-تین-کالم.csv (697) · ہیرارکی-تصدیق.csv (698) · تمام-اندراجات.csv (698) · پرانی-قطاریں.csv (64 = 8 مبہم + 2 خالی + 54 مجموعے/برتن) · پڑتال.xlsx · اصلاحات-کا-خلاصہ.md — repo/kent_sources/reports + download
+- **تصدیق-ضروری CSV:** append_resp_confirmations.py — 13 اندراجات (باب-حد 2، ڈپ 1، صفحہ-سرخی 1، clamp 1 جامع، دہرائی-صفر 1، PDF artifacts 1، دستی 1 جامع، مبہم 2، نئے hN 1، اردو 2) — کل 239
+- HANDOFF.md سرورق نسخہ 190 + §28
+
+### 28.2 اگلے قدم
+1. ڈاکٹر سانس-تین-کالم.csv کی تصدیق (697 جُڑے ربرکس) اور kent-confirmation-needed.csv کا جائزہ (13 نئے اندراجات — خاص طور پر 22 دستی جوڑے اور 1 clamp)
+2. اگلا باب: کتابی ترتیب کے مطابق — **COUGH (MEDI-T ص 778 سے، kent0775 کا P778 اینکر + P779 اسی فائل میں + kent0780/0785 وغیرہ kentrep2/؛ انڈیکس kentcoug.htm)**
+3. Vercel پش (v190 کے بعد)
 
 ## مکمل شدہ پڑتال — حلقوم اور سانس کی نالی LARYNX AND TRACHEA باب: ماخذی درخت + ادویات + اردو (نسخہ 189)
 

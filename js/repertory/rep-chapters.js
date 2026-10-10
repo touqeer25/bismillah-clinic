@@ -98,7 +98,7 @@ function initRepertoryBrowser(noAutoChapter) {
             console.error('Failed to load index', e);
             // Fallback to hardcoded for kent
             if (repCurrentBook === 'kent') {
-                repChapterNames = [{"key":"mind","name":"MIND","rubrics":4212},{"key":"vertigo","name":"VERTIGO","rubrics":523},{"key":"head","name":"HEAD","rubrics":6266},{"key":"eye","name":"EYE","rubrics":1723},{"key":"vision","name":"VISION","rubrics":933},{"key":"ear","name":"EAR","rubrics":1910},{"key":"hearing","name":"HEARING","rubrics":201},{"key":"nose","name":"NOSE","rubrics":1455},{"key":"face","name":"FACE","rubrics":2053},{"key":"mouth","name":"MOUTH","rubrics":1536},{"key":"teeth","name":"TEETH","rubrics":806},{"key":"throat","name":"THROAT INTERNAL","rubrics":1042},{"key":"external_throat","name":"EXTERNAL THROAT","rubrics":305},{"key":"stomach","name":"STOMACH","rubrics":2999},{"key":"abdomen","name":"ABDOMEN","rubrics":3200},{"key":"rectum","name":"RECTUM","rubrics":1209},{"key":"stool","name":"STOOL","rubrics":283},{"key":"bladder","name":"BLADDER","rubrics":820},{"key":"kidneys","name":"KIDNEYS","rubrics":355},{"key":"prostate_gland","name":"PROSTATE GLAND","rubrics":143},{"key":"urethra","name":"URETHRA","rubrics":607},{"key":"urine","name":"URINE","rubrics":465},{"key":"genitalia_male","name":"MALE GENITALIA","rubrics":1126},{"key":"genitalia_female","name":"GENITALIA FEMALE","rubrics":1493},{"key":"larynx_and_trachea","name":"LARYNX AND TRACHEA","rubrics":739},{"key":"respiration","name":"RESPIRATION","rubrics":719},{"key":"cough","name":"COUGH","rubrics":1442},{"key":"expectoration","name":"EXPECTORATION","rubrics":414},{"key":"chest","name":"CHEST","rubrics":3165},{"key":"back","name":"BACK","rubrics":3640},{"key":"extremities","name":"EXTREMITIES","rubrics":14915},{"key":"sleep","name":"SLEEP","rubrics":1014},{"key":"chill","name":"CHILL","rubrics":736},{"key":"fever","name":"FEVER","rubrics":586},{"key":"perspiration","name":"PERSPIRATION","rubrics":413},{"key":"skin","name":"SKIN","rubrics":1164},{"key":"generalities","name":"GENERALITIES","rubrics":1898}];
+                repChapterNames = [{"key":"mind","name":"MIND","rubrics":4212},{"key":"vertigo","name":"VERTIGO","rubrics":523},{"key":"head","name":"HEAD","rubrics":6266},{"key":"eye","name":"EYE","rubrics":1723},{"key":"vision","name":"VISION","rubrics":933},{"key":"ear","name":"EAR","rubrics":1910},{"key":"hearing","name":"HEARING","rubrics":201},{"key":"nose","name":"NOSE","rubrics":1455},{"key":"face","name":"FACE","rubrics":2053},{"key":"mouth","name":"MOUTH","rubrics":1536},{"key":"teeth","name":"TEETH","rubrics":806},{"key":"throat","name":"THROAT INTERNAL","rubrics":1042},{"key":"external_throat","name":"EXTERNAL THROAT","rubrics":305},{"key":"stomach","name":"STOMACH","rubrics":2999},{"key":"abdomen","name":"ABDOMEN","rubrics":3200},{"key":"rectum","name":"RECTUM","rubrics":1209},{"key":"stool","name":"STOOL","rubrics":283},{"key":"bladder","name":"BLADDER","rubrics":820},{"key":"kidneys","name":"KIDNEYS","rubrics":355},{"key":"prostate_gland","name":"PROSTATE GLAND","rubrics":143},{"key":"urethra","name":"URETHRA","rubrics":607},{"key":"urine","name":"URINE","rubrics":465},{"key":"genitalia_male","name":"MALE GENITALIA","rubrics":1126},{"key":"genitalia_female","name":"GENITALIA FEMALE","rubrics":1493},{"key":"larynx_and_trachea","name":"LARYNX AND TRACHEA","rubrics":739},{"key":"respiration","name":"RESPIRATION","rubrics":784},{"key":"cough","name":"COUGH","rubrics":1442},{"key":"expectoration","name":"EXPECTORATION","rubrics":414},{"key":"chest","name":"CHEST","rubrics":3165},{"key":"back","name":"BACK","rubrics":3640},{"key":"extremities","name":"EXTREMITIES","rubrics":14915},{"key":"sleep","name":"SLEEP","rubrics":1014},{"key":"chill","name":"CHILL","rubrics":736},{"key":"fever","name":"FEVER","rubrics":586},{"key":"perspiration","name":"PERSPIRATION","rubrics":413},{"key":"skin","name":"SKIN","rubrics":1164},{"key":"generalities","name":"GENERALITIES","rubrics":1898}];
             } else {
                 repChapterNames = [];
             }
@@ -773,6 +773,86 @@ function _repBuildKentLarySourceTree(data){
             var grade=Number(remedies[code]);
             if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
                 throw new Error('Invalid Kent LARYNX AND TRACHEA medicine grade at '+e.rid+': '+code);
+        });
+        var node={
+            name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
+            children:{},order:[],remedies:remedies,count:1,hasRubric:true,
+            path:sourcePath,pathTitle:sourcePath,displayPathTitle:sourcePath,
+            translationTitle:String(rec.translation_title||sourcePath),
+            oorep_id:rec.oorep_id||null,rid:e.rid,sourceCanonical:true,
+            display:rec.display&&typeof rec.display==='object'&&!Array.isArray(rec.display)?rec.display:null
+        };
+        parent.children[label]=node;
+        parent.order.push(label);
+        parent.count=(parent.count||0)+1;
+        byRid[e.rid]=node;
+    });
+    return root;
+}
+
+// 🔑 v190: سانس باب کی ماخذی قطاریں (صفحات 762–777) — homeoint.org
+// (parse_resp_source.py + crosswalk_resp.py + overlay_resp.py)؛ پرانی مقامی قطاریں
+// فائل میں محفوظ مگر ماخذی درخت سے باہر۔ باب حد: RESPIRATION = 762–777 (MEDI-T انتساب —
+// kentresp.htm فہرست 15 صفحہ-اندراجات: P763..P777 + جڑ صفحہ p762)؛ آغاز kent0760.htm کے
+// NAME="RESPIRATION" سرخی اینکر سے (سرخی-para skip — drop_cut_para؛ init_page=762؛
+// separator JUNK، جڑ RESPIRATION d0 bare-para سے؛ p762: جڑ + ABDOMINAL {12} + ACCELERATED
+// {125} + subs + ANXIOUS {86})؛ اختتام kent0775 کے اندر NAME="P778" COUGH P-اینکر —
+// آخری ربرک WHISTLING, whooping cough, in (p777)؛ kent0780 استعمال نہیں۔ سرحدی ڈپ صفحات
+// (p765/p770/p775) پچھلی فائل میں اصل، اگلی میں ڈپ (skip_until) — تینوں text-identical
+// تصدیق شدہ (verify_resp_dups.py)۔ MEDI-T صفحہ-سرخی paras (مثلاً 'ANXIOUS, morning' p763،
+// 'ASTHMATIC, morning' p764) آرٹیفیکٹ — after_anchor سے skip — 15/15 صفحہ-سرخی سیاق
+// پہلی قطاروں سے مطابق (parse_resp_source.py)۔ 1 clamp — کتابی یتیم-indentation
+// (x = خام سطح: amel.-Alum p770 @200.7، raw d4→fixed d3) — resp_clamp_xcoords.json میں
+// دستاویزی۔ کوئی کتابی دہرائی نہیں (دوہرے راستے = 0)۔ کوئی دستی جوڑا نہیں (لالچی 668 +
+// فال بیک 7 — سب جوڑوں پر کتاب ⊆ ایپ تصدیق شدہ)۔ 23 نئے hN (جڑ RESPIRATION سمیت) + 86
+// legacy محفوظ (8 مبہم OOREP برتن/یونین سمیت: DIFFICULT lying 110-یونین، DIFFICULT lying,on
+// 38-یونین، ASTHMATIC alternating 14-یونین، ASTHMATIC cold 18-یونین، DIFFICULT warm
+// 24-یونین، sitting,bent 9-یونین)۔
+// PDF alignment: 694/696 حرف-بہ-حرف عین مطابق + 2 PDF-طرفہ آرٹی فاکٹ واقعات (فولیو-گلا
+// kali1662s folio1662 p767 — ادویہ kali-s. صفحہ-اختتام پر split؛ لیبل-ورپ p769 — کتابی ربرک
+// handkerchief…dyspnœa PDF extractor میں اگلی قطار کی ادویات میں گلا — drift 1 قطار)،
+// صفر homeoint-طرفہ فرق/دونوں-طرفہ باقیات (verify_pdf_resp.py — کتابی ص 762-777،
+// PDF index 1685–1719)۔
+var _REP_KENT_RESP_SOURCE_MARKER='homeoint-resp-v1';
+var _REP_KENT_RESP_PAGES={first:762,last:777}, _REP_KENT_RESP_COUNT=698;
+function _repKentRespSourceEntries(data){
+    return Object.keys(data||{}).map(function(rid){return {rid:String(rid),rec:data[rid]};})
+        .filter(function(e){return e.rec&&e.rec.source_canonical===_REP_KENT_RESP_SOURCE_MARKER;});
+}
+function _repHasKentRespSourceData(data){
+    return _repKentRespSourceEntries(data).length===_REP_KENT_RESP_COUNT;
+}
+function _repBuildKentRespSourceTree(data){
+    var entries=_repKentRespSourceEntries(data), root={children:{},order:[],remedies:{},count:0,hasRubric:false};
+    if(entries.length!==_REP_KENT_RESP_COUNT) throw new Error('Expected '+_REP_KENT_RESP_COUNT+' Kent RESPIRATION source rows; found '+entries.length);
+    entries.sort(function(a,b){return Number(a.rec.source_order)-Number(b.rec.source_order);});
+    var byRid=Object.create(null);
+    entries.forEach(function(e,index){
+        var rec=e.rec, order=Number(rec.source_order), parentId=rec.source_parent_id;
+        if(order!==index) throw new Error('Invalid Kent RESPIRATION source order at '+e.rid+': '+order);
+        var page=Number(rec.source_page), depth=Number(rec.source_depth), label=String(rec.source_label||'');
+        if(page<762||page>777) throw new Error('Kent RESPIRATION source row outside pages 762–777: '+e.rid);
+        if(!label) throw new Error('Empty Kent RESPIRATION source label at '+e.rid);
+        var labels=Array.isArray(rec.source_path_labels)?rec.source_path_labels.map(String):[];
+        if(!labels.length||labels[labels.length-1]!==label||depth!==labels.length-1)
+            throw new Error('Kent RESPIRATION source path/depth mismatch at '+e.rid);
+        var sourcePath=String(rec.source_path||'');
+        if(sourcePath!==labels.join(', ')) throw new Error('Kent RESPIRATION source full path mismatch at '+e.rid);
+        var parent=parentId===null?root:byRid[String(parentId)];
+        if(!parent) throw new Error('Missing earlier Kent RESPIRATION source parent '+parentId+' for '+e.rid);
+        if(parentId!==null && Number(parent.sourceOrder)>=index)
+            throw new Error('Kent RESPIRATION source parent must precede child at '+e.rid);
+        var parentPath=parent===root?'':String(parent.pathTitle||'');
+        var expectedPath=parentPath?parentPath+', '+label:label;
+        if(expectedPath!==sourcePath) throw new Error('Kent RESPIRATION source parent link/path mismatch at '+e.rid);
+        if(parent.children[label]) throw new Error('Duplicate Kent RESPIRATION sibling label '+label+' at '+e.rid);
+        var remedies=rec.r;
+        if(!remedies||typeof remedies!=='object'||Array.isArray(remedies))
+            throw new Error('Missing Kent RESPIRATION remedies at '+e.rid);
+        Object.keys(remedies).forEach(function(code){
+            var grade=Number(remedies[code]);
+            if(!code||grade<1||grade>3||Math.floor(grade)!==grade)
+                throw new Error('Invalid Kent RESPIRATION medicine grade at '+e.rid+': '+code);
         });
         var node={
             name:label,sourceLabel:label,sourceOrder:order,sourceParentId:parentId,sourcePage:page,
@@ -2275,6 +2355,10 @@ function buildRubricTree(data){
     if(repCurrentBook === 'kent' && repCurrentChapter === 'larynx_and_trachea' && _repHasKentLarySourceData(data)){
         return _repBuildKentLarySourceTree(data);
     }
+    // 🔑 v190: سانس باب کی ماخذی قطاریں (صفحات 762–777) — وہی طرز جو حلقوم میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'respiration' && _repHasKentRespSourceData(data)){
+        return _repBuildKentRespSourceTree(data);
+    }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest
     // already-existing rubric prefix, not by every comma.
@@ -2604,6 +2688,10 @@ function buildRubricTree(data){
     // 🔑 v189: حلقوم اور سانس کی نالی باب کی ماخذی قطاریں (صفحات 746–762) — وہی طرز جو تناسلی اعضاء (عورت) میں ثابت ہوا
     if(repCurrentBook === 'kent' && repCurrentChapter === 'larynx_and_trachea' && _repHasKentLarySourceData(data)){
         return _repBuildKentLarySourceTree(data);
+    }
+    // 🔑 v190: سانس باب کی ماخذی قطاریں (صفحات 762–777) — وہی طرز جو حلقوم میں ثابت ہوا
+    if(repCurrentBook === 'kent' && repCurrentChapter === 'respiration' && _repHasKentRespSourceData(data)){
+        return _repBuildKentRespSourceTree(data);
     }
     // Kent English and Repertorium Publicum have many meaningful commas inside
     // a single rubric label. Therefore they must be nested by the longest

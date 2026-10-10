@@ -115,8 +115,8 @@ assert.strictEqual(manifest.ambiguous_app_records, 7);
 // 7) نسخہ جاتی نشان
 const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const swf = fs.readFileSync(path.join(ROOT, 'service-worker.js'), 'utf8');
-assert(/rep-chapters\.js\?v=189/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v183)');
-assert(/CACHE_NAME='bhc-clinic-v189'/.test(swf), 'خدمت کار نسخہ 183');
+assert(/rep-chapters\.js\?v=190/.test(idx), 'صفحے میں مکمل ماخذی درخت سلسلے کا نسخہ (v183)');
+assert(/CACHE_NAME='bhc-clinic-v190'/.test(swf), 'خدمت کار نسخہ 183');
 assert(/v183: گردے باب/.test(code), 'rep-chapters.js میں گردے بلڈر درج');
 
 console.log('kent_kidneys_homeoint_source.test.js — تمام تصدیقیں پاس (246 ماخذی قطاریں، 280 کل، اردو 100%)');

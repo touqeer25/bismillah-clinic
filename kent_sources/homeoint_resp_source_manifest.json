@@ -1,0 +1,21 @@
+{
+ "book": "kent",
+ "chapter": "respiration",
+ "source": "homeoint.org/books/kentrep+kentrep2 kent0760+kent0765+kent0770+kent0775 (MEDI-T HTML)",
+ "pages": "762 – 777 (MEDI-T انتساب)",
+ "source_canonical": "homeoint-resp-v1",
+ "source_rows": 698,
+ "unique_source_paths": 698,
+ "matched_app_records": 697,
+ "new_source_records": 1,
+ "legacy_local_records": 64,
+ "ambiguous_app_records": 8,
+ "pdf_verification": "694/696 حرف-بہ-حرف + 2 PDF-طرفہ artifacts (فولیو-گلا kali1662s folio1662 p767 — ادویہ kali-s. صفحہ-اختتام پر split؛ لیبل-ورپ p769 — کتابی ربرک handkerchief…dyspnœa PDF extractor میں اگلی قطار کی ادویات میں گلا — drift 1 قطار) — صفر homeoint-طرفہ فرق/دونوں-طرفہ باقیات (resp_pdf_verify.json)",
+ "chapter_boundaries": "آغاز kent0760 کے اندر NAME=\"RESPIRATION\" سرخی اینکر (سرخی-para skip — drop_cut_para نئی میکانزم؛ init_page=762؛ separator JUNK، جڑ RESPIRATION d0 bare-para سے؛ p762: جڑ + ABDOMINAL {12} + ACCELERATED {125} + subs + ANXIOUS {86})؛ اختتام kent0775 کے اندر NAME=\"P778\" COUGH P-اینکر (آخری ربرک WHISTLING, whooping cough, in {samb., spong., …} p777)؛ kent0780 استعمال نہیں",
+ "dup_pages": "p765/p770/p775 سرحدی صفحات — پچھلی فائل میں اصل، اگلی میں ڈپ (skip_until)؛ تینوں text-identical تصدیق شدہ (verify_resp_dups.py — فرق صرف nav link-text)",
+ "clamps": "1 کتابی یتیم-indentation: x = خام سطح — idx357 amel.-Alum p770 @200.7 (raw d4→fixed d3؛ prev on-the-side @128.7 / next right-side @164.7 — resp_clamp_xcoords.json)",
+ "book_duplicates": "کوئی نہیں (دوہرے راستے = 0 — parser تصدیق)",
+ "manual_matches": "کوئی نہیں (لالچی 668 + فال بیک 7 — سب جوڑوں پر کتاب ⊆ ایپ تصدیق شدہ، صفر مشکوک)",
+ "page_headers": "15/15 MEDI-T صفحہ-سرخی paras (مثلاً «ANXIOUS, morning» p763، «ASTHMATIC, morning» p764) آرٹیفیکٹ — after_anchor سے skip — ہر صفحے کی پہلی قطار کے والد-سیاق سے مطابق (parse_resp_source.py)",
+ "parser_fix": "MEDI-T unclosed <p> گلو (‏<p>MAIN : rem<dir>‏ / ‏<p>----------<dir>‏) — ‏<p>‎ پر flush + para_depth پیراگراف-آغاز پر capture (genf v188 فکس — برقرار)؛ RESPIRATION non-P-اینکر آغاز (drop_cut_para: سرخی-para skip)؛ اختتام P778 P-اینکر end_spec"
+}

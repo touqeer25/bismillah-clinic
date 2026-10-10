@@ -1,0 +1,699 @@
+﻿صفحہ,گہرائی,مکمل راستہ (مطبوعہ کتاب),ادویات (گریڈ)
+762,0,RESPIRATION,
+762,0,ABDOMINAL,"am-m(1), ant-t(3), arg-n(1), aur-m(2), bry(1), ferr(2), mur-ac(2), phos(2), spong(2), stram(2), ter(1), thuj(1)"
+762,0,ACCELERATED,"absin(1), acet-ac(1), acon(3), aesc(1), agar(2), ail(2), alumn(1), am-c(2), aml-n(1), ant-t(3), anthr(1), apis(1), apoc(2), arg-n(2), arn(2), ars(3), ars-i(1), asaf(2), aspar(2), aur(2), bar-c(1), bar-m(1), bell(3), bor(1), brom(2), bry(3), calc(1), calc-p(2), camph(2), cann-i(1), cann-s(1), canth(2), carb-ac(1), carb-s(1), carb-v(3), cast(1), cedr(2), cham(2), chel(3), chin(2), chin-a(1), chin-s(2), chlor(1), cimic(1), cina(2), clem(1), coc-c(2), coca(2), cocc(1), coff(1), colch(2), coloc(1), con(1), cop(2), crot-h(1), cub(1), cupr(3), cycl(1), dig(2), dulc(1), gels(3), glon(2), hell(1), hep(2), hydr(1), hydr-ac(1), hyos(2), ign(2), iod(2), ip(3), kali-ar(1), kali-bi(2), kali-c(1), kali-i(2), kali-n(1), lact(2), laur(1), led(1), lyc(3), lyss(1), merc(2), merc-c(1), merc-sul(2), mez(1), mur-ac(2), naja(1), nat-a(1), nat-c(1), nat-m(2), nux-m(2), nux-v(2), op(2), ox-ac(1), petr(1), phos(3), phyt(2), plan(2), plb(1), puls(2), rhod(1), rhus-t(2), samb(2), sang(2), sel(1), seneg(1), sep(3), sil(2), spong(1), squil(1), stann(1), stram(2), sul-ac(1), sulph(3), tab(1), tub(1), verat(2), verat-v(2), vesp(2), vinc(1), zinc(2)"
+762,1,"ACCELERATED, morning","ars-m(3), asaf(1)"
+762,1,"ACCELERATED, evening","merc-c(1), stann(1)"
+762,1,"ACCELERATED, night","apis(1), spong(1), thuj(1)"
+762,1,"ACCELERATED, anxiety, during","ars(1), nux-v(1), seneg(1)"
+762,1,"ACCELERATED, ascending",lycps(1)
+762,1,"ACCELERATED, coma, during",stram(1)
+762,1,"ACCELERATED, cough, during paroxysm of",dros(3)
+762,1,"ACCELERATED, drinking, while",nat-m(1)
+762,1,"ACCELERATED, exercise, during",lycps(1)
+762,1,"ACCELERATED, headache, during",nux-m(3)
+762,1,"ACCELERATED, lying down, while","ant-t(1), carb-v(1), tarent(1)"
+762,1,"ACCELERATED, mental exertion, by",plan(2)
+762,1,"ACCELERATED, rising from sitting",agar(1)
+762,1,"ACCELERATED, sleep, during","chel(1), cocc(1), con(1), merc(1)"
+762,2,"ACCELERATED, sleep, during, on awaking from",cimic(1)
+762,2,"ACCELERATED, sleep, during, going to",hydr-ac(2)
+762,1,"ACCELERATED, standing",nat-m(1)
+762,0,ANXIOUS,"abrot(1), acon(3), aeth(1), alumn(1), am-c(2), anac(2), ant-t(1), apis(2), arn(2), ars(3), aur-m(1), bar-c(1), bar-m(3), bell(2), bov(1), bry(1), bufo(1), calc(1), calc-ar(1), camph(2), cann-s(1), carb-an(2), cham(2), chel(3), chin-s(1), chlor(2), cina(1), cocc(2), coff(2), colch(1), coloc(2), crot-c(2), crot-h(2), crot-t(1), cupr(1), dig(2), ferr(1), gins(1), hell(1), hep(2), hydr-ac(1), hyos(2), ign(2), ip(3), kali-ar(1), kali-bi(1), kali-c(2), kreos(1), lach(2), laur(2), lob(1), mang(1), nat-m(3), nit-ac(1), nux-v(1), olnd(1), op(2), ph-ac(2), phos(3), plat(2), plb(1), prun-s(3), psor(2), puls(3), rhus-t(2), sabad(1), samb(2), sars(1), sec(3), spig(1), spong(3), squil(3), stann(3), staph(1), stram(2), tab(1), ter(1), thuj(1), valer(1), verat(1), viol-o(1), zinc(1)"
+763,1,"ANXIOUS, morning",phos(2)
+763,2,"ANXIOUS, morning, in bed",nat-c(1)
+763,1,"ANXIOUS, afternoon",bell(1)
+763,1,"ANXIOUS, evening","bar-c(1), mez(1), phos(2), stann(1)"
+763,2,"ANXIOUS, evening, after formication",cist(1)
+763,1,"ANXIOUS, headache, during",nux-m(3)
+763,1,"ANXIOUS, lying, while","apis(1), puls(2)"
+763,2,"ANXIOUS, lying, while, on the back",aeth(1)
+763,1,"ANXIOUS, mental exertion",phos(1)
+763,0,ARRESTED,"acet-ac(1), alum(1), anac(1), ang(1), apis(1), arn(1), ars(1), bar-c(1), bell(1), bor(1), bry(3), cact(2), calc(2), camph(2), cann-s(1), caps(1), carb-an(1), carb-s(1), carb-v(1), cast(1), caust(2), chin(1), cic(2), cina(2), cocc(1), con(1), crot-c(1), cupr(3), euphr(1), guai(1), hydr-ac(1), ign(2), iod(1), kali-c(1), kali-i(1), kalm(1), lach(2), lat-m(2), led(2), lyc(2), merc(1), merc-c(1), mosch(2), naja(1), nat-m(1), nat-s(1), nit-ac(1), nux-m(2), nux-v(1), oena(1), op(3), phos(2), plat(1), plb(1), puls(2), ruta(2), samb(3), sars(1), sep(1), sil(2), stann(1), stram(1), sulph(2), tab(1), tanac(1), ter(1), thea(1), ther(1), verat(2), verb(1)"
+763,1,"ARRESTED, morning",lyc(1)
+763,1,"ARRESTED, forenoon, stitches in side",stann(1)
+763,1,"ARRESTED, afternoon","cham(1), dios(1), kreos(1), thuj(1)"
+763,2,"ARRESTED, afternoon, 3 p.m., stitches under right scapula",kreos(1)
+763,2,"ARRESTED, afternoon, 4 p.m.",dios(1)
+763,1,"ARRESTED, evening, griping in inguinal region","nat-m(1), nicc(1), plan(1)"
+763,1,"ARRESTED, night","guai(1), kali-c(2), lyc(3), ruta(1), samb(1)"
+763,2,"ARRESTED, night, cough, during",nat-m(1)
+763,2,"ARRESTED, night, midnight",cinnb(1)
+763,1,"ARRESTED, air, in fresh",psor(3)
+763,1,"ARRESTED, ascending steps","mag-c(1), nit-ac(1), thuj(1)"
+763,1,"ARRESTED, constriction of chest, during","hell(1), sep(1)"
+763,2,"ARRESTED, constriction of chest, during, larynx (See Larynx)",
+763,1,"ARRESTED, convulsions during","cic(2), cina(2), coff(1), sant(2), sars(1), stry(2)"
+763,1,"ARRESTED, coughing","acet-ac(1), acon(2), alum(3), am-c(1), anac(1), ant-t(3), aral(1), arg-n(1), arn(1), ars(3), bar-c(1), bell(1), brom(1), bry(1), cahin(1), calad(1), calc(1), canth(1), carb-an(1), carb-v(1), caust(1), cina(3), clem(1), coc-c(1), cocc(1), con(1), cop(1), cor-r(2), cupr(3), dol(1), dros(3), euphr(1), ferr(1), ferr-ar(1), guai(1), hep(1), hyos(1), iod(1), ip(3), kali-bi(1), kali-c(1), kali-chl(1), kali-n(1), kreos(2), lach(1), lact(1), led(1), lob(1), lyc(2), merc(1), mosch(1), mur-ac(1), nat-m(1), nat-s(1), nicc(1), nit-ac(1), nux-m(2), nux-v(3), op(1), phel(1), phos(1), puls(1), rhus-t(1), samb(2), sang(1), sarr(1), sep(2), sil(2), spig(1), spong(1), squil(1), staph(1), sul-ac(1), sulph(1), verat(1), zinc(1), ziz(1)"
+763,1,"ARRESTED, drinking, from","anac(1), cimx(2)"
+763,1,"ARRESTED, fever, during",ruta(1)
+763,1,"ARRESTED, lying, while","apis(1), bor(2), nat-m(1), puls(2)"
+763,2,"ARRESTED, lying, while, amel.",psor(1)
+763,2,"ARRESTED, lying, while, on the back",sil(1)
+763,1,"ARRESTED, rubbing amel.",mur-ac(1)
+763,1,"ARRESTED, sitting, while","caust(2), nat-s(1), psor(1)"
+763,1,"ARRESTED, sleep, on going to","carb-v(1), cench(1), grin(3), lach(3), op(2)"
+763,2,"ARRESTED, sleep, on going to, during","am-c(1), cadm(1), carb-v(2), cench(3), dig(1), grin(3), guai(1), kali-c(2), lac-c(2), lach(3), lyc(1), op(3), samb(1), sulph(2)"
+763,2,"ARRESTED, sleep, on going to, when going to sleep on the right side",bad(1)
+763,1,"ARRESTED, standing still, when",sep(1)
+763,2,"ARRESTED, standing still, when, in water",nux-m(1)
+763,1,"ARRESTED, stooping","psor(1), sil(1)"
+763,1,"ARRESTED, suddenly, in children",cham(1)
+763,1,"ARRESTED, suppressed eruptions","ars(2), sulph(2)"
+763,1,"ARRESTED, talking, when","caust(2), plan(1), sulph(2)"
+763,1,"ARRESTED, turning in bed",carb-v(1)
+763,1,"ARRESTED, walking, while","am-m(1), calc(2), caust(2), cham(1), chin(2), ign(1), nat-c(1), nit-ac(2), sep(1), thuj(1)"
+763,2,"ARRESTED, walking, while, against the wind","calc(2), plat(1)"
+763,0,ASPHYXIA,"ant-t(3), camph(2), carb-s(2), carb-v(1), chin(1), chlor(2), coch(2), op(2), rhus-t(1), sin-n(2), tab(1)"
+763,1,"ASPHYXIA, cholera","hydr-ac(2), laur(2)"
+763,1,"ASPHYXIA, coal gas","carb-s(2), carb-v(1)"
+763,1,"ASPHYXIA, lightning, after",nux-v(1)
+763,1,"ASPHYXIA, new-born infant","acon(1), ant-t(3), arn(2), bell(2), camph(3), chin(1), laur(2), op(2)"
+763,0,ASTHMATIC,"acon(2), agar(2), all-c(1), aloe(1), alum(1), am-c(2), ambr(3), anac(1), ant-c(1), ant-t(2), apis(2), arg-n(3), arn(1), ars(3), ars-i(3), arum-t(1), asaf(2), asar(1), aur(2), bar-c(2), bar-m(1), bell(2), blatta(2), bov(2), brom(2), bry(2), cact(2), calad(2), calc(2), camph(1), cann-s(2), caps(2), carb-an(1), carb-s(1), carb-v(2), card-m(1), caust(1), cham(1), chel(1), chin(2), chin-a(2), chlol(2), cic(2), cina(1), cist(1), coc-c(1), cocc(1), coff(2), colch(2), coloc(1), con(2), croc(1), crot-h(2), crot-t(1), cupr(3), daph(1), dig(2), dros(2), dulc(2), eup-per(1), eupho(2), ferr(2), ferr-ar(2), ferr-i(1), ferr-p(1), gels(2), graph(2), grat(1), grin(1), hep(2), hippoz(2), hydr-ac(1), hyos(1), ign(2), iod(2), ip(3), kali-ar(3), kali-br(2), kali-c(3), kali-chl(2), kali-i(2), kali-n(3), kali-p(2), kali-s(2), lac-d(1), lach(2), lact(1), laur(2), led(2), lob(3), lyc(2), manc(1), med(2), meny(1), meph(2), merc(1), mez(1), mosch(2), naja(2), nat-a(1), nat-c(1), nat-m(2), nat-p(1), nat-s(2), nit-ac(2), nux-m(1), nux-v(2), ol-an(1), op(2), par(1), petr(1), phel(1), phos(2), phyt(2), plat(1), plb(1), podo(1), psor(2), puls(3), ran-s(1), raph(1), rhod(1), rumx(1), ruta(2), sabin(1), samb(3), sang(2), sars(1), sec(1), sel(1), seneg(2), sep(2), sil(3), sin-n(1), spig(1), spong(3), squil(1), stann(2), still(2), stram(3), stront(1), sul-ac(2), sulph(3), thuj(2), verat(2), verat-v(1), viol-o(1), viol-t(1), zinc(1)"
+764,1,"ASTHMATIC, morning","aur(2), calc(2), carb-an(1), carb-v(2), coff(2), con(2), dig(1), kali-c(3), meph(2), phos(1), verat(2), zing(1)"
+764,2,"ASTHMATIC, morning, bed, in","alum(1), con(1)"
+764,2,"ASTHMATIC, morning, waking, on","alum(1), con(2), sep(1)"
+764,1,"ASTHMATIC, forenoon, 10 to 11 a.m.",ferr(2)
+764,1,"ASTHMATIC, noon",lob(2)
+764,1,"ASTHMATIC, evening","bell(1), cist(2), ferr(1), nux-v(1), phos(2), puls(3), stann(1), sulph(2), zinc(2)"
+764,2,"ASTHMATIC, evening, in bed","am-c(1), graph(1), sep(1)"
+764,2,"ASTHMATIC, evening, after lying down","aral(1), ars(1), cist(2), meph(2)"
+764,2,"ASTHMATIC, evening, 9 p.m.",bry(1)
+764,1,"ASTHMATIC, night","am-m(1), ant-t(2), ars(3), aur(1), brom(2), bry(1), carb-v(2), chel(3), chlol(2), cist(2), coff(1), coloc(1), daph(1), dig(2), ferr(2), ferr-ar(1), ip(2), kali-ar(1), kali-c(2), lach(1), meph(2), nux-v(1), op(2), phos(1), puls(3), sang(1), sep(2), sulph(2), syph(2), thuj(2), zinc(1)"
+764,2,"ASTHMATIC, night, 10 p.m.",meph(1)
+764,2,"ASTHMATIC, night, 11 p.m. when urinating",chel(1)
+764,2,"ASTHMATIC, night, 11 p.m. to 2 a.m.",ars-i(2)
+764,2,"ASTHMATIC, night, midnight, after","ars(3), calc-ar(1), carb-v(2), ferr(2), ferr-ar(1), graph(2), lach(2), samb(3)"
+764,3,"ASTHMATIC, night, midnight, after, must spring out of bed","ars(3), graph(2), samb(3)"
+764,2,"ASTHMATIC, night, 2 a.m.","ars(3), kali-bi(2), rumx(2)"
+764,2,"ASTHMATIC, night, 2 to 3 a.m.","kali-ar(3), kali-c(3)"
+764,2,"ASTHMATIC, night, 3 a.m.","chin(2), cupr(2), kali-c(3), kali-n(3)"
+764,2,"ASTHMATIC, night, 4 to 5 a.m.","nat-s(2), stann(1)"
+764,2,"ASTHMATIC, night, 5 a.m.",kali-i(1)
+764,1,"ASTHMATIC, air, draught of, agg.",sil(2)
+764,2,"ASTHMATIC, air, draught of, agg., open air amel.",am-c(2)
+764,1,"ASTHMATIC, alternating with eruptions","calad(1), crot-t(1), hep(2), kalm(2), lach(1), mez(1), rhus-t(1), sulph(2)"
+764,2,"ASTHMATIC, alternating with eruptions, headache","ang(1), glon(1), kali-br(1)"
+764,2,"ASTHMATIC, alternating with eruptions, gout","benz-ac(1), lyc(1), sulph(2)"
+764,2,"ASTHMATIC, alternating with eruptions, nocturnal diarrhœa",kali-c(2)
+764,2,"ASTHMATIC, alternating with eruptions, urticaria",calad(1)
+764,1,"ASTHMATIC, anger, after","ars(2), cham(3)"
+764,1,"ASTHMATIC, autumn",chin(2)
+764,1,"ASTHMATIC, bending head backwards amel.","cham(1), spong(3), verat(2)"
+764,1,"ASTHMATIC, change of weather","ars(2), chel(1), dulc(1)"
+764,1,"ASTHMATIC, children","acon(2), ambr(1), cham(3), ip(3), kali-br(1), kali-i(1), mosch(2), nat-s(3), nux-v(1), psor(1), puls(3), samb(3), stram(1), sulph(1)"
+764,2,"ASTHMATIC, children, after vaccination",thuj(1)
+764,1,"ASTHMATIC, coition, during","aeth(1), ambr(1)"
+764,2,"ASTHMATIC, coition, during, after","asaf(1), cedr(1), kali-bi(1)"
+764,1,"ASTHMATIC, cold, from taking","acon(1), dulc(1), lob(2), podo(2), puls(2), sil(1), spong(3), stann(2)"
+764,2,"ASTHMATIC, cold, from taking, heated, when",sil(2)
+764,2,"ASTHMATIC, cold, from taking, in summer",ars(2)
+764,1,"ASTHMATIC, cold air agg.","lob(2), nux-v(2), petr(1)"
+764,2,"ASTHMATIC, cold air agg., amel.","bry(1), carb-v(2), cham(2), merc(2)"
+764,2,"ASTHMATIC, cold air agg., damp weather","dulc(3), med(2), nat-s(2)"
+764,2,"ASTHMATIC, cold air agg., water agg.",meph(2)
+764,3,"ASTHMATIC, cold air agg., water agg., amel.",cham(1)
+764,1,"ASTHMATIC, coughing agg.",meph(2)
+764,1,"ASTHMATIC, dinner, after",thuj(1)
+764,1,"ASTHMATIC, drunkards",meph(2)
+764,1,"ASTHMATIC, dust, from inhaling",poth(1)
+764,1,"ASTHMATIC, eating, after","kali-p(2), nux-v(2), puls(2)"
+764,2,"ASTHMATIC, eating, after, amel.","ambr(1), graph(2)"
+764,1,"ASTHMATIC, emotions, after","acon(2), ambr(1), cham(1), coff(2), cupr(1), gels(2), ign(2), nux-v(1), pall(1), verat(1)"
+765,1,"ASTHMATIC, eructations amel.","carb-v(1), nux-v(1)"
+765,1,"ASTHMATIC, eruptions, after suppressed","apis(2), ars(2), carb-v(2), dulc(2), ferr(2), hep(1), ip(2), psor(2), puls(3), sec(1), sulph(2)"
+765,1,"ASTHMATIC, excitement",ambr(1)
+765,1,"ASTHMATIC, expectoration amel.",hyper(1)
+765,1,"ASTHMATIC, faceache, with, disappearance of tetter on face",dulc(1)
+765,1,"ASTHMATIC, flatulence, from","carb-v(2), cham(2), chin(2), lyc(2), mag-p(1), nux-v(2), op(1), phos(1), sulph(2), zinc(1)"
+765,1,"ASTHMATIC, hay asthma","ambr(2), ars(2), ars-i(2), bad(2), carb-v(2), dulc(2), euphr(2), iod(3), kali-i(2), lach(2), naja(2), nat-s(2), nux-v(2), op(2), sabad(2), sil(2), sin-n(2), stict(2)"
+765,1,"ASTHMATIC, humid (See Rattling)",
+765,1,"ASTHMATIC, hysterical","mosch(3), nux-m(3), nux-v(1), phos(1), puls(3), stann(1), stram(1), sulph(1)"
+765,1,"ASTHMATIC, heart, from fatty degeneration of",arn(3)
+765,1,"ASTHMATIC, injury of spine, after",hyper(2)
+765,1,"ASTHMATIC, intermittent fever, with",mez(1)
+765,1,"ASTHMATIC, leaning backwards",psor(1)
+765,1,"ASTHMATIC, measles, after","brom(1), carb-v(2)"
+765,1,"ASTHMATIC, menses, before",sulph(1)
+765,2,"ASTHMATIC, menses, before, during",kali-c(1)
+765,2,"ASTHMATIC, menses, before, after suppression of","puls(2), spong(1)"
+765,1,"ASTHMATIC, mental-exertion",sep(1)
+765,1,"ASTHMATIC, mercury, after",aur(1)
+765,1,"ASTHMATIC, miner's asthma, from coal dust",nat-a(1)
+765,1,"ASTHMATIC, music agg.",ambr(1)
+765,1,"ASTHMATIC, old people, in","ambr(2), ars(3), bar-c(2), carb-v(2), con(2), phel(1), sulph(1)"
+765,1,"ASTHMATIC, periodic","all-s(1), alum(2), ant-t(1), ars(3), asaf(2), carb-v(2), chel(2), hydr-ac(2), nux-v(1), phos(2), plb(2), seneg(2), sulph(1), tab(1), thuj(1)"
+765,2,"ASTHMATIC, periodic, every 8 days",sulph(1)
+765,1,"ASTHMATIC, rash, after suppression of acute","acon(1), apis(2), puls(2)"
+765,1,"ASTHMATIC, riding agg.",meph(1)
+765,1,"ASTHMATIC, rocking amel.",kali-c(1)
+765,1,"ASTHMATIC, rose cold, following",sang(2)
+765,1,"ASTHMATIC, sailors as soon as they go ashore",brom(3)
+765,1,"ASTHMATIC, sleep, coming on during","acon(2), ars(2), carb-v(2), hep(2), kali-c(2), lach(2), meph(1), nat-s(1), op(1), sep(1), sulph(2)"
+765,1,"ASTHMATIC, spasmodic","am-c(1), ant-t(2), arg-n(1), ars(3), asaf(2), bell(2), cact(2), caust(1), cocc(2), coff(1), con(1), cupr(2), dros(2), ferr(2), ferr-p(1), gels(2), graph(2), hydr-ac(2), hyos(2), ip(3), kali-br(2), kali-c(2), lach(2), laur(1), led(1), lob(3), mag-p(2), meph(2), merc(1), mez(2), mosch(2), nux-v(2), op(2), ph-ac(1), phos(1), plb(2), puls(2), raph(1), samb(1), sars(2), sep(2), spong(3), stram(2), sulph(1), sumb(2), tab(2), valer(3), zinc(1)"
+765,1,"ASTHMATIC, stool amel.",poth(1)
+765,1,"ASTHMATIC, sudden attacks","cupr(1), ip(1)"
+765,1,"ASTHMATIC, talking agg.",dros(2)
+765,2,"ASTHMATIC, talking agg., amel.",ferr(1)
+765,1,"ASTHMATIC, thunderstorm, during","sep(1), sil(2), syph(1)"
+765,1,"ASTHMATIC, urinating, while",chel(1)
+765,1,"ASTHMATIC, vaccination, after",thuj(1)
+765,1,"ASTHMATIC, vexation, from",ars(1)
+765,1,"ASTHMATIC, warm food agg.","cham(2), lob(2)"
+765,1,"ASTHMATIC, warm room agg.","am-c(2), carb-v(1), kali-s(1)"
+765,1,"ASTHMATIC, warm room from the open air",bry(2)
+765,1,"ASTHMATIC, warm wet weather","bell(2), carb-v(2)"
+765,1,"ASTHMATIC, wet weather, in","aur(2), chin(2), con(1), dulc(2), nat-s(2), sil(1), verat(1)"
+765,1,"ASTHMATIC, wind, walking against",cupr(1)
+765,1,"ASTHMATIC, winter attacks","carb-v(2), nux-v(2), phel(1)"
+765,0,CATCHING,"arg-n(2), brom(2), calad(1), calc(2), carb-ac(1), caust(2), cina(1), gels(1), kreos(1), led(1), lil-t(1), merc-c(1), nit-ac(1), phos(2), sant(1), sil(3), stry(1), sulph(1)"
+765,1,"CATCHING, morning",sars(1)
+765,1,"CATCHING, night",sil(3)
+765,1,"CATCHING, bending, on",calc(2)
+765,1,"CATCHING, cough","bry(1), cina(2)"
+765,2,"CATCHING, cough, after","arn(1), ars(2), bry(1), hep(1), nat-m(2), puls(2)"
+765,1,"CATCHING, dancing, after",spong(2)
+765,1,"CATCHING, fever, during",sil(3)
+765,1,"CATCHING, menses, before",bor(1)
+765,1,"CATCHING, sleep, during",lyc(1)
+765,1,"CATCHING, stitching in abdomen to back",calc(2)
+765,2,"CATCHING, stitching in abdomen to back, in piles",sulph(3)
+766,1,"CATCHING, working",sars(1)
+766,0,CONVULSIVE (See Paroxysmal),
+766,0,CROAKING,"cham(1), lach(1)"
+766,0,CROWING (See Rough),
+766,0,DEEP,"acon(2), agar(2), ail(2), am-m(1), ant-c(1), ant-t(1), arg-n(3), arn(1), ars(1), aur(3), bar-c(1), bar-m(1), bell(1), bor(1), bov(1), brom(2), bry(3), cact(2), calc(2), calc-p(1), camph(2), cann-s(1), caps(3), carb-v(1), cast(2), caust(2), cham(1), chel(1), chin(1), chin-a(1), chlor(1), cic(1), cimx(1), colch(1), croc(1), cupr(2), dig(2), dros(1), euon(1), eupho(2), fl-ac(1), gamb(1), glon(1), hell(1), hep(3), hydr-ac(2), hyos(1), ign(3), ind(2), ip(3), kali-ar(1), kali-c(1), kreos(1), lach(3), lachn(1), lact(1), laur(1), lob(1), lyc(2), merc(1), mez(1), mur-ac(2), nat-a(1), nat-c(1), nat-m(1), nat-s(3), nicc(1), nux-v(1), olnd(1), op(3), ox-ac(1), par(1), phos(3), plat(2), podo(1), poth(1), prun-s(1), ran-b(2), ran-s(1), rhus-t(2), sars(1), sec(2), sel(3), sil(3), spig(1), spong(1), squil(1), stann(1), stram(2), stry(1), sul-ac(1), sulph(2), tab(1), ther(1), thuj(1), zinc(2)"
+766,1,"DEEP, evening","eupi(1), ran-b(2)"
+766,1,"DEEP, midnight, on waking",cann-i(1)
+766,1,"DEEP, abdomen, from","alumn(1), cann-s(1)"
+766,1,"DEEP, ameliorates","acon(1), asaf(1), bar-c(1), cann-i(2), chin(1), colch(2), cupr(2), dig(1), dros(1), ign(2), iod(1), lach(2), meny(1), olnd(1), osm(1), puls(1), seneg(2), sep(1), spig(2), stann(3), staph(1), ter(1), viol-t(1)"
+766,1,"DEEP, chill, during",cimx(1)
+766,1,"DEEP, desire to breathe","acet-ac(1), acon(1), alum(1), alumn(1), am-br(1), aur(2), bapt(1), bor(2), brom(1), bry(3), cact(3), calc(3), calc-p(2), caps(2), carb-ac(2), carb-v(2), card-m(2), caust(2), cedr(1), chin(2), cimx(1), coca(1), croc(1), crot-t(2), dig(2), euon(1), eup-per(1), glon(2), hydr(1), ign(3), ind(2), kali-c(2), kreos(2), lach(3), lact(2), lil-t(1), lyc(2), merc(2), mez(1), mosch(1), nat-s(3), nux-m(1), par(2), phos(2), podo(1), poth(1), prun-s(1), ran-b(1), samb(1), sang(2), sel(3), seneg(2), sep(1), stann(1), stram(1), sulph(3), ther(1), verb(1), xan(1)"
+766,2,"DEEP, desire to breathe, chill, during",cimx(1)
+766,2,"DEEP, desire to breathe, lying, while",ind(2)
+766,1,"DEEP, dinner, before","chin(1), rhus-t(1)"
+766,1,"DEEP, eating, after",sars(1)
+766,1,"DEEP, heart, from heaviness at",croc(1)
+766,1,"DEEP, impossible","alumn(1), ant-c(1), ars(3), aur(2), bry(1), calc-p(1), cocc(2), crot-t(2), dig(1), euphr(1), ferr(1), lob(2), morph(1), plat(1), stann(1), sulph(1)"
+766,1,"DEEP, lying down, while",ind(2)
+766,2,"DEEP, lying down, while, back, on, amel.",ind(1)
+766,2,"DEEP, lying down, while, left side agg.",ind(1)
+766,1,"DEEP, menses, before",sulph(1)
+766,1,"DEEP, running, after",hep(2)
+766,1,"DEEP, sitting, while","cic(1), lach(1)"
+766,1,"DEEP, sleep, during",ign(1)
+766,1,"DEEP, slow, wheezing",sep(1)
+766,1,"DEEP, writing, while",fl-ac(1)
+766,0,DIFFICULT,"abies-n(1), abrot(1), absin(1), acet-ac(1), acon(2), aesc(1), aeth(2), agar(2), agn(2), ail(1), all-s(1), aloe(1), alum(1), alumn(1), am-c(2), am-m(1), ambr(2), anac(3), ant-a(2), ant-c(2), ant-t(3), apis(3), apoc(1), aral(2), arg-m(1), arg-n(2), arn(2), ars(3), ars-i(2), arum-t(1), arund(1), asaf(2), asar(2), asc-t(2), aspar(1), astac(1), aur(2), aur-m(1), aur-m-n(1), aur-s(1), bad(2), bar-c(1), bar-m(2), bell(2), benz-ac(2), bism(1), blatta(2), bor(1), bov(2), brom(2), bry(3), bufo(1), cact(3), cahin(1), calad(1), calc(2), calc-ar(2), calc-f(2), calc-p(2), calc-s(2), camph(2), cann-i(1), cann-s(1), canth(1), caps(2), carb-ac(1), carb-an(1), carb-o(2), carb-s(2), carb-v(3), carl(2), cast(1), caust(3), cedr(2), cench(2), cham(2), chel(3), chen-a(1), chin(3), chin-a(2), chin-s(2), chlol(1), chlor(3), cic(2), cimic(1), cimx(2), cina(3), cist(1), coc-c(2), coca(2), cocc(2), coff(1), colch(2), coll(1), coloc(2), con(2), cop(1), cor-r(1), croc(1), crot-c(2), crot-h(2), crot-t(3), cub(2), cupr(3), cupr-ar(3), cupr-s(1), cur(1), cycl(2), dig(2), dirc(1), dros(2), dulc(2), equis(1), ery-a(1), eup-per(1), eupho(1), euphr(1), ferr(3), ferr-ar(2), ferr-i(2), ferr-p(2), fl-ac(2), gels(2), gins(1), glon(2), graph(2), grin(2), guai(2), ham(1), hell(2), hep(3), hippoz(1), hura(1), hydr(1), hydr-ac(1), hydrc(1), hyos(1), hyper(1), ign(2), indg(1), iod(2), ip(3), iris(2), jab(1), jatr(1), jug-c(1), kali-ar(3), kali-bi(2), kali-c(3), kali-chl(2), kali-i(3), kali-n(1), kali-p(2), kali-s(2), kalm(2), kreos(1), lac-c(1), lach(3), lact(2), lat-m(2), laur(2), led(1), lil-t(2), lith(2), lob(3), lyc(3), lycps(2), lyss(2), mag-c(1), mag-m(1), mag-s(1), manc(1), mang(1), med(2), meli(1), meny(1), meph(3), merc(2), merc-c(3), merc-sul(2), merl(1), mez(2), morph(1), mosch(2), mur-ac(2), murx(1), mygal(1), naja(3), nat-a(1), nat-c(2), nat-m(2), nat-p(2), nat-s(3), nicc(1), nit-ac(2), nux-m(3), nux-v(2), oena(1), ol-j(1), op(3), osm(1), ox-ac(2), par(1), petr(1), ph-ac(2), phel(1), phos(3), phys(2), phyt(2), plat(2), plb(2), podo(1), prun-s(2), psor(2), ptel(1), puls(3), ran-b(2), ran-s(1), raph(1), rat(1), rheum(1), rhod(1), rhus-t(2), rumx(1), ruta(1), sabad(1), sabin(1), samb(2), sang(2), sarr(1), sars(1), sec(2), sel(3), seneg(2), sep(2), sil(3), spig(2), spong(3), squil(3), stann(3), staph(1), stram(2), stry(3), sul-ac(1), sulph(3), tab(2), tarent(3), tax(1), ter(2), thuj(1), tub(2), valer(1), verat(3), verat-v(1), vesp(1), viol-o(1), vip(1), zinc(2), zing(1)"
+767,1,"DIFFICULT, daytime",chel(2)
+767,1,"DIFFICULT, morning","ambr(1), ant-t(1), aur(1), bell(1), brom(2), carb-an(1), carb-v(1), caust(2), chel(1), con(2), dig(2), kali-bi(2), kali-c(2), kali-chl(1), kali-i(1), lach(2), lyc(1), merc(1), nit-ac(1), nux-v(2), phos(2), puls(1), rhod(1), sang(2), sep(2), sil(2)"
+767,2,"DIFFICULT, morning, bed, in","alum(1), ant-t(1), carb-an(1), com(1), con(1), led(1), mag-s(1), nux-v(1), puls(1), sulph(1)"
+767,2,"DIFFICULT, morning, chest, from anxiety in",puls(1)
+767,2,"DIFFICULT, morning, exertion, from",lyc(1)
+767,2,"DIFFICULT, morning, expectoration amel.",sep(2)
+767,2,"DIFFICULT, morning, rising, on","calc-p(1), kali-bi(2)"
+767,2,"DIFFICULT, morning, rising, after","bell(1), con(1), dig(1), ran-b(1)"
+767,3,"DIFFICULT, morning, rising, after, amel.","led(1), puls(1), sulph(1)"
+767,2,"DIFFICULT, morning, standing, while",con(1)
+767,2,"DIFFICULT, morning, waking, on","con(1), kali-i(1), seneg(1), sep(2), sil(1)"
+767,1,"DIFFICULT, forenoon","alum(1), bry(1), chin-a(1), hyper(1), ip(2), nat-c(1), nat-s(2), ox-ac(1), sulph(1)"
+767,2,"DIFFICULT, forenoon, standing, while",kali-n(1)
+767,2,"DIFFICULT, forenoon, walking",cocc(1)
+767,3,"DIFFICULT, forenoon, walking, in open air",ferr(1)
+767,2,"DIFFICULT, forenoon, writing, while",mag-s(1)
+767,2,"DIFFICULT, forenoon, 8 a.m.",dios(1)
+767,2,"DIFFICULT, forenoon, 9 a.m.","chel(1), chin(1), nat-a(1), tarent(1), valer(1)"
+767,3,"DIFFICULT, forenoon, 9 a.m., after breakfast",valer(1)
+767,2,"DIFFICULT, forenoon, 10 a.m.","ferr(2), iod(1)"
+767,2,"DIFFICULT, forenoon, 11 a.m.","agar(1), squil(1)"
+767,1,"DIFFICULT, noon","gels(1), hura(1)"
+767,1,"DIFFICULT, afternoon","all-s(1), alumn(1), bapt(1), bell(1), chel(1), dig(1), elaps(1), fl-ac(2), lach(2), lyc(1), merc-sul(2), nat-m(1), op(1), sabad(1), sang(2), sulph(1)"
+767,2,"DIFFICULT, afternoon, 1 p.m.","cact(1), squil(1)"
+767,2,"DIFFICULT, afternoon, 2 p.m.",chel(1)
+767,2,"DIFFICULT, afternoon, 3 p.m. when running","am-c(1), lyc(1)"
+767,2,"DIFFICULT, afternoon, 3-30 p.m. while sitting",mag-c(1)
+767,2,"DIFFICULT, afternoon, 4 p.m.",phos(1)
+767,2,"DIFFICULT, afternoon, 5 to 7 p.m.",nat-m(1)
+767,2,"DIFFICULT, afternoon, 5 p.m., sudden",ign(1)
+767,2,"DIFFICULT, afternoon, 6 p.m.",bapt(1)
+767,2,"DIFFICULT, afternoon, 6-30 p.m.",chel(1)
+767,2,"DIFFICULT, afternoon, 6 to 9 p.m.",cact(1)
+767,1,"DIFFICULT, evening","acon(1), aeth(1), agn(1), all-c(2), anac(1), ant-t(1), ars(2), bell(1), calc-p(2), calc-s(1), carb-an(1), carb-s(2), carb-v(2), chin(2), chin-a(1), cist(1), clem(1), coloc(1), con(1), cycl(1), dig(1), elaps(1), ferr(2), ferr-ar(1), ferr-p(1), fl-ac(2), graph(1), hell(2), hyper(1), ip(1), kali-ar(2), kali-c(2), kali-s(1), lach(2), lob(2), merc(1), mez(1), nat-m(1), nux-m(1), nux-v(2), ox-ac(1), petr(1), phos(2), psor(2), puls(2), ran-b(2), raph(1), rhod(1), rhus-t(2), sep(1), stann(2), sulph(3), verb(1), zinc(2)"
+767,2,"DIFFICULT, evening, amel.",lyc(1)
+767,2,"DIFFICULT, evening, bed, in","ant-t(1), ars(2), bor(1), carb-an(1), carb-v(2), chin(1), cist(2), con(1), crot-h(1), ferr(2), graph(2), merc(1), nat-m(1), nat-s(2), par(1), phos(2), podo(1), sep(2), sulph(2), zinc(1)"
+767,3,"DIFFICULT, evening, bed, in, amel.",chel(2)
+767,2,"DIFFICULT, evening, 6 p.m.","mag-c(1), rhus-t(3)"
+767,2,"DIFFICULT, evening, 9 p.m.",bry(1)
+767,1,"DIFFICULT, night, during","acon(1), alum(1), am-c(1), am-m(1), ant-t(2), apis(1), arg-n(1), ars(3), ars-i(1), asar(1), aspar(1), aur(2), aur-m(1), aur-s(1), bar-c(1), bell(1), berb(1), brom(1), bry(1), bufo(1), cact(1), calc(2), calc-s(1), cann-i(1), carb-ac(1), carb-s(3), carb-v(2), cast(1), cench(2), cham(1), chel(1), chin(2), chin-a(2), coca(2), colch(2), coloc(1), con(1), crot-t(2), cupr(1), daph(1), dig(2), elaps(1), ferr(2), ferr-ar(1), ferr-i(2), ferr-p(2), graph(2), guai(2), ign(1), iod(2), ip(2), kali-ar(3), kali-bi(2), kali-c(2), kali-i(1), kali-p(1), kali-s(1), lach(3), lact(1), lob(2), lyc(2), mag-s(1), med(1), merc(1), naja(3), nat-c(1), nat-m(1), nit-ac(1), nux-v(2), op(2), petr(1), ph-ac(1), phos(3), plb(1), podo(1), psor(2), puls(2), ran-b(1), ran-s(1), rhus-t(2), samb(3), sel(1), seneg(1), sep(2), spong(2), stann(2), stict(1), sul-ac(2), sulph(3), ter(2), thuj(2), tub(2), zinc(1), zing(1)"
+767,2,"DIFFICULT, night, during, bed, in","apis(1), ars(3), graph(2), plb(1), spong(1)"
+767,3,"DIFFICULT, night, during, bed, in, amel.",chel(2)
+767,2,"DIFFICULT, night, during, 10 p.m.","ip(1), phos(2), phys(1), valer(1)"
+767,3,"DIFFICULT, night, during, 10 p.m., to 10 a.m.",ip(1)
+767,2,"DIFFICULT, night, during, 11 p.m.","cact(1), nat-m(1), squil(2)"
+767,3,"DIFFICULT, night, during, 11 p.m., to 3 a.m.",colch(1)
+767,2,"DIFFICULT, night, during, midnight","acon(2), ars(3), calc(1), chin(2), puls(1), rhus-t(2)"
+767,3,"DIFFICULT, night, during, midnight, before","coloc(1), squil(2)"
+768,3,"DIFFICULT, night, during, midnight, after","ars(3), dros(2), ferr(1), graph(2), lyc(1), samb(3), spong(2)"
+768,4,"DIFFICULT, night, during, midnight, after, on waking","arund(1), cann-i(1), squil(1)"
+768,5,"DIFFICULT, night, during, midnight, after, on waking, at 1 a.m.","ptel(1), spong(2), squil(1)"
+768,2,"DIFFICULT, night, during, 1 to 2 a.m.",spong(2)
+768,2,"DIFFICULT, night, during, 1 to 4 a.m.",syph(2)
+768,2,"DIFFICULT, night, during, 2 a.m.","ars(3), kali-bi(2), rumx(1)"
+768,2,"DIFFICULT, night, during, 2 to 3 a.m.","kali-ar(3), kali-c(3)"
+768,2,"DIFFICULT, night, during, 3 a.m.","am-c(1), ant-t(3), bufo(1), cupr(1), kali-c(3), nat-m(1), samb(3)"
+768,2,"DIFFICULT, night, during, 4 a.m.","kali-bi(1), lil-t(1)"
+768,2,"DIFFICULT, night, during, 5 a.m.",kali-i(1)
+768,2,"DIFFICULT, night, during, frequent attacks until 4 a.m.",samb(3)
+768,1,"DIFFICULT, air, in cold","apis(1), ars(2), aur(1), graph(1), lob(3), lyc(2), merc(2), nux-v(1), petr(1), puls(1), sel(1), seneg(1), spong(2), sulph(1)"
+768,2,"DIFFICULT, air, in cold, amel.","am-c(2), arg-n(2), bell(1), bry(2), carb-s(2), carb-v(2), cham(1), cist(1), lac-c(1), op(2), puls(2), ust(1)"
+768,1,"DIFFICULT, in open","bor(1), caust(1), crot-c(1), phys(1), plat(1), psor(3), rhus-t(1), sel(1), seneg(1), sulph(1)"
+768,2,"DIFFICULT, in open, amel.","alum(1), am-c(2), apis(3), ars-i(1), bapt(1), bell(1), bry(2), cact(2), chel(1), chin-a(2), cist(1), dig(1), fl-ac(1), gels(2), ip(2), kali-i(2), kali-s(2), lach(2), lil-t(1), nat-m(3), nux-v(1), puls(3), stram(1), sulph(3), tub(2)"
+768,1,"DIFFICULT, alternating with pain in hypochondria",zinc(2)
+768,2,"DIFFICULT, alternating with pain in hypochondria, sopor",plb(1)
+768,2,"DIFFICULT, alternating with pain in hypochondria, urticaria",calad(2)
+768,2,"DIFFICULT, alternating with pain in hypochondria, uterine hæmorrhage",fl-ac(1)
+768,1,"DIFFICULT, anger, after","arn(1), ars(1), cham(3), rhus-t(2), staph(1)"
+768,1,"DIFFICULT, ascending","acet-ac(1), agn(1), aloe(1), am-c(2), ang(1), apis(2), arg-n(2), ars(3), ars-i(2), arund(1), aspar(1), aur(1), aur-m(2), bar-c(1), berb(1), bor(2), brom(2), bufo(1), cact(2), calc(3), calc-ar(3), calc-s(1), cann-i(1), canth(1), caps(2), carb-ac(2), carb-s(1), carl(1), cast(1), cist(1), clem(2), coca(3), crot-t(1), cupr(1), dirc(1), elaps(2), graph(1), grat(1), hyos(1), iod(2), ip(3), kali-n(1), kali-p(2), led(1), lil-t(1), lob(2), lyc(2), lycps(2), merc(3), nat-a(1), nat-m(3), nat-s(2), nit-ac(3), nux-v(1), ol-an(1), petr(1), pic-ac(2), plb(2), puls(1), ran-b(1), rat(1), rhus-t(2), ruta(2), sars(2), seneg(2), sep(1), spig(1), spong(2), squil(1), stann(2), sulph(1), tab(1), ther(1), thuj(1), til(1), zinc(1)"
+768,1,"DIFFICULT, autumn",chin(1)
+768,1,"DIFFICULT, beer, after",cocc(1)
+768,1,"DIFFICULT, bending arm backwards, on",sulph(3)
+768,2,"DIFFICULT, bending arm backwards, on, backward","apis(1), cupr(1), psor(1)"
+768,3,"DIFFICULT, bending arm backwards, on, backward, amel.","cupr(1), fl-ac(1)"
+768,2,"DIFFICULT, bending arm backwards, on, head backwards","bell(1), cham(1)"
+768,3,"DIFFICULT, bending arm backwards, on, head backwards, must rise up and bend head backwards",hep(1)
+768,2,"DIFFICULT, bending arm backwards, on, forward","apis(1), seneg(1), spig(2)"
+768,3,"DIFFICULT, bending arm backwards, on, forward, amel.","ars(2), cench(2), coc-c(1), colch(1), kali-bi(2), kali-c(2), lach(2), spong(2)"
+768,1,"DIFFICULT, breath, on taking a deep",phos(1)
+768,2,"DIFFICULT, breath, on taking a deep, as if the next would be the last",apis(1)
+768,1,"DIFFICULT, change of weather","chel(1), ip(1)"
+768,1,"DIFFICULT, children","ambr(2), calc(1), calc-p(1), lyc(1), nat-s(3), puls(2)"
+768,1,"DIFFICULT, chill, during","apis(3), ars(1), bry(1), cimx(1), gels(2), gins(1), guare(1), kali-c(1), mez(1), nat-m(2), nux-m(1), nux-v(1), puls(1), seneg(1), thuj(2), zinc(1)"
+768,1,"DIFFICULT, closing eyes, on","carb-an(1), carb-v(2)"
+768,1,"DIFFICULT, coffee, from","bell(2), cham(2), dig(1)"
+768,1,"DIFFICULT, coition, during","aeth(1), ambr(2), arund(1), asaf(1), con(1), sep(1), staph(2)"
+768,2,"DIFFICULT, coition, during, after","cedr(2), dig(2)"
+768,2,"DIFFICULT, coition, during, toward end of",staph(2)
+768,1,"DIFFICULT, cold, after taking","dulc(1), ip(1), kali-i(2), puls(1)"
+768,2,"DIFFICULT, cold, after taking, water, after drinking amel.",cham(1)
+768,3,"DIFFICULT, cold, after taking, water, after drinking amel., when heated, after",kali-c(2)
+768,2,"DIFFICULT, cold, after taking, weather",apis(1)
+768,2,"DIFFICULT, cold, after taking, wet weather","ars(1), dulc(2), mang(2), sil(2)"
+768,1,"DIFFICULT, constriction of larynx","apis(3), bell(1), cocc(1), crot-h(3), hell(1), lach(3), sars(1), spong(1)"
+768,2,"DIFFICULT, constriction of larynx, trachea",petr(1)
+768,1,"DIFFICULT, convulsions, during","lyss(2), op(2), stry(1), tanac(1)"
+768,2,"DIFFICULT, convulsions, during, tetanic",mill(1)
+768,1,"DIFFICULT, cough, with","acon(1), all-s(1), alum(3), am-c(1), am-m(1), anac(1), ant-t(3), aral(1), arn(1), ars(3), ars-i(2), aspar(1), bar-c(1), bar-m(1), bell(2), brom(1), bry(1), calad(1), calc(1), calc-p(1), calc-s(1), carb-v(2), caust(2), chin(1), chin-a(1), cina(2), coc-c(1), con(1), cor-r(1), cupr(3), dig(1), dol(1), dros(3), eup-per(1), euphr(1), ferr(2), ferr-ar(1), ferr-p(1), guai(1), hep(2), hydr-ac(1), ign(1), ip(3), kali-ar(1), kali-bi(2), kali-c(1), kali-s(2), kreos(2), lac-c(1), lach(2), lact(1), laur(1), led(1), lob(1), lyc(2), merc(1), mez(1), mur-ac(1), nat-m(1), nat-s(2), nicc(1), nit-ac(1), nux-m(2), nux-v(3), op(3), phel(1), phos(3), rhus-t(1), samb(1), sep(2), sil(2), spig(1), spong(1), squil(1), stann(3), sul-ac(1), sulph(1), viol-o(1), zinc(1), zing(1)"
+769,1,"DIFFICULT, covering nose or mouth","arg-n(2), lach(2)"
+769,1,"DIFFICULT, crowded room",arg-n(2)
+769,1,"DIFFICULT, dark, in the",aeth(1)
+769,1,"DIFFICULT, dinner, after","chel(1), nat-m(1), nux-v(2), puls(2), sars(1)"
+769,1,"DIFFICULT, diseased conditions of distant parts not involved in act of breathing",puls(1)
+769,1,"DIFFICULT, dreams, during",sang(1)
+769,2,"DIFFICULT, dreams, during, after frightful",chel(2)
+769,1,"DIFFICULT, dressing, while",stann(2)
+769,1,"DIFFICULT, drinking, when","anac(1), arg-n(2), bell(1), cimx(2), kali-c(2), kali-n(1), meph(1), nat-m(1), plb(1), thuj(1)"
+769,2,"DIFFICULT, drinking, when, after","nux-v(1), thuj(1)"
+769,1,"DIFFICULT, dust, as from","ars(3), aur-m(1), bell(1), brom(2), calc(2), cycl(1), hep(2), ip(1), nux-v(1), phos(1), sil(3), sulph(1)"
+769,1,"DIFFICULT, eating, while",mag-m(1)
+769,2,"DIFFICULT, eating, while, after","anac(2), ant-a(1), ant-c(1), apoc(1), ars(1), asaf(2), asc-t(1), aur(2), calad(1), calc(1), carb-an(1), carb-v(2), cham(1), chel(1), chin(1), dig(1), kali-p(1), lach(3), mag-m(2), merc(1), nat-m(1), nux-m(2), nux-v(2), phos(3), puls(3), ran-b(1), rhus-t(1), sang(1), sanic(1), sars(1), sulph(2), syph(1), viol-t(1), zinc(2)"
+769,2,"DIFFICULT, eating, while, amel.","cedr(1), graph(2), iod(1), spong(2)"
+769,1,"DIFFICULT, emission, after","phos(2), staph(3)"
+769,1,"DIFFICULT, emphysema, in",am-c(1)
+769,1,"DIFFICULT, eructations amel.","aur(2), carb-v(3), nux-v(2)"
+769,1,"DIFFICULT, eruptive diseases, with",apis(2)
+769,1,"DIFFICULT, excitement agg.","ambr(1), ars(1), coc-c(2), ferr(1), puls(2), sep(2)"
+769,1,"DIFFICULT, exertion, after","am-c(1), am-m(1), apis(2), arg-n(2), ars(3), ars-i(2), asaf(1), aur-m(2), benz-ac(1), bor(1), bov(1), brom(1), calc(3), camph(2), carb-s(1), carb-v(2), cench(2), cimic(1), coca(3), con(1), dig(2), dirc(1), ferr-m(2), iod(1), ip(3), kali-ar(2), kali-c(2), kali-i(2), lach(3), laur(2), led(2), lob(3), lyc(3), lycps(3), merc(2), nat-m(3), nat-s(2), nit-ac(2), nux-m(2), nux-v(2), ox-ac(1), ph-ac(1), phos(2), puls(2), rat(1), sars(1), sep(1), sil(2), spig(2), spong(3), squil(1), stann(2), staph(2), sulph(2), ter(1), tub(1), verat(2)"
+769,2,"DIFFICULT, exertion, after, with hands and arms","am-m(1), bov(1), lach(3), nat-m(2), nit-ac(2), sil(2)"
+769,1,"DIFFICULT, expectoration amel.","ail(1), ant-t(3), grin(2), guai(1), ip(1), manc(1), nit-ac(1), sep(2), zinc(2)"
+769,2,"DIFFICULT, expectoration amel., checked, after",sep(2)
+769,1,"DIFFICULT, expiration","am-c(1), arg-m(2), ars(1), caust(2), chlor(3), ip(2), med(2), meph(2), puls(1), samb(3), seneg(1)"
+769,2,"DIFFICULT, expiration, cough, during",meph(1)
+769,1,"DIFFICULT, fanned, wants to be","ant-t(3), apis(1), carb-v(3), chin(1), ferr(2), med(2), sulph(1)"
+769,1,"DIFFICULT, flatulence, from","carb-v(3), cast(1), cham(1), lyc(2), nat-s(2), ol-an(1), sang(1), zinc(2)"
+769,1,"DIFFICULT, fright, after","cupr(2), samb(2)"
+769,1,"DIFFICULT, handkerchief, cannot bear to have, approach the mouth as it will cause dyspnœa","arg-n(2), lach(2)"
+769,1,"DIFFICULT, hang down, legs, amel.",sul-ac(2)
+769,1,"DIFFICULT, heart, during pain in","arg-n(2), aur(2), cact(2), cimic(1), kalm(1), psor(2), sep(1), spig(2), spong(2), tarent(2)"
+769,2,"DIFFICULT, heart, during pain in, complaints and urinary troubles","laur(3), lycps(2)"
+769,3,"DIFFICULT, heart, during pain in, complaints and urinary troubles, and ovarian troubles",tarent(3)
+769,1,"DIFFICULT, heat, with","anac(1), apis(3), arn(1), ars(1), cact(2), carb-v(1), chel(1), cimx(1), cina(1), cinnb(1), con(1), kali-c(3), lach(2), nat-m(1), phos(1), sep(2), sil(2), tub(2), zinc(1)"
+769,1,"DIFFICULT, heated, when overheated",apis(3)
+769,1,"DIFFICULT, hurried, if",caust(1)
+769,1,"DIFFICULT, hysterical","ars(1), asaf(1), gels(1), ign(2), lob(2), mosch(1)"
+769,1,"DIFFICULT, inspiration","acon(2), arg-n(2), ars(2), brom(2), calad(1), calc(2), caust(3), chin(1), chlor(1), euphr(1), ferr(2), ign(2), iod(2), kali-c(1), meph(1), nux-m(2), phos(2), samb(3), zinc(1)"
+769,2,"DIFFICULT, inspiration, rapid expiration","chin(1), ign(1), kali-c(2), meph(1), nux-m(2), nux-v(1), sang(2)"
+769,1,"DIFFICULT, laughing","ars(2), aur(1), bry(2), cupr(1), lach(1), lyc(1), plb(1)"
+769,1,"DIFFICULT, liver, from stitches in","acon(1), con(1)"
+769,1,"DIFFICULT, lung, from heaviness in left",ferr(1)
+769,2,"DIFFICULT, lung, from heaviness in left, cannot expand the",crot-t(2)
+769,1,"DIFFICULT, lying, while","acet-ac(1), acon(1), ant-a(2), ant-t(2), apis(3), apoc(1), ars(3), ars-i(2), asaf(1), aur(2), bapt(2), bar-m(1), bor(1), brom(1), bufo(1), cact(1), calc(1), calc-s(1), cann-s(2), carb-s(2), carb-v(3), cast(1), caust(1), cedr(1), cench(1), cham(1), chin(2), chin-a(1), cist(1), con(1), crot-t(2), dig(2), eupho(1), ferr(2), ferr-ar(2), ferr-p(1), fl-ac(2), graph(3), ham(2), hell(1), hep(2), kali-ar(2), kali-bi(2), kali-c(3), kali-n(2), kali-s(1), lac-c(2), lach(2), lact(1), lob(3), lyc(2), meph(2), merc(2), naja(2), nat-m(1), nux-v(1), olnd(1), phel(1), phos(2), plb(2), podo(1), puls(2), rumx(1), samb(2), sang(1), sars(1), seneg(2), sep(2), sil(2), spig(2), spong(2), sulph(2), syph(1), tarax(1), tarent(2), ter(1), tub(3), zinc(1), zing(1)"
+770,2,"DIFFICULT, lying, while, amel.","bry(1), calc-p(2), chel(2), dig(2), euphr(1), hell(2), laur(2), nat-s(1), nux-v(2), psor(3)"
+770,2,"DIFFICULT, lying, while, enlargement of the tonsils, from",bar-c(1)
+770,2,"DIFFICULT, lying, while, head low, with the","apis(3), cact(3), carb-v(2), chin(2), colch(1), cop(1), eup-per(1), hep(2), kali-c(3), kali-n(1), puls(1), rumx(1), spig(2), spong(2)"
+770,2,"DIFFICULT, lying, while, on the back","acet-ac(1), aeth(1), alum(1), ars(2), aur(2), cast(1), hyper(2), iod(2), lyc(3), med(1), nat-m(1), ol-an(1), phos(2), ptel(1), puls(2), sil(2), spig(2), sulph(2)"
+770,3,"DIFFICULT, lying, while, on the back, amel.","cact(3), dig(1), ind(1), kali-i(1), kalm(2), nux-v(1)"
+770,3,"DIFFICULT, lying, while, on the back, arms outstretched amel.",psor(2)
+770,3,"DIFFICULT, lying, while, on the back, with shoulders elevated amel.",cact(3)
+770,2,"DIFFICULT, lying, while, on knees and elbows amel.",med(1)
+770,2,"DIFFICULT, lying, while, on the side","ars(2), carb-an(1), puls(2)"
+770,3,"DIFFICULT, lying, while, on the side, amel.",alum(1)
+770,3,"DIFFICULT, lying, while, on the side, right side","cast(1), squil(1)"
+770,4,"DIFFICULT, lying, while, on the side, right side, amel.",spig(2)
+770,4,"DIFFICULT, lying, while, on the side, right side, going to sleep",bad(1)
+770,3,"DIFFICULT, lying, while, on the side, left side","absin(1), apis(1), cann-i(1), hydr(2), ind(1), kali-c(2), med(1), merc(1), naja(1), phos(2), plb(1), puls(2), spig(2), tarent(2), visc(1)"
+770,4,"DIFFICULT, lying, while, on the side, left side, amel.",cast(1)
+770,2,"DIFFICULT, lying, while, impossible","acon(1), ant-t(2), apis(3), apoc(2), ars(3), aur(2), bar-m(1), bor(1), brom(1), bufo(1), cact(2), cann-s(1), chin(1), crot-t(2), hep(2), kali-c(2), lac-c(2), lach(2), lyc(2), merc(2), nux-v(2), puls(2), seneg(2), sep(2), stann(1), staph(1), sulph(2), tab(2), ter(2), tub(2)"
+770,1,"DIFFICULT, manual labour","am-m(1), bov(2), lach(2), nat-m(2), nit-ac(2), sil(2)"
+770,1,"DIFFICULT, measles, from suppressed","cham(3), puls(3), zinc(2)"
+770,1,"DIFFICULT, menorrhagia, from being suppressed",fl-ac(1)
+770,1,"DIFFICULT, menses, before","bor(1), brom(1), cupr(2), nat-s(2), sulph(2), zinc(3)"
+770,2,"DIFFICULT, menses, before, during","cact(1), calc(2), chin(1), cocc(1), coloc(2), graph(1), ign(1), iod(2), ip(1), kali-c(1), lach(2), laur(1), lyc(1), plat(1), puls(1), sep(1), spong(3), sulph(1), zinc(1)"
+770,2,"DIFFICULT, menses, before, after","ferr(1), nat-m(2), puls(2)"
+770,2,"DIFFICULT, menses, before, suppressed, with","puls(3), spong(1)"
+770,1,"DIFFICULT, mental exertion","ferr(1), phos(1), sep(1)"
+770,1,"DIFFICULT, mortification, after",puls(1)
+770,1,"DIFFICULT, motion","apis(2), arg-n(2), arn(1), ars(2), ars-i(1), aspar(1), bapt(1), bry(3), calc(1), cann-s(1), caps(1), carb-v(2), con(2), ferr(1), ferr-i(1), graph(1), iod(1), ip(1), kali-ar(1), kali-c(2), kali-i(2), led(2), lob(2), lyc(2), merc(1), nat-s(2), nux-v(1), ox-ac(1), phos(2), plb(1), puls(1), rhod(1), rhus-t(1), sabad(1), sep(2), spig(2), spong(3), stann(3), tarent(2), verat(2)"
+770,2,"DIFFICULT, motion, amel.","aur(2), calc(1), ferr(3), nat-m(1), seneg(1), sep(1), sil(1), sulph(1)"
+770,2,"DIFFICULT, motion, of arms","am-m(2), lach(3), nat-m(1), spig(1), sulph(1)"
+770,2,"DIFFICULT, motion, slow motion agg.",sep(2)
+770,1,"DIFFICULT, mucus in the trachea, from","alum(1), ammc(1), ant-t(3), ars(3), bov(1), cact(2), camph(1), cina(1), hippoz(3), ip(2), sel(1), thuj(2)"
+770,1,"DIFFICULT, odor, caused by","ph-ac(1), sang(1)"
+770,1,"DIFFICULT, œdema, pulmonary","am-c(3), carb-s(2), ferr-i(2)"
+770,1,"DIFFICULT, old people","bar-c(2), chin(2), seneg(1)"
+770,1,"DIFFICULT, open, wants doors and windows","apis(3), arg-n(2), aspar(1), bapt(1), cann-s(2), carb-v(2), chel(2), chin-a(1), cist(1), dig(2), ip(2), lach(3), nat-s(2), plb(1), puls(3), sulph(3)"
+770,2,"DIFFICULT, open, wants doors and windows, must sit by the window","cann-s(2), chel(2)"
+770,2,"DIFFICULT, open, wants doors and windows, mouth with inspiration","acon(1), squil(1)"
+770,1,"DIFFICULT, pain, with every labor",lob(1)
+770,1,"DIFFICULT, palpitation, during","am-c(1), ars-i(1), aur(3), brom(1), cact(2), cadm(1), calc(2), calc-ar(1), carb-v(2), colch(2), grat(1), iod(1), kali-c(2), lach(1), nit-ac(1), plb(1), psor(2), puls(1), sep(1), spig(2), spong(2), tab(1), verat(2), verat-v(1), viol-o(1)"
+770,2,"DIFFICULT, palpitation, during, 11 to 3 a.m.",colch(1)
+770,1,"DIFFICULT, periodic attacks","ars(2), cact(3), calc-p(2), colch(1), plb(1), sulph(1)"
+770,2,"DIFFICULT, periodic attacks, seven days",sulph(1)
+770,1,"DIFFICULT, perspiration","ars(2), arund(1), lach(1), nux-v(1), sep(2), sulph(2)"
+770,2,"DIFFICULT, perspiration, anxious face and sleeplessness",eup-per(1)
+770,1,"DIFFICULT, pork, after",nat-c(1)
+771,1,"DIFFICULT, pressing on spine",chin-s(2)
+771,1,"DIFFICULT, raising arms","berb(3), spig(3)"
+771,1,"DIFFICULT, reading, while",hell(1)
+771,2,"DIFFICULT, reading, while, amel.",ferr(1)
+771,1,"DIFFICULT, retraction of shoulders amel.","am-c(1), ars(1), calc(2)"
+771,1,"DIFFICULT, rheumatic of heart","abrot(2), aur(1), cact(2), cimic(1), kalm(2), psor(2), sep(1), spong(2)"
+771,1,"DIFFICULT, riding, while",lyc(1)
+771,2,"DIFFICULT, riding, while, amel.",psor(2)
+771,2,"DIFFICULT, riding, while, on horseback agg.",meph(2)
+771,1,"DIFFICULT, rising, after",coc-c(1)
+771,2,"DIFFICULT, rising, after, on, amel.",olnd(1)
+771,2,"DIFFICULT, rising, after, up in bed","laur(1), lyc(1), nat-c(1)"
+771,1,"DIFFICULT, running, after","bor(1), hyos(1), sil(2)"
+771,2,"DIFFICULT, running, after, does not agg., slow motion agg.",sep(2)
+771,1,"DIFFICULT, singing, when",arg-m(1)
+771,1,"DIFFICULT, sitting","alum(1), alumn(1), anac(1), calc(1), carb-v(1), caust(1), cedr(1), dig(1), dros(1), euphr(1), ferr(2), gins(1), indg(1), lach(2), laur(2), led(1), lyc(2), nat-s(1), nicc(1), petr(1), phos(2), psor(2), rhus-t(1), sep(1), verat(1)"
+771,2,"DIFFICULT, sitting, bent backwards",psor(1)
+771,3,"DIFFICULT, sitting, bent backwards, forwards","dig(1), rhus-t(1), sep(1)"
+771,4,"DIFFICULT, sitting, bent backwards, forwards, amel.","ars(2), bufo(1), chin-a(1), lach(3), spong(2)"
+771,2,"DIFFICULT, sitting, amel.","ant-t(2), apis(2), apoc(1), asaf(1), aspar(1), cann-s(1), crot-t(2), hep(1), ip(1), kali-c(2), verat(2)"
+771,2,"DIFFICULT, sitting, half sitting amel.",spig(1)
+771,2,"DIFFICULT, sitting, upright amel.","bar-m(1), kali-c(3), lach(2), laur(2), lyc(2), nat-c(1), seneg(2), sulph(1), ter(2)"
+771,2,"DIFFICULT, sitting, with head bent forward on knees amel.","coc-c(1), kali-c(3)"
+771,1,"DIFFICULT, sleep, during","acon(1), agar(1), bell(1), carb-v(2), cench(3), cham(1), con(1), dig(1), grin(2), guai(1), hep(1), ign(1), kali-bi(2), kali-c(2), lach(3), lact(2), lyc(2), manc(1), meph(1), merc(1), nux-v(1), op(2), rhus-t(1), samb(1), sep(1), sulph(2)"
+771,2,"DIFFICULT, sleep, during, awakened to avoid suffocation, must be","op(3), sulph(1)"
+771,2,"DIFFICULT, sleep, during, after","alum(1), apis(1), bell(1), cedr(1), lac-c(1), lach(3), nit-ac(1), phos(2), sep(2), spong(3)"
+771,2,"DIFFICULT, sleep, during, falling asleep, when","am-c(1), arum-t(2), bapt(1), bry(1), carb-s(2), carb-v(2), cench(2), crot-h(2), dig(1), graph(2), grin(3), hep(1), lac-c(2), lach(3), nux-m(1), op(3), phos(1), spong(2), sulph(1), tab(1), valer(1)"
+771,3,"DIFFICULT, sleep, during, falling asleep, when, lying on right side",bad(2)
+771,1,"DIFFICULT, smoke, as from","bar-c(1), brom(2), cocc(1), nat-a(1)"
+771,1,"DIFFICULT, spasms of larynx (See Larynx and Trachea)",
+771,1,"DIFFICULT, spasmodic","asaf(1), caust(1), chlor(2), cupr(2), laur(2), plb(1), puls(2)"
+771,1,"DIFFICULT, speaking, rapidly, when",caust(1)
+771,1,"DIFFICULT, stand, compelled stand erect",cedr(1)
+771,1,"DIFFICULT, standing","aur-m(1), cina(1), kali-n(1), phel(1), sep(2)"
+771,2,"DIFFICULT, standing, can only breathe when",cann-s(1)
+771,2,"DIFFICULT, standing, in water",nux-m(1)
+771,1,"DIFFICULT, sternum, from pressure on","all-s(1), cann-s(1), ph-ac(1), phos(1), rhus-t(1), squil(1), thuj(1)"
+771,2,"DIFFICULT, sternum, from pressure on, upper part of",bry(1)
+771,1,"DIFFICULT, stimulants agg.",lach(1)
+771,1,"DIFFICULT, stool, before",poth(1)
+771,2,"DIFFICULT, stool, before, during","alumn(2), calc(2), rhus-t(2)"
+771,2,"DIFFICULT, stool, before, after","caust(1), crot-t(1), rhus-t(1)"
+771,2,"DIFFICULT, stool, before, amel.",poth(1)
+771,1,"DIFFICULT, stooping, on","am-m(2), calc(2), caust(1), chin(1), dig(1), laur(1), phos(1), seneg(1), sep(1), sil(1), sulph(1)"
+771,1,"DIFFICULT, stormy weather","ars(2), nat-s(2), sep(2)"
+771,1,"DIFFICULT, sudden","gels(2), graph(1), ign(1), iod(1), sulph(2)"
+771,2,"DIFFICULT, sudden, 5 p.m.",ign(1)
+771,1,"DIFFICULT, sulphur, as if he inhaled, fumes of","brom(1), camph(1), canth(1), croc(1), kali-chl(1), lyc(3), meph(1), mosch(2), puls(3), sulph(1)"
+771,1,"DIFFICULT, supper, during",ant-c(1)
+771,2,"DIFFICULT, supper, during, after","alumn(1), ant-c(1), sanic(1)"
+771,1,"DIFFICULT, suppressed eruptions, from",apis(3)
+771,1,"DIFFICULT, swallowing","atro(1), bell(2), brom(3), calc(2), chen-a(1), cupr(2), thuj(1)"
+771,1,"DIFFICULT, talking, after","apoc(1), ars(2), bry(1), caust(2), dros(2), lach(3), laur(1), meph(1), nat-ac(2), ph-ac(1), sil(2), spig(2), spong(3), sulph(3)"
+771,2,"DIFFICULT, talking, after, amel.",ferr(2)
+771,2,"DIFFICULT, talking, after, loud",petr(1)
+772,1,"DIFFICULT, throat-pit, constriction at",cocc(1)
+772,2,"DIFFICULT, throat-pit, constriction at, lump in",lob(1)
+772,1,"DIFFICULT, thunderstorm, before","sep(1), sil(2), syph(1)"
+772,1,"DIFFICULT, touching larynx","apis(1), bell(1), lach(3)"
+772,1,"DIFFICULT, turning in bed","ars(3), carb-v(2), sulph(2)"
+772,2,"DIFFICULT, turning in bed, to left side disappeared on sitting up",sulph(2)
+772,2,"DIFFICULT, turning in bed, to right side",eupho(1)
+772,1,"DIFFICULT, vexation, after","ars(1), cupr(2)"
+772,1,"DIFFICULT, waking with","alum(1), am-c(1), ant-t(2), apis(2), arg-n(2), arn(2), arum-t(2), bad(1), bapt(1), bell(1), benz-ac(1), cadm(2), calc(1), carb-v(2), cench(2), chel(2), chin(2), crot-h(1), cur(1), dig(2), euphr(1), graph(2), grin(3), guai(1), hep(2), kali-bi(2), kali-c(2), kali-i(2), lac-c(2), lach(3), lact(1), med(1), naja(2), nux-m(2), nux-v(1), op(3), phos(2), rhus-t(1), samb(2), seneg(1), sep(1), sil(1), spong(1), sulph(1), tab(1), valer(1), vesp(1)"
+772,1,"DIFFICULT, walking","agar(1), am-c(2), am-m(1), apis(2), apoc(1), ars(3), arund(1), aur(1), bell(1), brom(2), cact(2), calc(3), calc-s(2), caps(2), carb-v(2), cast(1), caust(2), chel(1), coc-c(1), coca(1), con(2), dig(2), ign(2), kali-ar(2), kali-c(2), kali-i(2), kali-s(1), lach(2), lact(1), laur(2), led(1), lil-t(1), lyc(1), lycps(1), mag-c(1), merc(2), nat-m(1), nat-s(2), nit-ac(2), nux-v(1), olnd(1), petr(1), phel(1), phos(2), plat(1), prun-s(2), psor(2), puls(2), ran-b(1), rhus-t(1), sel(1), seneg(1), sep(2), stann(3), stront(1), sulph(3), thuj(1)"
+772,2,"DIFFICULT, walking, amel.","brom(1), bry(1), dros(2), ferr(2), indg(1), nicc(1), sep(1)"
+772,2,"DIFFICULT, walking, air, in the open","am-m(2), ars(2), aur(2), carb-v(2), caust(1), graph(1), lyc(2)"
+772,2,"DIFFICULT, walking, beginning to walk, on","petr(1), ph-ac(1)"
+772,2,"DIFFICULT, walking, on level ground but not when ascending",ran-b(2)
+772,2,"DIFFICULT, walking, over uneven ground",clem(1)
+772,2,"DIFFICULT, walking, rapidly","ang(1), aur(2), caust(2), cupr(2), ign(1), kali-c(2), lob(2), merc(1), nat-m(3), nat-s(2), phos(3), puls(3), seneg(1), sil(2), sulph(2)"
+772,3,"DIFFICULT, walking, rapidly, amel.",sep(2)
+772,2,"DIFFICULT, walking, slowly, about, amel.",ferr(3)
+772,2,"DIFFICULT, walking, wind, against the","calc(2), cupr(2), lyc(1), phos(2), plat(1), psor(1), rhus-r(1), sel(1)"
+772,1,"DIFFICULT, warm bath","iod(2), nit-ac(1)"
+772,2,"DIFFICULT, warm bath, clothing, from",ars(2)
+772,2,"DIFFICULT, warm bath, drinks, after",phos(1)
+772,2,"DIFFICULT, warm bath, food",lob(2)
+772,2,"DIFFICULT, warm bath, room, in a","am-c(1), ant-t(1), apis(3), arg-n(2), ars(1), carb-s(2), carb-v(2), chlor(1), fl-ac(1), iod(2), ip(1), kali-i(2), kali-s(3), kreos(1), lil-t(2), lyc(2), puls(3), sulph(3), thuj(1), tub(1)"
+772,3,"DIFFICULT, warm bath, room, in a, becomes deathly pale and must remain quiet",am-c(2)
+772,3,"DIFFICULT, warm bath, room, in a, entering warm room from open air",bry(2)
+772,1,"DIFFICULT, water, when standing in",nux-m(2)
+772,1,"DIFFICULT, weakness","ars(1), lach(1)"
+772,2,"DIFFICULT, weakness, of respiratory organs","act-sp(1), plat(1), stann(3)"
+772,1,"DIFFICULT, wet weather","am-c(1), chin(1), nat-s(3)"
+772,1,"DIFFICULT, windy weather","ars(1), calc(1)"
+772,1,"DIFFICULT, writing, while","aspar(1), dig(1)"
+772,2,"DIFFICULT, writing, while, amel.",ferr(2)
+772,1,"DIFFICULT, yawning amel.",croc(1)
+772,0,FEEBLE (See Weak),
+772,0,FORCIBLE,"brom(1), cann-s(1), hydr-ac(1)"
+772,1,"FORCIBLE, expiration","bell(1), caps(1), cham(1), chin(2), gels(2), ign(1), ox-ac(2), stram(1)"
+772,0,GASPING,"acet-ac(1), acon(2), am-c(2), ant-t(2), apis(3), apoc(2), arg-n(2), ars(2), ars-h(1), brom(2), camph(1), canth(1), carb-an(1), cast(1), chlor(2), cic(2), coff(2), colch(2), coloc(2), cub(1), cupr(1), dig(2), dros(2), gels(1), hell(2), hydr-ac(2), hydrc(1), hyper(2), ip(2), lat-m(1), laur(2), lyc(3), med(2), merc(1), mosch(2), naja(2), op(1), phos(2), phyt(1), puls(1), samb(1), spong(2), stram(2), stry(1), tab(2), tarent(1), thuj(1)"
+772,1,"GASPING, morning, 5 a.m.",tarent(1)
+772,1,"GASPING, afternoon",nicc(1)
+772,1,"GASPING, night",lach(1)
+772,2,"GASPING, night, 2 a.m. with cough",chin-s(1)
+772,1,"GASPING, cough, before","ant-t(1), brom(2), bry(1), coc-c(1)"
+772,2,"GASPING, cough, before, during","ant-t(2), cor-r(2), sul-ac(1)"
+772,1,"GASPING, dozing, when",naja(1)
+772,1,"GASPING, inspiration, expiration long and slow","ant-t(2), op(2)"
+772,0,GROANING (See Moaning),
+772,0,HOT breath,"acon(3), aeth(1), agar(1), anac(1), ant-c(2), apis(1), ars(2), asaf(1), bell(2), calc(1), calc-p(1), cann-s(1), carb-s(3), cham(2), chel(1), coc-c(1), coff(1), ferr(2), kali-br(1), mag-m(1), mang(2), med(1), merl(1), mez(1), naja(1), nat-m(2), phos(2), ptel(1), raph(1), rhus-t(2), rhus-v(2), sabad(2), squil(1), stront(2), sulph(2), sumb(1), zinc(2)"
+773,1,"HOT breath, morning, on waking",sulph(1)
+773,1,"HOT breath, afternoon","bad(2), rhus-t(2)"
+773,1,"HOT breath, evening","mang(1), sumb(1)"
+773,1,"HOT breath, chill, during","anac(1), camph(1), cham(1), rhus-t(3)"
+773,1,"HOT breath, cold limbs, with",cham(1)
+773,1,"HOT breath, fever, during",zinc(1)
+773,0,HYSTERICAL (See Paroxysmal),
+773,0,"IMPEDED, obstructed","abrot(2), acon(1), anac(1), ant-t(1), arn(1), ars(2), ars-h(1), aur-m(1), bar-c(1), bell(1), berb(1), bism(1), brom(1), bry(2), cact(2), calc(1), calc-p(1), camph(2), cann-s(1), canth(1), caps(1), carb-an(1), carb-v(1), caust(1), cham(2), chin(1), chlor(1), cimx(1), cina(3), clem(1), cocc(2), con(1), croc(2), crot-c(1), cub(1), cupr(2), dig(2), dol(1), eupho(1), grat(1), hell(2), hydr-ac(1), ign(2), iod(2), kali-bi(2), lach(2), laur(1), led(2), lyc(2), merc(2), merc-c(2), nat-m(1), nicc(1), nit-ac(3), nux-m(2), nux-v(1), ol-an(2), op(2), phos(1), pic-ac(1), plb(1), podo(2), psor(2), puls(1), ran-s(1), rumx(1), ruta(1), sabad(1), samb(1), sant(1), sel(1), sil(2), spong(2), squil(1), stann(2), stram(1), sul-ac(1), sulph(2), valer(1), verat(2), verb(1), vesp(1)"
+773,1,"IMPEDED, obstructed, morning",bufo(1)
+773,2,"IMPEDED, obstructed, morning, in bed",ant-t(1)
+773,1,"IMPEDED, obstructed, forenoon","nat-m(1), phos(2)"
+773,1,"IMPEDED, obstructed, noon",hura(1)
+773,1,"IMPEDED, obstructed, afternoon",nux-v(1)
+773,1,"IMPEDED, obstructed, evening",dig(1)
+773,2,"IMPEDED, obstructed, evening, bed, in",ant-t(2)
+773,2,"IMPEDED, obstructed, evening, eating, after",lach(1)
+773,1,"IMPEDED, obstructed, night","kali-c(2), sel(1), stann(1), sulph(2)"
+773,2,"IMPEDED, obstructed, night, sleep, during",guai(2)
+773,2,"IMPEDED, obstructed, night, midnight",ign(1)
+773,1,"IMPEDED, obstructed, coffee, after",cham(2)
+773,1,"IMPEDED, obstructed, constriction of chest","bell(1), brom(1), cact(3), caps(2), chel(2), cic(1), cupr-ac(2)"
+773,2,"IMPEDED, obstructed, constriction of chest, stomach, in",anan(1)
+773,1,"IMPEDED, obstructed, cough, during","cupr(2), cupr-s(1), dig(1), ferr(1), ign(1), ip(2), nux-m(2), sil(1), squil(1)"
+773,1,"IMPEDED, obstructed, descending, on",bor(3)
+773,1,"IMPEDED, obstructed, eating, while",mag-m(1)
+773,2,"IMPEDED, obstructed, eating, while, after",cham(1)
+773,1,"IMPEDED, obstructed, flatulency, from","carb-v(3), ol-an(1), zinc(1)"
+773,1,"IMPEDED, obstructed, gagging in œsophagus",cimx(2)
+773,1,"IMPEDED, obstructed, lying, while",samb(2)
+773,2,"IMPEDED, obstructed, lying, while, on the back","ol-an(1), sil(1), sulph(2)"
+773,3,"IMPEDED, obstructed, lying, while, on the back, amel.",sumb(1)
+773,2,"IMPEDED, obstructed, lying, while, side, left",puls(2)
+773,1,"IMPEDED, obstructed, pain in the chest","brom(1), bry(2), caps(1), colch(1), croc(1), merc(1), plb(1), ran-s(1), ruta(1), spong(1), sulph(1), valer(1), verb(1)"
+773,2,"IMPEDED, obstructed, pain in the chest, in diaphragm","ip(1), spig(1)"
+773,1,"IMPEDED, obstructed, pains take away the breath","berb(1), bry(3), dios(1)"
+773,1,"IMPEDED, obstructed, raising the arm",berb(1)
+773,1,"IMPEDED, obstructed, shooting in chest","canth(1), nux-m(1), ox-ac(2)"
+773,1,"IMPEDED, obstructed, spasms of chest","hyos(1), stram(1)"
+773,1,"IMPEDED, obstructed, stitches in chest","aloe(1), arg-m(1), arn(1), berb(1), bry(2), chin-s(1), kreos(2), mez(1), rhod(1), stann(1), sul-ac(1), thuj(1), verb(1)"
+773,2,"IMPEDED, obstructed, stitches in chest, in heart","cact(2), calc(2), calc-p(1), merc-i-f(1), naja(2), staph(2)"
+773,1,"IMPEDED, obstructed, stooping, from","calc(2), sil(1)"
+773,1,"IMPEDED, obstructed, swallowing, on",brom(3)
+773,1,"IMPEDED, obstructed, talking, while",caust(2)
+773,1,"IMPEDED, obstructed, thrust in left, toward heart",sulph(2)
+773,0,IMPERCEPTIBLE,"acon(1), amyg(1), ars(2), benz-ac(1), carb-ac(1), chlor(1), cic(1), cocc(2), gels(1), hydr-ac(1), merc(1), morph(1), naja(1), nux-v(1), op(1), petr(1), stram(1)"
+773,0,"INTERMITTENT, unequal","ang(1), ant-t(3), bell(1), calad(1), carb-ac(1), carb-an(1), carb-h(1), cham(2), chlor(1), cina(1), coc-c(1), colch(2), ign(1), nit-ac(3), op(2), plb(1), stry(1), ter(1), verat(2)"
+773,1,"INTERMITTENT, unequal, night",bell(1)
+773,2,"INTERMITTENT, unequal, night, midnight on waking",cann-i(1)
+773,1,"INTERMITTENT, unequal, lying down agg.",ant-t(1)
+773,1,"INTERMITTENT, unequal, sleep, during","ant-t(2), op(1)"
+773,0,INTERRUPTED (See Arrested),
+773,1,"INTERRUPTED (See Arrested), expiration",ars(1)
+773,1,"INTERRUPTED (See Arrested), inspiration","cina(3), led(2)"
+773,0,IRREGULAR,"absin(1), acet-ac(1), ail(3), ambr(1), ang(3), ant-t(2), ars(2), ars-i(1), aur(1), bell(3), calad(1), camph(2), canth(1), cham(2), chin-s(1), chlor(1), cic(1), cina(2), clem(1), coca(1), cocc(1), colch(2), crot-h(2), cupr(3), dig(3), dros(1), gels(1), hippoz(1), hydr-ac(1), hyos(1), ign(2), iod(2), laur(1), led(1), merc(1), morph(3), mosch(1), nicc(1), nux-v(2), olnd(1), op(3), phos(1), plb(1), puls(2), sep(1), sol-t-ae(1), stram(1), stry(2), sul-ac(1), tab(1), tax(1), ter(1), verat-v(1), zinc(1)"
+774,1,"IRREGULAR, at one time slow, at another time hurried","acon(1), bell(1), ign(2), nux-v(1), op(1), spong(1)"
+774,1,"IRREGULAR, cough, during","clem(1), cupr-s(1)"
+774,1,"IRREGULAR, drinking, when",anac(1)
+774,1,"IRREGULAR, sleep, during","ant-t(1), cadm(1), ign(2)"
+774,1,"IRREGULAR, standing, while",arn(1)
+774,0,JERKING,"asar(1), cact(2), calad(2), crot-h(1), cupr(2), gels(1), iod(2), merc(1), nicc(1), op(1)"
+774,1,"JERKING, inspiration",ox-ac(3)
+774,2,"JERKING, inspiration, by two distinct efforts",led(1)
+774,1,"JERKING, expiration",ars(1)
+774,0,LONG (See Deep expiration),"ant-t(1), cham(1), chlor(2), lob(1), op(2)"
+774,0,LOUD,"acon(1), agar(1), alum(1), am-c(1), ant-t(1), arn(2), ars(1), bov(1), brom(2), calc(3), carb-s(1), carb-v(2), cham(3), chin(3), chin-s(1), chlor(2), cina(2), colch(2), con(1), cor-r(2), cupr(1), ferr(1), ferr-m(1), gamb(1), guare(1), hep(2), hydr-ac(1), hyos(2), ign(2), kali-bi(3), kali-c(2), kalm(2), lach(3), merc(1), morph(1), nat-m(1), nat-s(2), nux-v(1), op(2), phos(3), puls(2), rhus-t(2), samb(3), seneg(2), spong(3), squil(1), stram(2), sul-ac(1), sulph(3), verat(3)"
+774,1,"LOUD, forenoon",hell(1)
+774,1,"LOUD, midnight, on waking",ant-s(1)
+774,1,"LOUD, expiration","ant-t(1), mag-s(1), meph(1), nux-v(2), op(1)"
+774,1,"LOUD, inspiration","bell(2), caps(1), cham(1), chin(2), cina(1), coloc(1), hyos(1), ign(2), mag-s(1), nux-v(2), puls(1), rheum(1)"
+774,1,"LOUD, lying on right side",sulph(1)
+774,1,"LOUD, paroxysms, during",plb(1)
+774,1,"LOUD, sitting quiet, while",ferr(2)
+774,1,"LOUD, sleep, in","carb-v(1), cham(1), ign(1), puls(3), rheum(1)"
+774,1,"LOUD, spasms of glottis, as from",kalm(1)
+774,1,"LOUD, walking",calc(1)
+774,0,MOANING,"acon(1), aeth(1), ant-t(2), ars(2), bell(1), cina(1), coff(1), colch(2), cupr(1), hydr-ac(2), kali-c(1), lach(2), laur(1), lyss(2), mur-ac(2), op(2), phos(1), phyt(1), plb(1), puls(2), rhus-t(1), sec(1), sel(1), spong(1), squil(1), tab(1)"
+774,0,OBSTRUCTED (See Impeded),
+774,0,OPPRESSION (See Chest),
+774,0,PAINFUL,"apis(1), asc-t(1), brom(1), bry(2), chin(1), cimx(1), coff(1), crot-t(1), jug-c(1), led(1), nit-ac(1), ol-j(1), plb(1), ran-b(3), sang(1), viol-o(1), zing(1)"
+774,1,"PAINFUL, morning",phos(1)
+774,1,"PAINFUL, night",sang(1)
+774,1,"PAINFUL, inspiration, on",aesc(1)
+774,0,PANTING,"acon(1), anac(1), ant-t(2), apoc(2), arg-n(1), arn(2), ars(1), bry(2), bufo(1), calad(1), camph(1), carb-an(2), caul(1), cham(1), chin(1), chlor(1), cina(2), cocc(2), con(1), cop(1), ferr(1), hyos(1), ip(2), jatr(1), kali-bi(1), laur(1), lyc(2), nit-ac(2), nux-m(2), op(1), phos(3), phyt(2), plan(1), plb(1), prun-s(1), sec(1), sil(2), spong(2), stram(1), tarent(2), verat-v(3)"
+774,1,"PANTING, ascending stairs","calc(3), plan(1)"
+774,1,"PANTING, motion, on",tarent(1)
+774,1,"PANTING, waking, on",kali-bi(1)
+774,0,PAROXYSMAL,"ars(1), arund(1), brom(1), cor-r(2), cupr(2), gels(2), hydr-ac(1), ign(2), ip(2), kali-c(1), kali-cy(1), led(1), mag-p(2), mez(1), mill(1), mosch(1), mur-ac(1), nat-m(1), oena(1), op(1), ox-ac(2), phos(1), plb(1), puls(1), pyrus(1), samb(2), stann(1), sulph(1), tab(1), valer(3), verat(2), verat-v(1)"
+774,1,"PAROXYSMAL, evening",stann(1)
+774,1,"PAROXYSMAL, night",nat-m(1)
+774,0,PUFFING (See Stertorous),
+774,0,QUICK (See Accelerated),
+774,1,"QUICK (See Accelerated), expiration","chin(2), stram(1)"
+774,0,RATTLING,"acet-ac(1), acon(2), agar(1), all-c(2), alum(1), am-c(2), am-m(2), ammc(2), anan(1), ant-ox(1), ant-t(3), apis(2), apoc(3), arg-n(1), ars(3), ars-i(2), art-v(2), asaf(1), asc-t(2), bar-c(2), bar-m(2), bell(2), brom(2), bry(1), bufo(1), cact(3), calc(2), calc-p(2), calc-s(2), camph(1), cann-s(2), carb-an(2), carb-h(2), carb-s(1), carb-v(2), caust(3), cham(2), chel(2), chin(3), chin-a(2), chin-s(1), chlor(1), cic(1), cina(2), coc-c(2), cop(1), crot-t(1), cub(1), cupr(3), dig(2), dulc(3), euphr(2), ferr(2), ferr-ar(1), ferr-i(1), ferr-p(1), graph(2), hep(3), hippoz(3), hydr-ac(1), hyos(2), iod(2), ip(3), kali-ar(1), kali-bi(2), kali-c(2), kali-chl(2), kali-i(1), kali-p(1), kali-s(3), lach(2), lact(1), laur(1), lob(1), lyc(3), lyss(1), manc(2), merc(1), morph(1), mosch(1), mur-ac(2), nat-c(1), nat-m(2), nat-s(2), nit-ac(2), nux-m(2), nux-v(2), op(2), ox-ac(1), petr(1), ph-ac(2), phos(3), phyt(1), plb(1), puls(3), pyrog(2), ran-b(2), rumx(1), sang(2), sanic(1), sant(1), sars(1), sel(1), senec(1), seneg(3), sep(2), sil(2), spong(2), stann(2), stram(2), stry(1), sul-ac(1), sulph(2), syph(1), tab(1), thuj(1), tub(2), verat(2), zinc(2), zing(1)"
+775,1,"RATTLING, morning",agar(1)
+775,1,"RATTLING, evening in bed",petr(1)
+775,1,"RATTLING, night and day",cact(3)
+775,1,"RATTLING, midnight, before",stram(2)
+775,1,"RATTLING, convulsions, during",tab(1)
+775,1,"RATTLING, cough, during (See Rattling Cough)",
+775,1,"RATTLING, expiring, when",calc(1)
+775,1,"RATTLING, lying agg.","cact(3), calc(1)"
+775,2,"RATTLING, lying agg., on back agg.","agar(1), kali-c(1)"
+775,1,"RATTLING, old people","ammc(2), bar-c(2), hippoz(3), kali-bi(3), lyc(3), seneg(2)"
+775,1,"RATTLING, sitting upright amel.",nat-c(1)
+775,1,"RATTLING, sleep, during","hep(2), stram(1), tab(1)"
+775,1,"RATTLING, walking, while",cina(1)
+775,2,"RATTLING, walking, while, in open air","ang(1), cina(1)"
+775,0,ROUGH,"am-c(1), ant-t(2), bry(3), hep(2), kali-bi(2), nit-ac(1), plb(1)"
+775,1,"ROUGH, crowing (See Croup)","bry(3), chin(2), chlor(2), cor-r(1), cupr(2), gels(2), samb(3), spong(3), stann(1), verat(1)"
+775,1,"ROUGH, sawing","ant-t(2), brom(3), con(2), iod(3), kaol(2), lac-c(1), lact-ac(1), sang(2), spong(3)"
+775,2,"ROUGH, sawing, between coughs",spong(2)
+775,0,SHORT (See Difficult),
+775,1,"SHORT (See Difficult), inspiration",op(2)
+775,0,SIGHING,"acon(2), agar(1), am-c(1), ant-c(1), apis(1), apoc(1), arg-m(2), arg-n(2), ars(2), aspar(2), bell(1), bor(2), bry(3), calad(3), calc(2), calc-p(3), camph(2), carb-an(1), carb-v(3), caust(2), cham(2), chin-s(2), cimic(1), cupr(1), dig(3), eup-pur(1), ferr-m(2), gels(2), glon(2), hell(2), hura(1), ign(3), ip(3), lach(1), lact(1), lact-ac(1), lil-t(1), lyc(2), lyss(2), merc-c(2), morph(1), nat-a(1), nat-p(1), nit-ac(1), nux-m(1), nux-v(1), op(3), phos(2), phys(1), phyt(2), plb(1), podo(1), prun-s(1), puls(2), ran-s(1), sang(1), sec(3), sel(3), sil(1), spong(2), stram(3), sulph(1), tab(1), tarent(1), tax(1), ther(1), verat(1), vip(1)"
+775,1,"SIGHING, morning",sang(1)
+775,1,"SIGHING, forenoon, 9-30 a.m.",hura(1)
+775,1,"SIGHING, afternoon",ant-c(1)
+775,1,"SIGHING, evening",chin(1)
+775,2,"SIGHING, evening, 7 p.m.",lycps(1)
+775,1,"SIGHING, night",bry(1)
+775,2,"SIGHING, night, 2 a.m.",ign(1)
+775,1,"SIGHING, convulsions, after",cocc(2)
+775,1,"SIGHING, dinner, after",arg-n(1)
+775,1,"SIGHING, eating, after",ant-c(2)
+775,1,"SIGHING, menses, during",nat-p(1)
+775,1,"SIGHING, sleep, during","anac(1), camph(1), sulph(2)"
+775,2,"SIGHING, sleep, during, quickened on waking",cimic(1)
+775,1,"SIGHING, typhoid, in, sighing, jerks",calad(1)
+775,1,"SIGHING, unconsciousness, during",glon(1)
+775,0,SLOW,"acon(2), ant-t(1), apis(2), arn(1), ars(1), asaf(2), bell(3), brom(2), bry(1), camph(2), cann-i(2), caps(2), cast(2), chin(1), chin-s(1), chlol(1), cic(1), clem(1), cocc(2), colch(2), coloc(2), con(1), cop(1), crot-c(2), crot-h(1), crot-t(1), cupr(1), dig(2), dios(2), dros(1), ferr(1), gels(2), glon(2), hell(2), hep(2), hydr-ac(2), hyos(2), hyper(2), ign(2), ip(2), lach(2), laur(2), lyc(1), merc-c(2), morph(1), nit-ac(1), nux-m(1), nux-v(2), oena(1), olnd(2), op(3), ox-ac(1), phos(1), phyt(2), plat(1), plb(1), sec(1), spong(2), squil(1), stram(1), sul-ac(1), tab(1), verat-v(1)"
+775,1,"SLOW, morning","lach(2), merc(1)"
+775,1,"SLOW, evening, while lying quiet, agg.","con(1), ferr(1)"
+775,1,"SLOW, night","coloc(1), lach(2)"
+775,1,"SLOW, alternating with short during sleep",ign(1)
+775,2,"SLOW, alternating with short during sleep, with suffocation",cocc(1)
+775,1,"SLOW, convulsions, during",op(3)
+775,1,"SLOW, cough, during",clem(1)
+775,1,"SLOW, expiration","ant-t(1), apis(1), arn(2), bor(1), lob(1), op(2), sep(2)"
+775,1,"SLOW, during sleep","chin(1), ign(1)"
+775,1,"SLOW, inspiration","cham(1), chin(1), ign(2), stram(1)"
+775,2,"SLOW, inspiration, sleep, during","acon(1), chin(1), op(3)"
+775,1,"SLOW, walking amel.",ferr(2)
+775,0,SNORING,"acon(1), aeth(1), amyg(1), arn(1), ars(1), bapt(1), bell(1), benz-ac(1), brom(2), calc(1), camph(2), carl(2), cham(2), chin(2), cic(2), con(1), cund(1), cupr(2), cycl(1), dros(1), dulc(1), fl-ac(1), glon(1), hep(2), hydr-ac(1), hyos(1), ign(2), kali-bi(1), kali-chl(1), lac-c(3), lach(2), laur(2), lyc(1), mag-m(1), mez(1), mur-ac(1), nat-m(1), nit-ac(1), nux-m(1), nux-v(2), op(3), petr(1), rat(1), rheum(1), rhus-t(2), sabad(1), samb(1), sep(1), sil(1), stann(1), stram(2), stry(1), sulph(2), teucr(1)"
+776,1,"SNORING, morning, while sleeping",petr(1)
+776,1,"SNORING, afternoon nap, during",alum(1)
+776,1,"SNORING, evening in bed",sil(1)
+776,1,"SNORING, midnight","mur-ac(1), nux-v(1)"
+776,1,"SNORING, awake, while","chel(1), samb(1)"
+776,1,"SNORING, chill, during","chin(2), laur(1), op(3)"
+776,1,"SNORING, delirium, after",sec(1)
+776,1,"SNORING, expiring, while","arn(1), camph(1), chin(1), nux-v(2), op(2)"
+776,1,"SNORING, heat, during","apis(1), con(1), ign(1), laur(1), op(3)"
+776,1,"SNORING, insensible, while",op(2)
+776,1,"SNORING, lying on the back, while","dros(1), dulc(1), kali-c(1), mag-c(1), sulph(1)"
+776,1,"SNORING, swoon, during",stram(1)
+776,0,SOBBING,"acon(1), aeth(1), am-m(1), ang(1), ant-c(1), asaf(1), aur(2), bry(2), calc(2), cupr-ac(2), gels(1), guare(2), ign(2), laur(1), led(2), mag-p(2), merc(2), nit-ac(1), ran-s(1), sep(2), sil(1), stram(1), ther(1)"
+776,1,"SOBBING, paroxysmal",mag-p(2)
+776,1,"SOBBING, in sleep","aur(3), calc(2)"
+776,0,SPASMODIC (See Paroxysmal),
+776,0,STERTOROUS,"absin(1), acon(1), am-c(3), amyg(1), anac(1), ant-t(2), apis(2), arn(2), ars(2), bell(1), bufo(1), camph(2), cann-i(1), carb-ac(2), carb-an(1), cham(1), chen-a(1), chin(2), chlol(1), cic(1), cocc(1), cupr(1), ferr-m(1), gels(2), glon(2), hydr-ac(1), hyos(1), kali-bi(1), lach(2), laur(2), lyc(2), merl(1), nit-ac(2), nux-m(2), nux-v(2), oena(2), olnd(1), op(3), petr(1), phos(1), plb(1), puls(2), sabad(1), sarr(1), spong(2), stann(1), stram(2), sul-ac(1), tab(1), ter(1)"
+776,1,"STERTOROUS, evening in bed",carb-an(1)
+776,1,"STERTOROUS, convulsions, after","oena(2), op(3)"
+776,1,"STERTOROUS, involuntary stools and urine",amyg(1)
+776,1,"STERTOROUS, lying on the affected side",anac(1)
+776,1,"STERTOROUS, puffing expiration, with","bufo(1), chin(2), lach(2), nux-v(2), op(2), plb(1), tab(1)"
+776,1,"STERTOROUS, sleep, during","brom(2), nux-v(1), op(3), puls(3)"
+776,1,"STERTOROUS, stupefaction and crying out as with a sharp pain",apis(3)
+776,0,STRIDULOUS,"am-caust(1), bell(3), chlor(2), gels(3), ign(3), lach(2), laur(1), meph(2), mosch(3), nit-ac(1), nux-v(2), op(2), plb(1), samb(2), sang(2), sarr(1), verat(1)"
+776,1,"STRIDULOUS, evening, on falling asleep",phos(3)
+776,0,SUFFOCATIVE (See Difficult),
+776,0,SUPERFICIAL,"chin(2), nux-m(2), ph-ac(1), phos(3), puls(1)"
+776,0,TREMULOUS,ant-t(2)
+776,0,"VEHEMENT, expiration","bell(1), caps(1), chin(1), ign(1), stram(1)"
+776,0,WHEEZING,"ail(1), aloe(1), alum(2), ambr(2), apoc(2), aral(1), arg-n(1), ars(3), ars-i(2), brom(2), calad(1), calc(1), calc-s(1), cann-s(2), caps(2), carb-s(1), carb-v(3), cham(1), chin(2), chin-a(2), chlol(1), cina(2), crot-t(1), cupr(2), dol(1), dros(2), ferr(1), ferr-i(1), fl-ac(2), graph(1), hep(1), hydr-ac(1), iod(2), ip(3), kali-ar(2), kali-bi(2), kali-c(3), kali-s(2), lach(2), lyc(2), lycps(2), manc(1), merc(1), murx(1), naja(1), nat-m(2), nat-s(2), nit-ac(2), nux-m(2), nux-v(1), ox-ac(1), phos(1), sabad(1), samb(2), sang(1), sanic(1), sep(1), spong(1), squil(1), stann(1), sulph(1), syph(2)"
+776,1,"WHEEZING, daytime",lyc(2)
+776,1,"WHEEZING, afternoon",fl-ac(1)
+776,1,"WHEEZING, evening","lycps(1), murx(1)"
+776,2,"WHEEZING, evening, bed, in",nat-m(1)
+776,2,"WHEEZING, evening, lying down, on",ars(2)
+776,1,"WHEEZING, night",kali-bi(1)
+776,1,"WHEEZING, midnight, after",samb(2)
+776,1,"WHEEZING, expectoration, amel.",ip(1)
+776,1,"WHEEZING, expiring, when","lyc(2), nat-m(1), sep(2)"
+776,1,"WHEEZING, inspiring, while","alum(2), caps(2), chin(2), kali-c(2), spong(1)"
+776,1,"WHEEZING, sitting up, while",nat-c(1)
+776,1,"WHEEZING, sleep, during",nux-v(1)
+776,1,"WHEEZING, smoking on",kali-bi(1)
+776,1,"WHEEZING, warm room",kali-s(2)
+776,0,WHISTLING,"acet-ac(1), acon(1), aeth(1), aloe(1), alum(1), ambr(2), ant-t(2), arg-n(1), ars(2), arund(1), bell(1), benz-ac(1), brom(1), bufo(1), calc(1), cann-s(1), carb-s(1), carb-v(2), cham(2), chin(3), chin-a(1), coloc(1), cupr(1), graph(1), hep(2), iod(1), kali-ar(1), kali-c(2), kali-s(1), kreos(1), laur(1), lyc(2), manc(2), nat-m(1), nit-ac(1), nux-v(1), osm(1), ph-ac(1), phos(1), sabad(1), samb(2), sang(1), sil(2), spong(2), stann(1), sul-ac(1), sul-i(1), sulph(2), thuj(1)"
+777,1,"WHISTLING, morning",lach(2)
+777,1,"WHISTLING, evening","calc(2), carb-v(1), psor(1)"
+777,2,"WHISTLING, evening, after lying down",calc(2)
+777,1,"WHISTLING, night, 3 a.m. in sleep",sulph(1)
+777,1,"WHISTLING, ascending agg.",sulph(1)
+777,1,"WHISTLING, cough, during",lyc(1)
+777,1,"WHISTLING, expiration, on",nat-m(1)
+777,1,"WHISTLING, inspiration, during","aral(1), cina(1), crot-t(1), kali-c(2), nit-ac(1), sulph(1)"
+777,1,"WHISTLING, lying, while",calc(2)
+777,2,"WHISTLING, lying, while, on the back",aeth(1)
+777,2,"WHISTLING, lying, while, on left side",arg-n(1)
+777,1,"WHISTLING, sleep in","chel(1), sulph(1)"
+777,1,"WHISTLING, waking, when",psor(1)
+777,1,"WHISTLING, whooping cough, in","brom(2), carb-v(2), cupr(2), hep(2), samb(1), spong(1)"

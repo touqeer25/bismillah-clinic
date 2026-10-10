@@ -146,8 +146,8 @@ const ci=f=>gmR.findIndex(r=>r.full===f);
 ok(ci('COLDNESS, morning')<ci('COLDNESS, evening')&&ci('COLDNESS, evening')<ci('COLDNESS, urination, during')&&ci('COLDNESS, urination, during')<ci('COLDNESS, Penis')&&ci('COLDNESS, Penis')<ci('COLDNESS, Scrotum')&&ci('COLDNESS, Scrotum')<ci('COLDNESS, Testes'),'F4 COLDNESS: وقت → شرط → محل (کتاب صفحہ 1495 — ماخذی درخت v187: سب COLDNESS کے بچے، کتابی بڑے حروف)');
 const rch=rd('js/repertory/rep-chapters.js');
 ok(/_repSortTreeKentOrder/.test(rch)&&/repCurrentBook === 'kent'/.test(rch),'F5 ترتیب کا فنکشن موجود اور صرف کینٹ پر لاگو');
-ok(/js\/repertory\/rep-chapters\.js\?v=189/.test(idx)&&/kent-tree-fix\.js\?v=1[78]\d/.test(idx),'F6 index.html میں rep-chapters.js + kent-tree-fix.js کا نیا ورژن (v180: مستقیم باب)');
-ok(/CACHE_NAME='bhc-clinic-v(13\d|14\d|15\d|16\d|17\d|18\d)'/.test(sw),'F7 CACHE_NAME v13x/v14x/v15x/v16x/v18x');
+ok(/js\/repertory\/rep-chapters\.js\?v=190/.test(idx)&&/kent-tree-fix\.js\?v=1[789]\d/.test(idx),'F6 index.html میں rep-chapters.js + kent-tree-fix.js کا نیا ورژن (v180: مستقیم باب)');
+ok(/CACHE_NAME='bhc-clinic-v(13\d|14\d|15\d|16\d|17\d|18\d|19\d)'/.test(sw),'F7 CACHE_NAME v13x/v14x/v15x/v16x/v18x');
 
 // ---------- F8. GENITALIA FEMALE (v132) ----------
 const gfR=L.chapterRows(w,'kent','genitalia_female'); const fi=f=>gfR.findIndex(r=>r.full===f);
@@ -173,14 +173,14 @@ const bIdx=x=>bk131.indexOf(x);
 ok(bIdx('BOILS (See Eruptions)')<bIdx('BROWN')&&bIdx('BROWN')<bIdx('BROWN spots on')&&bIdx('BROWN spots on')<bIdx('BRUISES on spine (See Injuries)'),'G6 back: BOILS → BROWN → BROWN spots on → BRUISES (کتاب PDF1953)');
 let rootCount=0; L.chapterRows(w,'kent','mind');
 ['mind','vertigo','head','eye','vision','ear','nose','face','mouth','teeth','throat','external_throat','stomach','abdomen','rectum','stool','bladder','kidneys','prostate_gland','urethra','urine','genitalia_male','genitalia_female','cough','expectoration','chest','back','extremities','sleep','chill','fever','perspiration','skin','generalities','larynx_and_trachea','respiration','hearing'].forEach(function(c){ try{ rootCount += L.chapterRows(w,'kent',c).filter(function(f){return f.depth===0;}).length; }catch(e){} });
-ok(rootCount===4581,'G7 37 ابواب کی مین ربرک (v189: حلقوم اور سانس کی نالی ماخذی درخت — LARYNX مین 78→71، کل 4581)')
+ok(rootCount===4582,'G7 37 ابواب کی مین ربرک (v190: سانس ماخذی درخت — جڑ RESPIRATION + 50 مین، کل 4582)')
 
 // ---------- H. LARYNX+RESPIRATION+EXPECTORATION+COUGH (v133) ----------
 const larR=L.chapterRows(w,'kent','larynx_and_trachea'); const li=f=>larR.findIndex(r=>r.full===f);
 ok(larR.length===668&&larR.filter(r=>r.depth===0).length===71,'H1 LARYNX AND TRACHEA مکمل: 668 ماخذی ربرک (v189: homeoint ماخذی درخت ص 746–762 — 71 legacy چھپے)، 71 مین ربرک');
 ok(larR[0].full==='LARYNX AND TRACHEA'&&larR[1].full==='ANÆSTHESIA, larynx'&&li('CRAWLING, larynx')<li('CROUP')&&li('CROUP')<li('DRYNESS')&&li('DRYNESS')<li('MUCUS in the air passages')&&li('MUCUS in the air passages')<li('PAIN, larynx')&&li('PAIN, larynx')<li('VOICE, barking')&&li('VOICE, barking')<li('WHISTLING')&&larR.filter(r=>r.depth===0).pop().full==='WHISTLING','H2 LARYNX کی کتابی ترتیب (v189: جڑ LARYNX AND TRACHEA پہلی، ANÆSTHESIA, larynx پہلا مین؛ CRAWLING → CROUP → DRYNESS → MUCUS → PAIN → VOICE → WHISTLING آخری مین — کتابی عنوانات)');
 const rsR=L.chapterRows(w,'kent','respiration'); const ri2=f=>rsR.findIndex(r=>r.full===f);
-ok(rsR.length===758&&rsR.filter(r=>r.depth===0).length===50&&rsR[0].full==='ABDOMINAL','H3 RESPIRATION مکمل: 758 ربرک (v143)، 50 مین ربرک، ABDOMINAL پہلا');
+ok(rsR.length===698&&rsR.filter(r=>r.depth===0).length===51&&rsR[0].full==='RESPIRATION'&&rsR[1].full==='ABDOMINAL','H3 RESPIRATION مکمل: 698 ماخذی ربرک (v190: homeoint ماخذی درخت ص 762–777 — 64 legacy چھپے)، 51 مین (جڑ سمیت)، جڑ RESPIRATION پہلی، ABDOMINAL پہلا مین');
 ok(ri2('WHEEZING')<ri2('WHISTLING')&&ri2('SUPERFICIAL')<ri2('TREMULOUS')&&ri2('TREMULOUS')<ri2('VEHEMENT, expiration'),'H4 RESPIRATION کی ذیلی ترتیب (SUPERFICIAL → TREMULOUS → VEHEMENT, expiration → WHEEZING → WHISTLING) — کتاب کے مین عنوانات');
 const exR=L.chapterRows(w,'kent','expectoration'); const ei=f=>exR.findIndex(r=>r.full===f);
 ok(exR.length===348&&exR.filter(r=>r.depth===0).length===116&&exR[0].full==='MORNING','H5 EXPECTORATION مکمل: 348 ربرک (v143)، 116 مین ربرک، «وقت پہلے» (MORNING → … → NIGHT پھر حروفِ تہجی)');
@@ -190,13 +190,13 @@ ok(coR.length===1542&&coR.filter(r=>r.depth===0).length===375&&coR[0].full==='DA
 ok(coi('DAYTIME')<coi('NIGHT')&&coi('NIGHT')<coi('ACIDS agg.')&&coi('ACIDS agg.')<coi('ACRID fluid through posterior nares, sensation of, from'),'H8 COUGH کی کتابی ترتیب (DAYTIME → MORNING → … → NIGHT → ACIDS agg. → ACRID fluid… — وقت پھر حروفِ تہجی)');
 const LJ=JSON.parse(rd('ur/rubrics/kent/larynx_and_trachea.json')), RJ=JSON.parse(rd('ur/rubrics/kent/respiration.json')), EJ=JSON.parse(rd('ur/rubrics/kent/expectoration.json')), CJ=JSON.parse(rd('ur/rubrics/kent/cough.json'));
 ok(LJ.rubrics['crumb']==='حلقوم — چورا (روٹی کا ذرہ)'&&LJ.rubrics['velvety sensation (downy)']==='حلقوم — مخملی پن کا احساس (روئیں دار)'&&RJ.rubrics['wheezing']==='سانس — گھرگھر کی آواز'&&EJ.rubrics['rusty']==='بلغم — زنگ آلود'&&EJ.rubrics['frothy']==='بلغم — جھاگ دار'&&CJ.rubrics['barking']==='کھانسی — بھونکنے والی'&&CJ.rubrics['whooping']==='کھانسی — کالی کھانسی','H9 چاروں ابواب کی اصطلاحات پچھلے ابواب سے موازنہ شدہ (چورا · مخملی پن · گھرگھر · زنگ آلود · جھاگ دار · بھونکنے والی · کالی کھانسی)');
-[['حلقوم',LJ,true],['سانس',RJ,false],['بلغم',EJ,false],['کھانسی',CJ,false]].forEach(function(pr){ const root=pr[0], J=pr[1], allowAA=pr[2]; const ks=Object.keys(J.rubrics);
+[['حلقوم',LJ,true],['سانس',RJ,true],['بلغم',EJ,false],['کھانسی',CJ,false]].forEach(function(pr){ const root=pr[0], J=pr[1], allowAA=pr[2]; const ks=Object.keys(J.rubrics);
   const noRoot=ks.filter(k=>J.rubrics[k].indexOf(root+' — ')===0?false:true).length;
   const latin=ks.filter(k=>/[A-Za-z]/.test(allowAA?String(J.rubrics[k]).replace(/amel\.|agg\./g,''):J.rubrics[k])).length;
   const style=ks.filter(k=>/سے بڑھے|بڑھیں/.test(J.rubrics[k])).length;
-  ok(noRoot===0&&latin===0&&style===0,'H10 '+root+': ہر جملے میں جڑ «'+root+' — » · کوئی انگریزی حرف نہیں'+(allowAA?' (v189: amel./agg. سواء)':'')+' · اسلوب «سے بگاڑ» (کوئی «سے بڑھے» نہیں) — '+ks.length+' جملے');
+  ok(noRoot===0&&latin===0&&style===0,'H10 '+root+': ہر جملے میں جڑ «'+root+' — » · کوئی انگریزی حرف نہیں'+(allowAA?' (v189: amel./agg. سواء)':'')+' · اسلوب «سے بگاڑ» (کوئی «سے بڑھے» نہیں) — '+ks.length+' جملے (v190: سانس بھی amel./agg. سواء)');
 });
-ok(/js\/18-rubrics-ur\.js\?v=181/.test(idx)&&/var REP_RUBUR_V = '181';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v189'/.test(sw)&&/rubric-ur\.css\?v=103/.test(idx)&&/js\/repertory\/rep-books\.js\?v=81/.test(idx)&&/REP_DATA_V='v=19'/.test(rd('js/repertory/rep-books.js'))&&/repertory-tabs\.css\?v=189/.test(idx)&&/library-tab\.css\?v=158/.test(idx)&&/rep-tabs\.js\?v=189/.test(idx)&&/repertory-editor\.css\?v=166/.test(idx)&&/rep-editor\.js\?v=166/.test(idx)&&/rep-chapters\.js\?v=189/.test(idx)&&/rep-tree\.js\?v=149/.test(idx)&&/rep-search\.js\?v=153/.test(idx)&&/rep-rubric-detail\.js\?v=105/.test(idx)&&/\.\/css\/library-tab\.css/.test(sw)&&/\.\/css\/repertory-editor\.css/.test(sw)&&/\.\/js\/repertory\/rep-editor\.js/.test(sw),'L-H11 بیرونی خول و اندازنامے (ٹیبز v180، لائبریری v158) · ترجمہ ڈیٹا v172 · سروس ورکر v180');
+ok(/js\/18-rubrics-ur\.js\?v=182/.test(idx)&&/var REP_RUBUR_V = '182';/.test(rd('js/18-rubrics-ur.js'))&&/CACHE_NAME='bhc-clinic-v190'/.test(sw)&&/rubric-ur\.css\?v=103/.test(idx)&&/js\/repertory\/rep-books\.js\?v=81/.test(idx)&&/REP_DATA_V='v=19'/.test(rd('js/repertory/rep-books.js'))&&/repertory-tabs\.css\?v=190/.test(idx)&&/library-tab\.css\?v=158/.test(idx)&&/rep-tabs\.js\?v=190/.test(idx)&&/repertory-editor\.css\?v=166/.test(idx)&&/rep-editor\.js\?v=166/.test(idx)&&/rep-chapters\.js\?v=190/.test(idx)&&/rep-tree\.js\?v=149/.test(idx)&&/rep-search\.js\?v=153/.test(idx)&&/rep-rubric-detail\.js\?v=105/.test(idx)&&/\.\/css\/library-tab\.css/.test(sw)&&/\.\/css\/repertory-editor\.css/.test(sw)&&/\.\/js\/repertory\/rep-editor\.js/.test(sw),'L-H11 بیرونی خول و اندازنامے (ٹیبز v180، لائبریری v158) · ترجمہ ڈیٹا v172 · سروس ورکر v180');
 ok(sw.indexOf("'./ur/rubrics/kent/larynx_and_trachea.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/respiration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/expectoration.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/cough.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/chest.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/back.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/extremities.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/sleep.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/chill.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/fever.json'")>=0&&sw.indexOf("'./ur/rubrics/kent/perspiration.json'")>=0,'H12 service-worker میں نئی json (larynx/respiration/expectoration/cough/chest/back/extremities/sleep/chill/fever/perspiration)');
 
 // ---------- I. CHEST (v134) ----------
@@ -293,10 +293,10 @@ ok(peKs.filter(k=>{const t=PEJ.rubrics[k].split('، '); return t.some((x,i)=>i&&
 // ---------- P. v140: SKIN (جلد) مکمل ----------
 const cp=require('child_process');
 const PJ=JSON.parse(rd('ur/rubrics/kent/skin.json')); const pk=Object.keys(PJ.rubrics);
-ok(rd('js/18-rubrics-ur.js').indexOf("REP_RUBUR_V = '181'")>-1,'P1 ربرک فائلوں کا ورژن 172');
+ok(rd('js/18-rubrics-ur.js').indexOf("REP_RUBUR_V = '182'")>-1,'P1 ربرک فائلوں کا ورژن 172');
 ok(pk.length===1189&&PJ.locked.length===0&&pk.every(k=>PJ.rubrics[k].trim()!==''),'P2 SKIN مکمل: 1189 ربرک، کوئی خالی جملہ نہیں، کوئی قفل نہیں ('+pk.length+')');
 ok(PJ.meta.root==='جلد — '&&pk.filter(k=>!k.includes(',')).length===98,'P3 SKIN کی جڑ «جلد — » اور 98 مین ربرک');
-ok(rd('service-worker.js').indexOf('bhc-clinic-v189')>-1&&rd('service-worker.js').indexOf('ur/rubrics/kent/skin.json')>-1&&rd('index.html').indexOf('18-rubrics-ur.js?v=181')>-1,'P4 خدمت کار نسخہ 181، ترجمہ ڈیٹا v172، اور جِلد کا JSON درج');
+ok(rd('service-worker.js').indexOf('bhc-clinic-v190')>-1&&rd('service-worker.js').indexOf('ur/rubrics/kent/skin.json')>-1&&rd('index.html').indexOf('18-rubrics-ur.js?v=182')>-1,'P4 خدمت کار نسخہ 181، ترجمہ ڈیٹا v172، اور جِلد کا JSON درج');
 [['eruptions','جلد — دانے'],['eruptions, blisters','جلد — دانے، چھالے'],['eruptions, carbuncle','جلد — دانے، کاربنکل (بڑا پھوڑا)'],['eruptions, eczema','جلد — دانے، خارش (ایگزما)'],['eruptions, pustules','جلد — دانے، پیپ والے دانے'],['eruptions, vesicular','جلد — دانے، چھالوں والے'],['eruptions, urticaria','جلد — دانے، کہیر'],['erysipelas','جلد — دانہ مخملی (اریسی پیلس)'],['ulcers','جلد — ناسور (زخم)'],['ulcers, discharges','جلد — ناسور (زخم)، رطوبت'],['warts','جلد — مسے'],['formication','جلد — چیونٹیاں رینگنے کا احساس'],['gangrene','جلد — گلنا (گینگرین)'],['lupus','جلد — لیوپس'],['itching','جلد — خارش'],['intertrigo','جلد — رگڑ سے چھلنے والی جلد (انٹرٹریگو)'],['wrinkled','جلد — جھریوں والا'],['goose flesh','جلد — رونگٹے'],['eruptions, scabies','جلد — دانے، کھجلی (اسکیبیز)'],['eruptions, itching, warmth','جلد — دانے، خارش، گرمی']].forEach(([k,v])=>ok(PJ.rubrics[k]===v,'P5 SKIN اصطلاح «'+k+'» → '+(PJ.rubrics[k]||'غائب')));
 ok(pk.every(k=>!/[\u06F0-\u06F9\u0660-\u0669]/.test(PJ.rubrics[k])&&PJ.rubrics[k].indexOf('جلد — جلد')!==0)&&pk.filter(k=>/[A-Za-z]/.test(PJ.rubrics[k])).length===0&&pk.filter(k=>/agg\./.test(PJ.rubrics[k])).length===0&&!/دیکھیں/.test(rd('ur/rubrics/kent/skin.json')),'P6 SKIN: ہر جملہ «جلد — » سے · کوئی انگریزی حرف نہیں · ہندسے 1 2 3 · «(… دیکھیں)» نہیں');
 {
@@ -319,10 +319,10 @@ ok(pk.every(k=>!/[\u06F0-\u06F9\u0660-\u0669]/.test(PJ.rubrics[k])&&PJ.rubrics[k
 
 // ---------- Q. v141: GENERALITIES (عمومیات) مکمل — کینٹ 100% ----------
 const QJ=JSON.parse(rd('ur/rubrics/kent/generalities.json')); const qk=Object.keys(QJ.rubrics);
-ok(rd('js/18-rubrics-ur.js').indexOf("REP_RUBUR_V = '181'")>-1,'Q1 ربرک فائلوں کا ورژن 166');
+ok(rd('js/18-rubrics-ur.js').indexOf("REP_RUBUR_V = '182'")>-1,'Q1 ربرک فائلوں کا ورژن 166');
 ok(qk.length===2239&&QJ.locked.length===0&&qk.every(k=>QJ.rubrics[k].trim()!==''),'Q2 GENERALITIES مکمل: 2239 ربرک، کوئی خالی جملہ نہیں، کوئی قفل نہیں ('+qk.length+')');
 ok(QJ.meta.root==='عمومیات — '&&qk.filter(k=>!k.includes(',')).length===288,'Q3 GENERALITIES کی جڑ «عمومیات — » اور 288 مین ربرک');
-ok(rd('service-worker.js').indexOf('bhc-clinic-v189')>-1&&rd('service-worker.js').indexOf('ur/rubrics/kent/generalities.json')>-1&&rd('index.html').indexOf('18-rubrics-ur.js?v=181')>-1,'Q4 خدمت کار نسخہ 181، ترجمہ ڈیٹا v172، اور عمومیات کا JSON درج');
+ok(rd('service-worker.js').indexOf('bhc-clinic-v190')>-1&&rd('service-worker.js').indexOf('ur/rubrics/kent/generalities.json')>-1&&rd('index.html').indexOf('18-rubrics-ur.js?v=182')>-1,'Q4 خدمت کار نسخہ 181، ترجمہ ڈیٹا v172، اور عمومیات کا JSON درج');
 [['convulsions','عمومیات — مرگی کے دورے'],['convulsions, epileptic, aura','عمومیات — مرگی کے دورے، مرگی والا، پیشگی علامت'],['food','عمومیات — غذا'],['food, milk, amel.','عمومیات — غذا، دودھ سے آرام'],['faintness','عمومیات — غشی'],['pain','عمومیات — درد'],['pain, stitching','عمومیات — درد، سوئی جیسا'],['pulse, thready','عمومیات — نبض، دھاگے جیسی'],['weakness','عمومیات — کمزوری'],['paralysis','عمومیات — فالج'],['trembling','عمومیات — لرزنا'],['swelling','عمومیات — سوجن'],['wounds','عمومیات — زخم'],['ulcers','عمومیات — ناسور (زخم)'],['tumors','عمومیات — رسولیاں'],['chorea','عمومیات — رقصہ (چوریا)'],['perspiration','عمومیات — پسینہ'],['measles','عمومیات — خسرہ'],['gangrene','عمومیات — گلنا (گینگرین)'],['leukaemia','عمومیات — خون کا کینسر (لیوکیمیا)'],['sleep','عمومیات — نیند'],['morning, 7 a.m.','عمومیات — صبح 7 بجے'],['night, 1 a.m.','عمومیات — رات 1 بجے']].forEach(([k,v])=>ok(QJ.rubrics[k]===v,'Q5 GENERALITIES اصطلاح «'+k+'» → '+(QJ.rubrics[k]||'غائب')));
 ok(qk.every(k=>!/[\u06F0-\u06F9\u0660-\u0669]/.test(QJ.rubrics[k])&&QJ.rubrics[k].indexOf('عمومیات — عمومیات')!==0)&&qk.filter(k=>/[A-Za-z]/.test(QJ.rubrics[k])).length===0&&qk.filter(k=>/agg\./.test(QJ.rubrics[k])).length===0&&!/دیکھیں/.test(rd('ur/rubrics/kent/generalities.json')),'Q6 GENERALITIES: ہر جملہ «عمومیات — » سے · کوئی انگریزی حرف نہیں · ہندسے 1 2 3 · «(… دیکھیں)» نہیں');
 {
@@ -342,7 +342,7 @@ ok(qk.every(k=>!/[\u06F0-\u06F9\u0660-\u0669]/.test(QJ.rubrics[k])&&QJ.rubrics[k
   const cov=cp.execSync('node '+path.join(ROOT,'tools/coverage_rubrics_ur.js')+' kent',{encoding:'utf8'});
   // v148: ذہنی باب کی نئی ماخذی تعمیر (4,834 → 4,356) کے بعد دکھائے گئے ربرک 71,027 − 1,149 چھپے لنگر = 69,400
   // اور اُن میں سے 69,283 کے پاس اردو جملہ ہے (ذہنی باب کے 117 نئے ربرکس دانستہ خالی)۔ عمومیات جوں کی توں 100%
-  ok(/generalities\s+2162\s+2162\s+0\s+100\.0%/.test(cov)&&/mind\s+4358\s+4358\s+0\s+100\.0%/.test(cov)&&/larynx_and_trachea\s+668\s+668\s+0\s+100\.0%/.test(cov)&&/کل\s+67296\s+67296\s+0\s+100\.0%/.test(cov),'Q9 کینٹ ریپرٹری مکمل: 67,296 دکھائے گئے ربرک · 67,296 جملے · 100.0% (v189: حلقوم اور سانس کی نالی باب ماخذی درخت — 668 فعال ربرک 100% ترجمہ)');
+  ok(/generalities\s+2162\s+2162\s+0\s+100\.0%/.test(cov)&&/mind\s+4358\s+4358\s+0\s+100\.0%/.test(cov)&&/larynx_and_trachea\s+668\s+668\s+0\s+100\.0%/.test(cov)&&/respiration\s+698\s+698\s+0\s+100\.0%/.test(cov)&&/کل\s+67236\s+67236\s+0\s+100\.0%/.test(cov),'Q9 کینٹ ریپرٹری مکمل: 67,236 دکھائے گئے ربرک · 67,236 جملے · 100.0% (v190: سانس باب ماخذی درخت — 698 فعال ربرک 100% ترجمہ)');
 }
 
 console.log(fails?`\n${fails} FAIL`:'\nALL PASS'); process.exit(fails?1:0);

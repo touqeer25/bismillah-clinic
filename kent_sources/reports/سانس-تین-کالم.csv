@@ -1,0 +1,698 @@
+﻿شناخت,پرانا راستہ (ایپ),نیا راستہ (مطبوعہ کتاب),اردو جملہ,ادویات پرانی,ادویات ماخذی,فرق
+o54590,ABDOMINAL,ABDOMINAL,سانس — پیٹ کے ذریعے (پیٹ سے),12,12,یکساں
+o54592,"ACCELERATED, anxiety, during","ACCELERATED, anxiety, during",سانس — تیز، بے چینی کے دوران,3,3,یکساں
+o54593,"ACCELERATED, ascending","ACCELERATED, ascending",سانس — تیز، چڑھائی پر,1,1,یکساں
+o54594,"ACCELERATED, coma, during","ACCELERATED, coma, during",سانس — تیز، بے ہوشی کے دوران,1,1,یکساں
+o54595,"ACCELERATED, cough, during paroxysm of","ACCELERATED, cough, during paroxysm of",سانس — تیز، کھانسی کے دورے کے دوران,1,1,یکساں
+o54596,"ACCELERATED, drinking, while","ACCELERATED, drinking, while",سانس — تیز، پیتے ہوئے,1,1,یکساں
+o54597,"ACCELERATED, evening","ACCELERATED, evening",سانس — تیز، شام,2,2,یکساں
+o54598,"ACCELERATED, exercise, during","ACCELERATED, exercise, during",سانس — تیز، ورزش کے دوران,1,1,یکساں
+o54599,"ACCELERATED, headache, during","ACCELERATED, headache, during",سانس — تیز، سر درد کے دوران,1,1,یکساں
+o54600,"ACCELERATED, lying down, while","ACCELERATED, lying down, while",سانس — تیز، لیٹتے ہوئے,3,3,یکساں
+o54601,"ACCELERATED, mental exertion, by","ACCELERATED, mental exertion, by",سانس — تیز، ذہنی محنت سے,1,1,یکساں
+o54602,"ACCELERATED, morning","ACCELERATED, morning",سانس — تیز، صبح,2,2,یکساں
+o54603,"ACCELERATED, night","ACCELERATED, night",سانس — تیز، رات,3,3,یکساں
+o54604,"ACCELERATED, rising from sitting","ACCELERATED, rising from sitting",سانس — تیز، نشست سے اٹھنے پر,1,1,یکساں
+o54605,"ACCELERATED, sleep, during","ACCELERATED, sleep, during",سانس — تیز، نیند کے دوران,4,4,یکساں
+o54608,"ACCELERATED, standing","ACCELERATED, standing",سانس — تیز، کھڑے ہونے پر,1,1,یکساں
+o54610,"ANXIOUS, afternoon","ANXIOUS, afternoon",سانس — بے چین (گھبرایا ہوا)، سہ پہر,1,1,یکساں
+o54612,"ANXIOUS, evening, after formication","ANXIOUS, evening, after formication",سانس — بے چین (گھبرایا ہوا)، شام، رینگنے کے احساس کے بعد,1,1,یکساں
+o54613,"ANXIOUS, headache, during","ANXIOUS, headache, during",سانس — بے چین (گھبرایا ہوا)، سر درد کے دوران,1,1,یکساں
+o54615,"ANXIOUS, lying, while","ANXIOUS, lying, while",سانس — بے چین (گھبرایا ہوا)، لیٹنے پر، لیٹے ہوئے,2,2,یکساں
+o54616,"ANXIOUS, mental exertion","ANXIOUS, mental exertion",سانس — بے چین (گھبرایا ہوا)، ذہنی محنت,1,1,یکساں
+o54618,"ANXIOUS, morning, in bed","ANXIOUS, morning, in bed",سانس — بے چین (گھبرایا ہوا)، صبح، بستر میں,1,1,یکساں
+o54662,"ASTHMATIC, alternating with, gout","ASTHMATIC, alternating with eruptions, gout",سانس — دمے والا، باری باری، گٹھیا کے ساتھ,3,3,یکساں
+o54663,"ASTHMATIC, alternating with, headache","ASTHMATIC, alternating with eruptions, headache",سانس — دمے والا، باری باری، سر درد کے ساتھ,3,3,یکساں
+o54664,"ASTHMATIC, alternating with, nocturnal diarrhoea","ASTHMATIC, alternating with eruptions, nocturnal diarrhœa",سانس — دمے والا، باری باری، رات کے دست کے ساتھ,1,1,یکساں
+o54665,"ASTHMATIC, alternating with, urticaria","ASTHMATIC, alternating with eruptions, urticaria",سانس — دمے والا، باری باری، پِتّی کے ساتھ,1,1,یکساں
+o54675,"ASTHMATIC, cold air, amel.","ASTHMATIC, cold air agg., amel.",سانس — دمے والا، ٹھنڈی ہوا سے آرام,4,4,یکساں
+o54676,"ASTHMATIC, cold, damp weather","ASTHMATIC, cold air agg., damp weather",سانس — دمے والا، سردی، ٹھنڈے گیلے موسم میں,3,3,یکساں
+o54680,"ASTHMATIC, cold, water agg.","ASTHMATIC, cold air agg., water agg.",سانس — دمے والا، سردی، ٹھنڈے پانی سے بگاڑ,1,1,یکساں
+o54681,"ASTHMATIC, cold, water, amel.","ASTHMATIC, cold air agg., water agg., amel.",سانس — دمے والا، سردی، ٹھنڈے پانی سے آرام,1,1,یکساں
+o54742,"ASTHMATIC, talking, amel.","ASTHMATIC, talking agg., amel.",سانس — دمے والا، بولنے سے آرام,1,1,یکساں
+o54765,"CATCHING, stitching, in piles","CATCHING, stitching in abdomen to back, in piles",سانس — رُک رُک کر سانس آنا، بواسیر میں چبھن,1,1,یکساں
+o54807,"DIFFICULT, alternating with, sopor","DIFFICULT, alternating with pain in hypochondria, sopor",سانس — مشکل، باری باری، غفلت (خمار) کے ساتھ,1,1,یکساں
+o54808,"DIFFICULT, alternating with, urticaria","DIFFICULT, alternating with pain in hypochondria, urticaria",سانس — مشکل، باری باری، پِتّی کے ساتھ,1,1,یکساں
+o54809,"DIFFICULT, alternating with, uterine haemorrhage","DIFFICULT, alternating with pain in hypochondria, uterine hæmorrhage",سانس — مشکل، باری باری، رحم سے خون بہنے کے ساتھ,1,1,یکساں
+o54837,"DIFFICULT, constriction of, trachea","DIFFICULT, constriction of larynx, trachea",سانس — مشکل، سانس کی نالی کی جکڑن سے,1,1,یکساں
+o54870,"DIFFICULT, expectoration, checked, after","DIFFICULT, expectoration amel., checked, after",سانس — مشکل، بلغم رُک جانے کے بعد,1,1,یکساں
+o54886,"DIFFICULT, handkerchief, cannot bear to have, approach the mouth as it will cause dyspnoea","DIFFICULT, handkerchief, cannot bear to have, approach the mouth as it will cause dyspnœa",سانس — مشکل، رومال منہ کے قریب نہ ہونے دے، سانس پھول جائے گا,2,2,یکساں
+o54889,"DIFFICULT, heart, during, complaints and urinary troubles","DIFFICULT, heart, during pain in, complaints and urinary troubles",سانس — مشکل، دل کی شکایات کے دوران، دل اور پیشاب کی شکایات کے دوران,2,2,یکساں
+o54890,"DIFFICULT, heart, during, complaints, and ovarian troubles","DIFFICULT, heart, during pain in, complaints and urinary troubles, and ovarian troubles",سانس — مشکل، دل کی شکایات کے دوران، دل اور بیضہ دانیوں کی شکایات کے دوران,1,1,یکساں
+o54964,"DIFFICULT, oedema, pulmonary","DIFFICULT, œdema, pulmonary",سانس — مشکل، پھیپھڑوں کا ورم,3,3,یکساں
+o54996,"DIFFICULT, sitting, bent, forwards, amel.","DIFFICULT, sitting, bent backwards, forwards, amel.",سانس — مشکل، بیٹھنا، جھک کر بیٹھنا، آگے جھک کر بیٹھنے سے آرام,5,5,یکساں
+o55051,"DIFFICULT, warm, clothing, from","DIFFICULT, warm bath, clothing, from",سانس — مشکل، گرم کپڑوں سے,1,1,یکساں
+o55052,"DIFFICULT, warm, drinks, after","DIFFICULT, warm bath, drinks, after",سانس — مشکل، گرم مشروبات کے بعد,1,1,یکساں
+o55053,"DIFFICULT, warm, food","DIFFICULT, warm bath, food",سانس — مشکل، گرم کھانا,1,1,یکساں
+o55056,"DIFFICULT, warm, room, in a","DIFFICULT, warm bath, room, in a",سانس — مشکل، گرم کمرے میں,20,20,یکساں
+o55168,"RATTLING, lying, on back agg.","RATTLING, lying agg., on back agg.",سانس — کھڑکھڑاہٹ، چت لیٹنے سے بگاڑ,2,2,یکساں
+o55200,"SLOW, alternating, with suffocation","SLOW, alternating with short during sleep, with suffocation",سانس — سست، دم گھٹنے کے ساتھ باری باری,1,1,یکساں
+r10,"ARRESTED, morning","ARRESTED, morning",سانس — رُک جانا، صبح,1,1,یکساں
+r100,"ASTHMATIC, eructations amel.","ASTHMATIC, eructations amel.",سانس — دمے والا، ڈکار سے آرام,2,2,یکساں
+r101,"ASTHMATIC, eruptions, after suppressed","ASTHMATIC, eruptions, after suppressed",سانس — دمے والا، دانوں کے دب جانے کے بعد,11,11,یکساں
+r102,"ASTHMATIC, excitement","ASTHMATIC, excitement",سانس — دمے والا، جذباتی جوش,1,1,یکساں
+r103,"ASTHMATIC, expectoration amel.","ASTHMATIC, expectoration amel.",سانس — دمے والا، بلغم نکلنے سے آرام,1,1,یکساں
+r104,"ASTHMATIC, faceache, with, disappearance of tetter on face","ASTHMATIC, faceache, with, disappearance of tetter on face",سانس — دمے والا، چہرے کے درد کے ساتھ، چہرے کا داد غائب ہونے پر,1,1,یکساں
+r105,"ASTHMATIC, flatulence, from","ASTHMATIC, flatulence, from",سانس — دمے والا، ریاح سے,10,10,یکساں
+r106,"ASTHMATIC, hay asthma","ASTHMATIC, hay asthma",سانس — دمے والا، گھاس سے دمہ (ہے ایستھما),18,18,یکساں
+r107,"ASTHMATIC, humid (See Rattling)","ASTHMATIC, humid (See Rattling)",سانس — دمے والا، نم (گھرگھر والا),0,0,یکساں
+r108,"ASTHMATIC, hysterical","ASTHMATIC, hysterical",سانس — دمے والا، ہسٹیریا والا,8,8,یکساں
+r109,"ASTHMATIC, heart, from fatty degeneration of","ASTHMATIC, heart, from fatty degeneration of",سانس — دمے والا، دل کی چربی میں تبدیلی سے,1,1,یکساں
+r11,"ARRESTED, forenoon, stitches in side","ARRESTED, forenoon, stitches in side",سانس — رُک جانا، دوپہر سے پہلے، پہلو میں ٹانکے,1,1,یکساں
+r110,"ASTHMATIC, injury of spine, after","ASTHMATIC, injury of spine, after",سانس — دمے والا، ریڑھ کی ہڈی کی چوٹ کے بعد,1,1,یکساں
+r111,"ASTHMATIC, intermittent fever, with","ASTHMATIC, intermittent fever, with",سانس — دمے والا، وقفوں والے بخار کے ساتھ,1,1,یکساں
+r112,"ASTHMATIC, leaning backwards","ASTHMATIC, leaning backwards",سانس — دمے والا، پیچھے جھکنے پر,1,1,یکساں
+r113,"ASTHMATIC, measles, after","ASTHMATIC, measles, after",سانس — دمے والا، خسرہ کے بعد,2,2,یکساں
+r114,"ASTHMATIC, menses, before","ASTHMATIC, menses, before",سانس — دمے والا، حیض سے پہلے,1,1,یکساں
+r117,"ASTHMATIC, mental-exertion","ASTHMATIC, mental-exertion",سانس — دمے والا، ذہنی محنت,1,1,یکساں
+r118,"ASTHMATIC, mercury, after","ASTHMATIC, mercury, after",سانس — دمے والا، پارے کے استعمال کے بعد,1,1,یکساں
+r119,"ASTHMATIC, miner's asthma, from coal dust","ASTHMATIC, miner's asthma, from coal dust",سانس — دمے والا، کوئلے کی دھول سے کان کنوں کا دمہ,1,1,یکساں
+r12,"ARRESTED, afternoon","ARRESTED, afternoon",سانس — رُک جانا، سہ پہر,4,4,یکساں
+r120,"ASTHMATIC, music agg.","ASTHMATIC, music agg.",سانس — دمے والا، موسیقی سے بگاڑ,1,1,یکساں
+r121,"ASTHMATIC, old people, in","ASTHMATIC, old people, in",سانس — دمے والا، بوڑھے لوگوں میں,7,7,یکساں
+r122,"ASTHMATIC, periodic","ASTHMATIC, periodic",سانس — دمے والا، وقفے وقفے سے,15,15,یکساں
+r123,"ASTHMATIC, periodic, every 8 days","ASTHMATIC, periodic, every 8 days",سانس — دمے والا، وقفے وقفے سے، ہر 8 دن بعد,1,1,یکساں
+r124,"ASTHMATIC, rash, after suppression of acute","ASTHMATIC, rash, after suppression of acute",سانس — دمے والا، تیز ریش دب جانے کے بعد,3,3,یکساں
+r125,"ASTHMATIC, riding agg.","ASTHMATIC, riding agg.",سانس — دمے والا، سواری سے بگاڑ,1,1,یکساں
+r126,"ASTHMATIC, rocking amel.","ASTHMATIC, rocking amel.",سانس — دمے والا، جھولے سے آرام,1,1,یکساں
+r127,"ASTHMATIC, rose cold, following","ASTHMATIC, rose cold, following",سانس — دمے والا، گلاب کے زکام کے بعد,1,1,یکساں
+r128,"ASTHMATIC, sailors as soon as they go ashore","ASTHMATIC, sailors as soon as they go ashore",سانس — دمے والا، جہازی جہاز سے کنارے اترتے ہی,1,1,یکساں
+r129,"ASTHMATIC, sleep, coming on during","ASTHMATIC, sleep, coming on during",سانس — دمے والا، نیند آتے وقت,11,11,یکساں
+r13,"ARRESTED, afternoon, 3 p.m., stitches under right scapula","ARRESTED, afternoon, 3 p.m., stitches under right scapula",سانس — رُک جانا، سہ پہر، 3 بجے، دائیں کندھے کی ہڈی کے نیچے ٹانکے,1,1,یکساں
+r130,"ASTHMATIC, spasmodic","ASTHMATIC, spasmodic",سانس — دمے والا، تشنجی,48,48,یکساں
+r131,"ASTHMATIC, stool amel.","ASTHMATIC, stool amel.",سانس — دمے والا، پاخانے سے آرام,1,1,یکساں
+r132,"ASTHMATIC, sudden attacks","ASTHMATIC, sudden attacks",سانس — دمے والا، اچانک دورے,2,2,یکساں
+r133,"ASTHMATIC, talking agg.","ASTHMATIC, talking agg.",سانس — دمے والا، بولنے سے بگاڑ,1,1,یکساں
+r135,"ASTHMATIC, thunderstorm, during","ASTHMATIC, thunderstorm, during",سانس — دمے والا، گرج چمک کے طوفان کے دوران,3,3,یکساں
+r136,"ASTHMATIC, urinating, while","ASTHMATIC, urinating, while",سانس — دمے والا، پیشاب کرتے وقت,1,1,یکساں
+r137,"ASTHMATIC, vaccination, after","ASTHMATIC, vaccination, after",سانس — دمے والا، ٹیکے کے بعد,1,1,یکساں
+r138,"ASTHMATIC, vexation, from","ASTHMATIC, vexation, from",سانس — دمے والا، دل آزردگی سے,1,1,یکساں
+r139,"ASTHMATIC, warm food agg.","ASTHMATIC, warm food agg.",سانس — دمے والا، گرم کھانے سے بگاڑ,2,2,یکساں
+r14,"ARRESTED, afternoon, 4 p.m.","ARRESTED, afternoon, 4 p.m.",سانس — رُک جانا، سہ پہر، 4 بجے,1,1,یکساں
+r140,"ASTHMATIC, warm room agg.","ASTHMATIC, warm room agg.",سانس — دمے والا، گرم کمرے سے بگاڑ,3,3,یکساں
+r141,"ASTHMATIC, warm room from the open air","ASTHMATIC, warm room from the open air",سانس — دمے والا، کھلی ہوا سے گرم کمرے میں جانے پر,1,1,یکساں
+r142,"ASTHMATIC, warm wet weather","ASTHMATIC, warm wet weather",سانس — دمے والا، گرم گیلے موسم میں,2,2,یکساں
+r143,"ASTHMATIC, wet weather, in","ASTHMATIC, wet weather, in",سانس — دمے والا، گیلے موسم میں,7,7,یکساں
+r144,"ASTHMATIC, wind, walking against","ASTHMATIC, wind, walking against",سانس — دمے والا، ہوا کے خلاف چلنے پر,1,1,یکساں
+r145,"ASTHMATIC, winter attacks","ASTHMATIC, winter attacks",سانس — دمے والا، سردیوں کے دورے,3,3,یکساں
+r147,"CATCHING, morning","CATCHING, morning",سانس — رُک رُک کر سانس آنا، صبح,1,1,یکساں
+r148,"CATCHING, night","CATCHING, night",سانس — رُک رُک کر سانس آنا، رات,1,1,یکساں
+r149,"CATCHING, bending, on","CATCHING, bending, on",سانس — رُک رُک کر سانس آنا، جھکنے پر,1,1,یکساں
+r15,"ARRESTED, evening, griping in inguinal region","ARRESTED, evening, griping in inguinal region",سانس — رُک جانا، شام، کچھوں میں مروڑ,3,3,یکساں
+r151,"CATCHING, cough, after","CATCHING, cough, after",سانس — رُک رُک کر سانس آنا، کھانسی کے بعد,6,6,یکساں
+r152,"CATCHING, dancing, after","CATCHING, dancing, after",سانس — رُک رُک کر سانس آنا، رقص کے بعد,1,1,یکساں
+r153,"CATCHING, fever, during","CATCHING, fever, during",سانس — رُک رُک کر سانس آنا، بخار کے دوران,1,1,یکساں
+r154,"CATCHING, menses, before","CATCHING, menses, before",سانس — رُک رُک کر سانس آنا، حیض سے پہلے,1,1,یکساں
+r155,"CATCHING, sleep, during","CATCHING, sleep, during",سانس — رُک رُک کر سانس آنا، نیند کے دوران,1,1,یکساں
+r156,"CATCHING, stitching in abdomen to back","CATCHING, stitching in abdomen to back",سانس — رُک رُک کر سانس آنا، پیٹ سے کمر تک چبھن,1,1,یکساں
+r158,"CATCHING, working","CATCHING, working",سانس — رُک رُک کر سانس آنا، کام کرتے وقت,1,1,یکساں
+r159,CONVULSIVE (See Paroxysmal),CONVULSIVE (See Paroxysmal),سانس — تشنجی,0,0,یکساں
+r160,CROAKING,CROAKING,سانس — مینڈک جیسی غراتی آواز,2,2,یکساں
+r161,CROWING (See Rough),CROWING (See Rough),سانس — مرغ کی بانگ جیسی,0,0,یکساں
+r163,"DEEP, evening","DEEP, evening",سانس — گہرا، شام,2,2,یکساں
+r164,"DEEP, midnight, on waking","DEEP, midnight, on waking",سانس — گہرا، آدھی رات، جاگنے پر,1,1,یکساں
+r165,"DEEP, abdomen, from","DEEP, abdomen, from",سانس — گہرا، پیٹ سے,2,2,یکساں
+r166,"DEEP, ameliorates","DEEP, ameliorates",سانس — گہرا، آرام دیتا ہے,23,23,یکساں
+r167,"DEEP, chill, during","DEEP, chill, during",سانس — گہرا، سردی لگنے کے دوران,1,1,یکساں
+r168,"DEEP, desire to breathe","DEEP, desire to breathe",سانس — گہرا، سانس لینے کی خواہش,59,59,یکساں
+r169,"DEEP, desire to breathe, chill, during","DEEP, desire to breathe, chill, during",سانس — گہرا، سانس لینے کی خواہش، سردی لگنے کے دوران,1,1,یکساں
+r17,"ARRESTED, night, cough, during","ARRESTED, night, cough, during",سانس — رُک جانا، رات، کھانسی کے دوران,1,1,یکساں
+r170,"DEEP, desire to breathe, lying, while","DEEP, desire to breathe, lying, while",سانس — گہرا، سانس لینے کی خواہش، لیٹے ہوئے,1,1,یکساں
+r171,"DEEP, dinner, before","DEEP, dinner, before",سانس — گہرا، دوپہر کے کھانے سے پہلے,2,2,یکساں
+r172,"DEEP, eating, after","DEEP, eating, after",سانس — گہرا، کھانے کے بعد,1,1,یکساں
+r173,"DEEP, heart, from heaviness at","DEEP, heart, from heaviness at",سانس — گہرا، دل پر بوجھ سے,1,1,یکساں
+r174,"DEEP, impossible","DEEP, impossible",سانس — گہرا، ممکن نہ ہو,16,16,یکساں
+r175,"DEEP, lying down, while","DEEP, lying down, while",سانس — گہرا، لیٹتے ہوئے,1,1,یکساں
+r178,"DEEP, menses, before","DEEP, menses, before",سانس — گہرا، حیض سے پہلے,1,1,یکساں
+r179,"DEEP, running, after","DEEP, running, after",سانس — گہرا، دوڑنے کے بعد,1,1,یکساں
+r18,"ARRESTED, night, midnight","ARRESTED, night, midnight",سانس — رُک جانا، رات، آدھی رات,1,1,یکساں
+r180,"DEEP, sitting, while","DEEP, sitting, while",سانس — گہرا، بیٹھے ہوئے,2,2,یکساں
+r181,"DEEP, sleep, during","DEEP, sleep, during",سانس — گہرا، نیند کے دوران,1,1,یکساں
+r182,"DEEP, slow, wheezing","DEEP, slow, wheezing",سانس — گہرا، سست، گھرگھر کے ساتھ,1,1,یکساں
+r183,"DEEP, writing, while","DEEP, writing, while",سانس — گہرا، لکھتے ہوئے,1,1,یکساں
+r185,"DIFFICULT, daytime","DIFFICULT, daytime",سانس — مشکل، دن کے وقت,1,1,یکساں
+r187,"DIFFICULT, morning, bed, in","DIFFICULT, morning, bed, in",سانس — مشکل، صبح، بستر میں,10,10,یکساں
+r188,"DIFFICULT, morning, chest, from anxiety in","DIFFICULT, morning, chest, from anxiety in",سانس — مشکل، صبح، سینے کی بے چینی سے,1,1,یکساں
+r189,"DIFFICULT, morning, exertion, from","DIFFICULT, morning, exertion, from",سانس — مشکل، صبح، محنت سے,1,1,یکساں
+r19,"ARRESTED, air, in fresh","ARRESTED, air, in fresh",سانس — رُک جانا، تازہ ہوا میں,1,1,یکساں
+r190,"DIFFICULT, morning, expectoration amel.","DIFFICULT, morning, expectoration amel.",سانس — مشکل، صبح، بلغم نکلنے سے آرام,1,1,یکساں
+r191,"DIFFICULT, morning, rising, on","DIFFICULT, morning, rising, on",سانس — مشکل، صبح، اٹھنے پر، اٹھتے ہی,2,2,یکساں
+r193,"DIFFICULT, morning, rising, after, amel.","DIFFICULT, morning, rising, after, amel.",سانس — مشکل، صبح، اٹھنے پر، اٹھنے کے بعد آرام,3,3,یکساں
+r194,"DIFFICULT, morning, standing, while","DIFFICULT, morning, standing, while",سانس — مشکل، صبح، کھڑے ہوئے,1,1,یکساں
+r195,"DIFFICULT, morning, waking, on","DIFFICULT, morning, waking, on",سانس — مشکل، صبح، جاگنے پر,5,5,یکساں
+r197,"DIFFICULT, forenoon, standing, while","DIFFICULT, forenoon, standing, while",سانس — مشکل، دوپہر سے پہلے، کھڑے ہوئے,1,1,یکساں
+r199,"DIFFICULT, forenoon, walking, in open air","DIFFICULT, forenoon, walking, in open air",سانس — مشکل، دوپہر سے پہلے، چلنے پر، کھلی ہوا میں چلنے پر,1,1,یکساں
+r20,"ARRESTED, ascending steps","ARRESTED, ascending steps",سانس — رُک جانا، سیڑھیاں چڑھنے پر,3,3,یکساں
+r200,"DIFFICULT, forenoon, writing, while","DIFFICULT, forenoon, writing, while",سانس — مشکل، دوپہر سے پہلے، لکھتے ہوئے,1,1,یکساں
+r201,"DIFFICULT, forenoon, 8 a.m.","DIFFICULT, forenoon, 8 a.m.",سانس — مشکل، دوپہر سے پہلے، 8 بجے,1,1,یکساں
+r202,"DIFFICULT, forenoon, 9 a.m.","DIFFICULT, forenoon, 9 a.m.",سانس — مشکل، دوپہر سے پہلے، 9 بجے,5,5,یکساں
+r203,"DIFFICULT, forenoon, 9 a.m., after breakfast","DIFFICULT, forenoon, 9 a.m., after breakfast",سانس — مشکل، دوپہر سے پہلے، 9 بجے، ناشتے کے بعد,1,1,یکساں
+r204,"DIFFICULT, forenoon, 10 a.m.","DIFFICULT, forenoon, 10 a.m.",سانس — مشکل، دوپہر سے پہلے، 10 بجے,2,2,یکساں
+r205,"DIFFICULT, forenoon, 11 a.m.","DIFFICULT, forenoon, 11 a.m.",سانس — مشکل، دوپہر سے پہلے، 11 بجے,2,2,یکساں
+r206,"DIFFICULT, noon","DIFFICULT, noon",سانس — مشکل، دوپہر,2,2,یکساں
+r208,"DIFFICULT, afternoon, 1 p.m.","DIFFICULT, afternoon, 1 p.m.",سانس — مشکل، سہ پہر، 1 بجے,2,2,یکساں
+r209,"DIFFICULT, afternoon, 2 p.m.","DIFFICULT, afternoon, 2 p.m.",سانس — مشکل، سہ پہر، 2 بجے,1,1,یکساں
+r21,"ARRESTED, constriction of chest, during","ARRESTED, constriction of chest, during",سانس — رُک جانا، سینے کی جکڑن کے دوران,2,2,یکساں
+r210,"DIFFICULT, afternoon, 3 p.m. when running","DIFFICULT, afternoon, 3 p.m. when running",سانس — مشکل، سہ پہر، 3 بجے، دوڑتے وقت,2,2,یکساں
+r211,"DIFFICULT, afternoon, 3-30 p.m. while sitting","DIFFICULT, afternoon, 3-30 p.m. while sitting",سانس — مشکل، سہ پہر، 3.30 بجے، بیٹھے ہوئے,1,1,یکساں
+r212,"DIFFICULT, afternoon, 4 p.m.","DIFFICULT, afternoon, 4 p.m.",سانس — مشکل، سہ پہر، 4 بجے,1,1,یکساں
+r214,"DIFFICULT, afternoon, 5 p.m., sudden","DIFFICULT, afternoon, 5 p.m., sudden",سانس — مشکل، سہ پہر، 5 بجے، اچانک,1,1,یکساں
+r216,"DIFFICULT, afternoon, 6-30 p.m.","DIFFICULT, afternoon, 6-30 p.m.",سانس — مشکل، سہ پہر، 6.30 بجے,1,1,یکساں
+r219,"DIFFICULT, evening, amel.","DIFFICULT, evening, amel.",سانس — مشکل، شام، آرام,1,1,یکساں
+r22,"ARRESTED, constriction of chest, during, larynx (See Larynx)","ARRESTED, constriction of chest, during, larynx (See Larynx)",سانس — رُک جانا، سینے کی جکڑن کے دوران، حلقوم,0,0,یکساں
+r222,"DIFFICULT, evening, 6 p.m.","DIFFICULT, evening, 6 p.m.",سانس — مشکل، شام 6 بجے,2,2,یکساں
+r223,"DIFFICULT, evening, 9 p.m.","DIFFICULT, evening, 9 p.m.",سانس — مشکل، شام 9 بجے,1,1,یکساں
+r224,"DIFFICULT, night, during","DIFFICULT, night, during",سانس — مشکل، رات کے دوران,94,94,یکساں
+r23,"ARRESTED, convulsions during","ARRESTED, convulsions during",سانس — رُک جانا، دوروں کے دوران,6,6,یکساں
+r24,"ARRESTED, coughing","ARRESTED, coughing",سانس — رُک جانا، کھانستے وقت,77,77,یکساں
+r247,"DIFFICULT, air, in cold, amel.","DIFFICULT, air, in cold, amel.",سانس — مشکل، ہوا، ٹھنڈی ہوا میں آرام,12,12,یکساں
+r25,"ARRESTED, drinking, from","ARRESTED, drinking, from",سانس — رُک جانا، پینے سے,2,2,یکساں
+r250,"DIFFICULT, alternating with pain in hypochondria","DIFFICULT, alternating with pain in hypochondria",سانس — مشکل، بغل کے نچلے حصے کے درد کے ساتھ باری باری,1,1,یکساں
+r254,"DIFFICULT, anger, after","DIFFICULT, anger, after",سانس — مشکل، غصے کے بعد,5,5,یکساں
+r255,"DIFFICULT, ascending","DIFFICULT, ascending",سانس — مشکل، چڑھائی پر,76,76,یکساں
+r256,"DIFFICULT, autumn","DIFFICULT, autumn",سانس — مشکل، خزاں میں,1,1,یکساں
+r257,"DIFFICULT, beer, after","DIFFICULT, beer, after",سانس — مشکل، بیئر کے بعد,1,1,یکساں
+r258,"DIFFICULT, bending arm backwards, on","DIFFICULT, bending arm backwards, on",سانس — مشکل، بازو پیچھے موڑنے پر,1,1,یکساں
+r26,"ARRESTED, fever, during","ARRESTED, fever, during",سانس — رُک جانا، بخار کے دوران,1,1,یکساں
+r265,"DIFFICULT, breath, on taking a deep","DIFFICULT, breath, on taking a deep",سانس — مشکل، سانس، گہرا سانس لینے پر,1,1,یکساں
+r267,"DIFFICULT, change of weather","DIFFICULT, change of weather",سانس — مشکل، موسم بدلنے پر,2,2,یکساں
+r268,"DIFFICULT, children","DIFFICULT, children",سانس — مشکل، بچوں میں,6,6,یکساں
+r269,"DIFFICULT, chill, during","DIFFICULT, chill, during",سانس — مشکل، سردی لگنے کے دوران,16,16,یکساں
+r270,"DIFFICULT, closing eyes, on","DIFFICULT, closing eyes, on",سانس — مشکل، آنکھیں بند کرنے پر,2,2,یکساں
+r271,"DIFFICULT, coffee, from","DIFFICULT, coffee, from",سانس — مشکل، کافی سے,3,3,یکساں
+r272,"DIFFICULT, coition, during","DIFFICULT, coition, during",سانس — مشکل، جماع کے دوران,7,7,یکساں
+r275,"DIFFICULT, cold, after taking","DIFFICULT, cold, after taking",سانس — مشکل، سردی لگنے کے بعد,4,4,یکساں
+r280,"DIFFICULT, constriction of larynx","DIFFICULT, constriction of larynx",سانس — مشکل، حلقوم کی جکڑن سے,8,8,یکساں
+r282,"DIFFICULT, convulsions, during","DIFFICULT, convulsions, during",سانس — مشکل، دوروں کے دوران,4,4,یکساں
+r284,"DIFFICULT, cough, with","DIFFICULT, cough, with",سانس — مشکل، کھانسی کے ساتھ,80,80,یکساں
+r285,"DIFFICULT, covering nose or mouth","DIFFICULT, covering nose or mouth",سانس — مشکل، ناک یا منہ ڈھانپنے پر,2,2,یکساں
+r286,"DIFFICULT, crowded room","DIFFICULT, crowded room",سانس — مشکل، بھرے کمرے میں,1,1,یکساں
+r287,"DIFFICULT, dark, in the","DIFFICULT, dark, in the",سانس — مشکل، اندھیرے میں,1,1,یکساں
+r288,"DIFFICULT, dinner, after","DIFFICULT, dinner, after",سانس — مشکل، دوپہر کے کھانے کے بعد,5,5,یکساں
+r289,"DIFFICULT, diseased conditions of distant parts not involved in act of breathing","DIFFICULT, diseased conditions of distant parts not involved in act of breathing",سانس — مشکل، سانس کے عمل سے غیر متعلق دور دراز حصوں کی بیماریوں میں,1,1,یکساں
+r290,"DIFFICULT, dreams, during","DIFFICULT, dreams, during",سانس — مشکل، خواب کے دوران,1,1,یکساں
+r292,"DIFFICULT, dressing, while","DIFFICULT, dressing, while",سانس — مشکل، کپڑے پہنتے وقت,1,1,یکساں
+r293,"DIFFICULT, drinking, when","DIFFICULT, drinking, when",سانس — مشکل، پینا، پیتے وقت,10,10,یکساں
+r295,"DIFFICULT, dust, as from","DIFFICULT, dust, as from",سانس — مشکل، جیسے دھول ہو,12,12,یکساں
+r299,"DIFFICULT, emission, after","DIFFICULT, emission, after",سانس — مشکل، منی کے اخراج کے بعد,2,2,یکساں
+r30,"ARRESTED, rubbing amel.","ARRESTED, rubbing amel.",سانس — رُک جانا، ملنے سے آرام,1,1,یکساں
+r300,"DIFFICULT, emphysema, in","DIFFICULT, emphysema, in",سانس — مشکل، پھیپھڑوں کی ہوا کی تھیلی کے مرض میں,1,1,یکساں
+r301,"DIFFICULT, eructations amel.","DIFFICULT, eructations amel.",سانس — مشکل، ڈکار سے آرام,3,3,یکساں
+r302,"DIFFICULT, eruptive diseases, with","DIFFICULT, eruptive diseases, with",سانس — مشکل، دانوں والی بیماریوں کے ساتھ,1,1,یکساں
+r303,"DIFFICULT, excitement agg.","DIFFICULT, excitement agg.",سانس — مشکل، جذباتی جوش سے بگاڑ,6,6,یکساں
+r304,"DIFFICULT, exertion, after","DIFFICULT, exertion, after",سانس — مشکل، محنت کے بعد,57,57,یکساں
+r305,"DIFFICULT, exertion, after, with hands and arms","DIFFICULT, exertion, after, with hands and arms",سانس — مشکل، محنت کے بعد، ہاتھوں اور بازوؤں کے ساتھ,6,6,یکساں
+r306,"DIFFICULT, expectoration amel.","DIFFICULT, expectoration amel.",سانس — مشکل، بلغم نکلنے سے آرام,9,9,یکساں
+r308,"DIFFICULT, expiration","DIFFICULT, expiration",سانس — مشکل، سانس چھوڑتے وقت,11,11,یکساں
+r309,"DIFFICULT, expiration, cough, during","DIFFICULT, expiration, cough, during",سانس — مشکل، سانس چھوڑتے وقت، کھانسی کے دوران,1,1,یکساں
+r31,"ARRESTED, sitting, while","ARRESTED, sitting, while",سانس — رُک جانا، بیٹھے ہوئے,3,3,یکساں
+r310,"DIFFICULT, fanned, wants to be","DIFFICULT, fanned, wants to be",سانس — مشکل، پنکھے سے ہوا چاہے,7,7,یکساں
+r311,"DIFFICULT, flatulence, from","DIFFICULT, flatulence, from",سانس — مشکل، ریاح سے,8,8,یکساں
+r312,"DIFFICULT, fright, after","DIFFICULT, fright, after",سانس — مشکل، ڈر کے بعد,2,2,یکساں
+r314,"DIFFICULT, hang down, legs, amel.","DIFFICULT, hang down, legs, amel.",سانس — مشکل، ٹانگیں لٹکانے سے آرام,1,1,یکساں
+r315,"DIFFICULT, heart, during pain in","DIFFICULT, heart, during pain in",سانس — مشکل، دل کے درد کے دوران,10,10,یکساں
+r318,"DIFFICULT, heat, with","DIFFICULT, heat, with",سانس — مشکل، گرمی کے ساتھ,19,19,یکساں
+r319,"DIFFICULT, heated, when overheated","DIFFICULT, heated, when overheated",سانس — مشکل، گرم ہونے پر,1,1,یکساں
+r32,"ARRESTED, sleep, on going to","ARRESTED, sleep, on going to",سانس — رُک جانا، نیند، سوتے وقت,5,5,یکساں
+r320,"DIFFICULT, hurried, if","DIFFICULT, hurried, if",سانس — مشکل، جلدی کرنے پر,1,1,یکساں
+r321,"DIFFICULT, hysterical","DIFFICULT, hysterical",سانس — مشکل، ہسٹیریا والا,6,6,یکساں
+r323,"DIFFICULT, inspiration, rapid expiration","DIFFICULT, inspiration, rapid expiration",سانس — مشکل، سانس اندر لیتے وقت، تیزی سے چھوڑنا,7,7,یکساں
+r324,"DIFFICULT, laughing","DIFFICULT, laughing",سانس — مشکل، ہنسنے پر,7,7,یکساں
+r325,"DIFFICULT, liver, from stitches in","DIFFICULT, liver, from stitches in",سانس — مشکل، جگر میں ٹانکوں سے,2,2,یکساں
+r326,"DIFFICULT, lung, from heaviness in left","DIFFICULT, lung, from heaviness in left",سانس — مشکل، پھیپھڑا، بائیں پھیپھڑے میں بوجھ سے,1,1,یکساں
+r346,"DIFFICULT, manual labour","DIFFICULT, manual labour",سانس — مشکل، ہاتھ کی محنت سے,6,6,یکساں
+r347,"DIFFICULT, measles, from suppressed","DIFFICULT, measles, from suppressed",سانس — مشکل، خسرہ دب جانے سے,3,3,یکساں
+r348,"DIFFICULT, menorrhagia, from being suppressed","DIFFICULT, menorrhagia, from being suppressed",سانس — مشکل، حیض زیادہ آنے کا بہاؤ رُک جانے سے,1,1,یکساں
+r349,"DIFFICULT, menses, before","DIFFICULT, menses, before",سانس — مشکل، حیض سے پہلے,6,6,یکساں
+r353,"DIFFICULT, mental exertion","DIFFICULT, mental exertion",سانس — مشکل، ذہنی محنت سے,3,3,یکساں
+r354,"DIFFICULT, mortification, after","DIFFICULT, mortification, after",سانس — مشکل، دل آزردگی کے بعد,1,1,یکساں
+r356,"DIFFICULT, motion, amel.","DIFFICULT, motion, amel.",سانس — مشکل، حرکت سے آرام,8,8,یکساں
+r357,"DIFFICULT, motion, of arms","DIFFICULT, motion, of arms",سانس — مشکل، حرکت، بازو ہلانے پر,5,5,یکساں
+r358,"DIFFICULT, motion, slow motion agg.","DIFFICULT, motion, slow motion agg.",سانس — مشکل، حرکت، آہستہ حرکت سے بگاڑ,1,1,یکساں
+r359,"DIFFICULT, mucus in the trachea, from","DIFFICULT, mucus in the trachea, from",سانس — مشکل، سانس کی نالی میں بلغم سے,12,12,یکساں
+r36,"ARRESTED, standing still, when, in water","ARRESTED, standing still, when, in water",سانس — رُک جانا، خاموش کھڑے رہنے پر، پانی میں,1,1,یکساں
+r360,"DIFFICULT, odor, caused by","DIFFICULT, odor, caused by",سانس — مشکل، بو سے پیدا ہو,2,2,یکساں
+r362,"DIFFICULT, old people","DIFFICULT, old people",سانس — مشکل، بوڑھے لوگوں میں,3,3,یکساں
+r363,"DIFFICULT, open, wants doors and windows","DIFFICULT, open, wants doors and windows",سانس — مشکل، کھلا، دروازے کھڑکیاں کھلی چاہے,16,16,یکساں
+r366,"DIFFICULT, pain, with every labor","DIFFICULT, pain, with every labor",سانس — مشکل، ہر سانس کے ساتھ درد,1,1,یکساں
+r367,"DIFFICULT, palpitation, during","DIFFICULT, palpitation, during",سانس — مشکل، دھڑکن کے دوران,25,25,یکساں
+r369,"DIFFICULT, periodic attacks","DIFFICULT, periodic attacks",سانس — مشکل، وقفے وقفے کے دورے,6,6,یکساں
+r37,"ARRESTED, stooping","ARRESTED, stooping",سانس — رُک جانا، جھکنے پر,2,2,یکساں
+r370,"DIFFICULT, periodic attacks, seven days","DIFFICULT, periodic attacks, seven days",سانس — مشکل، وقفے وقفے کے دورے، ہر سات دن بعد,1,1,یکساں
+r372,"DIFFICULT, perspiration, anxious face and sleeplessness","DIFFICULT, perspiration, anxious face and sleeplessness",سانس — مشکل، پسینہ، بے چین چہرہ اور بے خوابی کے ساتھ,1,1,یکساں
+r373,"DIFFICULT, pork, after","DIFFICULT, pork, after",سانس — مشکل، سور کے گوشت کے بعد,1,1,یکساں
+r374,"DIFFICULT, pressing on spine","DIFFICULT, pressing on spine",سانس — مشکل، ریڑھ کی ہڈی دبانے پر,1,1,یکساں
+r375,"DIFFICULT, raising arms","DIFFICULT, raising arms",سانس — مشکل، بازو اٹھانے پر,2,2,یکساں
+r378,"DIFFICULT, retraction of shoulders amel.","DIFFICULT, retraction of shoulders amel.",سانس — مشکل، کندھے پیچھے کھینچنے سے آرام,3,3,یکساں
+r379,"DIFFICULT, rheumatic of heart","DIFFICULT, rheumatic of heart",سانس — مشکل، دل کے گٹھیا والے مرض میں,8,8,یکساں
+r38,"ARRESTED, suddenly, in children","ARRESTED, suddenly, in children",سانس — رُک جانا، اچانک، بچوں میں,1,1,یکساں
+r383,"DIFFICULT, rising, after","DIFFICULT, rising, after",سانس — مشکل، اٹھنے کے بعد,1,1,یکساں
+r386,"DIFFICULT, running, after","DIFFICULT, running, after",سانس — مشکل، دوڑنے کے بعد,3,3,یکساں
+r388,"DIFFICULT, singing, when","DIFFICULT, singing, when",سانس — مشکل، گاتے وقت,1,1,یکساں
+r39,"ARRESTED, suppressed eruptions","ARRESTED, suppressed eruptions",سانس — رُک جانا، دبائے ہوئے دانوں سے,2,2,یکساں
+r390,"DIFFICULT, sitting, bent backwards","DIFFICULT, sitting, bent backwards",سانس — مشکل، بیٹھنا، پیچھے جھک کر بیٹھنے پر,1,1,یکساں
+r393,"DIFFICULT, sitting, amel.","DIFFICULT, sitting, amel.",سانس — مشکل، بیٹھنے سے آرام,11,11,یکساں
+r394,"DIFFICULT, sitting, half sitting amel.","DIFFICULT, sitting, half sitting amel.",سانس — مشکل، بیٹھنا، آدھا لیٹے بیٹھنے سے آرام,1,1,یکساں
+r395,"DIFFICULT, sitting, upright amel.","DIFFICULT, sitting, upright amel.",سانس — مشکل، بیٹھنا، سیدھے بیٹھنے سے آرام,9,9,یکساں
+r396,"DIFFICULT, sitting, with head bent forward on knees amel.","DIFFICULT, sitting, with head bent forward on knees amel.",سانس — مشکل، بیٹھنا، سر گھٹنوں پر رکھ کر بیٹھنے سے آرام,2,2,یکساں
+r397,"DIFFICULT, sleep, during","DIFFICULT, sleep, during",سانس — مشکل، نیند کے دوران,26,26,یکساں
+r40,"ARRESTED, talking, when","ARRESTED, talking, when",سانس — رُک جانا، بولنے پر,3,3,یکساں
+r402,"DIFFICULT, smoke, as from","DIFFICULT, smoke, as from",سانس — مشکل، جیسے دھواں ہو,4,4,یکساں
+r403,"DIFFICULT, spasms of larynx (See Larynx and Trachea)","DIFFICULT, spasms of larynx (See Larynx and Trachea)",سانس — مشکل، حلقوم کے تشنج سے,0,0,یکساں
+r404,"DIFFICULT, spasmodic","DIFFICULT, spasmodic",سانس — مشکل، تشنجی,7,7,یکساں
+r405,"DIFFICULT, speaking, rapidly, when","DIFFICULT, speaking, rapidly, when",سانس — مشکل، تیزی سے بولتے وقت,1,1,یکساں
+r406,"DIFFICULT, stand, compelled stand erect","DIFFICULT, stand, compelled stand erect",سانس — مشکل، سیدھا کھڑا ہونا پڑے,1,1,یکساں
+r408,"DIFFICULT, standing, can only breathe when","DIFFICULT, standing, can only breathe when",سانس — مشکل، کھڑے ہونے پر، صرف کھڑے ہو کر سانس آئے,1,1,یکساں
+r409,"DIFFICULT, standing, in water","DIFFICULT, standing, in water",سانس — مشکل، کھڑے ہونے پر، پانی میں,1,1,یکساں
+r41,"ARRESTED, turning in bed","ARRESTED, turning in bed",سانس — رُک جانا، بستر میں کروٹ بدلنے پر,1,1,یکساں
+r410,"DIFFICULT, sternum, from pressure on","DIFFICULT, sternum, from pressure on",سانس — مشکل، سینے کی ہڈی دبانے سے,7,7,یکساں
+r412,"DIFFICULT, stimulants agg.","DIFFICULT, stimulants agg.",سانس — مشکل، محرکات سے بگاڑ,1,1,یکساں
+r413,"DIFFICULT, stool, before","DIFFICULT, stool, before",سانس — مشکل، پاخانے سے پہلے,1,1,یکساں
+r417,"DIFFICULT, stooping, on","DIFFICULT, stooping, on",سانس — مشکل، جھکنے پر,11,11,یکساں
+r418,"DIFFICULT, stormy weather","DIFFICULT, stormy weather",سانس — مشکل، طوفانی موسم میں,3,3,یکساں
+r419,"DIFFICULT, sudden","DIFFICULT, sudden",سانس — مشکل، اچانک,5,5,یکساں
+r42,"ARRESTED, walking, while","ARRESTED, walking, while",سانس — رُک جانا، چلنے پر، چلتے ہوئے,10,10,یکساں
+r420,"DIFFICULT, sudden, 5 p.m.","DIFFICULT, sudden, 5 p.m.",سانس — مشکل، اچانک، 5 بجے اچانک,1,1,یکساں
+r421,"DIFFICULT, sulphur, as if he inhaled, fumes of","DIFFICULT, sulphur, as if he inhaled, fumes of",سانس — مشکل، جیسے گندھک کے دھوئیں سانس میں گئی ہوں,10,10,یکساں
+r422,"DIFFICULT, supper, during","DIFFICULT, supper, during",سانس — مشکل، رات کا کھانا، رات کے کھانے کے دوران,1,1,یکساں
+r424,"DIFFICULT, suppressed eruptions, from","DIFFICULT, suppressed eruptions, from",سانس — مشکل، دبے ہوئے دانوں سے,1,1,یکساں
+r425,"DIFFICULT, swallowing","DIFFICULT, swallowing",سانس — مشکل، نگلنے پر,7,7,یکساں
+r426,"DIFFICULT, talking, after","DIFFICULT, talking, after",سانس — مشکل، بولنے کے بعد,14,14,یکساں
+r429,"DIFFICULT, throat-pit, constriction at","DIFFICULT, throat-pit, constriction at",سانس — مشکل، گلے کا گڑھا، گلے کے گڑھے میں جکڑن,1,1,یکساں
+r431,"DIFFICULT, thunderstorm, before","DIFFICULT, thunderstorm, before",سانس — مشکل، گرج چمک کے طوفان سے پہلے,3,3,یکساں
+r432,"DIFFICULT, touching larynx","DIFFICULT, touching larynx",سانس — مشکل، حلقوم چھونے پر,3,3,یکساں
+r434,"DIFFICULT, turning in bed, to left side disappeared on sitting up","DIFFICULT, turning in bed, to left side disappeared on sitting up",سانس — مشکل، بستر میں کروٹ بدلنے پر، بائیں کروٹ، اٹھ کر بیٹھنے پر ختم ہو جائے,1,1,یکساں
+r435,"DIFFICULT, turning in bed, to right side","DIFFICULT, turning in bed, to right side",سانس — مشکل، بستر میں کروٹ بدلنے پر، دائیں کروٹ,1,1,یکساں
+r436,"DIFFICULT, vexation, after","DIFFICULT, vexation, after",سانس — مشکل، دل آزردگی کے بعد,2,2,یکساں
+r437,"DIFFICULT, waking with","DIFFICULT, waking with",سانس — مشکل، جاگتے ہی,47,47,یکساں
+r439,"DIFFICULT, walking, amel.","DIFFICULT, walking, amel.",سانس — مشکل، چلنے سے آرام,7,7,یکساں
+r440,"DIFFICULT, walking, air, in the open","DIFFICULT, walking, air, in the open",سانس — مشکل، چلنا، کھلی ہوا میں,7,7,یکساں
+r441,"DIFFICULT, walking, beginning to walk, on","DIFFICULT, walking, beginning to walk, on",سانس — مشکل، چلنا شروع کرتے ہی,2,2,یکساں
+r442,"DIFFICULT, walking, on level ground but not when ascending","DIFFICULT, walking, on level ground but not when ascending",سانس — مشکل، چلنا، ہموار زمین پر، چڑھائی پر نہیں,1,1,یکساں
+r443,"DIFFICULT, walking, over uneven ground","DIFFICULT, walking, over uneven ground",سانس — مشکل، چلنا، اُبھری زمین پر,1,1,یکساں
+r445,"DIFFICULT, walking, rapidly, amel.","DIFFICULT, walking, rapidly, amel.",سانس — مشکل، چلنا، تیز چلنے سے آرام,1,1,یکساں
+r446,"DIFFICULT, walking, slowly, about, amel.","DIFFICULT, walking, slowly, about, amel.",سانس — مشکل، چلنا، آہستہ آہستہ چلنے سے آرام,1,1,یکساں
+r447,"DIFFICULT, walking, wind, against the","DIFFICULT, walking, wind, against the",سانس — مشکل، چلنا، ہوا کے خلاف,8,8,یکساں
+r448,"DIFFICULT, warm bath","DIFFICULT, warm bath",سانس — مشکل، گرم غسل,2,2,یکساں
+r45,"ASPHYXIA, cholera","ASPHYXIA, cholera",سانس — دم گھٹنا، ہیضے میں,2,2,یکساں
+r455,"DIFFICULT, water, when standing in","DIFFICULT, water, when standing in",سانس — مشکل، پانی میں کھڑے ہونے پر,1,1,یکساں
+r457,"DIFFICULT, weakness, of respiratory organs","DIFFICULT, weakness, of respiratory organs",سانس — مشکل، کمزوری، سانس کے اعضا کی,3,3,یکساں
+r458,"DIFFICULT, wet weather","DIFFICULT, wet weather",سانس — مشکل، گیلا موسم,3,3,یکساں
+r459,"DIFFICULT, windy weather","DIFFICULT, windy weather",سانس — مشکل، ہوادار موسم میں,2,2,یکساں
+r46,"ASPHYXIA, coal gas","ASPHYXIA, coal gas",سانس — دم گھٹنا، کوئلے کی گیس سے,2,2,یکساں
+r462,"DIFFICULT, yawning amel.","DIFFICULT, yawning amel.",سانس — مشکل، جمائی سے آرام,1,1,یکساں
+r463,FEEBLE (See Weak),FEEBLE (See Weak),سانس — کمزور,0,0,یکساں
+r465,"FORCIBLE, expiration","FORCIBLE, expiration",سانس — زوردار، سانس چھوڑتے وقت,8,8,یکساں
+r467,"GASPING, morning, 5 a.m.","GASPING, morning, 5 a.m.",سانس — ہانپنا (دم بھرنا)، صبح 5 بجے,1,1,یکساں
+r468,"GASPING, afternoon","GASPING, afternoon",سانس — ہانپنا (دم بھرنا)، سہ پہر,1,1,یکساں
+r47,"ASPHYXIA, lightning, after","ASPHYXIA, lightning, after",سانس — دم گھٹنا، بجلی گرنے کے بعد,1,1,یکساں
+r470,"GASPING, night, 2 a.m. with cough","GASPING, night, 2 a.m. with cough",سانس — ہانپنا (دم بھرنا)، رات 2 بجے، کھانسی کے ساتھ,1,1,یکساں
+r471,"GASPING, cough, before","GASPING, cough, before",سانس — ہانپنا (دم بھرنا)، کھانسی سے پہلے,4,4,یکساں
+r473,"GASPING, dozing, when","GASPING, dozing, when",سانس — ہانپنا (دم بھرنا)، اونگھتے وقت,1,1,یکساں
+r474,"GASPING, inspiration, expiration long and slow","GASPING, inspiration, expiration long and slow",سانس — ہانپنا (دم بھرنا)، سانس اندر لیتے وقت، چھوڑنا لمبا اور سست,2,2,یکساں
+r475,GROANING (See Moaning),GROANING (See Moaning),سانس — کراہنا,0,0,یکساں
+r477,"HOT breath, morning, on waking","HOT breath, morning, on waking",سانس — گرم سانس، صبح، جاگنے پر,1,1,یکساں
+r478,"HOT breath, afternoon","HOT breath, afternoon",سانس — گرم سانس، سہ پہر,2,2,یکساں
+r479,"HOT breath, evening","HOT breath, evening",سانس — گرم سانس، شام,2,2,یکساں
+r48,"ASPHYXIA, new-born infant","ASPHYXIA, new-born infant",سانس — دم گھٹنا، نومولود بچے میں,8,8,یکساں
+r480,"HOT breath, chill, during","HOT breath, chill, during",سانس — گرم سانس، سردی لگنے کے دوران,4,4,یکساں
+r481,"HOT breath, cold limbs, with","HOT breath, cold limbs, with",سانس — گرم سانس، ٹھنڈے ہاتھ پاؤں کے ساتھ,1,1,یکساں
+r482,"HOT breath, fever, during","HOT breath, fever, during",سانس — گرم سانس، بخار کے دوران,1,1,یکساں
+r483,HYSTERICAL (See Paroxysmal),HYSTERICAL (See Paroxysmal),سانس — ہسٹیریا والا,0,0,یکساں
+r484,"IMPEDED, obstructed","IMPEDED, obstructed",سانس — رکاوٹ، رُکا ہوا,82,82,یکساں
+r51,"ASTHMATIC, morning, bed, in","ASTHMATIC, morning, bed, in",سانس — دمے والا، صبح، بستر میں,2,2,یکساں
+r52,"ASTHMATIC, morning, waking, on","ASTHMATIC, morning, waking, on",سانس — دمے والا، صبح، جاگنے پر,3,3,یکساں
+r521,IMPERCEPTIBLE,IMPERCEPTIBLE,سانس — محسوس نہ ہونے والا,17,17,یکساں
+r524,"INTERMITTENT, unequal, night, midnight on waking","INTERMITTENT, unequal, night, midnight on waking",سانس — وقفے وقفے سے، غیر برابر، رات، آدھی رات، جاگنے پر,1,1,یکساں
+r525,"INTERMITTENT, unequal, lying down agg.","INTERMITTENT, unequal, lying down agg.",سانس — وقفے وقفے سے، غیر برابر، لیٹنے سے بگاڑ,1,1,یکساں
+r526,"INTERMITTENT, unequal, sleep, during","INTERMITTENT, unequal, sleep, during",سانس — وقفے وقفے سے، غیر برابر، نیند کے دوران,2,2,یکساں
+r528,"INTERRUPTED (See Arrested), expiration","INTERRUPTED (See Arrested), expiration",سانس — رک رک کر، سانس چھوڑتے وقت,1,1,یکساں
+r529,"INTERRUPTED (See Arrested), inspiration","INTERRUPTED (See Arrested), inspiration",سانس — رک رک کر، سانس اندر لیتے وقت,2,2,یکساں
+r531,"IRREGULAR, at one time slow, at another time hurried","IRREGULAR, at one time slow, at another time hurried",سانس — بے قاعدہ، کبھی سست، کبھی تیز,6,6,یکساں
+r532,"IRREGULAR, cough, during","IRREGULAR, cough, during",سانس — بے قاعدہ، کھانسی کے دوران,2,2,یکساں
+r533,"IRREGULAR, drinking, when","IRREGULAR, drinking, when",سانس — بے قاعدہ، پیتے وقت,1,1,یکساں
+r534,"IRREGULAR, sleep, during","IRREGULAR, sleep, during",سانس — بے قاعدہ، نیند کے دوران,3,3,یکساں
+r535,"IRREGULAR, standing, while","IRREGULAR, standing, while",سانس — بے قاعدہ، کھڑے ہوئے,1,1,یکساں
+r538,"JERKING, inspiration, by two distinct efforts","JERKING, inspiration, by two distinct efforts",سانس — جھٹکے دار، سانس اندر لیتے وقت، دو الگ الگ کوششوں سے,1,1,یکساں
+r539,"JERKING, expiration","JERKING, expiration",سانس — جھٹکے دار، سانس چھوڑتے وقت,1,1,یکساں
+r54,"ASTHMATIC, noon","ASTHMATIC, noon",سانس — دمے والا، دوپہر,1,1,یکساں
+r540,LONG (See Deep expiration),LONG (See Deep expiration),سانس — لمبا,5,5,یکساں
+r542,"LOUD, forenoon","LOUD, forenoon",سانس — بلند، دوپہر سے پہلے,1,1,یکساں
+r543,"LOUD, midnight, on waking","LOUD, midnight, on waking",سانس — بلند، آدھی رات، جاگنے پر,1,1,یکساں
+r544,"LOUD, expiration","LOUD, expiration",سانس — بلند، سانس چھوڑتے وقت,5,5,یکساں
+r545,"LOUD, inspiration","LOUD, inspiration",سانس — بلند، سانس اندر لیتے وقت,12,12,یکساں
+r546,"LOUD, lying on right side","LOUD, lying on right side",سانس — بلند، دائیں کروٹ لیٹنے پر,1,1,یکساں
+r547,"LOUD, paroxysms, during","LOUD, paroxysms, during",سانس — بلند، دوروں کے دوران,1,1,یکساں
+r548,"LOUD, sitting quiet, while","LOUD, sitting quiet, while",سانس — بلند، خاموش بیٹھے ہوئے,1,1,یکساں
+r549,"LOUD, sleep, in","LOUD, sleep, in",سانس — بلند، نیند میں,5,5,یکساں
+r550,"LOUD, spasms of glottis, as from","LOUD, spasms of glottis, as from",سانس — بلند، جیسے گلٹس کے تشنج سے,1,1,یکساں
+r551,"LOUD, walking","LOUD, walking",سانس — بلند، چلنے پر,1,1,یکساں
+r552,MOANING,MOANING,سانس — کراہٹ,26,26,یکساں
+r553,OBSTRUCTED (See Impeded),OBSTRUCTED (See Impeded),سانس — رُکا ہوا,0,0,یکساں
+r554,OPPRESSION (See Chest),OPPRESSION (See Chest),سانس — دباؤ,0,0,یکساں
+r556,"PAINFUL, morning","PAINFUL, morning",سانس — دردناک، صبح,1,1,یکساں
+r557,"PAINFUL, night","PAINFUL, night",سانس — دردناک، رات,1,1,یکساں
+r558,"PAINFUL, inspiration, on","PAINFUL, inspiration, on",سانس — دردناک، سانس اندر لیتے وقت,1,1,یکساں
+r56,"ASTHMATIC, evening, in bed","ASTHMATIC, evening, in bed",سانس — دمے والا، شام، بستر میں,3,3,یکساں
+r560,"PANTING, ascending stairs","PANTING, ascending stairs",سانس — سانس پھولنا، سیڑھیاں چڑھنے پر,2,2,یکساں
+r561,"PANTING, motion, on","PANTING, motion, on",سانس — سانس پھولنا، حرکت پر,1,1,یکساں
+r562,"PANTING, waking, on","PANTING, waking, on",سانس — سانس پھولنا، جاگنے پر,1,1,یکساں
+r563,PAROXYSMAL,PAROXYSMAL,سانس — دوروں کی شکل میں,32,32,یکساں
+r564,"PAROXYSMAL, evening","PAROXYSMAL, evening",سانس — دوروں کی شکل میں، شام,1,1,یکساں
+r565,"PAROXYSMAL, night","PAROXYSMAL, night",سانس — دوروں کی شکل میں، رات,1,1,یکساں
+r566,PUFFING (See Stertorous),PUFFING (See Stertorous),سانس — پھونک مارنا,0,0,یکساں
+r567,QUICK (See Accelerated),QUICK (See Accelerated),سانس — جلدی,0,0,یکساں
+r568,"QUICK (See Accelerated), expiration","QUICK (See Accelerated), expiration",سانس — جلدی، سانس چھوڑتے وقت,2,2,یکساں
+r57,"ASTHMATIC, evening, after lying down","ASTHMATIC, evening, after lying down",سانس — دمے والا، شام، لیٹنے کے بعد,4,4,یکساں
+r570,"RATTLING, morning","RATTLING, morning",سانس — کھڑکھڑاہٹ، صبح,1,1,یکساں
+r571,"RATTLING, evening in bed","RATTLING, evening in bed",سانس — کھڑکھڑاہٹ، شام بستر میں,1,1,یکساں
+r572,"RATTLING, night and day","RATTLING, night and day",سانس — کھڑکھڑاہٹ، رات دن,1,1,یکساں
+r573,"RATTLING, midnight, before","RATTLING, midnight, before",سانس — کھڑکھڑاہٹ، آدھی رات سے پہلے,1,1,یکساں
+r574,"RATTLING, convulsions, during","RATTLING, convulsions, during",سانس — کھڑکھڑاہٹ، دوروں کے دوران,1,1,یکساں
+r575,"RATTLING, cough, during (See Rattling Cough)","RATTLING, cough, during (See Rattling Cough)",سانس — کھڑکھڑاہٹ، کھانسی کے دوران,0,0,یکساں
+r576,"RATTLING, expiring, when","RATTLING, expiring, when",سانس — کھڑکھڑاہٹ، سانس چھوڑتے وقت,1,1,یکساں
+r577,"RATTLING, lying agg.","RATTLING, lying agg.",سانس — کھڑکھڑاہٹ، لیٹنے سے بگاڑ,2,2,یکساں
+r579,"RATTLING, old people","RATTLING, old people",سانس — کھڑکھڑاہٹ، بوڑھے لوگوں میں,6,6,یکساں
+r58,"ASTHMATIC, evening, 9 p.m.","ASTHMATIC, evening, 9 p.m.",سانس — دمے والا، شام 9 بجے,1,1,یکساں
+r580,"RATTLING, sitting upright amel.","RATTLING, sitting upright amel.",سانس — کھڑکھڑاہٹ، سیدھے بیٹھنے سے آرام,1,1,یکساں
+r581,"RATTLING, sleep, during","RATTLING, sleep, during",سانس — کھڑکھڑاہٹ، نیند کے دوران,3,3,یکساں
+r582,"RATTLING, walking, while","RATTLING, walking, while",سانس — کھڑکھڑاہٹ، چلنے پر، چلتے ہوئے,1,1,یکساں
+r585,"ROUGH, crowing","ROUGH, crowing (See Croup)",سانس — کھردرا، مرغ کی بانگ جیسی,10,10,یکساں
+r586,"ROUGH, sawing","ROUGH, sawing",سانس — کھردرا، آرے جیسی,9,9,یکساں
+r587,"ROUGH, sawing, between coughs","ROUGH, sawing, between coughs",سانس — کھردرا، آرے جیسی، کھانسیوں کے درمیان، آرے جیسی,1,1,یکساں
+r588,SHORT (See Difficult),SHORT (See Difficult),سانس — مختصر,0,0,یکساں
+r589,"SHORT (See Difficult), inspiration","SHORT (See Difficult), inspiration",سانس — مختصر، سانس اندر لیتے وقت,1,1,یکساں
+r591,"SIGHING, morning","SIGHING, morning",سانس — آہیں بھرنا، صبح,1,1,یکساں
+r592,"SIGHING, forenoon, 9-30 a.m.","SIGHING, forenoon, 9-30 a.m.",سانس — آہیں بھرنا، 9.30 بجے,1,1,یکساں
+r593,"SIGHING, afternoon","SIGHING, afternoon",سانس — آہیں بھرنا، سہ پہر,1,1,یکساں
+r595,"SIGHING, evening, 7 p.m.","SIGHING, evening, 7 p.m.",سانس — آہیں بھرنا، شام 7 بجے,1,1,یکساں
+r597,"SIGHING, night, 2 a.m.","SIGHING, night, 2 a.m.",سانس — آہیں بھرنا، رات 2 بجے,1,1,یکساں
+r598,"SIGHING, convulsions, after","SIGHING, convulsions, after",سانس — آہیں بھرنا، دوروں کے بعد,1,1,یکساں
+r599,"SIGHING, dinner, after","SIGHING, dinner, after",سانس — آہیں بھرنا، دوپہر کے کھانے کے بعد,1,1,یکساں
+r60,"ASTHMATIC, night, 10 p.m.","ASTHMATIC, night, 10 p.m.",سانس — دمے والا، رات 10 بجے,1,1,یکساں
+r600,"SIGHING, eating, after","SIGHING, eating, after",سانس — آہیں بھرنا، کھانے کے بعد,1,1,یکساں
+r601,"SIGHING, menses, during","SIGHING, menses, during",سانس — آہیں بھرنا، حیض کے دوران,1,1,یکساں
+r602,"SIGHING, sleep, during","SIGHING, sleep, during",سانس — آہیں بھرنا، نیند کے دوران,3,3,یکساں
+r604,"SIGHING, typhoid, in, sighing, jerks","SIGHING, typhoid, in, sighing, jerks",سانس — آہیں بھرنا، ٹائیفائیڈ میں، آہیں جھٹکوں کے ساتھ,1,1,یکساں
+r605,"SIGHING, unconsciousness, during","SIGHING, unconsciousness, during",سانس — آہیں بھرنا، بے ہوشی کے دوران,1,1,یکساں
+r607,"SLOW, morning","SLOW, morning",سانس — سست، صبح,2,2,یکساں
+r608,"SLOW, evening, while lying quiet, agg.","SLOW, evening, while lying quiet, agg.",سانس — سست، شام، خاموش لیٹے ہوئے بگاڑ,2,2,یکساں
+r609,"SLOW, night","SLOW, night",سانس — سست، رات,2,2,یکساں
+r61,"ASTHMATIC, night, 11 p.m. when urinating","ASTHMATIC, night, 11 p.m. when urinating",سانس — دمے والا، رات 11 بجے، پیشاب کرتے وقت,1,1,یکساں
+r610,"SLOW, alternating with short during sleep","SLOW, alternating with short during sleep",سانس — سست، نیند میں مختصر سانس کے ساتھ باری باری,1,1,یکساں
+r612,"SLOW, convulsions, during","SLOW, convulsions, during",سانس — سست، دوروں کے دوران,1,1,یکساں
+r613,"SLOW, cough, during","SLOW, cough, during",سانس — سست، کھانسی کے دوران,1,1,یکساں
+r616,"SLOW, inspiration","SLOW, inspiration",سانس — سست، سانس اندر لیتے وقت,4,4,یکساں
+r618,"SLOW, walking amel.","SLOW, walking amel.",سانس — سست، چلنے سے آرام,1,1,یکساں
+r62,"ASTHMATIC, night, 11 p.m. to 2 a.m.","ASTHMATIC, night, 11 p.m. to 2 a.m.",سانس — دمے والا، رات 11 بجے سے 2 بجے تک,1,1,یکساں
+r620,"SNORING, morning, while sleeping","SNORING, morning, while sleeping",سانس — خراٹے، صبح، سوتے ہوئے,1,1,یکساں
+r621,"SNORING, afternoon nap, during","SNORING, afternoon nap, during",سانس — خراٹے، دوپہر کی نیند کے دوران,1,1,یکساں
+r622,"SNORING, evening in bed","SNORING, evening in bed",سانس — خراٹے، شام بستر میں,1,1,یکساں
+r623,"SNORING, midnight","SNORING, midnight",سانس — خراٹے، آدھی رات,2,2,یکساں
+r624,"SNORING, awake, while","SNORING, awake, while",سانس — خراٹے، جاگتے ہوئے,2,2,یکساں
+r625,"SNORING, chill, during","SNORING, chill, during",سانس — خراٹے، سردی لگنے کے دوران,3,3,یکساں
+r626,"SNORING, delirium, after","SNORING, delirium, after",سانس — خراٹے، ہذیان کے بعد,1,1,یکساں
+r627,"SNORING, expiring, while","SNORING, expiring, while",سانس — خراٹے، سانس چھوڑتے وقت,5,5,یکساں
+r628,"SNORING, heat, during","SNORING, heat, during",سانس — خراٹے، گرمی کے دوران,5,5,یکساں
+r629,"SNORING, insensible, while","SNORING, insensible, while",سانس — خراٹے، بے ہوشی میں,1,1,یکساں
+r63,"ASTHMATIC, night, midnight, after","ASTHMATIC, night, midnight, after",سانس — دمے والا، رات، آدھی رات کے بعد,8,8,یکساں
+r630,"SNORING, lying on the back, while","SNORING, lying on the back, while",سانس — خراٹے، چت لیٹے ہوئے,5,5,یکساں
+r631,"SNORING, swoon, during","SNORING, swoon, during",سانس — خراٹے، غشی کے دوران,1,1,یکساں
+r632,SOBBING,SOBBING,سانس — سسکیاں لینا,23,23,گریڈ کتابی مطابق کیے
+r633,"SOBBING, paroxysmal","SOBBING, paroxysmal",سانس — سسکیاں لینا، دوروں کی شکل میں,1,1,یکساں
+r634,"SOBBING, in sleep","SOBBING, in sleep",سانس — سسکیاں لینا، نیند میں,2,2,یکساں
+r635,SPASMODIC (See Paroxysmal),SPASMODIC (See Paroxysmal),سانس — تشنجی,0,0,یکساں
+r637,"STERTOROUS, evening in bed","STERTOROUS, evening in bed",سانس — خرخراہٹ بھرا، شام بستر میں,1,1,یکساں
+r638,"STERTOROUS, convulsions, after","STERTOROUS, convulsions, after",سانس — خرخراہٹ بھرا، دوروں کے بعد,2,2,یکساں
+r639,"STERTOROUS, involuntary stools and urine","STERTOROUS, involuntary stools and urine",سانس — خرخراہٹ بھرا، پاخانہ اور پیشاب بے اختیار نکلے,1,1,یکساں
+r64,"ASTHMATIC, night, midnight, after, must spring out of bed","ASTHMATIC, night, midnight, after, must spring out of bed",سانس — دمے والا، رات، آدھی رات کے بعد، بستر سے اچھل کر اٹھنا پڑے,3,3,یکساں
+r640,"STERTOROUS, lying on the affected side","STERTOROUS, lying on the affected side",سانس — خرخراہٹ بھرا، متاثرہ پہلو پر لیٹنے سے,1,1,یکساں
+r641,"STERTOROUS, puffing expiration, with","STERTOROUS, puffing expiration, with",سانس — خرخراہٹ بھرا، سانس چھوڑتے وقت پھونک مارے,7,7,یکساں
+r642,"STERTOROUS, sleep, during","STERTOROUS, sleep, during",سانس — خرخراہٹ بھرا، نیند کے دوران,4,4,یکساں
+r643,"STERTOROUS, stupefaction and crying out as with a sharp pain","STERTOROUS, stupefaction and crying out as with a sharp pain",سانس — خرخراہٹ بھرا، بے حس ہو جانا اور تیز درد سے چیخنا,1,1,یکساں
+r645,"STRIDULOUS, evening, on falling asleep","STRIDULOUS, evening, on falling asleep",سانس — سیٹی دار (سٹریڈولس)، شام، سوتے وقت,1,1,یکساں
+r646,SUFFOCATIVE (See Difficult),SUFFOCATIVE (See Difficult),سانس — دم گھٹا دینے والا,0,0,یکساں
+r647,SUPERFICIAL,SUPERFICIAL,سانس — سطحی,5,5,یکساں
+r648,TREMULOUS,TREMULOUS,سانس — کانپتا ہوا,1,1,یکساں
+r649,"VEHEMENT, expiration","VEHEMENT, expiration",سانس — شدید، سانس چھوڑتے وقت,5,5,یکساں
+r65,"ASTHMATIC, night, 2 a.m.","ASTHMATIC, night, 2 a.m.",سانس — دمے والا، رات 2 بجے,3,3,یکساں
+r651,"WHEEZING, daytime","WHEEZING, daytime",سانس — گھرگھر کی آواز، دن کے وقت,1,1,یکساں
+r652,"WHEEZING, afternoon","WHEEZING, afternoon",سانس — گھرگھر کی آواز، سہ پہر,1,1,یکساں
+r654,"WHEEZING, evening, bed, in","WHEEZING, evening, bed, in",سانس — گھرگھر کی آواز، شام، بستر میں,1,1,یکساں
+r655,"WHEEZING, evening, lying down, on","WHEEZING, evening, lying down, on",سانس — گھرگھر کی آواز، شام، لیٹنے پر,1,1,یکساں
+r656,"WHEEZING, night","WHEEZING, night",سانس — گھرگھر کی آواز، رات,1,1,یکساں
+r657,"WHEEZING, midnight, after","WHEEZING, midnight, after",سانس — گھرگھر کی آواز، آدھی رات کے بعد,1,1,یکساں
+r658,"WHEEZING, expectoration, amel.","WHEEZING, expectoration, amel.",سانس — گھرگھر کی آواز، بلغم نکلنے سے آرام,1,1,یکساں
+r659,"WHEEZING, expiring, when","WHEEZING, expiring, when",سانس — گھرگھر کی آواز، سانس چھوڑتے وقت,3,3,یکساں
+r66,"ASTHMATIC, night, 2 to 3 a.m.","ASTHMATIC, night, 2 to 3 a.m.",سانس — دمے والا، رات 2 سے 3 بجے,2,2,یکساں
+r660,"WHEEZING, inspiring, while","WHEEZING, inspiring, while",سانس — گھرگھر کی آواز، سانس اندر لیتے وقت,5,5,یکساں
+r661,"WHEEZING, sitting up, while","WHEEZING, sitting up, while",سانس — گھرگھر کی آواز، اٹھ کر بیٹھے ہوئے,1,1,یکساں
+r662,"WHEEZING, sleep, during","WHEEZING, sleep, during",سانس — گھرگھر کی آواز، نیند کے دوران,1,1,یکساں
+r663,"WHEEZING, smoking on","WHEEZING, smoking on",سانس — گھرگھر کی آواز، تمباکو پیتے وقت,1,1,یکساں
+r664,"WHEEZING, warm room","WHEEZING, warm room",سانس — گھرگھر کی آواز، گرم کمرے میں,1,1,یکساں
+r666,"WHISTLING, morning","WHISTLING, morning",سانس — سیٹی جیسی آواز، صبح,1,1,یکساں
+r667,"WHISTLING, evening","WHISTLING, evening",سانس — سیٹی جیسی آواز، شام,3,3,یکساں
+r668,"WHISTLING, evening, after lying down","WHISTLING, evening, after lying down",سانس — سیٹی جیسی آواز، شام، لیٹنے کے بعد,1,1,یکساں
+r669,"WHISTLING, night, 3 a.m. in sleep","WHISTLING, night, 3 a.m. in sleep",سانس — سیٹی جیسی آواز، رات 3 بجے، نیند میں,1,1,یکساں
+r67,"ASTHMATIC, night, 3 a.m.","ASTHMATIC, night, 3 a.m.",سانس — دمے والا، رات 3 بجے,4,4,یکساں
+r670,"WHISTLING, ascending agg.","WHISTLING, ascending agg.",سانس — سیٹی جیسی آواز، چڑھائی سے بگاڑ,1,1,یکساں
+r671,"WHISTLING, cough, during","WHISTLING, cough, during",سانس — سیٹی جیسی آواز، کھانسی کے دوران,1,1,یکساں
+r672,"WHISTLING, expiration, on","WHISTLING, expiration, on",سانس — سیٹی جیسی آواز، سانس چھوڑتے وقت,1,1,یکساں
+r673,"WHISTLING, inspiration, during","WHISTLING, inspiration, during",سانس — سیٹی جیسی آواز، سانس اندر لیتے وقت,6,6,یکساں
+r674,"WHISTLING, lying, while","WHISTLING, lying, while",سانس — سیٹی جیسی آواز، لیٹنے پر، لیٹے ہوئے,1,1,یکساں
+r677,"WHISTLING, sleep in","WHISTLING, sleep in",سانس — سیٹی جیسی آواز، نیند میں,2,2,یکساں
+r678,"WHISTLING, waking, when","WHISTLING, waking, when",سانس — سیٹی جیسی آواز، جاگنے پر,1,1,یکساں
+r679,"WHISTLING, whooping cough, in","WHISTLING, whooping cough, in",سانس — سیٹی جیسی آواز، کالی کھانسی میں,6,6,یکساں
+r69,"ASTHMATIC, night, 5 a.m.","ASTHMATIC, night, 5 a.m.",سانس — دمے والا، رات 5 بجے,1,1,یکساں
+r70,"ASTHMATIC, air, draught of, agg.","ASTHMATIC, air, draught of, agg.",سانس — دمے والا، ہوا کے جھونکے سے بگاڑ,1,1,یکساں
+r72,"ASTHMATIC, alternating with eruptions","ASTHMATIC, alternating with eruptions",سانس — دمے والا، دانوں کے ساتھ باری باری,8,8,یکساں
+r77,"ASTHMATIC, anger, after","ASTHMATIC, anger, after",سانس — دمے والا، غصے کے بعد,2,2,یکساں
+r78,"ASTHMATIC, autumn","ASTHMATIC, autumn",سانس — دمے والا، خزاں میں,1,1,یکساں
+r79,"ASTHMATIC, bending head backwards amel.","ASTHMATIC, bending head backwards amel.",سانس — دمے والا، سر پیچھے جھکانے سے آرام,3,3,یکساں
+r80,"ASTHMATIC, change of weather","ASTHMATIC, change of weather",سانس — دمے والا، موسم بدلنے پر,3,3,یکساں
+r82,"ASTHMATIC, children, after vaccination","ASTHMATIC, children, after vaccination",سانس — دمے والا، بچوں میں، ٹیکے کے بعد,1,1,یکساں
+r83,"ASTHMATIC, coition, during","ASTHMATIC, coition, during",سانس — دمے والا، جماع کے دوران,2,2,یکساں
+r85,"ASTHMATIC, cold, from taking","ASTHMATIC, cold, from taking",سانس — دمے والا، سردی لگنے سے,8,8,یکساں
+r88,"ASTHMATIC, cold air agg.","ASTHMATIC, cold air agg.",سانس — دمے والا، ٹھنڈی ہوا سے بگاڑ,3,3,یکساں
+r93,"ASTHMATIC, coughing agg.","ASTHMATIC, coughing agg.",سانس — دمے والا، کھانسنے سے بگاڑ,1,1,یکساں
+r94,"ASTHMATIC, dinner, after","ASTHMATIC, dinner, after",سانس — دمے والا، دوپہر کے کھانے کے بعد,1,1,یکساں
+r95,"ASTHMATIC, drunkards","ASTHMATIC, drunkards",سانس — دمے والا، شرابیوں میں,1,1,یکساں
+r96,"ASTHMATIC, dust, from inhaling","ASTHMATIC, dust, from inhaling",سانس — دمے والا، دھول سانس میں جانے سے,1,1,یکساں
+r97,"ASTHMATIC, eating, after","ASTHMATIC, eating, after",سانس — دمے والا، کھانے پر، کھانے کے بعد,3,3,یکساں
+r99,"ASTHMATIC, emotions, after","ASTHMATIC, emotions, after",سانس — دمے والا، جذبات کے بعد,10,10,یکساں
+r569,RATTLING,RATTLING,سانس — کھڑکھڑاہٹ,121,120,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r650,WHEEZING,WHEEZING,سانس — گھرگھر کی آواز,63,62,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r636,STERTOROUS,STERTOROUS,سانس — خرخراہٹ بھرا,51,50,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r559,PANTING,PANTING,سانس — سانس پھولنا,42,41,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o54591,ACCELERATED,ACCELERATED,سانس — تیز,125,120,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o54609,ANXIOUS,ANXIOUS,سانس — بے چین (گھبرایا ہوا),86,82,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r237,"DIFFICULT, night, midnight, after, on waking, at 1 a.m.","DIFFICULT, night, during, midnight, after, on waking, at 1 a.m.",سانس — مشکل، رات کے دوران، آدھی رات، بعد میں، جاگنا، 1,3,3,یکساں
+r522,"INTERMITTENT, unequal","INTERMITTENT, unequal",سانس — وقفے وقفے سے، غیر برابر,20,19,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r476,HOT breath,HOT breath,سانس — گرم سانس,39,37,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o54781,"DEEP, lying, back, on, amel.","DEEP, lying down, while, back, on, amel.",سانس — گہرا، لیٹتے ہوئے، پیٹھ آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+o54913,"DIFFICULT, lying, on, left side, amel.","DIFFICULT, lying, while, on the side, left side, amel.",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، طرف، بائیں طرف، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+o54915,"DIFFICULT, lying, on, right side, amel.","DIFFICULT, lying, while, on the side, right side, amel.",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، طرف، دائیں طرف، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+o54916,"DIFFICULT, lying, on, right side, going to sleep","DIFFICULT, lying, while, on the side, right side, going to sleep",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، طرف، دائیں طرف، سوتے ہوئے,1,1,یکساں
+r401,"DIFFICULT, sleep, falling asleep, when, lying on right side","DIFFICULT, sleep, during, falling asleep, when, lying on right side",سانس — مشکل، نیند کے دوران، گرنا (بالوں کا گرنا بھی) سن ہو جانا / سو جانا، لیٹنا دائیں طرف,1,1,یکساں
+r590,SIGHING,SIGHING,سانس — آہیں بھرنا,72,68,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r644,STRIDULOUS,STRIDULOUS,سانس — سیٹی دار (سٹریڈولس),18,17,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o54816,"DIFFICULT, bending, backward, amel.","DIFFICULT, bending arm backwards, on, backward, amel.",سانس — مشکل، بازو پیچھے موڑنے پر، پیچھے کی طرف، آرام (amel.) — جس سے بہتر ہو,2,2,یکساں
+o54818,"DIFFICULT, bending, forward, amel.","DIFFICULT, bending arm backwards, on, forward, amel.",سانس — مشکل، بازو پیچھے موڑنے پر، آگے کی طرف، آرام (amel.) — جس سے بہتر ہو,8,8,یکساں
+o54820,"DIFFICULT, bending, head backwards, must rise up and bend head backwards","DIFFICULT, bending arm backwards, on, head backwards, must rise up and bend head backwards",سانس — مشکل، بازو پیچھے موڑنے پر، سر پیچھے کی طرف، ضرور اٹھنا موڑ (جوڑ کا) سر پیچھے کی طرف,1,1,یکساں
+o55054,"DIFFICULT, warm, room, becomes deathly pale and must remain quiet","DIFFICULT, warm bath, room, in a, becomes deathly pale and must remain quiet",سانس — مشکل، گرم کمرے میں، ہو جاتا ہے موت جیسا (بے جان) زرد (رنگ اُڑا ہوا) ضرور رہنا خاموش (ساکت),1,1,یکساں
+o55055,"DIFFICULT, warm, room, entering warm room from open air","DIFFICULT, warm bath, room, in a, entering warm room from open air",سانس — مشکل، گرم کمرے میں، داخل ہونا (کمرے میں آنا) گرم کمرہ کھلی (ہوا) ہوا,1,1,یکساں
+o55086,"IMPEDED, constriction, stomach, in","IMPEDED, obstructed, constriction of chest, stomach, in",سانس — رکاوٹ، رُکا ہوا، سکڑاؤ سینہ، معدہ,1,1,یکساں
+r221,"DIFFICULT, evening, bed, amel.","DIFFICULT, evening, bed, in, amel.",سانس — مشکل، شام، بستر (بستر پر/میں)، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r228,"DIFFICULT, night, 10 p.m., to 10 a.m.","DIFFICULT, night, during, 10 p.m., to 10 a.m.",سانس — مشکل، رات کے دوران، 10 بجے، 10,1,1,یکساں
+r230,"DIFFICULT, night, 11 p.m., to 3 a.m.","DIFFICULT, night, during, 11 p.m., to 3 a.m.",سانس — مشکل، رات کے دوران، 11 بجے، 3,1,1,یکساں
+r232,"DIFFICULT, night, midnight, before","DIFFICULT, night, during, midnight, before",سانس — مشکل، رات کے دوران، آدھی رات، پہلے,2,2,یکساں
+r276,"DIFFICULT, cold, water, after drinking amel.","DIFFICULT, cold, after taking, water, after drinking amel.",سانس — مشکل، سردی لگنے کے بعد، پانی پینا آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r331,"DIFFICULT, lying, enlargement of the tonsils, from","DIFFICULT, lying, while, enlargement of the tonsils, from",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، بڑھاؤ (غدود کا) ٹانسل (حلق کے غدود),1,1,یکساں
+r332,"DIFFICULT, lying, head low, with the","DIFFICULT, lying, while, head low, with the",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، سر نیچا/کم کے ساتھ,14,14,یکساں
+r334,"DIFFICULT, lying, on the back, amel.","DIFFICULT, lying, while, on the back, amel.",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، پیٹھ، آرام (amel.) — جس سے بہتر ہو,6,6,یکساں
+r335,"DIFFICULT, lying, on the back, arms outstretched amel.","DIFFICULT, lying, while, on the back, arms outstretched amel.",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، پیٹھ، بازو پھیلائی ہوئی (انگلیاں) آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r336,"DIFFICULT, lying, on the back, with shoulders elevated amel.","DIFFICULT, lying, while, on the back, with shoulders elevated amel.",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، پیٹھ، کے ساتھ کندھے اُبھرا ہوا آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r339,"DIFFICULT, lying, on the side, amel.","DIFFICULT, lying, while, on the side, amel.",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، طرف، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r352,"DIFFICULT, menses, suppressed, with","DIFFICULT, menses, before, suppressed, with",سانس — مشکل، حیض سے پہلے، دبا دیا گیا (بند کر دیا گیا) کے ساتھ,2,2,یکساں
+r384,"DIFFICULT, rising, on, amel.","DIFFICULT, rising, after, on, amel.",سانس — مشکل، اٹھنے کے بعد، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r387,"DIFFICULT, running, does not agg., slow motion agg.","DIFFICULT, running, after, does not agg., slow motion agg.",سانس — مشکل، دوڑنے کے بعد، بگاڑ نہیں ہوتا، آہستہ حرکت سے بگڑتا ہو,1,1,یکساں
+r398,"DIFFICULT, sleep, awakened to avoid suffocation, must be","DIFFICULT, sleep, during, awakened to avoid suffocation, must be",سانس — مشکل، نیند کے دوران، جاگیا (بیدار ہوا) اجتناب کرنا دام گھٹنا ضرور,2,2,یکساں
+r491,"IMPEDED, evening, bed, in","IMPEDED, obstructed, evening, bed, in",سانس — رکاوٹ، رُکا ہوا، شام، بستر (بستر پر/میں),1,1,یکساں
+r492,"IMPEDED, evening, eating, after","IMPEDED, obstructed, evening, eating, after",سانس — رکاوٹ، رُکا ہوا، شام، کھاتے ہوئے,1,1,یکساں
+r494,"IMPEDED, night, sleep, during","IMPEDED, obstructed, night, sleep, during",سانس — رکاوٹ، رُکا ہوا، رات، نیند,1,1,یکساں
+r81,"ASTHMATIC, children","ASTHMATIC, children",سانس — دمے والا، بچوں میں,15,14,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r86,"ASTHMATIC, cold, heated, when","ASTHMATIC, cold, from taking, heated, when",سانس — دمے والا، سردی لگنے سے، گرم کیا ہوا (گرم ہو جا نے سے),1,1,یکساں
+r606,SLOW,SLOW,سانس — سست,68,63,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o54606,"ACCELERATED, sleep, going to","ACCELERATED, sleep, during, going to",سانس — تیز، نیند کے دوران، جانا,1,1,یکساں
+o54607,"ACCELERATED, sleep, on awaking from","ACCELERATED, sleep, during, on awaking from",سانس — تیز، نیند کے دوران، جاگنے پر,1,1,یکساں
+o54614,"ANXIOUS, lying, on the back","ANXIOUS, lying, while, on the back",سانس — بے چین (گھبرایا ہوا)، لیٹنے پر، لیٹے ہوئے، پیٹھ,1,1,یکساں
+o54782,"DEEP, lying, left side agg.","DEEP, lying down, while, left side agg.",سانس — گہرا، لیٹتے ہوئے، بائیں طرف بگاڑ (agg.) — جس سے بگڑتا ہو,1,1,یکساں
+o55109,"IMPEDED, pain, in diaphragm","IMPEDED, obstructed, pain in the chest, in diaphragm",سانس — رکاوٹ، رُکا ہوا، درد سینہ، حجابِ حاجز (سینہ و پیٹ کی دیوار),2,2,یکساں
+o55115,"IMPEDED, stitches, in heart","IMPEDED, obstructed, stitches in chest, in heart",سانس — رکاوٹ، رُکا ہوا، سوئی جیسی چبھنیں سینہ، دل,6,6,یکساں
+r115,"ASTHMATIC, menses, during","ASTHMATIC, menses, before, during",سانس — دمے والا، حیض سے پہلے، دوران میں,1,1,یکساں
+r116,"ASTHMATIC, menses, after suppression of","ASTHMATIC, menses, before, after suppression of",سانس — دمے والا، حیض سے پہلے، دباؤ (قدرتی بہاؤ کا رکنا),2,2,یکساں
+r227,"DIFFICULT, night, 10 p.m.","DIFFICULT, night, during, 10 p.m.",سانس — مشکل، رات کے دوران، 10 بجے,4,4,یکساں
+r242,"DIFFICULT, night, 3 a.m.","DIFFICULT, night, during, 3 a.m.",سانس — مشکل، رات کے دوران، 3 بجے,7,7,یکساں
+r243,"DIFFICULT, night, 4 a.m.","DIFFICULT, night, during, 4 a.m.",سانس — مشکل، رات کے دوران، 4 بجے,2,2,یکساں
+r244,"DIFFICULT, night, 5 a.m.","DIFFICULT, night, during, 5 a.m.",سانس — مشکل، رات کے دوران، 5 بجے,1,1,یکساں
+r245,"DIFFICULT, night, frequent attacks until 4 a.m.","DIFFICULT, night, during, frequent attacks until 4 a.m.",سانس — مشکل، رات کے دوران، بار بار دورے تک 4,1,1,یکساں
+r266,"DIFFICULT, breath, as if the next would be the last","DIFFICULT, breath, on taking a deep, as if the next would be the last",سانس — مشکل، سانس، گہرا سانس لینے پر، اگلا/پھر ہوتا / چاہیے آخری/گزشتہ,1,1,یکساں
+r273,"DIFFICULT, coition, after","DIFFICULT, coition, during, after",سانس — مشکل، جماع کے دوران، بعد میں,2,2,یکساں
+r274,"DIFFICULT, coition, toward end of","DIFFICULT, coition, during, toward end of",سانس — مشکل، جماع کے دوران، کی طرف آخر/اختتام,1,1,یکساں
+r278,"DIFFICULT, cold, weather","DIFFICULT, cold, after taking, weather",سانس — مشکل، سردی لگنے کے بعد، موسم,1,1,یکساں
+r279,"DIFFICULT, cold, wet weather","DIFFICULT, cold, after taking, wet weather",سانس — مشکل، سردی لگنے کے بعد، گیلا موسم,4,4,یکساں
+r28,"ARRESTED, lying, amel.","ARRESTED, lying, while, amel.",سانس — رُک جانا، لیٹنے پر، بگاڑ، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r283,"DIFFICULT, convulsions, tetanic","DIFFICULT, convulsions, during, tetanic",سانس — مشکل، دوروں کے دوران، ٹیٹنس والا (سخت کھنچاؤ),1,1,یکساں
+r29,"ARRESTED, lying, on the back","ARRESTED, lying, while, on the back",سانس — رُک جانا، لیٹنے پر، بگاڑ، پیٹھ,1,1,یکساں
+r291,"DIFFICULT, dreams, after frightful","DIFFICULT, dreams, during, after frightful",سانس — مشکل، خواب کے دوران، ہیبت ناک,1,1,یکساں
+r294,"DIFFICULT, drinking, after","DIFFICULT, drinking, when, after",سانس — مشکل، پینا، پیتے وقت، بعد میں,2,2,یکساں
+r297,"DIFFICULT, eating, after","DIFFICULT, eating, while, after",سانس — مشکل، کھانا، کھاتے ہوئے بگاڑ، بعد میں,34,34,یکساں
+r298,"DIFFICULT, eating, amel.","DIFFICULT, eating, while, amel.",سانس — مشکل، کھانا، کھاتے ہوئے بگاڑ، آرام (amel.) — جس سے بہتر ہو,4,4,یکساں
+r327,"DIFFICULT, lung, cannot expand the","DIFFICULT, lung, from heaviness in left, cannot expand the",سانس — مشکل، پھیپھڑا، بائیں پھیپھڑے میں بوجھ سے، نہیں سکتا پھیلنا,1,1,یکساں
+r33,"ARRESTED, sleep, during","ARRESTED, sleep, on going to, during",سانس — رُک جانا، نیند، سوتے وقت، دوران میں,14,14,یکساں
+r330,"DIFFICULT, lying, amel.","DIFFICULT, lying, while, amel.",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، آرام (amel.) — جس سے بہتر ہو,10,10,یکساں
+r337,"DIFFICULT, lying, on knees and elbows amel.","DIFFICULT, lying, while, on knees and elbows amel.",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، گھٹنے کہنیاں آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r34,"ARRESTED, sleep, when going to sleep on the right side","ARRESTED, sleep, on going to, when going to sleep on the right side",سانس — رُک جانا، نیند، سوتے وقت، دائیں طرف سوتے ہوئے,1,1,یکساں
+r345,"DIFFICULT, lying, impossible","DIFFICULT, lying, while, impossible",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، ناممکن,30,30,یکساں
+r350,"DIFFICULT, menses, during","DIFFICULT, menses, before, during",سانس — مشکل، حیض سے پہلے، دوران میں,19,19,یکساں
+r351,"DIFFICULT, menses, after","DIFFICULT, menses, before, after",سانس — مشکل، حیض سے پہلے، بعد میں,3,3,یکساں
+r364,"DIFFICULT, open, must sit by the window","DIFFICULT, open, wants doors and windows, must sit by the window",سانس — مشکل، کھلا، دروازے کھڑکیاں کھلی چاہے، ضرور بیٹھنا کھڑکی (کھڑکی سے چھلانگ کا وہم),2,2,یکساں
+r365,"DIFFICULT, open, mouth with inspiration","DIFFICULT, open, wants doors and windows, mouth with inspiration",سانس — مشکل، کھلا، دروازے کھڑکیاں کھلی چاہے، منہ کے ساتھ سانس اندر لینا,2,2,یکساں
+r377,"DIFFICULT, reading, amel.","DIFFICULT, reading, while, amel.",سانس — مشکل، پڑھنا، پڑھتے ہوئے بگاڑ، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r381,"DIFFICULT, riding, amel.","DIFFICULT, riding, while, amel.",سانس — مشکل، سواری کے دوران بگاڑ، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r382,"DIFFICULT, riding, on horseback agg.","DIFFICULT, riding, while, on horseback agg.",سانس — مشکل، سواری کے دوران بگاڑ، گھوڑے کی سواری بگاڑ (agg.) — جس سے بگڑتا ہو,1,1,یکساں
+r385,"DIFFICULT, rising, up in bed","DIFFICULT, rising, after, up in bed",سانس — مشکل، اٹھنے کے بعد، بستر (بستر پر/میں),3,3,یکساں
+r399,"DIFFICULT, sleep, after","DIFFICULT, sleep, during, after",سانس — مشکل، نیند کے دوران، بعد میں,10,10,یکساں
+r411,"DIFFICULT, sternum, upper part of","DIFFICULT, sternum, from pressure on, upper part of",سانس — مشکل، سینے کی ہڈی دبانے سے، اوپری حصہ,1,1,یکساں
+r415,"DIFFICULT, stool, after","DIFFICULT, stool, before, after",سانس — مشکل، پاخانے سے پہلے، بعد میں,3,3,یکساں
+r416,"DIFFICULT, stool, amel.","DIFFICULT, stool, before, amel.",سانس — مشکل، پاخانے سے پہلے، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r423,"DIFFICULT, supper, after","DIFFICULT, supper, during, after",سانس — مشکل، رات کا کھانا، رات کے کھانے کے دوران، بعد میں,3,3,یکساں
+r427,"DIFFICULT, talking, amel.","DIFFICULT, talking, after, amel.",سانس — مشکل، بولنے کے بعد، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r428,"DIFFICULT, talking, loud","DIFFICULT, talking, after, loud",سانس — مشکل، بولنے کے بعد، بلند (اُونچی آواز),1,1,یکساں
+r43,"ARRESTED, walking, against the wind","ARRESTED, walking, while, against the wind",سانس — رُک جانا، چلنے پر، چلتے ہوئے، ہوا کے خلاف,2,2,یکساں
+r430,"DIFFICULT, throat-pit, lump in","DIFFICULT, throat-pit, constriction at, lump in",سانس — مشکل، گلے کا گڑھا، گلے کے گڑھے میں جکڑن، گٹھلی/گومڑ,1,1,یکساں
+r461,"DIFFICULT, writing, amel.","DIFFICULT, writing, while, amel.",سانس — مشکل، لکھنا، لکھتے ہوئے بگاڑ، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+r472,"GASPING, cough, during","GASPING, cough, before, during",سانس — ہانپنا (دم بھرنا)، کھانسی سے پہلے، دوران میں,3,3,یکساں
+r486,"IMPEDED, morning, in bed","IMPEDED, obstructed, morning, in bed",سانس — رکاوٹ، رُکا ہوا، صبح، بستر (بستر پر/میں),1,1,یکساں
+r495,"IMPEDED, night, midnight","IMPEDED, obstructed, night, midnight",سانس — رکاوٹ، رُکا ہوا، رات، آدھی رات,1,1,یکساں
+r496,"IMPEDED, coffee, after","IMPEDED, obstructed, coffee, after",سانس — رکاوٹ، رُکا ہوا، کافی,1,1,یکساں
+r499,"IMPEDED, cough, during","IMPEDED, obstructed, cough, during",سانس — رکاوٹ، رُکا ہوا، کھانسی,9,9,یکساں
+r500,"IMPEDED, descending, on","IMPEDED, obstructed, descending, on",سانس — رکاوٹ، رُکا ہوا، نیچے اترنے سے,1,1,یکساں
+r501,"IMPEDED, eating, while","IMPEDED, obstructed, eating, while",سانس — رکاوٹ، رُکا ہوا، کھاتے ہوئے جب کہ / دوران,1,1,یکساں
+r503,"IMPEDED, flatulency, from","IMPEDED, obstructed, flatulency, from",سانس — رکاوٹ، رُکا ہوا، پیٹ کی گیس,3,3,یکساں
+r505,"IMPEDED, lying, while","IMPEDED, obstructed, lying, while",سانس — رکاوٹ، رُکا ہوا، لیٹنا جب کہ / دوران,1,1,یکساں
+r517,"IMPEDED, stooping, from","IMPEDED, obstructed, stooping, from",سانس — رکاوٹ، رُکا ہوا، خم ہونا,2,2,یکساں
+r518,"IMPEDED, swallowing, on","IMPEDED, obstructed, swallowing, on",سانس — رکاوٹ، رُکا ہوا، نگلنا,1,1,یکساں
+r519,"IMPEDED, talking, while","IMPEDED, obstructed, talking, while",سانس — رکاوٹ، رُکا ہوا، بات کرنا جب کہ / دوران,1,1,یکساں
+r520,"IMPEDED, thrust in left, toward heart","IMPEDED, obstructed, thrust in left, toward heart",سانس — رکاوٹ، رُکا ہوا، دھکا (تیز چبھن) بائیں کی طرف دل,1,1,یکساں
+r583,"RATTLING, walking, in open air","RATTLING, walking, while, in open air",سانس — کھڑکھڑاہٹ، چلنے پر، چلتے ہوئے، کھلی (ہوا) ہوا,2,2,یکساں
+r603,"SIGHING, sleep, quickened on waking","SIGHING, sleep, during, quickened on waking",سانس — آہیں بھرنا، نیند کے دوران، تیز ہوا (نبض) جاگنا,1,1,یکساں
+r617,"SLOW, sleep, during","SLOW, inspiration, sleep, during",سانس — سست، سانس اندر لیتے وقت، نیند,3,3,یکساں
+r675,"WHISTLING, lying, on the back","WHISTLING, lying, while, on the back",سانس — سیٹی جیسی آواز، لیٹنے پر، لیٹے ہوئے، پیٹھ,1,1,یکساں
+r676,"WHISTLING, lying, on left side","WHISTLING, lying, while, on left side",سانس — سیٹی جیسی آواز، لیٹنے پر، لیٹے ہوئے، بائیں طرف,1,1,یکساں
+r84,"ASTHMATIC, coition, after","ASTHMATIC, coition, during, after",سانس — دمے والا، جماع کے دوران، بعد میں,3,3,یکساں
+r87,"ASTHMATIC, cold, in summer","ASTHMATIC, cold, from taking, in summer",سانس — دمے والا، سردی لگنے سے، گرمی کا موسم,1,1,یکساں
+r98,"ASTHMATIC, eating, amel.","ASTHMATIC, eating, after, amel.",سانس — دمے والا، کھانے پر، کھانے کے بعد، آرام (amel.) — جس سے بہتر ہو,2,2,یکساں
+o54833,"DIFFICULT, cold, water, when heated, after","DIFFICULT, cold, after taking, water, after drinking amel., when heated, after",سانس — مشکل، سردی لگنے کے بعد، پانی پینا آرام (amel.) — جس سے بہتر ہو، گرم کیا ہوا (گرم ہو جا نے سے),1,1,یکساں
+r322,"DIFFICULT, inspiration","DIFFICULT, inspiration",سانس — مشکل، سانس اندر لیتے وقت,21,19,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r530,IRREGULAR,IRREGULAR,سانس — بے قاعدہ,60,54,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r619,SNORING,SNORING,سانس — خراٹے,60,54,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r555,PAINFUL,PAINFUL,سانس — دردناک,19,17,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r665,WHISTLING,WHISTLING,سانس — سیٹی جیسی آواز,55,49,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o54953,"DIFFICULT, night, bed, amel.","DIFFICULT, night, during, bed, in, amel.",سانس — مشکل، رات کے دوران، بستر (بستر پر/میں)، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+o55096,"IMPEDED, gagging in oesophagus","IMPEDED, obstructed, gagging in œsophagus",سانس — رکاوٹ، رُکا ہوا، قی کی کوشش (جی چڑھنا) حلقہ (گلا سے معدے تک نالی),1,1,یکساں
+o55098,"IMPEDED, lying, on the back, amel.","IMPEDED, obstructed, lying, while, on the back, amel.",سانس — رکاوٹ، رُکا ہوا، لیٹنا جب کہ / دوران، پیٹھ، آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+o55099,"IMPEDED, lying, side, left","IMPEDED, obstructed, lying, while, side, left",سانس — رکاوٹ، رُکا ہوا، لیٹنا جب کہ / دوران، طرف بائیں,1,1,یکساں
+r487,"IMPEDED, forenoon","IMPEDED, obstructed, forenoon",سانس — رکاوٹ، رُکا ہوا، پیشین (صبح کا دوسرا پہر),2,2,یکساں
+r488,"IMPEDED, noon","IMPEDED, obstructed, noon",سانس — رکاوٹ، رُکا ہوا، دوپہر,1,1,یکساں
+r489,"IMPEDED, afternoon","IMPEDED, obstructed, afternoon",سانس — رکاوٹ، رُکا ہوا، سہ پہر,1,1,یکساں
+r497,"IMPEDED, constriction of chest","IMPEDED, obstructed, constriction of chest",سانس — رکاوٹ، رُکا ہوا، سکڑاؤ سینہ,7,7,یکساں
+r509,"IMPEDED, pain in the chest","IMPEDED, obstructed, pain in the chest",سانس — رکاوٹ، رُکا ہوا، درد سینہ,13,13,یکساں
+r511,"IMPEDED, pains take away the breath","IMPEDED, obstructed, pains take away the breath",سانس — رکاوٹ، رُکا ہوا، درد لینا دور/الگ سانس (ساہ),3,3,یکساں
+r512,"IMPEDED, raising the arm","IMPEDED, obstructed, raising the arm",سانس — رکاوٹ، رُکا ہوا، اٹھانے پر بازو,1,1,یکساں
+r513,"IMPEDED, shooting in chest","IMPEDED, obstructed, shooting in chest",سانس — رکاوٹ، رُکا ہوا، چبھڑتا ہوا (تیز چبھن) سینہ,3,3,یکساں
+r514,"IMPEDED, spasms of chest","IMPEDED, obstructed, spasms of chest",سانس — رکاوٹ، رُکا ہوا، چھے چھے (کھنچاؤ کے دورے) سینہ,2,2,یکساں
+r515,"IMPEDED, stitches in chest","IMPEDED, obstructed, stitches in chest",سانس — رکاوٹ، رُکا ہوا، سوئی جیسی چبھنیں سینہ,13,13,یکساں
+r400,"DIFFICULT, sleep, falling asleep, when","DIFFICULT, sleep, during, falling asleep, when",سانس — مشکل، نیند کے دوران، گرنا (بالوں کا گرنا بھی) سن ہو جانا / سو جانا,22,21,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r184,DIFFICULT,DIFFICULT,سانس — مشکل,297,259,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r466,GASPING,GASPING,سانس — ہانپنا (دم بھرنا),54,47,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o54660,"ASTHMATIC, air, open air amel.","ASTHMATIC, air, draught of, agg., open air amel.",سانس — دمے والا، ہوا کے جھونکے سے بگاڑ، کھلی (ہوا) ہوا آرام (amel.) — جس سے بہتر ہو,1,1,یکساں
+o55089,"IMPEDED, eating, after","IMPEDED, obstructed, eating, while, after",سانس — رکاوٹ، رُکا ہوا، کھاتے ہوئے جب کہ / دوران، بعد میں,1,1,یکساں
+r218,"DIFFICULT, evening","DIFFICULT, evening",سانس — مشکل، شام,63,54,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r371,"DIFFICULT, perspiration","DIFFICULT, perspiration",سانس — مشکل، پسینہ,7,6,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r50,"ASTHMATIC, morning","ASTHMATIC, morning",سانس — دمے والا، صبح,14,12,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r49,ASTHMATIC,ASTHMATIC,سانس — دمے والا,175,149,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r355,"DIFFICULT, motion","DIFFICULT, motion",سانس — مشکل، حرکت,47,40,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r541,LOUD,LOUD,سانس — بلند,59,50,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r438,"DIFFICULT, walking","DIFFICULT, walking",سانس — مشکل، چلنا,70,57,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o54611,"ANXIOUS, evening","ANXIOUS, evening",سانس — بے چین (گھبرایا ہوا)، شام,5,4,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r614,"SLOW, expiration","SLOW, expiration",سانس — سست، سانس چھوڑتے وقت,9,7,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r536,JERKING,JERKING,سانس — جھٹکے دار,13,10,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r186,"DIFFICULT, morning","DIFFICULT, morning",سانس — مشکل، صبح,34,26,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r433,"DIFFICULT, turning in bed","DIFFICULT, turning in bed",سانس — مشکل، بستر میں کروٹ بدلنے پر,4,3,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r162,DEEP,DEEP,سانس — گہرا,131,96,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r207,"DIFFICULT, afternoon","DIFFICULT, afternoon",سانس — مشکل، سہ پہر,22,16,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r59,"ASTHMATIC, night","ASTHMATIC, night",سانس — دمے والا، رات,43,31,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r16,"ARRESTED, night","ARRESTED, night",سانس — رُک جانا، رات,7,5,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r407,"DIFFICULT, standing","DIFFICULT, standing",سانس — مشکل، کھڑے ہونے پر,7,5,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r229,"DIFFICULT, night, 11 p.m.","DIFFICULT, night, during, 11 p.m.",سانس — مشکل، رات کے دوران، 11 بجے,4,3,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r44,ASPHYXIA,ASPHYXIA,سانس — دم گھٹنا,17,11,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r146,CATCHING,CATCHING,سانس — رُک رُک کر سانس آنا,28,18,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r333,"DIFFICULT, lying, on the back","DIFFICULT, lying, while, on the back",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، پیٹھ,25,18,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o54819,"DIFFICULT, bending, head backwards","DIFFICULT, bending arm backwards, on, head backwards",سانس — مشکل، بازو پیچھے موڑنے پر، سر پیچھے کی طرف,3,2,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r235,"DIFFICULT, night, midnight, after","DIFFICULT, night, during, midnight, after",سانس — مشکل، رات کے دوران، آدھی رات، بعد میں,11,7,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r55,"ASTHMATIC, evening","ASTHMATIC, evening",سانس — دمے والا، شام,16,9,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r493,"IMPEDED, night","IMPEDED, obstructed, night",سانس — رکاوٹ، رُکا ہوا، رات,6,4,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r236,"DIFFICULT, night, midnight, after, on waking","DIFFICULT, night, during, midnight, after, on waking",سانس — مشکل، رات کے دوران، آدھی رات، بعد میں، جاگنا,5,3,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r389,"DIFFICULT, sitting","DIFFICULT, sitting",سانس — مشکل، بیٹھنا,46,25,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r9,ARRESTED,ARRESTED,سانس — رُک جانا,129,70,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r240,"DIFFICULT, night, 2 a.m.","DIFFICULT, night, during, 2 a.m.",سانس — مشکل، رات کے دوران، 2 بجے,5,3,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o54617,"ANXIOUS, morning","ANXIOUS, morning",سانس — بے چین (گھبرایا ہوا)، صبح,2,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r198,"DIFFICULT, forenoon, walking","DIFFICULT, forenoon, walking",سانس — مشکل، دوپہر سے پہلے، چلنے پر,2,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r215,"DIFFICULT, afternoon, 6 p.m.","DIFFICULT, afternoon, 6 p.m.",سانس — مشکل، سہ پہر، 6 بجے,2,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r35,"ARRESTED, standing still, when","ARRESTED, standing still, when",سانس — رُک جانا، خاموش کھڑے رہنے پر,2,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r469,"GASPING, night","GASPING, night",سانس — ہانپنا (دم بھرنا)، رات,2,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r523,"INTERMITTENT, unequal, night","INTERMITTENT, unequal, night",سانس — وقفے وقفے سے، غیر برابر، رات,2,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r537,"JERKING, inspiration","JERKING, inspiration",سانس — جھٹکے دار، سانس اندر لیتے وقت,2,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r594,"SIGHING, evening","SIGHING, evening",سانس — آہیں بھرنا، شام,2,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r596,"SIGHING, night","SIGHING, night",سانس — آہیں بھرنا، رات,2,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r653,"WHEEZING, evening","WHEEZING, evening",سانس — گھرگھر کی آواز، شام,4,2,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o68054,"DIFFICULT, lying, on, right side","DIFFICULT, lying, while, on the side, right side",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، طرف، دائیں طرف,4,2,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r196,"DIFFICULT, forenoon","DIFFICULT, forenoon",سانس — مشکل، دوپہر سے پہلے,22,9,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r456,"DIFFICULT, weakness","DIFFICULT, weakness",سانس — مشکل، کمزوری,5,2,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r485,"IMPEDED, morning","IMPEDED, obstructed, morning",سانس — رکاوٹ، رُکا ہوا، صبح,2,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r584,ROUGH,ROUGH,سانس — کھردرا,23,7,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r150,"CATCHING, cough","CATCHING, cough",سانس — رُک رُک کر سانس آنا، کھانسی,7,2,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r464,FORCIBLE,FORCIBLE,سانس — زوردار,11,3,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r234,"DIFFICULT, night, midnight","DIFFICULT, night, during, midnight",سانس — مشکل، رات کے دوران، آدھی رات,17,6,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r490,"IMPEDED, evening","IMPEDED, obstructed, evening",سانس — رکاوٹ، رُکا ہوا، شام,3,1,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+r527,INTERRUPTED (See Arrested),INTERRUPTED (See Arrested),سانس — رک رک کر,3,0,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o54699,"ASTHMATIC, forenoon, 10 a.m. to 11 a.m.","ASTHMATIC, forenoon, 10 to 11 a.m.",سانس — دمے والا، دوپہر سے پہلے، 10 سے 11 بجے,1,1,یکساں
+o54724,"ASTHMATIC, night, 4 a.m. to 5 a.m.","ASTHMATIC, night, 4 to 5 a.m.",سانس — دمے والا، رات 4 سے 5 بجے,2,2,یکساں
+o54797,"DIFFICULT, afternoon, 5 p.m. to 7 p.m.","DIFFICULT, afternoon, 5 to 7 p.m.",سانس — مشکل، سہ پہر، 5 سے 7 بجے,1,1,یکساں
+o54800,"DIFFICULT, afternoon, 6 p.m. to 9 p.m.","DIFFICULT, afternoon, 6 to 9 p.m.",سانس — مشکل، سہ پہر، 6 سے 9 بجے,1,1,یکساں
+o54942,"DIFFICULT, night, 1 a.m. to 2 a.m.","DIFFICULT, night, during, 1 to 2 a.m.",سانس — مشکل، رات کے دوران، 1 سے 2 بجے,1,1,یکساں
+o54943,"DIFFICULT, night, 1 a.m. to 4 a.m.","DIFFICULT, night, during, 1 to 4 a.m.",سانس — مشکل، رات کے دوران، 1 سے 4 بجے,1,1,یکساں
+o54949,"DIFFICULT, night, 2 a.m. to 3 a.m.","DIFFICULT, night, during, 2 to 3 a.m.",سانس — مشکل، رات کے دوران، 2 سے 3 بجے,2,2,یکساں
+o54970,"DIFFICULT, palpitation, 11 p.m. to 3 a.m.","DIFFICULT, palpitation, during, 11 to 3 a.m.",سانس — مشکل، دھڑکن کے دوران، 11 سے 3 بجے,1,1,یکساں
+o54634,"ARRESTED, lying, while agg.","ARRESTED, lying, while",سانس — رُک جانا، لیٹنے پر، بگاڑ,4,4,یکساں
+o54815,"DIFFICULT, bending, backward agg.","DIFFICULT, bending arm backwards, on, backward",سانس — مشکل، بازو پیچھے موڑنے پر، پیچھے کی طرف,3,3,یکساں
+o54817,"DIFFICULT, bending, forward agg.","DIFFICULT, bending arm backwards, on, forward",سانس — مشکل، بازو پیچھے موڑنے پر، آگے کی طرف,3,3,یکساں
+o54855,"DIFFICULT, eating, while agg.","DIFFICULT, eating, while",سانس — مشکل، کھانا، کھاتے ہوئے بگاڑ,1,1,یکساں
+o54910,"DIFFICULT, lying, on the side agg.","DIFFICULT, lying, while, on the side",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، طرف,3,3,یکساں
+o54931,"DIFFICULT, morning, rising, after agg.","DIFFICULT, morning, rising, after",سانس — مشکل، صبح، اٹھنے پر، اٹھنے کے بعد بگاڑ,4,4,یکساں
+o54980,"DIFFICULT, reading, while agg.","DIFFICULT, reading, while",سانس — مشکل، پڑھنا، پڑھتے ہوئے بگاڑ,1,1,یکساں
+o54985,"DIFFICULT, riding, while agg.","DIFFICULT, riding, while",سانس — مشکل، سواری کے دوران بگاڑ,1,1,یکساں
+o54995,"DIFFICULT, sitting, bent, forwards agg.","DIFFICULT, sitting, bent backwards, forwards",سانس — مشکل، بیٹھنا، جھک کر بیٹھنا، آگے جھک کر بیٹھنے سے بگاڑ,3,3,یکساں
+o55018,"DIFFICULT, stool, during agg.","DIFFICULT, stool, before, during",سانس — مشکل، پاخانے سے پہلے، دوران میں,3,3,یکساں
+o55063,"DIFFICULT, writing, while agg.","DIFFICULT, writing, while",سانس — مشکل، لکھنا، لکھتے ہوئے بگاڑ,2,2,یکساں
+o55097,"IMPEDED, lying, on the back agg.","IMPEDED, obstructed, lying, while, on the back",سانس — رکاوٹ، رُکا ہوا، لیٹنا جب کہ / دوران، پیٹھ,3,3,یکساں
+o55205,"SLOW, expiration, during sleep","SLOW, during sleep",سانس — سست، نیند کے دوران,2,2,یکساں
+o54954,"DIFFICULT, night, bed, in agg.","DIFFICULT, night, during, bed, in",سانس — مشکل، رات کے دوران، بستر (بستر پر/میں),5,5,یکساں
+o54802,"DIFFICULT, air, in cold agg.","DIFFICULT, air, in cold",سانس — مشکل، ہوا، ٹھنڈی ہوا میں بگاڑ,14,14,یکساں
+o54804,"DIFFICULT, air, in open agg.","DIFFICULT, in open",سانس — مشکل، ہوا، کھلی ہوا میں بگاڑ,10,10,یکساں
+o54805,"DIFFICULT, air, in open, amel.","DIFFICULT, in open, amel.",سانس — مشکل، ہوا، کھلی ہوا میں آرام,25,25,یکساں
+o68047,"DIFFICULT, evening, bed","DIFFICULT, evening, bed, in",سانس — مشکل، شام، بستر (بستر پر/میں),21,20,ماخذی مطابق کیے (OOREP مجموعہ سے کتابی عین)
+o54912,"DIFFICULT, lying, on, left side agg.","DIFFICULT, lying, while, on the side, left side",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ، طرف، بائیں طرف,15,15,یکساں
+o54917,"DIFFICULT, lying, while agg.","DIFFICULT, lying, while",سانس — مشکل، لیٹنا، لیٹے ہوئے بگاڑ,79,79,یکساں
+o55046,"DIFFICULT, walking, rapidly agg.","DIFFICULT, walking, rapidly",سانس — مشکل، چلنا، تیز چلنے سے بگاڑ,15,15,یکساں
